@@ -1,5 +1,863 @@
 [
   {
+    "date": "2026-10-16T15:09:48Z",
+    "commit_hash": "62b88f55",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/11/privacy/permissions\" target=\"_blank\">Permissions updates in Android 11</a>",
+        "path": "about/versions/11/privacy/permissions.md",
+        "summary": "This update standardizes and absolute-qualifies internal documentation links, converts standard note callouts to Markdown alert syntax, and adjusts minor text elements and formatting for consistency across the Android 11 permissions guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_permissions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/16/features\" target=\"_blank\">Features and APIs</a>",
+        "path": "about/versions/16/features.md",
+        "summary": "Updated documentation links in the Android 16 features page to use absolute URLs, adjusted formatting for code blocks and Markdown notes, and reorganized image markup layout.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/setup-sdk\" target=\"_blank\">Set up the Android 17 SDK</a>",
+        "path": "about/versions/17/setup-sdk.md",
+        "summary": "Updated the Android 17 SDK setup documentation to improve Markdown formatting, correct relative links to absolute URLs, standardize code block syntax highlighting for Groovy and Kotlin, and refactor warning callouts and lists for better rendering.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_setup-sdk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/nougat/android-7.0-changes\" target=\"_blank\">Android 7.0 Behavior Changes</a>",
+        "path": "about/versions/nougat/android-7.0-changes.md",
+        "summary": "The Android 7.0 behavior changes documentation was updated to replace relative image paths and local anchor links with absolute URLs pointing directly to the Android Developers documentation site. These updates ensure external references and links to API references, training guides, and static assets resolve correctly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_android-7.0-changes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/devtools/android-cli/skill\" target=\"_blank\">Android CLI Specialist</a>",
+        "path": "agents/skills/devtools/android-cli/skill.md",
+        "summary": "Expanded the Android CLI skill documentation to include detailed guidelines for UI inspection (layout and screenshots), input handling via `adb shell input`, and step-by-step execution and verification rules for running app journey tests.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/adaptive/skill\" target=\"_blank\">A guide to making an app adaptive</a>",
+        "path": "agents/skills/jetpack-compose/adaptive/skill.md",
+        "summary": "Added a new step (Step 6) to the Jetpack Compose adaptive documentation detailing how to preserve UI state across configuration changes. It strongly warns against suppressing recreation via `android:configChanges`, and provides comprehensive guidelines and code examples for preserving primitive/custom UI state (using `rememberSaveable` and custom `Saver`), scroll states in lazy/scrollable layouts, Navigation 3 states, and complex media playback states (such as `ExoPlayer`).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/performance/anr-audit-and-fix/references/anr_trace_report_template\" target=\"_blank\">ANR trace diagnostic report template</a>",
+        "path": "agents/skills/performance/anr-audit-and-fix/references/anr_trace_report_template.md",
+        "summary": "Added a new reference template for structuring ANR (Application Not Responding) trace reports, providing a standardized format for diagnosing thread states, system health, root causes, and remediation steps.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/performance/anr-audit-and-fix/references/risk_analysis_guide\" target=\"_blank\">Static codebase ANR risk audit guide</a>",
+        "path": "agents/skills/performance/anr-audit-and-fix/references/risk_analysis_guide.md",
+        "summary": "Introduces a structured step-by-step risk analysis guide for auditing ANR (Application Not Responding) issues and view-threading violations in Android source files.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/performance/anr-audit-and-fix/references/trace_analysis_guide\" target=\"_blank\">ANR trace triage and diagnosis guide</a>",
+        "path": "agents/skills/performance/anr-audit-and-fix/references/trace_analysis_guide.md",
+        "summary": "Added a comprehensive trace analysis guide for diagnosing Application Not Responding (ANR) issues, defining step-by-step pre-flight checks, attribution verdicts, and special forensic patterns.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/performance/anr-audit-and-fix/skill\" target=\"_blank\">Android ANR audit and fix</a>",
+        "path": "agents/skills/performance/anr-audit-and-fix/skill.md",
+        "summary": "Added a new skill guide outlining execution paths for static codebase ANR risk audits and trace-driven diagnosis to help developers systematically identify, analyze, and fix performance bottlenecks.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/collections/data/FakeActionListDataRepository.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/collections/data/FakeActionListDataRepository.kt.rawcontent.md",
+        "summary": "Cleaned up the markdown file structure by removing HTML scrape artifacts and wrapping the Kotlin code block properly, improving documentation readability and source formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_FakeActionListDataRepository.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_add_icon.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_add_icon.xml.rawcontent.md",
+        "summary": "The metadata title and source were updated to reference the specific raw content URL, and extraneous HTML-scraping boilerplate text was removed to leave only the clean vector drawable XML snippet.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_sample_add_icon.xml.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_text_icon.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_text_icon.xml.rawcontent.md",
+        "summary": "Cleaned up documentation metadata by updating the page title and source type, and removed boilerplate website UI text scrapings while properly formatting the vector drawable code block.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_sample_text_icon.xml.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/xml/sample_expressive_toolbar_widget_info.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/res/xml/sample_expressive_toolbar_widget_info.xml.rawcontent.md",
+        "summary": "Cleaned up the documentation file by removing HTML scraping artifacts, generic wrapper text, and markdown code block fences, leaving a direct representation of the app widget provider XML configuration.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_sample_expressive_toolbar_widget_info.xml.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-compose-m3/references/foundation/HierarchicalFocusSample.kt\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/wear/wear-compose-m3/references/foundation/HierarchicalFocusSample.kt.md",
+        "summary": "Updated the frontmatter metadata in the documentation file, changing the title to match the source file URL and updating the source type from html-scrape to md.txt while removing website UI artifacts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_HierarchicalFocusSample.kt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/SwipeToDismissBoxSample.kt\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/wear/wear-compose-m3/references/material3/SwipeToDismissBoxSample.kt.md",
+        "summary": "Cleaned up the metadata and removed HTML-scrape artifacts (such as UI collection prompts) from the header of the SwipeToDismissBoxSample.kt.md documentation, updating the title and source fields to properly reflect the raw markdown origin.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_SwipeToDismissBoxSample.kt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/TransformationSpecSample.kt\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/wear/wear-compose-m3/references/material3/TransformationSpecSample.kt.md",
+        "summary": "The document metadata was updated to change the title from a generic 'Android Developers' label to a precise URL reference and updated the scraping source from HTML to Markdown. This improves documentation tracking and metadata accuracy for the Wear Compose Material 3 reference.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_TransformationSpecSample.kt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-widgets/references/remote-compose-layouts\" target=\"_blank\">Remote Compose layouts, adaptive sizing, and backgrounds</a>",
+        "path": "agents/skills/wear/wear-widgets/references/remote-compose-layouts.md",
+        "summary": "Updated the code snippets in the remote compose layouts reference document to use proper Markdown code block fences instead of raw indentation, and added necessary imports for the grid layout example.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_remote-compose-layouts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-widgets/skill\" target=\"_blank\">Build Wear OS widgets with Glance and Remote Compose</a>",
+        "path": "agents/skills/wear/wear-widgets/skill.md",
+        "summary": "Cleaned up the documentation by removing obsolete HTML `<br />` tags and properly wrapping code snippets in standard Markdown code blocks (`xml` and `kotlin`) with updated snippet paths. This improves readability and syntax highlighting for developers implementing Wear OS widgets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/list-source\" target=\"_blank\">API source code for Glimmer List component</a>",
+        "path": "agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/list-source.md",
+        "summary": "The Glimmer List component reference documentation was updated to fix metadata formatting, remove HTML scraping artifacts from the main heading, and properly annotate code blocks with the kotlin language identifier for better syntax highlighting. These improvements ensure the reference guide is clean, accurate, and easier for developers to read when implementing XR interfaces.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_list-source.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/custom\" target=\"_blank\">Use LiteRT on Android</a>",
+        "path": "ai/custom.md",
+        "summary": "Updated metadata sources, fixed image URL paths to be absolute, and reverted code sample links from the LiteRT samples repository back to the legacy TensorFlow examples repository.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_custom.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/android-performance-analyzer/analyze/ai\" target=\"_blank\">Use AI-powered analysis features</a>",
+        "path": "android-performance-analyzer/analyze/ai.md",
+        "summary": "The documentation for AI-powered analysis features in the Android Performance Analyzer was updated to fix broken relative links by converting them to absolute URLs and to clean up formatting issues such as image paths and markdown syntax for code blocks and GitHub links. These changes ensure that links and media assets resolve correctly on the published documentation site.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_ai.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/francesco-romano\" target=\"_blank\">Francesco Romano</a>",
+        "path": "blog/authors/francesco-romano.md",
+        "summary": "The changes in the francesco-romano.md documentation primarily reflect a conversion artifact update, shifting from an HTML-scrape source format to a cleaner Markdown format. It also updates internal relative URLs to absolute URLs pointing directly to the Android developer portal and reorganizes the markdown structure for the author's blog posts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_francesco-romano.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/media3-1-11-whats-new\" target=\"_blank\">Media3 1.11 - What's new?</a>",
+        "path": "blog/posts/media3-1-11-whats-new.md",
+        "summary": "This update documents the release of Media3 1.11, introducing expanded Jetpack Compose UI components (such as customizable player layouts, playback speed controls, and PlayerPool for short-form video preloading), modernized Cast integration with SystemUI Output Switcher support, a new Ktor HTTP client extension, and asynchronous connection handling for MediaSession with safer default configurations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_media3-1-11-whats-new.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build\" target=\"_blank\">Configure your build</a>",
+        "path": "build.md",
+        "summary": "Updated links in the Android build documentation (`docs/build.md`) to use absolute URLs rather than relative paths, enhanced code block formatting with language identifiers (such as `kotlin` and `groovy`), converted tip sections to modern blockquote syntax, and updated image references and repository descriptions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_build.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/android-settings-plugin\" target=\"_blank\">Configure project-wide build properties with the settings plugin</a>",
+        "path": "build/android-settings-plugin.md",
+        "summary": "The android-settings-plugin.md documentation was cleaned up by removing HTML scrape artifacts, breadcrumbs, and extra headers, while updating code blocks with proper syntax highlighting (kotlin and groovy) for better readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_android-settings-plugin.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/configure-apk-splits\" target=\"_blank\">Build multiple APKs</a>",
+        "path": "build/configure-apk-splits.md",
+        "summary": "Updated internal links from relative paths to absolute URLs (developer.android.com) and added language specifiers to code blocks (Groovy and Kotlin) throughout the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_configure-apk-splits.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses/guides/styles/type\" target=\"_blank\">Typography for glasses</a>",
+        "path": "design/ui/ai-glasses/guides/styles/type.md",
+        "summary": "The changes in this file primarily consist of formatting adjustments, such as converting relative image paths to absolute URLs and minor HTML markup cleanup. These are trivial documentation updates and do not alter the technical guidance for AI glasses typography.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_type.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/cars/guides/app-types/resume-navigation\" target=\"_blank\">Resume navigation after a stop</a>",
+        "path": "design/ui/cars/guides/app-types/resume-navigation.md",
+        "summary": "The changes to the resume-navigation documentation primarily involve removing HTML-to-Markdown conversion artifacts, cleaning up boilerplate breadcrumbs and promotional text, and properly restoring visual image assets and markdown table formatting in the sample flow section. These updates improve the readability and accuracy of the car app design guidelines.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_resume-navigation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/cars/guides/app-types/view-map-in-cluster\" target=\"_blank\">View a map in the cluster</a>",
+        "path": "design/ui/cars/guides/app-types/view-map-in-cluster.md",
+        "summary": "The documentation for viewing a map in the car cluster was updated to fix metadata URLs, remove scraped HTML artifacts and breadcrumbs, and add illustrative image assets and links to the sample flow table. These changes improve the readability and visual context of the guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_view-map-in-cluster.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/desktop/guides/foundations/get-started\" target=\"_blank\">Get started with desktop</a>",
+        "path": "design/ui/desktop/guides/foundations/get-started.md",
+        "summary": "This update consists entirely of formatting, whitespace, and markdown restructuring changes (such as collapsing multi-line image tags and lists into single lines, updating metadata sources, and removing navigation links at the bottom). Because these changes are structural or formatting artifacts rather than substantive content modifications, no meaningful documentation update occurred.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/gallery/social/laptop-input\" target=\"_blank\">Keyboard and pointer on desktop</a>",
+        "path": "design/ui/gallery/social/laptop-input.md",
+        "summary": "The changes in the \"laptop-input.md\" documentation primarily consist of trivial formatting adjustments, HTML conversions, and path updates for image URLs and links. Since these updates do not introduce meaningful content changes or affect the technical instructions, no significant documentation updates occurred.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_laptop-input.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/mobile/guides/widgets/layouts\" target=\"_blank\">Canonical widget layouts</a>",
+        "path": "design/ui/mobile/guides/widgets/layouts.md",
+        "summary": "Added a new 'Android skills' section to the Glance widget layouts documentation, introducing the 'glance-canonical-layouts' Android skill. This addition matters because it helps developers quickly set up and build home screen widgets using Jetpack Glance canonical layouts directly via the Android CLI.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_layouts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/wear/guides/m2-5/surfaces/media-apps\" target=\"_blank\">Media apps</a>",
+        "path": "design/ui/wear/guides/m2-5/surfaces/media-apps.md",
+        "summary": "The changes in this documentation file are primarily trivial formatting, whitespace adjustments, and HTML-to-Markdown conversion artifacts resulting from a source update. No significant technical content, guidelines, or architectural recommendations for Wear OS media apps were added or modified.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_media-apps.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/wear/guides/surfaces/tiles\" target=\"_blank\">Overview</a>",
+        "path": "design/ui/wear/guides/surfaces/tiles.md",
+        "summary": "The changes in the tiles documentation primarily involve formatting adjustments, such as removing HTML scrape artifacts, updating source metadata, and fixing image paths to use absolute URLs with corresponding spacing additions. These updates ensure better rendering and maintenance of the Wear OS tiles design guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_tiles.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/xr/guides/get-started\" target=\"_blank\">Design for XR Immersive</a>",
+        "path": "design/ui/xr/guides/get-started.md",
+        "summary": "Trivial changes consisting of Markdown formatting and link adjustments in the XR design guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/guides/foldables/support-foldable-display-modes\" target=\"_blank\">Support foldable display modes</a>",
+        "path": "develop/adaptive-apps/guides/foldables/support-foldable-display-modes.md",
+        "summary": "The foldable display modes documentation was significantly updated to include comprehensive Java code examples alongside the existing Kotlin samples. It now details how to initialize variables, check capability status, implement dual-screen mode toggling, and handle the WindowAreaPresentationSessionCallback listeners for both languages.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_support-foldable-display-modes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/guides/increase-app-availability\" target=\"_blank\">Increase app availability across device types</a>",
+        "path": "develop/adaptive-apps/guides/increase-app-availability.md",
+        "summary": "Updated documentation formatting and links to use absolute URLs instead of relative paths, converted code block styles to standard markdown indentation, and adjusted image/note syntax to align with the platform's documentation standards.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_increase-app-availability.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/guides/support-bubbles\" target=\"_blank\">Bubbles</a>",
+        "path": "develop/adaptive-apps/guides/support-bubbles.md",
+        "summary": "The documentation for supporting bubbles was updated to remove specific app requirement sections (such as `resizeableActivity` and `documentLaunchMode` configurations) and simplified internal link formats, streamlining the guide to point generally toward existing multi-window support practices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_support-bubbles.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/better-together/continue-on/enable-support\" target=\"_blank\">Enable and customize cross-device handoff</a>",
+        "path": "develop/better-together/continue-on/enable-support.md",
+        "summary": "Updated documentation for cross-device handoff (Continue On) to use absolute URLs for references and code blocks, converted relative documentation links to absolute links, and adjusted formatting for code blocks and callouts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_enable-support.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/devices/chromeos/learn/design\" target=\"_blank\">Design recommendations</a>",
+        "path": "develop/devices/chromeos/learn/design.md",
+        "summary": "This update modifies internal link structures and image paths in the ChromeOS design documentation to use absolute URLs pointing to developer.android.com instead of relative links, and fixes minor list formatting and markdown artifacts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_design.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/devices/chromeos/learn/optimizing\" target=\"_blank\">Optimize for ChromeOS</a>",
+        "path": "develop/devices/chromeos/learn/optimizing.md",
+        "summary": "This update converts relative internal document paths to absolute URLs and fixes minor formatting issues across the ChromeOS optimization guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_optimizing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/agentic/render-surfaces\" target=\"_blank\">Render A2UI surfaces in your app</a>",
+        "path": "develop/ui/compose/agentic/render-surfaces.md",
+        "summary": "This update cleans up the documentation by removing HTML-to-markdown conversion artifacts (such as breadcrumb links and metadata headers), fixing relative link paths into absolute URLs, updating note block syntaxes, and standardizing list item formatting for better readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_render-surfaces.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/touch-input/scroll/nested-scroll-modifiers\" target=\"_blank\">Nested scrolling modifiers</a>",
+        "path": "develop/ui/compose/touch-input/scroll/nested-scroll-modifiers.md",
+        "summary": "Fixed code snippet formatting in the nested scrolling documentation by wrapping raw indented blocks into proper Markdown fenced code blocks (```kotlin). This improves readability and syntax highlighting for the nested scrolling interop examples involving AndroidViews, Compose components, and BottomSheetDialogFragment.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_nested-scroll-modifiers.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/display-cutout\" target=\"_blank\">Support display cutouts</a>",
+        "path": "develop/ui/views/layout/display-cutout.md",
+        "summary": "The display-cutout documentation has been updated to fix broken internal links by converting them to absolute URLs and to clean up Markdown formatting and image layouts for better rendering consistency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_display-cutout.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/webapps/debugging\" target=\"_blank\">Debug web apps</a>",
+        "path": "develop/ui/views/layout/webapps/debugging.md",
+        "summary": "The changes update the document's frontmatter and convert relative links to absolute URLs across the WebView debugging guide. These updates ensure correct link resolution and metadata consistency following the migration to Markdown sources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_debugging.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/notifications/custom-notification\" target=\"_blank\">Create a custom notification layout</a>",
+        "path": "develop/ui/views/notifications/custom-notification.md",
+        "summary": "The custom notification documentation was updated to modernize its Markdown syntax, adopting standard GitHub Flavored Markdown alerts (such as blockquotes for CAUTION and NOTE notes) and absolute URLs for internal links. These changes improve compatibility with new documentation rendering engines without altering the core Android development instructions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_custom-notification.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/notifications/snackbar/action\" target=\"_blank\">Add an action to a message</a>",
+        "path": "develop/ui/views/notifications/snackbar/action.md",
+        "summary": "The documentation updates for the Snackbar action guide primarily involve formatting adjustments, such as converting relative paths and standard links to absolute URLs, refining code block language annotations to Kotlin, and updating note formatting. These changes streamline the source formatting without altering the core technical instructions for adding actions to Snackbars.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_action.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/about-ink-api\" target=\"_blank\">Add inking to your app with the Ink API</a>",
+        "path": "develop/ui/views/touch-and-input/stylus-input/about-ink-api.md",
+        "summary": "The changes in the 'about-ink-api.md' documentation primarily involve metadata updates, such as changing the source from 'html-scrape' to 'md.txt' and updating the document title format. Additionally, internal relative links were converted to absolute URLs, and minor formatting cleanups were applied to text and markdown structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_about-ink-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/engine-hub\" target=\"_blank\">Android XR Engine Hub</a>",
+        "path": "develop/xr/engine-hub.md",
+        "summary": "The Android XR Engine Hub documentation was updated to remove detailed feature descriptions for performance tracing, logcat streaming, screencasting, and remote configuration, shifting to a more streamlined layout and updating asset links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_engine-hub.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context\" target=\"_blank\">Use a projected context to access hardware on audio glasses and display glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md",
+        "summary": "Updated documentation formatting, converted internal relative links to absolute developer.android.com URLs, and refined Markdown table and list structures for hardware-projected context guides.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_access-hardware-projected-context.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/xr-headsets-glasses\" target=\"_blank\">Run your app's immersive experiences on the emulator</a>",
+        "path": "develop/xr/jetpack-xr-sdk/run/emulator/xr-headsets-glasses.md",
+        "summary": "The git diff shows trivial formatting adjustments, markdown syntax conversions (such as converting callouts to GitHub-flavored blockquotes), and link updates in the documentation for running XR apps on the emulator. Because these changes consist entirely of formatting cleanup, styling updates, and structural reorganization without altering technical guidance, an empty list is returned.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_xr-headsets-glasses.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_trackables_marker\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_ANDROID_trackables_marker.md",
+        "summary": "Updated documentation for the `XR_ANDROID_trackables_marker` OpenXR extension by standardizing internal anchor links with absolute URLs, improving code block formatting, and adding explicit Valid Usage Information (VUID) references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_XR_ANDROID_trackables_marker.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_plane_tracking\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_EXT_spatial_plane_tracking.md",
+        "summary": "The OpenXR spatial plane tracking extension documentation (`XR_EXT_spatial_plane_tracking.md`) was updated to fix metadata URLs, add multiple industry contributors from Meta, Microsoft, and ByteDance, and improve the formatting of code blocks, lists, and internal specification links. These updates ensure accurate referencing and maintain alignment with the latest OpenXR specification standards for Android XR developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_XR_EXT_spatial_plane_tracking.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/develop/multiplatform/enable-natural-input-on-all-form-factors\" target=\"_blank\">Enable natural input on all form factors</a>",
+        "path": "games/develop/multiplatform/enable-natural-input-on-all-form-factors.md",
+        "summary": "Updated multiple documentation links related to game controllers to point to the new dedicated Android games SDK paths (e.g., changing paths from UI views to /games/sdk/game-controller). This matters because it ensures developers are directed to the most relevant and up-to-date game development resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_enable-natural-input-on-all-form-factors.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/engines/unity/unity-r8\" target=\"_blank\">Shrink and optimize Unity code with R8</a>",
+        "path": "games/engines/unity/unity-r8.md",
+        "summary": "This new documentation explains how to enable and configure the R8 code shrinker and optimizer for Android builds in Unity to reduce app size, lower runtime memory usage, and prevent LMK terminations.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/engines/unreal/unreal-r8\" target=\"_blank\">Shrink and optimize Unreal Engine code with R8</a>",
+        "path": "games/engines/unreal/unreal-r8.md",
+        "summary": "This new documentation explains how R8 code shrinking and optimization works by default in Unreal Engine Android release builds, detailing how to add required ProGuard keep rules using Unreal Plugin Language (UPL) and troubleshoot common packaging issues.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/optimize/display-refresh-rate-change\" target=\"_blank\">Optimize refresh rates</a>",
+        "path": "games/optimize/display-refresh-rate-change.md",
+        "summary": "The changes update relative internal document links to absolute URLs across the refresh rate optimization guide and adjust code block formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_display-refresh-rate-change.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/optimize/gameperformance\" target=\"_blank\">Analyze and optimize game performance</a>",
+        "path": "games/optimize/gameperformance.md",
+        "summary": "Updated documentation links and image paths to use absolute URLs, and cleaned up markdown formatting and list structures across the game performance guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_gameperformance.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/optimize/memory-overview\" target=\"_blank\">About memory management</a>",
+        "path": "games/optimize/memory-overview.md",
+        "summary": "The memory optimization documentation has been updated to include game-engine-specific R8 guidance for Unity and Unreal Engine, clarify the Total Memory Footprint metric used by the Android 17 Memory Limiter, and point developers to Android Vitals documentation for DEX code optimization requirements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_memory-overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/development-package\" target=\"_blank\">Package a game for Google Play Games on PC</a>",
+        "path": "games/playgames/development-package.md",
+        "summary": "Added multi-language code snippets (Kotlin, Java, and C#) for detecting whether a game is running on Google Play Games on PC. Developers can now easily implement runtime checks using either keyboard configuration or the \"com.google.android.play.feature.HPE_EXPERIENCE\" system feature.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_development-package.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/graphics\" target=\"_blank\">Configure graphics for Google Play Games on PC</a>",
+        "path": "games/playgames/graphics.md",
+        "summary": "Updated documentation links from relative paths to absolute URLs and cleaned up markdown formatting (such as list syntax and code blocks) across the Google Play Games on PC graphics configuration guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_graphics.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/identity\" target=\"_blank\">About continuity and cross-device play</a>",
+        "path": "games/playgames/identity.md",
+        "summary": "The identity documentation for Google Play Games was updated to convert internal relative links to absolute URLs and clean up navigation breadcrumbs and layout artifacts from the source conversion.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_identity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/input-sdk-start\" target=\"_blank\">Get started with the Input SDK</a>",
+        "path": "games/playgames/input-sdk-start.md",
+        "summary": "This update modernizes the Input SDK documentation by updating relative links to absolute URLs, converting note callouts to standard Markdown blockquotes, fixing image paths, and adding language specifiers to code blocks. These changes improve overall readability and ensure links resolve correctly across the developer documentation site.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_input-sdk-start.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/revoked-app-approval\" target=\"_blank\">Review revoked app approvals</a>",
+        "path": "google/play/age-signals/revoked-app-approval.md",
+        "summary": "The changes in the 'revoked-app-approval.md' documentation are primarily formatting and artifact cleanups resulting from switching the source from an HTML scrape to a markdown file. This includes updating the page title metadata format, converting standard HTML note styling to a markdown blockquote format, and removing boilerplate navigation links and introductory paragraphs related to regional compliance rollouts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_revoked-app-approval.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/integrate\" target=\"_blank\">Integrate the Google Play Billing Library into your app</a>",
+        "path": "google/play/billing/integrate.md",
+        "summary": "Added a new section on handling rejected or unfulfilled purchases to guide developers on properly managing backend verification failures, fraud checks, and entitlements. It outlines the risks of letting the acknowledgment window expire and details how to use the Google Play Developer API to immediately revoke and refund subscriptions and one-time products, along with the expected Real-time Developer Notifications (RTDN) and Voided Purchases API behavior.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_integrate.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/lifecycle/one-time\" target=\"_blank\">One-time purchase lifecycle</a>",
+        "path": "google/play/billing/lifecycle/one-time.md",
+        "summary": "Updated the one-time purchase documentation to advise developers on handling purchases that fail verification or fraud checks. Instead of waiting for the 3-day acknowledgment window to expire, developers should immediately withhold acknowledgment and refund/revoke the purchase using the `orders.refund` API with `revoke` set to `true`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_one-time.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/lifecycle/subscriptions\" target=\"_blank\">Subscription lifecycle</a>",
+        "path": "google/play/billing/lifecycle/subscriptions.md",
+        "summary": "The subscription lifecycle documentation was updated to include guidance on handling fraudulent or unverified purchases. Developers are now instructed not to wait for the standard three-day acknowledgment window to expire, but to immediately revoke and refund such purchases using the `purchases.subscriptionsv2.revoke` API.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_subscriptions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/manage-purchases\" target=\"_blank\">Manage subscriptions and one-time purchases</a>",
+        "path": "google/play/billing/manage-purchases.md",
+        "summary": "The documentation was updated to clarify that issuing a subscription refund with revocation or using the subscriptionsv2.revoke API now triggers both a SUBSCRIPTION_REVOKED Real Time Developer Notification and a VoidedPurchaseNotification, which is recorded in the Voided Purchases API. This is important for developers to ensure their backend properly handles these additional notifications when managing refunds and revocations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_manage-purchases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/rtdn-reference\" target=\"_blank\">Real-time developer notifications reference guide</a>",
+        "path": "google/play/billing/rtdn-reference.md",
+        "summary": "Updated the description for the `ONE_TIME_PRODUCT_CANCELED` notification type in the Real-Time Developer Notifications (RTDN) reference. The change clarifies that this notification type covers not only user-canceled pending purchases but also revoked one-time product purchases, helping developers properly handle entitlement removals.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_rtdn-reference.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/security\" target=\"_blank\">Fight fraud and abuse</a>",
+        "path": "google/play/billing/security.md",
+        "summary": "Updated the security documentation for Google Play Billing to clarify that illegitimate purchases should not be acknowledged or consumed. It now provides precise API endpoints for handling illegitimate purchases: using the new `purchases.subscriptionsv2:revoke` endpoint for subscriptions and the existing `Orders:refund` endpoint for one-time products, ensuring proper revocation and signaling to Google Play.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_security.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/naventrydecorators\" target=\"_blank\">Apply logic or wrappers to destinations</a>",
+        "path": "guide/navigation/navigation-3/naventrydecorators.md",
+        "summary": "Updated documentation links from relative paths to absolute URLs, fixed markdown list formatting, and added explicit kotlin language specifiers to code blocks in the Navigation 3 decorators guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_naventrydecorators.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/feature-delivery\" target=\"_blank\">Overview of Play Feature Delivery</a>",
+        "path": "guide/playcore/feature-delivery.md",
+        "summary": "Updated documentation links from relative paths to absolute URLs and cleaned up markdown formatting throughout the Play Feature Delivery guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_feature-delivery.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/practices/page-sizes\" target=\"_blank\">Support 16 KB page sizes</a>",
+        "path": "guide/practices/page-sizes.md",
+        "summary": "Added a concrete example and technical explanation of an aligned .so file where GNU_RELRO resides in its own LOAD segment. This matters because it clarifies how developers can manually inspect and verify 16 KB page-size compliance for complex ELF binaries using tooling like llvm-readelf.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_page-sizes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/credential-manager/prerequisites\" target=\"_blank\">Prerequisites</a>",
+        "path": "identity/credential-manager/prerequisites.md",
+        "summary": "The changes in the prerequisites documentation primarily consist of formatting updates, specifically converting standard Markdown code blocks and links into HTML-like or alternate markdown structures. There are no functional changes to the Credential Manager setup instructions, code snippets, or Digital Asset Links requirements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_prerequisites.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/benchmark\" target=\"_blank\">Benchmark</a>",
+        "path": "jetpack/androidx/releases/benchmark.md",
+        "summary": "This update converts the Benchmark release notes documentation from HTML-scraped format to a cleaner Markdown structure. It includes syntax highlighting updates for code snippets, link formatting fixes, and standardizing list markers across the release history entries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_benchmark.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/text-vertical\" target=\"_blank\">text-vertical</a>",
+        "path": "jetpack/androidx/releases/text-vertical.md",
+        "summary": "The changes in the text-vertical documentation primarily consist of formatting updates, such as converting HTML lists to standard Markdown bullet points, updating documentation URLs to absolute paths, and refining code block identifiers. No functional library code or major release notes content was altered.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_text-vertical.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/platform/mediaplayer/background\" target=\"_blank\">Play media in the background</a>",
+        "path": "media/platform/mediaplayer/background.md",
+        "summary": "Updated the background media playback documentation to use absolute URLs for references and converted markdown elements, such as replacing HTML-to-Markdown artifacts and updating note blocks to standard callout formats.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_background.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ndk/guides/rootless-debug-gles\" target=\"_blank\">Enable layers</a>",
+        "path": "ndk/guides/rootless-debug-gles.md",
+        "summary": "Updated documentation for GLES layers by converting relative links to absolute URLs, improving code block syntax highlighting (adding c++ and bash specifiers), fixing warning block syntax, and correcting quotation marks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_rootless-debug-gles.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/quality/excellent/performant\" target=\"_blank\">Android excellent experiences</a>",
+        "path": "quality/excellent/performant.md",
+        "summary": "The changes in this file are purely formatting, whitespace, and HTML-to-Markdown conversion artifacts (such as updated relative and absolute URL paths, line breaks, and minor layout tags). No meaningful technical content or documentation text was altered.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_performant.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/debug\" target=\"_blank\">Debug your app</a>",
+        "path": "studio/debug.md",
+        "summary": "This update drastically trims the 'Debug your app' documentation by removing extensive sections detailing how to start debugging, attach processes, configure custom debug types, write log messages, and use breakpoints. Additionally, internal links were converted from relative paths to absolute URLs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_debug.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "Updated the Android Studio nightly release documentation to reflect the transition from Rabbit 2 (version 2026.2.2, build date 2026-10-14) to Rabbit 3 (version 2026.2.3, build date 2026-10-16). This includes updating download URLs, filenames, and UI elements across Windows, Mac, and Linux installation sections.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/platform/install\" target=\"_blank\">Install Android Studio for Platform</a>",
+        "path": "studio/platform/install.md",
+        "summary": "The changes in the Android Studio for Platform (ASfP) installation documentation primarily involve Markdown formatting cleanups, such as fixing table markup, updating internal relative links to absolute URLs, converting callout blocks to standard Markdown alert syntax, and adjusting code block indentations. These updates ensure the documentation renders correctly across different platforms without altering the core installation instructions or system requirements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_install.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/platform/tutorial\" target=\"_blank\">ASfP video tutorial</a>",
+        "path": "studio/platform/tutorial.md",
+        "summary": "The tutorial.md document was updated to change its source from an HTML scrape to a markdown file, updating the frontmatter title to match the URL and removing deprecated breadcrumb navigation, UI collection artifacts, and broken video thumbnail markdown tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_tutorial.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.2\" target=\"_blank\">Android Studio Rabbit 2 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/studio/2026.2.2.md",
+        "summary": "Added release notes for Android Studio Rabbit 2 | 2026.2.2 Canary 5 and Android Gradle Plugin 9.5.0-alpha10, detailing bug fixes across Android CLI, AGP (specifically fixing an issue where l8DexDesugarLib overwrites obfuscation mapping files), Compose Preview, Gemini, Running Devices, and Tool Windows.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_2026.2.2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/test/command-line\" target=\"_blank\">Test from the command line</a>",
+        "path": "studio/test/command-line.md",
+        "summary": "The command-line documentation for unified test report tasks was updated to include the `--continue` flag in Gradle commands and reflect new default report output directory paths. This matters because it ensures developers use the correct commands to prevent test execution halts and accurately locate their generated test and coverage reports.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_command-line.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/write/create-java-class\" target=\"_blank\">Create a Java class or type</a>",
+        "path": "studio/write/create-java-class.md",
+        "summary": "The changes in the document are entirely trivial, consisting of markdown formatting updates, list style normalizations, absolute URL updates, and minor spacing adjustments. No technical content, instructions, or features were modified.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_create-java-class.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/input\" target=\"_blank\">android input</a>",
+        "path": "tools/agents/android-cli/commands/input.md",
+        "summary": "This new documentation page introduces the `android input` CLI command, enabling AI agents and developers to simulate user gestures, key events, and text entry on UI elements using accessibility selectors.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/input_key\" target=\"_blank\">android input key</a>",
+        "path": "tools/agents/android-cli/commands/input_key.md",
+        "summary": "This new documentation page introduces the `android input key` command for the Android CLI, enabling developers and agents to simulate hardware button presses, navigation keys, and keycodes with optional modifiers like Alt, Ctrl, and Shift.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/input_scroll\" target=\"_blank\">android input scroll</a>",
+        "path": "tools/agents/android-cli/commands/input_scroll.md",
+        "summary": "This new documentation page introduces the `android input scroll` command, which allows users to scroll container elements programmatically and optionally until a specific target element appears.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/input_swipe\" target=\"_blank\">android input swipe</a>",
+        "path": "tools/agents/android-cli/commands/input_swipe.md",
+        "summary": "This new documentation page explains how to use the Android CLI `input swipe` command to perform swipe gestures originating from UI elements matching specified selectors. It matters because it enables automated testing and interaction flows based on UI node properties like text, resource ID, and accessibility attributes.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/input_tap\" target=\"_blank\">android input tap</a>",
+        "path": "tools/agents/android-cli/commands/input_tap.md",
+        "summary": "This new documentation introduces the `android input tap` command, which allows developers and agents to simulate tap gestures on specific UI elements using key-value property selectors.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/input_text\" target=\"_blank\">android input text</a>",
+        "path": "tools/agents/android-cli/commands/input_text.md",
+        "summary": "This new documentation introduces the `input text` command for the Android CLI tool, enabling agents to type text into UI elements matching specific selectors. It matters because it provides automated text input capabilities with support for advanced matching options, submission triggers, and custom timeouts.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/skills_add\" target=\"_blank\">android skills add</a>",
+        "path": "tools/agents/android-cli/commands/skills_add.md",
+        "summary": "The changes in 'skills_add.md' are strictly limited to line wrapping and formatting adjustments without altering any technical meaning, behavior, or documentation content. Therefore, no meaningful update occurred.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_skills_add.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/release-notes\" target=\"_blank\">Release notes for Android CLI</a>",
+        "path": "tools/agents/android-cli/release-notes.md",
+        "summary": "Added release notes for Android CLI version 1.0.16625370, introducing the new `android input` command for UI interactions such as tapping, scrolling, swiping, typing, and pressing keys using various selectors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/views/saving-states-views\" target=\"_blank\">Save UI states (Views)</a>",
+        "path": "topic/libraries/architecture/views/saving-states-views.md",
+        "summary": "Updated internal link paths to absolute URLs (developer.android.com), converted HTML callout blocks to standard Markdown blockquotes with explicit tags (like [!NOTE] and [!IMPORTANT]), and updated header metadata format to match the latest documentation standards.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_saving-states-views.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/view-binding\" target=\"_blank\">View binding</a>",
+        "path": "topic/libraries/view-binding.md",
+        "summary": "The changes in this file are trivial, consisting only of Markdown reformatting, relative link updates to absolute URLs, and adjustments to code block syntax highlighting. Therefore, an empty list is returned.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_view-binding.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/additional-rule-types\" target=\"_blank\">Additional rule types</a>",
+        "path": "topic/performance/app-optimization/additional-rule-types.md",
+        "summary": "This update converts the documentation format for R8 additional rule types into standard Markdown, updating internal links to absolute URLs and improving note/warning callouts for readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_additional-rule-types.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/benchmarking/microbenchmark-write\" target=\"_blank\">Write a Microbenchmark</a>",
+        "path": "topic/performance/benchmarking/microbenchmark-write.md",
+        "summary": "This update converts internal documentation links to absolute URLs, adds language specifiers to code blocks, and refines formatting such as image placement and callout blocks. These changes improve readability and compatibility when rendering the markdown content externally.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_microbenchmark-write.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/issues/memory-usage\" target=\"_blank\">Memory usage (anonymous RSS + swap)</a>",
+        "path": "topic/performance/issues/memory-usage.md",
+        "summary": "Updated links in the memory usage documentation to use absolute URLs instead of relative paths, converted note boxes to use Markdown blockquote syntax (>[!NOTE]), and removed breadcrumbs and footer navigation elements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_memory-usage.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/rendering/inspect-gpu-rendering\" target=\"_blank\">Inspect rendering speed</a>",
+        "path": "topic/performance/rendering/inspect-gpu-rendering.md",
+        "summary": "Updated internal links to use absolute URLs and converted standard note blocks to GitHub-flavored alert syntax across the GPU rendering inspection documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_inspect-gpu-rendering.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/dependency-injection/dagger-multi-module\" target=\"_blank\">Using Dagger in multi-module apps</a>",
+        "path": "training/dependency-injection/dagger-multi-module.md",
+        "summary": "Updated documentation formatting to use standard Markdown blockquotes for notes, converted relative links and image paths to absolute URLs, added explicit language specifiers to code blocks, and refined list formatting to improve readability on the Android developers site.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_dagger-multi-module.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/dependency-injection/hilt-testing\" target=\"_blank\">Hilt testing guide</a>",
+        "path": "training/dependency-injection/hilt-testing.md",
+        "summary": "Updated the Hilt testing documentation by converting relative internal links to absolute URLs, adding explicit `kotlin` syntax highlighting to code blocks, and standardizing callout boxes to use Markdown alert syntax (e.g., `> [!NOTE]` and `> [!WARNING]`). These updates improve documentation rendering consistency and ensure that all links resolve correctly outside of the native host context.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_hilt-testing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/testing/other-components/content-providers\" target=\"_blank\">Test content providers</a>",
+        "path": "training/testing/other-components/content-providers.md",
+        "summary": "This update fixes relative paths to absolute URLs across internal documentation links and code block language tags, ensuring accurate navigation and rendering.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_content-providers.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/playback/now-playing\" target=\"_blank\">Display a Now Playing card</a>",
+        "path": "training/tv/playback/now-playing.md",
+        "summary": "The changes to the 'now-playing.md' documentation primarily consist of formatting updates, such as converting relative site links and class/method references into absolute URLs, adding syntax highlighting identifiers to code blocks (kotlin/java), and removing boilerplate navigation elements and HTML scraping artifacts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_now-playing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/notifications/ongoing-activity\" target=\"_blank\">Display ongoing activities</a>",
+        "path": "training/wearables/notifications/ongoing-activity.md",
+        "summary": "Updated documentation links from relative paths to absolute URLs across the guide, cleaned up list markdown formatting, and added explicit language identifiers (kotlin) to code blocks for better syntax highlighting and developer experience.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_ongoing-activity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/tiles/versioning\" target=\"_blank\">Tiles versioning</a>",
+        "path": "training/wearables/tiles/versioning.md",
+        "summary": "The changes in versioning.md primarily consist of formatting updates, fixing relative links to absolute developer.android.com URLs, and code block language adjustments. These improvements ensure the documentation renders correctly outside of the main Android documentation site structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_versioning.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/watch-face-push/wear-os-app\" target=\"_blank\">Configure your Wear OS app for Watch Face Push</a>",
+        "path": "training/wearables/watch-face-push/wear-os-app.md",
+        "summary": "Updated the documentation formatting to use standard Markdown blockquotes for notes and warnings, added explicit language specifiers for code blocks, and fixed various internal links. These changes improve readability and render consistency for developers integrating the Watch Face Push API.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/62b88f55_wear-os-app.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-15T16:24:26Z",
     "commit_hash": "97b243a8",
     "entries": [
