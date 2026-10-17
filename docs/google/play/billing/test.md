@@ -76,6 +76,7 @@ Play Billing Lab lets you to do the following in your testing:
 - [Test subscription price changes](https://developer.android.com/google/play/billing/test#price-changes) without affecting other active subscribers
 - [Accelerate subscription state transition](https://developer.android.com/google/play/billing/test#subscription-state-transition) to accelerate subscription renewals, or move your test subscription into grace period or account hold state with one click to speed up your testing
 - [Test with real payment methods](https://developer.android.com/google/play/billing/test#real-fop-testing) to bypass certain purchase flow risk signals
+- [Test out-of-app purchases](https://developer.android.com/google/play/billing/test#out-of-app) to make sure that your backend can handle them
 
 ![Play Billing Lab Dashboard](https://developer.android.com/static/images/google/play/billing/play-billing-lab-dashboard.png) **Figure 2.** Play Billing Lab Dashboard.
 
@@ -561,3 +562,90 @@ an error message in the purchase cart, and the transaction will be blocked.
 
 > [!NOTE]
 > **Note:** If your testing requires higher limits, ensure your app is published to a [closed, open, or production track](https://support.google.com/googleplay/android-developer/answer/9859751).
+
+## Test out-of-app purchases
+
+You can use the [Play Billing Lab](https://developer.android.com/google/play/billing/test#play-billing-lab) app to test the end-to-end experience for
+entitlements acquired outside of your app. To use
+Play Billing Lab, you must be a [license tester](https://developer.android.com/google/play/billing/test#license-testers) for the app you are testing.
+
+**Step 1 - Configure test**
+
+1. Register the app billing user as a license tester.
+2. Open the Play Store and log into it with the same user.
+3. Open the Play Billing Lab app and log into it with the same user.
+4. Select the **Out-of-app purchases** test card.
+5. Optional: Select your test country and apply the change in Play Billing Lab.
+   1. If you don't select a country, Play Billing Lab uses the Play Country for your licensed test account.
+6. Enter the app and product (SKU) information that you want to test.
+7. Select the particular purchase option, base plan, or offer that you want to test.
+8. Click **Start test**.
+
+> [!NOTE]
+> **Note:** The test remains active for two hours. After this time, you must reconfigure the test.
+
+**Step 2 - Acquire the out-of-app product**
+
+- [Featured products](https://developer.android.com/google/play/billing/test#featured-products)
+- [Purchase recommendations](https://developer.android.com/google/play/billing/test#purchase-recommendations) (after abandoning a purchase)
+- [Play Games Rewards](https://developer.android.com/google/play/billing/test#play-games-rewards)
+
+> [!NOTE]
+> **Note:** This test requires that the user is eligible to purchase the item. For non-consumable items, you must not currently own the product. For consumable items, you must consume any existing purchases before you test.
+
+**Step 3 - Handle and deliver the entitlement**
+
+Your app should detect the out-of-app purchase, and then deliver the item to the
+respective user. For the full process, see [processing purchases](https://developer.android.com/google/play/billing/integrate#process).
+
+### Featured products
+
+> [!NOTE]
+> **Note:** Featured products are supported only for one-time products.
+
+1. Open the Play Store and sign in with the same licensed tester account that you used to configure the test in Play Billing Lab.
+   1. If the Play Store was previously open, close and restart it.
+2. Navigate to the app details page for your app.
+3. The item is shown on this page.
+4. Select the item and complete the purchase.
+
+![Four screens showing the purchase flow for featured products. The
+first screen shows a card with the featured product on the app's details
+page. The second screen shows the buy bottom sheet. The third screen
+shows the payment processing. The fourth screen shows payment success
+with a prompt instructing the user to open the app to get the item.](https://developer.android.com/static/images/google/play/billing/play-billing-lab-featured-products.png) **Figure 12.** Featured product purchase flow.
+
+### Purchase recommendations
+
+> [!NOTE]
+> **Note:** Purchase recommendations are supported only for one-time products. The purchase recommendations appear in your app in the Play Billing overlay after you initiate a purchase.
+
+**After cart is abandoned:**
+
+1. Restart your app.
+2. Initiate a purchase flow for a one-time product in your app.
+3. Dismiss or abandon the purchase cart dialog without completing the transaction.
+4. Check for the abandoned cart purchase recommendation.
+5. Accept the recommendation and complete the purchase.
+
+![Five screens showing the a purchase recommendation after abandoning
+a cart. The first screen shows the initial cart the user intended to
+purchase, with the user clicking outside of the purchase flow to abandon
+the cart. The second screen shows a recommendation to purchase a
+different item, with the user clicking on the button to continue. The
+third screen shows a cart with the new item, and the user clicking on
+the button to complete the purchase. The fourth screen shows the
+purchase being processed. The fifth screen shows purchase success.](https://developer.android.com/static/images/google/play/billing/play-billing-lab-purchase-recommendation.png) **Figure 13.** Purchase recommendation (abandoned cart) purchase flow.
+
+### Play Games Rewards
+
+> [!NOTE]
+> **Note:** [Play Games Rewards](https://developer.android.com/games/rewards) are supported only for one-time products.
+
+Click **Grant Reward** to simulate Play granting the reward to the user. Existing
+rewards must be [processed](https://developer.android.com/google/play/billing/integrate#process) before additional rewards can be granted.
+![Three screens showing the Play Games Rewards testing flow. On the
+first screen the user can selects to grant the reward. The second screen
+shows the reward being successfully granted by Play, then the user
+clicks for the reward to be granted again. The third screen shows an
+error state since the first reward hasn't been properly processed.](https://developer.android.com/static/images/google/play/billing/play-billing-lab-games-rewards-testing.png) **Figure 14.** Play Games Rewards testing flow.

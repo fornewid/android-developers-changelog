@@ -274,14 +274,14 @@ all controllers or a specific controller:
 
 ```kotlin
 // Handle "favoritesButton" action, replace by opposite button
-mediaSession.setMediaButtonPreferences(ImmutableList.of(likeButton, removeFromFavoritlayback.kt
+mediaSession.setMediaButtonPreferences(ImmutableList.of(likeButton, removeFromFavoritesButton))
 ```
 
 ### Java
 
 ```java
 // Handle "favoritesButton" action, replace by opposite button
-mediaSession.setMediaButtonPreferences(ImmutableList.of(likeButton, removeFromFavoriteyback.java
+mediaSession.setMediaButtonPreferences(ImmutableList.of(likeButton, removeFromFavoritesButton));
 ```
 
 <br />
@@ -468,8 +468,9 @@ private class CallerAwarePlayer(player: Player) : ForwardingSimpleBasePlayer(pla
       "caller",
       "seek operation from package ${session.controllerForCurrentRequest?.packageName}",
     )
-    return super.handleSeek(mediaItemIndex, positionMs,}
-ControlPlayback.kt
+    return super.handleSeek(mediaItemIndex, positionMs, seekCommand)
+  }
+}
 ```
 
 ### Java
@@ -488,7 +489,9 @@ private static final class CallerAwarePlayer extends ForwardingSimpleBasePlayer 
         "caller",
         "seek operation from package: "
             + session.getControllerForCurrentRequest().getPackageName());
-    return super.handleSeek(mediaItemIndex, positionMs, ControlPlayback.java
+    return super.handleSeek(mediaItemIndex, positionMs, seekCommand);
+  }
+}
 ```
 
 <br />
@@ -623,7 +626,9 @@ private class ErrorForwardingPlayer(private val context: Context, player: Player
     }
     val extras = Bundle()
     extras.putString("button_label", buttonLabel)
-    return PlaybackException(errorMessage, error.cause, error.errorCode, extrlayback.kt
+    return PlaybackException(errorMessage, error.cause, error.errorCode, extras)
+  }
+}
 ```
 
 ### Java
@@ -663,7 +668,9 @@ private static class ErrorForwardingPlayer extends ForwardingSimpleBasePlayer {
     }
     Bundle extras = new Bundle();
     extras.putString("button_label", buttonLabel);
-    return new PlaybackException(errorMessage, error.getCause(), error.errorCode, extrayback.java
+    return new PlaybackException(errorMessage, error.getCause(), error.errorCode, extras);
+  }
+}
 ```
 
 <br />

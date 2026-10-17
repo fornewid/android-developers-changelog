@@ -68,7 +68,9 @@ fun ParallaxEffect() {
                 .background(Color.White)
                 .padding(horizontal = 8.dp),
 
-       xEffect.kt
+        )
+    }
+}
 ```
 
 <br />

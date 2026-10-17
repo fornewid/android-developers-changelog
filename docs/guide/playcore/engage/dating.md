@@ -17,6 +17,9 @@ surface area.
 
 ## Integration detail
 
+This section details the steps, data models, and terminology required to
+integrate with the Engage SDK for dating content.
+
 ### Terminology
 
 This integration includes the following three cluster types: **Recommendation** ,
@@ -120,7 +123,8 @@ the following entities for the Dating category:
 4. `EventEntity`
 5. `EventReservationEntity`
 
-The charts below outline available attributes and requirements for each type.
+The following charts outline available attributes and requirements for each
+type.
 
 #### `GenericFeaturedEntity`
 
@@ -428,24 +432,17 @@ required for `ServiceAvailabilityRequest` from the following table.
 ###### Conditional Service Availability Feature
 
 Some integrated apps request a special configuration that enables and disables
-the Engage service intermittently in order to reduce their serving cost. This
-intermittent content ingestion strategy, although possible, negatively affects
-the user and the product -- stale content will not be presented and some surfaces
-will not be served at all.
+the Engage service intermittently to reduce serving costs. However, this
+intermittent content ingestion strategy negatively affects the user experience:
+stale content won't be presented, and some surfaces won't be served.
 
 Starting with v1.6.0, the Engage SDK allows checking availability for specific
-cluster types. This provides more flexibility so that if the intermittent
-content strategy was adopted by a given application, some cluster types can
-follow that intermittent strategy while other cluster types are always enabled
-(i.e. continuation clusters).
+cluster types. If your app uses intermittent ingestion:
 
-If the Engage service should not be 'continuously' enabled on all supported
-devices for whatever reason, and is configured for intermittent ingestion for
-any set of devices, all continuation cluster publications (e.g. Continue
-Reading and Event Reservations) will be still enabled by default
-configuration, and the rest of the cluster types will be enabled and disabled
-intermittently. If intermittent ingestion applies to you but this default
-configuration is not suitable for your needs, please contact
+- **Continuation clusters** (such as Continue Reading and Event Reservations) remain enabled by default across all supported devices.
+- **Other cluster types** (such as Recommendations) are enabled and disabled intermittently.
+
+If this default configuration isn't suitable for your needs, contact
 engage-developers@google.com.
 
 ##### For SDK versions prior to v1.6.0 (Deprecated)
@@ -550,8 +547,8 @@ This API is used to publish a list of `FeaturedCluster` objects.
 ### Java
 
     client.publishFeaturedCluster(
-                new PublishFeaturedClustersRequest.Builder()
-                    .addFeaturedCluster(
+                new PublishFeaturedClusterRequest.Builder()
+                    .setFeaturedCluster(
                         new FeaturedCluster.Builder()
                             .addEntity(entity1)
                             .addEntity(entity2)
@@ -735,7 +732,7 @@ to publish the Sign In Card then we recommend calling the
             .setStatusCode(AppEngagePublishStatusCode.NOT_PUBLISHED_REQUIRES_SIGN_IN)
             .build());
 
-#### `deleteRecommendationClusters`
+#### `deleteRecommendationsClusters`
 
 This API is used to delete the content of Recommendation Clusters.
 
@@ -744,11 +741,11 @@ This API is used to delete the content of Recommendation Clusters.
 
 ### Kotlin
 
-    client.deleteRecommendationClusters()
+    client.deleteRecommendationsClusters()
 
 ### Java
 
-    client.deleteRecommendationClusters();
+    client.deleteRecommendationsClusters();
 
 When the service receives the request, it removes the existing data from the
 Recommendation Clusters. In case of an error, the entire request is rejected and

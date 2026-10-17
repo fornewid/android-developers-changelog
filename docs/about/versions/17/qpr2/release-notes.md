@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr2/release-notes
 source: md.txt
 ---
 
+### Beta 7.1
+
+|---|---|
+| **Release date** | October 16, 2026 |
+| **Builds** | CP41.260831.019 |
+| **Emulator support** | x86 (64-bit), ARM (v8-A) |
+| **Security patch level** | 2026-10-05 |
+| **Google Play services** | 26.28.33 |
+
 ### Beta 7
 
 |---|---|
@@ -76,7 +85,7 @@ source: md.txt
 | **Security patch level** | 2026-07-05 |
 | **Google Play services** | 26.23.34 |
 
-### Android 17 QPR 2 Beta 7 (October 2026)
+### Android 17 QPR 2 Beta 7.1 (October 2026)
 
 Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
 update the platform with fixes and improvements that are then rolled out to
@@ -145,10 +154,14 @@ schedule background work, use [WorkManager](https://developer.android.com/develo
 For communication within a process, use direct calls such as callbacks or
 Kotlin flows instead of broadcasts.
 
-#### Known issue in Beta 7
+#### Known issue in Beta 7.1
 
 Pixel 11 Pro Fold users may have to re-enroll Face Unlock for it to function
 properly.
+
+### Top Issues fixed in Beta 7.1 (October 2026)
+
+- *Severe UI stuttering and multi-second freezes ([**Issue #571186734**](https://issuetracker.google.com/issues/571186734))*
 
 ### Top Issues fixed in Beta 7 (October 2026)
 

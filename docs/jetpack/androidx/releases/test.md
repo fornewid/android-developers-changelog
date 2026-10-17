@@ -14,19 +14,19 @@ This table lists all the artifacts in the `androidx.test` group.
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
 | annotation | [1.0.1](https://developer.android.com/jetpack/androidx/releases/test#annotation-1.0.1) | - | - | [1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test#annotation-1.1.0-alpha04) |
-| core | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test#core-1.7.0) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#core-1.7.0-rc01) | - | - |
-| espresso | [3.7.0](https://developer.android.com/jetpack/androidx/releases/test#espresso-3.7.0) | [3.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#espresso-3.7.0-rc01) | - | - |
-| espresso-device | [1.1.0](https://developer.android.com/jetpack/androidx/releases/test#espresso-device-1.1.0) | [1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#espresso-device-1.1.0-rc01) | - | - |
-| ext.junit | [1.3.0](https://developer.android.com/jetpack/androidx/releases/test#ext.junit-1.3.0) | [1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#ext.junit-1.3.0-rc01) | - | - |
+| core | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test#core-1.7.0) | - | - | [1.8.0-alpha01](https://developer.android.com/jetpack/androidx/releases/test#core-1.8.0-alpha01) |
+| espresso | [3.7.0](https://developer.android.com/jetpack/androidx/releases/test#espresso-3.7.0) | - | - | [3.8.0-alpha01](https://developer.android.com/jetpack/androidx/releases/test#espresso-3.8.0-alpha01) |
+| espresso-device | [1.1.0](https://developer.android.com/jetpack/androidx/releases/test#espresso-device-1.1.0) | - | - | [1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/test#espresso-device-1.2.0-alpha01) |
+| ext.junit | [1.3.0](https://developer.android.com/jetpack/androidx/releases/test#ext.junit-1.3.0) | - | - | [1.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/test#ext.junit-1.4.0-alpha01) |
 | ext:junit-gtest | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#ext:junit-gtest-1.0.0-alpha03) |
-| ext.truth | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test#ext.truth-1.7.0) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#ext.truth-1.7.0-rc01) | - | - |
-| monitor | [1.8.0](https://developer.android.com/jetpack/androidx/releases/test#monitor-1.8.0) | - | - | [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/test#monitor-1.9.0-alpha01) |
-| orchestrator | [1.6.1](https://developer.android.com/jetpack/androidx/releases/test#orchestrator-1.6.1) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#orchestrator-1.6.0-rc01) | - | - |
-| runner | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test#runner-1.7.0) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#runner-1.7.0-rc01) | - | - |
-| rules | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test#rules-1.7.0) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#rules-1.7.0-rc01) | - | - |
-| services | [1.6.0](https://developer.android.com/jetpack/androidx/releases/test#services-1.6.0) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#services-1.6.0-rc01) | - | - |
+| ext.truth | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test#ext.truth-1.7.0) | - | - | [1.8.0-alpha01](https://developer.android.com/jetpack/androidx/releases/test#ext.truth-1.8.0-alpha01) |
+| monitor | [1.8.0](https://developer.android.com/jetpack/androidx/releases/test#monitor-1.8.0) | - | - | [1.9.0-alpha02](https://developer.android.com/jetpack/androidx/releases/test#monitor-1.9.0-alpha02) |
+| orchestrator | [1.6.1](https://developer.android.com/jetpack/androidx/releases/test#orchestrator-1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/test#orchestrator-1.7.0-alpha01) |
+| runner | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test#runner-1.7.0) | - | - | [1.8.0-alpha01](https://developer.android.com/jetpack/androidx/releases/test#runner-1.8.0-alpha01) |
+| rules | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test#rules-1.7.0) | - | - | [1.8.0-alpha01](https://developer.android.com/jetpack/androidx/releases/test#rules-1.8.0-alpha01) |
+| services | [1.6.0](https://developer.android.com/jetpack/androidx/releases/test#services-1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/test#services-1.7.0-alpha01) |
 
-This library was last updated on: January 14, 2026
+This library was last updated on: October 15, 2026
 
 > [!NOTE]
 > **Note:** This page includes release notes for Test components that shipped in the AndroidX library. For earlier updates that appeared in the support library see the [archive page](https://developer.android.com/jetpack/androidx/releases/archive/test).
@@ -233,7 +233,17 @@ Sept 28, 2021
 
 - Add new ExperimentalTestApi and InternalTestApi annotations
 
-## Core 1.7.0
+## Core 1.8.0
+
+### Core Core-ktx 1.8.0-alpha01
+
+October 15, 2026
+
+`androidx.test:core:1.8.0-alpha01` and `androidx.test:core-ktx:1.8.0-alpha01` are released.
+
+**API Changes**
+
+- Update to minSdkVersion 24 and remove all related logic for SDKs \< 24
 
 ### Core Core-ktx 1.7.0
 
@@ -654,7 +664,39 @@ Aug 23, 2021
 
 - -ktx: Explicitly depend on kotlin stdlib 1.4.30
 
-## Espresso 3.7.0
+## Espresso 3.8.0
+
+### Espresso 3.8.0-alpha01
+
+October 15, 2026
+
+The following artifacts were released:
+
+- `androidx.test.espresso:espresso-accessibility:3.8.0-alpha01`
+- `androidx.test.espresso:espresso-core:3.8.0-alpha01`
+- `androidx.test.espresso:espresso-contrib:3.8.0-alpha01`
+- `androidx.test.espresso:espresso-idling-resource:3.8.0-alpha01`
+- `androidx.test.espresso:espresso-intents:3.8.0-alpha01`
+- `androidx.test.espresso:espresso-remote:3.8.0-alpha01`
+- `androidx.test.espresso:espresso-web:3.8.0-alpha01`
+- `androidx.test.espresso.idling:idling-concurrent:3.8.0-alpha01`
+- `androidx.test.espresso.idling:idling-net:3.8.0-alpha01`
+
+**Bug Fixes**
+
+- Replace now-unnecessary reflection from TestLooperManagerCompat when using Android SDK 36 APIs
+- Don't suppress AppNotIdleException if dumpThreadStates throws.
+- Remove Espresso.onIdle tracing
+- Fix NullPointerException in UiControllerImpl.
+- Fix `isDisplayingAtLeast` matcher to factor in the scale of ancestor views.
+
+**New Features**
+
+- Add `doesNotHaveFlag` and `doesNotHaveFlags` matchers to `IntentMatchers`.
+
+**API Changes**
+
+- Update to minSdkVersion 24 and remove all related logic for SDKs \< 24
 
 ### Espresso 3.7.0
 
@@ -1398,7 +1440,17 @@ The following artifacts were released:
 
 - core: Depend on kotlin stdlib 1.4.30
 
-## Espresso Device 1.1.0
+## Espresso Device 1.2.0
+
+### Espresso Device 1.2.0-alpha01
+
+October 15, 2026
+
+`androidx.test.espresso:espresso-device:1.2.0-alpha01` is released.
+
+**API Changes**
+
+- Update to minSdkVersion 24 and remove all related logic for SDKs \< 24
 
 ### Espresso Device 1.1.0
 
@@ -1601,7 +1653,18 @@ The following artifacts were released:
 
 - Add experimental APIs for rotating and folding emulators
 
-## JUnit Extensions 1.3.0
+## JUnit Extensions 1.4.0
+
+### ext.junit 1.4.0-alpha01
+
+October 15, 2026
+
+`androidx.test.ext:junit:1.4.0-alpha01` and `androidx.test.ext:junit-ktx:1.4.0-alpha01`
+are released.
+
+**API Changes**
+
+- Update to minSdkVersion 24 and remove all related logic for SDKs \< 24
 
 ### ext.junit 1.3.0
 
@@ -1903,7 +1966,23 @@ March 23, 2022
 
 - JUnit Gtest is a new library which includes a JUnit runner for running Gtest suites on connected devices.
 
-## Truth Extensions 1.7.0
+## Truth Extensions 1.8.0
+
+### ext.truth 1.8.0-alpha01
+
+October 15, 2026
+
+`androidx.test.ext:truth:1.8.0-alpha01` is released.
+
+**New Features**
+
+- `BundleSubject` and `PersistableBundleSubject` now share `BaseBundle` support, including additional array type assertions
+- `PersistableBundleSubject` now supports `isEqualTo` and `isNotEqualTo` for direct comparison between two `PersistableBundle`'s.
+- Added `integerArrayList` method to `BundleSubject`.
+
+**API Changes**
+
+- Update to minSdkVersion 24 and remove all related logic for SDKs \< 24
 
 ### ext.truth 1.7.0
 
@@ -2191,6 +2270,16 @@ Aug 23, 2021
 - Add BundleSubject#doubleFloat
 
 ## Monitor 1.9.0
+
+### monitor 1.9.0-alpha02
+
+October 15, 2026
+
+`androidx.test:monitor:1.9.0-alpha02` is released.
+
+**API Changes**
+
+- Update to minSdkVersion 24 and remove all related logic for SDKs \< 24
 
 ### monitor 1.9.0-alpha01
 
@@ -2588,7 +2677,21 @@ Aug 23, 2021
 - Add HardwareRendererCompat
 - Add PlatformTestStorage
 
-## Orchestrator 1.6.1
+## Orchestrator 1.7.0
+
+### orchestrator 1.7.0-alpha01
+
+October 15, 2026
+
+`androidx.test:orchestrator:1.7.0-alpha01` is released.
+
+**Bug Fixes**
+
+- Remove use of guava. Fixes https://github.com/android/android-test/issues/2422
+
+**API Changes**
+
+- Update to minSdkVersion 24 and remove all related logic for SDKs \< 24
 
 ### orchestrator 1.6.1
 
@@ -2863,7 +2966,29 @@ Aug 23, 2021
 
 - Delete obsolete OrchestrationXmlTestRunListener , in part to prevent error messages on Android 11+
 
-## Runner 1.7.0
+## Runner 1.8.0
+
+### runner 1.8.0-alpha01
+
+October 15, 2026
+
+`androidx.test:runner:1.8.0-alpha01` is released.
+
+**Bug Fixes**
+
+- Catch LinkageError when loading annotation classes (b/536117227)
+
+- Support filtering parameterized tests with arbitrary (non-numeric) parameter names by their root method name. (b/564761639)
+
+**New Features**
+
+- Make perfetto trace sections for tests more identifiable by prefixing with "test:" and using fully qualified class name. (b/204992764)
+
+- Add logs at the start and end of RunBefore and RunAfters sections to help bug understanding. (b/445754263)
+
+**API Changes**
+
+- Update to minSdkVersion 24 and remove all related logic for SDKs \< 24
 
 ### runner 1.7.0
 
@@ -3306,7 +3431,17 @@ Aug 23, 2021
 
 - Enhance error handling in exception scenarios (app crashes, etc)
 
-## Rules 1.7.0
+## Rules 1.8.0
+
+### rules 1.8.0-alpha01
+
+October 15, 2026
+
+`androidx.test:rules:1.8.0-alpha01` is released.
+
+**API Changes**
+
+- Update to minSdkVersion 24 and remove all related logic for SDKs \< 24
 
 ### rules 1.7.0
 
@@ -3595,7 +3730,21 @@ Aug 23, 2021
 
 No significant changes
 
-## Services 1.6.0
+## Services 1.7.0
+
+### services 1.7.0-alpha01
+
+October 15, 2026
+
+`androidx.test.services:test-services:1.7.0-alpha01` `androidx.test.services:storage:1.7.0-alpha01` are released.
+
+**Bug Fixes**
+
+- Make ShellExecutor more resilient to low memory conditions by binding to androidx.test.services.SpeakEasyService
+
+**API Changes**
+
+- Update to minSdkVersion 24 and remove all related logic for SDKs \< 24
 
 ### services 1.6.0
 

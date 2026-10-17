@@ -1,14 +1,8 @@
 ---
-title: Build an Android app with the LiteRT CompiledModel API  |  Android Developers
+title: https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/skill
 url: https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/skill
-source: html-scrape
+source: md.txt
 ---
-
-# Build an Android app with the LiteRT CompiledModel API Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 This skill provides step-by-step guidance for building an Android app that runs
 a `.tflite` model with the [LiteRT CompiledModel API](https://ai.google.dev/edge/litert/android)
@@ -19,38 +13,17 @@ skill.
 
 ## Prerequisites
 
-* A Kotlin Android project (`minSdk` must be `24` or higher, as declared by the
-  LiteRT 2.3.0 AARs).
-* The dependencies in the app-level `build.gradle.kts` file from Google Maven:
-  `implementation("com.google.ai.edge.litert:litert:2.3.0")` and
-  `implementation("com.google.ai.edge.litert:litert-gpu:2.3.0")`. From 2.3.0 the
-  GPU accelerator is the second artifact: with `litert` alone the app builds,
-  and `CompiledModel.create` with `Accelerator.GPU` throws `LiteRtException`
-  because the APK has no GPU accelerator library (Logcat logs `GPU accelerator
-  could not be loaded and registered`). No manifest entry is needed:
-  `litert-api`, which `litert` depends on, declares the OpenCL driver libraries
-  (`uses-native-library`) in its own manifest.
-* A verified `.tflite` model and its input contract (input dimensions, mean,
-  standard deviation, channel order, and tensor layout). For models with a
-  verified recipe, inspect the [LiteRT model recipes](https://github.com/google-ai-edge/litert-samples/blob/main/models/README.md).
+- A Kotlin Android project (`minSdk` must be `24` or higher, as declared by the LiteRT 2.3.0 AARs).
+- The dependencies in the app-level `build.gradle.kts` file from Google Maven: `implementation("com.google.ai.edge.litert:litert:2.3.0")` and `implementation("com.google.ai.edge.litert:litert-gpu:2.3.0")`. From 2.3.0 the GPU accelerator is the second artifact: with `litert` alone the app builds, and `CompiledModel.create` with `Accelerator.GPU` throws `LiteRtException` because the APK has no GPU accelerator library (Logcat logs `GPU accelerator
+  could not be loaded and registered`). No manifest entry is needed: `litert-api`, which `litert` depends on, declares the OpenCL driver libraries (`uses-native-library`) in its own manifest.
+- A verified `.tflite` model and its input contract (input dimensions, mean, standard deviation, channel order, and tensor layout). For models with a verified recipe, inspect the [LiteRT model recipes](https://github.com/google-ai-edge/litert-samples/blob/main/models/README.md).
 
 ## Critical mandates
 
-* **Single-thread confinement**: One single-thread executor or confined
-  coroutine dispatcher must own the `CompiledModel` instance. Creation,
-  inference, and closing must execute on that same background thread, never on
-  the main thread.
-* **Buffer lifecycle**: Allocate `TensorBuffer` instances once using
-  `createInputBuffers` and `createOutputBuffers`, reuse them across inferences,
-  and close all input and output buffers before closing the `CompiledModel`.
-* **Synchronous timing**: `model.run` enqueues work on the GPU and returns
-  before GPU execution completes. Always measure `model.run` and output buffer
-  readback (`outputs[0].readFloat`) together.
-* **Warm-up and exception safety**: Execute one warm-up inference inside the
-  helper constructor's `init` block so first-run GPU shader compilation doesn't
-  block the first user interaction, and call `close` in `catch` before
-  rethrowing so neither `CompiledModel` nor `TensorBuffer` handles leak if
-  buffer allocation or warm-up throws.
+- **Single-thread confinement** : One single-thread executor or confined coroutine dispatcher must own the `CompiledModel` instance. Creation, inference, and closing must execute on that same background thread, never on the main thread.
+- **Buffer lifecycle** : Allocate `TensorBuffer` instances once using `createInputBuffers` and `createOutputBuffers`, reuse them across inferences, and close all input and output buffers before closing the `CompiledModel`.
+- **Synchronous timing** : `model.run` enqueues work on the GPU and returns before GPU execution completes. Always measure `model.run` and output buffer readback (`outputs[0].readFloat`) together.
+- **Warm-up and exception safety** : Execute one warm-up inference inside the helper constructor's `init` block so first-run GPU shader compilation doesn't block the first user interaction, and call `close` in `catch` before rethrowing so neither `CompiledModel` nor `TensorBuffer` handles leak if buffer allocation or warm-up throws.
 
 ## Detailed steps
 
@@ -61,18 +34,16 @@ Search the project for `libs.versions.toml`, `gradle.properties`,
 editing build files. Configure `minSdk` and add the LiteRT runtime and GPU
 accelerator dependencies in `app/build.gradle.kts`:
 
-```
-android {
-    defaultConfig {
-        minSdk = 24
+    android {
+        defaultConfig {
+            minSdk = 24
+        }
     }
-}
 
-dependencies {
-    implementation("com.google.ai.edge.litert:litert:2.3.0")
-    implementation("com.google.ai.edge.litert:litert-gpu:2.3.0")
-}
-```
+    dependencies {
+        implementation("com.google.ai.edge.litert:litert:2.3.0")
+        implementation("com.google.ai.edge.litert:litert-gpu:2.3.0")
+    }
 
 Place bundled models at `app/src/main/assets/model.tflite` (AGP stores `.tflite`
 files uncompressed by default). Deliver a model that exceeds the base APK size
@@ -103,49 +74,47 @@ build then fails at `compileDebugKotlin`.
 Isolate `CompiledModel` and its `TensorBuffer` instances in a dedicated
 `AutoCloseable` helper class free of Android UI types:
 
-```
-import android.content.Context
-import com.google.ai.edge.litert.Accelerator
-import com.google.ai.edge.litert.CompiledModel
-import com.google.ai.edge.litert.Environment
-import com.google.ai.edge.litert.TensorBuffer
+    import android.content.Context
+    import com.google.ai.edge.litert.Accelerator
+    import com.google.ai.edge.litert.CompiledModel
+    import com.google.ai.edge.litert.Environment
+    import com.google.ai.edge.litert.TensorBuffer
 
-const val INPUT_SIZE = 224 * 224 * 3
-private val environment by lazy { Environment.create() }
+    const val INPUT_SIZE = 224 * 224 * 3
+    private val environment by lazy { Environment.create() }
 
-class Classifier(context: Context, accelerator: Accelerator) : AutoCloseable {
-    private val model = CompiledModel.create(
-        context.assets,
-        "model.tflite",
-        CompiledModel.Options(accelerator),
-        environment
-    )
-    private val inputs = mutableListOf<TensorBuffer>()
-    private val outputs = mutableListOf<TensorBuffer>()
+    class Classifier(context: Context, accelerator: Accelerator) : AutoCloseable {
+        private val model = CompiledModel.create(
+            context.assets,
+            "model.tflite",
+            CompiledModel.Options(accelerator),
+            environment
+        )
+        private val inputs = mutableListOf<TensorBuffer>()
+        private val outputs = mutableListOf<TensorBuffer>()
 
-    init {
-        try {
-            inputs += model.createInputBuffers()
-            outputs += model.createOutputBuffers()
-            infer(FloatArray(INPUT_SIZE))
-        } catch (e: Exception) {
-            close()
-            throw e
+        init {
+            try {
+                inputs += model.createInputBuffers()
+                outputs += model.createOutputBuffers()
+                infer(FloatArray(INPUT_SIZE))
+            } catch (e: Exception) {
+                close()
+                throw e
+            }
+        }
+
+        fun infer(input: FloatArray): FloatArray {
+            inputs[0].writeFloat(input)
+            model.run(inputs, outputs)
+            return outputs[0].readFloat()
+        }
+
+        override fun close() {
+            (inputs + outputs).forEach { it.close() }
+            model.close()
         }
     }
-
-    fun infer(input: FloatArray): FloatArray {
-        inputs[0].writeFloat(input)
-        model.run(inputs, outputs)
-        return outputs[0].readFloat()
-    }
-
-    override fun close() {
-        (inputs + outputs).forEach { it.close() }
-        model.close()
-    }
-}
-```
 
 `Accelerator.CPU` requires nothing from the device. `Accelerator.GPU` compiles
 the graph for the GPU; when the GPU can't execute the model, the constructor
@@ -171,85 +140,83 @@ Drive the helper from a single-thread executor inside an `AndroidViewModel`,
 fall back to `Accelerator.CPU` when GPU compilation fails, and expose immutable
 state to the Compose UI:
 
-```
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import com.google.ai.edge.litert.Accelerator
-import com.google.ai.edge.litert.LiteRtException
-import java.util.concurrent.Executors
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.asCoroutineDispatcher
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
+    import android.app.Application
+    import androidx.lifecycle.AndroidViewModel
+    import com.google.ai.edge.litert.Accelerator
+    import com.google.ai.edge.litert.LiteRtException
+    import java.util.concurrent.Executors
+    import kotlinx.coroutines.CoroutineScope
+    import kotlinx.coroutines.SupervisorJob
+    import kotlinx.coroutines.asCoroutineDispatcher
+    import kotlinx.coroutines.cancel
+    import kotlinx.coroutines.flow.MutableStateFlow
+    import kotlinx.coroutines.flow.StateFlow
+    import kotlinx.coroutines.flow.asStateFlow
+    import kotlinx.coroutines.flow.update
+    import kotlinx.coroutines.launch
 
-data class UiState(
-    val ready: Boolean = false,
-    val accelerator: Accelerator = Accelerator.CPU,
-    val result: List<Float>? = null,
-    val error: String? = null
-)
-
-class MainViewModel(app: Application) : AndroidViewModel(app) {
-    private val executor = Executors.newSingleThreadExecutor()
-    private val scope = CoroutineScope(
-        SupervisorJob() + executor.asCoroutineDispatcher()
+    data class UiState(
+        val ready: Boolean = false,
+        val accelerator: Accelerator = Accelerator.CPU,
+        val result: List<Float>? = null,
+        val error: String? = null
     )
-    private var classifier: Classifier? = null
-    private val _uiState = MutableStateFlow(UiState())
-    val uiState: StateFlow<UiState> = _uiState.asStateFlow()
 
-    fun load(preferred: Accelerator = Accelerator.GPU) {
-        scope.launch {
-            if (classifier != null) return@launch
-            val appContext = getApplication<Application>()
-            val selected = try {
-                classifier = Classifier(appContext, preferred)
-                preferred
-            } catch (e: LiteRtException) {
-                if (preferred != Accelerator.CPU) {
-                    try {
-                        classifier = Classifier(appContext, Accelerator.CPU)
-                        Accelerator.CPU
-                    } catch (cpuError: LiteRtException) {
-                        _uiState.value = UiState(error = cpuError.message)
+    class MainViewModel(app: Application) : AndroidViewModel(app) {
+        private val executor = Executors.newSingleThreadExecutor()
+        private val scope = CoroutineScope(
+            SupervisorJob() + executor.asCoroutineDispatcher()
+        )
+        private var classifier: Classifier? = null
+        private val _uiState = MutableStateFlow(UiState())
+        val uiState: StateFlow<UiState> = _uiState.asStateFlow()
+
+        fun load(preferred: Accelerator = Accelerator.GPU) {
+            scope.launch {
+                if (classifier != null) return@launch
+                val appContext = getApplication<Application>()
+                val selected = try {
+                    classifier = Classifier(appContext, preferred)
+                    preferred
+                } catch (e: LiteRtException) {
+                    if (preferred != Accelerator.CPU) {
+                        try {
+                            classifier = Classifier(appContext, Accelerator.CPU)
+                            Accelerator.CPU
+                        } catch (cpuError: LiteRtException) {
+                            _uiState.value = UiState(error = cpuError.message)
+                            return@launch
+                        }
+                    } else {
+                        _uiState.value = UiState(error = e.message)
                         return@launch
                     }
-                } else {
-                    _uiState.value = UiState(error = e.message)
-                    return@launch
                 }
+                _uiState.value = UiState(ready = true, accelerator = selected)
             }
-            _uiState.value = UiState(ready = true, accelerator = selected)
         }
-    }
 
-    fun classify(input: FloatArray) {
-        scope.launch {
-            try {
-                classifier?.infer(input)?.let { result ->
-                    _uiState.update {
-                        it.copy(result = result.toList(), error = null)
+        fun classify(input: FloatArray) {
+            scope.launch {
+                try {
+                    classifier?.infer(input)?.let { result ->
+                        _uiState.update {
+                            it.copy(result = result.toList(), error = null)
+                        }
                     }
+                } catch (e: LiteRtException) {
+                    _uiState.update { it.copy(error = e.message) }
                 }
-            } catch (e: LiteRtException) {
-                _uiState.update { it.copy(error = e.message) }
             }
         }
-    }
 
-    override fun onCleared() {
-        scope.launch { classifier?.close() }.invokeOnCompletion {
-            scope.cancel()
+        override fun onCleared() {
+            scope.launch { classifier?.close() }.invokeOnCompletion {
+                scope.cancel()
+            }
+            executor.shutdown()
         }
-        executor.shutdown()
     }
-}
-```
 
 One single-thread executor owns the model: creation, inference, and closing
 execute only on it, never on the main thread. The `ViewModel` keeps its own
@@ -267,39 +234,37 @@ or CameraX and runs `preprocess` in the click handler (a few milliseconds for
 `androidx.lifecycle:lifecycle-viewmodel-compose` and
 `androidx.lifecycle:lifecycle-runtime-compose` (2.10.0):
 
-```
-import android.graphics.Bitmap
-import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.google.ai.edge.litert.Accelerator
+    import android.graphics.Bitmap
+    import androidx.compose.foundation.layout.Column
+    import androidx.compose.material3.Button
+    import androidx.compose.material3.Text
+    import androidx.compose.runtime.Composable
+    import androidx.compose.runtime.LaunchedEffect
+    import androidx.compose.runtime.getValue
+    import androidx.lifecycle.compose.collectAsStateWithLifecycle
+    import androidx.lifecycle.viewmodel.compose.viewModel
+    import com.google.ai.edge.litert.Accelerator
 
-@Composable
-fun MainScreen(
-    bitmap: Bitmap,
-    viewModel: MainViewModel = viewModel()
-) {
-    val state by viewModel.uiState.collectAsStateWithLifecycle()
-    LaunchedEffect(Unit) { viewModel.load(Accelerator.GPU) }
-    Column {
-        state.error?.let { Text(it) }
-        Button(
-            onClick = { viewModel.classify(preprocess(bitmap)) },
-            enabled = state.ready
-        ) {
-            Text("Run (${state.accelerator})")
-        }
-        state.result?.let { scores ->
-            Text("Top class: ${scores.indices.maxBy { i -> scores[i] }}")
+    @Composable
+    fun MainScreen(
+        bitmap: Bitmap,
+        viewModel: MainViewModel = viewModel()
+    ) {
+        val state by viewModel.uiState.collectAsStateWithLifecycle()
+        LaunchedEffect(Unit) { viewModel.load(Accelerator.GPU) }
+        Column {
+            state.error?.let { Text(it) }
+            Button(
+                onClick = { viewModel.classify(preprocess(bitmap)) },
+                enabled = state.ready
+            ) {
+                Text("Run (${state.accelerator})")
+            }
+            state.result?.let { scores ->
+                Text("Top class: ${scores.indices.maxBy { i -> scores[i] }}")
+            }
         }
     }
-}
-```
 
 ### Step 4: Preprocess inputs to match the model contract
 
@@ -309,31 +274,29 @@ channel order, and memory layout (this example uses NHWC, RGB, scaled to
 `-1.0..1.0`). Mismatched `mean` or `std` values produce corrupted predictions
 that look like a broken model:
 
-```
-import android.graphics.Bitmap
+    import android.graphics.Bitmap
 
-fun preprocess(
-    bitmap: Bitmap,
-    size: Int = 224,
-    mean: Float = 127.5f,
-    std: Float = 127.5f
-): FloatArray {
-    val scaled = checkNotNull(
-        Bitmap.createScaledBitmap(bitmap, size, size, true)
-            .copy(Bitmap.Config.ARGB_8888, false)
-    )
-    val pixels = IntArray(size * size).also {
-        scaled.getPixels(it, 0, size, 0, 0, size, size)
+    fun preprocess(
+        bitmap: Bitmap,
+        size: Int = 224,
+        mean: Float = 127.5f,
+        std: Float = 127.5f
+    ): FloatArray {
+        val scaled = checkNotNull(
+            Bitmap.createScaledBitmap(bitmap, size, size, true)
+                .copy(Bitmap.Config.ARGB_8888, false)
+        )
+        val pixels = IntArray(size * size).also {
+            scaled.getPixels(it, 0, size, 0, 0, size, size)
+        }
+        val out = FloatArray(size * size * 3)
+        pixels.forEachIndexed { i, p ->
+            out[i * 3] = ((p shr 16 and 0xFF) - mean) / std
+            out[i * 3 + 1] = ((p shr 8 and 0xFF) - mean) / std
+            out[i * 3 + 2] = ((p and 0xFF) - mean) / std
+        }
+        return out
     }
-    val out = FloatArray(size * size * 3)
-    pixels.forEachIndexed { i, p ->
-        out[i * 3] = ((p shr 16 and 0xFF) - mean) / std
-        out[i * 3 + 1] = ((p shr 8 and 0xFF) - mean) / std
-        out[i * 3 + 2] = ((p and 0xFF) - mean) / std
-    }
-    return out
-}
-```
 
 The scaled bitmap is copied to `Bitmap.Config.ARGB_8888` because `ImageDecoder`
 returns `Bitmap.Config.HARDWARE` bitmaps by default on Android 9 and higher
@@ -348,65 +311,32 @@ replaces `preprocess` with its own input encoding and keeps the inference class.
 Run the app on a physical device that runs Android from Android Studio. Compare
 the app's output with the model's reference output for one fixed input on
 `Accelerator.CPU` first and then on `Accelerator.GPU`; when verifying model
-outputs on a physical device, you must follow [device verification](/agents/skills/device-ai/litert/litert-runtime/references/verify).
+outputs on a physical device, you must follow [device verification](https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/references/verify).
 
 ## Migrating from legacy TFLite Interpreter
 
 When upgrading an existing project from `org.tensorflow.lite.Interpreter`,
 replace legacy constructs with their `CompiledModel` equivalents:
 
-* **Gradle dependencies**: Remove all `org.tensorflow:tensorflow-lite*`
-  artifacts (`org.tensorflow:tensorflow-lite`,
-  `org.tensorflow:tensorflow-lite-gpu`,
-  `org.tensorflow:tensorflow-lite-support`, and
-  `org.tensorflow:tensorflow-lite-metadata`). Replace them with
-  `com.google.ai.edge.litert:litert:2.3.0` and
-  `com.google.ai.edge.litert:litert-gpu:2.3.0`. If you still need Support or
-  Metadata utilities (such as `ImageProcessor`, `TensorImage`, or
-  `MetadataExtractor`), use `com.google.ai.edge.litert:litert-support:2.3.0`
-  (or `litert-support-api:2.3.0` alongside `litert:2.3.0`) and
-  `com.google.ai.edge.litert:litert-metadata:2.3.0`, and rename package imports
-  from `org.tensorflow.lite.support.*` to `com.google.ai.edge.litert.support.*`
-  per the [LiteRT Support migration guide](https://github.com/google-ai-edge/LiteRT/blob/main/litert/support_lib/MIGRATION_GUIDE.md).
-* **Model loading**: Replace `FileUtil.loadMappedFile` and `Interpreter` with
-  `CompiledModel.create(context.assets, name, options, environment)`.
-* **GPU delegation**: Replace `GpuDelegate` on `Interpreter.Options` with
-  `CompiledModel.Options(Accelerator.GPU)` and the
-  `com.google.ai.edge.litert:litert-gpu:2.3.0` dependency.
-* **Execution**: Replace `interpreter.run` on `ByteBuffer` inputs with
-  `inputs[0].writeFloat(input)`, `model.run(inputs, outputs)`, and
-  `outputs[0].readFloat`.
-* **Label loading**: Replace `FileUtil.loadLabels` with `bufferedReader` and
-  `readLines` on `context.assets.open(name)` (or
-  `com.google.ai.edge.litert.support.common.FileUtil.loadLabels` if using
-  `litert-support:2.3.0`).
+- **Gradle dependencies** : Remove all `org.tensorflow:tensorflow-lite*` artifacts (`org.tensorflow:tensorflow-lite`, `org.tensorflow:tensorflow-lite-gpu`, `org.tensorflow:tensorflow-lite-support`, and `org.tensorflow:tensorflow-lite-metadata`). Replace them with `com.google.ai.edge.litert:litert:2.3.0` and `com.google.ai.edge.litert:litert-gpu:2.3.0`. If you still need Support or Metadata utilities (such as `ImageProcessor`, `TensorImage`, or `MetadataExtractor`), use `com.google.ai.edge.litert:litert-support:2.3.0` (or `litert-support-api:2.3.0` alongside `litert:2.3.0`) and `com.google.ai.edge.litert:litert-metadata:2.3.0`, and rename package imports from `org.tensorflow.lite.support.*` to `com.google.ai.edge.litert.support.*` per the [LiteRT Support migration guide](https://github.com/google-ai-edge/LiteRT/blob/main/litert/support_lib/MIGRATION_GUIDE.md).
+- **Model loading** : Replace `FileUtil.loadMappedFile` and `Interpreter` with `CompiledModel.create(context.assets, name, options, environment)`.
+- **GPU delegation** : Replace `GpuDelegate` on `Interpreter.Options` with `CompiledModel.Options(Accelerator.GPU)` and the `com.google.ai.edge.litert:litert-gpu:2.3.0` dependency.
+- **Execution** : Replace `interpreter.run` on `ByteBuffer` inputs with `inputs[0].writeFloat(input)`, `model.run(inputs, outputs)`, and `outputs[0].readFloat`.
+- **Label loading** : Replace `FileUtil.loadLabels` with `bufferedReader` and `readLines` on `context.assets.open(name)` (or `com.google.ai.edge.litert.support.common.FileUtil.loadLabels` if using `litert-support:2.3.0`).
 
 ## Antipatterns
 
-* **Never** create, run, or close `CompiledModel` on the Android main thread.
-* **Never** allocate new `TensorBuffer` instances on every inference call;
-  failing to close per-frame `TensorBuffer` objects leaks C++ heap memory.
-* **Never** benchmark `model.run` without including output buffer readback
-  (`outputs[0].readFloat`).
-* **Never** mix `org.tensorflow:tensorflow-lite*` artifacts (such as
-  `org.tensorflow:tensorflow-lite-support`) with `com.google.ai.edge.litert:*`
-  artifacts; both ship the `org.tensorflow.lite.*` classes and cause duplicate
-  class build failures.
-* **Never** use `Accelerator.GPU` on LiteRT 2.3.0 without adding the
-  `com.google.ai.edge.litert:litert-gpu:2.3.0` dependency alongside
-  `com.google.ai.edge.litert:litert:2.3.0`.
+- **Never** create, run, or close `CompiledModel` on the Android main thread.
+- **Never** allocate new `TensorBuffer` instances on every inference call; failing to close per-frame `TensorBuffer` objects leaks C++ heap memory.
+- **Never** benchmark `model.run` without including output buffer readback (`outputs[0].readFloat`).
+- **Never** mix `org.tensorflow:tensorflow-lite*` artifacts (such as `org.tensorflow:tensorflow-lite-support`) with `com.google.ai.edge.litert:*` artifacts; both ship the `org.tensorflow.lite.*` classes and cause duplicate class build failures.
+- **Never** use `Accelerator.GPU` on LiteRT 2.3.0 without adding the `com.google.ai.edge.litert:litert-gpu:2.3.0` dependency alongside `com.google.ai.edge.litert:litert:2.3.0`.
 
 ## Checklist
 
-* [ ] Is `minSdk` set to `24` or higher and are both
-  `com.google.ai.edge.litert:litert:2.3.0` and
-  `com.google.ai.edge.litert:litert-gpu:2.3.0` added in `app/build.gradle.kts`?
-* [ ] Are all legacy `org.tensorflow:tensorflow-lite*` dependencies and
-  `org.tensorflow.lite.*` imports removed?
-* [ ] Do `CompiledModel.create`, `model.run`, and `close` all execute on the
-  same single-thread background dispatcher?
-* [ ] Are `TensorBuffer` instances allocated once, reused across calls, and
-  closed before `model.close`, including when `init` or warm-up throws?
-* [ ] Does `load` execute one warm-up inference and fall back to
-  `Accelerator.CPU` if `Accelerator.GPU` throws `LiteRtException`?
-* [ ] Does the project compile with `./gradlew assembleDebug`?
+- \[ \] Is `minSdk` set to `24` or higher and are both `com.google.ai.edge.litert:litert:2.3.0` and `com.google.ai.edge.litert:litert-gpu:2.3.0` added in `app/build.gradle.kts`?
+- \[ \] Are all legacy `org.tensorflow:tensorflow-lite*` dependencies and `org.tensorflow.lite.*` imports removed?
+- \[ \] Do `CompiledModel.create`, `model.run`, and `close` all execute on the same single-thread background dispatcher?
+- \[ \] Are `TensorBuffer` instances allocated once, reused across calls, and closed before `model.close`, including when `init` or warm-up throws?
+- \[ \] Does `load` execute one warm-up inference and fall back to `Accelerator.CPU` if `Accelerator.GPU` throws `LiteRtException`?
+- \[ \] Does the project compile with `./gradlew assembleDebug`?

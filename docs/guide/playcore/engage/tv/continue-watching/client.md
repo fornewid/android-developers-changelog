@@ -93,12 +93,12 @@ This example show how to create a `MovieEntity` with all the required fields:
     val movieEntity = MovieEntity.Builder()
        .setWatchNextType(WatchNextType.TYPE_CONTINUE)
        .setName("Movie name")
-       .addPlatformSpecificPlaybackUri(platformSpecificPlaybackUris)
+       .addPlatformSpecificPlaybackUris(platformSpecificPlaybackUris)
        .addPosterImages(images)
        // Timestamp in millis for sample last engagement time 12/1/2023 00:00:00
        .setLastEngagementTimeMillis(1701388800000)
        // Suppose the duration is 2 hours, it is 72000000 in milliseconds
-       .setDurationMills(72000000)
+       .setDurationMillis(72000000)
        // Suppose last playback offset is 1 hour, 36000000 in milliseconds
        .setLastPlayBackPositionTimeMillis(36000000)
        .setCallToActionText("Resume")
@@ -138,11 +138,11 @@ fields:
     val tvEpisodeEntity = TvEpisodeEntity.Builder()
         .setWatchNextType(WatchNextType.TYPE_CONTINUE)
         .setName("Episode name")
-        .addPlatformSpecificPlaybackUri(platformSpecificPlaybackUris)
+        .addPlatformSpecificPlaybackUris(platformSpecificPlaybackUris)
         .addPosterImages(images)
         // Timestamp in millis for sample last engagement time 12/1/2023 00:00:00
         .setLastEngagementTimeMillis(1701388800000)
-        .setDurationMills(72000000) // 2 hours in milliseconds
+        .setDurationMillis(72000000) // 2 hours in milliseconds
         // 45 minutes and 15 seconds in milliseconds is 2715000
         .setLastPlayBackPositionTimeMillis(2715000)
         .setEpisodeNumber("2")
@@ -181,16 +181,15 @@ Here's an example of creating a `VideoClipEntity` with all the required fields.
 `VideoClipEntity` represents a user generated clip like a Youtube video.
 
     val videoClipEntity = VideoClipEntity.Builder()
-        .setPlaybackUri(Uri.parse("https://www.example.com/uri_for_current_platform"))
+        .setPlayBackUri(Uri.parse("https://www.example.com/uri_for_current_platform"))
         .setWatchNextType(WatchNextType.TYPE_CONTINUE)
         .setName("Video clip name")
-        .addPlatformSpecificPlaybackUri(platformSpecificPlaybackUris)
+        .addPlatformSpecificPlaybackUris(platformSpecificPlaybackUris)
         .addPosterImages(images)
         // Timestamp in millis for sample last engagement time 12/1/2023 00:00:00
         .setLastEngagementTimeMillis(1701388800000)
-        .setDurationMills(600000) //10 minutes in milliseconds
+        .setDurationMillis(600000) //10 minutes in milliseconds
         .setLastPlayBackPositionTimeMillis(300000) //5 minutes in milliseconds
-        .addContentRating(contentRating)
         .setCallToActionText("Resume")
         .addTag("Vlog")
         .build()
@@ -204,14 +203,13 @@ Here's an example of creating an `LiveStreamingVideoEntity` with all the
 required fields.
 
     val liveStreamingVideoEntity = LiveStreamingVideoEntity.Builder()
-        .setPlaybackUri(Uri.parse("https://www.example.com/uri_for_current_platform"))
+        .setPlayBackUri(Uri.parse("https://www.example.com/uri_for_current_platform"))
         .setWatchNextType(WatchNextType.TYPE_CONTINUE)
         .setName("Live streaming name")
-        .addPlatformSpecificPlaybackUri(platformSpecificPlaybackUris)
+        .addPlatformSpecificPlaybackUris(platformSpecificPlaybackUris)
         .addPosterImages(images)
         // Timestamp in millis for sample last engagement time 12/1/2023 00:00:00
         .setLastEngagementTimeMillis(1701388800000)
-        .setDurationMills(72000000) //2 hours in milliseconds
         .setLastPlayBackPositionTimeMillis(36000000) //1 hour in milliseconds
         .addContentRating(contentRating)
         .setCallToActionText("Resume")
@@ -227,7 +225,7 @@ reference](https://developer.android.com/reference/com/google/android/engage/vid
 ### Provide Continuation cluster data
 
 `AppEngagePublishClient` is responsible for publishing the Continuation cluster.
-You use the `publishContinuationCluste` method to publish a
+You use the `publishContinuationCluster` method to publish a
 `ContinuationCluster` object.
 
 Make sure to initialize the client and check for service availability as
@@ -329,8 +327,8 @@ The following code removes continue watching data on logout.
     // google TV device until 60 days later.
     client.deleteClusters(
         DeleteClustersRequest.Builder()
-            .setAccountProfile(AccountProfile())
-            .setReason(DeleteReason.DELETE_REASON_USER_LOG_OUT)
+            .setAccountProfile(accountProfile)
+            .setDeleteReason(DeleteReason.DELETE_REASON_USER_LOG_OUT)
             .setSyncAcrossDevices(true)
             .build()
     )

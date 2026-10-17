@@ -75,3 +75,7 @@ are needed.
 - Even after completing Sidekick SDK integration, it is necessary to enable the setting in the Play Console. Kindly ensure that **Add Play Games Sidekick to app bundles you upload** is selected. The console will verify the bundle's SDK status without duplicating it.
 
 [![The Add Play Games Sidekick to app bundles you upload checkbox in the Play Console.](https://developer.android.com/static/images/games/pgs/closed_testing.png)](https://developer.android.com/static/images/games/pgs/closed_testing.png) The **Add Play Games Sidekick to app bundles you upload** checkbox (click to enlarge).
+
+- If you use the Sidekick SDK to enable Sidekick, you might see a "Play Games Sidekick is off" warning when you upload your bundle. This is expected because the Play Console doesn't inject any code into your bundle.
+
+[![The Play Games Sidekick is off warning in the Play Console.](https://developer.android.com/static/images/games/pgs/sidekick_warning.png)](https://developer.android.com/static/images/games/pgs/sidekick_warning.png) The **Play Games Sidekick is off warning** checkbox (click to enlarge).

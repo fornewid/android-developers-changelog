@@ -34,8 +34,8 @@ and follow the onscreen guidance:
   - **ARM64 GSI with GMS** : <https://flash.android.com/preview/cinnamonbun-qpr3-beta1-gsi-gms>
   - **ARM64 GSI** : <https://flash.android.com/preview/cinnamonbun-qpr3-beta1-gsi>
 - Android 17 QPR2 (Beta)
-  - **ARM64 GSI with GMS** : <https://flash.android.com/preview/cinnamonbun-qpr2-beta7-gsi-gms>
-  - **ARM64 GSI** : <https://flash.android.com/preview/cinnamonbun-qpr2-beta7-gsi>
+  - **ARM64 GSI with GMS** : <https://flash.android.com/preview/cinnamonbun-qpr2-beta7.1-gsi-gms>
+  - **ARM64 GSI** : <https://flash.android.com/preview/cinnamonbun-qpr2-beta7.1-gsi>
 - Android 17 QPR1 (stable release)
   - **ARM64 GSI with GMS** : <https://flash.android.com/preview/cinnamonbun-qpr1-gsi-gms>
   - **ARM64 GSI** : <https://flash.android.com/preview/cinnamonbun-qpr1-gsi>
@@ -704,17 +704,17 @@ been validated on the following Pixel devices:
 - Pixel 11 Pro XL
 - Pixel 11 Pro Fold
 
-    Date: October 8, 2026
-    Build: CP41.260831.016
+    Date: October 16, 2026
+    Build: CP41.260831.019
     Security patch level: October 2026
     Google Play Services: 26.32.37
 
 | Type | Download Link and SHA-256 Checksum |
 |---|---|
-| ARM64+GMS | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="arm64-gms" data-modal-dialog-id="a17_qpr2_gms_arm64_GSI_zip">gsi_gms_arm64-exp-CP41.260831.016-16521119-f818e37c.zip</button> `f818e37cb69939d8f04a663783f5f6549bd4226cd580ae012be2c366114c4241` |
-| ARM64 | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="arm64" data-modal-dialog-id="a17_qpr2_aosp_arm64_GSI_zip">aosp_arm64-exp-CP41.260831.016-16521119-54c40a66.zip</button> `54c40a667c4a6b87f6dc81a704df17e5567a774c8503ade5445b45a6416ae9bc` |
+| ARM64+GMS | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="arm64-gms" data-modal-dialog-id="a17_qpr2_gms_arm64_GSI_zip">gsi_gms_arm64-exp-CP41.260831.019-16596456-7572076a.zip</button> `7572076ac1d7adf024a445a9f900ccfe16eae9801547050685116a1fb93deea5` |
+| ARM64 | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="arm64" data-modal-dialog-id="a17_qpr2_aosp_arm64_GSI_zip">aosp_arm64-exp-CP41.260831.019-16596456-02bcce16.zip</button> `02bcce16ce830b979ae47ef1254972c81f6db800b864fb76f33597d14e41e915` |
 | x86_64+GMS | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="x86_64-gms" data-modal-dialog-id="a17_qpr2_gms_x86_64_GSI_zip">gsi_gms_x86_64-exp-CP41.260831.016-16521119-2be793be.zip</button> `2be793be4cd6bdb07337d53ff456f166728245d4a05c1780618f780da3a7e8a3` |
-| x86_64 | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="x86_64" data-modal-dialog-id="a17_qpr2_aosp_x86_64_GSI_zip">aosp_x86_64-exp-CP41.260831.016-16521119-bb8e7b37.zip</button> `bb8e7b377babcca2f909653ba41e27945aeae674997285edccae7e7b59b4b871` |
+| x86_64 | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="x86_64" data-modal-dialog-id="a17_qpr2_aosp_x86_64_GSI_zip">aosp_x86_64-exp-CP41.260831.019-16596456-b1d4a666.zip</button> `b1d4a666c96a12dc36ce0853fb636e0f22300d303385ea95c4c38e356f102811` |
 
 
 ### Download Android 17 GSI Release
@@ -850,9 +850,9 @@ This is the Early Access Google Mobile Services and Android 17 GSI License Agree
 
 10.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.  
 
-I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/gsi_gms_arm64-exp-CP41.260831.016-16521119-f818e37c.zip)
+I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/gsi_gms_arm64-exp-CP41.260831.019-16596456-7572076a.zip)
 
-*gsi_gms_arm64-exp-CP41.260831.016-16521119-f818e37c.zip*
+*gsi_gms_arm64-exp-CP41.260831.019-16596456-7572076a.zip*
 
 ### Download Android 17 GSI Release
 
@@ -1124,9 +1124,9 @@ This is the Early Access Google Mobile Services and Android 17 GSI License Agree
 
 10.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.  
 
-I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/aosp_arm64-exp-CP41.260831.016-16521119-54c40a66.zip)
+I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/aosp_arm64-exp-CP41.260831.019-16596456-02bcce16.zip)
 
-*aosp_arm64-exp-CP41.260831.016-16521119-54c40a66.zip*
+*aosp_arm64-exp-CP41.260831.019-16596456-02bcce16.zip*
 
 ### Download Android 17 GSI Release
 
@@ -1261,9 +1261,9 @@ This is the Early Access Google Mobile Services and Android 17 GSI License Agree
 
 10.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.  
 
-I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/aosp_x86_64-exp-CP41.260831.016-16521119-bb8e7b37.zip)
+I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/aosp_x86_64-exp-CP41.260831.019-16596456-b1d4a666.zip)
 
-*aosp_x86_64-exp-CP41.260831.016-16521119-bb8e7b37.zip*
+*aosp_x86_64-exp-CP41.260831.019-16596456-b1d4a666.zip*
 
 ## Android 17 QPR1 GSIs
 

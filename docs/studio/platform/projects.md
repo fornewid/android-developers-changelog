@@ -184,10 +184,10 @@ symlinks.
 ## Cuttlefish virtual device management and multi-screen mirroring
 
 ASfP includes a built-in Cuttlefish plugin for platform, Android Automotive OS
-(AAOS), and Software-Defined Vehicle (SDV) developers working with locally built
-Cuttlefish virtual devices:
+(AAOS), and [Software-Defined Vehicle (SDV)](https://source.android.com/docs/automotive/sdv/getting-started/ide-setup) developers working with
+locally built Cuttlefish virtual devices:
 
 - **Multidevice setup in Device Manager** : Create and manage multidevice Cuttlefish virtual device setups in **Device Manager** using your local AOSP checkout (`$ANDROID_BUILD_TOP` and `$ANDROID_PRODUCT_OUT`).
-- **Multi-screen display mirroring in the Cuttlefish tool window** : Open **View \> Tool Windows \> Cuttlefish** for built-in Cuttlefish multi-screen display mirroring so you can view and interact with multiple automotive displays at once for AAOS and SDV workflows.
+- **Multi-screen display mirroring in the Cuttlefish tool window** : Open **View \> Tool Windows \> Cuttlefish** for built-in Cuttlefish multi-screen display mirroring so you can view and interact with multiple automotive displays at once for [AAOS and SDV workflows](https://source.android.com/docs/automotive/sdv/getting-started/ide-setup).
 
 ![Cuttlefish tool window and multi-screen display mirroring in ASfP](https://developer.android.com/static/studio/platform/images/asfp_cuttlefish_mirroring.png)

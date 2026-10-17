@@ -18,7 +18,7 @@ Starting today, Android developers can access Gemini 4 Argon across their develo
 
 Argon has significant improvements in long-horizon autonomous execution and the ability to plan and run multi-step, complex software tasks over time.
 
-- **Self-Healing Build Loops** : When a local build fails, the Antigravity execution harness captures error streams directly from Gradle daemons and Kotlin compiler logs. Using this feedback,the model iteratively diagnoses the root-cause of build failures to arrive at a revised solution. Gemini 4 Argon's training dramatically improves on this process. It's engineered to maintain a consistent hypothesis across successive rounds of editing, as well as making use of internal Abstract Syntax Tree (AST) awareness to better inform edits. This means Gemini 4 Argon is more resilient and better able to address the true root-cause of build failures.
+- **Self-Healing Build Loops** :When a local build fails, the Antigravity execution harness captures error streams directly from Gradle daemons and Kotlin compiler logs. Using this feedback, Argon was able to iteratively diagnose build errors to arrive at a revised solution. To achieve this, the model maintained a consistent hypothesis across successive rounds of editing, enabling it to better address the true root-cause of build failures.
 
 [Video](https://www.youtube.com/watch?v=91oc9SyHxKI)
 
@@ -26,7 +26,7 @@ Argon has significant improvements in long-horizon autonomous execution and the 
 
 Argon demonstrates exceptional design craft, generating production-ready Jetpack Compose code out of the box:
 
-- **AGSL Shaders on the GPU** *:*Argon possesses the advanced mathematical reasoning needed to write complex, production-ready Android Graphics Shading Language (AGSL) directly into Compose Modifier.graphicsLayer blocks and shader brushes. From live frosted glass shaders to dynamic lighting and ripple effects, Argon can handle complicated vector and rendering math that produces lightweight GPU shaders that run alongside fluid 120 FPS Compose animations.
+- **AGSL Shaders on the GPU** *:*Argon applied advanced mathematical reasoning to write complex, production-ready Android Graphics Shading Language (AGSL) directly into Compose Modifier.graphicsLayer blocks and shader brushes. From live frosted glass shaders to dynamic lighting and ripple effects, Argon can handle complicated vector and rendering math that produces lightweight GPU shaders that run alongside fluid 120 FPS Compose animations.
 
 ### **A flexible developer experience with Android CLI**
 
@@ -57,14 +57,14 @@ android init
 
 Starting today, Argon is rolling out globally to developers in supported regions. You can access and begin building with the model in your local environment across three primary development surfaces:
 
-*1. ***Google Antigravity** *:*Google AI Ultra subscribers can build with Gemini 4 Argon in the standalone Antigravity desktop app (available for macOS, Windows, and Linux) or directly via the terminal CLI
+1. **Google Antigravity** :Google AI Ultra subscribers can build with Gemini 4 Argon in the standalone Antigravity desktop app (available for macOS, Windows, and Linux) or directly via the terminal CLI
 
-*2. ***Android Studio** *:*
+2. **Android Studio**:
 
 - Via Google Antigravity: Google AI Ultra subscribers can build with Gemini 4 Argon by logging into Antigravity within the latest Android Studio Canary.
 - Via the Gemini API: Developers on the paid tier of the Gemini API can build with Gemini 4 Argon in Android Studio.
 
-*3. ***Google AI Studio** *:* Google AI Ultra subscribers or developers on the paid tier of the Gemini API can build with Gemini 4 Argon via Playground and Build in Google AI Studio
+3. **Google AI Studio** *:* Google AI Ultra subscribers or developers on the paid tier of the Gemini API can build with Gemini 4 Argon via Playground and Build in Google AI Studio
 
 4. **Firebase AI Logic** *: *Starting today, developers globally on the paid tier of the Gemini API can use Gemini 4 Argon client-side to build intelligent features in their mobile and web apps via [Firebase AI Logic](https://developer.android.com/ai/gemini).
 

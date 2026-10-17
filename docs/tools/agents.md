@@ -6,9 +6,11 @@ source: md.txt
 
 ## Build high quality Android apps anywhere with Android CLI
 
-Android CLI makes it faster and easier to build Android apps using the agents and developer environments of your choice. <button class="button button-disabled" disabled="">Download Not Available</button>
+Android CLI makes it faster and easier to build Android apps using the agents and developer environments of your choice. [<button class="button">Email instructions to myself</button>](mailto:?subject=Android+CLI+Setup&body=Download+Android+CLI+at+http://goo.gle/download_cli)
 
-Your current device is not supported.
+
+Your current device is not supported. Click above to email download instructions to
+yourself for a different device.
 
 *** ** * ** ***
 

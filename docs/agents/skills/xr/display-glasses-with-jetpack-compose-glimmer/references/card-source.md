@@ -786,7 +786,7 @@ private fun CardImpl(
             }
             Row(
                 modifier = Modifier.fillMaxWidth().padding(innerPadding),
-                verticalAlignment = CenterVertically,
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 if (leadingIcon != null) {
                     Box(
@@ -867,8 +867,9 @@ private fun SmallImageCardImpl(
     ) {
         if (isLeading) {
             Box(
-                modifier = Modifier.weight(ImageWidthFraction).clip(ImageShape),
-                contentAlignment = Alignment.Center,
+                modifier =
+                    Modifier.align(Alignment.Top).weight(ImageWidthFraction).clip(ImageShape),
+                contentAlignment = Alignment.TopStart,
             ) {
                 image()
             }
@@ -905,8 +906,9 @@ private fun SmallImageCardImpl(
 
         if (!isLeading) {
             Box(
-                modifier = Modifier.weight(ImageWidthFraction).clip(ImageShape),
-                contentAlignment = Alignment.Center,
+                modifier =
+                    Modifier.align(Alignment.Top).weight(ImageWidthFraction).clip(ImageShape),
+                contentAlignment = Alignment.TopStart,
             ) {
                 image()
             }
