@@ -1,0 +1,37 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/card-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/card-source.md
+index 198ffe1e..edec0513 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/card-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/card-source.md
+@@ -786,7 +786,7 @@ private fun CardImpl(
+             }
+             Row(
+                 modifier = Modifier.fillMaxWidth().padding(innerPadding),
+-                verticalAlignment = CenterVertically,
++                verticalAlignment = Alignment.CenterVertically,
+             ) {
+                 if (leadingIcon != null) {
+                     Box(
+@@ -867,8 +867,9 @@ private fun SmallImageCardImpl(
+     ) {
+         if (isLeading) {
+             Box(
+-                modifier = Modifier.weight(ImageWidthFraction).clip(ImageShape),
+-                contentAlignment = Alignment.Center,
++                modifier =
++                    Modifier.align(Alignment.Top).weight(ImageWidthFraction).clip(ImageShape),
++                contentAlignment = Alignment.TopStart,
+             ) {
+                 image()
+             }
+@@ -905,8 +906,9 @@ private fun SmallImageCardImpl(
+ 
+         if (!isLeading) {
+             Box(
+-                modifier = Modifier.weight(ImageWidthFraction).clip(ImageShape),
+-                contentAlignment = Alignment.Center,
++                modifier =
++                    Modifier.align(Alignment.Top).weight(ImageWidthFraction).clip(ImageShape),
++                contentAlignment = Alignment.TopStart,
+             ) {
+                 image()
+             }

@@ -1,0 +1,26 @@
+diff --git a/docs/develop/ui/compose/migrate/migration-scenarios/navigation.md b/docs/develop/ui/compose/migrate/migration-scenarios/navigation.md
+index a1d8873d..3ed221d0 100644
+--- a/docs/develop/ui/compose/migrate/migration-scenarios/navigation.md
++++ b/docs/develop/ui/compose/migrate/migration-scenarios/navigation.md
+@@ -204,8 +204,8 @@ To migrate to Navigation Compose, follow these steps:
+                    }
+                )
+            }
+-           composable<Second> { backStackEntry ->
+-               val secondRoute = backStackEntry.toRoute<Second>()
++           <compos>ableSecond { backSt>ackEntry -
++               val secondRoute = backStackEnt<ry.toR>outeSecond()
+                SecondScreen(
+                    id = secondRoute.id,
+                    onIconClick = {
+@@ -214,9 +214,7 @@ To migrate to Navigation Compose, follow these steps:
+                    }
+                )
+            }
+-           // ...
+-       }
+-   }
++           // .nippets.kt
+    ```
+ 
+    <br />

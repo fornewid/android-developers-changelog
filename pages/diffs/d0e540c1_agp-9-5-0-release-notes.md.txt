@@ -1,0 +1,15 @@
+diff --git a/docs/build/releases/agp-9-5-0-release-notes.md b/docs/build/releases/agp-9-5-0-release-notes.md
+index dad5fcb0..66552c79 100644
+--- a/docs/build/releases/agp-9-5-0-release-notes.md
++++ b/docs/build/releases/agp-9-5-0-release-notes.md
+@@ -42,6 +42,10 @@ notes](https://developer.android.com/studio/preview/backup-restore-testing-relea
+ ## Fixed issues
+ 
+ 
++### Android Gradle plugin 9.5.0-alpha10
++
++Fixed Issues **Android Gradle Plugin** [Issue #532206373](https://issuetracker.google.com/issues/532206373) l8DexDesugarLib destroys the obfuscation mapping: reads the full \~366 MB mapping.txt and rewrites it as a 25-byte "# L8 Desugaring Mapping" stub
++
+ ### Android Gradle plugin 9.5.0-alpha09
+ 
+ Fixed Issues **Android Gradle Plugin** [Issue #565740572](https://issuetracker.google.com/issues/565740572) Gradle 9.8.0 reports Configuration.setVisible() deprecations with AGP 9.4.1

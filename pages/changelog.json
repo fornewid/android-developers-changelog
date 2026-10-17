@@ -1,5 +1,322 @@
 [
   {
+    "date": "2026-10-17T15:08:56Z",
+    "commit_hash": "d0e540c1",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr2/download-ota\" target=\"_blank\">OTA images for Google Pixel</a>",
+        "path": "about/versions/17/qpr2/download-ota.md",
+        "summary": "Updated Android 17 QPR2 device OTA images, release dates, build numbers (from CP41.260831.016 to CP41.260831.019), and corresponding SHA-256 checksums across supported Pixel devices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_download-ota.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr2/download\" target=\"_blank\">Factory images for Google Pixel</a>",
+        "path": "about/versions/17/qpr2/download.md",
+        "summary": "Updated the Android 17 QPR2 documentation to reference Beta 7.1 (build CP41.260831.019, released October 16, 2026). This includes updated factory image filenames and SHA-256 checksums for all supported Pixel devices and the Android Flash Tool link.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_download.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr2/get\" target=\"_blank\">Get Android 17 QPR 2</a>",
+        "path": "about/versions/17/qpr2/get.md",
+        "summary": "Updated the Android Flash Tool URL for Android 17 QPR 2 to point to the newer beta7.1 release version. This ensures developers use the correct and up-to-date flashing tool for the latest beta release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_get.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr2/gsi-release-notes\" target=\"_blank\">Android 17 QPR 2 GSI binaries and release notes</a>",
+        "path": "about/versions/17/qpr2/gsi-release-notes.md",
+        "summary": "Updated the Android 17 QPR2 GSI release notes to point to build CP41.260831.019 (Beta 7.1), replacing build CP41.260831.016. This update provides new download links, updated SHA-256 checksums, and a release date change to October 16, 2026, ensuring developers have access to the latest bug fixes and system images for testing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_gsi-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr2/release-notes\" target=\"_blank\">Release notes</a>",
+        "path": "about/versions/17/qpr2/release-notes.md",
+        "summary": "Android 17 QPR2 Beta 7.1 release notes have been added, detailing build CP41.260831.019 released on October 16, 2026. This update includes a security patch level of October 5, 2026, Google Play services version 26.28.33, a fix for severe UI stuttering and multi-second freezes (Issue #571186734), and a known issue regarding Face Unlock re-enrollment on Pixel 11 Pro Fold devices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/skill\" target=\"_blank\">Build an Android app with the LiteRT CompiledModel API</a>",
+        "path": "agents/skills/device-ai/litert/litert-runtime/skill.md",
+        "summary": "Updated the LiteRT CompiledModel API documentation skill file to improve formatting by indenting code blocks properly and adjusting YAML frontmatter attributes for better parsing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_no_data_icon.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_no_data_icon.xml.rawcontent.md",
+        "summary": "Fixed syntax errors and malformed XML tags in the vector drawable resource file. This ensures the sample 'no data' icon renders correctly and can be parsed successfully by the Android build system.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_sample_no_data_icon.xml.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/xml/sample_search_toolbar_widget_info.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/res/xml/sample_search_toolbar_widget_info.xml.rawcontent.md",
+        "summary": "Fixed multiple syntax typos, XML tag formatting errors, and broken closing brackets within the sample search toolbar widget configuration XML documentation. These corrections ensure the XML snippet is valid and properly formatted for developers implementing Glance canonical layouts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_sample_search_toolbar_widget_info.xml.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/card-source\" target=\"_blank\">API source code for Glimmer Card component</a>",
+        "path": "agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/card-source.md",
+        "summary": "Updated the layout implementation in card components by adding explicit alignment modifiers (`Alignment.Top` and `Alignment.CenterVertically`) and changing content alignment to `Alignment.TopStart` for image containers. This ensures proper vertical alignment and prevents unexpected centering behavior in XR card layouts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_card-source.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/projectedcontext-source\" target=\"_blank\">API source code for Glimmer projected context</a>",
+        "path": "agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/projectedcontext-source.md",
+        "summary": "Updated the `ProjectedContext` helper to catch `IllegalArgumentException` when creating a device context and rethrow it as an `IllegalStateException`. This change matters because it provides safer error handling and more consistent exception messaging when a projected device cannot be initialized.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_projectedcontext-source.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/surface-source\" target=\"_blank\">API source code for Surface</a>",
+        "path": "agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/surface-source.md",
+        "summary": "Updated the SurfaceNode implementation to inherit directly from `Modifier.Node()` instead of `DelegatingNode()`, and replaced the delegated `contentColorNode` with a direct `currentContentColor` mutable state property backed by `ContentColorProviderNode`. This refactoring simplifies the node hierarchy and state management for handling content colors during focus changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_surface-source.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/xr/projected-hardware/skill\" target=\"_blank\">Android XR projected hardware</a>",
+        "path": "agents/skills/xr/projected-hardware/skill.md",
+        "summary": "This new documentation introduces guidelines for integrating and interacting with projected hardware, such as intelligent eyewear, using Android's Jetpack XR SDK. It outlines prerequisites like compileSdk 36, connection and lifecycle management with ProjectedContext, and handling hardware permissions and camera capture.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini/live\" target=\"_blank\">Gemini Live API</a>",
+        "path": "ai/gemini/live.md",
+        "summary": "Updated the Firebase BoM version from 35.0.0 to 35.0.2 in the live.md documentation. This ensures developers use the latest stable release containing bug fixes and compatibility updates when integrating the Firebase AI Logic and App Check libraries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_live.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/android-performance-analyzer\" target=\"_blank\">Android Performance Analyzer (APA)</a>",
+        "path": "android-performance-analyzer.md",
+        "summary": "The release status for version 0.9.0 of the Android Performance Analyzer was updated from Stable to Beta, ensuring developers are properly informed of the current stability phase before downloading the binaries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_android-performance-analyzer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/paul-feng\" target=\"_blank\">Paul Feng</a>",
+        "path": "blog/authors/paul-feng.md",
+        "summary": "Updated author profile to reflect 5 total posts by adding a new blog post entry titled 'New ways to drive smarter discovery, deeper engagement, and business growth on Google Play', published on October 13, 2026.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_paul-feng.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli\" target=\"_blank\">Bringing our latest frontier model to Android Developers</a>",
+        "path": "blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli.md",
+        "summary": "The documentation updates refine the descriptive text for Gemini 4 Argon's capabilities—specifically shifting phrasing around self-healing build loops and AGSL shader generation from present/descriptive claims to past-tense capability descriptions. Additionally, markdown formatting for the availability lists (Google Antigravity, Android Studio, and Google AI Studio) was cleaned up for consistency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play\" target=\"_blank\">Delivering safer, age-appropriate experiences on Google Play</a>",
+        "path": "blog/posts/delivering-safer-age-appropriate-experiences-on-google-play.md",
+        "summary": "The blog post's related reading section was updated to replace a post about Android CLI and device streaming with a new product news post regarding discovery, engagement, and business growth on Google Play.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_delivering-safer-age-appropriate-experiences-on-google-play.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play\" target=\"_blank\">I/O 2026: What's new in Google Play</a>",
+        "path": "blog/posts/i-o-2026-what-s-new-in-google-play.md",
+        "summary": "The documentation was updated to include a new blog post entry about discovery, engagement, and business growth on Google Play by Paul Feng, while removing an older entry related to Google I/O '26 AI updates by Jingyu Shi.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_i-o-2026-what-s-new-in-google-play.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-9-5-0-release-notes\" target=\"_blank\">Android Gradle plugin 9.5.0</a>",
+        "path": "build/releases/agp-9-5-0-release-notes.md",
+        "summary": "The Android Gradle Plugin 9.5.0 release notes have been updated to include a fix for version 9.5.0-alpha10. This update resolves an issue where l8DexDesugarLib inadvertently overwrote and destroyed the obfuscation mapping file (mapping.txt) by reducing it to a 25-byte stub.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_agp-9-5-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/navigation\" target=\"_blank\">Migrate Jetpack Navigation to Navigation Compose</a>",
+        "path": "develop/ui/compose/migrate/migration-scenarios/navigation.md",
+        "summary": "The documentation update contains corrupted code snippets within the Navigation Compose migration guide, breaking the syntax for the composable destination and the code block closing tags. This matters because developers following the guide will encounter compilation errors when attempting to copy and paste the code.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_navigation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context\" target=\"_blank\">Use a projected context to access hardware on audio glasses and display glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md",
+        "summary": "Removed documentation for recording audio using a projected context and multiple microphones on the glasses, leaving Bluetooth Hands-Free Profile (HFP) as the remaining documented audio recording method.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_access-hardware-projected-context.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/play-games-sidekick-sdk\" target=\"_blank\">Sidekick SDK</a>",
+        "path": "games/pgs/play-games-sidekick-sdk.md",
+        "summary": "Added documentation regarding a potential 'Play Games Sidekick is off' warning in the Play Console when using the Sidekick SDK. This clarifies that the warning is expected behavior because the Play Console does not inject code into the app bundle, helping developers understand and bypass confusion during the upload process.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_play-games-sidekick-sdk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/saved-game/i-saved-game-client\" target=\"_blank\">GooglePlayGames.BasicApi.SavedGame.ISavedGameClient</a>",
+        "path": "games/services/unity/v2/api/interface/google-play-games/basic-api/saved-game/i-saved-game-client.md",
+        "summary": "Fixed broken and overly verbose URL links within the C# Action callback signatures across multiple API methods in the ISavedGameClient documentation. This change restores proper generic syntax (e.g., Action<...>) which makes the API signatures readable and correct for developers integrating Google Play Games in Unity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_i-saved-game-client.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/test\" target=\"_blank\">Test your Google Play Billing Library integration</a>",
+        "path": "google/play/billing/test.md",
+        "summary": "Added comprehensive documentation for testing out-of-app purchases using Play Billing Lab. This update explains how developers can configure and test end-to-end user flows for entitlements acquired outside their app, including featured products, purchase recommendations after cart abandonment, and Play Games Rewards, helping ensure backends handle these transactions correctly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_test.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/dating\" target=\"_blank\">Engage SDK Dating: Third-party technical integration instructions</a>",
+        "path": "guide/playcore/engage/dating.md",
+        "summary": "Updated the Engage SDK dating integration guide to document SDK v1.6.0 changes, clarifying conditional service availability and how continuation clusters remain enabled by default. It also includes API corrections such as updating `PublishFeaturedClustersRequest` to `PublishFeaturedClusterRequest` and `deleteRecommendationClusters` to `deleteRecommendationsClusters`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_dating.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/food\" target=\"_blank\">Engage SDK Food: Third-party technical integration instructions</a>",
+        "path": "guide/playcore/engage/food.md",
+        "summary": "Updated the Engage SDK food integration documentation to clarify conditional service availability behavior for v1.6.0+, corrected API method names (`deleteRecommendationsClusters`), fixed entity builder class references (`FoodShoppingList`), and refined general technical phrasing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_food.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/healthandfitness\" target=\"_blank\">Engage SDK Health and Fitness: Third-party technical integration instructions</a>",
+        "path": "guide/playcore/engage/healthandfitness.md",
+        "summary": "This update to the health and fitness documentation for the Engage SDK introduces several refinements, including an introductory summary for the integration section, minor terminology corrections (such as updating `deleteRecommendationClusters` to `deleteRecommendationsClusters` and adjusting builder methods for publishing featured clusters), and clearer phrasing around conditional service availability features and intermittent ingestion strategies.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_healthandfitness.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/read\" target=\"_blank\">Engage SDK Read: Third-party technical integration instructions</a>",
+        "path": "guide/playcore/engage/read.md",
+        "summary": "This update to the Engage SDK documentation for the Read category includes minor textual clarifications, refined guidance on the Conditional Service Availability Feature starting in v1.6.0 (highlighting default behaviors for continuation versus recommendation clusters), and a correction to an API method name (`deleteRecommendationClusters` renamed to `deleteRecommendationsClusters`) in both Kotlin and Java code snippets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_read.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/shopping\" target=\"_blank\">Engage SDK Shopping: Third-party technical integration instructions</a>",
+        "path": "guide/playcore/engage/shopping.md",
+        "summary": "Updated the Play Core Engage SDK shopping integration documentation to reflect API and terminology changes. Key updates include renaming cluster deletion methods (such as changing `deleteShoppingReorderCluster` to `deleteReorderCluster` and `deleteRecommendationClusters` to `deleteRecommendationsClusters`), correcting builder class names in code snippets (`ShoppingListEntity` to `ShoppingList`), refining the guidance on conditional service availability and intermittent ingestion strategies for v1.6.0+, and minor copyedits throughout.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_shopping.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/travel\" target=\"_blank\">Engage SDK Travel: Third-party technical integration instructions</a>",
+        "path": "guide/playcore/engage/travel.md",
+        "summary": "The travel and events documentation for the Engage SDK was updated to clarify integration details, refine the explanation of intermittent service availability configurations for v1.6.0+, and correct API method names such as updating `deleteRecommendationClusters` to `deleteRecommendationsClusters` and fixing builder methods in code snippets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_travel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/tv/continue-watching/client\" target=\"_blank\">Integrate Continue Watching on Android TV</a>",
+        "path": "guide/playcore/engage/tv/continue-watching/client.md",
+        "summary": "Updated the Play Core Engage TV documentation to reflect API method and builder name corrections. These changes ensure that code snippets accurately match the underlying SDK updates, such as fixing typo corrections in method names (e.g., `addPlatformSpecificPlaybackUris`, `setDurationMillis`, and `setDeleteReason`) and correcting variable casing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_client.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/tv/fc-automation\" target=\"_blank\">Publishing content to the Featured Carousel</a>",
+        "path": "guide/playcore/engage/tv/fc-automation.md",
+        "summary": "Updated the Play Core Engage TV automation documentation by changing `setUri` to `setActionUri` and updating the platform type from `PlatformType.TYPE_TV` to `PlatformType.TYPE_ANDROID_TV` in the `PlatformSpecificUri.Builder` code snippet. This ensures developers use the correct API methods and platform constants for Android TV integration.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_fc-automation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/tv/recommendations\" target=\"_blank\">Engage SDK for video recommendations</a>",
+        "path": "guide/playcore/engage/tv/recommendations.md",
+        "summary": "Updated the code snippets in the Google TV recommendations documentation to correct Kotlin API usages, builder method names (such as fixing typo-ridden methods like `setDurationMills` to `setDurationMillis` and fixing builder ordering), and ensure proper syntax across various entity and recommendation classes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_recommendations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/test\" target=\"_blank\">Test</a>",
+        "path": "jetpack/androidx/releases/test.md",
+        "summary": "Updated AndroidX Test release documentation to include new alpha versions (Core 1.8.0-alpha01, Espresso 3.8.0-alpha01, Espresso Device 1.2.0-alpha01, JUnit 1.4.0-alpha01, Truth 1.8.0-alpha01, Monitor 1.9.0-alpha02, Orchestrator 1.7.0-alpha01, Runner 1.8.0-alpha01, Rules 1.8.0-alpha01, and Services 1.7.0-alpha01). Across these updates, the minimum SDK version has been raised to 24 (Android 7.0), removing legacy compatibility logic, alongside various bug fixes, new intent matchers, bundle assertion updates, and performance tracing enhancements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_test.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/alpha-channel\" target=\"_blank\">Alpha Releases</a>",
+        "path": "jetpack/androidx/versions/alpha-channel.md",
+        "summary": "Added release notes for AndroidX Test alpha components dated October 15, 2026. This update introduces new alpha versions for Core, Espresso, JUnit extensions, Truth extensions, Monitor, Orchestrator, Runner, Rules, and Services, allowing developers to test against the latest pre-release testing APIs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_alpha-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/implement/surfaces/cars\" target=\"_blank\">Extend your media app to Android for Cars</a>",
+        "path": "media/implement/surfaces/cars.md",
+        "summary": "Fixed corrupted XML and Android manifest code snippets throughout the cars.md documentation. These corrections ensure developers can accurately copy and paste code examples for Android Auto and Android Automotive OS configurations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_cars.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/session/control-playback\" target=\"_blank\">Control and advertise playback using a MediaSession</a>",
+        "path": "media/media3/session/control-playback.md",
+        "summary": "Fixed corrupted code snippets in the Media3 session control-playback documentation. The changes correct broken method calls, missing arguments, and truncated class closures across both Kotlin and Java code examples for media button preferences, custom player forwarding, and exception handling.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_control-playback.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents\" target=\"_blank\">Agent tools and resources</a>",
+        "path": "tools/agents.md",
+        "summary": "Updated the Android CLI documentation by replacing the unavailable download button with an interactive email instruction button. This allows users on unsupported devices to easily send setup and download instructions to themselves for use on a compatible environment.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_agents.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/generic-system-image/releases\" target=\"_blank\">Generic System Image releases</a>",
+        "path": "topic/generic-system-image/releases.md",
+        "summary": "Updated the Android 17 QPR2 GSI release documentation to point to beta version 7.1 and newer build binaries (CP41.260831.019), including updated download URLs, file names, and SHA-256 checksums for ARM64 and x86_64 architectures.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d0e540c1_releases.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-16T15:09:48Z",
     "commit_hash": "62b88f55",
     "entries": [

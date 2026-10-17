@@ -1,0 +1,15 @@
+diff --git a/docs/guide/playcore/engage/tv/fc-automation.md b/docs/guide/playcore/engage/tv/fc-automation.md
+index 37a30123..91c44689 100644
+--- a/docs/guide/playcore/engage/tv/fc-automation.md
++++ b/docs/guide/playcore/engage/tv/fc-automation.md
+@@ -54,8 +54,8 @@ See [MovieEntity.Builder](https://developer.android.com/reference/com/google/and
+             .setImageUri(Uri.parse("https://www.example.com/movie_poster.png"))
+             .build())
+         .addPlatformSpecificPlaybackUri(new PlatformSpecificUri.Builder()
+-            .setUri("https://www.example.com")
+-            .setPlatformType(PlatformType.TYPE_TV)
++            .setActionUri(Uri.parse("https://www.example.com"))
++            .setPlatformType(PlatformType.TYPE_ANDROID_TV)
+             .build())
+         .setDurationMillis(7200000L)
+         .setCallToActionText("Watch Now")

@@ -1,0 +1,16 @@
+diff --git a/docs/games/pgs/play-games-sidekick-sdk.md b/docs/games/pgs/play-games-sidekick-sdk.md
+index f1252fb8..771c2c85 100644
+--- a/docs/games/pgs/play-games-sidekick-sdk.md
++++ b/docs/games/pgs/play-games-sidekick-sdk.md
+@@ -74,4 +74,8 @@ are needed.
+ - To publish releases on Google Play using the Sidekick SDK, complete the [Sidekick SDK registration form](https://forms.gle/HbSayip7NBrTsmL49). Your game will be approved within 1-2 weeks, after which you can upload releases that have integrated the Sidekick SDK as normal.
+ - Even after completing Sidekick SDK integration, it is necessary to enable the setting in the Play Console. Kindly ensure that **Add Play Games Sidekick to app bundles you upload** is selected. The console will verify the bundle's SDK status without duplicating it.
+ 
+-[![The Add Play Games Sidekick to app bundles you upload checkbox in the Play Console.](https://developer.android.com/static/images/games/pgs/closed_testing.png)](https://developer.android.com/static/images/games/pgs/closed_testing.png) The **Add Play Games Sidekick to app bundles you upload** checkbox (click to enlarge).
+\ No newline at end of file
++[![The Add Play Games Sidekick to app bundles you upload checkbox in the Play Console.](https://developer.android.com/static/images/games/pgs/closed_testing.png)](https://developer.android.com/static/images/games/pgs/closed_testing.png) The **Add Play Games Sidekick to app bundles you upload** checkbox (click to enlarge).
++
++- If you use the Sidekick SDK to enable Sidekick, you might see a "Play Games Sidekick is off" warning when you upload your bundle. This is expected because the Play Console doesn't inject any code into your bundle.
++
++[![The Play Games Sidekick is off warning in the Play Console.](https://developer.android.com/static/images/games/pgs/sidekick_warning.png)](https://developer.android.com/static/images/games/pgs/sidekick_warning.png) The **Play Games Sidekick is off warning** checkbox (click to enlarge).
+\ No newline at end of file
