@@ -1,5 +1,57 @@
 [
   {
+    "date": "2026-10-19T15:10:28Z",
+    "commit_hash": "d700f5a4",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/references/migration\" target=\"_blank\">Migrate from the TensorFlow Lite Interpreter to CompiledModel  |  Android Developers</a>",
+        "path": "agents/skills/device-ai/litert/litert-runtime/references/migration.md",
+        "summary": "This new documentation page provides step-by-step code examples and guidelines for migrating Android applications from the legacy TensorFlow Lite Interpreter to the new LiteRT CompiledModel API.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/navigation\" target=\"_blank\">Migrate Jetpack Navigation to Navigation Compose</a>",
+        "path": "develop/ui/compose/migrate/migration-scenarios/navigation.md",
+        "summary": "The documentation update fixes code snippet syntax errors within the Navigation Compose migration guide, replacing malformed tags and placeholder comments with correct type-safe navigation syntax using `composable<Second>` and `backStackEntry.toRoute<Second>()`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d700f5a4_navigation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/text/rich-text-input\" target=\"_blank\">Style rich text input</a>",
+        "path": "develop/ui/compose/text/rich-text-input.md",
+        "summary": "Introduces rich text input capabilities in Jetpack Compose, enabling character and paragraph formatting directly within state-based text fields using TextFieldBuffer.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/text/style-paragraph\" target=\"_blank\">Style paragraph</a>",
+        "path": "develop/ui/compose/text/style-paragraph.md",
+        "summary": "Fixed corrupted code snippets in the Jetpack Compose paragraph styling documentation, restoring missing syntax, closing brackets, and variable names that were accidentally broken by artifact text like 'dnippets.kt' and 'TextSnippets.kt'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d700f5a4_style-paragraph.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/touch-input/focus/focus-traversal\" target=\"_blank\">Focus traversal order</a>",
+        "path": "develop/ui/compose/touch-input/focus/focus-traversal.md",
+        "summary": "Fixed corrupted code snippets in the focus traversal documentation by restoring missing code characters, strings, and proper closing tags in the Jetpack Compose examples. This ensures the code examples are accurate and copy-pasteable for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d700f5a4_focus-traversal.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/privacy-and-security/security-best-practices\" target=\"_blank\">Improve your app's security</a>",
+        "path": "privacy-and-security/security-best-practices.md",
+        "summary": "Fixed multiple syntax errors, typos, and formatting issues within XML and code snippets in the security best practices documentation. These corrections ensure that the provided Kotlin, Java, and XML examples are accurate, parseable, and safe for developers to copy and implement.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d700f5a4_security-best-practices.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-17T15:08:56Z",
     "commit_hash": "d0e540c1",
     "entries": [
