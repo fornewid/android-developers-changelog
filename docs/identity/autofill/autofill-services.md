@@ -46,14 +46,14 @@ The following example shows an autofill service declaration:
     <service
         android:name=".MyAutofillService"
         android:label="My Autofill Service"
-        android:permission="android.permissi>on.BI<ND_AUTOFILL_S>ERVICE&qu<ot;
-        intent-filter
-            action android:name="android.>servi<ce.autofill.Au>tofil<lService" /
-        /intent-filter
-        meta-data
+        android:permission="android.permission.BIND_AUTOFILL_SERVICE">
+        <intent-filter>
+            <action android:name="android.service.autofill.AutofillService" />
+        </intent-filter>
+        <meta-data
             android:name="android.autofill"
-         > <  android:resource="@xml/service_configuration" /
-    /service
+            android:resource="@xml/service_configuration" />
+    </service>
 
 The `<meta-data>` element includes an [`android:resource`](https://developer.android.com/reference/android/R.styleable#AndroidManifestMetaData_resource) attribute that
 points to an XML resource with further details about the service. The
@@ -63,7 +63,7 @@ that allows users to configure the service. The following example shows the
 
     <autofill-service
       xmlns:android="http://schemas.android.com/apk/res/android"
-      android:settingsActivity="com.example.android.Sett>ingsActivity" /
+      android:settingsActivity="com.example.android.SettingsActivity" />
 
 For more information about XML resources, see [App resources overview](https://developer.android.com/guide/topics/resources/providing-resources).
 
@@ -830,12 +830,12 @@ mode for stability as follows.
 
     <autofill-service>
       ...
-      <compatibility-package android:name="com.android.chrome" android:maxLongVersionCode=&qu>ot;<711900039" /
-      compatibility-package android:name="com.chrome.beta" android:ma>xLo<ngVersionCode="711900039" /
-      compatibility-package android:name="com.chrome.>dev<" android:maxLongVersionCode="711900039" /
-      compatibility-package android:name=>"c<om.chrome.canary&>quot; android:maxLongVersionCode="711900039" /
+      <compatibility-package android:name="com.android.chrome" android:maxLongVersionCode="711900039" />
+      <compatibility-package android:name="com.chrome.beta" android:maxLongVersionCode="711900039" />
+      <compatibility-package android:name="com.chrome.dev" android:maxLongVersionCode="711900039" />
+      <compatibility-package android:name="com.chrome.canary" android:maxLongVersionCode="711900039" />
       ...
-    /autofill-service
+    </autofill-service>
 
 ### Read Chrome settings
 
@@ -844,14 +844,14 @@ Android Autofill. Chrome uses Android's [`ContentProvider`](https://developer.an
 that information. Declare in your Android manifest which channels you want to
 read settings from:
 
-    <uses-permission android:name="android.permission.READ_USER_DICTION>A<RY">;/<
-    queries
-     !-- To Query Chrom>e <Beta: --
-     package android:name="com>.ch<rome.beta" /
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
+    <queries>
+     <!-- To Query Chrome Beta: -->
+     <package android:name="com.chrome.beta" />
 
-     !-- To Que>ry< Chrome Stable: --
-     package android:name=&q>u<ot;com.a>ndroid.chrome" /
-    /queries
+     <!-- To Query Chrome Stable: -->
+     <package android:name="com.android.chrome" />
+    </queries>
 
 Then, use Android's [`ContentResolver`](https://developer.android.com/reference/android/content/ContentResolver) to request that information by
 building the content URI:
@@ -895,7 +895,7 @@ building the content URI:
               }
             } else {
               // Handle the case where the column doesn't exist.  Log a warning, perhaps.
-              Log.w("Autofill", "Column $THIRD_PARTY_MODE_COLUMN not found in cursor&quot;)
+              Log.w("Autofill", "Column $THIRD_PARTY_MODE_COLUMN not found in cursor")
             }
         }
     } // The cursor is automatically closed here

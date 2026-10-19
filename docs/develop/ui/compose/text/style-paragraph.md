@@ -25,7 +25,9 @@ content value:
 @Composable
 fun CenterText() {
     Text(
-        "Hello World", textAlign = TextAlign.Center, modifier = Modifier.width(150.dnippets.kt
+        "Hello World", textAlign = TextAlign.Center, modifier = Modifier.width(150.dp)
+    )
+}
 ```
 
 <br />
@@ -77,9 +79,10 @@ fun ParagraphStyle() {
                     append("World\n")
                 }
                 append("Compose")
-       }
+            }
+        }
     )
-}TextSnippets.kt
+}
 ```
 
 <br />
@@ -196,8 +199,10 @@ TextSample(
                 style = TextStyle.Default.copy(
                     lineBreak = LineBreak.Paragraph
                 )
-             )
-)TextSnippets.kt
+            )
+        }
+    )
+)
 ```
 
 <br />
@@ -251,8 +256,10 @@ TextSample(
                     .border(BorderStroke(1.dp, Color.Gray)),
                 fontSize = 14.sp,
                 style = TextStyle.Default
-             )
-)TextSnippets.kt
+            )
+        }
+    )
+)
 ```
 
 <br />
@@ -303,7 +310,9 @@ Text(
     modifier = Modifier.width(250.dp),
     fontSize = 14.sp,
     style = TextStyle.Default.copy(
-        lineBreak = customTitleLineBrenippets.kt
+        lineBreak = customTitleLineBreak
+    )
+)
 ```
 
 <br />
@@ -348,8 +357,10 @@ TextSample(
                     lineBreak = LineBreak.Paragraph,
                     hyphens = Hyphens.Auto
                 )
-             )
-)TextSnippets.kt
+            )
+        }
+    )
+)
 ```
 
 <br />

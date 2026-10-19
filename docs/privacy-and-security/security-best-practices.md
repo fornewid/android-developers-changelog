@@ -36,15 +36,15 @@ transfer sensitive information to an app that they trust.
     // Verify that an activity in at least two apps on the user's device
     // can handle the intent. Otherwise, start the intent only if an app
     // on the user's device can handle the intent.
-    if (possibleActivitiesLi>st.size  1) {
+    if (possibleActivitiesList.size > 1) {
 
         // Create intent to show chooser.
-        // Title is something similar to "Share this photo< >with."
+        // Title is something similar to "Share this photo with."
 
-        bval chooser = resources.getString(R.string.chooser_ti>tle).let { title -
+        <b>val chooser = resources.getString(R.string.chooser_title).let { title ->
             Intent.createChooser(intent, title)
         }
-        star<tA>ctivity(chooser)/b
+        startActivity(chooser)</b>
     } else if (intent.resolveActivity(packageManager) != null) {
         startActivity(intent)
     }
@@ -58,14 +58,14 @@ transfer sensitive information to an app that they trust.
     // Verify that an activity in at least two apps on the user's device
     // can handle the intent. Otherwise, start the intent only if an app
     // on the user's device can handle the intent.
-    if (possibleActivitiesList>.size()  1) {
+    if (possibleActivitiesList.size() > 1) {
 
         // Create intent to show chooser.
-        // Title is something similar to "Share this photo< >with."
+        // Title is something similar to "Share this photo with."
 
-        bString title = getResources().getString(R.string.chooser_title);
+        <b>String title = getResources().getString(R.string.chooser_title);
         Intent chooser = Intent.createChooser(intent, title);
-        start<Ac>tivity(chooser);/b
+        startActivity(chooser);</b>
     } else if (intent.resolveActivity(getPackageManager()) != null) {
         startActivity(intent);
     }
@@ -86,9 +86,9 @@ secure user experience.
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com>.exam<ple.myapp"
-    permission android:name="my_custom_permission_name"
-                android>:protectionLevel="signature" /
+    package="com.example.myapp">
+    <permission android:name="my_custom_permission_name"
+                android:protectionLevel="signature" />
 ```
 
 **Related info:**
@@ -111,18 +111,18 @@ element is `true` by default on those versions of Android.
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com>.exam<ple.myapp"
->    appli<cation ... 
-        provider
+    package="com.example.myapp">
+    <application ... >
+        <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.myapp.fileprovider"
-            >...
-         <   android:exported="fa<l>se"
-       >     !-- <Place chi>ld elements of pr<ovider here.> <--
-      >  /provider
+            ...
+            android:exported="false">
+            <!-- Place child elements of <provider> here. -->
+        </provider>
         ...
-    /application
-/manifest
+    </application>
+</manifest>
 ```
 
 ### Ask for credentials before showing sensitive information
@@ -178,10 +178,10 @@ steps:
 <manifest ... >
     <application
         android:networkSecurityConfig="@xml/network_security_config"
-  >      ...< 
-        !-- Place child el<ements of a>pplication elemen>t her<e. --
-    /a>p<plication>
-/manifest
+        ... >
+        <!-- Place child elements of <application> element here. -->
+    </application>
+</manifest>
 ```
 2. Add an XML resource file, located at
    `res/xml/network_security_config.xml`.
@@ -191,11 +191,11 @@ steps:
 
    ```xml
    <network-security-config>
-       <domain-config cleartextTrafficPermitted="f>alse"<;
-           domain includeSubdoma>ins="true&quo<t;secur>e.example.com/dom<ain
-           ..>.<
-       /domain-config
-   /net>work-security-config
+       <domain-config cleartextTrafficPermitted="false">
+           <domain includeSubdomains="true">secure.example.com</domain>
+           ...
+       </domain-config>
+   </network-security-config>
    ```
 
    During the development process, you can use the
@@ -209,10 +209,10 @@ steps:
    <network-security-config>
        <debug-overrides>
            <trust-anchors>
-               <certificates src="us>er" </
-           /tru>st-an<chors
-       /debug>-<overrides
-   /network-secur>ity-config
+               <certificates src="user" />
+           </trust-anchors>
+       </debug-overrides>
+   </network-security-config>
    ```
 
 **Related info:** [Network
@@ -296,7 +296,7 @@ snippet:
     });
 
     // Send a message from channel[1] to channel[0].
-    channel[1].postMessage(new WebMessage(&quot;My secure message"));
+    channel[1].postMessage(new WebMessage("My secure message"));
 
 **Related info:**
 
@@ -373,11 +373,11 @@ viewer app:
 
     // Create an Intent to launch a PDF viewer for a file owned by this app.
     Intent(Intent.ACTION_VIEW).apply {
-        data = Uri.parse(&<q>uot;bcon<te>nt:/b//com.example/personal-info.pdf")
+        data = Uri.parse("<b>content:</b>//com.example/personal-info.pdf")
 
-        // This flag gives the started app read access to the <f>ile.
-        baddFlags(Intent.FLAG_GRANT_READ_URI_P<ER>MISSION)/b
-    }.also >{ intent -
+        // This flag gives the started app read access to the file.
+        <b>addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)</b>
+    }.also { intent ->
         // Make sure that the user has a PDF viewer app installed on their device.
         intent.resolveActivity(packageManager)?.run {
             startActivity(intent)
@@ -388,10 +388,10 @@ viewer app:
 
     // Create an Intent to launch a PDF viewer for a file owned by this app.
     Intent viewPdfIntent = new Intent(Intent.ACTION_VIEW);
-    viewPdfIntent.setData(Uri.parse(&<q>uot;bconte<nt>:///bcom.example/personal-info.pdf"));
+    viewPdfIntent.setData(Uri.parse("<b>content://</b>com.example/personal-info.pdf"));
 
-    // This flag gives the started app read access to <t>he file.
-    bviewPdfIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PE<RM>ISSION);/b
+    // This flag gives the started app read access to the file.
+    <b>viewPdfIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);</b>
 
     // Make sure that the user has a PDF viewer app installed on their device.
     if (viewPdfIntent.resolveActivity(getPackageManager()) != null) {
@@ -437,7 +437,7 @@ storage:
     // path separators.
     val FILE_NAME = "sensitive_info.txt"
     val fileContents = "This is some top-secret information!"
-    File(filesDir, FILE_NAME).bufferedWri>ter().use { writer -
+    File(filesDir, FILE_NAME).bufferedWriter().use { writer ->
         writer.write(fileContents)
     }
 
@@ -461,8 +461,8 @@ internal storage:
 ### Kotlin
 
     val FILE_NAME = "sensitive_info.txt"
-    val contents = File(filesDir, FILE_NAME).bufferedReader().useLines> { lines -
-        lines.fold("">;) { working, line -
+    val contents = File(filesDir, FILE_NAME).bufferedReader().useLines { lines ->
+        lines.fold("") { working, line ->
             "$working\n$line"
         }
     }
@@ -528,7 +528,7 @@ The following code snippet includes an example of a hash verifier:
 
     val hash = calculateHash(stream)
     // Store "expectedHash" in a secure location.
-    if< (h>ash == varex<pect>edHash/var) {
+    if (hash == <var>expectedHash</var>) {
         // Work with the content.
     }
 
@@ -541,7 +541,7 @@ The following code snippet includes an example of a hash verifier:
             while (digestStream.read() != -1) {
                 // The DigestInputStream does the work; nothing for us to do.
             }
-            digest.digest().joinToString(":&quot;) { "%02x".format(it) }
+            digest.digest().joinToString(":") { "%02x".format(it) }
         }
     }
 
@@ -574,7 +574,7 @@ The following code snippet includes an example of a hash verifier:
 
         // Calculating the hash code can take quite a bit of time, so it shouldn't
         // be done on the main thread.
-        executo&r.execute(() -gt; {
+        executor.execute(() -&gt; {
             String hash;
             try (DigestInputStream digestStream =
                     new DigestInputStream(stream, digest)) {
@@ -590,8 +590,8 @@ The following code snippet includes an example of a hash verifier:
                 hash = null;
             }
 
-            final String calculatedHash = >hash;
-            runOnUiThread(() - hashCallback.onHashCalculated(calculatedHash));
+            final String calculatedHash = hash;
+            runOnUiThread(() -> hashCallback.onHashCalculated(calculatedHash));
         });
         return true;
     }

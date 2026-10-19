@@ -27,9 +27,9 @@ Column {
     }
     Row {
         Button(onClick = { /* ... */ }) { Text("3rd") }
-        Button(onClick = { /* ...ot;4th") }
+        Button(onClick = { /* ... */ }) { Text("4th") }
     }
-}FocusTraversal.kt
+}
 ```
 
 <br />
@@ -110,9 +110,9 @@ Column {
         onClick = { /* ... */ },
         modifier = Modifier.focusRequester(third)
     ) {
-        Tuot;)
+        Text("Third")
     }
-}FocusTraversal.kt
+}
 ```
 
 <br />
@@ -143,8 +143,8 @@ Button(
     onClick = { /* ... */ },
     modifier = Modifier.focusRequester(bottomButton)
 ) {
-    Text("Bo)
-}FocusTraversal.kt
+    Text("Bottom button")
+}
 ```
 
 <br />
