@@ -1,5 +1,523 @@
 [
   {
+    "date": "2026-10-20T15:10:05Z",
+    "commit_hash": "e8754344",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-lm/references/get-a-model\" target=\"_blank\">Get a model</a>",
+        "path": "agents/skills/device-ai/litert/litert-lm/references/get-a-model.md",
+        "summary": "This new documentation page defines the workflow for acquiring and downloading LiteRT-LM models for on-device AI integration, dividing responsibilities between the agent (writing app download code) and the user (selecting and obtaining model files).",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-lm/skill\" target=\"_blank\">Build an Android app with the LiteRT-LM Kotlin API</a>",
+        "path": "agents/skills/device-ai/litert/litert-lm/skill.md",
+        "summary": "Added a new documentation page providing step-by-step guidance for integrating open text LLMs into Android apps using the LiteRT-LM Kotlin API.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/skill\" target=\"_blank\">Build an Android app with the LiteRT CompiledModel API</a>",
+        "path": "agents/skills/device-ai/litert/litert-runtime/skill.md",
+        "summary": "Updated the LiteRT runtime skill documentation to expand and structure the migration process from the legacy TensorFlow Lite Interpreter into a clear seven-step workflow. It details specific rules for dependency swapping, delegate mapping (such as translating `GpuDelegate` and NNAPI choices to `CompiledModel.Options`), strict prohibition of `org.tensorflow.lite` imports, and two-stage verification.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai-tools/overview\" target=\"_blank\">Build Android apps with AI agents</a>",
+        "path": "ai-tools/overview.md",
+        "summary": "Introduces core concepts of AI agents in Android development, explaining how LLMs, software harnesses, context, and execution loops work together to perform multi-step coding tasks.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai-tools/quickstart\" target=\"_blank\">Choose the right tools for your agentic workflow</a>",
+        "path": "ai-tools/quickstart.md",
+        "summary": "This new guide provides a quickstart roadmap for agent-assisted Android development, helping developers choose the right AI tools, CLI workflows, and IDE integrations based on their experience level and project goals.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog\" target=\"_blank\">The Android Developers' Blog</a>",
+        "path": "blog.md",
+        "summary": "The blog documentation was updated to add a new case study detailing how Grab reduced ANRs by 32% and improved startup time by 35% using R8 and Profile-guided optimization, while an older post regarding Google Play subscriptions was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_blog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/10\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/10.md",
+        "summary": "Updated the Android blog author directory on page 10 by adding a new author profile (Nguyen Van Minh from Grab) and removing an existing one (Nikita Ogorodnikov). This keeps the contributor listings accurate and up-to-date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/11\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/11.md",
+        "summary": "The authors documentation was updated to add Nikita Ogorodnikov as a Staff Software Engineer and remove Prateek Batra from the list of contributors. This keeps the Android developer blog author directory accurate and up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/13\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/13.md",
+        "summary": "The authors list in the Android blog documentation was updated to include Ryan Bartley as a Product Manager and remove Shai Barack, keeping the directory of contributors accurate.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_13.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/14\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/14.md",
+        "summary": "Added author Shai Barack and removed author Tahsin Masrur from the Android developer blog authors page, updating the directory of contributors and their respective post listings.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_14.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/15\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/15.md",
+        "summary": "Updated the Android developer blog authors page to add Tahsin Masrur, increment Tracy Agyemang's post count from 12 to 13, and remove Vinisha Athwani. This keeps the author directory accurate and up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_15.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/16\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/16.md",
+        "summary": "Added a new author profile for Vinisha Athwani, Technical Writer, including their bio link, post count, and profile image to the Android blog authors documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_16.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/ajesh-pai\" target=\"_blank\">Ajesh Pai</a>",
+        "path": "blog/authors/ajesh-pai.md",
+        "summary": "Added a new blog post entry for author Ajesh Pai detailing how Grab reduced ANRs and improved startup time using R8 and Profile Guided Optimization, increasing the author's total post count from 4 to 5.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_ajesh-pai.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/nguyen-van-minh\" target=\"_blank\">Nguyen Van Minh</a>",
+        "path": "blog/authors/nguyen-van-minh.md",
+        "summary": "Added a new author profile documentation page for Nguyen Van Minh, Software Engineer at Grab, showcasing their published case studies and contributions to Android development insights.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/tracy-agyemang\" target=\"_blank\">Tracy Agyemang</a>",
+        "path": "blog/authors/tracy-agyemang.md",
+        "summary": "Updated Tracy Agyemang's author profile page to reflect a new total of 13 posts, adding a recent case study on Grab while removing an older post, which updates the pagination layout across 3 pages.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_tracy-agyemang.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/tracy-agyemang/2\" target=\"_blank\">Tracy Agyemang</a>",
+        "path": "blog/authors/tracy-agyemang/2.md",
+        "summary": "Updated Tracy Agyemang's author profile page to include a new case study about Instagram and Facebook using Media3 PreloadManager, updated the post count from 12 to 13, removed an older post to pagination, and updated the pagination total to 3 pages.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/tracy-agyemang/3\" target=\"_blank\">Tracy Agyemang</a>",
+        "path": "blog/authors/tracy-agyemang/3.md",
+        "summary": "This new documentation page introduces the author profile for Tracy Agyemang, featuring a collection of Android development blog posts and case studies such as X's adoption of passkeys.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/case-studies\" target=\"_blank\">Case Studies</a>",
+        "path": "blog/categories/case-studies.md",
+        "summary": "Added a new case study featuring Grab's success in reducing ANRs by 32% and improving startup time using R8 and profile-guided optimization, while removing an older FotMob Wear OS case study to keep the documentation current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_case-studies.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/case-studies/2\" target=\"_blank\">Case Studies</a>",
+        "path": "blog/categories/case-studies/2.md",
+        "summary": "Added a new case study detailing how FotMob achieved record-breaking Wear OS adoption through cross-device discovery, while removing an older case study regarding WHOOP's power management optimizations. This update keeps the case studies collection fresh and relevant for developers exploring modern Android ecosystem features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/case-studies/3\" target=\"_blank\">Case Studies</a>",
+        "path": "blog/categories/case-studies/3.md",
+        "summary": "The case studies documentation was updated to include a new article detailing how WHOOP reduced excessive partial wake lock sessions by over 90%, while an older case study regarding Kakao Mobility was removed from this page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/case-studies/4\" target=\"_blank\">Case Studies</a>",
+        "path": "blog/categories/case-studies/4.md",
+        "summary": "Added a new case study detailing how Kakao Mobility successfully integrated Gemini Nano on-device to reduce costs and significantly boost their call conversion rate by 45%. This addition provides developers with real-world insights into leveraging on-device generative AI capabilities within Android applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest.md",
+        "summary": "The latest Android blog documentation was updated to add a new case study detailing how Grab reduced ANRs and improved startup times using R8 and profile-guided optimization, while removing an older Tinder case study and updating sidebar topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_latest.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/10\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/10.md",
+        "summary": "The documentation was updated to include a new #WeArePlay blog post highlighting founders building finance-related apps, along with additions to the topic tags list such as 'Remote Compose' and reordering of existing tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/2\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/2.md",
+        "summary": "Added a new case study blog post regarding Tinder cutting app cold starts by 47% using the R8 Configuration Analyzer, removed an older post about Google Play billing choices and lower fees, and updated the topics and tags list to include Remote Compose.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/3\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/3.md",
+        "summary": "The Android blog index page (Page 3) was updated to include a new post regarding expanded billing choices and lower fees on Google Play by Paul Feng, while removing an older entry about Android XR SDK Developer Preview 4. Additionally, topic tags were reordered and the 'Remote Compose' tag was added to the sidebar.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/4\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/4.md",
+        "summary": "The Android developer blog listing page (Page 4) has been updated to include the announcement for the Android XR SDK Developer Preview 4 while removing an older post regarding Android Studio Panda 3. Additionally, minor updates were made to the categorized topic tags at the bottom of the page, including the addition of Remote Compose and reordering of the adaptive development tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/5\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/5.md",
+        "summary": "The Android blog updates page has been modified to include a new announcement regarding Android Studio Panda 3 and its stable release for production AI-powered workflows. Additionally, an older case study post regarding WHOOP's wake lock optimizations was removed, and sidebar topic tags were reordered or updated with new entries like Remote Compose.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/6\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/6.md",
+        "summary": "The Android blog index was updated to include a new case study detailing how WHOOP reduced excessive partial wake lock sessions by over 90%, removed an older post regarding Media3 1.9.0 updates, and added new topic tags such as Remote Compose while reorganizing existing tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/7\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/7.md",
+        "summary": "Updated the latest blog index page to include the Media3 1.9.0 release announcement by Kristina Simakova, removed an older performance leveling guide entry, and added new topic tags such as Remote Compose to keep the documentation index current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/8\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/8.md",
+        "summary": "The latest Android blog documentation was updated to include a new post by Alice Yuan titled 'Leveling Guide for your Performance Journey,' remove an older post by Paul Feng regarding Google Play tools, and add topics such as 'Remote Compose' while adjusting existing topic filters.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/9\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/9.md",
+        "summary": "The Android blog listing page was updated to include a new post by Paul Feng about Google Play tools and programs, remove an older #WeArePlay community story, and update the topic tag filters by adding 'Remote Compose' and repositioning 'Adaptive & Differentiated'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager\" target=\"_blank\">Datadog delivers millions of in-depth performance insights with ProfilingManager</a>",
+        "path": "blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager.md",
+        "summary": "Updated the \"Continue reading\" section at the end of the post to include a recent case study about Grab reducing ANRs and improving startup times, while removing an older entry about WhatsApp's passkeys integration. This keeps the recommended reading list fresh and relevant for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature\" target=\"_blank\">Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks</a>",
+        "path": "blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the end of the post by replacing a Tinder case study link with a new case study about Grab reducing ANRs and improving startup time using R8 and Profile Guided Optimization. This keeps related content fresh and relevant for readers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time\" target=\"_blank\">Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization</a>",
+        "path": "blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md",
+        "summary": "This new case study highlights how Grab improved its app performance by leveraging R8 optimization, Baseline Profiles, and Startup Profiles. These changes resulted in a 32% reduction in ANRs, a 35% improvement in startup time, and a ~30% decrease in download size.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-for-widget-users\" target=\"_blank\">Gratitude saw 25% higher retention for widget users</a>",
+        "path": "blog/posts/gratitude-saw-25-higher-retention-for-widget-users.md",
+        "summary": "Updated the \"Continue reading\" recommendations section at the bottom of the blog post by removing an older article about WhatsApp passkeys and adding a new case study detailing how Grab reduced ANRs and improved startup time using R8 and Profile Guided Optimization.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_gratitude-saw-25-higher-retention-for-widget-users.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/how-r8-made-kotlin-coroutines-on-android-2x-faster\" target=\"_blank\">How R8 made Kotlin Coroutines on Android 2x faster</a>",
+        "path": "blog/posts/how-r8-made-kotlin-coroutines-on-android-2x-faster.md",
+        "summary": "Updated the 'Continue reading' blog recommendations section at the end of the post by adding a new case study on Grab and removing an older Tinder case study. This keeps the related reading links current with recent Android developer blog publications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_how-r8-made-kotlin-coroutines-on-android-2x-faster.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/how-reddit-used-the-r8-optimizer-for-high-impact-performance-improvements\" target=\"_blank\">How Reddit used the R8 optimizer for high impact performance improvements</a>",
+        "path": "blog/posts/how-reddit-used-the-r8-optimizer-for-high-impact-performance-improvements.md",
+        "summary": "The 'Continue reading' section at the end of the Reddit R8 case study article was updated to include a new related case study about Grab reducing ANRs and improving startup times using R8 and Profile Guided Optimization, while removing an older link about WhatsApp passkeys.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_how-reddit-used-the-r8-optimizer-for-high-impact-performance-improvements.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api\" target=\"_blank\">How Uber is reducing manual logins by 4 million per year with the Restore Credentials API</a>",
+        "path": "blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the bottom of the Uber Restore Credentials API post to replace the Tinder case study card with a new case study featuring Grab's optimizations using R8 and Profile-Guided Optimization.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager\" target=\"_blank\">Instagram and Facebook deliver instant playback and boost user engagement with Media3 PreloadManager</a>",
+        "path": "blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager.md",
+        "summary": "Updated the 'Continue reading' section at the end of the blog post to remove a reference to the Karrot case study and add a new case study detailing how Grab reduced ANRs and improved startup times using R8 and Profile Guided Optimization.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct\" target=\"_blank\">How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%</a>",
+        "path": "blog/posts/jetpack-compose-ai-native-ui-instagram-direct.md",
+        "summary": "The footer links and recommended case studies section of the blog post were updated to replace an older article about Kotlin coroutines and R8 optimization with a newer case study detailing how Grab reduced ANRs and improved startup time using R8 and Profile Guided Optimization.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_jetpack-compose-ai-native-ui-instagram-direct.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/red-bus-uses-gemini-flash-via-firebase-ai-logic-to-boost-the-length-of-customer-reviews-by-57\" target=\"_blank\">redBus uses Gemini Flash via Firebase AI Logic to boost the length of customer reviews by 57%</a>",
+        "path": "blog/posts/red-bus-uses-gemini-flash-via-firebase-ai-logic-to-boost-the-length-of-customer-reviews-by-57.md",
+        "summary": "The 'Continue reading' section of the Red Bus case study was updated to replace a related article reference for Tinder with a new case study about Grab reducing ANRs and improving startup time using R8 and Profile Guided Optimization. This keeps the recommended reading list current and relevant to performance optimization.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_red-bus-uses-gemini-flash-via-firebase-ai-logic-to-boost-the-length-of-customer-reviews-by-57.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/tiktok-reduces-code-size-and-improves-app-performance-for-new-features-with-jetpack-compose\" target=\"_blank\">TikTok reduces code size by 58% and improves app performance for new features with Jetpack Compose</a>",
+        "path": "blog/posts/tiktok-reduces-code-size-and-improves-app-performance-for-new-features-with-jetpack-compose.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the bottom of the blog post to remove a WhatsApp passkeys case study and add a new case study about how Grab reduces ANRs and improves startup time using R8 and Profile Guided Optimization. This keeps the related case studies section current with recent Android development content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_tiktok-reduces-code-size-and-improves-app-performance-for-new-features-with-jetpack-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio\" target=\"_blank\">Ultrahuman launches features 15% faster with Gemini in Android Studio</a>",
+        "path": "blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio.md",
+        "summary": "The 'Continue reading' section at the end of the Ultrahuman case study post was updated to replace a related article about WhatsApp with a new case study on how Grab reduced ANRs and improved startup time using R8 and Profile Guided Optimization.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_ultrahuman-launches-features-faster-with-gemini-in-android-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/adaptive-and-differentiated\" target=\"_blank\">#Adaptive \\& Differentiated</a>",
+        "path": "blog/topics/adaptive-and-differentiated.md",
+        "summary": "Added a new case study featuring Grab to the Adaptive & Differentiated topic page. The post highlights how Grab utilized R8 and Profile-Guided Optimization (PGO) to reduce ANRs by 32% and improve startup times by 35%, providing valuable performance-tuning insights for Android developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_adaptive-and-differentiated.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/services/bound-services\" target=\"_blank\">Bound services overview</a>",
+        "path": "develop/background-work/services/bound-services.md",
+        "summary": "Updated the bound services documentation and code samples in both Kotlin and Java to properly nullify service references when unbinding or disconnecting. This prevents memory leaks by allowing services to be garbage-collected properly. Additionally, improved accessibility by adding descriptive alt text to the lifecycle diagram.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_bound-services.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/better-together/continue-on/enable-support\" target=\"_blank\">Enable and customize cross-device handoff</a>",
+        "path": "develop/better-together/continue-on/enable-support.md",
+        "summary": "Updated the Continue On documentation to reflect API changes, including passing a `HandoffActivityParams` object to `setHandoffEnabled()` to support scenarios where the app is not installed on the receiving device. Also updated code examples to use `getComponentName()` instead of `this` when building `HandoffActivityData`, and removed parentheses from method references in markdown text.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_enable-support.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/better-together/continue-on/setup\" target=\"_blank\">Setup and test</a>",
+        "path": "develop/better-together/continue-on/setup.md",
+        "summary": "The setup documentation for Continue On was updated to reference the `setAllowHandoffWithoutPackageInstalled(true)` API. This addition is important for developers testing web handoff functionality, as it clarifies how to proceed without requiring the app to be pre-installed on the target device.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/designsystems/custom\" target=\"_blank\">Custom design systems in Compose</a>",
+        "path": "develop/ui/compose/designsystems/custom.md",
+        "summary": "Updated the Jetpack Compose custom design systems documentation to reflect modern API changes. This includes renaming `Colors` to `ColorScheme`, updating the `Ripple` references to the new `ripple` and `LocalIndication` APIs, and adding guidance on configuring ripples using `LocalRippleConfiguration` and `LocalRippleThemeConfiguration` introduced in Material 3 1.5.0-beta01.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_custom.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/modifiers\" target=\"_blank\">Compose modifiers</a>",
+        "path": "develop/ui/compose/modifiers.md",
+        "summary": "The Compose modifiers documentation was updated to clarify how layout direction affects padding and offsets. It now explicitly explains that `padding` parameters like `start` and `end` respect layout direction, and introduces `absolutePadding` for direction-agnostic left/right padding. Additionally, the reference link for `absoluteOffset` was updated to point directly to its specific modifier documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_modifiers.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/system/insets-ui\" target=\"_blank\">Set up window insets</a>",
+        "path": "develop/ui/compose/system/insets-ui.md",
+        "summary": "Added a comprehensive reference table mapping built-in Compose window inset padding modifiers (such as safeDrawingPadding, statusBarsPadding, and imePadding) to their corresponding WindowInsets types. This update matters because it provides developers with a clear, centralized lookup guide for handling system window insets in Jetpack Compose UI.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_insets-ui.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/input-routing-audio\" target=\"_blank\">Understand physical input routing for audio glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glasses/input-routing-audio.md",
+        "summary": "This new documentation explains how audio glasses route physical user input based on user awareness and active data streams rather than visual focus. It provides implementation guidelines for registering and managing pending intents to handle input focus shifts across various concurrency states.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/input\" target=\"_blank\">Handle input from audio glasses and display glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/input.md",
+        "summary": "Added a new link to the guide covering how the system routes physical input on audio glasses, expanding the documentation on Jetpack XR SDK input handling.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_input.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/package-and-distribute\" target=\"_blank\">Package and distribute apps for Android XR</a>",
+        "path": "develop/xr/package-and-distribute.md",
+        "summary": "Updated the package and distribute documentation to include support and publishing guidance for new Android XR device types, specifically audio glasses and augmented experiences. The changes detail how to use the mobile release track for audio glasses, qualify for the 'Differentiated for Glasses' store label, and clarify release track strategies for both immersive and augmented app variants.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_package-and-distribute.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/device-targeting\" target=\"_blank\">Device targeting (beta)</a>",
+        "path": "google/play/device-targeting.md",
+        "summary": "Fixed multiple XML snippet formatting errors and malformed tags within the device targeting configuration documentation. These corrections ensure that developers copy and paste valid XML syntax for defining custom device groups, selectors, and targeting rules.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_device-targeting.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/vitals/memory-usage\" target=\"_blank\">Memory usage (anonymous RSS + swap)</a>",
+        "path": "google/play/vitals/memory-usage.md",
+        "summary": "The documentation was updated to refine memory leak identification guidelines in Android Vitals. It shifts the focus from P90 to P99 as the key tail-end metric for comparison against the P50 baseline, and updates the diagnostic threshold ratio to 3.5x for P99 to P50. Additionally, a link to the official memory usage documentation was updated to point directly to the diagnostic section.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_memory-usage.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/compose-customization\" target=\"_blank\">Core Compose</a>",
+        "path": "media/media3/ui/compose-customization.md",
+        "summary": "Added two new visual diagrams (Figure 1 and Figure 2) to the Media3 Compose UI documentation. These figures illustrate the placement of slots and the drawing order of layers within the `Player` composable, helping developers better understand the layout hierarchy and customization options.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_compose-customization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/backup-restore-testing\" target=\"_blank\">Automated backup and restore testing</a>",
+        "path": "studio/preview/backup-restore-testing.md",
+        "summary": "Updated the system requirements for backup and restore testing to specify that devices or emulators running API level 36.1 or higher now require Google Play services version 26.33.30 or higher. This matters for developers targeting newer Android versions to ensure their environment meets the updated prerequisites for testing data transfers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_backup-restore-testing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/download\" target=\"_blank\">Download Android CLI</a>",
+        "path": "tools/agents/android-cli/download.md",
+        "summary": "The download documentation for the Android CLI on Windows was updated to reorder the installation methods, placing the direct download option above the curl/cmd instructions. This change also includes minor phrasing improvements for selecting installation methods.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_download.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/issues\" target=\"_blank\">Address common performance issues</a>",
+        "path": "topic/performance/issues.md",
+        "summary": "Updated the target URL for the DEX code optimization documentation link in the performance issues guide, redirecting it to the Google Play Vitals section to ensure developers access the most relevant and up-to-date resources for app optimization.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_issues.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars/parked\" target=\"_blank\">Build parked apps for cars</a>",
+        "path": "training/cars/parked.md",
+        "summary": "Added a new 'Android skills' section to the parked apps documentation, introducing the 'android-for-cars-parked-apps' skill. This addition provides developers with instructions and a CLI command to adapt existing mobile video streaming apps, games, and web browsers for cars, while also removing the older parked app codelab link.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_parked.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars/parked/auto\" target=\"_blank\">Add support for Android Auto to your parked app</a>",
+        "path": "training/cars/parked/auto.md",
+        "summary": "Added a new section for Android skills, providing developers with instructions on how to use the Android CLI to install the 'android-for-cars-parked-apps' skill. This matters as it introduces AI-assisted developer tooling to help adapt video streaming apps, games, and web browsers for parked cars.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_auto.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars/parked/automotive-os\" target=\"_blank\">Add support for Android Automotive OS to your parked app</a>",
+        "path": "training/cars/parked/automotive-os.md",
+        "summary": "Added a new section on Android skills for cars, highlighting how to use the Android CLI to install the parked apps skill for adapting video streaming apps, games, and web browsers to Android Automotive OS.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_automotive-os.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars/parked/games\" target=\"_blank\">Build games for cars</a>",
+        "path": "training/cars/parked/games.md",
+        "summary": "Added a new 'Android skills' section to the parked games documentation. This update introduces instructions on how to use the Android CLI and the 'android-for-cars-parked-apps' skill to help developers adapt existing apps, games, and web browsers for parked cars.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_games.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars/parked/video\" target=\"_blank\">Build video apps for Android Automotive OS</a>",
+        "path": "training/cars/parked/video.md",
+        "summary": "The video app documentation for Android for Cars was updated to include references to the new Android skills CLI tool for adapting parked apps, added a link to a new codelab for building and testing parked video apps, and clarified the quality guideline review requirements for app submission.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_video.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/widgets/get_started\" target=\"_blank\">Get started with widgets</a>",
+        "path": "training/wearables/widgets/get_started.md",
+        "summary": "Added a new 'Android skills' section to the Wear OS widgets getting started guide, providing developers with a direct link to the GitHub repository and instructions on how to install the wear-widgets skill using the Android CLI.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e8754344_get_started.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-19T15:10:28Z",
     "commit_hash": "d700f5a4",
     "entries": [

@@ -1,0 +1,47 @@
+diff --git a/docs/blog/authors/15.md b/docs/blog/authors/15.md
+index ac07aba7..f100ee7d 100644
+--- a/docs/blog/authors/15.md
++++ b/docs/blog/authors/15.md
+@@ -6,6 +6,15 @@ source: md.txt
+ 
+ # Authors
+ 
++-
++
++  ## [Tahsin Masrur](https://developer.android.com/blog/authors/tahsin-masrur)
++
++  ###### Software Engineer
++
++  [read_more
++  1 post](https://developer.android.com/blog/authors/tahsin-masrur) [read_more
++  1 post](https://developer.android.com/blog/authors/tahsin-masrur) ![View Tahsin Masrur's profile](https://developer.android.com/static/blog/assets/Tahsin_a6df1d8c3c_Z1XuFni.webp) ![View Tahsin Masrur's profile](https://developer.android.com/static/blog/assets/Tahsin_a6df1d8c3c_Z1XuFni.webp)
+ -
+ 
+   ## [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan)
+@@ -58,8 +67,8 @@ source: md.txt
+   ###### Product Marketing Manager
+ 
+   [read_more
+-  12 posts](https://developer.android.com/blog/authors/tracy-agyemang) [read_more
+-  12 posts](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
++  13 posts](https://developer.android.com/blog/authors/tracy-agyemang) [read_more
++  13 posts](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
+ -
+ 
+   ## [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns)
+@@ -78,15 +87,6 @@ source: md.txt
+   [read_more
+   1 post](https://developer.android.com/blog/authors/vijaya-kaza) [read_more
+   1 post](https://developer.android.com/blog/authors/vijaya-kaza) ![View Vijaya Kaza's profile](https://developer.android.com/static/blog/assets/Vijaya_Kaza_38a0089092_2tkw6z.webp) ![View Vijaya Kaza's profile](https://developer.android.com/static/blog/assets/Vijaya_Kaza_38a0089092_2tkw6z.webp)
+--
+-
+-  ## [Vinisha Athwani](https://developer.android.com/blog/authors/vinisha-athwani)
+-
+-  ###### Technical Writer
+-
+-  [read_more
+-  1 post](https://developer.android.com/blog/authors/vinisha-athwani) [read_more
+-  1 post](https://developer.android.com/blog/authors/vinisha-athwani) ![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_ZMd6UB.webp) ![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_ZMd6UB.webp)
+ [arrow_back](https://developer.android.com/blog/authors/14)
+ 
+ #### Page 15

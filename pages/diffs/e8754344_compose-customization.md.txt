@@ -1,0 +1,24 @@
+diff --git a/docs/media/media3/ui/compose-customization.md b/docs/media/media3/ui/compose-customization.md
+index 3f65bb2e..6bb1394a 100644
+--- a/docs/media/media3/ui/compose-customization.md
++++ b/docs/media/media3/ui/compose-customization.md
+@@ -80,6 +80,19 @@ its content slots, or you can leverage the [`PlayerDefaults`](https://developer.
+ customize specific parts of the UI, such as [`TopControls`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults#TopControls(androidx.media3.common.Player,kotlin.Boolean,androidx.compose.ui.Modifier,kotlin.Function2)), [`CenterControls`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults#CenterControls(androidx.media3.common.Player,kotlin.Boolean,androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1)),
+ [`BottomControls`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults#BottomControls(androidx.media3.common.Player,kotlin.Boolean,androidx.compose.ui.Modifier,kotlin.Function2,kotlin.Function1,kotlin.Function1,kotlin.Function2,kotlin.Function1)), and [`ErrorOverlay`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults#ErrorOverlay(androidx.media3.common.Player,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,kotlin.CharSequence,androidx.media3.common.ErrorMessageProvider)).
+ 
++Figure 1 shows where the `Player` composable places its slots. Figure 2 shows
++the order in which it draws its layers.
++![A video player with dashed outlines that mark its slots. From top to
++bottom: topControls along the top edge, errorOverlay above the center,
++centerControls in the middle with the backSecondary, back, central,
++forward, and forwardSecondary buttons, subtitles near the bottom, and
++bottomControls along the bottom edge with the above, left,
++progressSlider, right, and below slots. ContentFrame fills the area
++behind them.](https://developer.android.com/static/images/reference/androidx/media3/ui/compose/material3/player-layout-front.svg) **Figure 1.** The slots of the `Player` composable. The center and bottom controls show the slots of `PlayerDefaults.CenterControls` and `PlayerDefaults.BottomControls`. The `topControls`, `above`, and `below` slots are empty by default. ![An exploded view of six stacked layers. From bottom to top: 1,
++PlayerSurface; 2, shutter; 3, artwork; 4, subtitles; 5, errorOverlay; and
++6, topControls, centerControls, and bottomControls. Layers 1 to 4 make up
++ContentFrame, and all six make up Player.](https://developer.android.com/static/images/reference/androidx/media3/ui/compose/material3/player-layout-layers.svg) **Figure 2.** The layers of the `Player` composable, numbered in the order they're drawn.
++
+ For example, you can use `PlayerDefaults.CenterControls` to override just the
+ central play/pause button while leaving the rest of the center controls intact.
+ You can also pass a fully custom composable for a parameter like `topControls`,

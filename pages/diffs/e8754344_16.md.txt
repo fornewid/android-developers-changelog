@@ -1,0 +1,20 @@
+diff --git a/docs/blog/authors/16.md b/docs/blog/authors/16.md
+index 399d6264..eba319e4 100644
+--- a/docs/blog/authors/16.md
++++ b/docs/blog/authors/16.md
+@@ -6,6 +6,15 @@ source: md.txt
+ 
+ # Authors
+ 
++-
++
++  ## [Vinisha Athwani](https://developer.android.com/blog/authors/vinisha-athwani)
++
++  ###### Technical Writer
++
++  [read_more
++  1 post](https://developer.android.com/blog/authors/vinisha-athwani) [read_more
++  1 post](https://developer.android.com/blog/authors/vinisha-athwani) ![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_ZMd6UB.webp) ![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_ZMd6UB.webp)
+ -
+ 
+   ## [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva)

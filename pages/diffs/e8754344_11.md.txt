@@ -1,0 +1,36 @@
+diff --git a/docs/blog/authors/11.md b/docs/blog/authors/11.md
+index 4135d76e..54e13a67 100644
+--- a/docs/blog/authors/11.md
++++ b/docs/blog/authors/11.md
+@@ -6,6 +6,15 @@ source: md.txt
+ 
+ # Authors
+ 
++-
++
++  ## [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov)
++
++  ###### Staff Software Engineer
++
++  [read_more
++  1 post](https://developer.android.com/blog/authors/nikita-ogorodnikov) [read_more
++  1 post](https://developer.android.com/blog/authors/nikita-ogorodnikov) ![View Nikita Ogorodnikov's profile](https://developer.android.com/static/blog/assets/nickolay_profile_blog_4e456d6b31_1rbt1v.webp) ![View Nikita Ogorodnikov's profile](https://developer.android.com/static/blog/assets/nickolay_profile_blog_4e456d6b31_1rbt1v.webp)
+ -
+ 
+   ## [Noam Gefen](https://developer.android.com/blog/authors/noam-gefen)
+@@ -78,15 +87,6 @@ source: md.txt
+   [read_more
+   1 post](https://developer.android.com/blog/authors/phalene-gowling) [read_more
+   1 post](https://developer.android.com/blog/authors/phalene-gowling) ![View Phalene Gowling's profile](https://developer.android.com/static/blog/assets/Phalene_Gowling_0adca8708d_Z1EF0vK.webp) ![View Phalene Gowling's profile](https://developer.android.com/static/blog/assets/Phalene_Gowling_0adca8708d_Z1EF0vK.webp)
+--
+-
+-  ## [Prateek Batra](https://developer.android.com/blog/authors/prateek-batra)
+-
+-  ###### Developer Relations Engineer
+-
+-  [read_more
+-  1 post](https://developer.android.com/blog/authors/prateek-batra) [read_more
+-  1 post](https://developer.android.com/blog/authors/prateek-batra) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
+ [arrow_back](https://developer.android.com/blog/authors/10)
+ 
+ #### Page 11

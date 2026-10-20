@@ -1,0 +1,106 @@
+diff --git a/docs/google/play/device-targeting.md b/docs/google/play/device-targeting.md
+index 82bb138f..f716a361 100644
+--- a/docs/google/play/device-targeting.md
++++ b/docs/google/play/device-targeting.md
+@@ -54,13 +54,13 @@ custom device groups. For example, you could define a device group called
+ `high_ram` that contains all devices with at least 8GB of RAM:
+ 
+     <config:device-targeting-config
+-        xmlns:config="http://schemas.android.com/apk/co>nfig&q<uot;
++        xmlns:config="http://schemas.android.com/apk/config">
+ 
+-        config:device-group name=>"hig<h_ram"
+-            config:device-selector ram-min>-byte<s="8000000000&q>uo<t;/
+-        /config:device-group
++        <config:device-group name="high_ram">
++            <config:device-selector ram-min-bytes="8000000000"/>
++        </config:device-group>
+ 
+-    />config:device-targeting-config
++    </config:device-targeting-config>
+ 
+ A **device group** is composed of up to 5 **device selectors**. A device is
+ included in a device group if it satisfies any of its device selectors.
+@@ -104,9 +104,9 @@ selected if it matches all of the selector's device properties.
+ Including multiple properties in a single selector creates a logical AND, for
+ example:
+ 
+-      <config:device-selector ram-min-bytes="700000>0000&qu<ot;
+-          config:included-device-id brand="google&q>uot<; device="flame&qu>ot;/
+-      /config:device-selector
++      <config:device-selector ram-min-bytes="7000000000">
++          <config:included-device-id brand="google" device="flame"/>
++      </config:device-selector>
+ 
+ will create the condition for all devices with \> 7GB of RAM AND it is a Pixel 4,
+ also written as follows:
+@@ -116,10 +116,10 @@ also written as follows:
+ If you want an OR condition, create separate selectors in a single device group,
+ for example:
+ 
+-      <config:device-selector ram-min-bytes="7000000>000<"/
+-      config:devic>e-selecto<r
+-            config:included-device-id brand="google&q>uot<; device="flame&qu>ot;/
+-      /config:device-selector
++      <config:device-selector ram-min-bytes="7000000000"/>
++      <config:device-selector>
++            <config:included-device-id brand="google" device="flame"/>
++      </config:device-selector>
+ 
+ will create the condition for all devices with \> 7GB of RAM OR it is a Pixel 4,
+ also written as follows:
+@@ -129,30 +129,30 @@ also written as follows:
+ Here is an example showing all possible device properties:
+ 
+     <config:device-targeting-config
+-        xmlns:config="http://schemas.android.com/apk/co>nfig&q<uot;
+-
+-        config:device-group name=">myCusto<mGroup1"
+-          config:device-selector ram-mi>n-bytes=&<quot;8000000000"
+-            config:included-device-id b>rand=&quo<t;google" device="redfin"/
+-            config:in>cluded-de<vice-id brand="google" device=">;sailfish<"/
+-            config:included-device-id brand="goo>d-brand&q<uot;/
+-            config:excluded-device-id brand="google&>quot; dev<ice="caiman"/
+-            config:system-on-chip manuf>acturer<="Sinclair" m>odel=&q<uot;ZX80"/
+-            config:system-on-chip manuf>actur<er="Commodore&q>uot; m<odel="C64"/
+-          /config:devic>e-selec<tor
+-          config:device-selector ram-min-bytes="16000000000"/
+-        >/config:d<evice-group
+-
+-        config:device-group name="myCustomGroup2&qu>ot;
+-         < config:device-selector ram-min-bytes="4000000000" ram>-max-byte<s="8000000000"
+-            config:required-system-feature> name=&qu<ot;android.hardware.bluetooth"/
+-            config:requi>red-sys<tem-feature name=">andro<id.hardware.location>&q<uot;/
+-            config:forbidden->system-feature name="android.hardware.camera"/
+-            config:forbidden-system-feature name="mindcontrol.laser"/
+-          /config:device-selector
+-        /config:device-group
+-
+-    /config:device-targeting-config
++        xmlns:config="http://schemas.android.com/apk/config">
++
++        <config:device-group name="myCustomGroup1">
++          <config:device-selector ram-min-bytes="8000000000">
++            <config:included-device-id brand="google" device="redfin"/>
++            <config:included-device-id brand="google" device="sailfish"/>
++            <config:included-device-id brand="good-brand"/>
++            <config:excluded-device-id brand="google" device="caiman"/>
++            <config:system-on-chip manufacturer="Sinclair" model="ZX80"/>
++            <config:system-on-chip manufacturer="Commodore" model="C64"/>
++          </config:device-selector>
++          <config:device-selector ram-min-bytes="16000000000"/>
++        </config:device-group>
++
++        <config:device-group name="myCustomGroup2">
++          <config:device-selector ram-min-bytes="4000000000" ram-max-bytes="8000000000">
++            <config:required-system-feature name="android.hardware.bluetooth"/>
++            <config:required-system-feature name="android.hardware.location"/>
++            <config:forbidden-system-feature name="android.hardware.camera"/>
++            <config:forbidden-system-feature name="mindcontrol.laser"/>
++          </config:device-selector>
++        </config:device-group>
++
++    </config:device-targeting-config>
+ 
+ ## Official device manufacturer and device model codes
+ 
