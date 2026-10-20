@@ -64,7 +64,7 @@ bitmap detection to optimize your image usage](https://developer.android.com/stu
 > **Note:** Android Studio doesn't support viewing a heap dump that was captured with a tool other than the Android Studio Memory Profiler.
 
 After you've collected the heap dump, we recommend using the [Android profiler
-skill](https://developer.android.com/topic/performance/issues/memory-usage#skill-title_profilers) to analyze the heap dump and identify potential sources of high
+skill](https://developer.android.com/topic/performance/issues/memory-usage#skill-title_android-profiler) to analyze the heap dump and identify potential sources of high
 memory usage.
 
 

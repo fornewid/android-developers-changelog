@@ -100,7 +100,7 @@ static App Performance Score.
 | Compose adoption | App uses latest stable version of [Compose](https://developer.android.com/compose) |
 | Monitoring and optimization | [`FullyDrawnReporter`](https://developer.android.com/reference/kotlin/androidx/activity/FullyDrawnReporter) or [`reportFullyDrawn`](https://developer.android.com/reference/android/app/Activity#reportFullyDrawn()) is used at an appropriate time |
 
-<iframe src="https://android.devsite.google/frame/topic/performance/app-score/index_b842c6f7f4d8d871616462bf9095e0568200652854173fe8e32bd81c3002518c.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/topic/performance/app-score/index_42d3cbea530dfdd38f49eaa6a437db64b3f3ef56a3f0c310dbf88d4bf5e003b2.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Tips for evaluating your app
 

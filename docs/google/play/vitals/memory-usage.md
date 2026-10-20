@@ -19,7 +19,7 @@ memory that's also being preserved by the system in swap. Tracking anonymous
 RSS + swap ensures you see your app's true, unevictable memory footprint.
 
 > [!NOTE]
-> **Note:** For information on how to diagnose and resolve this issue, see [Memory usage (anonymous RSS + swap)](https://developer.android.com/topic/performance/issues/memory-usage).
+> **Note:** For information on how to diagnose and resolve this issue, see [Memory usage (anonymous RSS + swap)](https://developer.android.com/topic/performance/issues/memory-usage#diagnose-excessive).
 
 ## Identify high memory usage
 
@@ -46,12 +46,12 @@ alongside the most recent daily value for the 50th and 90th percentiles.
 #### Identify memory leaks using tail skew
 
 To help identify memory leaks, look for a divergence between your typical (P50)
-and tail-end (P90) users in Android vitals. While general asset bloat inflates
+and tail-end (P99) users in Android vitals. While general asset bloat inflates
 memory uniformly across all percentiles, memory leaks compound over time,
-heavily skewing the tail-end data.
+heavily skewing the tail-end data (P99).
 
-You should compare your P90 and P99 metrics against your P50 baseline by process
-name. If your P90 to P50 ratio exceeds 3.5x, it indicates a likely memory leak
-during extended sessions. For certain use cases, an elevated ratio doesn't
-always indicate a leak, but you should evaluate the specific workflow to
-determine if the elevated memory usage is expected behavior.
+Compare your P90 and P99 metrics against your P50 baseline by process
+name. If your P99 to P50 ratio is 3.5 times or higher, it indicates a likely
+memory leak during extended sessions. For certain use cases, an elevated ratio
+doesn't always indicate a leak, so evaluate the specific workflow to
+determine whether the elevated memory usage is expected behavior.

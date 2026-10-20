@@ -234,7 +234,7 @@ when a button is clicked:
 
 ```kotlin
 class BindingActivity : Activity() {
-    private lateinit var mService: LocalService
+    private var mService: LocalService? = null
     private var mBound: Boolean = false
 
     /** Defines callbacks for service binding, passed to bindService().  */
@@ -248,6 +248,7 @@ class BindingActivity : Activity() {
         }
 
         override fun onServiceDisconnected(arg0: ComponentName) {
+            mService = null
             mBound = false
         }
     }
@@ -268,6 +269,9 @@ class BindingActivity : Activity() {
     override fun onStop() {
         super.onStop()
         unbindService(connection)
+        // Release the reference so the service can be garbage-collected once it's
+        // destroyed. onServiceDisconnected() isn't called when the client unbinds.
+        mService = null
         mBound = false
     }
 
@@ -278,7 +282,7 @@ class BindingActivity : Activity() {
             // Call a method from the LocalService.
             // However, if this call is something that might hang, then put this request
             // in a separate thread to avoid slowing down the activity performance.
-            val num: Int = mService.randomNumber
+            val num: Int = mService?.randomNumber ?: return
             Toast.makeText(this, "number: $num", Toast.LENGTH_SHORT).show()
         }
     }
@@ -310,6 +314,9 @@ public class BindingActivity extends Activity {
     protected void onStop() {
         super.onStop();
         unbindService(connection);
+        // Release the reference so the service can be garbage-collected once it's
+        // destroyed. onServiceDisconnected() isn't called when the client unbinds.
+        mService = null;
         mBound = false;
     }
 
@@ -339,6 +346,7 @@ public class BindingActivity extends Activity {
 
         @Override
         public void onServiceDisconnected(ComponentName arg0) {
+            mService = null;
             mBound = false;
         }
     };
@@ -350,7 +358,8 @@ The preceding sample shows how the client binds to the service using an implemen
 section provides more information about this process of binding to the service.
 
 **Note:** In the preceding example, the
-`https://developer.android.com/reference/android/app/Activity#onStop()` method unbinds the client from the service.
+`https://developer.android.com/reference/android/app/Activity#onStop()` method unbinds the client from the service
+and releases the client's reference to it.
 Unbind clients from services at appropriate times, as discussed in the
 [Additional notes](https://developer.android.com/develop/background-work/services/bound-services#Additional_Notes) section.
 
@@ -383,7 +392,7 @@ client delivers *messages* (`Message` objects) that the service
 receives in
 its `Handler`.
 
-Here's a simple example service that uses a `Messenger` interface:
+Here's an example service that uses a `Messenger` interface:
 
 ### Kotlin
 
@@ -545,6 +554,7 @@ class ActivityMessenger : Activity() {
         // Unbind from the service.
         if (bound) {
             unbindService(mConnection)
+            mService = null
             bound = false
         }
     }
@@ -614,6 +624,7 @@ public class ActivityMessenger extends Activity {
         // Unbind from the service.
         if (bound) {
             unbindService(mConnection);
+            mService = null;
             bound = false;
         }
     }
@@ -681,7 +692,7 @@ The following example connects the client to the service created previously by
 ### Kotlin
 
 ```kotlin
-var mService: LocalService
+var mService: LocalService? = null
 
 val mConnection = object : ServiceConnection {
     // Called when the connection with the service is established.
@@ -697,6 +708,7 @@ val mConnection = object : ServiceConnection {
     // Called when the connection with the service disconnects unexpectedly.
     override fun onServiceDisconnected(className: ComponentName) {
         Log.e(TAG, "onServiceDisconnected")
+        mService = null
         mBound = false
     }
 }
@@ -720,6 +732,7 @@ private ServiceConnection mConnection = new ServiceConnection() {
     // Called when the connection with the service disconnects unexpectedly.
     public void onServiceDisconnected(ComponentName className) {
         Log.e(TAG, "onServiceDisconnected");
+        mService = null;
         mBound = false;
     }
 };
@@ -801,9 +814,6 @@ your `https://developer.android.com/reference/android/app/Service#onUnbind(andro
 `true` if you want to receive a call to `https://developer.android.com/reference/android/app/Service#onRebind(android.content.Intent)` the next time a client binds to the service. `onRebind()` returns void, but the client still receives the `https://developer.android.com/reference/android/os/IBinder` in its
 `https://developer.android.com/reference/android/content/ServiceConnection#onServiceConnected(android.content.ComponentName, android.os.IBinder)` callback.
 The following figure illustrates the logic for this kind of lifecycle.
-![](https://developer.android.com/static/images/fundamentals/service_binding_tree_lifecycle.png)
-
-**Figure 1.** The lifecycle for a service that is started
-and also allows binding.
+![Lifecycle of a started and bound service: onStartCommand() and onBind() are called; when all clients unbind, onUnbind() is called; on the next bind, onRebind() is called if onUnbind() returned true, otherwise onBind(); after the service is stopped, onDestroy() is called.](https://developer.android.com/static/images/fundamentals/service_binding_tree_lifecycle.png) **Figure 1.** The lifecycle for a service that is started and also allows binding.
 
 For more information about the lifecycle of a started service, see the [Services overview](https://developer.android.com/guide/components/services#Lifecycle).

@@ -5,9 +5,9 @@ source: md.txt
 ---
 
 This page provides download links for the latest Android CLI releases. Select
-your platform using the tabs, and use the dropdown to choose an installation
-method. For the fastest way to download and install, run the curl command for
-your operating system in your terminal.
+your platform using the tabs, and choose an installation method from the
+drop-down list. For the fastest way to download and install, run the curl
+command for your operating system in your terminal.
 
 ## Linux
 
@@ -133,7 +133,13 @@ Select installer curl \| bash homebrew Direct download
 
 ## Windows
 
-Select installer curl \| cmd winget Direct download
+-
+
+  ### Download for Windows directly
+
+
+  [Download Android CLI for Windows
+  download](https://dl.google.com/android/cli/latest/windows_x86_64/android.exe)
 -
 
   ### Download for Windows using curl \| cmd
@@ -160,10 +166,3 @@ Select installer curl \| cmd winget Direct download
   ```
   winget install --id Google.AndroidCLI
   ```
--
-
-  ### Download for Windows directly
-
-
-  [Download Android CLI for Windows
-  download](https://dl.google.com/android/cli/latest/windows_x86_64/android.exe)

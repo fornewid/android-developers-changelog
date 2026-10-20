@@ -9,6 +9,19 @@ apps in [supported parked app categories](https://developer.android.com/training
 [Parked apps](https://developer.android.com/training/cars/platforms/android-auto#parked-apps) for more information about the parked app user experience on
 Android Auto.
 
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/cars/android-for-cars-parked-apps)
+
+### Android for Cars parked apps
+
+Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to adapt existing Android video streaming apps, games, and web browsers to run as parked apps on cars. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add android-for-cars-parked-apps
+
+<br />
+
 ## Declare Android Auto support
 
 To declare that your app supports Android Auto, you must include the following

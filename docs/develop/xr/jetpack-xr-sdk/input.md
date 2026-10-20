@@ -26,8 +26,9 @@ certain APIs.
 Regardless of whether a user has audio glasses or display glasses, their voice
 is their primary way to interact with their device.
 
-This guide covers the following ways of handling input:
+This guide covers the following topics:
 
+- How the system [routes physical input on audio glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/input-routing-audio).
 - How to [handle physical input](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/physical-input).
 - How to [handle audio input using automatic speech recognition](https://developer.android.com/develop/xr/jetpack-xr-sdk/asr).
 

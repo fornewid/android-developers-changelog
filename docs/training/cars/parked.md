@@ -14,7 +14,20 @@ the following categories of apps for use while parked:
 | [Games](https://developer.android.com/training/cars/parked/games) | Android Auto and Android Automotive OS |
 | [Browsers](https://developer.android.com/training/cars/parked/browser) | Android Automotive OS |
 
-[![](https://developer.android.com/static/images/picto-icons/code.svg) Codelab Build and test a parked app for Android Automotive OS](https://developer.android.com/codelabs/build-a-parked-app) [![](https://developer.android.com/static/images/picto-icons/distribution.svg) Car ready mobile apps Learn how your existing mobile app may be eligible for distribution directly to cars](https://developer.android.com/training/cars/car-ready-mobile-apps)
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/cars/android-for-cars-parked-apps)
+
+### Android for Cars parked apps
+
+Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to adapt existing Android video streaming apps, games, and web browsers to run as parked apps on cars. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add android-for-cars-parked-apps
+
+<br />
+
+[![](https://developer.android.com/static/images/picto-icons/distribution.svg) Car ready mobile apps Learn how your existing mobile app may be eligible for distribution directly to cars](https://developer.android.com/training/cars/car-ready-mobile-apps)
 
 ## Optimize your app for cars
 

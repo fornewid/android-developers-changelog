@@ -7,6 +7,13 @@ source: md.txt
 # The Latest
 
 Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
+- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+
+  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time)
+
+  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
 - [![View Jason Buchel's profile](https://developer.android.com/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](https://developer.android.com/blog/authors/jason-buchel) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Bringing our latest frontier model to Android Developers](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
@@ -155,13 +162,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - +3 ↩
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
-
-  ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
-
-  [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
@@ -177,12 +177,12 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 - [#Compose](https://developer.android.com/blog/topics/compose)
 - [#Performance](https://developer.android.com/blog/topics/performance)
+- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
 - [#Android XR](https://developer.android.com/blog/topics/android-xr)
 - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
 - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
 - [#Android 17](https://developer.android.com/blog/topics/android-17)
 - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
-- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
 - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
 - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
 - [#R8](https://developer.android.com/blog/topics/r8)
@@ -249,6 +249,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Layouts](https://developer.android.com/blog/topics/layouts)
 - [#Window Size Classes](https://developer.android.com/blog/topics/blog-topic)
 - [#usage-based billing GenAI apps](https://developer.android.com/blog/topics/usage-based-billing-gen-ai-apps)
+- [#Remote Compose](https://developer.android.com/blog/topics/remote-compose)
 Stay in the loop
 
 

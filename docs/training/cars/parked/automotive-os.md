@@ -25,6 +25,19 @@ following:
 
 <br />
 
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/cars/android-for-cars-parked-apps)
+
+### Android for Cars parked apps
+
+Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to adapt existing Android video streaming apps, games, and web browsers to run as parked apps on cars. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add android-for-cars-parked-apps
+
+<br />
+
 ## Configure your app's manifest file
 
 To target Android Automotive OS devices, your app must have certain manifest

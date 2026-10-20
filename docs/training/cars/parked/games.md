@@ -14,6 +14,19 @@ requirements for each platform that your game is compatible with:
 - [Add support for Android Auto to your parked app](https://developer.android.com/training/cars/parked/auto)
 - [Add support for Android Automotive OS to your parked app](https://developer.android.com/training/cars/parked/automotive-os)
 
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/cars/android-for-cars-parked-apps)
+
+### Android for Cars parked apps
+
+Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to adapt existing Android video streaming apps, games, and web browsers to run as parked apps on cars. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add android-for-cars-parked-apps
+
+<br />
+
 > [!IMPORTANT]
 > **Important:** Make sure your game meets the [quality guidelines for
 > games](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=game), as it is [reviewed against them](https://developer.android.com/training/cars/distribute#understand-review) when submitted to tracks other than internal testing.

@@ -9,11 +9,25 @@ The video category is coming to Android Auto in beta Express interest in bringin
 In addition to the guidelines described in [Build parked apps for Android
 Automotive OS](https://developer.android.com/training/cars/parked/automotive-os), there are some requirements specific to video apps.
 
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/cars/android-for-cars-parked-apps)
+
+### Android for Cars parked apps
+
+Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to adapt existing Android video streaming apps, games, and web browsers to run as parked apps on cars. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add android-for-cars-parked-apps
+
+<br />
+
 > [!NOTE]
 > **Design guidelines:** Refer to [Adapt video apps](https://developers.google.com/cars/design/create-apps/parked-passenger-apps/overview) for UX guidance specific to video apps.
 
 > [!IMPORTANT]
-> **Important:** Google takes driver distraction very seriously. Your app must meet specific criteria before it can be listed on Google Play for Android Automotive OS. By adhering to these requirements, you can make it easier to build and test your app. For more information, see [Android app quality for cars](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=video).
+> **Important:** Make sure your video app meets the [quality guidelines for video
+> apps](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=video), because it's [reviewed against them](https://developer.android.com/training/cars/distribute#understand-review) when submitted to tracks other than internal testing.
 
 ## Mark your app as a video app
 
@@ -29,6 +43,8 @@ of your manifest.
             ...
         </application>
     </manifest>
+
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Codelab Build and test a parked video streaming app for Android Automotive OS](https://developer.android.com/codelabs/build-a-parked-app)
 
 ## Support audio while driving
 

@@ -73,7 +73,9 @@ meets the following requirements:
 
 - Gradle version 9.6.0 or higher.
 - JDK version 17 or higher.
-- A device or emulator running Android 12 (API level 31) or higher that's connected through adb. To test transfers between two devices, connect two devices.
+- A device or emulator running Android 12 (API level 31) or higher that's connected through adb:
+  - Devices or emulators on API level 36.1 or higher require Google Play services version 26.33.30 or higher.
+  - To test transfers between two devices, connect two devices.
 
 ## Compatibility
 

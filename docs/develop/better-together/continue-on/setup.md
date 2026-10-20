@@ -43,7 +43,7 @@ To test Continue On, obtain two Pixel devices (one mobile, one tablet) that are
 
 With your two Pixel devices (phone and tablet) properly set up, install your app
 on both devices (or just the phone if you want to test the web handoff
-functionality).
+functionality with [`setAllowHandoffWithoutPackageInstalled(true)`](https://developer.android.com/reference/kotlin/android/app/HandoffActivityParams.Builder#setAllowHandoffWithoutPackageInstalled(kotlin.Boolean))).
 
 1. On the tablet, access [desktop windowing mode](https://support.google.com/android/answer/16928875).
 2. On the phone, launch your app and navigate to the activity that has enabled the Continue On feature.

@@ -11,6 +11,19 @@ Beyond the requirements described in [Build parked apps for cars](https://develo
 there are a few additional requirements specific to browsers that are detailed
 on this page.
 
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/cars/android-for-cars-parked-apps)
+
+### Android for Cars parked apps
+
+Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to adapt existing Android video streaming apps, games, and web browsers to run as parked apps on cars. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add android-for-cars-parked-apps
+
+<br />
+
 > [!IMPORTANT]
 > **Important:** Make sure your app meets the [quality guidelines for
 > browsers](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=browser), as it is reviewed against them when submitted to tracks other than internal testing.

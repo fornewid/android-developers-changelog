@@ -46,4 +46,4 @@ them using tools such as Android Studio Profiler, Perfetto, Logcat, and
 ## Permissions and build optimization
 
 - **[Permission denials](https://developer.android.com/topic/performance/issues/permissions):** Request runtime permissions in context and explain permission rationale clearly to users.
-- **[DEX code optimization](https://developer.android.com/topic/performance/issues/code-optimization):** Configure R8 shrinking, obfuscation, and optimization rules to reduce DEX size and improve runtime performance.
+- **[DEX code optimization](https://developer.android.com/google/play/vitals/code-optimization):** Configure R8 shrinking, obfuscation, and optimization rules to reduce DEX size and improve runtime performance.

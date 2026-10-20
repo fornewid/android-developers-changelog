@@ -203,6 +203,10 @@ fun ArtistCard(/*...*/) {
 ![The image height is as big as its parent](https://developer.android.com/static/develop/ui/compose/images/layout-fillmaxheight.png)
 
 To add padding all around an element, set a [`padding`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/padding.modifier#(androidx.compose.ui.Modifier).padding(androidx.compose.ui.unit.Dp)) modifier.
+The `start` and `end` parameters of `padding` follow the layout direction. To
+pad the left or right edge regardless of layout direction, use
+[`absolutePadding`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/absolutePadding.modifier#(androidx.compose.ui.Modifier).absolutePadding(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) with its `left` and `right`
+parameters.
 
 If you want to add padding above a text baseline such that you achieve a
 specific distance from the top of the layout to the baseline, use the
@@ -260,7 +264,7 @@ The `offset` modifier is applied horizontally according to the layout direction.
 In a **left-to-right** context, a positive `offset` shifts the element to the
 right, while in a **right-to-left** context, it shifts the element to the left.
 If you need to set an offset without considering layout direction, see the
-[`absoluteOffset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#absoluteOffset(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp))
+[`absoluteOffset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/absoluteOffset.modifier#(androidx.compose.ui.Modifier).absoluteOffset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp))
 modifier, in which a positive offset value always shifts the element to the
 right.
 

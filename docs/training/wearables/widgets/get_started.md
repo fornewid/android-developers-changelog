@@ -7,6 +7,19 @@ source: md.txt
 > [!NOTE]
 > **Note:** This tutorial assumes you are building a new widget and don't have an existing tile. If you're updating an app that already has an existing tile, read the [Migrate from tiles to widgets](https://developer.android.com/training/wearables/widgets/migration) guide to configure your services.
 
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/wear/wear-widgets)
+
+### Wear OS Widgets
+
+Use an Android skill to help you build Wear OS widgets with Glance, RemoteViews, and ProtoLayout. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add wear-widgets
+
+<br />
+
 ## Prerequisites and Setup
 
 Before you begin, ensure your environment meets the following requirements.
