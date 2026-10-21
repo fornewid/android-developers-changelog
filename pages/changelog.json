@@ -1,5 +1,374 @@
 [
   {
+    "date": "2026-10-21T15:10:34Z",
+    "commit_hash": "a0f4070d",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr2/gsi-release-notes\" target=\"_blank\">Android 17 QPR 2 GSI binaries and release notes</a>",
+        "path": "about/versions/17/qpr2/gsi-release-notes.md",
+        "summary": "Updated the Android 17 QPR2 Generic System Image (GSI) release documentation to point to a different build version (reverting/updating from beta7.1/CP41.260831.019 to beta6.1/CP41.260831.007.A3). This includes changing all flash tool links, download buttons, SHA-256 checksums, and filenames across ARM64 and x86_64 architectures with and without GMS to ensure developers download the correct and current build.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_gsi-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr3/download-ota\" target=\"_blank\">OTA images for Google Pixel</a>",
+        "path": "about/versions/17/qpr3/download-ota.md",
+        "summary": "Updated the Android 17 QPR3 device OTA images documentation with new build numbers (DP11.261002.005), a later release date of October 20, 2026, a refreshed security patch level of 2026-10-05, updated Google Play services versions, and new download links and SHA-256 checksums for all supported Pixel devices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_download-ota.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr3/download\" target=\"_blank\">Factory images for Google Pixel</a>",
+        "path": "about/versions/17/qpr3/download.md",
+        "summary": "Updated the Android 17 QPR3 Beta download documentation to point to Beta 2 (cinnamonbun-qpr3-beta2), featuring new build IDs (DP11.261002.005), updated factory image URLs and SHA-256 checksums for supported Pixel devices, an updated release date of October 20, 2026, and a newer security patch level and Google Play services version.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_download.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr3/get\" target=\"_blank\">Get Android 17 QPR 3</a>",
+        "path": "about/versions/17/qpr3/get.md",
+        "summary": "Updated the Android Flash Tool link in the documentation to point to the new 'cinnamonbun-qpr3-beta2' preview URL. This change ensures developers attempting to flash or manually install the system image are directed to the correct latest beta release tools for Android 17 QPR3.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_get.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr3/gsi-release-notes\" target=\"_blank\">Android 17 QPR 3 GSI binaries and release notes</a>",
+        "path": "about/versions/17/qpr3/gsi-release-notes.md",
+        "summary": "Updated the Android 17 QPR3 GSI release documentation to reflect the latest build (DP11.261002.005) and beta links. This update includes new download links, updated checksums, a newer security patch level (October 2026), and updated Google Play Services versions for ARM64 and x86_64 architectures.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_gsi-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr3/release-notes\" target=\"_blank\">Release notes</a>",
+        "path": "about/versions/17/qpr3/release-notes.md",
+        "summary": "Android 17 QPR3 Beta 2 has been documented with release details (Build DP11.261002.005, October 5, 2026 security patch) and a comprehensive list of bug fixes. Key resolutions include fixes for critical system crashes, high idle battery drain from motion sensors, various UI rendering and dialog glitches, cellular and connectivity issues across specific carriers, and Bluetooth pairing timeouts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai-tools\" target=\"_blank\">Agentic Development</a>",
+        "path": "ai-tools.md",
+        "summary": "This new documentation file introduces Android's AI development ecosystem, detailing workflows, agentic tools like the Android CLI and Antigravity, and capabilities for AI-assisted app building.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai-tools/cli\" target=\"_blank\">Android CLI</a>",
+        "path": "ai-tools/cli.md",
+        "summary": "Added a new documentation page introducing the Android CLI, which provides a unified command-line interface and toolset designed for developers and AI coding agents.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/roxanna-walker\" target=\"_blank\">Roxanna Aliabadi Walker</a>",
+        "path": "blog/authors/roxanna-walker.md",
+        "summary": "Added the \"Android\" tag to Roxanna Aliabadi Walker's author profile. This update improves author categorization and helps users easily identify her contributions related to Android development and product news.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_roxanna-walker.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/mobile/guides/widgets/adapt\" target=\"_blank\">Adapt widgets across form factors</a>",
+        "path": "design/ui/mobile/guides/widgets/adapt.md",
+        "summary": "This new documentation page provides guidelines on adapting Android widgets for new form factors like cars and desktops using Jetpack Glance. It matters because it helps developers ensure their widgets are responsive, glanceable, and maintain high quality across diverse screen sizes and environments.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/widget\" target=\"_blank\">Widgets on Android</a>",
+        "path": "design/ui/widget.md",
+        "summary": "Updated multiple URLs pointing to the widgets guide to specifically reference the new 'adapt' sub-page (`/design/ui/mobile/guides/widgets/adapt`), ensuring users are directed to the correct form-factor adaptation documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_widget.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-2\" target=\"_blank\">Tier 2 — Adaptive optimized</a>",
+        "path": "develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-2.md",
+        "summary": "Updated documentation links to reference current Material Design 3 (M3) guidelines for UI secondary elements and touch targets, and corrected minor formatting for keyboard navigation instructions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_tier-2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/quality-guidelines/android-xr\" target=\"_blank\">Android XR app quality guidelines</a>",
+        "path": "develop/adaptive-apps/quality-guidelines/android-xr.md",
+        "summary": "The Android XR quality guidelines documentation has been extensively restructured to separate requirements into distinct immersive and augmented experience categories, removing the legacy compatibility tier definitions and detailed checklists in favor of targeted guidance links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_android-xr.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/quality-guidelines/core-app-quality\" target=\"_blank\">Core app quality guidelines</a>",
+        "path": "develop/adaptive-apps/quality-guidelines/core-app-quality.md",
+        "summary": "The core app quality documentation was updated to fix a typo (\"at least\" instead of \"least\") and to migrate reference links for touch target sizes and visual contrast from older Material Design guidelines to updated Material 3 (M3) documentation resources. This ensures developers have access to modern accessibility and design standards.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_core-app-quality.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance\" target=\"_blank\">Jetpack Compose Performance</a>",
+        "path": "develop/ui/compose/performance.md",
+        "summary": "The Jetpack Compose performance documentation was updated to introduce the new Android CLI skill for diagnosing UI performance issues. Additionally, the guide was refined to provide more accurate details on stability concepts, suggest adding `contentType` parameters alongside keys in lazy layouts, and mention `computedStateOf` as an alternative to `derivedStateOf` starting in Compose 1.13.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_performance.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/backwards-write\" target=\"_blank\">Backwards Write</a>",
+        "path": "develop/ui/compose/performance/backwards-write.md",
+        "summary": "The Jetpack Compose backwards-write documentation has been updated to add an explanatory note clarifying the exact definition of a backwards write (`Read -> Write` order requirement) and addressing the overhead of immediate state overwrites. Additionally, rule 1 was expanded to include `onPlaced` and `onLayoutRectChanged` as layout modifiers that should not write to state read in composition, and minor typos were corrected.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_backwards-write.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/bestpractices\" target=\"_blank\">Follow best practices</a>",
+        "path": "develop/ui/compose/performance/bestpractices.md",
+        "summary": "This update expands Jetpack Compose performance best practices with crucial guidance on `remember`, lazy layouts, and state derivation. It adds warnings about expensive `equals()` keys in `remember`, outlines comprehensive performance guidelines for lazy lists (including bundle-saveable keys, content types, and avoiding `indexOf`), introduces `computedStateOf` as a lighter alternative to `derivedStateOf` in Compose Runtime 1.13+, and provides clear criteria for choosing the right state derivation approach.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_bestpractices.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/modifier-phases\" target=\"_blank\">Modifier breakdown by phase</a>",
+        "path": "develop/ui/compose/performance/modifier-phases.md",
+        "summary": "Updated the Compose modifier phases documentation to discourage the use of `Modifier.composed` in favor of `Modifier.Node`, clarify placement and layout observation callbacks (such as `onSizeChanged`, `onPlaced`, and `onGloballyPositioned`), and add recommendations for handling global coordinates efficiently via `requireLayoutCoordinates()`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_modifier-phases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/stability\" target=\"_blank\">Stability in Compose</a>",
+        "path": "develop/ui/compose/performance/stability.md",
+        "summary": "Updated the documentation regarding Jetpack Compose stability and collections to advise caution when replacing standard collections with immutable collections or stability annotations. The change clarifies that structural equality checks (`.equals()`) on every recomposition can be more costly than recomposition itself, removing the specific O(1) and O(N) complexity references while maintaining the core recommendation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_stability.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/stability/diagnose\" target=\"_blank\">Diagnose stability issues</a>",
+        "path": "develop/ui/compose/performance/stability/diagnose.md",
+        "summary": "Updated the Compose stability documentation to emphasize the behavior and performance implications of Strong skipping mode. New notes and explanations clarify that relying solely on recomposition counts can be misleading, and that leaving collection-holding models unstable under strong skipping mode can improve performance by avoiding expensive structural `.equals()` checks in favor of instance equality (`===`).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_diagnose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/stability/fix\" target=\"_blank\">Fix stability issues</a>",
+        "path": "develop/ui/compose/performance/stability/fix.md",
+        "summary": "Updated Jetpack Compose stability fixing guide to reflect modern Compose behavior (where strong skipping mode is the default in Kotlin 2.0.20+). The documentation now advises caution when using immutable collections and stability annotations (`@Immutable`, `@Stable`) with standard collection types, highlighting performance pitfalls like redundant structural `.equals()` comparisons in lazy layouts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_fix.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/stability/strongskipping\" target=\"_blank\">Strong skipping mode</a>",
+        "path": "develop/ui/compose/performance/stability/strongskipping.md",
+        "summary": "The strong skipping documentation was updated to modernize callout formatting and expand the guidance on annotating classes as stable. Specifically, it clarifies the use of `@Stable` and `@Immutable` with object equality, and adds important trade-off considerations regarding automatic stability inference in Compose modules, performance impacts of cheap `.equals()` checks, and potential performance pitfalls when annotating models containing collections.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_strongskipping.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/tooling\" target=\"_blank\">Tooling</a>",
+        "path": "develop/ui/compose/performance/tooling.md",
+        "summary": "The Compose performance tooling documentation has been updated to clarify that recomposition counts should not be used as a substitute for actual benchmarks. It adds important context explaining that skipping a composable still carries overhead (slot table and parameter comparison), and that skipping intermediate composables saves less time than deferring rapidly changing state reads to the Layout or Draw phases. Developers are advised to always verify performance improvements using composition tracing and Macrobenchmark.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_tooling.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/text/autofill\" target=\"_blank\">Autofill in Compose</a>",
+        "path": "develop/ui/compose/text/autofill.md",
+        "summary": "The Compose Autofill documentation has been updated to remove examples utilizing value-based text fields (using `TextField` with `value` and `onValueChange`), streamlining the guide to focus exclusively on state-based text fields (`rememberTextFieldState()`). This reduces redundancy and aligns with modern Jetpack Compose recommended practices for handling text input states.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_autofill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/text/user-input\" target=\"_blank\">Configure text fields</a>",
+        "path": "develop/ui/compose/text/user-input.md",
+        "summary": "The user input documentation has been updated to emphasize the deprecation of value-based text fields in favor of state-based implementations. Key additions include new guidance on configuring line limits with `TextFieldLineLimits`, utilizing the `showKeyboardOnFocus` parameter in `KeyboardOptions`, and defining keyboard interaction logic using `KeyboardActionHandler`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_user-input.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/search/appsearch\" target=\"_blank\">AppSearch</a>",
+        "path": "develop/ui/views/search/appsearch.md",
+        "summary": "Updated the AppSearch documentation to explain how to check for feature availability across different storage options and devices. It highlights that feature support depends on Android versions and Google Play system updates, introduces the `Features.isFeatureSupported()` check, and updates code snippets to use standard Android SDK version checks instead of `BuildCompat`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_appsearch.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk\" target=\"_blank\">Set up the Jetpack XR SDK</a>",
+        "path": "develop/xr/jetpack-xr-sdk/set-up-sdk.md",
+        "summary": "Updated the Jetpack XR extensions dependency version from 1.3.0 to 1.4.0 in both Groovy and Kotlin Gradle configuration snippets. This ensures developers use the latest XR SDK extensions for building and testing their applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_set-up-sdk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/package-and-distribute\" target=\"_blank\">Package and distribute apps for Android XR</a>",
+        "path": "develop/xr/package-and-distribute.md",
+        "summary": "The documentation was updated to introduce a new 'Help users discover your app in the Play Store with badges' section. This consolidates and expands upon previous details regarding app labeling, outlining how apps can receive the 'Made for XR' badge for immersive experiences and the 'Differentiated for Glasses' badge for augmented experiences.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_package-and-distribute.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/distribute/google-play/resources/icon-design-specifications\" target=\"_blank\">Google Play icon design specifications</a>",
+        "path": "distribute/google-play/resources/icon-design-specifications.md",
+        "summary": "The Google Play icon design specifications documentation was updated to remove the section providing direct download links for design templates (Sketch, Illustrator, and Photoshop). This matters because developers looking for official asset templates will need to find them elsewhere in the documentation or developer resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_icon-design-specifications.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-2\" target=\"_blank\">Tier 2 — Adaptive optimized</a>",
+        "path": "docs/quality-guidelines/adaptive-app-quality/tier-2.md",
+        "summary": "Updated documentation links to reference the latest Material 3 guidelines for UI components (such as bottom sheets, buttons, text fields, and touch targets) and fixed broken anchor links for keyboard navigation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_tier-2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/android-xr\" target=\"_blank\">Android XR app quality guidelines</a>",
+        "path": "docs/quality-guidelines/android-xr.md",
+        "summary": "The Android XR quality guidelines documentation was restructured to separate requirements into 'Immersive experiences' and 'Augmented experiences', removing the previous detailed compatibility tier definitions and comprehensive checklist tables in favor of categorized external guideline links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_android-xr.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/android-xr/augmented\" target=\"_blank\">Android XR: App Quality Guidelines and Policies for augmented experiences</a>",
+        "path": "docs/quality-guidelines/android-xr/augmented.md",
+        "summary": "This new documentation page establishes app quality guidelines, compatibility tiers, and safety policies for building augmented experiences and audio-only apps on Android XR intelligent eyewear.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/android-xr/immersive\" target=\"_blank\">Android XR: App Quality Guidelines and Policies for immersive experiences</a>",
+        "path": "docs/quality-guidelines/android-xr/immersive.md",
+        "summary": "Added new app quality guidelines for Android XR, detailing compatibility tiers (compatible mobile, adaptive, and differentiated apps) and specific technical checklists for spatial experiences.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/core-app-quality\" target=\"_blank\">Core app quality guidelines</a>",
+        "path": "docs/quality-guidelines/core-app-quality.md",
+        "summary": "Updated the core app quality documentation to fix a typo (\"at least\") in the touch target size requirement and migrated the outdated Material Design links to the modern Material 3 (M3) design guidelines for both touch targets and visual contrast.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_core-app-quality.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/experiences/sleep\" target=\"_blank\">Develop Sleep Experiences with Health Connect</a>",
+        "path": "health-and-fitness/health-connect/experiences/sleep.md",
+        "summary": "Updated the Health Connect version compatibility note for the sleep guide to explicitly indicate that it applies to version 1.1.0 or later. This clarifies that the documentation remains valid for future releases beyond 1.1.0.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_sleep.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/experiences/workouts\" target=\"_blank\">Develop Workout Experiences with Health Connect</a>",
+        "path": "health-and-fitness/health-connect/experiences/workouts.md",
+        "summary": "Updated the Health Connect version compatibility note in the workouts documentation from strictly version 1.1.0 to version 1.1.0 or later. This clarifies that the guide applies to future updates as well, helping developers avoid confusion regarding newer SDK versions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_workouts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/features/availability\" target=\"_blank\">Check for feature availability</a>",
+        "path": "health-and-fitness/health-connect/features/availability.md",
+        "summary": "Updated the Health Connect client dependency version from `1.1.0-alpha08` to `1.2.0-alpha06` in the availability documentation. This matters because it informs developers to use the newer SDK version, which likely includes recent API updates and bug fixes for Health Connect integration.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_availability.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/features/mindfulness\" target=\"_blank\">Track mindfulness</a>",
+        "path": "health-and-fitness/health-connect/features/mindfulness.md",
+        "summary": "Updated the Health Connect mindfulness documentation to clarify version compatibility (now indicating version 1.1.0-rc01 or later) and removed an outdated inline comment from the Kotlin availability check code snippet.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_mindfulness.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/features/sleep-sessions\" target=\"_blank\">Track sleep sessions</a>",
+        "path": "health-and-fitness/health-connect/features/sleep-sessions.md",
+        "summary": "The sleep-sessions documentation was updated to specify compatibility with Health Connect version 1.1.0-alpha12 or later (adding spacing tags around the version note) and removed an obsolete inline comment mentioning DEFAULT_PROVIDER_PACKAGE_NAME from the Kotlin availability check code snippet.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_sleep-sessions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/features/steps\" target=\"_blank\">Track steps</a>",
+        "path": "health-and-fitness/health-connect/features/steps.md",
+        "summary": "Updated the Health Connect compatibility note to indicate support for version 1.1.0-alpha12 or later, and removed a redundant inline comment from the availability check code snippet.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_steps.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/features/training-plans\" target=\"_blank\">Training plans</a>",
+        "path": "health-and-fitness/health-connect/features/training-plans.md",
+        "summary": "Updated the Health Connect compatibility note to indicate that the guide applies to version 1.1.0-alpha12 or later, and removed a redundant inline comment from the availability check code snippet. These changes improve clarity and accuracy for developers implementing training plans.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_training-plans.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions\" target=\"_blank\">AndroidX releases</a>",
+        "path": "jetpack/androidx/versions.md",
+        "summary": "Updated the release date for the AndroidX test library to October 15, 2026, and updated the documentation's overall 'Last updated' timestamp to match. This ensures accurate tracking of the latest artifact updates for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_versions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/all-channel\" target=\"_blank\">Recent Release Notes</a>",
+        "path": "jetpack/androidx/versions/all-channel.md",
+        "summary": "Added release notes for AndroidX Test libraries dated October 15, 2026. This update introduces early alpha releases for core testing components including Test Core 1.8.0-alpha01, Espresso 3.8.0-alpha01, Runner 1.8.0-alpha01, and several related testing extensions, allowing developers to test against the latest platform capabilities.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_all-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/emulator/37\" target=\"_blank\">Android Emulator 37 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/emulator/37.md",
+        "summary": "Added release notes for Android Emulator 37.3.5 Canary, which fixes issues related to incorrect InputDevice properties reported by the emulator keyboard and crash bugs in emu-master-dev debug builds caused by metrics changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_37.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/generic-system-image/releases\" target=\"_blank\">Generic System Image releases</a>",
+        "path": "topic/generic-system-image/releases.md",
+        "summary": "Updated Generic System Image (GSI) release links, build numbers, and checksums for Android 17 QPR3 (Beta 2) and Android 17 QPR2 (Beta 6.1) to reflect the latest developer preview builds and ensure users download the correct updated images.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_releases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/app-memory-budgets\" target=\"_blank\">Set app memory budgets</a>",
+        "path": "topic/performance/memory/app-memory-budgets.md",
+        "summary": "The documentation for app memory budgets was updated to clarify manifest syntax requirements—specifically the need for an enclosing `<memory-budget>` element and how to target only specific subprocesses. Additionally, it corrects the calculation logic for `android:additionalMbPerDensity` to scale by the square of the display density ratio (width and height) rather than a linear ratio, providing more accurate memory scaling for 2D assets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a0f4070d_app-memory-budgets.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-20T15:10:05Z",
     "commit_hash": "e8754344",
     "entries": [

@@ -1,0 +1,21 @@
+diff --git a/docs/jetpack/androidx/versions.md b/docs/jetpack/androidx/versions.md
+index 7bbe73c2..0c2bdb54 100644
+--- a/docs/jetpack/androidx/versions.md
++++ b/docs/jetpack/androidx/versions.md
+@@ -197,7 +197,7 @@ release notes to view the version updates for all of the artifacts.
+ | [sqlite](https://developer.android.com/jetpack/androidx/releases/sqlite) | September 09, 2026 | [2.7.1](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.1) | - | - | [2.8.0-alpha01](https://developer.android.com/jetpack/androidx/releases/sqlite#2.8.0-alpha01) |
+ | [swiperefreshlayout](https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout) | December 3, 2025 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout#1.2.0) | - | - | - |
+ | [test.backup](https://developer.android.com/jetpack/androidx/releases/test_backup) | October 07, 2026 | - | - | - | [1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/test_backup#1.0.0-alpha02) |
+-| [test (\*)](https://developer.android.com/jetpack/androidx/releases/test) | January 14, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/test#1.0.1) | - | - | [1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test#1.1.0-alpha04) |
++| [test (\*)](https://developer.android.com/jetpack/androidx/releases/test) | October 15, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/test#1.0.1) | - | - | [1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test#1.1.0-alpha04) |
+ | [test.ext](https://developer.android.com/jetpack/androidx/releases/test-ext) | May 19, 2026 | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test-ext#1.0.0-alpha03) |
+ | [test.uiautomator](https://developer.android.com/jetpack/androidx/releases/test-uiautomator) | July 01, 2026 | [2.4.0](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0) | - | - | - |
+ | [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical) | September 23, 2026 | - | - | [1.0.0-beta02](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-beta02) | - |
+@@ -235,4 +235,4 @@ release notes to view the version updates for all of the artifacts.
+ 
+ (\*) This library has multiple artifacts. See its release notes for more information.  
+ 
+-Last updated: October 12, 2026
+\ No newline at end of file
++Last updated: October 15, 2026
+\ No newline at end of file

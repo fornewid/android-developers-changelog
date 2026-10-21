@@ -1,0 +1,13 @@
+diff --git a/docs/blog/authors/roxanna-walker.md b/docs/blog/authors/roxanna-walker.md
+index 386d98b6..77248d06 100644
+--- a/docs/blog/authors/roxanna-walker.md
++++ b/docs/blog/authors/roxanna-walker.md
+@@ -9,6 +9,8 @@ source: md.txt
+ # Roxanna Aliabadi Walker
+ 
+ Product Manager
++
++Android
+ - 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/contact_Picker_4392c5da87_SiXoB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Contact Picker: Privacy-First Contact Sharing](https://developer.android.com/blog/posts/contact-picker-privacy-first-contact-sharing)

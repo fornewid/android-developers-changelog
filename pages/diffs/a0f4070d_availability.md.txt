@@ -1,0 +1,13 @@
+diff --git a/docs/health-and-fitness/health-connect/features/availability.md b/docs/health-and-fitness/health-connect/features/availability.md
+index 12264a19..a1f7477a 100644
+--- a/docs/health-and-fitness/health-connect/features/availability.md
++++ b/docs/health-and-fitness/health-connect/features/availability.md
+@@ -16,7 +16,7 @@ SDK. To get started, verify that at least version `1.1.0-alpha08` is in your
+ `build.gradle` file:
+ 
+     dependencies {
+-      implementation("androidx.health.connect:connect-client:1.1.0-alpha08")
++      implementation("androidx.health.connect:connect-client:1.2.0-alpha06")
+     }
+ 
+ ## Feature flags
