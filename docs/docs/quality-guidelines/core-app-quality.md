@@ -75,8 +75,8 @@ Android look and feel along with UI consistency across Android versions.
 
 | ID | Tests | Description |
 |---|---|---|
-| Touch_Target_Size | [T-Touch_Target_Size](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-Touch_Target_Size) | Touch targets are least 48 dp. See the Material Design [Layout and typography](https://material.io/design/usability/accessibility.html#layout-and-typography) guidelines. |
-| Visual_Contrast | [T-Visual_Contrast](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-Visual_Contrast) | App text and foreground content maintain the following contrast ratios with the app background: - 3:1 for large text and graphics - 4.5:1 for small text (less than 18 pt or less than 14 pt if text is bold) Learn more about [color and contrast](https://material.io/design/usability/accessibility.html#color-and-contrast). |
+| Touch_Target_Size | [T-Touch_Target_Size](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-Touch_Target_Size) | Touch targets are at least 48 dp. See the Material Design [Target sizes](https://m3.material.io/foundations/designing/structure#dab862b1-e042-4c40-b680-b484b9f077f6) guidelines. |
+| Visual_Contrast | [T-Visual_Contrast](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-Visual_Contrast) | App text and foreground content maintain the following contrast ratios with the app background: - 3:1 for large text and graphics - 4.5:1 for small text (less than 18 pt or less than 14 pt if text is bold) Learn more about [color and contrast](https://m3.material.io/foundations/designing/color-contrast). |
 | Content_Description | [T-Content_Description](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-Content_Description) | [Describe each UI element](https://developer.android.com/guide/topics/ui/accessibility/apps#describe-ui-element), except for `TextView`, using `contentDescription`. |
 
 ### Functionality

@@ -32,11 +32,11 @@ Learn to promote your widget on the widget picker by using appropriate sizing an
 
 ## Adapt
 
-[![](http://developer.android.com/static/images/design/ui/widget/cross-form-factor.png)](http://developer.android.com/design/ui/mobile/guides/widgets)
+[![](http://developer.android.com/static/images/design/ui/widget/cross-form-factor.png)](http://developer.android.com/design/ui/mobile/guides/widgets/adapt)
 
-### [Widgets across form factors](http://developer.android.com/design/ui/mobile/guides/widgets)
+### [Widgets across form factors](http://developer.android.com/design/ui/mobile/guides/widgets/adapt)
 
-Design your widget once to transition seamlessly across a variety of form factors, from mobile to auto and wear. Use responsive layout techniques and size-specific definitions to ensure your content automatically adapts for a high-quality experience on every screen. [Learn more](http://developer.android.com/design/ui/mobile/guides/widgets)
+Design your widget once to transition seamlessly across a variety of form factors, from mobile to auto and wear. Use responsive layout techniques and size-specific definitions to ensure your content automatically adapts for a high-quality experience on every screen. [Learn more](http://developer.android.com/design/ui/mobile/guides/widgets/adapt)
 
 ## Layouts
 

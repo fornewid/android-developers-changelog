@@ -57,21 +57,6 @@ if a user has already signed into your app
 through the Chrome browser on their laptop and saved their password through a
 credential provider, then their credentials are served to them through Autofill.
 
-### Value-based text field
-
-
-```kotlin
-TextField(
-    value = textFieldValue.value,
-    onValueChange = { textFieldValue.value = it },
-    modifier = Modifier.semantics { contentType = ContentType.Username }
-)
-```
-
-<br />
-
-### State-based text field
-
 
 ```kotlin
 TextField(
@@ -90,24 +75,7 @@ a username. You can add multiple content types to your `TextField` with the `+`
 operator.
 
 For all the types of data available to save with Autofill, see the
-[`ContentType`](https://developer.android.com/reference/kotlin/androidx/compose/ui/autofill/ContentType#summary) [reference](https://developer.android.com/reference/kotlin/androidx/compose/ui/autofill/ContentType#summary).
-
-### Value-based text field
-
-
-```kotlin
-TextField(
-    value = textFieldValue.value,
-    onValueChange = { textFieldValue.value = it },
-    modifier = Modifier.semantics {
-        contentType = ContentType.Username + ContentType.EmailAddress
-    }
-)
-```
-
-<br />
-
-### State-based text field
+[`ContentType` reference](https://developer.android.com/reference/kotlin/androidx/compose/ui/autofill/ContentType#summary).
 
 
 ```kotlin
@@ -162,109 +130,52 @@ button:
 2. In your `TextField(s)`, add your chosen content type through
    `Modifier.semantics`:
 
-   - With value-based text fields:
 
+   ```kotlin
+   val autofillManager = LocalAutofillManager.current
 
-     ```kotlin
-     val autofillManager = LocalAutofillManager.current
+   Column {
+       TextField(
+           state = rememberTextFieldState(),
+           modifier = Modifier.semantics { contentType = ContentType.NewUsername }
+       )
 
-     Column {
-         TextField(
-             value = textFieldValue.value,
-             onValueChange = { textFieldValue.value = it },
-             modifier = Modifier.semantics { contentType = ContentType.NewUsername }
-         )
+       Spacer(modifier = Modifier.height(16.dp))
 
-         Spacer(modifier = Modifier.height(16.dp))
+       TextField(
+           state = rememberTextFieldState(),
+           modifier = Modifier.semantics { contentType = ContentType.NewPassword }
+       )
+   }
+   ```
 
-         TextField(
-             value = textFieldValue.value,
-             onValueChange = { textFieldValue.value = it },
-             modifier = Modifier.semantics { contentType = ContentType.NewPassword }
-         )
-     }
-     ```
-
-     <br />
-
-   - With state-based text fields:
-
-
-     ```kotlin
-     val autofillManager = LocalAutofillManager.current
-
-     Column {
-         TextField(
-             state = rememberTextFieldState(),
-             modifier = Modifier.semantics { contentType = ContentType.NewUsername }
-         )
-
-         Spacer(modifier = Modifier.height(16.dp))
-
-         TextField(
-             state = rememberTextFieldState(),
-             modifier = Modifier.semantics { contentType = ContentType.NewPassword }
-         )
-     }
-     ```
-
-     <br />
+   <br />
 
 3. Commit the Autofill context as needed through a button click:
 
-   - With value-based text fields:
 
+   ```kotlin
+   val autofillManager = LocalAutofillManager.current
 
-     ```kotlin
-     val autofillManager = LocalAutofillManager.current
+   Column {
+       TextField(
+           state = rememberTextFieldState(),
+           modifier = Modifier.semantics { contentType = ContentType.NewUsername },
+       )
 
-     Column {
-         TextField(
-             value = usernameTextFieldValue.value,
-             onValueChange = { usernameTextFieldValue.value = it },
-             modifier = Modifier.semantics { contentType = ContentType.NewUsername },
-         )
+       Spacer(modifier = Modifier.height(16.dp))
 
-         Spacer(modifier = Modifier.height(16.dp))
+       TextField(
+           state = rememberTextFieldState(),
+           modifier = Modifier.semantics { contentType = ContentType.NewPassword },
+       )
 
-         TextField(
-             value = passwordTextFieldValue.value,
-             onValueChange = { passwordTextFieldValue.value = it },
-             modifier = Modifier.semantics { contentType = ContentType.NewPassword },
-         )
+       // Submit button
+       Button(onClick = { autofillManager?.commit() }) { Text("Reset credentials") }
+   }
+   ```
 
-         // Submit button
-         Button(onClick = { autofillManager?.commit() }) { Text("Reset credentials") }
-     }
-     ```
-
-     <br />
-
-   - With state-based text fields:
-
-
-     ```kotlin
-     val autofillManager = LocalAutofillManager.current
-
-     Column {
-         TextField(
-             state = rememberTextFieldState(),
-             modifier = Modifier.semantics { contentType = ContentType.NewUsername },
-         )
-
-         Spacer(modifier = Modifier.height(16.dp))
-
-         TextField(
-             state = rememberTextFieldState(),
-             modifier = Modifier.semantics { contentType = ContentType.NewPassword },
-         )
-
-         // Submit button
-         Button(onClick = { autofillManager?.commit() }) { Text("Reset credentials") }
-     }
-     ```
-
-     <br />
+   <br />
 
 **Commit** is called whenever a user navigates away from the screen. If a
 **Submit** button is linked to navigation, then **Commit** does not need to be
@@ -301,25 +212,6 @@ to the user that Autofill has successfully completed.
 To customize this highlight color, use [`CompositionLocal`](https://developer.android.com/develop/ui/compose/compositionlocal) and provide
 whichever color you'd like. The default Autofill highlight color is defined as
 `Color(0x4dffeb3b)`.
-
-### Value-based text fields
-
-
-```kotlin
-val customHighlightColor = Color.Red
-
-CompositionLocalProvider(LocalAutofillHighlightColor provides customHighlightColor) {
-    TextField(
-        value = textFieldValue.value,
-        onValueChange = { textFieldValue.value = it },
-        modifier = Modifier.semantics { contentType = ContentType.Username }
-    )
-}
-```
-
-<br />
-
-### State-based text fields
 
 
 ```kotlin

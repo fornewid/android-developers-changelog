@@ -46,13 +46,14 @@ dependencies {
     annotationProcessor "androidx.appsearch:appsearch-compiler:$appsearch_version"
 
     implementation "androidx.appsearch:appsearch-local-storage:$appsearch_version"
-    // PlatformStorage is compatible with Android 12+ devices, and offers additional features
-    // to LocalStorage.
+    // PlatformStorage is compatible with Android 12+ devices and supports sharing data
+    // with other apps. Feature support varies by device. Before calling an API that
+    // requires a feature, check Features.isFeatureSupported().
     implementation "androidx.appsearch:appsearch-platform-storage:$appsearch_version"
 
     // PlayServicesStorage is compatible with all devices that support Google Play Services on
-    // all API levels. It offers the same features as PlatformStorage and is the recommended
-    // solution for lower API levels on which PlatformStorage is not supported.
+    // all API levels. It offers similar capabilities to PlatformStorage and is the
+    // recommended solution for lower API levels on which PlatformStorage is not supported.
     implementation "androidx.appsearch:appsearch-play-services-storage:$appsearch_version"
 }
 ```
@@ -68,13 +69,14 @@ dependencies {
     kapt("androidx.appsearch:appsearch-compiler:$appsearch_version")
 
     implementation("androidx.appsearch:appsearch-local-storage:$appsearch_version")
-    // PlatformStorage is compatible with Android 12+ devices, and offers additional features
-    // to LocalStorage.
+    // PlatformStorage is compatible with Android 12+ devices and supports sharing data
+    // with other apps. Feature support varies by device. Before calling an API that
+    // requires a feature, check Features.isFeatureSupported().
     implementation("androidx.appsearch:appsearch-platform-storage:$appsearch_version")
 
     // PlayServicesStorage is compatible with all devices that support Google Play Services on
-    // all API levels. It offers the same features as PlatformStorage and is the recommended
-    // solution for lower API levels on which PlatformStorage is not supported.
+    // all API levels. It offers similar capabilities to PlatformStorage and is the
+    // recommended solution for lower API levels on which PlatformStorage is not supported.
     implementation("androidx.appsearch:appsearch-play-services-storage:$appsearch_version")
 
 }
@@ -147,12 +149,19 @@ server and `PlayServicesStorage`'s index is hosted in Google Play Service's
 storage. Data access within these central indexes is restricted to data your
 application has contributed and data that has been explicitly shared with you
 by another application. All these storage options share the same API and can be
-interchanged based on a device's version:
+interchanged based on a device's version.
+
+Keep in mind that feature support varies by storage option and device. For more
+information, see [Check feature availability](https://developer.android.com/develop/ui/views/search/appsearch#check-features).
+
+The following code creates a `PlatformStorage` session on Android 12
+(API level 31) and higher, and a `PlayServicesStorage` or `LocalStorage` session
+on earlier versions:
 
 ### Kotlin
 
 ```kotlin
-if (BuildCompat.isAtLeastS()) {
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
     appSearchSessionFuture.setFuture(
         PlatformStorage.createSearchSession(
             PlatformStorage.SearchContext.Builder(mContext, DATABASE_NAME)
@@ -181,7 +190,7 @@ if (BuildCompat.isAtLeastS()) {
 ### Java
 
 ```java
-if (BuildCompat.isAtLeastS()) {
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
     mAppSearchSessionFuture.setFuture(PlatformStorage.createSearchSession(
             new PlatformStorage.SearchContext.Builder(mContext, DATABASE_NAME)
                     .build()));
@@ -229,6 +238,75 @@ binder latency when calling the AppSearch system service. With `PlatformStorage`
 can index to ensure an efficient central index. `PlayServicesStorage` also has
 the same limitations as `PlatformStorage` and is only supported on devices with
 Google Play services.
+
+### Check feature availability
+
+Although all storage options share the same API, some features aren't available
+with every storage option or on every device. In the API reference, the
+`@RequiresFeature` annotation identifies APIs that require one of these
+features, and the [`Features`](https://developer.android.com/reference/androidx/appsearch/app/Features) class
+defines a constant for each feature. For example,
+[`INDEXING_TYPE_RANGE`](https://developer.android.com/reference/androidx/appsearch/app/AppSearchSchema.LongPropertyConfig#INDEXING_TYPE_RANGE())
+requires `Features.NUMERIC_SEARCH`.
+
+For `PlatformStorage`, feature support depends on the device's Android version.
+Starting with Android 13 (API level 33), feature support also depends on the
+Google Play system updates that the device has received. For example,
+`PlatformStorage` supports numeric search (`Features.NUMERIC_SEARCH`), verbatim
+search (`Features.VERBATIM_SEARCH`), and joins
+(`Features.JOIN_SPEC_AND_QUALIFIED_ID`) only on the following devices:
+
+- Devices that run Android 14 (API level 34) or higher.
+- Devices that run Android 13 (API level 33) and have received the required Google Play system update.
+
+These features aren't supported on devices that run Android 12 or Android 12L
+(API levels 31 and 32).
+
+The maximum number of indexed properties in a document also varies by device
+and storage option. To get the limit at runtime, call
+[`getMaxIndexedProperties()`](https://developer.android.com/reference/androidx/appsearch/app/Features#getMaxIndexedProperties()).
+
+Don't rely on the Android version alone to determine feature support. Before
+you call an API that requires a feature, verify that the feature is supported
+by calling
+[`isFeatureSupported()`](https://developer.android.com/reference/androidx/appsearch/app/Features#isFeatureSupported(java.lang.String))
+on the `Features` object that
+[`AppSearchSession.getFeatures()`](https://developer.android.com/reference/androidx/appsearch/app/AppSearchSession#getFeatures())
+returns. If a required feature isn't supported, the operation fails with an
+exception. An example failure case is setting a schema that includes an
+`INDEXING_TYPE_RANGE` property fails on devices that don't support
+`Features.NUMERIC_SEARCH`.
+
+The following code checks whether an open `AppSearchSession` supports numeric
+search:
+
+### Kotlin
+
+```kotlin
+val features = session.features
+if (features.isFeatureSupported(Features.NUMERIC_SEARCH)) {
+    // Numeric search is supported. You can index properties with
+    // LongPropertyConfig.INDEXING_TYPE_RANGE and enable numeric search with
+    // SearchSpec.Builder.setNumericSearchEnabled(true).
+} else {
+    // Numeric search isn't supported. Set a schema without range-indexed
+    // properties, or switch to a different storage option.
+}
+```
+
+### Java
+
+```java
+Features features = session.getFeatures();
+if (features.isFeatureSupported(Features.NUMERIC_SEARCH)) {
+    // Numeric search is supported. You can index properties with
+    // LongPropertyConfig.INDEXING_TYPE_RANGE and enable numeric search with
+    // SearchSpec.Builder.setNumericSearchEnabled(true).
+} else {
+    // Numeric search isn't supported. Set a schema without range-indexed
+    // properties, or switch to a different storage option.
+}
+```
 
 ## Get started with AppSearch
 
@@ -383,6 +461,9 @@ SetSchemaRequest setSchemaRequest = new SetSchemaRequest.Builder().addDocumentCl
 ListenableFuture<SetSchemaResponse> setSchemaFuture =
        Futures.transformAsync(sessionFuture, session -> session.setSchema(setSchemaRequest), mExecutor);
 ```
+
+> [!NOTE]
+> **Note:** If your schema depends on a feature that isn't available on all devices, verify that the feature is supported before you set the schema. Otherwise, setting the schema fails with an exception. An example failure case is a schema, which includes an [`INDEXING_TYPE_RANGE`](https://developer.android.com/reference/androidx/appsearch/app/AppSearchSchema.LongPropertyConfig#INDEXING_TYPE_RANGE()) property, that requires `Features.NUMERIC_SEARCH`. For more information, see [Check feature availability](https://developer.android.com/develop/ui/views/search/appsearch#check-features).
 
 ### Put a document in the database
 

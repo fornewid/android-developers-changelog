@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr3/release-notes
 source: md.txt
 ---
 
+### Beta 2
+
+|---|---|
+| **Release date** | October 20, 2026 |
+| **Builds** | DP11.261002.005 |
+| **Emulator support** | x86 (64-bit), ARM (v8-A) |
+| **Security patch level** | 2026-10-05 |
+| **Google Play services** | 26.36.33 |
+
 ### Beta 1
 
 |---|---|
@@ -13,7 +22,7 @@ source: md.txt
 | **Security patch level** | 2026-08-05 |
 | **Google Play services** | 26.32.34 |
 
-### Android 17 QPR 3 Beta 1 (October 2026)
+### Android 17 QPR 3 Beta 2 (October 2026)
 
 Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
 update the platform with fixes and improvements that are then rolled out to
@@ -25,6 +34,32 @@ Although these updates don't include app-impacting API changes, we provide
 images of the latest QPR beta builds so you can test your app with these builds
 as needed (for example, if there are upcoming features that might impact the
 user experience of your app).
+
+### Top Issues fixed in Beta 2 (October 2026)
+
+Top issues fixed include:
+
+- *Devices intermittently crash and reboot during normal use. ([**Issue #570031572**](https://issuetracker.google.com/issues/570031572), [**Issue #570031155**](https://issuetracker.google.com/issues/570031155), [**Issue #569529428**](https://issuetracker.google.com/issues/569529428), [**Issue #569222433**](https://issuetracker.google.com/issues/569222433), [**Issue #570414567**](https://issuetracker.google.com/issues/570414567), [**Issue #570725957**](https://issuetracker.google.com/issues/570725957), [**Issue #569237164**](https://issuetracker.google.com/issues/569237164), [**Issue #572493638**](https://issuetracker.google.com/issues/572493638))*
+- *Internet Quick Settings tile displays persistent text when mobile data is active without Wi-Fi. ([**Issue #354469154**](https://issuetracker.google.com/issues/354469154), [**Issue #367059437**](https://issuetracker.google.com/issues/367059437))*
+- *Media output dialog ignores the monochrome system theme when external audio devices are connected. ([**Issue #476304142**](https://issuetracker.google.com/issues/476304142))*
+- *Pin icon glitches position next to pinned apps in the share sheet. ([**Issue #476234992**](https://issuetracker.google.com/issues/476234992))*
+- *Internal PublishedApi declarations trigger unexpected API lint and source compatibility check errors. ([**Issue #562178518**](https://issuetracker.google.com/issues/562178518))*
+- *Device unexpectedly shuts down during WhatsApp video calls. ([**Issue #554451749**](https://issuetracker.google.com/issues/554451749), [**Issue #559966303**](https://issuetracker.google.com/issues/559966303))*
+- *Lock screen in-progress notifications overlap with other UI elements and cause stuttering panel animations. ([**Issue #547371609**](https://issuetracker.google.com/issues/547371609), [**Issue #548539836**](https://issuetracker.google.com/issues/548539836), [**Issue #562186670**](https://issuetracker.google.com/issues/562186670))*
+- *Cellular data, MMS, and hotspot services fail to connect on Dish Network. ([**Issue #537736046**](https://issuetracker.google.com/issues/537736046))*
+- *Screen recording freezes and stops capturing frames after screen rotation. ([**Issue #541325203**](https://issuetracker.google.com/issues/541325203))*
+- *System UI, fonts, and apps render at an abnormally small scale regardless of configured display size settings. ([**Issue #563321433**](https://issuetracker.google.com/issues/563321433))*
+- *Display turns black and becomes unresponsive after ending a phone call. ([**Issue #564953545**](https://issuetracker.google.com/issues/564953545))*
+- *Terminal app fails to launch the Linux development environment virtual machine after installation. ([**Issue #551657934**](https://issuetracker.google.com/issues/551657934))*
+- *Wi-Fi Aware fails to establish subsequent data paths with a no interfaces available error after releasing an accept-any responder network request during connection confirmation. ([**Issue #550726291**](https://issuetracker.google.com/issues/550726291))*
+- *Paired watch continues to ring after an incoming call is answered on the phone. ([**Issue #564594780**](https://issuetracker.google.com/issues/564594780))*
+- *Airbnb app fails to connect when attempting to send messages. ([**Issue #563024453**](https://issuetracker.google.com/issues/563024453))*
+- *Quick Settings Bluetooth subtitle is misaligned to the right. ([**Issue #559417120**](https://issuetracker.google.com/issues/559417120))*
+- *App drawer unexpectedly closes when switching keyboard language. ([**Issue #558774933**](https://issuetracker.google.com/issues/558774933), [**Issue #540389222**](https://issuetracker.google.com/issues/540389222), [**Issue #533125590**](https://issuetracker.google.com/issues/533125590))*
+- *Bluetooth pairing fails due to a connection timeout when attempting to pair with a device. ([**Issue #563675080**](https://issuetracker.google.com/issues/563675080))*
+- *VoLTE, VoNR, and Wi-Fi calling are unavailable on the IT\&E network. ([**Issue #556432987**](https://issuetracker.google.com/issues/556432987))*
+- *High idle battery drain caused by motion sensors remaining active after using Face Unlock or the camera. ([**Issue #568078965**](https://issuetracker.google.com/issues/568078965))*
+- *Wi-Fi Calling unavailable on the OXIO network. ([**Issue #563089593**](https://issuetracker.google.com/issues/563089593))*
 
 ### Top Issues fixed in Beta 1 (October 2026)
 

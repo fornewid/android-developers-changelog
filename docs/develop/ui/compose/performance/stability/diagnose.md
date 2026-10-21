@@ -23,6 +23,9 @@ recomposed or skipped a component.
 
 ![Recomposition and skips counts in the Layout Inspector](https://developer.android.com/static/develop/ui/compose/images/performance/stability/layout-inspector.png)
 
+> [!NOTE]
+> **Note:** Don't rely on recomposition counts alone to judge performance. Skipping a composable isn't free---Compose stores each parameter in the slot table and compares parameters on every recomposition pass, and an expensive `.equals()` check on a skipped composable can take longer than recomposing a lightweight composable. Always verify real frame timing and CPU impact using [Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview) or composition tracing.
+
 ## Compose compiler reports
 
 The Compose compiler can output the results of its stability inference for
@@ -84,10 +87,17 @@ restartable or skippable. The following is a hypothetical example from
       stable highlight: Boolean = @static true
     )
 
-This `SnackCollection` composable is completely restartable, skippable, and
-stable. This is generally preferable, although certainly not mandatory.
+In this example, every parameter of `SnackCollection` is marked `stable`, so
+Compose compares each parameter using structural equality (`Object.equals()`).
+While `stable` parameters are ideal for primitive values and small, flat data
+classes with cheap `.equals()` checks, forcing collection-holding models (such
+as a `SnackCollection` that wraps a `List<Snack>`) to be `stable` causes Compose
+to call `.equals()`on each item on every recomposition. With [Strong skipping
+mode](https://developer.android.com/develop/ui/compose/performance/stability/strongskipping) enabled, keeping models that hold collections `unstable` is preferable
+so Compose compares them using instance equality (`===`) instead.
 
-Alternatively, consider another example.
+Alternatively, consider another example generated with
+[Strong skipping mode](https://developer.android.com/develop/ui/compose/performance/stability/strongskipping) disabled:
 
     restartable scheme("[androidx.compose.ui.UiComposable]") fun HighlightedSnacks(
       stable index: Int
@@ -96,9 +106,16 @@ Alternatively, consider another example.
       stable modifier: Modifier? = @static Companion
     )
 
-The `HighlightedSnacks` composable is not skippable. Compose never skips it
-during recomposition. This occurs even if none of its parameters have changed.
-The reason for this is the `unstable` parameter, `snacks`.
+When strong skipping mode is disabled (prior to Kotlin 2.0.20), the
+`HighlightedSnacks` composable is not skippable---Compose never skips it during
+recomposition, even if none of its parameters have changed, because of the
+`unstable` parameter `snacks`.
+
+With [Strong skipping mode](https://developer.android.com/develop/ui/compose/performance/stability/strongskipping) enabled (the default in Kotlin 2.0.20 and
+higher), `HighlightedSnacks` is marked `skippable`, and Compose compares the
+`unstable` parameter `snacks` using instance equality (`===`). As a result,
+Compose skips `HighlightedSnacks` if the same `List` reference is passed, and
+only recomposes it if a newly allocated `List` instance is passed.
 
 #### Classes report
 
@@ -138,5 +155,5 @@ implementation is *still* mutable. The Compose compiler cannot be sure of the
 immutability of this class as it only sees the declared type. It therefore marks
 `tags` as unstable.
 
-> [!IMPORTANT]
-> **Important:** For information about how to bring stability to an unstable class such as this, see the [Fix stability issues](https://developer.android.com/develop/ui/compose/performance/stability/fix) guide.
+> [!NOTE]
+> **Note:** Under [Strong skipping mode](https://developer.android.com/develop/ui/compose/performance/stability/strongskipping), an `unstable` class or collection property isn't automatically a problem that needs to be fixed. Unstable types skip recomposition using instance equality (`===`), which can be faster than running structural `.equals()` checks on large collections. Only modify stability if a data source frequently allocates new instances of the class with identical values and benchmarks confirm a performance bottleneck. For more information, see the [Fix stability issues](https://developer.android.com/develop/ui/compose/performance/stability/fix) guide.

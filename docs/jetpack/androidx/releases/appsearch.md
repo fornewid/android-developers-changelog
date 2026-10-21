@@ -34,13 +34,14 @@ dependencies {
     annotationProcessor "androidx.appsearch:appsearch-compiler:$appsearch_version"
 
     implementation "androidx.appsearch:appsearch-local-storage:$appsearch_version"
-    // PlatformStorage is compatible with Android 12+ devices, and offers additional features
-    // to LocalStorage.
+    // PlatformStorage is compatible with Android 12+ devices and supports sharing data
+    // with other apps. Feature support varies by device. Before calling an API that
+    // requires a feature, check Features.isFeatureSupported().
     implementation "androidx.appsearch:appsearch-platform-storage:$appsearch_version"
 
     // PlayServicesStorage is compatible with all devices that support Google Play Services on
-    // all API levels. It offers the same features as PlatformStorage and is the recommended
-    // solution for lower API levels on which PlatformStorage is not supported.
+    // all API levels. It offers similar capabilities to PlatformStorage and is the
+    // recommended solution for lower API levels on which PlatformStorage is not supported.
     implementation "androidx.appsearch:appsearch-play-services-storage:$appsearch_version"
 }
 ```
@@ -56,13 +57,14 @@ dependencies {
     kapt("androidx.appsearch:appsearch-compiler:$appsearch_version")
 
     implementation("androidx.appsearch:appsearch-local-storage:$appsearch_version")
-    // PlatformStorage is compatible with Android 12+ devices, and offers additional features
-    // to LocalStorage.
+    // PlatformStorage is compatible with Android 12+ devices and supports sharing data
+    // with other apps. Feature support varies by device. Before calling an API that
+    // requires a feature, check Features.isFeatureSupported().
     implementation("androidx.appsearch:appsearch-platform-storage:$appsearch_version")
 
     // PlayServicesStorage is compatible with all devices that support Google Play Services on
-    // all API levels. It offers the same features as PlatformStorage and is the recommended
-    // solution for lower API levels on which PlatformStorage is not supported.
+    // all API levels. It offers similar capabilities to PlatformStorage and is the
+    // recommended solution for lower API levels on which PlatformStorage is not supported.
     implementation("androidx.appsearch:appsearch-play-services-storage:$appsearch_version")
 
 }

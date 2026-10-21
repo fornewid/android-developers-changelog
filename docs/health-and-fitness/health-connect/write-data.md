@@ -4,7 +4,11 @@ url: https://developer.android.com/health-and-fitness/health-connect/write-data
 source: md.txt
 ---
 
-> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12).
+<br />
+
+> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12) or later.
+
+<br />
 
 This guide covers the process of writing or updating data in Health Connect.
 

@@ -73,14 +73,35 @@ Now, the list is sorted once, when `ContactList` is first composed. If the
 contacts or comparator change, the sorted list is regenerated. Otherwise, the
 composable can keep using the cached sorted list.
 
+Always pass any inputs referenced inside the `remember` calculation block as
+keys so the cached value updates when those inputs change. Because `remember`
+stores its keys and cached result in the slot table and compares keys using
+`Object.equals()` on every recomposition pass, only use `remember` when caching
+expensive calculations or heavy object allocations (such as date formatters,
+shaders, or list sorting) or when object identity must be preserved.
+
+Be cautious when passing a large collection or an object with an expensive
+`equals()` implementation as a key to `remember` for a cheap calculation, as
+comparing the key can cost more than running the calculation directly:
+
+    @Composable
+    fun ContactHeader(contacts: List<Contact>) {
+        // Avoid: Comparing the `contacts` list with .equals() on recomposition
+        // is more expensive than reading contacts.size or contacts.firstOrNull() directly.
+        val firstContactName = remember(contacts) {
+            contacts.firstOrNull()?.name.orEmpty()
+        }
+        Text(firstContactName)
+    }
+
 > [!NOTE]
 > **Note:** If possible, it's best to move calculations outside of the composable altogether. In this case, you might want to sort the list elsewhere, like in your `ViewModel`, and provide the sorted list as an input to the composable.
 
-## Use lazy layout keys
+## Use lazy layout keys and content types
 
 [Lazy layouts](https://developer.android.com/develop/ui/compose/lists#lazy) efficiently reuse items, only regenerating or recomposing them
 when they have to. However, you can help optimize lazy layouts for
-recomposition.
+recomposition and slot reuse.
 
 Suppose a user operation causes an item to move in the list. For example,
 suppose you show a list of notes sorted by modification time with the most
@@ -138,7 +159,16 @@ fun NotesList(notes: List<Note>) {
 
 <br />
 
-## Use `derivedStateOf` to limit recompositions
+When working with lazy layouts (`LazyColumn`, `LazyRow`, `LazyGrid`), also keep
+the following guidelines in mind:
+
+- **Use Bundle-saveable, unique keys** : Keys must be unique, deterministic, and saveable in an Android `Bundle` because lazy layouts use `rememberSaveable` internally. Prefer primitive types such as `Int`, `Long`, or `String`, and never use list indexes or `hashCode()` as keys.
+- **Always specify `contentType` for heterogeneous lists** : Pass `contentType = { it.type }` to `items` or `itemsIndexed` so Compose only reuses composition slots between items that share the same visual structure during scrolling.
+- **Use `itemsIndexed` instead of `indexOf`** : Avoid calling `list.indexOf(item)` inside an `items` block, which turns layout into an `O(N²)` scan; use `itemsIndexed` instead.
+- **Hoist shared state and `CompositionLocal` reads** : Collect shared `Flow` instances and read `CompositionLocal` values (such as `LocalContext.current` or `LocalDensity.current`) once in the parent composable above the lazy layout and pass the resolved values down to item composables.
+- **Use `Row` or `Column` for small, bounded lists** : For small static or bounded collections (such as 1 to 10 items), a standard `Row` or `Column` with `forEach` avoids lazy virtualization and prefetching overhead.
+
+## Use `computedStateOf` or `derivedStateOf` to limit recompositions
 
 One risk of using state in your compositions is that, if the state changes
 rapidly, your UI might get recomposed more than you need it to. For example,
@@ -165,14 +195,15 @@ AnimatedVisibility(visible = showButton) {
 The problem here is, if the user scrolls the list, `listState` is constantly
 changing as the user drags their finger. That means the list is constantly being
 recomposed. However, you don't actually need to recompose it that often---you
-don't need to recompose until a new item becomes visible at the bottom. So,
+don't need to recompose until a new item becomes visible at the top. So,
 that's a lot of extra computation, which makes your UI perform badly.
 
-The solution is to use [*derived state*](https://developer.android.com/develop/ui/compose/side-effects#derivedstateof). Derived state lets you tell Compose
-which changes of state actually should trigger recomposition. In this case,
-specify that you care about when the first visible item changes. When *that*
-state value changes, the UI needs to recompose, but if the user hasn't yet
-scrolled enough to bring a new item to the top, it doesn't have to recompose.
+The solution is to use [*derived state*](https://developer.android.com/develop/ui/compose/side-effects#derivedstateof) (or [`computedStateOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#computedStateOf(androidx.compose.runtime.SnapshotMutationPolicy,kotlin.Function0)) in
+Compose Runtime 1.13 and higher). Derived state lets you tell Compose which
+changes of state actually should trigger recomposition. In this case, specify
+that you care about when the first visible item changes. When *that* state value
+changes, the UI needs to recompose, but if the user hasn't yet scrolled enough
+to bring a new item to the top, it doesn't have to recompose.
 
 
 ```kotlin
@@ -194,6 +225,13 @@ AnimatedVisibility(visible = showButton) {
 ```
 
 <br />
+
+Choose the appropriate state derivation approach based on your Compose version
+and calculation cost:
+
+- **`remember { computedStateOf { ... } }` (Compose Runtime 1.13 and higher)** : Re-evaluates its calculation on every read without caching the result, and only invalidates composition when the computed output changes. Because it avoids cache bookkeeping and invalidation write-back overhead, prefer `remember { computedStateOf { listState.firstVisibleItemIndex > 0 } }` for basic condition checks and lightweight derivations driven by fast-changing states (such as scroll offsets).
+- **`remember { derivedStateOf { ... } }`** : Caches the result of its calculation across multiple reads. Use `derivedStateOf` on Compose versions lower than 1.13, or when the calculation itself is computationally expensive and read multiple times during a composition pass. Don't pass the snapshot state values read inside `derivedStateOf` (such as `listState.firstVisibleItemIndex`) as `remember` keys, as doing so recreates the `DerivedState` on every state change and prevents skipping.
+- **Plain Kotlin getters (`get()`) and direct property reads** : Prefer a plain custom getter for trivial boolean expressions where invalidation dampening isn't needed, and read collection `.size` directly instead of wrapping it in `derivedStateOf`. Avoid using `produceState` with `snapshotFlow` for synchronous state derivations, as it adds unnecessary coroutine dispatch overhead.
 
 ## Defer reads as long as possible
 

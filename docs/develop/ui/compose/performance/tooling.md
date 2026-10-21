@@ -21,7 +21,12 @@ means UI changes aren't showing up on the screen. Tracking recompositions can
 help find both of these kinds of problems.
 
 Recomposition in itself is not bad; however, unexpected recomposition can be an
-issue.
+issue. Keep in mind that recomposition counts aren't a substitute for
+benchmarks: skipping a composable has slot table and parameter comparison
+overhead, and once composition is scheduled, skipping a single intermediate
+composable saves little time compared to deferring rapidly changing state reads
+to the Layout or Draw phases. Always verify performance changes using
+[composition tracing](https://developer.android.com/develop/ui/compose/tooling/tracing) and Macrobenchmark.
 
 For more information, see the Layout Inspector [recomposition counts](https://developer.android.com/develop/ui/compose/tooling/debug#recomposition-counts)
 documentation.

@@ -87,27 +87,24 @@ pulses. The first pulse is a smooth ramp up to the maximum amplitude, and the
 second is a quick ramp to hold maximum amplitude. Stopping at the end is defined
 by the negative repeat index value.
 
-### Kotlin
 
-    val timings: LongArray = longArrayOf(
-        50, 50, 50, 50, 50, 100, 350, 25, 25, 25, 25, 200)
-    val amplitudes: IntArray = intArrayOf(
-        33, 51, 75, 113, 170, 255, 0, 38, 62, 100, 160, 255)
-    val repeatIndex = -1 // Don't repeat.
+```kotlin
+val timings: LongArray = longArrayOf(
+    50, 50, 50, 50, 50, 100, 350, 25, 25, 25, 25, 200
+)
+val amplitudes: IntArray = intArrayOf(
+    33, 51, 75, 113, 170, 255, 0, 38, 62, 100, 160, 255
+)
+val repeatIndex = -1 // Don't repeat.
 
-    vibrator.vibrate(VibrationEffect.createWaveform(
-        timings, amplitudes, repeatIndex))
+vibrator.vibrate(
+    VibrationEffect.createWaveform(
+        timings, amplitudes, repeatIndex
+    )
+)
+```
 
-### Java
-
-    long[] timings = new long[] {
-        50, 50, 50, 50, 50, 100, 350, 25, 25, 25, 25, 200 };
-    int[] amplitudes = new int[] {
-        33, 51, 75, 113, 170, 255, 0, 38, 62, 100, 160, 255 };
-    int repeatIndex = -1; // Don't repeat.
-
-    vibrator.vibrate(VibrationEffect.createWaveform(
-        timings, amplitudes, repeatIndex));
+<br />
 
 ### Repeating pattern
 
@@ -116,39 +113,26 @@ repeating waveform is to set a non-negative `repeat` parameter. When you play a
 repeating waveform, the vibration continues until it's explicitly cancelled in
 the service:
 
-### Kotlin
 
-    void startVibrating() {
+```kotlin
+fun startVibrating() {
     val timings: LongArray = longArrayOf(50, 50, 100, 50, 50)
     val amplitudes: IntArray = intArrayOf(64, 128, 255, 128, 64)
     val repeat = 1 // Repeat from the second entry, index = 1.
-    VibrationEffect repeatingEffect = VibrationEffect.createWaveform(
-        timings, amplitudes, repeat)
+    val repeatingEffect: VibrationEffect = VibrationEffect.createWaveform(
+        timings, amplitudes, repeat
+    )
     // repeatingEffect can be used in multiple places.
 
     vibrator.vibrate(repeatingEffect)
-    }
+}
 
-    void stopVibrating() {
+fun stopVibrating() {
     vibrator.cancel()
-    }
+}
+```
 
-### Java
-
-    void startVibrating() {
-    long[] timings = new long[] { 50, 50, 100, 50, 50 };
-    int[] amplitudes = new int[] { 64, 128, 255, 128, 64 };
-    int repeat = 1; // Repeat from the second entry, index = 1.
-    VibrationEffect repeatingEffect = VibrationEffect.createWaveform(
-        timings, amplitudes, repeat);
-    // repeatingEffect can be used in multiple places.
-
-    vibrator.vibrate(repeatingEffect);
-    }
-
-    void stopVibrating() {
-    vibrator.cancel();
-    }
+<br />
 
 This is very useful for intermittent events that require user action to
 acknowledge it. Examples of such events include incoming phone calls and
@@ -164,25 +148,24 @@ such devices, either use a pattern that doesn't generate a buzzing effect when
 played in that condition, or design a simpler ON/OFF pattern that can be played
 as a fallback instead.
 
-### Kotlin
 
-    if (vibrator.hasAmplitudeControl()) {
-      vibrator.vibrate(VibrationEffect.createWaveform(
-        smoothTimings, amplitudes, smoothRepeatIdx))
-    } else {
-      vibrator.vibrate(VibrationEffect.createWaveform(
-        onOffTimings, onOffRepeatIdx))
-    }
+```kotlin
+if (vibrator.hasAmplitudeControl()) {
+    vibrator.vibrate(
+        VibrationEffect.createWaveform(
+            smoothTimings, amplitudes, smoothRepeatIdx
+        )
+    )
+} else {
+    vibrator.vibrate(
+        VibrationEffect.createWaveform(
+            onOffTimings, onOffRepeatIdx
+        )
+    )
+}
+```
 
-### Java
-
-    if (vibrator.hasAmplitudeControl()) {
-      vibrator.vibrate(VibrationEffect.createWaveform(
-        smoothTimings, amplitudes, smoothRepeatIdx));
-    } else {
-      vibrator.vibrate(VibrationEffect.createWaveform(
-        onOffTimings, onOffRepeatIdx));
-    }
+<br />
 
 > [!NOTE]
 > **Note:** The ON/OFF pattern is actually specified in the API as a OFF/ON sequence of durations. See more details in the [API reference documentation](https://developer.android.com/reference/android/os/VibrationEffect#createWaveform(long%5B%5D,%20int)).
@@ -460,23 +443,18 @@ You can create composed vibration effects with
 [`VibrationEffect.Composition`](https://developer.android.com/reference/android/os/VibrationEffect.Composition). Here is an example of a slowly rising
 effect followed by a sharp click effect:
 
-### Kotlin
 
-    vibrator.vibrate(
-        VibrationEffect.startComposition().addPrimitive(
+```kotlin
+vibrator.vibrate(
+    VibrationEffect.startComposition().addPrimitive(
         VibrationEffect.Composition.PRIMITIVE_SLOW_RISE
-        ).addPrimitive(
+    ).addPrimitive(
         VibrationEffect.Composition.PRIMITIVE_CLICK
-        ).compose()
-    )
+    ).compose()
+)
+```
 
-### Java
-
-    vibrator.vibrate(
-        VibrationEffect.startComposition()
-            .addPrimitive(VibrationEffect.Composition.PRIMITIVE_SLOW_RISE)
-            .addPrimitive(VibrationEffect.Composition.PRIMITIVE_CLICK)
-            .compose());
+<br />
 
 A composition is created by adding primitives to be played in sequence. Each
 primitive is also scalable, so you can control the amplitude of the vibration
@@ -502,77 +480,57 @@ short to be detectable. Use a gap on the order of 50 ms or longer if you want to
 create a discernible gap between two primitives. Here is an example of a
 composition with delays:
 
-### Kotlin
 
-    val delayMs = 100
-    vibrator.vibrate(
-        VibrationEffect.startComposition().addPrimitive(
+```kotlin
+val delayMs = 100
+vibrator.vibrate(
+    VibrationEffect.startComposition().addPrimitive(
         VibrationEffect.Composition.PRIMITIVE_SPIN, 0.8f
-        ).addPrimitive(
+    ).addPrimitive(
         VibrationEffect.Composition.PRIMITIVE_SPIN, 0.6f
-        ).addPrimitive(
+    ).addPrimitive(
         VibrationEffect.Composition.PRIMITIVE_THUD, 1.0f, delayMs
-        ).compose()
-    )
+    ).compose()
+)
+```
 
-### Java
-
-    int delayMs = 100;
-    vibrator.vibrate(
-        VibrationEffect.startComposition()
-            .addPrimitive(VibrationEffect.Composition.PRIMITIVE_SPIN, 0.8f)
-            .addPrimitive(VibrationEffect.Composition.PRIMITIVE_SPIN, 0.6f)
-            .addPrimitive(
-                VibrationEffect.Composition.PRIMITIVE_THUD, 1.0f, delayMs)
-            .compose());
+<br />
 
 ### Check which primitives are supported
 
 The following APIs can be used to verify the device support for specific
 primitives:
 
-### Kotlin
 
-    val primitive = VibrationEffect.Composition.PRIMITIVE_LOW_TICK
+```kotlin
+val primitive = VibrationEffect.Composition.PRIMITIVE_LOW_TICK
 
-    if (vibrator.areAllPrimitivesSupported(primitive)) {
-      vibrator.vibrate(VibrationEffect.startComposition()
-            .addPrimitive(primitive).compose())
-    } else {
-      // Play a predefined effect or custom pattern as a fallback.
-    }
+if (vibrator.areAllPrimitivesSupported(primitive)) {
+    vibrator.vibrate(
+        VibrationEffect.startComposition()
+            .addPrimitive(primitive).compose()
+    )
+} else {
+    // Play a predefined effect or custom pattern as a fallback.
+}
+```
 
-### Java
-
-    int primitive = VibrationEffect.Composition.PRIMITIVE_LOW_TICK;
-
-    if (vibrator.areAllPrimitivesSupported(primitive)) {
-      vibrator.vibrate(VibrationEffect.startComposition()
-            .addPrimitive(primitive).compose());
-    } else {
-      // Play a predefined effect or custom pattern as a fallback.
-    }
+<br />
 
 It's also possible to check multiple primitives and then decide which ones to
 compose based on the device support level:
 
-### Kotlin
 
-    val effects: IntArray = intArrayOf(
+```kotlin
+val primitives: IntArray = intArrayOf(
     VibrationEffect.Composition.PRIMITIVE_LOW_TICK,
     VibrationEffect.Composition.PRIMITIVE_TICK,
     VibrationEffect.Composition.PRIMITIVE_CLICK
-    )
-    val supported: BooleanArray = vibrator.arePrimitivesSupported(primitives)
+)
+val supported: BooleanArray = vibrator.arePrimitivesSupported(*primitives)
+```
 
-### Java
-
-    int[] primitives = new int[] {
-    VibrationEffect.Composition.PRIMITIVE_LOW_TICK,
-    VibrationEffect.Composition.PRIMITIVE_TICK,
-    VibrationEffect.Composition.PRIMITIVE_CLICK
-    };
-    boolean[] supported = vibrator.arePrimitivesSupported(effects);
+<br />
 
 ## Examples of vibration compositions
 
@@ -592,40 +550,37 @@ gesture and augmented with haptics.
 **Figure 1.** This waveform represents the
 output acceleration of the vibration on a device.
 
-### Kotlin
 
-    @Composable
-    fun ResistScreen() {
-        // Control variables for the dragging of the indicator.
-        var isDragging by remember { mutableStateOf(false) }
-        var dragOffset by remember { mutableStateOf(0f) }
+```kotlin
+@Composable
+fun ResistScreen() {
+    // Control variables for the dragging of the indicator.
+    var isDragging by remember { mutableStateOf(false) }
+    var dragOffset by remember { mutableFloatStateOf(0f) }
 
-        // Only vibrates while the user is dragging
-        if (isDragging) {
-            LaunchedEffect(Unit) {
-            // Continuously run the effect for vibration to occur even when the view
-            // is not being drawn, when user stops dragging midway through gesture.
-            while (true) {
-                // Calculate the interval inversely proportional to the drag offset.
-                val vibrationInterval = calculateVibrationInterval(dragOffset)
-                // Calculate the scale directly proportional to the drag offset.
-                val vibrationScale = calculateVibrationScale(dragOffset)
+    // Only vibrates while the user is dragging
+    LaunchedEffect(isDragging) {
+        // Continuously run the effect for vibration to occur even when the view
+        // is not being drawn, when user stops dragging midway through gesture.
+        while (isDragging) {
+            // Calculate the interval inversely proportional to the drag offset.
+            val vibrationInterval = calculateVibrationInterval(dragOffset)
+            // Calculate the scale directly proportional to the drag offset.
+            val vibrationScale = calculateVibrationScale(dragOffset)
 
-                delay(vibrationInterval)
-                vibrator.vibrate(
+            delay(vibrationInterval)
+            vibrator.vibrate(
                 VibrationEffect.startComposition().addPrimitive(
                     VibrationEffect.Composition.PRIMITIVE_LOW_TICK,
                     vibrationScale
                 ).compose()
-                )
-            }
-            }
+            )
         }
+    }
 
-        Screen() {
-            Column(
-            Modifier
-                .draggable(
+    Column(
+        Modifier
+            .draggable(
                 orientation = Orientation.Vertical,
                 onDragStarted = {
                     isDragging = true
@@ -636,65 +591,15 @@ output acceleration of the vibration on a device.
                 state = rememberDraggableState { delta ->
                     dragOffset += delta
                 }
-                )
-            ) {
-            // Build the indicator UI based on how much the user has dragged it.
-            ResistIndicator(dragOffset)
-            }
-        }
+            )
+    ) {
+        // Build the indicator UI based on how much the user has dragged it.
+        ResistIndicator(dragOffset)
     }
+}
+```
 
-### Java
-
-    class DragListener implements View.OnTouchListener {
-        // Control variables for the dragging of the indicator.
-        private int startY;
-        private int vibrationInterval;
-        private float vibrationScale;
-
-        @Override
-        public boolean onTouch(View view, MotionEvent event) {
-            switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                startY = event.getRawY();
-                vibrationInterval = calculateVibrationInterval(0);
-                vibrationScale = calculateVibrationScale(0);
-                startVibration();
-                break;
-            case MotionEvent.ACTION_MOVE:
-                float dragOffset = event.getRawY() - startY;
-                // Calculate the interval inversely proportional to the drag offset.
-                vibrationInterval = calculateVibrationInterval(dragOffset);
-                // Calculate the scale directly proportional to the drag offset.
-                vibrationScale = calculateVibrationScale(dragOffset);
-                // Build the indicator UI based on how much the user has dragged it.
-                updateIndicator(dragOffset);
-                break;
-            case MotionEvent.ACTION_CANCEL:
-            case MotionEvent.ACTION_UP:
-                // Only vibrates while the user is dragging
-                cancelVibration();
-                break;
-            }
-            return true;
-        }
-
-        private void startVibration() {
-            vibrator.vibrate(
-                VibrationEffect.startComposition()
-                    .addPrimitive(VibrationEffect.Composition.PRIMITIVE_LOW_TICK,
-                            vibrationScale)
-                    .compose());
-
-            // Continuously run the effect for vibration to occur even when the view
-            // is not being drawn, when user stops dragging midway through gesture.
-            handler.postDelayed(this::startVibration, vibrationInterval);
-        }
-
-        private void cancelVibration() {
-            handler.removeCallbacksAndMessages(null);
-        }
-    }
+<br />
 
 ### Expand (with rise and fall)
 
@@ -718,97 +623,54 @@ collapsing at the end of the animation.
 **Figure 2.**This waveform represents the
 output acceleration of the vibration on a device.
 
-### Kotlin
 
-    enum class ExpandShapeState {
-        Collapsed,
-        Expanded
-    }
+```kotlin
+enum class ExpandShapeState {
+    Collapsed,
+    Expanded
+}
 
-    @Composable
-    fun ExpandScreen() {
-        // Control variable for the state of the indicator.
-        var currentState by remember { mutableStateOf(ExpandShapeState.Collapsed) }
+@Composable
+fun ExpandScreen() {
+    // Control variable for the state of the indicator.
+    var currentState by remember { mutableStateOf(ExpandShapeState.Collapsed) }
 
-        // Animation between expanded and collapsed states.
-        val transitionData = updateTransitionData(currentState)
+    // Animation between expanded and collapsed states.
+    val transitionData = updateTransitionData(currentState)
 
-        Screen() {
-            Column(
-            Modifier
-                .clickable(
-                {
+    Column(
+        Modifier
+            .clickable(
+                onClick = {
                     if (currentState == ExpandShapeState.Collapsed) {
-                    currentState = ExpandShapeState.Expanded
-                    vibrator.vibrate(
-                        VibrationEffect.startComposition().addPrimitive(
-                        VibrationEffect.Composition.PRIMITIVE_SLOW_RISE,
-                        0.3f
-                        ).addPrimitive(
-                        VibrationEffect.Composition.PRIMITIVE_QUICK_FALL,
-                        0.3f
-                        ).compose()
-                    )
+                        currentState = ExpandShapeState.Expanded
+                        vibrator.vibrate(
+                            VibrationEffect.startComposition().addPrimitive(
+                                VibrationEffect.Composition.PRIMITIVE_SLOW_RISE,
+                                0.3f
+                            ).addPrimitive(
+                                VibrationEffect.Composition.PRIMITIVE_QUICK_FALL,
+                                0.3f
+                            ).compose()
+                        )
                     } else {
-                    currentState = ExpandShapeState.Collapsed
-                    vibrator.vibrate(
-                        VibrationEffect.startComposition().addPrimitive(
-                        VibrationEffect.Composition.PRIMITIVE_SLOW_RISE
-                        ).compose()
-                    )
+                        currentState = ExpandShapeState.Collapsed
+                        vibrator.vibrate(
+                            VibrationEffect.startComposition().addPrimitive(
+                                VibrationEffect.Composition.PRIMITIVE_SLOW_RISE
+                            ).compose()
+                        )
+                    }
                 }
-                )
-            ) {
-            // Build the indicator UI based on the current state.
-            ExpandIndicator(transitionData)
-            }
-        }
+            )
+    ) {
+        // Build the indicator UI based on the current state.
+        ExpandIndicator(transitionData)
     }
+}
+```
 
-### Java
-
-    class ClickListener implements View.OnClickListener {
-        private final Animation expandAnimation;
-        private final Animation collapseAnimation;
-        private boolean isExpanded;
-
-        ClickListener(Context context) {
-            expandAnimation = AnimationUtils.loadAnimation(context, R.anim.expand);
-            expandAnimation.setAnimationListener(new Animation.AnimationListener() {
-
-            @Override
-            public void onAnimationStart(Animation animation) {
-                vibrator.vibrate(
-                VibrationEffect.startComposition()
-                    .addPrimitive(
-                        VibrationEffect.Composition.PRIMITIVE_SLOW_RISE, 0.3f)
-                    .addPrimitive(
-                        VibrationEffect.Composition.PRIMITIVE_QUICK_FALL, 0.3f)
-                    .compose());
-            }
-            });
-
-            collapseAnimation = AnimationUtils
-                    .loadAnimation(context, R.anim.collapse);
-            collapseAnimation.setAnimationListener(new Animation.AnimationListener() {
-
-                @Override
-                public void onAnimationStart(Animation animation) {
-                    vibrator.vibrate(
-                    VibrationEffect.startComposition()
-                        .addPrimitive(
-                            VibrationEffect.Composition.PRIMITIVE_SLOW_RISE)
-                        .compose());
-                }
-            });
-        }
-
-        @Override
-        public void onClick(View view) {
-            view.startAnimation(isExpanded ? collapseAnimation : expandAnimation);
-            isExpanded = !isExpanded;
-        }
-    }
+<br />
 
 ### Wobble (with spins)
 
@@ -834,119 +696,85 @@ with varying intensities that are proportional to the bounce displacement.
 **Figure 3.** This waveform represents the
 output acceleration of the vibration on a device.
 
-### Kotlin
 
-    @Composable
-    fun WobbleScreen() {
-        // Control variables for the dragging and animating state of the elastic.
-        var dragDistance by remember { mutableStateOf(0f) }
-        var isWobbling by remember { mutableStateOf(false) }
+```kotlin
+@Composable
+fun WobbleScreen() {
+    // Control variables for the dragging and animating state of the elastic.
+    var dragDistance by remember { mutableFloatStateOf(0f) }
+    var isWobbling by remember { mutableStateOf(false) }
 
-        // Use drag distance to create an animated float value behaving like a spring.
-        val dragDistanceAnimated by animateFloatAsState(
-            targetValue = if (dragDistance > 0f) dragDistance else 0f,
-            animationSpec = spring(
-                dampingRatio = Spring.DampingRatioHighBouncy,
-                stiffness = Spring.StiffnessMedium
-            ),
-        )
+    // Use drag distance to create an animated float value behaving like a spring.
+    val dragDistanceAnimated by animateFloatAsState(
+        targetValue = if (dragDistance > 0f) dragDistance else 0f,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioHighBouncy,
+            stiffness = Spring.StiffnessMedium
+        ),
+        // The spring ends on its target. An end value of 0f means that the
+        // shape is back at rest, so the wobble is over.
+        finishedListener = { endValue -> if (endValue == 0f) isWobbling = false },
+    )
 
-        if (isWobbling) {
-            LaunchedEffect(Unit) {
-                while (true) {
-                    val displacement = dragDistanceAnimated / MAX_DRAG_DISTANCE
-                    // Use some sort of minimum displacement so the final few frames
-                    // of animation don't generate a vibration.
-                    if (displacement > SPIN_MIN_DISPLACEMENT) {
-                        vibrator.vibrate(
-                            VibrationEffect.startComposition().addPrimitive(
-                                VibrationEffect.Composition.PRIMITIVE_SPIN,
-                                nextSpinScale(displacement)
-                            ).addPrimitive(
-                            VibrationEffect.Composition.PRIMITIVE_SPIN,
-                            nextSpinScale(displacement)
-                            ).compose()
-                        )
-                    }
-                    // Delay the next check for a sufficient duration until the
-                    // current composition finishes. Note that you can use
-                    // Vibrator.getPrimitiveDurations API to calculcate the delay.
-                    delay(VIBRATION_DURATION)
-                }
-            }
-        }
-
-        Box(
-            Modifier
-                .fillMaxSize()
-                .draggable(
-                    onDragStopped = {
-                        isWobbling = true
-                        dragDistance = 0f
-                    },
-                    orientation = Orientation.Vertical,
-                    state = rememberDraggableState { delta ->
-                        isWobbling = false
-                        dragDistance += delta
-                    }
-                )
-        ) {
-            // Draw the wobbling shape using the animated spring-like value.
-            WobbleShape(dragDistanceAnimated)
-        }
-    }
-
-    // Calculate a random scale for each spin to vary the full effect.
-    fun nextSpinScale(displacement: Float): Float {
-        // Generate a random offset in the range [-0.1, +0.1] to be added to the
-        // vibration scale so the spin effects have slightly different values.
-        val randomOffset: Float = Random.Default.nextFloat() * 0.2f - 0.1f
-        return (displacement + randomOffset).absoluteValue.coerceIn(0f, 1f)
-    }
-
-### Java
-
-    class AnimationListener implements DynamicAnimation.OnAnimationUpdateListener {
-        private final Random vibrationRandom = new Random(seed);
-        private final long lastVibrationUptime;
-
-        @Override
-        public void onAnimationUpdate(
-            DynamicAnimation animation, float value, float velocity) {
-            // Delay the next check for a sufficient duration until the current
-            // composition finishes. Note that you can use
-            // Vibrator.getPrimitiveDurations API to calculcate the delay.
-            if (SystemClock.uptimeMillis() - lastVibrationUptime < VIBRATION_DURATION) {
-                return;
-            }
-
-            float displacement = calculateRelativeDisplacement(value);
-
+    LaunchedEffect(isWobbling) {
+        while (isWobbling) {
+            val displacement = dragDistanceAnimated / MAX_DRAG_DISTANCE
             // Use some sort of minimum displacement so the final few frames
             // of animation don't generate a vibration.
-            if (displacement < SPIN_MIN_DISPLACEMENT) {
-                return;
+            if (displacement > SPIN_MIN_DISPLACEMENT) {
+                vibrator.vibrate(
+                    VibrationEffect.startComposition().addPrimitive(
+                        VibrationEffect.Composition.PRIMITIVE_SPIN,
+                        nextSpinScale(displacement)
+                    ).addPrimitive(
+                        VibrationEffect.Composition.PRIMITIVE_SPIN,
+                        nextSpinScale(displacement)
+                    ).compose()
+                )
             }
-
-            lastVibrationUptime = SystemClock.uptimeMillis();
-            vibrator.vibrate(
-            VibrationEffect.startComposition()
-                .addPrimitive(VibrationEffect.Composition.PRIMITIVE_SPIN,
-                nextSpinScale(displacement))
-                .addPrimitive(VibrationEffect.Composition.PRIMITIVE_SPIN,
-                nextSpinScale(displacement))
-                .compose());
-        }
-
-        // Calculate a random scale for each spin to vary the full effect.
-        float nextSpinScale(float displacement) {
-            // Generate a random offset in the range [-0.1,+0.1] to be added to
-            // the vibration scale so the spin effects have slightly different
-            // values.
-            float randomOffset = vibrationRandom.nextFloat() * 0.2f - 0.1f
-            return MathUtils.clamp(displacement + randomOffset, 0f, 1f)
+            // Delay the next check for a sufficient duration until the
+            // current composition finishes. Note that you can use
+            // Vibrator.getPrimitiveDurations API to calculcate the delay.
+            delay(VIBRATION_DURATION)
         }
     }
+
+    Box(
+        Modifier
+            .fillMaxSize()
+            .draggable(
+                onDragStopped = {
+                    // Wobble only if the shape is far enough from rest to vibrate.
+                    // It then springs back to 0f, and the finishedListener ends
+                    // the wobble.
+                    val displacement = dragDistanceAnimated / MAX_DRAG_DISTANCE
+                    isWobbling = displacement > SPIN_MIN_DISPLACEMENT
+                    dragDistance = 0f
+                },
+                orientation = Orientation.Vertical,
+                state = rememberDraggableState { delta ->
+                    isWobbling = false
+                    dragDistance += delta
+                }
+            )
+    ) {
+        // Draw the wobbling shape using the animated spring-like value. The
+        // lambda defers the read to the draw phase, so the animation doesn't
+        // recompose this screen on every frame.
+        WobbleShape { dragDistanceAnimated }
+    }
+}
+
+// Calculate a random scale for each spin to vary the full effect.
+fun nextSpinScale(displacement: Float): Float {
+    // Generate a random offset in the range [-0.1, +0.1] to be added to the
+    // vibration scale so the spin effects have slightly different values.
+    val randomOffset: Float = Random.Default.nextFloat() * 0.2f - 0.1f
+    return (displacement + randomOffset).absoluteValue.coerceIn(0f, 1f)
+}
+```
+
+<br />
 
 ### Bounce (with thuds)
 
@@ -962,96 +790,59 @@ each time the ball bounces off the bottom of the screen:
 **Figure 4.** This waveform represents the
 output acceleration of the vibration on a device.
 
-### Kotlin
 
-    enum class BallPosition {
-        Start,
-        End
-    }
+```kotlin
+enum class BallPosition {
+    Start,
+    End
+}
 
-    @Composable
-    fun BounceScreen() {
-        // Control variable for the state of the ball.
-        var ballPosition by remember { mutableStateOf(BallPosition.Start) }
-        var bounceCount by remember { mutableStateOf(0) }
+@Composable
+fun BounceScreen() {
+    // Control variable for the state of the ball.
+    var ballPosition by remember { mutableStateOf(BallPosition.Start) }
+    // Plain holder for the bounce count. It's read only in the effect and in
+    // the click handler, never in composition, so it needs no snapshot state.
+    val bounceCount = remember { intArrayOf(0) }
 
-        // Animation for the bouncing ball.
-        var transitionData = updateTransitionData(ballPosition)
-        val collisionData = updateCollisionData(transitionData)
+    // Animation for the bouncing ball.
+    val transitionData = updateTransitionData(ballPosition)
+    val collisionData = updateCollisionData(transitionData)
 
-        // Ball is about to contact floor, only vibrating once per collision.
-        var hasVibratedForBallContact by remember { mutableStateOf(false) }
+    // Ball is about to contact floor. The effect runs only when the collision
+    // state changes, so it vibrates once per collision. Nothing here suspends,
+    // so a keyed SideEffect does the job without launching a coroutine.
+    SideEffect(collisionData.collisionWithFloor) {
         if (collisionData.collisionWithFloor) {
-            if (!hasVibratedForBallContact) {
-            val vibrationScale = 0.7.pow(bounceCount++).toFloat()
+            val vibrationScale = 0.7.pow(bounceCount[0]++).toFloat()
             vibrator.vibrate(
                 VibrationEffect.startComposition().addPrimitive(
-                VibrationEffect.Composition.PRIMITIVE_THUD,
-                vibrationScale
+                    VibrationEffect.Composition.PRIMITIVE_THUD,
+                    vibrationScale
                 ).compose()
             )
-            hasVibratedForBallContact = true
-            }
-        } else {
-            // Reset for next contact with floor.
-            hasVibratedForBallContact = false
         }
+    }
 
-        Screen() {
-            Box(
-            Modifier
-                .fillMaxSize()
-                .clickable {
+    Box(
+        Modifier
+            .fillMaxSize()
+            .clickable {
                 if (transitionData.isAtStart) {
                     ballPosition = BallPosition.End
                 } else {
                     ballPosition = BallPosition.Start
-                    bounceCount = 0
+                    bounceCount[0] = 0
                 }
-                },
-            ) {
-            // Build the ball UI based on the current state.
-            BouncingBall(transitionData)
-            }
-        }
+            },
+    ) {
+        // Build the ball UI based on the current state.
+        BouncingBall(transitionData)
     }
+}
+```
 
-### Java
-
-    class ClickListener implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-            view.animate()
-            .translationY(targetY)
-            .setDuration(3000)
-            .setInterpolator(new BounceInterpolator())
-            .setUpdateListener(new AnimatorUpdateListener() {
-
-                boolean hasVibratedForBallContact = false;
-                int bounceCount = 0;
-
-                @Override
-                public void onAnimationUpdate(ValueAnimator animator) {
-                boolean valueBeyondThreshold = (float) animator.getAnimatedValue() > 0.98;
-                if (valueBeyondThreshold) {
-                    if (!hasVibratedForBallContact) {
-                    float vibrationScale = (float) Math.pow(0.7, bounceCount++);
-                    vibrator.vibrate(
-                        VibrationEffect.startComposition()
-                        .addPrimitive(
-                            VibrationEffect.Composition.PRIMITIVE_THUD,
-                            vibrationScale)
-                        .compose());
-                    hasVibratedForBallContact = true;
-                    }
-                } else {
-                    // Reset for next contact with floor.
-                    hasVibratedForBallContact = false;
-                }
-                }
-            });
-        }
-    }
+<br />
 
 ## Vibration waveform with envelopes
 
@@ -1085,8 +876,8 @@ parameters:
   > **Note:** Setting an initial sharpness is optional. If omitted, the framework defaults the initial sharpness to the value of the first control point.
 
 - A **duration** value, which represents the time, in milliseconds, taken to
-  transition from the last control point---that is, an intensity and sharpness
-  pair---to the new one.
+  transition from the last control point (that is, an intensity and sharpness
+  pair) to the new one.
 
 > [!CAUTION]
 > **Caution:** When using the basic envelope API for envelope based vibrations, check that your effect concludes with a control point of zero intensity. Otherwise, an [`IllegalStateException`](https://developer.android.com/reference/java/lang/IllegalStateException) occurs.
@@ -1095,12 +886,18 @@ Here is an example waveform that ramps up the intensity from a low-pitch to a
 high-pitch, maximum-strength vibration over 500 ms and then ramps back down to
 \\( 0 \\) (off) over 100 ms.
 
-    vibrator.vibrate(VibrationEffect.BasicEnvelopeBuilder()
+
+```kotlin
+vibrator.vibrate(
+    VibrationEffect.BasicEnvelopeBuilder()
         .setInitialSharpness(0.0f)
         .addControlPoint(1.0f, 1.0f, 500)
         .addControlPoint(0.0f, 1.0f, 100)
         .build()
-    )
+)
+```
+
+<br />
 
 If you have more advanced knowledge of haptics, you can define envelope effects
 using `WaveformEnvelopeBuilder`. When using this object, you can access the
@@ -1126,13 +923,19 @@ effect. It begins with a 50 ms amplitude ramp, from off to full, at a constant
 at that level for 200 ms. Finally, the amplitude ramps down to \\( 0 \\), and
 the frequency returns to 60 Hz over the last 50 ms:
 
-    vibrator.vibrate(VibrationEffect.WaveformEnvelopeBuilder()
+
+```kotlin
+vibrator.vibrate(
+    VibrationEffect.WaveformEnvelopeBuilder()
         .addControlPoint(1.0f, 60f, 50)
         .addControlPoint(1.0f, 120f, 100)
         .addControlPoint(1.0f, 120f, 200)
         .addControlPoint(0.0f, 60f, 50)
         .build()
-    )
+)
+```
+
+<br />
 
 The following sections provide several examples of vibration waveforms with
 envelopes.
@@ -1152,109 +955,74 @@ screen:
 **Figure 5.** An output acceleration waveform graph for a vibration that
 simulates a bouncing spring.
 
-    @Composable
-    fun BouncingSpringAnimation() {
-      var springX by remember { mutableStateOf(SPRING_WIDTH) }
-      var springY by remember { mutableStateOf(SPRING_HEIGHT) }
-      var velocityX by remember { mutableFloatStateOf(INITIAL_VELOCITY) }
-      var velocityY by remember { mutableFloatStateOf(INITIAL_VELOCITY) }
-      var sharpness by remember { mutableFloatStateOf(INITIAL_SHARPNESS) }
-      var intensity by remember { mutableFloatStateOf(INITIAL_INTENSITY) }
-      var multiplier by remember { mutableFloatStateOf(INITIAL_MULTIPLIER) }
-      var bottomBounceCount by remember { mutableIntStateOf(0) }
-      var animationStartTime by remember { mutableLongStateOf(0L) }
-      var isAnimating by remember { mutableStateOf(false) }
 
-      val (screenHeight, screenWidth) = getScreenDimensions(context)
+```kotlin
+@Composable
+fun BouncingSpringAnimation() {
+    // The spring's height above the floor: 1f is the drop height, 0f is the floor.
+    val springHeight = remember { Animatable(1f) }
+    var isAnimating by remember { mutableStateOf(true) }
 
-      LaunchedEffect(isAnimating) {
-        animationStartTime = System.currentTimeMillis()
-        isAnimating = true
+    LaunchedEffect(isAnimating) {
+        if (!isAnimating) return@LaunchedEffect
+        springHeight.snapTo(1f)
 
-        while (isAnimating) {
-          velocityY += GRAVITY
-          springX += velocityX.dp
-          springY += velocityY.dp
+        // Each bounce reaches a fraction of the previous height.
+        var bounceHeight = 1f
+        while (bounceHeight > MIN_BOUNCE_HEIGHT) {
+            // Fall to the floor, speeding up like a falling object. A fall from
+            // a greater height takes longer.
+            val fallDurationMs = (DROP_DURATION_MS * sqrt(bounceHeight)).toInt()
+            springHeight.animateTo(0f, tween(fallDurationMs, easing = EaseInQuad))
 
-          // Handle bottom collision
-          if (springY > screenHeight - FLOOR_HEIGHT - SPRING_HEIGHT / 2) {
-            // Set the spring's y-position to the bottom bounce point, to keep it
-            // above the floor.
-            springY = screenHeight - FLOOR_HEIGHT - SPRING_HEIGHT / 2
-
-            // Reverse the vertical velocity and apply damping to simulate a bounce.
-            velocityY *= -BOUNCE_DAMPING
-            bottomBounceCount++
-
-            // Calculate the fade-out duration of the vibration based on the
-            // vertical velocity.
-            val fadeOutDuration =
-                ((abs(velocityY) / GRAVITY) * FRAME_DELAY_MS).toLong()
-
-            // Create a "boing" envelope vibration effect that fades out.
+            // The spring hits the floor: play a "boing" envelope effect that fades
+            // out. A higher bounce gives a stronger and sharper vibration.
             vibrator.vibrate(
                 VibrationEffect.BasicEnvelopeBuilder()
                     // Starting from zero sharpness here, will simulate a smoother
                     // "boing" effect.
                     .setInitialSharpness(0f)
-
                     // Add a control point to reach the target intensity and
                     // sharpness very quickly.
-                    .addControlPoint(intensity, sharpness, 20L)
-
+                    .addControlPoint(bounceHeight, bounceHeight * MAX_SHARPNESS, 20L)
                     // Add a control point to fade out the vibration intensity while
                     // maintaining sharpness.
-                    .addControlPoint(0f, sharpness, fadeOutDuration)
+                    .addControlPoint(0f, bounceHeight * MAX_SHARPNESS, fallDurationMs.toLong())
                     .build()
             )
 
-            // Decrease the intensity and sharpness of the vibration for subsequent
-            // bounces, and reduce the multiplier to create a fading effect.
-            intensity *= multiplier
-            sharpness *= multiplier
-            multiplier -= 0.1f
-          }
-
-          if (springX > screenWidth - SPRING_WIDTH / 2) {
-            // Prevent the spring from moving beyond the right edge of the screen.
-            springX = screenWidth - SPRING_WIDTH / 2
-          }
-
-          // Check for 3 bottom bounces and then slow down.
-          if (bottomBounceCount >= MAX_BOTTOM_BOUNCE &&
-                System.currentTimeMillis() - animationStartTime > 1000) {
-            velocityX *= 0.9f
-            velocityY *= 0.9f
-          }
-
-          delay(FRAME_DELAY_MS) // Control animation speed.
-
-          // Determine if the animation should continue based on the spring's
-          // position and velocity.
-          isAnimating = (springY < screenHeight + SPRING_HEIGHT ||
-                springX < screenWidth + SPRING_WIDTH)
-            && (velocityX >= 0.1f || velocityY >= 0.1f)
-        }
-      }
-
-      Box(
-        modifier = Modifier
-          .fillMaxSize()
-          .noRippleClickable {
-            if (!isAnimating) {
-              resetAnimation()
+            // Bounce back up to a lower height, slowing down like a thrown object.
+            // When the next bounce is too small, the spring stays on the floor.
+            bounceHeight *= BOUNCE_DAMPING
+            if (bounceHeight > MIN_BOUNCE_HEIGHT) {
+                val riseDurationMs = (DROP_DURATION_MS * sqrt(bounceHeight)).toInt()
+                springHeight.animateTo(bounceHeight, tween(riseDurationMs, easing = EaseOutQuad))
             }
-          }
-          .width(screenWidth)
-          .height(screenHeight)
-      ) {
-        DrawSpring(mutableStateOf(springX), mutableStateOf(springY))
-        DrawFloor()
-        if (!isAnimating) {
-          DrawText("Tap to restart")
         }
-      }
+        isAnimating = false
     }
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .clickable(enabled = !isAnimating) { isAnimating = true }
+            .drawBehind {
+                // Read the height in the draw phase, and scale it to the distance
+                // between the top of the box and the floor.
+                val floorTop = size.height - FLOOR_HEIGHT.toPx()
+                val dropDistance = floorTop - SPRING_HEIGHT.toPx()
+                drawSpring(topY = dropDistance * (1f - springHeight.value))
+                drawFloor(top = floorTop)
+            }
+    ) {
+        if (!isAnimating) {
+            Text("Tap to restart", Modifier.align(Alignment.Center))
+        }
+    }
+}
+```
+
+<br />
 
 ### Rocket launch
 
@@ -1283,94 +1051,92 @@ potentially causing an unintended acceleration dip.
 **Figure 6.** An output acceleration waveform graph for a vibration that
 simulates a rocket launch.
 
-    @Composable
-    fun RocketLaunchAnimation() {
-      val context = LocalContext.current
-      val screenHeight = remember { mutableFloatStateOf(0f) }
-      var rocketPositionY by remember { mutableFloatStateOf(0f) }
-      var isLaunched by remember { mutableStateOf(false) }
-      val animation = remember { Animatable(0f) }
 
-      val animationDuration = 3000
-      LaunchedEffect(isLaunched) {
+```kotlin
+@Composable
+fun RocketLaunchAnimation() {
+    var isLaunched by remember { mutableStateOf(false) }
+    val animation = remember { Animatable(0f) }
+
+    val animationDuration = 3000
+    LaunchedEffect(isLaunched) {
         if (isLaunched) {
-          animation.animateTo(
-            1.2f, // Overshoot so that the rocket goes off the screen.
-            animationSpec = tween(
-              durationMillis = animationDuration,
-              // Applies an easing curve with a slow start and rapid acceleration
-              // towards the end.
-              easing = CubicBezierEasing(1f, 0f, 0.75f, 1f)
+            animation.animateTo(
+                1.2f, // Overshoot so that the rocket goes off the screen.
+                animationSpec = tween(
+                    durationMillis = animationDuration,
+                    // Applies an easing curve with a slow start and rapid acceleration
+                    // towards the end.
+                    easing = CubicBezierEasing(1f, 0f, 0.75f, 1f)
+                )
             )
-          ) {
-            rocketPositionY = screenHeight.floatValue * value
-          }
-          animation.snapTo(0f)
-          rocketPositionY = 0f;
-          isLaunched = false;
+            animation.snapTo(0f)
+            isLaunched = false
         }
-      }
-
-      Box(
-        modifier = Modifier
-          .fillMaxSize()
-          .noRippleClickable {
-            if (!isLaunched) {
-              // Play vibration with same duration as the animation, using 70% of
-              // the time for the rise of the vibration, to match the easing curve
-              // defined previously.
-              playVibration(vibrator, animationDuration, 0.7f)
-              isLaunched = true
-            }
-          }
-          .background(Color(context.getColor(R.color.background)))
-          .onSizeChanged { screenHeight.floatValue = it.height.toFloat() }
-      ) {
-        drawRocket(rocketPositionY)
-      }
     }
 
-    private fun playVibration(
-      vibrator: Vibrator,
-      totalDurationMs: Long,
-      riseBias: Float,
-      minOutputAccelerationGs: Float = 0.1f,
+    Canvas(
+        modifier = Modifier
+            .fillMaxSize()
+            .clickable {
+                if (!isLaunched) {
+                    // Play vibration with same duration as the animation, using 70% of
+                    // the time for the rise of the vibration, to match the easing curve
+                    // defined previously.
+                    playVibration(vibrator, animationDuration.toLong(), 0.7f)
+                    isLaunched = true
+                }
+            }
+            .background(colorResource(R.color.background))
     ) {
-      require(riseBias in 0f..1f) { "Rise bias must be between 0 and 1." }
+        // Read the animation in the draw phase, and scale it to the canvas height.
+        drawRocket(size.height * animation.value)
+    }
+}
 
-      if (!vibrator.areEnvelopeEffectsSupported()) {
+private fun playVibration(
+    vibrator: Vibrator,
+    totalDurationMs: Long,
+    riseBias: Float,
+    minOutputAccelerationGs: Float = 0.1f,
+) {
+    require(riseBias in 0f..1f) { "Rise bias must be between 0 and 1." }
+
+    if (!vibrator.areEnvelopeEffectsSupported()) {
         return
-      }
+    }
 
-      val resonantFrequency = vibrator.resonantFrequency
-      if (resonantFrequency.isNaN()) {
+    val resonantFrequency = vibrator.resonantFrequency
+    if (resonantFrequency.isNaN()) {
         // Device doesn't have or expose a resonant frequency.
         return
-      }
+    }
 
-      val startFrequency = vibrator.frequencyProfile?.getFrequencyRange(minOutputAccelerationGs)?.lower ?: return
+    val startFrequency = vibrator.frequencyProfile?.getFrequencyRange(minOutputAccelerationGs)?.lower ?: return
 
-      if (startFrequency >= resonantFrequency) {
+    if (startFrequency >= resonantFrequency) {
         // Vibrator can't generate the minimum required output at lower frequencies.
         return
-      }
-
-      val minDurationMs = vibrator.envelopeEffectInfo.minControlPointDurationMillis
-      val rampUpDurationMs = (riseBias * totalDurationMs).toLong() - minDurationMs
-      val rampDownDurationMs = totalDurationMs - rampUpDuration - minDurationMs
-
-      vibrator.vibrate(
-        VibrationEffect.WaveformEnvelopeBuilder()
-          // Quickly reach the target output at the start frequency
-          .addControlPoint(0.1f, startFrequency, minDurationMs)
-          .addControlPoint(0.1f, resonantFrequency, rampUpDurationMs)
-          .addControlPoint(0.1f, startFrequency, rampDownDurationMs)
-
-          // Controlled ramp down to zero to avoid ringing after the vibration.
-          .addControlPoint(0.0f, startFrequency, minDurationMs)
-          .build()
-      )
     }
+
+    val minDurationMs = vibrator.envelopeEffectInfo.minControlPointDurationMillis
+    val rampUpDurationMs = (riseBias * totalDurationMs).toLong() - minDurationMs
+    val rampDownDurationMs = totalDurationMs - rampUpDurationMs - minDurationMs
+
+    vibrator.vibrate(
+        VibrationEffect.WaveformEnvelopeBuilder()
+            // Quickly reach the target output at the start frequency
+            .addControlPoint(0.1f, startFrequency, minDurationMs)
+            .addControlPoint(0.1f, resonantFrequency, rampUpDurationMs)
+            .addControlPoint(0.1f, startFrequency, rampDownDurationMs)
+            // Controlled ramp down to zero to avoid ringing after the vibration.
+            .addControlPoint(0.0f, startFrequency, minDurationMs)
+            .build()
+    )
+}
+```
+
+<br />
 
 ### LavaBeats
 
@@ -1386,7 +1152,7 @@ frequencies. `LavaBeats` is an example where two characteristic segments of an
 ECG recording are represented as two pulses separated by a time delay. The
 first characteristic pulse is the QRS complex, which shows as a sharp peak of
 high amplitude and short duration. The second pulse is the T wave, which has
-lower amplitude, longer duration and a smoother shape (see Figure 7).
+lower amplitude, longer duration, and a smoother shape (see Figure 7).
 
 Use the [`WaveformEnvelopeBuilder`](https://developer.android.com/reference/android/os/VibrationEffect.WaveformEnvelopeBuilder) to construct various repetitions of
 these two pulses separated by a fixed first-to-second pulse delay. The first
@@ -1407,68 +1173,71 @@ and delays of the two pulses.
 **Figure 7.** A segment of an ECG recording
 with the QRS complex and the T wave
 
-    @RequiresApi(Build.VERSION_CODES.BAKLAVA)
-    private fun createEnvelopeEffect(
+
+```kotlin
+private fun createEnvelopeEffect(
     beatParameters: List<BeatParameter>
-    ):VibrationEffect =
-        VibrationEffect.WaveformEnvelopeBuilder()
-            .apply {
-                repeat(beatParameters.getNumBeats()) {
-                    // First pulse chirp
-                    addControlPoint(
-                        beatParameters.getFirstPulseAmplitude(),
-                        beatParameters.getFirstPulseStartFreq(),
-                        ENVELOPE_RAMP_DURATION_MILLIS,
-                    )
-                    addControlPoint(
-                        beatParameters.getFirstPulseAmplitude(),
-                        beatParameters.getFirstPulseEndFreq(),
-                        beatParameters.getFirstPulseDurationMillis().toLong(),
-                    )
-                    addControlPoint(
-                        0f,
-                        beatParameters.getFirstPulseEndFreq(),
-                        ENVELOPE_RAMP_DURATION_MILLIS,
-                    )
+): VibrationEffect =
+    VibrationEffect.WaveformEnvelopeBuilder()
+        .apply {
+            repeat(beatParameters.getNumBeats()) {
+                // First pulse chirp
+                addControlPoint(
+                    beatParameters.getFirstPulseAmplitude(),
+                    beatParameters.getFirstPulseStartFreq(),
+                    ENVELOPE_RAMP_DURATION_MILLIS,
+                )
+                addControlPoint(
+                    beatParameters.getFirstPulseAmplitude(),
+                    beatParameters.getFirstPulseEndFreq(),
+                    beatParameters.getFirstPulseDurationMillis().toLong(),
+                )
+                addControlPoint(
+                    0f,
+                    beatParameters.getFirstPulseEndFreq(),
+                    ENVELOPE_RAMP_DURATION_MILLIS,
+                )
 
-                    // Delay between first and second pulse
-                    addControlPoint(
-                        0f,
-                        beatParameters.getFirstPulseEndFreq(),
-                        beatParameters.getFirstToSecondPulseDelayMillis().toLong(),
-                    )
+                // Delay between first and second pulse
+                addControlPoint(
+                    0f,
+                    beatParameters.getFirstPulseEndFreq(),
+                    beatParameters.getFirstToSecondPulseDelayMillis().toLong(),
+                )
 
-                    // Second pulse
-                    addControlPoint(
-                        beatParameters.getSecondPulseAmplitude(),
-                        beatParameters.getSecondPulseFreq(),
-                        ENVELOPE_RAMP_DURATION_MILLIS,
-                    )
-                    addControlPoint(
-                        beatParameters.getSecondPulseAmplitude(),
-                        beatParameters.getSecondPulseFreq(),
-                        (1_000 / (2f * beatParameters.getSecondPulseFreq())).toLong(),
-                    )
-                    addControlPoint(
-                        0f,
-                        beatParameters.getSecondPulseFreq(),
-                        ENVELOPE_RAMP_DURATION_MILLIS,
-                    )
-                    addControlPoint(
-                        0f,
-                        beatParameters.getSecondPulseFreq(),
-                        beatParameters.getBeatDelayMillis().toLong(),
-                    )
-                }
+                // Second pulse
+                addControlPoint(
+                    beatParameters.getSecondPulseAmplitude(),
+                    beatParameters.getSecondPulseFreq(),
+                    ENVELOPE_RAMP_DURATION_MILLIS,
+                )
+                addControlPoint(
+                    beatParameters.getSecondPulseAmplitude(),
+                    beatParameters.getSecondPulseFreq(),
+                    (1_000 / (2f * beatParameters.getSecondPulseFreq())).toLong(),
+                )
+                addControlPoint(
+                    0f,
+                    beatParameters.getSecondPulseFreq(),
+                    ENVELOPE_RAMP_DURATION_MILLIS,
+                )
+                addControlPoint(
+                    0f,
+                    beatParameters.getSecondPulseFreq(),
+                    beatParameters.getBeatDelayMillis().toLong(),
+                )
             }
-            .build()
+        }
+        .build()
 
-    /** A parameter of a haptic beat effect that represents an ECG signal parameter */
-    @Stable
-    data class BeatParameter(
-        val description: String = "",
-        val value: Float = 0f,
-        val range: ClosedFloatingPointRange<Float> = 0f..1f,
-        val steps: Int = 0,
-        val isFrequencyType: Boolean = false,
-    )
+/** A parameter of a haptic beat effect that represents an ECG signal parameter */
+data class BeatParameter(
+    val description: String = "",
+    val value: Float = 0f,
+    val range: ClosedFloatingPointRange<Float> = 0f..1f,
+    val steps: Int = 0,
+    val isFrequencyType: Boolean = false,
+)
+```
+
+<br />

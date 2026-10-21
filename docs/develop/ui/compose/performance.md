@@ -8,6 +8,19 @@ Jetpack Compose delivers excellent performance out of the box. Configure your
 app using best practices to avoid common pitfalls and optimize your Compose
 application's performance.
 
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/jetpack-compose/jetpack-compose-performance)
+
+### Jetpack Compose performance
+
+Use the Jetpack Compose performance [Android skill](https://developer.android.com/tools/agents/android-skills) to diagnose and optimize Jetpack Compose UI performance in your Android project. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add jetpack-compose-performance
+
+<br />
+
 ## Benchmarking Jetpack Compose
 
 To validate Jetpack Compose performance against Views, we use hero
@@ -29,7 +42,7 @@ These are some of the key concepts for performance in Compose:
 
 - **[Phases](https://developer.android.com/develop/ui/compose/performance/phases):** Understanding the composition, layout, and drawing phases is crucial for optimizing how Compose updates your UI.
 - **[Baseline Profiles](https://developer.android.com/develop/ui/compose/performance/baseline-profiles):** These profiles precompile essential code, leading to faster app launches and smoother interactions.
-- **[Stability](https://developer.android.com/develop/ui/compose/performance/stability):** Increase the stability of your app to more efficiently skip unnecessary recompositions, improving performance.
+- **[Stability](https://developer.android.com/develop/ui/compose/performance/stability):** Understand how Compose compares parameters during recomposition so you can skip unnecessary work without introducing expensive equality checks.
 
 ## Properly configure your app
 
@@ -51,8 +64,8 @@ and analyze your Compose app's performance.
 When developing your app with Compose, keep these best practices in mind:
 
 - **[Avoid expensive calculations](https://developer.android.com/develop/ui/compose/performance/bestpractices#use-remember):** Use `remember` to cache the results of expensive calculations.
-- **[Help lazy layouts](https://developer.android.com/develop/ui/compose/performance/bestpractices#use-lazylist-keys):** Provide stable keys to lazy layouts using the `key` parameter to minimize unnecessary recompositions.
-- **[Limit unnecessary recompositions](https://developer.android.com/develop/ui/compose/performance/bestpractices#use-derivedstateof):** Use `derivedStateOf` to limit recompositions when rapidly changing state.
+- **[Help lazy layouts](https://developer.android.com/develop/ui/compose/performance/bestpractices#use-lazylist-keys):** Provide stable `key` and `contentType` parameters to lazy layouts to minimize unnecessary recompositions and enable slot reuse.
+- **[Limit unnecessary recompositions](https://developer.android.com/develop/ui/compose/performance/bestpractices#use-derivedstateof):** Use `computedStateOf` (in Compose 1.13 and higher) or `derivedStateOf` to limit recompositions when reading rapidly changing state.
 - **[Defer state reads](https://developer.android.com/develop/ui/compose/performance/bestpractices#defer-reads):** Defer state reads as long as possible by wrapping them in lambda functions.
 - **[Use lambda modifiers for changing state](https://developer.android.com/develop/ui/compose/performance/bestpractices#defer-reads):** Use lambda-based modifiers like `Modifier.offset { ... }` for frequently changing state variables.
 - **[Avoid backwards writes](https://developer.android.com/develop/ui/compose/performance/backwards-write):** Never write to state that has already been read in a composable.

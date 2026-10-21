@@ -100,12 +100,6 @@ You can implement features and content for audio glasses into your existing
 mobile APK and publish the same assets on the mobile release track without any
 specific publishing changes in Play Console.
 
-#### Receive a differentiated label in the Play Store
-
-The Play Store can label your app as "Differentiated for Glasses" to help users
-discover high-quality experiences for audio glasses. To receive this label,
-[implement a projected activity for your app's augmented experience](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/first-activity).
-
 ### Choose a release track for apps with immersive experiences
 
 If you're building an app with immersive experiences for XR headsets or wired XR
@@ -194,6 +188,24 @@ Android XR devices that support either the `android.software.xr.api.spatial` or
 
 For more information about using the dedicated release track for Android XR, see
 [the Play Console guide](https://support.google.com/googleplay/android-developer/answer/13295490).
+
+## Help users discover your app in the Play Store with badges
+
+Depending on the type of XR experiences you're building, your app can get badges
+in the Play Store that help users discover your app's high-quality XR
+experiences.
+
+### Get a badge for building differentiated immersive experiences
+
+If you're building immersive experiences and your app is [Android XR
+differentiated](https://developer.android.com/docs/quality-guidelines/android-xr/immersive#android-xr-differentiated), it automatically gets a "Made for XR" badge in the Play
+Store.
+
+### Get a badge for building differentiated augmented experiences
+
+If you're building augmented experiences, you can get a "Differentiated for
+Glasses" badge in the Play Store. To receive this badge, [implement a projected
+activity for your app's augmented experience](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/first-activity).
 
 ## Manage device exclusions
 

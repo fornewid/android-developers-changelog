@@ -4,8 +4,11 @@ url: https://developer.android.com/health-and-fitness/health-connect/metadata
 source: md.txt
 ---
 
-> This guide is compatible with Health Connect version [1.2.0-alpha05](https://developer.android.com/jetpack/androidx/releases/health-connect#1.2.0-alpha05) and
-> later.
+<br />
+
+> This guide is compatible with Health Connect version [1.2.0-alpha05](https://developer.android.com/jetpack/androidx/releases/health-connect#1.2.0-alpha05) or later.
+
+<br />
 
 There are changes to metadata in Health Connect for
 developers who upgrade to release 1.1.0-alpha12 or later.

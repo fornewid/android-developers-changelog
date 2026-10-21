@@ -39,7 +39,9 @@ scope and triggers a full recomposition when changed.
   - `Modifier.offset(x = dp, y = dp)` *(direct value overload)*
   - `Modifier.absoluteOffset(x = dp, y = dp)`
 - **Dynamic Composable Modifiers** :
-  - `Modifier.composed { ... }` *(runs the factory body during composition)*
+  - `Modifier.composed { ... }` *(runs the factory body during composition;
+    not recommended for performance---use `Modifier.Node` for custom modifiers
+    instead)*
 
 ## Phase 2: Layout phase
 
@@ -55,15 +57,20 @@ triggers **re-measurement** and re-placement:
 
 ### Step 2B: Placement \& layout callbacks
 
-Determines the `(x, y)` coordinate position. State read here triggers
-**re-placement only** (skipping measurement and composition):
+Determines the `(x, y)` coordinate position. State read inside placement blocks
+triggers **re-placement only** (skipping measurement and composition):
 
 - `Modifier.offset { IntOffset(x, y) }` *(lambda overload)*
 - `Modifier.absoluteOffset { IntOffset(x, y) }` *(lambda overload)*
 - `Modifier.layout { ... layout(w, h) { placeable.place(x, y) } }`: Code inside the `layout(w, h) { ... }` block.
-- `Modifier.onPlaced { layoutCoordinates -> ... }`: Invoked after parent coordinates are determined during placement.
-- `Modifier.onSizeChanged { intSize -> ... }`: Invoked after layout measurement completes if the size changed.
-- `Modifier.onGloballyPositioned { layoutCoordinates -> ... }`: Invoked after the entire window layout pass finishes.
+
+Layout observation callbacks also run during or after the layout pass (avoid
+writing to state that is read in Composition inside these callbacks, as doing so
+causes backwards writes):
+
+- `Modifier.onSizeChanged { intSize -> ... }`: Invoked after layout measurement completes if the node's dimensions changed.
+- `Modifier.onPlaced { layoutCoordinates -> ... }` and `Modifier.onLayoutRectChanged { ... }`: Invoked after placement to report local coordinates or bounds without subscribing to global window layout passes.
+- `Modifier.onGloballyPositioned { layoutCoordinates -> ... }`: Invoked after the entire window layout pass finishes whenever any node moves. Avoid `onGloballyPositioned` when possible; prefer `Modifier.onVisibilityChanged` for viewport tracking, `Modifier.onPlaced` or `Modifier.onLayoutRectChanged` for local bounds, or `requireLayoutCoordinates()` on demand inside a `Modifier.Node`.
 
 ## Phase 3: Drawing phase
 
@@ -131,7 +138,7 @@ directly to node capability interfaces:
 | **Phase** | **`Modifier.Node` Interface** | **Core Methods** |
 |---|---|---|
 | **Layout (Measure \& Place)** | `LayoutModifierNode` | `measure(measurable, constraints)` |
-| **Layout (Global Coordinates)** | `GlobalPositionAwareModifierNode` | `onGloballyPositioned(coordinates)` |
+| **Layout (Global Coordinates)** | `GlobalPositionAwareModifierNode` *(prefer `requireLayoutCoordinates()` on demand)* | `onGloballyPositioned(coordinates)` |
 | **Layout (Placement)** | `LayoutAwareModifierNode` | `onRemeasured(size)`, `onPlaced(coordinates)` |
 | **Drawing** | `DrawModifierNode` | `draw(ContentDrawScope)` |
 | **Input / Pointer** | `PointerInputModifierNode` | `onPointerEvent(...)`, `onCancelPointerInput()` |

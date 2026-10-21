@@ -16,7 +16,7 @@ SDK. To get started, verify that at least version `1.1.0-alpha08` is in your
 `build.gradle` file:
 
     dependencies {
-      implementation("androidx.health.connect:connect-client:1.1.0-alpha08")
+      implementation("androidx.health.connect:connect-client:1.2.0-alpha06")
     }
 
 ## Feature flags

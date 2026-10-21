@@ -255,9 +255,13 @@ For example, consider a streaming music app (`com.example.radio`):
         </application>
     </manifest>
 
-When you declare a `<processes>` block in your manifest, include a `<process>`
+When you declare a `<processes>` block in your manifest, include an enclosing
+`<memory-budget>` element directly under `<application>`, and list a `<process>`
 entry for every process used by components in your merged manifest, including
-`<process />` for the default application process.
+`<process />` for the default app process. If you want to budget only specific
+subprocesses while leaving the rest of the app at the system limit for the
+device, declare a high package baseline, such as `<memory-budget
+android:maxMb="1000000" />` under `<application>`.
 
 Memory use in any subprocess counts against both its process budget and the
 enclosing package budget. A process experiences memory pressure at runtime if it
@@ -272,19 +276,19 @@ caching bitmaps sized to the screen---Android provides two alternative mechanism
 to scale budgets dynamically with display specifications:
 
 - **Scale by display density bucket (`android:additionalMbPerDensity`)** : Adds
-  megabytes proportionally to the display's [density ratio](https://developer.android.com/guide/practices/screens_support#density-independence)
-  relative to `mdpi` (1.0x / 160 dpi). This is suitable when memory use
-  scales with UI density buckets, such as caching higher-resolution raster
-  drawables or UI assets:
+  megabytes proportionally to the square of the display's
+  [density ratio](https://developer.android.com/guide/practices/screens_support#density-independence) relative to `mdpi` (1.0x / 160 dpi),
+  because 2D raster drawables and UI assets scale across both width and
+  height:
 
-      <!-- Baseline 180MB + 16MB per 1.0x density ratio -->
+      <!-- Baseline 180MB + 16MB multiplied by (density ratio)^2 -->
       <memory-budget
           android:maxMb="180"
           android:additionalMbPerDensity="16" />
 
   On an `mdpi` display (1.0x), the budget is
-  180 + 16 × 1 = 196 MB. On an `xxhdpi` display (3.0x), the
-  budget scales to 180 + 16 × 3 = 228 MB.
+  180 + 16 × 1^2^ = 196 MB. On an `xxhdpi` display (3.0x),
+  the budget scales to 180 + 16 × 3^2^ = 324 MB.
 - **Scale by physical display resolution**
   (`android:additionalBytesPerDisplayPixel`): Adds bytes directly per
   physical display pixel (Width × Height). This is ideal for
@@ -342,7 +346,7 @@ cgroup `memory.current` charge (which excludes shared memory like the Zygote).
 |---|---|---|---|
 | `android:maxMb` | Integer (\> 0) | **Required** | The baseline resident memory budget limit in MB. |
 | `android:state` | Enum | Any | The process state this budget applies to: `foreground`, `perceptible`, or `background`. If omitted, the clause acts as a fallback for any unspecified state. |
-| `android:additionalMbPerDensity` | Integer (≥ 0) | `0` | Additional megabytes to add per unit of [display density ratio](https://developer.android.com/guide/practices/screens_support#density-independence) relative to `mdpi` (1.0x). |
+| `android:additionalMbPerDensity` | Integer (≥ 0) | `0` | Additional megabytes multiplied by the square of the [display density ratio](https://developer.android.com/guide/practices/screens_support#density-independence) relative to `mdpi` (1.0x). |
 | `android:additionalBytesPerDisplayPixel` | Integer (≥ 0) | `0` | Additional bytes allocated per physical display pixel (Width × Height), useful for surface buffers and bitmaps. |
 | `android:feature` | String | Any | Restricts the clause to devices declaring specific hardware features: `watch`, `automotive`, or `leanback`. |
 

@@ -10,8 +10,7 @@ and fitness tracking.
 
 <br />
 
-> [!NOTE]
-> **Note:** This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12).
+> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12) or later.
 
 <br />
 
@@ -216,7 +215,7 @@ method.
 
 ```kotlin
 fun checkHealthConnectAvailability(context: Context) {
-    val providerPackageName = "com.google.android.apps.healthdata" // Or get from HealthConnectClient.DEFAULT_PROVIDER_PACKAGE_NAME
+    val providerPackageName = "com.google.android.apps.healthdata"
     val availabilityStatus = HealthConnectClient.getSdkStatus(context, providerPackageName)
 
     if (availabilityStatus == HealthConnectClient.SDK_UNAVAILABLE) {

@@ -4,7 +4,11 @@ url: https://developer.android.com/health-and-fitness/health-connect/features/sl
 source: md.txt
 ---
 
-> This guide is compatible with Health Connect version [1.1.0-alpha11](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha11).
+<br />
+
+> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12) or later.
+
+<br />
 
 Health Connect provides a *sleep session* data type, to store information about
 a user's sleep, such as a nightly session or daytime nap.
@@ -36,7 +40,7 @@ method.
 
 ```kotlin
 fun checkHealthConnectAvailability(context: Context) {
-    val providerPackageName = "com.google.android.apps.healthdata" // Or get from HealthConnectClient.DEFAULT_PROVIDER_PACKAGE_NAME
+    val providerPackageName = "com.google.android.apps.healthdata"
     val availabilityStatus = HealthConnectClient.getSdkStatus(context, providerPackageName)
 
     if (availabilityStatus == HealthConnectClient.SDK_UNAVAILABLE) {

@@ -4,7 +4,11 @@ url: https://developer.android.com/health-and-fitness/health-connect/features/sk
 source: md.txt
 ---
 
-> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12).
+<br />
+
+> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12) or later.
+
+<br />
 
 Health Connect provides a *skin temperature* data type to measure peripheral
 body temperature. This measurement is a particularly useful signal for detecting
@@ -21,7 +25,7 @@ method.
 
 ```kotlin
 fun checkHealthConnectAvailability(context: Context) {
-    val providerPackageName = "com.google.android.apps.healthdata" // Or get from HealthConnectClient.DEFAULT_PROVIDER_PACKAGE_NAME
+    val providerPackageName = "com.google.android.apps.healthdata"
     val availabilityStatus = HealthConnectClient.getSdkStatus(context, providerPackageName)
 
     if (availabilityStatus == HealthConnectClient.SDK_UNAVAILABLE) {

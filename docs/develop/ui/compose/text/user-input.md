@@ -4,25 +4,10 @@ url: https://developer.android.com/develop/ui/compose/text/user-input
 source: md.txt
 ---
 
-[`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable#TextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)) allows users to enter and modify text. There are two types
-of text fields you can use: [state-based text fields](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable#TextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)) and
-[value-based text fields](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable#TextField(kotlin.String,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors)). Select the type you want to display content
-for:
-<button value="state-based" default="">State-based text fields</button> <button value="value-based">Value-based text fields</button>
+> [!CAUTION]
+> **Caution:** [Value-based text fields](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable#BasicTextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.ui.text.input.VisualTransformation,kotlin.Function1,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,kotlin.Function1)) are deprecated. To migrate to the recommended state-based text fields, see [Migrate to state-based text fields](https://developer.android.com/develop/ui/compose/text/migrate-state-based).
 
-We recommend using state-based text fields, as they provide a more complete and
-reliable approach to managing the state of a `TextField`. The following table
-outlines differences between these types of text fields, and includes the key
-advantages state-based text fields offer:
-
-| **Feature** | **Value-based text fields** | **State-based text fields** | **State-based benefit** |
-|---|---|---|---|
-| State management | Updates text field state with the `onValueChange` callback. You are responsible for updating the `value` in your own state based on the changes reported by `onValueChange`. | Explicitly uses a `TextFieldState` object to manage the text input state (value, selection, and composition). This state can be remembered and shared. | - The `onValueChange` callback has been removed, which prevents you from introducing async behaviors. - The state survives recomposition, configuration, and process death. |
-| Visual transformation | Uses `VisualTransformation` for modifying how the displayed text appears. This typically handles both input and output formatting in a single step. | Uses `InputTransformation` for modifying the user's input before it's committed to the state, and `OutputTransformation` for formatting text field content without changing the underlying state data. | - You no longer need to provide the offset mapping between the original raw text and transformed text with `OutputTransformation`. |
-| Line limits | Accepts `singleLine: Boolean, maxLines: Int`, and `minLines: Int` to control the number of lines. | Uses `lineLimits: TextFieldLineLimits` to configure the minimum and maximum number of lines the text field can occupy. | - Removes ambiguity when configuring line limits by providing a `lineLimits` param of type `TextFieldLineLimits`. |
-| Secure text field | N/A | `SecureTextField` is a composable built on top of state-based text fields for writing a password field. | - Lets you optimize for security under the hood, and comes with a predefined UI with `textObfuscationMode`. |
-
-This page describes how
+[`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable#TextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)) allows users to enter and modify text. This page describes how
 you can implement `TextField`, style `TextField` input, and configure
 other `TextField` options, like keyboard options and visually transforming
 user input.
@@ -35,7 +20,7 @@ There are two levels of `TextField` implementation:
    guidelines](https://material.io/components/text-fields):
    - Default styling is [filled](https://material.io/components/text-fields#filled-text-field)
    - `OutlinedTextField` is the [outlined](https://material.io/components/text-fields#outlined-text-field) styling version
-2. [`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable#BasicTextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.ui.text.input.VisualTransformation,kotlin.Function1,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,kotlin.Function1)) enables users to edit text using the hardware or software keyboard, but provides no decorations like hint or placeholder.
+2. [`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable#TextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)) enables users to edit text using the hardware or software keyboard, but provides no decorations like hint or placeholder.
 
 
 ```kotlin
@@ -91,6 +76,53 @@ We recommend `TextField` over `BasicTextField` when your design calls for a
 Material `TextField` or `OutlinedTextField`. However, `BasicTextField` should be
 used when building designs that don't need the decorations from the Material
 spec.
+
+## Configure line limits
+
+`TextField` composables support scrolling along a single axis. The scrolling
+behavior is determined by the `lineLimits` parameter. `TextField`s configured
+for a single line scroll horizontally, while multi-line `TextField`s scroll
+vertically.
+
+Use `TextFieldLineLimits` to choose the appropriate line configuration for your
+`TextField`:
+
+
+```kotlin
+TextField(
+    state = rememberTextFieldState(),
+    lineLimits = TextFieldLineLimits.SingleLine
+)
+```
+
+<br />
+
+![A single line text field with the text](https://developer.android.com/static/develop/ui/compose/images/text/single-line-config.png)
+
+The `SingleLine` configuration has the following characteristics:
+
+- The text never wraps, and doesn't allow for new lines.
+- `TextField` always has a fixed height.
+- If the text overflows, it scrolls horizontally.
+
+
+```kotlin
+TextField(
+    state = rememberTextFieldState("Hello\nWorld\nHello\nWorld"),
+    lineLimits = TextFieldLineLimits.MultiLine(1, 4)
+)
+```
+
+<br />
+
+![A multiline text field with the text](https://developer.android.com/static/develop/ui/compose/images/text/multi-line-config.png)
+
+The `MultiLine` configuration has the following characteristics:
+
+- Accepts two parameters: `minHeightInLines` and `maxHeightInLines`.
+- The text field is at least `minHeightInLines` tall.
+- If the text overflows, it will wrap.
+- If the text requires more lines, the field grows until it is `maxHeightInLines` tall, and scrolls vertically.
 
 ## Style input with Brush API
 
@@ -372,9 +404,8 @@ previous phone number example, you need to add parentheses and dashes in
 the appropriate places:
 ![An American phone number, properly formatted with parentheses, dashes, and corresponding indexes.](https://developer.android.com/static/develop/ui/compose/images/text/tf-phonenumber.png) **Figure 3.** An American phone number with proper formatting and corresponding indexes.
 
-This is the updated way of handling `VisualTransformation`s in value-based
-`TextField`s, with a key difference being that you don't have to calculate
-their offset mappings.
+`OutputTransformation` replaces `VisualTransformation` from value-based text
+fields, with the key difference being that you don't calculate offset mappings.
 
 `OutputTransformation` is a single abstract method interface. In order to
 implement a custom `OutputTransformation`, you need to override the
@@ -441,6 +472,93 @@ options](https://developer.android.com/reference/kotlin/androidx/compose/foundat
 - `autoCorrect`
 - `keyboardType`
 - `imeAction`
+
+The `KeyboardOptions` class now includes a new boolean parameter,
+`showKeyboardOnFocus`, which you use specifically for `TextField` components
+that are integrated with `TextFieldState`. This option governs the behavior of
+the software keyboard when the `TextField` acquires focus through means other
+than direct user interaction (for example, programmatically).
+
+When `KeyboardOptions.showKeyboardOnFocus` is set to true, the software keyboard
+does not automatically appear if the `TextField` gains focus indirectly. In
+such cases, the user is required to explicitly tap on the `TextField` itself to
+reveal the keyboard.
+
+### Define keyboard interaction logic
+
+The action button on Android's software keyboard allows for interactive
+responses within your application. For more information about configuring the
+action button, see the [Set keyboard options](https://developer.android.com/develop/ui/compose/text/user-input#keyboard-options) section.
+![A software keyboard action button (a checkmark icon) circled in red.](https://developer.android.com/static/develop/ui/compose/images/text/tf-action-button.png) **Figure 5.** Software keyboard action button.
+
+To define what occurs when a user taps this action button, use the
+`onKeyboardAction` parameter. This parameter accepts an optional functional
+interface named `KeyboardActionHandler`. The `KeyboardActionHandler` interface
+contains a single method, `onKeyboardAction(performDefaultAction: () -> Unit)`.
+By providing an implementation for this `onKeyboardAction` method, you can
+introduce custom logic that executes when a user presses the keyboard's action
+button.
+
+Several standard keyboard action types come with built-in default behaviors.
+For example, selecting `ImeAction.Next` or `ImeAction.Previous` as the action
+type will, by default, shift focus to the subsequent or preceding input field,
+respectively. Similarly, an action button set to `ImeAction.Done` typically
+dismisses the software keyboard. These default functionalities are executed
+automatically and don't require you to supply a `KeyboardActionHandler`.
+
+You can also implement custom behavior in addition to these default actions.
+When you provide your `KeyboardActionHandler`, its `onKeyboardAction` method
+receives a `performDefaultAction` function. You can call this
+`performDefaultAction()` function at any point within your custom logic to also
+trigger the standard default behavior associated with the current IME action.
+
+
+```kotlin
+TextField(
+    state = textFieldViewModel.usernameState,
+    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
+    onKeyboardAction = { performDefaultAction ->
+        textFieldViewModel.validateUsername()
+        performDefaultAction()
+    }
+)
+```
+
+<br />
+
+This snippet illustrates a common use case on a registration screen
+featuring a username field. For this field, `ImeAction.Next` is selected for
+its keyboard action button. This choice enables quick, seamless navigation to
+the subsequent password field.
+
+In addition to this standard navigation, there's a requirement to initiate a
+background validation process for the username as the user proceeds to enter
+their password. To make sure that the default focus-switching behavior inherent
+to `ImeAction.Next` is retained alongside this custom validation logic, the
+`performDefaultAction()` function is invoked. Calling `performDefaultAction()`
+implicitly triggers the underlying focus management system to move the focus to
+the next appropriate UI element, preserving the expected navigational flow.
+
+## Create a secure password field
+
+[`SecureTextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SecureTextField.composable#SecureTextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.TextObfuscationMode,kotlin.Char,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,kotlin.Function2,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)) is a composable built on top of state-based text fields
+for writing a password field. We recommend using `SecureTextField` for creating
+password text fields, as it hides character input by default and disables cut
+and copy actions.
+
+`SecureTextField` has a `textObfuscationMode`, which controls how the user sees
+character input. `textObfuscationMode` has the following options:
+
+- `Hidden`: Hides all input. Default behavior on desktop platforms.
+
+  ![A secure text field where typed characters are hidden.](https://developer.android.com/static/develop/ui/compose/images/text/hide-input.gif)
+- `Visible`: Shows all input.
+
+  ![A secure text field where typed characters are visible.](https://developer.android.com/static/develop/ui/compose/images/text/show-input.gif)
+- `RevealLastTyped`: Hides all input except the last character. Default
+  behavior on mobile devices.
+
+  ![A secure text field where only the last typed character is briefly revealed.](https://developer.android.com/static/develop/ui/compose/images/text/reveal-last-typed.gif)
 
 ## Additional resources
 

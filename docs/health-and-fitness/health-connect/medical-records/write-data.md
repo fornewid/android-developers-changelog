@@ -4,7 +4,11 @@ url: https://developer.android.com/health-and-fitness/health-connect/medical-rec
 source: md.txt
 ---
 
-> This guide is compatible with Health Connect version [1.1.0-beta02](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-beta02).
+<br />
+
+> This guide is compatible with Health Connect version [1.1.0-beta02](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-beta02) or later.
+
+<br />
 
 To write medical data using Medical Records in Health Connect,
 follow these steps:

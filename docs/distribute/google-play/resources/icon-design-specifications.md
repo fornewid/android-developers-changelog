@@ -221,11 +221,3 @@ before it will succeed.
 Beginning on June 17, 2019, all API calls to `Edits.images: upload` will
 automatically apply the new specification to the icon. Following June 17, 2019,
 you should only upload icons that are compatible with the new specification.
-
-## Download design templates \& resources
-
-To get started, download one of the provided asset templates:
-
-- [Sketch template](https://services.google.com/fh/files/misc/playstore_icon_template.sketch.zip) (.sketch)
-- [Illustrator template](https://services.google.com/fh/files/misc/playstore_icon_template.ai.zip) (.ai)
-- [Photoshop template](https://services.google.com/fh/files/misc/playstore_icon_template.psd.zip) (.psd)

@@ -10,7 +10,8 @@ changes the compiler's behavior in two ways:
 - Composables with unstable parameters become [skippable](https://developer.android.com/develop/ui/compose/performance/stability#functions)
 - Lambdas with unstable captures are [remembered](https://developer.android.com/develop/ui/compose/state#state-in-composables)
 
-| **Note:** Strong Skipping is enabled by default in Kotlin 2.0.20. The full list of options are available in the [Compose Compiler Gradle Plugin reference](https://kotlinlang.org/docs/compose-compiler-options.html).
+> [!NOTE]
+> **Note:** Strong Skipping is enabled by default in Kotlin 2.0.20. The full list of options are available in the [Compose Compiler Gradle Plugin reference](https://kotlinlang.org/docs/compose-compiler-options.html).
 
 ## Enable strong skipping mode
 
@@ -59,12 +60,15 @@ want a restartable but non-skippable composable. In this case, use the
 
 ### Annotate classes as stable
 
-If you want an object using object equality instead of instance equality,
-continue to annotate the given class with `@Stable`.
-An example of when you might
-have to do this is when observing an entire list of objects, data sources such
-as Room will allocate new objects for every item in the list any time one of
-them changes.
+If you want an object to be compared using object equality (`Object.equals()`)
+instead of instance equality (`===`), continue to annotate the given class with
+`@Stable` or `@Immutable`.
+
+Keep the following trade-offs in mind before adding `@Stable` or `@Immutable`:
+
+- **Classes with stable properties in Compose modules are already stable** : A class with `val` properties of stable types in a module compiled with the Compose compiler is automatically inferred as stable and uses `.equals()` without needing `@Immutable` or `@Stable`.
+- **Only annotate classes with cheap `.equals()` checks** : Add `@Stable` or `@Immutable` when the compiler can't infer stability (such as classes from non-Compose modules) and new instances with identical values are frequently allocated, provided the class's `.equals()` check is inexpensive.
+- **Be cautious when annotating models with collections** : Adding `@Stable` or `@Immutable` to models containing collections (or replacing `List` with `ImmutableList`) causes Compose to compare every element in the collection with `.equals()` on each recomposition pass. For large collections or models used in lazy layouts (`LazyColumn`, `LazyRow`, `LazyGrid`), comparing every element can be slower than using instance equality (`===`) or recomposing directly.
 
 ## Lambda memoization
 
@@ -104,7 +108,9 @@ a `remember` call:
 The keys follow the same comparison rules as composable functions. The runtime
 compares unstable keys using instance equality. It compares stable keys using
 object equality.
-| **Note:** This is slightly different to a typical `remember` call where the Compose runtime compares all keys using object equality.
+
+> [!NOTE]
+> **Note:** This is slightly different to a typical `remember` call where the Compose runtime compares all keys using object equality.
 
 ### Memoization and recomposition
 
@@ -113,7 +119,9 @@ skips during recomposition. Without memoization, the runtime is much more likely
 to allocate a new lambda to any composable that takes a lambda parameter during
 recomposition. As a result, the new lambda has parameters that are not equal to
 the last composition. This results in recomposition.
-| **Note:** A common misconception is that lambdas with unstable captures are themselves unstable objects. This is not true. The Compose compiler always considers lambdas to be stable. However, with Strong skipping disabled, the compiler does not memoize them and the runtime allocates them during recomposition. As such, lambdas with unstable captures cause Compose not to skip composables because they have unequal parameters.
+
+> [!NOTE]
+> **Note:** A common misconception is that lambdas with unstable captures are themselves unstable objects. This is not true. The Compose compiler always considers lambdas to be stable. However, with Strong skipping disabled, the compiler does not memoize them and the runtime allocates them during recomposition. As such, lambdas with unstable captures cause Compose not to skip composables because they have unequal parameters.
 
 ### Avoid memoization
 

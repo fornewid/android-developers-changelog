@@ -4,7 +4,11 @@ url: https://developer.android.com/health-and-fitness/health-connect/features/mi
 source: md.txt
 ---
 
-> This guide is compatible with Health Connect version [1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-rc01).
+<br />
+
+> This guide is compatible with Health Connect version [1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-rc01) or later.
+
+<br />
 
 Health Connect provides a *mindfulness* data type to measure various aspects
 of mental health, such as stress and anxiety. Mindfulness is a data type
@@ -21,7 +25,7 @@ method.
 
 ```kotlin
 fun checkHealthConnectAvailability(context: Context) {
-    val providerPackageName = "com.google.android.apps.healthdata" // Or get from HealthConnectClient.DEFAULT_PROVIDER_PACKAGE_NAME
+    val providerPackageName = "com.google.android.apps.healthdata"
     val availabilityStatus = HealthConnectClient.getSdkStatus(context, providerPackageName)
 
     if (availabilityStatus == HealthConnectClient.SDK_UNAVAILABLE) {

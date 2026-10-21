@@ -6,8 +6,7 @@ source: md.txt
 
 <br />
 
-> [!NOTE]
-> **Note:** This guide is compatible with Health Connect version [1.1.0](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0).
+> This guide is compatible with Health Connect version [1.1.0](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0) or later.
 
 <br />
 

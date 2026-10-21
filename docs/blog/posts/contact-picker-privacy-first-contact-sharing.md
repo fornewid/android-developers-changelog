@@ -8,7 +8,7 @@ source: md.txt
 
 # Contact Picker: Privacy-First Contact Sharing
 
-4 min read ![](https://developer.android.com/static/blog/assets/contact_Picker_4392c5da87_SiXoB.webp) 26 Mar 2026 [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](https://developer.android.com/blog/authors/roxanna-walker) [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) Product Manager Privacy and user control remain at the heart of the Android experience. Just as the photo picker made media sharing secure and easy to implement, we are now bringing that same level of privacy, simplicity, and great user experience to contact selection.
+4 min read ![](https://developer.android.com/static/blog/assets/contact_Picker_4392c5da87_SiXoB.webp) 26 Mar 2026 [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](https://developer.android.com/blog/authors/roxanna-walker) [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) Product Manager, Android Privacy and user control remain at the heart of the Android experience. Just as the photo picker made media sharing secure and easy to implement, we are now bringing that same level of privacy, simplicity, and great user experience to contact selection.
 
 ### A New Standard for Contact Privacy
 

@@ -78,7 +78,7 @@ file:
 ```groovy
 dependencies {
     // ... other dependencies
-    compileOnly "com.android.extensions.xr:extensions-xr:1.3.0"
+    compileOnly "com.android.extensions.xr:extensions-xr:1.4.0"
 }
 ```
 
@@ -87,7 +87,7 @@ dependencies {
 ```kotlin
 dependencies {
     // ... other dependencies
-    compileOnly("com.android.extensions.xr:extensions-xr:1.3.0")
+    compileOnly("com.android.extensions.xr:extensions-xr:1.4.0")
 }
 ```
 

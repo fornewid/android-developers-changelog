@@ -6,7 +6,11 @@ source: md.txt
 
 <br />
 
-> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12).
+<br />
+
+> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12) or later.
+
+<br />
 
 This guide shows you how you can begin using Health Connect on your app.
 
@@ -59,6 +63,14 @@ Add the Health Connect SDK dependency in your module-level `build.gradle` file:
     }
 
 Refer to the [Health Connect releases](https://developer.android.com/jetpack/androidx/releases/health-connect) for the latest version.
+
+Version `1.1.0` and later of `connect-client` require `compileSdk = 36` and
+Android Gradle plugin (AGP) version `8.9.1` or higher. Update the `compileSdk`
+in your module-level `build.gradle` file:
+
+    android {
+      compileSdk = 36
+    }
 
 ### Use Canary release channel features
 
