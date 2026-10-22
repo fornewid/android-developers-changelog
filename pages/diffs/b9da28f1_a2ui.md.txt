@@ -1,0 +1,73 @@
+diff --git a/docs/jetpack/androidx/releases/a2ui.md b/docs/jetpack/androidx/releases/a2ui.md
+index 50cf8438..f4cb6540 100644
+--- a/docs/jetpack/androidx/releases/a2ui.md
++++ b/docs/jetpack/androidx/releases/a2ui.md
+@@ -4,17 +4,17 @@ url: https://developer.android.com/jetpack/androidx/releases/a2ui
+ source: md.txt
+ ---
+ 
+-# A2UI
++# A2ui
+ 
+ The Jetpack Compose Agent-to-UI (A2UI) renderer provides an implementation of the [A2UI protocol](https://a2ui.org/), enabling AI agents to generate rich, interactive user interfaces that render native Compose components---without executing arbitrary code.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 23, 2026 | - | - | - | [1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/a2ui#1.0.0-alpha01) |
++| October 21, 2026 | - | - | - | [1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/a2ui#1.0.0-alpha02) |
+ 
+ ## Declaring dependencies
+ 
+-To add a dependency on A2UI, you must add the Google Maven repository to your
++To add a dependency on a2ui, you must add the Google Maven repository to your
+ project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
+ for more information.
+ 
+@@ -25,8 +25,8 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.a2ui:a2ui-engine:1.0.0-alpha01"
+-    implementation "androidx.a2ui:a2ui-model:1.0.0-alpha01"
++    implementation "androidx.a2ui:a2ui-engine:1.0.0-alpha02"
++    implementation "androidx.a2ui:a2ui-model:1.0.0-alpha02"
+ }
+ ```
+ 
+@@ -34,8 +34,8 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.a2ui:a2ui-engine:1.0.0-alpha01")
+-    implementation("androidx.a2ui:a2ui-model:1.0.0-alpha01")
++    implementation("androidx.a2ui:a2ui-engine:1.0.0-alpha02")
++    implementation("androidx.a2ui:a2ui-model:1.0.0-alpha02")
+ }
+ ```
+ 
+@@ -45,17 +45,23 @@ For more information about dependencies, see [Add build dependencies](https://de
+ 
+ Your feedback helps make Jetpack better. Let us know if you discover new issues or have
+ ideas for improving this library. Please take a look at the
+-[existing issues](https://issuetracker.google.com/issues?q=componentid:2097774+status:open)
++[existing issues](https://issuetracker.google.com/issues?q=componentid:+status:open)
+ in this library before you create a new one. You can add your vote to an existing issue by
+ clicking the star button.
+ 
+-[Create a new issue](https://issuetracker.google.com/issues/new?component=2097774&template=2355003)
++[Create a new issue](https://issuetracker.google.com/issues/new?component&template)
+ 
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha02
++
++October 21, 2026
++
++`androidx.a2ui:a2ui-engine:1.0.0-alpha02` and `androidx.a2ui:a2ui-model:1.0.0-alpha02` are released. Version 1.0.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f..e0a272dcae2b353b23a075af10baeda8f3021bcd/a2ui).
++
+ ### Version 1.0.0-alpha01
+ 
+ September 23, 2026

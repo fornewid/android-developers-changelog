@@ -1,0 +1,22 @@
+diff --git a/docs/topic/performance/tracing/profiling-manager/how-to-capture.md b/docs/topic/performance/tracing/profiling-manager/how-to-capture.md
+index 0ba7866e..5e37e189 100644
+--- a/docs/topic/performance/tracing/profiling-manager/how-to-capture.md
++++ b/docs/topic/performance/tracing/profiling-manager/how-to-capture.md
+@@ -34,7 +34,7 @@ Jetpack libraries to your `build.gradle.kts` file.
+ 
+ ```kotlin
+    dependencies {
+-       implementation("androidx.tracing:tracing-ktx:2.0.4")
++       implementation("androidx.tracing:tracing-ktx:2.0.5")
+        implementation("androidx.core:core:1.19.1")
+    }
+    
+@@ -44,7 +44,7 @@ Jetpack libraries to your `build.gradle.kts` file.
+ 
+ ```groovy
+    dependencies {
+-       implementation 'androidx.tracing:tracing:2.0.4'
++       implementation 'androidx.tracing:tracing:2.0.5'
+        implementation 'androidx.core:core:1.19.1'
+    }
+    

@@ -1,0 +1,24 @@
+diff --git a/docs/jetpack/androidx/versions/beta-channel.md b/docs/jetpack/androidx/versions/beta-channel.md
+index 39fcb220..0b11c523 100644
+--- a/docs/jetpack/androidx/versions/beta-channel.md
++++ b/docs/jetpack/androidx/versions/beta-channel.md
+@@ -16,6 +16,19 @@ to 2018.
+ To view the current versions for every component,
+ see the [versions page](https://developer.android.com/jetpack/androidx/versions).
+ 
++## October 21, 2026
++
++- [Appfunctions Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-beta01)
++- [Compose Animation Version 1.13.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-beta02)
++- [Compose Foundation Version 1.13.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-beta02)
++- [Compose Material 3 Version 1.5.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-beta02)
++- [Compose Material Version 1.13.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-beta02)
++- [Compose Runtime Version 1.13.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-beta02)
++- [Compose UI Version 1.13.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-beta02)
++- [Text-Vertical Version 1.0.0-beta03](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-beta03)
++- [Wear-core Version 1.2.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear#wear-core-1.2.0-beta01)
++- [Xr Compose Version 1.0.0-beta02](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-beta02)
++
+ ## October 07, 2026
+ 
+ - [Compose Animation Version 1.13.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-beta01)

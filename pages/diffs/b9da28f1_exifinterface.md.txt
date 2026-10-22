@@ -1,0 +1,54 @@
+diff --git a/docs/jetpack/androidx/releases/exifinterface.md b/docs/jetpack/androidx/releases/exifinterface.md
+index 42cc7d3d..ef012bbe 100644
+--- a/docs/jetpack/androidx/releases/exifinterface.md
++++ b/docs/jetpack/androidx/releases/exifinterface.md
+@@ -6,14 +6,11 @@ source: md.txt
+ 
+ # Exifinterface
+ 
+-[Code Sample](https://github.com/android/camera-samples/blob/master/CameraUtils/lib/src/main/java/com/example/android/camera/utils/ExifUtils.kt)  
+-API Reference  
+-[androidx.exifinterface.media](https://developer.android.com/reference/kotlin/androidx/exifinterface/media/package-summary)  
+-Read and write image file EXIF tags.  
++[Code Sample](https://github.com/android/camera-samples/blob/master/CameraUtils/lib/src/main/java/com/example/android/camera/utils/ExifUtils.kt) Read and write image file EXIF tags.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| December 3, 2025 | [1.4.2](https://developer.android.com/jetpack/androidx/releases/exifinterface#1.4.2) | - | - | - |
++| October 21, 2026 | [1.4.2](https://developer.android.com/jetpack/androidx/releases/exifinterface#1.4.2) | - | - | [1.5.0-alpha01](https://developer.android.com/jetpack/androidx/releases/exifinterface#1.5.0-alpha01) |
+ 
+ ## Declaring dependencies
+ 
+@@ -22,7 +19,7 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
+ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+-your app or module:  
++your app or module:
+ 
+ ### Groovy
+ 
+@@ -55,6 +52,23 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 1.5
++
++### Version 1.5.0-alpha01
++
++October 21, 2026
++
++`androidx.exifinterface:exifinterface:1.5.0-alpha01` is released. Version 1.5.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/68ebfa7071e3aace695af9332e7b0193a45f5d53..fa84dfac2dcc3878c2ff4b9ccbe463df7a127da1/exifinterface/exifinterface).
++
++**API Changes**
++
++- Removing obsolete `@RequiresApi(21)` annotations ([Ic4792](https://android-review.googlesource.com/#/q/Ic47923dcc82f4b7c4638fadb10c2c0268b414fcd))
++
++**Bug Fixes**
++
++- Moving the default minSdk from API 21 to API 23 ([Ibdfca](https://android-review.googlesource.com/#/q/Ibdfca5942dbb414ca07594ba240093db14aad4df), [b/380448311](https://issuetracker.google.com/issues/380448311), [b/435705964](https://issuetracker.google.com/issues/435705964), [b/435705223](https://issuetracker.google.com/issues/435705223))
++- Fixed `isSupportedMimeType` to match existing parsing support for HEIC and AVIF (supported on API 28+ and 31+ respectively).
++
+ ## Version 1.4
+ 
+ ### Version 1.4.2

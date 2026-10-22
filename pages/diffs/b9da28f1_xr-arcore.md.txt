@@ -1,0 +1,72 @@
+diff --git a/docs/jetpack/androidx/releases/xr-arcore.md b/docs/jetpack/androidx/releases/xr-arcore.md
+index f8af495f..2d87da2f 100644
+--- a/docs/jetpack/androidx/releases/xr-arcore.md
++++ b/docs/jetpack/androidx/releases/xr-arcore.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| October 07, 2026 | - | [1.0.0-rc02](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-rc02) | - | - |
++| October 21, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0) | - | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.1.0-alpha01) |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,7 +25,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.arcore:arcore:1.0.0-rc02"
++    implementation "androidx.xr.arcore:arcore:1.1.0-alpha01"
+ }
+ ```
+ 
+@@ -33,7 +33,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.arcore:arcore:1.0.0-rc02")
++    implementation("androidx.xr.arcore:arcore:1.1.0-alpha01")
+ }
+ ```
+ 
+@@ -52,8 +52,40 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 1.1
++
++### Version 1.1.0-alpha01
++
++October 21, 2026
++
++`androidx.xr.arcore:arcore-*:1.1.0-alpha01` is released. Version 1.1.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5836b45501e4170061dd2eeac772aa767031672f..332fec74f206525af66f5c8194ffe4324b2e841a/xr/arcore).
++
++**API Changes**
++
++- Introduced the `SpatialAnnotation` API for tracking 3D physical geometries and objects. Added `SpatialAnnotationTrackingOptions` and its corresponding builder pattern to configure spatial tracking via camera image buffers. ([I918ce](https://android-review.googlesource.com/#/q/I918ce6aae1d433c9b55173bc320e924d4a332c8d))
++- Introduced `SpatialAnnotation` and `SpatialAnnotationTrackingMode` to Jetpack XR ARCore, enabling developers to configure and track arbitrary bounded 3D quadrilateral geometries (`Quad`) targeted at physical real-world spatial environments. ([I880e4](https://android-review.googlesource.com/#/q/I880e4a48db5dabf9c564e4ebc0873b7865957b4f))
++- Added `TestSpatialAnnotation` to allow programmatic simulation of spatial annotations in automated tests. ([If2335](https://android-review.googlesource.com/#/q/If233588d358900ddbbccd1e5120c340f1355144c))
++- Added `geospatialPose`, `horizontalAccuracy`, `verticalAccuracy`, and `orientationYawAccuracy` as new APIs to give more information in the Geospatial state. ([If28f8](https://android-review.googlesource.com/#/q/If28f8b03596f01dbfc018b5a0aa2f57ba6476ea6))
++
++**Bug Fixes**
++
++- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
++- Checked for max image count of 0 when configuring `AugmentedImage`, throwing `UnsupportedOperationException` instead of failing unexpectedly. [I6ce439](https://android-review.googlesource.com/q/I6ce439455fff3eb7039066a377d9844df1231b98)
++- Fix memory leaks and concurrency issues in `AugmentedImageRenderer` by properly tracking and cancelling rendering jobs, disposing of entities, and safely modifying the images collection. [Ie70760](https://android-review.googlesource.com/q/Ie707601d4e7877bcca2eb4bf634f9d296d84eea0)
++
+ ## Version 1.0
+ 
++### Version 1.0.0
++
++October 21, 2026
++
++`androidx.xr.arcore:arcore-*:1.0.0` is released. Version 1.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e2e2729abc59df52d40af80a8bbfe010c02455c6..cba250c981d813e262a6855ab80f90d3bafab487/xr/arcore).
++
++**Major features of 1.0.0:**
++
++- ARCore for Jetpack XR is now stable! The ARCore for Jetpack XR library provides capabilities for blending digital content with the real world. This library includes motion tracking, persistent anchors, hit testing, plane identification with semantic labeling (for example, floor, walls, and tabletops), and [Geospatial poses](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/GeospatialPose) using Google's Visual Positioning System.
++- For more information, see our [Developer Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore) and [API Reference](https://developer.android.com/reference/kotlin/androidx/xr/arcore/).
++
+ ### Version 1.0.0-rc02
+ 
+ October 07, 2026

@@ -1,0 +1,22 @@
+diff --git a/docs/kotlin/ktx/extensions-list.md b/docs/kotlin/ktx/extensions-list.md
+index d6a91db7..60cbfe76 100644
+--- a/docs/kotlin/ktx/extensions-list.md
++++ b/docs/kotlin/ktx/extensions-list.md
+@@ -1630,7 +1630,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.palette:palette-ktx:1.0.0"
++    implementation "androidx.palette:palette-ktx:1.1.0"
+ }
+ ```
+ 
+@@ -1638,7 +1638,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.palette:palette-ktx:1.0.0")
++    implementation("androidx.palette:palette-ktx:1.1.0")
+ }
+ ```
+ 

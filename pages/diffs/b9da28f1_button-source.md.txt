@@ -1,0 +1,13 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-source.md
+index e3ad4975..c3afa528 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-source.md
+@@ -209,7 +209,7 @@ public object ButtonDefaults {
+      */
+     @Composable
+     public fun focusedColor(baseColor: Color = GlimmerTheme.colors.surface): Color =
+-        SurfaceDefaults.focusedColor(baseColor)
++        SurfaceDefaults.calculateFocusedColor(baseColor)
+ 
+     /** Default minimum height for [Button] and [ToggleButton] with the specified [buttonSize]. */
+     internal fun minimumHeight(buttonSize: ButtonSize): Dp {
