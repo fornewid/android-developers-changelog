@@ -10,7 +10,7 @@ The Room persistence library provides an abstraction layer over SQLite to allow 
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [3.0.3](https://developer.android.com/jetpack/androidx/releases/room3#3.0.3) | - | - | [3.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/room3#3.1.0-alpha01) |
+| October 21, 2026 | [3.0.3](https://developer.android.com/jetpack/androidx/releases/room3#3.0.3) | - | - | [3.1.0-alpha03](https://developer.android.com/jetpack/androidx/releases/room3#3.1.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -121,6 +121,23 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 3.1
+
+### Version 3.1.0-alpha03
+
+October 21, 2026
+
+`androidx.room3:room3-*:3.1.0-alpha03` is released. Version 3.1.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..3566803898b060d7136357220affc9ece8236019/room3).
+
+**API Changes**
+
+- Added `setPreparedStatementCacheSize(maxCacheSize: Int)` to `RoomDatabase.Builder` on Android to allow configuring or disabling the per-connection prepared statement cache. ([I7b0cb](https://android-review.googlesource.com/#/q/I7b0cb0ec2ddc7857c5a208f30dccd45839a1ddc9), [b/560123297](https://issuetracker.google.com/issues/560123297))
+- Added `allowDataLossOnRecovery()` to `RoomDatabase.Builder` to allow recovering from database opening and corruption failures. ([Ie86ba](https://android-review.googlesource.com/#/q/Ie86ba344a19062b696d08afd72ad08ccd6ax6115e), [b/316945228](https://issuetracker.google.com/issues/316945228))
+- Libraries now target Kotlin 2.2 and require kotlinc 2.2 ([I82396](https://android-review.googlesource.com/#/q/I823967fe6b9524b448184ef366c562316bd6a323), [b/498369605](https://issuetracker.google.com/issues/498369605))
+- Fixed an issue where DAO queries with `@Relation` and non-deterministic clauses (such as `ORDER BY RANDOM() LIMIT :count`) re-executed the query on statement reset, causing relationship mapping failures. ([Id0992](https://android-review.googlesource.com/#/q/Id0992adc2a6224d81afa031c9700750439b215cc), [b/413924560](https://issuetracker.google.com/issues/413924560))
+
+**Bug Fixes**
+
+- Fixed fully expanded transitive type aliases in KSP by recursively resolving type aliases and properly resetting type arguments. ([I8228d0](https://android-review.googlesource.com/q/I8228d08da4789d516715f6c7687f9b48595cb614), [b/561698196](https://buganizer.corp.google.com/issues/561698196))
 
 ### Version 3.1.0-alpha01
 

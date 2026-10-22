@@ -50,18 +50,23 @@ want your app to accomplish.
 
 When building a `WorkRequest`, add a `NetworkType.UNMETERED` `Constraint`.
 
-    fun scheduleWork(context: Context) {
-        val workManager = WorkManager.getInstance(context)
-        val workRequest = OneTimeWorkRequestBuilder<MyWorker>()
-           .setConstraints(
-               Constraints.Builder()
-                   .setRequiredNetworkType(NetworkType.UNMETERED)
-                   .build()
-               )
-           .build()
 
-        workManager.enqueue(workRequest)
-    }
+```kotlin
+fun scheduleWork(context: Context) {
+    val workManager = WorkManager.getInstance(context)
+    val workRequest = OneTimeWorkRequestBuilder<MyWorker>()
+        .setConstraints(
+            Constraints.Builder()
+                .setRequiredNetworkType(NetworkType.UNMETERED)
+                .build()
+        )
+        .build()
+
+    workManager.enqueue(workRequest)
+}
+```
+
+<br />
 
 When the conditions for your work are met, your app receives a callback to run
 the [`doWork()`](https://developer.android.com/reference/androidx/work/Worker#doWork()) method in the specified `Worker` class.
@@ -112,24 +117,29 @@ the details of which URIs have changed.
 The following sample code overrides the [`CoroutineWorker.doWork()`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker#CoroutineWorker(android.content.Context,androidx.work.WorkerParameters)) method
 and records the content authorities and URIs that have triggered the job:
 
-    class MyWorker(
-        appContext: Context,
-        params: WorkerParameters
-    ): CoroutineWorker(appContext, params)
-        override suspend fun doWork(): Result {
-            StringBuilder().apply {
-                append("Media content has changed:\n")
-                params.triggeredContentAuthorities
-                    .takeIf { it.isNotEmpty() }
-                    ?.let { authorities ->
-                        append("Authorities: ${authorities.joinToString(", ")}\n")
-                        append(params.triggeredContentUris.joinToString("\n"))
-                    } ?: append("(No content)")
-                Log.i(TAG, toString())
-            }
-            return Result.success()
+
+```kotlin
+class MyWorker(
+    appContext: Context,
+    private val params: WorkerParameters
+) : CoroutineWorker(appContext, params) {
+    override suspend fun doWork(): Result {
+        StringBuilder().apply {
+            append("Media content has changed:\n")
+            params.triggeredContentAuthorities
+                .takeIf { it.isNotEmpty() }
+                ?.let { authorities ->
+                    append("Authorities: ${authorities.joinToString(", ")}\n")
+                    append(params.triggeredContentUris.joinToString("\n"))
+                } ?: append("(No content)")
+            Log.i(TAG, toString())
         }
+        return Result.success()
     }
+}
+```
+
+<br />
 
 ## Test app under system restrictions
 

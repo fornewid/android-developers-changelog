@@ -72,7 +72,7 @@ based on their requirements.
 
 There are multiple ways to change screen brightness in an Android app. One
 direct way is to change the
-[screenBrightness](https://developer.android.com/media/camera/camera2/(/reference/android/view/WindowManager.LayoutParams#screenBrightness)) WindowManager parameter in the
+[`screenBrightness`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#screenBrightness) WindowManager parameter in the
 [Activity Window](https://developer.android.com/reference/android/app/Activity#getWindow()) reference.
 
 ### Kotlin
@@ -349,7 +349,8 @@ private void disableExternalFlashAeMode() {
 ### Trigger a precapture sequence
 
 To trigger a precapture metering sequence, you can submit a
-[`CaptureRequest`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest) with `CONTROL_AE_PRECAPTURE_TRIGGER_START` value set to the request. You need to
+[`CaptureRequest`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest) with `CONTROL_AE_PRECAPTURE_TRIGGER_START`
+value set to the request. You need to
 wait for the request to be processed and then wait for the AE \& AWB to converge.
 
 Although precapture triggers with a single capture request, waiting for the AE

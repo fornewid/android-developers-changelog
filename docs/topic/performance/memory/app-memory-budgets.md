@@ -233,9 +233,6 @@ For example, consider a streaming music app (`com.example.radio`):
                 android:state="perceptible" />
 
             <processes>
-                <!-- Default application process (uses the package baseline budgets above) -->
-                <process />
-
                 <!-- Dedicated background sync process -->
                 <process android:process=":sync">
                     <memory-budget android:maxMb="32" />
@@ -255,13 +252,14 @@ For example, consider a streaming music app (`com.example.radio`):
         </application>
     </manifest>
 
-When you declare a `<processes>` block in your manifest, include an enclosing
-`<memory-budget>` element directly under `<application>`, and list a `<process>`
-entry for every process used by components in your merged manifest, including
-`<process />` for the default app process. If you want to budget only specific
-subprocesses while leaving the rest of the app at the system limit for the
-device, declare a high package baseline, such as `<memory-budget
-android:maxMb="1000000" />` under `<application>`.
+When you declare a `<processes>` block in your manifest, list `<process>`
+entries only for the processes that declare a `<memory-budget>`. If you want to
+budget only specific subprocesses while leaving the rest of the app at the
+system limit for the device, you can omit the `<memory-budget>` elements
+directly under `<application>`.
+
+> [!NOTE]
+> **Note:** Declaring per-process memory budgets in `<processes>` requires Android Gradle Plugin 9.5.0 (or 9.6.0-alpha01) or higher.
 
 Memory use in any subprocess counts against both its process budget and the
 enclosing package budget. A process experiences memory pressure at runtime if it

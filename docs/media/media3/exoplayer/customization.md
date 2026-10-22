@@ -15,7 +15,7 @@ when a player is created or when new media sources are passed to the player.
 Components common to all `ExoPlayer` implementations are:
 
 - `MediaSource` instances that define media to be played, load the media, and from which the loaded media can be read. A `MediaSource` instance is created from a `MediaItem` by a `MediaSource.Factory` inside the player. They can also be passed directly to the player using the [media source based playlist API](https://developer.android.com/guide/topics/media/exoplayer/media-sources#media-source-based-playlist-api).
-- A `MediaSource.Factory` instances that converts a `MediaItem` to a `MediaSource`. The `MediaSource.Factory` is injected when the player is created.
+- A `MediaSource.Factory` instance that converts a `MediaItem` to a `MediaSource`. The `MediaSource.Factory` is injected when the player is created.
 - `Renderer` instances that render individual components of the media. These are injected when the player is created.
 - A `TrackSelector` that selects tracks provided by the `MediaSource` to be consumed by each available `Renderer`. A `TrackSelector` is injected when the player is created.
 - A `LoadControl` that controls when the `MediaSource` buffers more media, and how much media is buffered. A `LoadControl` is injected when the player is created.
@@ -30,7 +30,7 @@ configured in a custom way.
 ## Player customization
 
 Some common examples of customizing the player by injecting components are
-described below.
+described in the following sections.
 
 ### Configuring the network stack
 
@@ -38,9 +38,7 @@ We have a page about [customizing the network stack used by ExoPlayer](https://d
 
 ### Caching data loaded from the network
 
-See the guides for
-[temporary on-the-fly caching](https://developer.android.com/media/media3/exoplayer/network-stacks#caching)
-and [downloading media](https://developer.android.com/media/media3/exoplayer/downloading-media).
+See the guides for [temporary on-the-fly caching](https://developer.android.com/media/media3/exoplayer/network-stacks#caching) and [downloading media](https://developer.android.com/media/media3/exoplayer/downloading-media).
 
 ### Customizing server interactions
 
@@ -49,8 +47,8 @@ inject custom request headers, read the server's response headers, modify the
 requests' URIs, etc. For example, your app may authenticate itself by injecting
 a token as a header when requesting the media segments.
 
-The following example demonstrates how to implement these behaviors by
-injecting a custom `DataSource.Factory` into the `DefaultMediaSourceFactory`:
+The following example demonstrates how to implement these behaviors by injecting
+a custom `DataSource.Factory` into the `DefaultMediaSourceFactory`:
 
 
 ### Kotlin
@@ -90,13 +88,13 @@ ExoPlayer player =
 
 <br />
 
-In the code snippet above, the injected `HttpDataSource` includes the header
+In the preceding code snippet, the injected `HttpDataSource` includes the header
 `"Header: Value"` in every HTTP request. This behavior is *fixed* for every
 interaction with an HTTP source.
 
 For a more granular approach, you can inject just-in-time behavior using a
-`ResolvingDataSource`. The following code snippet shows how to inject
-request headers just before interacting with an HTTP source:
+`ResolvingDataSource`. The following code snippet shows how to inject request
+headers just before interacting with an HTTP source:
 
 
 ### Kotlin
@@ -121,8 +119,8 @@ DataSource.Factory dataSourceFactory =
 
 <br />
 
-You may also use a `ResolvingDataSource` to perform
-just-in-time modifications of the URI, as shown in the following snippet:
+You may also use a `ResolvingDataSource` to perform just-in-time modifications
+of the URI, as shown in the following snippet:
 
 
 ### Kotlin
@@ -239,7 +237,7 @@ ExoPlayer player =
 For MP3, ADTS and AMR streams, you can enable approximate seeking using a
 constant bitrate assumption with `FLAG_ENABLE_CONSTANT_BITRATE_SEEKING` flags.
 These flags can be set for individual extractors using the individual
-`DefaultExtractorsFactory.setXyzExtractorFlags` methods as described above. To
+`DefaultExtractorsFactory.setXyzExtractorFlags` methods as described earlier. To
 enable constant bitrate seeking for all extractors that support it, use
 `DefaultExtractorsFactory.setConstantBitrateSeekingEnabled`.
 
@@ -259,8 +257,8 @@ DefaultExtractorsFactory extractorsFactory =
 
 <br />
 
-The `ExtractorsFactory` can then be injected via `DefaultMediaSourceFactory` as
-described for customizing extractor flags above.
+The `ExtractorsFactory` can then be injected using `DefaultMediaSourceFactory`
+as described for customizing extractor flags earlier.
 
 ### Enabling asynchronous buffer queueing
 
@@ -270,10 +268,10 @@ uses additional threads to schedule decoding and rendering of data. Enabling it
 can reduce dropped frames and audio underruns.
 
 Asynchronous buffer queueing is enabled by default on devices running Android 12
-(API level 31) and above, and can be enabled manually starting with Android 6.0 (API level 23).
-Consider enabling the feature for specific devices on which you observe dropped
-frames or audio underruns, particularly when playing DRM protected or high-frame-rate
-content.
+(API level 31) or higher, and can be enabled manually starting with Android 6.0
+(API level 23). Consider enabling the feature for specific devices on which you
+observe dropped frames or audio underruns, particularly when playing DRM
+protected or high-frame-rate content.
 
 In the simplest case, you need to inject a `DefaultRenderersFactory` to the
 player as follows:
@@ -297,8 +295,8 @@ ExoPlayer exoPlayer = new ExoPlayer.Builder(context, renderersFactory).build();
 
 <br />
 
-If you're instantiating renderers directly, pass
-`new DefaultMediaCodecAdapter.Factory(context).forceEnableAsynchronous()` to the
+If you're instantiating renderers directly, pass `new
+DefaultMediaCodecAdapter.Factory(context).forceEnableAsynchronous()` to the
 `MediaCodecVideoRenderer` and `MediaCodecAudioRenderer` constructors.
 
 ### Customizing operations with `ForwardingSimpleBasePlayer`
@@ -396,12 +394,13 @@ public static final class PlayerWithoutSeekToNext extends ForwardingSimpleBasePl
 
 ## MediaSource customization
 
-The examples above inject customized components for use during playback of all
-`MediaItem` objects that are passed to the player. Where fine-grained customization is
-required, it's also possible to inject customized components into individual
-`MediaSource` instances, which can be passed directly to the player. The example
-below shows how to customize a `ProgressiveMediaSource` to use a custom
-`DataSource.Factory`, `ExtractorsFactory` and `LoadErrorHandlingPolicy`:
+The preceding examples inject customized components for use during playback of
+all `MediaItem` objects that are passed to the player. Where fine-grained
+customization is required, it's also possible to inject customized components
+into individual `MediaSource` instances, which can be passed directly to the
+player. The following example shows how to customize a `ProgressiveMediaSource`
+to use a custom `DataSource.Factory`, `ExtractorsFactory` and
+`LoadErrorHandlingPolicy`:
 
 
 ### Kotlin
@@ -435,7 +434,7 @@ required. Some use cases for custom implementations are:
 - `TrackSelector` -- Implementing a custom `TrackSelector` allows an app developer to change the way in which tracks exposed by a `MediaSource` are selected for consumption by each of the available `Renderer`s.
 - `LoadControl` -- Implementing a custom `LoadControl` allows an app developer to change the player's buffering policy.
 - `Extractor` -- If you need to support a container format not currently supported by the library, consider implementing a custom `Extractor` class.
-- `MediaSource` -- Implementing a custom `MediaSource` class may be appropriate if you wish to obtain media samples to feed to renderers in a custom way, or if you wish to implement custom `MediaSource` compositing behavior.
+- `MediaSource` -- Implementing a custom `MediaSource` class may be appropriate if you want to obtain media samples to feed to renderers in a custom way, or if you want to implement custom `MediaSource` compositing behavior.
 - `MediaSource.Factory` -- Implementing a custom `MediaSource.Factory` allows an application to customize the way in which a `MediaSource` is created from a `MediaItem`.
 - `DataSource` -- ExoPlayer's upstream package already contains a number of `DataSource` implementations for different use cases. You may want to implement you own `DataSource` class to load data in another way, such as over a custom protocol, using a custom HTTP stack, or from a custom persistent cache.
 

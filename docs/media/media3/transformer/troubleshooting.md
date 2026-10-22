@@ -86,7 +86,7 @@ causes it to be transcoded on demand, and the result is cached for later read
 operations.
 
 Transformer also supports [format
-conversion](https://developer.android.com/guide/topics/media/transformer/transformations#transcode), but
+conversion](https://developer.android.com/media/media3/transformer/transformations#transcode), but
 it's available as a support library and the app has full control over the
 transcoding operation.
 

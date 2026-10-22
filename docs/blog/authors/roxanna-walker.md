@@ -4,13 +4,20 @@ url: https://developer.android.com/blog/authors/roxanna-walker
 source: md.txt
 ---
 
-2 posts ![](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)
+3 posts ![](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)
 
 # Roxanna Aliabadi Walker
 
 Product Manager
 
 Android
+- 21 Oct 2026 21 Oct 2026 ![](https://developer.android.com/static/blog/assets/1009_ABL_142_A_more_reliable_way_to_add_and_edit_contacts_on_Android_Strapi_b510ec4fc0_ZXfljU.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [A more reliable way to add and edit contacts on Android](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android)
+
+  [arrow_forward](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android) Apps that target the upcoming Android release will no longer be able to directly write to contacts with the WRITE_CONTACTS permission.
+  6 min read
+  - [#Android](https://developer.android.com/blog/topics/android)
 - 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/contact_Picker_4392c5da87_SiXoB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Contact Picker: Privacy-First Contact Sharing](https://developer.android.com/blog/posts/contact-picker-privacy-first-contact-sharing)

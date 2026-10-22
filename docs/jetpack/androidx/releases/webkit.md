@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 07, 2026 | [1.17.1](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.1) | [1.18.0-rc01](https://developer.android.com/jetpack/androidx/releases/webkit#1.18.0-rc01) | - | - |
+| October 21, 2026 | [1.18.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.18.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.webkit:webkit:1.17.1"
+    implementation "androidx.webkit:webkit:1.18.0"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.webkit:webkit:1.17.1")
+    implementation("androidx.webkit:webkit:1.18.0")
 }
 ```
 
@@ -67,6 +67,19 @@ October 07, 2026
 - Clarified in documentation that Profile custom request header changes take effect on document load. ([Id3b6f](https://android-review.googlesource.com/#/q/Id3b6fc1e7657e7e1248b2c6253c00526892221b3), [b/561650101](https://issuetracker.google.com/issues/561650101))
 
 ## Version 1.18
+
+### Version 1.18.0
+
+October 21, 2026
+
+`androidx.webkit:webkit:1.18.0` is released. Version 1.18.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/013da5fafa75f04bd7850047ad492700d7a10335..fb536a9a01ea26779570787c8a6af74256f17cb0/webkit/webkit).
+
+**Important changes since 1.17.0:**
+
+- **Cross-Origin Isolation Management:** Introduces new profile-level APIs (`Profile#setCrossOriginIsolatedAllowlist` and `getCrossOriginIsolatedAllowlist`) to allow the use of `SharedArrayBuffer` and other APIs that require [cross-origin
+  isolation](https://developer.mozilla.org/en-US/docs/Web/API/Window/crossOriginIsolated). Web pages must also opt in by setting the [`Document-Isolation-Policy`](https://developer.chrome.com/blog/document-isolation-policy) header as appropriate. When this feature is used, origins on the allowlist will be permitted to use these APIs despite not being fully cross-origin isolated. Care must be taken to only allowlist trusted origins.
+- **Prefetch Queue Draining Control:** Adds a new `WEBVIEW_NAVIGATE_DRAIN_PREFETCH` constant to `WebViewFeature` which can be used to determine whether `Navigation#navigate` will drain the prefetch queue before navigating to the new URL.
+- **API Modernization \& Cleanups:** Includes several method renames for clarity. `PrefetchParameters#isJavaScriptEnabled` has been renamed to `includeClientHints`, with the older method now marked as deprecated, and `isJavaScriptEnabled` marked as deprecated. Additionally, `Profile#addQuicHints` has been renamed to `preferQuicFor`.
 
 ### Version 1.18.0-alpha02
 

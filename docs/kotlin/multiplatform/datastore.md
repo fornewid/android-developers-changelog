@@ -23,9 +23,9 @@ in the `build.gradle.kts` file for your module:
 
     commonMain.dependencies {
       // DataStore library
-      implementation("androidx.datastore:datastore-core:1.2.1")
+      implementation("androidx.datastore:datastore-core:1.3.0")
       // The Preferences DataStore library
-      implementation("androidx.datastore:datastore-preferences-core:1.2.1")
+      implementation("androidx.datastore:datastore-preferences-core:1.3.0")
     }
 
 ## Define the DataStore classes

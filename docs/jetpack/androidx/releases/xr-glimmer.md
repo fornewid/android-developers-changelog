@@ -10,7 +10,7 @@ Design language and UI toolkit for building augmented Android XR experiences
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 07, 2026 | - | - | - | [1.0.0-alpha21](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha21) |
+| October 21, 2026 | - | - | - | [1.0.0-alpha22](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha22) |
 
 ## Declaring dependencies
 
@@ -27,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha21"
+    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha22"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha21")
+    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha22")
 }
 ```
 
@@ -55,6 +55,24 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha22
+
+October 21, 2026
+
+`androidx.xr.glimmer:glimmer:1.0.0-alpha22` and `androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha22` are released. Version 1.0.0-alpha22 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/988ac9734e8223273eb7f186ee1639ee68deb025..b463fe32f4f38cfc70d99bf57a4587ff83459dcc/xr/glimmer).
+
+**API Changes**
+
+- `AlertDialog`'s text parameter is now optional and has moved to after title. ([I0e0d4](https://android-review.googlesource.com/#/q/I0e0d46f64fc6745e4c1572c0a043c998f5c4e56e))
+- Introduce `focusedBackgroundColor` and `focusedCheckedBackgroundColor` for `ToggleButton` ([Iab0ba](https://android-review.googlesource.com/#/q/Iab0ba2fc6f16f1b51ca53a85f1b5aaff7676c388))
+- Renamed `AlertDialog`'s `shape`, `contentColor`, and `contentPadding` parameters (and the matching `AlertDialogDefaults` members) to `containerShape`, `containerContentColor`, and `containerContentPadding`, to clarify that they only apply to the dialog container, not the buttons. ([I24f24](https://android-review.googlesource.com/#/q/I24f24d29c743e7a9b7d45f932469116b56dcb890))
+- Introduce `focusedBackgroundColor` and `focusedCheckedBackgroundColor` for `IconToggleButton` ([Id5d8d](https://android-review.googlesource.com/#/q/Id5d8dab3b1defcdf300727fb30182d8d63115310))
+- Fixes an edge case bug with rendering certain rounded rectangle outlines in `Modifier.border`. `ComposeFoundationFlags.isRoundedRectangleBorderRenderingFixEnabled` can be used to disable this change if it causes issues. ([I19141](https://android-review.googlesource.com/#/q/I191415aaa3e9b2a7816c14b7ebd0fc1ed0a90931))
+
+**Bug Fixes**
+
+- `Modifier.border` now supports rendering generic / polygon shapes with a runtime shader, when using the new border implementation. ([I128ca](https://android-review.googlesource.com/#/q/I128cacfaad9825dcef47d479d71291357fe48463))
 
 ### Version 1.0.0-alpha21
 

@@ -87,9 +87,8 @@ best possible gameplay experience.
   - [Scale UI elements appropriately for a larger screen](https://developer.android.com/games/playgames/graphics#ui-scaling)
   - [Render at 60Hz](https://developer.android.com/games/playgames/graphics#increase-max-frame-rate)
   - Audio playback is smooth and in sync
-- Frictionless Cloud save and restore
-  - Implement any [cloud save](https://developer.android.com/games/pgs/savedgames) solution that works across PC, Android, and iOS
-  - Support [seamless restore](https://developer.android.com/games/pgs/seamless-restore) by binding the in-game account to PGSv2
+- Game progress sync
+  - Implement any cloud sync solution that works across PC, Android, and iOS.
 
 Optimized games represented to the users with the following message
 and icon:

@@ -121,7 +121,7 @@ you can do so using [`FLAG_DETECT_ACCESS_UNITS`](https://developer.android.com/r
 [`FLAG_ALLOW_NON_IDR_KEYFRAMES`](https://developer.android.com/reference/androidx/media3/extractor/ts/DefaultTsPayloadReaderFactory#FLAG_ALLOW_NON_IDR_KEYFRAMES) respectively. These flags can be [set on a
 `DefaultExtractorsFactory`](https://developer.android.com/guide/topics/media/exoplayer/customization#customizing-extractor-flags) using [`setTsExtractorFlags`](https://developer.android.com/reference/androidx/media3/extractor/DefaultExtractorsFactory#setTsExtractorFlags(int)) or on a
 `DefaultHlsExtractorFactory` using the
-[constructor](https://developer.android.com/reference/androidx/media3/exoplayer/hls/DefaultHlsExtractorFactory#DefaultHlsExtractorFactory-int-boolean-).
+[constructor](https://developer.android.com/reference/androidx/media3/exoplayer/hls/DefaultHlsExtractorFactory#DefaultHlsExtractorFactory(int,boolean)).
 Use of `FLAG_DETECT_ACCESS_UNITS` has no side effects other than being
 computationally expensive relative to AUD based frame boundary detection. Use of
 `FLAG_ALLOW_NON_IDR_KEYFRAMES` may result in temporary visual corruption at the
@@ -220,7 +220,7 @@ default configuration, meaning playback will fail.
 If you need to, you can configure ExoPlayer to follow cross-protocol redirects
 when instantiating [`DefaultHttpDataSource.Factory`](https://developer.android.com/reference/androidx/media3/datasource/DefaultHttpDataSource.Factory) instances used in your
 application. Learn about selecting and configuring the network stack
-[here](https://developer.android.com/guide/topics/media/exoplayer/customization#configuring-the-network-stack).
+[here](https://developer.android.com/media/media3/exoplayer/customization#configuring-the-network-stack).
 
 #### Why do some streams fail with UnrecognizedInputFormatException?
 

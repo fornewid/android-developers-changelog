@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 23, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-beta01) | - |
+| October 21, 2026 | - | - | [1.0.0-beta02](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-beta02) | - |
 
 ## Declaring dependencies
 
@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.compose:compose:1.0.0-beta01"
+    implementation "androidx.xr.compose:compose:1.0.0-beta02"
 
     // Use to write unit tests
-    testImplementation "androidx.xr.compose:compose-testing:1.0.0-beta01"
+    testImplementation "androidx.xr.compose:compose-testing:1.0.0-beta02"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.compose:compose:1.0.0-beta01")
+    implementation("androidx.xr.compose:compose:1.0.0-beta02")
 
     // Use to write unit tests
-    testImplementation("androidx.xr.compose:compose-testing:1.0.0-beta01")
+    testImplementation("androidx.xr.compose:compose-testing:1.0.0-beta02")
 }
 ```
 
@@ -59,6 +59,38 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-beta02
+
+October 21, 2026
+
+`androidx.xr.compose:compose:1.0.0-beta02` and `androidx.xr.compose:compose-testing:1.0.0-beta02` are released. Version 1.0.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/bc67eb1589ba68a62d1d7b5fa7c920116520b682..9668a8f57f561724817df1bc85bcc549ee10bd36/xr/compose).
+
+**API Changes**
+
+- Libraries now target Kotlin 2.2 and require kotlinc 2.2 ([I82396](https://android-review.googlesource.com/#/q/I823967fe6b9524b448184ef366c562316bd6a323), [b/498369605](https://issuetracker.google.com/issues/498369605))
+- Renamed the `halfLifeMs` parameter of `FollowMode.soft()` to `halfLifeMillis`. ([I39187](https://android-review.googlesource.com/#/q/I39187656bb926d92ab10526e33aa653dc600d323))
+- Converted `PitchLimits` into an `@JvmInline value class` packing two floats into a `Long` to eliminate object allocations. ([Id43c3](https://android-review.googlesource.com/#/q/Id43c3976ce7fe562d5b9df95bc990c7e85bfd89f))
+- Added new parameter for `FollowMode.soft`: `halfLifeMs`, `startDelay`, and `startThresholds` parameters. Removed parameter `durationMs` as it no longer needed as we transition from a `smoothStep` algorithm to an `exponentialDecay` algorithm. ([If0140](https://android-review.googlesource.com/#/q/If0140f7abb840eccadde363252f818331252262f))
+- Remove the deprecated `SpatialActivityPanel` overload. Use the overload of`SpatialActivityPanel` that accepts a `SpatialActivityPanelController` instead. ([I5abc3](https://android-review.googlesource.com/#/q/I5abc348274f94cdd96785c32d0f3f1fea30b6085))
+- Enable transitions between 3D and 2D Composable content within one Activity in `FullSpaceMode`. This change is gated by `SpatialComposeFlags.isMainPanelResetOnSubspaceDisposeEnabled`. ([I4e237](https://android-review.googlesource.com/#/q/I4e23781c611d323cd39cc060519046f12c24695c))
+- Exposed experimental `Subspace` overload taking a `FollowTarget` parameter to support following content. ([Iec1a9](https://android-review.googlesource.com/#/q/Iec1a91ce1445cdcc16331dbf791333aa0c7fac60))
+- Remove deprecated movable modifiers. Use the new movable modifier instead that accepts the new `MovePolicy` as a parameter. ([Ib135d](https://android-review.googlesource.com/#/q/Ib135de1cfc7eae9978d799f9ab1a98c56debb0e5))
+- Remove deprecated `DragPolicy`. Use `SubspaceModifier.movable()` instead. ([I108d4](https://android-review.googlesource.com/#/q/I108d4df07a11b4020070c9218f7999a7171f7260))
+- Deprecated stateless `Slider` and `RangeSlider` overloads in favor of their stateful versions. Renamed `activeRangeStart` and `activeRangeEnd` in `RangeSliderState` to `startValue` and `endValue`, deprecating older unpromoted and experimental Slider APIs with `DeprecationLevel.HIDDEN`. ([If8995](https://android-review.googlesource.com/#/q/If8995438653fe44d5d108787e920c7fe06f6ff69))
+
+**Bug Fixes**
+
+- Fixed `RotateToLookAtUser` by introducing `poseInActivitySpace` to ensure correct pose calculation for all subspace types, including those attached to anchors or users.[Ica367b](https://android-review.googlesource.com/q/Ica367b7e18d29c24717ef0aea84307cad5fd90a8)
+- Fix Constraints crash when Orbiter is attached to large panels ([I8c4bf](https://android-review.googlesource.com/#/q/I8c4bfed6b0126216bd7b6f2a08b3241e35b4c678))
+- Fixed a bug in `SubspaceLayoutNode` where `removeAll()` caused unnecessary `ArrayList` allocations. Also fixed depth calculation performance. [I34a10a](https://android-review.googlesource.com/q/I34a10aab23224f2bff08bdebdccdd9096b473269)
+- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
+- Improve kdocs related to `AudioOutputProvider` to highlight that it should not be re-used with multiple `ExoPlayer` instances ([I6b18e](https://android-review.googlesource.com/#/q/I6b18e9f742d74a26cfbd6ce6acae3b9669113364))
+- Fix minor kdoc spelling and grammar issues ([Id3ba6](https://android-review.googlesource.com/#/q/Id3ba685bb838f5f78e809a00a5bf95ff8e73a705))
+
+**Known Issues**
+
+- This version of `androidx.xr.compose` has a dependency on `androidx.xr.scenecore:1.0.0-rc01`, which has a known memory leak. In your build configuration, you may explicitly override the `SceneCore` dependency to version `1.0.0`, which includes a fix for the memory leak.
 
 ### Version 1.0.0-beta01
 

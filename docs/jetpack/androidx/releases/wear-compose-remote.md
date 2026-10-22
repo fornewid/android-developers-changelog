@@ -10,7 +10,7 @@ Write Widgets and other Remote UI for Wear OS using the Material 3 Expressive de
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 07, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha13) |
+| October 21, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha14) |
 
 ## Declaring dependencies
 
@@ -26,7 +26,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha13"
+    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha14"
 }
 ```
 
@@ -34,7 +34,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha13")
+    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha14")
 }
 ```
 
@@ -55,6 +55,29 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha14
+
+October 21, 2026
+
+`androidx.wear.compose.remote:remote-material3:1.0.0-alpha14` is released. Version 1.0.0-alpha14 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/988ac9734e8223273eb7f186ee1639ee68deb025..95347b245f1527ec6856a3daa580a1c0abbddc11/wear/compose/remote/remote-material3).
+
+**API Changes**
+
+- Added `dynamicRemoteColorScheme`() to create a `RemoteColorScheme` whose colors follow the player's Android system (dynamic) colors. ([I35bf5](https://android-review.googlesource.com/#/q/I35bf53a27fb18b817e6a1ca9826f1a7a04b2bfcf))
+- `RemoteIntroOutroCurvedProgressIndicator` replaces the `RemoteCurvedProgressIndicator` overload that took `totalTimerDurationMillis`. Its intro and outro animations play when the progress leaves its start and once it reaches its end, so it works for goals as well as timers. ([I96317](https://android-review.googlesource.com/#/q/I96317e8ef03a3fb4753e0574ce9f53de4c6f2b75))
+- Added `RemoteMotionScheme` and `RemoteMaterialTheme.motionScheme` to Remote Wear Material3, matching Wear Compose Material 3 `MotionScheme`. ([I9bd93](https://android-review.googlesource.com/#/q/I9bd93a178f041d2de6c9fa203bf8c317864414f2))
+- Remove `combinedFontVariationSettings` from `RemoteTextStyle` to honor Compose separation of font features and font variations. ([I91856](https://android-review.googlesource.com/#/q/I91856d55995f0c08d0dd021a47397ff9d611b24c))
+
+**Bug Fixes**
+
+- `RemoteTextStyle.fromTextStyle` now selects font variation settings from the font that matches the style's font weight and font style. ([I2ab39](https://android-review.googlesource.com/#/q/I2ab3914794f82f425e1b256acec001e693faf7d2))
+- Added `RemoteSegmentedCircularProgressIndicator` to Remote Wear Material3. ([I814b7](https://android-review.googlesource.com/#/q/I814b772f3f1d73bb2312a9e40eea1a678f58029e))
+- Added `RemoteTextToggleButton` to Remote Wear Material3. ([Ie5d96](https://android-review.googlesource.com/#/q/Ie5d96009e3c25a618305c5a10f4ed2a668994c90))
+- Added `RemoteIconToggleButton` to Remote Wear Material3. ([I825b2](https://android-review.googlesource.com/#/q/I825b28ed3acd0a86f9129286a98eb328d8ff73f7))
+- Fixed `RemoteCurvedProgressIndicator` losing its gap at low progress when `dotCollapsible = false`. ([Iac3d2](https://android-review.googlesource.com/#/q/Iac3d2b7caf16a5d366948b65de10e6cb4952bdd6))
+- Fixed `RemoteSplitCheckboxButton`, `RemoteSplitRadioButton`, and `RemoteSplitSwitchButton` outer corners appearing square on renderers that do not apply the outer rounded clip. ([I59e93](https://android-review.googlesource.com/#/q/I59e9397998296e67bafba6b013949b4ece077819))
+- `RemoteTypography` now preserves font variation settings from the font that matches each style's font weight and font style alongside `fontFeatureSettings`. ([I2ab39](https://android-review.googlesource.com/#/q/I2ab3914794f82f425e1b256acec001e693faf7d2))
 
 ### Version 1.0.0-alpha13
 

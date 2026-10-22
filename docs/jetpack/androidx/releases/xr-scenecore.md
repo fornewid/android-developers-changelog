@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 07, 2026 | - | [1.0.0-rc02](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-rc02) | - | - |
+| October 21, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0) | - | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.1.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.scenecore:scenecore:1.0.0-rc02"
+    implementation "androidx.xr.scenecore:scenecore:1.1.0-alpha01"
 
     // Use to write unit tests
-    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-rc02"
+    testImplementation "androidx.xr.scenecore:scenecore-testing:1.1.0-alpha01"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.scenecore:scenecore:1.0.0-rc02")
+    implementation("androidx.xr.scenecore:scenecore:1.1.0-alpha01")
 
     // Use to write unit tests
-    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-rc02")
+    testImplementation("androidx.xr.scenecore:scenecore-testing:1.1.0-alpha01")
 }
 ```
 
@@ -58,7 +58,41 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
+## Version 1.1
+
+### Version 1.1.0-alpha01
+
+October 21, 2026
+
+`androidx.xr.scenecore:scenecore-*:1.1.0-alpha01` is released. Version 1.1.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/2e3660870c84fabc0f4ecdc2f7b87a6f853d7bf1..ce49d38c7de14d2f1413048a53d7e4444827a50b/xr/scenecore).
+
+**API Changes**
+
+- Added dynamic mesh update APIs (`MeshBuffer.createDynamic`, `MeshBuffer.updateVertexData`, `MeshBuffer.updateIndexData`, and a dynamic `CustomMesh.BuilderFromMeshData` constructor) to support updating vertex and index data at runtime. ([Ia1ecb](https://android-review.googlesource.com/#/q/Ia1ecb1249f027027e0b368d7dfae5e766efa1ab2))
+- Added `VertexLayout.getBufferIndex` helper methods to easily retrieve the buffer index for a given `VertexAttribute` or `VertexBufferLayout`. ([I1a9e3](https://android-review.googlesource.com/#/q/I1a9e3469c962c312cf3fd76d08cea4fb5649080c))
+- Made `CustomMesh.bounds` a var so the bounding box can be updated dynamically at runtime. ([Ib0397](https://android-review.googlesource.com/#/q/Ib039756f5a72755e0666b6d0b3ba214789bb6d41))
+- Promoted `glTF` animation APIs (`GltfAnimation`, `GltfModelEntity`.`getAnimations`, and `GltfModelEntity`.`stopAllAnimations`) to public/stable while keeping `GltfAnimation`.loop setter as experimental, and `GltfAnimationStartOptions` and start(options) as experimental and deprecated. ([Iacdae](https://android-review.googlesource.com/#/q/Iacdae16c189a40bff1847267e890843e525763b7))
+- Added `stopAllAnimations()` to `GltfModelEntity`, made `GltfAnimation.start()` parameterless, added `loop` and `speed` properties to `GltfAnimation`, and deprecated `GltfAnimationStartOptions`, `start(options)`, and `seekTo(Duration)`. ([I53105](https://android-review.googlesource.com/#/q/I53105f2964347537cf92af8af6801b2e76d5b932))
+- Updated `GltfModelEntity` APIs to document `IllegalStateException` (specifically `Entity.DisposedException`) when called on disposed entities. [I65a76f](https://android-review.googlesource.com/q/I65a76f656486607d5761013903b7e1be867c7ecb)
+
+**Bug Fixes**
+
+- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
+- Improve kdocs related to `AudioOutputProvider` to highlight that it should not be re-used with multiple `ExoPlayer` instances ([I6b18e](https://android-review.googlesource.com/#/q/I6b18e9f742d74a26cfbd6ce6acae3b9669113364))
+- Removed unnecessary dependencies on `impress` from various XR modules. [I84636c](https://android-review.googlesource.com/q/I84636c1f5643a4e1aca2367943e74515bfaf46bd)
+
 ## Version 1.0
+
+### Version 1.0.0
+
+October 21, 2026
+
+`androidx.xr.scenecore:scenecore-*:1.0.0` is released. Version 1.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e2e2729abc59df52d40af80a8bbfe010c02455c6..9b00eff832fffc1d21c92cc05e2dc7fc9fad5072/xr/scenecore).
+
+**Major features of 1.0.0:**
+
+- Jetpack XR SceneCore is now stable! SceneCore lets you place and arrange 3D content, defined by entities, relative to each other and your environment. With SceneCore, you can create, place, and manipulate 2D panels and 3D models in virtual and mixed-reality scenes; specify spatial environments and spatial audio sources; and anchor virtual content to the real world.
+- For more information, see our [Overview Page](https://developer.android.com/develop/xr/jetpack-xr-sdk#jetpack-scenecore) and [API Reference](https://developer.android.com/reference/kotlin/androidx/xr/scenecore).
 
 ### Version 1.0.0-rc02
 

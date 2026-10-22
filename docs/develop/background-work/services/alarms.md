@@ -4,9 +4,11 @@ url: https://developer.android.com/develop/background-work/services/alarms
 source: md.txt
 ---
 
-Alarms (based on the [`AlarmManager`](https://developer.android.com/reference/android/app/AlarmManager) class) give you a way to perform time-based operations outside the lifetime of your application. For example, you could use an alarm to initiate a long-running operation, such as starting a service once a day to download a weather forecast.
-
-<br />
+Alarms (based on the [`AlarmManager`](https://developer.android.com/reference/android/app/AlarmManager)
+class) give you a way to perform
+time-based operations outside the lifetime of your application.
+For example, you could use an alarm to initiate a long-running operation, such
+as starting a service once a day to download a weather forecast.
 
 Alarms have these characteristics:
 
@@ -290,31 +292,23 @@ to [`PendingIntent.getService()`](https://developer.android.com/reference/androi
 to get an instance of the intent (if it exists), then pass that intent to
 [`AlarmManager.cancel()`](https://developer.android.com/reference/android/app/AlarmManager#cancel(android.app.PendingIntent))
 
-### Kotlin
 
 ```kotlin
 val alarmManager =
     context.getSystemService(Context.ALARM_SERVICE) as? AlarmManager
 val pendingIntent =
-    PendingIntent.getService(context, requestId, intent,
-                                PendingIntent.FLAG_NO_CREATE)
+    PendingIntent.getService(
+        context,
+        requestId,
+        intent,
+        PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_IMMUTABLE
+    )
 if (pendingIntent != null && alarmManager != null) {
-  alarmManager.cancel(pendingIntent)
+    alarmManager.cancel(pendingIntent)
 }
 ```
 
-### Java
-
-```java
-AlarmManager alarmManager =
-    (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-PendingIntent pendingIntent =
-    PendingIntent.getService(context, requestId, intent,
-                                PendingIntent.FLAG_NO_CREATE);
-if (pendingIntent != null && alarmManager != null) {
-  alarmManager.cancel(pendingIntent);
-}
-```
+<br />
 
 > [!NOTE]
 > **Note:** If the `PendingIntent` was created with [`FLAG_ONE_SHOT`](https://developer.android.com/reference/android/app/PendingIntent#FLAG_ONE_SHOT) it **cannot** be canceled.
@@ -376,61 +370,39 @@ Here are some examples of using [`ELAPSED_REALTIME_WAKEUP`](https://developer.an
 Wake up the device to fire the alarm in 30 minutes, and every 30 minutes
 after that:
 
-### Kotlin
 
 ```kotlin
 // Hopefully your alarm will have a lower frequency than this!
 alarmMgr?.setInexactRepeating(
-        AlarmManager.ELAPSED_REALTIME_WAKEUP,
-        SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_HALF_HOUR,
-        AlarmManager.INTERVAL_HALF_HOUR,
-        alarmIntent
+    AlarmManager.ELAPSED_REALTIME_WAKEUP,
+    SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_HALF_HOUR,
+    AlarmManager.INTERVAL_HALF_HOUR,
+    alarmIntent
 )
 ```
 
-### Java
-
-```java
-// Hopefully your alarm will have a lower frequency than this!
-alarmMgr.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-        SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_HALF_HOUR,
-        AlarmManager.INTERVAL_HALF_HOUR, alarmIntent);
-```
+<br />
 
 Wake up the device to fire a one-time (non-repeating) alarm in one minute:
 
-### Kotlin
 
 ```kotlin
-private var alarmMgr: AlarmManager? = null
-private lateinit var alarmIntent: PendingIntent
-...
+var alarmMgr: AlarmManager? = null
+lateinit var alarmIntent: PendingIntent
+// ...
 alarmMgr = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 alarmIntent = Intent(context, AlarmReceiver::class.java).let { intent ->
-    PendingIntent.getBroadcast(context, 0, intent, 0)
+    PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 }
 
 alarmMgr?.set(
-        AlarmManager.ELAPSED_REALTIME_WAKEUP,
-        SystemClock.elapsedRealtime() + 60 * 1000,
-        alarmIntent
+    AlarmManager.ELAPSED_REALTIME_WAKEUP,
+    SystemClock.elapsedRealtime() + 60 * 1000,
+    alarmIntent
 )
 ```
 
-### Java
-
-```java
-private AlarmManager alarmMgr;
-private PendingIntent alarmIntent;
-...
-alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-Intent intent = new Intent(context, AlarmReceiver.class);
-alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
-
-alarmMgr.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-        SystemClock.elapsedRealtime() +
-        60 * 1000, alarmIntent);
-```
+<br />
 
 #### Examples of real time clock alarms
 
@@ -440,7 +412,6 @@ Here are some examples of using
 Wake up the device to fire the alarm at approximately 2:00 p.m., and
 repeat once a day at the same time:
 
-### Kotlin
 
 ```kotlin
 // Set the alarm to start at approximately 2:00 p.m.
@@ -452,39 +423,26 @@ val calendar: Calendar = Calendar.getInstance().apply {
 // With setInexactRepeating(), you have to use one of the AlarmManager interval
 // constants--in this case, AlarmManager.INTERVAL_DAY.
 alarmMgr?.setInexactRepeating(
-        AlarmManager.RTC_WAKEUP,
-        calendar.timeInMillis,
-        AlarmManager.INTERVAL_DAY,
-        alarmIntent
+    AlarmManager.RTC_WAKEUP,
+    calendar.timeInMillis,
+    AlarmManager.INTERVAL_DAY,
+    alarmIntent
 )
 ```
 
-### Java
-
-```java
-// Set the alarm to start at approximately 2:00 p.m.
-Calendar calendar = Calendar.getInstance();
-calendar.setTimeInMillis(System.currentTimeMillis());
-calendar.set(Calendar.HOUR_OF_DAY, 14);
-
-// With setInexactRepeating(), you have to use one of the AlarmManager interval
-// constants--in this case, AlarmManager.INTERVAL_DAY.
-alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-        AlarmManager.INTERVAL_DAY, alarmIntent);
-```
+<br />
 
 Wake up the device to fire the alarm at precisely 8:30 a.m., and every 20 minutes
 thereafter:
 
-### Kotlin
 
 ```kotlin
-private var alarmMgr: AlarmManager? = null
-private lateinit var alarmIntent: PendingIntent
-...
+var alarmMgr: AlarmManager? = null
+lateinit var alarmIntent: PendingIntent
+// ...
 alarmMgr = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 alarmIntent = Intent(context, AlarmReceiver::class.java).let { intent ->
-    PendingIntent.getBroadcast(context, 0, intent, 0)
+    PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 }
 
 // Set the alarm to start at 8:30 a.m.
@@ -497,34 +455,14 @@ val calendar: Calendar = Calendar.getInstance().apply {
 // setRepeating() lets you specify a precise custom interval--in this case,
 // 20 minutes.
 alarmMgr?.setRepeating(
-        AlarmManager.RTC_WAKEUP,
-        calendar.timeInMillis,
-        1000 * 60 * 20,
-        alarmIntent
+    AlarmManager.RTC_WAKEUP,
+    calendar.timeInMillis,
+    1000 * 60 * 20,
+    alarmIntent
 )
 ```
 
-### Java
-
-```java
-private AlarmManager alarmMgr;
-private PendingIntent alarmIntent;
-...
-alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-Intent intent = new Intent(context, AlarmReceiver.class);
-alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
-
-// Set the alarm to start at 8:30 a.m.
-Calendar calendar = Calendar.getInstance();
-calendar.setTimeInMillis(System.currentTimeMillis());
-calendar.set(Calendar.HOUR_OF_DAY, 8);
-calendar.set(Calendar.MINUTE, 30);
-
-// setRepeating() lets you specify a precise custom interval--in this case,
-// 20 minutes.
-alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-        1000 * 60 * 20, alarmIntent);
-```
+<br />
 
 ### Decide how precise your alarm needs to be
 
@@ -556,21 +494,13 @@ on the Alarm Manager, passing in the
 [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent) you no longer want
 to fire. For example:
 
-### Kotlin
 
 ```kotlin
 // If the alarm has been set, cancel it.
 alarmMgr?.cancel(alarmIntent)
 ```
 
-### Java
-
-```java
-// If the alarm has been set, cancel it.
-if (alarmMgr!= null) {
-    alarmMgr.cancel(alarmIntent);
-}
-```
+<br />
 
 ## Start an alarm when the device restarts
 
@@ -588,14 +518,17 @@ Here are the steps:
    that is broadcast after the system finishes booting (this only works if the
    app has already been launched by the user at least once):
 
+
    ```xml
    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
    ```
+
+   <br />
+
 2. Implement a
    [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver)
    to receive the broadcast:
 
-   ### Kotlin
 
    ```kotlin
    class SampleBootReceiver : BroadcastReceiver() {
@@ -608,23 +541,13 @@ Here are the steps:
    }
    ```
 
-   ### Java
+   <br />
 
-   ```java
-   public class SampleBootReceiver extends BroadcastReceiver {
-
-       @Override
-       public void onReceive(Context context, Intent intent) {
-           if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
-               // Set the alarm here.
-           }
-       }
-   }
-   ```
 3. Add the receiver to your app's manifest file with an intent filter that
    filters on the
    [`ACTION_BOOT_COMPLETED`](https://developer.android.com/reference/android/content/Intent#ACTION_BOOT_COMPLETED)
    action:
+
 
    ```xml
    <receiver android:name=".SampleBootReceiver"
@@ -635,34 +558,26 @@ Here are the steps:
    </receiver>
    ```
 
+   <br />
+
    Notice that in the manifest, the boot receiver is set to
    `android:enabled="false"`. This means that the receiver will
    not be called unless the application explicitly enables it. This prevents the
    boot receiver from being called unnecessarily. You can enable a receiver
    (for example, if the user sets an alarm) as follows:
 
-   ### Kotlin
 
    ```kotlin
    val receiver = ComponentName(context, SampleBootReceiver::class.java)
 
    context.packageManager.setComponentEnabledSetting(
-           receiver,
-           PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-           PackageManager.DONT_KILL_APP
+       receiver,
+       PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+       PackageManager.DONT_KILL_APP
    )
    ```
 
-   ### Java
-
-   ```java
-   ComponentName receiver = new ComponentName(context, SampleBootReceiver.class);
-   PackageManager pm = context.getPackageManager();
-
-   pm.setComponentEnabledSetting(receiver,
-           PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-           PackageManager.DONT_KILL_APP);
-   ```
+   <br />
 
    Once you enable the receiver this way, it will stay enabled, even if the user
    reboots the device. In other words, programmatically enabling the receiver
@@ -670,28 +585,18 @@ Here are the steps:
    enabled until your app disables it. You can disable a receiver (for example,
    if the user cancels an alarm) as follows:
 
-   ### Kotlin
 
    ```kotlin
    val receiver = ComponentName(context, SampleBootReceiver::class.java)
 
    context.packageManager.setComponentEnabledSetting(
-           receiver,
-           PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-           PackageManager.DONT_KILL_APP
+       receiver,
+       PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+       PackageManager.DONT_KILL_APP
    )
    ```
 
-   ### Java
-
-   ```java
-   ComponentName receiver = new ComponentName(context, SampleBootReceiver.class);
-   PackageManager pm = context.getPackageManager();
-
-   pm.setComponentEnabledSetting(receiver,
-           PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-           PackageManager.DONT_KILL_APP);
-   ```
+   <br />
 
 ## Invoke alarms while the device is in Doze mode
 

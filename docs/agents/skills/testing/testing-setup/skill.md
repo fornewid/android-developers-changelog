@@ -4,7 +4,7 @@ url: https://developer.android.com/agents/skills/testing/testing-setup/skill
 source: md.txt
 ---
 
-## Step 1: analyze the current testing setup
+## Step 1: Analyze the current testing setup
 
 To understand the testing setup of an existing project, look for these
 dependencies in the libs.versions.toml file, or build files:
@@ -53,7 +53,7 @@ If there are no testing frameworks, and the user didn't specify any preference,
 install the following:
 
 - JUnit4 for local and instrumented tests
-- Jacoco for test coverage
+- JaCoCo for test coverage
 - For UI tests: if the project has views, Espresso. If it's fully Compose, use the Compose Testing APIs.
 - Robolectric to run UI Tests
 - Compose Preview Screenshot Testing tool for screenshot tests. Check the
@@ -171,15 +171,15 @@ If you need to take screenshots of the app running in a device, use
 interaction with the system UI (examples: edge-to-edge rendering, notifications,
 picture-in-picture)
 
-### Step 13: Instrumented Screenshot tests
+## Step 13: Instrumented Screenshot tests
 
 Install the `com.dropbox.dropshots` plugin in the module and a `Dropshots()`
 JUnit Rule. Create a new instrumented screenshot test for one of the app's
 features.
 
-### Step 14: Install jacoco
+## Step 14: Install JaCoCo
 
-Install jacoco for local testing code coverage.
+Install JaCoCo for local testing code coverage.
 
 - Add the `jacoco` plugin to each module that contains tests.
 

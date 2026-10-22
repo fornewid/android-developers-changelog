@@ -4,28 +4,34 @@ url: https://developer.android.com/media/camera/camera2/extensions-api
 source: md.txt
 ---
 
-# Camera2 Extensions API
+**Note:** This page refers to the [Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
 
 <br />
 
-**Note:** This page refers to the[Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary)package. Unless your app requires specific, low-level features from Camera2, we recommend using[CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
+Camera2 provides an Extensions API for accessing [extensions](https://developer.android.com/training/camera/camera-extensions)
+that device manufacturers have implemented on various Android devices. For a
+list of supported extension modes, see [Camera extensions](https://developer.android.com/training/camera/camera-extensions).
 
-<br />
-
-Camera2 provides an Extensions API for accessing[extensions](https://developer.android.com/training/camera/camera-extensions)that device manufacturers have implemented on various Android devices. For a list of supported extension modes, see[Camera extensions](https://developer.android.com/training/camera/camera-extensions).
-
-For a list of devices that support extensions, see[Supported devices](https://developer.android.com/training/camera/supported-devices).
+For a list of devices that support extensions, see
+[Supported devices](https://developer.android.com/training/camera/supported-devices).
 
 ## Extensions architecture
 
 The following image shows the camera extensions architecture.
-![](https://developer.android.com/static/images/training/camera/camera2/camera2-camera-extensions-architecture.png)**Figure 1.**Camera Extensions architecture
+![](https://developer.android.com/static/images/training/camera/camera2/camera2-camera-extensions-architecture.png) **Figure 1.**Camera Extensions architecture
 
-A Camera2 application can use extensions through the Camera2 API. The Camera2 API provides ways to query for available extensions, configure an extension camera session, and communicate with the Camera Extensions OEM library. This allows your application to use extensions like Night, HDR, Auto, Bokeh, or Face Retouch.
+A Camera2 application can use extensions through the Camera2 API. The Camera2
+API provides ways to query for available extensions, configure an extension
+camera session, and communicate with the Camera Extensions OEM library. This
+allows your application to use extensions like Night, HDR, Auto, Bokeh, or
+Face Retouch.
 
 ## Test a camera device for Camera2 Extensions API compatibility
 
-The following code snippet checks if the device supports the Camera2 Extensions API. Extensions are not supported by all devices or the device might support a subset of extensions. The snippet returns a list of compatible camera IDs which support camera extensions.  
+The following code snippet checks if the device supports the Camera2
+Extensions API. Extensions are not supported by all devices or the device might support a subset
+of extensions. The snippet returns a list of compatible camera IDs which support
+camera extensions.
 
 ### Kotlin
 
@@ -80,7 +86,10 @@ private List<String> getExtensionCameraIds(CameraManager cameraManager)
 
 ## Create a CameraExtensionSession with the Camera2 Extensions API
 
-The Camera2 Extensions API, when used with compatible devices, lets you access certain camera extensions. The following code snippet showcases an example of how to create a[`CameraExtensionSession`](https://developer.android.com/reference/android/hardware/camera2/CameraExtensionSession)for using night capture mode for an existing Camera2 application.  
+The Camera2 Extensions API, when used with compatible devices, lets you access
+certain camera extensions. The following code snippet showcases an example of
+how to create a [`CameraExtensionSession`](https://developer.android.com/reference/android/hardware/camera2/CameraExtensionSession)
+for using night capture mode for an existing Camera2 application.
 
 ### Kotlin
 
@@ -202,4 +211,7 @@ private void startExtensionSession() {
 
 ## Additional resources
 
-For more information, see[`CameraExtensionCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraExtensionCharacteristics)and view the public[Camera2 Extensions API samples](https://github.com/android/camera-samples/tree/master/Camera2Extensions)for more.
+For more information, see
+[`CameraExtensionCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraExtensionCharacteristics)
+and view the public [Camera2 Extensions API samples](https://github.com/android/camera-samples/tree/master/Camera2Extensions)
+for more.

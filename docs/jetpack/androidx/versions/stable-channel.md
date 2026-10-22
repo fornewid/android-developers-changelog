@@ -19,6 +19,17 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 The first stable release of AndroidX 1.0.0 suitable for use in
 production was released on September 21, 2018.
 
+## October 21, 2026
+
+- [Core-location-altitude Core-location-altitude-external-protobuf Core-location-altitude-proto Version 1.0.1](https://developer.android.com/jetpack/androidx/releases/core#1.0.1)
+- [Datastore Version 1.3.0](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0)
+- [Palette Version 1.1.0](https://developer.android.com/jetpack/androidx/releases/palette#1.1.0)
+- [Tracing Version 2.0.5](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.5)
+- [Webkit Version 1.18.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.18.0)
+- [Xr Arcore Version 1.0.0](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0)
+- [Xr Runtime Version 1.0.0](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0)
+- [Xr Scenecore Version 1.0.0](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0)
+
 ## October 12, 2026
 
 - [Paging Version 3.5.3](https://developer.android.com/jetpack/androidx/releases/paging#3.5.3)

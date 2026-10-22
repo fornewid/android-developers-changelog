@@ -42,6 +42,12 @@ notes](https://developer.android.com/studio/preview/backup-restore-testing-relea
 ## Fixed issues
 
 
+### Android Gradle plugin 9.5.0-rc01
+
+| Fixed Issues ||
+|---|---|
+| No public issues were marked as fixed in AGP 9.5.0-rc01 ||
+
 ### Android Gradle plugin 9.5.0-alpha10
 
 Fixed Issues **Android Gradle Plugin** [Issue #532206373](https://issuetracker.google.com/issues/532206373) l8DexDesugarLib destroys the obfuscation mapping: reads the full \~366 MB mapping.txt and rewrites it as a 25-byte "# L8 Desugaring Mapping" stub

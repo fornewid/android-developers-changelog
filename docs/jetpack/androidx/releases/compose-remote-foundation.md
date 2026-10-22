@@ -10,7 +10,7 @@ TODO
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 07, 2026 | - | - | - | [1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/compose_remote_foundation#1.0.0-alpha04) |
+| October 21, 2026 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/compose_remote_foundation#1.0.0-alpha05) |
 
 ## Declaring dependencies
 
@@ -30,7 +30,7 @@ compose remote foundation deps
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.remote.foundation:foundation:1.0.0-alpha04"
+    implementation "androidx.compose.remote.foundation:foundation:1.0.0-alpha05"
 }
 ```
 
@@ -38,7 +38,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.remote.foundation:foundation:1.0.0-alpha04")
+    implementation("androidx.compose.remote.foundation:foundation:1.0.0-alpha05")
 }
 ```
 
@@ -57,6 +57,14 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 1.0
+
+### Version 1.0.0-alpha05
+
+October 21, 2026
+
+`androidx.compose.remote.foundation:foundation:1.0.0-alpha05` is released. Version 1.0.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/988ac9734e8223273eb7f186ee1639ee68deb025..95347b245f1527ec6856a3daa580a1c0abbddc11/compose/remote/foundation/foundation).
 
 ## Foundation
 

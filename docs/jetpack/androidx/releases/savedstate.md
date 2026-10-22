@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 23, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/savedstate#1.5.0) | - | - | [1.6.0-alpha04](https://developer.android.com/jetpack/androidx/releases/savedstate#1.6.0-alpha04) |
+| October 21, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/savedstate#1.5.0) | - | - | [1.6.0-alpha05](https://developer.android.com/jetpack/androidx/releases/savedstate#1.6.0-alpha05) |
 
 ## Declaring dependencies
 
@@ -61,6 +61,17 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.6
+
+### Version 1.6.0-alpha05
+
+October 21, 2026
+
+`androidx.savedstate:savedstate-*:1.6.0-alpha05` is released. Version 1.6.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f..3566803898b060d7136357220affc9ece8236019/savedstate).
+
+**API Changes**
+
+- Introduced a new `SavedStateContainer` API to serve as the common implementation base for `SaveableStateRegistry`, `SavedStateHandle`, and `SavedStateRegisty`. ([I1da6d](https://android-review.googlesource.com/#/q/I1da6d8e861f0d3fa6167744d96f05f1a7431b5a0))
+- Added `asContainer()`, `getOrCreateContainer()` to `SavedStateRegistry` to allow creating child contains from a `SavedStateRegistry`. ([Icb709](https://android-review.googlesource.com/#/q/Icb70933ca23e4006d2347d4f2734eacbf6401dda))
 
 ### Version 1.6.0-alpha04
 

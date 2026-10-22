@@ -51,7 +51,7 @@ quality:
 
 | Category | ID | Description |
 |---|---|---|
-| Layout | WL-1 | Widget doesn't fill the bounds set by the launcher grid when dropped on the homescreen. |
+| Layout | WL-1 | When a user places the widget on the host surface, the widget does not fill the bounds of the host grid. |
 | Layout | WL-1.1 | Widget doesn't touch at least 2 opposing edges of the grid. In other words, widgets don't need to all be rectangular, they can have custom shapes, so long as the edges of the shape touch at least 2 edges of the grid. |
 | Color | WC-3 | Widget text and icon buttons have insufficient color contrast ratios to meet [accessibility requirements](https://developer.android.com/design/ui/mobile/guides/widgets/style#color). |
 | Discovery | WD-4.2 | Widget name isn't included in the widget design. |
@@ -72,13 +72,13 @@ considered showcase widgets that will be featured or recommended.
 
 | Category | ID | Description |
 |---|---|---|
-| Layout | WL-1 | Widget aligns properly to other home screen elements on the vertical or horizontal axis, and doesn't occupy unnecessary space. |
+| Layout | WL-1 | The widget aligns with other host elements on the vertical or horizontal axis and does not occupy extra space. |
 | Layout | WL-1.2 | All shapes should hit at least 2 opposing edges of the bounds of the grid. |
-| Layout | WL-4 | If resizable, widgets must have an appropriate minimum and maximum size. |
-| Layout | WL-4.1 | Max size should be set if resizing the widget only adds blank space. |
-| Layout | WL-4.2 | The minimum size of your widget should still offer value and meet touch target requirements (48x48). |
+| Layout | WL-4 | If a widget is resizable, define a minimum and maximum size. Rearrange the layout to show more content as the widget grows. Don't scale text and icons linearly. |
+| Layout | WL-4.1 | If a larger widget size only adds blank space, set a maximum width or height. When a larger widget shows more content, such as a taller scrolling list, allow unrestricted resizing. |
+| Layout | WL-4.2 | The minimum widget size must be large enough to show a clear use case and meet the 48x48 dp touch target requirement. The system can scale touch targets for desktop or car screens. |
 | Discovery | WD-4 | Widget should have accurate previews in the widget picker (static asset). |
-| Content | WT-1 | Zero and empty states are intentional and show the value of the widget and/or provide a call to action when the widget is installed but the user isn't yet logged in. |
+| Content | WT-1 | Zero and empty states must scale to larger widget bounds without sparse areas. When a user installs the widget before logging in, the widget must show a distinct use case or a call to action. |
 | Content | WT-2 | Widget allows users to manually refresh content if there is an expectation that the data refreshes more frequently than the UI. |
 
 ![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_target_do.png)
@@ -113,17 +113,18 @@ content criteria.
 
 | Category | ID | Description |
 |---|---|---|
-| Layout | WL-1 | Widget aligns properly to other home screen elements on the vertical or horizontal axis, and does not occupy unnecessary space. |
+| Layout | WL-1 | The widget aligns with other host elements on the vertical or horizontal axis and does not occupy extra space. |
 | Layout | WL-1.1 | All rectangular widgets MUST hit all four edges of the bounds of the grid. All custom shaped widgets MUST hit all 4 edges of the bounds of a square grid. If the size is 4x1, and contains a search bar, it is permitted to hit only 2 edges. |
-| Layout | WL-2 | Widget can be resized to at least one of the following sizes: 2x2, 4x1, 4x2. |
+| Layout | WL-2 | Users can resize the widget to 2x1 and at least two of these sizes: 1x1, 2x2, 4x2, 4x4. |
 | Layout | WL-3 | Widget header is used and applied consistently. - We recommend use of a header if: - The widget contains scrolling content. - Header content provides helpful context such as the name of a list. - Use of a header is optional when: - The widget is full bleed, such as a photo widget. - Space is limited. - When header content is redundant. - If using a header, make sure that: - Icon is always present - Title appears when there is sufficient space - Actions are based on widget context. |
+| Layout | WL-5 | Collection and feed widgets support vertical scrolling containers. At larger sizes such as 4x2 and 4x4, these widgets show more items and more detail per item. |
 | Color | WC-1 | Widget supports color theming based on a device or app context. |
 | Color | WC-2 | Widget supports light theme and dark theme palettes. |
-| Discovery | WD-1 | Preview includes user content and/or applies a system theme. |
+| Discovery | WD-1 | The preview shows the layout proportions for the target form factor and includes user content, applies a system theme, or both. |
 | Discovery | WD-4.4 | Widget has a description that helps users understand the value of the widget. |
 | Discovery | WD-4.5 | Widget name is descriptive and unique from the app's other widgets. |
 | System Coherence | WS-2 | Rectangular widgets must use the corner radius provided by system (OEM specific). |
-| System Coherence | WS-3 | Widget uses loading state spec. |
+| System Coherence | WS-3 | The widget uses the loading state specification and [shows errors directly on the widget UI](https://developer.android.com/develop/ui/compose/glance/error-handling). |
 | System Coherence | WS-4 | Widget uses system configuration instead of a custom widget settings entry point. |
 | System Coherence | WS-5 | Widget uses system launch transition when entering/exiting app from widget. |
 

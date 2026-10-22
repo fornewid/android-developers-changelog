@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 07, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.1) | - | [1.13.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-beta01) | - |
+| October 21, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.1) | - | [1.13.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-beta02) | - |
 
 ## Structure
 
@@ -99,6 +99,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.13
+
+### Version 1.13.0-beta02
+
+October 21, 2026
+
+`androidx.compose.animation:animation-*:1.13.0-beta02` is released. Version 1.13.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/55d45bc889e6e54d26f897e1299b3f5d6ca78acb..559d7c6e906e7ba455d2818294e211c4e246295b/compose/animation).
 
 ### Version 1.13.0-beta01
 

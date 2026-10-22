@@ -7,8 +7,7 @@ source: md.txt
 > [!TIP]
 > **Tip:** Another way to get started is to work through [the ExoPlayer codelab](https://codelabs.developers.google.com/codelabs/exoplayer-intro/).
 
-For simple use cases, getting started with `ExoPlayer` consists of implementing
-the following steps:
+Getting started with `ExoPlayer` consists of implementing the following steps:
 
 1. Add ExoPlayer as a dependency to your project.
 2. Create an `ExoPlayer` instance.
@@ -16,10 +15,13 @@ the following steps:
 4. Prepare the player with a `MediaItem` to play.
 5. Release the player when done.
 
-These steps are described in more detail below. For a complete example, refer to
+These steps are described in more detail later. For a complete example, refer to
 `PlayerActivity` in the [main demo app](https://github.com/androidx/media/tree/release/demos/main/).
 
 ## Add ExoPlayer as a dependency
+
+To use ExoPlayer in your app, add the required modules and enable Java 8
+support.
 
 ### Add ExoPlayer modules
 
@@ -44,13 +46,14 @@ you can add dependencies on the modules like this:
     implementation "androidx.media3:media3-ui:1.11.1"
     implementation("androidx.media3:media3-ui-compose-material3:1.11.1")
 
-where 1.11.1 is your preferred version (the latest version can be found by
-consulting the [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md)). All modules must be of the same version.
+where 1.11.1 is your preferred version (the latest version can be
+found by consulting the [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md)). All modules must be of the same
+version.
 
-AndroidX Media3 has library modules that depend on
-external libraries to provide additional functionality. Some are
-available from the Maven repository, whereas others must be built manually.
-Browse the [libraries directory](https://github.com/androidx/media/tree/main/libraries) and see individual READMEs for details.
+AndroidX Media3 has library modules that depend on external libraries to provide
+additional functionality. Some are available from the Maven repository, whereas
+others must be built manually. Browse the [libraries directory](https://github.com/androidx/media/tree/main/libraries) and see
+individual READMEs for details.
 
 More information on the library modules that are available can be found on the
 [Google Maven AndroidX Media page](https://maven.google.com/web/index.html#androidx.media3).
@@ -104,8 +107,8 @@ which the player must be accessed can be queried using
 > [!NOTE]
 > **Note:** If you see `IllegalStateException` being thrown with the message "Player is accessed on the wrong thread", then some code in your app is accessing an `ExoPlayer` instance on the wrong thread (the exception's stack trace shows you where).
 
-For more information about ExoPlayer's threading model, see the
-["Threading model" section of the ExoPlayer Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer).
+For more information about ExoPlayer's threading model, see the ["Threading
+model" section of the ExoPlayer Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer).
 
 ## Attach the player to a view
 
@@ -256,9 +259,9 @@ on the player. Here are some of the most commonly used methods:
 - `setShuffleModeEnabled` controls playlist shuffling.
 - `setPlaybackParameters` adjusts playback speed and audio pitch.
 
-If the player is bound to a `PlayerView` or `PlayerControlView`,
-then user interaction with these components will cause corresponding methods on
-the player to be invoked.
+If the player is bound to a `PlayerView` or `PlayerControlView`, then user
+interaction with these components will cause corresponding methods on the player
+to be invoked.
 
 ## Release the player
 

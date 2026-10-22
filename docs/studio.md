@@ -114,11 +114,11 @@ More downloads are available in the
 [download archives](https://developer.android.com/studio/archive). For
 Android Emulator downloads, see the
 [Emulator download archives](https://developer.android.com/studio/emulator_archive).
-![](http://developer.android.com/static/images/studio/wallpapers/wallpaper-preview.png)
+![](http://developer.android.com/static/images/studio/wallpapers/wallpaper-preview_2.png)
 
 ### Look! It's some of our favorite Android Studio animals in their natural habitat.
 
-Download and set as your wallpaper to keep your desktop looking fun and fresh. [Download Android Studio wallpapers](http://developer.android.com/static/images/studio/wallpapers/AndroidStudio-wallpapers.zip)
+Download and set as your wallpaper to keep your desktop looking fun and fresh. [Download Android Studio wallpapers](http://developer.android.com/static/images/studio/wallpapers/AndroidStudio-wallpapers_2.zip)
 
 ### Command line tools only
 

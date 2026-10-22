@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 07, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.1) | - | [1.13.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-beta01) | - |
+| October 21, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.1) | - | [1.13.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-beta02) | - |
 
 ## Structure
 
@@ -99,6 +99,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.13
+
+### Version 1.13.0-beta02
+
+October 21, 2026
+
+`androidx.compose.material:material-*:1.13.0-beta02` is released. Version 1.13.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/55d45bc889e6e54d26f897e1299b3f5d6ca78acb..8c4a5fab030e62e6dac58c45f5fff974facf903f/compose/material).
 
 ### Version 1.13.0-beta01
 

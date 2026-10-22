@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 07, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | [1.5.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-beta01) | - |
+| October 21, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | [1.5.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-beta02) | - |
 
 > [!NOTE]
 > **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
@@ -52,7 +52,7 @@ plugins {
 dependencies {
     implementation "androidx.compose.material3:material3:1.4.0"
     implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
-    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-beta01"
+    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-beta02"
 }
 
 android {
@@ -76,7 +76,7 @@ plugins {
 dependencies {
     implementation("androidx.compose.material3:material3:1.4.0")
     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-beta01")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-beta02")
 }
 
 android {
@@ -104,6 +104,24 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Material3-A2ui
+
+### Version 1.0
+
+#### Version 1.0.0-alpha02
+
+October 21, 2026
+
+`androidx.compose.material3:material3-a2ui:1.0.0-alpha02` is released. Version 1.0.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f..51b1c49d773c47aab307ccfe10c460650cdb8708/compose/material3/material3-a2ui).
+
+**New features**
+
+- Added an animated shimmer effect for the component loading states.
+
+**API Changes**
+
+- Replaced the list of functions of `A2uiBasicCatalogV1` with the `A2uiBasicCatalogV1.Functions` interface, which has a method for each basic catalog function except the logical functions `and`, `or`, and `not`, which the catalog implements. Implementations only need to implement `openUrl` and can override other methods to customize individual functions. `A2uiBasicCatalogV1.Functions(context)` creates default implementations of all methods. `materialA2uiBasicCatalogV1` now takes `functions` instead of `urlOpener`, `messageFormatter`, and `localeProvider`. ([I647b2](https://android-review.googlesource.com/#/q/I647b252e90a4f76bc1ac4dc0feb40acb7cd1becf), [b/568735972](https://issuetracker.google.com/issues/568735972))
 
 ## Compose Material3 A2UI Version 1.0
 
@@ -359,6 +377,12 @@ Material3 adaptive pane scaffold APIs:
   - [AnimatedPane](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#(androidx.compose.material3.adaptive.ThreePaneScaffoldScope).AnimatedPane(androidx.compose.ui.Modifier,kotlin.Function2))
 
 ## Compose Material3 Version 1.5
+
+### Version 1.5.0-beta02
+
+October 21, 2026
+
+`androidx.compose.material3:material3-*:1.5.0-beta02` is released. Version 1.5.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/19991f2c0858aadfcb442ce02b2c8e4743c96898..e4d933c98df7baa7ea2b83eea6e086915961e0ff/compose/material3).
 
 ### Version 1.5.0-beta01
 

@@ -26,6 +26,23 @@ This user interface (UI) in the **You** tab is available only for testing
 purposes. The Game Stats UI will be available in September 2026.
 [![Game Stats on the You tab](https://developer.android.com/static/images/games/pgs/gamestats.png)](https://developer.android.com/static/images/games/pgs/gamestats.png) Game Stats with highlights on the You tab.
 
+## Aggregation type
+
+The aggregation type tells Google Play how to calculate a stat from the
+per-event values that you send:
+
+- **SUM:** Use for cumulative stats (such as total coins collected, total damage dealt). The game must send the discrete amount earned during each event instance.
+- **COUNT:** Use for stats representing number of occurrences of an event (such as games played, games won). The game must send the discrete event occurrence instances.
+- **MAX:** Use only for single-occurrence peak achievements (such as highest score in a single run, maximum combo streak, or highest single-match damage). Don't use MAX as a workaround to display lifetime totals from precomputed running values.
+
+## Critical implementation requirement for repetitive stats
+
+- **Send per-event values:** For each event, send only what happened in that event, such as the coins collected in a single run. Then set an aggregation type, such as SUM or COUNT, in your stat configuration. This ensures that repetitive stats are reusable across engagement mechanics and lets Google Play create the right player experiences.
+- **Don't send lifetime totals:** For example, don't track the total coins a player has ever collected on your game client or server and send that total with MAX aggregation. Such stats will continue to be shown on Gamer Profile UI, but Google Play won't be able to use them for powering rewarding features like leagues, quests, and sprints to improve player experience and drive impact for your game.
+
+For instructions and examples on correct event modeling, see [Player Events](https://developer.android.com/games/pgs/gamestats#flexible-player-events)
+and [Configure your stats](https://developer.android.com/games/pgs/gamestats#configure-stats).
+
 ## Integration steps
 
 Send data using Game Stats API as player events for repetitive stats
@@ -93,6 +110,14 @@ progression milestones.
 - **Add properties** to provide context about the event and its outcomes, such as the level number, match type, weapon type, number of weapons, headshots, coins collected, match result, lap time, or car type.
 - **Send events** within the gameplay session as soon as they occur. For example, send a game loop completion event immediately after the loop completes.
 
+> [!CAUTION]
+> Don't send precomputed lifetime running totals.
+>
+> Events must represent single discrete occurrences (for example, the number of coins collected during a single run). Google Play Games Services computes cumulative lifetime stats (from the time of integration) on your behalf using the aggregation type (such as SUM or COUNT) specified in your stat configurations.
+>
+> - Incorrect implementation (don't do this): Maintaining a lifetime sum of coins collected on your client or server (for example, \`total_coins_collected = 10,450\`) and firing an event with this precomputed total using MAX aggregation.
+> - Correct implementation example: Fire a \`run_completed\` event at the end of each run with property \`coins_collected = 45\` (coins collected in that specific run) and configure a stat using SUM aggregation.
+
 ##### Examples
 
 | Game type | Event Label | In-game moment / Progression Event Completion / Game Loop Completion | Outcome | Characteristics |
@@ -151,6 +176,9 @@ computation logic and display information about each stat. Examples of
 repetitive stats from different Game Genres are included below. Repetitive stats
 are usually stats that update repeatedly for any player across a very few (3-4)
 game sessions and are associated with the core game loop.
+
+To learn when to use SUM, COUNT, or MAX, see
+[Choose the right aggregation type](https://developer.android.com/games/pgs/gamestats#choose-aggregation).
 
 | **Game Name** | **Game stat display name** | **Event Property** | **Calculation logic \[aggregation\]** | **Filter** |
 |---|---|---|---|---|

@@ -17,7 +17,6 @@ To keep the device's screen on, set the [`FLAG_KEEP_SCREEN_ON`](https://develope
 activity. This flag may only be set in an activity, never in a service or other
 app component. For example:
 
-### Kotlin
 
 ```kotlin
 class MainActivity : Activity() {
@@ -30,18 +29,7 @@ class MainActivity : Activity() {
 }
 ```
 
-### Java
-
-```java
-public class MainActivity extends Activity {
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-  }
-}
-```
+<br />
 
 Another way to keep the screen on is by setting the
 the [`android:keepScreenOn`](https://developer.android.com/reference/android/R.attr#keepScreenOn) attribute

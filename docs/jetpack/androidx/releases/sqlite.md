@@ -18,7 +18,7 @@ while harnessing the full power of SQLite.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [2.7.1](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.1) | - | - | [2.8.0-alpha01](https://developer.android.com/jetpack/androidx/releases/sqlite#2.8.0-alpha01) |
+| October 21, 2026 | [2.7.1](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.1) | - | - | [2.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/sqlite#2.8.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -79,6 +79,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 2.8
+
+### Version 2.8.0-alpha03
+
+October 21, 2026
+
+`androidx.sqlite:sqlite-*:2.8.0-alpha03` is released. Version 2.8.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..d15bc3d0c69caa87d369676a3ab81a19799a0566/sqlite).
+
+**API Changes**
+
+- Libraries now target Kotlin 2.2 and require kotlinc 2.2 ([I82396](https://android-review.googlesource.com/#/q/I823967fe6b9524b448184ef366c562316bd6a323), [b/498369605](https://issuetracker.google.com/issues/498369605))
 
 ### Version 2.8.0-alpha01
 

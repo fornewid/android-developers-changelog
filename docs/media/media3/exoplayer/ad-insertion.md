@@ -24,7 +24,7 @@ has information about the ads to be played. This has several benefits:
 
 In this setup, the player takes care of switching between ads and content, which
 means that apps don't need to take care of controlling multiple separate
-background/foreground players for ads and content.
+background and foreground players for ads and content.
 
 When preparing content videos and ad tags for use with client-side ad insertion,
 ads should ideally be positioned at synchronization samples (keyframes) in the
@@ -89,7 +89,7 @@ Internally, `DefaultMediaSourceFactory` will wrap the content media source in an
 tag.
 
 ExoPlayer's `PlayerView` implements `AdViewProvider`. The ExoPlayer IMA library
-provides an easy to use `AdsLoader`, as described below.
+provides an `AdsLoader`, as described later.
 
 ### Playlists with ads
 
@@ -106,8 +106,8 @@ with which ad playback state for a given media item is linked, based on object
 equality. Here is an example where ad playback state is linked to the ad tag URI
 only, rather than the combination of the media ID and ad tag URI, by passing the
 ad tag URI as the ads identifier. The effect is that ads will load only once and
-the user will not see ads on the second item when playing the playlist from
-start to finish.
+the user won't see ads on the second item when playing the playlist from start
+to finish.
 
 
 ### Kotlin
@@ -159,16 +159,16 @@ player.addMediaItem(secondItem);
 ### Server-guided client-side ad insertion
 
 ExoPlayer comes with `HlsInterstitialsAdsLoader` that supports ads defined in
-the HLS playlist to be inserted on the client side automatically. See
-the section about `HlsInterstitialsAdsLoader` on the [HLS page](https://developer.android.com/media/media3/exoplayer/hls#interstitials).
+the HLS playlist to be inserted on the client side automatically. See the
+section about `HlsInterstitialsAdsLoader` on the [HLS page](https://developer.android.com/media/media3/exoplayer/hls#interstitials).
 
 ### ExoPlayer IMA library
 
-The [ExoPlayer IMA library](https://github.com/androidx/media/tree/release/libraries/exoplayer_ima) provides `ImaAdsLoader`, making it easy to
-integrate client-side ad insertion into your app. It wraps the functionality of
-the [client-side IMA SDK](https://developers.google.com/interactive-media-ads/docs/sdks/android) to support insertion of VAST/VMAP ads. For
-instructions on how to use the library, including how to handle backgrounding
-and resuming playback, please see the [README](https://github.com/androidx/media/tree/release/libraries/exoplayer_ima).
+The [ExoPlayer IMA library](https://github.com/androidx/media/tree/release/libraries/exoplayer_ima) provides `ImaAdsLoader` to integrate client-side
+ad insertion into your app. It wraps the functionality of the [client-side IMA
+SDK](https://developers.google.com/interactive-media-ads/docs/sdks/android) to support insertion of VAST/VMAP ads. For instructions on how to use the
+library, including how to handle backgrounding and resuming playback, see the
+[README](https://github.com/androidx/media/tree/release/libraries/exoplayer_ima).
 
 The [demo application](https://developer.android.com/guide/topics/media/exoplayer/demo-application) uses the IMA library, and includes several sample
 VAST/VMAP ad tags in the sample list.
@@ -200,7 +200,7 @@ SDK](https://developers.google.com/interactive-media-ads/docs/sdks/android/omsdk
 #### Companion ads
 
 Some ad tags contain additional companion ads that can be shown in 'slots' in an
-app UI. These slots can be passed via
+app UI. These slots can be passed using
 `ImaAdsLoader.Builder.setCompanionAdSlots(slots)`. For more information, see
 [Adding Companion Ads](https://developers.google.com/interactive-media-ads/docs/sdks/android/companions).
 
@@ -213,10 +213,10 @@ this use case.
 
 ### Using a third-party ads SDK
 
-If you need to load ads via a third-party ads SDK, it's worth checking whether
+If you need to load ads using a third-party ads SDK, it's worth checking whether
 it already provides an ExoPlayer integration. If not, implementing a custom
 `AdsLoader` that wraps the third-party ads SDK is the recommended approach,
-since it provides the benefits of `AdsMediaSource` described above.
+since it provides the benefits of `AdsMediaSource` described earlier.
 `ImaAdsLoader` acts as an example implementation.
 
 Alternatively, you can use ExoPlayer's [playlist support](https://developer.android.com/guide/topics/media/exoplayer/playlists) to build a sequence
@@ -326,12 +326,12 @@ Player player =
 
 ### ExoPlayer IMA library
 
-The [ExoPlayer IMA library](https://github.com/androidx/media/tree/release/libraries/exoplayer_ima) provides `ImaServerSideAdInsertionMediaSource`,
-making it easy to integrate with IMA's server-side inserted ad streams in your
-app. It wraps the functionality of the [IMA DAI SDK for Android](https://developers.google.com/interactive-media-ads/docs/sdks/android/dai) and fully
-integrates the provided ad metadata into the player. For example, this allows
-you to use methods like `Player.isPlayingAd()`, listen to content-ad transitions
-and let the player handle ad playback logic like skipping already played ads.
+The [ExoPlayer IMA library](https://github.com/androidx/media/tree/release/libraries/exoplayer_ima) provides `ImaServerSideAdInsertionMediaSource` to
+integrate with IMA's server-side inserted ad streams in your app. It wraps the
+functionality of the [IMA DAI SDK for Android](https://developers.google.com/interactive-media-ads/docs/sdks/android/dai) and fully integrates the
+provided ad metadata into the player. For example, this lets you use methods
+like `Player.isPlayingAd()`, listen to content-ad transitions and let the player
+handle ad playback logic like skipping already played ads.
 
 In order to use this class, you need to set up the
 `ImaServerSideAdInsertionMediaSource.AdsLoader` and the
@@ -383,7 +383,7 @@ adsLoader.setPlayer(player);
 
 <br />
 
-Load your IMA asset key, or content source id and video id, by building an URL
+Load your IMA asset key, or content source ID and video ID, by building a URL
 with `ImaServerSideAdInsertionUriBuilder`:
 
 
@@ -439,7 +439,7 @@ server-side ad insertion too.
 #### Companion ads
 
 Some ad tags contain additional companion ads that can be shown in 'slots' in an
-app UI. These slots can be passed via
+app UI. These slots can be passed using
 `ImaServerSideAdInsertionMediaSource.AdsLoader.Builder.setCompanionAdSlots(slots)`.
 For more information see [Adding Companion Ads](https://developers.google.com/interactive-media-ads/docs/sdks/android/companions).
 
@@ -456,7 +456,7 @@ and allows the user to set and update the `AdPlaybackState` representing the ad
 metadata.
 
 Often, server-side inserted ad streams contain timed events to notify the player
-about ad metadata. Please see [supported formats](https://developer.android.com/guide/topics/media/exoplayer/supported-formats) for information on what
-timed metadata formats are supported by ExoPlayer. Custom ads SDK `MediaSource`
+about ad metadata. See [supported formats](https://developer.android.com/guide/topics/media/exoplayer/supported-formats) for information on what timed
+metadata formats are supported by ExoPlayer. Custom ads SDK `MediaSource`
 implementations can listen for timed metadata events from the player using
 `Player.Listener.onMetadata`.

@@ -14,7 +14,6 @@ and [`RxWorker`](https://developer.android.com/reference/androidx/work/RxWorker)
 
 Let's say we have a `Worker` which looks like this:
 
-### Kotlin
 
 ```kotlin
 class SleepWorker(context: Context, parameters: WorkerParameters) :
@@ -28,34 +27,13 @@ class SleepWorker(context: Context, parameters: WorkerParameters) :
 }
 ```
 
-### Java
-
-```java
-public class SleepWorker extends Worker {
-    public SleepWorker(
-            @NonNull Context context,
-            @NonNull WorkerParameters workerParameters) {
-        super(context, workerParameters);
-    }
-
-    @NonNull
-    @Override
-    public Result doWork() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ignore) {
-return Result.success();
-        }
-    }
-}
-```
+<br />
 
 To test this `Worker`, you can use
 [`TestWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestWorkerBuilder). This
 builder helps build instances of `Worker` that can be used for the purpose of
 testing business logic.
 
-### Kotlin
 
 ```kotlin
 // Kotlin code uses the TestWorkerBuilder extension to build
@@ -84,40 +62,13 @@ class SleepWorkerTest {
 }
 ```
 
-### Java
-
-```java
-@RunWith(AndroidJUnit4.class)
-public class SleepWorkerJavaTest {
-    private Context context;
-    private Executor executor;
-
-    @Before
-    public void setUp() {
-        context = ApplicationProvider.getApplicationContext();
-        executor = Executors.newSingleThreadExecutor();
-    }
-
-    @Test
-    public void testSleepWorker() {
-        SleepWorker worker =
-                (SleepWorker) TestWorkerBuilder.from(context,
-                        SleepWorker.class,
-                        executor)
-                        .build();
-
-        Result result = worker.doWork();
-        assertThat(result, is(Result.success()));
-    }
-}
-```
+<br />
 
 `TestWorkerBuilder` can also be used to set tags, such as `inputData` or
 `runAttemptCount`, so that you can verify worker state in isolation. Consider
 an example in which `SleepWorker` takes in a sleep duration as input data
 rather than it being a constant defined in the worker:
 
-### Kotlin
 
 ```kotlin
 class SleepWorker(context: Context, parameters: WorkerParameters) :
@@ -136,35 +87,11 @@ class SleepWorker(context: Context, parameters: WorkerParameters) :
 }
 ```
 
-### Java
-
-```java
-public class SleepWorker extends Worker {
-    public static final String SLEEP_DURATION = "SLEEP_DURATION";
-
-    public SleepWorker(
-            @NonNull Context context,
-            @NonNull WorkerParameters workerParameters) {
-        super(context, workerParameters);
-    }
-
-    @NonNull
-    @Override
-    public Result doWork() {
-        try {
-            long duration = getInputData().getLong(SLEEP_DURATION, 1000);
-            Thread.sleep(duration);
-        } catch (InterruptedException ignore) {
-       return Result.success();
-        }
-    }
-}
-```
+<br />
 
 In `SleepWorkerTest`, you can provide that input data to your
 `TestWorkerBuilder` to satisfy the needs of `SleepWorker`.
 
-### Kotlin
 
 ```kotlin
 // Kotlin code uses the TestWorkerBuilder extension to build
@@ -194,37 +121,7 @@ class SleepWorkerTest {
 }
 ```
 
-### Java
-
-```java
-@RunWith(AndroidJUnit4.class)
-public class SleepWorkerJavaTest {
-    private Context context;
-    private Executor executor;
-
-    @Before
-    public void setUp() {
-        context = ApplicationProvider.getApplicationContext();
-        executor = Executors.newSingleThreadExecutor();
-    }
-
-    @Test
-    public void testSleepWorker() {
-        Data inputData = new Data.Builder()
-                .putLong("SLEEP_DURATION", 1000L)
-                .build();
-
-        SleepWorker worker =
-                (SleepWorker) TestWorkerBuilder.from(context,
-                        SleepWorker.class, executor)
-                        .setInputData(inputData)
-                        .build();
-
-        Result result = worker.doWork();
-        assertThat(result, is(Result.success()));
-    }
-}
-```
+<br />
 
 For more details on the `TestWorkerBuilder` API, see the reference page for
 [`TestListenableWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestListenableWorkerBuilder),
@@ -244,36 +141,46 @@ threading logic of the `ListenableWorker` implementation.
 
 For example, suppose we need to test a `CoroutineWorker` which looks like this:
 
-    class SleepWorker(context: Context, parameters: WorkerParameters) :
-        CoroutineWorker(context, parameters) {
-        override suspend fun doWork(): Result {
-            delay(1000L) // milliseconds
-            return Result.success()
-        }
+
+```kotlin
+class SleepWorker(context: Context, parameters: WorkerParameters) :
+    CoroutineWorker(context, parameters) {
+    override suspend fun doWork(): Result {
+        delay(1000L) // milliseconds
+        return Result.success()
     }
+}
+```
+
+<br />
 
 To test `SleepWorker`, we first create an instance of the Worker using
 `TestListenableWorkerBuilder` and then call its `doWork` function within a
 coroutine.
 
-    @RunWith(AndroidJUnit4::class)
-    class SleepWorkerTest {
-        private lateinit var context: Context
 
-        @Before
-        fun setUp() {
-            context = ApplicationProvider.getApplicationContext()
-        }
+```kotlin
+@RunWith(AndroidJUnit4::class)
+class SleepWorkerTest {
+    private lateinit var context: Context
 
-        @Test
-        fun testSleepWorker() {
-            val worker = TestListenableWorkerBuilder<SleepWorker>(context).build()
-            runBlocking {
-                val result = worker.doWork()
-                assertThat(result, `is`(Result.success()))
-            }
+    @Before
+    fun setUp() {
+        context = ApplicationProvider.getApplicationContext()
+    }
+
+    @Test
+    fun testSleepWorker() {
+        val worker = TestListenableWorkerBuilder<SleepWorker>(context).build()
+        runBlocking {
+            val result = worker.doWork()
+            assertThat(result, `is`(Result.success()))
         }
     }
+}
+```
+
+<br />
 
 `runBlocking` makes sense as a coroutine builder for your tests so that any code
 that would execute asynchronously is instead run in parallel.
@@ -282,7 +189,6 @@ Testing an `RxWorker` implementation is similar to testing `CoroutineWorker`, as
 `TestListenableWorkerBuilder` can handle any subclass of `ListenableWorker`.
 Consider a version of `SleepWorker` that uses RxJava instead of coroutines.
 
-### Kotlin
 
 ```kotlin
 class SleepWorker(
@@ -296,23 +202,7 @@ class SleepWorker(
 }
 ```
 
-### Java
-
-```java
-public class SleepWorker extends RxWorker {
-    public SleepWorker(@NonNull Context appContext, 
-@NonNull WorkerParameters workerParams) {
-        super(appContext, workerParams);
-    }
-
-    @NonNull
-    @Override
-    public Single<Result> createWork() {
-        return Single.just(Result.success())
-                .delay(1000L, TimeUnit.MILLISECONDS);
-    }
-}
-```
+<br />
 
 A version of `SleepWorkerTest` that tests an `RxWorker` may look similar to the
 version that tested a `CoroutineWorker`. You use the same
@@ -321,7 +211,6 @@ function. `createWork` returns a `Single` that you can use to verify the
 behavior of your worker. `TestListenableWorkerBuilder` handles any threading
 complexities and executes your worker code in parallel.
 
-### Kotlin
 
 ```kotlin
 @RunWith(AndroidJUnit4::class)
@@ -343,24 +232,4 @@ class SleepWorkerTest {
 }
 ```
 
-### Java
-
-```java
-@RunWith(AndroidJUnit4.class)
-public class SleepWorkerTest {
-    private Context context;
-
-    @Before
-    public void setUp() {
-        context = ApplicationProvider.getApplicationContext();
-    }
-
-    @Test
-    public void testSleepWorker() {
-        SleepWorker worker = TestListenableWorkerBuilder.from(context, SleepWorker.class)
-                .build();
-        worker.createWork().subscribe(result ->
-                assertThat(result, is(Result.success())));
-        }
-}
-```
+<br />

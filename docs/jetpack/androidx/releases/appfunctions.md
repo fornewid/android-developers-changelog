@@ -10,7 +10,7 @@ Allows apps to share functionality and data with AI assistants, enabling them to
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 07, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha13) |
+| October 21, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-beta01) | - |
 
 ## Declaring dependencies
 
@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.appfunctions:appfunctions:1.0.0-alpha13"
+    implementation "androidx.appfunctions:appfunctions:1.0.0-beta01"
     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
     // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
-    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-alpha13"
+    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-beta01"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.appfunctions:appfunctions:1.0.0-alpha13")
+    implementation("androidx.appfunctions:appfunctions:1.0.0-beta01")
     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
     // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
-    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-alpha13")
+    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-beta01")
 }
 ```
 
@@ -61,6 +61,27 @@ for more information.
 There are no release notes for this artifact.
 
 ## Version 1.0
+
+### Version 1.0.0-beta01
+
+October 21, 2026
+
+`androidx.appfunctions:appfunctions:1.0.0-beta01`, `androidx.appfunctions:appfunctions-compiler:1.0.0-beta01`, and `androidx.appfunctions:appfunctions-testing:1.0.0-beta01` are released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f00b1745e804a33584208947a6cdbb3915f9b8cb..b463fe32f4f38cfc70d99bf57a4587ff83459dcc/appfunctions).
+
+**API Changes**
+
+- `AppFunctionName` has been moved from the `androidx.appfunctions.metadata` package to `androidx.appfunctions`. ([Iec624](https://android-review.googlesource.com/#/q/Iec624d1e6b3ca8a9d9fb28ce4615572801087736))
+- Removed the default value of `isDescribedByKDoc` from `AppFunctionDeclaration`, `AppFunctionSerializable` and `AppFunctionSignature`; it must now be set explicitly. ([Idcfd2](https://android-review.googlesource.com/#/q/Idcfd2babf997325625fad74f3e65e7a03f24fd6a))
+- Support `AppFunctionServiceEntryPoint` in `AppFunctionTestRule` ([I12e01](https://android-review.googlesource.com/#/q/I12e018f778635aa2275a663bdf79aae56b49dbc5))
+- AppFunctionResourceContainer and AppFunctionTextResource are now marked as @ExperimentalAppFunctionsApi. ([If9469](https://android-review.googlesource.com/#/q/If9469259dd0e0666bc87785feca4b62c09e8db9d))
+- Renamed `AppFunctionAppMetadata.description` to `instructions`, and the `description` XML attribute of `AppFunctionAppMetadata` to `instructions`, to align with MCP naming conventions. ([I04d08](https://android-review.googlesource.com/#/q/I04d0856646dee1cb6315e08f8c7b4288a5345cf3))
+- Replaced regex pattern in @AppFunctionStringValueConstraint with patternMatchers backed by android.os.PatternMatcher. ([I7c7cc](https://android-review.googlesource.com/#/q/I7c7cc52fa221d0eea5533b43ae976b057c6bf406))
+
+**Bug Fixes**
+
+- Fixed `java.time` parameter types failing to deserialize in apps with Java library desugaring enabled. ([I211ce](https://android-review.googlesource.com/#/q/I211ce88646c06747d1e36429877c1bea5f6965e5))
+- Fixed the issue that the generated file name could contain invalid symbol for some operating systems. ([Idced4](https://android-review.googlesource.com/q/Idced400abced6ec83206ad07c12ce91d736559a8))
+- Fixed the issue that on SDK37+, the URI permissions are granted twice. ([I3c845](https://android-review.googlesource.com/#/q/I3c84590d07b5f6a7a3769658a8764c2e683868a4))
 
 ### Version 1.0.0-alpha13
 

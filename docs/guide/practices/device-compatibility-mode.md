@@ -40,7 +40,6 @@ The following per-app overrides are nonfunctional for apps that target API level
 - [OVERRIDE_ENABLE_COMPAT_IGNORE_REQUESTED_ORIENTATION](https://developer.android.com/guide/practices/device-compatibility-mode#override_enable_compat_ignore_requested_orientation)
 - [OVERRIDE_ENABLE_COMPAT_IGNORE_ORIENTATION_REQUEST_WHEN_LOOP_DETECTED](https://developer.android.com/guide/practices/device-compatibility-mode#override_enable_compat_ignore_orientation_request_when_loop_detected)
 - [OVERRIDE_RESPECT_REQUESTED_ORIENTATION](https://developer.android.com/guide/practices/device-compatibility-mode#override_respect_requested_orientation)
-- [OVERRIDE_EXCLUDE_CAPTION_INSETS_FROM_APP_BOUNDS](https://developer.android.com/guide/practices/device-compatibility-mode#override_exclude_caption_insets_from_app_bounds)
 
 ### Opt out
 
@@ -975,6 +974,7 @@ property flags to your app manifest to opt out of some overrides.
 |   | [OVERRIDE_CAMERA_COMPAT_ENABLE_REFRESH_VIA_PAUSE](https://developer.android.com/guide/practices/device-compatibility-mode#override_camera_compat_enable_refresh_via_pause) | 264301586 | Switches the hard refresh to a soft refresh when a camera preview is force rotated, which helps preserve state during the force rotation. By default, Android applies a hard refresh when the camera preview is force rotated. The hard refresh can cause issues with apps losing state or blacking out depending on how the apps cached their previous state. |
 |   | [OVERRIDE_CAMERA_LANDSCAPE_TO_PORTRAIT](https://developer.android.com/guide/practices/device-compatibility-mode#override_camera_landscape_to_portrait) | 250678880 | Crops the image buffer of the inner front camera. If the override is disabled, the inner front camera cropping is removed and the field of view of the camera preview is increased. By default on some foldables (see [reference devices](https://developer.android.com/guide/practices/device-compatibility-mode#reference_devices)), the system crops the camera preview of all camera apps when using the inner front camera. |
 | Miscellaneous | [OVERRIDE_ENABLE_COMPAT_FAKE_FOCUS](https://developer.android.com/guide/practices/device-compatibility-mode#override_enable_compat_fake_focus) | 263259275 | Prevents the app from being blacked out when the app loses focus in split-screen mode. App waits for focus before drawing the app content, which can cause the app to freeze or be blacked out. The override enables Android to send a fake focus event to the app, which signals to the app to begin drawing content again. |
+|   | [OVERRIDE_EXCLUDE_CAPTION_INSETS_FROM_APP_BOUNDS](https://developer.android.com/guide/practices/device-compatibility-mode#override_exclude_caption_insets_from_app_bounds) | 388014743 | Excludes caption bar insets from the app bounds in the activity configuration in desktop windowing, preventing top or bottom app UI elements from being occluded by the caption bar or cropped when the app doesn't handle caption bar insets. |
 
 ### OVERRIDE_MOUSE_TO_TOUCH
 
@@ -2155,9 +2155,22 @@ To remove the override:
 
 ### OVERRIDE_EXCLUDE_CAPTION_INSETS_FROM_APP_BOUNDS
 
-When the override is enabled, the activity receives configuration that includes
-caption bar insets. Normally, caption bar insets are not included in the
-configuration.
+Excludes caption bar insets from the app bounds in the activity configuration in
+desktop windowing, preventing top or bottom app UI elements from being occluded
+by the caption bar or cropped when the app doesn't handle caption bar insets.
+
+Normally, caption bar insets are not excluded from the app bounds in the
+configuration, and `Configuration.screenHeightDp` and the app bounds report the
+full window height, including the area behind the desktop windowing caption bar
+(the title bar with the minimize, maximize, and close controls, which remains
+visible even in immersive mode):
+
+- **Edge-to-edge or immersive apps that don't handle caption bar insets:** The app's layout area spans the entire window, so if the app doesn't query `WindowInsets` to offset its UI, top controls can be drawn directly underneath the caption bar.
+- **Apps where caption bar insets are force-consumed by the system:** To prevent the app from drawing behind the caption bar, the system shifts the app's root view down below the caption bar. If the app sizes its layout using the unadjusted `Configuration.screenHeightDp` or app bounds rather than its viewport dimensions, it renders a full-window-height layout starting below the caption bar, pushing bottom UI elements past the bottom edge of the window and misaligning touch targets.
+
+When the override is enabled, the system subtracts the caption bar height from
+the app bounds and `Configuration.screenHeightDp` so the app's layout area
+aligns with the space below the caption bar.
 
 #### How apps can achieve same result as override
 

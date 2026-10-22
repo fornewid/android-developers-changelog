@@ -30,8 +30,8 @@ your project.
 ```groovy
 dependencies {
     // Core Navigation 3 APIs
-    implementation "androidx.navigation3:navigation3-runtime:1.3.0-alpha02"
-    implementation "androidx.navigation3:navigation3-ui:1.3.0-alpha02"
+    implementation "androidx.navigation3:navigation3-runtime:1.3.0-alpha03"
+    implementation "androidx.navigation3:navigation3-ui:1.3.0-alpha03"
 
     // Wear OS specific Navigation 3 integration
     implementation "androidx.wear.compose:compose-navigation3:1.7.1"
@@ -46,8 +46,8 @@ dependencies {
 ```kotlin
 dependencies {
     // Core Navigation 3 APIs
-    implementation("androidx.navigation3:navigation3-runtime:1.3.0-alpha02")
-    implementation("androidx.navigation3:navigation3-ui:1.3.0-alpha02")
+    implementation("androidx.navigation3:navigation3-runtime:1.3.0-alpha03")
+    implementation("androidx.navigation3:navigation3-ui:1.3.0-alpha03")
 
     // Wear OS specific Navigation 3 integration
     implementation("androidx.wear.compose:compose-navigation3:1.7.1")

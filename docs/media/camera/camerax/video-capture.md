@@ -87,6 +87,7 @@ CameraX `Recorder` supports the following pre-defined [`Qualities`](https://deve
 for video resolutions:
 
 - `Quality.UHD` for 4K ultra HD video size (2160p)
+- `Quality.QHD` for quad HD video size (1440p), introduced in CameraX `1.7.0-alpha02`
 - `Quality.FHD` for full HD video size (1080p)
 - `Quality.HD` for HD video size (720p)
 - `Quality.SD` for SD video size (480p)
@@ -112,7 +113,7 @@ You can create a `QualitySelector` using one of the following methods:
   authorize CameraX to choose one that is the closest to the Quality.SD resolution:
 
       val qualitySelector = QualitySelector.fromOrderedList(
-               listOf(Quality.UHD, Quality.FHD, Quality.HD, Quality.SD),
+               listOf(Quality.UHD, Quality.QHD, Quality.FHD, Quality.HD, Quality.SD),
                FallbackStrategy.lowerQualityOrHigherThan(Quality.SD))
 
 - Query the camera capabilities first, and choose from the supported
@@ -125,7 +126,7 @@ You can create a `QualitySelector` using one of the following methods:
       }
 
       val supportedQualities = QualitySelector.getSupportedQualities(cameraInfo[0])
-      val filteredQualities = arrayListOf (Quality.UHD, Quality.FHD, Quality.HD, Quality.SD)
+      val filteredQualities = arrayListOf (Quality.UHD, Quality.QHD, Quality.FHD, Quality.HD, Quality.SD)
                              .filter { supportedQualities.contains(it) }
 
       // Use a simple ListView with the id of simple_quality_list_view
@@ -153,6 +154,7 @@ You can create a `QualitySelector` using one of the following methods:
       fun Quality.qualityToString() : String {
           return when (this) {
               Quality.UHD -> "UHD"
+              Quality.QHD -> "QHD"
               Quality.FHD -> "FHD"
               Quality.HD -> "HD"
               Quality.SD -> "SD"
@@ -307,6 +309,81 @@ if (mVideoQuality != QUALITY_AUTO) {
     useCases.add(videoCapture);
 ```
 
+### Dynamic range (HDR video)
+
+CameraX supports 10-bit high dynamic range (HDR) video recording, such as
+HLG10, HDR10, HDR10+, or Dolby Vision, using [`DynamicRange`](https://developer.android.com/reference/androidx/camera/core/DynamicRange).
+
+To use HDR video recording, complete the following steps:
+
+1. Query the camera's supported dynamic ranges using [`VideoCapabilities.getSupportedDynamicRanges()`](https://developer.android.com/reference/androidx/camera/video/VideoCapabilities#getSupportedDynamicRanges()).
+2. Optional: If you configure a custom `QualitySelector`, check which qualities are supported for that dynamic range using [`getSupportedQualities(DynamicRange)`](https://developer.android.com/reference/androidx/camera/video/VideoCapabilities#getSupportedQualities(androidx.camera.core.DynamicRange)).
+3. Configure `VideoCapture.Builder` with [`setDynamicRange()`](https://developer.android.com/reference/androidx/camera/video/VideoCapture.Builder#setDynamicRange(androidx.camera.core.DynamicRange)).
+
+The following example enables HLG 10-bit HDR recording when the camera supports
+it:
+
+### Kotlin
+
+```kotlin
+val videoCapabilities = Recorder.getVideoCapabilities(cameraInfo)
+val supportedHdrRanges = videoCapabilities.supportedDynamicRanges
+    .filter { it != DynamicRange.SDR }
+
+val recorder = Recorder.Builder().build()
+val videoCapture = VideoCapture.Builder(recorder)
+    .apply {
+        if (supportedHdrRanges.contains(DynamicRange.HLG_10_BIT)) {
+            setDynamicRange(DynamicRange.HLG_10_BIT)
+        }
+    }
+    .build()
+```
+
+### Java
+
+```java
+VideoCapabilities videoCapabilities = Recorder.getVideoCapabilities(cameraInfo);
+Set<DynamicRange> supportedRanges = videoCapabilities.getSupportedDynamicRanges();
+
+Recorder recorder = new Recorder.Builder().build();
+VideoCapture.Builder<Recorder> builder = new VideoCapture.Builder<>(recorder);
+if (supportedRanges.contains(DynamicRange.HLG_10_BIT)) {
+    builder.setDynamicRange(DynamicRange.HLG_10_BIT);
+}
+VideoCapture<Recorder> videoCapture = builder.build();
+```
+
+### Video stabilization
+
+CameraX supports video stabilization to reduce handheld shaking and jitter
+during video recording.
+
+To enable video stabilization, complete the following steps:
+
+1. Check whether the camera device supports stabilization using [`VideoCapabilities.isStabilizationSupported()`](https://developer.android.com/reference/androidx/camera/video/VideoCapabilities#isStabilizationSupported()).
+2. Enable it on `VideoCapture.Builder` using [`setVideoStabilizationEnabled(true)`](https://developer.android.com/reference/androidx/camera/video/VideoCapture.Builder#setVideoStabilizationEnabled(boolean)).
+
+The following example enables stabilization when the camera supports it:
+
+### Kotlin
+
+```kotlin
+val videoCapabilities = Recorder.getVideoCapabilities(cameraInfo)
+val videoCapture = VideoCapture.Builder(recorder)
+    .setVideoStabilizationEnabled(videoCapabilities.isStabilizationSupported)
+    .build()
+```
+
+### Java
+
+```java
+VideoCapabilities videoCapabilities = Recorder.getVideoCapabilities(cameraInfo);
+VideoCapture<Recorder> videoCapture = new VideoCapture.Builder<>(recorder)
+    .setVideoStabilizationEnabled(videoCapabilities.isStabilizationSupported())
+    .build();
+```
+
 ## Control an active recording
 
 You can pause, resume, and stop an ongoing `Recording` by
@@ -332,6 +409,216 @@ Once your app receives a `EVENT_TYPE_FINALIZE` that indicates a successful
 recording session, you can then access the captured video from the location
 specified in `OutputOptions`.
 
+### Real-time audio amplitude and state
+
+During recording, `VideoRecordEvent.Status` events provide real-time audio
+statistics through [`AudioStats`](https://developer.android.com/reference/androidx/camera/video/AudioStats):
+
+- [`AudioStats.getAudioAmplitude()`](https://developer.android.com/reference/androidx/camera/video/AudioStats#getAudioAmplitude()) returns the current audio peak amplitude, ranging from `0.0` to `1.0`. You can use this value to drive UI meters or audio waveform visualizers.
+- [`AudioStats.getAudioState()`](https://developer.android.com/reference/androidx/camera/video/AudioStats#getAudioState()) indicates the current status of the audio stream, such as `AUDIO_STATE_ACTIVE`, `AUDIO_STATE_MUTED`, or `AUDIO_STATE_SOURCE_SILENCED`.
+
+The following example reads the audio amplitude from a status event:
+
+### Kotlin
+
+```kotlin
+when (event) {
+    is VideoRecordEvent.Status -> {
+        val audioStats = event.recordingStats.audioStats
+        if (audioStats.hasAudio()) {
+            val amplitude = audioStats.audioAmplitude
+            updateAudioWaveform(amplitude)
+        }
+    }
+    // ...
+}
+```
+
+### Java
+
+```java
+if (event instanceof VideoRecordEvent.Status) {
+    VideoRecordEvent.Status status = (VideoRecordEvent.Status) event;
+    AudioStats audioStats = status.getRecordingStats().getAudioStats();
+    if (audioStats.hasAudio()) {
+        double amplitude = audioStats.getAudioAmplitude();
+        updateAudioWaveform(amplitude);
+    }
+}
+```
+
+## High-speed and slow-motion video
+
+CameraX supports high-speed video recording, such as 120, 240, or 480 fps,
+which enables two distinct use cases:
+
+- **High-frame-rate video (player-handled slow motion)**: CameraX captures and saves frames at the high frame rate (for example, 120 fps). The video player controls playback speed, allowing users to toggle between normal speed and slow motion or perform frame-by-frame analysis.
+- **Ready-to-play slow-motion video**: CameraX processes the high-speed stream and outputs a standard 30 fps video file with adjusted frame timestamps. The slow-motion effect is "baked in", so the video plays in slow motion automatically in any standard player without special player support. For example, a 120 fps capture played back at 30 fps produces a 1/4x slow-motion video.
+
+### Check high-speed capabilities
+
+High-speed video capture requires hardware support and corresponding
+[`CamcorderProfile`](https://developer.android.com/reference/android/media/CamcorderProfile) definitions from device manufacturers,
+such as `CamcorderProfile.QUALITY_HIGH_SPEED_1080P` or
+`QUALITY_HIGH_SPEED_720P`.
+
+Before configuring high-speed recording, query high-speed capabilities using
+[`Recorder.getHighSpeedVideoCapabilities(CameraInfo)`](https://developer.android.com/reference/androidx/camera/video/Recorder#getHighSpeedVideoCapabilities(androidx.camera.core.CameraInfo)):
+
+### Kotlin
+
+```kotlin
+val highSpeedCapabilities = Recorder.getHighSpeedVideoCapabilities(cameraInfo)
+if (highSpeedCapabilities == null) {
+    // Camera does not support high-speed video capture
+    return
+}
+val supportedQualities = highSpeedCapabilities.getSupportedQualities(DynamicRange.SDR)
+```
+
+### Java
+
+```java
+VideoCapabilities highSpeedCapabilities = Recorder.getHighSpeedVideoCapabilities(cameraInfo);
+if (highSpeedCapabilities == null) {
+    // Camera does not support high-speed video capture
+    return;
+}
+List<Quality> supportedQualities = highSpeedCapabilities.getSupportedQualities(DynamicRange.SDR);
+```
+
+> [!NOTE]
+> **Note:** If high-speed video isn't supported on the device, `Recorder.getHighSpeedVideoCapabilities()` returns `null`. Always check for `null` before configuring high-speed sessions.
+
+### Configure HighSpeedVideoSessionConfig
+
+To use high-speed capture, combine your `VideoCapture` and `Preview` use cases
+in a [`HighSpeedVideoSessionConfig`](https://developer.android.com/reference/androidx/camera/video/HighSpeedVideoSessionConfig). To configure
+the session, complete the following steps:
+
+1. Create a `VideoCapture` use case and a `Preview` use case.
+2. Initialize [`HighSpeedVideoSessionConfig.Builder`](https://developer.android.com/reference/androidx/camera/video/HighSpeedVideoSessionConfig.Builder) with the `VideoCapture` use case and attach the `Preview`.
+3. Query the supported frame rate ranges using [`CameraInfo.getSupportedFrameRateRanges(SessionConfig)`](https://developer.android.com/reference/androidx/camera/core/CameraInfo#getSupportedFrameRateRanges(androidx.camera.core.SessionConfig)) and set the selected range.
+4. Choose between high-frame-rate video or ready-to-play slow-motion video:
+   - To create a **high-frame-rate video** , leave `setSlowMotionEnabled(false)` (default).
+   - To create a **ready-to-play slow-motion video** , call `setSlowMotionEnabled(true)`.
+5. Bind the session config using `cameraProvider.bindToLifecycle()`.
+
+The following example configures and binds a ready-to-play slow-motion session:
+
+### Kotlin
+
+```kotlin
+val preview = Preview.Builder().build()
+val recorder = Recorder.Builder()
+    .setQualitySelector(QualitySelector.from(supportedQualities.first()))
+    .build()
+val videoCapture = VideoCapture.withOutput(recorder)
+
+// Build HighSpeedVideoSessionConfig
+val sessionConfigBuilder = HighSpeedVideoSessionConfig.Builder(videoCapture)
+    .setPreview(preview)
+    // Enable automatic slow-motion playback at 30 fps
+    .setSlowMotionEnabled(true)
+
+// Query and set a supported high-speed frame rate range (such as 120 or 240 fps).
+// The set is non-empty because getHighSpeedVideoCapabilities() returned non-null earlier.
+val supportedFpsRanges = cameraInfo.getSupportedFrameRateRanges(sessionConfigBuilder.build())
+sessionConfigBuilder.setFrameRateRange(supportedFpsRanges.first())
+
+val sessionConfig = sessionConfigBuilder.build()
+
+// Bind session config to lifecycle
+cameraProvider.bindToLifecycle(
+    lifecycleOwner,
+    CameraSelector.DEFAULT_BACK_CAMERA,
+    sessionConfig
+)
+```
+
+### Java
+
+```java
+Preview preview = new Preview.Builder().build();
+Recorder recorder = new Recorder.Builder()
+    .setQualitySelector(QualitySelector.from(supportedQualities.get(0)))
+    .build();
+VideoCapture<Recorder> videoCapture = VideoCapture.withOutput(recorder);
+
+HighSpeedVideoSessionConfig.Builder sessionConfigBuilder =
+    new HighSpeedVideoSessionConfig.Builder(videoCapture)
+        .setPreview(preview)
+        .setSlowMotionEnabled(true);
+
+// The set is non-empty because getHighSpeedVideoCapabilities() returned non-null earlier.
+Set<Range<Integer>> supportedFpsRanges =
+    cameraInfo.getSupportedFrameRateRanges(sessionConfigBuilder.build());
+sessionConfigBuilder.setFrameRateRange(supportedFpsRanges.iterator().next());
+
+HighSpeedVideoSessionConfig sessionConfig = sessionConfigBuilder.build();
+
+cameraProvider.bindToLifecycle(
+    lifecycleOwner,
+    CameraSelector.DEFAULT_BACK_CAMERA,
+    sessionConfig
+);
+```
+
+You can also use the Kotlin DSL, introduced in CameraX `1.7.0-alpha02`, to
+configure high-speed sessions concisely:
+
+    val sessionConfig = highSpeedVideoSessionConfig(videoCapture) {
+        this.preview = preview
+        isSlowMotionEnabled = true
+        frameRateRange = supportedFpsRanges.first()
+    }
+    cameraProvider.bindToLifecycle(
+        lifecycleOwner,
+        CameraSelector.DEFAULT_BACK_CAMERA,
+        sessionConfig
+    )
+
+### Record high-speed or slow-motion video
+
+After you bind the `HighSpeedVideoSessionConfig`, start recording using
+`VideoCapture` in the same way as standard video recordings:
+
+### Kotlin
+
+```kotlin
+val recording = videoCapture.output
+    .prepareRecording(context, mediaStoreOutput)
+    .withAudioEnabled()
+    .start(ContextCompat.getMainExecutor(context)) { event ->
+        when (event) {
+            is VideoRecordEvent.Start -> Log.d(TAG, "Recording started")
+            is VideoRecordEvent.Finalize -> {
+                if (!event.hasError()) {
+                    Log.d(TAG, "Video saved: ${event.outputResults.outputUri}")
+                }
+            }
+        }
+    }
+```
+
+### Java
+
+```java
+Recording recording = videoCapture.getOutput()
+    .prepareRecording(context, mediaStoreOutput)
+    .withAudioEnabled()
+    .start(ContextCompat.getMainExecutor(context), event -> {
+        if (event instanceof VideoRecordEvent.Start) {
+            Log.d(TAG, "Recording started");
+        } else if (event instanceof VideoRecordEvent.Finalize) {
+            VideoRecordEvent.Finalize finalize = (VideoRecordEvent.Finalize) event;
+            if (!finalize.hasError()) {
+                Log.d(TAG, "Video saved: " + finalize.getOutputResults().getOutputUri());
+            }
+        }
+    });
+```
+
 ## Additional resources
 
 To learn more about CameraX, see the following additional resources:
@@ -341,3 +628,4 @@ To learn more about CameraX, see the following additional resources:
 - [Latest CameraX Video Capture API List](https://github.com/androidx/androidx/blob/androidx-main/camera/camera-video/api/current.txt)
 - [CameraX release notes](https://developer.android.com/jetpack/androidx/releases/camera)
 - [CameraX source code](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:camera/)
+- [High-Speed Capture and Slow-Motion Video with CameraX 1.5](https://developer.android.com/blog/posts/high-speed-capture-and-slow-motion-video-with-camera-x-1-5)

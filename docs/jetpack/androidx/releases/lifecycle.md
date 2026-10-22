@@ -13,10 +13,10 @@ This table lists all the artifacts in the `androidx.lifecycle` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| lifecycle-\* | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha04](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha04) |
-| lifecycle-viewmodel-navigation3 | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha04](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha04) |
+| lifecycle-\* | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha05](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha05) |
+| lifecycle-viewmodel-navigation3 | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha05](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha05) |
 
-This library was last updated on: September 23, 2026
+This library was last updated on: October 21, 2026
 
 ## Declaring dependencies
 
@@ -54,7 +54,7 @@ your app or module:
         implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
 
         // ViewModel integration with Navigation3
-        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha04"
+        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha05"
 
         // Annotation processor
         kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
@@ -101,7 +101,7 @@ your app or module:
         implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
 
         // ViewModel integration with Navigation3
-        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha04")
+        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha05")
 
         // Annotation processor
         kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
@@ -224,6 +224,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 2.12
+
+### Version 2.12.0-alpha05
+
+October 21, 2026
+
+`androidx.lifecycle:lifecycle-*:2.12.0-alpha05` is released. Version 2.12.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f..3566803898b060d7136357220affc9ece8236019/lifecycle).
+
+**API Changes**
+
+- `SavedStateHandle` now provides functions to integrate with `SavedStateContainer`. There is `asContainer()` to transform the `SavedStateHandle` as a `SavedStateContainer`, `getOrCreateContainer()` to make a child container inside of the handle, and `getOrCreateSavedStateHandle()` which creates a child `SavedStateHandle` inside of the current one. As part of the move to `SavedStateContainer`, it is also no longer valid to use `getStateFlow` and `getLiveData` together on a `SavedStateHandle` and doing so will throw an `IllegalArgumentException` ([I62f36](https://android-review.googlesource.com/#/q/I62f36431dd05f66e78e8bb74b968913831ee8e03))
 
 ### Version 2.12.0-alpha04
 

@@ -41,7 +41,7 @@ explicitly.
 `Player.Listener` has empty default methods, so you only need to implement the
 methods you're interested in. See the [Javadoc](https://developer.android.com/reference/androidx/media3/common/Player.Listener) for a full description of the
 methods and when they're called. Some of the most important methods are
-described in more detail below.
+described in more detail later.
 
 Listeners have the choice between implementing individual event callbacks or a
 generic `onEvents` callback that's called after one or more events occur
@@ -321,10 +321,10 @@ coroutineScope.launch {
 ### Individual callbacks versus `onEvents`
 
 When listening to player events inside a coroutine, you will always be providing
-the implementation for the `onEvents` callback, as opposed to an
-[individual callback](https://developer.android.com/media/media3/exoplayer/listening-to-player-events#individual-callbacks). You may choose
-between [`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listen(kotlin.Function2)) and [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)), depending on which events
-should trigger an invocation of your lambda. But the functions are otherwise
+the implementation for the `onEvents` callback, as opposed to an [individual
+callback](https://developer.android.com/media/media3/exoplayer/listening-to-player-events#individual-callbacks). You may choose between
+[`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listen(kotlin.Function2)) and [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)), depending on which events should
+trigger an invocation of your lambda. But the functions are otherwise
 equivalent:
 
 ### listen
@@ -373,8 +373,8 @@ coroutineScope.launch {
 
 If you are interested in multiple event types, you can pass a list of events to
 [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)). Your lambda will be invoked whenever any of those events
-occur, and you can inspect the `Events` parameter to check which events
-actually fired:
+occur, and you can inspect the `Events` parameter to check which events actually
+fired:
 
 
 ```kotlin
@@ -401,7 +401,7 @@ use the standard `Player.Listener` interface instead.
 When using `ExoPlayer`, an `AnalyticsListener` can be registered with the player
 by calling `addAnalyticsListener`. `AnalyticsListener` implementations are able
 to listen to detailed events that may be useful for analytics and logging
-purposes. Please refer to the [analytics page](https://developer.android.com/guide/topics/media/exoplayer/analytics) for more details.
+purposes. See the [analytics page](https://developer.android.com/guide/topics/media/exoplayer/analytics) for more details.
 
 ### Use `EventLogger`
 

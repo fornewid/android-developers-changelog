@@ -108,13 +108,12 @@ fun CustomPlayerSlots(player: Player, showControls: Boolean, modifier: Modifier 
     showControls = showControls,
     topControls = {
       // Fully custom top controls
-      AnimatedVisibility(showControls) { Text("My custom title") }
+      Text("My custom title")
     },
     centerControls = {
       // Use default CenterControls but override the central button
       PlayerDefaults.CenterControls(
         player = player,
-        visible = showControls,
         central = {
           // A custom play/pause button
           Material3PlayPauseButton(player, modifier = Modifier.size(64.dp))

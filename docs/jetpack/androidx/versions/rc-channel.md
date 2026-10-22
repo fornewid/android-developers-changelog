@@ -16,6 +16,13 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## October 21, 2026
+
+- [Camera Featurecombinationquery Version 1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.7.0-rc01)
+- [Camera Version 1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01)
+- [Camera Viewfinder Version 1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-rc01)
+- [Mediarouter Version 1.9.0-rc01](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.9.0-rc01)
+
 ## October 12, 2026
 
 - [Datastore Version 1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-rc01)

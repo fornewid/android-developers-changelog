@@ -10,7 +10,7 @@ TODO
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 23, 2026 | - | - | [1.0.0-beta02](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-beta02) | - |
+| October 21, 2026 | - | - | [1.0.0-beta03](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-beta03) | - |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.text:text-vertical:1.0.0-beta02"
+    implementation "androidx.text:text-vertical:1.0.0-beta03"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.text:text-vertical:1.0.0-beta02")
+    implementation("androidx.text:text-vertical:1.0.0-beta03")
 }
 ```
 
@@ -55,6 +55,35 @@ for more information.
 ## Text-Vertical
 
 ### Version 1.0
+
+### Version 1.0.0-beta03
+
+October 21, 2026
+
+`androidx.text:text-vertical:1.0.0-beta03` and `androidx.text:text-vertical-compose:1.0.0-beta03` are released. Version 1.0.0-beta03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f..5a2352ffc8afa3fb5a17bd7eb0c70ee5638bad18/text).
+
+**Note:** This is intended to be the last beta release.
+
+**New Features**
+
+- Added a "Subtitle Cue" tab to `VerticalTextSampleActivity` to demonstrate `VerticalText` capabilities, including rendering with wrapped height, `toVerticalTextStyle()`, `RubySpan`, `EmphasisSpan`, Tate-chu-yoko, `FontShearSpan`, `UnderlineSpan`, and `StrikethroughSpan`. [I4799d1](https://android-review.googlesource.com/q/I4799d1fec43f8be481c55c263599c3ed5def5f72) [b/571750156](https://buganizer.corp.google.com/issues/571750156)
+
+**Bug Fixes**
+
+- Fixed horizontal `RubySpan` and `EmphasisSpan` line height when using fonts with large top and bottom padding such as Noto Sans JP. ([Ib0507](https://android-review.googlesource.com/#/q/Ib050716b4c36d500af06c51c094886db1209b6fa), [b/557316470](https://issuetracker.google.com/issues/557316470)) - *Thanks for the report, Numero-san!*
+- Updated Compose dependencies to `1.12.1`. ([I9ee7f](https://android-review.googlesource.com/#/q/I9ee7fd42956442635d8ca52c9fde4573a701e65e), [b/569780191](https://issuetracker.google.com/issues/569780191))
+- `VerticalText` now applies `AnnotatedString` span styles and preserves `AnnotatedString` spans and annotations in semantics. ([Ib077f](https://android-review.googlesource.com/#/q/Ib077f6a7ea19193cebc8ee4c9ca6a65ddb300b91), [b/502088091](https://issuetracker.google.com/issues/502088091))
+- Fixed `RubySpan` and `EmphasisSpan` not filling the background color of `TextPaint.bgColor` or `BackgroundColorSpan` in horizontal layout. ([I66ba8](https://android-review.googlesource.com/#/q/I66ba8e34efdf50d2c5242dc1f7c51a05e042200a), [b/561269843](https://issuetracker.google.com/issues/561269843))
+- Fixed background colors in vertical text that were drawn as outlines after a span set `Paint.Style.STROKE`. ([I692ed](https://android-review.googlesource.com/#/q/I692edf199eb8203fc2a0b54cbd1a7148a16c21f1), [b/566429122](https://issuetracker.google.com/issues/566429122))
+- `CharacterStyle` spans that cover a full `RubySpan` range in `VerticalTextLayout` now also apply to the ruby text, and `RubySpan.textScale` scales the font sizes that they set. Background colors now also fill the empty space above and below the shorter of the ruby text and the base text. ([I0dadc](https://android-review.googlesource.com/#/q/I0dadc5a595659c9c6cddde5851b0751cf7ada4d1), [b/564268825](https://issuetracker.google.com/issues/564268825))
+- Fixed `VerticalTextLayout` background height when upright text has multiple style runs. ([I7e31a](https://android-review.googlesource.com/#/q/I7e31a64437ea4e306ca197bc65f6358c8eb87495), [b/565211671](https://issuetracker.google.com/issues/565211671))
+- Fixed `VerticalText` retaining a stale background color when `VerticalTextStyle.background` changes to `Color.Unspecified`. ([Ia0861](https://android-review.googlesource.com/#/q/Ia0861af33b5110db66c0e2f8a81b4b17087376f5), [b/565211671](https://issuetracker.google.com/issues/565211671))
+- Fixed horizontal ruby and emphasis layouts skipping `TextPaint` fields when copying the caller paint. ([Ia3043](https://android-review.googlesource.com/#/q/Ia3043b72aa8155437aed08a17fddf19a197c0eac), [b/561269843](https://issuetracker.google.com/issues/561269843))
+- `VerticalText` now draws the background color from `VerticalTextStyle.background` behind plain `String` text and behind plain `String` ruby annotations in `RubySpan`. ([If0493](https://android-review.googlesource.com/#/q/If04930c29fdac4297afa9593176349cf45f80905), [b/564268825](https://issuetracker.google.com/issues/564268825))
+- Fixed horizontal ruby layout leaving the shared working paint scaled after initialization. ([I33760](https://android-review.googlesource.com/#/q/I3376022398a402d632d9d55ec310154607802fcb), [b/561269843](https://issuetracker.google.com/issues/561269843))
+- Fixed the vertical text sample app so that a pan gesture cannot move the text out of view. ([If0108](https://android-review.googlesource.com/#/q/If01084db6c6a72bcb665f803788860b1202aad70), [b/563461635](https://issuetracker.google.com/issues/563461635))
+- Fixed the test app to demo emphasis mark position ([I3ffa3](https://android-review.googlesource.com/#/q/I3ffa3802cea6a2301afd8827d0c32db91261a9f5), [b/559972132](https://issuetracker.google.com/issues/559972132))
+- Added Kex symbolic execution branch tests for `LineLayout`, `TextUtils`, `CanvasCompat`, and `PaintCompat`. [I47edf](https://android-review.googlesource.com/q/I47edfe364a9eea5ee7c7be9bfbd01115827808b1) [b/569212211](https://buganizer.corp.google.com/issues/569212211)
 
 #### Version 1.0.0-beta02
 

@@ -14,7 +14,7 @@ An analytics system usually needs to collect events first, and then process them
 further to make them meaningful:
 
 - **Event collection** : This can be done by registering an `AnalyticsListener` on an `ExoPlayer` instance. Registered analytics listeners receive events as they occur during usage of the player. Each event is associated with the corresponding media item in the playlist, as well as playback position and timestamp metadata.
-- **Event processing** : Some analytics systems upload raw events to a server, with all event processing performed server-side. It's also possible to process events on the device, and doing so may be simpler or reduce the amount of information that needs to be uploaded. ExoPlayer provides `PlaybackStatsListener`, which allows you to perform the following processing steps:
+- **Event processing** : Some analytics systems upload raw events to a server, with all event processing performed server-side. It's also possible to process events on the device, and doing so may be simpler or reduce the amount of information that needs to be uploaded. ExoPlayer provides `PlaybackStatsListener`, which lets you perform the following processing steps:
   1. **Event interpretation** : To be useful for analytics purposes, events need to be interpreted in the context of a single playback. For example the raw event of a player state change to `STATE_BUFFERING` may correspond to initial buffering, a rebuffer, or buffering that happens after a seek.
   2. **State tracking**: This step converts events to counters. For example, state change events can be converted to counters tracking how much time is spent in each playback state. The result is a basic set of analytics data values for a single playback.
   3. **Aggregation**: This step combines the analytics data across multiple playbacks, typically by adding up counters.
@@ -23,8 +23,8 @@ further to make them meaningful:
 ## Event collection with AnalyticsListener
 
 Raw playback events from the player are reported to `AnalyticsListener`
-implementations. You can easily add your own listener and override only the
-methods you are interested in:
+implementations. You can add your own listener and override only the methods you
+are interested in:
 
 
 ### Kotlin
@@ -65,7 +65,7 @@ item in the playlist, as well as playback position and timestamp metadata:
 - `realtimeMs`: The wall clock time of the event.
 - `timeline`, `windowIndex` and `mediaPeriodId`: Defines the playlist and the item within the playlist to which the event belongs. The `mediaPeriodId` contains optional additional information, for example indicating whether the event belongs to an ad within the item.
 - `eventPlaybackPositionMs`: The playback position in the item when the event occurred.
-- `currentTimeline`, `currentWindowIndex`, `currentMediaPeriodId` and `currentPlaybackPositionMs`: As above but for the currently playing item. The currently playing item may be different from the item to which the event belongs, for example if the event corresponds to pre-buffering of the next item to be played.
+- `currentTimeline`, `currentWindowIndex`, `currentMediaPeriodId` and `currentPlaybackPositionMs`: As described earlier, but for the currently playing item. The currently playing item may be different from the item to which the event belongs, for example if the event corresponds to pre-buffering of the next item to be played.
 
 ## Event processing with PlaybackStatsListener
 
@@ -150,7 +150,7 @@ following event lists:
 - `playbackStateHistory`: An ordered list of extended playback states with the `EventTime` at which they started to apply. You can also use `PlaybackStats.getPlaybackStateAtTime` to look up the state at a given wall clock time.
 - `mediaTimeHistory`: A history of wall clock time and media time pairs allowing you to reconstruct which parts of the media were played at which time. You can also use `PlaybackStats.getMediaTimeMsAtRealtimeMs` to look up the playback position at a given wall clock time.
 - `videoFormatHistory` and `audioFormatHistory`: Ordered lists of video and audio formats used during playback with the `EventTime` at which they started to be used.
-- `fatalErrorHistory` and `nonFatalErrorHistory`: Ordered lists of fatal and non-fatal errors with the `EventTime` at which they occurred. Fatal errors are those that ended playback, whereas non-fatal errors may have been recoverable.
+- `fatalErrorHistory` and `nonFatalErrorHistory`: Ordered lists of fatal and nonfatal errors with the `EventTime` at which they occurred. Fatal errors are those that ended playback, whereas nonfatal errors may have been recoverable.
 
 ### Single-playback analytics data
 
@@ -240,13 +240,13 @@ Log.d(
 
 ### Associating analytics data with playback metadata
 
-When collecting analytics data for individual playbacks, you may wish to
+When collecting analytics data for individual playbacks, you may want to
 associate the playback analytics data with metadata about the media being
 played.
 
 It's advisable to set media-specific metadata with `MediaItem.Builder.setTag`.
 The media tag is part of the `EventTime` reported for raw events and when
-`PlaybackStats` are finished, so it can be easily retrieved when handling the
+`PlaybackStats` are finished, so it can be retrieved when handling the
 corresponding analytics data:
 
 

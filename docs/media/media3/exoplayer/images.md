@@ -111,8 +111,7 @@ app's needs. See the [Customization page](https://developer.android.com/guide/to
 ## Integrate external image loading libraries
 
 Images are often managed by external image loading libraries, for example
-[Glide](https://bumptech.github.io/glide/) or
-[Coil](https://coil-kt.github.io/coil/).
+[Glide](https://bumptech.github.io/glide/) or [Coil](https://coil-kt.github.io/coil/).
 
 Integrating these libraries into the playback pipeline requires 3 steps:
 
@@ -155,8 +154,8 @@ The image renderer needs an `ExternallyLoadedImageDecoder` to retrieve the
 `Bitmap` from the `Uri`. This decoder can be provided by overriding
 `DefaultRenderersFactory.getImageDecoderFactory`.
 
-The following example uses Glide to load an image, limiting the output to
-the display size to avoid creating very large `Bitmap` objects:
+The following example uses Glide to load an image, limiting the output to the
+display size to avoid creating very large `Bitmap` objects:
 
 
 ### Kotlin

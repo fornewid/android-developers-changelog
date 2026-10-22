@@ -4,6 +4,18 @@ url: https://developer.android.com/docs/quality-guidelines/adaptive-app-quality
 source: md.txt
 ---
 
+Google Play Large Screen Badge
+
+Get your app noticed on Google Play by users looking for premium app experiences on tablets,
+foldables, Googlebooks, and other large screen devices.
+
+
+Complete [Tier 2](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-2) of the Adaptive app quality guidelines to
+optimize your app for all screen sizes; [Tier 1](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-1) to create
+a differentiated experience made for large screens. Then, get your Google
+Play badge!
+[Get your badge](https://docs.google.com/forms/d/e/1FAIpQLScwcqug_NeZZyGce7keKO9yKcHw7I_gHqwNUfLQDoy0F-7lYg/viewform?usp=header)
+
 Devices that can run Android apps come in a variety of form
 factors---phones, tablets, foldables, desktops, car displays, TVs,
 XR---which represent a wide range of display sizes. Android supports

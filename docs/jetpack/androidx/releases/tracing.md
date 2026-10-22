@@ -10,7 +10,7 @@ Write trace events to the system trace buffer.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 12, 2026 | [2.0.4](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.4) | - | - | - |
+| October 21, 2026 | [2.0.5](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.5) | - | - | - |
 
 ## Feedback
 
@@ -28,6 +28,16 @@ for more information.
 ## Tracing
 
 ### Version 2.0
+
+#### Version 2.0.5
+
+October 21, 2026
+
+`androidx.tracing:tracing-*:2.0.5` is released. Version 2.0.5 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6ea7797f7c65bdfa60ae14fe76811070ac60465c..e6aa4ba482110aeb3a88be5dd78153c8a06fa7e0/tracing).
+
+**Bug Fixes**
+
+- Fixed a race condition in the pool management where the same thread could concurrently flush and release packets, which caused potential deadlocks especially when using an `EmptyCoroutineContext`. ([Ia0aef48c](https://android-review.googlesource.com/q/Ia0aef48c7bd858e97127af2d1b067c151d1b84b6), [b/570135466](https://issuetracker.google.com/issues/570135466%3C!--%20This%20is%20a%20private%20bug,%20if%20you%20want%20to%20include%20any%20details%20from%20the%20bug%20please%20add%20them%20directly%20here%20but%20otherwise%20remove%20the%20link%20as%20it%20is%20not%20publicly%20accessible%20--%3E))
 
 #### Version 2.0.4
 

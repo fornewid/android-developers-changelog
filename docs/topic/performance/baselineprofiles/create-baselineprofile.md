@@ -159,7 +159,7 @@ the Baseline Profile Gradle plugin, see [Configure Baseline Profile
 generation](https://developer.android.com/topic/performance/baselineprofiles/configure-baselineprofiles).
 
 > [!NOTE]
-> **Note:** The Baseline Profile Gradle plugin is already applied if you use the [Baseline Profile module template](https://developer.android.com/topic/performance/create-baselineprofile#create-new-profile).
+> **Note:** The Baseline Profile Gradle plugin is already applied if you use the [Baseline Profile module template](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile#create-new-profile).
 
 Here's how to create a Baseline Profile using the Baseline Profile Gradle plugin
 directly:

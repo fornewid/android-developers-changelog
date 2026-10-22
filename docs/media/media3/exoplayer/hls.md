@@ -134,10 +134,10 @@ player.prepare();
 
 You can retrieve the current manifest by calling `Player.getCurrentManifest`.
 For HLS, you should cast the returned object to `HlsManifest`. The
-`onTimelineChanged` callback of `Player.Listener` is also called whenever
-the manifest is loaded. This will happen once for on-demand content and
-possibly many times for live content. The following code snippet shows how an app
-can do something whenever the manifest is loaded.
+`onTimelineChanged` callback of `Player.Listener` is also called whenever the
+manifest is loaded. This will happen once for on-demand content and possibly
+many times for live content. The following code snippet shows how an app can do
+something whenever the manifest is loaded.
 
 
 ### Kotlin
@@ -284,8 +284,8 @@ player.play();
 ### Use the media source based API
 
 Alternatively, the ExoPlayer instance can be built without overriding the
-default media source factory. To support interstitials, an app can then
-use `HlsInterstitialsAdsLoader.AdsMediaSourceFactory` directly to create a
+default media source factory. To support interstitials, an app can then use
+`HlsInterstitialsAdsLoader.AdsMediaSourceFactory` directly to create a
 `MediaSource` and provide it to ExoPlayer using the media source based playlist
 API:
 
@@ -485,12 +485,12 @@ again.
 
 To avoid users having to re-watch ads, the ad playback state can be saved and
 restored when the player is recreated. This is done by calling
-`getAdsResumptionStates()` when the player is about to be released and storing
+`getAdsResumptionStates` when the player is about to be released and storing
 the returned `AdsResumptionState` objects. When the player is recreated, the
-state can be restored by calling `addAdResumptionState()` on the ads loader
+state can be restored by calling `addAdResumptionState` on the ads loader
 instance. `AdsResumptionState` is bundleable, so it can be stored in an
 `Activity`'s `onSaveInstanceState` bundle. Note that ad resumption is only
-supported for VOD streams
+supported for VOD streams.
 
 
 ### Kotlin
@@ -609,9 +609,9 @@ public static class HlsInterstitialsActivity extends Activity {
 
   public static final String ADS_RESUMPTION_STATE_KEY = "ads_resumption_state";
 
-  @Nullable private HlsInterstitialsAdsLoader hlsInterstitialsAdsLoader;
-  @Nullable private PlayerView playerView;
-  @Nullable private ExoPlayer player;
+  private @Nullable HlsInterstitialsAdsLoader hlsInterstitialsAdsLoader;
+  private @Nullable PlayerView playerView;
+  private @Nullable ExoPlayer player;
 
   private List<HlsInterstitialsAdsLoader.AdsResumptionState> adsResumptionStates;
 
@@ -751,8 +751,8 @@ You may need to disable this feature if your media segments contain muxed
 closed-caption tracks that are not declared in the multivariant playlist with a
 `#EXT-X-MEDIA:TYPE=CLOSED-CAPTIONS` tag. Otherwise, these closed-caption tracks
 won't be detected and played. You can disable chunkless preparation in the
-`HlsMediaSource.Factory` as shown in the following snippet. Note that this
-will increase start up time as ExoPlayer needs to download a media segment to
+`HlsMediaSource.Factory` as shown in the following snippet. Note that this will
+increase start up time as ExoPlayer needs to download a media segment to
 discover these additional tracks and it is preferable to declare the
 closed-caption tracks in the multivariant playlist instead.
 

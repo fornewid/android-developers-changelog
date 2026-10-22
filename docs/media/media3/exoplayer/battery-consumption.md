@@ -9,21 +9,22 @@ source: md.txt
 Avoiding unnecessary battery consumption is an important aspect of developing a
 performant Android app. Media playback can be a major cause of battery drain,
 however its importance for a particular app heavily depends on its usage
-patterns. If an app is only used to play small amounts of media each day, then
-the corresponding battery consumption will only be a small percentage of the
-total consumption of the device. In such cases, it makes sense to prioritize
-feature set and reliability over optimizing for battery when selecting which
-player to use. On the other hand, if an app is often used to play large amounts
-of media each day, then optimizing for battery consumption should be weighted
-more heavily when choosing between a number of viable options.
+patterns.
+
+If an app is only used to play small amounts of media each day, then the
+corresponding battery consumption will only be a small percentage of the total
+consumption of the device. In such cases, it makes sense to prioritize feature
+set and reliability over optimizing for battery when selecting which player to
+use. On the other hand, if an app is often used to play large amounts of media
+each day, then optimizing for battery consumption should be weighted more
+heavily when choosing between a number of viable options.
 
 ## How power efficient is ExoPlayer?
 
-The diverse nature of the Android device and media content ecosystems means that
-it's difficult to make widely applicable statements about ExoPlayer's battery
-consumption. Performance varies by hardware, Android version, and the media
-being played. Hence the following information should be treated as guidance
-only.
+Android-powered devices and media content are diverse, so it's difficult to make
+widely applicable statements about ExoPlayer's battery consumption. Performance
+varies by hardware, Android version, and the media being played. Hence the
+following information should be treated as guidance only.
 
 ### Video playback
 

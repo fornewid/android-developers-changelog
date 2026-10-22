@@ -13,20 +13,20 @@ This table lists all the artifacts in the `androidx.camera` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| camera-camera2 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
-| camera-core | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
-| camera-compose | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
-| camera-effects | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
-| camera-extensions | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
+| camera-camera2 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
+| camera-core | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
+| camera-compose | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
+| camera-effects | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
+| camera-extensions | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
 | camera-feature-combination-query | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
 | camera-feature-combination-query-play-services | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
-| camera-lifecycle | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
-| camera-mlkit-vision | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
-| camera-view | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
+| camera-lifecycle | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
+| camera-mlkit-vision | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
+| camera-view | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
 | camera-viewfinder | - | - | [1.3.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.3.0-beta02) | [1.4.0-alpha07](https://developer.android.com/jetpack/androidx/releases/camera#1.4.0-alpha07) |
-| camera-video | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
+| camera-video | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
 
-This library was last updated on: August 26, 2026
+This library was last updated on: October 21, 2026
 
 ## Device testing
 
@@ -49,7 +49,7 @@ your app or module:
 ```groovy
 dependencies {
   // CameraX core library using the camera2 implementation
-  def camerax_version = "1.7.0-alpha03"
+  def camerax_version = "1.7.0-rc01"
   // The following line is optional, as the core library is included indirectly by camera-camera2
   implementation "androidx.camera:camera-core:${camerax_version}"
   implementation "androidx.camera:camera-camera2:${camerax_version}"
@@ -71,7 +71,7 @@ dependencies {
 ```kotlin
 dependencies {
     // CameraX core library using the camera2 implementation
-    val camerax_version = "1.7.0-alpha03"
+    val camerax_version = "1.7.0-rc01"
     // The following line is optional, as the core library is included indirectly by camera-camera2
     implementation("androidx.camera:camera-core:${camerax_version}")
     implementation("androidx.camera:camera-camera2:${camerax_version}")
@@ -139,6 +139,30 @@ May 14, 2024
 - Added `ZoomGestureDetector.ZoomEvent` to encapsulates the states of a zoom gesture. ([I84cdf](https://android-review.googlesource.com/#/q/I84cdfd505443171f9910fb0b3fd40fdaf307796b))
 
 ## Version 1.7
+
+### Version 1.7.0-rc01
+
+October 21, 2026
+
+`androidx.camera:camera-*:1.7.0-rc01` is released. Version 1.7.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/bb117e26ce89b888d6f928ff7b604913a1da43f2..678ffa9bb7ff9b6d63e55a32c452a45716cfdd71/camera).
+
+**API Changes**
+
+- Converted `UseCaseCamera2Interop`, `ImageCaptureCamera2Interop`, `SessionConfigCamera2Interop`, and `CameraControlCamera2Interop` from interfaces into abstract classes. ([If654e](https://android-review.googlesource.com/#/q/If654efdbe92e2b74eb73cfa36fcc7995d702ac1b))
+- Fixed the Camera2Interop V2 ambiguity issue ([I1bbe5](https://android-review.googlesource.com/#/q/I1bbe51da61b6e4c3a77bcca6d9a6cfd83ddd24eb))
+
+**Bug Fixes**
+
+- Fixed a native `SIGSEGV` crash on the `CameraX` `OpenGL` thread when a `SurfaceProcessor` released an input `SurfaceTexture` whose `SurfaceRequest` was garbage-collected before completion. ([I76f73](https://android-review.googlesource.com/#/q/I76f737bbbfe8677427aad7cc56f815e823c6a249), [b/563673593](https://issuetracker.google.com/issues/563673593))
+- Fixed a Surface leak and native `OpenGL` crash that could occur during garbage collection when a `CameraEffect`'s executor or `HandlerThread` was shut down before the effect's `SurfaceOutput` was closed. ([Ifcc19](https://android-review.googlesource.com/#/q/Ifcc19e76862bd9eccd440c00a31b0c6331776a93), [b/558819242](https://issuetracker.google.com/issues/558819242))
+- Low Light Boost behavior improvement: Low Light Boost and Torch now follow a 'last setting wins' policy where enabling one automatically disables the other instead of rejecting the request. In addition, flash can now fire during image capture while Low Light Boost is active. ([Ie583f](https://android-review.googlesource.com/#/q/Ie583f2e8461ca527af061557efa4302a019f74b8))
+- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
+- Support obtaining `CameraSelector` on physical cameras from `CameraInfo.getPhysicalCameraInfos()` and binding `UseCases` to physical cameras. Querying `CameraInfo` with a physical `CameraSelector` now returns the physical `CameraInfo` instead of the logical `CameraInfo`. ([Ibe7f2](https://android-review.googlesource.com/#/q/Ibe7f2eccfd7ebf9060718d51f727659e3e6d4906))
+- Clarified `OutputOptions.Builder.setLocation` Javadoc that only latitude and longitude are stored in video metadata. ([I77d3b](https://android-review.googlesource.com/#/q/I77d3b0ba136a74e609a48509fb544a81c5b23bf9), [b/551348846](https://issuetracker.google.com/issues/551348846))
+- Fixed a bug in `ImageAnalysis` where changing output rotation dynamically or unbinding the use case could cause a Surface/`ImageReader` resource leak. ([I25cef](https://android-review.googlesource.com/#/q/I25cefdc0c8f28e7516755be0ec27ba8b887888a6))
+- `CameraInfo.getIntrinsicZoomRatio()` now rounds the returned ratio to two decimal places. ([Ibe9a8](https://android-review.googlesource.com/#/q/Ibe9a8232579a417701f9b19f8a57a83ce32c7a54))
+- Relaxed `HardwareBuffer.isSupported` check for `PRIVATE` format in `ImageAnalysis` to prevent false negative failures on some devices. ([I347a4](https://android-review.googlesource.com/#/q/I347a4636cac26270c5b4424262add8705b401f55), [b/545866947](https://issuetracker.google.com/issues/545866947))
+- Fixed a compilation crash on newer JDK versions when resolving transitively imported JSpecify type annotations on `CameraX` internal fields. ([I00bb4](https://android-review.googlesource.com/#/q/I00bb407877f4e608a23754eaff9a8f9cf572e6d1), [b/543937345](https://issuetracker.google.com/issues/543937345))
 
 ### Version 1.7.0-alpha03
 

@@ -227,7 +227,7 @@ the same bytes from network. This is useful when seeking back in the current
 media or repeating the same item.
 
 > [!NOTE]
-> **Note:** You can also download media more permanently outside of playback as explained in [Downloading Media](https://developer.android.com/media/media3/exoplayer/downloading-media).
+> **Note:** You can also download media more permanently outside of playback as explained in [Downloading media](https://developer.android.com/media/media3/exoplayer/downloading-media).
 
 Caching requires a `SimpleCache` instance pointing to a dedicated cache
 directory and a `CacheDataSource.Factory`:

@@ -18,7 +18,7 @@ the `build.gradle.kts` file for your KMP module.
 Define the dependencies in the `libs.versions.toml` file:
 
     [versions]
-    room3 = "3.1.0-alpha01"
+    room3 = "3.1.0-alpha03"
     sqlite = "2.7.1"
     ksp = "<kotlinCompatibleKspVersion>"
 

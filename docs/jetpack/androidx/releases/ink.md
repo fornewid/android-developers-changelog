@@ -10,7 +10,7 @@ Inspire best-in-class pen apps. Lower the developer barrier to entry for high pe
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 23, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha09](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha09) |
+| October 21, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha10](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha10) |
 
 ## Declaring dependencies
 
@@ -26,16 +26,16 @@ your app or module:
 ```groovy
 dependencies {
   
-    implementation "androidx.ink:ink-authoring:1.1.0-alpha09"
-    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha09"
-    implementation "androidx.ink:ink-brush:1.1.0-alpha09"
-    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha09"
-    implementation "androidx.ink:ink-geometry:1.1.0-alpha09"
-    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha09"
-    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha09"
-    implementation "androidx.ink:ink-rendering:1.1.0-alpha09"
-    implementation "androidx.ink:ink-storage:1.1.0-alpha09"
-    implementation "androidx.ink:ink-strokes:1.1.0-alpha09"
+    implementation "androidx.ink:ink-authoring:1.1.0-alpha10"
+    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha10"
+    implementation "androidx.ink:ink-brush:1.1.0-alpha10"
+    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha10"
+    implementation "androidx.ink:ink-geometry:1.1.0-alpha10"
+    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha10"
+    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha10"
+    implementation "androidx.ink:ink-rendering:1.1.0-alpha10"
+    implementation "androidx.ink:ink-storage:1.1.0-alpha10"
+    implementation "androidx.ink:ink-strokes:1.1.0-alpha10"
     
 }
 ```
@@ -46,16 +46,16 @@ dependencies {
 dependencies {
 
 
-    implementation("androidx.ink:ink-authoring:1.1.0-alpha09")
-    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha09")
-    implementation("androidx.ink:ink-brush:1.1.0-alpha09")
-    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha09")
-    implementation("androidx.ink:ink-geometry:1.1.0-alpha09")
-    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha09")
-    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha09")
-    implementation("androidx.ink:ink-rendering:1.1.0-alpha09")
-    implementation("androidx.ink:ink-storage:1.1.0-alpha09")
-    implementation("androidx.ink:ink-strokes:1.1.0-alpha09")
+    implementation("androidx.ink:ink-authoring:1.1.0-alpha10")
+    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha10")
+    implementation("androidx.ink:ink-brush:1.1.0-alpha10")
+    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha10")
+    implementation("androidx.ink:ink-geometry:1.1.0-alpha10")
+    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha10")
+    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha10")
+    implementation("androidx.ink:ink-rendering:1.1.0-alpha10")
+    implementation("androidx.ink:ink-storage:1.1.0-alpha10")
+    implementation("androidx.ink:ink-strokes:1.1.0-alpha10")
 }
 ```
 
@@ -86,6 +86,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Ink Version 1.1
+
+### Version 1.1.0-alpha10
+
+October 21, 2026
+
+`androidx.ink:ink-*:1.1.0-alpha10` is released. Version 1.1.0-alpha10 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f..3566803898b060d7136357220affc9ece8236019/ink).
+
+**Bug Fixes**
+
+- Add anti-aliasing to cut edges of strokes edited with the partial stroke eraser (`Stroke.subtract`, optionally followed by `Stroke.split`)
 
 ### Version 1.1.0-alpha09
 

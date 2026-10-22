@@ -7,7 +7,17 @@ source: md.txt
 ## Create seamless experiences for Googlebook
 
 Scale your experiences across the Android tech stack. Googlebook provides a high-performance, large-screen canvas for your apps, allowing users to transition seamlessly from quick mobile interactions to deep, focused sessions on a laptop.
-![Laptop](https://developer.android.com/static/googlebook/images/hero-lg.png) [![](http://developer.android.com/static/images/cluster-illustrations/android-architecture-components.svg)](http://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps) Adaptive development
+![Laptop](https://developer.android.com/static/googlebook/images/googlebook-hero.png) Google Play Large Screen Badge
+
+Get your app noticed on Google Play by users looking for premium app experiences on tablets,
+foldables, Googlebooks, and other large screen devices.
+
+
+Complete [Tier 2](https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-2) of the Adaptive app quality guidelines to
+optimize your app for all screen sizes; [Tier 1](https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-1) to create
+a differentiated experience made for large screens. Then, get your Google
+Play badge!
+[Get your badge](https://docs.google.com/forms/d/e/1FAIpQLScwcqug_NeZZyGce7keKO9yKcHw7I_gHqwNUfLQDoy0F-7lYg/viewform?usp=header) [![](http://developer.android.com/static/images/cluster-illustrations/android-architecture-components.svg)](http://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps) Adaptive development
 
 ### [Get started](http://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps)
 

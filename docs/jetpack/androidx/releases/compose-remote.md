@@ -10,7 +10,7 @@ Remote Compose is a framework to create UI for remote surfaces
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 07, 2026 | - | - | - | [1.0.0-alpha21](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha21) |
+| October 21, 2026 | - | - | - | [1.0.0-alpha22](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha22) |
 
 ## Declaring dependencies
 
@@ -26,20 +26,20 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.remote:remote-core:1.0.0-alpha21"
+    implementation "androidx.compose.remote:remote-core:1.0.0-alpha22"
 
     // Use to create Remote Compose documents
-    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha21"
-    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha21"
-    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha21"
-    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha21"
-    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha21"
+    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha22"
+    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha22"
+    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha22"
+    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha22"
+    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha22"
 
     // Use to render a Remote Compose document
-    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha21"
-    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha21"
+    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha22"
+    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha22"
 
-    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha21"
+    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha22"
 }
 ```
 
@@ -47,20 +47,20 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.remote:remote-core:1.0.0-alpha21")
+    implementation("androidx.compose.remote:remote-core:1.0.0-alpha22")
 
     // Use to create Remote Compose documents
-    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha21")
-    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha21")
-    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha21")
-    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha21")
-    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha21")
+    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha22")
+    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha22")
+    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha22")
+    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha22")
+    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha22")
 
     // Use to render a Remote Compose document
-    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha21")
-    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha21")
+    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha22")
+    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha22")
 
-    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha21")
+    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha22")
 }
 ```
 
@@ -81,6 +81,36 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha22
+
+October 21, 2026
+
+`androidx.compose.remote:remote-*:1.0.0-alpha22` is released. Version 1.0.0-alpha22 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/988ac9734e8223273eb7f186ee1639ee68deb025..a0c645de83b353f2aa79c3b33a11e8ba853ca1e4/compose/remote).
+
+**New Features**
+
+- Introduced the `androidx.compose.remote:remote-creation-expression` library, which will be expanded in upcoming releases with platform-agnostic expressions and remote state representations. ([I4f4f2](https://android-review.googlesource.com/#/q/I4f4f244f914224a40556f21cc8f738d826ce9629))
+
+**API Changes**
+
+- Added `RemoteTimeVariables` and `RemoteConfiguration` objects for accessing time, animation, and display/window context variables as `RemoteFloat`, `RemoteInt` and `RemoteDp`. ([I277c8](https://android-review.googlesource.com/#/q/I277c87acc8951b85340afd9bae7c290eb786fa99))
+- Added `currentProfileSupportsThemedColors`(), `currentProfileSupportsTouchModifiers`(), and `currentProfileSupports`() to check whether the current `RemoteCompose` creation profile supports themed colors, touch modifiers, or specific operations. ([I7b312](https://android-review.googlesource.com/#/q/I7b312b59a43356a759607b1af2150b1e2c9f4ea0))
+- Fixed `RemoteModifier.animateEnterExit` to default `animationId` to -1 instead of 0 so enter/exit transitions are enabled, added an optional `animationId` parameter, and disallowed 0 in `sharedElement`, `sharedBounds`, and `animateEnterExit`. ([I3e5bf](https://android-review.googlesource.com/#/q/I3e5bf0722918b397dfe263c7e878510cd8d7e02f))
+- Decoupled `RemoteDp` and `RemoteDensity` from Compose UI `Dp` and `TextUnit` types. ([Ib42cd](https://android-review.googlesource.com/#/q/Ib42cd934b8dae8aa8a178670014cd0188666dae1), [I31b37](https://android-review.googlesource.com/#/q/I31b37b1ce3b9e4208a9fc8c0fe07a8ece0620a57))
+- Removed `combinedFontVariationSettings` from `RemoteTextStyle` and added `fontFeatureSettings` to `RemotePaint` to honor Compose separation of font features and font variations. ([I91856](https://android-review.googlesource.com/#/q/I91856d55995f0c08d0dd021a47397ff9d611b24c))
+
+**Bug Fixes**
+
+- `RemoteTextStyle.fromTextStyle` now selects font variation settings from the font that matches the style's font weight and font style. ([I2ab39](https://android-review.googlesource.com/#/q/I2ab3914794f82f425e1b256acec001e693faf7d2))
+- Fixed `pendingIntentAction` not sending its `PendingIntent` in the embedded player and launcher widgets, and `hostAction` with a dynamic name losing its value. ([Ic1726](https://android-review.googlesource.com/#/q/Ic172667c58be06047deeab1c7e505e68acb88426))
+- Fixed multi-line `Center` and `End` text alignment in `CoreText`. ([I9867c](https://android-review.googlesource.com/#/q/I9867c636718ab17248aa226ef913e9a6e8c75275))
+- Fixed `captureSingleRemoteDocument` occasionally capturing stale state written by an effect when another thread applied a snapshot concurrently. ([Ib09f9](https://android-review.googlesource.com/#/q/Ib09f95da72d8f98480faef26bbd26368bc6554ad))
+- Fixed nan encoded variable id comparisons in `RemoteCompose` expression caches. ([Ibdc73](https://android-review.googlesource.com/#/q/Ibdc738cb33e8c386a05d6c230c0f3d4e0823d178))
+- Fixed `TouchExpressions` not responding to touch in the embedded `RcPlayer`. ([Ida924](https://android-review.googlesource.com/#/q/Ida924d4d61ec56d2bcd3dacf743f996048abd3f3))
+- Remote scroll containers in the embedded `RcPlayer` no longer pass leftover same-axis scroll to an enclosing host scroll container. ([Ia193b](https://android-review.googlesource.com/#/q/Ia193bd4d93af0bf8dc328c02eef1da7c0d2faff5))
+- Fixed double and long clicks in the embedded `RcPlayer` on components that also have a single click, and added support for touch down, up and cancel modifiers. ([I7372f](https://android-review.googlesource.com/#/q/I7372fe710ef8a48fa1b65a388bfc52f3f674b8ba))
+- Fixed animated expression evaluation, document click areas, and haptic feedback in the embedded `RcPlayer`. ([I1156e](https://android-review.googlesource.com/#/q/I1156e89b38bc23380597226df0caac712d66ddbf), [I18831](https://android-review.googlesource.com/#/q/I18831210cc8a9e4b76f5b4a60e0d9e0a81afb3e5), [Idfc6e](https://android-review.googlesource.com/#/q/Idfc6ec33adff96519217b7343595b93d3f1763dc))
 
 ### Version 1.0.0-alpha21
 

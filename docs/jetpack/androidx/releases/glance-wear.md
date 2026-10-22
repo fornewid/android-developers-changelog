@@ -10,7 +10,7 @@ Glance Wear is a library for building Widgets for Wear OS
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 07, 2026 | - | - | - | [1.0.0-alpha20](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha20) |
+| October 21, 2026 | - | - | - | [1.0.0-alpha21](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha21) |
 
 ## Declaring dependencies
 
@@ -25,9 +25,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.glance.wear:wear:1.0.0-alpha20"
+    implementation "androidx.glance.wear:wear:1.0.0-alpha21"
 
-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha20"
+    implementation "androidx.glance.wear:wear-core:1.0.0-alpha21"
 }
 ```
 
@@ -35,9 +35,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.glance.wear:wear:1.0.0-alpha20")
+    implementation("androidx.glance.wear:wear:1.0.0-alpha21")
 
-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha20")
+    implementation("androidx.glance.wear:wear-core:1.0.0-alpha21")
 }
 ```
 
@@ -57,6 +57,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Glance Wear Version 1.0
+
+### Version 1.0.0-alpha21
+
+October 21, 2026
+
+`androidx.glance.wear:wear:1.0.0-alpha21`, `androidx.glance.wear:wear-core:1.0.0-alpha21`, and `androidx.glance.wear:wear-tooling-preview:1.0.0-alpha21` are released. Version 1.0.0-alpha21 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/988ac9734e8223273eb7f186ee1639ee68deb025..a61b956e948f613f1f05085e98efb56302b159b7/glance/wear).
+
+**API Changes**
+
+- Added `GlanceWearProfiles.wearWidgets` `RemoteCompose` profile for Glance Wear widgets and their supported operations. ([I84225](https://android-review.googlesource.com/#/q/I842250188fb9b09dab7933047fcf417c30c34d5f))
 
 ### Version 1.0.0-alpha20
 

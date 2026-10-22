@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 23, 2026 | [1.8.1](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.8.1) | - | [1.9.0-beta01](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.9.0-beta01) | - |
+| October 21, 2026 | [1.8.1](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.8.1) | [1.9.0-rc01](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.9.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -53,6 +53,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.9
+
+### Version 1.9.0-rc01
+
+October 21, 2026
+
+`androidx.mediarouter:mediarouter:1.9.0-rc01` and `androidx.mediarouter:mediarouter-testing:1.9.0-rc01` are released. Version 1.9.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f..e7acfcdd3943d18048f5066e2931068397c4bbfa/mediarouter).
 
 ### Version 1.9.0-beta01
 

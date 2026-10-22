@@ -10,7 +10,7 @@ The Jetpack Compose Agent-to-UI (A2UI) renderer provides an implementation of th
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 23, 2026 | - | - | - | [1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/a2ui_compose#1.0.0-alpha01) |
+| October 21, 2026 | - | - | - | [1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/a2ui_compose#1.0.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -25,9 +25,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.a2ui.compose:compose-runtime:1.0.0-alpha01"
-    implementation "androidx.a2ui.compose:compose-ui:1.0.0-alpha01"
-    androidTestImplementation "androidx.a2ui.compose:compose-ui-testing:1.0.0-alpha01"
+    implementation "androidx.a2ui.compose:compose-runtime:1.0.0-alpha02"
+    implementation "androidx.a2ui.compose:compose-ui:1.0.0-alpha02"
+    androidTestImplementation "androidx.a2ui.compose:compose-ui-testing:1.0.0-alpha02"
 }
 ```
 
@@ -35,9 +35,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.a2ui.compose:compose-runtime:1.0.0-alpha01")
-    implementation("androidx.a2ui.compose:compose-ui:1.0.0-alpha01")
-    androidTestImplementation("androidx.a2ui.compose:compose-ui-testing:1.0.0-alpha01")
+    implementation("androidx.a2ui.compose:compose-runtime:1.0.0-alpha02")
+    implementation("androidx.a2ui.compose:compose-ui:1.0.0-alpha02")
+    androidTestImplementation("androidx.a2ui.compose:compose-ui-testing:1.0.0-alpha02")
 }
 ```
 
@@ -57,6 +57,21 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha02
+
+October 21, 2026
+
+`androidx.a2ui.compose:compose-runtime:1.0.0-alpha02`, `androidx.a2ui.compose:compose-ui:1.0.0-alpha02`, and `androidx.a2ui.compose:compose-ui-testing:1.0.0-alpha02` are released. Version 1.0.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f..e0a272dcae2b353b23a075af10baeda8f3021bcd/a2ui/compose).
+
+**API Changes**
+
+- Replaced the list of functions of `A2uiBasicCatalogV1` with the `A2uiBasicCatalogV1.Functions` interface, which has a method for each basic catalog function except the logical functions `and`, `or`, and `not`, which the catalog implements. Implementations only need to implement `openUrl` and can override other methods to customize individual functions. `A2uiBasicCatalogV1.Functions(context)` creates default implementations of all methods. `materialA2uiBasicCatalogV1` now takes `functions` instead of `urlOpener`, `messageFormatter`, and `localeProvider`. ([I647b2](https://android-review.googlesource.com/#/q/I647b252e90a4f76bc1ac4dc0feb40acb7cd1becf), [b/568735972](https://issuetracker.google.com/issues/568735972))
+- Removed `const` from `CatalogId` in the companion object of `A2uiBasicCatalogV1`, so that the string value is not part of the public API. ([I308d6](https://android-review.googlesource.com/#/q/I308d6ca839dfbbd770fbc6ab1745e8a88db1ddd8), [b/547851648](https://issuetracker.google.com/issues/547851648))
+
+**Bug Fixes**
+
+- `A2uiProperty` list factories now throw `IllegalArgumentException` if `minItems` or `maxItems` is negative, or if `minItems` is greater than `maxItems`. ([Ia8a37](https://android-review.googlesource.com/#/q/Ia8a375c4aa59d9688340e574a4d47cf1b9970bec))
 
 ### Version 1.0.0-alpha01
 

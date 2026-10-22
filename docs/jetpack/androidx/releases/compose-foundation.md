@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 07, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.1) | - | [1.13.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-beta01) | - |
+| October 21, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.1) | - | [1.13.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-beta02) | - |
 
 ## Structure
 
@@ -99,6 +99,19 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.13
+
+### Version 1.13.0-beta02
+
+October 21, 2026
+
+`androidx.compose.foundation:foundation-*:1.13.0-beta02` is released. Version 1.13.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/55d45bc889e6e54d26f897e1299b3f5d6ca78acb..8c4a5fab030e62e6dac58c45f5fff974facf903f/compose/foundation).
+
+**Bug Fixes**
+
+- `Modifier.border` now uses a new more performant implementation. You can disable this using `ComposeFoundationFlags.isNewBorderImplementationEnabled`. If you run into issues and need to disable this flag, please file a bug. ([I4c3b3](https://android-review.googlesource.com/#/q/I4c3b326711b5af04e94222d9564491b6d48b71f0))
+- `Modifier.border` now supports rendering generic / polygon shapes with a runtime shader, when using the new border implementation. ([I128ca](https://android-review.googlesource.com/#/q/I128cacfaad9825dcef47d479d71291357fe48463))
+- Fixes an edge case bug with rendering certain rounded rectangle outlines in `Modifier.border`. `ComposeFoundationFlags.isRoundedRectangleBorderRenderingFixEnabled` can be used to disable this change if it causes issues. ([I19141](https://android-review.googlesource.com/#/q/I191415aaa3e9b2a7816c14b7ebd0fc1ed0a90931))
+- Fixed an issue where the cache window incorrectly re-prefetched items when a previously prefetched item became visible. [I43ca7b4](https://android-review.googlesource.com/q/I43ca7b4d393fffa15be219144c1312c710a6021a)
 
 ### Version 1.13.0-beta01
 

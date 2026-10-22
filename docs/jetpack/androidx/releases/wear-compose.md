@@ -12,7 +12,7 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 07, 2026 | [1.7.1](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.1) | - | - | [1.8.0-alpha01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.8.0-alpha01) |
+| October 21, 2026 | [1.7.1](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.1) | - | - | [1.8.0-alpha02](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.8.0-alpha02) |
 
 > [!NOTE]
 > **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
@@ -90,6 +90,34 @@ for more information.
 <br />
 
 ## Version 1.8
+
+### Version 1.8.0-alpha02
+
+October 21, 2026
+
+`androidx.wear.compose:compose-*:1.8.0-alpha02` is released. Version 1.8.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/988ac9734e8223273eb7f186ee1639ee68deb025..3566803898b060d7136357220affc9ece8236019/wear/compose).
+
+**API Changes**
+
+- Renamed `PullToRefreshDefaults.indicatorShape` to `IndicatorShape` and changed `PullToRefreshState` to an interface. ([I95b98](https://android-review.googlesource.com/#/q/I95b98232b9b07c7ae58c0708ffc5686512cbf7e3))
+- Added `showIndicatorDelayMillis` parameter to `Modifier.oneHandedGesture` to customize the delay before `onGestureAvailable` is invoked. Defaults to `OneHandedGestureDefaults.ShowIndicatorDelayMillis` (1 second). ([I38cc7](https://android-review.googlesource.com/#/q/I38cc74260a9669bfedc56a0b4df7f213bd0d0514))
+- Added `StatusBarSuppression` overload with a content lambda to allow wrapping `ScreenScaffold` and suppressing the System Status Bar top-down while automatically resetting top content padding to 0.dp. ([I18ff9](https://android-review.googlesource.com/#/q/I18ff997808314a4d0096672ea0d4d98fd4791043))
+- Added a discrete integer steps overload and `showMinimumSegment` parameter to Material 3 `Slider`. ([Idce23](https://android-review.googlesource.com/#/q/Idce238de96dd1da2669e8c9b89c8e9aceea1cd15))
+- Removed experimental feature flag `WearComposeFoundationFlags.isWarpingCurvedTextEnabled`. Warped curved text is now always enabled by default. ([Ifc5c2](https://android-review.googlesource.com/#/q/Ifc5c2efcaa740cbd6ba74387a8c2ef9689035373))
+- Removed experimental feature flag `WearComposeMaterial3Flags.isSwipeToRevealDualFlingThresholdEnabled`. The dual fling threshold behavior in `SwipeToReveal` is now always enabled. ([Ia8036](https://android-review.googlesource.com/#/q/Ia8036186eac7b9e214328bd4293d288c5f956e60))
+
+**Bug Fixes**
+
+- Fixed a 1-frame visual glitch where `TimeText` would momentarily appear when entering composition on an already scrolled-down list. ([Id13da](https://android-review.googlesource.com/#/q/Id13da49dfecdf7f136a9f7ca290852bc83c1bb29))
+- Fixed an issue where `ScreenScaffold` `ScrollIndicator` would not reappear on scroll after idling when used without an enclosing `AppScaffold`. ([I445e5](https://android-review.googlesource.com/#/q/I445e56da4e0ec45338e755f175db7374a51e08d6))
+- Fixed an issue where `PullToRefreshBox` indicator remained stuck on screen when `onRefresh` did not transition `isRefreshing` to `true`. ([I097e2](https://android-review.googlesource.com/#/q/I097e2ecbeecedb18edf10f8d7e46535fc3ca0852))
+- Added `PullToRefresh` to Wear Compose Material 3 baseline profile. ([Ib8e13](https://android-review.googlesource.com/#/q/Ib8e13043d6a78c923215184dbaa700d033c779f8))
+- Update `PredictiveBackScene` to switch `LocalScreenIsActive.current` to the target screen on navigation instantly. ([I3904b](https://android-review.googlesource.com/#/q/I3904bfe100994b485a4f94fd3f07679c11b02860))
+- Fixed an issue in `TransformingLazyColumn` `ScrollInfoProvider` where `anchorItemOffset` failed to reset to zero when content padding shrank while scrolled. ([I779a0](https://android-review.googlesource.com/#/q/I779a0ad12d3c08e87a1d62e930e395558556b475))
+- Fixed `TransformingLazyColumnState.animateScrollToItem` to smoothly center the target item without a final jump when items use `transformedHeight`. ([I429c8](https://android-review.googlesource.com/#/q/I429c8fac5a92675f401e6cd36ec1650792948c74))
+- Fixed an issue in `ScalingLazyColumn` `ScrollInfoProvider` where `anchorItemOffset` failed to reset to zero when content padding shrank while scrolled. ([Ie8b06](https://android-review.googlesource.com/#/q/Ie8b06f9c8a4ad54d4454033bd2ab6428bcebdc7d))
+- Fixed `TransformingLazyColumn` animation issues by disabling animations during raw scroll passes. ([Iacfb4](https://android-review.googlesource.com/q/Iacfb469970fd282ab1bb99b4a242ddf2859377d7))
+- Added AndroidManifest.xml file for Wear Compose Material3, which configures the com.google.wear.ENABLE_GLOBAL_STATUS_BAR meta-data tag([Ic8804](https://android-review.googlesource.com/q/Ic88042646c8ca8f07e23d1df0c0929bd4335a228))
 
 ### Version 1.8.0-alpha01
 

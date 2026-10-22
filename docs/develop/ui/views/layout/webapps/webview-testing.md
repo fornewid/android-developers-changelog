@@ -79,7 +79,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.webkit:webkit:1.17.1"
+    implementation "androidx.webkit:webkit:1.18.0"
 }
 ```
 
@@ -87,7 +87,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.webkit:webkit:1.17.1")
+    implementation("androidx.webkit:webkit:1.18.0")
 }
 ```
 

@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 07, 2026 | - | [1.0.0-rc02](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-rc02) | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.1.0-alpha01) |
+| October 21, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0) | - | - | [1.1.0-alpha02](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.1.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.runtime:runtime:1.1.0-alpha01"
+    implementation "androidx.xr.runtime:runtime:1.1.0-alpha02"
 
     // Use in environments that do not support OpenXR
-    testImplementation "androidx.xr.runtime:runtime-testing:1.1.0-alpha01"
+    testImplementation "androidx.xr.runtime:runtime-testing:1.1.0-alpha02"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.runtime:runtime:1.1.0-alpha01")
+    implementation("androidx.xr.runtime:runtime:1.1.0-alpha02")
 
     // Use in environments that do not support OpenXR
-    testImplementation("androidx.xr.runtime:runtime-testing:1.1.0-alpha01")
+    testImplementation("androidx.xr.runtime:runtime-testing:1.1.0-alpha02")
 }
 ```
 
@@ -60,7 +60,40 @@ for more information.
 
 ## Runtime
 
+### Version 1.1
+
+#### Version 1.1.0-alpha02
+
+October 21, 2026
+
+`androidx.xr.runtime:runtime-*:1.1.0-alpha02` is released. Version 1.1.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a3e432fc34e6dec102a28162e5707c8b57b79e2e..1a00edc3411be97f96a18ab32f160447e8be09db/xr/runtime).
+
+**API Changes**
+
+- Added dynamic mesh update APIs (`MeshBuffer.createDynamic`, `MeshBuffer.updateVertexData`, `MeshBuffer.updateIndexData`, and a dynamic `CustomMesh.BuilderFromMeshData` constructor) to support updating vertex and index data at runtime. ([Ia1ecb](https://android-review.googlesource.com/#/q/Ia1ecb1249f027027e0b368d7dfae5e766efa1ab2))
+- Change `Quad.createFromCorners` to `Quad.fromCorners` and `Quad.createAxisAligned` to `Quad.fromMinMax`. ([Idef53](https://android-review.googlesource.com/#/q/Idef53043eadc542f952860657b58c49ac0c7cb6b))
+- Libraries now target Kotlin 2.2 and require kotlinc 2.2 ([I82396](https://android-review.googlesource.com/#/q/I823967fe6b9524b448184ef366c562316bd6a323), [b/498369605](https://issuetracker.google.com/issues/498369605))
+- Add SPATIAL_API_V4 to `SpatialApiVersions` ([I71e7a](https://android-review.googlesource.com/#/q/I71e7a03acef6f7b07e69ff5b4ebf8f629e579c9e))
+
+**Bug Fixes**
+
+- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
+- `Session.create` now returns the existing Session if one has already been created for the given `Context`, and throws an `IllegalStateException` if the existing `Session` was created with a different `LifecycleOwner`. ([I9fcd7](https://android-review.googlesource.com/#/q/I9fcd7ecb666d62e185e77de1ba966b22f92511ff))
+- Removed Activity context leak in `XrDevice`. ([I71996](https://android-review.googlesource.com/#/q/I71996450b13c5af7e9b1faf92003547d144147b2))
+- Fixed a bug where `XrDevice` lifecycle observers were incorrectly registered using `lifecycleScope`, which led to premature cancellation and potential context leaks during Activity teardown. The registration now correctly uses a persistent `CoroutineScope` linked to the main dispatcher. [I6b2676b071870e4687cf2eb5718932f9df181c61](https://android-review.googlesource.com/q/I6b2676b071870e4687cf2eb5718932f9df181c61)
+
 ### Version 1.0
+
+#### Version 1.0.0
+
+October 21, 2026
+
+`androidx.xr.runtime:runtime-*:1.0.0` is released. Version 1.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e2e2729abc59df52d40af80a8bbfe010c02455c6..d5ded12fcb2b95d8647430c394815504ea8d0418/xr/runtime).
+
+**Major features of 1.0.0:**
+
+- Jetpack XR Runtime is now stable! The Jetpack XR Runtime library contains common classes, interfaces, and utilities used by the [ARCore for Jetpack XR](https://developer.android.com/jetpack/androidx/releases/xr-arcore), [SceneCore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore), and [XR Compose](https://developer.android.com/jetpack/androidx/releases/xr-compose) libraries and their clients.
+- For more information, see our [Developer Guide for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk), as well as the [XR Runtime API Reference](https://developer.android.com/reference/kotlin/androidx/xr/runtime).
 
 #### Version 1.0.0-rc02
 

@@ -14,8 +14,7 @@ skill.
 ## Prerequisites
 
 - A Kotlin Android project (`minSdk` must be `24` or higher, as declared by the LiteRT 2.3.0 AARs).
-- The dependencies in the app-level `build.gradle.kts` file from Google Maven: `implementation("com.google.ai.edge.litert:litert:2.3.0")` and `implementation("com.google.ai.edge.litert:litert-gpu:2.3.0")`. From 2.3.0 the GPU accelerator is the second artifact: with `litert` alone the app builds, and `CompiledModel.create` with `Accelerator.GPU` throws `LiteRtException` because the APK has no GPU accelerator library (Logcat logs `GPU accelerator
-  could not be loaded and registered`). No manifest entry is needed: `litert-api`, which `litert` depends on, declares the OpenCL driver libraries (`uses-native-library`) in its own manifest.
+- The dependencies in the app-level `build.gradle.kts` file from Google Maven: `implementation("com.google.ai.edge.litert:litert:2.3.0")` and `implementation("com.google.ai.edge.litert:litert-gpu:2.3.0")`. From 2.3.0 the GPU accelerator is the second artifact: with `litert` alone the app builds, and `CompiledModel.create` with `CompiledModel.Options(Accelerator.GPU)` throws `LiteRtException` because the APK has no GPU accelerator library. With `CompiledModel.Options(Accelerator.GPU, Accelerator.CPU)` it doesn't throw: the model runs on the CPU while the app reports the GPU, and only Logcat shows it (`GPU accelerator could not be loaded and registered`). No manifest entry is needed: `litert-api`, which `litert` depends on, declares the OpenCL driver libraries (`uses-native-library`) in its own manifest.
 - A verified `.tflite` model and its input contract (input dimensions, mean, standard deviation, channel order, and tensor layout). For models with a verified recipe, inspect the [LiteRT model recipes](https://github.com/google-ai-edge/litert-samples/blob/main/models/README.md).
 
 ## Critical mandates
@@ -324,7 +323,7 @@ existing app, you must read [migration](https://developer.android.com/agents/ski
 for each step:
 
 1. **Find the runtime**: Read the build files and the resolved dependencies, and note the delegate, the thread count, and the Support library classes that the app uses.
-2. **Capture a golden output first**: While the legacy runtime is still in the project, record the app's output for one fixed input on the CPU. This step needs a device or an emulator.
+2. **Capture a golden output first** : While the legacy runtime is still in the project, record the app's output for one fixed input on the CPU. This step needs a device or an emulator. Run the capture test with `am instrument`, not `connectedDebugAndroidTest`, which uninstalls the app and deletes the file.
 3. **Swap the dependencies** : Remove every legacy artifact and add the dependencies of Step 1. An app on the Support library keeps it as `com.google.ai.edge.litert:litert-support:2.3.0`, with the package `org.tensorflow.lite.support` renamed to `com.google.ai.edge.litert.support` ([LiteRT Support migration guide](https://github.com/google-ai-edge/LiteRT/blob/main/litert/support_lib/MIGRATION_GUIDE.md)).
 4. **Replace the delegates** : `GpuDelegate` becomes `CompiledModel.Options(Accelerator.GPU, Accelerator.CPU)`, so the CPU runs the operators that the GPU doesn't support. An NNAPI choice in the app maps to the same GPU option, not to `Accelerator.CPU` alone or to an NPU accelerator. `setNumThreads(n)` becomes new CPU options with `cpuOptions = CompiledModel.CpuOptions(numThreads = n)`.
 5. **Rewrite the inference code** : Replace `Interpreter` and `FileUtil.loadMappedFile` with the `Classifier` helper of Step 2, created and run only on the single-thread executor of Step 3, never in a constructor that the main thread calls.
@@ -341,7 +340,7 @@ Migration mandates that apply to every migrated app:
 - **Never** allocate new `TensorBuffer` instances on every inference call; failing to close per-frame `TensorBuffer` objects leaks C++ heap memory.
 - **Never** benchmark `model.run` without including output buffer readback (`outputs[0].readFloat`).
 - **Never** mix `org.tensorflow:tensorflow-lite*` artifacts (such as `org.tensorflow:tensorflow-lite-support`) with `com.google.ai.edge.litert:*` artifacts; both ship the `org.tensorflow.lite.*` classes and cause duplicate class build failures.
-- **Never** use `Accelerator.GPU` on LiteRT 2.3.0 without adding the `com.google.ai.edge.litert:litert-gpu:2.3.0` dependency alongside `com.google.ai.edge.litert:litert:2.3.0`.
+- **Never** use `Accelerator.GPU` on LiteRT 2.3.0 without adding the `com.google.ai.edge.litert:litert-gpu:2.3.0` dependency alongside `com.google.ai.edge.litert:litert:2.3.0`; with the CPU as a second accelerator, the model silently runs on the CPU.
 
 ## Checklist
 

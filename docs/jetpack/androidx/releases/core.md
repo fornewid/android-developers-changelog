@@ -21,7 +21,7 @@ This table lists all the artifacts in the `androidx.core` group.
 | core-role | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-role-1.1.0) | - | - | - |
 | core-splashscreen | [1.2.0](https://developer.android.com/jetpack/androidx/releases/core#core-splashscreen-1.2.0) | - | - | - |
 
-This library was last updated on: October 07, 2026
+This library was last updated on: October 21, 2026
 
 ## Declaring dependencies
 
@@ -2663,6 +2663,14 @@ July 26, 2023
 ## Core-location-altitude
 
 ### Version 1.0
+
+#### Version 1.0.1
+
+October 21, 2026
+
+`androidx.core:core-location-altitude:1.0.1`, `androidx.core:core-location-altitude-external-protobuf:1.0.1`, and `androidx.core:core-location-altitude-proto:1.0.1` are released. Version 1.0.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ee9b3bd4e15861a649335dca51923b358357b151..0622edeea71119f7885a9998a0fc1b7e6e9e2c8d/core).
+
+- Restructured repackaged protobuf library to allow for better shrinking when using R8
 
 ### Version 1.0.0
 
