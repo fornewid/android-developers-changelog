@@ -1,5 +1,386 @@
 [
   {
+    "date": "2026-10-23T15:10:08Z",
+    "commit_hash": "ade51bc4",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/behavior-changes-17\" target=\"_blank\">Behavior changes: Apps targeting Android 17 or higher</a>",
+        "path": "about/versions/17/behavior-changes-17.md",
+        "summary": "Updated documentation for the Android 17 memory limit widget behavior change. The update clarifies how the system calculates the memory ceiling for RemoteViews updates, details exception behavior for apps targeting API level 37 and higher versus warnings for lower API levels, and provides concrete mitigation steps including runtime memory budget computation, image downsampling, Jetpack Glance optimization, and full update recommendations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_behavior-changes-17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/references/migration\" target=\"_blank\">Migrate from the TensorFlow Lite Interpreter to CompiledModel</a>",
+        "path": "agents/skills/device-ai/litert/litert-runtime/references/migration.md",
+        "summary": "Updated the LiteRT migration documentation to include instructions for transitioning to the Google Play services runtime (version 17.0.0), handling Kotlin and Hilt version compatibility issues, configuring CPU options like XNNPack flags, and refining support library replacement guidelines.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_migration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/references/play-services\" target=\"_blank\">Run CompiledModel on LiteRT in Google Play services</a>",
+        "path": "agents/skills/device-ai/litert/litert-runtime/references/play-services.md",
+        "summary": "This new documentation page provides comprehensive instructions on how to migrate LiteRT implementations from the bundled runtime to the Google Play services runtime (`play-services-litert`), detailing Gradle dependency updates, environment initialization, and API adaptations.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/skill\" target=\"_blank\">Build an Android app with the LiteRT CompiledModel API</a>",
+        "path": "agents/skills/device-ai/litert/litert-runtime/skill.md",
+        "summary": "Updated the LiteRT runtime documentation to prioritize the Google Play services runtime (`com.google.android.gms:play-services-litert`) over the bundled AARs by default, adding guidance for choosing between them, staging model assets efficiently from disk, configuring XNNPACK memory and weight cache options, and migrating legacy TensorFlow Lite apps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/mlkit-agent-api/references/session_lifecycle\" target=\"_blank\">Session lifecycle and ephemeral execution reference  |  Android Developers</a>",
+        "path": "agents/skills/device-ai/mlkit-agent-api/references/session_lifecycle.md",
+        "summary": "This new documentation details conversation lifecycle management and memory hygiene for the ML Kit GenAI Agent API, explaining how to handle multi-turn session persistence, ephemeral single-turn execution, and RAM cleanup.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/adaptive/references/foldable-tabletop\" target=\"_blank\">Tabletop posture layout for foldables</a>",
+        "path": "agents/skills/jetpack-compose/adaptive/references/foldable-tabletop.md",
+        "summary": "This new documentation details guidelines and implementation strategies for designing Jetpack Compose layouts for foldable devices in tabletop posture, using conditional branching or Grid layouts.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/adaptive/skill\" target=\"_blank\">A guide to making an app adaptive</a>",
+        "path": "agents/skills/jetpack-compose/adaptive/skill.md",
+        "summary": "Added a new 'Step 8: Support foldable devices' section to the Jetpack Compose adaptive skill documentation. This update introduces guidelines for implementing tabletop mode on foldable devices across various use cases (such as media playback, video calls, camera capture, and photo editing) and links to the relevant tabletop posture reference documentation, ensuring developers can build context-aware layouts for dual-screen and foldable form factors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/ink/ink-app-builder/references/drawing-and-brushes\" target=\"_blank\">Drawing surface, stroke rendering, and stock brushes</a>",
+        "path": "agents/skills/jetpack-compose/ink/ink-app-builder/references/drawing-and-brushes.md",
+        "summary": "Added reference documentation detailing how to build flicker-free Compose drawing surfaces, render dry strokes with CanvasStrokeRenderer, and configure StockBrushes.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/ink/ink-app-builder/references/editing-and-architecture\" target=\"_blank\">Eraser, undo and redo, and MVVM architecture</a>",
+        "path": "agents/skills/jetpack-compose/ink/ink-app-builder/references/editing-and-architecture.md",
+        "summary": "This new documentation page provides a reference for structuring an Ink Compose app using MVVM, Hilt, a linear undo/redo history stack, and a geometry-based stroke eraser.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/ink/ink-app-builder/references/persistence-and-advanced\" target=\"_blank\">Persistence, bitmap export, and gesture coexistence</a>",
+        "path": "agents/skills/jetpack-compose/ink/ink-app-builder/references/persistence-and-advanced.md",
+        "summary": "This file provides reference documentation for persisting Ink strokes using Room and `ink-storage`, exporting drawings to PNG bitmaps, and handling low-latency motion prediction alongside gesture coexistence in Jetpack Compose.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/ink/ink-app-builder/skill\" target=\"_blank\">Build inking apps with the Android Ink API (Compose)</a>",
+        "path": "agents/skills/jetpack-compose/ink/ink-app-builder/skill.md",
+        "summary": "Added a new skill documentation page for the Android Ink API (`androidx.ink`) that outlines setup instructions, dependencies, version selection, and best practices for building high-performance freehand drawing experiences using Jetpack Compose.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/ink/ink-custom-brush-builder/references/brush-behaviors\" target=\"_blank\">Brush behaviors</a>",
+        "path": "agents/skills/jetpack-compose/ink/ink-custom-brush-builder/references/brush-behaviors.md",
+        "summary": "Added reference documentation for building dynamic BrushBehavior node graphs in androidx.ink (1.1.0-alpha03+) that respond to stylus pressure, tilt, speed, direction, and procedural noise.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/ink/ink-custom-brush-builder/references/brush-structure\" target=\"_blank\">Brush structure: hierarchy, tip, paint, and input model</a>",
+        "path": "agents/skills/jetpack-compose/ink/ink-custom-brush-builder/references/brush-structure.md",
+        "summary": "This new documentation page provides a comprehensive reference for defining custom brush structures in Jetpack Compose's `androidx.ink` library, detailing `BrushFamily` and `BrushCoat` hierarchies, geometry, paint blending, and stroke smoothing configurations.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/ink/ink-custom-brush-builder/references/examples\" target=\"_blank\">Complete custom brush recipes</a>",
+        "path": "agents/skills/jetpack-compose/ink/ink-custom-brush-builder/references/examples.md",
+        "summary": "Added a new reference documentation page providing copy-ready custom `BrushFamily` and `Brush` implementation examples for the Jetpack Compose Ink library (version 1.1.0-alpha03 and higher).",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/ink/ink-custom-brush-builder/references/textures-and-serialization\" target=\"_blank\">Textures and custom brush serialization</a>",
+        "path": "agents/skills/jetpack-compose/ink/ink-custom-brush-builder/references/textures-and-serialization.md",
+        "summary": "Introduces documentation for implementing `BrushPaint.TilingTexture` and `BrushPaint.StampingTexture` layers, managing assets with `TextureBitmapStore`, and serializing custom `BrushFamily` definitions using `androidx.ink` 1.1.0-alpha03 and higher.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/ink/ink-custom-brush-builder/skill\" target=\"_blank\">Build custom brushes with the Android Ink API</a>",
+        "path": "agents/skills/jetpack-compose/ink/ink-custom-brush-builder/skill.md",
+        "summary": "Added documentation for the Android Ink API's custom brush builder in Jetpack Compose, detailing the `BrushFamily` hierarchy, version requirements, workflow tasks, and key development antipatterns.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/profilers/android-profiler/references/perfetto/bin/trace_processor.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/profilers/android-profiler/references/perfetto/bin/trace_processor.rawcontent.md",
+        "summary": "Updated the Perfetto trace processor shell prebuilt binaries manifest from version v57.2 to v58.3. This updates the file sizes, download URLs, and SHA-256 checksums for all supported architectures (macOS, Linux, Android, and Windows).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_trace_processor.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/profilers/android-profiler/references/perfetto/sql\" target=\"_blank\">Querying Perfetto traces</a>",
+        "path": "agents/skills/profilers/android-profiler/references/perfetto/sql.md",
+        "summary": "Updated the PerfettoSQL reference documentation to improve guidance on querying trace files. Key changes include replacing deprecated intrinsic tables (`__intrinsic_stdlib_modules`, tables, functions, macros) with the new searchable `__intrinsic_stdlib_objects` intrinsic table, updating queries and schema checks, and revising the list of commonly used standard library modules (such as adding `android.oom_adjuster`).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_sql.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/AndroidManifest.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-appwidget-updates-and-memory/references/AndroidManifest.xml.rawcontent.md",
+        "summary": "This new reference file provides an AndroidManifest.xml template specifically tailored for Glance AppWidgets, including necessary queries, broadcast receivers, and file providers.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/ClassicWidgetImageUpdater.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-appwidget-updates-and-memory/references/ClassicWidgetImageUpdater.kt.rawcontent.md",
+        "summary": "Added a new reference implementation demonstrating how to manage classic Android AppWidget updates and memory using WorkManager and RemoteViews. This provides a clear pattern for handling periodic and action-based widget synchronization safely.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/FeedCollectionGlanceWidget.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-appwidget-updates-and-memory/references/FeedCollectionGlanceWidget.kt.rawcontent.md",
+        "summary": "Added a new reference implementation demonstrating how to build a memory-efficient Jetpack Glance AppWidget with lazy lists and optimized downsampled bitmap caching.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/SampleGlanceWidget.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-appwidget-updates-and-memory/references/SampleGlanceWidget.kt.rawcontent.md",
+        "summary": "This new reference file provides a sample implementation of an Android Jetpack Glance AppWidget utilizing responsive sizing, preference state definitions, and efficient bitmap decoding to optimize memory usage.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetBitmapUtils.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetBitmapUtils.kt.rawcontent.md",
+        "summary": "Added a new reference utility file (WidgetBitmapUtils.kt) providing helper functions for downsampling bitmaps and managing memory caps specifically for Android App Widgets and Glance. This ensures efficient image caching and prevents OutOfMemory errors in widget updates.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetStateAndActions.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetStateAndActions.kt.rawcontent.md",
+        "summary": "Added a new reference file providing a code implementation for managing Jetpack Glance app widget state updates and handling user actions via WorkManager and ActionCallbacks.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/proguard-rules.pro.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-appwidget-updates-and-memory/references/proguard-rules.pro.rawcontent.md",
+        "summary": "This new reference file provides essential ProGuard/R8 rules to prevent the obfuscation of Glance ActionCallback implementations. It matters because it ensures that runtime reflection used by Glance AppWidgets continues to function correctly in release builds.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/res/xml/file_paths.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-appwidget-updates-and-memory/references/res/xml/file_paths.xml.rawcontent.md",
+        "summary": "Added a new FileProvider configuration reference file defining a cache path for storing widget images. This is essential for securely sharing temporary files generated by Glance app widgets.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/res/xml/sample_widget_info.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-appwidget-updates-and-memory/references/res/xml/sample_widget_info.xml.rawcontent.md",
+        "summary": "This new reference file provides a sample App Widget provider XML configuration for Android Glance widgets. It matters because it establishes the baseline metadata—such as dimensions, update intervals, and resize modes—required for properly declaring and rendering home screen widgets.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/skill\" target=\"_blank\">Manage Jetpack Glance state and AppWidget bitmap memory</a>",
+        "path": "agents/skills/system/glance-appwidget-updates-and-memory/skill.md",
+        "summary": "This skill documentation provides instructions on managing state updates and memory limits for Android AppWidgets using Jetpack Glance and RemoteViews on Android 17.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/utils/ImageUtils.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/utils/ImageUtils.kt.rawcontent.md",
+        "summary": "Updated `ImageUtils` to improve bitmap downsampling and memory management for AppWidgets. Key changes include adding support for `preferredConfig` and `maxBytesPerImage` parameters, refining the `calculateInSampleSize` logic to enforce strict per-image memory ceilings, and improving display size calculations in `getMaxWidgetMemoryAllowedSizeInBytes()` by leveraging `WindowManager` bounds on Android R and above.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_ImageUtils.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai-tools\" target=\"_blank\">Start with an idea. Build with AI. Ship on Android</a>",
+        "path": "ai-tools.md",
+        "summary": "Updated the main page heading from an H2 element to an H1 element for proper document hierarchy, and updated the 'Learn more' link destination from the overview page to the guides page to direct developers to actionable AI tool documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_ai-tools.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai-tools/guides\" target=\"_blank\">Build Android apps with AI agents</a>",
+        "path": "ai-tools/guides.md",
+        "summary": "This new documentation page explains the core architecture of AI development agents—including LLMs, software harnesses, foundations, capabilities, and execution loops—to help developers optimize AI assistance for Android projects.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai-tools/guides/quickstart\" target=\"_blank\">Choose the right tools for your agentic workflow</a>",
+        "path": "ai-tools/guides/quickstart.md",
+        "summary": "Introduced a new quickstart guide to help developers choose the appropriate agent-assisted Android development tools, CLI utilities, and IDE integrations based on their experience level and project goals.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/button\" target=\"_blank\">Button</a>",
+        "path": "develop/ui/compose/components/button.md",
+        "summary": "The Compose button documentation was updated to replace legacy button images with new interactive preview screenshots across all button variants (filled, tonal, outlined, elevated, and text buttons). This matters because it provides developers with more accurate, up-to-date visual representations of how the components appear and render within modern Android environments.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_button.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/glance/create-app-widget\" target=\"_blank\">Create an app widget with Glance</a>",
+        "path": "develop/ui/compose/glance/create-app-widget.md",
+        "summary": "Added crucial developer guidance for Jetpack Glance app widgets. This includes a note emphasizing the need to explicitly call update methods after modifying state via updateAppWidgetState to ensure UI refresh, and a new section on managing widget image memory efficiently across size buckets when dealing with bitmaps and content URIs to prevent system memory limit violations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_create-app-widget.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/glance/error-handling\" target=\"_blank\">Handle errors with Glance</a>",
+        "path": "develop/ui/compose/glance/error-handling.md",
+        "summary": "Added a note regarding Android 17 (API level 37) behavior changes where `AppWidgetManager.updateAppWidget` throws an `IllegalArgumentException` if the serialized bitmap memory limit is exceeded. This explains how Glance catches these exceptions in `onCompositionError` and advises developers to use a lightweight, text-only `RemoteViews` fallback layout to ensure a recoverable state.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_error-handling.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/appwidgets\" target=\"_blank\">Create a basic widget</a>",
+        "path": "develop/ui/views/appwidgets.md",
+        "summary": "Added documentation on keeping RemoteViews images within system memory limits for classic AppWidgetProvider widgets. It details best practices for avoiding memory ceiling issues on Android 17 and higher by downsampling bitmaps using WindowMetrics, using full `updateAppWidget` calls instead of partial updates for images, and using WorkManager for background processing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_appwidgets.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/appwidgets/advanced\" target=\"_blank\">Create an advanced widget</a>",
+        "path": "develop/ui/views/appwidgets/advanced.md",
+        "summary": "Added an important warning regarding the usage of `partiallyUpdateAppWidget`. Developers are now advised to reserve this method for lightweight text or visibility updates and avoid using it for bitmap, icon, or URI image updates to prevent exceeding system bitmap memory limits due to cached memory retention.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_advanced.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/buttons\" target=\"_blank\">Buttons in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/buttons.md",
+        "summary": "Added documentation explaining how to customize the focus color for buttons in Jetpack Compose Glimmer. This update matters because it provides guidance on using the `focusedColor` parameter to express brand identity while maintaining optical ergonomics and readability on transparent displays.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_buttons.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/photopicker\" target=\"_blank\">photopicker</a>",
+        "path": "jetpack/androidx/releases/photopicker.md",
+        "summary": "Updated the Photopicker library documentation to reflect the release of version 1.0.0-alpha03, allowing developers to test the latest alpha features and bug fixes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_photopicker.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/test-backup\" target=\"_blank\">Test Backup</a>",
+        "path": "jetpack/androidx/releases/test-backup.md",
+        "summary": "The release notes documentation for the test-backup library was updated to fix a broken release link URL format and populate missing Google Issue Tracker component and template IDs. These changes matter because they ensure developers are directed to the correct issue tracker component for filing bugs and voting on existing issues.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_test-backup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions\" target=\"_blank\">AndroidX releases</a>",
+        "path": "jetpack/androidx/versions.md",
+        "summary": "Updated AndroidX library versions in the documentation. The `photopicker` library was bumped to version `1.0.0-alpha03`, and the URL for the `test.backup` release notes was corrected to use a hyphen instead of an underscore, ensuring proper link resolution.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_versions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/multiplatform/datastore\" target=\"_blank\">Set up DataStore for KMP</a>",
+        "path": "kotlin/multiplatform/datastore.md",
+        "summary": "The DataStore Kotlin Multiplatform documentation was updated to reflect API changes, specifically renaming the `PreferencesSerializer` to `PreferencesFileSerializer` within the `FileStorage` configuration examples. Additionally, a reference to the official multiplatform samples repository was removed from the introductory section.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_datastore.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/latest-updates\" target=\"_blank\">Android latest updates</a>",
+        "path": "latest-updates.md",
+        "summary": "The Android Studio latest updates documentation was updated to reflect a new preview channel shift from RC to Canary, introducing Rabbit 3 (2026.2.3 Canary 1) and updating the corresponding release date to October 22, 2026.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_latest-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "Updated the Android Studio nightly build documentation to reference the latest version from 2026-10-22 instead of 2026-10-21. This ensures developers download the most recent nightly release for Windows, macOS (Apple and Intel), and Linux.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview\" target=\"_blank\">Android Studio Preview</a>",
+        "path": "studio/preview.md",
+        "summary": "Updated the Android Studio download links and version references from Android Studio Rabbit 2 (2026.2.2 Canary 5) to Android Studio Rabbit 3 (2026.2.3 Canary 1) across Windows, Mac, and Linux platforms.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/features\" target=\"_blank\">Release notes for Android Studio preview</a>",
+        "path": "studio/preview/features.md",
+        "summary": "This update introduces documentation for Android Studio Rabbit 3 (Canary), highlighting key new features such as the Compose Preview Screenshot Testing tool for visual regression detection, Model Assignment for configuring AI models per task type, automated migration tooling for converting iOS, Flutter, and React Native apps to native Android, and direct publishing to Google Play test tracks from the Generate Signed App Bundle flow.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/emulator\" target=\"_blank\">Emulator release notes</a>",
+        "path": "studio/releases/emulator.md",
+        "summary": "Added documentation for the Next Generation Android Emulator (Preview) introduced in Android Studio Rabbit 3 Canary 1. The update details the migration from the legacy QEMU 2 fork to upstream QEMU (v11+), highlighting benefits such as engine/UI process separation, faster boot times, lower CPU and memory overhead, improved stability, and modern virtualization features including updated virtio hardware models and Vulkan graphics support for API Level 37.0+ devices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_emulator.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.3\" target=\"_blank\">Android Studio Rabbit 3 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/studio/2026.2.3.md",
+        "summary": "This new documentation page details the fixed bugs and release notes for Android Studio Rabbit 3 Canary 1 (version 2026.2.3), highlighting key fixes across AGP, Compose tooling, Gemini, and layout rendering to help developers track studio stability improvements.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/appstandby\" target=\"_blank\">App Standby Buckets</a>",
+        "path": "topic/performance/appstandby.md",
+        "summary": "The App Standby documentation has been updated to reflect the deprecation of FCM v1 high-priority messages in favor of FCM v2 message types (`RemoteNotification` and `BackgroundSync`). It outlines new policy enforcement details, including a 20-second execution window for `RemoteNotification` and provides guidance on migrating to the v2 API to ensure proper app bucket promotion behavior.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_appstandby.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/app-memory-budgets\" target=\"_blank\">Set app memory budgets</a>",
+        "path": "topic/performance/memory/app-memory-budgets.md",
+        "summary": "Updated the app memory budgets documentation to recommend using background threads (such as `HandlerThread` for Kotlin/Java and background worker `ALooper` for NDK) when registering over-budget listeners and watchers. This prevents cache eviction and memory cleanup tasks from blocking the UI or render threads. Additionally, the guidelines now emphasize registering listeners before applying tightened memory budgets to avoid missing initial over-budget events, handling repeated callbacks by making cleanup logic idempotent, and properly managing background thread lifecycles.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ade51bc4_app-memory-budgets.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-22T15:11:01Z",
     "commit_hash": "b9da28f1",
     "entries": [
