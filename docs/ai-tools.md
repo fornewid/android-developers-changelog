@@ -6,13 +6,13 @@ source: md.txt
 
 ![](http://developer.android.com/static/images/logos/android.svg)
 
-## Start with an idea. Build with AI. Ship on Android
+# Start with an idea. Build with AI. Ship on Android
 
 
 Whether you're exploring AI-assisted development, building with your favorite code editors
 and terminal agents, or developing apps professionally in Android Studio, Google's Android
 workflows help you turn prompts into real Android experiences.
-[Learn more](http://developer.android.com/ai-tools/overview)
+[Learn more](http://developer.android.com/ai-tools/guides)
 
 ## Build with your favorite tools and agents
 

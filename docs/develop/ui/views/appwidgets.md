@@ -150,3 +150,14 @@ alongside custom theme resources.
 To implement corner radii or set up dynamic styles for older Android devices,
 see the Compose-first [Implement rounded corners section](https://developer.android.com/develop/ui/compose/glance/create-app-widget#rounded-corner) in the Glance
 documentation.
+
+## Keep RemoteViews images within system memory limits
+
+Widgets run inside the home screen launcher process, and `system_server`
+enforces a per-widget bitmap memory ceiling (`6 * width * height` bytes; see the
+[Android 17 widget memory limit behavior change](https://developer.android.com/about/versions/17/behavior-changes-17#memory-limit-widget)). When building classic
+`AppWidgetProvider` widgets with `RemoteViews`, do the following:
+
+- **Downsample bitmaps using `WindowMetrics`:** On API level 30 and higher, compute your maximum bitmap budget from `WindowManager.currentWindowMetrics.bounds` rather than `resources.displayMetrics`, and decode opaque images with `Bitmap.Config.RGB_565` and power-of-two `inSampleSize`.
+- **Use full `updateAppWidget` calls when replacing images:** Avoid calling `partiallyUpdateAppWidget` to update `ImageView` bitmaps or `Icon` URIs, because partial updates append actions to the cached `RemoteViews` hierarchy in `system_server` without releasing prior image allocations.
+- **Enqueue background work with `WorkManager`:** Don't call `Context.startForegroundService` from `AppWidgetProvider.onReceive` or `onUpdate`, which throws `ForegroundServiceStartNotAllowedException` when triggered in the background. Enqueue a `WorkManager` `CoroutineWorker` instead, and pass `context.applicationContext` when inflating or updating `RemoteViews` from background workers.

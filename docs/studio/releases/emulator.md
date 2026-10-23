@@ -24,6 +24,25 @@ Emulator, see the
 
 For known issues and troubleshooting, please see [Emulator Troubleshooting](https://developer.android.com/studio/run/emulator-troubleshooting).
 
+## Next Generation Android Emulator (Preview)
+
+Starting with Android Studio Rabbit 3 Canary 1, a preview of our next-generation
+Android Emulator is available and used by default for eligible virtual devices.
+
+Upgrading from our legacy QEMU 2 fork to modern upstream
+[QEMU](https://github.com/qemu/qemu) (v11+), the new engine features an
+engine/UI process separation designed for higher fidelity and performance.
+
+Developers will benefit from:
+
+- Faster boot times and reduced CPU/memory overhead
+- Improved session stability using isolated engine and UI processes
+- Modern virtualization with updated virtio hardware models and Vulkan graphics
+
+To get started, create a Phone AVD running API Level 37.0 or later and launch it
+from Android Studio Canary. Existing AVDs will continue to run seamlessly on the
+classic emulator engine for now.
+
 ## 37.2.12 Stable (Oct 1, 2026)
 
 - \[Bug Fix\][Issue #537802959](https://issuetracker.google.com/537802959)

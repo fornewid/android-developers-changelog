@@ -198,6 +198,23 @@ to qualities other than widget sizing.
 
 You've now configured an `AppWidget` using Glance.
 
+> [!NOTE]
+> **Note:** Calling `updateAppWidgetState` writes updated preferences to the backing `DataStore`, but it doesn't automatically recompose your widget or push a new `RemoteViews` hierarchy to the launcher. Always call `MyAppWidget().update(context, glanceId)` or `MyAppWidget().updateAll(context)` after `updateAppWidgetState` completes---especially inside `WorkManager` `CoroutineWorker` tasks and `ActionCallback` handlers.
+
+### Manage widget image memory across size buckets
+
+When your widget displays bitmaps or `content://` image URIs, keep total
+serialized `RemoteViews` image memory within the system limit (`6 * width *
+height` bytes, enforced with an `IllegalArgumentException` on Android 17 and
+higher) by doing the following:
+
+- **Decode shared bitmaps before `provideContent`:** If your widget uses `SizeMode.Responsive` or `SizeMode.Exact`, Glance runs the `provideContent` lambda once for each `DpSize` bucket. Decoding a `Bitmap` inside `provideContent` allocates a separate `Bitmap` instance for every bucket, multiplying memory usage in `RemoteViews.mBitmapCache`. Decode downsampled bitmaps (`Bitmap.Config.RGB_565` for opaque images) once inside `provideGlance` before `provideContent` so all buckets share a single `Bitmap` reference.
+- **Use the matching `ImageProvider` import:** Jetpack Glance provides two
+  distinct `ImageProvider` overloads across two packages:
+
+  - Use `import androidx.glance.ImageProvider` when passing an in-memory `ImageProvider(bitmap: Bitmap)` or drawable resource `ImageProvider(resId: Int)`.
+  - Use `import androidx.glance.appwidget.ImageProvider` when passing a URI `ImageProvider(uri: Uri)`. When serving cached files through a `FileProvider` URI, grant `Intent.FLAG_GRANT_READ_URI_PERMISSION` to every installed `Intent.CATEGORY_HOME` launcher package so the host can render the image.
+
 ## Use the GlanceAppWidgetReceiver class to handle widget broadcasts
 
 The `GlanceAppWidgetReceiver` coordinates widget broadcasts and platform state

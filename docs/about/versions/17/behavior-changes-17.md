@@ -24,14 +24,84 @@ more consistent, intuitive user experience.
 
 ### Memory limit widget
 
-Beginning with Android 17, for apps targeting
-Android 17 (API level 37) or higher, the system enforces a strict memory
-limit (1.5 \* screen width \* screen height \* 4) against the combined memory usage
-of both Bitmaps and Icons present in the RemoteViews parcel. Exceeding these
-limits throws a fatal `IllegalArgumentException` and crashes the app's process.
+Beginning with Android 17, the system enforces a strict memory limit on
+`RemoteViews` updates for apps targeting Android 17 (API level 37) or
+higher. When an app passes a `RemoteViews` object to
+[`AppWidgetManager.updateAppWidget`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#updateAppWidget(int,%20android.widget.RemoteViews)),
+`system_server` calculates the total memory footprint of all image data across
+every orientation and size bucket in the payload. If the total memory exceeds
+the system ceiling (`mMaxWidgetBitmapMemory`), the system rejects the update and
+throws an `IllegalArgumentException`:
 
-For more information, see
-[UpdateAppWidget](https://developer.android.com/reference/android/appwidget/AppWidgetManager#updateAppWidget(int[],%20android.widget.RemoteViews)).
+    java.lang.IllegalArgumentException: RemoteViews for widget update exceeds maximum bitmap memory usage (used: XXXXX, max: YYYYY)
+
+For apps targeting API level 36 or lower, the system logs this memory violation
+as a warning (`Slog.w`) without throwing an exception.
+
+#### How the system calculates the memory ceiling
+
+The system sets the widget bitmap memory budget at `6 * width * height` bytes
+(`1.5 * 4 * width * height`, equivalent to 1.5 times the size of a full-screen
+`ARGB_8888` buffer) for the active display configuration. Under API level 37 and
+higher, this calculation includes both of the following:
+
+- In-memory [`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap) and bitmap-backed [`Icon`](https://developer.android.com/reference/android/graphics/drawable/Icon) objects (`Icon.TYPE_BITMAP` and `Icon.TYPE_ADAPTIVE_BITMAP`) stored in `RemoteViews.mBitmapCache` (such as calls to `setImageViewBitmap`, `Icon.createWithBitmap`, `Icon.createWithAdaptiveBitmap`, or Jetpack Glance `ImageProvider(bitmap)`). Each unique `Bitmap` or bitmap-backed `Icon` instance in `mBitmapCache` is counted once per `RemoteViews` hierarchy.
+- URI-backed images (`Icon.createWithContentUri`, `setImageViewUri`, or Glance `ImageProvider(uri)`) don't count toward the `RemoteViews` IPC byte cap in `system_server`, but the widget host process decodes the referenced `content://` file at full resolution into its own heap. Always write a downsampled image into `context.cacheDir` before exposing it through a `FileProvider` URI.
+
+#### Mitigation steps
+
+To keep your widget updates within the memory ceiling across phones, tablets,
+and foldables, do the following:
+
+1. **Compute your runtime memory budget from `WindowMetrics`:** On API level 30
+   and higher, read the active window bounds from
+   `WindowManager.currentWindowMetrics.bounds` rather than
+   `resources.displayMetrics`. On multi-resolution devices and foldables,
+   `displayMetrics` can report inactive display dimensions. Estimate your total
+   widget image budget at `6L * bounds.width() * bounds.height()`
+   as shown in the following example:
+
+       private const val FALLBACK_MAX_BYTES = 15_000_000L
+
+       fun calculateWidgetMemoryCapBytes(context: Context): Long {
+           if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+               val wm = context.getSystemService(WindowManager::class.java)
+                   ?: return FALLBACK_MAX_BYTES
+               val bounds = wm.currentWindowMetrics.bounds
+               return 6L * bounds.width().toLong() * bounds.height().toLong()
+           }
+           val dm = context.resources.displayMetrics
+           return 6L * dm.widthPixels.toLong() * dm.heightPixels.toLong()
+       }
+
+2. **Downsample images to the widget's viewable dimensions and use `RGB_565`:**
+   Decode bitmaps with power-of-two `BitmapFactory.Options.inSampleSize` values
+   sized to the widget's maximum display dimensions (`maxWidthDp` by
+   `maxHeightDp`), and use `Bitmap.Config.RGB_565` (`2` bytes per pixel)
+   instead of `ARGB_8888` (`4` bytes per pixel) for opaque photographs and
+   thumbnails.
+
+3. **Hoist bitmap decoding outside `provideContent` in Jetpack Glance:** When
+   using `SizeMode.Responsive` or `SizeMode.Exact`, Glance invokes your
+   `provideContent` lambda once per size bucket. Decode each shared `Bitmap`
+   once inside `provideGlance` *before* calling `provideContent` so all size
+   buckets reference the same `Bitmap` instance in `RemoteViews.mBitmapCache`.
+
+4. **Use full `updateAppWidget` calls when replacing images:** In classic
+   `AppWidgetProvider` implementations, avoid calling
+   `AppWidgetManager.partiallyUpdateAppWidget` to swap `Bitmap` or `Icon`
+   views. Partial updates merge new actions into the existing `RemoteViews`
+   tree in `system_server` without evicting previously cached image actions.
+   Build a complete `RemoteViews` layout and call `updateAppWidget` instead.
+
+5. **Provide an error fallback layout:** In Jetpack Glance, override
+   [`onCompositionError`](https://developer.android.com/develop/ui/compose/glance/error-handling)
+   to render a zero-bitmap `RemoteViews` fallback if an update fails.
+
+You can inspect your widget's current serialized bitmap memory usage on a
+connected device by running the following:
+
+    adb shell dumpsys appwidget
 
 ## Core functionality
 

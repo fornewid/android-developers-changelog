@@ -369,10 +369,15 @@ in Kotlin and Java starting in Android 17 QPR2 (minor SDK release, API level
 
 #### Retrieve the service
 
-Before you access `MemoryBudgetManager`, check that the device isn't running
-a lower version than Android 17 QPR2 by using `SDK_INT_FULL`:
+Before you access `MemoryBudgetManager`, check that the device runs
+Android 17 QPR2 or higher by checking [`SDK_INT_FULL`](https://developer.android.com/reference/android/os/Build.VERSION#SDK_INT_FULL). If
+your app's `minSdk` is lower than 36, check [`SDK_INT`](https://developer.android.com/reference/android/os/Build.VERSION#SDK_INT) first so
+devices running Android 15 (API level 35) or lower don't throw
+`NoSuchFieldError` when reading `SDK_INT_FULL`:
 
-    if (Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.CINNAMON_BUN_2) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA &&
+        Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.CINNAMON_BUN_2
+    ) {
         val budgetManager = context.getSystemService(MemoryBudgetManager::class.java)
     }
 
@@ -426,27 +431,32 @@ characteristics in mind:
 #### Listen for over-budget pressure callbacks
 
 Apps can register a listener to be notified when memory usage exceeds the
-budget threshold. This allows the app to perform proactive application-level
-cleanup (such as clearing in-memory bitmap caches) before the operating system
-triggers direct reclaim latency:
+budget threshold. This allows the app to perform proactive app-level cleanup
+(such as clearing in-memory bitmap caches) while the operating system reclaims
+memory to keep the process or package within its budget:
+
+    val cleanupThread = HandlerThread("MemoryBudgetCleanup").apply { start() }
 
     val listener = MemoryBudgetManager.OnOverBudgetListener { budgetBytes ->
         Log.w(TAG, "Process exceeded memory budget of $budgetBytes bytes")
-        // Proactively evict caches to release memory
+        // Proactively evict thread-safe caches on the background Looper
         imageTileCache.evictAll()
     }
 
-    // Register on the main Looper
-    budgetManager.registerProcessOverBudgetListener(mainLooper, listener)
+    // Register on a background Looper before tightening a dynamic budget
+    budgetManager.registerProcessOverBudgetListener(cleanupThread.looper, listener)
 
-    // When done (e.g., in onStop)
+    // When done (for example, in onStop)
     budgetManager.unregisterProcessOverBudgetListener(listener)
 
 > [!NOTE]
-> **Note:** Over-budget callbacks only fire when an active budget is configured for the process or package (either declared using `<memory-budget>` in `AndroidManifest.xml` or set at runtime using `setProcessBudgetBytes()` or `setPackageBudgetBytes()`). If no manifest or runtime budget is active, `OnOverBudgetListener` won't be invoked.
+> **Note:** Over-budget callbacks only fire when an active budget is configured for the process or package (either declared using `<memory-budget>` in `AndroidManifest.xml` or set at runtime using `setProcessBudgetBytes` or `setPackageBudgetBytes`). If no manifest or runtime budget is active, `OnOverBudgetListener` won't be invoked.
 
 **Best practices for over-budget callbacks:**
 
+- **Use a background `Looper`** : Pass a background [`HandlerThread`](https://developer.android.com/reference/android/os/HandlerThread) `Looper` to `registerProcessOverBudgetListener` or `registerPackageOverBudgetListener` whenever possible. Running cache eviction or file cleanup on a background thread avoids contending with frame rendering on the UI thread while the process is under memory pressure. Reserve `Looper.getMainLooper` for listeners that only touch main-thread-bound UI state.
+- **Expect repeated callbacks** : Over-budget callbacks aren't one-shot notifications. When usage exceeds the budget, the operating system reclaims cold pages first, and if pressure continues, the system keeps reclaiming memory and invoking your listener at most once every second. Make your callback idempotent. If your app only needs a single notification or wants a longer cooldown between cleanup passes, call `unregisterProcessOverBudgetListener` (or `unregisterPackageOverBudgetListener`) inside the callback, or guard your cleanup with a cooldown timestamp or [`AtomicBoolean`](https://developer.android.com/reference/java/util/concurrent/atomic/AtomicBoolean).
+- **Register before tightening a budget** : If current memory usage already exceeds a new budget when you call `setProcessBudgetBytes` or `setPackageBudgetBytes`, an over-budget event is triggered as soon as the new budget is applied. Register your listener before setting the budget so your app doesn't miss that initial over-budget notification.
 - **Be quick**: Reclaim operations must offer immediate relief. Complex computations during pressure worsen performance.
 - **Avoid allocations**: Don't allocate new objects or start new threads inside the callback, as doing so can trigger immediate operating system direct reclaim.
 - **Focus on high-yield targets**: Evicting large Bitmaps, render buffers, or closing memory-mapped files is much more effective than releasing many small objects.
@@ -505,9 +515,9 @@ The NDK provides two ways to monitor memory events:
         purgeNativeTextureCaches();
     }
 
-    // Register watcher on an ALooper with a 1000ms debounce interval
+    // Register watcher on a background worker ALooper with a 1000ms debounce interval
     AMemoryBudgetManagerWatcher* watcher = AMemoryBudgetManager_Watcher_create(
-        looper,
+        background_looper,
         AMEMORY_BUDGET_MANAGER_EVENT_PROCESS,
         1000 /* debounce_ms */,
         &onMemoryPressure,
@@ -516,6 +526,18 @@ The NDK provides two ways to monitor memory events:
 
     // When done:
     AMemoryBudgetManager_Watcher_destroy(watcher);
+
+Bind the watcher to a background worker thread's `ALooper`, rather than your
+main UI or render thread, so that cache eviction doesn't contend with frame
+rendering. Create the watcher before tightening a budget with
+`AMemoryBudgetManager_setProcessBudget` or
+`AMemoryBudgetManager_setPackageBudget` so your app doesn't miss the initial
+over-budget event.
+While the process or package remains over budget and the operating system
+continues reclaiming memory, the watcher invokes the callback repeatedly (at
+most once per `debounce_ms` interval). Make your callback idempotent, or call
+`AMemoryBudgetManager_Watcher_destroy` (which is safe to call from inside the
+callback) if your app only needs a one-shot notification.
 
 ## Runtime API examples
 
@@ -538,7 +560,9 @@ When the user is browsing the lightweight thumbnail gallery, the app uses the
 Android SDK API in Kotlin to dynamically tighten its process budget to 96MB.
 When the user opens the multi-layer editing canvas, the app clears the dynamic
 budget to restore the full 256MB manifest ceiling. It also registers an
-`OnOverBudgetListener` to evict cached preview bitmaps under pressure.
+`OnOverBudgetListener` on a background [`HandlerThread`](https://developer.android.com/reference/android/os/HandlerThread)
+`Looper` before applying the gallery budget to evict cached preview bitmaps
+under pressure without blocking the UI thread.
 
     package com.example.imageeditor.ui
 
@@ -546,14 +570,16 @@ budget to restore the full 256MB manifest ceiling. It also registers an
     import android.app.MemoryBudgetManager
     import android.graphics.Bitmap
     import android.os.Bundle
+    import android.os.HandlerThread
     import android.util.Log
     import android.util.LruCache
 
     class ImageEditorActivity : Activity() {
 
         private lateinit var budgetManager: MemoryBudgetManager
+        private lateinit var cleanupThread: HandlerThread
 
-        // In-memory cache for rendered preview tiles (32MB limit)
+        // Thread-safe in-memory cache for rendered preview tiles (32MB limit)
         private val previewCache = object : LruCache<String, Bitmap>(32 * 1024 * 1024) {
             override fun sizeOf(key: String, value: Bitmap): Int = value.byteCount
         }
@@ -566,12 +592,13 @@ budget to restore the full 256MB manifest ceiling. It also registers an
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             budgetManager = getSystemService(MemoryBudgetManager::class.java)
+            cleanupThread = HandlerThread("MemoryBudgetCleanup").apply { start() }
         }
 
         override fun onStart() {
             super.onStart()
-            // Register listener for process-level memory breaches
-            budgetManager.registerProcessOverBudgetListener(mainLooper, overBudgetListener)
+            // Register listener on a background Looper before tightening the budget
+            budgetManager.registerProcessOverBudgetListener(cleanupThread.looper, overBudgetListener)
             // Constrain memory during lightweight gallery browsing
             applyGalleryBudget()
         }
@@ -579,6 +606,11 @@ budget to restore the full 256MB manifest ceiling. It also registers an
         override fun onStop() {
             super.onStop()
             budgetManager.unregisterProcessOverBudgetListener(overBudgetListener)
+        }
+
+        override fun onDestroy() {
+            cleanupThread.quitSafely()
+            super.onDestroy()
         }
 
         /**
@@ -620,9 +652,9 @@ budget to restore the full 256MB manifest ceiling. It also registers an
 This example shows a native C++ game engine managing memory budgets based on the
 active graphics quality level, assuming the application's manifest declares a
 512MB ceiling to accommodate High quality graphics (`android:maxMb="512"`). The
-engine dynamically tightens the budget for lower quality presets and uses
-`AMemoryBudgetManager_Watcher_create` on an `ALooper` to unload texture mipmaps
-when over budget.
+engine starts `AMemoryBudgetManager_Watcher_create` on a background worker
+thread's `ALooper` before tightening the budget for lower quality presets, and
+unloads texture mipmaps when over budget.
 
     #include <android/memory_budget_manager.h>
     #include <android/looper.h>
@@ -667,12 +699,13 @@ when over budget.
             return true;
         }
 
-        bool startMonitoring(ALooper* looper) {
-            if (!looper) return false;
+        // Call on a background worker ALooper before tightening the budget with setQualityBudget
+        bool startMonitoring(ALooper* backgroundLooper) {
+            if (!backgroundLooper) return false;
 
             // Monitor process budget events, debounced to at most once every 1000ms
             mWatcher = AMemoryBudgetManager_Watcher_create(
-                looper,
+                backgroundLooper,
                 AMEMORY_BUDGET_MANAGER_EVENT_PROCESS,
                 1000,
                 &MemoryGovernor::onPressureEvent,
@@ -690,7 +723,7 @@ when over budget.
 
         void unloadUnusedTextures() {
             LOGW("Memory pressure callback triggered. Purging cached texture mipmaps...");
-            // Fast, high-yield eviction without allocating memory
+            // Fast, idempotent, high-yield eviction without allocating memory
         }
 
     private:

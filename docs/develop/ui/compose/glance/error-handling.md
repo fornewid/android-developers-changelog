@@ -150,6 +150,9 @@ includes a button to send feedback:
 
    <br />
 
+   > [!NOTE]
+   > **Note:** On Android 17 (API level 37) and higher, `AppWidgetManager.updateAppWidget` throws an `IllegalArgumentException` if a widget's total serialized bitmap memory exceeds the [system bitmap memory limit](https://developer.android.com/about/versions/17/behavior-changes-17#memory-limit-widget). When you override `onCompositionError`, Glance catches exceptions thrown during widget update execution and invokes your callback. Always construct a lightweight, text-only `RemoteViews` fallback layout (with zero bitmaps) inside `onCompositionError` and push it with `AppWidgetManager.updateAppWidget(appWidgetId, fallbackViews)` so the user sees a recoverable state rather than the default error UI.
+
 3. Create a pending intent that references your `GlanceAppWidgetReceiver`:
 
 

@@ -33,6 +33,7 @@ respective channels.
 | Android Studio Rabbit 1 | Stable |
 | Android Gradle plugin 9.4.0 | Stable |
 | Android Studio Rabbit 2 | RC |
+| Android Studio Rabbit 3 | Canary |
 
 <br />
 
@@ -132,3 +133,56 @@ fit the device display.
 - **Docked tool windows:** Adjusts the tool window's width (when docked to the left or right) or height (when docked to the top or bottom) to remove excess margin around the device.
 - **Floating and windowed modes:** Resizes both width and height of the window to wrap tightly around the device display.
 - **Split views:** Automatically adjusts internal splitters when viewing multiple displays or devices side by side.
+
+## Android Studio Rabbit 3
+
+The following are new features in Android Studio Rabbit 3.
+
+To see what's been fixed in this version of Android Studio, see the [closed
+issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.3).
+
+### Compose Preview Screenshot Testing tool
+
+Use the Compose Preview Screenshot Testing tool to test your Compose UIs and
+prevent regressions. The new tool helps you generate HTML reports that let you
+visually detect any changes to your app's UI. Learn more at [Compose Preview
+Screenshot Testing](https://developer.android.com/studio/preview/compose-screenshot-testing-with-testsuites).
+
+### Model Assignment
+
+The Model Assignment feature lets you pick different AI models for different
+types of tasks in Android Studio. For example, you can assign a large, pro-tier
+model for complex reasoning tasks in Agent Mode, and a faster, lightweight model
+for simpler, latency-sensitive tasks like commit message generation or next edit
+prediction. This lets you balance quality, speed, and quota usage across
+features.
+![](https://developer.android.com/static/studio/preview/images/model-assignment.png)
+
+To configure this, go to **File** (**Android Studio** on macOS) **\> Settings \> Tools \>
+AI \> Model Providers** , select the **Model Assignment** tab, and use the dropdowns
+to assign a model to each feature category. You can also change the model directly
+from the model selector dropdown in the Agent Mode panel---the Model Assignment
+settings for **Thinking** features will automatically update to reflect your selection.
+
+### Migrate iOS, Flutter, and React Native apps to Android
+
+You can now migrate existing iOS, Flutter, and React Native projects to native
+Android using automated migration tooling in Android Studio. From the New
+Project Wizard, you can call the assistant to convert the selected project to a
+Kotlin and Jetpack Compose-based Android app. The integrated progress UI
+provides end-to-end visibility across task planning, code transformation, and
+compilation checks, producing a functional project that's ready for testing and
+verification.
+
+To learn more, see [Perform cross-platform app migrations](https://developer.android.com/tools/agents/workflows/app-migrations).
+
+### Publish to Google Play for testing
+
+Android Studio now gives you the ability to upload new releases of your app
+directly to Google Play Console test tracks. You can do this by selecting
+a new option to continue to 'Publish for Testing' at the end of the Generate
+Signed App Bundle flow. This integration supports uploading an initial
+release of a brand-new app to a Play Console internal test track. You can
+also use this feature to upload releases of existing apps to other types of
+test tracks. You need to be registered on Google Play Console to take
+advantage of this functionality.

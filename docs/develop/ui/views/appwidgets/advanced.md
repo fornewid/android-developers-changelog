@@ -39,8 +39,15 @@ appWidgetManager.updateAppWidget(appWidgetId, remoteViews)
 
 <br />
 
-- **Partial update:** call [`AppWidgetManager.partiallyUpdateAppWidget`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#partiallyUpdateAppWidget(int,%20android.widget.RemoteViews)) to update parts of the widget. This merges the new `RemoteViews` with the previously provided `RemoteViews`. This method is ignored if a widget doesn't receive at least one full update through [`updateAppWidget(int[],
+- **Partial update:** call
+  [`AppWidgetManager.partiallyUpdateAppWidget`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#partiallyUpdateAppWidget(int,%20android.widget.RemoteViews))
+  to update parts of the widget. This merges the new `RemoteViews` with the
+  previously provided `RemoteViews`. This method is ignored if a widget
+  doesn't receive at least one full update through [`updateAppWidget(int[],
   RemoteViews)`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#updateAppWidget(android.content.ComponentName,%20android.widget.RemoteViews)).
+
+  > [!WARNING]
+  > **Warning:** Reserve `partiallyUpdateAppWidget` for lightweight text or visibility updates. Don't use `partiallyUpdateAppWidget` to replace `Bitmap` or `Icon` images (`setImageViewBitmap`, `setImageViewIcon`, or `setImageViewUri`). Because `system_server` merges partial `RemoteViews` actions into the previously cached `RemoteViews` instance, prior image allocations remain retained in memory until the next full `updateAppWidget` call and can cause your widget to exceed the system bitmap memory limit on Android 17 (API level 37) and higher.
 
 
 ```kotlin

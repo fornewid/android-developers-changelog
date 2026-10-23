@@ -10,7 +10,7 @@ Automated testing framework to verify that user data and account credentials saf
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test_backup#1.0.0-alpha03) |
+| October 21, 2026 | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test-backup#1.0.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -45,11 +45,11 @@ For more information about dependencies, see [Add build dependencies](https://de
 
 Your feedback helps make Jetpack better. Let us know if you discover new issues or have
 ideas for improving this library. Please take a look at the
-[existing issues](https://issuetracker.google.com/issues?q=componentid:+status:open)
+[existing issues](https://issuetracker.google.com/issues?q=componentid:2258505+status:open)
 in this library before you create a new one. You can add your vote to an existing issue by
 clicking the star button.
 
-[Create a new issue](https://issuetracker.google.com/issues/new?component&template)
+[Create a new issue](https://issuetracker.google.com/issues/new?component=2258505&template=2395410)
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.

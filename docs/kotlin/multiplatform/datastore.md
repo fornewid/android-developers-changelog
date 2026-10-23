@@ -7,8 +7,7 @@ source: md.txt
 The DataStore library stores data asynchronously, consistently, and
 transactionally, overcoming some of the drawbacks of SharedPreferences. This
 page focuses on creating DataStore in Kotlin Multiplatform (KMP) projects. For
-more information on DataStore, see the [primary documentation for DataStore](https://developer.android.com/topic/libraries/architecture/datastore)
-and [official samples](https://github.com/android/kotlin-multiplatform-samples).
+more information on DataStore, see the [primary documentation for DataStore](https://developer.android.com/topic/libraries/architecture/datastore).
 
 > [!NOTE]
 > **Note:** Only [DataStore Preferences](https://developer.android.com/topic/libraries/architecture/datastore#preferences-datastore) is supported in KMP projects.
@@ -63,7 +62,7 @@ with the path.
 
     fun createDataStore(): DataStore<Preferences> = createDataStore(
         storage = FileStorage(
-            serializer = PreferencesSerializer,
+            serializer = PreferencesFileSerializer,
             produceFile = { context.filesDir.resolve(dataStoreFileName) }
         )
     )
@@ -114,7 +113,7 @@ or Kotlin APIs:
 
     fun createDataStore(): DataStore<Preferences> = createDataStore(
         storage = FileStorage(
-            serializer = PreferencesSerializer,
+            serializer = PreferencesFileSerializer,
             produceFile = { File(System.getProperty("java.io.tmpdir"), dataStoreFileName) }
         )
     )

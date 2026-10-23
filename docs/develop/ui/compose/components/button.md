@@ -40,7 +40,7 @@ This image demonstrates the five types of buttons in Material Design:
 
 The filled button component uses the basic [`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It is
 filled with a solid color by default. The snippet shows how to implement the
-component:
+component and preview it interactively:
 
 
 ```kotlin
@@ -51,21 +51,19 @@ fun FilledButtonExample(onClick: () -> Unit) {
     }
 }
 ```
+![A filled button with a black background that reads, 'Filled'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_filledbutton.png) Figure 2. A filled button.
 
 <br />
 
 > [!NOTE]
 > **Note:** If you want to build a custom button, use the `Button` composable.
 
-This implementation appears as shown:
-![A filled button with a purple background that reads, 'Filled'.](https://developer.android.com/static/develop/ui/compose/images/components/button-filled.png) Figure 2. A filled button.
-
 ## Filled tonal button
 
 The filled tonal button component uses the [`FilledTonalButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledTonalButton.composable#FilledTonalButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable.
 It is filled with a tonal color by default.
 
-The snippet shows how to implement the component:
+The snippet shows how to implement the component and preview it interactively:
 
 
 ```kotlin
@@ -76,18 +74,16 @@ fun FilledTonalButtonExample(onClick: () -> Unit) {
     }
 }
 ```
+![A tonal button with a light gray background that reads, 'Tonal'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_filledtonalbutton.png) Figure 3. A tonal button.
 
 <br />
-
-This implementation appears as shown:
-![A tonal button with a light purple background that reads, 'Tonal'.](https://developer.android.com/static/develop/ui/compose/images/components/button-tonal.png) Figure 3. A tonal button.
 
 ## Outlined button
 
 The outlined button component uses the [`OutlinedButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedButton.composable#OutlinedButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It
 appears with an outline by default.
 
-The snippet shows how to implement the component:
+The snippet shows how to implement the component and preview it interactively:
 
 
 ```kotlin
@@ -98,11 +94,9 @@ fun OutlinedButtonExample(onClick: () -> Unit) {
     }
 }
 ```
+![A transparent outlined button with a dark border that reads, 'Outlined'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_outlinedbutton.png) Figure 4. An outlined button.
 
 <br />
-
-This implementation appears as shown:
-![A transparent outlined button with a dark border that reads, 'Outlined'.](https://developer.android.com/static/develop/ui/compose/images/components/button-outlined.png) Figure 4. An outlined button.
 
 ## Elevated button
 
@@ -110,7 +104,7 @@ The elevated button component uses the [`ElevatedButton`](https://developer.andr
 a shadow that represents the elevation effect by default. It is a filled button
 that includes a shadow.
 
-The snippet shows how to implement the component:
+The snippet shows how to implement the component and preview it interactively:
 
 
 ```kotlin
@@ -121,18 +115,16 @@ fun ElevatedButtonExample(onClick: () -> Unit) {
     }
 }
 ```
+![An elevated button with a gray background that reads, 'Elevated'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_elevatedbutton.png) Figure 5. An elevated button.
 
 <br />
-
-This implementation appears as shown:
-![An elevated button with a gray background that reads, 'Elevated'.](https://developer.android.com/static/develop/ui/compose/images/components/button-elevated.png) Figure 5. An elevated button.
 
 ## Text button
 
 The text button component uses the [`TextButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextButton.composable#TextButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It appears as
 only text until pressed. It does not have a solid fill or outline by default.
 
-The snippet shows how to implement the component:
+The snippet shows how to implement the component and preview it interactively:
 
 
 ```kotlin
@@ -145,11 +137,9 @@ fun TextButtonExample(onClick: () -> Unit) {
     }
 }
 ```
+![A text button that reads 'Text Button'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_textbutton.png) Figure 6. A text button.
 
 <br />
-
-This implementation appears as shown:
-![A text button that reads 'Text Button'](https://developer.android.com/static/develop/ui/compose/images/components/button-text.png) Figure 6. A text button.
 
 ## Additional resources
 

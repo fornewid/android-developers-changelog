@@ -10,7 +10,7 @@ This library provides an integration for Compose and Android Views for the embed
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | - | - | - | [1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/photopicker#1.0.0-alpha02) |
+| October 21, 2026 | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/photopicker#1.0.0-alpha03) |
 
 ## Declaring dependencies
 

@@ -55,7 +55,7 @@ message, and whether your app is subject to restrictions because of [doze](https
 [app standby](https://developer.android.com/training/monitoring-device-state/doze-standby#understand_app_standby).
 
 - [Learn how to integrate FCM into your Android project](https://firebase.google.com/docs/android/setup)
-- [Explore the FCM (server) API and its capabilities](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages)
+- [Explore the FCM (server) API and its capabilities](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#androidconfigv2)
 
 ## Enhance message delivery reliability
 

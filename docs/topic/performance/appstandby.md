@@ -197,16 +197,20 @@ which previously worked well might cause problems.
   redesigning some notifications that let users interact. For some guidelines,
   see the Material Design [Notifications design patterns](https://material.io/guidelines/patterns/notifications.html).
 
-- If the app doesn't show a notification upon receiving a [high-priority
-  Firebase Cloud Messaging (FCM) message](https://firebase.google.com/docs/cloud-messaging/android/message-priority#using_high_priority_messages_for_android), the user can't interact with
-  the app and thus promote it to the active bucket. In fact, the only intended
-  use for high priority FCM messages is to push a notification to the user, so
-  this situation must not occur. On 12L (API level 32) and lower, if
-  you inappropriately mark an FCM message as high priority when it doesn't
-  trigger user interaction, it can cause future messages to be deprioritized.
+- If the app doesn't show a notification upon receiving a
+  [`RemoteNotification`](https://firebase.google.com/docs/cloud-messaging/send/v2-api#send-remotenotification-message) Firebase Cloud Messaging (FCM) message, the user
+  can't interact with the app and thus promote it to the active bucket. In
+  fact, the only intended use for `RemoteNotification` is to push a
+  notification to the user, so this situation must not occur. There is a
+  policy enforcement for usage of these message types: a 20-second execution
+  window that falls back to the original notification. There is no enforcement
+  if the app is in foreground or user permits background runs.
 
   > [!NOTE]
   > **Note:** If the user repeatedly dismisses a notification, the system gives the user the option to block that notification in the future. Don't spam the user with notifications to try to keep your app in the active bucket.
+
+  > [!NOTE]
+  > **Note:** v1 of FCM used high priority messages whereas v2 uses `RemoteNotification` for user facing, time-sensitive notifications and `BackgroundSync` for non-urgent messages such as data syncs. We strongly recommended migrating to v2 as v1 is deprecated.
 
 - If apps are split across multiple packages, those packages might be in
   different buckets and have different access levels. Test these apps with the
