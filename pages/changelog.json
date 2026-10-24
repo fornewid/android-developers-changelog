@@ -1,5 +1,438 @@
 [
   {
+    "date": "2026-10-24T15:09:54Z",
+    "commit_hash": "255baa44",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/mlkit-agent-api/references/tools_and_functions\" target=\"_blank\">Local tools and function calling reference</a>",
+        "path": "agents/skills/device-ai/mlkit-agent-api/references/tools_and_functions.md",
+        "summary": "This new documentation details the patterns for registering and executing local tools with the ML Kit GenAI Agent API on Android using Android AppFunctions, replacing deprecated legacy annotation patterns.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/mlkit-agent-api/skill\" target=\"_blank\">ML Kit GenAI Agent API</a>",
+        "path": "agents/skills/device-ai/mlkit-agent-api/skill.md",
+        "summary": "This document introduces the ML Kit GenAI Agent API skill for Android, detailing on-device agent setup, multi-turn chat initialization, AppFunction tool integration, and error handling for AICore workflows.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/performance/r8-analyzer/references/CONFIGURATION\" target=\"_blank\">Configuration of R8</a>",
+        "path": "agents/skills/performance/r8-analyzer/references/CONFIGURATION.md",
+        "summary": "Updated the R8 analyzer configuration documentation to support new Android Gradle Plugin (AGP) versions. It adds guidelines for the unified `optimization { enable = true }` DSL block introduced in AGP 9.3, updates legacy configuration examples, and clarifies AGP version ranges for optimized resource shrinking and full mode flags in `gradle.properties`. This ensures the analysis tool correctly identifies modern R8 setups and avoids false-positive warnings.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_CONFIGURATION.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/performance/r8-analyzer/references/FULL_BUILD_CONFIG_ANALYZER\" target=\"_blank\">Configuration Analyzer data generation</a>",
+        "path": "agents/skills/performance/r8-analyzer/references/FULL_BUILD_CONFIG_ANALYZER.md",
+        "summary": "This new documentation details the step-by-step procedure for setting up, generating, and analyzing R8 Configuration Analyzer reports to measure keep rule impacts in Android builds.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/performance/r8-analyzer/references/INSPECT-RULES\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/performance/r8-analyzer/references/INSPECT-RULES.md",
+        "summary": "This new documentation page outlines common bad or redundant R8 keep rules for standard Android development and popular libraries, explaining why they should be removed in favor of built-in consumer rules.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/performance/r8-analyzer/references/REPORT_FORMAT\" target=\"_blank\">R8 analysis report template</a>",
+        "path": "agents/skills/performance/r8-analyzer/references/REPORT_FORMAT.md",
+        "summary": "Updated the R8 analyzer report format reference to include modern AGP version references (upgrading to 9.3), guidance for resource shrinking configurations, handling for global disable rules and inverted keep rules, clearer scoring measurement rules, enhanced keep rule evaluation criteria (including source tracking and library handling), and updated handling for subsumed and identical keep rules. These changes improve report accuracy, actionable remediation steps, and clarity for analyzing R8 performance and configuration bottlenecks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_REPORT_FORMAT.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/performance/r8-analyzer/scripts/analyze.py.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/performance/r8-analyzer/scripts/analyze.py.rawcontent.md",
+        "summary": "Added a new documentation page containing a Python script designed to analyze R8 keep rule radius JSON output and calculate optimization, obfuscation, and shrinking scores.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/performance/r8-analyzer/scripts/convert_pb_to_json.py.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/performance/r8-analyzer/scripts/convert_pb_to_json.py.rawcontent.md",
+        "summary": "This new documentation page introduces a Python script designed to convert R8 keep radius protobuf files into JSON format. It matters because it simplifies parsing and analyzing R8 optimization data by providing automated conversion utilities for performance tooling.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/performance/r8-analyzer/scripts/keep_radius_pb2.py.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/performance/r8-analyzer/scripts/keep_radius_pb2.py.rawcontent.md",
+        "summary": "Added a new Python protocol buffer module (`keep_radius_pb2.py.rawcontent.md`) to support the R8 analyzer by parsing blast radius and keep rule definitions.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/performance/r8-analyzer/skill\" target=\"_blank\">Core workflow</a>",
+        "path": "agents/skills/performance/r8-analyzer/skill.md",
+        "summary": "Updated the R8 analyzer skill documentation to reflect newer AGP and R8 version requirements (targeting AGP 9.3+ for standalone tasks and adjusting Path A/B workflows). Detailed steps for script execution paths, tool requirements (such as protobuf >= 6.33.4), input/output paths, and refined reporting constraints regarding temporary build modifications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/OneHandedGestureSamples.kt\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/wear/wear-compose-m3/references/material3/OneHandedGestureSamples.kt.md",
+        "summary": "Updated the `OneHandedGestureHorizontalPagerSample` and `OneHandedGestureVerticalPagerSample` functions to properly consume and apply `contentPadding` from `ScreenScaffold` to the inner Column modifier. This ensures proper layout spacing and prevents content clipping in Wear OS Compose Material 3 implementations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_OneHandedGestureSamples.kt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/PagerScaffoldSample.kt\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/wear/wear-compose-m3/references/material3/PagerScaffoldSample.kt.md",
+        "summary": "Updated the PagerScaffold samples to properly apply `contentPadding` from `ScreenScaffold` to the inner column modifiers using `.padding(contentPadding)`. This ensures proper layout spacing and prevents content from being clipped or overlapped by scaffold-insets in Wear Compose Material 3.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_PagerScaffoldSample.kt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/projectedcontext-source\" target=\"_blank\">API source code for Glimmer projected context</a>",
+        "path": "agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/projectedcontext-source.md",
+        "summary": "Updated the ProjectedContext implementation to improve thread safety and race condition handling when detecting projected displays. Added a synchronization lock to prevent slow callbacks from emitting stale values, optimized listener registration order with initial state emission inside a try-finally block, and refined the virtual device selection logic (`getProjectedDeviceId`) to better handle active virtual displays and API-specific fallbacks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_projectedcontext-source.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini/agent-platform-api\" target=\"_blank\">Agent Platform Gemini API</a>",
+        "path": "ai/gemini/agent-platform-api.md",
+        "summary": "Updated the Firebase Bill of Materials (BoM) version from 35.0.2 to 35.1.0 in the Gradle dependencies setup instructions. This ensures developers use the latest stable release containing recent bug fixes and feature updates for Firebase AI Logic and App Check libraries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_agent-platform-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini/developer-api\" target=\"_blank\">Gemini Developer API</a>",
+        "path": "ai/gemini/developer-api.md",
+        "summary": "Updated the Firebase BoM (Bill of Materials) dependency version from 35.0.2 to 35.1.0 in the developer-api.md documentation. This ensures developers use the latest stable release containing bug fixes and improvements for Firebase AI Logic and App Check libraries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_developer-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini/live\" target=\"_blank\">Gemini Live API</a>",
+        "path": "ai/gemini/live.md",
+        "summary": "Updated the Firebase BoM version from 35.0.2 to 35.1.0 in the dependency setup instructions. This ensures developers use the latest stable release containing bug fixes and improvements for the Firebase AI Logic and App Check libraries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_live.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/introducing-camera-x-1-5-powerful-video-recording-and-pro-level-image-capture\" target=\"_blank\">Introducing CameraX 1.5: Powerful Video Recording and Pro-level Image Capture</a>",
+        "path": "blog/posts/introducing-camera-x-1-5-powerful-video-recording-and-pro-level-image-capture.md",
+        "summary": "The git diff shows accidental and corrupted text refactoring within the Gradle version catalog code block, splitting the library alias names incorrectly across lines. This change breaks the validity of the TOML dependency declarations and matters because it needs to be reverted to ensure developers copy-paste working build configuration snippets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_introducing-camera-x-1-5-powerful-video-recording-and-pro-level-image-capture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-9-6-0-release-notes\" target=\"_blank\">Android Gradle plugin 9.6.0</a>",
+        "path": "build/releases/agp-9-6-0-release-notes.md",
+        "summary": "This new release notes page documents Android Gradle Plugin (AGP) 9.6.0, introducing compatibility details, fixed issues, and an experimental on-device code coverage feature for instrumented tests.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/mobile/guides/widgets/sizing\" target=\"_blank\">Sizing</a>",
+        "path": "design/ui/mobile/guides/widgets/sizing.md",
+        "summary": "The widget sizing documentation was updated to remove specific hardcoded dimension tables for handheld and tablet devices, shifting the focus toward designing adaptive widgets across size classes and referencing official developer documentation for precise cell sizes. Additionally, a new section on 'Widgets across form factors' was added to guide developers on adapting widgets for tablets, desktops, and cars.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_sizing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/search-bar\" target=\"_blank\">Search bar</a>",
+        "path": "develop/ui/compose/components/search-bar.md",
+        "summary": "Fixed syntax errors and typos in the code snippet within the search-bar documentation. This ensures that the provided Compose code examples for customizable search bars and lazy lists compile correctly and accurately reflect valid Kotlin syntax.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_search-bar.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/layouts/containers\" target=\"_blank\">Layout containers</a>",
+        "path": "develop/ui/compose/layouts/containers.md",
+        "summary": "This new documentation page introduces Jetpack Compose layout containers, detailing advanced options like lazy lists, pagers, flow layouts, grids, and FlexBox alongside a capability comparison matrix to help developers choose the right component.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/styles/styles-update\" target=\"_blank\">Styles update</a>",
+        "path": "develop/ui/compose/styles/styles-update.md",
+        "summary": "This new documentation page announces an architectural update to the Jetpack Compose Styles API, shifting visual property definitions from the foundation layer to design systems for greater flexibility and control.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-brush-apis\" target=\"_blank\">Brush APIs</a>",
+        "path": "develop/ui/compose/touch-input/stylus-input/ink-api-brush-apis.md",
+        "summary": "Updated the custom brush loading logic in the Ink API documentation by removing the copy operation that set the clientBrushFamilyId to the brush name, allowing the decoded BrushFamily to be used directly without modification.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_ink-api-brush-apis.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/ink-api-brush-apis-views\" target=\"_blank\">Brush APIs</a>",
+        "path": "develop/ui/views/touch-and-input/stylus-input/ink-api-brush-apis-views.md",
+        "summary": "Updated the custom brush loading implementation in the Ink API documentation by removing the `clientBrushFamilyId` override when copying the `BrushFamily`. This ensures that loaded custom brushes retain their original family identifiers from the decoded resource, which is important for maintaining correct brush behavior and metadata.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_ink-api-brush-apis-views.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-xr-to-existing\" target=\"_blank\">Bring your Android app into 3D with XR</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-xr-to-existing.md",
+        "summary": "Updated the Jetpack XR SDK documentation for the `Orbiter` component to reflect API changes, replacing `alignment` with `position` and `OrbiterAlignment.TopStart` with `OrbiterPosition.TopStart` along with its edge alignment properties. This matters because it ensures developers use the current API syntax when adding XR capabilities to existing apps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_add-xr-to-existing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/customize-3d-models\" target=\"_blank\">Customize 3D models in your app</a>",
+        "path": "develop/xr/jetpack-xr-sdk/customize-3d-models.md",
+        "summary": "Updated the Jetpack XR SDK documentation for customizing 3D models by adding a null-safety check (`?: return`) when retrieving and playing animations. This prevents potential null pointer exceptions if the \"Walk\" animation is not found, improving code robustness and serving as a better practice for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_customize-3d-models.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose\" target=\"_blank\">Develop spatial UI with Jetpack Compose for XR</a>",
+        "path": "develop/xr/jetpack-xr-sdk/ui-compose.md",
+        "summary": "Updated the Jetpack XR SDK Jetpack Compose documentation to reflect API naming changes for `Orbiter`. The `alignment` parameter was renamed to `position` (using `OrbiterPosition`), and `OrbiterAlignment.BottomCenter` with `OrbiterEdgeOffsetType.OuterEdge` was replaced by `OrbiterPosition.BottomCenter` and `OrbiterPosition.EdgeAlignment.Outside`. These changes matter as they document the latest API refinements for positioning and aligning UI elements in spatial environments.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_ui-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/developer-verification/guides/open-source-app-registration\" target=\"_blank\">Register your app on open-source repositories</a>",
+        "path": "developer-verification/guides/open-source-app-registration.md",
+        "summary": "The open-source app registration guide has been updated to consistently use the terminology \"open-source repositories\" and \"repositories\" instead of \"platforms\" or \"stores\" throughout the documentation to better align with the distribution model.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_open-source-app-registration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/components/activities/parcelables-and-bundles\" target=\"_blank\">Parcelables and bundles</a>",
+        "path": "guide/components/activities/parcelables-and-bundles.md",
+        "summary": "The documentation was updated to recommend the Kotlin `parcelize` plugin as the modern approach for implementing Parcelable classes in Kotlin and Jetpack Compose apps. Additionally, it removed the Java code snippet for sending data between activities, updated links to use Kotlin reference URLs, and added recommendations regarding data limits for `rememberSaveable`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_parcelables-and-bundles.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/components/activities/recents\" target=\"_blank\">Recents screen</a>",
+        "path": "guide/components/activities/recents.md",
+        "summary": "Updated the recents documentation to modernize all code samples from XML/Views to Jetpack Compose, migrated reference links from Java to Kotlin API endpoints, and added a clarifying note regarding OS-level task management versus Compose-based UI navigation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_recents.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/fragments/dialogs\" target=\"_blank\">Display dialogs with DialogFragment</a>",
+        "path": "guide/fragments/dialogs.md",
+        "summary": "The changes update the `DialogFragment` documentation to adopt standard Markdown callout syntax (e.g., `> [!NOTE]`) instead of custom note formatting. This improves readability and maintains consistency with modern documentation rendering standards without altering the technical guidance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_dialogs.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-swipe-view-2\" target=\"_blank\">Create swipe views with tabs using ViewPager2</a>",
+        "path": "guide/navigation/navigation-swipe-view-2.md",
+        "summary": "The changes in this documentation file are purely formatting adjustments, specifically converting Markdown pipe-table note blocks into standardized blockquote note formats (`> [!NOTE]`) and removing trailing whitespaces. These changes do not alter any technical content or instructions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_navigation-swipe-view-2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-swipe-view\" target=\"_blank\">Create swipe views with tabs using ViewPager</a>",
+        "path": "guide/navigation/navigation-swipe-view.md",
+        "summary": "Updated the deprecation warning and note sections to use standard Markdown blockquote callouts ([!CAUTION] and [!NOTE]) instead of table-based formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_navigation-swipe-view.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/slices/getting-started\" target=\"_blank\">Getting started</a>",
+        "path": "guide/slices/getting-started.md",
+        "summary": "The changes in the getting-started.md documentation are purely trivial, consisting of markdown formatting adjustments, line wrapping, and converting standard blockquotes to standard GitHub Flavored Markdown note syntax without altering the underlying technical content or instructions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_getting-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/core\" target=\"_blank\">Core</a>",
+        "path": "jetpack/androidx/releases/core.md",
+        "summary": "The release notes for AndroidX Core were updated to remove the entry detailing the `androidx.lifecycle:lifecycle-runtime` dependency update to 2.10.0 and its requirement for AGP 9.5.0-alpha04 or later.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_core.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera2/foldable-devices\" target=\"_blank\">Foldable devices and cameras</a>",
+        "path": "media/camera/camera2/foldable-devices.md",
+        "summary": "The main title header ('# Foldable devices and cameras') was removed from the document. This is a trivial formatting change that does not impact the technical content or guidance regarding Camera2 and CameraX support for foldable devices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_foldable-devices.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera2/hdr-video-capture\" target=\"_blank\">HDR video capture</a>",
+        "path": "media/camera/camera2/hdr-video-capture.md",
+        "summary": "Fixed a broken and malformed code snippet in the setupSessionWithDynamicRangeProfile function by cleaning up missing generic type parameters and formatting issues, while the rest of the changes consist of standard line wrapping, reformatting, and minor text styling improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_hdr-video-capture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax\" target=\"_blank\">CameraX overview</a>",
+        "path": "media/camera/camerax.md",
+        "summary": "The CameraX documentation has been updated to include information regarding the new Android skills integration, allowing developers to install and use the CameraX skill via the Android CLI to streamline camera feature implementation. Additionally, helpful video resource links have been embedded throughout the overview and use cases sections.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_camerax.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/lowlight/low-light-boost-ae\" target=\"_blank\">Low Light Boost Auto Exposure Mode</a>",
+        "path": "media/camera/lowlight/low-light-boost-ae.md",
+        "summary": "The changes to the Low Light Boost AE Mode documentation are strictly formatting and line-wrapping updates (along with adding a markdown note syntax). No technical content, code snippets, or API explanations were added, removed, or modified.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_low-light-boost-ae.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/optimize/sharing\" target=\"_blank\">Best practices for sharing video</a>",
+        "path": "media/optimize/sharing.md",
+        "summary": "The git diff shows only formatting changes, Markdown text wrapping improvements, and minor syntax adjustments (such as changing link formatting and table borders). No functional or technical content changes were introduced.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_sharing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/platform/volumeshaper\" target=\"_blank\">Controlling amplitude with VolumeShaper</a>",
+        "path": "media/platform/volumeshaper.md",
+        "summary": "The git diff shows formatting changes and line wrapping adjustments in the `volumeshaper.md` documentation. The functional content and technical explanations remain unchanged, so no updates are required.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_volumeshaper.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/privacy-and-security/risks/tapjacking\" target=\"_blank\">Tapjacking</a>",
+        "path": "privacy-and-security/risks/tapjacking.md",
+        "summary": "Updated the tapjacking documentation to correct the introduction of the `accessibilityDataSensitive` flag (introduced in Android 14, API level 34, rather than Android 16) and clarified its capabilities across different API levels, including blocking simulated touch gestures on Android 16. It also converted Markdown blockquotes for better note formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_tapjacking.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "Updated the Android Studio nightly build documentation to reference the latest build date (2026-10-23 instead of 2026-10-22) across all download links and file references for Windows, macOS, and Linux.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/test/coverage-report\" target=\"_blank\">View code coverage reports</a>",
+        "path": "studio/test/coverage-report.md",
+        "summary": "Added documentation for the experimental on-device code coverage feature for instrumented tests, available starting from AGP 9.6.0-alpha01. This explains how developers can enable the feature using specific properties in `gradle.properties` to measure code coverage directly on the test device.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_coverage-report.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/test/on-device-code-coverage\" target=\"_blank\">View code coverage reports (with on-device agent)</a>",
+        "path": "studio/test/on-device-code-coverage.md",
+        "summary": "This new documentation explains how to enable and use the experimental on-device code coverage feature in the Android Gradle plugin, which provides faster builds and smaller debug APKs by instrumenting classes on the test device rather than at build time.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-apis\" target=\"_blank\">ViewModel Scoping APIs</a>",
+        "path": "topic/libraries/architecture/viewmodel/viewmodel-apis.md",
+        "summary": "The `viewmodel-apis.md` documentation has been extensively updated to remove all legacy Android Views (Kotlin/Java) code snippets, shifting focus primarily toward Jetpack Compose. It introduces new sections covering ViewModel scoping directly to a composable using `rememberViewModelStoreOwner()` and `rememberViewModelStoreProvider()`, which are crucial for dynamically added or removed UI components like lazy lists and pagers. Additionally, it streamlines the Navigation graph scoping section and updates the resource links to point to a separate dedicated guide for ViewModels in the Views system.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_viewmodel-apis.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/views/viewmodel/viewmodel-apis-views\" target=\"_blank\">ViewModel Scoping APIs (Views)</a>",
+        "path": "topic/libraries/architecture/views/viewmodel/viewmodel-apis-views.md",
+        "summary": "Updated documentation formatting, converting relative links to absolute URLs, explicitly specifying language identifiers in code blocks (e.g., kotlin, java), and updating the note callout style. These updates improve markdown rendering and documentation parsing consistency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_viewmodel-apis-views.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations\" target=\"_blank\">Generate keep rules from annotations</a>",
+        "path": "topic/performance/app-optimization/jetpack-keep-annotations.md",
+        "summary": "Added a new 'Limitations' section to the Jetpack Keep documentation, highlighting that Jetpack Keep does not yet support detecting reflection based on annotations and providing a manual ProGuard/R8 rule workaround until the feature is implemented.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_jetpack-keep-annotations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/guide\" target=\"_blank\">Understanding and troubleshooting Android memory</a>",
+        "path": "topic/performance/memory/guide.md",
+        "summary": "The memory performance guide has been updated to include two new topics: returning unused memory pages to the operating system using system calls like `madvise` and `posix_fadvise`, and keeping background work alive efficiently by splitting it into dedicated processes. These additions help developers better manage low-level memory allocation and reduce memory pressure on UI processes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_guide.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/guide/page-advice\" target=\"_blank\">Return memory pages to the OS</a>",
+        "path": "topic/performance/memory/guide/page-advice.md",
+        "summary": "This new documentation explains how to use the `madvise` and `posix_fadvise` system calls to return unused physical RAM to the operating system while keeping virtual address reservations and file descriptors intact.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/guide/process-splitting\" target=\"_blank\">Keep background work alive with a lean process</a>",
+        "path": "topic/performance/memory/guide/process-splitting.md",
+        "summary": "This new documentation page explains how to move background work into a dedicated lightweight process using `android:process` to prevent UI and graphics memory from staying pinned, reducing memory pressure and low-memory terminations.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/basics/supporting-devices/platforms\" target=\"_blank\">Support different platform versions</a>",
+        "path": "training/basics/supporting-devices/platforms.md",
+        "summary": "The changes in platforms.md consist entirely of formatting updates, line wrapping adjustments, and minor link syntax corrections. No meaningful technical content or API guidelines were added, removed, or altered.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_platforms.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/run-background-service/create-service\" target=\"_blank\">Create a background service</a>",
+        "path": "training/run-background-service/create-service.md",
+        "summary": "Added a warning callout note to the top of the 'Create a background service' documentation, informing developers that IntentService is deprecated and will not work correctly when applications run in the background on recent Android versions, serving as a legacy reference only.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_create-service.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/testing/espresso/web\" target=\"_blank\">Espresso Web</a>",
+        "path": "training/testing/espresso/web.md",
+        "summary": "Updated outdated external links for the Selenium WebDriver documentation to point to the new domain (selenium.dev) and corrected an internal documentation link for AndroidJUnitRunner to ensure developers are directed to the correct androidx-test-libraries path.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_web.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/testing/other-components/ui-automator-legacy\" target=\"_blank\">Use the UI Automator legacy API</a>",
+        "path": "training/testing/other-components/ui-automator-legacy.md",
+        "summary": "Updated multiple documentation links and anchor references within the UI Automator legacy guide to point to the current Android developer documentation structure. This ensures readers are directed to valid, updated URLs for topics such as device state, UI development guides, accessibility best practices, custom views, and instrumented unit tests.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/255baa44_ui-automator-legacy.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-23T15:10:08Z",
     "commit_hash": "ade51bc4",
     "entries": [

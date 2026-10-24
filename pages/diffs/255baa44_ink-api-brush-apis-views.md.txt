@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/views/touch-and-input/stylus-input/ink-api-brush-apis-views.md b/docs/develop/ui/views/touch-and-input/stylus-input/ink-api-brush-apis-views.md
+index b6852c5d..3dcf6d64 100644
+--- a/docs/develop/ui/views/touch-and-input/stylus-input/ink-api-brush-apis-views.md
++++ b/docs/develop/ui/views/touch-and-input/stylus-input/ink-api-brush-apis-views.md
+@@ -77,7 +77,7 @@ class CustomBrushes(val context: Context) {
+             val brushFamily = context.resources.openRawResource(resourceId).use { inputStream ->
+                 BrushFamily.decode(inputStream)
+             }
+-            CustomBrush(name, icon, brushFamily.copy(clientBrushFamilyId = name))
++            CustomBrush(name, icon, brushFamily)
+         }
+         return loadedBrushes
+     }

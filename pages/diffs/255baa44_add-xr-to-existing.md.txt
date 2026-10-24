@@ -1,0 +1,15 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/add-xr-to-existing.md b/docs/develop/xr/jetpack-xr-sdk/add-xr-to-existing.md
+index 4f9c5ef8..0ca665b1 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/add-xr-to-existing.md
++++ b/docs/develop/xr/jetpack-xr-sdk/add-xr-to-existing.md
+@@ -138,8 +138,8 @@ NavigationRail()
+ 
+ // New XR differentiated approach
+ Orbiter(
+-    alignment = OrbiterAlignment.TopStart(
+-        edgeOffsetType = OrbiterEdgeOffsetType.OuterEdge,
++    position = OrbiterPosition.TopStart(
++        horizontalEdgeAlignment = OrbiterPosition.EdgeAlignment.Outside,
+         offset = DpVolumeOffset(x = dimensionResource(R.dimen.start_orbiter_padding))
+     )
+ ) {
