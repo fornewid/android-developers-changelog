@@ -121,3 +121,15 @@ Click any file to see code with highlighting for line and branch coverage:
 - Green: Covered lines.
 - Red: Uncovered lines.
 - Yellow: Partial coverage (some instructions or branches missed).
+
+## Use on-device code coverage for instrumented tests
+
+> [!WARNING]
+> **Experimental:** This is an experimental feature. To enable this feature, set `android.experimental.androidTest.coverage.useOnDeviceAgent=true` and `android.experimental.reportAggregationSupport=true` in your `gradle.properties` file.
+
+By default, AGP measures the coverage of instrumented tests by instrumenting
+your app's classes with JaCoCo when it builds your app. Starting with AGP
+9.6.0-alpha01, you can use on-device instrumentation instead, which instruments
+your app's classes on the test device while your tests run. For more
+information, see [View code coverage reports (with on-device
+agent)](https://developer.android.com/studio/test/on-device-code-coverage).

@@ -2898,7 +2898,6 @@ October 07, 2026
 **Bug Fixes**
 
 - Bump core-telecom to 1.1.0-rc01. ([Iba053](https://android-review.googlesource.com/#/q/Iba0530fd92731fbd4e31cd2d6ac903c229422f8d))
-- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
 - Fixed an issue where video calls started with a preferred audio endpoint (such as the phone earpiece) would erroneously revert to the device speaker shortly after connecting. ([I38ea6](https://android-review.googlesource.com/#/q/I38ea69d9b482e694f4032bc2b4e86eeffa7448fc))
 - Fixed an issue where video calls would incorrectly route audio to the device speaker instead of a connected wired headset on call start. ([I575a8](https://android-review.googlesource.com/#/q/I575a8437740b801903921abbf96abcab67904a9d))
 - Allow `VoIP` apps to disconnect with `DisconnectCause.ERROR` starting in SDK 38, with automatic remapping to LOCAL on older platform versions. ([I5a58c](https://android-review.googlesource.com/#/q/I5a58cd455804532a8f605ab6ba34d4ef43075a13))

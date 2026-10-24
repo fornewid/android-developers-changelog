@@ -11,11 +11,11 @@ synchronize other parts of your UI with the hiding/showing of system bars.
 ## Register a Listener
 
 To get notified of system UI visibility changes, register an
-[View.OnSystemUiVisibilityChangeListener](https://developer.android.com/reference/android/view/View.OnSystemUiVisibilityChangeListener) to your view.
+`https://developer.android.com/reference/android/view/View.OnSystemUiVisibilityChangeListener` to your view.
 This is typically the view you are using to control the navigation visibility.
 
 For example, you could add this code to your activity's
-[onCreate()](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) method:  
+`https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)` method:
 
 ### Kotlin
 

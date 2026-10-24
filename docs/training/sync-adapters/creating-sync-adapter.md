@@ -21,7 +21,7 @@ Sync adapter class.
     framework.
 
 
-Bound [Service](https://developer.android.com/reference/android/app/Service).
+Bound `https://developer.android.com/reference/android/app/Service`.
 :
     A component that allows the sync adapter framework to run the code in your sync adapter
     class.
@@ -52,11 +52,11 @@ tasks.
 
 
 To create the sync adapter component, start by extending
-[AbstractThreadedSyncAdapter](https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter) and writing its constructors. Use the
+`https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter` and writing its constructors. Use the
 constructors to run setup tasks each time your sync adapter component is created from
-scratch, just as you use [Activity.onCreate()](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) to set up an
+scratch, just as you use `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)` to set up an
 activity. For example, if your app uses a content provider to store data, use the constructors
-to get a [ContentResolver](https://developer.android.com/reference/android/content/ContentResolver) instance. Since a second form of the
+to get a `https://developer.android.com/reference/android/content/ContentResolver` instance. Since a second form of the
 constructor was added in Android platform version 3.0 to support the `parallelSyncs`
 argument, you need to create two forms of the constructor to maintain compatibility.
 
@@ -68,7 +68,7 @@ in more detail in the section
 
 
 The following example shows you how to implement
-[AbstractThreadedSyncAdapter](https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter)and its constructors:  
+`https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter`and its constructors:
 
 ### Kotlin
 
@@ -146,25 +146,25 @@ The sync adapter component does not automatically do data transfer. Instead, it
 encapsulates your data transfer code, so that the sync adapter framework can run the
 data transfer in the background, without involvement from your app. When the framework is ready
 to sync your application's data, it invokes your implementation of the method
-[onPerformSync()](https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)).
+`https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)`.
 
 
 To facilitate the transfer of data from your main app code to the sync adapter component,
 the sync adapter framework calls
-[onPerformSync()](https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)) with the
+`https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)` with the
 following arguments:
 
 
 Account
 :
-    An [Account](https://developer.android.com/reference/android/accounts/Account) object associated with the event that triggered
+    An `https://developer.android.com/reference/android/accounts/Account` object associated with the event that triggered
     the sync adapter. If your server doesn't use accounts, you don't need to use the
     information in this object.
 
 
 Extras
 :
-    A [Bundle](https://developer.android.com/reference/android/os/Bundle) containing flags sent by the event that triggered the sync
+    A `https://developer.android.com/reference/android/os/Bundle` containing flags sent by the event that triggered the sync
     adapter.
 
 
@@ -176,22 +176,22 @@ Authority
 
 Content provider client
 :
-    A [ContentProviderClient](https://developer.android.com/reference/android/content/ContentProviderClient) for the content provider pointed to by the
-    authority argument. A [ContentProviderClient](https://developer.android.com/reference/android/content/ContentProviderClient) is a lightweight public
+    A `https://developer.android.com/reference/android/content/ContentProviderClient` for the content provider pointed to by the
+    authority argument. A `https://developer.android.com/reference/android/content/ContentProviderClient` is a lightweight public
     interface to a content provider. It has the same basic functionality as a
-    [ContentResolver](https://developer.android.com/reference/android/content/ContentResolver). If you're using a content provider to store data
+    `https://developer.android.com/reference/android/content/ContentResolver`. If you're using a content provider to store data
     for your app, you can connect to the provider with this object. Otherwise, you can ignore
     it.
 
 
 Sync result
 :
-    A [SyncResult](https://developer.android.com/reference/android/content/SyncResult) object that you use to send information to the sync
+    A `https://developer.android.com/reference/android/content/SyncResult` object that you use to send information to the sync
     adapter framework.
 
 
 The following snippet shows the overall structure of
-[onPerformSync()](https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)):  
+`https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)`:
 
 ### Kotlin
 
@@ -237,7 +237,7 @@ public void onPerformSync(
 
 
 While the actual implementation of
-[onPerformSync()](https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)) is specific to
+`https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)` is specific to
 your app's data synchronization requirements and server connection protocols, there are a few
 general tasks your implementation should perform:
 
@@ -273,13 +273,13 @@ Clean up.
 
 
 **Note:** The sync adapter framework runs
-[onPerformSync()](https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)) on a
+`https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)` on a
 background thread, so you don't have to set up your own background processing.
 
 
 In addition to your sync-related tasks, you should try to combine your regular
 network-related tasks and add them to
-[onPerformSync()](https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)).
+`https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)`.
 By concentrating all of your network tasks in this method, you conserve the battery power that's
 needed to start and stop the network interfaces. To learn more about making network access more
 efficient, see the training class [Transferring Data Without Draining the Battery](https://developer.android.com/training/efficient-downloads), which describes several network access
@@ -290,15 +290,15 @@ tasks you can include in your data transfer code.
 
 You now have your data transfer code encapsulated in a sync adapter component, but you have
 to provide the framework with access to your code. To do this, you need to create a bound
-[Service](https://developer.android.com/reference/android/app/Service) that passes a special Android binder object from the sync adapter
+`https://developer.android.com/reference/android/app/Service` that passes a special Android binder object from the sync adapter
 component to the framework. With this binder object, the framework can invoke the
-[onPerformSync()](https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)) method and
+`https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)` method and
 pass data to it.
 
 
 Instantiate your sync adapter component as a singleton in the
-[onCreate()](https://developer.android.com/reference/android/app/Service#onCreate()) method of the service. By instantiating
-the component in [onCreate()](https://developer.android.com/reference/android/app/Service#onCreate()), you defer
+`https://developer.android.com/reference/android/app/Service#onCreate()` method of the service. By instantiating
+the component in `https://developer.android.com/reference/android/app/Service#onCreate()`, you defer
 creating it until the service starts, which happens when the framework first tries to run your
 data transfer. You need to instantiate the component in a thread-safe manner, in case the sync
 adapter framework queues up multiple executions of your sync adapter in response to triggers or
@@ -306,8 +306,8 @@ scheduling.
 
 
 For example, the following snippet shows you how to create a class that implements the
-bound [Service](https://developer.android.com/reference/android/app/Service), instantiates your sync adapter component, and gets the
-Android binder object:  
+bound `https://developer.android.com/reference/android/app/Service`, instantiates your sync adapter component, and gets the
+Android binder object:
 
 ### Kotlin
 
@@ -419,12 +419,12 @@ The sync adapter framework requires each sync adapter to have an account type. Y
 the account type value in the section
 [Add the Authenticator Metadata File](https://developer.android.com/training/sync-adapters/creating-authenticator#CreateAuthenticatorFile). Now you have to set up this account type in the
 Android system. To set up the account type, add a placeholder account that uses the account type
-by calling [addAccountExplicitly()](https://developer.android.com/reference/android/accounts/AccountManager#addAccountExplicitly(android.accounts.Account, java.lang.String, android.os.Bundle)).
+by calling `https://developer.android.com/reference/android/accounts/AccountManager#addAccountExplicitly(android.accounts.Account, java.lang.String, android.os.Bundle)`.
 
 
 The best place to call the method is in the
-[onCreate()](https://developer.android.com/reference/androidx/fragment/app/FragmentActivity#onCreate(android.os.Bundle)) method of your app's
-opening activity. The following code snippet shows you how to do this:  
+`https://developer.android.com/reference/androidx/fragment/app/FragmentActivity#onCreate(android.os.Bundle)` method of your app's
+opening activity. The following code snippet shows you how to do this:
 
 ### Kotlin
 
@@ -560,8 +560,8 @@ following attributes:
     The URI authority for your content provider. If you created a stub content provider for
     your app in the previous lesson [Creating a Stub Content Provider](https://developer.android.com/training/sync-adapters/creating-stub-provider), use the value you specified for the
     attribute
-    [android:authorities](https://developer.android.com/guide/topics/manifest/provider-element#auth)
-    in the [<provider>](https://developer.android.com/guide/topics/manifest/provider-element) element you added to your app manifest. This attribute is
+    `https://developer.android.com/guide/topics/manifest/provider-element#auth`
+    in the `https://developer.android.com/guide/topics/manifest/provider-element` element you added to your app manifest. This attribute is
     described in more detail in the section
     [Declare the Provider in the Manifest](https://developer.android.com/training/sync-adapters/creating-stub-provider#DeclareProvider).
 
@@ -569,8 +569,8 @@ following attributes:
     If you're transferring data from a content provider to a server with your sync adapter, this
     value should be the same as the content URI authority you're using for that data. This value
     is also one of the authorities you specify in the
-    [android:authorities](https://developer.android.com/guide/topics/manifest/provider-element#auth)
-    attribute of the [<provider>](https://developer.android.com/guide/topics/manifest/provider-element) element that declares your provider in your app manifest.
+    `https://developer.android.com/guide/topics/manifest/provider-element#auth`
+    attribute of the `https://developer.android.com/guide/topics/manifest/provider-element` element that declares your provider in your app manifest.
 
 `android:accountType`
 :
@@ -613,13 +613,13 @@ Settings attributes
         Indicates to the sync adapter framework that it can run your sync adapter at any
         time you've specified. If you want to programmatically control when your sync
         adapter can run, set this flag to `false`, and then call
-        [requestSync()](https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)) to run the
+        `https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)` to run the
         sync adapter. To learn more about running a sync adapter, see the lesson
         [Running a Sync Adapter](https://developer.android.com/training/sync-adapters/running-sync-adapter)
 
 
 The following example shows the XML for a sync adapter that uses a single placeholder account and
-only does downloads.  
+only does downloads.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -637,7 +637,7 @@ only does downloads.
 
 
 Once you've added the sync adapter component to your app, you have to request permissions
-related to using the component, and you have to declare the bound [Service](https://developer.android.com/reference/android/app/Service)
+related to using the component, and you have to declare the bound `https://developer.android.com/reference/android/app/Service`
 you've added.
 
 
@@ -650,31 +650,31 @@ in the lesson [Creating a Stub Authenticator](https://developer.android.com/trai
 
 
 To request these permissions, add the following to your app manifest as child elements of
-[<manifest>](https://developer.android.com/guide/topics/manifest/manifest-element):
+`https://developer.android.com/guide/topics/manifest/manifest-element`:
 
 
-[android.permission.INTERNET](https://developer.android.com/reference/android/Manifest.permission#INTERNET)
+`https://developer.android.com/reference/android/Manifest.permission#INTERNET`
 :
     Allows the sync adapter code to access the Internet so that it can download or upload data
     from the device to a server. You don't need to add this permission again if you were
     requesting it previously.
 
 
-[android.permission.READ_SYNC_SETTINGS](https://developer.android.com/reference/android/Manifest.permission#READ_SYNC_SETTINGS)
+`https://developer.android.com/reference/android/Manifest.permission#READ_SYNC_SETTINGS`
 :
     Allows your app to read the current sync adapter settings. For example, you need this
-    permission in order to call [getIsSyncable()](https://developer.android.com/reference/android/content/ContentResolver#getIsSyncable(android.accounts.Account, java.lang.String)).
+    permission in order to call `https://developer.android.com/reference/android/content/ContentResolver#getIsSyncable(android.accounts.Account, java.lang.String)`.
 
 
-[android.permission.WRITE_SYNC_SETTINGS](https://developer.android.com/reference/android/Manifest.permission#WRITE_SYNC_SETTINGS)
+`https://developer.android.com/reference/android/Manifest.permission#WRITE_SYNC_SETTINGS`
 :
     Allows your app to control sync adapter settings. You need this permission in order to
-    set periodic sync adapter runs using [addPeriodicSync()](https://developer.android.com/reference/android/content/ContentResolver#addPeriodicSync(android.accounts.Account, java.lang.String, android.os.Bundle, long)). This permission is **not** required to call
-    [requestSync()](https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)). To learn more about
+    set periodic sync adapter runs using `https://developer.android.com/reference/android/content/ContentResolver#addPeriodicSync(android.accounts.Account, java.lang.String, android.os.Bundle, long)`. This permission is **not** required to call
+    `https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)`. To learn more about
     running the sync adapter, see [Running A Sync Adapter](https://developer.android.com/training/sync-adapters/running-sync-adapter).
 
 
-The following snippet shows how to add the permissions:  
+The following snippet shows how to add the permissions:
 
 ```xml
 <manifest>
@@ -692,9 +692,9 @@ The following snippet shows how to add the permissions:
 ```
 
 
-Finally, to declare the bound [Service](https://developer.android.com/reference/android/app/Service) that the framework uses to
+Finally, to declare the bound `https://developer.android.com/reference/android/app/Service` that the framework uses to
 interact with your sync adapter, add the following XML to your app manifest as a child element
-of [<application>](https://developer.android.com/guide/topics/manifest/application-element):  
+of `https://developer.android.com/guide/topics/manifest/application-element`:
 
 ```xml
         <service
@@ -711,27 +711,27 @@ of [<application>](https://developer.android.com/guide/topics/manifest/applicati
 
 
 The
-[<intent-filter>](https://developer.android.com/guide/topics/manifest/intent-filter-element)
+`https://developer.android.com/guide/topics/manifest/intent-filter-element`
 element sets up a filter that's triggered by the intent action
 `android.content.SyncAdapter`, sent by the system to run the sync adapter. When the filter
 is triggered, the system starts the bound service you've created, which in this example is
 `SyncService`. The attribute
-[android:exported="false"](https://developer.android.com/guide/topics/manifest/service-element#exported)
+`https://developer.android.com/guide/topics/manifest/service-element#exported`
 allows only your app and the system to access the
-[Service](https://developer.android.com/reference/android/app/Service). The attribute
-[android:process=":sync"](https://developer.android.com/guide/topics/manifest/service-element#proc)
-tells the system to run the [Service](https://developer.android.com/reference/android/app/Service) in a global shared process named
+`https://developer.android.com/reference/android/app/Service`. The attribute
+`https://developer.android.com/guide/topics/manifest/service-element#proc`
+tells the system to run the `https://developer.android.com/reference/android/app/Service` in a global shared process named
 `sync`. If you have multiple sync adapters in your app they can share this process,
 which reduces overhead.
 
 
 The
-[<meta-data>](https://developer.android.com/guide/topics/manifest/meta-data-element)
+`https://developer.android.com/guide/topics/manifest/meta-data-element`
 element provides the name of the sync adapter metadata XML file you created previously.
 The
-[android:name](https://developer.android.com/guide/topics/manifest/meta-data-element#nm)
+`https://developer.android.com/guide/topics/manifest/meta-data-element#nm`
 attribute indicates that this metadata is for the sync adapter framework. The
-[android:resource](https://developer.android.com/guide/topics/manifest/meta-data-element#rsrc)
+`https://developer.android.com/guide/topics/manifest/meta-data-element#rsrc`
 element specifies the name of the metadata file.
 
 

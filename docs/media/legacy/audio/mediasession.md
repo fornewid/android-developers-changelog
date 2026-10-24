@@ -4,26 +4,29 @@ url: https://developer.android.com/media/legacy/audio/mediasession
 source: md.txt
 ---
 
-# Media session callbacks
-
-Your media session callbacks call methods in several APIs to control the player, manage the audio focus, and communicate with the media session and media browser service. Note that the`MediaSession`logic that responds to callbacks must be consistent. The behavior of the callback must not depend on the identity of the caller, which could be an activity in the same app running the`MediaSession`or any other app with a`MediaController`connected to the`MediaSession`.
+Your media session callbacks call methods in several APIs to control the player, manage the audio focus,
+and communicate with the media session and media browser service. Note that the
+`MediaSession` logic that responds to callbacks must be consistent. The behavior
+of the callback must not depend on the identity of the caller, which could be
+an activity in the same app running the `MediaSession` or any other app with a
+`MediaController` connected to the `MediaSession`.
 
 The following table summarizes how these tasks are distributed across callbacks.
 
 <br />
 
-|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|------------------------------------------------|
-|                                                                                                                                          | **onPlay()**                                                                                                                       | **onPause()**                      | **onStop()**                                   |
-| [Audio Focus](https://developer.android.com/guide/topics/media-apps/audio-focus)                                                         | `requestFocus()`passing in your`OnAudioFocusChangeListener`. *Always call`requestFocus()`first, proceed only if focus is granted.* |                                    | `abandonAudioFocus()`                          |
-| [Service](https://developer.android.com/guide/topics/media-apps/audio-app/building-a-mediabrowserservice)                                | `startService()`                                                                                                                   |                                    | `stopSelf()`                                   |
-| [Media Session](https://developer.android.com/guide/topics/media-apps/working-with-a-media-session)                                      | `setActive(true)` - Update metadata and state                                                                                      | - Update metadata and state        | `setActive(false)` - Update metadata and state |
-| Player Implementation                                                                                                                    | Start the player                                                                                                                   | Pause the player                   | Stop the player                                |
-| [Becoming Noisy](https://developer.android.com/guide/topics/media-apps/volume-and-earphones#becoming-noisy)                              | Register your`BroadcastReceiver`                                                                                                   | Unregister your`BroadcastReceiver` |                                                |
-| [Notifications](https://developer.android.com/guide/topics/media-apps/audio-app/building-a-mediabrowserservice#mediastyle-notifications) | `startForeground(notification)`                                                                                                    | `stopForeground(false)`            | `stopForeground(false)`                        |
+|---|---|---|---|
+|   | **onPlay()** | **onPause()** | **onStop()** |
+| [Audio Focus](https://developer.android.com/guide/topics/media-apps/audio-focus) | `requestFocus()` passing in your `OnAudioFocusChangeListener`. *Always call `requestFocus()` first, proceed only if focus is granted.* |   | `abandonAudioFocus()` |
+| [Service](https://developer.android.com/guide/topics/media-apps/audio-app/building-a-mediabrowserservice) | `startService()` |   | `stopSelf()` |
+| [Media Session](https://developer.android.com/guide/topics/media-apps/working-with-a-media-session) | `setActive(true)` - Update metadata and state | - Update metadata and state | `setActive(false)` - Update metadata and state |
+| Player Implementation | Start the player | Pause the player | Stop the player |
+| [Becoming Noisy](https://developer.android.com/guide/topics/media-apps/volume-and-earphones#becoming-noisy) | Register your `BroadcastReceiver` | Unregister your `BroadcastReceiver` |   |
+| [Notifications](https://developer.android.com/guide/topics/media-apps/audio-app/building-a-mediabrowserservice#mediastyle-notifications) | `startForeground(notification)` | `stopForeground(false)` | `stopForeground(false)` |
 
 <br />
 
-Here is a sample framework for the callback:  
+Here is a sample framework for the callback:
 
 ### Kotlin
 
@@ -169,4 +172,6 @@ MediaSessionCompat.Callback callback = new
         }
     };
 ```
-| **Note:** People using the Google Assistant can control your app with voice commands if you create your MediaSession with the necessary callbacks. The requirements are explained in the[Google Assistant documentation](https://developer.android.com/guide/topics/media-apps/interacting-with-assistant).
+
+> [!NOTE]
+> **Note:** People using the Google Assistant can control your app with voice commands if you create your MediaSession with the necessary callbacks. The requirements are explained in the [Google Assistant documentation](https://developer.android.com/guide/topics/media-apps/interacting-with-assistant).

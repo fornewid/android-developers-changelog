@@ -4,58 +4,19 @@ url: https://developer.android.com/design/ui/mobile/guides/widgets/sizing
 source: md.txt
 ---
 
-Design adaptable Android widgets that scale seamlessly. Use our recommended
-default sizes as a starting point, and test your layouts across different
-dimensions to ensure optimal readability and user experience.
+Design adaptable Android widgets that scale across screen sizes and grids. Test
+your layouts to make sure that users can read and use your widget at any size.
 
 ## Default sizes
 
-Deliver a polished widget experience by optimizing your layout for at least one
-of our recommended sizes. Ensure correct placement and visibility in the widget
-picker by defining `targetCellWidth` and `targetCellHeight` attributes for both
-handheld and tablet devices.
+Optimize your layout for multiple size classes or breakpoints to support
+resizable widgets. Because cell sizes vary by device and screen orientation,
+design adaptive widgets instead of fixed-size widgets.
 
-These values are based off Pixel devices. Use these sizes as a starting point
-for your widget design. Thoroughly test your widget at different sizes and on
-various devices to ensure a quality user experience.
-
-### Handheld
-
-
-| Sizes | Min width | Max width | Min height | Max height |
-|---|---|---|---|---|
-| 2x1 | 109 | 306 | 56 | 130 |
-| 2x2 | 109 | 306 | 115 | 276 |
-| 2x3 | 109 | 306 | 185 | 422 |
-| 4x1 | 245 | 624 | 56 | 130 |
-| 4x2 | 245 | 624 | 115 | 276 |
-| 4x3 | 245 | 624 | 185 | 422 |
-
-<br />
-
-### Tablet
-
-
-| Sizes | Min width | Max width | Min height | Max height |
-|---|---|---|---|---|
-| 2x1 | 180 | 304 | 64 | 120 |
-| 2x2 | 180 | 304 | 184 | 304 |
-| 2x3 | 180 | 304 | 304 | 488 |
-| 3x1 | 328 | 488 | 64 | 120 |
-| 3x2 | 298 | 488 | 184 | 304 |
-| 3x3 | 298 | 488 | 304 | 488 |
-| 3x4 | 298 | 488 | 424 | 672 |
-
-<br />
-
-> [!NOTE]
-> **Note:** Widget dimensions in the table encompass all device orientations, including landscape mode on phones, to ensure optimal functionality in a variety of scenarios.
-
-## Widgets on Auto
-
-When creating widgets on Auto, widgets will scale up to match the larger device
-screen. 2x2 grids work best on Auto. For more information, see
-[Adapt widgets for Cars](https://developer.android.com/design/ui/cars/guides/flows/widgets).
+Define the `targetCellWidth` and `targetCellHeight` attributes for both handheld
+and tablet devices so the widget picker places and displays your widget
+accurately. For cell spans and minimum `dp` dimensions, see
+[Determine a size for your widget](https://developer.android.com/develop/ui/views/appwidgets/layouts#anatomy_determining_size).
 
 ## Breakpoints
 
@@ -68,6 +29,16 @@ Breakpoints also offer the flexibility to conditionally include or exclude
 supplemental content, optimizing space utilization based on the widget's
 dimensions.
 ![](https://developer.android.com/static/images/design/ui/mobile/widgets/01_Breakpoints.jpg) **Figure 1:** Use breakpoints to make layout changes at different sizes.
+
+## Widgets across form factors
+
+Tablets and desktops share widget design principles with phones, but have
+different input expectations. Other form factors, such as cars, have
+specific glanceability requirements or adapt widgets automatically. For more
+information, see [Adapt widgets across form factors](https://developer.android.com/design/ui/mobile/guides/widgets/adapt).
+
+![Widgets on a Googlebook
+screen](https://developer.android.com/static/images/design/ui/widget/widget_desktop.webp)
 
 ## Fill the bounds
 

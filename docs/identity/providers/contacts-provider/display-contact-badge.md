@@ -4,9 +4,9 @@ url: https://developer.android.com/identity/providers/contacts-provider/display-
 source: md.txt
 ---
 
-This page shows you how to add a [QuickContactBadge](https://developer.android.com/reference/android/widget/QuickContactBadge) to your UI
+This page shows you how to add a `https://developer.android.com/reference/android/widget/QuickContactBadge` to your UI
 and how to bind data to it. A `QuickContactBadge` is a widget that
-initially appears as a thumbnail image. Although you can use any [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap)
+initially appears as a thumbnail image. Although you can use any `https://developer.android.com/reference/android/graphics/Bitmap`
 for the thumbnail image, you usually use a `Bitmap` decoded from the
 contact's photo thumbnail image.
 
@@ -38,8 +38,8 @@ want to use, and send the information for that method directly to the appropriat
 ## Add a QuickContactBadge view
 
 
-To add a [QuickContactBadge](https://developer.android.com/reference/android/widget/QuickContactBadge), insert a
-`<QuickContactBadge>` element in your layout, as shown in the following example:  
+To add a `https://developer.android.com/reference/android/widget/QuickContactBadge`, insert a
+`<QuickContactBadge>` element in your layout, as shown in the following example:
 
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -58,24 +58,24 @@ To add a [QuickContactBadge](https://developer.android.com/reference/android/wid
 ## Retrieve provider data
 
 
-To display a contact in the [QuickContactBadge](https://developer.android.com/reference/android/widget/QuickContactBadge), you need a content URI
-for the contact and a [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap) for the small image. You generate
+To display a contact in the `https://developer.android.com/reference/android/widget/QuickContactBadge`, you need a content URI
+for the contact and a `https://developer.android.com/reference/android/graphics/Bitmap` for the small image. You generate
 both the content URI and the `Bitmap` from columns retrieved from the
 Contacts Provider. Specify these columns as part of the projection you use to load data into
-your [Cursor](https://developer.android.com/reference/android/database/Cursor).
+your `https://developer.android.com/reference/android/database/Cursor`.
 
 
 For Android 3.0 (API level 11) and higher, include the following columns in your projection:
 
-- [Contacts._ID](https://developer.android.com/reference/android/provider/BaseColumns#_ID)
-- [Contacts.LOOKUP_KEY](https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY)
-- [Contacts.PHOTO_THUMBNAIL_URI](https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#PHOTO_THUMBNAIL_URI)
+- `https://developer.android.com/reference/android/provider/BaseColumns#_ID`
+- `https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY`
+- `https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#PHOTO_THUMBNAIL_URI`
 
 
 For Android 2.3.3 (API level 10) and lower, use the following columns:
 
-- [Contacts._ID](https://developer.android.com/reference/android/provider/BaseColumns#_ID)
-- [Contacts.LOOKUP_KEY](https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY)
+- `https://developer.android.com/reference/android/provider/BaseColumns#_ID`
+- `https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY`
 
 
 The examples on this page assume that a
@@ -87,16 +87,16 @@ columns has been loaded. To learn how to retrieve columns in a `Cursor`, see
 
 
 Once you have the necessary columns, you can bind data to the
-[QuickContactBadge](https://developer.android.com/reference/android/widget/QuickContactBadge).
+`https://developer.android.com/reference/android/widget/QuickContactBadge`.
 
 ### Set the contact URI
 
 
 To set the content URI for the contact, call
-[getLookupUri(id,lookupKey)](https://developer.android.com/reference/android/provider/ContactsContract.Contacts#getLookupUri(android.content.ContentResolver, android.net.Uri)) to
-get a [CONTENT_LOOKUP_URI](https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_LOOKUP_URI), then
-call [assignContactUri()](https://developer.android.com/reference/android/widget/QuickContactBadge#assignContactUri(android.net.Uri)) to set the
-contact. This is shown in the following example:  
+`https://developer.android.com/reference/android/provider/ContactsContract.Contacts#getLookupUri(android.content.ContentResolver, android.net.Uri)` to
+get a `https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_LOOKUP_URI`, then
+call `https://developer.android.com/reference/android/widget/QuickContactBadge#assignContactUri(android.net.Uri)` to set the
+contact. This is shown in the following example:
 
 ### Kotlin
 
@@ -157,27 +157,27 @@ contact. This is shown in the following example:
 ```
 
 
-When users tap the [QuickContactBadge](https://developer.android.com/reference/android/widget/QuickContactBadge) icon, the contact's
+When users tap the `https://developer.android.com/reference/android/widget/QuickContactBadge` icon, the contact's
 details appear in the dialog.
 
 ### Set the photo thumbnail
 
 
-Setting the contact URI for the [QuickContactBadge](https://developer.android.com/reference/android/widget/QuickContactBadge) does not automatically
+Setting the contact URI for the `https://developer.android.com/reference/android/widget/QuickContactBadge` does not automatically
 load the contact's thumbnail photo. To load the photo, get a URI for the photo from the
-contact's [Cursor](https://developer.android.com/reference/android/database/Cursor) row, use it to open the file containing the compressed
-thumbnail photo, and read the file into a [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap).
+contact's `https://developer.android.com/reference/android/database/Cursor` row, use it to open the file containing the compressed
+thumbnail photo, and read the file into a `https://developer.android.com/reference/android/graphics/Bitmap`.
 
 
 **Note:** The
-[PHOTO_THUMBNAIL_URI](https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#PHOTO_THUMBNAIL_URI) column isn't available
+`https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#PHOTO_THUMBNAIL_URI` column isn't available
 in platform versions prior to 3.0. For those versions, you must retrieve the URI
-from the [Contacts.Photo](https://developer.android.com/reference/android/provider/ContactsContract.Contacts.Photo) subtable.
+from the `https://developer.android.com/reference/android/provider/ContactsContract.Contacts.Photo` subtable.
 
 
 First, set up variables to access the `Cursor` containing the
-[Contacts._ID](https://developer.android.com/reference/android/provider/BaseColumns#_ID) and
-[Contacts.LOOKUP_KEY](https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY) columns:  
+`https://developer.android.com/reference/android/provider/BaseColumns#_ID` and
+`https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY` columns:
 
 ### Kotlin
 
@@ -390,7 +390,7 @@ thumbnail:
 
 Call the `loadContactPhotoThumbnail()` method in your code to get the
 thumbnail `Bitmap`, and use the result to set the photo thumbnail in
-your `QuickContactBadge`:  
+your `QuickContactBadge`:
 
 ### Kotlin
 
@@ -429,17 +429,17 @@ your `QuickContactBadge`:
 ## Add a QuickContactBadge to a ListView
 
 
-A [QuickContactBadge](https://developer.android.com/reference/android/widget/QuickContactBadge) is a useful addition to a
-[ListView](https://developer.android.com/reference/android/widget/ListView) that displays a list of contacts. Use the
+A `https://developer.android.com/reference/android/widget/QuickContactBadge` is a useful addition to a
+`https://developer.android.com/reference/android/widget/ListView` that displays a list of contacts. Use the
 `QuickContactBadge` to display a thumbnail photo for each contact; when
 users tap the thumbnail, the `QuickContactBadge` dialog appears.
 
 ### Add the QuickContactBadge element
 
 
-To start, add a [QuickContactBadge](https://developer.android.com/reference/android/widget/QuickContactBadge) view element to your item layout
+To start, add a `https://developer.android.com/reference/android/widget/QuickContactBadge` view element to your item layout
 For example, if you want to display a `QuickContactBadge` and a name for
-each contact you retrieve, put the following XML into a layout file:  
+each contact you retrieve, put the following XML into a layout file:
 
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -466,10 +466,10 @@ In the following sections, this file is referred to as `contact_item_layout.xml`
 ### Set up a custom CursorAdapter
 
 
-To bind a [CursorAdapter](https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter) to a [ListView](https://developer.android.com/reference/android/widget/ListView)
-containing a [QuickContactBadge](https://developer.android.com/reference/android/widget/QuickContactBadge), define a custom adapter that
+To bind a `https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter` to a `https://developer.android.com/reference/android/widget/ListView`
+containing a `https://developer.android.com/reference/android/widget/QuickContactBadge`, define a custom adapter that
 extends `CursorAdapter`. This approach lets you process the
-data in the [Cursor](https://developer.android.com/reference/android/database/Cursor) before you bind it to the
+data in the `https://developer.android.com/reference/android/database/Cursor` before you bind it to the
 `QuickContactBadge`. This approach also lets you bind multiple
 `Cursor` columns to the `QuickContactBadge`. Neither
 of these operations is possible in a regular `CursorAdapter`.
@@ -478,9 +478,9 @@ of these operations is possible in a regular `CursorAdapter`.
 The subclass of `CursorAdapter` that you define must
 override the following methods:
 
-[CursorAdapter.newView()](https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter#newView(android.content.Context, android.database.Cursor, android.view.ViewGroup))
+`https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter#newView(android.content.Context, android.database.Cursor, android.view.ViewGroup)`
 :
-    Inflates a new [View](https://developer.android.com/reference/android/view/View) object to hold the item layout. In the override
+    Inflates a new `https://developer.android.com/reference/android/view/View` object to hold the item layout. In the override
     of this method, store handles to the child `View` objects of the layout,
     including the child `QuickContactBadge`. By taking this approach, you
     avoid having to get handles to the child `View` objects each time you
@@ -491,7 +491,7 @@ override the following methods:
     `View` objects. This technique lets you control their binding in
     `CursorAdapter.bindView()`.
 
-[CursorAdapter.bindView()](https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter#bindView(android.view.View, android.content.Context, android.database.Cursor))
+`https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter#bindView(android.view.View, android.content.Context, android.database.Cursor)`
 :
     Moves data from the current `Cursor` row to the child
     `View` objects of the item layout. You must override this method so
@@ -507,10 +507,10 @@ The following code snippet contains an example of a custom subclass of
 
 
 Define the subclass of
-[CursorAdapter](https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter),
+`https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter`,
 including its constructor, and override
-[newView()](https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter#newView(android.content.Context, android.database.Cursor, android.view.ViewGroup)) and
-[bindView()](https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter#bindView(android.view.View, android.content.Context, android.database.Cursor)):  
+`https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter#newView(android.content.Context, android.database.Cursor, android.view.ViewGroup)` and
+`https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter#bindView(android.view.View, android.content.Context, android.database.Cursor)`:
 
 ### Kotlin
 
@@ -680,13 +680,13 @@ including its constructor, and override
 ### Set up variables
 
 
-In your code, set up variables including a [Cursor](https://developer.android.com/reference/android/database/Cursor) projection that
+In your code, set up variables including a `https://developer.android.com/reference/android/database/Cursor` projection that
 includes the necessary columns, as shown in the following example.
 
 
 **Note:** The following code snippets use the method
 `loadContactPhotoThumbnail()`, which is defined in the
-[Set the contact URI and thumbnail](https://developer.android.com/identity/providers/contacts-provider/display-contact-badge#SetURIThumbnail) section.  
+[Set the contact URI and thumbnail](https://developer.android.com/identity/providers/contacts-provider/display-contact-badge#SetURIThumbnail) section.
 
 ### Kotlin
 
@@ -808,8 +808,8 @@ public class ContactsFragment extends Fragment implements
 ### Set up the ListView
 
 
-In [Fragment.onCreate()](https://developer.android.com/reference/androidx/fragment/app/Fragment#onCreate(android.os.Bundle)), instantiate the custom
-cursor adapter and get a handle to the [ListView](https://developer.android.com/reference/android/widget/ListView):  
+In `https://developer.android.com/reference/androidx/fragment/app/Fragment#onCreate(android.os.Bundle)`, instantiate the custom
+cursor adapter and get a handle to the `https://developer.android.com/reference/android/widget/ListView`:
 
 ### Kotlin
 
@@ -856,8 +856,8 @@ cursor adapter and get a handle to the [ListView](https://developer.android.com/
 ```
 
 
-In [onViewCreated()](https://developer.android.com/reference/androidx/fragment/app/Fragment#onViewCreated(android.view.View,%20android.os.Bundle)), bind the
-`ContactsAdapter` to the `ListView`:  
+In `https://developer.android.com/reference/androidx/fragment/app/Fragment#onViewCreated(android.view.View,%20android.os.Bundle)`, bind the
+`ContactsAdapter` to the `ListView`:
 
 ### Kotlin
 
@@ -898,11 +898,11 @@ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 ```
 
 
-When you get back a [Cursor](https://developer.android.com/reference/android/database/Cursor) containing the contacts data, usually in
-[onLoadFinished()](https://developer.android.com/reference/androidx/loader/app/LoaderManager.LoaderCallbacks#onLoadFinished(androidx.loader.content.Loader%3CD%3E,D)),
-call [swapCursor()](https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter#swapCursor(android.database.Cursor)) to move the
+When you get back a `https://developer.android.com/reference/android/database/Cursor` containing the contacts data, usually in
+`https://developer.android.com/reference/androidx/loader/app/LoaderManager.LoaderCallbacks#onLoadFinished(androidx.loader.content.Loader%3CD%3E,D)`,
+call `https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter#swapCursor(android.database.Cursor)` to move the
 `Cursor` data to the `ListView`. This displays the
-[QuickContactBadge](https://developer.android.com/reference/android/widget/QuickContactBadge) for each entry in the list of contacts.  
+`https://developer.android.com/reference/android/widget/QuickContactBadge` for each entry in the list of contacts.
 
 ### Kotlin
 
@@ -924,12 +924,12 @@ public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
 
 
 When you bind a `Cursor` to a
-`ListView` with a [CursorAdapter](https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter)
-(or subclass), and you use a [CursorLoader](https://developer.android.com/reference/androidx/loader/content/CursorLoader) to load the
+`ListView` with a `https://developer.android.com/reference/androidx/cursoradapter/widget/CursorAdapter`
+(or subclass), and you use a `https://developer.android.com/reference/androidx/loader/content/CursorLoader` to load the
 `Cursor`, always clear references to the `Cursor`
 in your implementation of
-[onLoaderReset()](https://developer.android.com/reference/androidx/loader/app/LoaderManager.LoaderCallbacks#onLoaderReset(androidx.loader.content.Loader%3CD%3E)).
-This is shown in the following example:  
+`https://developer.android.com/reference/androidx/loader/app/LoaderManager.LoaderCallbacks#onLoaderReset(androidx.loader.content.Loader%3CD%3E)`.
+This is shown in the following example:
 
 ### Kotlin
 

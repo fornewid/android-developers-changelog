@@ -4,15 +4,14 @@ url: https://developer.android.com/privacy-and-security/risks/tapjacking
 source: md.txt
 ---
 
-# Tapjacking
-
 <br />
 
 **OWASP category:** [MASVS-PLATFORM: Platform Interaction](https://mas.owasp.org/MASVS/09-MASVS-PLATFORM)
 
+
 ## Overview
 
-Tapjacking is the Android-app equivalent of the[clickjacking web vulnerability](https://owasp.org/www-community/attacks/Clickjacking): A malicious app tricks the user into clicking a security-relevant control (confirmation button etc.) by obscuring the UI with an overlay or by other means. On this page, we differentiate two attack variants: Full and partial occlusion. In full occlusion, the attacker overlays the touch area, while in partial occlusion, the touch area remains unobscured.
+Tapjacking is the Android-app equivalent of the [clickjacking web vulnerability](https://owasp.org/www-community/attacks/Clickjacking): A malicious app tricks the user into clicking a security-relevant control (confirmation button etc.) by obscuring the UI with an overlay or by other means. On this page, we differentiate two attack variants: Full and partial occlusion. In full occlusion, the attacker overlays the touch area, while in partial occlusion, the touch area remains unobscured.
 
 ## Impact
 
@@ -26,10 +25,12 @@ In full occlusion, the attacker overlays the touch area to hijack the touch even
 
 ### Mitigations
 
-Full occlusion is prevented by setting`View.setFilterTouchesWhenObscured(true)`in the code. This blocks touches passed by an overlay. If you prefer a declarative approach, you can also add`android:filterTouchesWhenObscured="true"`in the layout file for the[`View`](https://developer.android.com/reference/android/view/View#security)object that you want to protect.
-| **Note:** Android S (12, SDK 31) and higher prevent full occlusion attacks by default, by blocking touch events from non-trusted overlays from another UID.  
-|
-| However, there is a caveat: for System Alert Window (SAW) and window animations, only touches from layers with opacity \>= 0.8 are blocked. The reasoning behind this behavior is that SAW requires users to grant permission, and blocking all events for time-limited animations might hurt the user experience.
+Full occlusion is prevented by setting `View.setFilterTouchesWhenObscured(true)` in the code. This blocks touches passed by an overlay. If you prefer a declarative approach, you can also add `android:filterTouchesWhenObscured="true"` in the layout file for the [`View`](https://developer.android.com/reference/android/view/View#security) object that you want to protect.
+
+> [!NOTE]
+> **Note:** Android S (12, SDK 31) and higher prevent full occlusion attacks by default, by blocking touch events from non-trusted overlays from another UID.  
+>
+> However, there is a caveat: for System Alert Window (SAW) and window animations, only touches from layers with opacity \>= 0.8 are blocked. The reasoning behind this behavior is that SAW requires users to grant permission, and blocking all events for time-limited animations might hurt the user experience.
 
 *** ** * ** ***
 
@@ -41,37 +42,56 @@ In partial occlusion attacks, the touch area remains unobscured:
 
 ### Mitigations
 
-You can mitigate partial occlusion by manually ignoring touch events that have the`FLAG_WINDOW_IS_PARTIALLY_OBSCURED`flag. There are no default protections against this scenario.
-| **Note:** **Potential caveat:**This mitigation can interfere with benign apps. In some cases, rolling out this fix isn't possible, as it would negatively affect the user experience when the partial occlusion is caused by a benign application.
+You can mitigate partial occlusion by manually ignoring touch events that have
+the `FLAG_WINDOW_IS_PARTIALLY_OBSCURED` flag. There are no default protections
+against this scenario.
 
-**Android 16 and`accessibilityDataSensitive`:** Starting with Android 16 (API level 16) and higher, developers can use the`accessibilityDataSensitive`flag to further protect sensitive data from malicious accessibility services that are not legitimate accessibility tools. When this flag is set on sensitive views (e.g., login screens, transaction confirmation screens), it restricts apps with accessibility permission from reading or interacting with the sensitive data unless they are declared as an`isA11yTool=true`in their manifest. This provides a more robust, system-level protection against eavesdropping and click injection attacks that are characteristic of partial occlusion scenarios. Developers can often implicitly enable`accessibilityDataSensitive`by specifying`android:filterTouchesWhenObscured="true"`in their layout files.
+> [!NOTE]
+> **Note:** **Potential caveat:** This mitigation can interfere with benign apps. In some cases, rolling out this fix isn't possible, as it would negatively affect the user experience when the partial occlusion is caused by a benign application.
+
+**Android 14 and `accessibilityDataSensitive`** : On Android 14 (API level 34)
+and higher, you can use the
+[`accessibilityDataSensitive`](https://developer.android.com/reference/android/R.attr#accessibilityDataSensitive) flag to protect
+sensitive data from malicious accessibility services. When you set this flag on
+sensitive views, such as login or transaction confirmation screens, only
+services that declare
+[`android:isAccessibilityTool="true"`](https://developer.android.com/reference/android/accessibilityservice/AccessibilityServiceInfo#attr_android:isAccessibilityTool) can read the
+view's data or perform accessibility actions on it. On Android 16 (API level 36)
+and higher, `accessibilityDataSensitive` also blocks simulated touch gestures
+injected with [`AccessibilityService.dispatchGesture`](https://developer.android.com/reference/android/accessibilityservice/AccessibilityService#dispatchGesture(android.accessibilityservice.GestureDescription,%20android.accessibilityservice.AccessibilityService.GestureResultCallback,%20android.os.Handler)) by
+services that don't declare `android:isAccessibilityTool="true"`. This provides
+system-level protection against the eavesdropping and click injection attacks
+that are characteristic of partial occlusion scenarios. You can implicitly
+enable `accessibilityDataSensitive` by specifying
+`android:filterTouchesWhenObscured="true"` in your layout files.
 
 *** ** * ** ***
 
 ## Specific risks
 
-This section gathers risks that require non-standard mitigation strategies or were mitigated at certain SDK level and are here for completeness.
+This section gathers risks that require non-standard mitigation strategies or
+were mitigated at certain SDK level and are here for completeness.
 
 ### Risk: android.Manifest.permission.SYSTEM_ALERT_WINDOW
 
-The[`SYSTEM_ALERT_WINDOW`](https://developer.android.com/reference/android/Manifest.permission#SYSTEM_ALERT_WINDOW)permission allows an app to create a window shown on top of all apps.
+The [`SYSTEM_ALERT_WINDOW`](https://developer.android.com/reference/android/Manifest.permission#SYSTEM_ALERT_WINDOW) permission allows an app to create a window shown on top of all apps.
 
 #### Mitigations
 
 Newer versions of Android have introduced several mitigations, including the following:
 
 - On Android 6 (API level 23) and higher, users have to explicitly grant the permission for the app to create an overlay window.
-- On Android 12 (API level 31) and higher, apps can pass`true`into[`Window.setHideOverlayWindows()`](https://developer.android.com/reference/android/view/Window#setHideOverlayWindows(boolean)).
+- On Android 12 (API level 31) and higher, apps can pass `true` into [`Window.setHideOverlayWindows()`](https://developer.android.com/reference/android/view/Window#setHideOverlayWindows(boolean)).
 
 *** ** * ** ***
 
 ### Risk: Custom toast
 
-An attacker can use`Toast.setView()`to customize a[toast](https://developer.android.com/guide/topics/ui/notifiers/toasts)message's appearance. On Android 10 (API level 29) and lower, malicious apps could launch such toasts from the background.
+An attacker can use `Toast.setView()` to customize a [toast](https://developer.android.com/guide/topics/ui/notifiers/toasts) message's appearance. On Android 10 (API level 29) and lower, malicious apps could launch such toasts from the background.
 
 #### Mitigations
 
-If an app targets Android 11 (API level 30) or higher, the system blocks background custom toasts. However, this mitigation can be evaded in some circumstances using*Toast burst*, where the attacker queues multiple toasts while in the foreground and they keep getting launched even after an app goes to the background.
+If an app targets Android 11 (API level 30) or higher, the system blocks background custom toasts. However, this mitigation can be evaded in some circumstances using *Toast burst*, where the attacker queues multiple toasts while in the foreground and they keep getting launched even after an app goes to the background.
 
 Background toasts and toast burst attacks are fully mitigated as of Android 12 (API level 31).
 
@@ -79,7 +99,7 @@ Background toasts and toast burst attacks are fully mitigated as of Android 12 (
 
 ### Risk: Activity sandwich
 
-If a malicious app manages to convince a user to open it, it can still launch an activity from the victim app and subsequently overlay it with its own activity, forming an*activity sandwich*and creating a partial occlusion attack.
+If a malicious app manages to convince a user to open it, it can still launch an activity from the victim app and subsequently overlay it with its own activity, forming an *activity sandwich* and creating a partial occlusion attack.
 
 #### Mitigations
 

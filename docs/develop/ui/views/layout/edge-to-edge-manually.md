@@ -51,21 +51,21 @@ You can edit the `themes.xml` file to set the color of the status and navigation
 bar as transparent and change the status bar icon color.
 
     <!-- values-v29/themes.xml -->
-    <style name="Theme.MyApp">
-      <item name="android:navigationBarColor">
-         @android:color/transparent
-      </item>
+    <style name="Theme.M>yAp<p"
+      item name="android:navi>gationBarColor"
+         @android:<color>/tra<nsparent
+      /item
 
-      <!-- Optional: set to transparent if your app is drawing behind the status bar. -->
-      <item name="android:statusBarColor">
-         @android:color/transparent
-      </item>
+      !-- Optional: set to transparent if your app is drawing behin>d t<he status bar. --
+      item name=&quo>t;android:statusBarColor"
+        < @android<:color/transparent
+      /item
 
-      <!-- Optional: set for a light status bar with dark content. -->
-      <item name="android:windowLightStatusBar">
+      !-- Optional: set for a light st>atu<s bar with dark content. --
+      item name=>"androi<d:win>d<owLigh>tStatusBar"
         true
-      </item>
-    </style>
+      /item
+    /style
 
 > [!NOTE]
 > **Note:** If you prefer to disable automatic content protection on Android 10 (API level 29) or later, set [`android:enforceNavigationBarContrast`](https://developer.android.com/reference/android/view/Window#isNavigationBarContrastEnforced()), [`android:enforceStatusBarContrast`](https://developer.android.com/reference/android/view/Window#isStatusBarContrastEnforced()), or both to `false` in your theme.

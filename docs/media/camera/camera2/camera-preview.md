@@ -62,7 +62,9 @@ of 270 degrees for front-facing cameras and 90 degrees (point of view from the
 back of the device) for back-facing cameras, which aligns the long edge of the
 sensor with the long edge of the device. Laptop cameras generally report a
 sensor orientation of 0 or 180 degrees.
-| **Note:** Natural (or native) orientation is the typical orientation of a device or sensor---portrait for phones, landscape for tablets and laptops, landscape for camera image sensors.
+
+> [!NOTE]
+> **Note:** Natural (or native) orientation is the typical orientation of a device or sensor---portrait for phones, landscape for tablets and laptops, landscape for camera image sensors.
 
 Because camera image sensors output their data (an image buffer) in the
 sensor's natural orientation (landscape), the image buffer must be rotated the
@@ -294,11 +296,14 @@ is the behavior of inset portrait mode as described above.
 Not all devices support all `SCALER_ROTATE_AND_CROP` values. To obtain a list
 of supported values, reference
 [`CameraCharacteristics#SCALER_AVAILABLE_ROTATE_AND_CROP_MODES`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#SCALER_AVAILABLE_ROTATE_AND_CROP_MODES).
-| **Note:** Only devices with a camera hardware abstraction layer ([HAL](https://source.android.com/devices/camera/camera3)) that supports the `SCALER_ROTATE_AND_CROP` API can enable inset portrait mode.
+
+> [!NOTE]
+> **Note:** Only devices with a camera hardware abstraction layer ([HAL](https://source.android.com/devices/camera/camera3)) that supports the `SCALER_ROTATE_AND_CROP` API can enable inset portrait mode.
 
 ## CameraX
 
-| **Note:** Jetpack CameraX provides backward compatibility to Android 5.0 (API level 21).
+> [!NOTE]
+> **Note:** Jetpack CameraX provides backward compatibility to Android 5.0 (API level 21).
 
 The [Jetpack CameraX](https://developer.android.com/training/camerax) library
 makes creating a camera viewfinder that accommodates sensor orientation and
@@ -322,7 +327,8 @@ repository on GitHub.
 
 ## CameraViewfinder
 
-| **Note:** The `CameraViewfinder` library is backward compatible with Android 5.0 (API level 21).
+> [!NOTE]
+> **Note:** The `CameraViewfinder` library is backward compatible with Android 5.0 (API level 21).
 
 Similar to the [Preview](https://developer.android.com/training/camerax/preview) use case,
 the [CameraViewfinder](https://developer.android.com/reference/androidx/camera/viewfinder/package-summary)
@@ -583,7 +589,9 @@ the size of the screen. The Jetpack WindowManager library methods
 and
 [`WindowInfoTracker#currentWindowMetrics()`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowInfoTracker)
 provide similar support with backward compatibility to API level 14.
-| **Note:** [`Display`](https://developer.android.com/reference/android/view/Display) methods [`getRealSize()`](https://developer.android.com/reference/android/view/Display#getRealSize(android.graphics.Point)) and [`getRealMetrics()`](https://developer.android.com/reference/android/view/Display#getRealMetrics(android.util.DisplayMetrics)) are deprecated as of API level 31. The methods do not support multi-window mode or free-form mode. To get the display density, use [`Configuration#densityDpi`](https://developer.android.com/reference/android/content/res/Configuration#densityDpi) instead of `getRealMetrics()`.
+
+> [!NOTE]
+> **Note:** [`Display`](https://developer.android.com/reference/android/view/Display) methods [`getRealSize()`](https://developer.android.com/reference/android/view/Display#getRealSize(android.graphics.Point)) and [`getRealMetrics()`](https://developer.android.com/reference/android/view/Display#getRealMetrics(android.util.DisplayMetrics)) are deprecated as of API level 31. The methods do not support multi-window mode or free-form mode. To get the display density, use [`Configuration#densityDpi`](https://developer.android.com/reference/android/content/res/Configuration#densityDpi) instead of `getRealMetrics()`.
 
 ## 180 degree rotation
 
@@ -619,7 +627,9 @@ to access this exclusive resource. Each activity must implement an
 [`onDisconnected()`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice.StateCallback#onDisconnected(android.hardware.camera2.CameraDevice))
 callback to stay aware of preemptive access to the camera by a higher priority
 activity.
-| **Note:** Setting [`resizeableActivity="false"`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) doesn't guarantee access to exclusive resources because another activity or an application running on a secondary display might have higher priority. Also, as of Android 12 (API level 31), `resizeableActivity="false"` does not prevent an activity from entering multi-window mode in which other activities might take precedence for exclusive resources.
+
+> [!NOTE]
+> **Note:** Setting [`resizeableActivity="false"`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) doesn't guarantee access to exclusive resources because another activity or an application running on a secondary display might have higher priority. Also, as of Android 12 (API level 31), `resizeableActivity="false"` does not prevent an activity from entering multi-window mode in which other activities might take precedence for exclusive resources.
 
 For more information, see
 [Multi-resume](https://source.android.com/devices/tech/display/multi_display/multi-resume).

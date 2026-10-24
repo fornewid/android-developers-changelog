@@ -4,7 +4,8 @@ url: https://developer.android.com/training/run-background-service/send-request
 source: md.txt
 ---
 
-| **Note:** This page is left here as reference for legacy apps only. See the [guide to background processing on Android](https://developer.android.com/guide/background) for recommended solutions.
+> [!NOTE]
+> **Note:** This page is left here as reference for legacy apps only. See the [guide to background processing on Android](https://developer.android.com/guide/background) for recommended solutions.
 
 
 The previous lesson showed you how to create a
@@ -86,4 +87,4 @@ the [`JobIntentService`](https://developer.android.com/reference/androidx/core/a
 
 The next step is to report the results of the work request back to the originating Activity
 or Fragment. The next lesson shows you how to do this with a
-[BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver).
+`https://developer.android.com/reference/android/content/BroadcastReceiver`.

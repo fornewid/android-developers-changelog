@@ -4,8 +4,6 @@ url: https://developer.android.com/media/platform/output
 source: md.txt
 ---
 
-# Handling changes in audio output
-
 Users expect to be able to control the volume of an audio app. Standard behavior
 includes the ability to use the volume controls (either buttons or knobs on the
 device or sliders in the UI), and to avoid suddenly playing out loud if a
@@ -26,13 +24,13 @@ stream. If your app isn't currently playing anything, hitting the volume keys
 adjusts the music volume (or the ringer volume before Android 9).
 
 Unless your app is an alarm clock, you should play audio with usage
-[AudioAttributes.USAGE_MEDIA](https://developer.android.com/reference/android/media/AudioAttributes#USAGE_MEDIA).
+`https://developer.android.com/reference/android/media/AudioAttributes#USAGE_MEDIA`.
 
 To ensure that volume controls adjust
 the correct stream, you should call
-[setVolumeControlStream()](https://developer.android.com/reference/android/app/Activity#setVolumeControlStream(int))
+`https://developer.android.com/reference/android/app/Activity#setVolumeControlStream(int)`
 passing in the stream type matching your attributes that you can retrieve from
-[AudioAttributes.getVolumeControlStream](https://developer.android.com/reference/android/media/AudioAttributes#getVolumeControlStream()).  
+`https://developer.android.com/reference/android/media/AudioAttributes#getVolumeControlStream()`.
 
 ### Kotlin
 
@@ -59,13 +57,12 @@ the Android `AudioManager` mixes all audio streams of the same type together.
 These methods change the volume of every app that uses the stream. Avoid using
 them:
 
-- [adjustStreamVolume()](https://developer.android.com/reference/android/media/AudioManager#adjustStreamVolume(int, int, int))
-- [adjustSuggestedStreamVolume()](https://developer.android.com/reference/android/media/AudioManager#adjustSuggestedStreamVolume(int, int, int))
-- [adjustVolume()](https://developer.android.com/reference/android/media/AudioManager#adjustVolume(int, int))
-- [setStreamVolume()
-  setStreamVolume()](https://developer.android.com/reference/android/media/AudioManager#setStreamVolume(int, int, int))
-- [setStreamSolo()](https://developer.android.com/reference/android/media/AudioManager#setStreamSolo(int, boolean))
-- [setStreamMute()](https://developer.android.com/reference/android/media/AudioManager#setStreamMute(int, boolean))
+- `https://developer.android.com/reference/android/media/AudioManager#adjustStreamVolume(int, int, int)`
+- `https://developer.android.com/reference/android/media/AudioManager#adjustSuggestedStreamVolume(int, int, int)`
+- `https://developer.android.com/reference/android/media/AudioManager#adjustVolume(int, int)`
+- `https://developer.android.com/reference/android/media/AudioManager#setStreamVolume(int, int, int)`
+- `https://developer.android.com/reference/android/media/AudioManager#setStreamSolo(int, boolean)`
+- `https://developer.android.com/reference/android/media/AudioManager#setStreamMute(int, boolean)`
 
 ## Working with fixed-volume devices
 
@@ -80,12 +77,12 @@ its output volume with other apps that might be playing on the same stream.
 On *fixed-volume* devices, the app should connect its own volume controls to the
 appropriate `setVolume()` method:
 
-|   Player    |                                                             Method                                                              |
-|-------------|---------------------------------------------------------------------------------------------------------------------------------|
-| AudioTrack  | [AudioTrack.setVolume()](https://developer.android.com/reference/android/media/AudioTrack#setVolume(float))                     |
-| MediaPlayer | [MediaPlayer.setVolume()](https://developer.android.com/reference/android/media/MediaPlayer#setVolume(float, float))            |
-| ExoPlayer   | Use `SimpleExoPlayer.setVolume()` which sets the volume of the underlying AudioTrack.                                           |
-| Web         | Set the [`volume`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/volume) property of the `HTMLMediaElement` |
+| Player | Method |
+|---|---|
+| AudioTrack | `https://developer.android.com/reference/android/media/AudioTrack#setVolume(float)` |
+| MediaPlayer | `https://developer.android.com/reference/android/media/MediaPlayer#setVolume(float, float)` |
+| ExoPlayer | Use `SimpleExoPlayer.setVolume()` which sets the volume of the underlying AudioTrack. |
+| Web | Set the [`volume`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/volume) property of the `HTMLMediaElement` |
 
 ## Don't be noisy
 
@@ -103,9 +100,9 @@ controls to pause playback in this case. Other apps, like games that don't
 include controls, should keep playing. The user can adjust the volume with the
 device's hardware controls.
 
-When audio output switches back to the built-in speaker the system broadcasts an [ACTION_AUDIO_BECOMING_NOISY](https://developer.android.com/reference/android/media/AudioManager#ACTION_AUDIO_BECOMING_NOISY)
-intent. You should create a [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver)
-that listens for this intent whenever you're playing audio. Your receiver should look like this:  
+When audio output switches back to the built-in speaker the system broadcasts an `https://developer.android.com/reference/android/media/AudioManager#ACTION_AUDIO_BECOMING_NOISY`
+intent. You should create a `https://developer.android.com/reference/android/content/BroadcastReceiver`
+that listens for this intent whenever you're playing audio. Your receiver should look like this:
 
 ### Kotlin
 
@@ -135,7 +132,7 @@ private class BecomingNoisyReceiver extends BroadcastReceiver {
 
 Register the receiver when you begin playback, and unregister it when you stop.
 If you design your app as we describe in this guide, these calls should appear
-in the `onPlay()` and `onStop()` media session callbacks.  
+in the `onPlay()` and `onStop()` media session callbacks.
 
 ### Kotlin
 

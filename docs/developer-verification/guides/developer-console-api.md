@@ -154,7 +154,7 @@ Structure the authorization context using the following format:
 - **Summary:** "Manage package name registration for Android developer verification within \[application-name\]"
 - **Action Button:** "Continue with Google" or "Sign in with Google" button
 
-![Dialog illustrating OAuth authorization context for linking an account.](https://developer.android.com/static/images/developer-verification/adc-manage-packages.png) **Figure 1.** Link you Android Developer Console account.
+![Dialog illustrating OAuth authorization context for linking an account.](https://developer.android.com/static/images/developer-verification/adc-manage-packages.png) **Figure 1.** Link your Android Developer Console account.
 
 ### Identify the developer accounts
 
@@ -286,6 +286,7 @@ brand integrity:
 
 ## Additional resources
 
+- [Android Developer Console API reference](https://developer.android.com/developer-verification/reference/developer-console-api)
 - [Check app registration status with the Android Developer ID Status API](https://developer.android.com/developer-verification/guides/check-registration-status)
 - [Register on Android Developer Console](https://developer.android.com/developer-verification/guides/android-developer-console)
 - [Register on Google Play Console](https://developer.android.com/developer-verification/guides/google-play-console)

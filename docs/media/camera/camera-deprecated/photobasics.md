@@ -50,7 +50,7 @@ If a camera is not available, you should then disable your camera features.
 ## Get the thumbnail
 
 
-If the simple feat of taking a photo is not the culmination of your app's ambition, then you
+If the basic feat of taking a photo is not the culmination of your app's ambition, then you
 probably want to get the image back from the camera application and do something with it.
 
 
@@ -93,7 +93,7 @@ but not a lot more. Dealing with a full-sized image takes a bit more work.
 
 
 The Android Camera application saves a full-size photo if you give it a file to save into. You
-must provide a fully qualified file name where the camera app should save the photo.
+must provide a fully qualified filename where the camera app should save the photo.
 
 
 Generally, any photos that the user captures with the device camera should be saved on the device
@@ -151,9 +151,9 @@ or
 deleted when the user uninstalls your app.
 
 
-Once you decide the directory for the file, you need to create a collision-resistant file name.
-You may wish also to save the path in a member variable for later use. Here's an example solution
-in a method that returns a unique file name for a new photo using a date-time stamp.
+Once you decide the directory for the file, you need to create a collision-resistant filename.
+You might also want to save the path in a member variable for later use. Here's an example solution
+in a method that returns a unique filename for a new photo using a date-time stamp.
 (This example assumes you are calling the method from inside a `Context`.)
 
 ### Kotlin
@@ -293,7 +293,7 @@ app's manifest, add a provider to your application:
 
 Make sure that the authorities string matches the second argument to
 `https://developer.android.com/reference/androidx/core/content/FileProvider#getUriForFile(android.content.Context, java.lang.String, java.io.File)`.
-In the meta-data section of the provider definition, you can see that the provider expects
+In the metadata section of the provider definition, you can see that the provider expects
 eligible paths to be configured in a dedicated resource file, res/xml/file_paths.xml. Here
 is the content required for this particular example:
 

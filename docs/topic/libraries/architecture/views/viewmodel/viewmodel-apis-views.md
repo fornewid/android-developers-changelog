@@ -1,34 +1,20 @@
 ---
-title: ViewModel Scoping APIs (Views)  |  Android Developers
+title: https://developer.android.com/topic/libraries/architecture/views/viewmodel/viewmodel-apis-views
 url: https://developer.android.com/topic/libraries/architecture/views/viewmodel/viewmodel-apis-views
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
-* [Guides](https://developer.android.com/topic/architecture/views/recommendations-views)
+# ViewModel Scoping APIs (Views)
+Part of [Android Jetpack](https://developer.android.com/jetpack).
 
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-
-
-# ViewModel Scoping APIs (Views)   Part of [Android Jetpack](/jetpack).
-
-[Concepts and Jetpack Compose implementationarrow\_forward](/topic/libraries/architecture/viewmodel/viewmodel-apis)
+[Concepts and Jetpack Compose implementation](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-apis)
 
 Scope is key to using ViewModels effectively. Each ViewModel is scoped to an
-object that implements the [`ViewModelStoreOwner`](/reference/androidx/lifecycle/ViewModelStoreOwner) interface. There are
+object that implements the [`ViewModelStoreOwner`](https://developer.android.com/reference/androidx/lifecycle/ViewModelStoreOwner) interface. There are
 several APIs that allow you to more easily manage the scope of your ViewModels.
 
-**Note:** For more information on scope and ViewModel lifecycle, see the
-[ViewModel Overview](/topic/libraries/architecture/viewmodel#scope).
+> [!NOTE]
+> **Note:** For more information on scope and ViewModel lifecycle, see the [ViewModel Overview](https://developer.android.com/topic/libraries/architecture/viewmodel#scope).
 
 The `ViewModelProvider.get()` method lets you obtain an instance of a ViewModel
 scoped to any `ViewModelStoreOwner`. For Kotlin users, there are different
@@ -39,14 +25,14 @@ extension function implementations use the ViewModelProvider API under the hood.
 
 You can scope a ViewModel to an Activity, Fragment, or destination of a
 Navigation graph. The
-[`viewModels()`](/reference/kotlin/androidx/activity/package-summary#(androidx.activity.ComponentActivity)) extension
+[`viewModels()`](https://developer.android.com/reference/kotlin/androidx/activity/package-summary#(androidx.activity.ComponentActivity)) extension
 functions provided by the Activity, Fragment, and Navigation libraries
 allow you to get an instance of the ViewModel
 scoped to the closest `ViewModelStoreOwner`.
 
 ### Views
 
-```
+```kotlin
 import androidx.activity.viewModels
 
 class MyActivity : AppCompatActivity() {
@@ -66,7 +52,7 @@ class MyFragment : Fragment() {
 
 ### Views
 
-```
+```java
 import androidx.lifecycle.ViewModelProvider;
 
 public class MyActivity extends AppCompatActivity {
@@ -91,7 +77,7 @@ parent fragment:
 
 ### Views
 
-```
+```kotlin
 import androidx.fragment.app.viewModels
 
 class MyFragment : Fragment() {
@@ -106,7 +92,7 @@ class MyFragment : Fragment() {
 
 ### Views
 
-```
+```java
 import androidx.lifecycle.ViewModelProvider;
 
 public class MyFragment extends Fragment {
@@ -123,13 +109,13 @@ public class MyFragment extends Fragment {
 ```
 
 Getting an Activity-scoped ViewModel from a Fragment is a common use case. When
-doing so, you can use the [`activityViewModels()`](/reference/kotlin/androidx/fragment/app/package-summary#(androidx.fragment.app.Fragment).activityViewModels(kotlin.Function0,kotlin.Function0))
+doing so, you can use the [`activityViewModels()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/package-summary#(androidx.fragment.app.Fragment).activityViewModels(kotlin.Function0,kotlin.Function0))
 Views extension function. If you're not using Views and Kotlin,
 you can use the same APIs as above and by passing the right owner.
 
 ### Views
 
-```
+```kotlin
 import androidx.fragment.app.activityViewModels
 
 class MyFragment : Fragment() {
@@ -142,7 +128,7 @@ class MyFragment : Fragment() {
 
 ### Views
 
-```
+```java
 import androidx.lifecycle.ViewModelProvider;
 
 public class MyFragment extends Fragment {
@@ -161,14 +147,14 @@ public class MyFragment extends Fragment {
 ## ViewModels scoped to the Navigation graph
 
 Navigation graphs are also ViewModel store owners. If you're using
-[Navigation Fragment](/guide/navigation), you can get an instance of a
+[Navigation Fragment](https://developer.android.com/guide/navigation), you can get an instance of a
 ViewModel scoped to a Navigation graph with the
-[`navGraphViewModels(graphId)`](/reference/kotlin/androidx/navigation/package-summary#(androidx.fragment.app.Fragment).navGraphViewModels(kotlin.Int,kotlin.Function0,kotlin.Function0))
+[`navGraphViewModels(graphId)`](https://developer.android.com/reference/kotlin/androidx/navigation/package-summary#(androidx.fragment.app.Fragment).navGraphViewModels(kotlin.Int,kotlin.Function0,kotlin.Function0))
 Views extension function.
 
 ### Views
 
-```
+```kotlin
 import androidx.navigation.navGraphViewModels
 
 class MyFragment : Fragment() {
@@ -186,7 +172,7 @@ class MyFragment : Fragment() {
 
 ### Views
 
-```
+```java
 import androidx.lifecycle.ViewModelProvider;
 
 public class MyFragment extends Fragment {
@@ -205,12 +191,12 @@ public class MyFragment extends Fragment {
 ```
 
 If you're using Hilt in addition to Jetpack Navigation, you can use the
-[`hiltNavGraphViewModels(graphId)`](/reference/kotlin/androidx/hilt/navigation/fragment/package-summary#hiltnavgraphviewmodels)
+[`hiltNavGraphViewModels(graphId)`](https://developer.android.com/reference/kotlin/androidx/hilt/navigation/fragment/package-summary#hiltnavgraphviewmodels)
 API as follows.
 
 ### Views
 
-```
+```kotlin
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 
 class MyFragment : Fragment() {
@@ -224,7 +210,7 @@ class MyFragment : Fragment() {
 
 ### Views
 
-```
+```java
 import androidx.hilt.navigation.HiltViewModelFactory;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -249,6 +235,6 @@ public class MyFragment extends Fragment {
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [Layouts and binding expressions](/topic/libraries/data-binding/expressions)
-* [ViewModel overview](/topic/libraries/architecture/viewmodel)
+- Note: link text is displayed when JavaScript is off
+- [Layouts and binding expressions](https://developer.android.com/topic/libraries/data-binding/expressions)
+- [ViewModel overview](https://developer.android.com/topic/libraries/architecture/viewmodel)

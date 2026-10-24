@@ -7,9 +7,13 @@ source: md.txt
 > [!CAUTION]
 > **Caution:** You are viewing the documentation for Play Age Signals version 0.0.3. Although this version continues to return responses, it's no longer receiving new updates. To view the active and supported version, refer to [Play Age Signals documentation](https://developer.android.com/google/play/age-signals/test-age-signals-api).
 
-To test your Play Age Signals API (beta) integration with your app, use the [FakeAgeSignalsManager](https://developer.android.com/google/play/age-signals/reference/com/google/android/play/agesignals/testing/FakeAgeSignalsManager) implementation available in the age signals artifact. The `FakeAgeSignalsManager` implementation lets you simulate the API's behavior.
+To test your Play Age Signals API (beta) integration with your app, use the
+[FakeAgeSignalsManager](https://developer.android.com/google/play/age-signals/reference/com/google/android/play/agesignals/testing/FakeAgeSignalsManager) implementation available in the age signals artifact.
+The `FakeAgeSignalsManager` implementation lets you simulate the API's behavior.
 
-The `FakeAgeSignalsManager` is intended solely for unit or integration tests to confirm your app behavior. To test your integration, replace your `AgeSignalsManager` instance with a `FakeAgeSignalsManager` instance.
+The `FakeAgeSignalsManager` is intended solely for unit or integration tests to
+confirm your app behavior. To test your integration, replace your
+`AgeSignalsManager` instance with a `FakeAgeSignalsManager` instance.
 
 The following example simulates the response for a verified adult:
 
@@ -42,7 +46,8 @@ manager.checkAgeSignals(AgeSignalsRequest.builder().build())
     .addOnFailureListener(/* handle failure case */);
 ```
 
-The following example simulates the response for a supervised user between 13 and 17 years old:
+The following example simulates the response for a supervised user between 13
+and 17 years old:
 
 ### Kotlin
 
@@ -78,7 +83,8 @@ manager.checkAgeSignals(AgeSignalsRequest.builder().build())
     .addOnFailureListener(/* handle failure case */);
 ```
 
-The following example simulates the response for a declared user with a custom age range of 13 to 15:
+The following example simulates the response for a declared user with a custom
+age range of 13 to 15:
 
 ### Kotlin
 
@@ -115,7 +121,9 @@ manager
     .addOnFailureListener(/* handle failure case */)
 ```
 
-The following example simulates the response for a pending significant change approval for a supervised user between 13 and 17 years old with no previous significant change having been approved:
+The following example simulates the response for a pending significant change
+approval for a supervised user between 13 and 17 years old with no previous
+significant change having been approved:
 
 ### Kotlin
 
@@ -152,7 +160,10 @@ manager
     .addOnFailureListener(/* handle failure case */)
 ```
 
-The following example simulates the response for a pending significant change approval for a supervised user between 13 and 17 years old with all significant changes approved up to and including the significant change that was effective from 2025-02-01:
+The following example simulates the response for a pending significant change
+approval for a supervised user between 13 and 17 years old with all significant
+changes approved up to and including the significant change that was effective
+from 2025-02-01:
 
 ### Kotlin
 
@@ -193,7 +204,10 @@ manager.checkAgeSignals(AgeSignalsRequest.builder().build())
     .addOnFailureListener(/* handle failure case */);
 ```
 
-The following example simulates a significant change approval denied for a supervised user between 13 and 17 years old with all significant changes approved up to and including the significant change that was effective from 2025-02-01:
+The following example simulates a significant change approval denied for a
+supervised user between 13 and 17 years old with all significant changes
+approved up to and including the significant change that was effective from
+2025-02-01:
 
 ### Kotlin
 

@@ -21,14 +21,15 @@ error scenarios.
 
 ### Enable billing overrides testing for the Play Billing Library
 
-| **Note:** Before testing, ensure that your app is using [Play Billing Library](https://developer.android.com/google/play/billing/integrate#dependency) version 7.1.1 or later.
+> [!NOTE]
+> **Note:** Before testing, ensure that your app is using [Play Billing Library](https://developer.android.com/google/play/billing/integrate#dependency) version 7.1.1 or later.
 
 To enable communication between the Response Simulator and your app,
 you must enable billing overrides testing for the Play Billing Library
 from within your app. To do this, add the following metadata tags to your app's
 `AndroidManifest.xml` file.
 
-```scdoc
+```
 <manifest ... >
   <application ... >
     ...
@@ -41,7 +42,9 @@ from within your app. To do this, add the following metadata tags to your app's
   </application>
 </manifest>
 ```
-| **Note:** Even though adding only the `enableBillingOverridesTesting` tag and setting it to `true` is sufficient to enable billing overrides testing for your app, it's recommended that you also add the `NONPRODUCTION` tag. The `NONPRODUCTION` tag prevents accidental deployment of your app to the production environment with billing overrides testing enabled.
+
+> [!NOTE]
+> **Note:** Even though adding only the `enableBillingOverridesTesting` tag and setting it to `true` is sufficient to enable billing overrides testing for your app, it's recommended that you also add the `NONPRODUCTION` tag. The `NONPRODUCTION` tag prevents accidental deployment of your app to the production environment with billing overrides testing enabled.
 
 When you deploy your app to the production environment, you should either
 use a separate `AndroidManifest.xml` file that doesn't include these
@@ -76,7 +79,8 @@ in the [Play Billing Lab](https://play.google.com/store/apps/details?id=com.goog
 
 #### Test your app's error handling
 
-| **Note:** When testing using the Response Simulator, ensure that you first open Play Billing Lab, and then open your app. Opening your app before opening Play Billing Lab may result in issues connecting to the Response Simulator.
+> [!NOTE]
+> **Note:** When testing using the Response Simulator, ensure that you first open Play Billing Lab, and then open your app. Opening your app before opening Play Billing Lab may result in issues connecting to the Response Simulator.
 
 1. Open your app.
 

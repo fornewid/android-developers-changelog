@@ -56,7 +56,7 @@ Visit the [Android Developer Console Help Center](https://support.google.com/and
 
 [![](http://developer.android.com/static/developer-verification/assets/latestnewsheadericon.png)](http://developer.android.com/developer-verification/guides/open-source-app-registration) Guide
 
-### [Register an open source app](http://developer.android.com/developer-verification/guides/open-source-app-registration)
+### [Register an app on open-source registry](http://developer.android.com/developer-verification/guides/open-source-app-registration)
 
 Learn how to register both existing and new open source apps for distribution. [![](http://developer.android.com/static/developer-verification/assets/latestnewsheadericon.png)](https://developer.android.com/developer-verification/guides/limited-distribution) Guide
 

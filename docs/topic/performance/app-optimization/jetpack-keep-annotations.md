@@ -514,6 +514,25 @@ To confirm the result, check that the generated rule appears in the AAR's
 test a release build of an app that includes the add-on, because that's where a
 missing rule would break video analytics.
 
+## Limitations
+
+Jetpack Keep doesn't yet detect reflection that finds classes and members by
+their annotations, or generate keep rules for it. This feature is planned.
+
+Until then, use [keep rules](https://developer.android.com/topic/performance/app-optimization/keep-rule-examples) for this kind of reflection. For example, the
+following rule keeps every member that's annotated with `@SomeAnnotation` in the
+classes that R8 keeps:
+
+    -keepclassmembers class * {
+        @com.example.annotation.SomeAnnotation <methods>;
+        @com.example.annotation.SomeAnnotation <fields>;
+    }
+
+If Jetpack Keep doesn't work for your use case, or if you have other feedback,
+[file an issue](https://issuetracker.google.com/issues/new?component=2295349&template=2425184).
+
+<br />
+
 ## Additional resources
 
 - [Jetpack Keep sample](https://github.com/android/performance-samples/tree/main/KeepAnnotationsSample): An Android Studio project that uses Jetpack Keep in an app, an Android library, a Kotlin Multiplatform library, and a JVM library.

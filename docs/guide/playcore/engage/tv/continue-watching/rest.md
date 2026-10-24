@@ -4,7 +4,10 @@ url: https://developer.android.com/guide/playcore/engage/tv/continue-watching/re
 source: md.txt
 ---
 
-Engage SDK offers a REST API to provide a consistent continue watching experience across non-Android platforms such as iOS and Roku TV. The API allows developers to update the "Continue-Watching" status for opted-in users from non-Android platforms.
+Engage SDK offers a REST API to provide a consistent continue watching
+experience across non-Android platforms such as iOS and Roku TV. The API allows
+developers to update the "Continue-Watching" status for opted-in users from
+non-Android platforms.
 
 ## Prerequisites
 
@@ -16,7 +19,8 @@ Engage SDK offers a REST API to provide a consistent continue watching experienc
 
 ## Gain Access
 
-To gain access to view and enable the API in your Google Cloud Console, your account needs to be enrolled.
+To gain access to view and enable the API in your Google Cloud Console,
+your account needs to be enrolled.
 
 1. Google Workspace Customer ID should be available. If not available, you may need to set up a Google Workspace as well as any Google Accounts you want to use to call the API.
 2. Set up an account with Google Cloud Console using an email associated with the Google Workspace.
@@ -29,7 +33,8 @@ To gain access to view and enable the API in your Google Cloud Console, your acc
 
 ## Publish Continuation Cluster
 
-To publish the Engage data, perform a POST request to the `publishContinuationCluster` API using the following syntax.
+To publish the Engage data, perform a POST request to the
+`publishContinuationCluster` API using the following syntax.
 
     https://tvvideodiscovery.googleapis.com/v1/packages/{package_name}/accounts/{account_id}/profiles/{profile_id}/publishContinuationCluster
 
@@ -43,7 +48,11 @@ The URL for the account without profile is:
 
     https://tvvideodiscovery.googleapis.com/v1/packages/{package_name}/accounts/{account_id}/publishContinuationCluster
 
-The payload to the request is represented in the `entities` field. `entities` represents a list of content entities, which can consist of one or more of the following: `MovieEntity`, `TVEpisodeEntity`, `LiveStreamingVideoEntity` or `VideoClipEntity`. This is a required field.
+The payload to the request is represented in the `entities` field. `entities`
+represents a list of content entities, which can consist of one or more of the
+following: `MovieEntity`, `TVEpisodeEntity`, `LiveStreamingVideoEntity`
+or `VideoClipEntity`.
+This is a required field.
 
 ### Request Body
 
@@ -51,7 +60,8 @@ The payload to the request is represented in the `entities` field. `entities` re
 | **Field** | **Type** | **Required** | **Description** |
 | entities | List of MediaEntity Objects | Yes | List of content entities with a maximum of 5. Only the top five will be retained and the rest dropped. An empty list is allowed to signify the user has finished watching all entities. |
 
-Field `entities` contains individual `movieEntity`, `tvEpisodeEntity`, `liveStreamingVideoEntity`, and `videoClipEntity`.
+Field `entities` contains individual `movieEntity`, `tvEpisodeEntity`,
+`liveStreamingVideoEntity`, and `videoClipEntity`.
 
 |---|---|---|
 | **Field** | **Type** | **Description** |
@@ -60,9 +70,15 @@ Field `entities` contains individual `movieEntity`, `tvEpisodeEntity`, `liveStre
 | liveStreamingVideoEntity | LiveStreamingVideoEntity | An object representing a live streaming video within the ContinuationCluster. |
 | videoClipEntity | VideoClipEntity | An object representing a video clip within the ContinuationCluster. |
 
-Each object in the entities array must be one of the available MediaEntity types namely [`MovieEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/MovieEntity), [`TvEpisodeEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/TvEpisodeEntity), [`LiveStreamingVideoEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/LiveStreamingVideoEntity), or [`VideoClipEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/VideoClipEntity), along with common and type-specific fields.
+Each object in the entities array must be one of the available
+MediaEntity types namely [`MovieEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/MovieEntity),
+[`TvEpisodeEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/TvEpisodeEntity),
+[`LiveStreamingVideoEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/LiveStreamingVideoEntity), or
+[`VideoClipEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/VideoClipEntity),
+along with common and type-specific fields.
 
-The following code snippet showcases the request body payload for the `publishContinuationCluster` API.
+The following code snippet showcases the request body payload for the
+`publishContinuationCluster` API.
 
     {
       "entities": [
@@ -219,7 +235,8 @@ The following code snippet showcases the request body payload for the `publishCo
 
 Use the `clearClusters` API to remove the Engage data.
 
-To delete the continuation cluster data, perform a POST request to the `clearClusters` API using the following syntax.
+To delete the continuation cluster data, perform a POST request to the
+`clearClusters` API using the following syntax.
 
     https://tvvideodiscovery.googleapis.com/v1/packages/{package_name}/accounts/{account_id}/profiles/{profile_id}/clearClusters
 
@@ -229,7 +246,9 @@ Where:
 - `accountId`: The unique ID for the user's account in your system. It must match the `accountId` used in the on-device path.
 - `profileId`: The unique ID for the user's profile within the account in your system. It must match the profileId used in the on-device path.
 
-The payload for the `clearClusters` API contains only one field, `reason`, which contains a [`DeleteReason`](https://developer.android.com/reference/com/google/android/engage/service/DeleteReason) that specifies the reason for removing data.
+The payload for the `clearClusters` API contains only one field, `reason`, which
+contains a [`DeleteReason`](https://developer.android.com/reference/com/google/android/engage/service/DeleteReason) that specifies the reason for
+removing data.
 
     {
       "reason": "DELETE_REASON_LOSS_OF_CONSENT"
@@ -237,6 +256,11 @@ The payload for the `clearClusters` API contains only one field, `reason`, which
 
 ## Testing
 
-After successfully posting data, use a user test account to verify that the expected content appears in the continue watching row on target Google surfaces such as Google TV and the Android and iOS Google TV mobile apps.
+After successfully posting data, use a user test account to verify that the
+expected content appears in the continue watching row on target Google surfaces
+such as Google TV and the Android and iOS Google TV mobile apps.
 
-In testing, allow a reasonable propagation delay of a few minutes and adhere to the watch requirements, such as watching part of a movie or finishing an episode. Consult the [Watch Next guidelines for app developers](https://developer.android.com/training/tv/discovery/guidelines-app-developers#unfinished-movies) for details.
+In testing, allow a reasonable propagation delay of a few minutes and adhere to
+the watch requirements, such as watching part of a movie or finishing an
+episode. Consult the [Watch Next guidelines for app developers](https://developer.android.com/training/tv/discovery/guidelines-app-developers#unfinished-movies) for
+details.

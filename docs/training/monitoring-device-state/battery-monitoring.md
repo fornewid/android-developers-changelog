@@ -19,14 +19,14 @@ even stopping---your updates when the battery charge is nearly exhausted.
 
 ## Determine the current charging state
 
-Start by determining the current charge status. The [BatteryManager](https://developer.android.com/reference/android/os/BatteryManager)
-broadcasts all battery and charging details in a sticky [Intent](https://developer.android.com/reference/android/content/Intent) that includes
+Start by determining the current charge status. The `https://developer.android.com/reference/android/os/BatteryManager`
+broadcasts all battery and charging details in a sticky `https://developer.android.com/reference/android/content/Intent` that includes
 the charging status.
 
-Because it's a sticky intent, you don't need to register a [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver)---by simply calling `registerReceiver` passing in
+Because it's a sticky intent, you don't need to register a `https://developer.android.com/reference/android/content/BroadcastReceiver`---by simply calling `registerReceiver` passing in
 `null` as the receiver as shown in the next snippet, the current battery status intent is
-returned. You could pass in an actual [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver) object here, but
-we'll be handling updates in a later section so it's not necessary.  
+returned. You could pass in an actual `https://developer.android.com/reference/android/content/BroadcastReceiver` object here, but
+we'll be handling updates in a later section so it's not necessary.
 
 ### Kotlin
 
@@ -83,11 +83,11 @@ further if the battery is discharging.
 The charging status can change as easily as a device can be plugged in, so it's important to
 monitor the charging state for changes and alter your refresh rate accordingly.
 
-The [BatteryManager](https://developer.android.com/reference/android/os/BatteryManager) broadcasts an action whenever the device is connected or
+The `https://developer.android.com/reference/android/os/BatteryManager` broadcasts an action whenever the device is connected or
 disconnected from power. It's important to receive these events even while your app isn't
 running---particularly as these events should impact how often you start your app in order to
-initiate a background update---so you should register a [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver) in your manifest to listen for both events by defining the
-[ACTION_POWER_CONNECTED](https://developer.android.com/reference/android/content/Intent#ACTION_POWER_CONNECTED) and [ACTION_POWER_DISCONNECTED](https://developer.android.com/reference/android/content/Intent#ACTION_POWER_DISCONNECTED) within an intent filter.  
+initiate a background update---so you should register a `https://developer.android.com/reference/android/content/BroadcastReceiver` in your manifest to listen for both events by defining the
+`https://developer.android.com/reference/android/content/Intent#ACTION_POWER_CONNECTED` and `https://developer.android.com/reference/android/content/Intent#ACTION_POWER_DISCONNECTED` within an intent filter.
 
 ```xml
 <receiver android:name=".PowerConnectionReceiver">
@@ -104,7 +104,7 @@ In some cases it's also useful to determine the current battery level. You may c
 the rate of your background updates if the battery charge is below a certain level.
 
 You can find the current battery charge by extracting the current battery level and scale from
-the battery status intent as shown here:  
+the battery status intent as shown here:
 
 ### Kotlin
 

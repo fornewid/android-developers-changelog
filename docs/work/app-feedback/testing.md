@@ -4,7 +4,9 @@ url: https://developer.android.com/work/app-feedback/testing
 source: md.txt
 ---
 
-| **Note:** To learn more about how to send feedback from your app, see [Send feedback to EMMs](https://developer.android.com/work/app-feedback/overview).
+> [!NOTE]
+> **Note:** To learn more about how to send feedback from your app, see [Send feedback to EMMs](https://developer.android.com/work/app-feedback/overview).
+
 After updating your app to support sending feedback in the form of keyed app states, you can use the guidance on this page to set up unit tests and send test feedback to a test device policy controller (DPC).
 
 ## Set up unit tests
@@ -14,7 +16,7 @@ keyed app states as expected.
 
 ### Step 1: Set up your classes to accept `KeyedAppStatesReporter` as a parameter
 
-Instead of calling `create()` directly, modify your classes to accept `KeyedAppStatesReporter` as a parameter like in the example `BatteryManager` class below:  
+Instead of calling `create()` directly, modify your classes to accept `KeyedAppStatesReporter` as a parameter like in the example `BatteryManager` class below:
 
 ### Kotlin
 
@@ -60,7 +62,7 @@ wherever `BatteryManager` is created.
 ### Step 2: Add the enterprise feedback testing library to your `build.gradle` file
 
 Add the following dependency to your app's
-[`build.gradle`](https://developer.android.com/studio/build#module-level) file:  
+[`build.gradle`](https://developer.android.com/studio/build#module-level) file:
 
 ```
 dependencies {
@@ -86,9 +88,10 @@ BatteryManager batteryManager = new BatteryManager(reporter);
 
 ### Step 4: Assert interactions with `FakeKeyedAppStatesReporter`
 
-| **Note:** To view all the options for verifying expected interactions, see [`FakeKeyedAppStatesReporter`](https://developer.android.google.cn/reference/androidx/enterprise/feedback/FakeKeyedAppStatesReporter).
+> [!NOTE]
+> **Note:** To view all the options for verifying expected interactions, see [`FakeKeyedAppStatesReporter`](https://developer.android.google.cn/reference/androidx/enterprise/feedback/FakeKeyedAppStatesReporter).
 
-For example, to check that no states have been set:  
+For example, to check that no states have been set:
 
 ### Kotlin
 
@@ -102,7 +105,7 @@ assertThat(reporter.keyedAppStates).isEmpty();
 assertThat(reporter.getKeyedAppStates()).isEmpty();
 ```
 
-Or that a particular state has been requested to be uploaded:  
+Or that a particular state has been requested to be uploaded:
 
 ### Kotlin
 
@@ -125,7 +128,7 @@ download.
 ### Step 1: Install Test DPC
 
 Install the latest version of [Test DPC](https://play.google.com/store/apps/details?id=com.afwsamples.testdpc)
-from the Play Store. Next, set Test DPC as the admin of the device:  
+from the Play Store. Next, set Test DPC as the admin of the device:
 
 ```
 adb shell dpm set-device-owner com.afwsamples.testdpc/.DeviceAdminReceiver

@@ -12,7 +12,8 @@ Camera2 is the low-level Android camera package that replaces the
 deprecated [Camera](https://developer.android.com/training/camera-deprecated) class. Camera2 provides
 in-depth controls for complex use cases, but requires you to manage
 device-specific configurations.
-For more information, see the [Camera2 reference documentation](https://developer.android.com/reference/android/hardware/camera2/package-summary).
+For more information, see the
+[Camera2 reference documentation](https://developer.android.com/reference/android/hardware/camera2/package-summary).
 
 For most developers, we recommend the [CameraX Jetpack library](https://developer.android.com/camerax).
 To help you decide which camera library to use,

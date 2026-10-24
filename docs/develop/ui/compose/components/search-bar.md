@@ -127,10 +127,10 @@ fun CustomizableSearchBar(
     modifier: Modifier = Modifier,
     // Customization options
     placeholder: @Composable () -> Unit = { Text("Search") },
-    leadingIcon: @Compos>able (() - Unit)? = { Icon(Icons.Default.Search, contentDescription = "Search") },
-    trailingIco>n: @Composable (() - Unit)? = null,
-    supportingContent: (@C>omposable (String) - Unit)? = null,
-    leadingConten>t: (@Composable () - Unit)? = null,
+    leadingIcon: @Composable (() -> Unit)? = { Icon(Icons.Default.Search, contentDescription = "Search") },
+    trailingIcon: @Composable (() -> Unit)? = null,
+    supportingContent: (@Composable (String) -> Unit)? = null,
+    leadingContent: (@Composable () -> Unit)? = null,
 ) {
     // Track expanded state of search bar
     var expanded by rememberSaveable { mutableStateOf(false) }
@@ -165,7 +165,7 @@ fun CustomizableSearchBar(
         ) {
             // Show search results in a lazy column for better performance
             LazyColumn {
-                items(count = searchRes>ults.size) { index -
+                items(count = searchResults.size) { index ->
                     val resultText = searchResults[index]
                     ListItem(
                         headlineContent = { Text(resultText) },
@@ -181,9 +181,10 @@ fun CustomizableSearchBar(
                             .padding(horizontal = 16.dp, vertical = 4.dp)
                     )
                 }
-           
+            }
+        }
     }
-}SearchBar.kt
+}
 ```
 
 <br />

@@ -4,16 +4,14 @@ url: https://developer.android.com/media/legacy/video/activity
 source: md.txt
 ---
 
-# Building a video player activity
+When the activity receives the `onCreate()` lifecycle callback method it should perform these steps:
 
-When the activity receives the`onCreate()`lifecycle callback method it should perform these steps:
-
-- Create and[initialize the media session](https://developer.android.com/guide/topics/media-apps/working-with-a-media-session#init-session)
+- Create and [initialize the media session](https://developer.android.com/guide/topics/media-apps/working-with-a-media-session#init-session)
 - Set the media session callback
-- Set the media session's media button receiver to null so that a[media button event](https://developer.android.com/guide/topics/media-apps/mediabuttons#restarting-inactive-mediasessions)won't restart the player when it is not visible. This only affects Android 5.0 (API level 21) and higher devices.
+- Set the media session's media button receiver to null so that a [media button event](https://developer.android.com/guide/topics/media-apps/mediabuttons#restarting-inactive-mediasessions) won't restart the player when it is not visible. This only affects Android 5.0 (API level 21) and higher devices.
 - Create and initialize the media controller
 
-The`onCreate()`code below demonstrates these steps:  
+The `onCreate()` code below demonstrates these steps:
 
 ### Kotlin
 
@@ -88,13 +86,13 @@ public void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-When an app is closed, the activity receives the`onPause()`and`onStop()`callbacks in succession. If the player is playing, you must stop it before its activity goes away. The choice of which callback to use depends on what Android version you're running.
+When an app is closed, the activity receives the `onPause()` and `onStop()` callbacks in succession. If the player is playing, you must stop it before its activity goes away. The choice of which callback to use depends on what Android version you're running.
 
-In Android 6.0 (API level 23) and earlier there is no guarantee of when`onStop()`is called; it could get called 5 seconds after your activity disappears. Therefore, in Android versions earlier than 7.0, your app should stop playback in`onPause()`. In Android 7.0 and beyond, the system calls`onStop()`as soon as the activity becomes not visible, so this is not a problem.
+In Android 6.0 (API level 23) and earlier there is no guarantee of when `onStop()` is called; it could get called 5 seconds after your activity disappears. Therefore, in Android versions earlier than 7.0, your app should stop playback in `onPause()`. In Android 7.0 and beyond, the system calls `onStop()` as soon as the activity becomes not visible, so this is not a problem.
 
 To summarize:
 
-- In Android version 6.0 and earlier, stop the player in the`onPause()`callback.
-- In Android version 7.0 and later, stop the player in the`onStop()`callback.
+- In Android version 6.0 and earlier, stop the player in the `onPause()` callback.
+- In Android version 7.0 and later, stop the player in the `onStop()` callback.
 
-When the activity receives the`onDestroy()`callback, it should release and clean up your player.
+When the activity receives the `onDestroy()` callback, it should release and clean up your player.

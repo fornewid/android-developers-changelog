@@ -4,8 +4,6 @@ url: https://developer.android.com/guide/topics/connectivity/cross-device-sdk/se
 source: md.txt
 ---
 
-# Secure connection API
-
 After discovering a remote device, the `handleIntent` function is called, and
 it's time to start passing data between clients. This section covers the
 four essential steps of maintaining a secure connection:
@@ -18,7 +16,7 @@ four essential steps of maintaining a secure connection:
 ## Open a connection
 
 To open a connection to receive data from a remote device, use the
-previously received participant object and specify `CHANNEL_NAME`:  
+previously received participant object and specify `CHANNEL_NAME`:
 
 ### Kotlin
 
@@ -75,7 +73,7 @@ private void sendDataToRemoteConnection(RemoteConnection remoteConnection) {
 
 Secure connections require the receiving device to accept incoming connections
 before receiving the data. To accept a remote connection, use the following
-snippet:  
+snippet:
 
 ### Kotlin
 

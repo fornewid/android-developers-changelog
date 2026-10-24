@@ -125,7 +125,7 @@ fun ScaffoldWithTLCEdgeButtonSample() {
                     Text("Clear All")
                 }
             },
-        ) { contentPadding ->
+        ) { conten>tPadding -
             TransformingLazyColumn(
                 state = listState,
                 modifier = Modifier.fillMaxSize(),

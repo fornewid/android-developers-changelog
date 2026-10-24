@@ -8,7 +8,9 @@ The Cross device SDK Developer Preview is distributed through an [open-source
 project](https://github.com/google/cross-device-sdk). This preview is available for the developer community to prototype and
 validate multidevice experiences but is not intended for use in production
 applications.
-| **Note:** Quick Share must be turned on to use the Cross device SDK. See [Share files and links with nearby devices](https://support.google.com/android/answer/9286773) to learn more.
+
+> [!NOTE]
+> **Note:** Quick Share must be turned on to use the Cross device SDK. See [Share files and links with nearby devices](https://support.google.com/android/answer/9286773) to learn more.
 
 ## Set up Google Play Services
 
@@ -38,7 +40,9 @@ regularly to ensure you're using the latest version of the Cross device SDK.
 One of the benefits of using the Cross device SDK is that it abstracts away
 local discovery, such as `BLUETOOTH_CONNECT`, `BLUETOOTH_SCAN`, and
 `ACCESS_FINE_LOCATION`.
-| **Note:** You still have to declare and request runtime permissions required by your app features and API outside of the Cross device SDK. For instance, you might need `BLUETOOTH_SCAN` permission to perform a Bluetooth scan outside of the Cross device SDK.
+
+> [!NOTE]
+> **Note:** You still have to declare and request runtime permissions required by your app features and API outside of the Cross device SDK. For instance, you might need `BLUETOOTH_SCAN` permission to perform a Bluetooth scan outside of the Cross device SDK.
 
 ## Cross device APIs
 
@@ -68,7 +72,9 @@ Sessions sessions = Sessions.create(context);
 You can learn more about the specific uses of these APIs in the following
 sections, or refer to our
 [sample app repository](https://github.com/android/connectivity-samples).
-| **Note:** The Cross device SDK is asynchronous by design. If you are unfamiliar with asynchronous operations, we encourage you to learn about [`Coroutines`](https://kotlinlang.org/docs/coroutines-guide.html) for Kotlin or [`ListenableFuture`](https://developer.android.com/guide/background/listenablefuture) for Java.
+
+> [!NOTE]
+> **Note:** The Cross device SDK is asynchronous by design. If you are unfamiliar with asynchronous operations, we encourage you to learn about [`Coroutines`](https://kotlinlang.org/docs/coroutines-guide.html) for Kotlin or [`ListenableFuture`](https://developer.android.com/guide/background/listenablefuture) for Java.
 
 ## Sample Applications
 

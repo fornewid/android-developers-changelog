@@ -9,20 +9,20 @@ takes photos, displays them, or allows users to share images, you should conside
 of those images in your application. The [Android Support Library](https://developer.android.com/tools/support-library) provides a convenient function for enabling image printing using a
 minimal amount of code and simple set of print layout options.
 
-This lesson shows you how to print an image using the v4 support library [PrintHelper](https://developer.android.com/reference/androidx/print/PrintHelper) class.
+This lesson shows you how to print an image using the v4 support library `https://developer.android.com/reference/androidx/print/PrintHelper` class.
 
 ## Print an image
 
-The Android Support Library [PrintHelper](https://developer.android.com/reference/androidx/print/PrintHelper) class provides
-a simple way to print images. The class has a single layout option, [setScaleMode()](https://developer.android.com/reference/androidx/print/PrintHelper#setScaleMode(int)),
+The Android Support Library `https://developer.android.com/reference/androidx/print/PrintHelper` class provides
+a simple way to print images. The class has a single layout option, `https://developer.android.com/reference/androidx/print/PrintHelper#setScaleMode(int)`,
 which allows you to print with one of two options:
 
-- [SCALE_MODE_FIT](https://developer.android.com/reference/androidx/print/PrintHelper#SCALE_MODE_FIT) - This option sizes the image so that the whole image is shown within the printable area of the page.
-- [SCALE_MODE_FILL](https://developer.android.com/reference/androidx/print/PrintHelper#SCALE_MODE_FILL) - This option scales the image so that it fills the entire printable area of the page. Choosing this setting means that some portion of the top and bottom, or left and right edges of the image is not printed. This option is the default value if you do not set a scale mode.
+- `https://developer.android.com/reference/androidx/print/PrintHelper#SCALE_MODE_FIT` - This option sizes the image so that the whole image is shown within the printable area of the page.
+- `https://developer.android.com/reference/androidx/print/PrintHelper#SCALE_MODE_FILL` - This option scales the image so that it fills the entire printable area of the page. Choosing this setting means that some portion of the top and bottom, or left and right edges of the image is not printed. This option is the default value if you do not set a scale mode.
 
-Both scaling options for [setScaleMode()](https://developer.android.com/reference/androidx/print/PrintHelper#setScaleMode(int)) keep the existing aspect ratio of the image intact. The following code example
-shows how to create an instance of the [PrintHelper](https://developer.android.com/reference/androidx/print/PrintHelper) class, set the
-scaling option, and start the printing process:  
+Both scaling options for `https://developer.android.com/reference/androidx/print/PrintHelper#setScaleMode(int)` keep the existing aspect ratio of the image intact. The following code example
+shows how to create an instance of the `https://developer.android.com/reference/androidx/print/PrintHelper` class, set the
+scaling option, and start the printing process:
 
 ### Kotlin
 
@@ -57,7 +57,7 @@ not always supported (such as printing) should be placed in the overflow menu. F
 information, see the [Action Bar](https://developer.android.com/design/patterns/actionbar) design
 guide.
 
-After the [printBitmap()](https://developer.android.com/reference/androidx/print/PrintHelper#printBitmap(java.lang.String, android.graphics.Bitmap)) method is
+After the `https://developer.android.com/reference/androidx/print/PrintHelper#printBitmap(java.lang.String, android.graphics.Bitmap)` method is
 called, no further action from your application is required. The Android print user interface
 appears, allowing the user to select a printer and printing options. The user can then print the
 image or cancel the action. If the user chooses to print the image, a print job is created and a

@@ -4,26 +4,30 @@ url: https://developer.android.com/media/legacy/audio/mediabrowser
 source: md.txt
 ---
 
-# Building a media browser client
-
 To complete the client/server design, you must build an activity component that contains your UI code, an associated MediaController, and a MediaBrowser.
 
 The MediaBrowser performs two important functions: It connects to a MediaBrowserService, and upon connecting it creates the MediaController for your UI.
 
 <br />
 
-**Note:** The recommended implementation of MediaBrowser is[MediaBrowserCompat](https://developer.android.com/reference/android/support/v4/media/MediaBrowserCompat), which is defined in the[Media-Compat support library](https://developer.android.com/topic/libraries/support-library/features.html#v4-media-compat). Throughout this page the term "MediaBrowser" refers to an instance of MediaBrowserCompat.
+**Note:** The recommended implementation of MediaBrowser
+is `https://developer.android.com/reference/android/support/v4/media/MediaBrowserCompat`,
+which is defined in the
+[Media-Compat support library](https://developer.android.com/topic/libraries/support-library/features.html#v4-media-compat).
+Throughout this page the term "MediaBrowser" refers to an instance
+of MediaBrowserCompat.
 
 <br />
 
 ## Connect to the MediaBrowserService
 
-When your client activity is created, it connects to the MediaBrowserService. There's a little handshake and dance involved. Modify the activity's lifecycle callbacks as follows:
+When your client activity is created, it connects to the MediaBrowserService. There's a little handshake and dance involved.
+Modify the activity's lifecycle callbacks as follows:
 
-- `onCreate()`constructs a MediaBrowserCompat. Pass in the name of your MediaBrowserService and the MediaBrowserCompat.ConnectionCallback that you've defined.
-- `onStart()`connects to the MediaBrowserService. Here's where the magic of MediaBrowserCompat.ConnectionCallback comes in. If the connection is successful, the onConnect() callback creates the media controller, links it to the media session, links your UI controls to the MediaController, and registers the controller to receive callbacks from the media session.
-- `onResume()`sets the audio stream so your app responds to the volume control on the device.
-- `onStop()`disconnects your MediaBrowser and unregisters the MediaController.Callback when your activity stops.
+- `onCreate()` constructs a MediaBrowserCompat. Pass in the name of your MediaBrowserService and the MediaBrowserCompat.ConnectionCallback that you've defined.
+- `onStart()` connects to the MediaBrowserService. Here's where the magic of MediaBrowserCompat.ConnectionCallback comes in. If the connection is successful, the onConnect() callback creates the media controller, links it to the media session, links your UI controls to the MediaController, and registers the controller to receive callbacks from the media session.
+- `onResume()` sets the audio stream so your app responds to the volume control on the device.
+- `onStop()` disconnects your MediaBrowser and unregisters the MediaController.Callback when your activity stops.
 
 ### Kotlin
 
@@ -107,11 +111,14 @@ public class MediaPlayerActivity extends AppCompatActivity {
 
 ## Customize MediaBrowserCompat.ConnectionCallback
 
-When your activity constructs MediaBrowserCompat, you must create an instance of ConnectionCallback. Modify its`onConnected()`method to retrieve the media session token from the MediaBrowserService and use the token to create a MediaControllerCompat.
+When your activity constructs MediaBrowserCompat, you must create an instance of ConnectionCallback. Modify its `onConnected()` method to retrieve the media session token from the MediaBrowserService and use the token to create a MediaControllerCompat.
 
-Use the convenience method[MediaControllerCompat.setMediaController()](https://developer.android.com/reference/android/support/v4/media/session/MediaControllerCompat#setMediaController(android.app.Activity, android.support.v4.media.session.MediaControllerCompat))to save a link to the controller. This enables handling of[media buttons](https://developer.android.com/guide/topics/media-apps/mediabuttons). It also allows you to call[MediaControllerCompat.getMediaController()](https://developer.android.com/reference/android/support/v4/media/session/MediaControllerCompat#getMediaController())to retrieve the controller when building the transport controls.
+Use the convenience method
+`https://developer.android.com/reference/android/support/v4/media/session/MediaControllerCompat#setMediaController(android.app.Activity, android.support.v4.media.session.MediaControllerCompat)`
+to save a link to the controller. This enables handling of [media buttons](https://developer.android.com/guide/topics/media-apps/mediabuttons). It also allows you to call
+`https://developer.android.com/reference/android/support/v4/media/session/MediaControllerCompat#getMediaController()` to retrieve the controller when building the transport controls.
 
-The following code sample shows how to modify the`onConnected()`method.  
+The following code sample shows how to modify the `onConnected()` method.
 
 ### Kotlin
 
@@ -183,9 +190,10 @@ private final MediaBrowserCompat.ConnectionCallback connectionCallbacks =
 
 ## Connect your UI to the media controller
 
-In the ConnectionCallback sample code above, includes a call to`buildTransportControls()`to flesh out your UI. You'll need to set onClickListeners for the UI elements that control the player. Choose the appropriate[MediaControllerCompat.TransportControls](https://developer.android.com/reference/android/support/v4/media/session/MediaControllerCompat.TransportControls)method for each one.
+In the ConnectionCallback sample code above, includes a call to `buildTransportControls()` to flesh out your UI. You'll need to set onClickListeners for the UI elements that control the player. Choose the appropriate
+`https://developer.android.com/reference/android/support/v4/media/session/MediaControllerCompat.TransportControls` method for each one.
 
-Your code will look something like this, with an onClickListener for each button:  
+Your code will look something like this, with an onClickListener for each button:
 
 ### Kotlin
 
@@ -251,13 +259,15 @@ void buildTransportControls()
 }
 ```
 
-The TransportControls methods send callbacks to your service's media session. Make sure you've defined a corresponding[MediaSessionCompat.Callback](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat.Callback)method for each control.
+The TransportControls methods send callbacks to your service's media session. Make sure you've defined a corresponding
+`https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat.Callback` method for each control.
 
 ## Stay in sync with the media session
 
 The UI should display the current state of the media session, as described by its PlaybackState and Metadata. When you create the transport controls, you can grab the current state of the session, display it in your UI, and enable and disable transport controls based on the state and its available actions.
 
-To receive callbacks from the media session every time its state or metadata changes, define a[MediaControllerCompat.Callback](https://developer.android.com/reference/android/support/v4/media/session/MediaControllerCompat.Callback), with these two methods:  
+To receive callbacks from the media session every time its state or metadata changes, define a
+`https://developer.android.com/reference/android/support/v4/media/session/MediaControllerCompat.Callback`, with these two methods:
 
 ### Kotlin
 
@@ -283,15 +293,30 @@ MediaControllerCompat.Callback controllerCallback =
   };
 ```
 
-Register the callback when you build the transport controls (see the`buildTransportControls()`method) and unregister it when the activity stops (in the activity's`onStop()`lifecycle method).
+Register the callback when you build the transport controls (see the `buildTransportControls()` method) and unregister it when the activity stops (in the activity's `onStop()` lifecycle method).
 
 ## Disconnect when the media session is destroyed
 
-If the media session becomes invalid, the[`onSessionDestroyed()`](https://developer.android.com/reference/android/support/v4/media/session/MediaControllerCompat.Callback#onSessionDestroyed())callback is issued. When that happens, the session cannot become functional again within the lifetime of the`MediaBrowserService`. Although functions related to`MediaBrowser`might continue to work, a user cannot view or control playback from a destroyed media session, which will likely diminish the value of your application.
+If the media session becomes invalid, the
+[`onSessionDestroyed()`](https://developer.android.com/reference/android/support/v4/media/session/MediaControllerCompat.Callback#onSessionDestroyed())
+callback is issued. When that happens, the session cannot become functional
+again within the lifetime of the `MediaBrowserService`. Although functions
+related to `MediaBrowser` might continue to work, a user cannot view or control
+playback from a destroyed media session, which will likely diminish the value of
+your application.
 
-Therefore, when the session is destroyed, you*must* disconnect from the`MediaBrowserService`by calling[`disconnect()`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserCompat#disconnect()). This ensures that the browser service has no bound clients and[can be destroyed by the OS](https://developer.android.com/guide/topics/media-apps/audio-app/building-a-mediabrowserservice#service-lifecycle). If you need to reconnect to the`MediaBrowserService`later (for example, if your application wants to maintain a persistent connection to the media app), create a*new* instance of`MediaBrowser`rather than reusing the old one.
+Therefore, when the session is destroyed, you *must* disconnect from the
+`MediaBrowserService` by calling
+[`disconnect()`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserCompat#disconnect()).
+This ensures that the browser service has no bound clients and
+[can be destroyed by the
+OS](https://developer.android.com/guide/topics/media-apps/audio-app/building-a-mediabrowserservice#service-lifecycle).
+If you need to reconnect to the `MediaBrowserService` later (for example, if
+your application wants to maintain a persistent connection to the media app),
+create a *new* instance of `MediaBrowser` rather than reusing the old one.
 
-The following code snippet demonstrates a callback implementation that disconnects from the browser service when the media session is destroyed:  
+The following code snippet demonstrates a callback implementation that
+disconnects from the browser service when the media session is destroyed:
 
 ### Kotlin
 

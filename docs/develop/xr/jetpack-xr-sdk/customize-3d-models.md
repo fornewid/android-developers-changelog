@@ -235,8 +235,8 @@ should loop:
 
 
 ```kotlin
-val animation = gltfEntity.getAnimations().find { it.name == "Walk" }
-animation?.start(GltfAnimationStartOptions(shouldLoop = true))
+val animation = gltfEntity.getAnimations().find { it.name == "Walk" } ?: return
+animation.start(GltfAnimationStartOptions(shouldLoop = true))
 ```
 
 <br />

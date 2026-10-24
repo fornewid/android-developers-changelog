@@ -31,9 +31,9 @@ Text(
     modifier = Modifier
         .onVisibilityChanged { visible ->
             if (visible) {
-                // Do something if visible
+                // Do something if visible.
             } else {
-                // Do something if not visible
+                // Do something if not visible.
             }
         }
         .padding(vertical = 8.dp)
@@ -120,12 +120,12 @@ LazyColumn(
         Box(
             modifier = Modifier
                 // ...
-                // Here the visible callback gets triggered when 20% of the composable is visible
+                // Here `visible` is `true` when more than 20% of the composable is visible.
                 .onVisibilityChanged(
                     minFractionVisible = 0.2f,
                 ) { visible ->
                     if (visible) {
-                        // Call specific logic here
+                        // Call specific logic here.
                         // viewModel.fetchDataFromNetwork()
                     }
                 }

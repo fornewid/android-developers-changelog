@@ -138,8 +138,8 @@ NavigationRail()
 
 // New XR differentiated approach
 Orbiter(
-    alignment = OrbiterAlignment.TopStart(
-        edgeOffsetType = OrbiterEdgeOffsetType.OuterEdge,
+    position = OrbiterPosition.TopStart(
+        horizontalEdgeAlignment = OrbiterPosition.EdgeAlignment.Outside,
         offset = DpVolumeOffset(x = dimensionResource(R.dimen.start_orbiter_padding))
     )
 ) {

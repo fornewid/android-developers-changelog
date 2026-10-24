@@ -4,11 +4,15 @@ url: https://developer.android.com/guide/navigation/use-graph/programmatic
 source: md.txt
 ---
 
-The Navigation component provides ways to programmatically create and interact with certain navigation elements.
+The Navigation component provides ways to programmatically create and interact
+with certain navigation elements.
 
 ## Create a NavHostFragment
 
-You can use[`NavHostFragment.create()`](https://developer.android.com/reference/androidx/navigation/fragment/NavHostFragment#create)to programmatically create a`NavHostFragment`with a specific graph resource, as shown in the example below:  
+You can use
+[`NavHostFragment.create()`](https://developer.android.com/reference/androidx/navigation/fragment/NavHostFragment#create)
+to programmatically create a `NavHostFragment` with a specific graph resource,
+as shown in the example below:
 
 ### Kotlin
 
@@ -30,17 +34,42 @@ getSupportFragmentManager().beginTransaction()
     .commit();
 ```
 
-Note that`setPrimaryNavigationFragment(finalHost)`lets your`NavHost`intercept system Back button presses. You can also implement this behavior in your`NavHost`XML by adding`app:defaultNavHost="true"`. If you're implementing[custom Back button behavior](https://developer.android.com/topic/libraries/architecture/navigation/navigation-custom-back)and don't want your`NavHost`intercepting Back button presses, you can pass`null`to`setPrimaryNavigationFragment()`.
+Note that `setPrimaryNavigationFragment(finalHost)` lets your `NavHost`
+intercept system Back button presses. You can also implement this behavior in
+your `NavHost` XML by adding `app:defaultNavHost="true"`. If you're implementing
+[custom Back button behavior](https://developer.android.com/topic/libraries/architecture/navigation/navigation-custom-back)
+and don't want your `NavHost` intercepting Back button presses, you can pass
+`null` to `setPrimaryNavigationFragment()`.
 
 ## Reference a destination using NavBackStackEntry
 
-Starting with Navigation 2.2.0, you can get a reference to the[`NavBackStackEntry`](https://developer.android.com/reference/androidx/navigation/NavBackStackEntry)for any destination on the navigation stack by calling[`NavController.getBackStackEntry()`](https://developer.android.com/reference/androidx/navigation/NavController#getBackStackEntry(int)), passing it a destination ID. If the back stack contains more than one instance of the specified destination,`getBackStackEntry()`returns the topmost instance from the stack.
+Starting with Navigation 2.2.0, you can get a reference to the
+[`NavBackStackEntry`](https://developer.android.com/reference/androidx/navigation/NavBackStackEntry)
+for any destination on the navigation stack by calling
+[`NavController.getBackStackEntry()`](https://developer.android.com/reference/androidx/navigation/NavController#getBackStackEntry(int)),
+passing it a destination ID. If the back stack contains more than one instance
+of the specified destination, `getBackStackEntry()` returns the topmost instance
+from the stack.
 
-The returned`NavBackStackEntry`provides a[`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle), a[`ViewModelStore`](https://developer.android.com/reference/androidx/lifecycle/ViewModelStore), and a[`SavedStateRegistry`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistry)at the destination level. These objects are valid for the lifetime of the destination on the back stack. When the associated destination is popped off the back stack, the`Lifecycle`is destroyed, the state is no longer saved, and any`ViewModel`objects are cleared.
+The returned `NavBackStackEntry` provides a
+[`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle), a
+[`ViewModelStore`](https://developer.android.com/reference/androidx/lifecycle/ViewModelStore), and a
+[`SavedStateRegistry`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistry)
+at the destination level. These objects are valid for the lifetime of the destination on the back stack. When the associated destination is popped off the
+back stack, the `Lifecycle` is destroyed, the state is no longer saved, and any `ViewModel` objects are cleared.
 
-These properties give you a`Lifecycle`and a store for`ViewModel`objects and classes that work with[saved state](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate)no matter what type of destination you use. This is especially useful when working with destination types which do not automatically have an associated`Lifecycle`, such as custom destinations.
+These properties give you a `Lifecycle` and a store for `ViewModel` objects and
+classes that work with
+[saved state](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate) no matter
+what type of destination you use. This is especially useful when working with
+destination types which do not automatically have an associated `Lifecycle`,
+such as custom destinations.
 
-For example, you can observe the`Lifecycle`of a`NavBackStackEntry`just as you would observe the`Lifecycle`of a fragment or activity. In addition,`NavBackStackEntry`is a`LifecycleOwner`, which means that you can use it when observing`LiveData`or with other lifecycle-aware components, as shown in the following example:  
+For example, you can observe the `Lifecycle` of a `NavBackStackEntry` just as
+you would observe the `Lifecycle` of a fragment or activity. In addition,
+`NavBackStackEntry` is a `LifecycleOwner`, which means that you can use it when
+observing `LiveData` or with other lifecycle-aware components, as shown in the
+following example:
 
 ### Kotlin
 
@@ -58,13 +87,28 @@ myViewModel.getLiveData().observe(backStackEntry, myData -> {
 });
 ```
 
-Lifecycle state automatically updates whenever you call`navigate()`. Lifecycle states for destinations that are not at the top of the back stack move from`RESUMED`to`STARTED`if the destinations are still visible under a`FloatingWindow`destination, such as a dialog destination, or to`STOPPED`otherwise.
+Lifecycle state automatically updates whenever you call `navigate()`.
+Lifecycle states for destinations that are not at the top of the back stack
+move from `RESUMED` to `STARTED` if the destinations are still visible under a
+`FloatingWindow` destination, such as a dialog destination, or to `STOPPED`
+otherwise.
 
 ## Returning a result to the previous Destination
 
-In Navigation 2.3 and higher,`NavBackStackEntry`gives access to a[`SavedStateHandle`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle). A`SavedStateHandle`is a key-value map that can be used to store and retrieve data. These values persist through process death, including configuration changes, and remain available through the same object. By using the given`SavedStateHandle`, you can access and pass data between destinations. This is especially useful as a mechanism to get data back from a destination after it is popped off the stack.
+In Navigation 2.3 and higher, `NavBackStackEntry` gives access to a
+[`SavedStateHandle`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle).
+A `SavedStateHandle` is a key-value map that can be used to store and retrieve
+data. These values persist through process death, including configuration
+changes, and remain available through the same object. By using the given
+`SavedStateHandle`, you can access and pass data between destinations.
+This is especially useful as a mechanism to get data back from a
+destination after it is popped off the stack.
 
-To pass data back to Destination A from Destination B, first set up Destination A to listen for a result on its`SavedStateHandle`. To do so, retrieve the`NavBackStackEntry`by using the`getCurrentBackStackEntry()`API and then`observe`the`LiveData`provided by`SavedStateHandle`.  
+To pass data back to Destination A from Destination B, first
+set up Destination A to listen for a result on its `SavedStateHandle`.
+To do so, retrieve the `NavBackStackEntry` by using the
+`getCurrentBackStackEntry()` API and then `observe` the `LiveData`
+provided by `SavedStateHandle`.
 
 ### Kotlin
 
@@ -97,9 +141,11 @@ public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceStat
     });
 }
 ```
-![Destination B can use getPreviousBackStackEntry() to retrieve the NavBackStackEntry for the previous destination A](https://developer.android.com/static/images/guide/navigation/nav-for-result.png)**Figure 1.**Destination B can use getPreviousBackStackEntry() to access the NavBackStackEntry for the previous destination A.
+![Destination B can use getPreviousBackStackEntry() to retrieve
+the NavBackStackEntry for the previous destination A](https://developer.android.com/static/images/guide/navigation/nav-for-result.png) **Figure 1.** Destination B can use getPreviousBackStackEntry() to access the NavBackStackEntry for the previous destination A.
 
-In Destination B, you must`set`the result on the`SavedStateHandle`of Destination A by using the`getPreviousBackStackEntry()`API.  
+In Destination B, you must `set` the result on the `SavedStateHandle` of
+Destination A by using the `getPreviousBackStackEntry()` API.
 
 ### Kotlin
 
@@ -112,17 +158,41 @@ navController.previousBackStackEntry?.savedStateHandle?.set("key", result)
 ```java
 navController.getPreviousBackStackEntry().getSavedStateHandle().set("key", result);
 ```
-| **Note:** Since`NavBackStackEntry`uses`SavedStateHandle`, all results must be of a type that you can place in a[`Bundle`](https://developer.android.com/reference/android/os/Bundle). To save results of custom types that are not`Parcelable`or`Serializable`, create a`ViewModel`using the`ViewModelStore`from the previous`NavBackStackEntry`. For instructions on using ViewModels see the[ViewModel guide](https://developer.android.com/topic/libraries/architecture/viewmodel).
 
-If you'd only like to handle a result only once, you must call[`remove()`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle#remove(kotlin.String))on the`SavedStateHandle`to clear the result. If you do not remove the result, the`LiveData`will continue to return the last result to any new`Observer`instances.
+> [!NOTE]
+> **Note:** Since `NavBackStackEntry` uses `SavedStateHandle`, all results must be of a type that you can place in a [`Bundle`](https://developer.android.com/reference/android/os/Bundle). To save results of custom types that are not `Parcelable` or `Serializable`, create a `ViewModel` using the `ViewModelStore` from the previous `NavBackStackEntry`. For instructions on using ViewModels see the [ViewModel guide](https://developer.android.com/topic/libraries/architecture/viewmodel).
+
+If you'd only like to handle a result only once, you must call
+[`remove()`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle#remove(kotlin.String))
+on the `SavedStateHandle` to clear the result. If you do not remove the
+result, the `LiveData` will continue to return the last result to any
+new `Observer` instances.
 
 ### Considerations when using dialog destinations
 
-When you`navigate`to a destination that takes the full view of the`NavHost`(such as a`<fragment>`destination), the previous destination has its lifecycle stopped, preventing any callbacks to the`LiveData`provided by`SavedStateHandle`.
+When you `navigate` to a destination that takes the full view of the
+`NavHost` (such as a `<fragment>` destination), the previous destination
+has its lifecycle stopped, preventing any callbacks to the `LiveData`
+provided by `SavedStateHandle`.
 
-However, when navigating to a[dialog destination](https://developer.android.com/guide/navigation/navigation-create-destinations#create-dialog), the previous destination is also visible on the screen and is therefore also`STARTED`despite not being the current destination. This means that calls to`getCurrentBackStackEntry()`from within lifecycle methods such as`onViewCreated()`will return the`NavBackStackEntry`of the dialog destination after a configuration change or process death and recreation (since the dialog is restored above the other destination). Therefore you should use[`getBackStackEntry()`](https://developer.android.com/reference/androidx/navigation/NavController#getBackStackEntry(int))with the ID of your destination to ensure that you always use the correct`NavBackStackEntry`.
+However, when navigating to a
+[dialog destination](https://developer.android.com/guide/navigation/navigation-create-destinations#create-dialog),
+the previous destination is also visible on the screen and is therefore also
+`STARTED` despite not being the current destination. This means that calls to
+`getCurrentBackStackEntry()` from within lifecycle methods such as
+`onViewCreated()` will return the `NavBackStackEntry` of the dialog destination
+after a configuration change or process death and recreation (since the dialog
+is restored above the other destination). Therefore you should use
+[`getBackStackEntry()`](https://developer.android.com/reference/androidx/navigation/NavController#getBackStackEntry(int))
+with the ID of your destination to ensure that you always use the correct
+`NavBackStackEntry`.
 
-This also means that any`Observer`you set on the result`LiveData`will be triggered even while the dialog destinations is still on the screen. If you only want to check the result when the dialog destination is closed and the underlying destination becomes the current destination, you can observe the`Lifecycle`associated with the`NavBackStackEntry`and retrieve the result only when it becomes`RESUMED`.  
+This also means that any `Observer` you set on the result `LiveData` will be
+triggered even while the dialog destinations is still on the screen. If you
+only want to check the result when the dialog destination is closed and the
+underlying destination becomes the current destination, you can observe the
+`Lifecycle` associated with the `NavBackStackEntry` and retrieve the result
+only when it becomes `RESUMED`.
 
 ### Kotlin
 
@@ -194,13 +264,25 @@ public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceStat
     });
 }
 ```
-| **Note:** it is important that you use the`Lifecycle`object provided by`NavBackStackEntry`rather than the fragment's lifecycle since only the`NavBackStackEntry`lifecycle transitions between`STARTED`and`RESUMED`when a dialog destination overlaps your fragment. The fragment lifecycle will always be`RESUMED`.
+
+> [!NOTE]
+> **Note:** it is important that you use the `Lifecycle` object provided by `NavBackStackEntry` rather than the fragment's lifecycle since only the `NavBackStackEntry` lifecycle transitions between `STARTED` and `RESUMED` when a dialog destination overlaps your fragment. The fragment lifecycle will always be `RESUMED`.
 
 ## Share UI-related data between destinations with ViewModel
 
-The Navigation back stack stores a[`NavBackStackEntry`](https://developer.android.com/reference/androidx/navigation/NavBackStackEntry)not only for each individual destination, but also for each parent navigation graph that contains the individual destination. This allows you to retrieve a`NavBackStackEntry`that is scoped to a navigation graph. A navigation graph-scoped`NavBackStackEntry`provides a way to create a`ViewModel`that's scoped to a navigation graph, enabling you to share UI-related data between the graph's destinations. Any`ViewModel`objects created in this way live until the associated`NavHost`and its`ViewModelStore`are cleared or until the navigation graph is popped from the back stack.
+The Navigation back stack stores a
+[`NavBackStackEntry`](https://developer.android.com/reference/androidx/navigation/NavBackStackEntry)
+not only for each individual destination, but also for each parent navigation
+graph that contains the individual destination. This allows you to retrieve a
+`NavBackStackEntry` that is scoped to a navigation graph. A navigation
+graph-scoped `NavBackStackEntry` provides a way to create a `ViewModel` that's
+scoped to a navigation graph, enabling you to share UI-related data between the
+graph's destinations. Any `ViewModel` objects created in this way live until the
+associated `NavHost` and its `ViewModelStore` are cleared or until the
+navigation graph is popped from the back stack.
 
-The following example shows how to retrieve a`ViewModel`that's scoped to a navigation graph:  
+The following example shows how to retrieve a `ViewModel` that's scoped to a
+navigation graph:
 
 ### Kotlin
 
@@ -216,7 +298,10 @@ NavBackStackEntry backStackEntry = navController.getBackStackEntry(R.id.my_graph
 MyViewModel viewModel = new ViewModelProvider(backStackEntry).get(MyViewModel.class);
 ```
 
-If you're using Navigation 2.2.0 or earlier, you need to provide your own factory to use[Saved State with ViewModels](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate), as shown in the following example:  
+If you're using Navigation 2.2.0 or earlier, you need to provide your own
+factory to use
+[Saved State with ViewModels](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate),
+as shown in the following example:
 
 ### Kotlin
 
@@ -239,15 +324,24 @@ ViewModelProvider viewModelProvider = new ViewModelProvider(
 MyViewModel myViewModel = provider.get(myViewModel.getClass());
 ```
 
-For more information about`ViewModel`, see[ViewModel Overview](https://developer.android.com/topic/libraries/architecture/viewmodel).
+For more information about `ViewModel`, see
+[ViewModel Overview](https://developer.android.com/topic/libraries/architecture/viewmodel).
 
 ## Modifying inflated navigation graphs
 
 You can modify an inflated navigation graph dynamically at runtime.
 
-As an example, if you have a[`BottomNavigationView`](https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView)that is bound to a`NavGraph`, the default destination of the`NavGraph`dictates the selected tab on app startup. However, you might need to override this behavior, such as when a user preference specifies a preferred tab to be loaded on app startup. Alternatively, your app might need to change the starting tab based upon past user behavior. You can support these cases by dynamically specifying the default destination of the`NavGraph`.
+As an example, if you have a
+[`BottomNavigationView`](https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView)
+that is bound to a `NavGraph`, the default destination of the
+`NavGraph` dictates the selected tab on app startup. However, you might
+need to override this behavior, such as when a user preference specifies
+a preferred tab to be loaded on app startup. Alternatively, your app might
+need to change the starting tab based upon past user behavior. You can
+support these cases by dynamically specifying the default destination of
+the `NavGraph`.
 
-Consider this`NavGraph`:  
+Consider this `NavGraph`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -279,11 +373,13 @@ Consider this`NavGraph`:
 </navigation>
 ```
 
-When this graph is loaded, the`app:startDestination`attribute specifies that`HomeFragment`is to be displayed. To override the start destination dynamically, do the following:
+When this graph is loaded, the `app:startDestination` attribute specifies
+that `HomeFragment` is to be displayed. To override the start destination
+dynamically, do the following:
 
-1. First, inflate the`NavGraph`manually.
+1. First, inflate the `NavGraph` manually.
 2. Override the start destination.
-3. Finally, manually attach the graph to the`NavController`.
+3. Finally, manually attach the graph to the `NavController`.
 
 ### Kotlin
 
@@ -311,15 +407,28 @@ navController.setGraph(navGraph);
 NavigationUI.setupWithNavController(binding.bottomNavView, navController);
 ```
 
-Now when your app starts,`ShopFragment`is shown instead of`HomeFragment`.
-| **Caution:** When manually calling`setGraph()`, note the following:
-|
-| - Don't use the`app:navGraph`element when adding the`NavHostFragment`in XML.
-| - Don't call`NavHostFragment.create(@NavigationRes int)`.
-| - Don't use any other APIs that rely solely on the`R.navigation`ID to inflate and set your graph.
-|
-| Avoiding these cases ensures that`setGraph()`is called only once for your modified graph rather than multiple times.
+Now when your app starts, `ShopFragment` is shown instead of `HomeFragment`.
 
-When using deep links, the`NavController`constructs a back stack automatically for the deep link destination. If the user navigates to the deep link and then navigates backward, they will reach the start destination at some point. Overriding the start destination using the technique in the previous example ensures that the correct start destination is added to the constructed back stack.
+> [!CAUTION]
+> **Caution:** When manually calling
+> `setGraph()`, note the following:
+>
+> - Don't use the `app:navGraph` element when adding the `NavHostFragment` in XML.
+> - Don't call `NavHostFragment.create(@NavigationRes int)`.
+> - Don't use any other APIs that rely solely on the `R.navigation` ID to inflate and set your graph.
+>
+> Avoiding these cases ensures that `setGraph()` is called
+> only once for your modified graph rather than multiple times.
 
-Note that this technique also allows for the overriding of other aspects of the`NavGraph`as required. All modifications to the graph must be done*prior* to the call to`setGraph()`to ensure that the correct structure is used when handling deep links, restoring state, and moving to the start destination of your graph.
+When using deep links, the `NavController` constructs a back stack
+automatically for the deep link destination. If the user
+navigates to the deep link and then navigates backward, they will reach the
+start destination at some point. Overriding the start destination using the
+technique in the previous example ensures that the correct start
+destination is added to the constructed back stack.
+
+Note that this technique also allows for the overriding of other aspects of
+the `NavGraph` as required. All modifications to the graph must be done
+*prior* to the call to `setGraph()` to ensure that the correct structure
+is used when handling deep links, restoring state, and moving to the start
+destination of your graph.

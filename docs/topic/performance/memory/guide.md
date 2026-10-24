@@ -10,7 +10,7 @@ level---from the Java runtime down to the Linux kernel---is essential for buildi
 performant and stable system.
 
 This guide provides a comprehensive overview of Android memory architecture, the
-tools available for analysis, and hands-on exercises to help you identify and
+tools available for analysis, and practical exercises to help you identify and
 resolve memory-related issues.
 
 ## Objectives
@@ -43,6 +43,8 @@ sequentially:
 11. **[System-wide troubleshooting](https://developer.android.com/topic/performance/memory/guide/system-wide-memory)**: Monitoring PSI, LMK, ZRAM swap, and page cache eviction.
 12. **[Memory reclaim: eviction and swap](https://developer.android.com/topic/performance/memory/guide/reclaim)** : Understanding memcg, charge, and proactive reclaim with `memory.reclaim`.
 13. **[kswapd and lmkd interaction](https://developer.android.com/topic/performance/memory/guide/kswapd-lmkd-interaction)**: Understanding how kswapd and lmkd work together under pressure.
+14. **[Return memory pages to the OS](https://developer.android.com/topic/performance/memory/guide/page-advice)** : Using `madvise` and `posix_fadvise` to return unused heap pages and file cache pages to the kernel.
+15. **[Keep background work alive with a lean process](https://developer.android.com/topic/performance/memory/guide/process-splitting)**: Moving background services and workers into a dedicated process so UI and graphics memory isn't held at elevated priority.
 
 ## Prerequisites and environment
 

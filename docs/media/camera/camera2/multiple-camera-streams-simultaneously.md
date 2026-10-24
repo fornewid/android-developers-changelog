@@ -28,7 +28,7 @@ capabilities, but resources like memory will grow linearly.
 Multiple camera streams can be combined into a single
 [`CameraCaptureRequest`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest).
 The following code snippet illustrates how to set up a camera session with one
-stream for camera preview and another stream for image processing:  
+stream for camera preview and another stream for image processing:
 
 ### Kotlin
 
@@ -108,7 +108,7 @@ those cases, do not specify an image format. For compatibility, it will count as
 regardless of the actual format used internally. To query the formats supported
 by a device given its
 [`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics),
-use the following code:  
+use the following code:
 
 ### Kotlin
 
@@ -139,7 +139,7 @@ explains these sizes.
 
 The available output sizes depend on the choice of format. Given the
 [`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics)
-and a format, you can query for the available output sizes like this:  
+and a format, you can query for the available output sizes like this:
 
 ### Kotlin
 
@@ -162,7 +162,7 @@ Size[] sizes = characteristics.get(
 ```
 
 In the camera preview and recording use cases, use the target class to determine
-supported sizes. The format will be handled by the camera framework itself:  
+supported sizes. The format will be handled by the camera framework itself:
 
 ### Kotlin
 
@@ -185,7 +185,7 @@ CameraCharacteristics characteristics = ...;
 ```
 
 To get the `MAXIMUM` size, sort the output sizes by area and return the largest
-one:  
+one:
 
 ### Kotlin
 
@@ -231,7 +231,7 @@ preview size, compare the available output sizes with the display size while
 taking into account that the display may be rotated.
 
 The following code defines a helper class, `SmartSize`, that will make size
-comparisons a little easier:  
+comparisons a little easier:
 
 ### Kotlin
 
@@ -380,7 +380,7 @@ level using
 
 With a
 [`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics)
-object, you can retrieve the hardware level with a single statement:  
+object, you can retrieve the hardware level with a single statement:
 
 ### Kotlin
 
@@ -442,7 +442,7 @@ target a device with `LEGACY` hardware level, you could set up two target output
 surfaces, one using `ImageFormat.PRIVATE` and another using
 `ImageFormat.YUV_420_888`. This is a supported combination while using the
 `PREVIEW` size. Using the function defined earlier in this topic, getting the
-required preview sizes for a camera ID requires the following code:  
+required preview sizes for a camera ID requires the following code:
 
 ### Kotlin
 
@@ -468,7 +468,7 @@ CameraCharacteristics characteristics = ...;
                 context, characteristics, ImageReader.class, format = ImageFormat.YUV_420_888);
 ```
 
-It requires waiting until `SurfaceView` is ready using the provided callbacks:  
+It requires waiting until `SurfaceView` is ready using the provided callbacks:
 
 ### Kotlin
 
@@ -509,7 +509,7 @@ adjusting when activity changes are triggered.
 
 Setting up the other surface from
 [`ImageReader`](https://developer.android.com/reference/android/media/ImageReader) with the desired format is
-easier, since there are no callbacks to wait for:  
+easier, since there are no callbacks to wait for:
 
 ### Kotlin
 
@@ -530,7 +530,7 @@ ImageReader imageReader = ImageReader.newInstance(
 ```
 
 When using a blocking target buffer like `ImageReader`, discard the frames after
-using them:  
+using them:
 
 ### Kotlin
 

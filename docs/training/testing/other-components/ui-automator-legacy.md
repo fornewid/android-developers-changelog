@@ -25,7 +25,7 @@ implementation details of the target app.
 
 The key features of the UI Automator testing framework include the following:
 
-- An API to retrieve state information and perform operations on the target device. For more information, see [Accessing device state](https://developer.android.com/training/testing/other-components/ui-automator-legacy#accessing-device-state).
+- An API to retrieve state information and perform operations on the target device. For more information, see [Accessing device state](https://developer.android.com/training/testing/other-components/ui-automator-legacy#accessing-device).
 - APIs that support cross-app UI testing. For more information, see [UI
   Automator APIs](https://developer.android.com/training/testing/other-components/ui-automator-legacy#ui-automator).
 
@@ -147,7 +147,7 @@ To view the UI properties for your application:
 3. Optionally, click on the **Toggle NAF Nodes** button to see UI components that are non-accessible to UI Automator. Only limited information might be available for these components.
 
 To learn about the common types of UI components provided by Android, see [User
-Interface](https://developer.android.com/guide/topics/ui).
+Interface](https://developer.android.com/develop/ui).
 
 ### Ensure your activity is accessible
 
@@ -163,23 +163,23 @@ sure that you add accessibility features to these elements by completing the
 following steps:
 
 1. Create a concrete class that extends [ExploreByTouchHelper](https://developer.android.com/reference/androidx/customview/widget/ExploreByTouchHelper).
-2. Associate an instance of your new class with a specific custom UI element by calling [setAccessibilityDelegate()](https://developer.android.com/reference/androidx/core/view/ViewCompat#setAccessibilityDelegate(android.view.View,%20android.support.v4.view.AccessibilityDelegateCompat)).
+2. Associate an instance of your new class with a specific custom UI element by calling [setAccessibilityDelegate()](https://developer.android.com/reference/androidx/core/view/ViewCompat#setAccessibilityDelegate(android.view.View,androidx.core.view.AccessibilityDelegateCompat)).
 
 For additional guidance on adding accessibility features to custom view
-elements, see [Building Accessible Custom Views](https://developer.android.com/guide/topics/ui/accessibility/custom-views). To learn more about
+elements, see [Building Accessible Custom Views](https://developer.android.com/guide/topics/ui/accessibility/views/custom-views). To learn more about
 general best practices for accessibility on Android, see [Making Apps More
-Accessible](https://developer.android.com/reference/android/app/Instrumentation).
+Accessible](https://developer.android.com/guide/topics/ui/accessibility/apps).
 
 ## Create a UI Automator test class
 
 Your UI Automator test class should be written the same way as a JUnit 4 test
 class. To learn more about creating JUnit 4 test classes and using JUnit 4
-assertions and annotations, see [Create an Instrumented Unit Test Class](https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests#build).
+assertions and annotations, see [Create an Instrumented Unit Test Class](https://developer.android.com/training/testing/instrumented-tests#create-instrumented).
 
 Add the @RunWith(AndroidJUnit4.class) annotation at the beginning of your test
 class definition. You also need to specify the [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner) class,
 provided in AndroidX Test, as your default test runner. This step is described
-in more detail in [Run UI Automator tests on a device or emulator](https://developer.android.com/training/testing/ui-testing/uiautomator-testing#run).
+in more detail in [Run UI Automator tests on a device or emulator](https://developer.android.com/training/testing/other-components/ui-automator-legacy#run-ui).
 
 Implement the following programming model in your UI Automator test class:
 

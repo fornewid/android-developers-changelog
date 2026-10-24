@@ -95,7 +95,7 @@ example `product_list_host`:
        xmlns:android="http://schemas.android.com/apk/res/android"
        android:id="@+id/main_content"
        android:layout_height="match_parent"
-    >   android:layout_width="match_parent" /
+       android:layout_width="match_parent" />
 
 The `id` attribute refers to the content section where we later add the
 fragment.
@@ -589,8 +589,8 @@ placed inside of a host activity, as shown in the following example:
        app:navGraph="@navigation/product_list_graph"
        app:defaultNavHost="true"
        android:id="@+id/main_content"
-       android:layout_width="match_pare>nt"
-       android:layout_height="match_parent" /
+       android:layout_width="match_parent"
+       android:layout_height="match_parent" />
 
 The `app:NavGraph` attribute points to the navigation graph associated with this
 navigation host. Setting this property inflates the nav graph and sets the graph
@@ -610,17 +610,17 @@ element as a child of the root `ViewGroup`:
        xmlns:app="http://schemas.android.com/apk/res-auto"
        xmlns:android="http://schemas.android.com/apk/res/android"
        android:layout_height="match_parent"
-       andro>id<:layout_width="match_parent"
+       android:layout_width="match_parent">
 
-    androidx.fragment.app.FragmentContainerView
+    <androidx.fragment.app.FragmentContainerView
        android:id="@+id/main_content"
        android:name="androidx.navigation.fragment.NavHostFragment"
        app:navGraph="@navigation/product_list_graph"
        app:defaultNavHost="true"
-    >  < andr>oid:layout_width="match_parent"
-       android:layout_height="match_parent" /
+       android:layout_width="match_parent"
+       android:layout_height="match_parent" />
 
-    /FrameLayout
+    </FrameLayout>
 
 If you click on the **Design** tab at the bottom, you should see a graph similar
 to the one shown below. In the upper left hand side of the graph, under
@@ -791,27 +791,27 @@ arguments where required:
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/product_list_graph"
-       > app:s<tartDestination="@id/product_list"
+        app:startDestination="@id/product_list">
 
-        fragment
+        <fragment
             android:id="@+id/product_list"
             android:name="com.example.android.persistence.ui.ProductListFragment"
-            an>droid:lab<el="Product List"
-            tools:layout="@layout/product_list"
-            action
-                andro>id:id<="@+>id/na<vigate_to_product_detail"
-                app:destination="@id/product_detail" /
-        /fragment
-        fragment
+            android:label="Product List"
+            tools:layout="@layout/product_list">
+            <action
+                android:id="@+id/navigate_to_product_detail"
+                app:destination="@id/product_detail" />
+        </fragment>
+        <fragment
             android:id="@+id/product_detail"
-            android:name="com.example.andro>id.persis<tence.ui.ProductDetailFragment"
-            android:label="Product Detail&qu>ot;
-     <       too<ls:layout=&>quot;@layout/product_detail"
-            argument
+            android:name="com.example.android.persistence.ui.ProductDetailFragment"
+            android:label="Product Detail"
+            tools:layout="@layout/product_detail">
+            <argument
                 android:name="product_id"
-                app:argType="integer" /
-        /fragment
-    /navigation
+                app:argType="integer" />
+        </fragment>
+    </navigation>
 
 Then, you can update your activity:
 
@@ -1080,60 +1080,60 @@ as shown below:
     <!-- activity_main_drawer.xml -->
     <menu xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:show>In=&qu<ot;navigation_view"
+        tools:showIn="navigation_view">
 
-        group andr>oid:check<ableBehavior="single"
-            item
+        <group android:checkableBehavior="single">
+            <item
                 android:id="@+id/home"
-                android:icon="@drawable/ic_menu_>camera&qu<ot;
-                android:title="@string/menu_home" /
-            item
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/menu_home" />
+            <item
                 android:id="@+id/gallery"
-                android:ico>n="@<drawable/ic_menu_gallery"
-                android:title="@string/menu_gallery" /
-            item
-                android:id="@+id/slide_show&quo>t;
-          <      android:icon="@drawable/ic_menu_slideshow"
-                android:title="@string/menu_slideshow" /
-            item
-          >     < androi&l>t;d:id=&quot;@+id/tools"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="@string/menu_gallery" />
+            <item
+                android:id="@+id/slide_show"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_slideshow" />
+            <item
+                android:id="@+id/tools"
                 android:icon="@drawable/ic_menu_manage"
-                android:title="@string/menu_tools" /
-        /group
-    /menu
+                android:title="@string/menu_tools" />
+        </group>
+    </menu>
 
     <!-- activity_main_graph.xml -->
     <navigation xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/main_graph&q>uot;
-     <   app:startDestination="@id/home"
+        android:id="@+id/main_graph"
+        app:startDestination="@id/home">
 
-        fragment
+        <fragment
             android:id="@+id/home"
-            android:name="com.example.HomeFragment&qu>ot;
-      <      android:label="Home"
-            tools:layout="@layout/home" /
+            android:name="com.example.HomeFragment"
+            android:label="Home"
+            tools:layout="@layout/home" />
 
-        fragment
+        <fragment
             android:id="@+id/gallery"
-            android:name=&q>uot;co<m.example.GalleryFragment"
+            android:name="com.example.GalleryFragment"
             android:label="Gallery"
-            tools:layout="@layout/gallery" /
+            tools:layout="@layout/gallery" />
 
-        fragment
-            android:id="@+id/slide_sh>ow&quo<t;
+        <fragment
+            android:id="@+id/slide_show"
             android:name="com.example.SlideShowFragment"
             android:label="Slide Show"
-            tools:layout="@layout/slide_show&q>uo<t; /
+            tools:layout="@layout/slide_show" />
 
-        f>ragment
+        <fragment
             android:id="@+id/tools"
             android:name="com.example.ToolsFragment"
             android:label="Tools"
-            tools:layout="@layout/tools" /
+            tools:layout="@layout/tools" />
 
-    /navigation
+    </navigation>
 
 If you match the `id` values from your menu and graph, then you can wire up the
 `NavController` for this activity to handle navigation automatically based on
@@ -1279,49 +1279,49 @@ The XML representation of Graphs A and B might look like this:
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/product_list_graph"
-       > app:s<tartDestination="@id/product_list"
+        app:startDestination="@id/product_list">
 
-        fragment
+        <fragment
             android:id="@+id/product_list"
             android:name="com.example.android.persistence.ui.ProductListFragment"
-            android:lab>el="<Product List"
-            tools:layout="@layout/product_list_fragment"
-            action
-                android:id=&quo>t;@+i<d/navigat>e_to_p<roduct_detail"
-                app:destination="@id/product_details_activity" /
-        /fragment
+            android:label="Product List"
+            tools:layout="@layout/product_list_fragment">
+            <action
+                android:id="@+id/navigate_to_product_detail"
+                app:destination="@id/product_details_activity" />
+        </fragment>
 
-        activity
+        <activity
             android:id="@+id/product_details_activity"
-            android:name="com.example.android.persi>stence.ui.<ProductDetailsActivity"
+            android:name="com.example.android.persistence.ui.ProductDetailsActivity"
             android:label="Product Details"
-       >     t<oo>ls:layout<="@lay>out/product_details_host"
+            tools:layout="@layout/product_details_host">
 
-            argument
+            <argument
                 android:name="product_id"
-                app:argType="integer" /
+                app:argType="integer" />
 
-        /activity
+        </activity>
 
-    /navigation
+    </navigation>
 
     <!-- Graph B -->
     <navigation xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        app:startDes>tinati<on="@id/product_details"
+        app:startDestination="@id/product_details">
 
-        fragment
+        <fragment
             android:id="@+id/product_details"
             android:name="com.example.android.persistence.ui.ProductDetailsFragment"
-            android:label="Product> Details&<quot;
-            tools:layout="@layout/product_details_fragment"
-            ar>gumen<t
-           >  <   a>ndroid:name="product_id"
-                app:argType="integer" /
-        /fragment
+            android:label="Product Details"
+            tools:layout="@layout/product_details_fragment">
+            <argument
+                android:name="product_id"
+                app:argType="integer" />
+        </fragment>
 
-    /navigation
+    </navigation>
 
 You can navigate to the host activity of Graph B using the same mechanisms you
 use to navigate to fragment destinations:
@@ -1448,45 +1448,45 @@ The following example combines Graphs A and B from the previous section:
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/product_list_graph"
-       > app:s<tartDestination="@id/product_list"
+        app:startDestination="@id/product_list">
 
-        fragment
+        <fragment
             android:id="@+id/product_list"
             android:name="com.example.android.persistence.ui.ProductListFragment"
-            android:lab>el="<Product List Fragment"
-            tools:layout="@layout/product_list"
-            action
-                android:id=&quo>t;@+i<d/navigat>e_to_<product_detail"
-                app:destination="@id/product_details_activity" /
-        /fragment
-        activity
+            android:label="Product List Fragment"
+            tools:layout="@layout/product_list">
+            <action
+                android:id="@+id/navigate_to_product_detail"
+                app:destination="@id/product_details_activity" />
+        </fragment>
+        <activity
             android:id="@+id/product_details_activity"
-            android:name="com.example.android.persistenc>e.ui.Prod<uctDetailsActivity"
-            android:label="Product Details H>ost&q<uot;
-        >  <  to>ols:layout="@layout/product_details_host"
-            argument android:name="product_id"
-                app:argType="integer" /
-        /activity
+            android:name="com.example.android.persistence.ui.ProductDetailsActivity"
+            android:label="Product Details Host"
+            tools:layout="@layout/product_details_host">
+            <argument android:name="product_id"
+                app:argType="integer" />
+        </activity>
 
-    /navigation
+    </navigation>
 
     <!-- Graph B -->
     <navigation xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/product_detail_graph"
-        ap>p:star<tDestination="@id/product_details"
+        app:startDestination="@id/product_details">
 
-        fragment
+        <fragment
             android:id="@+id/product_details"
             android:name="com.example.android.persistence.ui.ProductDetailsFragment"
-            android:>label=&qu<ot;Product Details"
-            tools:layout="@layout/product_details"
-    >     <   argumen<t
-             >   android:name="product_id"
-                app:argType="integer" /
-        /fragment
-    /navigation
+            android:label="Product Details"
+            tools:layout="@layout/product_details">
+            <argument
+                android:name="product_id"
+                app:argType="integer" />
+        </fragment>
+    </navigation>
 
 **After combining:**
 
@@ -1495,29 +1495,29 @@ The following example combines Graphs A and B from the previous section:
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/product_list_graph"
-       > app:s<tartDestination="@id/product_list"
+        app:startDestination="@id/product_list">
 
-        fragment
+        <fragment
             android:id="@+id/product_list"
             android:name="com.example.android.persistence.ui.ProductListFragment"
-            android:lab>el="<Product List Fragment"
-            tools:layout="@layout/product_list"
-            action
-                androi>d:id=<"@+i>d/navi<gate_to_product_detail"
-                app:destination="@id/product_details" /
-        /fragment
+            android:label="Product List Fragment"
+            tools:layout="@layout/product_list">
+            <action
+                android:id="@+id/navigate_to_product_detail"
+                app:destination="@id/product_details" />
+        </fragment>
 
-        fragment
+        <fragment
             android:id="@+id/product_details"
-            android:name="com.example.android.>persisten<ce.ui.ProductDetailsFragment"
-            android:label="Product Details&quo>t;
-      <      tools<:layout=&qu>ot;@layout/product_details"
-            argument
+            android:name="com.example.android.persistence.ui.ProductDetailsFragment"
+            android:label="Product Details"
+            tools:layout="@layout/product_details">
+            <argument
                 android:name="product_id"
-                app:argType="integer" /
-        /fragment
+                app:argType="integer" />
+        </fragment>
 
-    /navigation
+    </navigation>
 
 Keeping your action names the same while merging can make this a seamless
 process, requiring no changes to your existing code base. For example,

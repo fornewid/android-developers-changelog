@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 Espresso-Web is an entry point to work with Android WebView UI components.
-Espresso-Web reuses Atoms from the popular [WebDriver API](http://www.seleniumhq.org/docs/03_webdriver.jsp) to examine and control the behavior of a WebView.
+Espresso-Web reuses Atoms from the popular [WebDriver API](https://www.selenium.dev/documentation/webdriver/) to examine and control the behavior of a WebView.
 
 > [!NOTE]
 > **Note:** If you aren't familiar with Espresso, you should first read the main [Espresso documentation](https://developer.android.com/training/testing/espresso).
@@ -19,7 +19,7 @@ Espresso APIs to fully interact with web elements inside `WebView` objects.
 
 If you need to test only the `https://developer.android.com/reference/android/webkit/WebView` itself, and not the
 interactions between the `WebView` and native components in your app, consider
-writing a general web test using a framework like [WebDriver](http://www.seleniumhq.org/docs/03_webdriver.jsp). If you use a web testing framework, you don't
+writing a general web test using a framework like [WebDriver](https://www.selenium.dev/documentation/webdriver/). If you use a web testing framework, you don't
 need to use an Android device or a Java Virtual Machine, which makes your tests
 run more quickly and reliably. That being said, Espresso-Web allows you to reuse
 your custom WebDriver atoms, which gives you a lot of flexibility, especially
@@ -171,7 +171,7 @@ test](https://developer.android.com/guide/components/activities/testing#trigger-
 following code snippet.
 
 > [!NOTE]
-> **Note:** Enabling JavaScript may cause the WebView under test to be reloaded. This is necessary to ensure that [AndroidJUnitRunner](https://developer.android.com/training/testing/junit-runner) loads all needed test infrastructure, including JavaScript interactions.
+> **Note:** Enabling JavaScript may cause the WebView under test to be reloaded. This is necessary to ensure that [AndroidJUnitRunner](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/runner) loads all needed test infrastructure, including JavaScript interactions.
 
 ```kotlin
 @RunWith(AndroidJUnit4::class)

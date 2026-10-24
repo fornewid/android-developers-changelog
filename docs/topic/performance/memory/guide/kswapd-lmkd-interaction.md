@@ -42,7 +42,7 @@ Common buckets include:
 canonical way to measure resource shortages. It tracks the time tasks are
 delayed due to shortages of CPU, memory, and I/O.
 
-### Memory PSI: "some" vs "full"
+### Memory PSI: "some" versus "full"
 
 Memory PSI specifically tracks delays caused by memory shortages (e.g., waiting
 for page reclaim or refaults). It provides two metrics:
@@ -100,7 +100,7 @@ You can check ZRAM and swap status on the device using these commands:
     # Check swap partition details
     adb shell cat /proc/swaps
 
-## Hands-on exercise: triggering kswapd and lmkd
+## Practical exercise: triggering kswapd and lmkd
 
 In this exercise, you will use the **KswapdLmkdLab** sample app to create
 processes in different OOM buckets and then consume memory in the main process
@@ -141,26 +141,25 @@ The app will automatically start allocating memory in the main process. To make
 the test effective on high-RAM devices, the app also commands the subprocesses
 to allocate memory (e.g., 500MB each) to make them better targets for LMKD.
 
-> [!NOTE]
-> **Technical Detail** : The app monitors the death of these subprocesses
-> using the `IBinder.linkToDeath` mechanism:
->
-> 1. The main process binds to a service in the target process using `bindService`.
-> 2. Upon connection, it obtains the `IBinder` object representing the service.
-> 3. It registers a `IBinder.DeathRecipient` implementation by calling `linkToDeath` on the binder.
-> 4. When the target process dies (e.g., killed by LMKD), the system calls the `binderDied()` method, allowing the app to record the death event asynchronously.
->
-> To prevent this binding from elevating the priority of the target processes
-> (which would defeat the purpose of the exercise), the app uses the
-> [`Context.BIND_WAIVE_PRIORITY`](https://developer.android.com/reference/android/content/Context#BIND_WAIVE_PRIORITY)
-> flag.
+#### Monitor subprocess death
+
+The app monitors the death of these subprocesses using the
+`IBinder.linkToDeath` mechanism:
+
+1. The main process binds to a service in the target process using `bindService`.
+2. Upon connection, it obtains the `IBinder` object representing the service.
+3. It registers an `IBinder.DeathRecipient` implementation by calling `linkToDeath` on the binder.
+4. When the target process dies (for example, when killed by LMKD), the system calls the `binderDied()` method, allowing the app to record the death event asynchronously.
+
+To prevent this binding from elevating the priority of the target processes
+(which would defeat the purpose of the exercise), the app uses the
+[`Context.BIND_WAIVE_PRIORITY`](https://developer.android.com/reference/android/content/Context#BIND_WAIVE_PRIORITY) flag.
 
 ### Sample app in action
 
 Here is a screenshot of the app after a test run completed on a Google Pixel 8
 Pro (which has approximately 12 GB of total RAM).
-
-![Sample App Screenshot](https://developer.android.com/static/topic/performance/memory/guide/images/kswapd-lmkd-interaction/kswapd_lmkd_lab_completed.png)
+![Sample app screenshot after a completed test run.](https://developer.android.com/static/topic/performance/memory/guide/images/kswapd-lmkd-interaction/kswapd_lmkd_lab_completed.png) **Figure 1.** Sample app after a completed test run on a Pixel 8 Pro.
 
 > [!NOTE]
 > **Note:** The reader may get different results on different devices subject to total RAM size and memory management tuning parameters (such as PSI thresholds and OOM scores).
@@ -196,11 +195,10 @@ LMK kills, and Pressure Stall Information (PSI):
 
 ### Review the trace
 
-Below is a screenshot taken from a trace showing the period of time shortly
-before the `:cached` (most killable) process is killed, until the `:foreground`
-(least killable) process is killed.
-
-![Perfetto UI screenshot](https://developer.android.com/static/topic/performance/memory/guide/images/kswapd-lmkd-interaction/trace.png)
+The following screenshot is taken from a trace showing the period of time
+shortly before the `:cached` (most killable) process is killed, until the
+`:foreground` (least killable) process is killed.
+![Perfetto UI screenshot showing kswapd and lmkd activity.](https://developer.android.com/static/topic/performance/memory/guide/images/kswapd-lmkd-interaction/trace.png) **Figure 2.** Perfetto trace showing kswapd reclaim and lmkd kills.
 
 You can see that `MemFree` is already fairly low and is under constant pressure.
 `kswapd` is constantly working and relieves pressure by dropping `mem.rss.file`
@@ -281,7 +279,7 @@ The event name format is:
 | 30334985999837 | lmk,2310,2,200,0,307 |
 
 > [!NOTE]
-> **Note:** In the sample above, `pid 2308` (Cached, OOM 900) is killed first for reason `3` (`LOW_MEM_AND_SWAP`). As pressure continues to rise, `pid 2309` (Service, OOM 500) is also killed for reason `3`. Finally, the critical threshold is reached, and the high-priority `pid 2310` (FGS, OOM 200) is killed for reason `2` (`LOW_SWAP_AND_THRASHING`) with thrashing reaching 30.7% (indicated by `307`).
+> **Note:** In the preceding sample, `pid 2308` (Cached, OOM 900) is killed first for reason `3` (`LOW_MEM_AND_SWAP`). As pressure continues to rise, `pid 2309` (Service, OOM 500) is also killed for reason `3`. Finally, the critical threshold is reached, and the high-priority `pid 2310` (FGS, OOM 200) is killed for reason `2` (`LOW_SWAP_AND_THRASHING`) with thrashing reaching 30.7% (indicated by `307`).
 
 ## Visualization
 
@@ -291,10 +289,9 @@ script assumes it is run from the Android build top directory.
 
 ### Sample output plot
 
-The following plot was generated using the script above with sample data
+The following plot was generated using the preceding script with sample data
 representative of the test run.
-
-![Memory Pressure Plot](https://developer.android.com/static/topic/performance/memory/guide/images/kswapd-lmkd-interaction/memory_pressure_plot.png)
+![Plot of free memory, kswapd activity, PSI, and lmkd kills.](https://developer.android.com/static/topic/performance/memory/guide/images/kswapd-lmkd-interaction/memory_pressure_plot.png) **Figure 3.** Memory pressure plot showing free memory, kswapd, PSI, and lmkd kills.
 
 **Plot Explanation:**
 
@@ -302,8 +299,9 @@ This plot illustrates the dynamic interaction between the different memory
 management components during the stress test:
 
 1. **Free Memory Drop**: As the main app allocates memory, the system free memory (purple line) steadily decreases.
-2. **kswapd Activation** : When free memory drops below certain watermarks, `kswapd` wakes up (blue impulses) to reclaim memory by swapping to ZRAM. This is visible as intermittent spikes.
+2. **kswapd Activation** : When free memory falls under certain watermarks, `kswapd` wakes up (blue impulses) to reclaim memory by swapping to ZRAM. This is visible as intermittent spikes.
 3. **PSI Spikes** : As `kswapd` struggles to keep up with the high rate of allocation, threads start stalling on memory allocation, causing the **PSI** (Pressure Stall Information) (green line) to spike.
 4. **LMKD Kills** : When PSI reaches critical levels (e.g., exceeding the `ro.lmk.psi_complete_stall_ms` threshold conceptually) and free memory is extremely low, `lmkd` intervenes by killing low-priority processes (orange impulses at time 30 and 45) to free up large chunks of memory. Notice that immediately after a kill, free memory rises and PSI drops, showing the effectiveness of the kill in relieving pressure. ________________________________________________________________________________
 
-**[← Memory reclaim: eviction and swap](https://developer.android.com/topic/performance/memory/guide/reclaim) \| [↑ Up](https://developer.android.com/topic/performance/memory/guide)**
+**[← Memory reclaim: eviction and swap](https://developer.android.com/topic/performance/memory/guide/reclaim) \| [↑ Up](https://developer.android.com/topic/performance/memory/guide) \|
+[Return memory pages to the OS →](https://developer.android.com/topic/performance/memory/guide/page-advice)**

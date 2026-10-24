@@ -4,8 +4,6 @@ url: https://developer.android.com/media/camera/camera2/foldable-devices
 source: md.txt
 ---
 
-# Foldable devices and cameras
-
 **Note:** This page refers to the [Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
 
 <br />

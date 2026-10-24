@@ -162,8 +162,8 @@ Subspace {
 @Composable
 fun OrbiterExample() {
     Orbiter(
-        alignment = OrbiterAlignment.BottomCenter(
-            edgeOffsetType = OrbiterEdgeOffsetType.OuterEdge,
+        position = OrbiterPosition.BottomCenter(
+            verticalEdgeAlignment = OrbiterPosition.EdgeAlignment.Outside,
             offset = DpVolumeOffset(y = 96.dp)
         ),
     ) {
@@ -584,8 +584,8 @@ The following example shows how to anchor an orbiter to a spatial row:
 Subspace {
     SpatialRow {
         Orbiter(
-            alignment = OrbiterAlignment.TopCenter(
-                edgeOffsetType = OrbiterEdgeOffsetType.OuterEdge,
+            position = OrbiterPosition.TopCenter(
+                verticalEdgeAlignment = OrbiterPosition.EdgeAlignment.Outside,
                 offset = DpVolumeOffset(y = 8.dp)
             ),
             shape = SpatialRoundedCornerShape(size = CornerSize(50))

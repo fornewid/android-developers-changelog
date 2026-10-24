@@ -35,6 +35,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberOverscrollEffect
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -590,9 +591,9 @@ fun OneHandedGestureHorizontalPagerSample() {
                 },
         ) { page ->
             AnimatedPage(pageIndex = page, pagerState = pagerState) {
-                ScreenScaffold {
+                ScreenScaffold { contentPadding ->
                     Column(
-                        modifier = Modifier.fillMaxSize(),
+                        modifier = Modifier.fillMaxSize().padding(contentPadding),
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center,
                     ) {
@@ -639,9 +640,9 @@ fun OneHandedGestureVerticalPagerSample() {
                 },
         ) { page ->
             AnimatedPage(pageIndex = page, pagerState = pagerState) {
-                ScreenScaffold {
+                ScreenScaffold { contentPadding ->
                     Column(
-                        modifier = Modifier.fillMaxSize(),
+                        modifier = Modifier.fillMaxSize().padding(contentPadding),
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center,
                     ) {

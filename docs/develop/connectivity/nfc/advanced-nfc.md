@@ -4,11 +4,24 @@ url: https://developer.android.com/develop/connectivity/nfc/advanced-nfc
 source: md.txt
 ---
 
-This document describes advanced NFC topics, such as working with various tag technologies, writing to NFC tags, and foreground dispatching, which allows an application in the foreground to handle intents even when other applications filter for the same ones.
+This document describes advanced NFC topics, such as working with various tag technologies,
+writing to NFC tags, and foreground dispatching, which allows an application in the foreground to
+handle intents even when other applications filter for the same ones.
 
 ## Work with supported tag technologies
 
-When working with NFC tags and Android-powered devices, the main format you use to read and write data on tags is NDEF. When a device scans a tag with NDEF data, Android provides support in parsing the message and delivering it in an `https://developer.android.com/reference/android/nfc/NdefMessage` when possible. There are cases, however, when you scan a tag that does not contain NDEF data or when the NDEF data could not be mapped to a MIME type or URI. In these cases, you need to open communication directly with the tag and read and write to it with your own protocol (in raw bytes). Android provides generic support for these use cases with the `https://developer.android.com/reference/android/nfc/tech/package-summary` package, which is described in [Table 1](https://developer.android.com/develop/connectivity/nfc/advanced-nfc#tech-table). You can use the `https://developer.android.com/reference/android/nfc/Tag#getTechList()` method to determine the technologies supported by the tag and create the corresponding `https://developer.android.com/reference/android/nfc/tech/TagTechnology` object with one of classes provided by `https://developer.android.com/reference/android/nfc/tech/package-summary`
+When working with NFC tags and Android-powered devices, the main format you use to read
+and write data on tags is NDEF. When a device scans a tag with NDEF data, Android provides support
+in parsing the message and delivering it in an `https://developer.android.com/reference/android/nfc/NdefMessage` when
+possible. There are cases, however, when you scan a tag that does not contain
+NDEF data or when the NDEF data could not be mapped to a MIME type or URI.
+In these cases, you need to open communication directly with the tag and read and write to it with
+your own protocol (in raw bytes). Android provides generic support for these use cases with the
+`https://developer.android.com/reference/android/nfc/tech/package-summary` package, which is described in [Table 1](https://developer.android.com/develop/connectivity/nfc/advanced-nfc#tech-table). You can
+use the `https://developer.android.com/reference/android/nfc/Tag#getTechList()` method to determine the technologies
+supported by the tag and create the corresponding `https://developer.android.com/reference/android/nfc/tech/TagTechnology`
+object with one of classes provided by `https://developer.android.com/reference/android/nfc/tech/package-summary`
+
 
 **Table 1.** Supported tag technologies
 
@@ -25,6 +38,7 @@ When working with NFC tags and Android-powered devices, the main format you use 
 
 The following tag technologies are not required to be supported by Android-powered devices.
 
+
 **Table 2.** Optional supported tag technologies
 
 | Class | Description |
@@ -34,9 +48,15 @@ The following tag technologies are not required to be supported by Android-power
 
 ### Work with tag technologies and the ACTION_TECH_DISCOVERED intent
 
-When a device scans a tag that has NDEF data on it, but could not be mapped to a MIME or URI, the tag dispatch system tries to start an activity with the `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_TECH_DISCOVERED` intent. The `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_TECH_DISCOVERED` is also used when a tag with non-NDEF data is scanned. Having this fallback allows you to work with the data on the tag directly if the tag dispatch system could not parse it for you. The basic steps when working with tag technologies are as follows:
+When a device scans a tag that has NDEF data on it, but could not be mapped to a MIME or URI,
+the tag dispatch system tries to start an activity with the `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_TECH_DISCOVERED`
+intent. The `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_TECH_DISCOVERED` is also used when a tag
+with non-NDEF data is scanned. Having this fallback allows you to work with the data on the tag
+directly if the tag dispatch system could not parse it for you. The basic steps when working with
+tag technologies are as follows:
 
-1. Filter for an `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_TECH_DISCOVERED` intent specifying the tag technologies that you want to handle. See [Filtering for NFC intents](https://developer.android.com/guide/topics/connectivity/nfc/nfc#tech-disc) for more information. In general, the tag dispatch system tries to start a `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_TECH_DISCOVERED` intent when an NDEF message cannot be mapped to a MIME type or URI, or if the tag scanned did not contain NDEF data. For more information on how this is determined, see [The Tag Dispatch System](https://developer.android.com/guide/topics/connectivity/nfc/nfc#tag-dispatch).
+1. Filter for an `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_TECH_DISCOVERED` intent specifying the tag technologies that you want to handle. See [Filtering for NFC
+   intents](https://developer.android.com/guide/topics/connectivity/nfc/nfc#tech-disc) for more information. In general, the tag dispatch system tries to start a `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_TECH_DISCOVERED` intent when an NDEF message cannot be mapped to a MIME type or URI, or if the tag scanned did not contain NDEF data. For more information on how this is determined, see [The Tag Dispatch System](https://developer.android.com/guide/topics/connectivity/nfc/nfc#tag-dispatch).
 2. When your application receives the intent, obtain the `https://developer.android.com/reference/android/nfc/Tag` object from the intent:
 
    ### Kotlin
@@ -66,7 +86,11 @@ When a device scans a tag that has NDEF data on it, but could not be mapped to a
 
 ### Read and write to tags
 
-Reading and writing to an NFC tag involves obtaining the tag from the intent and opening communication with the tag. You must define your own protocol stack to read and write data to the tag. Keep in mind, however, that you can still read and write NDEF data when working directly with a tag. It is up to you how you want to structure things. The following example shows how to work with a MIFARE Ultralight tag.
+Reading and writing to an NFC tag involves obtaining the tag from the intent and
+opening communication with the tag. You must define your own protocol stack to read and write data
+to the tag. Keep in mind, however, that you can still read and write NDEF data when working
+directly with a tag. It is up to you how you want to structure things. The
+following example shows how to work with a MIFARE Ultralight tag.
 
 ### Kotlin
 
@@ -160,7 +184,10 @@ public class MifareUltralightTagTester {
 
 ## Use the foreground dispatch system
 
-The foreground dispatch system allows an activity to intercept an intent and claim priority over other activities that handle the same intent. Using this system involves constructing a few data structures for the Android system to be able to send the appropriate intents to your application. To enable the foreground dispatch system:
+The foreground dispatch system allows an activity to intercept an intent and claim
+priority over other activities that handle the same intent. Using this system involves
+constructing a few data structures for the Android system to be able to send the appropriate
+intents to your application. To enable the foreground dispatch system:
 
 1. Add the following code in the `onCreate()` method of your activity:
    1. Create a mutable `https://developer.android.com/reference/android/app/PendingIntent` object so the Android system can populate it with the details of the tag when it is scanned.
