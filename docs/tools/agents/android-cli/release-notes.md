@@ -12,6 +12,16 @@ This page lists the new features in every Android CLI release. To download
 Android CLI, go to the [download page](https://developer.android.com/tools/agents). To learn more,
 see the [Android CLI overview](https://developer.android.com/tools/agents/android-cli).
 
+## Version 1.1.16717390 (October 2026)
+
+- **Field crash signals** : Use the new `android signals` command to investigate how your app behaves in the field with Firebase Crashlytics. After you sign in with `android auth login`, find your projects and apps with `android signals context`, then list, filter, and break down crash, ANR, and non-fatal issues with `android signals crashes list`, `facets`, `describe`, and `samples`.
+- **Field heap dumps** : Use `android signals heaps` to list, describe, and download the heap dumps that Crashlytics collects on out-of-memory crashes and memory limiter kills, together with the metadata, custom keys, and logs of the session that produced them.
+- **App profiling** : Use the new `android profiler` command to record system traces with `android profiler systemtrace` and capture JVM heap dumps with `android profiler heapdump capture` on a connected device or emulator. Manage the profiling sessions with `android profiler session` `list`, `status`, and `terminate`.
+- **Artifact analysis** : Use the new `android analyze` command to inspect one or more APKs, AABs, AARs, and JARs, and report their package details, DEX sizes, R8 shrinking and optimization metrics, and warnings about library keep rules and low optimization. Pass `--format=json` or `--format=textproto` for machine-readable output.
+- **Compose previews** : Use the new `android preview list` command to find the Jetpack Compose `@Preview` functions in a target, and `android preview render --fqn <name>` to render them to PNG images and component tree JSON files on your machine, without Android Studio. Pass `--output` to choose where the files are written.
+- **Build references in run and install** : `android run` and `android install` accept a positional build reference to build and deploy a specific target. Gradle targets without a variant, such as `:app`, now default to the `debug` variant.
+- **Device mirroring window** : Use the new `android device hub` command to open a desktop window for real-time screen mirroring and interactive control of connected physical Android devices (including remote devices connected through `android device remote connect`) and Android emulators.
+
 ## Version 1.0.16625370 (October 2026)
 
 - **UI interaction** : Use the new `android input` command to tap, scroll, swipe, type text, and press keys on a connected device or emulator. Target UI elements with selectors such as `text=Submit` or `id=email,class=EditText`, and combine it with `android layout` to find the elements to interact with.

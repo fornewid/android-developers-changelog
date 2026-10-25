@@ -48,7 +48,7 @@ characters.
 
 Selectors match against the app's live accessibility node hierarchy:
 
-- **String properties** : Matched as case-insensitive substrings by default. Pass `*` to match any element with a non-empty value for that property.
+- **String properties** : Matched as case-insensitive substrings by default (for example, `text=submit` matches "Submit order"). Pass `*` to match any element with a non-empty value for that property. Wrap a value in slashes to match it as a case-sensitive regular expression that can match any part of the value (for example, `text=/^Submit$/`). Add the `i` flag after the closing slash for a case-insensitive regular expression (for example, `text=/^submit$/i`). Commas inside a regular expression do not split the selector. To match literal text that starts with `/`, use a regular expression such as `text=/^\/help/`.
   - `text` (synonym: `txt`): The visible text displayed on the element.
   - `id` (synonym: `res`): The view resource ID name (for example, `id=submit_button` or the full resource name `com.example.app:id/submit_button`).
   - `class` (synonyms: `clazz`, `cls`, `clz`): The element class name or simple class name (such as `class=Button` or `android.widget.Button`).

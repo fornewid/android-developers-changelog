@@ -42,6 +42,13 @@ Requires Android Studio Quail 2 or higher.
 - `--output-image-file`: Saves the rendered PNG preview to the specified file path. If omitted, a temporary PNG file is created.
 - `--print-semantics`: Prints the Compose preview's accessibility semantics tree in JSON format so AI agents can inspect interactive nodes, text, and bounds alongside the rendered visual image.
 
+### Show full error details (`--verbose`)
+
+If the preview fails to render, the command prints a concise summary of each
+error, with its cause and, when available, a hint for fixing it. Pass the global
+`--verbose` (`-v`) option to print the full error reported by Android Studio
+instead, including stack traces.
+
 ### Examples
 
 Render `HotelDetailScreenPreview` to `preview_hotel.png` and print its semantics

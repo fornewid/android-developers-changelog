@@ -4,8 +4,8 @@ url: https://developer.android.com/tools/agents/android-cli/commands/info
 source: md.txt
 ---
 
-Prints environment information including SDK location, connected devices, and
-configuration variables.
+Prints environment information including SDK location and configuration
+variables.
 
 ## Usage
 
@@ -23,7 +23,7 @@ configuration variables.
 
 ## Positional arguments
 
-- `<field>` - The specific field to print the value of. If omitted, prints all fields.
+- `<field>` - The specific field to print the value of (sdk, version, launcher_version). If omitted, prints all fields.
 
 ## Description
 

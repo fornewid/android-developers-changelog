@@ -4,7 +4,8 @@ url: https://developer.android.com/tools/agents/android-cli/commands/device
 source: md.txt
 ---
 
-Manage physical Android devices. Create remote physical device reservations.
+Manage Android devices. Mirror connected devices or emulators in a desktop
+window and manage remote physical device reservations.
 
 ## Usage
 
@@ -22,11 +23,17 @@ Manage physical Android devices. Create remote physical device reservations.
 
 ## Subcommands
 
+- **[`hub`](https://developer.android.com/tools/agents/android-cli/commands/device_hub)** - Launches a desktop window for real-time screen mirroring and interactive control of a connected Android device or emulator.
 - **[`remote`](https://developer.android.com/tools/agents/android-cli/commands/device_remote)** - Manage remote physical devices. Includes commands to list, reserve, connect to, and manage remote device reservations.
 
 ## Description
 
-The `android device` command set manages remote physical Android devices.
+The `android device` command set manages connected Android devices, emulators,
+and remote device reservations.
+
+Use [`android device hub`](https://developer.android.com/tools/agents/android-cli/commands/device_hub) to open a desktop window for real-time
+screen mirroring and interactive control of a connected physical device or
+emulator.
 
 Use the [`android device remote`](https://developer.android.com/tools/agents/android-cli/commands/device_remote) commands to reserve physical
 devices hosted in Google data centers and connect to them through `adb` as if

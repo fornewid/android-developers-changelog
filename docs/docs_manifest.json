@@ -28088,8 +28088,8 @@
     },
     "tools/agents/android-cli/release-notes.md": {
       "original_url": "https://developer.android.com/tools/agents/android-cli/release-notes",
-      "hash": "f446afe3e97cd626cc3e5c7673c2a76cf1c8a5c84ebb5593fc4b9f02cb6367a2",
-      "last_updated": "2026-10-16T15:06:05.351872",
+      "hash": "bafc91ddfb21656555de24e0e460941e442eee0a421da92aed9ef1d93c4efebb",
+      "last_updated": "2026-10-25T15:06:08.353659",
       "fetch_method": "md.txt"
     },
     "blog/posts/the-fourth-beta-of-android-17.md": {
@@ -33182,8 +33182,8 @@
     },
     "agents/skills/devtools/android-cli/skill.md": {
       "original_url": "https://developer.android.com/agents/skills/devtools/android-cli/skill",
-      "hash": "07b9ecc856aeb57658ec049c6ff53c04be60347ab34f753a77c6bcedf60c9f70",
-      "last_updated": "2026-10-16T15:04:05.104455",
+      "hash": "d94ca262784027d8875dddce36152afe4890ac63985177b9a8d8e6de30e8aab8",
+      "last_updated": "2026-10-25T15:06:11.576072",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/performance/backwards-write.md": {
@@ -33698,20 +33698,20 @@
     },
     "tools/agents/android-cli/commands.md": {
       "original_url": "https://developer.android.com/tools/agents/android-cli/commands",
-      "hash": "264537091ff53878ed80f6436427dc1652b83073d00a1ce86742bc1ae0a86c8b",
-      "last_updated": "2026-10-16T15:04:38.770560",
+      "hash": "7eae5c480a90b34ee970eea942141d1766365194cf7d4e977cbbfeacdf87c0ec",
+      "last_updated": "2026-10-25T15:09:28.160917",
       "fetch_method": "md.txt"
     },
     "tools/agents/android-cli/commands/install.md": {
       "original_url": "https://developer.android.com/tools/agents/android-cli/commands/install",
-      "hash": "633f54875cfd011f9b53aa8083ee2c1f6bcc84e258873df9e9bd2513a747d7f5",
-      "last_updated": "2026-10-16T15:05:07.569313",
+      "hash": "e6b7d3400229446e64623ef8b6c7fe9555cbc47412df8538d717541e85d4adce",
+      "last_updated": "2026-10-25T15:04:00.702933",
       "fetch_method": "md.txt"
     },
     "tools/agents/android-cli/commands/run.md": {
       "original_url": "https://developer.android.com/tools/agents/android-cli/commands/run",
-      "hash": "618d9c174ce49ebd0a746b31b1b622577c7023fed421e2270ef0c70b6ad3414a",
-      "last_updated": "2026-10-16T15:05:22.555251",
+      "hash": "0ee9f4fee754d861ac4cde4d52d9f37c589987dbbcf6208625a9acb549dd6d65",
+      "last_updated": "2026-10-25T15:09:24.612724",
       "fetch_method": "md.txt"
     },
     "tools/agents/android-cli/commands/docs_search.md": {
@@ -33722,8 +33722,8 @@
     },
     "tools/agents/android-cli/commands/info.md": {
       "original_url": "https://developer.android.com/tools/agents/android-cli/commands/info",
-      "hash": "6efa7321a1a5681fbadc8ca6bd83ff4eb89b3c16c28873b4917af4068b33902f",
-      "last_updated": "2026-10-16T15:05:26.426218",
+      "hash": "8840c77915e6e3c4571df1b561bbe07d183c9f052c0ea349ad05c4413c26a058",
+      "last_updated": "2026-10-25T15:10:04.461562",
       "fetch_method": "md.txt"
     },
     "tools/agents/android-cli/commands/emulator_stop.md": {
@@ -33824,8 +33824,8 @@
     },
     "tools/agents/android-cli/commands/studio_render-compose-preview.md": {
       "original_url": "https://developer.android.com/tools/agents/android-cli/commands/studio_render-compose-preview",
-      "hash": "03b050e2b41fe5a9f2a8ec6f7f3de5a14dc068f13363c0ca4501f20a0256ec37",
-      "last_updated": "2026-10-16T15:06:46.925677",
+      "hash": "c05918ef0d7e6b45ab87cece1390c66814ae1177a9978ce833cd136b9c99f9c8",
+      "last_updated": "2026-10-25T15:09:59.067743",
       "fetch_method": "md.txt"
     },
     "tools/agents/android-cli/commands/sdk_install.md": {
@@ -33992,8 +33992,8 @@
     },
     "tools/agents/android-cli/commands/device.md": {
       "original_url": "https://developer.android.com/tools/agents/android-cli/commands/device",
-      "hash": "477f580b9765d9d3d81d491ea61c2feb0dcbde2f349baa0b919ec39f60ad9a8d",
-      "last_updated": "2026-10-16T15:07:37.530657",
+      "hash": "64179c7662be9df920b5adc22b2d2f267459669ecb723a3b0e4fba74a4f85845",
+      "last_updated": "2026-10-25T15:10:06.007881",
       "fetch_method": "md.txt"
     },
     "tools/agents/android-cli/commands/device_remote_disconnect.md": {
@@ -35102,8 +35102,8 @@
     },
     "tools/agents/android-cli/commands/input_scroll.md": {
       "original_url": "https://developer.android.com/tools/agents/android-cli/commands/input_scroll",
-      "hash": "24203363b8a8088526e304ee67f7acee993628406c379179e1f4d238e2bac4ec",
-      "last_updated": "2026-10-16T15:03:52.745485",
+      "hash": "ca5f3ead9246bbbb427195c9e829abd59b9668d357492a3fa4990814e5d1a5ca",
+      "last_updated": "2026-10-25T15:07:17.973786",
       "fetch_method": "md.txt"
     },
     "agents/skills/performance/anr-audit-and-fix/references/risk_analysis_guide.md": {
@@ -35138,8 +35138,8 @@
     },
     "tools/agents/android-cli/commands/input_swipe.md": {
       "original_url": "https://developer.android.com/tools/agents/android-cli/commands/input_swipe",
-      "hash": "43fe06e99068aef2522618ec860a919a3f602f1a68912833bf5bb09fb2f84198",
-      "last_updated": "2026-10-16T15:06:59.001641",
+      "hash": "f52131ddc6ab1d29d7b565367a0ed196c1c01e5e6cdd86179447850c7d776e1a",
+      "last_updated": "2026-10-25T15:05:32.026262",
       "fetch_method": "md.txt"
     },
     "agents/skills/performance/anr-audit-and-fix/references/anr_trace_report_template.md": {
@@ -35156,20 +35156,20 @@
     },
     "tools/agents/android-cli/commands/input_text.md": {
       "original_url": "https://developer.android.com/tools/agents/android-cli/commands/input_text",
-      "hash": "aff7a59de22f34f6a6908b2d6f326bec6784b6c467a009444b4c458159e5d201",
-      "last_updated": "2026-10-16T15:08:48.060476",
+      "hash": "8fd078da3ecf25189263058b27026e9c0ffb020de4d19deba9eda6e94198ca16",
+      "last_updated": "2026-10-25T15:05:19.520071",
       "fetch_method": "md.txt"
     },
     "tools/agents/android-cli/commands/input_tap.md": {
       "original_url": "https://developer.android.com/tools/agents/android-cli/commands/input_tap",
-      "hash": "40d976ed279f951cad0ddd2e613e18b9c8f5ccd668c01f71407e9909529c6c08",
-      "last_updated": "2026-10-16T15:09:02.941001",
+      "hash": "e13e6f8e9cc58651e454b17e04a11e3c81a7975ce369fd379062bc9308be8739",
+      "last_updated": "2026-10-25T15:05:29.533748",
       "fetch_method": "md.txt"
     },
     "tools/agents/android-cli/commands/input.md": {
       "original_url": "https://developer.android.com/tools/agents/android-cli/commands/input",
-      "hash": "da64ff490b35be9e991d88f1c9cc37ccaad6278bb95523c764e2d90ca44ac5e3",
-      "last_updated": "2026-10-16T15:09:35.732698",
+      "hash": "3ae35ab0676123aba784654f4df17af39d31bf92d20bd6441878f005455ee0f4",
+      "last_updated": "2026-10-25T15:08:51.102802",
       "fetch_method": "md.txt"
     },
     "agents/skills/xr/projected-hardware/skill.md": {
@@ -35537,7 +35537,175 @@
       "hash": "94388fab8eba59a5ba192e4be342dd4f0351f3e77cc89c69d8fb3ed1bf56938e",
       "last_updated": "2026-10-24T15:09:50.612141",
       "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/signals_crashes.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/signals_crashes",
+      "hash": "4897e579a6aee415b942334eb1a4386db6f5fb2ddead8a0232e1cd5ff3d22ef6",
+      "last_updated": "2026-10-25T15:03:44.364013",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/profiler_systemtrace.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace",
+      "hash": "ec3c4b3b31adfd68768e6abd933412bc9804f7d534a4a9c880a23680ace19152",
+      "last_updated": "2026-10-25T15:03:57.264138",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/signals_heaps_download.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_download",
+      "hash": "7450f6fb33d84a70fb5567e46853806e649e939e5c486eeb435bd59791faad56",
+      "last_updated": "2026-10-25T15:03:57.527015",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/profiler_systemtrace_prepare.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace_prepare",
+      "hash": "6f9b072357d2b1187670dda2bb5688e35526a8fed5464de25979b13c45c88826",
+      "last_updated": "2026-10-25T15:03:58.550355",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/signals_context.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/signals_context",
+      "hash": "16036c3badbe1655e5d333c8de04888bcd30c8580f732dbdb9a958e967b78c0c",
+      "last_updated": "2026-10-25T15:04:22.855255",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/profiler_session.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/profiler_session",
+      "hash": "7ca358900d8878b8ccdbc8d8a810640bb9b607ffe797264e28a7d92398febcdc",
+      "last_updated": "2026-10-25T15:04:23.104306",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/analyze.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/analyze",
+      "hash": "5c9330c36e164cec1afdcf747d1af56b077ddfe7759e680b316d3ec7d87e1423",
+      "last_updated": "2026-10-25T15:04:25.329449",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/signals_crashes_describe.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_describe",
+      "hash": "fe325acdf18caea6ae0585195d9ee1a773546250f4fe9dd98008ebf507cee55a",
+      "last_updated": "2026-10-25T15:04:31.115935",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/device_hub.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/device_hub",
+      "hash": "79f9edf4c58fac279aa61faf81e4d0732ed1e00a85d544fe6ff4988aa5ba1a8e",
+      "last_updated": "2026-10-25T15:04:32.804577",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/profiler_systemtrace_stop.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace_stop",
+      "hash": "dfc9c7e30d0e7958de5ba2d4a001623ae94538b122e3dc572820b9dd2e1da632",
+      "last_updated": "2026-10-25T15:05:17.618485",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/profiler_heapdump_capture.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/profiler_heapdump_capture",
+      "hash": "d07d6ad3ceda3b8daed9cd3ac46158a89d4996338e8fdb107bd7c2fbf1d46795",
+      "last_updated": "2026-10-25T15:05:35.177862",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/signals.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/signals",
+      "hash": "c0a8d971c1abae9ed49bbfe3e3061bd4d4f98255e8413df4dc2a817d5c1069b3",
+      "last_updated": "2026-10-25T15:05:58.553480",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/signals_crashes_list.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_list",
+      "hash": "7848e5a07d90e3cf3b14528240dc61ebd4ec66d6db5a8618a1937e4f05eb5601",
+      "last_updated": "2026-10-25T15:05:59.967955",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/build.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/build",
+      "hash": "2954ca00dd3e6ac5f4bda60efd629599cd6e0a907c70382a5b324da6ba6e27cf",
+      "last_updated": "2026-10-25T15:06:01.960698",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/profiler.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/profiler",
+      "hash": "4314dde75ce19b96cbe39a651313f00e7bc56e107f2c5a047ac4aefa28988261",
+      "last_updated": "2026-10-25T15:06:06.716470",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/preview_list.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/preview_list",
+      "hash": "8a8affb1d7203f298330ea037dbbcfc38eb90336771db2ec6e3a283ee483696f",
+      "last_updated": "2026-10-25T15:06:16.607141",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/signals_heaps.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/signals_heaps",
+      "hash": "c3be847a662a839b044c92c9edc5af3f72f2aca136ada328456a328a7dc6c69f",
+      "last_updated": "2026-10-25T15:06:42.306339",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/signals_heaps_list.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_list",
+      "hash": "3c4f194f658b316e935d2f98cf551bda93864c7d91b9700e29a50631616a7054",
+      "last_updated": "2026-10-25T15:06:45.538983",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/profiler_session_status.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/profiler_session_status",
+      "hash": "8c1d3174000995ab98ff010e537823e970d2e93960c4c685a4e9701465948087",
+      "last_updated": "2026-10-25T15:06:46.312021",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/preview_render.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/preview_render",
+      "hash": "0644ebb4dda044b653aac401507874160a13b2095907047db932d04d7c92ae1b",
+      "last_updated": "2026-10-25T15:06:50.955341",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/signals_crashes_facets.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_facets",
+      "hash": "392173da9853e071a26f8616d50b631b47bd39d13c1aa8bd1427af74d53dcbd2",
+      "last_updated": "2026-10-25T15:07:57.476300",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/signals_crashes_samples.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_samples",
+      "hash": "800bb834891fea896ac5a6ac30a2cb668377debdc4a0107a3417dd02ed396232",
+      "last_updated": "2026-10-25T15:07:59.368801",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/profiler_heapdump.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/profiler_heapdump",
+      "hash": "41a529b66316df7a35b2a3f0f39cf6fdf44c3cab498f34cd413066f2eddaabfc",
+      "last_updated": "2026-10-25T15:08:09.373813",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/preview.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/preview",
+      "hash": "718b6d815d0bd0a92c3e76d87e654b1b0e3df27c621937b952dfad58d43a4ff5",
+      "last_updated": "2026-10-25T15:08:38.492069",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/profiler_session_list.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/profiler_session_list",
+      "hash": "b0cf77363ddacd7f864ebcb8e66844c69eb5735aec57346f9f249c3b26a5f2c4",
+      "last_updated": "2026-10-25T15:08:38.521972",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/profiler_systemtrace_start.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace_start",
+      "hash": "e2eba411f30a9bcc43ddfa6b6c9e3e0aa18fc97ec9e81341e7ac8647ff1ce7b7",
+      "last_updated": "2026-10-25T15:08:44.358904",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/signals_heaps_describe.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_describe",
+      "hash": "b05955e0fb1026343f2d526dd5641344eba33ab6bf4f10319c9afec7cfef62d4",
+      "last_updated": "2026-10-25T15:08:55.432478",
+      "fetch_method": "md.txt"
+    },
+    "tools/agents/android-cli/commands/profiler_session_terminate.md": {
+      "original_url": "https://developer.android.com/tools/agents/android-cli/commands/profiler_session_terminate",
+      "hash": "c3b4f7f558364f646019632b4835d4a2510b6a38ae6cd29358dfa26c732d4f5f",
+      "last_updated": "2026-10-25T15:09:35.668395",
+      "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-10-24T15:09:53.274012"
+  "last_updated": "2026-10-25T15:10:14.035250"
 }
