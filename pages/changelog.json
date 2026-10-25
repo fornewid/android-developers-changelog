@@ -1,5 +1,311 @@
 [
   {
+    "date": "2026-10-25T15:10:14Z",
+    "commit_hash": "65a580e3",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/devtools/android-cli/skill\" target=\"_blank\">Android CLI Specialist</a>",
+        "path": "agents/skills/devtools/android-cli/skill.md",
+        "summary": "Updated the Android CLI documentation to reflect new commands, including `analyze`, `build`, `preview`, `profiler`, and `signals`. The changes also document updated options for existing commands like `device` (mirroring), `info`, and `install`, as well as general improvements to CLI command references and usage guidelines.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/65a580e3_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands\" target=\"_blank\">Android CLI command reference</a>",
+        "path": "tools/agents/android-cli/commands.md",
+        "summary": "The Android CLI command documentation has been updated to include new commands such as `analyze`, `build`, `preview`, `profiler`, and `signals`. Additionally, descriptions for existing commands like `device` and `info` were updated to accurately reflect current capabilities, which matters for developers utilizing the CLI toolset effectively.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/65a580e3_commands.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/analyze\" target=\"_blank\">android analyze</a>",
+        "path": "tools/agents/android-cli/commands/analyze.md",
+        "summary": "Added documentation for the new `android analyze` CLI command, which inspects Android artifacts like AABs, APKs, AARs, and JARs to report metadata, structure, and optimization details.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/build\" target=\"_blank\">android build</a>",
+        "path": "tools/agents/android-cli/commands/build.md",
+        "summary": "Added documentation for the `android build` command, detailing how to compile artifacts across multiple build systems like Gradle and Bazel using references and options. This matters because it provides developers with clear guidance on automating builds and passing custom arguments via the Android CLI.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/device\" target=\"_blank\">android device</a>",
+        "path": "tools/agents/android-cli/commands/device.md",
+        "summary": "The `android device` documentation was updated to include the new `hub` subcommand and its capabilities. This addition introduces support for launching a desktop window to mirror and interactively control connected physical devices or emulators, expanding the command set beyond remote physical device reservations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/65a580e3_device.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/device_hub\" target=\"_blank\">android device hub</a>",
+        "path": "tools/agents/android-cli/commands/device_hub.md",
+        "summary": "Introduces documentation for the new 'android device hub' CLI command, which launches a desktop window for real-time screen mirroring, audio streaming, and interactive control of physical devices and emulators.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/info\" target=\"_blank\">android info</a>",
+        "path": "tools/agents/android-cli/commands/info.md",
+        "summary": "Updated the `info.md` documentation to clarify the usage of the `<field>` positional argument by explicitly listing supported fields (`sdk`, `version`, `launcher_version`), and removed 'connected devices' from the command description to reflect accurate output capabilities.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/65a580e3_info.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/input\" target=\"_blank\">android input</a>",
+        "path": "tools/agents/android-cli/commands/input.md",
+        "summary": "Updated the documentation for string property matching in Android CLI input commands to include support for regular expressions (both case-sensitive and case-insensitive using the `i` flag) and provided concrete examples to clarify usage.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/65a580e3_input.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/input_scroll\" target=\"_blank\">android input scroll</a>",
+        "path": "tools/agents/android-cli/commands/input_scroll.md",
+        "summary": "The documentation for the `input_scroll` command has been updated to reflect expanded selector capabilities in the Android CLI tool. It now supports alternative key formats (colon separators and additional aliases like `clazz`, `cls`, `click`, `scroll`, and `longclick`), wildcard matching via `*`, and advanced regular expression matching wrapped in slashes (with support for flags like case-insensitivity and proper escaping).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/65a580e3_input_scroll.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/input_swipe\" target=\"_blank\">android input swipe</a>",
+        "path": "tools/agents/android-cli/commands/input_swipe.md",
+        "summary": "The `input_swipe.md` documentation has been updated to include expanded selector syntax and matching capabilities. It now supports alternative aliases for class and boolean fields (e.g., `clazz`, `cls`, `click`, `scroll`), colon-separated key-value pairs, wildcard matching with `txt=*`, and regular expression support wrapped in slashes with case-insensitivity flags and escaping. These additions provide greater flexibility and precision when targeting UI elements for swipe actions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/65a580e3_input_swipe.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/input_tap\" target=\"_blank\">android input tap</a>",
+        "path": "tools/agents/android-cli/commands/input_tap.md",
+        "summary": "Updated the `input tap` command documentation to include support for alternative key-value separators (colons), new aliases for class and boolean selector fields, wildcard matching (`*`), and regular expression matching wrapped in slashes with case-insensitivity and escaping options. These additions provide greater flexibility and precision when targeting UI elements with selectors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/65a580e3_input_tap.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/input_text\" target=\"_blank\">android input text</a>",
+        "path": "tools/agents/android-cli/commands/input_text.md",
+        "summary": "The documentation for the `input_text` command was updated to include expanded selector syntax options, such as alternative key aliases (`clazz`, `cls`, `click`, `scroll`, `longclick`), support for colons as key-value separators, and advanced matching rules including wildcard matching (`txt=*`) and regular expression support using slash wrappers with flags (e.g., case-insensitivity).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/65a580e3_input_text.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/install\" target=\"_blank\">android install</a>",
+        "path": "tools/agents/android-cli/commands/install.md",
+        "summary": "Updated the `android install` command documentation to support positional arguments like build references (`[system://][path]?[target]`) and build arguments (`-- <build_args>`). This allows users to build and deploy directly from source in addition to installing pre-built APKs. Additionally, the documentation reflects a flag change from `--no-delta` to `--use-delta-install=false` and adds new examples demonstrating how to build and install using Gradle workspace paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/65a580e3_install.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/preview\" target=\"_blank\">android preview</a>",
+        "path": "tools/agents/android-cli/commands/preview.md",
+        "summary": "Introduces the new `android preview` command documentation, which allows developers to list and headlessly render Jetpack Compose @Preview functions to PNG images and JSON component trees without needing a device or Android Studio.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/preview_list\" target=\"_blank\">android preview list</a>",
+        "path": "tools/agents/android-cli/commands/preview_list.md",
+        "summary": "Introduces documentation for the `android preview list` CLI command, which scans targets and workspaces for Jetpack Compose @Preview functions. This enables developers and agents to programmatically discover UI previews in text or JSON formats.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/preview_render\" target=\"_blank\">android preview render</a>",
+        "path": "tools/agents/android-cli/commands/preview_render.md",
+        "summary": "Added documentation for the new 'android preview render' CLI command, which allows developers to build targets and render Jetpack Compose @Preview functions to PNG images and optional component tree JSON files.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler\" target=\"_blank\">android profiler</a>",
+        "path": "tools/agents/android-cli/commands/profiler.md",
+        "summary": "Added documentation for the new 'android profiler' CLI command, which enables developers to profile Android apps and devices by capturing heap dumps, managing profiling sessions, and generating system traces.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler_heapdump\" target=\"_blank\">android profiler heapdump</a>",
+        "path": "tools/agents/android-cli/commands/profiler_heapdump.md",
+        "summary": "This new documentation page introduces the Android CLI command for capturing JVM heap dump snapshots to analyze memory usage and debug memory leaks in debuggable apps running on API 29+ devices.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler_heapdump_capture\" target=\"_blank\">android profiler heapdump capture</a>",
+        "path": "tools/agents/android-cli/commands/profiler_heapdump_capture.md",
+        "summary": "This new documentation introduces the `android profiler heapdump capture` command, which allows developers to capture JVM heap snapshots from the Android CLI for memory analysis. It outlines the command usage, options like garbage collection and timeouts, and provides practical examples for debugging apps on API 29+ devices.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler_session\" target=\"_blank\">android profiler session</a>",
+        "path": "tools/agents/android-cli/commands/profiler_session.md",
+        "summary": "This new documentation introduces the `android profiler session` command, enabling developers to manage, query, and terminate profiling sessions via the Android CLI. It matters because it provides streamlined command-line control over app performance profiling workflows.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler_session_list\" target=\"_blank\">android profiler session list</a>",
+        "path": "tools/agents/android-cli/commands/profiler_session_list.md",
+        "summary": "This new documentation page introduces the `android profiler session list` command for the Android CLI, enabling developers to view active, terminated, and failed profiling sessions.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler_session_status\" target=\"_blank\">android profiler session status</a>",
+        "path": "tools/agents/android-cli/commands/profiler_session_status.md",
+        "summary": "This new documentation page introduces the 'android profiler session status' CLI command, allowing developers to query the status of active profiling sessions using specific device and session parameters.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler_session_terminate\" target=\"_blank\">android profiler session terminate</a>",
+        "path": "tools/agents/android-cli/commands/profiler_session_terminate.md",
+        "summary": "Added documentation for the `android profiler session terminate` command, which allows developers to end an active profiling session and restore the target device via the Android CLI.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace\" target=\"_blank\">android profiler systemtrace</a>",
+        "path": "tools/agents/android-cli/commands/profiler_systemtrace.md",
+        "summary": "Added documentation for the `android profiler systemtrace` command, which enables developers to capture system-wide performance data like CPU scheduling and frame lifecycles into Perfetto trace files via the Android CLI.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace_prepare\" target=\"_blank\">android profiler systemtrace prepare</a>",
+        "path": "tools/agents/android-cli/commands/profiler_systemtrace_prepare.md",
+        "summary": "This new documentation introduces the `android profiler systemtrace prepare` command, which allows developers to configure and prepare a device and app for system trace profiling without immediately starting the recording.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace_start\" target=\"_blank\">android profiler systemtrace start</a>",
+        "path": "tools/agents/android-cli/commands/profiler_systemtrace_start.md",
+        "summary": "Added documentation for the `android profiler systemtrace start` command, detailing how to initiate system trace recordings with configurable presets, packages, and options via the Android CLI.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace_stop\" target=\"_blank\">android profiler systemtrace stop</a>",
+        "path": "tools/agents/android-cli/commands/profiler_systemtrace_stop.md",
+        "summary": "Added documentation for the `android profiler systemtrace stop` CLI command, explaining how to stop trace recordings, pull artifacts from devices, and manage persistent debugging sessions.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/run\" target=\"_blank\">android run</a>",
+        "path": "tools/agents/android-cli/commands/run.md",
+        "summary": "The documentation for the `android run` command has been updated to include support for positional arguments like `<apks_or_reference>` and `-- <build_args>`. This allows users to build and deploy directly from source using build references (such as `:app` or path-based references) and pass verbatim arguments to the underlying build system, expanding the command's capability beyond deploying pre-built APKs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/65a580e3_run.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals\" target=\"_blank\">android signals</a>",
+        "path": "tools/agents/android-cli/commands/signals.md",
+        "summary": "This new documentation page introduces the `android signals` command set, enabling developers to query app stability and field telemetry from Firebase Crashlytics directly from the terminal. It matters because it provides a streamlined CLI workflow for investigating crashes, ANRs, and low-memory heap dumps without leaving the command line.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_context\" target=\"_blank\">android signals context</a>",
+        "path": "tools/agents/android-cli/commands/signals_context.md",
+        "summary": "Introduces the new `android signals context` CLI command documentation, which allows developers to list accessible Firebase Crashlytics projects and apps required for configuring signals commands.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_crashes\" target=\"_blank\">android signals crashes</a>",
+        "path": "tools/agents/android-cli/commands/signals_crashes.md",
+        "summary": "Added documentation for the new 'android signals crashes' command line interface, enabling developers to list, describe, and analyze field-reported crashes, ANRs, and non-fatal issues via Crashlytics.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_describe\" target=\"_blank\">android signals crashes describe</a>",
+        "path": "tools/agents/android-cli/commands/signals_crashes_describe.md",
+        "summary": "Added documentation for the new 'android signals crashes describe' CLI command, which allows developers to retrieve detailed metadata, stack traces, distributions, and logs for specific crash issue clusters.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_facets\" target=\"_blank\">android signals crashes facets</a>",
+        "path": "tools/agents/android-cli/commands/signals_crashes_facets.md",
+        "summary": "Added documentation for the new `android signals crashes facets` CLI command, which breaks down app crash and ANR event counts across dimensions like app version, API level, and device.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_list\" target=\"_blank\">android signals crashes list</a>",
+        "path": "tools/agents/android-cli/commands/signals_crashes_list.md",
+        "summary": "Added documentation for the `android signals crashes list` command, which allows developers to list and filter field-reported crash, ANR, and non-fatal issue clusters using the Android CLI.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_samples\" target=\"_blank\">android signals crashes samples</a>",
+        "path": "tools/agents/android-cli/commands/signals_crashes_samples.md",
+        "summary": "Added documentation for the new 'android signals crashes samples' CLI command, which allows developers to list individual crash events for an issue cluster with filtering options like device, API level, and timeframe.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_heaps\" target=\"_blank\">android signals heaps</a>",
+        "path": "tools/agents/android-cli/commands/signals_heaps.md",
+        "summary": "Added documentation for the new 'android signals heaps' command, enabling developers to list, describe, and download low-memory heap dumps from Crashlytics for memory profiling.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_describe\" target=\"_blank\">android signals heaps describe</a>",
+        "path": "tools/agents/android-cli/commands/signals_heaps_describe.md",
+        "summary": "Added documentation for the 'android signals heaps describe' command, which provides detailed metadata, custom keys, and logs for a specific Crashlytics heap dump via the Android CLI.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_download\" target=\"_blank\">android signals heaps download</a>",
+        "path": "tools/agents/android-cli/commands/signals_heaps_download.md",
+        "summary": "This new documentation page explains how to use the Android CLI command to download low-memory heap dumps as Perfetto traces from Cloud Storage. It matters because it enables developers to easily retrieve and analyze memory diagnostics for troubleshooting.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_list\" target=\"_blank\">android signals heaps list</a>",
+        "path": "tools/agents/android-cli/commands/signals_heaps_list.md",
+        "summary": "Added documentation for the `android signals heaps list` command, which allows developers to list and filter heap dumps collected from low-memory events via the Android CLI.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/studio_render-compose-preview\" target=\"_blank\">android studio render-compose-preview</a>",
+        "path": "tools/agents/android-cli/commands/studio_render-compose-preview.md",
+        "summary": "Added documentation for the new `--verbose` (`-v`) flag in the `studio_render-compose-preview` command. This addition explains how developers and AI agents can access full error details and stack traces when a Compose preview fails to render, improving troubleshooting capabilities.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/65a580e3_studio_render-compose-preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/release-notes\" target=\"_blank\">Release notes for Android CLI</a>",
+        "path": "tools/agents/android-cli/release-notes.md",
+        "summary": "Android CLI Version 1.1.16717390 introduces powerful new features including field crash signals and heap dumps integration with Firebase Crashlytics, app profiling tools, build artifact analysis, headless Jetpack Compose preview rendering, build target references for run and install commands, and a device mirroring window via the device hub.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/65a580e3_release-notes.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-24T15:09:54Z",
     "commit_hash": "255baa44",
     "entries": [

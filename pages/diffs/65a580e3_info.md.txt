@@ -1,0 +1,24 @@
+diff --git a/docs/tools/agents/android-cli/commands/info.md b/docs/tools/agents/android-cli/commands/info.md
+index 1a44ed06..7408fb53 100644
+--- a/docs/tools/agents/android-cli/commands/info.md
++++ b/docs/tools/agents/android-cli/commands/info.md
+@@ -4,8 +4,8 @@ url: https://developer.android.com/tools/agents/android-cli/commands/info
+ source: md.txt
+ ---
+ 
+-Prints environment information including SDK location, connected devices, and
+-configuration variables.
++Prints environment information including SDK location and configuration
++variables.
+ 
+ ## Usage
+ 
+@@ -23,7 +23,7 @@ configuration variables.
+ 
+ ## Positional arguments
+ 
+-- `<field>` - The specific field to print the value of. If omitted, prints all fields.
++- `<field>` - The specific field to print the value of (sdk, version, launcher_version). If omitted, prints all fields.
+ 
+ ## Description
+ 
