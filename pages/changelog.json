@@ -1,5 +1,59 @@
 [
   {
+    "date": "2026-10-26T15:33:40Z",
+    "commit_hash": "2564553d",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/SwipeToRevealSample.kt\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/wear/wear-compose-m3/references/material3/SwipeToRevealSample.kt.md",
+        "summary": "Fixed compilation errors and syntax typos in the SwipeToReveal sample code documentation for Wear Compose M3. This includes correcting function and state names (such as rememberTransformingLazyColumnState), fixing lambda syntax (-> instead of -), restoring missing boolean operators (&&), and correcting generic type declarations (mutableStateListOf<String>).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2564553d_SwipeToRevealSample.kt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models\" target=\"_blank\">Add 3D models to your app</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-3d-models.md",
+        "summary": "The changes in the add-3d-models.md documentation introduce artifact syntax errors and corrupted code snippets within the Kotlin code examples for loading glTF models using the Jetpack XR SDK. These unintended modifications break the validity of the code blocks, which matters because developers relying on the documentation will encounter compilation and syntax errors when copying the snippets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2564553d_add-3d-models.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/watch\" target=\"_blank\">Engage SDK Watch: Third-party technical integration instructions</a>",
+        "path": "guide/playcore/engage/watch.md",
+        "summary": "Updated the Play Core Engage documentation for watch content types (movies, TV shows, seasons, episodes, live videos, and short-form videos) to clarify attribute requirements across mobile and Google TV platforms. Notable changes include making general playback URIs 'Required for mobile', introducing 'Platform specific playback URIs' as required for Google TV, relaxing several fields from required to optional (such as Availability, Genre, Broadcaster, and Creator), and adding new specific requirements for Google TV Continue Watching on episodes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2564553d_watch.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/resources/animation-resource\" target=\"_blank\">Animation resources</a>",
+        "path": "guide/topics/resources/animation-resource.md",
+        "summary": "The changes in the animation resource documentation primarily consist of corrupted XML code blocks, accidental deletions of element reference documentation, and malformed HTML tags. Since these edits represent document degradation rather than informative updates, the changes are filtered out.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2564553d_animation-resource.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/latest-updates\" target=\"_blank\">Android latest updates</a>",
+        "path": "latest-updates.md",
+        "summary": "The Android Studio preview updates section has been updated to reflect the transition from Canary to RC builds, specifically documenting Rabbit 2 (2026.2.2 RC 2) released on October 26, 2026, replacing the previous Canary reference. This matters for developers tracking the latest stable release candidate milestones for Android Studio.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2564553d_latest-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/session/control-playback\" target=\"_blank\">Control and advertise playback using a MediaSession</a>",
+        "path": "media/media3/session/control-playback.md",
+        "summary": "Updated documentation for Media3 control-playback to reflect API changes, including the shift from `onConnect()` to `onConnectAsync()`, updates to `MediaItem` property names, error handling method updates (`getPlayerError`), and general updates to include references to Gemini alongside Google Assistant.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2564553d_control-playback.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-25T15:10:14Z",
     "commit_hash": "65a580e3",
     "entries": [
