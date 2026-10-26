@@ -47,9 +47,9 @@ fun AppBarSelectionActions(
                 }
             }
         },
-        modifier = modifier
+     er = modifier
     )
-}
+}AppBar.kt
 ```
 
 <br />

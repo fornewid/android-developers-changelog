@@ -59,9 +59,7 @@ The following code creates an icon button with default characteristics:
 @Composable
 fun IconButtonSample() {
     IconButton(onClick = { /* Handle action */ }) {
-        Icon(FavoriteIcon, contentDescription = "Localized description")
-    }
-}
+        Icon(FavoriteIcon, contentDescription = "Localized description"Samples.kt
 ```
 
 <br />

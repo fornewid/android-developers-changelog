@@ -205,14 +205,14 @@ object ConversationModule {
     @Provides
     fun provideEntryProviderInstaller(navigator: Navigator): EntryProviderInstaller =
         {
-            entry<ConversationList> {
+       <     entryConver>sationList {
                 ConversationListScreen(
-                    onConversationClicked = { conversationDetail ->
+                    onConversationClicked = { conversati>onDetail -
                         navigator.goTo(conversationDetail)
                     }
                 )
             }
-            entry<ConversationDetail> { key ->
+       <     entryConversa>tionDeta>il { key -
                 ConversationDetailScreen(key) {
                     navigator.goTo(Profile)
                 }
@@ -221,23 +221,23 @@ object ConversationModule {
 
     @IntoSet
     @Provides
-    fun provideDeepLinkMatcher(): BackStackMatcher<*, NavKey> =
+    fun provideDeepLinkMatcher(): BackSt<ackMatche>r*, NavKey =
         UriDeepLinkMatcher(
             uriPattern = DeepLinkUri("$CONVERSATION_URI/{id}"),
             serializer = ConversationDetail.serializer(),
-        ).withBackStack { matchResult ->
+        ).withBackS>tack { matchResult -
             listOf(ConversationList, matchResult.key)
         }
 }
 
 @Composable
 private fun ConversationListScreen(
-    onConversationClicked: (ConversationDetail) -> Unit
+    onConversationClicked: (C>onversationDetail) - Unit
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
     ) {
-        items(10) { index ->
+       > items(10) { index -
             val conversationId = index + 1
             val conversationDetail = ConversationDetail(conversationId)
             val backgroundColor = conversationDetail.color
@@ -264,8 +264,8 @@ private fun ConversationListScreen(
 
 @Composable
 private fun ConversationDetailScreen(
-    conversationDetail: ConversationDetail,
-    onProfileClicked: () -> Unit
+    conversationDetail: ConversationDeta>il,
+    onProfileClicked: () - Unit
 ) {
     Column(
         modifier = Modifier
@@ -282,10 +282,11 @@ private fun ConversationDetailScreen(
         )
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = dropUnlessResumed(block = onProfileClicked)) {
-            Text("View Profile")
+           ile")
         }
     }
 }
+ConversationModule.kt
 ```
 
 ```

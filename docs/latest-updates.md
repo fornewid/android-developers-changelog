@@ -130,11 +130,11 @@ The latest updated popular libraries. [See all Jetpack library updates](https://
 
 ## ![](https://developer.android.com/static/images/logos/android-studio.svg) Android Studio
 
-Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio) Canary
+Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio) RC
 
-### [Rabbit 3 \| 2026.2.3 Canary 1](https://developer.android.com/studio/preview)
+### [Rabbit 2 \| 2026.2.2 RC 2](https://developer.android.com/studio/preview)
 
-October 22, 2026 Stable
+October 26, 2026 Stable
 
 ### [Rabbit 1 \| 2026.2.1](https://developer.android.com/studio/releases)
 

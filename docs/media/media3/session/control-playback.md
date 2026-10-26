@@ -12,16 +12,16 @@ external sources.
 
 Commands may originate from physical buttons such as the play button on a
 headset or TV remote control. They might also come from client apps that have a
-media controller, such as instructing "pause" to Google Assistant. The media
-session delegates these commands to the media app's player.
+media controller, such as instructing "pause" to AI assistants, including
+Gemini, or Google Assistant. The media session delegates these commands to the
+media app's player.
 
 ## When to choose a media session
 
 When you implement `MediaSession`, you allow users to control playback:
 
 - Through their **headphones**. There are often buttons or touch interactions a user can perform on their headphones to play or pause media or go to the next or previous track.
-- By talking to the **Google Assistant** . A common pattern is to say *"OK
-  Google, pause"* to pause any media that is currently playing on the device.
+- By talking to **AI assistants** , including Gemini, or Google Assistant. A common pattern is to say *"Hey Google, pause"* to pause any media that is currently playing on the device.
 - Through their **Wear OS watch**. This allows for easier access to the most common playback controls while playing on their phone.
 - Through the **Media controls**. This carousel shows controls for each running media session.
 - On **TV**. Allows actions with physical playback buttons, platform playback control, and power management (for example if the TV, soundbar or A/V receiver switches off or the input is switched, playback should stop in the app).
@@ -113,25 +113,23 @@ The media session is the key to controlling playback. It enables you to route
 commands from external sources to the player that does the work of playing your
 media. These sources can be physical buttons such as the play button on a
 headset or TV remote control, or indirect commands such as instructing "pause"
-to Google Assistant. Likewise, you may wish to grant access to the Android
-system to facilitate notification and lock screen controls, or to a Wear OS
-watch so that you can control playback from the watchface. External clients can
-use a media controller to issue playback commands to your media app. These are
-received by your media session, which ultimately delegates commands to the
-media player.
-![A diagram demonstrating the interaction between a MediaSession and MediaController.](https://developer.android.com/static/guide/topics/media/images/backgroundcontrols.png) **Figure 1**: The media controller facilitates passing commands from external sources to the media session.
+to Gemini or Google Assistant. Likewise, you might want to grant access to the
+Android system for notification and lock screen controls, or to a Wear OS watch
+so that you can control playback from the watchface. External clients can use a
+media controller to issue playback commands to your media app. Your media
+session receives these commands and delegates them to the media player.
+![Interaction between a MediaSession and MediaController.](https://developer.android.com/static/media/images/backgroundcontrols.png) **Figure 1**: The media controller facilitates passing commands from external sources to the media session.
 
 > [!NOTE]
 > **Note:** When playing media in the background, your MediaSession and the player need to be housed within a `MediaSessionService` or `MediaLibraryService` that runs as a foreground service. For more information, see [Background
-> playback with a `MediaSessionService`](https://developer.android.com/guide/topics/media/session/mediasessionservice).
+> playback with a `MediaSessionService`](https://developer.android.com/media/media3/session/background-playback).
 
-When a controller is about to connect to your media session, the
-[`onConnect()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onConnect(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo))
-method is called. You can use the provided [`ControllerInfo`](https://developer.android.com/reference/androidx/media3/session/MediaSession.ControllerInfo)
-to decide whether to [accept](https://developer.android.com/reference/androidx/media3/session/MediaSession.ConnectionResult#accept(androidx.media3.session.SessionCommands,androidx.media3.common.Player.Commands))
-or [reject](https://developer.android.com/reference/androidx/media3/session/MediaSession.ConnectionResult#reject())
-the request. See an example of accepting a connection request in the [Declare
-custom commands](https://developer.android.com/media/media3/session/control-playback#available-commands) section.
+When a controller is about to connect to your media session, the session calls
+[`onConnectAsync()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onConnectAsync(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo)). You can use the provided
+[`ControllerInfo`](https://developer.android.com/reference/androidx/media3/session/MediaSession.ControllerInfo) to decide whether to
+[accept](https://developer.android.com/reference/androidx/media3/session/MediaSession.ConnectionResult#accept(androidx.media3.session.SessionCommands,androidx.media3.common.Player.Commands)) or [reject](https://developer.android.com/reference/androidx/media3/session/MediaSession.ConnectionResult#reject()) the request. For an
+example of accepting a connection request, see
+[Declare and handle custom commands](https://developer.android.com/media/media3/session/control-playback#available-commands).
 
 After connecting, a controller can send playback commands to the session. The
 session then delegates those commands down to the player. Playback and playlist
@@ -146,38 +144,34 @@ respond to each request on a per-controller basis.
 ## Modify the playlist
 
 A media session can directly modify the playlist of its player as explained in
-the
-[ExoPlayer guide for playlists](https://developer.android.com/guide/topics/media/exoplayer/playlists#modifying-playlist).
+the [ExoPlayer guide for playlists](https://developer.android.com/media/media3/exoplayer/playlists#modifying-playlist).
 Controllers are also able to modify the playlist if either
 `COMMAND_SET_MEDIA_ITEM` or `COMMAND_CHANGE_MEDIA_ITEMS` is available to the
 controller.
 
 When adding new items to the playlist, the player typically requires `MediaItem`
-instances with a
-[defined URI](https://developer.android.com/reference/androidx/media3/common/MediaItem.Builder#setUri(java.lang.String))
-to make them playable. By default, newly added items are automatically forwarded
-to player methods like `player.addMediaItem` if they have a URI defined.
+instances with a [defined URI](https://developer.android.com/reference/androidx/media3/common/MediaItem.Builder#setUri(java.lang.String)) to make them playable. By
+default, newly added items are automatically forwarded to player methods like
+`player.addMediaItem` if they have a URI defined.
 
 If you want to customize the `MediaItem` instances added to the player, you can
-override
-[`onAddMediaItems()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onAddMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E)).
-This step is needed when you want to support controllers that request media
-without a defined URI. Instead, the `MediaItem` typically has
-one or more of the following fields set to describe the requested media:
+override [`onAddMediaItems()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onAddMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E)). This step is needed when you
+want to support controllers that request media without a defined URI. Instead,
+the `MediaItem` typically has one or more of the following fields set to
+describe the requested media:
 
-- `MediaItem.id`: A generic ID identifying the media.
+- `MediaItem.mediaId`: A generic ID identifying the media.
 - `MediaItem.RequestMetadata.mediaUri`: A request URI that may use a custom schema and is not necessarily directly playable by the player.
-- `MediaItem.RequestMetadata.searchQuery`: A textual search query, for example from Google Assistant.
-- `MediaItem.MediaMetadata`: Structured metadata like 'title' or 'artist'.
+- `MediaItem.RequestMetadata.searchQuery`: A textual search query, for example from Gemini or Google Assistant.
+- `MediaItem.mediaMetadata`: Structured metadata like 'title' or 'artist'.
 
 For more customization options for completely new playlists, you can
-additionally override
-[`onSetMediaItems()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onSetMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E,int,long))
-that lets you define the start item and position in the playlist. For example,
-you can expand a single requested item to an entire playlist and instruct the
-player to start at the index of the originally requested item. A
-[sample implementation of `onSetMediaItems()`](https://github.com/androidx/media/blob/4bcb60d31d8c8996a93c6703ee934f62a50a837a/demos/session_service/src/main/java/androidx/media3/demo/session/DemoMediaLibrarySessionCallback.kt#L163)
-with this feature can be found in the session demo app.
+additionally override [`onSetMediaItems()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onSetMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E,int,long)), which lets you
+define the start item and position in the playlist. For example, you can expand
+a single requested item to an entire playlist and instruct the player to start
+at the index of the originally requested item. For a
+[sample implementation of `onSetMediaItems()`](https://github.com/androidx/media/blob/4bcb60d31d8c8996a93c6703ee934f62a50a837a/demos/session_service/src/main/java/androidx/media3/demo/session/DemoMediaLibrarySessionCallback.kt#L163) with
+this feature, see the session demo app.
 
 ## Manage media button preferences
 
@@ -236,8 +230,8 @@ constraints.
 
 The easiest way to set the media button preferences is to define the list when
 building the `MediaSession`. Alternatively, you can override
-`MediaSession.Callback.onConnect` to customize the media button preferences for
-each connected controller.
+`MediaSession.Callback.onConnectAsync()` to customize the media button
+preferences for each connected controller.
 
 
 ### Kotlin
@@ -304,8 +298,8 @@ favorite items. The `MediaController` sends custom commands and the
 > **Caution:** You must implement custom commands as a completely new behavior. Don't use a custom command to replace one of the standard controls defined in the `Player` interface.
 
 To define custom commands, you need to override
-`MediaSession.Callback.onConnect()` to set the available custom commands for
-each connected controller.
+`MediaSession.Callback.onConnectAsync()` to set the available custom commands
+for each connected controller.
 
 
 ### Kotlin
@@ -443,8 +437,7 @@ MediaSession mediaSession = new MediaSession.Builder(context, forwardingPlayer).
 <br />
 
 For more information about `ForwardingSimpleBasePlayer`, see the ExoPlayer guide
-on
-[Customization](https://developer.android.com/guide/topics/media/exoplayer/customization#player-operations).
+on [Customization](https://developer.android.com/media/media3/exoplayer/customization#player-operations).
 
 ### Identify the requesting controller of a player command
 
@@ -505,7 +498,8 @@ appropriate `Player` method on the [session player](https://developer.android.co
 
 It is recommended to handle all incoming media button events in the
 corresponding `Player` method. For more advanced use cases, the media button
-events can be intercepted in `MediaSession.Callback.onMediaButtonEvent(Intent)`.
+events can be intercepted in
+[`MediaSession.Callback.onMediaButtonEvent()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onMediaButtonEvent(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,android.content.Intent)).
 
 ## Error handling and reporting
 
@@ -524,9 +518,9 @@ reported to controllers to call through
 `Player.Listener.onPlayerErrorChanged(@Nullable PlaybackException)`.
 
 In such a case, the playback state is transitioned to `STATE_IDLE` and
-`MediaController.getPlaybackError()` returns the `PlaybackException` that caused
-the transition. A controller can inspect the `PlayerException.errorCode` to get
-information about the reason for the error.
+`MediaController.getPlayerError()` returns the `PlaybackException` that caused
+the transition. A controller can inspect the `PlaybackException.errorCode` to
+get information about the reason for the error.
 
 > [!NOTE]
 > **Note:** For interoperability, a fatal error is replicated to the platform session by transitioning its state to `STATE_ERROR` and setting error code and message according to the `PlaybackException`.
@@ -572,7 +566,7 @@ player state reporting, an app can call
 
 To provide localized and meaningful information to the user, you can customize
 the error code, the error message, and error extras of a fatal playback error
-coming from the actual player. It can be achieved by using a `ForwardingPlayer`
+coming from the actual player. To do this, use a `ForwardingSimpleBasePlayer`
 when building the session:
 
 
@@ -591,9 +585,10 @@ MediaSession session =
 
 <br />
 
-The forwarding player can use `ForwardingSimpleBasePlayer` to intercept the
-error and customize the error code, message or extras. In the same way, you can
-also generate new errors that don't exist in the original player:
+Your `ForwardingSimpleBasePlayer` subclass can override `getState()` to
+intercept the error and customize the error code, message, or extras. In the
+same way, you can also generate new errors that don't exist in the original
+player:
 
 
 ### Kotlin

@@ -53,17 +53,17 @@ in the following example:
 ```xml
 <service android:name=".rich.RichTvInputService"
     android:label="@string/rich_input_label"
-    android:permission="android.permission.BIND_TV_INPUT">
-    <!-- Required filter used by the system to launch our account service. -->
-    <intent-filter>
-        <action android:name="android.media.tv.TvInputService" />
-    </intent-filter>
-    <!-- An XML file which describes this input. This provides pointers to
-    the RichTvInputSetupActivity to the system/TV app. -->
-    <meta-data
+    android:permission="android.>permi<ssion.BIND_TV_INPUT"
+    !-- Required filter used by the system to >launc<h our account> service.< --
+    intent-filter
+        action android:name=">;andr<oid.media.tv.T>vInpu<tService" /
+    /intent-filter
+    !-- An XML file which describes this input. This provides pointers to
+    the RichTvInp>utSet<upActivity to the system/TV app. --
+    meta-data
         android:name="android.media.tv.input"
-        android:resource="@xml/richtvinputservice" />
-</service>
+  > <     android:resource="@xml/richtvinputservice" /
+/service
 ```
 
 Define the service metadata in a separate XML file. The service
@@ -80,10 +80,10 @@ create the XML file at `res/xml/richtvinputservice.xml`, with the
 following contents:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<tv-input xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encodin>g<="utf-8"?
+tv-input xmlns:android="http://schemas.android.com/apk/res/android"
   android:canRecord="true"
-  android:setupActivity="com.example.android.sampletvinput.rich.RichTvInputSetupActivity" />
+  android:setupActivity="com.example.android.s>ampletvinput.rich.RichTvInputSetupActivity" /
 ```
 
 ### Define channels and create your setup activity
@@ -99,8 +99,8 @@ to the user. To enable your app to perform these actions, and sync with the
 EPG after device restart, add the following elements to your app manifest:
 
 ```xml
-<uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DATA" />
-<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED "/>
+<uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DA>T<A" /
+uses-permission android:name="android.permission.RECEIVE_BO>OT_COMPLETED "/
 ```
 
 Add the following element to ensure that your app shows up in the
@@ -109,7 +109,7 @@ Google Play Store as an app that provides content channels in Android TV:
 ```xml
 <uses-feature
     android:name="android.software.live_tv"
-    android:required="true" />
+    android:require>d="true" /
 ```
 
 Next, create a class which extends the `EpgSyncJobService`
@@ -141,7 +141,7 @@ After you've implemented the job service, add it to your app manifest:
 <service
     android:name=".sync.SampleJobService"
     android:permission="android.permission.BIND_JOB_SERVICE"
-    android:exported="true" />
+    andro>id:exported="true" /
 ```
 
 Finally, create a setup activity. Your setup activity should provide a way

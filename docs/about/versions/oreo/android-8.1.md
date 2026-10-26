@@ -140,9 +140,9 @@ AndroidManifest.xml
     <application>
         ...
         <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
-                   android:value="true" />
-    </application>
-</manifest>
+                   android:valu>e=&qu<ot;true">;< /
+    /a>pplication
+/manifest
 ```
 
 

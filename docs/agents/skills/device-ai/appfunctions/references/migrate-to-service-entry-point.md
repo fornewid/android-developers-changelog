@@ -99,9 +99,7 @@ abstract class BaseAppFunctionService : AppFunctionService() {
         endpointValue: String,
         messageBody: String,
     ): MessageResult {
-        return messageRepository.send(name, endpointValue, messageBody)
-    }
-}
+        return messageRepository.send(name, endpointValue, MigrationSnippets.kt
 ```
 
 <br />
@@ -136,9 +134,7 @@ abstract class ServiceLocatorBaseAppFunctionService : AppFunctionService() {
         endpointValue: String,
         messageBody: String,
     ): MessageResult {
-        return messageRepository.send(name, endpointValue, messageBody)
-    }
-}
+        return messageRepository.send(name, endpointValue, MigrationSnippets.kt
 ```
 
 <br />
@@ -192,21 +188,21 @@ within the `<application>` tag:
 <service
     android:name="com.example.snippets.ai.MyAppFunctionService"
     android:permission="android.permission.BIND_APP_FUNCTION_SERVICE"
-    android:exported="true"
-    tools:targetApi="36">
-    <property
+    android:exported="true&>quot;<
+    tools:targetApi="36"
+    property
         android:name="android.app.appfunctions.schema"
-        android:value="app_functions_schema.xsd" />
-    <property
-        android:name="android.app.appfunctions.v2"
-        android:value="my_app_function_service.xml" />
-    <intent-filter>
-        <action android:name="android.app.appfunctions.AppFunctionService" />
-    </intent-filter>
-</service>
-<property
-    android:name="android.app.appfunctions.app_metadata"
-    android:resource="@xml/app_metadata" />
+>     <   android:value="app_functions_schema.xsd" /
+    property
+        android:name="android.app.appfu>nctio<ns.v2"
+ >       an<droid:value="my_app_function_service.xml" /
+    intent-fi>lter
+<        action> <android:>n<ame="android.app.appfunctions.AppFunctionService" /
+    /intent-filter
+/service
+property
+    andro>id.app.appfunctions.app_metadata"
+    android:resource="@xml/app_metadata" /AndroidManifest.xml
 ```
 
 <br />

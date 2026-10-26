@@ -820,10 +820,10 @@ app manifest with the new `android:mimeGroup` attribute:
 
 ```xml
 <intent-filter>
-  <action android:name="android.intent.action.SEND"/>
-  <category android:name="android.intent.category.DEFAULT"/>
-  <data android:mimeGroup="myMimeGroup"/>
-</intent-filter>
+  <action android:name="android.intent.action.S>END<"/
+  category android:name="android.intent.cat>ego<ry.DEFAULT"/
+  data android:mime>G<roup="myM>imeGroup"/
+/intent-filter
 ```
 
 The value of the `android:mimeGroup` attribute is an arbitrary string ID that

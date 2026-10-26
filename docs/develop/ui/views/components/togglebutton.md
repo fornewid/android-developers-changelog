@@ -17,19 +17,19 @@ Components](https://m3.material.io/develop/android/mdc-android) library:
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="match>_paren<t"
+        android:padding="16dp"
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
+        com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/material_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/material_switch"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+         >  < app:layout_constraintStart_toStartOf=">;parent&quot;
+            app:layout_constraintTop_toTopOf="parent" /
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    /androidx.constraintlayout.widget.ConstraintLayout
 
 Legacy apps might still use the older
 [`SwitchCompat`](https://developer.android.com/reference/androidx/appcompat/widget/SwitchCompat) AppCompat
@@ -38,19 +38,19 @@ component, as shown in the following example:
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="match>_paren<t"
+        android:padding="16dp"
 
-        <androidx.appcompat.widget.SwitchCompat
+        androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchcompat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/switchcompat"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+         >  < app:layout_constraintStart_toStartOf=">;parent&quot;
+            app:layout_constraintTop_toTopOf="parent" /
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    /androidx.constraintlayout.widget.ConstraintLayout
 
 The following example shows
 [`AppCompatToggleButton`](https://developer.android.com/reference/androidx/appcompat/widget/AppCompatToggleButton),
@@ -59,29 +59,29 @@ which is another legacy component that has a noticeably different UI:
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="match>_paren<t"
+        android:padding="16dp"
 
-        <TextView
+        TextView
             android:id="@+id/toggle_button_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/toggle"
             app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintBaseline_toBaselineOf="@id/toggle"
-            android:text="@string/toggle_button" />
+    >      <  app:layout_constraintBaseline_toBaselineOf="@id/toggle"
+            android:text="@string/toggle_button" /
 
-        <androidx.appcompat.widget.AppCompatToggleButton
+        androidx.appcompat.widget.AppCompatToggleButton
             android:id="@+id/toggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/toggle_button_label"
+         >  < app:layout_constraintStart_toEndOf="@>id/toggle_button_label"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"/
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    /androidx.constraintlayout.widget.ConstraintLayout
 
 These three components offer the same behavior but look different. The
 differences between the `SwitchMaterial` and `SwitchCompat` are subtle, but

@@ -42,10 +42,10 @@ fun MultipleStylesInText() {
             withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.Red)) {
                 append("W")
             }
-            append("orld")
+            ap")
         }
     )
-}
+}TextSnippets.kt
 ```
 
 <br />

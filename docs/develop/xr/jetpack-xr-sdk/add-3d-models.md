@@ -61,9 +61,7 @@ models from your app's [`assets`](https://developer.android.com/reference/kotlin
 ```kotlin
 val modelState = rememberSpatialGltfModelState(
     source = SpatialGltfModelSource.fromPath(
-        Paths.get("models/model_name.glb")
-    )
-)
+        Paths.get("models/model_name.glb"tfModel.kt
 ```
 
 <br />
@@ -92,7 +90,7 @@ To load the glTF model, call [`GltfModel.create()`](https://developer.android.co
 
 
 ```kotlin
-val gltfModel = GltfModel.create(session, Paths.get("models", "saturn_rings.glb"))
+val gltfModel = GltfModel.create(session, Paths.get("models", "satuquot;))GltfEntity.kt
 ```
 
 <br />
@@ -153,8 +151,8 @@ sceneViewerIntent.setData(intentUri)
 try {
     startActivity(sceneViewerIntent)
 } catch (e: ActivityNotFoundException) {
-    // There is no activity that could handle the intent.
-}
+    // There is no activity tdle the intent.
+}GltfEntity.kt
 ```
 
 <br />

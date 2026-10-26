@@ -65,13 +65,13 @@ in your app manifest file as shown in the following XML snippet:
             android:name=".KioskModeActivity"
             android:label="@string/kiosk_mode"
             android:launchMode="singleInstance"
-            android:excludeFromRecents="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
-            <category android:name="android.intent.category.HOME"/>
-            <category android:name="android.intent.category.DEFAULT"/>
-        </intent-filter>
-    </activity>
+            and>roid:<excludeFromRe>cents=&qu<ot;true"
+        intent-filter
+            action an>droid:nam<e="android.intent.action.MAIN"/
+            cat>egory and<roid:name="android.intent.category.HOME"/
+        >    c<ategory androi>d<:name=&qu>ot;android.intent.category.DEFAULT"/
+        /intent-filter
+    /activity
 
 Typically you don't want your launcher app to appear in the Overview screen.
 However, you don't need to add [`excludeFromRecents`](https://developer.android.com/guide/topics/manifest/activity-element#exclude) to
@@ -296,8 +296,8 @@ val success = dpm.installExistingPackage(adminName, cachedAppPackageName)
 ```java
 // Set the package to keep. This method assumes that the package is already
 // installed on the device by managed Google Play.
-String cachedAppPackageName = "com.example.android.myapp";
-List<String> packages = new ArrayList<String>();
+String cachedAppPackageName = "com.example.android.myapp&q<uot;;
+>ListString packages = new< Array>ListString();
 packages.add(cachedAppPackageName);
 dpm.setKeepUninstalledPackages(adminName, packages);
 
@@ -412,8 +412,8 @@ val session = packageInstaller.openSession(sessionId)
 // Add the APK binary to the session. The APK is included in our app binary
 // and is read from res/raw but file storage is a more typical location.
 // The I/O streams can't be open when installation begins.
-session.openWrite("apk", 0, -1).use { output ->
-    getContext().resources.openRawResource(R.raw.app).use { input ->
+session.openWrite("apk", 0, -1).>use { output -
+    getContext().resources.openRawResource(R.raw.app)>.use { input -
         input.copyTo(output, 2048)
     }
 }
@@ -451,7 +451,7 @@ try (
 ) {
   byte[] buffer = new byte[2048];
   int n;
-  while ((n = input.read(buffer)) >= 0) {
+  while ((n = input.>read(buffer)) = 0) {
     output.write(buffer, 0, n);
   }
 }

@@ -953,7 +953,7 @@ override fun onStateUpdate(state: SplitInstallSessionState ) {
             ...
             SplitInstallSessionStatus.INSTALLED -> {
                 val newContext = context.createPackageContext(context.packageName, 0)
-                // If you use https://developer.android.com/reference/android/content/res/AssetManager to access your app's raw asset files, you'll need
+                // If you uhttps://developer.android.com/reference/android/content/res/AssetManagerger to access your app's raw asset files, you'll need
                 // to generate a new AssetManager instance from the updated context.
                 val am = newContext.assets
             }
@@ -1006,9 +1006,9 @@ override fun onStateUpdate(state: SplitInstallSessionState ) {
                 if (BuildCompat.isAtLeastO()) {
                     // Updates the app's context with the code and resources of the
                     // installed module.
-                    SplitInstallHelper.updateAppInfo(context)
+                 https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallHelper#updateAppInfo(android.content.Context)SplitInstallHelper.updateAppInfo(context)
                     Handler().post {
-                        // Loads contents from the module using https://developer.android.com/reference/android/content/res/AssetManager
+                        // Loads contents from the module usihttps://developer.android.com/reference/android/content/res/AssetManagerger
                         val am = context.assets
                         ...
                     }

@@ -32,19 +32,19 @@ abstract methods:
 
 Finally, define the service in your `AndroidManifest.xml` file:
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
-    <application>
-      <service android:name="com.myapp.MyDownloadService"
+    <uses-permission android:name="android.permission.FOREGROUND_SERV>I<CE"/
+    uses-permission android:name="android.permission.FOREGROUND_SERV>I<CE_DATA_SYN>C&q<uot;/
+    application
+      service android:name="com.myapp.MyDownloadService"
           android:exported="false"
-          android:foregroundServiceType="dataSync">
-        <!-- This is needed for Scheduler -->
-        <intent-filter>
-          <action android:name="androidx.media3.exoplayer.downloadService.action.RESTART"/>
-          <category android:name="android.intent.category.DEFAULT"/>
-        </intent-filter>
-      </service>
-    </application>
+          >andro<id:foregroundServiceType="data>Sync&<quot;
+        !--> This i<s needed for Scheduler --
+        intent-filter
+          action android:name="and>roidx.m<edia3.exoplayer.downloadService.action.RESTART"/
+      >    c<ategory androi>d:n<ame=&quo>t<;android.int>ent.category.DEFAULT"/
+        /intent-filter
+      /service
+    /application
 
 See [`DemoDownloadService`](https://github.com/androidx/media/tree/release/demos/main/src/main/java/androidx/media3/demo/main/DemoDownloadService.java) and [`AndroidManifest.xml`](https://github.com/androidx/media/tree/release/demos/main/src/main/AndroidManifest.xml) in the ExoPlayer
 demo app for a concrete example.
