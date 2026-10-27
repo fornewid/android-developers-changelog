@@ -1,0 +1,37 @@
+diff --git a/docs/agents/skills/wear/wear-compose-m3/references/material3/TimeTextSample.kt.md b/docs/agents/skills/wear/wear-compose-m3/references/material3/TimeTextSample.kt.md
+index 332fa6a7..2521408e 100644
+--- a/docs/agents/skills/wear/wear-compose-m3/references/material3/TimeTextSample.kt.md
++++ b/docs/agents/skills/wear/wear-compose-m3/references/material3/TimeTextSample.kt.md
+@@ -25,10 +25,14 @@ package androidx.wear.compose.material3.samples
+ 
+ import androidx.annotation.Sampled
+ import androidx.compose.runtime.Composable
++import androidx.compose.runtime.CompositionLocalProvider
++import androidx.compose.runtime.remember
+ import androidx.compose.ui.text.style.TextOverflow
+ import androidx.wear.compose.foundation.CurvedModifier
+ import androidx.wear.compose.foundation.weight
++import androidx.wear.compose.material3.LocalTimeSource
+ import androidx.wear.compose.material3.MaterialTheme
++import androidx.wear.compose.material3.TimeSource
+ import androidx.wear.compose.material3.TimeText
+ import androidx.wear.compose.material3.TimeTextDefaults
+ import androidx.wear.compose.material3.curvedText
+@@ -68,4 +72,16 @@ fun TimeTextWithStatusEllipsized() {
+         timeTextCurvedText(time)
+     }
+ }
++
++@Sampled
++@Composable
++fun TimeTextOverrideTimeSourceForTesting() {
++    val fixedTimeSource = remember {
++        object : TimeSource {
++            @Composable override fun currentTime(): String = "12:34"
++        }
++    }
++
++    CompositionLocalProvider(LocalTimeSource provides fixedTimeSource) { TimeText() }
++}
+ ```
+\ No newline at end of file

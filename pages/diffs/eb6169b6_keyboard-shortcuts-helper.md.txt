@@ -1,0 +1,31 @@
+diff --git a/docs/develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper.md b/docs/develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper.md
+index 78e24897..163f1125 100644
+--- a/docs/develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper.md
++++ b/docs/develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper.md
+@@ -97,9 +97,13 @@ override fun onProvideKeyboardShortcuts(
+                 "Send a message",
+                 KeyEvent.KEYCODE_ENTER,
+                 KeyEvent.META_SHIFT_ON
+-         data?.add(cursorMovement)
++            )
++        )
++    )
++
++    data?.add(cursorMovement)
+     data?.add(messageEdit)
+-}KeyboardShortcutsHelper.kt
++}
+ ```
+ 
+ <br />
+@@ -120,7 +124,8 @@ Button(
+         activity?.requestShowKeyboardShortcuts()
+     }
+ ) {
+-    Text(text = "Show keyboard shortcutsHelper.kt
++    Text(text = "Show keyboard shortcuts")
++}
+ ```
+ 
+ <br />
+\ No newline at end of file

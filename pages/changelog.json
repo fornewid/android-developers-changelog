@@ -1,5 +1,294 @@
 [
   {
+    "date": "2026-10-27T15:11:08Z",
+    "commit_hash": "eb6169b6",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/11/behavior-changes-11\" target=\"_blank\">behavior-changes-11.md</a>",
+        "path": "about/versions/11/behavior-changes-11.md",
+        "summary": "The git diff corrects syntax errors in XML code snippets within the Android 11 behavior changes documentation. Specifically, malformed `<queries>` manifest element examples for text-to-speech (`android.intent.action.TTS_SERVICE`) and speech recognition (`android.speech.RecognitionService`) services were fixed to ensure they are valid and copy-pasteable for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_behavior-changes-11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/11/features\" target=\"_blank\">features.md</a>",
+        "path": "about/versions/11/features.md",
+        "summary": "Fixed syntax errors within the XML intent filter code snippet by properly closing tags and correcting attribute formatting for `android:mimeGroup`. This ensures developers reading the Android 11 documentation copy and paste valid and working manifest configurations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/appfunctions/references/context\" target=\"_blank\">context.md</a>",
+        "path": "agents/skills/device-ai/appfunctions/references/context.md",
+        "summary": "Updated the AppFunctions reference documentation to reflect breaking API changes up to version 1.0.0-beta01. It notes the removal of `AppFunctionConfiguration` and `AppFunctionContext` in version 1.0.0-alpha12, documents the renaming of the `appfn:description` attribute to `appfn:instructions` in `app_metadata.xml`, and updates the service entry point pattern to use `@AppFunctionDeclaration` (changed from `@AppFunction` in version 1.0.0-alpha13) along with conditional Hilt usage for `@AndroidEntryPoint`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_context.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/appfunctions/references/implementation-configuration\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/device-ai/appfunctions/references/implementation-configuration.md",
+        "summary": "Updated the App Functions library documentation for version `1.0.0-beta01` and later. Key changes include renaming the `@AppFunction` annotation to `@AppFunctionDeclaration`, making `isDescribedByKDoc` mandatory with no default value, updating XML metadata attributes (`appfn:instructions` replacing `appfn:description`), and expanding guidelines on parameter naming, update wrappers (`SetField<T>`), error handling, and security restrictions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_implementation-configuration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/appfunctions/references/kdoc-refinement-optimization\" target=\"_blank\">kdoc-refinement-optimization.md</a>",
+        "path": "agents/skills/device-ai/appfunctions/references/kdoc-refinement-optimization.md",
+        "summary": "Updated the AppFunction KDoc and app description guidelines for AI agents and Model Context Protocol. Changes include shifting from imperative verbs to third-person verbs for function descriptions, moving cross-function dependencies into app instructions, removing `@throws` instructions in favor of `AppFunctionException`, introducing new formatting and content constraints (such as avoiding emphasis markup and fluff), and updating attribute names for metadata (transitioning from `appfn:description` to `appfn:instructions`).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_kdoc-refinement-optimization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/references/migration\" target=\"_blank\">migration.md</a>",
+        "path": "agents/skills/device-ai/litert/litert-runtime/references/migration.md",
+        "summary": "Updated the LiteRT migration guide regarding signature execution APIs, emphasizing the use of `List`-based buffer overloads (`createInputBuffers`/`createOutputBuffers`) over `Map`-based overloads. This change matters because using the `Map` overload with the Google Play services runtime in `litert-api` 2.3.0 causes a process-aborting JNI crash, whereas the `List` overload remains safe and compatible across runtimes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_migration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/identity/verified-email/skill\" target=\"_blank\">skill.md</a>",
+        "path": "agents/skills/identity/verified-email/skill.md",
+        "summary": "Updated documentation links to point to the correct URL paths for digital credentials and passkey creation guides within the Android developer documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/TimeTextSample.kt\" target=\"_blank\">TimeTextSample.kt.md</a>",
+        "path": "agents/skills/wear/wear-compose-m3/references/material3/TimeTextSample.kt.md",
+        "summary": "Added a new sample function `TimeTextOverrideTimeSourceForTesting` to demonstrate how to override the `TimeSource` using `LocalTimeSource` and `CompositionLocalProvider`. This is important for developers wanting to test or preview `TimeText` with fixed, predictable time values.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_TimeTextSample.kt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-9-5-0-release-notes\" target=\"_blank\">agp-9-5-0-release-notes.md</a>",
+        "path": "build/releases/agp-9-5-0-release-notes.md",
+        "summary": "Added a release entry for Android Gradle plugin 9.5.0-rc02, noting that no public issues were marked as fixed in this build.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_agp-9-5-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge\" target=\"_blank\">edge-to-edge.md</a>",
+        "path": "design/ui/mobile/guides/layout-and-content/edge-to-edge.md",
+        "summary": "The edge-to-edge documentation updates include replacing the specific Android CLI command instructions for the edge-to-edge skill with a general callout referencing the Android skills repository. Additionally, the guide now provides more explicit instructions on handling component scrolling behavior (such as `BottomAppBar` and `NavigationBar`), references the new `GradientProtection` API for Views, and corrects link references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_edge-to-edge.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/system/remote-compose\" target=\"_blank\">remote-compose.md</a>",
+        "path": "develop/ui/compose/system/remote-compose.md",
+        "summary": "This new documentation page introduces Remote Compose, a Jetpack library that allows apps to build Compose-style UIs for system surfaces like widgets, decoupling UI creation from remote execution to minimize latency.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper\" target=\"_blank\">keyboard-shortcuts-helper.md</a>",
+        "path": "develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper.md",
+        "summary": "Fixed syntax errors and corrupted code snippet formatting in the keyboard shortcuts helper documentation. This ensures that the provided Kotlin code examples for Compose are valid, complete, and properly closed, preventing developer confusion and compilation errors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_keyboard-shortcuts-helper.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-brush-apis\" target=\"_blank\">ink-api-brush-apis.md</a>",
+        "path": "develop/ui/compose/touch-input/stylus-input/ink-api-brush-apis.md",
+        "summary": "Added a new 'Android skills' section to the Ink API brush documentation, introducing the `ink-custom-brush-builder` skill. This addition helps developers easily create and configure custom brush families with specific tips, behaviors, textures, and coats using the Android CLI and Jetpack Compose.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_ink-api-brush-apis.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/haptics\" target=\"_blank\">haptics.md</a>",
+        "path": "develop/ui/views/haptics.md",
+        "summary": "Added a new reference link to the Multisensory Design System (MSDS) documentation for audio-haptic feedback. This matters because it guides developers on how to enrich their applications with coordinated audio and haptic experiences using established design guidelines.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_haptics.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/events/dev-summit\" target=\"_blank\">Android Dev Summit</a>",
+        "path": "events/dev-summit.md",
+        "summary": "Added a YouTube video link to the Android Dev Summit documentation page, allowing developers to easily access the livestream or recording directly from the event details.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_dev-summit.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/modular-hilt\" target=\"_blank\">Modular Navigation Recipe (Hilt)</a>",
+        "path": "guide/navigation/navigation-3/recipes/modular-hilt.md",
+        "summary": "Fixed multiple syntax errors, typo fragments, and broken lambda expressions within the modular Hilt and Navigation 3 documentation code snippets. These corrections ensure the provided code examples for entry provider installation, deep link matchers, and composable screens are valid and compile correctly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_modular-hilt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/passingarguments\" target=\"_blank\">Passing Arguments to ViewModels (Hilt)</a>",
+        "path": "guide/navigation/navigation-3/recipes/passingarguments.md",
+        "summary": "This update fixes syntax errors and typos in the Navigation 3 passing arguments documentation. It corrects generic type declarations, lambda parameters, entry definitions, and ViewModel factory implementations in the code snippets for both basic and Koin-based examples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_passingarguments.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/resources/animation-resource\" target=\"_blank\">animation-resource.md</a>",
+        "path": "guide/topics/resources/animation-resource.md",
+        "summary": "Fixed corrupted XML syntax blocks, broken tags, and malformed entity/URL artifacts throughout the animation resource documentation, restoring clear and accurate code examples for property and view animations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_animation-resource.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials\" target=\"_blank\">digital-credentials.md</a>",
+        "path": "identity/digital-credentials.md",
+        "summary": "Updated documentation links for the Digital Credentials API guides, including phone number verification, email verification, credential presentation for holders, and credential requests for verifiers. These URL updates ensure developers are directed to the correct, restructured documentation pages.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_digital-credentials.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials/about-email-verification\" target=\"_blank\">about-email-verification.md</a>",
+        "path": "identity/digital-credentials/about-email-verification.md",
+        "summary": "Added documentation explaining how to use Credential Manager for cryptographically verifying user email addresses on Android devices, removing the need for traditional OTPs or magic links.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials/credential-holder/about-storing-digital-credentials\" target=\"_blank\">about-storing-digital-credentials.md</a>",
+        "path": "identity/digital-credentials/credential-holder/about-storing-digital-credentials.md",
+        "summary": "This new documentation explains how Android wallet apps use the Credential Manager Holder API to manage, store metadata for, and present digital credentials like SD-JWT and mdocs to verifiers.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials/credential-holder/handle-credential-issuance\" target=\"_blank\">handle-credential-issuance.md</a>",
+        "path": "identity/digital-credentials/credential-holder/handle-credential-issuance.md",
+        "summary": "Added documentation explaining how holder apps can implement credential issuance flows using the Credential Manager Holder API, supporting both issuer-initiated and holder-initiated scenarios.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials/credential-issuer/issue-credentials\" target=\"_blank\">issue-credentials.md</a>",
+        "path": "identity/digital-credentials/credential-issuer/issue-credentials.md",
+        "summary": "Updated the credential issuance guide to clarify that apps can act as both issuers and holders, allowing them to issue credentials internally to themselves and use the Digital Credentials API for presentation. This matters for developers building versatile wallet or issuer applications that require self-issuance workflows.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_issue-credentials.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/media3\" target=\"_blank\">Media3</a>",
+        "path": "jetpack/androidx/releases/media3.md",
+        "summary": "The Media3 documentation was updated to reflect the release of version 1.12.0-alpha02. This release introduces the new `media3-effect-play-services` module, which adds Google Play services media effects such as `EnhancementSessionDecorator` for video enhancement and `StudioSoundAudioProcessor` for audio source separation, enabling developers to integrate advanced media processing capabilities into their apps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_media3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions\" target=\"_blank\">versions.md</a>",
+        "path": "jetpack/androidx/versions.md",
+        "summary": "The AndroidX versions documentation was updated to reflect a new alpha release for Jetpack Media3 (version 1.12.0-alpha02) and a corresponding release date change to October 26, 2026. This matters for developers tracking the latest multimedia library updates and pre-release APIs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_versions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/all-channel\" target=\"_blank\">all-channel.md</a>",
+        "path": "jetpack/androidx/versions/all-channel.md",
+        "summary": "Added release notes for Media3 version 1.12.0-alpha02 under a new entry for October 26, 2026, keeping the Jetpack library version tracking documentation up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_all-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/alpha-channel\" target=\"_blank\">alpha-channel.md</a>",
+        "path": "jetpack/androidx/versions/alpha-channel.md",
+        "summary": "Added an entry for Media3 Version 1.12.0-alpha02 under a new October 26, 2026 section to the alpha channel documentation, tracking the latest pre-release versions of Jetpack libraries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_alpha-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/ai-enhancement/bitmap-mode-lifecycle\" target=\"_blank\">bitmap-mode-lifecycle.md</a>",
+        "path": "media/ai-enhancement/bitmap-mode-lifecycle.md",
+        "summary": "Updated code snippets in the AI enhancement documentation to use the latest API parameters for `EnhancementOptions` (such as `isUpscalePhotoEnabled` and `isTonemappingEnabled`) and added a section detailing how to load images progressively on slow networks using the `ProgressiveImageEnhancer` implementation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_bitmap-mode-lifecycle.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/downloading-media\" target=\"_blank\">downloading-media.md</a>",
+        "path": "media/media3/exoplayer/downloading-media.md",
+        "summary": "Fixed corrupted XML syntax in the AndroidManifest.xml example for the download service. This ensures developers can correctly copy and paste the required foreground service permissions, application tags, and service configurations including the dataSync foreground service type and RESTART intent filter.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_downloading-media.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview\" target=\"_blank\">preview.md</a>",
+        "path": "studio/preview.md",
+        "summary": "Updated Android Studio preview documentation to point to Android Studio Rabbit 2 | 2026.2.2 RC 2. This includes updating the release version numbers, download URLs, and file names for Windows, macOS, and Linux packages.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/compose-screenshot-testing\" target=\"_blank\">compose-screenshot-testing.md</a>",
+        "path": "studio/preview/compose-screenshot-testing.md",
+        "summary": "The documentation was updated to mark the standalone `com.android.compose.screenshot` plugin as no longer maintained rather than deprecated, and directs developers to transition to AGP test suites starting with Android Gradle Plugin (AGP) 9.5.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_compose-screenshot-testing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.2\" target=\"_blank\">2026.2.2.md</a>",
+        "path": "studio/releases/fixed-bugs/studio/2026.2.2.md",
+        "summary": "Added release notes for Android Studio Rabbit 2 | 2026.2.2 RC 2 and its bundled Android Gradle Plugin 9.5.0-rc02 release. This matters for tracking the latest bug fixes and preview builds leading up to the stable 2026.2.2 release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_2026.2.2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/graphics/cache-bitmap\" target=\"_blank\">Caching Bitmaps</a>",
+        "path": "topic/performance/graphics/cache-bitmap.md",
+        "summary": "Fixed multiple syntax errors, typo issues, and broken generic type declarations in both Kotlin and Java code snippets within the bitmap caching documentation. These corrections ensure the code examples are accurate, compilable, and easier for developers to follow.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_cache-bitmap.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/get-started/hardware\" target=\"_blank\">hardware.md</a>",
+        "path": "training/tv/get-started/hardware.md",
+        "summary": "The documentation was updated to reflect the shift from using `<meta-data>` to the `<property>` element for declaring `android.software.leanback.supports_touch` in the manifest. This matters because it now correctly documents support for both application-level and activity-level declarations, including inheritance and override rules.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_hardware.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose/migrate-to-navigation3\" target=\"_blank\">migrate-to-navigation3.md</a>",
+        "path": "training/wearables/compose/migrate-to-navigation3.md",
+        "summary": "Fixed a syntax and formatting error in the Wearable Compose Navigation 3 migration guide by correcting a broken `composable(\"li        ListScreen()` code snippet into a properly formatted `composable(\"list\")` block. This ensures developers have accurate and copy-pasteable code examples when upgrading their navigation setup.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/eb6169b6_migrate-to-navigation3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/versions/emulator/2026/10\" target=\"_blank\">10.md</a>",
+        "path": "training/wearables/versions/emulator/2026/10.md",
+        "summary": "This new documentation page explains how to set up and use the Wear OS canary emulator (Wear OS 7.1, API level 37.2-beta1) to test upcoming platform features, specifically the new system status bar.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      }
+    ]
+  },
+  {
     "date": "2026-10-26T15:33:40Z",
     "commit_hash": "2564553d",
     "entries": [
