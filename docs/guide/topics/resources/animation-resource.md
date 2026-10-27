@@ -42,36 +42,244 @@ syntax:
 
     ```xml
     <set
-      android:ordering=["together" | ">;seque<ntially"]
+      android:ordering=["together" | "sequentially"]>
 
-        objectAnimator
-            android:propertyName="string&quot;
-            android:duration=&quot;int&quot;
-       android:valueFrom="float | int | color&quot;
-            android:valueTo=&quot;float | int | color"
-         android:startOffset="int"
-            android:repeatCount="int"
-            android:repeatM>ode=[&<quot;restart" | "reverse&quot;]
-            android:valueType=[&quot;intType&quot; | "floatType"]/
-
-        animator
-    pan class="devsite-syntax-w"\> android:duration="int&quot;
-            android:valueFrom="float\<span class="devsite-syntax-w"> | int | color"
+        <objectAnimator
+            android:propertyName="string"
+            android:duration="int"
+            android:valueFrom="float | int | color"
             android:valueTo="float | int | color"
-            android:startOffset=&>quot;i<https://developer.android.com/guide/topics/resources/animation-resource#animator-set-element>quot;
-            >android:&>lt;repeatCount="int"
+            android:startOffset="int"
+            android:repeatCount="int"
             android:repeatMode=["restart" | "reverse"]
-            android:valueType=["intType" | "floatType"]/
+            android:valueType=["intType" | "floatType"]/>
 
-        set
+        <animator
+            android:duration="int"
+            android:valueFrom="float | int | color"
+            android:valueTo="float | int | color"
+            android:startOffset="int"
+            android:repeatCount="int"
+            android:repeatMode=["restart" | "reverse"]
+            android:valueType=["intType" | "floatType"]/>
+
+        <set>
             ...
-        /set
-    /set
+        </set>
+    </set>
     ```
+
+
     The file must have a single root element: either
     `<set>`, `<objectAnimator>`, or `<valueAnimator>`. You can
     group animation elements together inside the `<set>` element, including other
     `<set>` elements.
+
+elements:
+:
+
+    `<set>`
+    :   A container that holds other animation elements (`<objectAnimator>`,
+        `<valueAnimator>`, or other `<set>` elements). Represents
+        an `https://developer.android.com/reference/android/animation/AnimatorSet`.
+
+        You can specify nested `<set>` tags to further
+        group animations. Each `<set>` can define its own
+        `ordering` attribute.
+
+
+        Attributes:
+
+
+        `android:ordering`
+        :
+            *Keyword* . Specifies the play ordering of animations in this set.
+
+            | Value | Description |
+            |---|---|
+            | `sequentially` | Play animations in this set sequentially. |
+            | `together` (default) | Play animations in this set at the same time. |
+
+
+    `<objectAnimator>`
+    :   Animates a specific property of an object over a specific amount of time. Represents
+        an `https://developer.android.com/reference/android/animation/ObjectAnimator`.
+
+        <br />
+
+
+        Attributes:
+
+
+        `android:propertyName`
+        :
+            *String* . **Required** . The object's property to animate, referenced by its name. For example, you can specify
+            `"alpha"` or `"backgroundColor"` for a `View` object.
+            The `objectAnimator` element doesn't expose a `target`
+            attribute, however, so you can't set the object to animate in the XML declaration. You have to
+            inflate your animation XML resource by calling `https://developer.android.com/reference/android/animation/AnimatorInflater#loadAnimator(android.content.Context, int)`, and call `https://developer.android.com/reference/android/animation/ObjectAnimator#setTarget(java.lang.Object)` to set
+            the target object that contains this property.
+
+
+        `android:valueTo`
+        :
+            *float, int, or color* . **Required**. The value where the animated property ends. Colors are represented
+            as six-digit hexadecimal numbers, such as #333333.
+
+
+        `android:valueFrom`
+        :
+            *float, int, or color* . The value where the animated property starts. If not
+            specified, the animation starts at the value obtained by the property's `get` method. Colors are represented
+            as six-digit hexadecimal numbers, such as #333333.
+
+
+        `android:duration`
+        :
+            *int*. The time in milliseconds of the animation. 300 milliseconds is the default.
+
+
+        `android:startOffset`
+        :
+            *int* . The amount of milliseconds the animation delays after
+            `https://developer.android.com/reference/android/animation/ObjectAnimator#start()` is called.
+
+
+        `android:repeatCount`
+        :
+            *int* . How many times to repeat an animation. Set to `"-1"` to infinitely
+            repeat or to a positive integer. For example, a value of `"1"` means that the animation
+            is repeated once after the initial run of the animation, so the animation plays a total
+            of two times. The default value is `"0"`, which means no repetition.
+
+
+        `android:repeatMode`
+        :
+            *int* . How an animation behaves when it reaches the end of the animation. `android:repeatCount`
+            must be set to a positive integer or `"-1"` for this attribute to have an effect. Set to `"reverse"`
+            to have the animation reverse direction with each iteration or `"restart"` to have the animation
+            loop from the beginning each time.
+
+
+        `android:valueType`
+        :
+            *Keyword* . Don't specify this attribute if the value is a color. The animation framework automatically handles color
+            values.
+
+            | Value | Description |
+            |---|---|
+            | `intType` | Specifies that the animated values are integers. |
+            | `floatType` (default) | Specifies that the animated values are floats. |
+
+
+    `<animator>`
+    :   Performs an animation over a specified amount of time.
+        Represents a `https://developer.android.com/reference/android/animation/ValueAnimator`.
+
+        Attributes:
+
+
+        `android:valueTo`
+        :
+            *float, int, or color* . **Required**. The value where the animation ends. Colors are represented
+            as six-digit hexadecimal numbers, such as #333333.
+
+
+        `android:valueFrom`
+        :
+            *float, int, or color* . **Required**. The value where the animation starts. Colors are represented
+            as six-digit hexadecimal numbers, such as #333333.
+
+
+        `android:duration`
+        :
+            *int*. The time in milliseconds of the animation. 300ms is the default.
+
+
+        `android:startOffset`
+        :
+            *int* . The amount of milliseconds the animation delays after
+            `https://developer.android.com/reference/android/animation/ValueAnimator#start()` is called.
+
+
+        `android:repeatCount`
+        :
+            *int* . How many times to repeat an animation. Set to `"-1"` to infinitely
+            repeat or to a positive integer. For example, a value of `"1"` means that the animation
+            is repeated once after the initial run of the animation, so the animation plays a total
+            of two times. The default value is `"0"`, which means no repetition.
+
+
+        `android:repeatMode`
+        :
+            *int* . How an animation behaves when it reaches the end of the animation. `android:repeatCount`
+            must be set to a positive integer or `"-1"` for this attribute to have an effect. Set to `"reverse"`
+            to have the animation reverse direction with each iteration or `"restart"` to have the animation
+            loop from the beginning each time.
+
+
+        `android:valueType`
+        :
+            *Keyword* . Don't specify this attribute if the value is a color. The animation framework automatically handles color
+            values.
+
+            | Value | Description |
+            |---|---|
+            | `intType` | Specifies that the animated values are integers. |
+            | `floatType` (default) | Specifies that the animated values are floats. |
+
+
+example:
+
+:   XML file saved at `res/animator/property_animator.xml`:
+
+    ```xml
+    <set android:ordering="sequentially">
+        <set>
+            <objectAnimator
+                android:propertyName="x"
+                android:duration="500"
+                android:valueTo="400"
+                android:valueType="intType"/>
+            <objectAnimator
+                android:propertyName="y"
+                android:duration="500"
+                android:valueTo="300"
+                android:valueType="intType"/>
+        </set>
+        <objectAnimator
+            android:propertyName="alpha"
+            android:duration="500"
+            android:valueTo="1f"/>
+    </set>
+    ```
+
+    To run this animation, inflate the XML resources in your code to an `https://developer.android.com/reference/android/animation/AnimatorSet` object, and then set the target objects for all the animations
+    before starting the animation set. Calling `https://developer.android.com/reference/android/animation/AnimatorSet#setTarget(java.lang.Object)` sets a single target object for all children of the `AnimatorSet` as a convenience. The following code shows how to do this:
+
+    ### Kotlin
+
+    ```kotlin
+    val set: AnimatorSet = AnimatorInflater.loadAnimator(myContext, R.animator.property_animator)
+        .apply {
+            setTarget(myObject)
+            start()
+        }
+    ```
+
+    ### Java
+
+    ```java
+    AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(myContext,
+        R.animator.property_animator);
+    set.setTarget(myObject);
+    set.start();
+    ```
+
+see also:
+:
+    - [Property Animation Overview](https://developer.android.com/guide/topics/graphics/prop-animation)
+    - [API demos](https://developer.android.com/samples?category=animation) for examples of how to use the property animation system
 
 ## View animation
 
@@ -101,32 +309,34 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<&quot;utf-8"?>
-    set xmlns:android="http://schemas.android.com/apk/res/android"
-        android:interpolator=";@[package:]anim/interpolator_resource"
-        an>droid<:shareInterpolator=["true&quot; | "false"] 
-        alpha
-        >    a<ndroid:fromAlpha="float"
-            android:toAlpha="flm>oat" /
-        scale
+    <?xml version="1.0" encoding="utf-8"?>
+    <set xmlns:android="http://schemas.android.com/apk/res/android"
+        android:interpolator="@[package:]anim/interpolator_resource"
+        android:shareInterpolator=["true" | "false"] >
+        <alpha
+            android:fromAlpha="float"
+            android:toAlpha="float" />
+        <scale
             android:fromXScale="float"
-       android:toXScale="fm>loat"
-            android:fromYScale=&>quot;<https://developer.android.com/guide/topics/resources/animation-resource#translate-elementt;
-            android:toYScale=&quot;float"
+            android:toXScale="float"
+            android:fromYScale="float"
+            android:toYScale="float"
             android:pivotX="float"
-            android:pivotY="float" /
-    tran>slate<https://developer.android.com/guide/topics/resources/animation-resource#rotate-element   android:fromXDelta="float\&quot;
-            android:toXDelta=\&quot;float"
-            android:fromYDelta="float";   >  and<https://developer.android.com/guide/topics/resources/animation-resource#set-elementd:toYDelta="<floa>t<&quo>t; /
-        rotate
+            android:pivotY="float" />
+        <translate
+            android:fromXDelta="float"
+            android:toXDelta="float"
+            android:fromYDelta="float"
+            android:toYDelta="float" />
+        <rotate
             android:fromDegrees="float"
             android:toDegrees="float"
             android:pivotX="float"
-            android:pivotY="float" /
-        set
+            android:pivotY="float" />
+        <set>
             ...
-        /set
-    /set
+        </set>
+    </set>
     ```
 
 
@@ -269,37 +479,37 @@ example:
 
     ```xml
     <set xmlns:android="http://schemas.android.com/apk/res/android"
-        android:shareInterpolator=&qu<ot;false">
-        scale
+        android:shareInterpolator="false">
+        <scale
             android:interpolator="@android:anim/accelerate_decelerate_interpolator"
             android:fromXScale="1.0"
             android:toXScale="1.4"
             android:fromYScale="1.0"
             android:toYScale="0.6"
             android:pivotX="50%"
-            android:pi<votY="50%"
+            android:pivotY="50%"
             android:fillAfter="false"
             android:duration="700" />
         <set
             android:interpolator="@android:anim/accelerate_interpolator"
             android:startOffset="700">
-            scale
+            <scale
                 android:fromXScale="1.4"
                 android:toXScale="0.0"
-                android:fromY<Scale="0.6"
+                android:fromYScale="0.6"
                 android:toYScale="0.0"
                 android:pivotX="50%"
                 android:pivotY="50%"
                 android:duration="400" />
-            rotate
-       <      <   android:fromDegrees="0"
+            <rotate
+                android:fromDegrees="0"
                 android:toDegrees="-45"
                 android:toYScale="0.0"
                 android:pivotX="50%"
                 android:pivotY="50%"
                 android:duration="400" />
-        /set>
-    /set>
+        </set>
+    </set>
     ```
 
     The following application code applies the animation to an `https://developer.android.com/reference/android/widget/ImageView` and
@@ -350,9 +560,9 @@ The following table specifies the resource to use for each interpolator:
 Here's how you can apply one of these with the `android:interpolator` attribute:
 
 ```xml
-<set android:interpolator="@android:anim/accelerate_interpol>ator"<;
-  >  ...
-/set
+<set android:interpolator="@android:anim/accelerate_interpolator">
+    ...
+</set>
 ```
 
 #### Custom interpolators
@@ -379,8 +589,8 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8";?>
-    InterpolatorName xmlns:android="http://schemas.android.com/apk/res/android&quot;
+    <?xml version="1.0" encoding="utf-8"?>
+    <InterpolatorName xmlns:android="http://schemas.android.com/apk/res/android"
         android:attribute_name="value"
         />
     ```
@@ -459,8 +669,8 @@ example:
 :   XML file saved at `res/anim/my_overshoot_interpolator.xml`:
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8"?>
-    overshootInterpolator xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encoding="utf-8"?>
+    <overshootInterpolator xmlns:android="http://schemas.android.com/apk/res/android"
         android:tension="7.0"
         />
     ```
@@ -501,13 +711,13 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8&quot;?>
-    animation-list xmlns:android="http://schemas.android.com/apk/res/android"
-        android:<oneshot=["true" | "false"] >
-        item
-            android:drawable="@[package:]drawable/d<rawable_resource_name"
+    <?xml version="1.0" encoding="utf-8"?>
+    <animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+        android:oneshot=["true" | "false"] >
+        <item
+            android:drawable="@[package:]drawable/drawable_resource_name"
             android:duration="integer" />
-    /animation-list>
+    </animation-list>
     ```
 
 elements:
@@ -540,13 +750,13 @@ example:
 :   XML file saved at `res/drawable/rocket_thrust.xml`:
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8"?>
-    animation-list xmlns:android="http://schemas.android.com/apk/res/android"
-    <    android:oneshot="false">
-        item android:drawable="@draw<able/rocket_thrust1" android:duration="200" />
-        item andro<id:drawable="@drawable/rocket_thrust2" android:duration="200<" />
-        item android:drawable="@drawable/rocket_thrust3" android:duration="200" />
-    /animation-list>
+    <?xml version="1.0" encoding="utf-8"?>
+    <animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+        android:oneshot="false">
+        <item android:drawable="@drawable/rocket_thrust1" android:duration="200" />
+        <item android:drawable="@drawable/rocket_thrust2" android:duration="200" />
+        <item android:drawable="@drawable/rocket_thrust3" android:duration="200" />
+    </animation-list>
     ```
 
     The following application code sets the animation as the background for a `View`,

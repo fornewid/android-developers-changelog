@@ -16,6 +16,10 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## October 26, 2026
+
+- [Media3 Version 1.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/media3#1.12.0-alpha02)
+
 ## October 21, 2026
 
 - [A2ui Compose Version 1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/a2ui-compose#1.0.0-alpha02)

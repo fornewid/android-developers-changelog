@@ -23,10 +23,9 @@ library or a general-purpose JWT library. If the user hasn't signed in to your
 app with this Google Account before, create a new account.
 
 If you've optionally chosen to use a nonce to help avoid replay attacks, use
-[getNonce](https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/GetSignInIntentRequest#public-string-getnonce)
-to send it along with the ID Token to your backend server, and check for the
-expected value. We recommend that you strongly consider using a nonce to
-improve user safety and security.
+[getNonce](https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/GetSignInIntentRequest#public-string-getnonce) to send it along with the ID Token to your backend server, and
+check for the expected value. We recommend that you strongly consider using a
+nonce to improve user safety and security.
 
 ## Get an ID token from the credentials object
 
@@ -35,71 +34,65 @@ includes an ID token. If it does, send it to your backend.
 
 ### Java
 
-```java
-public class YourActivity extends AppCompatActivity {
+    public class YourActivity extends AppCompatActivity {
 
-  // ...
-  private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
-  private boolean showOneTapUI = true;
-  // ...
+        // ...
+        private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
+        private boolean showOneTapUI = true;
+        // ...
 
-  @Override
-  protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-      super.onActivityResult(requestCode, resultCode, data);
+        @Override
+        protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
 
-      switch (requestCode) {
-          case REQ_ONE_TAP:
-              try {
-                  SignInCredential credential = oneTapClient.getSignInCredentialFromIntent(data);
-                  String idToken = credential.getGoogleIdToken();
-                  if (idToken !=  null) {
-                      // Got an ID token from Google. Use it to authenticate
-                      // with your backend.
-                      Log.d(TAG, "Got ID token.");
-                  }
-              } catch (ApiException e) {
-                  // ...
-              }
-              break;
-      }
-  }
-}
-```
-
-### Kotlin
-
-```kotlin
-class YourActivity : AppCompatActivity() {
-
-    // ...
-    private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
-    private var showOneTapUI = true
-    // ...
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        when (requestCode) {
-             REQ_ONE_TAP -> {
-                try {
-                    val credential = oneTapClient.getSignInCredentialFromIntent(data)
-                    val idToken = credential.googleIdToken
-                    when {
-                        idToken != null -> {
-                            // Got an ID token from Google. Use it to authenticate
-                            // with your backend.
-                            Log.d(TAG, "Got ID token.")
-                        }
-                        else -> {
-                            // Shouldn't happen.
-                            Log.d(TAG, "No ID token!")
-                        }
+            switch (requestCode) {
+                case REQ_ONE_TAP:
+                    try { SignInCredential credential = oneTapClient.getSignInCredentialFromIntent(data);
+    String idToken = credential.getGoogleIdToken();
+    if (idToken != null) {
+    // Got an ID token from Google. Use it to authenticate
+    // with your backend.
+    Log.d(TAG, "Got ID token.");
+    }
+                    } catch (ApiException e) {
+                        // ...
                     }
-                } catch (e: ApiException) {
-                    // ...
+                    break;
             }
         }
     }
-    // ...
-}
-```
+
+### Kotlin
+
+    class YourActivity : AppCompatActivity() {
+
+          // ...
+          private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
+          private var showOneTapUI = true
+          // ...
+
+          override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+              super.onActivityResult(requestCode, resultCode, data)
+
+              when (requestCode) {
+                   REQ_ONE_TAP -> {
+                      try { val credential = oneTapClient.getSignInCredentialFromIntent(data)
+    val idToken = credential.googleIdToken
+    when {
+    idToken != null -\> {
+    // Got an ID token from Google. Use it to authenticate
+    // with your backend.
+    Log.d(TAG, "Got ID token.")
+    }
+    else -\> {
+    // Shouldn't happen.
+    Log.d(TAG, "No ID token!")
+    }
+    }
+                      } catch (e: ApiException) {
+                          // ...
+                  }
+              }
+          }
+          // ...
+      }

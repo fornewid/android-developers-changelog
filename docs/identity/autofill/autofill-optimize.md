@@ -61,17 +61,13 @@ method, as shown in the following example:
 
 ### Kotlin
 
-```kotlin
-val password = findViewById<EditText>(R.id.password)
-password.setAutofillHints(View.AUTOFILL_HINT_PASSWORD)
-```
+    val password = findViewById<EditText>(R.id.password)
+    password.setAutofillHints(View.AUTOFILL_HINT_PASSWORD)
 
 ### Java
 
-```java
-EditText password = findViewById(R.id.password);
-password.setAutofillHints(View.AUTOFILL_HINT_PASSWORD);
-```
+    EditText password = findViewById(R.id.password);
+    password.setAutofillHints(View.AUTOFILL_HINT_PASSWORD);
 
 ### Include predefined hint constants
 
@@ -169,13 +165,12 @@ associated. When a user chooses the same autofill service on both platforms,
 signing in to your web app makes their login credentials available to autofill
 when they sign in to your corresponding Android app.
 
-To associate your Android app with your website, host a [Digital Asset
-Link](https://developers.google.com/digital-asset-links) with the
+To associate your Android app with your website, host a [Digital Asset Link](https://developers.google.com/digital-asset-links)
+with the
 `delegate_permission/common.get_login_creds` relation in your site. Then,
 declare the association in your app's `AndroidManifest.xml` file. For detailed
 instructions about how to associate your website with your Android app, see
-[Enable automatic sign-in across apps and
-websites](https://developers.google.com/identity/smartlock-passwords/android/associate-apps-and-sites).
+[Enable automatic sign-in across apps and websites](https://developers.google.com/identity/smartlock-passwords/android/associate-apps-and-sites).
 
 ## Complete an autofill workflow
 
@@ -211,23 +206,19 @@ The following code example shows how to force an autofill request:
 
 ### Kotlin
 
-```kotlin
-fun eventHandler(view: View) {
-    val afm = requireContext().getSystemService(AutofillManager::class.java)
-    afm?.requestAutofill(view)
-}
-```
+    fun eventHandler(view: View) {
+        val afm = requireContext().getSystemService(AutofillManager::class.java)
+        afm?.requestAutofill(view)
+    }
 
 ### Java
 
-```java
-public void eventHandler(View view) {
-    AutofillManager afm = context.getSystemService(AutofillManager.class);
-    if (afm != null) {
-        afm.requestAutofill(view);
+    public void eventHandler(View view) {
+        AutofillManager afm = context.getSystemService(AutofillManager.class);
+        if (afm != null) {
+            afm.requestAutofill(view);
+        }
     }
-}
-```
 
 You can also use the [`cancel()`](https://developer.android.com/reference/android/view/autofill/AutofillManager#cancel())
 method to cancel the current autofill context. This can be useful if you
@@ -245,14 +236,13 @@ An `EditText` object natively expects autofill data of type
 [`AUTOFILL_TYPE_TEXT`](https://developer.android.com/reference/android/view/View#AUTOFILL_TYPE_TEXT).
 If you are using a different type of data, create a custom view that inherits
 from `EditText` and implements the methods required to handle the corresponding
-type of data. For instance, if you have a date field, implement the methods with
+type of data. For example, if you have a date field, implement the methods with
 logic that correctly handles values of type
 [`AUTOFILL_TYPE_DATE`](https://developer.android.com/reference/android/view/View#AUTOFILL_TYPE_DATE).
 
 When you specify the autofill data type, the autofill service can create
 an appropriate representation of the data displayed in the view. For more
-information, see [Use pickers with
-autofill](https://developer.android.com/guide/topics/ui/controls/pickers#PickerAutofill).
+information, see [Use pickers with autofill](https://developer.android.com/guide/topics/ui/controls/pickers#PickerAutofill).
 
 ### Finish the autofill context
 
@@ -326,7 +316,8 @@ If a view contains personally identifiable information (PII) such as email
 addresses, credit card numbers, and passwords, it must be marked as sensitive.
 
 In general, views whose content comes from static resources don't
-contain sensitive data, while views whose content is dynamically set might contain
+contain sensitive data, while views whose content is dynamically set might
+contain
 sensitive data. For example, a label that contains *enter your username* doesn't
 contain sensitive data, while a label that contains *Hello, John* does.
 
@@ -334,7 +325,7 @@ The autofill framework assumes that all data is sensitive by default.
 You can mark data that isn't sensitive.
 
 To mark whether a view contains sensitive data, implement
-[`onProvideAutofillStructure()`](https://developer.android.com/reference/android/view/View#onProvideAutofillStructure(android.view.ViewStructure,%20int))
+[`onProvideAutofillStructure()`](https://developer.android.com/reference/android/view/View#onProvideAutofillStructure(android.view.ViewStructure,int))
 and call
 [`setDataIsSensitive()`](https://developer.android.com/reference/android/view/ViewStructure#setDataIsSensitive(boolean))
 on the [`ViewStructure`](https://developer.android.com/reference/android/view/ViewStructure) object.
@@ -344,24 +335,20 @@ not sensitive:
 
 ### Kotlin
 
-```kotlin
-override fun onProvideAutofillStructure(structure: ViewStructure, flags: Int) {
-    super.onProvideAutofillStructure(structure, flags)
+    override fun onProvideAutofillStructure(structure: ViewStructure, flags: Int) {
+        super.onProvideAutofillStructure(structure, flags)
 
-    structure.setDataIsSensitive(false)
-}
-```
+        structure.setDataIsSensitive(false)
+    }
 
 ### Java
 
-```java
-@Override
-public void onProvideAutofillStructure(ViewStructure structure, int flags) {
-    super.onProvideAutofillStructure(structure, flags);
+    @Override
+    public void onProvideAutofillStructure(ViewStructure structure, int flags) {
+        super.onProvideAutofillStructure(structure, flags);
 
-    structure.setDataIsSensitive(false);
-}
-```
+        structure.setDataIsSensitive(false);
+    }
 
 If a view accepts only predefined values, you can use the
 [`setAutofillOptions()`](https://developer.android.com/reference/android/view/ViewStructure#setAutofillOptions(java.lang.CharSequence%5B%5D))
@@ -396,12 +383,12 @@ framework in the following situations:
 - The app uses an instance of [`Canvas`](https://developer.android.com/reference/android/graphics/Canvas) to draw the UI.
 
 In these cases, you can specify a view structure by implementing
-[`onProvideAutofillVirtualStructure()`](https://developer.android.com/reference/android/view/View#onProvideAutofillVirtualStructure(android.view.ViewStructure,%20int))
+[`onProvideAutofillVirtualStructure()`](https://developer.android.com/reference/android/view/View#onProvideAutofillVirtualStructure(android.view.ViewStructure,int))
 and following these steps:
 
 1. Increase the child count of the view structure by calling [`addChildCount()`](https://developer.android.com/reference/android/view/ViewStructure#addChildCount(int)).
 2. Add a child by calling [`newChild()`](https://developer.android.com/reference/android/view/ViewStructure#newChild(int)).
-3. Set the autofill ID for the child by calling [`setAutofillId()`](https://developer.android.com/reference/android/view/ViewStructure#setAutofillId(android.view.autofill.AutofillId,%20int)).
+3. Set the autofill ID for the child by calling [`setAutofillId()`](https://developer.android.com/reference/android/view/ViewStructure#setAutofillId(android.view.autofill.AutofillId,int)).
 4. Set relevant properties, such as the autofill value and type.
 5. If the data in the virtual child is sensitive, pass `true` to [`setDataIsSensitive()`](https://developer.android.com/reference/android/view/ViewStructure#setDataIsSensitive(boolean)); otherwise, pass `false`.
 
@@ -410,65 +397,61 @@ structure:
 
 ### Kotlin
 
-```kotlin
-override fun onProvideAutofillVirtualStructure(structure: ViewStructure, flags: Int) {
+    override fun onProvideAutofillVirtualStructure(structure: ViewStructure, flags: Int) {
 
-    super.onProvideAutofillVirtualStructure(structure, flags)
+        super.onProvideAutofillVirtualStructure(structure, flags)
 
-    // Create a new child in the virtual structure.
-    structure.addChildCount(1)
-    val child = structure.newChild(childIndex)
+        // Create a new child in the virtual structure.
+        structure.addChildCount(1)
+        val child = structure.newChild(childIndex)
 
-    // Set the autofill ID for the child.
-    child.setAutofillId(structure.autofillId!!, childVirtualId)
+        // Set the autofill ID for the child.
+        child.setAutofillId(structure.autofillId!!, childVirtualId)
 
-    // Populate the child by providing properties such as value and type.
-    child.setAutofillValue(childAutofillValue)
-    child.setAutofillType(childAutofillType)
+        // Populate the child by providing properties such as value and type.
+        child.setAutofillValue(childAutofillValue)
+        child.setAutofillType(childAutofillType)
 
-    // Some children can provide a list of values, such as when the child is
-    // a spinner.
-    val childAutofillOptions = arrayOf<CharSequence>("option1", "option2")
-    child.setAutofillOptions(childAutofillOptions)
+        // Some children can provide a list of values, such as when the child is
+        // a spinner.
+        val childAutofillOptions = arrayOf<CharSequence>("option1", "option2")
+        child.setAutofillOptions(childAutofillOptions)
 
-    // Just like other types of views, mark the data as sensitive when
-    // appropriate.
-    val sensitive = !contentIsSetFromResources()
-    child.setDataIsSensitive(sensitive)
-}
-```
+        // Just like other types of views, mark the data as sensitive when
+        // appropriate.
+        val sensitive = !contentIsSetFromResources()
+        child.setDataIsSensitive(sensitive)
+    }
 
 ### Java
 
-```java
-@Override
-public void onProvideAutofillVirtualStructure(ViewStructure structure, int flags) {
+    @Override
+    public void onProvideAutofillVirtualStructure(ViewStructure structure, int flags) {
 
-    super.onProvideAutofillVirtualStructure(structure, flags);
+        super.onProvideAutofillVirtualStructure(structure, flags);
 
-    // Create a new child in the virtual structure.
-    structure.addChildCount(1);
-    ViewStructure child =
-            structure.newChild(childIndex);
+        // Create a new child in the virtual structure.
+        structure.addChildCount(1);
+        ViewStructure child =
+                structure.newChild(childIndex);
 
-    // Set the autofill ID for the child.
-    child.setAutofillId(structure.getAutofillId(), childVirtualId);
+        // Set the autofill ID for the child.
+        child.setAutofillId(structure.getAutofillId(), childVirtualId);
 
-    // Populate the child by providing properties such as value and type.
-    child.setAutofillValue(childAutofillValue);
-    child.setAutofillType(childAutofillType);
+        // Populate the child by providing properties such as value and type.
+        child.setAutofillValue(childAutofillValue);
+        child.setAutofillType(childAutofillType);
 
-    // Some children can provide a list of values, such as when the child is
-    // a spinner.
-    CharSequence childAutofillOptions[] = { "option1", "option2" };
-    child.setAutofillOptions(childAutofillOptions);
+        // Some children can provide a list of values, such as when the child is
+        // a spinner.
+        CharSequence childAutofillOptions[] = { "option1", "option2" };
+        child.setAutofillOptions(childAutofillOptions);
 
-    // Just like other types of views, mark the data as sensitive when
-    // appropriate.
-    boolean sensitive = !contentIsSetFromResources();
-    child.setDataIsSensitive(sensitive);
-}
-```
+        // Just like other types of views, mark the data as sensitive when
+        // appropriate.
+        boolean sensitive = !contentIsSetFromResources();
+        child.setDataIsSensitive(sensitive);
+    }
 
 When elements in a virtual structure change, notify the framework by
 performing the following tasks:
@@ -486,8 +469,9 @@ affordance. The autofill framework provides this mechanism in the form of
 [`AutofillCallback`](https://developer.android.com/reference/android/view/autofill/AutofillManager.AutofillCallback).
 
 This class provides the
-[`onAutofillEvent(View, int)`](https://developer.android.com/reference/android/view/autofill/AutofillManager.AutofillCallback#onAutofillEvent(android.view.View,%20int))
-method, which the app calls after a change in the autofill state associated with a
+[`onAutofillEvent(View, int)`](https://developer.android.com/reference/android/view/autofill/AutofillManager.AutofillCallback#onAutofillEvent(android.view.View,int))
+method, which the app calls after a change in the autofill state associated with
+a
 view.
 There is also an overloaded version of this method that includes a `childId`
 parameter that your app can use with virtual views. The available states are
@@ -501,55 +485,51 @@ how to declare a callback for autofill events:
 
 ### Kotlin
 
-```kotlin
-val afm = context.getSystemService(AutofillManager::class.java)
+    val afm = context.getSystemService(AutofillManager::class.java)
 
-afm?.registerCallback(object : AutofillManager.AutofillCallback() {
-    // For virtual structures, override
-    // onAutofillEvent(View view, int childId, int event) instead.
-    override fun onAutofillEvent(view: View, event: Int) {
-        super.onAutofillEvent(view, event)
-        when (event) {
-            EVENT_INPUT_HIDDEN -> {
-                // The autofill affordance associated with the view was hidden.
+    afm?.registerCallback(object : AutofillManager.AutofillCallback() {
+        // For virtual structures, override
+        // onAutofillEvent(View view, int childId, int event) instead.
+        override fun onAutofillEvent(view: View, event: Int) {
+            super.onAutofillEvent(view, event)
+            when (event) {
+                EVENT_INPUT_HIDDEN -> {
+                    // The autofill affordance associated with the view was hidden.
+                }
+                EVENT_INPUT_SHOWN -> {
+                    // The autofill affordance associated with the view was shown.
+                }
+                EVENT_INPUT_UNAVAILABLE -> {
+                    // Autofill isn't available.
+                }
             }
-            EVENT_INPUT_SHOWN -> {
-                // The autofill affordance associated with the view was shown.
-            }
-            EVENT_INPUT_UNAVAILABLE -> {
-                // Autofill isn't available.
-            }
+
         }
-
-    }
-})
-```
+    })
 
 ### Java
 
-```java
-AutofillManager afm = getContext().getSystemService(AutofillManager.class);
+    AutofillManager afm = getContext().getSystemService(AutofillManager.class);
 
-afm.registerCallback(new AutofillManager.AutofillCallback() {
-    // For virtual structures, override
-    // onAutofillEvent(View view, int childId, int event) instead.
-    @Override
-    public void onAutofillEvent(@NonNull View view, int event) {
-        super.onAutofillEvent(view, event);
-        switch (event) {
-            case EVENT_INPUT_HIDDEN:
-                // The autofill affordance associated with the view was hidden.
-                break;
-            case EVENT_INPUT_SHOWN:
-                // The autofill affordance associated with the view was shown.
-                break;
-            case EVENT_INPUT_UNAVAILABLE:
-                // Autofill isn't available.
-                break;
+    afm.registerCallback(new AutofillManager.AutofillCallback() {
+        // For virtual structures, override
+        // onAutofillEvent(View view, int childId, int event) instead.
+        @Override
+        public void onAutofillEvent(@NonNull View view, int event) {
+            super.onAutofillEvent(view, event);
+            switch (event) {
+                case EVENT_INPUT_HIDDEN:
+                    // The autofill affordance associated with the view was hidden.
+                    break;
+                case EVENT_INPUT_SHOWN:
+                    // The autofill affordance associated with the view was shown.
+                    break;
+                case EVENT_INPUT_UNAVAILABLE:
+                    // Autofill isn't available.
+                    break;
+            }
         }
-    }
-});
-```
+    });
 
 When it's time to remove the callback, use the
 [`unregisterCallback()`](https://developer.android.com/reference/android/view/autofill/AutofillManager#unregisterCallback(android.view.autofill.AutofillManager.AutofillCallback))
@@ -661,7 +641,8 @@ to the autofill service. As a result, the service can't fill out the views.
 To work around this issue, replace the
 [`token`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#token)
 property of the dialog window parameters with the `token` property of the
-activity that creates the dialog. After you validate that autofill is enabled, save the window parameters in the
+activity that creates the dialog. After you validate that autofill is enabled,
+save the window parameters in the
 [`onWindowAttributesChanged()`](https://developer.android.com/reference/android/app/Dialog#onWindowAttributesChanged(android.view.WindowManager.LayoutParams))
 method of the class that inherits from
 [`Dialog`](https://developer.android.com/reference/android/app/Dialog). Then, replace
@@ -674,89 +655,85 @@ The following code snippet shows a class that implements this workaround:
 
 ### Kotlin
 
-```kotlin
-class MyDialog(context: Context) : Dialog(context) {
+    class MyDialog(context: Context) : Dialog(context) {
 
-    // Used to store the dialog window parameters.
-    private var token: IBinder? = null
+        // Used to store the dialog window parameters.
+        private var token: IBinder? = null
 
-    private val isDialogResizedWorkaroundRequired: Boolean
-        get() {
-            if (Build.VERSION.SDK_INT != Build.VERSION_CODES.O || Build.VERSION.SDK_INT != Build.VERSION_CODES.O_MR1) {
-                return false
+        private val isDialogResizedWorkaroundRequired: Boolean
+            get() {
+                if (Build.VERSION.SDK_INT != Build.VERSION_CODES.O || Build.VERSION.SDK_INT != Build.VERSION_CODES.O_MR1) {
+                    return false
+                }
+                val autofillManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    context.getSystemService(AutofillManager::class.java)
+                } else {
+                    null
+                }
+                return autofillManager?.isEnabled ?: false
             }
-            val autofillManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                context.getSystemService(AutofillManager::class.java)
-            } else {
-                null
+
+        override fun onWindowAttributesChanged(params: WindowManager.LayoutParams) {
+            if (params.token == null && token != null) {
+                params.token = token
             }
-            return autofillManager?.isEnabled ?: false
+
+            super.onWindowAttributesChanged(params)
         }
 
-    override fun onWindowAttributesChanged(params: WindowManager.LayoutParams) {
-        if (params.token == null && token != null) {
-            params.token = token
+        override fun onAttachedToWindow() {
+            if (isDialogResizedWorkaroundRequired) {
+                token = ownerActivity!!.window.attributes.token
+            }
+
+            super.onAttachedToWindow()
         }
 
-        super.onWindowAttributesChanged(params)
     }
-
-    override fun onAttachedToWindow() {
-        if (isDialogResizedWorkaroundRequired) {
-            token = ownerActivity!!.window.attributes.token
-        }
-
-        super.onAttachedToWindow()
-    }
-
-}
-```
 
 ### Java
 
-```java
-public class MyDialog extends Dialog {
+    public class MyDialog extends Dialog {
 
-    public MyDialog(Context context) {
-        super(context);
-    }
-
-    // Used to store the dialog window parameters.
-    private IBinder token;
-
-    @Override
-    public void onWindowAttributesChanged(WindowManager.LayoutParams params) {
-        if (params.token == null && token != null) {
-            params.token = token;
+        public MyDialog(Context context) {
+            super(context);
         }
 
-        super.onWindowAttributesChanged(params);
-    }
+        // Used to store the dialog window parameters.
+        private IBinder token;
 
-    @Override
-    public void onAttachedToWindow() {
-        if (isDialogResizedWorkaroundRequired()) {
-            token = getOwnerActivity().getWindow().getAttributes().token;
+        @Override
+        public void onWindowAttributesChanged(WindowManager.LayoutParams params) {
+            if (params.token == null && token != null) {
+                params.token = token;
+            }
+
+            super.onWindowAttributesChanged(params);
         }
 
-        super.onAttachedToWindow();
-    }
+        @Override
+        public void onAttachedToWindow() {
+            if (isDialogResizedWorkaroundRequired()) {
+                token = getOwnerActivity().getWindow().getAttributes().token;
+            }
 
-    private boolean isDialogResizedWorkaroundRequired() {
-        if (Build.VERSION.SDK_INT != Build.VERSION_CODES.O
-                || Build.VERSION.SDK_INT != Build.VERSION_CODES.O_MR1) {
-            return false;
+            super.onAttachedToWindow();
         }
-        AutofillManager autofillManager =
-                null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            autofillManager = getContext().getSystemService(AutofillManager.class);
-        }
-        return autofillManager != null && autofillManager.isEnabled();
-    }
 
-}
-```
+        private boolean isDialogResizedWorkaroundRequired() {
+            if (Build.VERSION.SDK_INT != Build.VERSION_CODES.O
+                    || Build.VERSION.SDK_INT != Build.VERSION_CODES.O_MR1) {
+                return false;
+            }
+            AutofillManager autofillManager =
+                    null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                autofillManager = getContext().getSystemService(AutofillManager.class);
+            }
+            return autofillManager != null && autofillManager.isEnabled();
+        }
+
+    }
 
 To avoid unnecessary operations, the following code snippet shows how to check
 whether autofill is supported in the device and enabled for the current user,
@@ -764,54 +741,50 @@ and whether this workaround is required:
 
 ### Kotlin
 
-```kotlin
-// AutofillExtensions.kt
+    // AutofillExtensions.kt
 
-fun Context.isDialogResizedWorkaroundRequired(): Boolean {
-    // After the issue is resolved on Android, check whether the
-    // workaround is still required for the current device.
-    return isAutofillAvailable()
-}
-
-fun Context.isAutofillAvailable(): Boolean {
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-        // The autofill framework is available on Android 8.0
-        // or higher.
-        return false
-    }
-
-    val afm = getSystemService(AutofillManager::class.java)
-    // Return true if autofill is supported by the device and enabled
-    // for the current user.
-    return afm != null && afm.isEnabled
-}
-```
-
-### Java
-
-```java
-public class AutofillHelper {
-
-    public static boolean isDialogResizedWorkaroundRequired(Context context) {
+    fun Context.isDialogResizedWorkaroundRequired(): Boolean {
         // After the issue is resolved on Android, check whether the
         // workaround is still required for the current device.
-        return isAutofillAvailable(context);
+        return isAutofillAvailable()
     }
 
-    public static boolean isAutofillAvailable(Context context) {
+    fun Context.isAutofillAvailable(): Boolean {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             // The autofill framework is available on Android 8.0
             // or higher.
-            return false;
+            return false
         }
 
-        AutofillManager afm = context.getSystemService(AutofillManager.class);
+        val afm = getSystemService(AutofillManager::class.java)
         // Return true if autofill is supported by the device and enabled
         // for the current user.
-        return afm != null && afm.isEnabled();
+        return afm != null && afm.isEnabled
     }
-}
-```
+
+### Java
+
+    public class AutofillHelper {
+
+        public static boolean isDialogResizedWorkaroundRequired(Context context) {
+            // After the issue is resolved on Android, check whether the
+            // workaround is still required for the current device.
+            return isAutofillAvailable(context);
+        }
+
+        public static boolean isAutofillAvailable(Context context) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+                // The autofill framework is available on Android 8.0
+                // or higher.
+                return false;
+            }
+
+            AutofillManager afm = context.getSystemService(AutofillManager.class);
+            // Return true if autofill is supported by the device and enabled
+            // for the current user.
+            return afm != null && afm.isEnabled();
+        }
+    }
 
 ## Test your app with autofill
 
@@ -820,8 +793,7 @@ works as intended with autofill services.
 
 Use an emulator or a physical device running Android 8.0 (API
 level 26) or higher to test your app. For more information about how to create
-an emulator, see [Create and manage virtual
-devices](https://developer.android.com/studio/run/managing-avds).
+an emulator, see [Create and manage virtual devices](https://developer.android.com/studio/run/managing-avds).
 
 ### Install an autofill service
 
@@ -830,9 +802,7 @@ provides autofill services. You can use a third-party app for this purpose,
 but it's easier to use a sample autofill service so that you don't need to sign
 up for third-party services.
 
-You can use the Android autofill framework
-sample in
-[Java](https://github.com/android/input-samples/tree/main/AutofillFramework)
+You can use the Android autofill framework sample in [Java](https://github.com/android/input-samples/tree/main/AutofillFramework)
 to test your app with autofill services. The sample app provides an autofill
 service and client `Activity` classes that you can use to test the workflow
 before using it with your app. This page references the
@@ -887,7 +857,7 @@ To trigger autofill in your app, do the following:
 3. The system displays the autofill UI, which contains the datasets that can fill the view, as shown in Figure 1.
 4. Tap the dataset that contains the data you want to use. The view displays the data previously stored in the service.
 
-![Autofill UI displaying "dataset-2" as an available dataset](https://developer.android.com/static/images/guide/topics/text/autofill_sample_framed.png) **Figure 1.** Autofill UI displaying available datasets.
+![Autofill dialog displaying available dataset choices](https://developer.android.com/static/images/guide/topics/text/autofill_sample_framed.png) **Figure 1.** Autofill UI displaying available datasets.
 
 If Android doesn't display the autofill UI, you can try the following
 troubleshooting options:

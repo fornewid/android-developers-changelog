@@ -107,9 +107,10 @@ SwipeDismissableNavHost(navController = navController, startDestination = "menu"
             onShowList = { navController.navigate("list") }
         )
     }
-    composable("li        ListScreen()
+    composable("list") {
+        ListScreen()
     }
-}Migration.kt
+}
 ```
 
 **After (Navigation 3):**

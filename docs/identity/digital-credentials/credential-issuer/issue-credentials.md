@@ -5,8 +5,11 @@ source: md.txt
 ---
 
 The Credential Manager API lets you issue credentials to Android holder (also
-called "wallet") apps. This guide explains how to save credentials to a user's
+called "wallet") apps. This guide explains how to issue credentials to a user's
 preferred holder.
+
+> [!NOTE]
+> **Note:** An app can be both an issuer and holder. In this case, it can internally issue credentials to itself, and use the Digital Credentials API for [credential presentation](https://developer.android.com/identity/digital-credentials/credential-holder/present-credentials).
 
 ## Implementation
 

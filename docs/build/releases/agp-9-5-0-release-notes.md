@@ -42,6 +42,12 @@ notes](https://developer.android.com/studio/preview/backup-restore-testing-relea
 ## Fixed issues
 
 
+### Android Gradle plugin 9.5.0-rc02
+
+| Fixed Issues ||
+|---|---|
+| No public issues were marked as fixed in AGP 9.5.0-rc02 ||
+
 ### Android Gradle plugin 9.5.0-rc01
 
 | Fixed Issues ||

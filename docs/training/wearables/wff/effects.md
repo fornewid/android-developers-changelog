@@ -39,25 +39,26 @@ In the following example, the `Scene` parent contains three children:
 <br />
 
 ```xml
-<PartDraw x="175" y="50" width="100" >heigh<t="100" renderMode="MASK">;
-    Ell<ipse x="0" y>=&quo<t;0">;< width=&q>uo<t;100" height="100"
-        Fi>ll co<lor="#FFFFFF" /
-    /Ellipse
-/PartDr>aw
+<PartDraw x="175" y="50" width="100" height="100" renderMode="MASK">
+    <Ellipse x="0" y="0" width="100" height="100">
+        <Fill color="#FFFFFF" />
+    </Ellipse>
+</PartDraw>
 
-PartD<raw x="0" >y="0&quo<t; width="450" height="450"
-    Rectangle x="0" y="0" width="450" height="450&qu>ot;
-     <   Fill co<lor=">#<ff0000&qu>ot<;
-            LinearGradient startX="0" startY="0&>quot;< endX="450&quo>t; endY=&<quot;450"
-                colors="#FFFF00 #00FFFF #F>F00FF&<quot;> posi<tions>=<"0.2>      /Fill
-    /Rectangle
-/PartDraw
+<PartDraw x="0" y="0" width="450" height="450">
+    <Rectangle x="0" y="0" width="450" height="450">
+        <Fill color="#ff0000">
+            <LinearGradient startX="0" startY="0" endX="450" endY="450"
+                colors="#FFFF00 #00FFFF #FF00FF" positions="0.25 0.5 0.75" />
+        </Fill>
+    </Rectangle>
+</PartDraw>
 
-PartText x="75" y="250" width="300" height="80" renderMode="MASK"
-    Text align="CENTER"
-        Font family="pacifico" size="72" weight="BOLD" color="#FFFFFF"Hello!/Font
-    /Text
-/PartTextwatchface_effects.xml
+<PartText x="75" y="250" width="300" height="80" renderMode="MASK">
+    <Text align="CENTER">
+        <Font family="pacifico" size="72" weight="BOLD" color="#FFFFFF">Hello!</Font>
+    </Text>
+</PartText>
 ```
 
 <br />
@@ -86,15 +87,16 @@ top-most obscures or partially obscures the lower element because the default
 <br />
 
 ```xml
-<PartDraw x="125" y="115" widt>h=&qu<ot;150" height="150"
-    Rectan>gle x=&qu<ot;0" y="0&q>uot; <width=&quo>t<;150">;< height="150"
-        Fill color=">#ffd3<ba" /
-    /Re>ctangle
-/<PartDraw
-PartText x="135" y="160" width=&q>uot;30<0&quo>t; he<ight=>&<quot;120&>"START"
-        Font family="pacifico" size="96" weight="BOLD" color="#fb5607"Hello!/Font
-    /Text
-/PartTextwatchface_effects.xml
+<PartDraw x="125" y="115" width="150" height="150">
+    <Rectangle x="0" y="0" width="150" height="150">
+        <Fill color="#ffd3ba" />
+    </Rectangle>
+</PartDraw>
+<PartText x="135" y="160" width="300" height="120">
+    <Text align="START">
+        <Font family="pacifico" size="96" weight="BOLD" color="#fb5607">Hello!</Font>
+    </Text>
+</PartText>
 ```
 
 <br />
@@ -109,15 +111,16 @@ watch face:
 <br />
 
 ```xml
-<PartDraw x="125" y="115" widt>h=&qu<ot;150" height="150"
-    Rectan>gle x=&qu<ot;0" y="0&q>uot; <width=&quo>t<;150">;< height="150"
-        Fill color="#ffd3ba" /
-    />Recta<ngle
-/PartDraw
-Par>tText x=&<quot;135" y="160" width="300" height=>"<120&q>uot; <blend>M<ode=">ext align="START"
-        Font family="pacifico" size="96" weight="BOLD" color="#fb5607"Hello!/Font
-    /Text
-/PartTextwatchface_effects.xml
+<PartDraw x="125" y="115" width="150" height="150">
+    <Rectangle x="0" y="0" width="150" height="150">
+        <Fill color="#ffd3ba" />
+    </Rectangle>
+</PartDraw>
+<PartText x="135" y="160" width="300" height="120" blendMode="SRC_ATOP">
+    <Text align="START">
+        <Font family="pacifico" size="96" weight="BOLD" color="#fb5607">Hello!</Font>
+    </Text>
+</PartText>
 ```
 
 <br />
@@ -131,21 +134,23 @@ An example of combining multiple `Part*` elements using [`HUE`](https://develope
 <br />
 
 ```xml
-<Group name="container" x="75" y="100&>quot;< width="300" height="300"
- >   PartDr<aw x="25" y="15" width=&qu>ot;150" <height="150">
-        <Rectangle >x=&qu<ot;0">; y=&<quot;0" width="150" height="150"
-      >      Fil<l color="#ffd3ba" /
-        /Recta>ngle
-    /Par<tDraw
-    PartDraw x=&>quot;100&<quot; y=>"<;15"> widt<h="150" height="150" blendMode="HUE"
-   >     Elli<pse x="0">; y="0&q<uot; width="150" height="150"
-            >Fill c<olor=>"#21<9ebc&>quot;< /
-      > < /Elli PartText x="35" y="60" width="300" height="120" blendMode="COLOR_BURN"
-        Text align="START"
-            Font family="pacifico" size="96" weight="BOLD" color="#fb5607"Hello!/Font
-        /Text
-    /PartText
-/Groupwatchface_effects.xml
+<Group name="container" x="75" y="100" width="300" height="300">
+    <PartDraw x="25" y="15" width="150" height="150">
+        <Rectangle x="0" y="0" width="150" height="150">
+            <Fill color="#ffd3ba" />
+        </Rectangle>
+    </PartDraw>
+    <PartDraw x="100" y="15" width="150" height="150" blendMode="HUE">
+        <Ellipse x="0" y="0" width="150" height="150">
+            <Fill color="#219ebc" />
+        </Ellipse>
+    </PartDraw>
+    <PartText x="35" y="60" width="300" height="120" blendMode="COLOR_BURN">
+        <Text align="START">
+            <Font family="pacifico" size="96" weight="BOLD" color="#fb5607">Hello!</Font>
+        </Text>
+    </PartText>
+</Group>
 ```
 
 <br />
@@ -170,28 +175,28 @@ rectangle mask, noting that the order of the masked element doesn't matter:
 <br />
 
 ```xml
-<Group name="container" x="75" y="100&>quot;< width="300" height="300"
- >   PartDr<aw x="25" y="15" width=&qu>ot;150" <height="150">
-        <Rectangle >x=&qu<ot;0">; y=&<quot;0" width="150" height="150"
-      >      Fil<l color="#ffd3ba" /
-        /Recta>ngle
-    /Par<tDraw
-    PartDraw x=&>quot;100&<quot; y=>"<;15"> widt<h="150" height="150" blendMode="HUE">
-        <Ellipse x="0" y="0" width=>"150&quo<t; height="150&qu>ot;
-     <       Fill col<or=">#219e<bc" /
-        /Ellipse
-    /PartDraw
-    PartDraw x="100&quo>t; y=&quo<t;15" width=&>quot;150"<; height="150" renderMode="MASK"
-        R>ectang<le x=>"0&q<uot; >y=&qu<ot;0">;< width>ht="150"
-            Fill color="#ffffff" /
-        /Rectangle
-    /PartDraw
-    PartText x="35" y="60" width="300" height="120" blendMode="COLOR_BURN"
-        Text align="START"
-            Font family="pacifico" size="96" weight="BOLD" color="#fb5607"Hello!/Font
-        /Text
-    /PartText
-/Groupwatchface_effects.xml
+<Group name="container" x="75" y="100" width="300" height="300">
+    <PartDraw x="25" y="15" width="150" height="150">
+        <Rectangle x="0" y="0" width="150" height="150">
+            <Fill color="#ffd3ba" />
+        </Rectangle>
+    </PartDraw>
+    <PartDraw x="100" y="15" width="150" height="150" blendMode="HUE">
+        <Ellipse x="0" y="0" width="150" height="150">
+            <Fill color="#219ebc" />
+        </Ellipse>
+    </PartDraw>
+    <PartDraw x="100" y="15" width="150" height="150" renderMode="MASK">
+        <Rectangle x="0" y="0" width="150" height="150">
+            <Fill color="#ffffff" />
+        </Rectangle>
+    </PartDraw>
+    <PartText x="35" y="60" width="300" height="120" blendMode="COLOR_BURN">
+        <Text align="START">
+            <Font family="pacifico" size="96" weight="BOLD" color="#fb5607">Hello!</Font>
+        </Text>
+    </PartText>
+</Group>
 ```
 
 <br />
@@ -214,22 +219,23 @@ individual hands such as `HourHand` and `MinuteHand`, for example:
 <br />
 
 ```xml
-<Group x="75" y="100" width="350" height="350>"<; name="group1" tintColor="#ffd>3ba"<
-    PartDraw x="25" y="0"> width="<100" height=">;100"<;
-        >Recta<ngle x=&q>uot;0<" y="0" width="100" he>ight=&quo<t;100"
-            Fill color="#fff>fff" /
- <       /Rectangle
-    >/PartDraw<
-    Par>tDraw< x=">150&q<uot; y="0" width="100" hei>ght="<;100"
-        >Ellipse x=&qu<ot;25" y="0" width="100" height=">;100&q<uot;
->         <   Fill co<lor=">;<#fffff>lipse
-    /PartDraw
-    PartText x="0" y="150" width="300" height="80"
-        Text align="CENTER"
-            Font family="pacifico" size="72" weight="BOLD" color="#ffffff"Hello!/Font
-        /Text
-    /PartText
-/Groupwatchface_effects.xml
+<Group x="75" y="100" width="350" height="350" name="group1" tintColor="#ffd3ba">
+    <PartDraw x="25" y="0" width="100" height="100">
+        <Rectangle x="0" y="0" width="100" height="100">
+            <Fill color="#ffffff" />
+        </Rectangle>
+    </PartDraw>
+    <PartDraw x="150" y="0" width="100" height="100">
+        <Ellipse x="25" y="0" width="100" height="100">
+            <Fill color="#ffffff" />
+        </Ellipse>
+    </PartDraw>
+    <PartText x="0" y="150" width="300" height="80">
+        <Text align="CENTER">
+            <Font family="pacifico" size="72" weight="BOLD" color="#ffffff">Hello!</Font>
+        </Text>
+    </PartText>
+</Group>
 ```
 
 <br />

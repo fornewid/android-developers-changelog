@@ -99,7 +99,7 @@ standard suspending functions, enabling cleaner and sequential execution.
             }
 
             // Handles errors during the initial request trigger.
-            this.createSession(options, callback).addOnFailureListener(executor) { e ->
+            this@createSessionAsync.createSession(options, callback).addOnFailureListener(executor) { e ->
                 if (continuation.isActive) {
                     continuation.resumeWithException(e)
                 }
@@ -158,31 +158,37 @@ heavy GPU resources are released when the `ViewModel` is cleared.
 
     // Track session state to enable reuse across multiple processing calls.
         private var enhancementSession: EnhancementSession? = null
+        private var sessionOptions: EnhancementOptions? = null
 
     // Primary function to trigger the enhancement workflow for a provided bitmap.
         fun enhanceImage(bitmap: Bitmap) {
             viewModelScope.launch(Dispatchers.IO) {
                 _uiState.update { it.copy(isLoading = true, enhancementError = null) }
                 try {
-                    // 1. Establish the session lazily on demand
-
-    // Define enhancement options (for example, enable upscale, tonemapping) based
-    // on bitmap dimensions.
-                    if (enhancementSession == null) {
-                        val options = EnhancementOptions(
-                            bitmap.width,
-                            bitmap.height,
-                            EnhancementMode.BITMAP,
-                            enableTonemap = true,
-                            enableDeblurDenoise = true,
-                            enableDenoiseOnly = false,
-                            enableUpscale = false,
-                        )
+                    // Define enhancement options (for example, enable upscale, tonemapping) based
+                    // on bitmap dimensions.
+                    val options = EnhancementOptions(
+                        bitmap.width,
+                        bitmap.height,
+                        EnhancementMode.BITMAP,
+                        isTonemappingEnabled = true,
+                        isDeblurAndDenoisePhotoEnabled = true,
+                        isUpscalePhotoEnabled = false,
+                    )
+                    // 1. Establish the session lazily on demand. A session is configured for
+                    // specific input dimensions, so replace it when the bitmap size changes.
+                    if (enhancementSession == null ||
+                        sessionOptions?.width != options.width ||
+                        sessionOptions?.height != options.height
+                    ) {
+                        enhancementSession?.release()
+                        enhancementSession = null
                         enhancementSession = enhancementClient.createSessionAsync(options, enhancementExecutor)
+                        sessionOptions = options
                     }
                     val session = enhancementSession ?: throw IllegalStateException("Session unavailable.")
                     // 2. Dispatch image through the neural pipeline
-                    val enhancedBitmap = session.processBitmapAsync(bitmap, session.defaultOptions)
+                    val enhancedBitmap = session.processBitmapAsync(bitmap, options)
                     // 3. Render output to UI
                     _uiState.update {
                         it.copy(enhancedImage = ImageInfo(bitmap = enhancedBitmap))
@@ -204,3 +210,110 @@ heavy GPU resources are released when the `ViewModel` is cleared.
             super.onCleared()
         }
     }
+
+## Load images progressively on slow networks
+
+On slow networks, your app can download a smaller, more compressed version of an
+image instead of the full-resolution file. Your app can then use Bitmap mode to
+upscale and deblur the image on the device. The enhanced image replaces the
+full-resolution download, so users see a sharper image without a large file
+transfer.
+
+### When to use this pattern
+
+This pattern is a good fit when all of the following are true:
+
+- **The device is supported** : `isDeviceSupportedAsync()` returns `true`. The API requires Android 11 (API level 30) or higher and is optimized for premium-tier devices.
+- **The image is displayed larger than its downloaded size**: For example, a small image shown full screen. If the image stays at thumbnail size, upscaling adds little visible benefit.
+- **The enhancement module is already installed** : `isModuleInstalledAsync()` returns `true`. Module installation downloads model files over the network. If the user is already on a slow connection, don't start the installation.
+
+If any of these conditions isn't met, display the downloaded image without
+enhancement.
+
+### Implement the pattern
+
+The pattern works as follows:
+
+1. **Display the low-resolution image**: Render the small image as soon as it downloads.
+2. **Enhance in the background**: If the enhancement engine is ready, process the image in Bitmap mode with upscaling and deblurring enabled.
+3. **Swap in the result**: Replace the displayed image with the enhanced bitmap. A short cross-fade makes the swap less noticeable.
+
+The following `ProgressiveImageEnhancer` class processes one image at a time and
+reuses a single session for images of the same size. If enhancement fails,
+`enhance()` returns `null` so that your app continues to display the
+low-resolution image. The class uses the `createSessionAsync` and
+`processBitmapAsync` wrappers defined in [Create session and bitmap process
+wrappers](https://developer.android.com/media/ai-enhancement/bitmap-mode-lifecycle#create-session-bitmap-wrappers).
+
+Install the module ahead of time, as shown in [Initialize the enhancement
+engine](https://developer.android.com/media/ai-enhancement/bitmap-mode-lifecycle#initialize-enhancement-engine). If `isDeviceSupportedAsync()` and `isModuleInstalledAsync()` return
+`true`, call `enhance()`.
+
+    class ProgressiveImageEnhancer(
+        private val enhancementClient: EnhancementClient,
+        private val executor: Executor,
+    ) {
+        // Callers can request enhancements concurrently, but they all share one
+        // session, so process one image at a time.
+        private val mutex = Mutex()
+        private var session: EnhancementSession? = null
+        private var sessionOptions: EnhancementOptions? = null
+
+        // Enhancement is optional for this pattern, so return null instead of
+        // throwing. The caller can keep the low-resolution image without extra
+        // error handling.
+        suspend fun enhance(lowResBitmap: Bitmap): Bitmap? = mutex.withLock {
+            val options = EnhancementOptions(
+                width = lowResBitmap.width,
+                height = lowResBitmap.height,
+                enhancementMode = EnhancementMode.BITMAP,
+                isDeblurAndDenoisePhotoEnabled = true,
+                isUpscalePhotoEnabled = true,
+            )
+            try {
+                getOrCreateSession(options).processBitmapAsync(lowResBitmap, options)
+            } catch (e: CancellationException) {
+                // A cancelled request (for example, the user scrolled away) isn't
+                // an enhancement failure, so let the caller's scope handle it.
+                throw e
+            } catch (e: Exception) {
+                null
+            }
+        }
+
+        // Sessions are expensive to create and are configured for specific input
+        // dimensions, so reuse the current one until the image size changes.
+        private suspend fun getOrCreateSession(options: EnhancementOptions): EnhancementSession {
+            val currentSession = session
+            val currentOptions = sessionOptions
+            if (currentSession != null &&
+                currentOptions != null &&
+                currentOptions.width == options.width &&
+                currentOptions.height == options.height
+            ) {
+                return currentSession
+            }
+            releaseSession()
+            return enhancementClient.createSessionAsync(options, executor).also {
+                session = it
+                sessionOptions = options
+            }
+        }
+
+        // A session holds GPU memory until it's released, so free it as soon as
+        // the images it enhances are no longer on screen. Taking the lock first
+        // waits for any in-progress enhancement, so a session that's still being
+        // created isn't leaked.
+        suspend fun release() = mutex.withLock { releaseSession() }
+
+        private fun releaseSession() {
+            session?.release()
+            session = null
+            sessionOptions = null
+        }
+    }
+
+When you use this pattern, follow these guidelines:
+
+- **Request a consistent size** : An `EnhancementSession` uses fixed input dimensions. Request low-resolution images at one consistent size so that your app can reuse a single session across images.
+- **Cache the enhanced result**: Store the enhanced bitmap in your image cache so that your app doesn't process the same image again. If you enable upscaling, the enhanced bitmap is larger than the input bitmap. Size your cache for the larger bitmaps.

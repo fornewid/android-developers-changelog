@@ -32,6 +32,10 @@ to increasingly more complex vibration waveforms and effect compositions.
     compositions using [`VibrationEffect.Builder`](https://developer.android.com/reference/android/os/VibrationEffect.Builder) and
     envelope waveforms.
 
+[Add audio-haptic feedback from the Multisensory Design System (MSDS)](https://developer.android.com/develop/ui/views/haptics/msds)
+:   The page describes how to enrich applications with audio-haptic feedback
+    following the guidelines from the Multisensory Design System (MSDS).
+
 [Add haptics APIs](https://developer.android.com/develop/ui/views/haptics/haptics-apis)
 :   The page is a reference for various haptics APIs available on Android, and
     also covers which APIs provide automatic fallback and when to check for

@@ -10,18 +10,8 @@ An edge-to-edge app takes advantage of the entire screen by drawing UI under the
 system bars.
 ![](https://developer.android.com/static/images/design/ui/mobile/e2e-app-contrast.gif) **Figure 1.** Left. An app that isn't edge-to-edge. Right. An app that is edge-to-edge.
 
-
-## Android skills
-
-[View on GitHub](https://github.com/android/skills/tree/main/system/edge-to-edge)
-
-### Add Edge-to-Edge support
-
-Use the Edge-to-Edge [Android skill](https://developer.android.com/tools/agents/android-skills) to add adaptive edge-to-edge support to your Jetpack Compose app. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
-
-    android skills add edge-to-edge
-
-<br />
+> [!IMPORTANT]
+> **Important:** We released an agent skill to help you migrate your Jetpack Compose app to add adaptive edge-to-edge support. Try out the skill from the [Android skills repository](https://github.com/android/skills).
 
 ## Takeaways
 
@@ -57,7 +47,7 @@ following section discusses additional status bar considerations.
 Top app bars should collapse while scrolling. Learn how to [collapse](https://developer.android.com/develop/ui/compose/components/app-bars#scroll) the
 Material 3 TopAppBar. In Material 3, small top app bars can collapse to status
 bar height or scroll offscreen. Medium and large top app bars can collapse to a
-smaller app bar. See the [Material guidance](https://m3.material.io/components/app-bars/guidelines).
+smaller app bar. See the \[Material guidance\]\[10\].
 ![](https://developer.android.com/static/images/design/ui/mobile/e2e-collapse-bar.gif)
 
 ### Do
@@ -75,8 +65,8 @@ scrollable UI edge-to-edge by implementing the steps in the [LazyColumn](https:/
 doing one of the following:
 
 - Rely on the Material 3 TopAppBar automatic protection when [scrolling](https://developer.android.com/develop/ui/compose/components/app-bars#scroll), if applicable.
-- Create a custom gradient composable. For more information, see [System bar
-  protection](https://developer.android.com/develop/ui/compose/system/system-bars).
+- Create a custom gradient composable or use [GradientProtection](https://developer.android.com/reference/androidx/core/view/insets/GradientProtection) for Views. For more information on doing this in compose, see [System bar
+  protection](https://developer.android.com/develop/ui/compose/layouts/system-bars).
 
 ![](https://developer.android.com/static/images/design/ui/mobile/e2e-protection.png) **Figure 3.** An app with gesture insets highlighted green.
 
@@ -106,7 +96,8 @@ The following section includes additional navigation bar considerations.
 
 #### Scrolling content
 
-Bottom app bars should collapse while scrolling.
+\[`BottomAppBar`\]\[10\] should collapse while scrolling using the `scrollBehavior`
+parameter.
 ![](https://developer.android.com/static/images/design/ui/mobile/e2e-scrim-do.gif)
 
 ### Do
@@ -116,6 +107,9 @@ Add system bar scrim for three-button navigation when the bottom app bar animate
 ### Do
 
 Keep gesture navigation transparent and don't add an additional scrim.
+
+However, keep \[`NavigationBar`\][11](https://developer.android.com/design/ui/mobile/guides/layout-and-content/and%20the%20%60NavigationBar%60%20used%20in%20the%0A%60NavigationSuiteScaffold%60%20while%20folded) visible while scrolling because it
+doesn't have a `scrollBehavior` parameter.
 
 ### Display cutouts
 

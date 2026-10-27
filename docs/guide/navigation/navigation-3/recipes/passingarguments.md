@@ -203,7 +203,7 @@ class BasicViewModelsActivity : ComponentActivity() {
         setEdgeToEdgeConfig()
         super.onCreate(savedInstanceState)
         setContent {
-            val backStack = remember <{ m>utableStateListOfAny(RouteA) }
+            val backStack = remember { mutableStateListOf<Any>(RouteA) }
 
             NavDisplay(
                 backStack = backStack,
@@ -217,10 +217,10 @@ class BasicViewModelsActivity : ComponentActivity() {
                     rememberViewModelStoreNavEntryDecorator()
                 ),
                 entryProvider = entryProvider {
- <      >             entryRouteA {
+                    entry<RouteA> {
                         ContentGreen("Welcome to Nav3") {
                             LazyColumn {
-             >                   items(10) { i -
+                                items(10) { i ->
                                     Button(onClick = dropUnlessResumed {
                                         backStack.add(RouteB("$i"))
                                     }) {
@@ -228,9 +228,9 @@ class BasicViewModelsActivity : ComponentActivity() {
                                     }
                                 }
                             }
-                   <     }>
-       >             }
-                    entryRouteB { key -
+                        }
+                    }
+                    entry<RouteB> { key ->
                         // Note: We need a new ViewModel for every new RouteB instance. Usually
                         // we would need to supply a `key` String that is unique to the
                         // instance, however, the ViewModelStoreNavEntryDecorator (supplied
@@ -256,13 +256,13 @@ class RouteBViewModel(
     val key: RouteB
 ) : ViewModel() {
     class Factory(
-        private val key: R<outeB,
-    ) >: ViewModelProvider.Facto<r>y {
-        override fun T : ViewModel create(modelClass: ClassT): T {ViewModel(key) as T
+        private val key: RouteB,
+    ) : ViewModelProvider.Factory {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return RouteBViewModel(key) as T
         }
     }
 }
-BasicViewModelsActivity.kt
 ```
 
 # Passing Arguments to ViewModels (Koin)
@@ -337,10 +337,10 @@ class KoinViewModelsActivity : ComponentActivity() {
                         rememberViewModelStoreNavEntryDecorator()
                     ),
                     entryProvider = entryProvider {
-                        e<ntryRo>uteA {
+                        entry<RouteA> {
                             ContentGreen("Welcome to Nav3") {
                                 LazyColumn {
-                                    i>tems(10) { i -
+                                    items(10) { i ->
                                         Button(onClick = dropUnlessResumed {
                                             backStack.add(RouteB("$i"))
                                         }) {
@@ -349,9 +349,9 @@ class KoinViewModelsActivity : ComponentActivity() {
                                     }
                                 }
                             }
-                     <   }
- >        >               entryRouteB { key -
-                       <     val viewMo>del = koinViewModelRouteBViewModel {
+                        }
+                        entry<RouteB> { key ->
+                            val viewModel = koinViewModel<RouteBViewModel> {
                                 parametersOf(key)
                             }
                             ScreenB(viewModel = viewModel)
@@ -373,5 +373,5 @@ fun ScreenB(viewModel: RouteBViewModel) {
     ContentBlue("Route id: ${viewModel.navKey.id} ")
 }
 
-class RouteuteB) : ViewModel()KoinViewModelsActivity.kt
+class RouteBViewModel(val navKey: RouteB) : ViewModel()
 ```

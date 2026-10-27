@@ -8,11 +8,12 @@ source: md.txt
 > **Caution:** One Tap for Android is deprecated. To ensure the continued security and usability of your app, [migrate to
 > Credential Manager](https://developer.android.com/identity/sign-in/credential-manager). Credential Manager supports passkey, password, and federated identity authentication (such as Sign-in with Google), stronger security, and a more consistent user experience.
 
-Linked Account Sign-In enables [One Tap Sign In With Google](https://developer.android.com/identity/legacy/one-tap/overview) for users
-that already have their Google Account linked to your service. This improves the
-experience for users as they can sign in with one click, without re-entering
-their username and password. It also reduces the chances of users creating
-duplicate accounts on your service.
+Linked Account Sign-In enables
+[One Tap Sign In With Google](https://developer.android.com/identity/legacy/one-tap) for users that already have their
+Google Account linked to your service. This improves the experience for users as
+they can sign in with one click, without re-entering their username and
+password. It also reduces the chances of users creating duplicate accounts on
+your service.
 
 Linked Account Sign-In is available as part of the One Tap Sign-In flow for
 Android. This means you don't need to import a separate library if your app
@@ -29,6 +30,9 @@ Linked Account Sign-In.
 4. If the user chooses to continue with the linked account, the user's ID token is returned to your app. You match this against the token that was sent to your server in step 2 to identify the logged in user.
 
 ## Setup
+
+To set up Linked Account Sign-In, configure your development environment and
+your app.
 
 ### Set up your development environment
 
@@ -74,8 +78,7 @@ At the end of the Linked Account Sign-In flow, an ID token is returned to your
 app. The ID token's integrity should be verified before signing the user in.
 
 The following code sample details the steps to retrieve,
-[verify the ID token](https://developer.android.com/identity/legacy/one-tap/linked-account-signin-client#verify_the_integrity_of_the_id_token), and subsequently
-sign the user in.
+[verify the ID token](https://developer.android.com/identity/legacy/one-tap/linked-account-signin-client#verify-the-integrity-of-the-id-token), and subsequently sign the user in.
 
 1. Create an activity to receive the result of the Sign-In intent
 
@@ -177,9 +180,8 @@ sign the user in.
 
 ### Use a Google API Client Library
 
-Using the
-[Java Google API Client Library](https://developers.google.com/api-client-library/java/google-api-java-client/setup)
-is the recommended way to validate Google ID tokens in a production environment.
+Using the [Java Google API Client Library](https://developers.google.com/api-client-library/java/google-api-java-client/setup) is the recommended
+way to validate Google ID tokens in a production environment.
 
 ### Java
 

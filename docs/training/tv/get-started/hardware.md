@@ -242,16 +242,26 @@ hover, and scroll interactions, like on a mobile device, to provide a better exp
 that support them.
 
 
-If your app allows for touch mode, you can declare touch support by adding `android.software.leanback.supports_touch` as set to `true` in your `AndroidManifest.xml`:
+If your app allows for touch mode, you can declare touch support for the entire app or for
+individual activities by adding the `android.software.leanback.supports_touch`
+[`<property>`](https://developer.android.com/guide/topics/manifest/property-element) element set to
+`true` inside the `<application>` or `<activity>`
+element in your `AndroidManifest.xml`:
 
 ```xml
-<meta-data android:name="android.software.leanback.supports_touch" android:value="true|false"/>
+<application ...>
+    <property
+        android:name="android.software.leanback.supports_touch"
+        android:value="true|false" />
+    ...
+</application>
 ```
 
 
 Note: On devices that support a pointing remote (like an air mouse or trackpad), enabling this
-enables cursor and touch mode rather than relying on platform compatibility emulation. Omitting
-this metadata defaults to `false`.
+enables cursor and touch mode rather than relying on platform compatibility emulation. An
+activity-level declaration overrides the application-level declaration for that activity. Omitting
+this property defaults to `false`.
 
 #### Camera
 

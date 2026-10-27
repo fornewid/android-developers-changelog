@@ -97,9 +97,13 @@ override fun onProvideKeyboardShortcuts(
                 "Send a message",
                 KeyEvent.KEYCODE_ENTER,
                 KeyEvent.META_SHIFT_ON
-         data?.add(cursorMovement)
+            )
+        )
+    )
+
+    data?.add(cursorMovement)
     data?.add(messageEdit)
-}KeyboardShortcutsHelper.kt
+}
 ```
 
 <br />
@@ -120,7 +124,8 @@ Button(
         activity?.requestShowKeyboardShortcuts()
     }
 ) {
-    Text(text = "Show keyboard shortcutsHelper.kt
+    Text(text = "Show keyboard shortcuts")
+}
 ```
 
 <br />

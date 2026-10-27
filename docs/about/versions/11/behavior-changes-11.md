@@ -141,9 +141,9 @@ to add the following `<queries>` element to their manifest files:
 <queries>
   <intent>
     <action
-       android:name="android.intent.action.TTS_SERVI>CE&<quot; />
-<  /inten>t
-/queries
+       android:name="android.intent.action.TTS_SERVICE" />
+  </intent>
+</queries>
 ```
 
 ### Declare accessibility button usage in metadata file
@@ -270,9 +270,9 @@ to add the following `<queries>` element to their manifest files:
 <queries>
   <intent>
     <action
-       android:name="android.speech.RecognitionServi>ce&<quot; />
-<  /inten>t
-/queries
+       android:name="android.speech.RecognitionService" />
+  </intent>
+</queries>
 ```
 
 ## Callback changes for OnSharedPreferenceChangeListener

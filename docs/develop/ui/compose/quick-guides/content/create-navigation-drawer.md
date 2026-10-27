@@ -41,7 +41,7 @@ higher.
 
 You can use the [`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0)) composable to implement a
 navigation drawer:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_f4050c126e4e79627fc548b551a982229cce064c3e38c7e1471ef9c08909c1ec.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_738b48945e67593663d26e9e56fadb2b90bbb9d0a481d3c72b11582f5c9d0eec.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Key points
 
@@ -52,12 +52,12 @@ navigation drawer:
   For example, you can toggle whether or not the drawer responds to drags with
   the `gesturesEnabled` parameter as in the following example:
 
-  <iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_0fd76937bf7f75925f893aa80b418d58b0110118d425bdec1aa61ab65eef2749.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+  <iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_1227a0658dadfd344f502a86d193838838736530a2beebe2c4f5f3e3547fdb7a.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Control navigation drawer behavior
 
 To control how the drawer opens and closes, use [`DrawerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DrawerState):
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_9a563bd3f0f16c3d041592aea54daf83b571cddbe5d046b74e53fb8c03cf2ffe.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_e6de0483898f969d91773bd0797edf0fe55d48eee545dd5bc5b484e947195a3a.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Key points
 

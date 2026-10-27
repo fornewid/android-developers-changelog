@@ -246,7 +246,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
     ...
 }
 
-internal inner class InitDiskCacheTask :< AsyncTaskFile, >Void, Void() {
+internal inner class InitDiskCacheTask : AsyncTask<File, Void, Void>() {
     override fun doInBackground(vararg params: File): Void? {
         diskCacheLock.withLock {
             val cacheDir = params[0]
@@ -258,7 +258,7 @@ internal inner class InitDiskCacheTask :< AsyncTaskFile, >Void, Void() {
     }
 }
 
-internal inner class  BitmapWorkerTask :< AsyncTaskInt, Un>it, Bitmap() {
+internal inner class  BitmapWorkerTask : AsyncTask<Int, Unit, Bitmap>() {
     ...
 
     // Decode image in background.
@@ -342,7 +342,7 @@ protected void onCreate(Bundle savedInstanceState) {
     ...
 }
 
-class InitDiskCacheTask extends< AsyncTaskFile, >Void, Void {
+class InitDiskCacheTask extends AsyncTask<File, Void, Void> {
     @Override
     protected Void doInBackground(File... params) {
         synchronized (diskCacheLock) {
@@ -355,7 +355,7 @@ class InitDiskCacheTask extends< AsyncTaskFile, >Void, Void {
     }
 }
 
-class BitmapWorkerTask extends< AsyncTaskInteger, Vo>id, Bitmap {
+class BitmapWorkerTask extends AsyncTask<Integer, Void, Bitmap> {
     ...
     // Decode image in background.
     @Override
@@ -387,7 +387,7 @@ public void addBitmapToCache(String key, Bitmap bitmap) {
 
     // Also add to disk cache
     synchronized (diskCacheLock) {
-        if (diskLruCach&&e != null  diskLruCache.get(key) == null) {
+        if (diskLruCache != null && diskLruCache.get(key) == null) {
             diskLruCache.put(key, bitmap);
         }
     }
@@ -453,13 +453,13 @@ changes using a `https://developer.android.com/reference/android/app/Fragment`:
 ```kotlin
 private const val TAG = "RetainFragment"
 ...
-private lateinit var mMemoryCache<: LruCacheStri>ng, Bitmap
+private lateinit var mMemoryCache: LruCache<String, Bitmap>
 
 override fun onCreate(savedInstanceState: Bundle?) {
     ...
     val retainFragment = RetainFragment.findOrCreateRetainFragment(supportFragmentManager)
     mMemoryCache = retainFragment.retainedCache ?: run {
-      <  LruCacheStri>ng, Bitmap(cacheSize).also { mem>oryCache -
+        LruCache<String, Bitmap>(cacheSize).also { memoryCache ->
             ... // Initialize cache here as usual
             retainFragment.retainedCache = memoryCache
         }
@@ -468,7 +468,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 
 class RetainFragment : Fragment() {
-    var retainedCache<: LruCacheStri>ng, Bitmap? = null
+    var retainedCache: LruCache<String, Bitmap>? = null
 
     companion object {
         fun findOrCreateRetainFragment(fm: FragmentManager): RetainFragment {
@@ -509,7 +509,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 class RetainFragment extends Fragment {
     private static final String TAG = "RetainFragment";
-    publi<c LruCacheStri>ng, Bitmap retainedCache;
+    public LruCache<String, Bitmap> retainedCache;
 
     public RetainFragment() {}
 

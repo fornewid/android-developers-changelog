@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | [1.11.1](https://developer.android.com/jetpack/androidx/releases/media3#1.11.1) | - | - | [1.12.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media3#1.12.0-alpha01) |
+| October 26, 2026 | [1.11.1](https://developer.android.com/jetpack/androidx/releases/media3#1.11.1) | - | - | [1.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/media3#1.12.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -204,6 +204,16 @@ Your feedback helps make Jetpack better. You can use the
 to questions, known issues and feature requests, and to file new issues.
 
 ## Version 1.12.0
+
+### Version 1.12.0-alpha02
+
+October 26, 2026
+
+Version 1.12.0-alpha02 contains the following
+[commits](https://github.com/androidx/media/commits/1.12.0-alpha02).
+
+- Effect Play services:
+  - Introduce a new `media3-effect-play-services` module providing Google Play services media effects, including `EnhancementSessionDecorator` for video enhancement and `StudioSoundAudioProcessor` for audio source separation.
 
 ### Version 1.12.0-alpha01
 
