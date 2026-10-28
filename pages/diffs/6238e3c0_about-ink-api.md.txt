@@ -1,0 +1,25 @@
+diff --git a/docs/develop/ui/compose/touch-input/stylus-input/about-ink-api.md b/docs/develop/ui/compose/touch-input/stylus-input/about-ink-api.md
+index aa63f808..ab7a644e 100644
+--- a/docs/develop/ui/compose/touch-input/stylus-input/about-ink-api.md
++++ b/docs/develop/ui/compose/touch-input/stylus-input/about-ink-api.md
+@@ -19,4 +19,17 @@ implementation. Jetpack supports using the Ink API on all supported Android
+ architectures. You can use Ink API modules that aren't Android-specific in
+ server-side JVM code under Linux for x86_64. This enables high-fidelity
+ server-side rendering, ensuring that digital ink looks identical across mobile
+-previews and exported documents like PDFs or PNGs.
+\ No newline at end of file
++previews and exported documents like PDFs or PNGs.
++
++
++## Android skills
++
++[View on GitHub](https://github.com/android/skills/tree/main/jetpack-compose/ink/ink-app-builder)
++
++### Build Ink drawing apps
++
++Use the `ink-app-builder` [Android skill](https://developer.android.com/tools/agents/android-skills) to build freehand drawing surfaces in Jetpack Compose, handle stylus input, erase strokes, and save ink data. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
++
++    android skills add ink-app-builder
++
++<br />
+\ No newline at end of file

@@ -1,0 +1,204 @@
+diff --git a/docs/multidevice.md b/docs/multidevice.md
+index 73f8ecbe..dd64969d 100644
+--- a/docs/multidevice.md
++++ b/docs/multidevice.md
+@@ -1,77 +1,162 @@
+ ---
+-title: https://developer.android.com/multidevice
++title: Android devices  |  Multidevice  |  Android Developers
+ url: https://developer.android.com/multidevice
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-![](http://developer.android.com/static/multidevice/images/android-everywhere.svg)
++* [Android Developers](https://developer.android.com/)
++* [Multidevice](https://developer.android.com/multidevice)
++
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
++
++![](https://developer.android.com/static/multidevice/images/android-everywhere.svg)
+ 
+ ### Android everywhere
+ 
+-Android is for everyone, everywhere, offering an expansive assortment of devices and configurations, providing unmatched value. From wearable devices to the ubiquitous phone to car infotainment systems to home theater displays and even virtual reality, Android is everywhere. Expand your app's audience by supporting the ever-increasing number and diversity of Android devices. [Learn multidevice development](http://developer.android.com/multidevice-development)
++Android is for everyone, everywhere, offering an expansive assortment of devices and configurations, providing unmatched value. From wearable devices to the ubiquitous phone to car infotainment systems to home theater displays and even virtual reality, Android is everywhere. Expand your app's audience by supporting the ever-increasing number and diversity of Android devices.
+ 
+-## What's new
++[Learn multidevice development](https://developer.android.com/multidevice-development)
+ 
+-[![](http://developer.android.com/static/multidevice/images/whats-new.svg)](http://developer.android.com/develop/adaptive-apps) Featured
++## What's new
+ 
+-### [Adaptive apps with Jetpack Compose](http://developer.android.com/develop/adaptive-apps)
++[![](https://developer.android.com/static/multidevice/images/whats-new.svg)](https://developer.android.com/develop/adaptive-apps)
+ 
+-Develop apps for multiple device form factors as easily as developing just for mobile phones. Use the latest Jetpack Compose APIs to build your phone app, and Compose optimizes your app for tablets, foldables, ChromeOS devices, car infotainment systems, and Android XR 2D---with minimal additional development effort from you.   
++Featured
+ 
+-Android has always supported adaptive app development with toolkits such as resource qualifiers and display-specific layouts, but each new form factor added to the development and maintenance burden.   
++### [Adaptive apps with Jetpack Compose](https://developer.android.com/develop/adaptive-apps)
+ 
+-Jetpack Compose multiplies your ROI by creating app layouts that adapt automatically to different display sizes and configurations with different navigation and UI components.   
++Develop apps for multiple device form factors as easily as developing just for mobile phones. Use the latest Jetpack Compose APIs to build your phone app, and Compose optimizes your app for tablets, foldables, ChromeOS devices, car infotainment systems, and Android XR 2D—with minimal additional development effort from you.
++  
++  
++Android has always supported adaptive app development with toolkits such as resource qualifiers and display-specific layouts, but each new form factor added to the development and maintenance burden.
++  
++  
++Jetpack Compose multiplies your ROI by creating app layouts that adapt automatically to different display sizes and configurations with different navigation and UI components.
++  
++  
++Cross-device adaptive development is an integral part of app development today, with integration of new form factors coming tomorrow.
+ 
+-Cross-device adaptive development is an integral part of app development today, with integration of new form factors coming tomorrow. [Learn more](http://developer.android.com/develop/adaptive-apps) [Get inspired](http://developer.android.com/large-screens/gallery)
++[Learn more](https://developer.android.com/develop/adaptive-apps)
++[Get inspired](https://developer.android.com/large-screens/gallery)
+ 
+ ## Device form factors
+ 
+-Android supports all device sizes and configurations, from wearables to foldables to TVs to XR. [![](http://developer.android.com/static/multidevice/images/phones-tablets-foldables.svg)](http://developer.android.com/phones-tablets-foldables) Devices
++Android supports all device sizes and configurations, from wearables to foldables to TVs to XR.
++
++[![](https://developer.android.com/static/multidevice/images/phones-tablets-foldables.svg)](https://developer.android.com/phones-tablets-foldables)
++
++Devices
++
++### [Phones, tablets, and foldables](https://developer.android.com/phones-tablets-foldables)
++
++Build apps for all Android mobile form factors as easily as developing for mobile phones only.
++
++[Learn more](https://developer.android.com/phones-tablets-foldables)
++
++[![](https://developer.android.com/static/images/spot-icons/car.svg)](https://developer.android.com/cars)
++
++Devices
++
++### [Cars](https://developer.android.com/cars)
++
++Develop your apps for an in-car experience without having to worry about differences in car infotainment system design.
++
++[Learn more](https://developer.android.com/cars)
++
++[![](https://developer.android.com/static/images/spot-icons/tv.svg)](https://developer.android.com/tv)
++
++Devices
++
++### [TV](https://developer.android.com/tv)
+ 
+-### [Phones, tablets, and foldables](http://developer.android.com/phones-tablets-foldables)
++Enable users to experience your app's immersive content on expansive home entertainment screens.
+ 
+-Build apps for all Android mobile form factors as easily as developing for mobile phones only. [Learn more](http://developer.android.com/phones-tablets-foldables) [![](http://developer.android.com/static/images/spot-icons/car.svg)](http://developer.android.com/cars) Devices
++[Learn more](https://developer.android.com/tv)
+ 
+-### [Cars](http://developer.android.com/cars)
++[![](https://developer.android.com/static/images/design/ui/xr/Spatialize_Overview_XR-Large-Screen-App.jpg)](https://developer.android.com/xr)
+ 
+-Develop your apps for an in-car experience without having to worry about differences in car infotainment system design. [Learn more](http://developer.android.com/cars) [![](http://developer.android.com/static/images/spot-icons/tv.svg)](http://developer.android.com/tv) Devices
++Devices
+ 
+-### [TV](http://developer.android.com/tv)
++### [Android XR](https://developer.android.com/xr)
+ 
+-Enable users to experience your app's immersive content on expansive home entertainment screens. [Learn more](http://developer.android.com/tv) [![](http://developer.android.com/static/images/design/ui/xr/Spatialize_Overview_XR-Large-Screen-App.jpg)](http://developer.android.com/xr) Devices
++Immerse users in extended reality (XR) with the Android XR platform. Create transformative experiences bounded only by imagination.
+ 
+-### [Android XR](http://developer.android.com/xr)
++[Learn more](https://developer.android.com/xr)
+ 
+-Immerse users in extended reality (XR) with the Android XR platform. Create transformative experiences bounded only by imagination. [Learn more](http://developer.android.com/xr) [![](http://developer.android.com/static/images/spot-icons/watch.svg)](http://developer.android.com/wear) Devices
++[![](https://developer.android.com/static/images/spot-icons/watch.svg)](https://developer.android.com/wear)
+ 
+-### [Wear OS](http://developer.android.com/wear)
++Devices
+ 
+-Smartwatches keep users connected to their health and fitness, the people they care about, and the world around them. [Learn more](http://developer.android.com/wear) [![](http://developer.android.com/static/images/picto-icons/chrome.svg)](http://developer.android.com/chrome-os) Devices
++### [Wear OS](https://developer.android.com/wear)
+ 
+-### [ChromeOS](http://developer.android.com/chrome-os)
++Smartwatches keep users connected to their health and fitness, the people they care about, and the world around them.
+ 
+-Distribute your apps to Chromebooks and other ChromeOS devices through the Google Play store. [Learn more](http://developer.android.com/chrome-os) [![](http://developer.android.com/static/multidevice/images/googlebook.svg)](http://developer.android.com/googlebook) Featured Device
++[Learn more](https://developer.android.com/wear)
+ 
+-### [Googlebook](http://developer.android.com/googlebook)
++[![](https://developer.android.com/static/images/picto-icons/chrome.svg)](https://developer.android.com/chrome-os)
+ 
+-Scale your Android apps to a high-performance, large screen canvas designed for focused productivity on a laptop. [Learn more](http://developer.android.com/googlebook)
++Devices
++
++### [ChromeOS](https://developer.android.com/chrome-os)
++
++Distribute your apps to Chromebooks and other ChromeOS devices through the Google Play store.
++
++[Learn more](https://developer.android.com/chrome-os)
++
++[![](https://developer.android.com/static/multidevice/images/googlebook.svg)](https://developer.android.com/googlebook)
++
++Featured Device
++
++### [Googlebook](https://developer.android.com/googlebook)
++
++Scale your Android apps to a high-performance, large screen canvas designed for focused productivity on a laptop.
++
++[Learn more](https://developer.android.com/googlebook)
+ 
+ ## Better Together
+ 
+-Take advantage of Android's extensive ecosystem to interconnect devices and make your app accessible everywhere. [![](http://developer.android.com/static/images/hero-illustrations/better-together-hero.svg)](http://developer.android.com/develop/better-together/continue-on) Technology
++Take advantage of Android's extensive ecosystem to interconnect devices and make your app accessible everywhere.
++
++[![](https://developer.android.com/static/images/hero-illustrations/better-together-hero.svg)](https://developer.android.com/develop/better-together/continue-on)
++
++Technology
++
++### [Continue On](https://developer.android.com/develop/better-together/continue-on)
++
++Enable users to start on one device, finish on another, for continuity across the Android ecosystem.
++
++[Learn more](https://developer.android.com/develop/better-together/continue-on)
++
++[![](https://developer.android.com/static/multidevice-development/images/multidevice-development.svg)](https://developer.android.com/multidevice-development)
++
++Devices
++
++### [Multidevice](https://developer.android.com/multidevice-development)
++
++Reach your users wherever they are by building app experiences optimized for any screen size or device.
++
++[Learn more](https://developer.android.com/multidevice-development)
++
++[![](https://developer.android.com/static/images/picto-icons/gemini.svg)](https://developer.android.com/ai)
++
++Technology
+ 
+-### [Continue On](http://developer.android.com/develop/better-together/continue-on)
++### [Gemini](https://developer.android.com/ai)
+ 
+-Enable users to start on one device, finish on another, for continuity across the Android ecosystem. [Learn more](http://developer.android.com/develop/better-together/continue-on) [![](http://developer.android.com/static/multidevice-development/images/multidevice-development.svg)](http://developer.android.com/multidevice-development) Devices
++Build AI-powered apps with multimodal on‑device or cloud‑based models.
+ 
+-### [Multidevice](http://developer.android.com/multidevice-development)
++[Learn more](https://developer.android.com/ai)
+ 
+-Reach your users wherever they are by building app experiences optimized for any screen size or device. [Learn more](http://developer.android.com/multidevice-development) [![](http://developer.android.com/static/images/picto-icons/gemini.svg)](http://developer.android.com/ai) Technology
++[![](https://developer.android.com/static/images/picto-icons/health-services-logo.svg)](https://developer.android.com/health-connect)
+ 
+-### [Gemini](http://developer.android.com/ai)
++Technology
+ 
+-Build AI-powered apps with multimodal on‑device or cloud‑based models. [Learn more](http://developer.android.com/ai) [![](http://developer.android.com/static/images/picto-icons/health-services-logo.svg)](http://developer.android.com/health-connect) Technology
++### [Health Connect](https://developer.android.com/health-connect)
+ 
+-### [Health Connect](http://developer.android.com/health-connect)
++Provide users with health and fitness insights and awareness.
+ 
+-Provide users with health and fitness insights and awareness. [Learn more](http://developer.android.com/health-connect)
+\ No newline at end of file
++[Learn more](https://developer.android.com/health-connect)
+\ No newline at end of file

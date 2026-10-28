@@ -1,0 +1,17 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/style-parts-text.md b/docs/develop/ui/compose/quick-guides/content/style-parts-text.md
+index 0c3e6cb5..39ec99f2 100644
+--- a/docs/develop/ui/compose/quick-guides/content/style-parts-text.md
++++ b/docs/develop/ui/compose/quick-guides/content/style-parts-text.md
+@@ -42,10 +42,10 @@ fun MultipleStylesInText() {
+             withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.Red)) {
+                 append("W")
+             }
+-            ap")
++            append("orld")
+         }
+     )
+-}TextSnippets.kt
++}
+ ```
+ 
+ <br />

@@ -1,5 +1,933 @@
 [
   {
+    "date": "2026-10-28T16:47:53Z",
+    "commit_hash": "6238e3c0",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/marshmallow/android-6.0\" target=\"_blank\">Android 6.0 APIs  |  Android Developers</a>",
+        "path": "about/versions/marshmallow/android-6.0.md",
+        "summary": "The changes to the Android 6.0 documentation primarily involve refactoring absolute URLs to relative paths across various API references, guides, and manifest attributes, as well as cleaning up markdown formatting and code block syntax.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_android-6.0.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/oreo/android-8.1\" target=\"_blank\">Android 8.1 Features and APIs</a>",
+        "path": "about/versions/oreo/android-8.1.md",
+        "summary": "Fixed a syntax error in the WebView Safe Browsing manifest configuration example, correcting malformed XML tags and attribute names to ensure the code snippet is valid for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_android-8.1.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/appfunctions/references/adb-interaction-testing\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/device-ai/appfunctions/references/adb-interaction-testing.md",
+        "summary": "Updated the AppFunction ADB interaction testing documentation to emphasize security best practices by treating app metadata as untrusted input and scoping listing commands with the `--package` parameter. These changes prevent unintended execution of instructions found within app metadata and streamline debugging for the app under development.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_adb-interaction-testing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/appfunctions/references/feature-discovery-analysis\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/device-ai/appfunctions/references/feature-discovery-analysis.md",
+        "summary": "Updated the feature discovery guidelines to refine AI value evaluation criteria, strengthen security constraints by explicitly prohibiting sensitive data handling and wide-ranging agent access, and introduce a new 'Focused functions' section to prevent agent confusion caused by multi-purpose or redundant functions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_feature-discovery-analysis.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point\" target=\"_blank\">Migrating to the AppFunctionServiceEntryPoint API</a>",
+        "path": "agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point.md",
+        "summary": "Updated the AppFunctions migration guide to target version `1.0.0-beta01`. Key updates include renaming `@AppFunction` to `@AppFunctionDeclaration`, adding the mandatory `isDescribedByKDoc = true` flag, renaming `appfn:description` to `appfn:instructions` in metadata, fixing code snippet syntax, and adding a dedicated 'Upgrade to 1.0.0-beta01' section detailing breaking API changes and renamings.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_migrate-to-service-entry-point.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/appfunctions/skill\" target=\"_blank\">Analyze, generate, and refine AppFunctions</a>",
+        "path": "agents/skills/device-ai/appfunctions/skill.md",
+        "summary": "Updated the AppFunctions skill documentation to specify version requirements (`1.0.0-beta01` or later), refine workflow execution guidelines for partial step requests, and enhance security and description constraints. It also includes migration details for upgrading past legacy configurations like `@AppFunction` annotations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/references/play-services\" target=\"_blank\">Run CompiledModel on LiteRT in Google Play services</a>",
+        "path": "agents/skills/device-ai/litert/litert-runtime/references/play-services.md",
+        "summary": "Updated the migration guide to mandate the use of the `List<TensorBuffer>` overload for `model.run` instead of the `Map<String, TensorBuffer>` variant. This change is necessary because the map-based approach causes a `SIGABRT` crash looking for `libLiteRt.so` with `litert-api` 2.3.0, and developers must retain this List overload even when upgrading `play-services-litert` or `litert-api`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_play-services.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/skill\" target=\"_blank\">Build an Android app with the LiteRT CompiledModel API</a>",
+        "path": "agents/skills/device-ai/litert/litert-runtime/skill.md",
+        "summary": "Updated the LiteRT migration documentation to include specific code examples and rules for handling `interpreter.runSignature` calls when rewriting inference code, ensuring compatibility across runtimes and upgrades.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/play/engage-sdk-integration/references/requests\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/play/engage-sdk-integration/references/requests.md",
+        "summary": "Updated the Engage SDK request documentation to include 'associatedClusterType' metadata for various publish requests (such as recommendations, featured clusters, continuation, subscriptions, and user account management) and added descriptions to help developers correctly map cluster deletion types.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_requests.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/security/android-permissions-security/skill\" target=\"_blank\">Android permission security: Audit and remediation guide</a>",
+        "path": "agents/skills/security/android-permissions-security/skill.md",
+        "summary": "Updated Android permissions security documentation to refine custom protection levels (clarifying syntax for `knownSigner`), improve guidance on handling persistent and temporary URI permission lifecycle grants/revocations across API levels, and enforce safer UI patterns for displaying permission rationale dialogs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/OneHandedGestureSamples.kt\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/wear/wear-compose-m3/references/material3/OneHandedGestureSamples.kt.md",
+        "summary": "Added a new sample `OneHandedGestureVisibilitySample` demonstrating how to conditionally apply one-handed gesture modifiers based on component visibility (e.g., using `onVisibilityChanged` to trigger gestures only when a button is at least 90% visible). This update provides developers with a reference for implementing advanced one-handed interactions with Wear Compose Material 3.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_OneHandedGestureSamples.kt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai-tools\" target=\"_blank\">Agentic Development  |  Android Developers</a>",
+        "path": "ai-tools.md",
+        "summary": "Updated the Agentic Development documentation (`ai-tools.md`) to fix broken HTTP URLs to secure HTTPS links, standardize image formatting and positioning, and refine documentation structure for agentic workflows and Android knowledge grounding.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_ai-tools.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/appfunctions/quality-guidelines\" target=\"_blank\">AppFunctions quality guidelines</a>",
+        "path": "ai/appfunctions/quality-guidelines.md",
+        "summary": "Added a new quality-guidelines documentation page for AppFunctions, outlining best practices for function descriptions, parameter design, data sharing, and error handling to ensure seamless integration with AI agents.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/android-performance-analyzer\" target=\"_blank\">Android Performance Analyzer (APA)</a>",
+        "path": "android-performance-analyzer.md",
+        "summary": "Updated the Android Performance Analyzer documentation to reference version 0.10.0-canary5 across Windows, Mac, and Linux builds. This update provides developers with the latest canary release binaries, checksums, and file size updates for testing upcoming features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_android-performance-analyzer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/android-performance-analyzer/case-study/netmarble-perf-analyzer\" target=\"_blank\">How Netmarble used Android Performance Analyzer to fine-tune 'Seven Deadly Sins: Origin'  |  Android Developers</a>",
+        "path": "android-performance-analyzer/case-study/netmarble-perf-analyzer.md",
+        "summary": "The changes primarily involve formatting updates, such as converting bullet points and image layouts into standard Markdown structure, along with adjusting absolute URLs to relative paths. These edits improve overall document readability and adherence to documentation standards without altering the core technical content of the Netmarble case study.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_netmarble-perf-analyzer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench\" target=\"_blank\">Android Bench</a>",
+        "path": "bench.md",
+        "summary": "Updated Android Bench 2.0 documentation with new LLM performance results, including the addition of reasoning-level metrics, updated pass rates for models like Claude Sonnet 5.5 and Claude Opus 5.5, and detailed per-task breakdowns for long-horizon software engineering tasks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_bench.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench/archive\" target=\"_blank\">Android Bench</a>",
+        "path": "bench/archive.md",
+        "summary": "Added historical benchmark data for the October 6th, 2026 Android LLM Benchmark 2.0 release to the leaderboard archive, including model pass rates, completion rates, latencies, costs, and detailed per-task results for models like Claude Opus 5.5, GPT 6 Astra, and Claude Fable 5.1.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_archive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench/changelog\" target=\"_blank\">Android Bench</a>",
+        "path": "bench/changelog.md",
+        "summary": "Updated the changelog documentation for October 26th, 2026, to include new benchmark updates showing reasoning effort, added agent results for claude-code, antigravity-sdk, and codex, and noted the archival of older model results.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_changelog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench/methodology/2\" target=\"_blank\">Android Bench  |  Android Developers</a>",
+        "path": "bench/methodology/2.md",
+        "summary": "This update to the Android Bench 2.0 methodology documentation contains formatting improvements, metadata updates, and refined descriptions for benchmark design, evaluation, and verification criteria, including better formatting for LaTeX equations and markdown list items.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/multidex\" target=\"_blank\">Enable multidex for apps with over 64K methods</a>",
+        "path": "build/multidex.md",
+        "summary": "The multidex documentation was updated to fix a malformed XML snippet for AndroidManifest.xml and to update the reference link for the `multiDexKeepProguard` Gradle API property from version 9.4 to 9.5.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_multidex.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-8-6-0-release-notes\" target=\"_blank\">Android Gradle Plugin 8.6.0 (August 2024)  |  Android Developers</a>",
+        "path": "build/releases/agp-8-6-0-release-notes.md",
+        "summary": "The changes in the Android Gradle Plugin 8.6.0 release notes primarily involve HTML-to-Markdown formatting adjustments and table structure cleanups. These structural updates improve readability and ensure consistent rendering of the release notes and fixed issues lists.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_agp-8-6-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/courses/quizzes/android-basics-compose-unit-2-pathway-1/android-basics-compose-unit-2-pathway-1\" target=\"_blank\">Kotlin fundamentals  |  Android Developers</a>",
+        "path": "courses/quizzes/android-basics-compose-unit-2-pathway-1/android-basics-compose-unit-2-pathway-1.md",
+        "summary": "Updated the quiz documentation for Android Basics Compose Unit 2 Pathway 1 to include new questions, improved formatting, and updated metadata titles reflecting Kotlin fundamentals.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_android-basics-compose-unit-2-pathway-1.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/courses/quizzes/jetpack-compose-for-android-developers-4/jetpack-compose-for-android-developers-4\" target=\"_blank\">Accessibility, testing, and performance  |  Android Developers</a>",
+        "path": "courses/quizzes/jetpack-compose-for-android-developers-4/jetpack-compose-for-android-developers-4.md",
+        "summary": "The quiz document metadata and formatting were updated to reflect a proper HTML scrape source, updating the title and restructuring elements and whitespace. This ensures correct rendering and tracking of the Jetpack Compose quiz content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_jetpack-compose-for-android-developers-4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses/guides/styles/type\" target=\"_blank\">Typography for glasses  |  AI Glasses  |  Android Developers</a>",
+        "path": "design/ui/ai-glasses/guides/styles/type.md",
+        "summary": "The AI Glasses typography documentation was updated to include a reference and link to the Jetpack Compose Glimmer Figma kit, along with minor content structuring improvements and standard documentation metadata additions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_type.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/xr\" target=\"_blank\">XR | UI Design  |  XR Headsets & wired XR Glasses  |  Android Developers</a>",
+        "path": "design/ui/xr.md",
+        "summary": "Updated the Android XR UI design documentation to promote the Android XR SDK Developer Preview, add a feedback banner, and secure all internal resource and asset links by upgrading them from HTTP to HTTPS.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_xr.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/guides/camera-form-factors-support\" target=\"_blank\">Support camera on multiple form factors  |  Adaptive Apps  |  Android Developers</a>",
+        "path": "develop/adaptive-apps/guides/camera-form-factors-support.md",
+        "summary": "This update consists of formatting changes, URL normalizations from absolute to relative paths, and minor structural adjustments to the camera form factors support guide. The content itself remains substantively the same, focusing on how camera apps should handle multi-form-factor environments like foldables, tablets, and desktop windowing through system intents, CameraX, and dynamic orientation handling.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_camera-form-factors-support.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/best-practices\" target=\"_blank\">Follow wake lock best practices  |  Background work  |  Android Developers</a>",
+        "path": "develop/background-work/background-tasks/awake/wakelock/best-practices.md",
+        "summary": "The wake lock best practices documentation was updated to fix metadata such as the page title and source, convert HTML callouts and list formatting into standard Markdown, and properly wrap code snippets in fenced code blocks for improved readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_best-practices.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/sensors-and-location/sensors/sensors_motion\" target=\"_blank\">Motion sensors</a>",
+        "path": "develop/sensors-and-location/sensors/sensors_motion.md",
+        "summary": "Fixed syntax errors in Kotlin and Java code snippets within the motion sensors documentation. The corrections fix broken conditional statements (`!=&&` to `!= 0f &&` and `omegaMa>gnitude  EPSILON` to `omegaMagnitude > EPSILON`), ensuring that code examples for gyroscope sensor event handling are accurate and compile successfully for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_sensors_motion.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/accessibility/api-defaults\" target=\"_blank\">API defaults</a>",
+        "path": "develop/ui/compose/accessibility/api-defaults.md",
+        "summary": "Added documentation and a code example for the `minimumInteractiveComponentSize` modifier from Material 3. This explains how developers can maintain a smaller visual size for an element while ensuring adequate layout space and touch target accessibility without expanding the touch area directly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_api-defaults.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/graphics/images/loading\" target=\"_blank\">Loading images</a>",
+        "path": "develop/ui/compose/graphics/images/loading.md",
+        "summary": "Updated the Coil documentation links and Maven dependency badges in the Compose image loading guide to point to the new Coil 3 documentation site and artifact group (`io.coil-kt.coil3`), ensuring developers reference the latest stable versions and resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_loading.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/display-bottom-app-bar\" target=\"_blank\">Display a bottom app bar</a>",
+        "path": "develop/ui/compose/quick-guides/content/display-bottom-app-bar.md",
+        "summary": "Fixed syntax errors and typos in the BottomAppBar code snippet, correcting a lambda parameter arrow, closing bracket, and descriptive text to ensure the code compiles and reads correctly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_display-bottom-app-bar.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/style-parts-text\" target=\"_blank\">Style parts of text</a>",
+        "path": "develop/ui/compose/quick-guides/content/style-parts-text.md",
+        "summary": "Fixed a syntax error in a Jetpack Compose code snippet where a `buildAnnotatedString` block had a malformed append statement (`ap\")`), correcting it to `append(\"orld\")`. This ensures the code compiles correctly and accurately demonstrates how to style multiple parts of text.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_style-parts-text.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/system/setup-e2e\" target=\"_blank\">Set up Edge-to-edge  |  Jetpack Compose  |  Android Developers</a>",
+        "path": "develop/ui/compose/system/setup-e2e.md",
+        "summary": "The changes to the edge-to-edge Compose documentation are purely formatting and artifact-based, including converting absolute URLs to relative paths, adjusting code block syntax highlighting, and minor layout modifications. These updates do not introduce meaningful technical or functional changes to the guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_setup-e2e.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/tooling/tracing\" target=\"_blank\">Composition tracing</a>",
+        "path": "develop/ui/compose/tooling/tracing.md",
+        "summary": "Documentation updates generalize previous references from 'recomposition tracing' to 'composition tracing' and introduce a comprehensive new section on 'Recomposition tracing'. This new section explains how to trace state reads and writes that cause recompositions using Compose Runtime Tracing 1.13.0+, detailing the setup requirements, script-based capture methods using Perfetto, and performance trade-offs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_tracing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/touch-input/stylus-input/about-ink-api\" target=\"_blank\">Add inking to your app with the Ink API</a>",
+        "path": "develop/ui/compose/touch-input/stylus-input/about-ink-api.md",
+        "summary": "Added an 'Android skills' section to the Ink API documentation, introducing the new `ink-app-builder` skill for Jetpack Compose. This addition provides developers with a direct GitHub link and CLI instructions to easily set up freehand drawing surfaces, handle stylus input, erase strokes, and save ink data.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_about-ink-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/animations/motionlayout/carousel\" target=\"_blank\">Carousel with MotionLayout</a>",
+        "path": "develop/ui/views/animations/motionlayout/carousel.md",
+        "summary": "The git diff shows accidental corruption and malformation of XML tags and attributes within the MotionLayout and Carousel documentation, introducing syntax errors rather than meaningful documentation updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_carousel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/haptics/msds\" target=\"_blank\">Add multisensory feedback to Android apps</a>",
+        "path": "develop/ui/views/haptics/msds.md",
+        "summary": "This new documentation page introduces the Multisensory Design System (MSDS) and the MultisensoryManager API, guiding developers on how to implement consistent, tokenized audio-haptic feedback for user interactions across Android devices.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/webapps/manage-webview-memory\" target=\"_blank\">Manage and diagnose WebView memory  |  Views  |  Android Developers</a>",
+        "path": "develop/ui/views/layout/webapps/manage-webview-memory.md",
+        "summary": "Updated internal documentation links from absolute URLs to relative paths, standardized Markdown list formatting and code block styles, and fixed minor syntax and rendering issues in the WebView memory management guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_manage-webview-memory.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/webapps/speculative-loading\" target=\"_blank\">Speculative loading in WebView  |  Views  |  Android Developers</a>",
+        "path": "develop/ui/views/layout/webapps/speculative-loading.md",
+        "summary": "Updated the speculative loading documentation for Android WebViews by fixing code block formatting (converting raw indented blocks into proper Markdown fenced code blocks), adjusting internal anchor links, and standardizing callout boxes to standard Markdown text blocks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_speculative-loading.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models\" target=\"_blank\">Add 3D models to your app</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-3d-models.md",
+        "summary": "Fixed syntax errors, broken lines, and placeholder text in the Kotlin code snippets within the Jetpack XR SDK documentation for adding 3D models. These corrections ensure that developers can accurately copy and paste the sample code for loading glTF models and handling intents.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_add-3d-models.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types\" target=\"_blank\">Plan to support different types of audio glasses and display glasses  |  Android XR for Jetpack XR SDK  |  Android Developers</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glasses/support-different-types.md",
+        "summary": "Updated documentation for supporting audio and display glasses with the Jetpack XR SDK. Changes primarily include converting absolute URLs to relative paths across reference links, minor markdown list formatting adjustments, and adding previous/next navigation links at the bottom of the page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_support-different-types.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/tools-technologies\" target=\"_blank\">Select your development tools and technologies  |  Android XR  |  Android Developers</a>",
+        "path": "develop/xr/tools-technologies.md",
+        "summary": "The Android XR documentation was updated to announce the release of Android XR SDK Developer Preview 4, including a call for user feedback and support resources. Additionally, internal documentation links were converted from absolute URLs to relative paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_tools-technologies.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/unity/performance\" target=\"_blank\">Optimize performance of your Unity app for Android XR  |  Android Developers</a>",
+        "path": "develop/xr/unity/performance.md",
+        "summary": "The changes in this documentation update consist of formatting and link adjustments, transitioning absolute URLs to relative paths and converting markdown list syntax. These updates ensure correct navigation and consistency within the Android XR Unity developer documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_performance.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/unity/setup\" target=\"_blank\">Unity project setup  |  Android XR for Unity  |  Android Developers</a>",
+        "path": "develop/xr/unity/setup.md",
+        "summary": "Updated the Unity setup documentation primarily to clean up markdown syntax (such as converting blockquotes and lists to standard markdown formats), fix relative image paths, and incorporate site-wide navigation breadcrumbs and headers consistent with the Android Developers portal layout.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/unreal/setup\" target=\"_blank\">Unreal Engine project setup  |  Android XR for Unreal Engine  |  Android Developers</a>",
+        "path": "develop/xr/unreal/setup.md",
+        "summary": "Updated the Unreal Engine project setup guide to announce Android XR SDK Developer Preview 4 and bumped the minimum recommended Android Studio version requirement to Rabbit 2 (2026.2.2 or higher).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/developer-verification/guides/developer-console-api\" target=\"_blank\">Register package names with the Android Developer Console API</a>",
+        "path": "developer-verification/guides/developer-console-api.md",
+        "summary": "Updated documentation for the Developer Console API to reflect new key reuse behaviors across multiple package names within the same developer account. Once a signing key has been verified for one package name, subsequent package names using that same key automatically bypass APK upload verification and justification requirements. Additionally, the API workflow steps were updated to inspect the returned `state` (`DRAFT` vs. `IN_REVIEW`) on `AndroidPackageKey` responses to determine when verification or justification is required.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_developer-console-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/archive/adaptive/large-screen-app-quality\" target=\"_blank\">Large screen app quality  |  App quality  |  Android Developers</a>",
+        "path": "docs/quality-guidelines/archive/adaptive/large-screen-app-quality.md",
+        "summary": "This update contains trivial formatting adjustments, such as converting absolute URLs to relative paths, updating link anchors, and changing HTML markup elements within the large screen app quality documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_large-screen-app-quality.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/build-for-billions/data-cost\" target=\"_blank\">Reduced data cost for billions  |  Build for Billions  |  Android Developers</a>",
+        "path": "docs/quality-guidelines/build-for-billions/data-cost.md",
+        "summary": "The changes to the data-cost.md documentation consist entirely of formatting updates, Markdown cleanup (such as removing extra HTML break tags), and converting absolute developer.android.com URLs into relative paths. These changes are trivial and do not alter the technical content or guidance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_data-cost.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/optimize/vitals/anr\" target=\"_blank\">ANRs</a>",
+        "path": "games/optimize/vitals/anr.md",
+        "summary": "Expanded the ANR (Application Not Responding) documentation for games with comprehensive guidance on detecting, diagnosing, and fixing ANRs. The update adds details on common ANR triggers, diagnostic tools like HealthStats and ApplicationExitInfo, profiling techniques, and specific remediation steps for main-thread stalls, I/O bottlenecks, deadlocks, and game-specific architectures such as GameActivity and Unity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_anr.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/optimize/vitals/lmk\" target=\"_blank\">Low memory killers</a>",
+        "path": "games/optimize/vitals/lmk.md",
+        "summary": "Added comprehensive guidance on the Low Memory Killer (LMK) daemon, memory profiling tools (Android Studio, Unity, Unreal), and low memory insights (including deprecated callbacks and ApplicationExitInfo APIs) to help developers diagnose and optimize game memory usage.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_lmk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/optimize/vitals/slow-session\" target=\"_blank\">Slow Sessions</a>",
+        "path": "games/optimize/vitals/slow-session.md",
+        "summary": "Added comprehensive documentation on how to measure FPS and detect slow frames using SurfaceFlinger timestats, alongside detailed troubleshooting and optimization strategies. The new sections guide developers through addressing slow frame causes using core Android game optimization tools: Swappy (Frame Pacing), Vulkan, and ADPF (Android Dynamic Performance Framework), complete with integration steps for native, Unity, and Unreal engine projects.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_slow-session.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/unity/features\" target=\"_blank\">Features  |  Play for Native PC  |  Android Developers</a>",
+        "path": "games/playgames/native-pc/unity/features.md",
+        "summary": "The documentation update for the Google Play Games PC SDK for Unity features page includes metadata adjustments, the addition of site navigation breadcrumbs, and a minor syntax formatting change in the C# code snippet block to improve readability and structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform\" target=\"_blank\">GooglePlayGames.PlayGamesPlatform Class Reference  |  API reference  |  Android Developers</a>",
+        "path": "games/services/unity/v2/api/class/google-play-games/play-games-platform.md",
+        "summary": "The git diff shows trivial changes consisting of frontmatter updates (title and source), addition of breadcrumb navigation elements, and updating absolute URLs to relative paths in markdown links. Because these changes do not affect the underlying technical content or API reference data, no documentation update is required.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_play-games-platform.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/lifecycle\" target=\"_blank\">Purchase lifecycle and RTDNs  |  Play Billing  |  Android Developers</a>",
+        "path": "google/play/billing/lifecycle.md",
+        "summary": "Added a critical reminder regarding the Play Billing Library version 8 deprecation deadline (August 31, 2026, with an extension option to November 1, 2026). Additionally, internal documentation links were converted to relative paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_lifecycle.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/migrate-gpblv8\" target=\"_blank\">Migrate to Google Play Billing Library 8 from versions 6 or 7  |  Android Developers</a>",
+        "path": "google/play/billing/migrate-gpblv8.md",
+        "summary": "Updated the Play Billing Library 8 migration guide to include a deadline reminder (August 31, 2026), added Android CLI instructions for the upgrade skill, and incorporated documentation for new optional features like virtual installment subscriptions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_migrate-gpblv8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-syntheticbackstack\" target=\"_blank\">App architecture  |  Android Developers</a>",
+        "path": "guide/navigation/navigation-3/recipes/deeplinks-syntheticbackstack.md",
+        "summary": "The documentation for the Navigation 3 deep links synthetic backstack recipe was updated to reflect changes in HTML-to-Markdown scraping, converting absolute documentation links to relative paths and adding breadcrumb navigation and UI artifacts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_deeplinks-syntheticbackstack.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-custom-back\" target=\"_blank\">Provide custom back navigation  |  Android Developers</a>",
+        "path": "guide/navigation/navigation-custom-back.md",
+        "summary": "The changes in this file primarily consist of formatting fixes, markdown normalization (such as updating absolute URL links to relative ones), and minor punctuation updates (e.g., changing em-dashes and apostrophes). These updates do not introduce meaningful functional changes to the custom back navigation documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_navigation-custom-back.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/large-screens/multitasking-and-multi-instance\" target=\"_blank\">Multitasking and multi-instance  |  Large screens  |  Android Developers</a>",
+        "path": "guide/topics/large-screens/multitasking-and-multi-instance.md",
+        "summary": "The documentation updates the 'Multitasking and multi-instance' guide to align with the latest Adaptive App Quality guidelines. Changes include updating Tier 1 objective links and references to desktop windowing, interactive picture-in-picture (PiP) mode with custom controls, and fixing relative internal links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_multitasking-and-multi-instance.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/fitness\" target=\"_blank\">Fitness guides  |  Android health & fitness  |  Android Developers</a>",
+        "path": "health-and-fitness/fitness.md",
+        "summary": "Added a critical announcement banner regarding the deprecation of Google Fit APIs, noting they will be supported until the end of 2026, and directed developers to the migration guide. Additionally, link URLs and image sources were updated to use HTTPS.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_fitness.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/migration/android-13-to-14\" target=\"_blank\">Migrate Health Connect from Android 13 (APK) to Android 14 (framework)  |  Android health & fitness  |  Android Developers</a>",
+        "path": "health-and-fitness/health-connect/migration/android-13-to-14.md",
+        "summary": "Updated documentation for migrating Health Connect from the Android 13 APK model to the Android 14 framework. The changes include formatting adjustments, fixes to markdown code blocks and links, and clarifications on permission declarations, API updates (such as the new `sdkStatus` API), removed exercise session types, and manifest configurations for Android 14.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_android-13-to-14.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/authorization\" target=\"_blank\">Authorize access to Google user data</a>",
+        "path": "identity/authorization.md",
+        "summary": "Updated the Java code snippets in the authorization documentation to correct the class name from `Scopes` to `Scope`. Additionally, restructured the refresh token security warning into a prominent callout block and streamlined the surrounding explanation to improve readability and emphasize security best practices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_authorization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials/credential-holder/present-credentials\" target=\"_blank\">Present credentials with your holder app</a>",
+        "path": "identity/digital-credentials/credential-holder/present-credentials.md",
+        "summary": "This new documentation guides Android digital wallet developers on using the Credential Manager Holder API to register, manage, and present digital credentials (such as SD-JWTs and mdocs) to verifiers. It enables wallet apps to securely handle presentation requests, verify verifier identities, and return credential responses starting from Android 6.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials/credential-verifier/about-verifying-phone-numbers\" target=\"_blank\">About verifying phone numbers</a>",
+        "path": "identity/digital-credentials/credential-verifier/about-verifying-phone-numbers.md",
+        "summary": "This new documentation page introduces the Phone Number Verification API, which allows apps to securely retrieve verified phone numbers directly from mobile carriers using digital credentials and Credential Manager, replacing vulnerable and costly SMS-based one-time passwords.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials/credential-verifier/request-credential\" target=\"_blank\">Request a digital credential</a>",
+        "path": "identity/digital-credentials/credential-verifier/request-credential.md",
+        "summary": "Added documentation for the Digital Credentials Verifier API, detailing how to implement digital credential requests and handle responses using the Credential Manager on Android 9 and higher.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials/credential-verifier/webview-request\" target=\"_blank\">Request digital credentials in WebView</a>",
+        "path": "identity/digital-credentials/credential-verifier/webview-request.md",
+        "summary": "This new guide explains how to request digital credentials using Credential Manager within an Android WebView by implementing a JavaScript bridge for seamless communication between the web page and the native app.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials/implement-email-verification\" target=\"_blank\">Implement email verification</a>",
+        "path": "identity/digital-credentials/implement-email-verification.md",
+        "summary": "This new guide explains how to implement verified email retrieval using the Digital Credentials Verifier API via OpenID4VP requests in Android Credential Manager, allowing apps to reduce sign-up friction by leveraging cryptographically secure email verification.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials/implement-phone-number-verification\" target=\"_blank\">Implement phone number verification</a>",
+        "path": "identity/digital-credentials/implement-phone-number-verification.md",
+        "summary": "This new guide explains how to implement secure phone number verification in Android apps using the DigitalCredential API and OpenID4VP protocol. It matters because it enables developers to obtain verified carrier-issued credentials as a reliable alternative to traditional SMS verification flows.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/legacy/gsi/offline-access\" target=\"_blank\">Enabling Server-Side Access</a>",
+        "path": "identity/legacy/gsi/offline-access.md",
+        "summary": "This update cleans up the documentation by fixing link formatting references, adjusting line wraps, and removing the code block syntax wrappers (` ```java ` and ` ```python `) from the Java and Python code examples, which affects how the code snippets are rendered on the developer site.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_offline-access.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/privacysandbox-sdkruntime\" target=\"_blank\">privacysandbox sdkruntime  |  Jetpack  |  Android Developers</a>",
+        "path": "jetpack/androidx/releases/privacysandbox-sdkruntime.md",
+        "summary": "The changes to the privacysandbox-sdkruntime documentation primarily consist of formatting updates, specifically converting Markdown lists and callouts to standard syntax and updating absolute URLs to relative links. No functional or API changes were made in this update.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_privacysandbox-sdkruntime.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/multiplatform/kmp-integration\" target=\"_blank\">Build custom Gradle plugins for Android KMP</a>",
+        "path": "kotlin/multiplatform/kmp-integration.md",
+        "summary": "Updated the guide on integrating Android targets in Kotlin Multiplatform (KMP) projects via custom Gradle plugins. Key updates include revising the minimum AGP version requirement for `AndroidPluginVersion.getCurrent()` to 8.3.1, updating the code sample for safe API checking with `KotlinPlatformType.androidJvm`, fixing artifact import paths (`com.android.build.api.artifact.SingleArtifact`), and improving best practices for configuring test compilations and lazy target evaluations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_kmp-integration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/multiplatform/migrate\" target=\"_blank\">Add Kotlin Multiplatform to an existing project</a>",
+        "path": "kotlin/multiplatform/migrate.md",
+        "summary": "The Kotlin Multiplatform migration documentation has been updated to improve clarity, fix broken or outdated links, and expand information on supported targets beyond Android and iOS. These changes matter because they ensure developers have accurate references for Android Gradle Plugin 8.8.0, correct troubleshooting links, and better guidance on adding additional platform targets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_migrate.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/latest-updates\" target=\"_blank\">Android latest updates</a>",
+        "path": "latest-updates.md",
+        "summary": "Updated the Android Studio and Android Gradle Plugin release versions in the latest updates documentation. This includes transitioning the preview channel from RC to Canary (Rabbit 3 | 2026.2.3 Canary 2), incrementing stable release versions such as Rabbit 2 | 2026.2.2 and Android Gradle Plugin 9.5.0, and updating their corresponding release dates to late October 2026.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_latest-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/ai-enhancement/overview\" target=\"_blank\">Understand the media enhancement capabilities</a>",
+        "path": "media/ai-enhancement/overview.md",
+        "summary": "Added a reference link to the progressive image loading guide, demonstrating how developers can combine upscaling and deblurring features for low-resolution images downloaded over slow networks. This helps developers implement practical optimization workflows using the AI enhancement APIs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/legacy\" target=\"_blank\">Media app architecture overview  |  Legacy media APIs  |  Android Developers</a>",
+        "path": "media/legacy.md",
+        "summary": "Updated the legacy media documentation to explicitly advise developers that MediaCompat APIs are no longer updated and recommend migrating to Jetpack Media3 instead. It also updates internal relative links and document metadata.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_legacy.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/platform/in-process-codecs\" target=\"_blank\">Optimize audio performance using in-process decoders</a>",
+        "path": "media/platform/in-process-codecs.md",
+        "summary": "The documentation for Low-Level Fault Isolation (LFI) was updated to remove x86_64 architecture from the list of supported architectures and devices, restricting the supported environment strictly to ARM64 (aarch64) processors. This clarifies that emulator and ChromeOS x86_64 environments no longer officially support LFI sandboxing for in-process decoders.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_in-process-codecs.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/multidevice\" target=\"_blank\">Android devices  |  Multidevice  |  Android Developers</a>",
+        "path": "multidevice.md",
+        "summary": "Updated the multidevice documentation with HTTPS protocol links, improved formatting, and restructured layout sections for enhanced readability and content organization.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_multidevice.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/podcasts/apps-games-insights/playing-the-long-game-for-a-happy-ma-marriage\" target=\"_blank\">Playing the long-game for a happy M&A marriage  |  Apps, Games, & Insights Podcast  |  Android Developers</a>",
+        "path": "podcasts/apps-games-insights/playing-the-long-game-for-a-happy-ma-marriage.md",
+        "summary": "Updated podcast documentation links to use secure HTTPS URLs for static assets and related episode references, and improved metadata titles for better site structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_playing-the-long-game-for-a-happy-ma-marriage.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/registered-app-stores\" target=\"_blank\">Registered App Stores</a>",
+        "path": "registered-app-stores.md",
+        "summary": "This new documentation introduces the Registered App Stores program, allowing third-party app stores to register with Google for advanced platform capabilities like one-tap installs while meeting security and performance standards.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/registered-app-stores/enroll\" target=\"_blank\">Enroll as a Registered App Store</a>",
+        "path": "registered-app-stores/enroll.md",
+        "summary": "This new documentation details the step-by-step registration process for third-party app stores in the Android Developer Console, including mandatory store declarations, APK malware screening requirements, catalog submission via Google Cloud Storage, and annual fee management.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/registered-app-stores/faq\" target=\"_blank\">Frequently asked questions</a>",
+        "path": "registered-app-stores/faq.md",
+        "summary": "Added a new FAQ document for the Registered App Stores program, detailing account eligibility, geographic availability starting in 2026, and technical specifications.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/registered-app-stores/overview\" target=\"_blank\">Overview of Registered App Stores</a>",
+        "path": "registered-app-stores/overview.md",
+        "summary": "Introduces the new Registered App Store documentation, outlining how third-party app stores can register with Google to enable one-tap installs and streamlined updates starting in Android 17 QPR2.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/registered-app-stores/requirements\" target=\"_blank\">Requirements</a>",
+        "path": "registered-app-stores/requirements.md",
+        "summary": "This new documentation page outlines the core eligibility, marketplace, user experience, trust and safety, and technical requirements for third-party app stores seeking to become a Registered App Store on Android.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/robots.txt\" target=\"_blank\">robots.txt.md</a>",
+        "path": "robots.txt.md",
+        "summary": "The robots.txt documentation was updated to add a new Disallow rule for URLs containing 'authuser=' parameters. This prevents search engines from indexing authenticated or user-switched views of pages, helping to avoid duplicate content issues and secure user-specific states.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_robots.txt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/social-and-messaging/guides/communication/basic-better-best\" target=\"_blank\">Take your messaging to the next level — basic, better, and best  |  Android social  |  Android Developers</a>",
+        "path": "social-and-messaging/guides/communication/basic-better-best.md",
+        "summary": "Updated links throughout the messaging guide from absolute URLs to relative paths, and adjusted list formatting and metadata.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_basic-better-best.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/social-and-messaging/guides/media-sharing\" target=\"_blank\">About media sharing  |  Android social  |  Android Developers</a>",
+        "path": "social-and-messaging/guides/media-sharing.md",
+        "summary": "This update cleans up the 'media-sharing.md' documentation by converting absolute documentation URLs to relative paths, standardizing markdown list formatting, and updating code blocks to use proper fenced markdown syntax instead of indentation. These changes improve internal link maintenance and markdown rendering consistency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_media-sharing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/stories/apps/tiktok\" target=\"_blank\">TikTok Optimizes User Experience with Android Tools  |  Developer stories  |  Android Developers</a>",
+        "path": "stories/apps/tiktok.md",
+        "summary": "The changes in the TikTok developer story documentation are trivial, consisting only of whitespace corrections, markdown list formatting fixes, and minor HTML scraping artifacts that do not impact the technical content or meaning.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_tiktok.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/debug/app-quality-insights\" target=\"_blank\">Analyze issues from Firebase Crashlytics and Android Vitals with App Quality Insights</a>",
+        "path": "studio/debug/app-quality-insights.md",
+        "summary": "Updated the oldest supported version of Android Studio for App Quality Insights from Panda 1 to Panda 2. This matters because users must be on at least this version to access the tool and review compatibility requirements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_app-quality-insights.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/generate-unit-tests\" target=\"_blank\">Generate unit tests with Gemini  |  Android Studio  |  Android Developers</a>",
+        "path": "studio/gemini/generate-unit-tests.md",
+        "summary": "Updated the unit test generation documentation to rebrand Gemini references to more generalized AI agent terminology. It now explicitly mentions support for custom local or remote models alongside Gemini and updates UI labels and paths to match current Android Studio releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_generate-unit-tests.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/install\" target=\"_blank\">Install Android Studio</a>",
+        "path": "studio/install.md",
+        "summary": "Updated the Android Studio installation documentation to reflect the release of Android Studio Rabbit 2 (version 2026.2.2) and Panda 2 as the oldest supported version for cloud service integrations. This update matters as it keeps download links, version numbers, and system compatibility guidelines current for developers installing the latest stable release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_install.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "Updated the Android Studio nightly build documentation to point to the newer Rabbit 3 version 2026.2.3 Nightly 2026-10-28 (build 2026.2.3.2) across all platforms (Windows, macOS, and Linux), replacing the previous 2026-10-23 references and download links. This ensures developers download the latest build with recent fixes and features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/backup-restore-testing-release-notes\" target=\"_blank\">Backup and restore testing release notes  |  Android Studio  |  Android Developers</a>",
+        "path": "studio/preview/backup-restore-testing-release-notes.md",
+        "summary": "Updated the backup and restore testing release notes to include version 1.0.0-alpha03. This new release simplifies test suite configuration by removing the need for `@BackupRestoreConfig` since tests now run against the targeted app variant, introduces system property support for binding `@Device` roles, and improves error reporting when Google Play services skips or requires an update to restore an app.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_backup-restore-testing-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/backup-restore-testing\" target=\"_blank\">Automated backup and restore testing  |  Android Studio  |  Android Developers</a>",
+        "path": "studio/preview/backup-restore-testing.md",
+        "summary": "Updated the automated backup and restore testing documentation to reflect library version 1.0.0-alpha03 requirements, adjusted Gradle setup snippets (including mandatory backupTestLibraryVersion declarations), and simplified the test class annotation requirements by removing the explicit applicationId configuration.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_backup-restore-testing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/features\" target=\"_blank\">Release notes for Android Studio preview</a>",
+        "path": "studio/preview/features.md",
+        "summary": "Documentation for Android Studio was updated to reflect release progression. The version table was updated to list Android Studio Rabbit 2 and Android Gradle Plugin 9.5.0 as stable releases, and the feature documentation for Rabbit 2 was removed following its stable release transition.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/gemini/ai-code-completion\" target=\"_blank\">Accelerate coding with AI code completion  |  Android Studio  |  Android Developers</a>",
+        "path": "studio/preview/gemini/ai-code-completion.md",
+        "summary": "The documentation for AI code completion in Android Studio underwent minor rewording in the breadcrumb navigation, updating the link text from 'Android Studio AI agent' to 'AI in Android Studio' to maintain consistency with product naming.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_ai-code-completion.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/analyze-performance-bottlenecks\" target=\"_blank\">Analyze performance bottlenecks  |  Android Studio  |  Android Developers</a>",
+        "path": "studio/prompt-gallery/prompts/analyze-performance-bottlenecks.md",
+        "summary": "Updated the metadata, title, and structure of the 'analyze-performance-bottlenecks.md' prompt documentation. These changes improve the formatting of the prompt text, update the source attribution, and refine instructions for using Gemini within Android Studio.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_analyze-performance-bottlenecks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases\" target=\"_blank\">Android Studio Rabbit 2</a>",
+        "path": "studio/releases.md",
+        "summary": "Updated the Android Studio release documentation to reflect the new stable version rollout of Android Studio Rabbit 2 (version 2026.2.2) across platforms, updating download links, file names, and version references accordingly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_releases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/android-device-streaming\" target=\"_blank\">Android Device Streaming, powered by Firebase</a>",
+        "path": "studio/run/android-device-streaming.md",
+        "summary": "Updated the minimum supported version of Android Studio for Android Device Streaming from Panda 1 to Panda 2. This matters for developers as it clarifies the exact IDE version requirements needed to access Firebase-powered remote device streaming features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_android-device-streaming.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/write/app-link-indexing\" target=\"_blank\">Add Android App Links</a>",
+        "path": "studio/write/app-link-indexing.md",
+        "summary": "Updated the minimum supported version of Android Studio for App Links Assistant Web Checks from Panda 1 to Panda 2. This ensures developers are aware of the updated version requirements for accessing cloud services.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_app-link-indexing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents\" target=\"_blank\">Agent tools and resources</a>",
+        "path": "tools/agents.md",
+        "summary": "Added a new 'Agent plugins' section to the documentation, detailing the availability of the Android CLI as an official plugin for Antigravity, Claude Code, and OpenAI's Codex. This addition matters because it informs developers how to equip their coding agents with the 'android-cli' skill for creating projects, managing virtual devices, inspecting UI layouts, running Journeys, and searching the Android Knowledge Base.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_agents.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli\" target=\"_blank\">Overview of Android CLI</a>",
+        "path": "tools/agents/android-cli.md",
+        "summary": "Updated the Android CLI documentation to comprehensively cover the full development lifecycle—including building, profiling, analyzing APKs, and investigating Firebase Crashlytics signals—by adding direct links to specific command documentation. Additionally, the outdated section on Windows-specific known issues was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_android-cli.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/agent-plugins\" target=\"_blank\">Agent plugins</a>",
+        "path": "tools/agents/android-cli/agent-plugins.md",
+        "summary": "This new documentation explains how to install and use the Android CLI plugin for coding agents like Antigravity, Claude Code, and OpenAI's Codex to manage projects, virtual devices, and UI layouts.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-skills/browse\" target=\"_blank\">Browse Android skills</a>",
+        "path": "tools/agents/android-skills/browse.md",
+        "summary": "Added documentation entries and links for new Jetpack Ink API skills, enabling developers to build freehand drawing apps and create custom Ink brushes in Jetpack Compose, while also updating an icon for the Play Engage SDK entry.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_browse.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/lightbuild/cli-reference\" target=\"_blank\">Lightbuild CLI reference</a>",
+        "path": "tools/agents/lightbuild/cli-reference.md",
+        "summary": "This new CLI reference documentation provides comprehensive command-line instructions and options for Lightbuild agents, helping developers automate and manage their build workflows efficiently.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/lightbuild/kotlin-dsl-comparison\" target=\"_blank\">Compare Lightbuild with Kotlin DSL</a>",
+        "path": "tools/agents/lightbuild/kotlin-dsl-comparison.md",
+        "summary": "Added a new documentation page that compares standard Kotlin DSL build configurations with the experimental Lightbuild YAML-based build system. It serves as a comprehensive mapping guide for project settings, modules, dependencies, tests, and CLI commands.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/lightbuild/publish\" target=\"_blank\">Publish your Lightbuild app</a>",
+        "path": "tools/agents/lightbuild/publish.md",
+        "summary": "This new documentation page introduces guidelines and tools for publishing applications within the Android ecosystem, covering standard deployment workflows and requirements.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/lightbuild/release-notes\" target=\"_blank\">Lightbuild release notes</a>",
+        "path": "tools/agents/lightbuild/release-notes.md",
+        "summary": "This new release-notes documentation page provides tracking and details for updates to Android tools and agents.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/lightbuild/schema\" target=\"_blank\">Lightbuild configuration reference</a>",
+        "path": "tools/agents/lightbuild/schema.md",
+        "summary": "Added documentation for the experimental Lightbuild build configuration schema, detailing how to structure project-level and module-level YAML files for Android builds.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/lightbuild/setup\" target=\"_blank\">Get started with Lightbuild</a>",
+        "path": "tools/agents/lightbuild/setup.md",
+        "summary": "This new documentation page provides setup instructions for Lightbuild agents in Android Studio, helping developers configure the build environment and tools.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/lightbuild/structure\" target=\"_blank\">Lightbuild project structure</a>",
+        "path": "tools/agents/lightbuild/structure.md",
+        "summary": "This new documentation page provides structural guidelines and details for utilizing the lightbuild agent tool within Android development.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely\" target=\"_blank\">Choose libraries wisely  |  App quality  |  Android Developers</a>",
+        "path": "topic/performance/app-optimization/choose-libraries-wisely.md",
+        "summary": "Updated the 'Choose libraries wisely' documentation to improve link paths (converting absolute URLs to relative paths where appropriate) and fix markdown formatting for code blocks and lists. These changes ensure cleaner rendering and better integration within the developer documentation site.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_choose-libraries-wisely.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/app-memory-budgets\" target=\"_blank\">Set app memory budgets</a>",
+        "path": "topic/performance/memory/app-memory-budgets.md",
+        "summary": "Added a comprehensive step-by-step workflow for measuring an app's working set and calibrating memory budgets. This guide helps developers identify the optimal memory budget 'knee' to prevent performance degradation, avoid excessive working-set refaults, and properly configure Android's `memory-limiter` tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_app-memory-budgets.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/discovery/recommendations-row\" target=\"_blank\">Recommendations in Android N and earlier</a>",
+        "path": "training/tv/discovery/recommendations-row.md",
+        "summary": "Fixed corrupted code snippets, syntax errors, and broken XML tags within the recommendations documentation. This ensures that the provided Java code and Android Manifest configurations are accurate, parseable, and reliable for developers implementing TV recommendations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_recommendations-row.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/get-started/controllers\" target=\"_blank\">Manage TV controllers</a>",
+        "path": "training/tv/get-started/controllers.md",
+        "summary": "The documentation for declaring pointer remote support has been updated to recommend using the `<property>` element instead of `<meta-data>` in the app manifest for `android.software.leanback.supports_touch`. It now correctly places this configuration inside the `<application>` element (or individual `<activity>` elements) and notes that activity-level declarations override application-level ones.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_controllers.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/playback/leanback/guided-step\" target=\"_blank\">Use Jetpack Compose on Android TV  |  Android Developers</a>",
+        "path": "training/tv/playback/leanback/guided-step.md",
+        "summary": "Replaced the deprecated Leanback guided-step documentation with an overview of Jetpack Compose for Android TV, reflecting modern development standards and guiding developers toward declarative UI frameworks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_guided-step.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/apps/auth-wear\" target=\"_blank\">Authentication on wearables: Credential Manager  |  Wear OS  |  Android Developers</a>",
+        "path": "training/wearables/apps/auth-wear.md",
+        "summary": "Updated documentation formatting and links for the Wear OS Credential Manager authentication guide, converting absolute URLs to relative paths, refining code block formatting, and adding source file names to code snippets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_auth-wear.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/status-bar\" target=\"_blank\">Coordinate your UI with the system status bar  |  Wear OS  |  Android Developers</a>",
+        "path": "training/wearables/status-bar.md",
+        "summary": "This new documentation page explains how to coordinate app layouts with the upcoming system status bar introduced in Wear OS 8. It guides developers on migrating to Wear Compose 1.8 to automatically handle status bar insets, avoid overlapping custom clocks, and manage immersive modes.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/wff/memory-usage\" target=\"_blank\">Optimize memory usage for your watch face  |  Wear OS  |  Android Developers</a>",
+        "path": "training/wearables/wff/memory-usage.md",
+        "summary": "The documentation updates primarily involve formatting and syntax adjustments, such as converting markdown blockquotes to standard notes, changing unordered list markers from hyphens to asterisks, and updating absolute internal URLs to relative paths. These changes ensure better compatibility with internal documentation rendering systems without altering the technical guidance on watch face memory usage.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_memory-usage.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/work/dpc/dedicated-devices/cookbook\" target=\"_blank\">Dedicated devices cookbook</a>",
+        "path": "work/dpc/dedicated-devices/cookbook.md",
+        "summary": "Fixed multiple syntax errors, typos, and broken XML/Java/Kotlin code snippets in the dedicated devices cookbook documentation. These corrections ensure that code examples for features like Kiosk Mode, package retention, and package installation are accurate and compile successfully.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6238e3c0_cookbook.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-27T15:11:08Z",
     "commit_hash": "eb6169b6",
     "entries": [

@@ -1,0 +1,281 @@
+diff --git a/docs/studio/releases.md b/docs/studio/releases.md
+index 6f5fb4a6..ea8fc893 100644
+--- a/docs/studio/releases.md
++++ b/docs/studio/releases.md
+@@ -8,13 +8,13 @@ Android Studio is the official IDE for Android development, and includes
+ everything you need to build Android apps.
+ 
+ This page lists new features and improvements in the latest version in the
+-stable channel, Android Studio Rabbit 1. You can update to it inside Android
++stable channel, Android Studio Rabbit 2. You can update to it inside Android
+ Studio by clicking **Help** \> **Check for updates**
+ (**Android Studio** \> **Check for updates** on macOS), or by downloading
+ directly:
+ 
+ 
+-## Download Android Studio Rabbit 1 \| 2026.2.1
++## Download Android Studio Rabbit 2 \| 2026.2.2
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -76,13 +76,13 @@ This is the Android Software Development Kit License Agreement
+ 
+ ### 14. General Legal Terms
+ 
+-14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Rabbit 1 \| 2026.2.1 for Linux </button> [Download Android Studio Rabbit 1 \| 2026.2.1
++14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Rabbit 2 \| 2026.2.2 for Linux </button> [Download Android Studio Rabbit 2 \| 2026.2.2
+ for
+-Linux](https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.2.1.8/android-studio-rabbit1-linux.tar.gz)
++Linux](https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.2.2.8/android-studio-rabbit2-linux.tar.gz)
+ 
+-*android-studio-rabbit1-linux.tar.gz*
++*android-studio-rabbit2-linux.tar.gz*
+ 
+-## Download Android Studio Rabbit 1 \| 2026.2.1
++## Download Android Studio Rabbit 2 \| 2026.2.2
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -144,13 +144,13 @@ This is the Android Software Development Kit License Agreement
+ 
+ ### 14. General Legal Terms
+ 
+-14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Rabbit 1 \| 2026.2.1 for ChromeOS </button> [Download Android Studio Rabbit 1 \| 2026.2.1
++14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Rabbit 2 \| 2026.2.2 for ChromeOS </button> [Download Android Studio Rabbit 2 \| 2026.2.2
+ for
+-ChromeOS](https://edgedl.me.gvt1.com/android/studio/install/2026.2.1.8/android-studio-rabbit1-cros.deb)
++ChromeOS](https://edgedl.me.gvt1.com/android/studio/install/2026.2.2.8/android-studio-rabbit2-cros.deb)
+ 
+-*android-studio-rabbit1-cros.deb*
++*android-studio-rabbit2-cros.deb*
+ 
+-## Download Android Studio Rabbit 1 \| 2026.2.1
++## Download Android Studio Rabbit 2 \| 2026.2.2
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -212,13 +212,13 @@ This is the Android Software Development Kit License Agreement
+ 
+ ### 14. General Legal Terms
+ 
+-14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Rabbit 1 \| 2026.2.1 for Mac </button> [Download Android Studio Rabbit 1 \| 2026.2.1
++14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Rabbit 2 \| 2026.2.2 for Mac </button> [Download Android Studio Rabbit 2 \| 2026.2.2
+ for
+-Mac](https://edgedl.me.gvt1.com/android/studio/install/2026.2.1.8/android-studio-rabbit1-mac.dmg)
++Mac](https://edgedl.me.gvt1.com/android/studio/install/2026.2.2.8/android-studio-rabbit2-mac.dmg)
+ 
+-*android-studio-rabbit1-mac.dmg*
++*android-studio-rabbit2-mac.dmg*
+ 
+-## Download Android Studio Rabbit 1 \| 2026.2.1
++## Download Android Studio Rabbit 2 \| 2026.2.2
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -280,13 +280,13 @@ This is the Android Software Development Kit License Agreement
+ 
+ ### 14. General Legal Terms
+ 
+-14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Rabbit 1 \| 2026.2.1 for Mac (ARM) </button> [Download Android Studio Rabbit 1 \| 2026.2.1
++14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Rabbit 2 \| 2026.2.2 for Mac (ARM) </button> [Download Android Studio Rabbit 2 \| 2026.2.2
+ for
+-Mac (ARM)](https://edgedl.me.gvt1.com/android/studio/install/2026.2.1.8/android-studio-rabbit1-mac_arm.dmg)
++Mac (ARM)](https://edgedl.me.gvt1.com/android/studio/install/2026.2.2.8/android-studio-rabbit2-mac_arm.dmg)
+ 
+-*android-studio-rabbit1-mac_arm.dmg*
++*android-studio-rabbit2-mac_arm.dmg*
+ 
+-## Download Android Studio Rabbit 1 \| 2026.2.1
++## Download Android Studio Rabbit 2 \| 2026.2.2
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -352,16 +352,16 @@ This is the Android Software Development Kit License Agreement
+ 
+ ### Select the version of Android Studio that's right for your Mac:
+ 
+-#### Android Studio Rabbit 1 \| 2026.2.1
++#### Android Studio Rabbit 2 \| 2026.2.2
+ 
+-<button class="button button-disabled"> Mac with Apple chip </button> [Mac with Apple chip](https://edgedl.me.gvt1.com/android/studio/install/2026.2.1.8/android-studio-rabbit1-mac_arm.dmg)
++<button class="button button-disabled"> Mac with Apple chip </button> [Mac with Apple chip](https://edgedl.me.gvt1.com/android/studio/install/2026.2.2.8/android-studio-rabbit2-mac_arm.dmg)
+ 
+-*android-studio-rabbit1-mac_arm.dmg*
+-<button class="button button-disabled"> Mac with Intel chip </button> [Mac with Intel chip](https://edgedl.me.gvt1.com/android/studio/install/2026.2.1.8/android-studio-rabbit1-mac.dmg)
++*android-studio-rabbit2-mac_arm.dmg*
++<button class="button button-disabled"> Mac with Intel chip </button> [Mac with Intel chip](https://edgedl.me.gvt1.com/android/studio/install/2026.2.2.8/android-studio-rabbit2-mac.dmg)
+ 
+-*android-studio-rabbit1-mac.dmg*
++*android-studio-rabbit2-mac.dmg*
+ 
+-## Download Android Studio Rabbit 1 \| 2026.2.1
++## Download Android Studio Rabbit 2 \| 2026.2.2
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -423,13 +423,13 @@ This is the Android Software Development Kit License Agreement
+ 
+ ### 14. General Legal Terms
+ 
+-14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Rabbit 1 \| 2026.2.1 for Windows </button> [Download Android Studio Rabbit 1 \| 2026.2.1
++14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Rabbit 2 \| 2026.2.2 for Windows </button> [Download Android Studio Rabbit 2 \| 2026.2.2
+ for
+-Windows](https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.2.1.8/android-studio-rabbit1-windows.zip)
++Windows](https://edgedl.me.gvt1.com/android/studio/ide-zips/2026.2.2.8/android-studio-rabbit2-windows.zip)
+ 
+-*android-studio-rabbit1-windows.zip*
++*android-studio-rabbit2-windows.zip*
+ 
+-## Download Android Studio Rabbit 1 \| 2026.2.1
++## Download Android Studio Rabbit 2 \| 2026.2.2
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -491,11 +491,11 @@ This is the Android Software Development Kit License Agreement
+ 
+ ### 14. General Legal Terms
+ 
+-14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Rabbit 1 \| 2026.2.1 for Windows </button> [Download Android Studio Rabbit 1 \| 2026.2.1
++14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Rabbit 2 \| 2026.2.2 for Windows </button> [Download Android Studio Rabbit 2 \| 2026.2.2
+ for
+-Windows](https://edgedl.me.gvt1.com/android/studio/install/2026.2.1.8/android-studio-rabbit1-windows.exe)
++Windows](https://edgedl.me.gvt1.com/android/studio/install/2026.2.2.8/android-studio-rabbit2-windows.exe)
+ 
+-*android-studio-rabbit1-windows.exe*
++*android-studio-rabbit2-windows.exe*
+ 
+ ## Download Android Command Line Tools
+ 
+@@ -780,7 +780,7 @@ minor features and bug fixes. See
+ Studio version naming.
+ 
+ To see what's been fixed in this version of Android Studio, see the
+-[closed issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.1).
++[closed issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.2).
+ 
+ To view the release notes for older versions of Android Studio, see
+ [Past releases](https://developer.android.com/studio/past-releases/past-android-studio-releases).
+@@ -809,6 +809,7 @@ Android Studio.
+ 
+ | Android Studio version | Required AGP version |
+ |---|---|
++| Rabbit 2 \| 2026.2.2 | 7.1-9.5 |
+ | Rabbit 1 \| 2026.2.1 | 7.1-9.4 |
+ | Quail 4 \| 2026.1.4 | 7.1-9.4 |
+ | Quail 3 \| 2026.1.3 | 7.1-9.3 |
+@@ -891,7 +892,7 @@ to update Android Studio.
+ ### Android Studio versions that are currently
+ compatible with Cloud services
+ 
+-Currently, support for Android Studio Otter 3 Feature Drop has been
++Currently, support for Android Studio Panda 1 has been
+ deprecated and will be disabled entirely at the next major release. All newer
+ versions are currently supported.
+ 
+@@ -915,61 +916,61 @@ The following are features currently available in Studio Labs.
+ 
+ ## New features
+ 
+-The following are new features in Android Studio Rabbit 1.
++The following are new features in Android Studio Rabbit 2.
+ 
+-### Android Studio is part of the Gemini Enterprise bundle
++### Bring Your Own Agent (BYOA): Integrate your preferred coding agents
+ 
+-Android Studio is now included in the
+-[Gemini Enterprise subscription bundle](https://cloud.google.com/gemini-enterprise),
+-which enables enterprise development teams to deploy Android Studio using models
+-hosted directly in your organization's Google Cloud infrastructure. Every
+-session runs under Google Cloud's enterprise security controls, data residency
+-guarantees, and the Google Cloud Terms of Service. Android Studio comes with the
+-**Gemini Enterprise Standard** or **Gemini Enterprise Plus** subscription plans.
++Building on Android Studio's support for [custom AI
++models](https://developer.android.com/studio/gemini/use-a-remote-model), Android Studio Rabbit 2
++introduces Bring Your Own Agent (BYOA). Using BYOA, you can connect your
++preferred AI coding agents---including Claude Agent, OpenAI Codex, and Google
++Antigravity---directly into Android Studio using the open Agent Client Protocol
++(ACP).
+ 
+-By connecting Android Studio to your Google Cloud project, your organization
+-gains the following benefits:
++BYOA pairs your chosen agent with IDE-native intelligence, passing the full
++project graph, build diagnostics, and emulator controls directly into your agent
++for faster execution and lower token consumption. You can authenticate with your
++personal or enterprise subscriptions, while Android Studio's built-in agent
++remains available at no extra charge.
++![Select an AI agent from the Agents menu in the Agent tool window.](https://developer.android.com/static/studio/gemini/images/byoa.png)
+ 
+-- Enterprise governance: Operate under your project's existing Google Cloud Terms of Service with centralized administrative controls.
+-- Data residency and security: Keep code and data inside your secure network. Your prompts, AI responses, code, and telemetry remain in your private network (through VPC Service Controls) and chosen data region.
+-- Consolidated billing: Pay-as-you-go directly with your existing Google Cloud Billing account with unified invoicing.
++BYOA offers the following benefits:
+ 
+-For more details about Google Enterprise support for AI developer tools, see
+-[AI developer tools overview](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview)
+-in the Google Cloud documentation.
++- Support for any ACP-compliant agent.
++- Direct IDE access to build diagnostics, Android SDK tools, terminal and shell execution, and emulator management.
++- Flexible sign-in options supporting personal API keys and consumer subscriptions.
+ 
+-#### Sign in to Android Studio with a Gemini Enterprise subscription
++#### Get started
+ 
+-To sign in to Android Studio with a Gemini Enterprise subscription, follow these
+-steps:
++To get started with BYOA, follow these steps:
+ 
+-1. Start Android Studio.
+-2. To open the agent tool window, click **Agent** ![](https://developer.android.com/static/studio/images/agent-icon.png) or click **View \> Tool Windows \> Agent**.
+-3. Click **Sign in to Google** to sign in using the browser.
+-4. Click **Business account**.
+-5. Click **Continue with Google Cloud** to sign in using the browser.
+-6. If a license (subscription type) is found, it'll be displayed in Android Studio. Select the license that corresponds to the project that you want to open.
++1. Update Android Studio to the latest canary release.
++2. Connect your agents: In the agent window, select one of the default agents (Claude Agent, Codex, or Antigravity) and sign in or provide an API key. Additional agents can be found in the registry at **File** (**Android
++   Studio** on macOS) **\> Settings \> Tools \> AI \> Agents**.
+ 
+-![](https://developer.android.com/static/studio/images/ge-onboarding.png)
++### Agentic fixes with LeakCanary
+ 
+-Instead of picking one of the listed licenses, you can self-assign a license:
++Starting in Rabbit 2, Android Studio directly integrates LeakCanary with the AI
++agent to help you diagnose and resolve memory leaks without leaving the IDE.
++This integration lets LeakCanary provide more meaningful narrative explanations
++of the underlying causes of memory leaks and suggest specific code changes to
++correct them. Try this feature out in the **LeakCanary** task in **Profiler**.
+ 
+-1. Click **Auto-assign from project ID**.
+-2. Click **Next**.
+-3. Enter your project ID.
+-4. Enter your location: **Global** , **Europe (EU)** , or **United States (US)**.
+-5. Confirm the license to save your selection.
++### Discover, install, and manage Android skills in Android Studio
+ 
+-If you need to change your license selection or update your project ID later on,
+-go to **File** (**Android Studio** on macOS) **\> Settings \> AI \> Model
+-Providers** and change the selection under **Change License**.
++In Android Studio Rabbit 2, it's easier to discover, install, and manage Android
++[skills](https://developer.android.com/studio/gemini/skills) directly in the
++IDE, giving you granular control over the specialized workflows and procedural
++guidance available to the agent.
+ 
+-#### Troubleshoot issues
++### Resize Running Devices tool window by double-clicking empty space
+ 
+-If you encounter issues using Android Studio with a Gemini Enterprise
+-subscription, first check that you're using Android Studio Quail 4 Canary 4 or
+-higher. If the issue persists, you need to contact your admin to make
+-configuration changes:
++You can eliminate unused space around your virtual or mirrored physical devices
++in the **Running Devices** tool window. Double-click anywhere in the empty
++background area outside the device screen (and frame, if visible) to
++automatically resize the tool window or adjust split pane proportions to snugly
++fit the device display.
+ 
+-- If no licenses appear during setup, contact your admin to request access. We recommend setting up auto-assignment of licenses.
+-- If you can't access the latest Gemini models in Android Studio, contact your admin to enable preview models.
+\ No newline at end of file
++- **Docked tool windows:** Adjusts the tool window's width (when docked to the left or right) or height (when docked to the top or bottom) to remove excess margin around the device.
++- **Floating and windowed modes:** Resizes both width and height of the window to wrap tightly around the device display.
++- **Split views:** Automatically adjusts internal splitters when viewing multiple displays or devices side by side.
+\ No newline at end of file
