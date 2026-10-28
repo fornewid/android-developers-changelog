@@ -8,7 +8,20 @@ source: md.txt
 
 ## Changelog
 
-Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. **October 6th, 2026**
+Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. **October 26th, 2026**
+
+- New updates • Oct 26th ![](https://developer.android.com/static/images/bench/icons/news.png) Results now showing a reasoning effort
+- New agent results • Oct 26th   
+  **claude-code results now available** ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Sonnet 5 5
+- New agent results • Oct 26th   
+  **antigravity-sdk results now available** :gemini: Gemini 4 Argon
+- New agent results • Oct 26th   
+  **codex results now available** ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 6.1 Sol
+- Archived models • Oct 26th   
+  **claude-code results archived** ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Sonnet 5
+- Archived models • Oct 26th   
+  **codex results archived** ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 6 Sol
+**October 6th, 2026**
 
 - New agent results • Oct 6th   
   **claude-code results now available** ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Opus 5.5

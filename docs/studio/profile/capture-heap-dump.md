@@ -152,8 +152,8 @@ When you find potential memory leaks, use the **Fields** and **References** tabs
 in **Instance Details** to jump to the instance or source code line of interest.
 
 > [!TIP]
-> **Tip:** Beginning with Android Studio Panda, the Android Studio Profiler offers integration with [LeakCanary](https://square.github.io/leakcanary/) as a dedicated task. Using LeakCanary lets you move memory leak analysis from the test device to your development machine, resulting in significant performance improvement. For more information, see [LeakCanary in Android Studio
-> Profiler](https://developer.android.com/studio/preview/features#leakcanary).
+> **Tip:** Beginning with Android Studio Quail 2, the Android Studio Profiler offers integration with [LeakCanary](https://square.github.io/leakcanary/) as a dedicated task. Using LeakCanary lets you move memory leak analysis from the test device to your development machine, resulting in significant performance improvement. For more information, see [LeakCanary in Android Studio
+> Profiler](https://developer.android.com/studio/releases/past-releases/as-quail-2-release-notes#leakcanary).
 
 ### Trigger memory leaks for testing
 

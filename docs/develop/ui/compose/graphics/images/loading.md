@@ -65,10 +65,10 @@ AsyncImage(
 
 <br />
 
-[### Coil](https://github.com/coil-kt/coil#jetpack-compose)
+[### Coil](https://coil-kt.github.io/coil/compose/)
 
 An image loading library backed by Kotlin Coroutines (Instacart).
-[![Maven version for Coil](https://img.shields.io/maven-central/v/io.coil-kt/coil-compose)](https://search.maven.org/artifact/io.coil-kt/coil-compose "Maven version of the library") [### Glide](https://bumptech.github.io/glide/int/compose.html)
+[![Maven version for Coil](https://img.shields.io/maven-central/v/io.coil-kt.coil3/coil-compose)](https://search.maven.org/artifact/io.coil-kt.coil3/coil-compose "Maven version of the library") [### Glide](https://bumptech.github.io/glide/int/compose.html)
 
 A fast and efficient image loading library for Android focused on smooth scrolling (Google).
 [![Maven version for Glide](https://img.shields.io/maven-central/v/com.github.bumptech.glide/compose)](https://search.maven.org/artifact/com.github.bumptech.glide/compose "Maven version of the library")

@@ -1,24 +1,49 @@
 ---
-title: https://developer.android.com/blog/posts/android-developer-verification-early-access-starts-now-as-we-continue-to-build-with-your-feedback
+title: Android developer verification: Early access starts now as we continue to build with your feedback  |  Android Developers' Blog
 url: https://developer.android.com/blog/posts/android-developer-verification-early-access-starts-now-as-we-continue-to-build-with-your-feedback
-source: md.txt
+source: html-scrape
 ---
 
-[How-tos](https://developer.android.com/blog/categories/how-tos)
+* [Android Developers](https://developer.android.com/)
+* [Android Developers' Blog](https://developer.android.com/)
+* [Blog](https://developer.android.com/blog)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+[How-tos](/blog/categories/how-tos)
 
 # Android developer verification: Early access starts now as we continue to build with your feedback
 
-3 min read ![](https://developer.android.com/static/blog/assets/developer_Verification_2bb1c616ea_1NGKqg.webp) 12 Nov 2025 [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe) [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) Director, Product Management We recently [announced](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) new developer verification requirements, which serve as an additional layer of defense in our ongoing effort to keep Android users safe. We know that security works best when it accounts for the diverse ways people use our tools. This is why we announced this change early: to gather input and ensure our solutions are balanced. We appreciate the community's engagement and have heard the early feedback -- specifically from students and hobbyists who need an accessible path to learn, and from power users who are more comfortable with security risks. We are making changes to address the needs of both groups.
+3 min read
+
+![](/static/blog/assets/developer_Verification_2bb1c616ea_1NGKqg.webp)
+
+12
+
+Nov
+2025
+
+[![View Matthew Forsythe's profile](/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](/blog/authors/matthew-forsythe)
+
+[Matthew Forsythe](/blog/authors/matthew-forsythe)
+
+Director, Product Management
+
+We recently [announced](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) new developer verification requirements, which serve as an additional layer of defense in our ongoing effort to keep Android users safe. We know that security works best when it accounts for the diverse ways people use our tools. This is why we announced this change early: to gather input and ensure our solutions are balanced. We appreciate the community's engagement and have heard the early feedback – specifically from students and hobbyists who need an accessible path to learn, and from power users who are more comfortable with security risks. We are making changes to address the needs of both groups.
 
 To understand how these updates fit into our broader mission, it is important to first look at the specific threats we are tackling.
 
 **Why verification is important**
 
-Keeping users safe on Android is our top priority. Combating scams and digital fraud is not new for us --- it has been a central focus of our work for years. From Scam Detection in Google Messages to Google Play Protect and real-time alerts for scam calls, we have [consistently acted to keep our ecosystem safe](https://security.googleblog.com/2025/05/whats-new-in-android-security-privacy-2025.html).
+Keeping users safe on Android is our top priority. Combating scams and digital fraud is not new for us — it has been a central focus of our work for years. From Scam Detection in Google Messages to Google Play Protect and real-time alerts for scam calls, we have [consistently acted to keep our ecosystem safe](https://security.googleblog.com/2025/05/whats-new-in-android-security-privacy-2025.html).
 
-However, online scams and malware campaigns are becoming more aggressive. At the global scale of Android, this translates to **real harm for people around the world** -- especially in rapidly digitizing regions where many are coming online for the first time. Technical safeguards are critical, but they cannot solve for every scenario where a user is manipulated. Scammers use high-pressure social engineering tactics to trick users into bypassing the very warnings designed to protect them.
+However, online scams and malware campaigns are becoming more aggressive. At the global scale of Android, this translates to **real harm for people around the world** – especially in rapidly digitizing regions where many are coming online for the first time. Technical safeguards are critical, but they cannot solve for every scenario where a user is manipulated. Scammers use high-pressure social engineering tactics to trick users into bypassing the very warnings designed to protect them.
 
-For example, a common attack we track in Southeast Asia illustrates this threat clearly. A scammer calls a victim claiming their bank account is compromised and uses fear and urgency to direct them to sideload a "verification app" to secure their funds, often coaching them to ignore standard security warnings. Once installed, this app --- actually malware --- intercepts the victim's notifications. When the user logs into their real banking app, the malware captures their two-factor authentication codes, giving the scammer everything they need to drain the account.
+For example, a common attack we track in Southeast Asia illustrates this threat clearly. A scammer calls a victim claiming their bank account is compromised and uses fear and urgency to direct them to sideload a "verification app" to secure their funds, often coaching them to ignore standard security warnings. Once installed, this app — actually malware — intercepts the victim's notifications. When the user logs into their real banking app, the malware captures their two-factor authentication codes, giving the scammer everything they need to drain the account.
 
 While we have advanced safeguards and protections to detect and take down bad apps, without verification, bad actors can spin up new harmful apps instantly. It becomes an endless game of whack-a-mole. Verification changes the math by forcing them to use a real identity to distribute malware, making attacks significantly harder and more costly to scale. We have already seen how effective this is on Google Play, and we are now applying those lessons to the broader Android ecosystem to ensure there is a real, accountable identity behind the software you install.
 
@@ -28,58 +53,122 @@ We heard from developers who were concerned about the barrier to entry when buil
 
 **Empowering experienced users**
 
-While security is crucial, we've also heard from developers and power users who have a higher risk tolerance and want the ability to download unverified apps.
+While security is crucial, we’ve also heard from developers and power users who have a higher risk tolerance and want the ability to download unverified apps.
 
 Based on this feedback and our ongoing conversations with the community, **we are building a new advanced flow that allows experienced users to accept the risks of installing software that isn't verified.** We are designing this flow specifically to resist coercion, ensuring that users aren't tricked into bypassing these safety checks while under pressure from a scammer. It will also include clear warnings to ensure users fully understand the risks involved, but ultimately, it puts the choice in their hands. We are gathering early feedback on the design of this feature now and will share more details in the coming months.
 
 **Getting started with early access**
 
-We're excited to start inviting developers to the early access for developer verification in Android Developer Console for developers that distribute exclusively outside of Play, and will share invites to the Play Console experience soon for Play developers. We are looking forward to your questions and feedback on streamlining the experience for all developers.
+We’re excited to start inviting developers to the early access for developer verification in Android Developer Console for developers that distribute exclusively outside of Play, and will share invites to the Play Console experience soon for Play developers. We are looking forward to your questions and feedback on streamlining the experience for all developers.
 
-Watch our video below for a walkthrough of the new Android Developer Console experience and see our [guides](https://developer.android.com/developer-verification/guides) for more details and FAQs.
-
-[Video](https://www.youtube.com/watch?v=jEATR5sF5Lo)
+Watch our video below for a walkthrough of the new Android Developer Console experience and see our [guides](/developer-verification/guides) for more details and FAQs.
 
 We are committed to working with you to keep the ecosystem safe while getting this right.
+
 Written by:
 
--
-
-  ## [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe)
+* ## [Matthew Forsythe](/blog/authors/matthew-forsythe)
 
   ###### Director, Product Management
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-forsythe) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)
+  [read\_more
+  View profile](/blog/authors/matthew-forsythe)
+
+  ![View Matthew Forsythe's profile](/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)
+
+  ![View Matthew Forsythe's profile](/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)
+
 Continue reading
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
-  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+* [![View Toni Heidenreich's profile](/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](/blog/authors/toni-heidenreich)
 
-  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
-  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
-  - [#Media3](https://developer.android.com/blog/topics/media3)
-  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
-  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
-  - +1 ↩
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  11
 
-  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
+  Aug
+  2026
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  11
 
-  ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
+  Aug
+  2026
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
-  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+  ![](/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp)
+
+  [How-tos](/blog/categories/how-tos)
+
+  ## [Media3 1.11 - What's new?](/blog/posts/media3-1-11-whats-new)
+
+  [arrow\_forward](/blog/posts/media3-1-11-whats-new)
+
+  Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
+
+  [Toni Heidenreich](/blog/authors/toni-heidenreich)
+  •
+  3 min read
+  + [#Media3](/blog/topics/media3)
+  + [#Jetpack](/blog/topics/jetpack)
+  + [#ExoPlayer](/blog/topics/exo-player)
+  + +1
+    ↩
+* [![View Caren Chang's profile](/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](/blog/authors/caren-chang)
+
+  21
+
+  Jul
+  2026
+
+  21
+
+  Jul
+  2026
+
+  ![](/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp)
+
+  [How-tos](/blog/categories/how-tos)
+
+  ## [Build intelligent Android apps: On-device inference](/blog/posts/build-intelligent-android-apps-on-device-inference)
+
+  [arrow\_forward](/blog/posts/build-intelligent-android-apps-on-device-inference)
+
+  Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
+
+  [Caren Chang](/blog/authors/caren-chang)
+  •
+  6 min read
+  + [#Intelligent Apps](/blog/topics/intelligent-apps)
+* [![View Jolanda Verhoef's profile](/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](/blog/authors/jolanda-verhoef)
+
+  21
+
+  Jul
+  2026
+
+  21
+
+  Jul
+  2026
+
+  ![](/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp)
+
+  [How-tos](/blog/categories/how-tos)
+
+  ## [Build intelligent Android apps: Introduction to Jetpacker](/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
+
+  [arrow\_forward](/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
+
+  Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
+
+  [Jolanda Verhoef](/blog/authors/jolanda-verhoef)
+  •
+  4 min read
+  + [#Intelligent Apps](/blog/topics/intelligent-apps)
+
 Stay in the loop
-
 
 Get the latest Android development insights delivered to your inbox
 weekly.
+
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)
+Subscribe](/subscribe)
+
+![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

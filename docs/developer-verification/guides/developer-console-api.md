@@ -99,13 +99,18 @@ For a new package name that has never been seen on Android, you can provide the
 ### Register an existing package name
 
 To register an existing package name, you must prove ownership of a known
-private signing key. Unlike new registration, the API returns a list of known
-public certificate fingerprints that are eligible for registration. These keys
-can be used for direct registration.
+private signing key, unless you have already verified ownership of that signing
+key for another package name in the same developer account. Unlike new package
+name registration, the API returns a list of known public certificate
+fingerprints that are eligible for registration. These keys can be used for
+direct registration.
 
 If the key that you are registering is listed as "requires justification", you
 can still register it, but in addition to completing proof of ownership, the
 developer is also required to submit a justification for using the package name.
+If you have already verified ownership of that key for another package name in
+the same developer account, both proof of ownership and justification are
+skipped.
 
 ### Key eligibility rules
 
@@ -124,17 +129,22 @@ signing keys, eligibility is determined as follows:
 
 ### Verify key ownership
 
-To complete verification for an existing package name, the API provides a
-verification string. This verification string needs to be included inside a new
-file called `adi-registration.properties` inside the app's assets folder. You
-must then sign and upload the APK using the private key corresponding to the
-public key that you are registering.
+To complete verification for an existing package name when registering a key
+that has not yet been verified on another package name in the same developer
+account, the API provides a verification string. This verification string needs
+to be included inside a new file called `adi-registration.properties` inside the
+app's assets folder. You must then sign and upload the APK using the private key
+corresponding to the public key that you are registering. Once you verify a key
+for one package name, reusing that same key on additional package names in the
+same developer account skips APK upload verification.
 
 ### Justify key registration
 
-If a key registration requires a justification, developers must submit a
-detailed business rationale. Google reviews this justification, and approval for
-package name registration can take up to 24 hours.
+If a key registration requires a justification and the key has not already been
+verified on another package name in the same developer account, developers must
+submit a detailed business rationale after verifying key ownership. Google
+reviews this justification, and approval for package name registration can take
+up to 24 hours.
 
 ## User experience best practices
 
@@ -192,10 +202,11 @@ a primary CTA button.
 1. Use a form-based layout where developers input their package name into a text field, provided this information has not already been gathered by your application (e.g., through an earlier prompt).
 2. Call the `CreateAndroidPackage` API method to enroll a package name under the developer account, and call the `GetAndroidPackageRegistrationPolicy` API method to determine the applicable [key eligibility rules](https://developer.android.com/developer-verification/guides/developer-console-api#key-eligibility-rules).
 3. Based on the designated `keySelectionStrategy` for the package name, prompt the developer to perform one of the following:
-   - If `keySelectionStrategy` is set to `SELECT_KEY_FROM_LIST`: Have the developer pick a key for registration from the provided `knownKeys` list (containing SHA-256 certificate fingerprints), such as using radio buttons. This flow requires key ownership verification (refer to [Verify
-     ownership of a key](https://developer.android.com/developer-verification/guides/developer-console-api#verify-ownership-of-a-key) below).
-   - If `keySelectionStrategy` is set to `USE_ANY_KEY`: Prompt the developer to supply a key directly. Key ownership verification is not needed in this case.
-4. Call the `CreateAndroidPackageKey` API method to associate the chosen key with the new package name.
+   - If `keySelectionStrategy` is set to `SELECT_KEY_FROM_LIST`: Have the developer pick a key for registration from the provided `knownKeys` list (containing SHA-256 certificate fingerprints), such as using radio buttons.
+   - If `keySelectionStrategy` is set to `USE_ANY_KEY`: Prompt the developer to supply a key directly.
+4. Call the `CreateAndroidPackageKey` API method to associate the chosen key with the package name, and inspect the returned `state` on the `AndroidPackageKey` response:
+   - If `state` is `DRAFT`: Key ownership verification is required (see [Verify ownership of a key](https://developer.android.com/developer-verification/guides/developer-console-api#verify-ownership-of-a-key)).
+   - If `state` is `IN_REVIEW`: Key ownership verification and justification were skipped automatically. This is because either the package name is new, or the developer already verified ownership of this key for another package name in the same developer account.
 
 ![Form for registering package name and selecting signing key.](https://developer.android.com/static/images/developer-verification/adc-verify-ownership.png) **Figure 5.** Flow for registering a package name and selecting a key.
 
@@ -204,9 +215,12 @@ name or key directly from an uploaded app.
 
 ### Verify ownership of a key
 
-When `keySelectionStrategy` is set to `SELECT_KEY_FROM_LIST`, developers must
-prove ownership of their private signing key. Proof of ownership requires
-submitting a signed APK that incorporates the API-generated `verificationToken`.
+When `CreateAndroidPackageKey` returns an `AndroidPackageKey` with `state` set
+to `DRAFT`---which occurs when registering a key for an existing package name and
+the key has not yet been verified for another package name in the same developer
+account---developers must prove ownership of their private signing key. Proof
+of ownership requires submitting a signed APK that incorporates the
+API-generated `verificationToken`.
 
 To support key ownership verification, integrate the
 `VerifyAndroidPackageKeyOwnership` API method and build out the following user
@@ -220,7 +234,9 @@ interface components:
 
 ### Justify the registration of a key
 
-When a known key has its `justificationRequired` field set to `REQUIRED`,
+When a key has `registrationJustificationRequired` set to `true`---corresponding
+to `justificationRequirement` set to `REQUIRED` on the known key---and
+`VerifyAndroidPackageKeyOwnership` transitions the key to `OWNERSHIP_VERIFIED`,
 registering that key alongside the package name requires developers to submit a
 thorough business rationale.
 
@@ -234,8 +250,14 @@ to 24 hours to approve before the package name registration is complete.
 ### Automate key verification for managed keys
 
 If your application manages a developer's signing key, the developer cannot
-manually sign an APK for ownership verification. You must instead execute the
-`VerifyAndroidPackageKeyOwnership` API call automatically on their behalf.
+manually sign an APK for ownership verification. Whenever
+`CreateAndroidPackageKey` returns `state` set to `DRAFT`, you must execute the
+`VerifyAndroidPackageKeyOwnership` API call automatically on their behalf. If
+your system reuses a managed signing key across multiple package names under the
+same developer account, `VerifyAndroidPackageKeyOwnership` is only required for
+the first package name where `CreateAndroidPackageKey` returns `DRAFT`.
+Subsequent package names registered with that key in the same account transition
+directly to `IN_REVIEW`.
 
 By handling the token inclusion and APK upload process automatically, your
 application removes these manual steps. Be sure to notify developers that key

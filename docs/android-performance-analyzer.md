@@ -232,7 +232,7 @@ Linux](https://dl.google.com/android/apa/ide-zips/v0.9.0/android-performance-ana
 | Windows | [android-performance-analyzer-windows.zip](https://dl.google.com/android/apa/ide-zips/v0.9.0/android-performance-analyzer-windows.zip) 6e93f6fda0c4b4d53e5cdec75ed38d4085476bdbe0b131fe7e43b28bcb473dc3 | 562.1 MB |
 | Mac | [android-performance-analyzer-mac.dmg](https://dl.google.com/android/apa/install/v0.9.0/android-performance-analyzer-mac.dmg) 5b9c5935277eb6d12992d0c35d20114614025a501c9462f1459e5217567557bc | 528.1 MB |
 | Linux | [android-performance-analyzer-linux.tar.gz](https://dl.google.com/android/apa/ide-zips/v0.9.0/android-performance-analyzer-linux.tar.gz) a3a549de2b2a53bc33b19ff9fe73d24adf007e7f009c370bdc31fa90bcea5368 | 577.6 MB |
-| **Canary:** 0.10.0-canary4 |||
-| Windows | [android-performance-analyzer-windows.zip](https://dl.google.com/android/apa/ide-zips/v0.10.0-canary4/android-performance-analyzer-windows.zip) 8b320c6074caca3a5cad79f42338ea140acbc81006b5a1cd658d3dda6ffd85c0 | 615.1 MB |
-| Mac | [android-performance-analyzer-mac.dmg](https://dl.google.com/android/apa/install/v0.10.0-canary4/android-performance-analyzer-mac.dmg) 7d5713376450497dffd7e68cb68b1394b5889526a0e4f3a01d856cd943a682bf | 588.8 MB |
-| Linux | [android-performance-analyzer-linux.tar.gz](https://dl.google.com/android/apa/ide-zips/v0.10.0-canary4/android-performance-analyzer-linux.tar.gz) f0bdcc1473666d5c0381d0b42b9954cf824be977c0f96f16ed67cfa05621e79e | 659.5 MB |
+| **Canary:** 0.10.0-canary5 |||
+| Windows | [android-performance-analyzer-windows.zip](https://dl.google.com/android/apa/ide-zips/v0.10.0-canary5/android-performance-analyzer-windows.zip) 2262f584d33ae9443cedaf66db563cc5917decab8bad5eb508f2309c1fd7aafa | 618.1 MB |
+| Mac | [android-performance-analyzer-mac.dmg](https://dl.google.com/android/apa/install/v0.10.0-canary5/android-performance-analyzer-mac.dmg) e06d3fa1b4c314243157a3b1c8b28a2ad18fd877ebcf25c1db28efad1f32df82 | 591.7 MB |
+| Linux | [android-performance-analyzer-linux.tar.gz](https://dl.google.com/android/apa/ide-zips/v0.10.0-canary5/android-performance-analyzer-linux.tar.gz) d80a8ba835efa8a7cff92ff126348896f10622936aa5f20a1899cb8c89ed50f2 | 662.4 MB |

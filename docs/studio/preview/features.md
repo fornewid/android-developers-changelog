@@ -30,9 +30,8 @@ respective channels.
 
 | Version | Channel |
 |---|---|
-| Android Studio Rabbit 1 | Stable |
-| Android Gradle plugin 9.4.0 | Stable |
-| Android Studio Rabbit 2 | RC |
+| Android Studio Rabbit 2 | Stable |
+| Android Gradle plugin 9.5.0 | Stable |
 | Android Studio Rabbit 3 | Canary |
 
 <br />
@@ -69,70 +68,6 @@ The following are features currently available in Studio Labs.
 | Feature | Description | Docs |
 |---|---|---|
 | Journeys for Android Studio | Use natural language to describe steps and assertions for end-to-end tests. | [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys) |
-
-## Android Studio Rabbit 2
-
-The following are new features in Android Studio Rabbit 2.
-
-To see what's been fixed in this version of Android Studio, see the [closed
-issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.2).
-
-### Bring Your Own Agent (BYOA): Integrate your preferred coding agents
-
-Building on Android Studio's support for [custom AI
-models](https://developer.android.com/studio/gemini/use-a-remote-model), Android Studio Rabbit 2 Canary 2
-introduces Bring Your Own Agent (BYOA). Using BYOA, you can connect your
-preferred AI coding agents---including Claude Agent, OpenAI Codex, and Google
-Antigravity---directly into Android Studio using the open Agent Client Protocol
-(ACP).
-
-BYOA pairs your chosen agent with IDE-native intelligence, passing the full
-project graph, build diagnostics, and emulator controls directly into your agent
-for faster execution and lower token consumption. You can authenticate with your
-personal or enterprise subscriptions, while Android Studio's built-in agent
-remains available at no extra charge.
-![Select an AI agent from the Agents menu in the Agent tool window.](https://developer.android.com/static/studio/gemini/images/byoa.png)
-
-BYOA offers the following benefits:
-
-- Support for any ACP-compliant agent.
-- Direct IDE access to build diagnostics, Android SDK tools, terminal and shell execution, and emulator management.
-- Flexible sign-in options supporting personal API keys and consumer subscriptions.
-
-#### Get started
-
-To get started with BYOA, follow these steps:
-
-1. Update Android Studio to the latest canary release.
-2. Connect your agents: In the agent window, select one of the default agents (Claude Agent, Codex, or Antigravity) and sign in or provide an API key. Additional agents can be found in the registry at **File** (**Android
-   Studio** on macOS) **\> Settings \> Tools \> AI \> Agents**.
-
-### Agentic fixes with LeakCanary
-
-Starting in Rabbit 2, Android Studio directly integrates LeakCanary with the AI
-agent to help you diagnose and resolve memory leaks without leaving the IDE.
-This integration lets LeakCanary provide more meaningful narrative explanations
-of the underlying causes of memory leaks and suggest specific code changes to
-correct them. Try this feature out in the **LeakCanary** task in **Profiler**.
-
-### Discover, install, and manage Android skills in Android Studio
-
-In Android Studio Rabbit 2, it's easier to discover, install, and manage Android
-[skills](https://developer.android.com/studio/gemini/skills) directly in the
-IDE, giving you granular control over the specialized workflows and procedural
-guidance available to the agent.
-
-### Resize Running Devices tool window by double-clicking empty space
-
-You can eliminate unused space around your virtual or mirrored physical devices
-in the **Running Devices** tool window. Double-click anywhere in the empty
-background area outside the device screen (and frame, if visible) to
-automatically resize the tool window or adjust split pane proportions to snugly
-fit the device display.
-
-- **Docked tool windows:** Adjusts the tool window's width (when docked to the left or right) or height (when docked to the top or bottom) to remove excess margin around the device.
-- **Floating and windowed modes:** Resizes both width and height of the window to wrap tightly around the device display.
-- **Split views:** Automatically adjusts internal splitters when viewing multiple displays or devices side by side.
 
 ## Android Studio Rabbit 3
 

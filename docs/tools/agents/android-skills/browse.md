@@ -30,7 +30,11 @@ Integrate the Jetpack Compose Styles API to set up component themes and make cus
 ### Make app edge-to-edge
 Modernize your app UI by implementing edge-to-edge layout support.](https://github.com/android/skills/tree/main/system/edge-to-edge) [![](https://developer.android.com/static/images/picto-icons/user-friendly-integration.svg)
 ### Integrate Play Engage SDK
-Integrate the Play Engage SDK into your app to publish content clusters and engage users on Google Play.](https://github.com/android/skills/tree/main/play/engage-sdk-integration) [![](https://developer.android.com/static/images/picto-icons/hardware.svg)
+Integrate the Play Engage SDK into your app to publish content clusters and engage users on Google Play.](https://github.com/android/skills/tree/main/play/engage-sdk-integration) [![](https://developer.android.com/static/images/picto-icons/pencil.svg)
+### Build Ink drawing apps
+Build freehand drawing surfaces in Jetpack Compose with the Jetpack Ink API, handling stylus input, wet-to-dry stroke handoff, erasing, and persistence.](https://github.com/android/skills/tree/main/jetpack-compose/ink/ink-app-builder) [![](https://developer.android.com/static/images/picto-icons/pencils.svg)
+### Create custom Ink brushes
+Design custom BrushFamily styles in Jetpack Compose for the Jetpack Ink API with custom tips, dynamic behaviors, textures, and coats.](https://github.com/android/skills/tree/main/jetpack-compose/ink/ink-custom-brush-builder) [![](https://developer.android.com/static/images/picto-icons/hardware.svg)
 ### Migrate Leanback to Compose for TV
 Migrate Android TV apps from the legacy Leanback UI Toolkit to Jetpack Compose for TV.](https://github.com/android/skills/tree/main/tv/leanback-to-compose-tv-migration) [![](https://developer.android.com/static/images/picto-icons/cast.svg)
 ### Integrate Media3 Cast

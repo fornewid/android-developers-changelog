@@ -1,8 +1,19 @@
 ---
-title: https://developer.android.com/media/platform/xhe-aac-encoding
+title: Record high-quality, low-bitrate audio with xHE-AAC  |  Android media  |  Android Developers
 url: https://developer.android.com/media/platform/xhe-aac-encoding
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Camera & media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# Record high-quality, low-bitrate audio with xHE-AAC Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 
 Starting in Android 17 QPR1 (API level 37.1 or
 `Build.VERSION_CODES_FULL.CINNAMON_BUN_1`), Android introduces platform support
@@ -22,7 +33,7 @@ payloads with superior speech clarity and consistent volume across devices.
 ## Benefits of xHE-AAC
 
 Traditional voice recording in Android messaging apps typically uses the older
-AAC-LC (AAC Low Complexity) at 28 kbps. At low bitrates (\<32 kbps), AAC-LC
+AAC-LC (AAC Low Complexity) at 28 kbps. At low bitrates (<32 kbps), AAC-LC
 exhibits noticeable band-limiting artifacts, fuzzy speech quality, and
 suboptimal compression efficiency. For end users, this results in muffled,
 tinny audio where consonants are hard to distinguish, requiring listeners to
@@ -43,8 +54,11 @@ in any environment.
 
 ### Target use cases
 
-- **Rich Communication Services (RCS) and voice messaging:** Complies with **GSMA RCC.71 Universal Profile version 3.1** and later, which mandates xHE-AAC for low-bitrate audio messaging.
-- **Live audio streaming and podcasts:** Delivers resilient audio quality over degraded mobile or satellite network connections.
+* **Rich Communication Services (RCS) and voice messaging:** Complies with
+  **GSMA RCC.71 Universal Profile version 3.1** and later, which mandates
+  xHE-AAC for low-bitrate audio messaging.
+* **Live audio streaming and podcasts:** Delivers resilient audio quality
+  over degraded mobile or satellite network connections.
 
 ## Platform availability (API level 37.1+)
 
@@ -52,18 +66,27 @@ Platform xHE-AAC encoding support requires **API level 37.1**
 (`Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.CINNAMON_BUN_1` /
 SDK `3700001` or higher).
 
-> [!NOTE]
-> **Note:** While the software xHE-AAC encoder component (`c2.android.xheaac.encoder`) was initially included in Android 17 (API level 37), a defect in the platform MP4/M4A container muxer prevented media players from scrubbing or seeking within recorded audio attachments. Full, seek-compatible MP4 muxing support was verified and re-enabled in **Android 17 QPR1 (API level 37.1 / `CINNAMON_BUN_1`)**.
+**Note:** While the software xHE-AAC encoder component
+(`c2.android.xheaac.encoder`) was initially included in Android 17 (API
+level 37), a defect in the platform MP4/M4A container muxer prevented media
+players from scrubbing or seeking within recorded audio attachments. Full,
+seek-compatible MP4 muxing support was verified and re-enabled in
+**Android 17 QPR1 (API level 37.1 / `CINNAMON_BUN_1`)**.
 
 ## Query for xHE-AAC encoder support
 
 You must not assume xHE-AAC encoding is available on every device
-by calling [`MediaCodec.createByCodecName(...)`](https://developer.android.com/reference/android/media/MediaCodec#createByCodecName(java.lang.String))
+by calling [`MediaCodec.createByCodecName(...)`](/reference/android/media/MediaCodec#createByCodecName(java.lang.String))
 with `"c2.android.xheaac.encoder"`.
 
-- Some devices may provide a hardware-accelerated xHE-AAC encoder from the chipset vendor rather than the platform software encoder.
-- Older OS releases or customized ROMs lack xHE-AAC encoding support.
-- Before encoding an attachment for peer-to-peer messaging (such as RCS or chat), apps should also check if the receiving client advertises USAC/xHE-AAC decoding support (for example, using SDP capability discovery `profile-level-id=55` / `object=42`) to prevent interoperability failures on legacy receivers.
+* Some devices may provide a hardware-accelerated xHE-AAC encoder from the
+  chipset vendor rather than the platform software encoder.
+* Older OS releases or customized ROMs lack xHE-AAC encoding support.
+* Before encoding an attachment for peer-to-peer messaging (such as RCS or
+  chat), apps should also check if the receiving client advertises
+  USAC/xHE-AAC decoding support (for example, using SDP capability discovery
+  `profile-level-id=55` / `object=42`) to prevent interoperability failures
+  on legacy receivers.
 
 ### Inspect MediaCodecList capabilities
 
@@ -73,7 +96,7 @@ encoding, inspect the `profileLevels` of encoders supporting
 
 ### Kotlin
 
-```kotlin
+```
 import android.media.MediaCodecInfo.CodecProfileLevel
 import android.media.MediaCodecList
 import android.media.MediaFormat
@@ -110,7 +133,7 @@ fun isXheAacEncodingSupported(): Boolean {
 
 ### Java
 
-```java
+```
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecInfo.CodecProfileLevel;
 import android.media.MediaCodecList;
@@ -150,12 +173,12 @@ public boolean isXheAacEncodingSupported() {
 
 After you have verified xHE-AAC support, configure your `MediaFormat` with
 `KEY_AAC_PROFILE` set to
-[`MediaCodecInfo.CodecProfileLevel.AACObjectXHE`](https://developer.android.com/reference/android/media/MediaCodecInfo.CodecProfileLevel#AACObjectXHE)
+[`MediaCodecInfo.CodecProfileLevel.AACObjectXHE`](/reference/android/media/MediaCodecInfo.CodecProfileLevel#AACObjectXHE)
 (value `42`).
 
 ### Kotlin
 
-```kotlin
+```
 fun setupXheAacEncoder(): MediaCodec? {
     if (!isXheAacEncodingSupported()) {
         return null
@@ -182,7 +205,7 @@ fun setupXheAacEncoder(): MediaCodec? {
 
 ### Java
 
-```java
+```
 public MediaCodec setupXheAacEncoder() throws IOException {
     if (!isXheAacEncodingSupported()) {
         return null;
@@ -217,7 +240,9 @@ When using the system-provided software xHE-AAC encoder
 (`c2.android.xheaac.encoder`), the component advertises the following
 capability limits:
 
-- **Channel count:** Up to `2` channels (Mono / Stereo).
-- **Sample rates:** `44100 Hz`, `48000 Hz`.
-- **Bitrate range:** `12,000 bps` to `400,000 bps` (12 kbps -- 400 kbps).
-- **Container muxing:** Compatible with raw MP4A elementary streams and platform MP4/M4A container muxing (`MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4`).
+* **Channel count:** Up to `2` channels (Mono / Stereo).
+* **Sample rates:** `44100 Hz`, `48000 Hz`.
+* **Bitrate range:** `12,000 bps` to `400,000 bps` (12 kbps – 400 kbps).
+* **Container muxing:** Compatible with raw MP4A elementary streams and
+  platform MP4/M4A container muxing
+  (`MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4`).

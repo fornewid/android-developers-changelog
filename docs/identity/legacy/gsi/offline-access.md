@@ -21,12 +21,11 @@ source: md.txt
 > available on Credential Manager APIs for these versions of WearOS at a later
 > date.
 
-With the earlier [Add Sign-In](https://developer.android.com/identity/legacy/gsi/legacy-sign-in#add_the_google_sign-in_button_to_your_app)
-procedure, your app authenticates the user on the client side only; in that case,
-you can access the Google APIs only while the user is actively using your app.
-If you want your servers to be able to make Google API calls on behalf of
-users---possibly while they are offline---your server requires an access
-token.
+With the earlier [Add Sign-In](https://developer.android.com/identity/legacy/gsi/legacy-sign-in#add_the_google_sign-in_button_to_your_app) procedure, your app authenticates the user on
+the client side only; in that case, you can access the Google APIs only while
+the user is actively using your app. If you want your servers to be able to make
+Google API calls on behalf of users---possibly while they are
+offline---your server requires an access token.
 
 ## Before you begin
 
@@ -39,7 +38,7 @@ token.
 1. When you [configure Google Sign-In](https://developer.android.com/identity/legacy/gsi/legacy-sign-in#configure_google_sign-in_and_the_googlesigninclient_object),
    build the `GoogleSignInOptions` object with the [`requestServerAuthCode`](https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInOptions.Builder.html#requestServerAuthCode(java.lang.String))
    method and specify the scopes that your app's backend needs to access with
-   the \[`requestScopes`\]\[55\]
+   the [`requestScopes`](https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInOptions.Builder.html#requestScopes(com.google.android.gms.common.api.Scope,%20com.google.android.gms.common.api.Scope...))
    method.
 
    Pass your server's client ID to the `requestServerAuthCode` method.
@@ -82,7 +81,8 @@ token.
        HttpPost httpPost = new HttpPost("https://yourbackend.example.com/authcode");
 
        try {
-           List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
+           List<NameValuePair> nameValuePairs =
+               new ArrayList<NameValuePair>(1);
            nameValuePairs.add(new BasicNameValuePair("authCode", authCode));
            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
@@ -105,93 +105,87 @@ token.
 
    For example:
 
-   ##### Java
+   ### Java
 
-   ```java
-   // (Receive authCode via HTTPS POST)
+       // (Receive authCode using HTTPS POST)
 
-   if (request.getHeader("X-Requested-With") == null) {
-   // Without the `X-Requested-With` header, this request could be forged. Aborts.
-   }
+       if (request.getHeader("X-Requested-With") == null) {
+       // Without the `X-Requested-With` header, this request could be forged. Aborts.
+       }
 
-   // Set path to the Web application client_secret_*.json file you downloaded from the
-   // Google API Console: https://console.cloud.google.com/apis/credentials
-   // You can also find your Web application client ID and client secret from the
-   // console and specify them directly when you create the GoogleAuthorizationCodeTokenRequest
-   // object.
-   String CLIENT_SECRET_FILE = "/path/to/client_secret.json";
+       // Set path to the Web application client_secret_*.json file you downloaded from the
+       // Google API Console: https://console.cloud.google.com/apis/credentials
+       // You can also find your Web application client ID and client secret from the
+       // console and specify them directly when you create the GoogleAuthorizationCodeTokenRequest
+       // object.
+       String CLIENT_SECRET_FILE = "/path/to/client_secret.json";
 
-   // Exchange auth code for access token
-   GoogleClientSecrets clientSecrets =
-       GoogleClientSecrets.load(
-           JacksonFactory.getDefaultInstance(), new FileReader(CLIENT_SECRET_FILE));
-   GoogleTokenResponse tokenResponse =
-           new GoogleAuthorizationCodeTokenRequest(
-               new NetHttpTransport(),
-               JacksonFactory.getDefaultInstance(),
-               "https://oauth2.googleapis.com/token",
-               clientSecrets.getDetails().getClientId(),
-               clientSecrets.getDetails().getClientSecret(),
-               authCode,
-               REDIRECT_URI)  // Specify the same redirect URI that you use with your web
-                               // app. If you don't have a web version of your app, you can
-                               // specify an empty string.
-               .execute();
+       // Exchange auth code for access token
+       GoogleClientSecrets clientSecrets =
+           GoogleClientSecrets.load(
+               JacksonFactory.getDefaultInstance(), new FileReader(CLIENT_SECRET_FILE));
+       GoogleTokenResponse tokenResponse =
+               new GoogleAuthorizationCodeTokenRequest(
+                   new NetHttpTransport(),
+                   JacksonFactory.getDefaultInstance(),
+                   "https://oauth2.googleapis.com/token",
+                   clientSecrets.getDetails().getClientId(),
+                   clientSecrets.getDetails().getClientSecret(),
+                   authCode,
+                   REDIRECT_URI)  // Specify the same redirect URI that you use with your web
+                                   // app. If you don't have a web version of your app, you can
+                                   // specify an empty string.
+                   .execute();
 
-   String accessToken = tokenResponse.getAccessToken();
+       String accessToken = tokenResponse.getAccessToken();
 
-   // Use access token to call API
-   GoogleCredential credential = new GoogleCredential().setAccessToken(accessToken);
-   Drive drive =
-       new Drive.Builder(new NetHttpTransport(), JacksonFactory.getDefaultInstance(), credential)
-           .setApplicationName("Auth Code Exchange Demo")
-           .build();
-   File file = drive.files().get("appfolder").execute();
+       // Use access token to call API
+       GoogleCredential credential = new GoogleCredential().setAccessToken(accessToken);
+       Drive drive =
+           new Drive.Builder(new NetHttpTransport(), JacksonFactory.getDefaultInstance(), credential)
+               .setApplicationName("Auth Code Exchange Demo")
+               .build();
+       File file = drive.files().get("appfolder").execute();
 
-   // Get profile info from ID token
-   GoogleIdToken idToken = tokenResponse.parseIdToken();
-   GoogleIdToken.Payload payload = idToken.getPayload();
-   String userId = payload.getSubject();  // Use this value as a key to identify a user.
-   String email = payload.getEmail();
-   boolean emailVerified = Boolean.valueOf(payload.getEmailVerified());
-   String name = (String) payload.get("name");
-   String pictureUrl = (String) payload.get("picture");
-   String locale = (String) payload.get("locale");
-   String familyName = (String) payload.get("family_name");
-   String givenName = (String) payload.get("given_name");
-   ```
+       // Get profile info from ID token
+       GoogleIdToken idToken = tokenResponse.parseIdToken();
+       GoogleIdToken.Payload payload = idToken.getPayload();
+       String userId = payload.getSubject();  // Use this value as a key to identify a user.
+       String email = payload.getEmail();
+       boolean emailVerified = Boolean.valueOf(payload.getEmailVerified());
+       String name = (String) payload.get("name");
+       String pictureUrl = (String) payload.get("picture");
+       String locale = (String) payload.get("locale");
+       String familyName = (String) payload.get("family_name");
+       String givenName = (String) payload.get("given_name");
 
-   ##### Python
+   ### Python
 
-   ```python
-   from apiclient import discovery
-   import httplib2
-   from oauth2client import client
+       from apiclient import discovery
+       import httplib2
+       from oauth2client import client
 
-   # (Receive auth_code by HTTPS POST)
+       # (Receive auth_code by HTTPS POST)
 
-   # If this request does not have `X-Requested-With` header, this could be a CSRF
-   if not request.headers.get('X-Requested-With'):
-       abort(403)
+       # If this request does not have `X-Requested-With` header, this could be a CSRF
+       if not request.headers.get('X-Requested-With'):
+           abort(403)
 
-   # Set path to the Web application client_secret_*.json file you downloaded from the
-   # Google API Console: https://console.cloud.google.com/apis/credentials
-   CLIENT_SECRET_FILE = '/path/to/client_secret.json'
+       # Set path to the Web application client_secret_*.json file you downloaded from the
+       # Google API Console: https://console.cloud.google.com/apis/credentials
+       CLIENT_SECRET_FILE = '/path/to/client_secret.json'
 
-   # Exchange auth code for access token, refresh token, and ID token
-   credentials = client.credentials_from_clientsecrets_and_code(
-       CLIENT_SECRET_FILE,
-       ['https://www.googleapis.com/auth/drive.appdata', 'profile', 'email'],
-       auth_code)
+       # Exchange auth code for access token, refresh token, and ID token
+       credentials = client.credentials_from_clientsecrets_and_code(
+           CLIENT_SECRET_FILE,
+           ['https://www.googleapis.com/auth/drive.appdata', 'profile', 'email'],
+           auth_code)
 
-   # Call Google API
-   http_auth = credentials.authorize(httplib2.Http())
-   drive_service = discovery.build('drive', 'v3', http=http_auth)
-   appfolder = drive_service.files().get(fileId='appfolder').execute()
+       # Call Google API
+       http_auth = credentials.authorize(httplib2.Http())
+       drive_service = discovery.build('drive', 'v3', http=http_auth)
+       appfolder = drive_service.files().get(fileId='appfolder').execute()
 
-   # Get profile info from ID token
-   userid = credentials.id_token['sub']
-   email = credentials.id_token['email']
-   ```
-
-\[55\]: https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInOptions.Builder.html#requestScopes(com.google.android.gms.common.api.Scope, com.google.android.gms.common.api.Scope...)
+       # Get profile info from ID token
+       userid = credentials.id_token['sub']
+       email = credentials.id_token['email']

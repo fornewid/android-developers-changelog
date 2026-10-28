@@ -4,9 +4,9 @@ url: https://developer.android.com/kotlin/multiplatform/navigation-event
 source: md.txt
 ---
 
-Navigation Event is a library that provides a Kotlin Multiplatform (KMP)
-solution for integrating system-level navigation events into your application.
-It is designed to be the foundational layer for handling navigation directions
-across various supported platforms.
+Navigation Event is a Kotlin Multiplatform (KMP) library for handling
+system-level navigation events, such as back gestures, in your app. It's the
+foundation for handling [navigation directions](https://developer.android.com/guide/navigation/navigation-event#supported-directions) on every platform it
+supports.
 
 See the [Navigation Event](https://developer.android.com/guide/navigation/navigation-event) documentation for more information.

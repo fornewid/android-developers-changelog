@@ -68,7 +68,7 @@ this guidance to load images from the internet using Coil.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/load-images_441455ea4549127c95363251aabd874d0901428b4aa1c152a613703345e30bc6.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/load-images_5cf8593b4e17e4bcb8adb304bb1ba3a6dd6df5bb5e6d0208a1254d36459c0736.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 #### Load the image
 

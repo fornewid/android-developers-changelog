@@ -6,10 +6,14 @@ source: md.txt
 
 To create a Kotlin Multiplatform (KMP) module within your Android project, use
 the **Kotlin Multiplatform Shared Module** template, available in Android Studio
-Meerkat and Android Gradle Plugin [version 8.8.0](https://maven.google.com/web/index.html?q=build#com.android.tools.build:gradle) and higher.
+Meerkat and [Android Gradle Plugin 8.8.0](https://developer.android.com/build/releases/agp-8-8-0-release-notes) and higher.
 
 The module template automates the creation of a new module with the minimum
-configuration targeting Android and iOS platforms.
+configuration targeting Android and iOS platforms. KMP also supports other
+targets, such as desktop and web, which you can add to the module later. For
+the full list, see [Stability of supported platforms](https://kotlinlang.org/docs/multiplatform/supported-platforms.html). To
+declare a target, see [Targets](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets) in the Multiplatform Gradle DSL
+reference.
 
 > [!NOTE]
 > **Note:** If you want to build an iOS app, you need a macOS machine with [Xcode
@@ -31,7 +35,7 @@ The fields in the template are the following:
   1. Click **Finish** and allow Gradle to sync with the project. You might also be prompted to add the newly created module files to source control.
 
 > [!NOTE]
-> **Note:** The generated module includes some basic placeholder functions and tests. These placeholder functions ensure that the module compiles and runs successfully..
+> **Note:** The generated module includes some basic placeholder functions and tests. These placeholder functions ensure that the module compiles and runs successfully.
 
 Once complete, the Android Studio **Project View** shows the new shared module
 along with a sourceset for each platform.
@@ -43,7 +47,7 @@ along with a sourceset for each platform.
 
 The module wizard doesn't add the newly created module as a dependency to any
 existing module. As a next step, you need to link the shared module to one of
-your existing Gradle modules similarly to other Android dependencies
+your existing Gradle modules similarly to other Android dependencies:
 
     dependencies {
         ...
@@ -158,6 +162,5 @@ shared module, which should return "iOS" when running on the iOS platform.
   documentation](https://kotlinlang.org/docs/multiplatform.html) for more guides.
 - If you're new to iOS development, see [Swift Basics
   documentation](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/).
-- For common KMP setup issues, see [Possible issues and
-  solutions](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html#possible-issues-and-solutions).
+- For common KMP setup issues, see [Troubleshooting](https://kotlinlang.org/docs/multiplatform/quickstart.html#troubleshooting) in the KMP quickstart.
 - For sample apps, see [Android Kotlin Multiplatform Samples](https://github.com/android/kotlin-multiplatform-samples).

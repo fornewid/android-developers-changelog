@@ -80,8 +80,9 @@ maintaining full D-pad compatibility.
 ### Declare pointer remote support in the manifest
 
 To indicate that your app is navigable with pointer and touch input, configure
-your app manifest with the `android.software.leanback.supports_touch` metadata
-set to `true`:
+your app manifest with the `android.software.leanback.supports_touch`
+[`<property>`](https://developer.android.com/guide/topics/manifest/property-element) set to `true` inside the `<application>` element (or inside
+individual `<activity>` elements to configure support per activity):
 
     <manifest ...>
         <!-- Signal whether the app is adaptive or built just for TV -->
@@ -92,17 +93,17 @@ set to `true`:
         <uses-feature
             android:name="android.hardware.touchscreen"
             android:required="false" />
-        <!-- Signal whether the app supports pointer remotes -->
-        <meta-data
-            android:name="android.software.leanback.supports_touch"
-            android:value="true" />
         <application ...>
+            <!-- Signal whether the app supports pointer remotes -->
+            <property
+                android:name="android.software.leanback.supports_touch"
+                android:value="true" />
             ...
         </application>
     </manifest>
 
 > [!NOTE]
-> **Note:** Setting `android.software.leanback.supports_touch` to `true` enables native cursor and touch mode on devices that support a pointer remote, rather than relying on platform compatibility emulation. For more information, see [Declare touch support](https://developer.android.com/training/tv/get-started/hardware#supports_touch).
+> **Note:** Setting `android.software.leanback.supports_touch` to `true` enables native cursor and touch mode on devices that support a pointer remote, rather than relying on platform compatibility emulation. An activity-level `<property>` declaration overrides the application-level declaration for that activity. For more information, see [Declare touch support](https://developer.android.com/training/tv/get-started/hardware#supports_touch).
 
 ### Support click, hover, and scroll interactions
 

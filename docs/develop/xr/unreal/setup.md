@@ -1,15 +1,41 @@
 ---
-title: https://developer.android.com/develop/xr/unreal/setup
+title: Unreal Engine project setup  |  Android XR for Unreal Engine  |  Android Developers
 url: https://developer.android.com/develop/xr/unreal/setup
-source: md.txt
+source: html-scrape
 ---
 
-<br />
+The Android XR SDK has  [reached Developer Preview 4](https://android-developers.googleblog.com/2026/05/android-xr-sdk-developer-preview-4-updates.html), and we want your feedback! Try things out, and visit our [support page](/develop/xr/support) to reach out.
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android XR](https://developer.android.com/develop/xr)
+* [Unreal Engine](https://developer.android.com/develop/xr/unreal)
+* [Guides](https://developer.android.com/develop/xr/get-started)
+
+# Unreal Engine project setup Stay organized with collections Save and categorize content based on your preferences.
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
-<br />
+
+
+Applicable XR devices
+
+This guidance helps you build experiences for these types of XR devices.
+
+[Learn about XR device types →](/develop/xr/devices)
+
+![](/static/images/develop/xr/xr-headsets-icon.svg)
+
+
+XR Headsets
+
+![](/static/images/develop/xr/xr-glasses-icon.svg)
+
+
+Wired XR Glasses
+
+[Learn about XR device types →](/develop/xr/devices)
 
 This guide details the recommended engine versions, required SDKs, and Android
 project settings when developing an Unreal Engine app for Android XR.
@@ -21,14 +47,13 @@ install the following applications and tools:
 
 1. Download and install the [Epic Games Launcher](https://epicgames.com/).
 
-   1. From the Epic Games Launcher, install version **5.6.1** (or higher) of Unreal Engine.
+   1. From the Epic Games Launcher, install version **5.6.1** (or higher) of
+      Unreal Engine.
 2. Set up your system to build C++ code (for example, using Visual Studio 2022
    for Windows, or Xcode for macOS). For more information, see Epic's [C++
    development environment setup](https://dev.epicgames.com/documentation/en-us/unreal-engine/setting-up-your-development-environment-for-cplusplus-in-unreal-engine).
-
 3. Install the [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
-
-4. Install [Android Studio](https://developer.android.com/studio) (Rabbit 1 \| 2026.2.1 or higher).
+4. Install [Android Studio](/studio) (Rabbit 2 | 2026.2.2 or higher).
 
 ## Install Android build support
 
@@ -39,22 +64,23 @@ Android build tools alongside Unreal Engine.
 2. Click the drop-down arrow next to your installed Engine version (Launch
    button) and click **Options**.
 
-   1. Scroll further to the installation options, select **Android** , and click **Apply**.
-   2. If prompted, allow the engine to register any file extensions that it requires.
+   1. Scroll further to the installation options, select **Android**, and
+      click **Apply**.
+   2. If prompted, allow the engine to register any file extensions that it
+      requires.
 3. Install [Java JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-0-13-later-archive-downloads.html).
-
 4. In Android Studio, use the SDK Manager to install the following
    specific versions required by the Android XR samples:
 
-   - **SDK Platforms**: 34, 35, and 36
-   - **NDK**: 29.0.x
-   - **Command-line Tools** (all items)
+   * **SDK Platforms**: 34, 35, and 36
+   * **NDK**: 29.0.x
+   * **Command-line Tools** (all items)
 5. Follow Epic's [Advanced setup and troubleshooting guide](https://dev.epicgames.com/documentation/en-us/unreal-engine/advanced-setup-and-troubleshooting-guide-for-using-android-sdk) to
    configure the following system environment variables:
 
-   - `ANDROID_HOME`
-   - `JAVA_HOME`
-   - `NDK_ROOT`
+   * `ANDROID_HOME`
+   * `JAVA_HOME`
+   * `NDK_ROOT`
 
 ## Create an Unreal XR project
 
@@ -62,9 +88,10 @@ Next, create a new project and configure it with the necessary XR plugins and
 inputs:
 
 1. Launch Unreal Engine 5.6.1.
-2. Under **New Project Categories** , select the **Virtual Reality** template.
+2. Under **New Project Categories**, select the **Virtual Reality** template.
 3. In the **Project Defaults** menu, set the **Target Platform** to **Mobile**.
-4. Set the **Quality Preset** to **Scalable** to promote optimal performance on mobile XR hardware.
+4. Set the **Quality Preset** to **Scalable** to promote optimal performance on
+   mobile XR hardware.
 5. Choose a project name, and then click **Create**.
 
 ## Configure Android settings
@@ -72,12 +99,12 @@ inputs:
 After your project is open, complete these steps to set the required Android API
 levels and graphics settings for Android XR:
 
-1. Go to **Edit \> Project Settings**.
-2. Navigate to **Platforms \> Android**.
+1. Go to **Edit > Project Settings**.
+2. Navigate to **Platforms > Android**.
 3. If the **Accept SDK License** button is highlighted red, click it.
 4. In the **APKPackaging** section:
-   - Set **Minimum SDK Version** to `34`.
-   - Set **Target SDK Version** to `34` (or higher).
+   * Set **Minimum SDK Version** to `34`.
+   * Set **Target SDK Version** to `34` (or higher).
 5. Scroll further to the **Build** section and select **Support Vulkan**.
 
    Vulkan is the recommended, highly-performant graphics API for Android XR.
@@ -87,7 +114,7 @@ levels and graphics settings for Android XR:
 To achieve the high frame rates and visual clarity required for Android XR, you
 must also configure Unreal Engine to use the optimized mobile rendering path:
 
-1. Go to **Edit \> Project Settings** and navigate to **Engine \> Rendering**.
+1. Go to **Edit > Project Settings** and navigate to **Engine > Rendering**.
 2. Under the **Forward Renderer** section, select **Forward Shading**.
 
    The forward renderer is significantly faster for mobile VR than the default
@@ -95,7 +122,6 @@ must also configure Unreal Engine to use the optimized mobile rendering path:
    shader compilation.
 3. Under the **Default Settings** section, set the **Anti-Aliasing Method** to
    **MSAA**.
-
 4. Under the **Mobile** section, set **Mobile MSAA** to **4x**.
 
    MSAA provides the sharpest results for VR without the blurring effects

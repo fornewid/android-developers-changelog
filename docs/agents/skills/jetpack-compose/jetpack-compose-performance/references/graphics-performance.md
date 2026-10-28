@@ -171,7 +171,7 @@ callbacks, measure blocks, or draw methods.
       acc = Point(acc.x + i, acc.y - i)
   }
   // Alternatively, use Compose's built-in Offset class, which implements
-  // this exact @JvmInline Long packing pattern under the he.kt
+  // this exact @JvmInline Long packing pattern under the hood.
   ```
 
   <br />

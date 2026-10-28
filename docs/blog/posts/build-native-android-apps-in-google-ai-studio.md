@@ -1,118 +1,214 @@
 ---
-title: https://developer.android.com/blog/posts/build-native-android-apps-in-google-ai-studio
+title: Build native Android apps in Google AI Studio  |  Android Developers' Blog
 url: https://developer.android.com/blog/posts/build-native-android-apps-in-google-ai-studio
-source: md.txt
+source: html-scrape
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+* [Android Developers](https://developer.android.com/)
+* [Android Developers' Blog](https://developer.android.com/)
+* [Blog](https://developer.android.com/blog)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+[Product News](/blog/categories/product-news)
 
 # Build native Android apps in Google AI Studio
 
-4 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo2_Strapi_2000x1000_6de0464afd_iDINx.webp) 19 May 2026 [![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_1dyAk8.webp)](https://developer.android.com/blog/authors/emma-louise-leavey)[![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_1jsDhn.webp)](https://developer.android.com/blog/authors/mike-taylor-cai) [Emma-Louise Leavey](https://developer.android.com/blog/authors/emma-louise-leavey) \& [Mike Taylor-Cai](https://developer.android.com/blog/authors/mike-taylor-cai) Starting today [Google AI Studio](https://ai.dev/apps?features=build_android_app) can build entire Android apps for you in minutes from just a prompt. You don't need to install any software or configure any libraries, which significantly lowers the barrier to development. Whether you're a seasoned developer looking to prototype at lightning speed or a creator building your first-ever mobile experience, you can now go from a single prompt to a high-quality, Kotlin-based Android app in AI Studio. You can easily install the app on your device, share it with others for testing, or send it to Android Studio for any further development.
+4 min read
+
+![](/static/blog/assets/Google_For_Developers_Android_Combo2_Strapi_2000x1000_6de0464afd_iDINx.webp)
+
+19
+
+May
+2026
+
+[![View Emma-Louise Leavey's profile](/static/blog/assets/Emma_Louise_profile_c6ba45f450_1dyAk8.webp)](/blog/authors/emma-louise-leavey)[![View Mike Taylor-Cai's profile](/static/blog/assets/michaelct_profile_pic_177ddafb7b_1jsDhn.webp)](/blog/authors/mike-taylor-cai)
+
+[Emma-Louise Leavey](/blog/authors/emma-louise-leavey)
+&
+[Mike Taylor-Cai](/blog/authors/mike-taylor-cai)
+
+Starting today [Google AI Studio](https://ai.dev/apps?features=build_android_app) can build entire Android apps for you in minutes from just a prompt. You don't need to install any software or configure any libraries, which significantly lowers the barrier to development. Whether you’re a seasoned developer looking to prototype at lightning speed or a creator building your first-ever mobile experience, you can now go from a single prompt to a high-quality, Kotlin-based Android app in AI Studio. You can easily install the app on your device, share it with others for testing, or send it to Android Studio for any further development.
 
 #### The power of native Android
 
-While AI has made it easy to generate web-based apps, people want more on their mobile devices. They expect the beautiful and usable modern app design and capabilities that come with native Android user experiences, built with the Kotlin programming language using Jetpack Compose, the official and recommended toolkit for Android development. Native Android apps bring the reliability of offline support, continuous background services, and the deep integration of hardware sensors like GPS, Bluetooth, and NFC. We've brought the technology that enables you to [quickly create new projects with Gemini in Android Studio](https://developer.android.com/studio/gemini/create-a-new-project-with-ai) directly into the web-based AI Studio. Now, you get the best of both worlds: the ease of a prompt-based interface paired with the power of the Android SDK, all in your browser, no installation required.
+While AI has made it easy to generate web-based apps, people want more on their mobile devices. They expect the beautiful and usable modern app design and capabilities that come with native Android user experiences, built with the Kotlin programming language using Jetpack Compose, the official and recommended toolkit for Android development. Native Android apps bring the reliability of offline support, continuous background services, and the deep integration of hardware sensors like GPS, Bluetooth, and NFC. We've brought the technology that enables you to [quickly create new projects with Gemini in Android Studio](/studio/gemini/create-a-new-project-with-ai) directly into the web-based AI Studio. Now, you get the best of both worlds: the ease of a prompt-based interface paired with the power of the Android SDK, all in your browser, no installation required.
 
 ## **A seamless, end-to-end workflow**
 
 We have streamlined the entire development lifecycle so you can focus on your idea:
 
-1. **Create your app and iterate in the cloud:** Use the embedded Android Emulator directly in your browser to preview and interact with your app as it's being built. No heavy SDKs to download, no local setup required.
+1. **Create your app and iterate in the cloud:** Use the embedded Android Emulator directly in your browser to preview and interact with your app as it’s being built. No heavy SDKs to download, no local setup required.
 
-   ![image.png](https://developer.android.com/static/blog/assets/image_824927d6b1_fnJJw.webp)
+   ![image.png](/static/blog/assets/image_824927d6b1_fnJJw.webp)
 2. **Install instantly:** Connect your Android phone using a USB cable and install your app directly from AI Studio using the integrated Android Debug Bridge (adb).
 
-   ![image.png](https://developer.android.com/static/blog/assets/image_f249b4100f_1FhLbv.webp)
-3. **Streamlined testing on the Google Play Console:** Using your [Google Play developer account](https://play.google.com/console/signup), you can now publish your app directly from AI Studio for testing. AI Studio will automatically create your app record, package the bundle, and upload it to an internal testing track in Google Play Developer Console. Your app is available for you to install within minutes, and you can automatically update your app on your device as you develop it further in AI Studio.
+   ![image.png](/static/blog/assets/image_f249b4100f_1FhLbv.webp)
+3. **Streamlined testing on the Google Play Console:** Using your [Google Play developer account](https://play.google.com/console/signup), you can now publish your app directly from AI Studio for testing. AI Studio will automatically create your app record, package the bundle, and upload it to an internal testing track in Google Play Developer Console. Your app is available for you to install within minutes, and you can automatically update your app on your device as you develop it further in AI Studio.
 
-   ![image.png](https://developer.android.com/static/blog/assets/image_075925281f_Z2jyHHT.webp)
+   ![image.png](/static/blog/assets/image_075925281f_Z2jyHHT.webp)
 
 #### Seamless app development handoff
 
-As you iterate on your app in AI Studio, you may find you need more advanced Android tools or support for a wider variety of Android device types. To move beyond the browser, you can seamlessly hand off your project to [Android Studio](https://developer.android.com/studio) by downloading a ZIP file or exporting it directly to GitHub.
-![AI_Studio_Download.png](https://developer.android.com/static/blog/assets/AI_Studio_Download_6346ff1740_Z1BCx80.webp)
+As you iterate on your app in AI Studio, you may find you need more advanced Android tools or support for a wider variety of Android device types. To move beyond the browser, you can seamlessly hand off your project to [Android Studio](/studio) by downloading a ZIP file or exporting it directly to GitHub.
 
-When transitioning to a team environment or local development, you can leverage any IDE or agent you prefer. For a specialized experience, we recommend [Gemini in Android Studio](https://developer.android.com/gemini-in-android), which features models designed with Android in mind, or Antigravity, which integrates [Android CLI](https://developer.android.com/tools/agents/android-cli) commands into Google's agentic development platform. This workflow makes building high-quality apps more accessible while giving you total flexibility in how you use AI to scale your project.
+![AI_Studio_Download.png](/static/blog/assets/AI_Studio_Download_6346ff1740_Z1BCx80.webp)
+
+When transitioning to a team environment or local development, you can leverage any IDE or agent you prefer. For a specialized experience, we recommend [Gemini in Android Studio](/gemini-in-android), which features models designed with Android in mind, or Antigravity, which integrates [Android CLI](/tools/agents/android-cli) commands into Google’s agentic development platform. This workflow makes building high-quality apps more accessible while giving you total flexibility in how you use AI to scale your project.
 
 #### Start building today
 
 To ensure a safe, high-quality ecosystem from day one, we have focused our initial release on specific capabilities including:
 
-- **Personal utilities and simple social apps:** You can rapidly prototype single or multi-screen apps, such as habit trackers, study quizzes, or event itineraries.
-- **Hardware-enabled experiences:** Because you are building native apps, you can leverage device features like the Camera, GPS/Location, Accelerometer and Bluetooth using the native Android APIs, letting you optimize hardware-level performance.
-- **AI-powered experiences:**You can create apps that feature Gemini API integrations, seamlessly embedding powerful AI capabilities directly into your mobile experience.
+* **Personal utilities and simple social apps:** You can rapidly prototype single or multi-screen apps, such as habit trackers, study quizzes, or event itineraries.
+* **Hardware-enabled experiences:** Because you are building native apps, you can leverage device features like the Camera, GPS/Location, Accelerometer and Bluetooth using the native Android APIs, letting you optimize hardware-level performance.
+* **AI-powered experiences:**You can create apps that feature Gemini API integrations, seamlessly embedding powerful AI capabilities directly into your mobile experience.
 
-## What's next?
+## What’s next?
 
-We are moving fast to expand what's possible for creators in AI Studio. Here is a sneak peek at what is coming soon:
+We are moving fast to expand what’s possible for creators in AI Studio. Here is a sneak peek at what is coming soon:
 
-- **Managing Google Play Test Tracks:**Coming soon, we will be adding the ability to invite testers to try your app directly from AI Studio
-- **Firebase integrations: Out-of-the-box support for Firestore, Firebase Auth, Firebase App Check and other tooling critical for Android developers is coming soon.**
+* **Managing Google Play Test Tracks:**Coming soon, we will be adding the ability to invite testers to try your app directly from AI Studio
+* **Firebase integrations: Out-of-the-box support for Firestore, Firebase Auth, Firebase App Check and other tooling critical for Android developers is coming soon.**
 
-Head over to [Google AI Studio](https://ai.dev/apps?features=build_android_app) right now to start building. Here is some inspiration to get you started...
+Head over to [Google AI Studio](https://ai.dev/apps?features=build_android_app) right now to start building. Here is some inspiration to get you started…
 
 Turn your Google Pixel Watch into an aviation assistant
 
-|---|---|
-| **Prompt:** Build a small airplane "6-pack" instrument app for Google Pixel Watch. The 6 instruments should include attitude indicator, airspeed indicator, altimeter, turn coordinator, vertical speed indicator, and heading indicator. Use the Google Pixel Watch's sensors to power the instruments and display them clearly. Display one instrument at a time on the display. Swiping to the left or right should cycle through the instruments. | ![Watch_OS_AI_Studio.gif](https://developer.android.com/static/blog/assets/Watch_OS_AI_Studio_9e8ac4acce_Zk4BBu.webp) |
+|  |  |
+| --- | --- |
+| **Prompt:**  Build a small airplane "6-pack" instrument app for Google Pixel Watch. The 6 instruments should include attitude indicator, airspeed indicator, altimeter, turn coordinator, vertical speed indicator, and heading indicator. Use the Google Pixel Watch's sensors to power the instruments and display them clearly. Display one instrument at a time on the display. Swiping to the left or right should cycle through the instruments. | Watch_OS_AI_Studio.gif |
 
 Interactive Harmonium app on Google Pixel Fold
 
-|---|---|
-| **Prompt:** Build a Harmonium app for Pixel Fold devices, which plays like the instrument based on the hinge angle and touch gestures. The app should simulate the bellows and reeds accurately. | ![Tiny-Harmonica-demo.gif](https://developer.android.com/static/blog/assets/Tiny_Harmonica_demo_6cfe1bcff2_ZDpdHi.webp) |
+|  |  |
+| --- | --- |
+| **Prompt:**  Build a Harmonium app for Pixel Fold devices, which plays like the instrument based on the hinge angle and touch gestures. The app should simulate the bellows and reeds accurately. | Tiny-Harmonica-demo.gif |
 
 An Android app for guitarists to become better musicians by jamming to backing tracks
 
-|---|---|
-| **Prompt:** Build an Android guitar practice companion app that features a two-tab navigation system: 'Fretboard' and 'Library'. The 'Fretboard' primary screen must contain an interactive guitar neck UI that visually maps out user-selected root notes, musical scales, and chords. Above the fretboard, implement a WebView-based YouTube player configured to play embedded videos inline. Additionally, include an AI generation feature that uses Retrofit to call Gemini Lyria 3 to create custom, 30-second backing tracks based on the user's currently selected key and scale. The generated audio files and their metadata must be saved locally using a database and displayed as a list in the 'Library' tab, where users can delete or play them. Finally, implement a persistent, globally visible mini audio player at the bottom of the screen, complete with play/pause toggles, a progress slider for seeking, and timestamp text, allowing the user to seamlessly practice on the fretboard tab while listening to their tracks. | ![guitar_app_AI_Studio.gif](https://developer.android.com/static/blog/assets/guitar_app_AI_Studio_e084cd33f2_Z1Wu1dC.webp) |
+|  |  |
+| --- | --- |
+| **Prompt:**  Build an Android guitar practice companion app that features a two-tab navigation system: 'Fretboard' and 'Library'.    The 'Fretboard' primary screen must contain an interactive guitar neck UI that visually maps out user-selected root notes, musical scales, and chords. Above the fretboard, implement a WebView-based YouTube player configured to play embedded videos inline. Additionally, include an AI generation feature that uses Retrofit to call Gemini Lyria 3 to create custom, 30-second backing tracks based on the user's currently selected key and scale. The generated audio files and their metadata must be saved locally using a database and displayed as a list in the 'Library' tab, where users can delete or play them.    Finally, implement a persistent, globally visible mini audio player at the bottom of the screen, complete with play/pause toggles, a progress slider for seeking, and timestamp text, allowing the user to seamlessly practice on the fretboard tab while listening to their tracks. | guitar_app_AI_Studio.gif |
 
 We are looking forward to seeing what you build next!
 
-Explore this announcement and all Google I/O 2026 updates on [io.google](https://io.google/2026/?utm_source=blogpost&utm_medium=pr&utm_campaign=devblogs&utm_content).
+Explore this announcement and all Google I/O 2026 updates on [io.google](https://io.google/2026/?utm_source=blogpost&utm_medium=pr&utm_campaign=devblogs&utm_content=).
+
 Written by:
 
--
-
-  ## [Emma-Louise Leavey](https://developer.android.com/blog/authors/emma-louise-leavey)
+* ## [Emma-Louise Leavey](/blog/authors/emma-louise-leavey)
 
   ###### Group Product Manager
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/emma-louise-leavey) ![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_1dyAk8.webp) ![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_1dyAk8.webp)
--
+  [read\_more
+  View profile](/blog/authors/emma-louise-leavey)
 
-  ## [Mike Taylor-Cai](https://developer.android.com/blog/authors/mike-taylor-cai)
+  ![View Emma-Louise Leavey's profile](/static/blog/assets/Emma_Louise_profile_c6ba45f450_1dyAk8.webp)
+
+  ![View Emma-Louise Leavey's profile](/static/blog/assets/Emma_Louise_profile_c6ba45f450_1dyAk8.webp)
+* ## [Mike Taylor-Cai](/blog/authors/mike-taylor-cai)
 
   ###### Product Manager
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/mike-taylor-cai) ![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_1jsDhn.webp) ![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_1jsDhn.webp)
+  [read\_more
+  View profile](/blog/authors/mike-taylor-cai)
+
+  ![View Mike Taylor-Cai's profile](/static/blog/assets/michaelct_profile_pic_177ddafb7b_1jsDhn.webp)
+
+  ![View Mike Taylor-Cai's profile](/static/blog/assets/michaelct_profile_pic_177ddafb7b_1jsDhn.webp)
+
 Continue reading
-- [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](https://developer.android.com/blog/authors/roxanna-walker) 21 Oct 2026 21 Oct 2026 ![](https://developer.android.com/static/blog/assets/1009_ABL_142_A_more_reliable_way_to_add_and_edit_contacts_on_Android_Strapi_b510ec4fc0_ZXfljU.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [A more reliable way to add and edit contacts on Android](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android)
+* [![View Roxanna Aliabadi Walker's profile](/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](/blog/authors/roxanna-walker)
 
-  [arrow_forward](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android) Apps that target the upcoming Android release will no longer be able to directly write to contacts with the WRITE_CONTACTS permission.
-  [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) • 6 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Jason Buchel's profile](https://developer.android.com/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](https://developer.android.com/blog/authors/jason-buchel) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  21
 
-  ## [Bringing our latest frontier model to Android Developers](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
+  Oct
+  2026
 
-  [arrow_forward](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli) As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use.
-  [Jason Buchel](https://developer.android.com/blog/authors/jason-buchel) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  21
 
-  ## [New ways to drive smarter discovery, deeper engagement, and business growth on Google Play](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth)
+  Oct
+  2026
 
-  [arrow_forward](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth) Today, we shared how we're taking our "more than a store" vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+  ![](/static/blog/assets/1009_ABL_142_A_more_reliable_way_to_add_and_edit_contacts_on_Android_Strapi_b510ec4fc0_ZXfljU.webp)
+
+  [Product News](/blog/categories/product-news)
+
+  ## [A more reliable way to add and edit contacts on Android](/blog/posts/reliable-way-to-add-and-edit-contacts-android)
+
+  [arrow\_forward](/blog/posts/reliable-way-to-add-and-edit-contacts-android)
+
+  Apps that target the upcoming Android release will no longer be able to directly write to contacts with the WRITE\_CONTACTS permission.
+
+  [Roxanna Aliabadi Walker](/blog/authors/roxanna-walker)
+  •
+  6 min read
+  + [#Android](/blog/topics/android)
+* [![View Jason Buchel's profile](/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](/blog/authors/jason-buchel)
+
+  13
+
+  Oct
+  2026
+
+  13
+
+  Oct
+  2026
+
+  ![](/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp)
+
+  [Product News](/blog/categories/product-news)
+
+  ## [Bringing our latest frontier model to Android Developers](/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
+
+  [arrow\_forward](/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
+
+  As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use.
+
+  [Jason Buchel](/blog/authors/jason-buchel)
+  •
+  3 min read
+  + [#Agentic Android development](/blog/topics/agentic-android-development)
+* [![View Paul Feng's profile](/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](/blog/authors/paul-feng)
+
+  13
+
+  Oct
+  2026
+
+  13
+
+  Oct
+  2026
+
+  ![](/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp)
+
+  [Product News](/blog/categories/product-news)
+
+  ## [New ways to drive smarter discovery, deeper engagement, and business growth on Google Play](/blog/posts/google-play-discovery-engagement-growth)
+
+  [arrow\_forward](/blog/posts/google-play-discovery-engagement-growth)
+
+  Today, we shared how we’re taking our “more than a store” vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
+
+  [Paul Feng](/blog/authors/paul-feng)
+  •
+  3 min read
+
 Stay in the loop
-
 
 Get the latest Android development insights delivered to your inbox
 weekly.
+
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)
+Subscribe](/subscribe)
+
+![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

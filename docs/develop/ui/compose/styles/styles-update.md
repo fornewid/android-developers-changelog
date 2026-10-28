@@ -14,7 +14,3 @@ temporarily removed the initial documentation and skill that we've published,
 and the Styles API will remain `@Experimental` in Compose 1.13. We'll share more
 when the new API shape is ready for re-evaluation and would love your feedback
 on this new direction.
-
-Because of this architectural shift, the Styles API remains experimental in
-Compose 1.13. We are actively partnering with partners and Material 3 to refine
-style merging and developer ergonomics before general availability.

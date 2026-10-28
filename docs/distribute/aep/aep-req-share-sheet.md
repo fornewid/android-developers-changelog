@@ -1,10 +1,22 @@
 ---
-title: https://developer.android.com/distribute/aep/aep-req-share-sheet
+title: AEP guideline: Share Sheet  |  Apps Experience Program  |  Android Developers
 url: https://developer.android.com/distribute/aep/aep-req-share-sheet
-source: md.txt
+source: html-scrape
 ---
 
-Use [Android Sharesheet](https://developer.android.com/develop/ui/compose/sharing/send) for any general content-sharing flow to provide a
+You are currently viewing the Apps Experience Program (AEP) documentation.
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Apps Experience Program](https://developer.android.com/distribute/aep)
+
+# AEP guideline: Share Sheet Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+
+Use [Android Sharesheet](/develop/ui/compose/sharing/send) for any general content-sharing flow to provide a
 consistent, faster, and more secure experience for users.
 
 ## Required implementation
@@ -12,8 +24,8 @@ consistent, faster, and more secure experience for users.
 To qualify for AEP, your app must adhere to the following requirements:
 
 | ID | Guideline |
-|---|---|
-| AEP-SS-GAA | Utilize `ACTION_SEND` and `Intent.createChooser()` to invoke the system chooser. This native implementation offers several key benefits: - **Familiarity**: It maintains a standard interface that respects user muscle memory. - **Intelligent targeting**: It surfaces system-ranked Direct Share targets, such as frequent contacts. - **Efficiency and security**: It provides a faster and more secure method for sharing content with preferred apps. |
+| --- | --- |
+| AEP-SS-GAA | Utilize `ACTION_SEND` and `Intent.createChooser()` to invoke the system chooser. This native implementation offers several key benefits:  * **Familiarity**: It maintains a standard interface that respects user muscle memory. * **Intelligent targeting**: It surfaces system-ranked Direct Share targets, such as frequent contacts. * **Efficiency and security**: It provides a faster and more secure method for sharing content with preferred apps. |
 | AEP-SS-GAB | All external sharing intents must be routed through the system chooser. |
 | AEP-SS-GAC | Custom in-app share menus must be transitioned to this native implementation, though app-specific actions can still be integrated using standard system chooser capabilities. |
 
@@ -21,13 +33,14 @@ To qualify for AEP, your app must adhere to the following requirements:
 
 This guideline applies to:
 
-- Apps that provide a comparable external content sharing implementation on a non-Android platform.
-- Phone, tablet, foldable, and desktop form factors.
+* Apps that provide a comparable external content sharing implementation on a
+  non-Android platform.
+* Phone, tablet, foldable, and desktop form factors.
 
 ## Exemptions
 
 | ID | Exemption |
-|---|---|
+| --- | --- |
 | AEP-SS-EAA | Sharesheet need not be applied for in-app forwarding, such as forwarding a message to another user within the same messaging app. |
 
 ## Feature documentation and resources
@@ -36,5 +49,5 @@ The following resources provide implementation guidance and technical details on
 the **Sharesheet** feature. These resources are for your reference only and
 don't contain additional program requirements.
 
-- [Receive simple data from other apps](https://developer.android.com/develop/ui/compose/sharing/receive#providing-direct-share-targets)
-- [Sharing simple data](https://developer.android.com/develop/ui/compose/notifications)
+* [Receive simple data from other apps](/develop/ui/compose/sharing/receive#providing-direct-share-targets)
+* [Sharing simple data](/develop/ui/compose/notifications)

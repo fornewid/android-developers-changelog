@@ -105,7 +105,7 @@ The latency introduced by (1) can be mitigated by either increasing the amount
 of data buffered in memory by the player, or [pre-caching the data to disk](https://developer.android.com/guide/topics/media/exoplayer/downloading-media).
 
 The latency introduced by (2) can be mitigated by either reducing the accuracy
-of the seek using [`ExoPlayer.setSeekParameters`](https://developer.android.com/reference/androidx/media3/ExoPlayer#setSeekParameters(androidx.media3.exoplayer.SeekParameters)), or re-encoding the video
+of the seek using [`ExoPlayer.setSeekParameters`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer#setSeekParameters(androidx.media3.exoplayer.SeekParameters)), or re-encoding the video
 to have more frequent I-frames (which will result in a larger output file).
 
 #### Why do some MPEG-TS files fail to play?
@@ -280,7 +280,7 @@ can check [`isCurrentWindowDynamic`](https://developer.android.com/reference/and
 Follow these steps to ensure continued playback of audio when your app is in
 the background:
 
-1. You need to have a running [foreground service](https://developer.android.com/guide/components/services#Foreground). This prevents the system from killing your process to free up resources.
+1. You need to have a running [foreground service](https://developer.android.com/develop/background-work/services/fgs). This prevents the system from killing your process to free up resources.
 2. You need to hold a [`WifiLock`](https://developer.android.com/reference/android/net/wifi/WifiManager.WifiLock) and a [`WakeLock`](https://developer.android.com/reference/android/os/PowerManager.WakeLock). These ensure that the system keeps the WiFi radio and CPU awake. This can be easily done if using [`ExoPlayer`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer) by calling [`setWakeMode`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer#setWakeMode(int)), which will automatically acquire and release the required locks at the correct times.
 
 It's important that you release the locks (if not using `setWakeMode`) and stop

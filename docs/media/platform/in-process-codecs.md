@@ -69,11 +69,11 @@ LFI is considered secure for C/C++ decoders for the following reasons:
 
 ### Supported architectures and devices for LFI
 
-LFI requires no custom CPU hardware instructions and is supported on
-**ARM64 (`aarch64`)** and **x86_64** processor architectures:
-
-- **ARM64 (`aarch64`) devices:** Most consumer mobile devices---including mobile phones (such as Pixel devices with Google Tensor SoCs, Qualcomm Snapdragon, and MediaTek SoCs), foldables, tablets, and automotive infotainment units---run on ARM64 processors and support LFI in-process decoders.
-- **x86_64 devices:** Android emulators running on developer workstations with Intel or AMD CPUs, as well as ChromeOS Chromebooks running Android apps using ARC (Android Runtime for ChromeOS), execute on x86_64 architectures and support LFI sandboxing.
+LFI requires no custom CPU hardware instructions and is supported on the
+**ARM64 (`aarch64`)** processor architecture. Most consumer mobile
+devices---including mobile phones (such as Pixel devices with Google Tensor SoCs,
+Qualcomm Snapdragon, and MediaTek SoCs), foldables, tablets, and automotive
+infotainment units---run on ARM64 processors and support LFI in-process decoders.
 
 > [!NOTE]
 > **Note:** All in-process audio decoders (both Rust and LFI) report [`SECURITY_MODEL_MEMORY_SAFE`](https://developer.android.com/reference/android/media/MediaCodecInfo#SECURITY_MODEL_MEMORY_SAFE) when queried using [`MediaCodecInfo.getSecurityModel()`](https://developer.android.com/reference/android/media/MediaCodecInfo#getSecurityModel()).

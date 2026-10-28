@@ -4,16 +4,10 @@ url: https://developer.android.com/kotlin/multiplatform/kmp-integration
 source: md.txt
 ---
 
-This document provides a guide for plugin authors on how to correctly detect,
-interact with, and configure the Kotlin Multiplatform (KMP) setup, with a
-specific focus on integrating with the Android targets within a KMP project.
-These recommendations apply whether you're building convention plugins to
-standardize configurations across your project's modules or developing plugins
-for broader community use. As KMP continues to evolve, understanding the proper
-hooks and APIs---such as `KotlinMultiplatformExtension`, `KotlinTarget` types,
-and the Android-specific integration interfaces---is essential for building
-robust and future-proof tooling that works seamlessly across all platforms
-defined in a multiplatform project.
+This guide explains how to detect, interact with, and configure the Android
+target in a Kotlin Multiplatform (KMP) project from a custom Gradle plugin. Use
+these APIs when writing convention plugins for your build or publishing Gradle
+plugins for KMP projects.
 
 ## Check if a project uses the Kotlin Multiplatform plugin
 
@@ -58,7 +52,7 @@ Use the `targets` container to reactively configure your plugin for each target
 the user adds.
 
 > [!IMPORTANT]
-> **Important:** Use `targets.configureEach { }` to apply configuration lazily. Iterating with `forEach` might cause errors if the targets are not yet fully registered or configured by Gradle.
+> **Important:** Use `targets.configureEach { }` to apply configuration lazily. Iterating with `forEach` might cause errors if the targets aren't yet fully registered or configured by Gradle.
 
     import org.gradle.api.Plugin
     import org.gradle.api.Project
@@ -83,8 +77,8 @@ If your plugin needs to apply logic only to certain types of platforms, a common
 approach is to check the `platformType` property. This is an enum that broadly
 categorizes the target.
 
-For example, use this if your plugin only needs to differentiate broadly (for example,
-run only on JVM-like targets):
+For example, use this if your plugin only needs to differentiate broadly (such
+as running only on JVM-like targets):
 
     import org.gradle.api.Plugin
     import org.gradle.api.Project
@@ -97,7 +91,7 @@ run only on JVM-like targets):
                 val kmpExtension = project.extensions.getByType(KotlinMultiplatformExtension::class.java)
                 kmpExtension.targets.configureEach { target ->
                     when (target.platformType) {
-                        KotlinPlatformType.jvm -> { /* Standard JVM or Android */ }
+                        KotlinPlatformType.jvm -> { /* Standard JVM */ }
                         KotlinPlatformType.androidJvm -> { /* Android */ }
                         KotlinPlatformType.js -> { /* JavaScript */ }
                         KotlinPlatformType.native -> { /* Any Native (iOS, Linux, Windows, etc.) */ }
@@ -118,31 +112,34 @@ two distinct integration points depending on the Android Gradle plugin used:
 projects using `com.android.kotlin.multiplatform.library`.
 
 > [!NOTE]
-> **Note:** The new KMP Android plugin, `com.android.kotlin.multiplatform.library`, is not part of the `com.android.base` plugin, which other Android plugins (like `com.android.application` and `com.android.library`) are part of. This is an important distinction if your plugin logic relies on detecting `com.android.base`.
+> **Note:** The KMP Android plugin, `com.android.kotlin.multiplatform.library`, isn't part of the `com.android.base` plugin, which other Android plugins (like `com.android.application` and `com.android.library`) are part of. This is an important distinction if your plugin logic relies on detecting `com.android.base`.
 
-The `KotlinMultiplatformAndroidLibraryTarget` API was added in AGP 8.8.0 so if
-the consumers of your plugin are running on lower version of AGP, checking
+The `KotlinMultiplatformAndroidLibraryTarget` API was added in AGP 8.8.0, so if
+the consumers of your plugin are running on a lower version of AGP, checking
 `target is KotlinMultiplatformAndroidLibraryTarget` might result in a
 `ClassNotFoundException`. To make this safe, check
 `AndroidPluginVersion.getCurrent()` before checking the target type.
-Note that `AndroidPluginVersion.getCurrent()` requires AGP 7.1 or higher.
+`AndroidPluginVersion.getCurrent()` requires AGP 8.3.1 or higher.
 
     import com.android.build.api.AndroidPluginVersion
     import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
     import org.gradle.api.Plugin
     import org.gradle.api.Project
     import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+    import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
     import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinAndroidTarget
 
     class MyPlugin : Plugin<Project> {
         override fun apply(project: Project) {
-            project.plugins.withId("com.android.kotlin.multiplatform.library") {
+            project.plugins.withId("org.jetbrains.kotlin.multiplatform") {
                 val kmpExtension = project.extensions.getByType(KotlinMultiplatformExtension::class.java)
                 kmpExtension.targets.configureEach { target ->
                     if (target is KotlinAndroidTarget) {
                         // Old kmp android integration using com.android.library or com.android.application
-                    }
-                    if (AndroidPluginVersion.getCurrent() >= AndroidPluginVersion(8, 8) &&
+                    } else if (
+                        // Check platformType first, so AGP classes load only for Android targets
+                        target.platformType == KotlinPlatformType.androidJvm &&
+                        AndroidPluginVersion.getCurrent() >= AndroidPluginVersion(8, 8) &&
                         target is KotlinMultiplatformAndroidLibraryTarget
                     ) {
                         // New kmp android integration using com.android.kotlin.multiplatform.library
@@ -154,7 +151,7 @@ Note that `AndroidPluginVersion.getCurrent()` requires AGP 7.1 or higher.
 
 ## Access the Android KMP extension and its properties
 
-Your plugin will primarily interact with the Kotlin extension provided
+Your plugin primarily interacts with the Kotlin extension provided
 by the Kotlin Multiplatform plugin and the Android extension provided by AGP
 for the KMP Android target. The `android {}` block within the Kotlin extension
 in a KMP project is represented by the `KotlinMultiplatformAndroidLibraryTarget`
@@ -187,16 +184,17 @@ properties through this single object.
     }
 
 Unlike other Android plugins (such as `com.android.library` or
-`com.android.application`), the KMP Android plugin does not register its main
+`com.android.application`), the KMP Android plugin doesn't register its main
 DSL extension at the project level. It lives within the KMP target hierarchy
 to make sure it only applies to the specific Android target defined in your
 multiplatform setup.
 
 ## Handle compilations and source sets
 
-Often, plugins need to work at a more granular level than just the
-target---specifically, they need to work at the *compilation* level. The `KotlinMultiplatformAndroidLibraryTarget`
-contains `KotlinMultiplatformAndroidCompilation` instances (for example, `main`,
+Often, plugins need to work at a more granular level than just the target,
+specifically at the *compilation* level. The
+`KotlinMultiplatformAndroidLibraryTarget` contains
+`KotlinMultiplatformAndroidCompilation` instances (for example, `main`,
 `hostTest`, `deviceTest`). Each compilation is associated with Kotlin source
 sets. Plugins can interact with these to add sources, dependencies, or configure
 compilation tasks.
@@ -237,17 +235,17 @@ compilation tasks.
 ## Configure test compilations in convention plugins
 
 When configuring default values for test compilations (such as `targetSdk` for
-instrumented tests) in a convention plugin, you should avoid using enabler
-methods like `withDeviceTest { }` or `withHostTest { }`. Calling these methods
-eagerly triggers the creation of the corresponding Android test variants and
+instrumented tests) in a convention plugin, avoid using enabler methods like
+`withDeviceTest { }` or `withHostTest { }`. Calling these methods eagerly
+triggers the creation of the corresponding Android test variants and
 compilations for every module that applies the convention plugin, which might
-not be suitable. Furthermore, these methods cannot be called a second time in
-a specific module to refine settings, because doing so will throw an error
-stating the compilation has already been created.
+not be suitable. These methods also can't be called a second time in a specific
+module to refine settings, because doing so throws an error stating the
+compilation has already been created.
 
-Instead, we recommend using a reactive `configureEach` block
-on the compilations container. This lets you provide default configurations
-that only apply if and when a module explicitly enables the test compilation:
+Instead, use a reactive `configureEach` block on the compilations container.
+This lets you provide default configurations that only apply if and when a
+module explicitly enables the test compilation:
 
     import com.android.build.api.dsl.KotlinMultiplatformAndroidDeviceTestCompilation
     import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
@@ -265,7 +263,7 @@ that only apply if and when a module explicitly enables the test compilation:
                         androidTarget.compilations.withType(
                             KotlinMultiplatformAndroidDeviceTestCompilation::class.java
                         ).configureEach {
-                            targetSdk { version = release(34) }
+                            it.targetSdk { version = release(34) }
                         }
                     }
             }
@@ -325,7 +323,7 @@ or library classes.
                     val variantName = variant.name
 
                     // Access the artifacts API
-                    val manifest = variant.artifacts.get(com.android.build.api.variant.SingleArtifact.MERGED_MANIFEST)
+                    val manifest = variant.artifacts.get(com.android.build.api.artifact.SingleArtifact.MERGED_MANIFEST)
                 }
             }
         }

@@ -14,6 +14,12 @@ yourself for a different device.
 
 *** ** * ** ***
 
+## Agent plugins
+
+Android CLI is available to install as an official plugin for Antigravity, Claude Code, and OpenAI's Codex. Each plugin adds the `android-cli` skill, enabling your coding agent to create projects, manage virtual devices, inspect live UI layouts, run Journeys, and search the official Android Knowledge Base. [Install agent plugins](http://developer.android.com/tools/agents/android-cli/agent-plugins)
+
+*** ** * ** ***
+
 ## Benefits
 
 [![](http://developer.android.com/static/images/picto-icons/speedometer.svg)](http://developer.android.com/tools/agents/android-cli)

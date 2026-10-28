@@ -1,10 +1,19 @@
 ---
-title: https://developer.android.com/privacy-and-security/risks/path-traversal
+title: Path traversal  |  Security  |  Android Developers
 url: https://developer.android.com/privacy-and-security/risks/path-traversal
-source: md.txt
+source: html-scrape
 ---
 
-<br />
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [Security](https://developer.android.com/security)
+* [Guides](https://developer.android.com/privacy-and-security/security-tips)
+
+# Path traversal Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 
 **OWASP category:** [MASVS-STORAGE: Storage](https://mas.owasp.org/MASVS/05-MASVS-STORAGE)
 
@@ -24,34 +33,42 @@ or permission changes (when changing file or directory permissions).
 
 ## Mitigations
 
-Canonicalize the path using [`File.getCanonicalPath()`](https://developer.android.com/reference/java/io/File#getCanonicalPath()) and compare the
+Canonicalize the path using [`File.getCanonicalPath()`](/reference/java/io/File#getCanonicalPath()) and compare the
 prefix with the expected directory:
 
 ### Kotlin
 
-    @Throws(IllegalArgumentException::class)
-    fun saferOpenFile(path: String, expectedDir: String?): File {
-        val f = File(path)
-        val canonicalPath = f.canonicalPath
-        require(canonicalPath.startsWith(expectedDir!!))
-        return f
-    }
+```
+@Throws(IllegalArgumentException::class)
+fun saferOpenFile(path: String, expectedDir: String?): File {
+    val f = File(path)
+    val canonicalPath = f.canonicalPath
+    require(canonicalPath.startsWith(expectedDir!!))
+    return f
+}
+```
 
 ### Java
 
-    public File saferOpenFile (String path, String expectedDir) throws IllegalArgumentException {
-      File f = new File(path);
-      String canonicalPath = f.getCanonicalPath();
-      if (!canonicalPath.startsWith(expectedDir)) {
-        throw new IllegalArgumentException();
-      }
-      return f;
-    }
+```
+public File saferOpenFile (String path, String expectedDir) throws IllegalArgumentException {
+  File f = new File(path);
+  String canonicalPath = f.getCanonicalPath();
+  if (!canonicalPath.startsWith(expectedDir)) {
+    throw new IllegalArgumentException();
+  }
+  return f;
+}
+```
 
 An additional best practice is to use validation to ensure only expected
 outcomes occur. Examples include the following:
 
-- Checking if the file already exists to prevent an accidental overwrite.
-- Checking if the targeted file is an expected target to prevent leaking data or incorrectly changing permissions.
-- Checking if the current directory of the operation is exactly as expected in the return value from the canonical path.
-- Ensuring a permissions system is explicitly scoped to the operation, such as checking that it isn't running services as root, and ensuring that the directory permissions are scoped to the service or command specified.
+* Checking if the file already exists to prevent an accidental overwrite.
+* Checking if the targeted file is an expected target to prevent leaking data or
+  incorrectly changing permissions.
+* Checking if the current directory of the operation is exactly as expected in
+  the return value from the canonical path.
+* Ensuring a permissions system is explicitly scoped to the operation, such as
+  checking that it isn't running services as root, and ensuring that the directory
+  permissions are scoped to the service or command specified.

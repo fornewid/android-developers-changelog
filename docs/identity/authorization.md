@@ -123,7 +123,7 @@ that requires access to their Drive app storage, do the following:
 
 ### Java
 
-    List<Scopes> requestedScopes = Arrays.asList(DriveScopes.DRIVE_FILE);
+    List<Scope> requestedScopes = Arrays.asList(DriveScopes.DRIVE_FILE);
     AuthorizationRequest authorizationRequest = AuthorizationRequest.builder()
         .setRequestedScopes(requestedScopes)
         .build();
@@ -227,7 +227,7 @@ their account from your app, and your app was previously granted access to
 
 ### Java
 
-    List<Scopes> requestedScopes = Arrays.asList(DriveScopes.DRIVE_FILE);
+    List<Scope> requestedScopes = Arrays.asList(DriveScopes.DRIVE_FILE);
     RevokeAccessRequest revokeAccessRequest = RevokeAccessRequest.builder()
         .setAccount(account)
         .setScopes(requestedScopes)
@@ -327,14 +327,12 @@ long lifespan that are used by a client to request a short-lived access token
 from the authorization server, when the old access token is expired, without any
 user interaction.
 
-To obtain a refresh token, you would need to first obtain an auth code
-(or authorization code) during the authorization step in your app by asking for
-"offline access", and then exchange the auth code for a refresh token on your
-server. It is critical to store long-lived refresh tokens securely on your
-server because they can be repeatedly used to obtain new access tokens.
-Therefore, it is strongly discouraged to store refresh tokens on the device due
-to security concerns. Instead, they should be stored in the app's backend
-servers where the exchange for an access token takes place.
+To obtain a refresh token, first request an auth code (or authorization
+code) during authorization by asking for "offline access", then exchange the
+auth code for a refresh token on your server.
+
+> [!CAUTION]
+> **Caution:** Store long-lived refresh tokens securely on your server, because they can be repeatedly used to obtain new access tokens. Don't store refresh tokens on the device due to security concerns. Instead, store them on your backend servers where the token exchange occurs.
 
 After the auth code is sent to your app's backend server, you can exchange it
 for a short-lived access token on the server and a long-lived refresh token by

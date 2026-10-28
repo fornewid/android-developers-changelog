@@ -1,12 +1,27 @@
 ---
-title: https://developer.android.com/training/wearables/compose/rotary-input
+title: Rotary input with Compose  |  Wear OS  |  Android Developers
 url: https://developer.android.com/training/wearables/compose/rotary-input
-source: md.txt
+source: html-scrape
 ---
 
-Compose for Wear OS Material version <button value="2.5">2.5</button> <button value="3" default="">3</button>
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Wear OS](https://developer.android.com/training/wearables)
 
-*** ** * ** ***
+# Rotary input with Compose Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+
+Compose for Wear OS Material version
+
+2.5
+3
+
+
+---
 
 Rotary input refers to input from pieces of your watch that spin or rotate. On
 average, users spend only a few seconds interacting with their watch. You
@@ -22,8 +37,8 @@ type of input, be sure to support rotary input for all essential interactions.
 
 Most users expect apps to support the scroll gesture. As the content scrolls on
 the screen, give the users visual feedback in response to rotary interactions.
-Visual feedback can include [scrolling indicators](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/ScrollIndicator.composable#ScrollIndicator(androidx.compose.foundation.lazy.LazyListState,androidx.compose.ui.Modifier,androidx.wear.compose.material3.ScrollIndicatorColors,kotlin.Boolean,androidx.compose.animation.core.AnimationSpec)) for vertical scroll or
-[page indicators](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/HorizontalPageIndicator.composable#HorizontalPageIndicator(androidx.wear.compose.foundation.pager.PagerState,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)).
+Visual feedback can include [scrolling indicators](/reference/kotlin/androidx/wear/compose/material3/ScrollIndicator.composable#ScrollIndicator(androidx.compose.foundation.lazy.LazyListState,androidx.compose.ui.Modifier,androidx.wear.compose.material3.ScrollIndicatorColors,kotlin.Boolean,androidx.compose.animation.core.AnimationSpec)) for vertical scroll or
+[page indicators](/reference/kotlin/androidx/wear/compose/material3/HorizontalPageIndicator.composable#HorizontalPageIndicator(androidx.wear.compose.foundation.pager.PagerState,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)).
 
 `ScalingLazyColumn`, `TransformingLazyColumn` and `Picker` support the scroll
 gesture by default, if you place these components inside `AppScaffold` and
@@ -35,7 +50,7 @@ OS apps and already has a slot for a scroll indicator with a default
 implementation. To customize the scrolling progress, create a scroll indicator
 based on the list state object, as shown in the following code snippet:
 
-```kotlin
+```
 val listState = rememberTransformingLazyColumnState()
 ScreenScaffold(
     scrollState = listState,
@@ -45,13 +60,15 @@ ScreenScaffold(
 ) {
     // ...
 }
+
+Rotary.kt
 ```
 
 You can configure a snap behavior for `ScalingLazyColumn` by using
 `ScalingLazyColumnDefaults.snapFlingBehavior`, as shown in the following
 code snippet:
 
-```kotlin
+```
 val listState = rememberScalingLazyListState()
 ScreenScaffold(
     scrollState = listState,
@@ -70,6 +87,8 @@ ScreenScaffold(
         // ...
     }
 }
+
+Rotary.kt
 ```
 
 ## Custom actions
@@ -84,7 +103,7 @@ control, you can handle scroll events yourself.
 The first step is to create a custom state managed in view model, and a custom
 callback that is used to process rotary scroll events.
 
-```kotlin
+```
 class VolumeRange(
     val max: Int = 10,
     val min: Int = 0
@@ -106,12 +125,14 @@ private object VolumeViewModel {
         }
     }
 }
+
+Rotary.kt
 ```
 
 Then, use the callback once you receive the events, as shown in the following
 snippet.
 
-```kotlin
+```
 val focusRequester: FocusRequester = remember { FocusRequester() }
 val volumeViewModel: VolumeViewModel.MyViewModel =
     viewModel()
@@ -132,6 +153,8 @@ TransformingLazyColumn(
         Text("Volume: $volumeState")
     }
 }
+
+Rotary.kt
 ```
 
 Note that for the sake of simplicity, the preceding example uses pixel values
@@ -139,7 +162,7 @@ that, if actually used are likely to be overly sensitive.
 
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [Programmatically request focus](https://developer.android.com/develop/ui/compose/touch-input/focus/request-focus)
-- [Add keyboard, mouse, trackpad, and stylus support with Jetpack Compose](https://developer.android.com/codelabs/large-screens/add-keyboard-and-mouse-support-with-compose)
-- [Compose for Wear OS Codelab](https://developer.android.com/codelabs/compose-for-wear-os)
+* Note: link text is displayed when JavaScript is off
+* [Programmatically request focus](/develop/ui/compose/touch-input/focus/request-focus)
+* [Add keyboard, mouse, trackpad, and stylus support with Jetpack Compose](/codelabs/large-screens/add-keyboard-and-mouse-support-with-compose)
+* [Compose for Wear OS Codelab](/codelabs/compose-for-wear-os)

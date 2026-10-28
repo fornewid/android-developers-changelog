@@ -34,90 +34,85 @@ account for the user.
 
 ## Before you begin
 
-Set up your Google APIs console project and Android project as described
+Set up your Google Cloud console project and Android project as described
 in [Get started with One Tap sign-in](https://developer.android.com/identity/legacy/one-tap/legacy-get-started).
 
 ## 1. Configure the One Tap client
 
 To configure the One Tap client for account creation, do the following:
 
-- Do not enable password credential requests. (One-tap sign-up is only possible with token-based authentication.)
+- Don't enable password credential requests. (One-tap sign-up is only possible with token-based authentication.)
 - Enable Google ID token requests using `setGoogleIdTokenRequestOptions()` and
   these settings:
 
-  - Set the server client ID to [the ID you created in the Google APIs
+  - Set the server client ID to [the ID you created in the Google Cloud
     console](https://developer.android.com/identity/legacy/one-tap/legacy-get-started#api-console). Note this is your server's client ID, not your Android client ID.
   - Configure the client to show all Google Accounts on the device---that is, don't filter by authorized accounts.
-  - Optionally, you can also [request the verified phone
-    number](https://developer.android.com/android/reference/com/google/android/gms/auth/api/identity/BeginSignInRequest.GoogleIdTokenRequestOptions.Builder#public-beginsigninrequest.googleidtokenrequestoptions.builder-setrequestverifiedphonenumber-boolean-requestverifiedphonenumber) for the account.
+  - Optionally, you can also [request the verified phone number](https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/BeginSignInRequest.GoogleIdTokenRequestOptions.Builder#public-beginsigninrequest.googleidtokenrequestoptions.builder-setrequestverifiedphonenumber-boolean-requestverifiedphonenumber) for the account.
 
 ### Java
 
-```java
-public class YourActivity extends AppCompatActivity {
+    public class YourActivity extends AppCompatActivity {
 
-  // ...
+        // ...
 
-  private SignInClient oneTapClient;
-  private BeginSignInRequest signUpRequest;
+        private SignInClient oneTapClient;
+    private BeginSignInRequest signUpRequest;
 
-  @Override
-  public void onCreate(@Nullable Bundle savedInstanceState,
-                       @Nullable PersistableBundle persistentState) {
-      super.onCreate(savedInstanceState, persistentState);
+        @Override
+        public void onCreate(@Nullable Bundle savedInstanceState,
+                             @Nullable PersistableBundle persistentState) {
+            super.onCreate(savedInstanceState, persistentState);
 
-      oneTapClient = Identity.getSignInClient(this);
-      signUpRequest = BeginSignInRequest.builder()
-              .setGoogleIdTokenRequestOptions(GoogleIdTokenRequestOptions.builder()
-                      .setSupported(true)
-                      // Your server's client ID, not your Android client ID.
-                      .setServerClientId(getString(R.string.your_web_client_id))
-                      // Show all accounts on the device.
-                      .setFilterByAuthorizedAccounts(false)
-                      .build())
-              .build();
+            oneTapClient = Identity.getSignInClient(this);
+    signUpRequest = BeginSignInRequest.builder()
+    .setGoogleIdTokenRequestOptions(GoogleIdTokenRequestOptions.builder()
+    .setSupported(true)
+    // Your server's client ID, not your Android client ID.
+    .setServerClientId(getString(R.string.your_web_client_id))
+    // Show all accounts on the device.
+    .setFilterByAuthorizedAccounts(false)
+    .build())
+    .build();
 
-      // ...
-  }
-}
-```
+            // ...
+        }
+    }
 
 ### Kotlin
 
-```kotlin
-class YourActivity : AppCompatActivity() {
-    // ...
+    class YourActivity : AppCompatActivity() {
+          // ...
 
-    private lateinit var oneTapClient: SignInClient
+          private lateinit var oneTapClient: SignInClient
     private lateinit var signUpRequest: BeginSignInRequest
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+          override fun onCreate(savedInstanceState: Bundle?) {
+              super.onCreate(savedInstanceState)
+              setContentView(R.layout.activity_main)
 
-        oneTapClient = Identity.getSignInClient(this)
-        signUpRequest = BeginSignInRequest.builder()
-            .setGoogleIdTokenRequestOptions(
-                BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
-                    .setSupported(true)
-                    // Your server's client ID, not your Android client ID.
-                    .setServerClientId(getString(R.string.your_web_client_id))
-                    // Show all accounts on the device.
-                    .setFilterByAuthorizedAccounts(false)
-                    .build())
-            .build()
-        // ...
-    }
-    // ...
-}
-```
+              oneTapClient = Identity.getSignInClient(this)
+    signUpRequest = BeginSignInRequest.builder()
+    .setGoogleIdTokenRequestOptions(
+    BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
+    .setSupported(true)
+    // Your server's client ID, not your Android client ID.
+    .setServerClientId(getString(R.string.your_web_client_id))
+    // Show all accounts on the device.
+    .setFilterByAuthorizedAccounts(false)
+    .build())
+    .build()
+              // ...
+          }
+          // ...
+      }
 
 ## 2. Keep track of One Tap UI cancellation
 
 You should keep track of whether the user has already declined to use One Tap
-sign-up by either closing the prompt or tapping outside of it. This can be as
-simple as a boolean property of your Activity. (See [Stop displaying the One Tap
-UI](https://developer.android.com/identity/legacy/one-tap/create-new-accounts#disable-one-tap), below.)
+sign-up by either closing the prompt or tapping outside of it. For example, you
+can use a boolean property of your Activity. (See
+[Stop displaying the One Tap UI](https://developer.android.com/identity/legacy/one-tap/create-new-accounts#disable-one-tap), below.)
 
 ## 3. Display the One Tap sign-up UI
 
@@ -125,17 +120,13 @@ If the user hasn't declined to use One Tap to create a new account, call the
 client object's `beginSignIn()` method, and attach listeners to the `Task` it
 returns. Apps typically do this step when a One Tap sign-in request doesn't find
 any saved credentials---that is, in the failure listener of the sign-*in*
-request.
+request:
 
-The One Tap client will call the success listener if the user has one or more
-Google Accounts set up on the device. In the success listener, get the pending
-intent from the `Task` result and pass it to `startIntentSenderForResult()` to
-start the One Tap UI.
-
-If the user doesn't have any Google Accounts on the device, the One Tap client
-will call the failure listener. In this case, no action is necessary: you can
-simply continue presenting the app's signed-out experience, and the user can
-sign up with your normal account creation flow.
+- **Success listener** : The One Tap client calls the success listener if the user has one or more Google Accounts set up on the device. In the success listener, get the pending intent from the `Task` result and pass it to `startIntentSenderForResult()` to start the One Tap UI.
+- **Failure listener**: If the user doesn't have any Google Accounts on the
+  device, the One Tap client calls the failure listener. In this case, no action
+  is necessary: continue presenting the app's signed-out experience, and the
+  user can sign up with your normal account creation flow.
 
 ### Java
 
@@ -180,10 +171,11 @@ sign up with your normal account creation flow.
 ## 4. Handle the user's response
 
 The user's response to the One Tap sign-up prompt will be reported to your app
-using your Activity's `onActivityResult()` method. If the user chose to create an
-account, the result will be a Google ID token. If the user declined to sign up,
-either by closing the One Tap UI or tapping outside it, the result will return
-with the code `RESULT_CANCELED`. Your app needs to handle both possibilities.
+using your Activity's `onActivityResult()` method. If the user chose to create
+an account, the result will be a Google ID token. If the user declined to sign
+up, either by closing the One Tap UI or tapping outside it, the result will
+return with the code `RESULT_CANCELED`. Your app needs to handle both
+possibilities.
 
 ### Create an account with a Google ID token
 
@@ -200,74 +192,68 @@ the account's verified phone number if available.
 
 ### Java
 
-```java
-public class YourActivity extends AppCompatActivity {
+    public class YourActivity extends AppCompatActivity {
 
-  // ...
-  private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
-  private boolean showOneTapUI = true;
-  // ...
+        // ...
+        private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
+        private boolean showOneTapUI = true;
+        // ...
 
-  @Override
-  protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-      super.onActivityResult(requestCode, resultCode, data);
+        @Override
+        protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
 
-      switch (requestCode) {
-          case REQ_ONE_TAP:
-              try {
-                  SignInCredential credential = oneTapClient.getSignInCredentialFromIntent(data);
-                  String idToken = credential.getGoogleIdToken();
-                  if (idToken !=  null) {
-                      // Got an ID token from Google. Use it to authenticate
-                      // with your backend.
-                      Log.d(TAG, "Got ID token.");
-                  }
-              } catch (ApiException e) {
-                  // ...
-              }
-              break;
-      }
-  }
-}
-```
-
-### Kotlin
-
-```kotlin
-class YourActivity : AppCompatActivity() {
-
-    // ...
-    private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
-    private var showOneTapUI = true
-    // ...
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        when (requestCode) {
-             REQ_ONE_TAP -> {
-                try {
-                    val credential = oneTapClient.getSignInCredentialFromIntent(data)
-                    val idToken = credential.googleIdToken
-                    when {
-                        idToken != null -> {
-                            // Got an ID token from Google. Use it to authenticate
-                            // with your backend.
-                            Log.d(TAG, "Got ID token.")
-                        }
-                        else -> {
-                            // Shouldn't happen.
-                            Log.d(TAG, "No ID token!")
-                        }
+            switch (requestCode) {
+                case REQ_ONE_TAP:
+                    try { SignInCredential credential = oneTapClient.getSignInCredentialFromIntent(data);
+    String idToken = credential.getGoogleIdToken();
+    if (idToken != null) {
+    // Got an ID token from Google. Use it to authenticate
+    // with your backend.
+    Log.d(TAG, "Got ID token.");
+    }
+                    } catch (ApiException e) {
+                        // ...
                     }
-                } catch (e: ApiException) {
-                    // ...
+                    break;
             }
         }
     }
-    // ...
-}
-```
+
+### Kotlin
+
+    class YourActivity : AppCompatActivity() {
+
+          // ...
+          private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
+          private var showOneTapUI = true
+          // ...
+
+          override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+              super.onActivityResult(requestCode, resultCode, data)
+
+              when (requestCode) {
+                   REQ_ONE_TAP -> {
+                      try { val credential = oneTapClient.getSignInCredentialFromIntent(data)
+    val idToken = credential.googleIdToken
+    when {
+    idToken != null -\> {
+    // Got an ID token from Google. Use it to authenticate
+    // with your backend.
+    Log.d(TAG, "Got ID token.")
+    }
+    else -\> {
+    // Shouldn't happen.
+    Log.d(TAG, "No ID token!")
+    }
+    }
+                      } catch (e: ApiException) {
+                          // ...
+                  }
+              }
+          }
+          // ...
+      }
 
 ### Stop displaying the One Tap UI
 
@@ -281,92 +267,88 @@ save a value to `SharedPreferences` or use some other method.
 
 It's important to implement your own rate limiting of One Tap sign-in prompts.
 If you don't, and a user cancels several prompts in a row, the One Tap client
-will not prompt the user for the next 24 hours.
+won't prompt the user for the next 24 hours.
 
 > [!NOTE]
 > **Note:** If you encounter this 24-hour cooldown period during development, you can reset the cooldown by clearing Google Play services' app storage.
 
 ### Java
 
-```java
-public class YourActivity extends AppCompatActivity {
+    public class YourActivity extends AppCompatActivity {
 
-  // ...
-  private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
-  private boolean showOneTapUI = true;
-  // ...
+        // ...
+        private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
+        private boolean showOneTapUI = true;
+        // ...
 
-  @Override
-  protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-      super.onActivityResult(requestCode, resultCode, data);
+        @Override
+        protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
 
-      switch (requestCode) {
-          case REQ_ONE_TAP:
-              try {
-                  // ...
-              } catch (ApiException e) {
-                  switch (e.getStatusCode()) {
-                      case CommonStatusCodes.CANCELED:
-                          Log.d(TAG, "One-tap dialog was closed.");
-                          // Don't re-prompt the user.
-                          showOneTapUI = false;
-                          break;
-                      case CommonStatusCodes.NETWORK_ERROR:
-                          Log.d(TAG, "One-tap encountered a network error.");
-                          // Try again or just ignore.
-                          break;
-                      default:
-                          Log.d(TAG, "Couldn't get credential from result."
-                                  + e.getLocalizedMessage());
-                          break;
-                  }
-              }
-              break;
-      }
-  }
-}
-```
-
-### Kotlin
-
-```kotlin
-class YourActivity : AppCompatActivity() {
-
-    // ...
-    private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
-    private var showOneTapUI = true
-    // ...
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        when (requestCode) {
-            REQ_ONE_TAP -> {
-                try {
-                    // ...
-                } catch (e: ApiException) {
-                    when (e.statusCode) {
-                        CommonStatusCodes.CANCELED -> {
-                            Log.d(TAG, "One-tap dialog was closed.")
-                            // Don't re-prompt the user.
-                            showOneTapUI = false
-                        }
-                        CommonStatusCodes.NETWORK_ERROR -> {
-                            Log.d(TAG, "One-tap encountered a network error.")
-                            // Try again or just ignore.
-                        }
-                        else -> {
-                            Log.d(TAG, "Couldn't get credential from result." +
-                                " (${e.localizedMessage})")
+            switch (requestCode) {
+                case REQ_ONE_TAP:
+                    try {
+                        // ...
+                    } catch (ApiException e) {
+                        switch (e.getStatusCode()) {
+                            case CommonStatusCodes.CANCELED:
+    Log.d(TAG, "One-tap dialog was closed.");
+    // Don't re-prompt the user.
+    showOneTapUI = false;
+    break;
+                            case CommonStatusCodes.NETWORK_ERROR:
+                                Log.d(TAG, "One-tap encountered a network error.");
+                                // Try again or just ignore.
+                                break;
+                            default:
+                                Log.d(TAG, "Couldn't get credential from result."
+                                        + e.getLocalizedMessage());
+                                break;
                         }
                     }
-                }
+                    break;
             }
         }
     }
-    // ...
-}
-```
+
+### Kotlin
+
+    class YourActivity : AppCompatActivity() {
+
+          // ...
+          private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
+          private var showOneTapUI = true
+          // ...
+
+          override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+              super.onActivityResult(requestCode, resultCode, data)
+
+              when (requestCode) {
+                  REQ_ONE_TAP -> {
+                      try {
+                          // ...
+                      } catch (e: ApiException) {
+                          when (e.statusCode) {
+                              CommonStatusCodes.CANCELED -\> {
+    Log.d(TAG, "One-tap dialog was closed.")
+    // Don't re-prompt the user.
+    showOneTapUI = false
+    }
+                              CommonStatusCodes.NETWORK_ERROR -> {
+                                  Log.d(TAG, "One-tap encountered a network error.")
+                                  // Try again or just ignore.
+                              }
+                              else -> {
+                                  Log.d(TAG, "Couldn't get credential from result." +
+                                      " (${e.localizedMessage})")
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+          // ...
+      }
 
 ## Next steps
 
@@ -375,6 +357,7 @@ includes some basic profile information: the user's email address, full name,
 and profile picture URL. For many apps, this information is enough for you to
 [authenticate the user on backend](https://developer.android.com/identity/legacy/one-tap/idtoken-auth) and create a new account.
 
-If you require additional information to complete account creation---for instance,
-the user's birth date---present the user with a sign-up details flow, where
-you request this additional info. Then, send it to your backend to complete account creation.
+If you require additional information to complete account
+creation---for instance, the user's birth date---present the user with a
+sign-up details flow, where you request this additional info. Then, send it to
+your backend to complete account creation.

@@ -24,8 +24,7 @@ assigned to your app by the system:
 - Shared preferences files
 
 - Files saved to your app's internal storage and accessed by
-  [`getFilesDir()`](https://developer.android.com/reference/android/content/Context#getFilesDir()) or [`getDir(String,
-  int)`](https://developer.android.com/reference/android/content/Context#getDir(java.lang.String,%20int))
+  [`getFilesDir()`](https://developer.android.com/reference/android/content/Context#getFilesDir()) or [`getDir(String, int)`](https://developer.android.com/reference/android/content/Context#getDir(java.lang.String,%20int))
 
 - Files in the directory returned by [`getDatabasePath(String)`](https://developer.android.com/reference/android/content/Context#getDatabasePath(java.lang.String)), which
   also includes files created with the [`SQLiteOpenHelper`](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper) class
@@ -163,23 +162,20 @@ running Android 11 (API level 30) or lower.
    as shown in the following example. This attribute points to an XML file that
    contains backup rules.
 
-   ```xml
-   <application ...
-    android:fullBackupContent="@xml/backup_rules">
-   </application>
-   ```
+       <application ...
+           android:fullBackupContent="@xml/backup_rules">
+       </application>
+
 2. Create an XML file called `@xml/backup_rules` in
    the `res/xml/` directory. In this file, add rules with the `<include>` and
    `<exclude>` elements. The following sample backs up all shared preferences
    except `device.xml`:
 
-   ```xml
-   <?xml version="1.0" encoding="utf-8"?>
-   <full-backup-content>
-    <include domain="sharedpref" path="."/>
-    <exclude domain="sharedpref" path="device.xml"/>
-   </full-backup-content>
-   ```
+       <?xml version="1.0" encoding="utf-8"?>
+       <full-backup-content>
+         <include domain="sharedpref" path="."/>
+         <exclude domain="sharedpref" path="device.xml"/>
+       </full-backup-content>
 
 #### Define device conditions required for backup
 
@@ -201,15 +197,13 @@ rules:
 
 backup_rules.xml
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<full-backup-content>
-    <!-- App data isn't included in user's backup
-         unless client-side encryption is enabled. -->
-    <include domain="file" path="."
-             requireFlags="clientSideEncryption" />
-</full-backup-content>
-```
+    <?xml version="1.0" encoding="utf-8"?>
+    <full-backup-content>
+        <!-- App data isn't included in user's backup
+             unless client-side encryption is enabled. -->
+        <include domain="file" path="."
+                 requireFlags="clientSideEncryption" />
+    </full-backup-content>
 
 > [!NOTE]
 > **Note:** Because adding requirements to the XML prevents backups from working on previous Android versions, [provide alternate resources](https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources) for backups being used on devices running Android 8.1 (API level 27) or lower.
@@ -225,47 +219,49 @@ The following code snippet shows an example use of this method:
 
 ### Kotlin
 
-```kotlin
-class CustomBackupAgent : BackupAgent() {
-    override fun onBackup(oldState: ParcelFileDescriptor?,
-            data: BackupDataOutput?, newState: ParcelFileDescriptor?) {
-        if (data != null) {
-            if ((data.transportFlags and
+    class CustomBackupAgent : BackupAgent() {
+        override fun onBackup(
+            oldState: ParcelFileDescriptor?,
+            data: BackupDataOutput?,
+            newState: ParcelFileDescriptor?
+        ) {
+            if (data != null) {
+                if ((data.transportFlags and
+                        FLAG_CLIENT_SIDE_ENCRYPTION_ENABLED) != 0) {
+                    // Client-side backup encryption is enabled.
+                }
+
+                if ((data.transportFlags and FLAG_DEVICE_TO_DEVICE_TRANSFER) != 0) {
+                    // Local device-to-device transfer is enabled.
+                }
+            }
+        }
+
+        // Implementation of onRestore() here.
+    }
+
+### Java
+
+    public class CustomBackupAgent extends BackupAgent {
+        @Override
+        public void onBackup(
+            ParcelFileDescriptor oldState,
+            BackupDataOutput data,
+            ParcelFileDescriptor newState
+        ) throws IOException {
+            if ((data.getTransportFlags() &
                     FLAG_CLIENT_SIDE_ENCRYPTION_ENABLED) != 0) {
                 // Client-side backup encryption is enabled.
             }
 
-            if ((data.transportFlags and FLAG_DEVICE_TO_DEVICE_TRANSFER) != 0) {
+            if ((data.getTransportFlags() &
+                    FLAG_DEVICE_TO_DEVICE_TRANSFER) != 0) {
                 // Local device-to-device transfer is enabled.
             }
         }
+
+        // Implementation of onRestore() here.
     }
-
-    // Implementation of onRestore() here.
-}
-```
-
-### Java
-
-```java
-public class CustomBackupAgent extends BackupAgent {
-    @Override
-    public void onBackup(ParcelFileDescriptor oldState, BackupDataOutput data,
-            ParcelFileDescriptor newState) throws IOException {
-        if ((data.getTransportFlags() &
-                FLAG_CLIENT_SIDE_ENCRYPTION_ENABLED) != 0) {
-            // Client-side backup encryption is enabled.
-        }
-
-        if ((data.getTransportFlags() &
-                FLAG_DEVICE_TO_DEVICE_TRANSFER) != 0) {
-            // Local device-to-device transfer is enabled.
-        }
-    }
-
-    // Implementation of onRestore() here.
-}
-```
 
 ### Control backup on Android 12 or higher
 
@@ -282,25 +278,22 @@ Android 12 or higher.
    element, as shown in the following example. This attribute points to an XML
    file that contains backup rules.
 
-   ```xml
-   <application ...
-    android:dataExtractionRules="backup_rules.xml">
-   </application>
-   ```
+       <application ...
+           android:dataExtractionRules="backup_rules.xml">
+       </application>
+
 2. Create an XML file called `backup_rules.xml` in
    the `res/xml/` directory. In this file, add rules with the `<include>` and
    `<exclude>` elements. The following sample backs up all shared preferences
    except `device.xml`:
 
-   ```xml
-   <?xml version="1.0" encoding="utf-8"?>
-   <data-extraction-rules>
-    <cloud-backup [disableIfNoEncryptionCapabilities="true|false"]>
-      <include domain="sharedpref" path="."/>
-      <exclude domain="sharedpref" path="device.xml"/>
-    </cloud-backup>
-   </data-extraction-rules>
-   ```
+       <?xml version="1.0" encoding="utf-8"?>
+       <data-extraction-rules>
+         <cloud-backup [disableIfNoEncryptionCapabilities="true|false"]>
+           <include domain="sharedpref" path="."/>
+           <exclude domain="sharedpref" path="device.xml"/>
+         </cloud-backup>
+       </data-extraction-rules>
 
 ### XML config syntax
 
@@ -312,17 +305,15 @@ Android that your app is targeting and running on.
 Use the following XML syntax for the configuration file that [controls backup
 for devices running Android 11 or lower](https://developer.android.com/identity/data/autobackup#include-exclude-android-11).
 
-```xml
-<full-backup-content>
-    <include domain=["file" | "database" | "sharedpref" | "external" |
-                     "root" | "device_file" | "device_database" |
-                     "device_sharedpref" | "device_root" ] path="string"
-    requireFlags=["clientSideEncryption" | "deviceToDeviceTransfer"] />
-    <exclude domain=["file" | "database" | "sharedpref" | "external" |
-                     "root" | "device_file" | "device_database" |
-                     "device_sharedpref" | "device_root" ] path="string" />
-</full-backup-content>
-```
+    <full-backup-content>
+        <include domain=["file" | "database" | "sharedpref" | "external" |
+                         "root" | "device_file" | "device_database" |
+                         "device_sharedpref" | "device_root" ] path="string"
+        requireFlags=["clientSideEncryption" | "deviceToDeviceTransfer"] />
+        <exclude domain=["file" | "database" | "sharedpref" | "external" |
+                         "root" | "device_file" | "device_database" |
+                         "device_sharedpref" | "device_root" ] path="string" />
+    </full-backup-content>
 
 #### Android 12 or higher
 
@@ -330,45 +321,43 @@ If your app targets Android 12 (API level 31) or higher, use the following XML
 syntax for the configuration file that [controls backup for devices running
 Android 12 or higher](https://developer.android.com/identity/data/autobackup#include-exclude-android-12).
 
-```xml
-<data-extraction-rules>
-  <cloud-backup [disableIfNoEncryptionCapabilities="true|false"]>
-    ...
-    <include domain=["file" | "database" | "sharedpref" | "external" |
-                     "root" | "device_file" | "device_database" |
-                     "device_sharedpref" | "device_root" ] path="string"/>
-    ...
-    <exclude domain=["file" | "database" | "sharedpref" | "external" |
-                     "root" | "device_file" | "device_database" |
-                     "device_sharedpref" | "device_root" ] path="string"/>
-    ...
-  </cloud-backup>
-  <device-transfer>
-    ...
-    <include domain=["file" | "database" | "sharedpref" | "external" |
-                     "root" | "device_file" | "device_database" |
-                     "device_sharedpref" | "device_root" ] path="string"/>
-    ...
-    <exclude domain=["file" | "database" | "sharedpref" | "external" |
-                     "root" | "device_file" | "device_database" |
-                     "device_sharedpref" | "device_root" ] path="string"/>
-    ...
-  </device-transfer>
-  <cross-platform-transfer platform="ios">
-    ...
-    <include domain=["file" | "database" | "sharedpref" | "external" |
-                     "root" | "device_file" | "device_database" |
-                     "device_sharedpref" | "device_root" ] path="string"/>
-    ...
-    <exclude domain=["file" | "database" | "sharedpref" | "external" |
-                     "root" | "device_file" | "device_database" |
-                     "device_sharedpref" | "device_root" ] path="string"/>
-    ...
-    <platform-specific-params bundleId="string" teamId="string" contentVersion="string"/>
-    ...
-  </cross-platform-transfer>
-</data-extraction-rules>
-```
+    <data-extraction-rules>
+      <cloud-backup [disableIfNoEncryptionCapabilities="true|false"]>
+        ...
+        <include domain=["file" | "database" | "sharedpref" | "external" |
+                         "root" | "device_file" | "device_database" |
+                         "device_sharedpref" | "device_root" ] path="string"/>
+        ...
+        <exclude domain=["file" | "database" | "sharedpref" | "external" |
+                         "root" | "device_file" | "device_database" |
+                         "device_sharedpref" | "device_root" ] path="string"/>
+        ...
+      </cloud-backup>
+      <device-transfer>
+        ...
+        <include domain=["file" | "database" | "sharedpref" | "external" |
+                         "root" | "device_file" | "device_database" |
+                         "device_sharedpref" | "device_root" ] path="string"/>
+        ...
+        <exclude domain=["file" | "database" | "sharedpref" | "external" |
+                         "root" | "device_file" | "device_database" |
+                         "device_sharedpref" | "device_root" ] path="string"/>
+        ...
+      </device-transfer>
+      <cross-platform-transfer platform="ios">
+        ...
+        <include domain=["file" | "database" | "sharedpref" | "external" |
+                         "root" | "device_file" | "device_database" |
+                         "device_sharedpref" | "device_root" ] path="string"/>
+        ...
+        <exclude domain=["file" | "database" | "sharedpref" | "external" |
+                         "root" | "device_file" | "device_database" |
+                         "device_sharedpref" | "device_root" ] path="string"/>
+        ...
+        <platform-specific-params bundleId="string" teamId="string" contentVersion="string"/>
+        ...
+      </cross-platform-transfer>
+    </data-extraction-rules>
 
 Each section of the configuration (`<cloud-backup>`, `<device-transfer>`,
 `<cross-platform-transfer>`) contains rules that apply only to that type of

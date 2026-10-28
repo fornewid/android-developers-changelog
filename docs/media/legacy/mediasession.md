@@ -1,8 +1,21 @@
 ---
-title: https://developer.android.com/media/legacy/mediasession
+title: Using a media session  |  Legacy media APIs  |  Android Developers
 url: https://developer.android.com/media/legacy/mediasession
-source: md.txt
+source: html-scrape
 ---
+
+These guides discuss the MediaCompat APIs, which are no longer updated. We strongly recommend using the [Jetpack Media3](/guide/topics/media/media3) library instead.
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Camera & media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# Using a media session Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 
 Media sessions provide a universal way of interacting with an audio or video
 player. By informing Android that media is playing in an app, playback
@@ -18,66 +31,73 @@ A media session lives alongside the player that it manages. You should create
 and initialize a media session in the `onCreate()` method of the activity or
 service that owns the media session and its associated player.
 
-> [!NOTE]
-> **Note:** The best practice for writing a media app is to use the [media-compat library](https://developer.android.com/guide/topics/media-apps/media-apps-overview#compat-library). On this page the term "media session" means an instance of `https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat`, and "media controller" means an instance of `https://developer.android.com/reference/android/support/v4/media/session/MediaControllerCompat`.
+**Note:** The best practice for writing a media app is to use
+the [media-compat library](/guide/topics/media-apps/media-apps-overview#compat-library).
+On this page the term "media session" means an
+instance of `MediaSessionCompat`,
+and "media controller" means an
+instance of `MediaControllerCompat`.
 
 ## Initialize the media session
 
 A newly-created media session has no capabilities. You must initialize the session by performing these steps:
 
-- Set flags so that the media session can receive callbacks from media controllers and media buttons.
-- Create and initialize an instance of `PlaybackStateCompat` and assign it to the session. The playback state changes throughout the session, so we recommend caching the `PlaybackStateCompat.Builder` for reuse.
-- Create an instance of `MediaSessionCompat.Callback` and assign it to the session (more on callbacks below).
+* Set flags so that the media session can receive callbacks from media controllers and media buttons.
+* Create and initialize an instance of `PlaybackStateCompat` and assign it to the session. The playback state changes throughout the session, so we recommend caching the `PlaybackStateCompat.Builder` for reuse.
+* Create an instance of `MediaSessionCompat.Callback` and assign it to the session (more on callbacks below).
 
 You should create and initialize a media session in the `onCreate()` method of the
-[activity](https://developer.android.com/guide/topics/media-apps/video-app/building-a-video-player-activity)
-or [service](https://developer.android.com/guide/topics/media-apps/audio-app/building-a-mediabrowserservice#init-session) that owns the session.
+[activity](/guide/topics/media-apps/video-app/building-a-video-player-activity)
+or [service](/guide/topics/media-apps/audio-app/building-a-mediabrowserservice#init-session) that owns the session.
 
-In order for [media buttons](https://developer.android.com/guide/topics/media-apps/mediabuttons) to work
+In order for [media buttons](/guide/topics/media-apps/mediabuttons) to work
 when your app is newly initialized (or stopped), its `PlaybackState` must
 contain a play action matching the intent that the media button sends. This is
 why `ACTION_PLAY` is assigned to the session state during
 initialization. For more information, see [Responding to Media
-Buttons](https://developer.android.com/guide/topics/media-apps/mediabuttons).
+Buttons](/guide/topics/media-apps/mediabuttons).
 
-> [!NOTE]
-> **Note:** If you are integrating with the [ExoPlayer MediaSession extension](https://github.com/google/ExoPlayer/tree/release-v2/extensions/mediasession), you don't need to implement your own `MediaSessionCompat.Callback`. The `MediaSessionConnector` takes care of mapping the player state to the media session and delegating events received from the media session.
+**Note:** If you are integrating with the
+[ExoPlayer MediaSession extension](https://github.com/google/ExoPlayer/tree/release-v2/extensions/mediasession),
+you don't need to implement your own `MediaSessionCompat.Callback`. The
+`MediaSessionConnector` takes care of mapping the player state to the media
+session and delegating events received from the media session.
 
 ## Maintain the playback state and metadata
 
 There are two classes that represent the state of a media session.
 
 The
-`https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat`
+`PlaybackStateCompat`
 class describes the current operational state of the player. This includes:
 
-- The transport state (whether the player is playing/paused/buffering, etc. See `https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat#getState()`)
-- An error code and optional error message, when applicable. (See `https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat#getErrorCode()` and read [States and errors](https://developer.android.com/media/legacy/mediasession#errors), below.)
-- The player position
-- The valid controller actions that can be handled in the present state
+* The transport state (whether the player is playing/paused/buffering, etc. See `getState()`)
+* An error code and optional error message, when applicable. (See `getErrorCode()` and read [States and errors](#errors), below.)
+* The player position
+* The valid controller actions that can be handled in the present state
 
-The `https://developer.android.com/reference/android/support/v4/media/MediaMetadataCompat`
+The `MediaMetadataCompat`
 class describes the material that is playing:
 
-- The name of the artist, album, and track
-- The track duration
-- Album artwork for display on the lock screen. The image is a bitmap with a maximum size of 320x320dp (if larger, it's scaled down).
-- An instance of `https://developer.android.com/reference/android/content/ContentUris` that points to a larger version of the artwork
+* The name of the artist, album, and track
+* The track duration
+* Album artwork for display on the lock screen. The image is a bitmap with a maximum size of 320x320dp (if larger, it's scaled down).
+* An instance of `ContentUris` that points to a larger version of the artwork
 
 The player state and metadata can change over the life of a media session. Every time the state or metadata changes, you must use the corresponding builder for each class, `PlaybackStateCompat.Builder()` or `MediaMetadataCompat.Builder()`, and then pass the new instance to the media session by calling
-`https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat#setPlaybackState(android.support.v4.media.session.PlaybackStateCompat)` or
-`https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat#setMetadata(android.support.v4.media.MediaMetadataCompat)`.
+`setPlaybackState()` or
+`setMetaData()`.
 To reduce overall memory consumption from these frequent operations, it's a good idea to create the builders once and to reuse them throughout the life of the session.
 
 ### States and errors
 
 Note that `PlaybackState` is an object that contains separate values for the
-*playback state of the session* (`https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat#getState()`)
-and, when necessary, an associated *error code* (`https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat#getErrorCode()`).
+*playback state of the session* (`getState()`)
+and, when necessary, an associated *error code* (`getErrorCode()`).
 Errors can be fatal or non-fatal:
 
 Whenever playback is interrupted, you should generate a fatal error: Set the
-transport state to `STATE_ERROR` and specify an associated error with `https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat.Builder#setErrorMessage(int, java.lang.CharSequence)`.
+transport state to `STATE_ERROR` and specify an associated error with `setErrorMessage(int, CharSequence)`.
 As long as playback is blocked by the error, the `PlaybackState` should continue
 to report `STATE_ERROR` and the error.
 
@@ -86,7 +106,7 @@ The transport remains in a "normal" state (such as `STATE_PLAYING`) but the `Pla
 For example, if the last song is playing and the user requests a skip to next song,
 playback can continue, but you should create a new `PlaybackState` with the error code `ERROR_CODE_END_OF_QUEUE` and
 then call `setPlaybackState()`. Media Controllers attached to the session will receive the callback
-`https://developer.android.com/reference/android/support/v4/media/session/MediaControllerCompat.Callback#onPlaybackStateChanged(android.support.v4.media.session.PlaybackStateCompat)` and explain to the user what happened. A non-fatal error should only be reported once, at the time it occurs. The next time the session updates the `PlaybackState` do not set the same non-fatal error again (unless the error occurred in response to a new request).
+`onPlaybackStateChanged()` and explain to the user what happened. A non-fatal error should only be reported once, at the time it occurs. The next time the session updates the `PlaybackState` do not set the same non-fatal error again (unless the error occurred in response to a new request).
 
 ## Media session lock screens
 
@@ -107,7 +127,7 @@ In Android 4.0 (API level 14) through Android 4.4 (API level 19), when a media s
 
 In Android 5.0 (API level 21) or greater the system does not provide transport
 controls on the lock screen. Instead, you should use a [MediaStyle
-notification](https://developer.android.com/guide/topics/media-apps/audio-app/building-a-mediabrowserservice#mediastyle-notifications)
+notification](/guide/topics/media-apps/audio-app/building-a-mediabrowserservice#mediastyle-notifications)
 to display transport controls.
 
 ### Add custom actions
@@ -116,13 +136,13 @@ Media applications can define custom actions; for example: thumbs up, like, or
 rewind 30 seconds. A custom action should implement completely new behavior. Do
 not use a custom action to replace one of the standard transport control actions
 defined in
-[PlaybackStateCompat](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat#constants_1).
+[PlaybackStateCompat](/reference/android/support/v4/media/session/PlaybackStateCompat#constants_1).
 
-Add custom actions with `https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat.Builder#addCustomAction(android.support.v4.media.session.PlaybackStateCompat.CustomAction)`. The following example shows how to add a control for a thumbs-up action:
+Add custom actions with `addCustomAction()`. The following example shows how to add a control for a thumbs-up action:
 
 ### Kotlin
 
-```kotlin
+```
 stateBuilder.addCustomAction(
         PlaybackStateCompat.CustomAction.Builder(
                 CUSTOM_ACTION_THUMBS_UP,
@@ -137,7 +157,7 @@ stateBuilder.addCustomAction(
 
 ### Java
 
-```java
+```
 stateBuilder.addCustomAction(new PlaybackStateCompat.CustomAction.Builder(
     CUSTOM_ACTION_THUMBS_UP, resources.getString(R.string.thumbs_up), thumbsUpIcon)
     .setExtras(customActionExtras)
@@ -146,11 +166,11 @@ stateBuilder.addCustomAction(new PlaybackStateCompat.CustomAction.Builder(
 
 See the [Universal Music Player](https://github.com/android/uamp/blob/f3154af7ac972ee9b7b1fd32ca3c935e02268a18/mobile/src/main/java/com/example/android/uamp/playback/PlaybackManager.java#L150-L171) for a complete example.
 
-You respond to the action with `https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat.Callback#onCustomAction(java.lang.String, android.os.Bundle)`.
+You respond to the action with `onCustomAction()`.
 
 ### Kotlin
 
-```kotlin
+```
 override fun onCustomAction(action: String, extras: Bundle?) {
     when(action) {
         CUSTOM_ACTION_THUMBS_UP -> {
@@ -162,7 +182,7 @@ override fun onCustomAction(action: String, extras: Bundle?) {
 
 ### Java
 
-```java
+```
 @Override
 public void onCustomAction(@NonNull String action, Bundle extras) {
     if (CUSTOM_ACTION_THUMBS_UP.equals(action)) {
@@ -178,13 +198,13 @@ Also see the [Universal Music Player](https://github.com/android/uamp/blob/f3154
 The main media session callback methods are `onPlay()`, `onPause()`, and `onStop()`.
 This is where you add the code that controls your player.
 
-Since you instantiate and set the session's callback at runtime (in `onCreate()`), your app can define alternative callbacks that use different players and choose the appropriate callback/player combination depending on the device and/or system level. You can change the player without changing the rest of the app. For example, you could use [ExoPlayer](https://developer.android.com/guide/topics/media/exoplayer) when running on Android 4.1 (API level 16) or greater and use [`MediaPlayer`](https://developer.android.com/guide/topics/media/mediaplayer) on earlier systems.
+Since you instantiate and set the session's callback at runtime (in `onCreate()`), your app can define alternative callbacks that use different players and choose the appropriate callback/player combination depending on the device and/or system level. You can change the player without changing the rest of the app. For example, you could use [ExoPlayer](/guide/topics/media/exoplayer) when running on Android 4.1 (API level 16) or greater and use [`MediaPlayer`](/guide/topics/media/mediaplayer) on earlier systems.
 
-Besides controlling the player and managing the media session state transitions, callbacks also enable and disable features of your app and control the way it interacts with other apps and the device hardware. (See [Controlling Audio Output](https://developer.android.com/guide/topics/media-apps/volume-and-earphones)).
+Besides controlling the player and managing the media session state transitions, callbacks also enable and disable features of your app and control the way it interacts with other apps and the device hardware. (See [Controlling Audio Output](/guide/topics/media-apps/volume-and-earphones)).
 
 The implementation of the media session callback methods depends on the structure of your app.
 See the separate pages that describe how to use callbacks in
-[audio apps](https://developer.android.com/guide/topics/media-apps/audio-app/mediasession-callbacks)
+[audio apps](/guide/topics/media-apps/audio-app/mediasession-callbacks)
 and
-[video apps](https://developer.android.com/guide/topics/media-apps/video-app/mediasession-callbacks),
+[video apps](/guide/topics/media-apps/video-app/mediasession-callbacks),
 describe how the callbacks should be implemented for each kind of app.

@@ -153,6 +153,36 @@ private fun LargeBox() {
 
 ![The very small box from the previous example is increased in size to create a larger touch target.](https://developer.android.com/static/develop/ui/compose/images/a11y-larger-inner-box.png) **Figure 5.** A larger box touch target.
 
+If the element must keep a smaller visible size, use the
+[`minimumInteractiveComponentSize`](https://developer.android.com/reference/kotlin/androidx/compose/material3/minimumInteractiveComponentSize.modifier#(androidx.compose.ui.Modifier).minimumInteractiveComponentSize()) modifier from Material 3 instead. It
+reserves at least 48 dp of layout space in each dimension and centers the
+element in that space, so the element keeps its drawn size and the elements
+around it move to make room. The modifier doesn't expand the touch target
+itself: it leaves room in the layout for the expansion described earlier.
+Material components such as `Checkbox` use this modifier internally. Put it
+before any size modifier, because a size modifier before it limits the space
+that it can reserve.
+
+
+```kotlin
+@Composable
+private fun MinimumInteractiveBox() {
+    var clicked by remember { mutableStateOf(false) }
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Box(
+            Modifier
+                .clickable { clicked = !clicked }
+                .minimumInteractiveComponentSize()
+                .size(24.dp)
+                .background(if (clicked) Color.DarkGray else Color.Black)
+        )
+        Text("Option")
+    }
+}
+```
+
+<br />
+
 ## Graphic elements
 
 When you define an [`Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Image.composable#Image(androidx.compose.ui.graphics.ImageBitmap,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale,kotlin.Float,androidx.compose.ui.graphics.ColorFilter,androidx.compose.ui.graphics.FilterQuality)) or [`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Icon.composable#Icon(androidx.compose.ui.graphics.ImageBitmap,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color)) composable, there is no

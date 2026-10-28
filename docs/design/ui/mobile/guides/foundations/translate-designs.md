@@ -1,10 +1,22 @@
 ---
-title: https://developer.android.com/design/ui/mobile/guides/foundations/translate-designs
+title: Translate iOS designs to Android  |  Mobile  |  Android Developers
 url: https://developer.android.com/design/ui/mobile/guides/foundations/translate-designs
-source: md.txt
+source: html-scrape
 ---
 
-![hero image](https://developer.android.com/static/images/design/ui/mobile/platform_article_header.png)
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [UI Design](https://developer.android.com/design/ui)
+* [Mobile](https://developer.android.com/design/ui/mobile)
+* [Guides](https://developer.android.com/design/ui/mobile/guides/foundations/accessibility)
+
+# Translate iOS designs to Android Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+
+![hero image](/static/images/design/ui/mobile/platform_article_header.png)
 
 This guide helps you get started with Android design by translating existing iOS
 mobile designs to Android using fundamental Android UX patterns, along with
@@ -19,8 +31,8 @@ After that, branding can come through as color, type,
 and shape. Not only does this allow for content legibility, but creating
 cohesion becomes easier.
 
-> [!NOTE]
-> **Note:** Before you start, have a user flow map available to help visualize, document, and sketch out any differences that would affect Android.
+**Note:** Before you start, have a user flow map available to help visualize,
+document, and sketch out any differences that would affect Android.
 
 ## Start with your iOS designs
 
@@ -28,21 +40,21 @@ Before getting started, make a copy of your iOS app. iOS apps are broken down
 into three areas: Bars, Views, and Controls. You can use this structure to work
 through to translation, with styling last.
 
-Check out [parts of an Android app](https://developer.android.com/design/ui/mobile/guides/layout-and-content/app-anatomy).
+Check out [parts of an Android app](/design/ui/mobile/guides/layout-and-content/app-anatomy).
 
 ### 1. Delete the iOS system UI
 
 Delete the status bar and home indicator. It's simpler to do this now.
 
-![iOS sysUI deleted](https://developer.android.com/static/images/design/ui/mobile/platform-translate_01.png)
+![iOS sysUI deleted](/static/images/design/ui/mobile/platform-translate_01.png)
 
 ### 2. Resize your frames
 
 You can use Android compact sizing, 412 dp. Although, consider a range of
 devices even within a window class size. For example, test at 360 dp, to
-accommodate smaller screens, and adapt across all [window classes sizes](https://developer.android.com/design/ui/mobile/guides/layout-and-content/adapt-layout).
+accommodate smaller screens, and adapt across all [window classes sizes](/design/ui/mobile/guides/layout-and-content/adapt-layout).
 
-![Frame resized](https://developer.android.com/static/images/design/ui/mobile/platform-translate_02.png)
+![Frame resized](/static/images/design/ui/mobile/platform-translate_02.png)
 
 ### 3. Replace with Android System Bars
 
@@ -51,9 +63,9 @@ showing a stock system UI can help give your designs more context. Place the
 notification bar at the top and either a gesture navigation or three button
 navigation bar at the bottom.
 
-For more information, see [Android system bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars).
+For more information, see [Android system bars](/design/ui/mobile/guides/foundations/system-bars).
 
-![Frame resized](https://developer.android.com/static/images/design/ui/mobile/platform-translate_03.png)
+![Frame resized](/static/images/design/ui/mobile/platform-translate_03.png)
 
 ### 4. Depending on your navigation
 
@@ -73,7 +85,7 @@ and not a modal.
 Update the Bottom Navigation Bar with the appropriate icons and labels. Both
 platforms avoid lateral motion between navigation destinations.
 
-![Updated navigation](https://developer.android.com/static/images/design/ui/mobile/platform-translate_04.png)
+![Updated navigation](/static/images/design/ui/mobile/platform-translate_04.png)
 
 ### 5. Navbars to Top App Bars
 
@@ -89,22 +101,26 @@ primary navigation icon.
 
 The title is left aligned by default in the App Bar for Android.
 
-![Updated app bars](https://developer.android.com/static/images/design/ui/mobile/platform-translate_05.png)
+![Updated app bars](/static/images/design/ui/mobile/platform-translate_05.png)
 
 Child views hold an up arrow in the navigation icon spot. Not to be confused
 with back. The up arrow moves the user up a level through an app's navigation
 hierarchy in a user flow, while back or edge swipe lives in the system
 navigation, moving the user backwards and even taking the user out of the app.
 
-> [!NOTE]
-> **Note:** If you are using large title navbars on iOS these translate well to Large [flexible App Bars](https://m3.material.io/components/app-bars/specs) on Android. The App Bar starts in an expanded state with a large title, and collapses to a default state on scroll. Typically large titles are reserved for parent views, where collapsing App Bars can be used in both parent and child views. Use your best judgment here as collapsing Top App Bars can take up a lot of space.
+**Note:** If you are using large title navbars on iOS these translate well to Large
+[flexible App Bars](https://m3.material.io/components/app-bars/specs) on Android. The App Bar starts in an expanded state with
+a large title, and collapses to a default state on scroll. Typically large
+titles are reserved for parent views, where collapsing App Bars can be used
+in both parent and child views. Use your best judgment here as collapsing Top
+App Bars can take up a lot of space.
 
 What about modal views? For full-screen modals (like video players and images),
 this will be similar to the child view App Bar, except the navigation icon
 should change to close, which dismisses the modal.
 
-> [!NOTE]
-> **Note:** iOS navbars will use text (**Cancel** or **Done**) while Android trends to icons in this space for dismissal.
+**Note:** iOS navbars will use text (**Cancel** or **Done**) while Android trends
+to icons in this space for dismissal.
 
 ### 6. A bit more modality
 
@@ -122,9 +138,9 @@ now too).
 
 For alerts, use system [dialogs](https://m3.material.io/components/dialogs/overview). If you are using them for important
 information that you need the user to acknowledge in some way, swap them for
-[system dialogs](https://developer.android.com/guide/topics/permissions/overview). Remember to swap any inputs and pickers at this point too.
+[system dialogs](/guide/topics/permissions/overview). Remember to swap any inputs and pickers at this point too.
 
-![to full screen dialog](https://developer.android.com/static/images/design/ui/mobile/platform-translate_06.png)
+![to full screen dialog](/static/images/design/ui/mobile/platform-translate_06.png)
 
 ### 7. Sibling content
 
@@ -134,15 +150,15 @@ between views of information that is similar, but not the same. Android tabs are
 typically attached to the App Bar, and come with the added benefit of being
 able to swipe between content.
 
-![Android tabs](https://developer.android.com/static/images/design/ui/mobile/platform-translate_07.png)
+![Android tabs](/static/images/design/ui/mobile/platform-translate_07.png)
 
-### 8. Content \& Controls
+### 8. Content & Controls
 
 Depending how you have constraints or resizing behavior setup, most of your
 content possibly resized already. But take this time to go through and set your
 margins. 16dp is a good standard on small screens.
 
-The baseline [grid](https://developer.android.com/design/ui/mobile/guides/layout-and-content/grids-and-units) is based on an 8dp grid for components and 4dp for type
+The baseline [grid](/design/ui/mobile/guides/layout-and-content/grids-and-units) is based on an 8dp grid for components and 4dp for type
 and icons. An 8pt grid functions well on iOS, so possibly consider it as a
 starting point for both platforms.
 
@@ -154,16 +170,16 @@ with options like outline or filled, so pick which one fits your branding best.
 
 [Material Lists](https://m3.material.io/components/lists/overview) have some differences when compared to iOS table cells:
 
-- Divider lines are used sparingly.
-- Indicators are not used on lists to help keep visual noise to a minimum.
-- Dimensions adhere to the 8dp grid.
+* Divider lines are used sparingly.
+* Indicators are not used on lists to help keep visual noise to a minimum.
+* Dimensions adhere to the 8dp grid.
 
-![Android tabs](https://developer.android.com/static/images/design/ui/mobile/platform-translate_08.png)
+![Android tabs](/static/images/design/ui/mobile/platform-translate_08.png)
 
 ### 9. Style
 
 **Color:** UI color consists of accent, semantic, and surface colors assembled
-in a [color scheme](https://developer.android.com/design/ui/mobile/guides/styles/color#color-scheme). These colors are applied to UI by their roles.
+in a [color scheme](/design/ui/mobile/guides/styles/color#color-scheme). These colors are applied to UI by their roles.
 
 **Type:** If using a system font, replace San Francisco. Roboto is the default
 system font for Android. That said, we encourage you to express your brand's
@@ -181,7 +197,7 @@ advantage of container transform, shared axis, fade through, and fade
 animations. Consider if elements in your design have persistent containers, the
 relationship between elements, and how they need to enter or exit.
 
-![Updated styles](https://developer.android.com/static/images/design/ui/mobile/platform-translate_09.png)
+![Updated styles](/static/images/design/ui/mobile/platform-translate_09.png)
 
 ### 10. Tidy up
 
@@ -193,7 +209,7 @@ are Android appropriate (mentioned in step 9).
 You should have a fully functioning prototype ready, and since you resized it,
 it's ready for handoff.
 
-![cleaning up designs](https://developer.android.com/static/images/design/ui/mobile/platform-translate_10.png)
+![cleaning up designs](/static/images/design/ui/mobile/platform-translate_10.png)
 
 ## Style and component guide
 
@@ -206,7 +222,7 @@ style with color, type, and shape.
 Having platform-specific guidelines is not uncommon among multi-platform
 products and can make your own design system more user-centered.
 
-![style guide](https://developer.android.com/static/images/design/ui/mobile/platform-translate_style.png)
+![style guide](/static/images/design/ui/mobile/platform-translate_style.png)
 
 Finally, if you're working without one, know that not every app or product needs
 a full custom design system! Consider creating a one-sheet style guide. A style

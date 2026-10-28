@@ -1,32 +1,57 @@
 ---
-title: https://developer.android.com/blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture
+title: Introducing CameraX 1.5: Powerful Video Recording and Pro-level Image Capture  |  Android Developers' Blog
 url: https://developer.android.com/blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture
-source: md.txt
+source: html-scrape
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+* [Android Developers](https://developer.android.com/)
+* [Android Developers' Blog](https://developer.android.com/)
+* [Blog](https://developer.android.com/blog)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+[Product News](/blog/categories/product-news)
 
 # Introducing CameraX 1.5: Powerful Video Recording and Pro-level Image Capture
 
-7 min read ![](https://developer.android.com/static/blog/assets/camera_X1_5_9f8216fa59_Z1up4QS.webp) 13 Nov 2025 [![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_ZaWsTm.webp)](https://developer.android.com/blog/authors/scott-nien) [Scott Nien](https://developer.android.com/blog/authors/scott-nien) Software Engineer The CameraX team is thrilled to announce the release of version 1.5! This latest update focuses on bringing professional-grade capabilities to your fingertips while making the camera session easier to configure than ever before.
+7 min read
 
-For **video recording** , users can now effortlessly capture stunning slow-motion or high-frame-rate videos. More importantly, the new [Feature Group API](https://developer.android.com/reference/androidx/camera/core/SessionConfig.Builder#setPreferredFeatureGroup(kotlin.Array)) allows you to confidently enable complex combinations like **10-bit HDR and 60 FPS**, ensuring consistent results across supported devices.
+![](/static/blog/assets/camera_X1_5_9f8216fa59_Z1up4QS.webp)
+
+13
+
+Nov
+2025
+
+[![View Scott Nien's profile](/static/blog/assets/scottnien_c517be4920_ZaWsTm.webp)](/blog/authors/scott-nien)
+
+[Scott Nien](/blog/authors/scott-nien)
+
+Software Engineer
+
+The CameraX team is thrilled to announce the release of version 1.5! This latest update focuses on bringing professional-grade capabilities to your fingertips while making the camera session easier to configure than ever before.
+
+For **video recording**, users can now effortlessly capture stunning slow-motion or high-frame-rate videos. More importantly, the new [Feature Group API](/reference/androidx/camera/core/SessionConfig.Builder#setPreferredFeatureGroup(kotlin.Array)) allows you to confidently enable complex combinations like **10-bit HDR and 60 FPS**, ensuring consistent results across supported devices.
 
 On the **image capture** front, you gain maximum flexibility with support for capturing unprocessed, uncompressed DNG (RAW) files. Plus, you can now leverage Ultra HDR output even when using powerful Camera Extensions.
 
-Underpinning these features is the new [**SessionConfig API**](https://developer.android.com/reference/androidx/camera/core/SessionConfig), which streamlines camera setup and reconfiguration. Now, let's dive into the details of these exciting new features.
+Underpinning these features is the new [**SessionConfig API**](/reference/androidx/camera/core/SessionConfig), which streamlines camera setup and reconfiguration. Now, let's dive into the details of these exciting new features.
 
 ## Powerful Video Recording: High-Speed and Feature Combinations
 
 CameraX 1.5 significantly expands its video capabilities, enabling more creative and robust recording experiences.
 
-### Slow Motion \& High Frame Rate Video
+### Slow Motion & High Frame Rate Video
 
 One of our most anticipated features, slow-motion video, is now available. You can now capture high-speed video (e.g., 120 or 240 fps) and encode it directly into a dramatic slow-motion video. Alternatively, you can record at the same high frame rate to produce exceptionally smooth video.
 
-Implementing this is straightforward if you're familiar with the [VideoCapture](https://developer.android.com/media/camera/camerax/video-capture) API.
+Implementing this is straightforward if you're familiar with the [VideoCapture](/media/camera/camerax/video-capture) API.
 
-**1. Check for High-Speed Support:** Use the new [Recorder.getHighSpeedVideoCapabilities()](https://developer.android.com/reference/androidx/camera/video/Recorder#getHighSpeedVideoCapabilities(androidx.camera.core.CameraInfo))method to query if the device supports this feature.
+**1. Check for High-Speed Support:** Use the new [Recorder.getHighSpeedVideoCapabilities()](/reference/androidx/camera/video/Recorder#getHighSpeedVideoCapabilities(androidx.camera.core.CameraInfo)) method to query if the device supports this feature.
 
 ```
 val cameraInfo = cameraProvider.getCameraInfo(cameraSelector)
@@ -39,7 +64,7 @@ if (highSpeedCapabilities == null) {
 }
 ```
 
-**2. Configure and Bind the Use Case:** Use the returned `videoCapabilities` (which contains supported video quality information) to build a [HighSpeedVideoSessionConfig](https://developer.android.com/reference/kotlin/androidx/camera/video/HighSpeedVideoSessionConfig). You must then query the supported frame rate ranges via [cameraInfo.getSupportedFrameRateRanges()](https://developer.android.com/reference/androidx/camera/core/CameraInfo#getSupportedFrameRateRanges(androidx.camera.core.SessionConfig)) and set the desired range. Invoke [setSlowMotionEnabled(true)](https://developer.android.com/reference/kotlin/androidx/camera/video/HighSpeedVideoSessionConfig.Builder?_gl=1*1eperjw*_up*MQ..*_ga*NTc4Mzk5NDgzLjE3NjIyMzgyNzY.*_ga_6HH9YJMN9M*czE3NjIyMzgyNzYkbzEkZzAkdDE3NjIyMzgyNzYkajYwJGwwJGgxMzAyMzMwOTk4#setSlowMotionEnabled(kotlin.Boolean)) to record slow motion videos, otherwise it will record high-frame-rate videos. The final step is to use the regular `Recorder.prepareRecording().start()` to begin recording the video.
+**2. Configure and Bind the Use Case:** Use the returned `videoCapabilities` (which contains supported video quality information) to build a [HighSpeedVideoSessionConfig](/reference/kotlin/androidx/camera/video/HighSpeedVideoSessionConfig). You must then query the supported frame rate ranges via [cameraInfo.getSupportedFrameRateRanges()](/reference/androidx/camera/core/CameraInfo#getSupportedFrameRateRanges(androidx.camera.core.SessionConfig)) and set the desired range. Invoke [setSlowMotionEnabled(true)](/reference/kotlin/androidx/camera/video/HighSpeedVideoSessionConfig.Builder?_gl=1*1eperjw*_up*MQ..*_ga*NTc4Mzk5NDgzLjE3NjIyMzgyNzY.*_ga_6HH9YJMN9M*czE3NjIyMzgyNzYkbzEkZzAkdDE3NjIyMzgyNzYkajYwJGwwJGgxMzAyMzMwOTk4#setSlowMotionEnabled(kotlin.Boolean)) to record slow motion videos, otherwise it will record high-frame-rate videos. The final step is to use the regular `Recorder.prepareRecording().start()` to begin recording the video.
 
 ```
 val preview = Preview.Builder().build()
@@ -74,13 +99,13 @@ val recording = recorder.prepareRecording(context, outputOption)
 
 **Compatibility and Limitations**
 
-High-speed recording requires specific [CameraConstrainedHighSpeedCaptureSession](https://developer.android.com/reference/android/hardware/camera2/CameraConstrainedHighSpeedCaptureSession) and [CamcorderProfile](https://developer.android.com/reference/android/media/CamcorderProfile) support. Always perform the capability check, and enable high-speed recording only on supported devices to prevent bad user experience. Currently, this feature is supported on the rear cameras of almost all Pixel devices and select models from other manufacturers.
+High-speed recording requires specific [CameraConstrainedHighSpeedCaptureSession](/reference/android/hardware/camera2/CameraConstrainedHighSpeedCaptureSession) and [CamcorderProfile](/reference/android/media/CamcorderProfile) support. Always perform the capability check, and enable high-speed recording only on supported devices to prevent bad user experience. Currently, this feature is supported on the rear cameras of almost all Pixel devices and select models from other manufacturers.
 
 Check the [blog post](https://android-developers.googleblog.com/2025/10/high-speed-capture-and-slow-motion.html) for more details.
 
 ### Combine Features with Confidence: The Feature Group API
 
-CameraX 1.5 introduces the **Feature Group API** , which eliminates the guesswork of feature compatibility. Based on Android 15's feature combination query [API](https://source.android.com/docs/core/camera/stream-config#feature-combinations-api), you can now confidently enable multiple features together, guaranteeing a stable camera session. The Feature Group currently supports: **HDR (HLG), 60 fps, Preview Stabilization, and Ultra HDR**. For instance, you can enable HDR, 60 fps, and Preview Stabilization simultaneously on Pixel 10 and Galaxy S25 series. Future enhancements are planned to include 4K recording and ultra-wide zoom.
+CameraX 1.5 introduces the **Feature Group API**, which eliminates the guesswork of feature compatibility. Based on Android 15's feature combination query [API](https://source.android.com/docs/core/camera/stream-config#feature-combinations-api), you can now confidently enable multiple features together, guaranteeing a stable camera session. The Feature Group currently supports: **HDR (HLG), 60 fps, Preview Stabilization, and Ultra HDR**. For instance, you can enable HDR, 60 fps, and Preview Stabilization simultaneously on Pixel 10 and Galaxy S25 series. Future enhancements are planned to include 4K recording and ultra-wide zoom.
 
 The feature group API enables two essential use cases:
 
@@ -119,7 +144,8 @@ In this example, CameraX tries to enable features in this order:
 **Use Case 2: Building a User-Facing Settings UI**
 
 You can now accurately reflect which feature combinations are supported in your app's settings UI, disabling toggles for unsupported options like the picture below.
-![unsupported-features-disabled.gif](https://developer.android.com/static/blog/assets/unsupported_features_disabled_3da0c273f4_2pScar.webp)
+
+![unsupported-features-disabled.gif](/static/blog/assets/unsupported_features_disabled_3da0c273f4_2pScar.webp)
 
 To determine whether to gray out a toggle, use the following codes to check for feature combination support. Initially, query the status of every individual feature. Once a feature is enabled, re-query the remaining features with the enabled features to see if their toggles must now be grayed out due to compatibility constraints.
 
@@ -140,18 +166,18 @@ fun disableFeatureIfNotSuported(
 }
 ```
 
-Please refer to the [Feature Group blog post](https://android-developers.googleblog.com/2025/10/beyond-single-features-guaranteeing.html)for more information.
+Please refer to the [Feature Group blog post](https://android-developers.googleblog.com/2025/10/beyond-single-features-guaranteeing.html) for more information.
 
 ### More Video Enhancements
 
-- **Concurrent Camera Improvements:** With CameraX 1.5.1, you can now bind Preview + ImageCapture + VideoCapture use cases concurrently for each [SingleCameraConfig](https://developer.android.com/reference/androidx/camera/core/ConcurrentCamera.SingleCameraConfig) in **non-composition mode** . Additionally, in **composition mode** (same use cases with [CompositionSettings](https://developer.android.com/reference/kotlin/androidx/camera/core/CompositionSettings)), you can now set the `CameraEffect` that is applied to the final composition result.
-- **Dynamic Muting:** You can now start a recording in a muted state using `PendingRecording.withAudioEnabled(boolean initialMuted)` and allow the user to unmute later using `Recording.mute(boolean muted)`.
-- **Improved Insufficient Storage Handling:** CameraX now reliably dispatches the `VideoRecordEvent.Finalize.ERROR_INSUFFICIENT_STORAGE` error, allowing your app to gracefully handle low storage situations and inform the user.
-- **Low Light Boost:** On supported devices (like the Pixel 10 series), you can enable [CameraControl.enableLowLightBoostAsync](https://developer.android.com/reference/androidx/camera/core/CameraControl#enableLowLightBoostAsync(boolean)) to automatically brighten the preview and video streams in dark environments.
+* **Concurrent Camera Improvements:** With CameraX 1.5.1, you can now bind Preview + ImageCapture + VideoCapture use cases concurrently for each [SingleCameraConfig](/reference/androidx/camera/core/ConcurrentCamera.SingleCameraConfig) in **non-composition mode**. Additionally, in **composition mode** (same use cases with [CompositionSettings](/reference/kotlin/androidx/camera/core/CompositionSettings)),  you can now set the `CameraEffect` that is applied to the final composition result.
+* **Dynamic Muting:** You can now start a recording in a muted state using `PendingRecording.withAudioEnabled(boolean initialMuted)` and allow the user to unmute later using `Recording.mute(boolean muted)`.
+* **Improved Insufficient Storage Handling:** CameraX now reliably dispatches the `VideoRecordEvent.Finalize.ERROR_INSUFFICIENT_STORAGE` error, allowing your app to gracefully handle low storage situations and inform the user.
+* **Low Light Boost:** On supported devices (like the Pixel 10 series), you can enable [CameraControl.enableLowLightBoostAsync](/reference/androidx/camera/core/CameraControl#enableLowLightBoostAsync(boolean)) to automatically brighten the preview and video streams in dark environments.
 
 ## Professional-Grade Image Capture
 
-CameraX 1.5 brings major upgrades to [ImageCapture](https://developer.android.com/reference/androidx/camera/core/ImageCapture) for developers who demand maximum quality and flexibility.
+CameraX 1.5 brings major upgrades to [ImageCapture](/reference/androidx/camera/core/ImageCapture) for developers who demand maximum quality and flexibility.
 
 ### Unleash Creative Control with DNG (RAW) Capture
 
@@ -216,25 +242,25 @@ val imageCapture = ImageCapture.Builder()
 
 ### A New Way to Configure: `SessionConfig`
 
-As seen in the examples above, [SessionConfig](https://developer.android.com/reference/androidx/camera/core/SessionConfig) is a new concept in CameraX 1.5. It centralizes configuration and simplifies the API in two key ways:
+As seen in the examples above, [SessionConfig](/reference/androidx/camera/core/SessionConfig) is a new concept in CameraX 1.5. It centralizes configuration and simplifies the API in two key ways:
 
-1. **No More Manual** `unbind()`**Calls:** CameraX APIs are lifecycle-aware. It will implicitly "unbind" your use cases when the activity or other `LifecycleOwner` is destroyed. But updating use cases or switching cameras still requires you to call `unbind()` or `unbindAll()` before rebinding. Now with CameraX 1.5, when you bind a new `SessionConfig`, CameraX seamlessly updates the session for you, eliminating the need for unbind calls.
+1. **No More Manual** `unbind()` **Calls:** CameraX APIs are lifecycle-aware. It will implicitly “unbind” your use cases when the activity or other `LifecycleOwner` is destroyed. But updating use cases or switching cameras still requires you to call `unbind()` or `unbindAll()` before rebinding. Now with CameraX 1.5, when you bind a new `SessionConfig`, CameraX seamlessly updates the session for you, eliminating the need for unbind calls.
 2. **Deterministic Frame Rate Control:** The new `SessionConfig` API introduces a deterministic way to manage the frame rate. Unlike the previous `setTargetFrameRate`, which was only a hint, this new method **guarantees** the specified frame rate range will be applied upon successful configuration. To ensure accuracy, you must query supported frame rates using `CameraInfo.getSupportedFrameRateRanges(SessionConfig)`. By passing the full `SessionConfig`, CameraX can accurately determine the supported ranges based on stream configurations.
 
 ### Camera-Compose is Now Stable
 
-We know how much you enjoy Jetpack Compose, and we're excited to announce that the `camera-compose`**library is now stable at version** `1.5.1`**!** This release includes critical bug fixes related to [CameraXViewfinder](https://developer.android.com/reference/kotlin/androidx/camera/compose/package-summary?_gl=1*6zjzmt*_up*MQ..*_ga*MjA5MDY4MTQyNy4xNzYxOTEyNzg4*_ga_6HH9YJMN9M*czE3NjE5MTI3ODckbzEkZzAkdDE3NjE5MTI3ODckajYwJGwwJGg4MDk5ODEyOTc.#CameraXViewfinder(androidx.camera.core.SurfaceRequest,androidx.compose.ui.Modifier,androidx.camera.viewfinder.core.ImplementationMode,androidx.camera.viewfinder.compose.MutableCoordinateTransformer,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale)) usage with Compose features like `moveableContentOf` and `Pager`, as well as resolving a preview stretching issue. We will continue to add more features to `camera-compose` in future releases.
+We know how much you enjoy Jetpack Compose, and we're excited to announce that the `camera-compose` **library is now stable at version** `1.5.1`**!** This release includes critical bug fixes related to [CameraXViewfinder](/reference/kotlin/androidx/camera/compose/package-summary?_gl=1*6zjzmt*_up*MQ..*_ga*MjA5MDY4MTQyNy4xNzYxOTEyNzg4*_ga_6HH9YJMN9M*czE3NjE5MTI3ODckbzEkZzAkdDE3NjE5MTI3ODckajYwJGwwJGg4MDk5ODEyOTc.#CameraXViewfinder(androidx.camera.core.SurfaceRequest,androidx.compose.ui.Modifier,androidx.camera.viewfinder.core.ImplementationMode,androidx.camera.viewfinder.compose.MutableCoordinateTransformer,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale)) usage with Compose features like `moveableContentOf` and `Pager`, as well as resolving a preview stretching issue. We will continue to add more features to `camera-compose` in future releases.
 
 ### ImageAnalysis and CameraControl Improvements
 
-- **Torch Strength Adjustment:** Gain fine-grained control over the device's torch with new APIs. You can query the maximum supported strength using [CameraInfo.getMaxTorchStrengthLevel()](https://developer.android.com/reference/androidx/camera/core/CameraInfo#getMaxTorchStrengthLevel()) and then set the desired level with [CameraControl.setTorchStrengthLevel()](https://developer.android.com/reference/androidx/camera/core/CameraControl#setTorchStrengthLevel(int)).
-- **NV21 Support in** `ImageAnalysis`**:** You can now request the NV21 image format directly from `ImageAnalysis`, simplifying integration with other libraries and APIs. This is enabled by invoking `ImageAnalysis.Builder.setOutputImageFormat(OUTPUT_IMAGE_FORMAT_NV21)`.
+* **Torch Strength Adjustment:** Gain fine-grained control over the device's torch with new APIs. You can query the maximum supported strength using [CameraInfo.getMaxTorchStrengthLevel()](/reference/androidx/camera/core/CameraInfo#getMaxTorchStrengthLevel()) and then set the desired level with [CameraControl.setTorchStrengthLevel()](/reference/androidx/camera/core/CameraControl#setTorchStrengthLevel(int)).
+* **NV21 Support in** `ImageAnalysis`**:** You can now request the NV21 image format directly from `ImageAnalysis`, simplifying integration with other libraries and APIs. This is enabled by invoking `ImageAnalysis.Builder.setOutputImageFormat(OUTPUT_IMAGE_FORMAT_NV21)`.
 
 ## Get Started Today
 
 **Update your dependencies to CameraX 1.5 today** and explore the exciting new features. We can't wait to see what you build.
 
-To use CameraX 1.5, please add the following dependencies to your libs.versions.toml. (We recommend using 1.5.1 which contains many critical bug fixes and concurrent camera improvements.)
+To use CameraX 1.5,  please add the following dependencies to your libs.versions.toml. (We recommend using 1.5.1 which contains many critical bug fixes and concurrent camera improvements.)
 
 ```
 [versions]
@@ -281,43 +307,108 @@ dependencies {
 
 Have questions or want to connect with the CameraX team? Join the CameraX developer discussion group or file a bug report:
 
-- [CameraX developers discussion group](https://groups.google.com/a/android.com/g/camerax-developers)
-- [File a bug](https://www.google.com/search?q=https://issuetracker.google.com/issues/new?component%3D618491%26template%3D1257717%26hl%3Dzh-tw)
+* [CameraX developers discussion group](https://groups.google.com/a/android.com/g/camerax-developers)
+* [File a bug](https://www.google.com/search?q=https%3A%2F%2Fissuetracker.google.com%2Fissues%2Fnew%3Fcomponent%3D618491%26template%3D1257717%26hl%3Dzh-tw)
+
 Written by:
 
--
-
-  ## [Scott Nien](https://developer.android.com/blog/authors/scott-nien)
+* ## [Scott Nien](/blog/authors/scott-nien)
 
   ###### Software Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/scott-nien) ![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_ZaWsTm.webp) ![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_ZaWsTm.webp)
+  [read\_more
+  View profile](/blog/authors/scott-nien)
+
+  ![View Scott Nien's profile](/static/blog/assets/scottnien_c517be4920_ZaWsTm.webp)
+
+  ![View Scott Nien's profile](/static/blog/assets/scottnien_c517be4920_ZaWsTm.webp)
+
 Continue reading
-- [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](https://developer.android.com/blog/authors/roxanna-walker) 21 Oct 2026 21 Oct 2026 ![](https://developer.android.com/static/blog/assets/1009_ABL_142_A_more_reliable_way_to_add_and_edit_contacts_on_Android_Strapi_b510ec4fc0_ZXfljU.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [A more reliable way to add and edit contacts on Android](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android)
+* [![View Roxanna Aliabadi Walker's profile](/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](/blog/authors/roxanna-walker)
 
-  [arrow_forward](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android) Apps that target the upcoming Android release will no longer be able to directly write to contacts with the WRITE_CONTACTS permission.
-  [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) • 6 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Jason Buchel's profile](https://developer.android.com/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](https://developer.android.com/blog/authors/jason-buchel) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  21
 
-  ## [Bringing our latest frontier model to Android Developers](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
+  Oct
+  2026
 
-  [arrow_forward](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli) As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use.
-  [Jason Buchel](https://developer.android.com/blog/authors/jason-buchel) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  21
 
-  ## [New ways to drive smarter discovery, deeper engagement, and business growth on Google Play](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth)
+  Oct
+  2026
 
-  [arrow_forward](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth) Today, we shared how we're taking our "more than a store" vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+  ![](/static/blog/assets/1009_ABL_142_A_more_reliable_way_to_add_and_edit_contacts_on_Android_Strapi_b510ec4fc0_ZXfljU.webp)
+
+  [Product News](/blog/categories/product-news)
+
+  ## [A more reliable way to add and edit contacts on Android](/blog/posts/reliable-way-to-add-and-edit-contacts-android)
+
+  [arrow\_forward](/blog/posts/reliable-way-to-add-and-edit-contacts-android)
+
+  Apps that target the upcoming Android release will no longer be able to directly write to contacts with the WRITE\_CONTACTS permission.
+
+  [Roxanna Aliabadi Walker](/blog/authors/roxanna-walker)
+  •
+  6 min read
+  + [#Android](/blog/topics/android)
+* [![View Jason Buchel's profile](/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](/blog/authors/jason-buchel)
+
+  13
+
+  Oct
+  2026
+
+  13
+
+  Oct
+  2026
+
+  ![](/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp)
+
+  [Product News](/blog/categories/product-news)
+
+  ## [Bringing our latest frontier model to Android Developers](/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
+
+  [arrow\_forward](/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
+
+  As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use.
+
+  [Jason Buchel](/blog/authors/jason-buchel)
+  •
+  3 min read
+  + [#Agentic Android development](/blog/topics/agentic-android-development)
+* [![View Paul Feng's profile](/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](/blog/authors/paul-feng)
+
+  13
+
+  Oct
+  2026
+
+  13
+
+  Oct
+  2026
+
+  ![](/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp)
+
+  [Product News](/blog/categories/product-news)
+
+  ## [New ways to drive smarter discovery, deeper engagement, and business growth on Google Play](/blog/posts/google-play-discovery-engagement-growth)
+
+  [arrow\_forward](/blog/posts/google-play-discovery-engagement-growth)
+
+  Today, we shared how we’re taking our “more than a store” vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
+
+  [Paul Feng](/blog/authors/paul-feng)
+  •
+  3 min read
+
 Stay in the loop
-
 
 Get the latest Android development insights delivered to your inbox
 weekly.
+
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)
+Subscribe](/subscribe)
+
+![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

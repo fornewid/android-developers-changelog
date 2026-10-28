@@ -9,7 +9,11 @@ terminal and coding agent
 
 Download Android CLI and start building in about two minutes. It connects your terminal directly to Android Studio's code intelligence and platform tools. Use it yourself or hand the same commands to the coding agent you already work with. <button class="button button-disabled" disabled="">Download Not Available</button>
 
-Your current device is not supported.  
+
+Your current device is not supported.
+
+<br />
+
 
 [See all download options](https://developer.android.com/tools/agents/android-cli/download)
 
@@ -91,6 +95,10 @@ Use the command below to install official Android tools and resources that can b
 with your preferred agent to bring your ideas to life across any screen.
 <button class="button button-disabled" disabled="">Download Not Available</button>
 
-Your current device is not supported.  
+
+Your current device is not supported.
+
+<br />
+
 
 [See all download options](https://developer.android.com/tools/agents/android-cli/download)

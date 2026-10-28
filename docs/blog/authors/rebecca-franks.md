@@ -1,32 +1,83 @@
 ---
-title: https://developer.android.com/blog/authors/rebecca-franks
+title: Rebecca Franks  |  Android Developers' Blog
 url: https://developer.android.com/blog/authors/rebecca-franks
-source: md.txt
+source: html-scrape
 ---
 
-2 posts ![](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)
+* [Android Developers](https://developer.android.com/)
+* [Android Developers' Blog](https://developer.android.com/)
+* [Blog](https://developer.android.com/blog)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+2
+posts
+
+![](/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)
 
 # Rebecca Franks
 
 Developer Relations Engineer
-- 30 Sep 2026 30 Sep 2026 ![](https://developer.android.com/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
-  ## [How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct)
+[![X](/static/blog/assets/x.p6tAp2wU.svg)](https://x.com/riggaroo)
 
-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct) The team built an AI-native UI codebase that is 50% smaller than the original implementation, while achieving a 35% reduction in AI agent execution time, 32% fewer engineer-agent exchanges, and a 33% reduction in token cost.
+[![LinkedIn](/static/blog/assets/linkedin.XPl_U-8i.svg)](https://www.linkedin.com/in/rebeccafranks/)
+
+* 30
+
+  Sep
+  2026
+
+  30
+
+  Sep
+  2026
+
+  ![](/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp)
+
+  [Case Studies](/blog/categories/case-studies)
+
+  ## [How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%](/blog/posts/jetpack-compose-ai-native-ui-instagram-direct)
+
+  [arrow\_forward](/blog/posts/jetpack-compose-ai-native-ui-instagram-direct)
+
+  The team built an AI-native UI codebase that is 50% smaller than the original implementation, while achieving a 35% reduction in AI agent execution time, 32% fewer engineer-agent exchanges, and a 33% reduction in token cost.
+
   11 min read
-  - [#Compose-first](https://developer.android.com/blog/topics/compose-first)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- 28 Jul 2026 28 Jul 2026 ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z6XDT1.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  + [#Compose-first](/blog/topics/compose-first)
+  + [#Jetpack Compose](/blog/topics/jetpack-compose)
+* 28
 
-  ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
+  Jul
+  2026
 
-  [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
+  28
+
+  Jul
+  2026
+
+  ![](/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z6XDT1.webp)
+
+  [Product News](/blog/categories/product-news)
+
+  ## [Celebrating 5 years of Jetpack Compose](/blog/posts/celebrating-5-years-of-jetpack-compose)
+
+  [arrow\_forward](/blog/posts/celebrating-5-years-of-jetpack-compose)
+
+  Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we’ve seen the APIs evolve significantly over the years, and we’re taking a moment to celebrate.
+
   4 min read
-Stay in the loop
 
+Stay in the loop
 
 Get the latest Android development insights delivered to your inbox
 weekly.
+
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)
+Subscribe](/subscribe)
+
+![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

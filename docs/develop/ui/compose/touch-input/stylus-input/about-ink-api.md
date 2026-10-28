@@ -20,3 +20,16 @@ architectures. You can use Ink API modules that aren't Android-specific in
 server-side JVM code under Linux for x86_64. This enables high-fidelity
 server-side rendering, ensuring that digital ink looks identical across mobile
 previews and exported documents like PDFs or PNGs.
+
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/jetpack-compose/ink/ink-app-builder)
+
+### Build Ink drawing apps
+
+Use the `ink-app-builder` [Android skill](https://developer.android.com/tools/agents/android-skills) to build freehand drawing surfaces in Jetpack Compose, handle stylus input, erase strokes, and save ink data. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add ink-app-builder
+
+<br />

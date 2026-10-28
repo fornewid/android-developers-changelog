@@ -11,14 +11,22 @@ point to the official tools, skills, and knowledge you need to develop more
 effectively. It can also streamline CI, maintenance, and any other scripted
 automation for the increasingly distributed nature of Android development.
 
-For example, an agent or script can use the CLI to do tasks such as the
-following:
+Android CLI covers the full development lifecycle, from creating a project and
+testing it on a device to profiling its performance and investigating how it
+behaves in the field. For example, an agent or script can use the CLI to do
+tasks such as the following:
 
-- Automate environment and Android SDK setup
-- Scaffold new projects from templates
-- Manage virtual devices, install APKs, and inspect live device screens and UI hierarchies directly from your terminal
-- Connect to running Android Studio instances for semantic code analysis, Compose preview rendering, and dependency version lookups
+- Automate environment and [Android SDK setup](https://developer.android.com/tools/agents/android-cli/commands/sdk)
+- [Scaffold new projects](https://developer.android.com/tools/agents/android-cli/commands/create) from templates
+- [Build](https://developer.android.com/tools/agents/android-cli/commands/build), [install](https://developer.android.com/tools/agents/android-cli/commands/install), and [run](https://developer.android.com/tools/agents/android-cli/commands/run) your app on a connected device or emulator
+- [Manage virtual devices](https://developer.android.com/tools/agents/android-cli/commands/emulator), [mirror and control connected devices in
+  a desktop window](https://developer.android.com/tools/agents/android-cli/commands/device_hub), and [inspect](https://developer.android.com/tools/agents/android-cli/commands/screen) and [interact with](https://developer.android.com/tools/agents/android-cli/commands/input) live device screens and UI hierarchies directly from your terminal
+- [Render Jetpack Compose previews](https://developer.android.com/tools/agents/android-cli/commands/preview) to images on your machine, with no device or Android Studio required
+- [Connect to running Android Studio instances](https://developer.android.com/tools/agents/android-cli/commands/studio) for semantic code analysis, Compose preview rendering, and dependency version lookups
 - Test your app with [Journeys](https://developer.android.com/tools/agents/android-cli/journeys)
+- [Profile your app](https://developer.android.com/tools/agents/android-cli/commands/profiler) by recording system traces and capturing heap dumps on a connected device or emulator
+- [Analyze APKs, app bundles, and libraries](https://developer.android.com/tools/agents/android-cli/commands/analyze) to report their sizes, R8 shrinking and optimization metrics, and keep rule warnings
+- [Investigate crashes, ANRs, and non-fatal issues](https://developer.android.com/tools/agents/android-cli/commands/signals) that Firebase Crashlytics reports for your app in the field, including the heap dumps that Crashlytics collects on out-of-memory crashes
 
 Android CLI also gives your agents access to
 [Android skills](https://developer.android.com/tools/agents/android-skills)
@@ -86,11 +94,6 @@ command with Android CLI.
 
 If you encounter any issues or want to provide feedback,
 [report a bug](https://issuetracker.google.com/issues/new?component=2091212).
-
-## Known issues
-
-- The `android emulator` command for Windows is currently disabled.
-- Downloading Android CLI from Windows PowerShell isn't currently supported.
 
 ## Configure Android CLI
 

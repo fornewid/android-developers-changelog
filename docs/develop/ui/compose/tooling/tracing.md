@@ -30,7 +30,7 @@ of detail in composition.
 
 ## Composition tracing setup
 
-To try out the recomposition tracing in your project, you need to update to at
+To try out the composition tracing in your project, you need to update to at
 least the following versions:
 
 - Android Studio Flamingo
@@ -58,7 +58,7 @@ you can see the composable functions automatically.
 
 ## Take a system trace
 
-To take a system trace and see the new recomposition tracing in action, follow
+To take a system trace and see the new composition tracing in action, follow
 these steps:
 
 1. Open the profiler:
@@ -73,7 +73,7 @@ these steps:
    ![Trace options - System trace](https://developer.android.com/static/develop/ui/compose/images/performance/tracing-3.png) **Figure 4**. Trace options - System trace
 4. Use your app to cause recomposition and stop recording. Once the trace has
    been processed and appears, you should now be able to see the composables in
-   the recomposition trace. You can use the keyboard and mouse to zoom and pan
+   the composition trace. You can use the keyboard and mouse to zoom and pan
    around the trace; if you are unfamiliar with navigating a trace, see the
    [Record traces](https://developer.android.com/studio/profile/record-traces#ui-shortcuts) documentation.
 
@@ -208,6 +208,52 @@ macrobenchmarks, you need to:
    before running benchmarks. Check [Macrobenchmark instrumentation
    arguments](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-instrumentation-args#fulltracing) for more information about Macrobenchmark
    instrumentation arguments.
+
+## Recomposition tracing
+
+Recomposition tracing adds the state reads and writes that cause composable
+functions to recompose to the trace, in addition to the composable functions
+from composition tracing. This helps you find which state change triggered a
+recomposition.
+
+Recomposition tracing has a higher overhead than composition tracing, so use it
+to debug recompositions, not to measure performance.
+
+### Recomposition tracing setup
+
+Add a dependency on Compose Runtime Tracing 1.13.0 or higher to your app
+module:
+
+    // Compose BOM 2026.11.00+ (runtime-tracing 1.13.0+)
+    implementation("androidx.compose.runtime:runtime-tracing")
+
+The device or emulator you run your trace on must be at API level 29 or higher.
+
+### Capture a recomposition trace
+
+Use the [`record_recomposition_trace.py`](https://github.com/android/performance-samples/tree/main/RecompositionTracing)
+script to capture a recomposition trace from the terminal.
+
+1. Launch the app and prepare the section you want to trace.
+2. Start recording:
+
+       ./record_recomposition_trace.py -p <your app package>
+
+3. Use your app to cause recomposition, and then press <kbd>Control+C</kbd> to
+   stop recording. To record for a fixed duration instead, pass the duration in
+   seconds with `-t`, for example `-t 10`.
+
+The script enables composition and recomposition tracing in the app, records a
+system trace, and then disables tracing and saves all traces to a single
+`<package>-recompose-<timestamp>.zip` file in the current directory. Open the
+file in [Perfetto](https://ui.perfetto.dev).
+
+Selecting a state write shows the call stack that changed the state, and a flow
+arrow points to the recomposition it caused:
+![A recomposition trace in Perfetto with a selected state write, its call stack, and a flow arrow to the recomposition it caused.](https://developer.android.com/static/develop/ui/compose/images/performance/recomposition-tracing.png) **Figure 7**. Recomposition trace in Perfetto
+
+Run the script with `--help` to see all options, such as a custom Perfetto
+config or the trace buffer size.
 
 ## Feedback
 

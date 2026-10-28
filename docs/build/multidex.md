@@ -175,14 +175,14 @@ the following modifications to your app project:
      `<application>` tag as follows:
 
      ```xml
-     <?xml version="1.0" encodin>g<="utf-8"?
-     manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      >   pa<ckage="com.example.myapp"
-         application
-                 android:name=>"androidx.mu<ltidex.Multi>D<exApplica>tion" 
+     <?xml version="1.0" encoding="utf-8"?>
+     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+         package="com.example.myapp">
+         <application
+                 android:name="androidx.multidex.MultiDexApplication" >
              ...
-         /application
-     /manifest
+         </application>
+     </manifest>
      ```
    - If you do override the `Application`
      class, change it to extend `MultiDexApplication`, as follows:
@@ -278,7 +278,7 @@ required in the primary DEX file.
 
 If you receive `java.lang.NoClassDefFoundError`, you
 must manually specify the additional classes required in the primary DEX
-file by declaring them with the [`multiDexKeepProguard`](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/dsl/VariantDimension#multiDexKeepProguard()) property in your build type. If a class is matched in
+file by declaring them with the [`multiDexKeepProguard`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/VariantDimension#multiDexKeepProguard()) property in your build type. If a class is matched in
 the `multiDexKeepProguard` file, then that class
 is added to the primary DEX file.
 

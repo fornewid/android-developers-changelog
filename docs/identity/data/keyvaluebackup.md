@@ -22,8 +22,7 @@ backup data.
 > **Note:** The backup transport provided by Android Backup Service is not guaranteed to be available on all Android-powered devices that support backup. Some devices might support backup using a different transport, some devices might not support backup at all, and there is no way for your app to know what transport is used on the device.
 
 For an overview of Android's backup options and guidance about which data you
-should back up and restore, see the [Data backup
-overview](https://developer.android.com/guide/topics/data/backup).
+should back up and restore, see the [Data backup overview](https://developer.android.com/guide/topics/data/backup).
 
 ## Implement key-value backup
 
@@ -72,19 +71,17 @@ manifest using the `android:backupAgent` attribute in the
 
 For example:
 
-```xml
-<manifest ... >
-    ...
-    <application android:label="MyApplication"
-                 android:backupAgent="MyBackupAgent">
-        <meta-data android:name="com.google.android.backup.api_key"
-            android:value="unused" />
-        <activity ... >
-            ...
-        </activity>
-    </application>
-</manifest>
-```
+    <manifest ... >
+        ...
+        <application android:label="MyApplication"
+                     android:backupAgent="MyBackupAgent">
+            <meta-data android:name="com.google.android.backup.api_key"
+                android:value="unused" />
+            <activity ... >
+                ...
+            </activity>
+        </application>
+    </manifest>
 
 To support older devices, we recommend adding the API key `<meta-data>`
 to your Android manifest file. The Android Backup Service no longer requires a
@@ -92,12 +89,11 @@ service key, but some older devices might still check for a key when backing
 up. Set `android:name` to `com.google.android.backup.api_key` and the
 `android:value` to `unused`.
 
-The
-[`android:restoreAnyVersion`](https://developer.android.com/guide/topics/manifest/application-element#restoreany)
-attribute takes a boolean value to indicate whether you want to restore the app
-data regardless of the current app version compared to the version that
-produced the backup data. The default value is `false`. See [Check the restore
-data version](https://developer.android.com/identity/data/keyvaluebackup#RestoreVersion) for more information.
+The [`android:restoreAnyVersion`](https://developer.android.com/guide/topics/manifest/application-element#restoreany) attribute takes a boolean value to
+indicate whether you want to restore the app data regardless of the current app
+version compared to the version that produced the backup data. The default
+value is `false`. See [Check the restore data version](https://developer.android.com/identity/data/keyvaluebackup#RestoreVersion) for more
+information.
 
 ## Extend BackupAgentHelper
 
@@ -124,7 +120,7 @@ For each helper you want to add to your `BackupAgentHelper`, you must do the
 following during your
 [`onCreate()`](https://developer.android.com/reference/android/app/backup/BackupAgent#onCreate()) method:
 
-1. Instantiate an instance of the desired helper class. In the class constructor, you must specify the file(s) you want to back up.
+1. Instantiate an instance of the selected helper class. In the class constructor, you must specify the file(s) you want to back up.
 2. Call [`addHelper()`](https://developer.android.com/reference/android/app/backup/BackupAgentHelper#addHelper(java.lang.String,%20android.app.backup.BackupHelper)) to add the helper to your `BackupAgentHelper`.
 
 The following sections describe how to create a backup agent using each of the
@@ -140,42 +136,38 @@ complete backup agent using `BackupAgentHelper` looks like this:
 
 ### Kotlin
 
-```kotlin
-// The name of the SharedPreferences file
-const val PREFS = "user_preferences"
+    // The name of the SharedPreferences file
+    const val PREFS = "user_preferences"
 
-// A key to uniquely identify the set of backup data
-const val PREFS_BACKUP_KEY = "prefs"
+    // A key to uniquely identify the set of backup data
+    const val PREFS_BACKUP_KEY = "prefs"
 
-class MyPrefsBackupAgent : BackupAgentHelper() {
-    override fun onCreate() {
-        // Allocate a helper and add it to the backup agent
-        SharedPreferencesBackupHelper(this, PREFS).also {
-            addHelper(PREFS_BACKUP_KEY, it)
+    class MyPrefsBackupAgent : BackupAgentHelper() {
+        override fun onCreate() {
+            // Allocate a helper and add it to the backup agent
+            SharedPreferencesBackupHelper(this, PREFS).also {
+                addHelper(PREFS_BACKUP_KEY, it)
+            }
         }
     }
-}
-```
 
 ### Java
 
-```java
-public class MyPrefsBackupAgent extends BackupAgentHelper {
-    // The name of the SharedPreferences file
-    static final String PREFS = "user_preferences";
+    public class MyPrefsBackupAgent extends BackupAgentHelper {
+        // The name of the SharedPreferences file
+        static final String PREFS = "user_preferences";
 
-    // A key to uniquely identify the set of backup data
-    static final String PREFS_BACKUP_KEY = "prefs";
+        // A key to uniquely identify the set of backup data
+        static final String PREFS_BACKUP_KEY = "prefs";
 
-    // Allocate a helper and add it to the backup agent
-    @Override
-    public void onCreate() {
-        SharedPreferencesBackupHelper helper =
-                new SharedPreferencesBackupHelper(this, PREFS);
-        addHelper(PREFS_BACKUP_KEY, helper);
+        // Allocate a helper and add it to the backup agent
+        @Override
+        public void onCreate() {
+            SharedPreferencesBackupHelper helper =
+                    new SharedPreferencesBackupHelper(this, PREFS);
+            addHelper(PREFS_BACKUP_KEY, helper);
+        }
     }
-}
-```
 
 The `SharedPreferencesBackupHelper` includes all the code needed to back up and
 restore a `SharedPreferences` file.
@@ -201,43 +193,39 @@ using `BackupAgentHelper` looks like this:
 
 ### Kotlin
 
-```kotlin
-// The name of the file
-const val TOP_SCORES = "scores"
-const val PLAYER_STATS = "stats"
-// A key to uniquely identify the set of backup data
-const val FILES_BACKUP_KEY = "myfiles"
+    // The name of the file
+    const val TOP_SCORES = "scores"
+    const val PLAYER_STATS = "stats"
+    // A key to uniquely identify the set of backup data
+    const val FILES_BACKUP_KEY = "myfiles"
 
-class MyFileBackupAgent : BackupAgentHelper() {
-    override fun onCreate() {
-        // Allocate a helper and add it to the backup agent
-        FileBackupHelper(this, TOP_SCORES, PLAYER_STATS).also {
-            addHelper(FILES_BACKUP_KEY, it)
+    class MyFileBackupAgent : BackupAgentHelper() {
+        override fun onCreate() {
+            // Allocate a helper and add it to the backup agent
+            FileBackupHelper(this, TOP_SCORES, PLAYER_STATS).also {
+                addHelper(FILES_BACKUP_KEY, it)
+            }
         }
     }
-}
-```
 
 ### Java
 
-```java
-public class MyFileBackupAgent extends BackupAgentHelper {
-    // The name of the file
-    static final String TOP_SCORES = "scores";
-    static final String PLAYER_STATS = "stats";
+    public class MyFileBackupAgent extends BackupAgentHelper {
+        // The name of the file
+        static final String TOP_SCORES = "scores";
+        static final String PLAYER_STATS = "stats";
 
-    // A key to uniquely identify the set of backup data
-    static final String FILES_BACKUP_KEY = "myfiles";
+        // A key to uniquely identify the set of backup data
+        static final String FILES_BACKUP_KEY = "myfiles";
 
-    // Allocate a helper and add it to the backup agent
-    @Override
-    public void onCreate() {
-        FileBackupHelper helper = new FileBackupHelper(this,
-                TOP_SCORES, PLAYER_STATS);
-        addHelper(FILES_BACKUP_KEY, helper);
+        // Allocate a helper and add it to the backup agent
+        @Override
+        public void onCreate() {
+            FileBackupHelper helper = new FileBackupHelper(this,
+                    TOP_SCORES, PLAYER_STATS);
+            addHelper(FILES_BACKUP_KEY, helper);
+        }
     }
-}
-```
 
 The `FileBackupHelper` includes all the code necessary to back up and restore
 files that are saved to your app's internal storage.
@@ -251,19 +239,15 @@ the synchronized statements:
 
 ### Kotlin
 
-```kotlin
-// Object for intrinsic lock
-companion object {
-    val sDataLock = Any()
-}
-```
+    // Object for intrinsic lock
+    companion object {
+        val sDataLock = Any()
+    }
 
 ### Java
 
-```java
-// Object for intrinsic lock
-static final Object sDataLock = new Object();
-```
+    // Object for intrinsic lock
+    static final Object sDataLock = new Object();
 
 Then create a synchronized statement with this lock each time you read or write
 the files. For example, here's a synchronized statement for writing the latest
@@ -271,89 +255,81 @@ score in a game to a file:
 
 ### Kotlin
 
-```kotlin
-try {
-    synchronized(MyActivity.sDataLock) {
-        val dataFile = File(filesDir, TOP_SCORES)
-        RandomAccessFile(dataFile, "rw").apply {
-            writeInt(score)
+    try {
+        synchronized(MyActivity.sDataLock) {
+            val dataFile = File(filesDir, TOP_SCORES)
+            RandomAccessFile(dataFile, "rw").apply {
+                writeInt(score)
+            }
         }
+    } catch (e: IOException) {
+        Log.e(TAG, "Unable to write to file")
     }
-} catch (e: IOException) {
-    Log.e(TAG, "Unable to write to file")
-}
-```
 
 ### Java
 
-```java
-try {
-    synchronized (MyActivity.sDataLock) {
-        File dataFile = new File(getFilesDir(), TOP_SCORES);
-        RandomAccessFile raFile = new RandomAccessFile(dataFile, "rw");
-        raFile.writeInt(score);
+    try {
+        synchronized (MyActivity.sDataLock) {
+            File dataFile = new File(getFilesDir(), TOP_SCORES);
+            RandomAccessFile raFile = new RandomAccessFile(dataFile, "rw");
+            raFile.writeInt(score);
+        }
+    } catch (IOException e) {
+        Log.e(TAG, "Unable to write to file");
     }
-} catch (IOException e) {
-    Log.e(TAG, "Unable to write to file");
-}
-```
 
 You should synchronize your read statements with the same lock.
 
 Then, in your `BackupAgentHelper`, you must override `onBackup()` and
 `onRestore()` to synchronize the backup and restore operations with the same
-intrinsic lock. For example, the `MyFileBackupAgent` example from above needs
+intrinsic lock. For example, the preceding `MyFileBackupAgent` example needs
 the following methods:
 
 ### Kotlin
 
-```kotlin
-@Throws(IOException::class)
-override fun onBackup(
-        oldState: ParcelFileDescriptor,
-        data: BackupDataOutput,
-        newState: ParcelFileDescriptor
-) {
-    // Hold the lock while the FileBackupHelper performs back up
-    synchronized(MyActivity.sDataLock) {
-        super.onBackup(oldState, data, newState)
+    @Throws(IOException::class)
+    override fun onBackup(
+            oldState: ParcelFileDescriptor,
+            data: BackupDataOutput,
+            newState: ParcelFileDescriptor
+    ) {
+        // Hold the lock while the FileBackupHelper performs back up
+        synchronized(MyActivity.sDataLock) {
+            super.onBackup(oldState, data, newState)
+        }
     }
-}
 
-@Throws(IOException::class)
-override fun onRestore(
-        data: BackupDataInput,
-        appVersionCode: Int,
-        newState: ParcelFileDescriptor
-) {
-    // Hold the lock while the FileBackupHelper restores the file
-    synchronized(MyActivity.sDataLock) {
-        super.onRestore(data, appVersionCode, newState)
+    @Throws(IOException::class)
+    override fun onRestore(
+            data: BackupDataInput,
+            appVersionCode: Int,
+            newState: ParcelFileDescriptor
+    ) {
+        // Hold the lock while the FileBackupHelper restores the file
+        synchronized(MyActivity.sDataLock) {
+            super.onRestore(data, appVersionCode, newState)
+        }
     }
-}
-```
 
 ### Java
 
-```java
-@Override
-public void onBackup(ParcelFileDescriptor oldState, BackupDataOutput data,
-          ParcelFileDescriptor newState) throws IOException {
-    // Hold the lock while the FileBackupHelper performs back up
-    synchronized (MyActivity.sDataLock) {
-        super.onBackup(oldState, data, newState);
+    @Override
+    public void onBackup(ParcelFileDescriptor oldState, BackupDataOutput data,
+              ParcelFileDescriptor newState) throws IOException {
+        // Hold the lock while the FileBackupHelper performs back up
+        synchronized (MyActivity.sDataLock) {
+            super.onBackup(oldState, data, newState);
+        }
     }
-}
 
-@Override
-public void onRestore(BackupDataInput data, int appVersionCode,
-        ParcelFileDescriptor newState) throws IOException {
-    // Hold the lock while the FileBackupHelper restores the file
-    synchronized (MyActivity.sDataLock) {
-        super.onRestore(data, appVersionCode, newState);
+    @Override
+    public void onRestore(BackupDataInput data, int appVersionCode,
+            ParcelFileDescriptor newState) throws IOException {
+        // Hold the lock while the FileBackupHelper restores the file
+        synchronized (MyActivity.sDataLock) {
+            super.onRestore(data, appVersionCode, newState);
+        }
     }
-}
-```
 
 ## Extend BackupAgent
 
@@ -362,14 +338,13 @@ instead [extend `BackupAgentHelper`](https://developer.android.com/identity/data
 the built-in helper classes that automatically back up and restore your files.
 However, you might extend `BackupAgent` directly to do the following:
 
-- **Version your data format.** For instance, if you anticipate the need to revise the format in which you write your app data, you can build a backup agent to cross-check your app version during a restore operation and perform any necessary compatibility work if the version on the device is different than that of the backup data. For more information, see [Check the restore
-  data version](https://developer.android.com/identity/data/keyvaluebackup#RestoreVersion).
+- **Version your data format.** For example, if you anticipate the need to revise the format in which you write your app data, you can build a backup agent to cross-check your app version during a restore operation and perform any necessary compatibility work if the version on the device is different than that of the backup data. For more information, see [Check the restore data version](https://developer.android.com/identity/data/keyvaluebackup#RestoreVersion).
 - **Specify the portions of data to back up.** Instead of backing up an entire file, you can specify the portions of data to back up and how each portion is then restored to the device. This can also help you manage different versions, because you read and write your data as unique entities, rather than complete files.
 - **Back up data in a database.** If you have an SQLite database that you want to restore when the user re-installs your app, you need to build a custom `BackupAgent` that reads the appropriate data during a backup operation, then create your table and insert the data during a restore operation.
 
-If you don't need to perform any of the tasks above and want to back up
-complete files from `SharedPreferences` or internal storage, see [Extending
-`BackupAgentHelper`](https://developer.android.com/identity/data/keyvaluebackup#BackupAgentHelper).
+If you don't need to perform any of the preceding tasks and want to back up
+complete files from `SharedPreferences` or internal storage, see
+[Extending `BackupAgentHelper`](https://developer.android.com/identity/data/keyvaluebackup#BackupAgentHelper).
 
 ### Required methods
 
@@ -377,10 +352,9 @@ When you create a `BackupAgent`, you must implement the following callback
 methods:
 
 `onBackup()`
-:   The Backup Manager calls this method after you [request a
-    backup](https://developer.android.com/identity/data/keyvaluebackup#RequestingBackup). In this method, you read your app data from the
-    device and pass the data you want to back up to the Backup Manager, as
-    described in [Perform a back up](https://developer.android.com/identity/data/keyvaluebackup#PerformingBackup).
+:   The Backup Manager calls this method after you [request a backup](https://developer.android.com/identity/data/keyvaluebackup#RequestingBackup). In this
+    method, you read your app data from the device and pass the data you want to
+    back up to the Backup Manager, as described in [Perform a back up](https://developer.android.com/identity/data/keyvaluebackup#PerformingBackup).
 
 `onRestore()`
 
@@ -389,8 +363,7 @@ methods:
     state, as described in [Perform a restore](https://developer.android.com/identity/data/keyvaluebackup#PerformingRestore).
 
     The system calls this method to restore any backup data when the user
-    re-installs your app, but your app can also [request a
-    restore](https://developer.android.com/identity/data/keyvaluebackup#RequestingRestore).
+    re-installs your app, but your app can also [request a restore](https://developer.android.com/identity/data/keyvaluebackup#RequestingRestore).
 
 ### Perform a back up
 
@@ -407,8 +380,7 @@ request a backup operation by calling
 See [Request a backup](https://developer.android.com/identity/data/keyvaluebackup#RequestingBackup) for more information.
 
 **Tip** : While developing your app, you can initiate an immediate backup
-operation from the Backup Manager with the [`bmgr`
-tool](https://developer.android.com/tools/help/bmgr).
+operation from the Backup Manager with the [`bmgr` tool](https://developer.android.com/tools/help/bmgr).
 
 When the Backup Manager calls your `onBackup()` method, it passes three
 parameters:
@@ -429,9 +401,9 @@ parameters:
     object, which you use to deliver your backup data to the Backup Manager.
 
 `newState`
-:   An open, read/write `ParcelFileDescriptor` pointing to a file in which you
+:   An open, read-write `ParcelFileDescriptor` pointing to a file in which you
     must write a representation of the data that you delivered to `data`. A
-    representation can be as simple as the last-modified timestamp for your file.
+    representation can be the last-modified timestamp for your file.
     This object is returned as `oldState` the next time the Backup Manager calls
     your `onBackup()` method. If you don't write your backup data to `newState`,
     then `oldState` will point to an empty file next time Backup Manager calls
@@ -447,48 +419,44 @@ Using these parameters, implement your `onBackup()` method to do the following:
 
    ### Kotlin
 
-   ```kotlin
-   val instream = FileInputStream(oldState.fileDescriptor)
-   val dataInputStream = DataInputStream(instream)
-   try {
-      // Get the last modified timestamp from the state file and data file
-      val stateModified = dataInputStream.readLong()
-      val fileModified: Long = dataFile.lastModified()
-      if (stateModified != fileModified) {
-          // The file has been modified, so do a backup
-          // Or the time on the device changed, so be safe and do a backup
-      } else {
-          // Don't back up because the file hasn't changed
-          return
-      }
-   } catch (e: IOException) {
-      // Unable to read state file... be safe and do a backup
-   }
-   ```
+       val instream = FileInputStream(oldState.fileDescriptor)
+       val dataInputStream = DataInputStream(instream)
+       try {
+           // Get the last modified timestamp from the state file and data file
+           val stateModified = dataInputStream.readLong()
+           val fileModified: Long = dataFile.lastModified()
+           if (stateModified != fileModified) {
+               // The file has been modified, so do a backup
+               // Or the time on the device changed, so be safe and do a backup
+           } else {
+               // Don't back up because the file hasn't changed
+               return
+           }
+       } catch (e: IOException) {
+           // Unable to read state file... be safe and do a backup
+       }
 
    ### Java
 
-   ```java
-   // Get the oldState input stream
-   FileInputStream instream = new FileInputStream(oldState.getFileDescriptor());
-   DataInputStream in = new DataInputStream(instream);
+       // Get the oldState input stream
+       FileInputStream instream = new FileInputStream(oldState.getFileDescriptor());
+       DataInputStream in = new DataInputStream(instream);
 
-   try {
-      // Get the last modified timestamp from the state file and data file
-      long stateModified = in.readLong();
-      long fileModified = dataFile.lastModified();
+       try {
+           // Get the last modified timestamp from the state file and data file
+           long stateModified = in.readLong();
+           long fileModified = dataFile.lastModified();
 
-      if (stateModified != fileModified) {
-          // The file has been modified, so do a backup
-          // Or the time on the device changed, so be safe and do a backup
-      } else {
-          // Don't back up because the file hasn't changed
-          return;
-      }
-   } catch (IOException e) {
-      // Unable to read state file... be safe and do a backup
-   }
-   ```
+           if (stateModified != fileModified) {
+               // The file has been modified, so do a backup
+               // Or the time on the device changed, so be safe and do a backup
+           } else {
+               // Don't back up because the file hasn't changed
+               return;
+           }
+       } catch (IOException e) {
+           // Unable to read state file... be safe and do a backup
+       }
 
    If nothing has changed and you don't need to back up, skip to step 3.
 2. If your data has changed, compared to `oldState`, write the current data to
@@ -496,10 +464,10 @@ Using these parameters, implement your `onBackup()` method to do the following:
 
    You must write each chunk of data as an entity in the `BackupDataOutput`. An
    entity is a flattened binary data record that is identified by a unique key
-   string. Thus, the data set that you back up is conceptually a set of
+   string. Thus, the dataset that you back up is conceptually a set of
    key-value pairs.
 
-   To add an entity to your backup data set, you must:
+   To add an entity to your backup dataset, you must:
    1. Call
       [`writeEntityHeader()`](https://developer.android.com/reference/android/app/backup/BackupDataOutput#writeEntityHeader(java.lang.String,%20int)),
       passing a unique string key for the data you're about to write and the
@@ -516,36 +484,32 @@ Using these parameters, implement your `onBackup()` method to do the following:
 
    ### Kotlin
 
-   ```kotlin
-   val buffer: ByteArray = ByteArrayOutputStream().run {
-      DataOutputStream(this).apply {
-          writeInt(playerName)
-          writeInt(playerScore)
-      }
-      toByteArray()
-   }
-   val len: Int = buffer.size
-   data.apply {
-      writeEntityHeader(TOPSCORE_BACKUP_KEY, len)
-      writeEntityData(buffer, len)
-   }
-   ```
+       val buffer: ByteArray = ByteArrayOutputStream().run {
+           DataOutputStream(this).apply {
+               writeInt(playerName)
+               writeInt(playerScore)
+           }
+           toByteArray()
+       }
+       val len: Int = buffer.size
+       data.apply {
+           writeEntityHeader(TOPSCORE_BACKUP_KEY, len)
+           writeEntityData(buffer, len)
+       }
 
    ### Java
 
-   ```java
-   // Create buffer stream and data output stream for our data
-   ByteArrayOutputStream bufStream = new ByteArrayOutputStream();
-   DataOutputStream outWriter = new DataOutputStream(bufStream);
-   // Write structured data
-   outWriter.writeUTF(playerName);
-   outWriter.writeInt(playerScore);
-   // Send the data to the Backup Manager via the BackupDataOutput
-   byte[] buffer = bufStream.toByteArray();
-   int len = buffer.length;
-   data.writeEntityHeader(TOPSCORE_BACKUP_KEY, len);
-   data.writeEntityData(buffer, len);
-   ```
+       // Create buffer stream and data output stream for our data
+       ByteArrayOutputStream bufStream = new ByteArrayOutputStream();
+       DataOutputStream outWriter = new DataOutputStream(bufStream);
+       // Write structured data
+       outWriter.writeUTF(playerName);
+       outWriter.writeInt(playerScore);
+       // Send the data to the Backup Manager using the BackupDataOutput
+       byte[] buffer = bufStream.toByteArray();
+       int len = buffer.length;
+       data.writeEntityHeader(TOPSCORE_BACKUP_KEY, len);
+       data.writeEntityData(buffer, len);
 
    Perform this for each piece of data that you want to back up. How you divide
    your data into entities is up to you. You might even use just one entity.
@@ -562,24 +526,20 @@ Using these parameters, implement your `onBackup()` method to do the following:
 
    ### Kotlin
 
-   ```kotlin
-   val modified = dataFile.lastModified()
-   FileOutputStream(newState.fileDescriptor).also {
-      DataOutputStream(it).apply {
-          writeLong(modified)
-      }
-   }
-   ```
+       val modified = dataFile.lastModified()
+       FileOutputStream(newState.fileDescriptor).also {
+           DataOutputStream(it).apply {
+               writeLong(modified)
+           }
+       }
 
    ### Java
 
-   ```java
-   FileOutputStream outstream = new FileOutputStream(newState.getFileDescriptor());
-   DataOutputStream out = new DataOutputStream(outstream);
+       FileOutputStream outstream = new FileOutputStream(newState.getFileDescriptor());
+       DataOutputStream out = new DataOutputStream(outstream);
 
-   long modified = dataFile.lastModified();
-   out.writeLong(modified);
-   ```
+       long modified = dataFile.lastModified();
+       out.writeLong(modified);
 
 > [!CAUTION]
 > **Caution:** If your app data is saved to a file, make sure that you use synchronized statements while accessing the file so that your backup agent does not read the file while an activity in your app is also writing the file.
@@ -601,7 +561,7 @@ parameters:
 
 `data`
 :   A [`BackupDataInput`](https://developer.android.com/reference/android/app/backup/BackupDataInput) object,
-    which allows you to read your backup data.
+    which lets you read your backup data.
 
 `appVersionCode`
 :   An integer representing the value of your app's
@@ -609,11 +569,10 @@ parameters:
     manifest attribute, as it was when this data was backed up. You can use this
     to cross-check the current app version and determine if the data format is
     compatible. For more information about using this to handle different
-    versions of restore data, see [Check the restore data
-    version](https://developer.android.com/identity/data/keyvaluebackup#RestoreVersion).
+    versions of restore data, see [Check the restore data version](https://developer.android.com/identity/data/keyvaluebackup#RestoreVersion).
 
 `newState`
-:   An open, read/write `ParcelFileDescriptor` pointing to a file in which you
+:   An open, read-write `ParcelFileDescriptor` pointing to a file in which you
     must write the final backup state that was provided with `data`. This object
     is returned as `oldState` the next time `onBackup()` is called. Recall that
     you must also write the same `newState` object in the `onBackup()`
@@ -623,7 +582,7 @@ parameters:
 
 In your implementation of `onRestore()`, you should call
 [`readNextHeader()`](https://developer.android.com/reference/android/app/backup/BackupDataInput#readNextHeader())
-on the `data` to iterate through all entities in the data set. For each entity
+on the `data` to iterate through all entities in the dataset. For each entity
 found, do the following:
 
 1. Get the entity key with [`getKey()`](https://developer.android.com/reference/android/app/backup/BackupDataInput#getKey()).
@@ -644,84 +603,80 @@ the previous section:
 
 ### Kotlin
 
-```kotlin
-@Throws(IOException::class)
-override fun onRestore(data: BackupDataInput, appVersionCode: Int,
-                       newState: ParcelFileDescriptor) {
-    with(data) {
-        // There should be only one entity, but the safest
-        // way to consume it is using a while loop
-        while (readNextHeader()) {
-            when(key) {
-                TOPSCORE_BACKUP_KEY -> {
-                    val dataBuf = ByteArray(dataSize).also {
-                        readEntityData(it, 0, dataSize)
-                    }
-                    ByteArrayInputStream(dataBuf).also {
-                        DataInputStream(it).apply {
-                            // Read the player name and score from the backup data
-                            playerName = readUTF()
-                            playerScore = readInt()
+    @Throws(IOException::class)
+    override fun onRestore(data: BackupDataInput, appVersionCode: Int,
+                           newState: ParcelFileDescriptor) {
+        with(data) {
+            // There should be only one entity, but the safest
+            // way to consume it is using a while loop
+            while (readNextHeader()) {
+                when(key) {
+                    TOPSCORE_BACKUP_KEY -> {
+                        val dataBuf = ByteArray(dataSize).also {
+                            readEntityData(it, 0, dataSize)
                         }
-                        // Record the score on the device (to a file or something)
-                        recordScore(playerName, playerScore)
+                        ByteArrayInputStream(dataBuf).also {
+                            DataInputStream(it).apply {
+                                // Read the player name and score from the backup data
+                                playerName = readUTF()
+                                playerScore = readInt()
+                            }
+                            // Record the score on the device (to a file or something)
+                            recordScore(playerName, playerScore)
+                        }
                     }
+                    else -> skipEntityData()
                 }
-                else -> skipEntityData()
+            }
+        }
+
+        // Finally, write to the state blob (newState) that describes the restored data
+        FileOutputStream(newState.fileDescriptor).also {
+            DataOutputStream(it).apply {
+                writeUTF(playerName)
+                writeInt(mPlayerScore)
             }
         }
     }
 
-    // Finally, write to the state blob (newState) that describes the restored data
-    FileOutputStream(newState.fileDescriptor).also {
-        DataOutputStream(it).apply {
-            writeUTF(playerName)
-            writeInt(mPlayerScore)
-        }
-    }
-}
-```
-
 ### Java
 
-```java
-@Override
-public void onRestore(BackupDataInput data, int appVersionCode,
-                      ParcelFileDescriptor newState) throws IOException {
-    // There should be only one entity, but the safest
-    // way to consume it is using a while loop
-    while (data.readNextHeader()) {
-        String key = data.getKey();
-        int dataSize = data.getDataSize();
+    @Override
+    public void onRestore(BackupDataInput data, int appVersionCode,
+                          ParcelFileDescriptor newState) throws IOException {
+        // There should be only one entity, but the safest
+        // way to consume it is using a while loop
+        while (data.readNextHeader()) {
+            String key = data.getKey();
+            int dataSize = data.getDataSize();
 
-        // If the key is ours (for saving top score). Note this key was used when
-        // we wrote the backup entity header
-        if (TOPSCORE_BACKUP_KEY.equals(key)) {
-            // Create an input stream for the BackupDataInput
-            byte[] dataBuf = new byte[dataSize];
-            data.readEntityData(dataBuf, 0, dataSize);
-            ByteArrayInputStream baStream = new ByteArrayInputStream(dataBuf);
-            DataInputStream in = new DataInputStream(baStream);
+            // If the key is ours (for saving top score). Note this key was used when
+            // we wrote the backup entity header
+            if (TOPSCORE_BACKUP_KEY.equals(key)) {
+                // Create an input stream for the BackupDataInput
+                byte[] dataBuf = new byte[dataSize];
+                data.readEntityData(dataBuf, 0, dataSize);
+                ByteArrayInputStream baStream = new ByteArrayInputStream(dataBuf);
+                DataInputStream in = new DataInputStream(baStream);
 
-            // Read the player name and score from the backup data
-            playerName = in.readUTF();
-            playerScore = in.readInt();
+                // Read the player name and score from the backup data
+                playerName = in.readUTF();
+                playerScore = in.readInt();
 
-            // Record the score on the device (to a file or something)
-            recordScore(playerName, playerScore);
-        } else {
-            // We don't know this entity key. Skip it. (Shouldn't happen.)
-            data.skipEntityData();
+                // Record the score on the device (to a file or something)
+                recordScore(playerName, playerScore);
+            } else {
+                // We don't know this entity key. Skip it. (Shouldn't happen.)
+                data.skipEntityData();
+            }
         }
-    }
 
-    // Finally, write to the state blob (newState) that describes the restored data
-    FileOutputStream outstream = new FileOutputStream(newState.getFileDescriptor());
-    DataOutputStream out = new DataOutputStream(outstream);
-    out.writeUTF(playerName);
-    out.writeInt(mPlayerScore);
-}
-```
+        // Finally, write to the state blob (newState) that describes the restored data
+        FileOutputStream outstream = new FileOutputStream(newState.getFileDescriptor());
+        DataOutputStream out = new DataOutputStream(outstream);
+        out.writeUTF(playerName);
+        out.writeInt(mPlayerScore);
+    }
 
 In this example, the `appVersionCode` parameter passed to `onRestore()` is not
 used. However, you might want to use it if you've chosen to perform a backup
@@ -735,57 +690,47 @@ When the Backup Manager saves your data to cloud storage, it automatically
 includes the version of your app, as defined by your manifest file's
 `android:versionCode` attribute. Before the Backup Manager calls your backup
 agent to restore your data, it looks at the `android:versionCode` of the
-installed app and compares it to the value recorded in the restore data set. If
-the version recorded in the restore data set is *newer* than the app version on
+installed app and compares it to the value recorded in the restore dataset. If
+the version recorded in the restore dataset is *newer* than the app version on
 the device, then the user has downgraded their app. In this case, the Backup
 Manager will abort the restore operation for your app and not call your
 `onRestore()` method, because the restore set is considered meaningless to an
 older version.
 
-You can override this behavior with the `android:restoreAnyVersion` attribute.
-Set this attribute to `true` to indicate that you want to restore the app
-regardless of the restore set version. The default value is `false`. If you
-set this to `true` then the Backup Manager will ignore the
-`android:versionCode` and call your `onRestore()` method in all cases. In doing
-so, you can manually check for the version difference in your `onRestore()`
-method and take any steps necessary to make the data compatible if the versions
-don't match.
+You can override this behavior using the `android:restoreAnyVersion` attribute:
+
+- `false` (default): The Backup Manager aborts the restore operation if the version recorded in the restore dataset is newer than the app version on the device.
+- `true`: The Backup Manager ignores the `android:versionCode` and calls your `onRestore()` method in all cases, so you can manually check for version differences and make the data compatible.
 
 To help you handle different versions during a restore operation, the
-`onRestore()` method passes you the version code included with the restore data
-set as the `appVersionCode` parameter. You can then query the current app's
-version code with the
-[`PackageInfo.versionCode`](https://developer.android.com/reference/android/content/pm/PackageInfo#versionCode)
-field. For example:
+`onRestore()` method passes you the version code included with the restore
+dataset as the `appVersionCode` parameter. You can then query the current app's
+version code with the [`PackageInfo.versionCode`](https://developer.android.com/reference/android/content/pm/PackageInfo#versionCode) field. For example:
 
 ### Kotlin
 
-```kotlin
-val info: PackageInfo? = try {
-    packageManager.getPackageInfo(packageName, 0)
-} catch (e: PackageManager.NameNotFoundException) {
-    null
-}
+    val info: PackageInfo? = try {
+        packageManager.getPackageInfo(packageName, 0)
+    } catch (e: PackageManager.NameNotFoundException) {
+        null
+    }
 
-val version: Int = info?.versionCode ?: 0
-```
+    val version: Int = info?.versionCode ?: 0
 
 ### Java
 
-```java
-PackageInfo info;
-try {
-    String name = getPackageName();
-    info = getPackageManager().getPackageInfo(name, 0);
-} catch (NameNotFoundException nnfe) {
-    info = null;
-}
+    PackageInfo info;
+    try {
+        String name = getPackageName();
+        info = getPackageManager().getPackageInfo(name, 0);
+    } catch (NameNotFoundException nnfe) {
+        info = null;
+    }
 
-int version;
-if (info != null) {
-    version = info.versionCode;
-}
-```
+    int version;
+    if (info != null) {
+        version = info.versionCode;
+    }
 
 Then compare the `version` acquired from
 [`PackageInfo`](https://developer.android.com/reference/android/content/pm/PackageInfo) to the
@@ -838,4 +783,4 @@ Google treats this data as personal information in accordance with Google's
 In addition, users can disable data backup functionality through the Android
 system's backup settings. When a user disables backup, Android Backup Service
 deletes all saved backup data. A user can re-enable backup on the device, but
-Android Backup Service will not restore any previously deleted data.
+Android Backup Service won't restore any previously deleted data.

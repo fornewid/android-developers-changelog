@@ -38,6 +38,10 @@ learning capabilities, which you can configure independently or in tandem:
 | Deblur | Reconstructs sharp edges by estimating the mathematical blur kernel caused by subject motion or camera shake. Applies spatial filtering to smooth chromatic grain, and acts as a deblocking filter to mitigate compression artifacts near sharp edges. | Reclaiming shaky or blurred photos, enhancing grainy low-light images, and removing blocky artifacts from compressed JPEG images and video streams. |
 | Upscale | Uses a super-resolution generative model to multiply pixel count and reconstruct missing high-frequency details. | Scaling small thumbnails or standard-definition video files for full-screen display. |
 
+For an example that combines upscaling and deblurring for low-resolution images
+downloaded over slow networks, see [Load images progressively on slow
+networks](https://developer.android.com/media/ai-enhancement/bitmap-mode-lifecycle#progressive-image-loading).
+
 ## Hardware requirements
 
 Running inference on-device with machine learning or deep learning models takes

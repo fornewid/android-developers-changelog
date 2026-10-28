@@ -1,47 +1,60 @@
 ---
-title: https://developer.android.com/develop/ui/compose/system/setup-e2e
+title: Set up Edge-to-edge  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/system/setup-e2e
-source: md.txt
+source: html-scrape
 ---
 
-Edge-to-edge display allows your app to draw its UI behind the system bars---the
-status bar, caption bar, and navigation bar---to achieve a more immersive user
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+
+# Set up Edge-to-edge Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+
+Edge-to-edge display allows your app to draw its UI behind the system bars—the
+status bar, caption bar, and navigation bar—to achieve a more immersive user
 experience. If you target devices running Android 15 (API level 35) or higher,
-[edge-to-edge is enforced](https://developer.android.com/about/versions/15/behavior-changes-15#edge-to-edge) by default.
+[edge-to-edge is enforced](/about/versions/15/behavior-changes-15#edge-to-edge) by default.
 
 To correctly display content edge-to-edge on all Android versions, follow these
 setup steps. Without these steps, your app might draw solid colors behind the
 system bars or not animate its content synchronously with on-screen keyboard
 (IME) transitions.
 
-
 ## Android skills
 
-[View on GitHub](https://github.com/android/skills/tree/main/system/edge-to-edge)
+[View on GitHub
+open\_in\_new](https://github.com/android/skills/tree/main/system/edge-to-edge)
 
 ### Add Edge-to-Edge support
 
-Use the Edge-to-Edge [Android skill](https://developer.android.com/tools/agents/android-skills) to add adaptive edge-to-edge support to your Jetpack Compose app. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the Edge-to-Edge [Android skill](/tools/agents/android-skills) to add adaptive edge-to-edge support to your Jetpack Compose app.
 
-    android skills add edge-to-edge
+To install the skill from the [Android CLI](/tools/agents/android-cli), run:
 
-<br />
+```
+android skills add edge-to-edge
+```
 
 ## 1. Enable edge-to-edge display
 
 To enable edge-to-edge on previous Android versions, call
-[`enableEdgeToEdge()`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity#(androidx.activity.ComponentActivity).enableEdgeToEdge(androidx.activity.SystemBarStyle,androidx.activity.SystemBarStyle)) in your `Activity.onCreate()` method:
+[`enableEdgeToEdge()`](/reference/kotlin/androidx/activity/ComponentActivity#(androidx.activity.ComponentActivity).enableEdgeToEdge(androidx.activity.SystemBarStyle,androidx.activity.SystemBarStyle)) in your `Activity.onCreate()` method:
 
-
-```kotlin
+```
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     enableEdgeToEdge()
     // ...
 }
-```
 
-<br />
+EdgeToEdgeSnippets.kt
+```
 
 By default, `enableEdgeToEdge()` makes the system bars transparent, except in
 3-button navigation mode, where it applies a translucent scrim to the navigation
@@ -55,15 +68,17 @@ Set `android:windowSoftInputMode="adjustResize"` in your Activity's
 enabling you to adjust your layout with padding when the on-screen keyboard
 appears or disappears.
 
-    <!-- In your AndroidManifest.xml file: -->
-    <activity
-      android:name=".ui.MainActivity"
-      android:label="@string/app_name"
-      android:windowSoftInputMode="adjustResize"
-      android:theme="@style/Theme.MyApplication"
-      android:exported="true">
-      ...
-    </activity>
+```
+<!-- In your AndroidManifest.xml file: -->
+<activity
+  android:name=".ui.MainActivity"
+  android:label="@string/app_name"
+  android:windowSoftInputMode="adjustResize"
+  android:theme="@style/Theme.MyApplication"
+  android:exported="true">
+  ...
+</activity>
+```
 
 ## 3. Handle overlaps using insets
 
@@ -75,11 +90,13 @@ handle insets.
 Insets describe parts of the screen that intersect with system UI or system
 gestures. The main types of insets to consider for edge-to-edge display are:
 
-- **System bars insets:** Represent areas where system bars are displayed. Use these to avoid UI being obscured by system bars.
-- **Display cutout insets:** Represent areas where a physical cutout (like a camera notch) exists on the device screen.
+* **System bars insets:** Represent areas where system bars are displayed. Use
+  these to avoid UI being obscured by system bars.
+* **Display cutout insets:** Represent areas where a physical cutout (like a
+  camera notch) exists on the device screen.
 
 In Compose, you can handle insets using either rulers, padding modifiers or
-inset size modifiers. See [About window insets](https://developer.android.com/develop/ui/compose/system/insets) for detailed guidance.
+inset size modifiers. See [About window insets](/develop/ui/compose/system/insets) for detailed guidance.
 
 ## Advanced topics
 
@@ -91,8 +108,7 @@ Some content, like videos or maps, benefits from a fully immersive experience
 where system bars are hidden. You can hide system bars using
 `WindowInsetsControllerCompat`:
 
-
-```kotlin
+```
 val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
 
 // Hide the system bars.
@@ -100,12 +116,15 @@ windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
 
 // Show the system bars.
 windowInsetsController.show(WindowInsetsCompat.Type.systemBars())
+
+EdgeToEdgeSnippets.kt
 ```
 
-<br />
-
-> [!NOTE]
-> **Note:** All apps running in [desktop windowing](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-desktop-windowing) have a caption bar, even in immersive mode. For games and other immersive apps, this means you must use either `WindowInsets.systemBars` (which includes the caption bar) or `WindowInsets.captionBar` to ensure your UI isn't covered by the system bars.
+**Note:** All apps running in [desktop windowing](/develop/ui/compose/layouts/adaptive/support-desktop-windowing) have a caption
+bar, even in immersive mode. For games and other immersive apps, this means you
+must use either `WindowInsets.systemBars` (which includes the caption bar)
+or `WindowInsets.captionBar` to ensure your UI isn't covered by the system
+bars.
 
 ### System bar colors and icons
 
@@ -115,8 +134,7 @@ contrast.
 
 To change status bar icons to light or dark, use `WindowInsetsControllerCompat`:
 
-
-```kotlin
+```
 // Set status bar icons to dark.
 WindowCompat.getInsetsController(window, window.decorView)
     .isAppearanceLightStatusBars = true
@@ -124,25 +142,34 @@ WindowCompat.getInsetsController(window, window.decorView)
 // Set status bar icons to light.
 WindowCompat.getInsetsController(window, window.decorView)
     .isAppearanceLightStatusBars = false
-```
 
-<br />
+EdgeToEdgeSnippets
+
+.kt
+```
 
 ### System bar protection
 
 While `enableEdgeToEdge()` provides default transparent or translucent system
 bars, you might need to customize this. Consult the [Android system bars design
-guidance](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars) and [Edge-to-edge design guidance](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge) to decide when to use
+guidance](/design/ui/mobile/guides/foundations/system-bars) and [Edge-to-edge design guidance](/design/ui/mobile/guides/layout-and-content/edge-to-edge) to decide when to use
 transparent versus translucent bars.
 
 To make the 3-button navigation bar fully transparent instead of translucent,
 you can disable contrast enforcement:
 
-
-```kotlin
+```
 window.isNavigationBarContrastEnforced = false
+
+EdgeToEdgeSnippets
+
+.kt
 ```
 
-<br />
+For more information, see [About system bar protection](/develop/ui/compose/system/system-bars).
 
-For more information, see [About system bar protection](https://developer.android.com/develop/ui/compose/system/system-bars).
+[Next
+
+About WindowInsetsRulers
+
+arrow\_forward](/develop/ui/compose/system/evaluate-rulers)
