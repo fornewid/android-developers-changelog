@@ -13,9 +13,9 @@ Applicable XR devices This guidance helps you build experiences for these types 
 
 After you've [installed and configured Android Studio](https://developer.android.com/develop/xr/jetpack-xr-sdk/get-studio), [created a
 project](https://developer.android.com/develop/xr/jetpack-xr-sdk/create-project), and [set up the Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk), you're ready to start building
-immersive experiences.
+immersive experiences for devices like XR headsets and wired XR glasses.
 
-Before you [start exploring all the ways you can build](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-xr-to-existing), review the
+Before you start exploring all the ways you can build, review the
 information and complete any tasks in the following sections to make sure your
 app is configured for immersive XR development.
 
@@ -179,9 +179,19 @@ for input, but can operate without it, set it to `false`.
     <!-- Sets android:required to true, indicating that your app can't function on devices without eye tracking. -->
     <uses-feature android:name="android.hardware.xr.input.eye_tracking" android:required="true" />
 
+#### android.hardware.xr.input.face_tracking
+
+This flag indicates that the app requires face tracking hardware to function
+correctly. If your app supports face tracking and can't function without it, set
+the value to `true`. If your app supports face tracking, but can operate without
+it, set it to `false`.
+
+    <!-- Sets android:required to true, indicating that your app can't function on devices without face tracking. -->
+    <uses-feature android:name="android.hardware.xr.input.face_tracking" android:required="true" />
+
 > [!NOTE]
-> **Note:** Hand tracking and eye tracking are privacy-sensitive input methods and require the apps to request special permissions. See [Understand permissions for
-> XR](https://developer.android.com/develop/xr/permissions) on this page for more information on declaring permissions.
+> **Note:** Hand tracking, eye tracking, face tracking, body tracking, scene understanding, and location are privacy-sensitive capabilities and require apps to request runtime permissions. See [Understand permissions for
+> XR](https://developer.android.com/develop/xr/permissions) for more information on declaring and requesting permissions.
 
 ## App manifest compatibility considerations for mobile and large screen apps
 

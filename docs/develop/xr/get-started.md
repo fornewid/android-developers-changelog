@@ -26,7 +26,7 @@ XR headsets \| Wired XR glasses
 
 ### [Build immersive experiences](https://developer.android.com/develop/xr/explore/immersive)
 
-Build helpful and delightful immersive experiences that transport users to a fully-virtual space, or blend semi-immersive digital content with the user's environment to unlock real-world multi-tasking. [Go explore](https://developer.android.com/develop/xr/explore/immersive) Audio glasses \| Display glasses
+Build engaging, immersive experiences that transport users to a fully-virtual space, or blend semi-immersive digital content with the user's environment to unlock real-world productivity and multi-tasking. [Go explore](https://developer.android.com/develop/xr/explore/immersive) Audio glasses \| Display glasses
 
 ### [Build augmented experiences](https://developer.android.com/develop/xr/explore/augmented)
 
@@ -36,9 +36,8 @@ Build lightweight, additive experiences that help users in everyday life on the 
 
 ## Understand the types of Android XR devices
 
-Android XR is a platform that supports a variety of XR devices. Each type of
-XR device has different capabilities that can support immersive and augmented
-experiences.
+The Android XR platform supports a variety of XR devices. Each type of XR device
+has different capabilities that can support immersive and augmented experiences.
 
 - [![](https://developer.android.com/static/images/develop/xr/xr-devices.svg)
   Understand the types of Android XR devices](https://developer.android.com/develop/xr/devices)

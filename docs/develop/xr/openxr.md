@@ -27,8 +27,24 @@ include the following.
 Spatial Entity framework
 :   A unified foundation for scene understanding and spatial reasoning. Enables
     applications to discover, query, and track physical spatial entities in the
-    environment, create spatial anchors attached to entities, perform spatial
-    entity raycasting, and persist spatial entities across application sessions.
+    environment (including planes, 3D meshes, bounding boxes, images, markers,
+    and annotations), filter discovery using spatial bounds, query entity
+    archetypes, create spatial anchors attached to entities, perform spatial
+    entity and mesh raycasting, and persist spatial entities across application
+    sessions.
+
+Spatial containers
+:   A cross-platform spatial windowing API ([`XR_EXT_spatial_container`](https://developer.android.com/develop/xr/openxr/spatial-containers) and
+    [`XR_EXT_spatial_container_self_rendering`](https://developer.android.com/develop/xr/openxr/spatial-containers)) that enables applications
+    to create and render displayable 3D spatial containers (both bounded and
+    immersive) using OpenXR swapchains and composition layers, allowing users to
+    experience multiple spatial containers simultaneously.
+
+Geospatial and Geospatial anchors
+:   Enables applications to track Earth-relative poses using Google's Visual
+    Positioning Service (VPS) and GPS, authenticate with Google Cloud services,
+    and place Geospatial Anchors and Surface Anchors at specific latitudes,
+    longitudes, and altitudes.
 
 Trackables
 :   Supports *plane detection* , which is the ability to identify and
@@ -40,8 +56,8 @@ Trackables
 
 Raycasting
 :   A technique used to determine the intersection point between a
-    virtual ray and objects in the scene, facilitating interactions such as
-    selecting and manipulating virtual elements.
+    virtual ray and objects or world meshes in the scene, facilitating
+    interactions such as selecting and manipulating virtual elements.
 
 Anchor persistence
 :   The capability to save and restore anchors across multiple
@@ -49,8 +65,12 @@ Anchor persistence
     content within the environment.
 
 Object tracking
-:   The ability to track mouse, keyboard and other objects in the
-    real-world.
+:   The ability to track mouse, keyboard, and other physical objects in the
+    real world.
+
+Image and Marker tracking
+:   The ability to detect and track planar reference images and physical markers
+    (such as AprilTags and ArUco markers) in the environment.
 
 QR Code tracking
 :   The ability to track QR Codes in the physical environment and decode
@@ -66,18 +86,28 @@ Passthrough
     content, creating a mixed reality experience that seamlessly combines the
     physical and digital worlds.
 
+Global passthrough dimming
+:   Allows applications to set and query the global passthrough dimming level to
+    blend virtual content with the physical environment, and receive events when
+    the dimming level changes.
+
+Viewport feathering
+:   Exposes the feathered perimeter area applied by the runtime so applications
+    can lay out UI elements within the safe area unaffected by peripheral
+    feathering.
+
 Scene meshing
-:   The ability to acquire a 3D mesh of the environment, which can be
-    used for physics, occlusion, and other world-aware interactions.
+:   The ability to acquire a 3D mesh of the environment, which can be used for
+    physics, occlusion, and other world-aware interactions.
 
 Composition layer passthrough
 :   Allows for a polygon passthrough composition
     layer cutout, can be used for bringing real world objects into a scene.
 
 Face tracking
-:   The ability to track the features of the user's face, enabling
-    the creation of more realistic and expressive avatars and virtual
-    characters.
+:   The ability to track the features of the user's face from visual and audio
+    data sources, enabling the creation of more realistic and expressive avatars
+    and virtual characters.
 
 Eye tracking
 :   Provides position and orientation of the user's eye, which is
@@ -92,8 +122,13 @@ Hand mesh
     get the best performance possible. This is an alternative to other
     extensions which use a bind pose and blend weights.
 
+Body tracking
+:   Estimates the user's body joint positions and proportions using head and hand
+    tracking inputs.
+
 Light estimation
-:   Used for lighting models to match the user's real world lighting conditions.
+:   Used for lighting models (including directional, ambient, spherical harmonics,
+    and cubemap lighting) to match the user's real-world lighting conditions.
 
 ## Supported input devices
 
@@ -152,6 +187,18 @@ The following engines are supported for OpenXR development with Android XR.
 Android XR's Unity support, built on top of OpenXR, lets developers create
 experiences using Unity 6. Learn more about building XR apps with Unity in the
 [Unity overview](https://developer.android.com/develop/xr/unity).
+
+### Unreal Engine
+
+Unreal Engine supports Android XR through the OpenXR standard, letting you use
+the standard tools and workflows in Unreal Engine 5. Learn more about building
+XR apps with Unreal Engine in the [Unreal Engine overview](https://developer.android.com/develop/xr/unreal).
+
+### Godot
+
+Godot supports Android XR through its OpenXR integration, letting you build and
+export XR apps for Android using the standard Godot workflow. Learn more about
+building XR apps with Godot in the [Godot overview](https://developer.android.com/develop/xr/godot).
 
 > [!NOTE]
 > **Note:** The [Android XR emulator](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/xr-headsets-glasses) is not supported for Unity or OpenXR apps.

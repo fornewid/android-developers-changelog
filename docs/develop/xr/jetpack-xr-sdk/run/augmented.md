@@ -24,7 +24,7 @@ Android XR Emulator.
 This guide covers the following areas:
 
 - Running your app on virtual devices for audio glasses and display glasses, including:
-  - [Creating virtual devices for audio glasses and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/glasses)
+  - [Creating virtual devices for audio and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/glasses)
   - [Running your app's augmented experiences on the emulator](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/glasses)
   - [Troubleshooting Android XR Emulator issues for audio glasses and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/glasses-troubleshoot)
 - [Debugging your augmented app layout with Layout Inspector](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/debug-layout/augmented)

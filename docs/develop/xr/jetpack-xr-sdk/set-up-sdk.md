@@ -94,7 +94,7 @@ dependencies {
 > [!CAUTION]
 > **Caution:** You must use `compileOnly` for this dependency. Using `implementation` or `api` will cause your app to break at runtime.
 
-### Add library dependencies for augmented experiences (AI glasses)
+### Add library dependencies for augmented experiences (audio and display glasses)
 
 First, see the following reference guides to understand necessary dependencies
 and compatibility issues for each of the required libraries:
@@ -127,4 +127,4 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
     }
 
 > [!NOTE]
-> **Note:** While developing for AI glasses, use these stated library versions even if newer versions of these Jetpack libraries have already been released.
+> **Note:** While developing for audio and display glasses, use these stated library versions even if newer versions of these Jetpack libraries have already been released.

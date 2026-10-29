@@ -1,0 +1,1230 @@
+---
+title: https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container
+url: https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container
+source: md.txt
+---
+
+### XR_EXT_spatial_container
+
+**Name String**
+
+`XR_EXT_spatial_container`
+
+**Extension Type**
+
+Instance extension
+
+**Registered Extension Number**
+
+811
+
+**Revision**
+
+1
+
+**Ratification Status**
+
+Not ratified
+
+**Extension and Version Dependencies**
+
+[OpenXR 1.0](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#versions-1.0)
+
+**Last Modified Date**
+
+2026-08-06
+
+**IP Status**
+
+No known IP claims.
+
+**Contributors**
+
+Jared Finder, Google  
+
+Andreas Loeve Selvik, Meta Platforms  
+
+Lachlan Ford, Google  
+
+Cass Everitt, Meta Platforms  
+
+Adam Gousetis, Meta Platforms  
+
+Ankur Agrawal, Unity Technologies  
+
+Bjorn Swenson, LÖVR  
+
+Denny Rönngren, Varjo Technologies  
+
+Fredia Huya-Kouadio, Godot Engine  
+
+Guodong Rong, Meta Platforms  
+
+Jakob Bornecrantz, NVIDIA  
+
+Jian Zhang, ByteDance  
+
+John Kearney, Meta Platforms  
+
+Jonathan Wright, Meta Platforms  
+
+Junfeng She, ByteDance  
+
+Kenny Vercaemer, Google  
+
+Kurtis Eveleigh, Qualcomm  
+
+Mauricio Narvaez, Meta Platforms  
+
+Nathan Nuber, Valve Corporation  
+
+Nihav Jain, Google  
+
+Nikita Lutsenko, Meta Platforms  
+
+Praveen Babu J D, ByteDance  
+
+Rylie Pavlik, Collabora  
+
+Salar Khan, Google  
+
+Shuai Liu, ByteDance  
+
+Walter Luh, Meta Platforms  
+
+Yin Li, Microsoft  
+
+Zhipeng Liu, ByteDance
+
+## Overview
+
+This extension defines a new class of displayable entities, called "spatial containers" that are analogous to the concept of "windows" in desktop 2D windowing systems.
+
+In OpenXR 1.x, apps have exclusive control of all that the user sees and how that is blended on top of a user's real or virtual environment. Runtimes only make slight modifications to what is displayed to ensure user safety. This app model is good for immersing a user in a single experience, but it does not extend to multiple simultaneous experiences. In particular, in AR and mixed reality environments, users often want to experience multiple different apps at the same time.
+
+Spatial containers are like windows extended to 3D. The user is able to see multiple spatial containers simultaneously and provides input to a subset of them. The visible spatial containers are able to belong to different apps and runtimes manage their size and placement on behalf of the user.
+
+This extension supports these new types of spatially bounded experiences in addition to existing immersive OpenXR experiences. Bounded OpenXR experiences are allowed to have slightly 3D content (flat panels with minor depth offsets) or volumes that host fully 3D content. Immersive OpenXR experiences are the existing full-screen immersive apps that have been supported since OpenXR 1.0. Apps are able to switch between the two types of content if the app chooses to.
+
+This extension does not define any method for an app to render its content. How to draw content is defined in other extensions: `XR_EXT_spatial_container_self_rendering` .
+
+## Using spatial containers
+
+An [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) is a handle that represents a spatial container.
+
+    XR_DEFINE_HANDLE(XrSpatialContainerEXT)
+
+An application starts rendering through a spatial container with the following steps:
+
+1. Create a spatial container with [xrCreateSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrCreateSpatialContainerEXT) .
+2. Modify any state on the container for initial presentation, such as its bounds mode.
+3. Request the runtime show the container with [xrRequestSpatialContainerVisibleEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrRequestSpatialContainerVisibleEXT) .
+4. Wait for the runtime to be ready to show the container. When the runtime is ready, it queues an [XrEventDataSpatialContainerVisibleChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerVisibleChangedEXT) event with `visible` set to `XR_TRUE` .
+5. Begin rendering for the spatial container.
+
+And tearing down a spatial container is as follows:
+
+1. Request the runtime hide the container with [xrRequestSpatialContainerVisibleEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrRequestSpatialContainerVisibleEXT) .
+2. Wait for the runtime to finish hiding the container. When the runtime has fully hidden the container, it queues an [XrEventDataSpatialContainerVisibleChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerVisibleChangedEXT) event with `visible` set to `XR_FALSE` .
+3. End rendering for the spatial container.
+4. Destroy the container with [xrDestroySpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrDestroySpatialContainerEXT) .
+
+### Note
+
+By design, this extension delegates visibility and focus management to individual spatial containers. Because the session as a whole no longer represents a single visible or focused object, the session does not transition through the standard OpenXR state machine (READY, SYNCHRONIZED, VISIBLE, FOCUSED). Instead, the session remains in `XR_SESSION_STATE_IDLE` for its active lifetime, and the rules in [Changes to session state](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#ext_spatial_container-changes_to_session_state) specify how core OpenXR operations map to this mode.
+
+## Create a spatial container
+
+The [xrCreateSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrCreateSpatialContainerEXT) function creates a new spatial container.
+
+    XrResult xrCreateSpatialContainerEXT(
+        XrSession                                   session,
+        const XrSpatialContainerCreateInfoEXT*      createInfo,
+        XrSpatialContainerEXT*                      spatialContainer);
+
+### Parameter Descriptions
+
+- `session` is the [XrSession](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSession) that creates the spatial container.
+- `createInfo` is a pointer to an [XrSpatialContainerCreateInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerCreateInfoEXT) containing parameters to create the spatial container.
+- `spatialContainer` is a pointer to a handle in which the created [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) is returned.
+
+A newly created [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) **must** be not visible, not interactable, and in bounds mode `XR_SPATIAL_CONTAINER_BOUNDS_MODE_BOUNDED_EXT` . An app that wants a spatial container to start in immersive mode **can** request a bounds mode of `XR_SPATIAL_CONTAINER_BOUNDS_MODE_IMMERSIVE_EXT` before requesting to show a spatial container.
+
+Runtimes **must** return `XR_ERROR_VALIDATION_FAILURE` if any dimension of [XrSpatialContainerCreateInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerCreateInfoEXT) :: `suggestedBounds` is negative, infinite, or not a number. Runtimes **must** return `XR_ERROR_LIMIT_REACHED` if an app attempts to create more spatial containers than specified in [XrSystemSpatialContainerPropertiesEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSystemSpatialContainerPropertiesEXT) :: `maxSpatialContainerCount` . If spatial containers were not [enabled for this session](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#ext_spatial_container-changes_to_session_state) , runtimes **must** return `XR_ERROR_SPATIAL_CONTAINERS_NOT_ENABLED_EXT` .
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrCreateSpatialContainerEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to calling [xrCreateSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrCreateSpatialContainerEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrCreateSpatialContainerEXT-session-parameter) `session` **must** be a valid [XrSession](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSession) handle
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrCreateSpatialContainerEXT-createInfo-parameter) `createInfo` **must** be a pointer to a valid [XrSpatialContainerCreateInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerCreateInfoEXT) structure
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrCreateSpatialContainerEXT-spatialContainer-parameter) `spatialContainer` **must** be a pointer to an [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) handle
+
+### Return Codes
+
+[Success](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
+
+- `XR_SUCCESS`
+- `XR_SESSION_LOSS_PENDING`
+
+[Failure](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
+
+- `XR_ERROR_FUNCTION_UNSUPPORTED`
+- `XR_ERROR_HANDLE_INVALID`
+- `XR_ERROR_INSTANCE_LOST`
+- `XR_ERROR_LIMIT_REACHED`
+- `XR_ERROR_OUT_OF_MEMORY`
+- `XR_ERROR_RUNTIME_FAILURE`
+- `XR_ERROR_SESSION_LOST`
+- `XR_ERROR_SPATIAL_CONTAINERS_NOT_ENABLED_EXT`
+- `XR_ERROR_VALIDATION_FAILURE`
+
+The [XrSpatialContainerCreateInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerCreateInfoEXT) is passed to [xrCreateSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrCreateSpatialContainerEXT) to create a spatial container.
+
+    typedef struct XrSpatialContainerCreateInfoEXT {
+        XrStructureType                              type;
+        const void*                                  next;
+        XrSpatialContainerGraphicsPresentationEXT    graphicsPresentation;
+        XrExtent3Df                                  suggestedBounds;
+    } XrSpatialContainerCreateInfoEXT;
+
+### Member Description
+
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `graphicsPresentation` is an [XrSpatialContainerGraphicsPresentationEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerGraphicsPresentationEXT) that describes how this spatial container presents graphics.
+- `suggestedBounds` is an [XrExtent3Df](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrExtent3Df) that describes the requested dimensions of the spatial container in meters.
+
+An app that has no preference for its size **can** set `suggestedBounds` to {0, 0, 0}. A runtime **may** ignore the requested `suggestedBounds` .
+
+A runtime that allows spatial containers to be bounded by shapes other than oriented boxes **must** use suggestedBounds as a bounding box around the other shapes. Oriented boxes are intended to be the most common bounding shape.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerCreateInfoEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrSpatialContainerCreateInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerCreateInfoEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerCreateInfoEXT-type-type) `type` **must** be `XR_TYPE_SPATIAL_CONTAINER_CREATE_INFO_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerCreateInfoEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerCreateInfoEXT-graphicsPresentation-parameter) `graphicsPresentation` **must** be a valid [XrSpatialContainerGraphicsPresentationEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerGraphicsPresentationEXT) value
+
+When a spatial container is no longer usable, runtimes **must** queue an [XrEventDataSpatialContainerClosedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerClosedEXT) event.
+
+    typedef struct XrEventDataSpatialContainerClosedEXT {
+        XrStructureType          type;
+        const void*              next;
+        XrSpatialContainerEXT    spatialContainer;
+    } XrEventDataSpatialContainerClosedEXT;
+
+### Member Description
+
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `spatialContainer` is the [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) that this event is for.
+
+Receiving the [XrEventDataSpatialContainerClosedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerClosedEXT) event indicates that the runtime is no longer able to display a spatial container, for example due to the user clicking a "close" button or the session entering the `XR_SESSION_STATE_LOSS_PENDING` state.
+
+After receiving the [XrEventDataSpatialContainerClosedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerClosedEXT) event, an app **should** stop using that spatial container, tear down any associated state such as a render loop, and destroy the container. Runtimes **must** return `XR_ERROR_SPATIAL_CONTAINER_CLOSED_EXT` from all functions operating on that container other than [xrDestroySpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrDestroySpatialContainerEXT) .
+
+If a spatial container is visible when the runtime queues a close event, runtimes **must** first change the container to not visible and queue an [XrEventDataSpatialContainerVisibleChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerVisibleChangedEXT) event.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerClosedEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrEventDataSpatialContainerClosedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerClosedEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerClosedEXT-type-type) `type` **must** be `XR_TYPE_EVENT_DATA_SPATIAL_CONTAINER_CLOSED_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerClosedEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+
+The [xrDestroySpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrDestroySpatialContainerEXT) function destroys an existing spatial container.
+
+    XrResult xrDestroySpatialContainerEXT(
+        XrSpatialContainerEXT                       spatialContainer);
+
+### Parameter Descriptions
+
+- `spatialContainer` is an [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) previously created by [xrCreateSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrCreateSpatialContainerEXT) .
+
+After a spatial container is destroyed runtimes **must** not show the container's contents any more and **must** not queue any additional events about the container.
+
+An app **should** not destroy a spatial container that is visible as doing so **may** result in graphical artifacts, instead an app **should** request to hide the spatial container with [xrRequestSpatialContainerVisibleEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrRequestSpatialContainerVisibleEXT) , wait for an [XrEventDataSpatialContainerVisibleChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerVisibleChangedEXT) event, and then destroy the container.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrDestroySpatialContainerEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to calling [xrDestroySpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrDestroySpatialContainerEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrDestroySpatialContainerEXT-spatialContainer-parameter) `spatialContainer` **must** be a valid [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) handle
+
+### Thread Safety
+
+- Access to `spatialContainer` , and any child handles, **must** be externally synchronized
+
+### Return Codes
+
+[Success](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
+
+- `XR_SUCCESS`
+
+[Failure](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
+
+- `XR_ERROR_FUNCTION_UNSUPPORTED`
+- `XR_ERROR_HANDLE_INVALID`
+- `XR_ERROR_RUNTIME_FAILURE`
+
+## The spatial container space
+
+The [xrCreateSpatialContainerSpaceEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrCreateSpatialContainerSpaceEXT) function creates an [XrSpace](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpace) handle for the spatial container space of a specific spatial container.
+
+    XrResult xrCreateSpatialContainerSpaceEXT(
+        XrSession                                   session,
+        const XrSpatialContainerSpaceCreateInfoEXT* createInfo,
+        XrSpace*                                    space);
+
+### Parameter Descriptions
+
+- `session` is the [XrSession](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSession) that creates the space.
+- `createInfo` is a pointer to an [XrSpatialContainerSpaceCreateInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerSpaceCreateInfoEXT) containing parameters to create the space.
+- `space` is a pointer to a handle in which the created [XrSpace](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpace) is returned.
+
+The "spatial container space" for any given spatial container is a coordinate system with its origin at the center of that spatial container's bounds. This space is typically used as the base space for functions like [xrLocateSpace](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrLocateSpace) .
+
++X points to the right face of the container, +Y points to the top face of the container, and +Z points to the front face of the container. For example, if a container is gravity aligned, in front of the viewer, and the viewer is at the identity pose relative to the [`LOCAL` space](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XR_REFERENCE_SPACE_TYPE_LOCAL) , runtimes **must** orient the container space with the identity orientation relative to the [`LOCAL` space](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XR_REFERENCE_SPACE_TYPE_LOCAL) . Runtimes **may** set the pose of a container space relative to [`LOCAL` space](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XR_REFERENCE_SPACE_TYPE_LOCAL) to any arbitrary pose when that container becomes visible.
+
+ext spatial container space convention
+
+### Figure 18. Axes convention of spatial container space
+
+The spatial container space is a non-world locked origin. Apps that want a world locked origin while in immersive mode **can** use a world locked space such as `XR_REFERENCE_SPACE_TYPE_LOCAL` .
+
+Runtimes **may** change a spatial container space's pose at any time, commonly to support a user moving a spatial container to a different position or rotation. Runtimes **may** also change the pose when transitioning between `XR_SPATIAL_CONTAINER_BOUNDS_MODE_BOUNDED_EXT` and `XR_SPATIAL_CONTAINER_BOUNDS_MODE_IMMERSIVE_EXT` bounds modes.
+
+A spatial container space **must** continue to be a valid handle even if the spatial container it is for is destroyed with [xrDestroySpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrDestroySpatialContainerEXT) . While a spatial container is not visible or destroyed, the spatial container space **must** be [unlocatable](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#spaces-action-spaces-lifetime) relative to other spaces. [XrSpaceLocation](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpaceLocation) :: `locationFlags` and [XrViewState](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrViewState) ::viewStateFlags will be 0.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrCreateSpatialContainerSpaceEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to calling [xrCreateSpatialContainerSpaceEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrCreateSpatialContainerSpaceEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrCreateSpatialContainerSpaceEXT-session-parameter) `session` **must** be a valid [XrSession](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSession) handle
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrCreateSpatialContainerSpaceEXT-createInfo-parameter) `createInfo` **must** be a pointer to a valid [XrSpatialContainerSpaceCreateInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerSpaceCreateInfoEXT) structure
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrCreateSpatialContainerSpaceEXT-space-parameter) `space` **must** be a pointer to an [XrSpace](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpace) handle
+
+### Return Codes
+
+[Success](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
+
+- `XR_SUCCESS`
+- `XR_SESSION_LOSS_PENDING`
+
+[Failure](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
+
+- `XR_ERROR_FUNCTION_UNSUPPORTED`
+- `XR_ERROR_HANDLE_INVALID`
+- `XR_ERROR_INSTANCE_LOST`
+- `XR_ERROR_LIMIT_REACHED`
+- `XR_ERROR_OUT_OF_MEMORY`
+- `XR_ERROR_RUNTIME_FAILURE`
+- `XR_ERROR_SESSION_LOST`
+- `XR_ERROR_SPATIAL_CONTAINER_CLOSED_EXT`
+- `XR_ERROR_VALIDATION_FAILURE`
+
+The [XrSpatialContainerSpaceCreateInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerSpaceCreateInfoEXT) is used with [xrCreateSpatialContainerSpaceEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrCreateSpatialContainerSpaceEXT) to create an [XrSpace](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpace) handle.
+
+    typedef struct XrSpatialContainerSpaceCreateInfoEXT {
+        XrStructureType          type;
+        const void*              next;
+        XrSpatialContainerEXT    spatialContainer;
+    } XrSpatialContainerSpaceCreateInfoEXT;
+
+### Member Description
+
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `spatialContainer` is an [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) to create a space for.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerSpaceCreateInfoEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrSpatialContainerSpaceCreateInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerSpaceCreateInfoEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerSpaceCreateInfoEXT-type-type) `type` **must** be `XR_TYPE_SPATIAL_CONTAINER_SPACE_CREATE_INFO_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerSpaceCreateInfoEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerSpaceCreateInfoEXT-spatialContainer-parameter) `spatialContainer` **must** be a valid [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) handle
+
+## Presenting a spatial container
+
+Submitting a spatial container's contents are submitted to OpenXR for display is handled by other extensions: `XR_EXT_spatial_container_self_rendering` .
+
+To allow other extensions to specify the graphics presentation method for a spatial container this extension defines the [XrSpatialContainerGraphicsPresentationEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerGraphicsPresentationEXT) enum.
+
+    typedef enum XrSpatialContainerGraphicsPresentationEXT {
+        XR_SPATIAL_CONTAINER_GRAPHICS_PRESENTATION_SELF_RENDERING_EXT = 1000813000,
+        XR_SPATIAL_CONTAINER_GRAPHICS_PRESENTATION_CONFORMANCE_AUTOMATION_EXT = 1000814000,
+        XR_SPATIAL_CONTAINER_GRAPHICS_PRESENTATION_SYSTEM_RENDERING_EXTX1 = 1000815000,
+        XR_SPATIAL_CONTAINER_GRAPHICS_PRESENTATION_MAX_ENUM_EXT = 0x7FFFFFFF
+    } XrSpatialContainerGraphicsPresentationEXT;
+
+Enum Description
+
+`XR_SPATIAL_CONTAINER_GRAPHICS_PRESENTATION_SELF_RENDERING_EXT`
+
+Spatial container uses OpenXR composition layers (Added by the `XR_EXT_spatial_container_self_rendering` extension)
+
+`XR_SPATIAL_CONTAINER_GRAPHICS_PRESENTATION_CONFORMANCE_AUTOMATION_EXT`
+
+Spatial container is created for conformance testing and does not have a rendering path (Added by the `XR_EXT_spatial_container_conformance_automation` extension)
+
+`XR_SPATIAL_CONTAINER_GRAPHICS_PRESENTATION_SYSTEM_RENDERING_EXTX1`
+
+Spatial container uses OpenXR system rendering (Added by the `XR_EXTX1_system_renderer` extension)
+
+## Spatial container state
+
+Spatial container state is managed by runtimes based on both app requests and the needs of the user. Because of this, each aspect of spatial container state documents the following things:
+
+- When runtimes are allowed to change the spatial container state. For most spatial container state, runtimes **may** change the state at any time.
+- How an app requests changes to the state. Runtimes **may** defer any request until it believes the request is suitable. Runtimes do not queue events when a request is deferred, so apps **should** not wait on such an event for unrelated logic.
+- What event runtimes queue when the spatial container state changes. Runtimes queue events for all changes, including app requested changes and runtime initiated changes. Runtimes **must** not queue state change events that do not indicate a change, such as if an app makes two requests to hide a container in quick succession.
+- What event runtimes queue when denying an app change request. Runtimes **may** deny a request for any reason, typically due to system policy related to maintaining a high quality user experience.
+
+The [xrGetSpatialContainerStateEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrGetSpatialContainerStateEXT) function queries the current state of the spatial container.
+
+    XrResult xrGetSpatialContainerStateEXT(
+        XrSpatialContainerEXT                       spatialContainer,
+        const XrSpatialContainerStateGetInfoEXT*    getInfo,
+        XrSpatialContainerStateEXT*                 state);
+
+### Parameter Descriptions
+
+- `spatialContainer` is the [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) to query.
+- `getInfo` is the [XrSpatialContainerStateGetInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerStateGetInfoEXT) with the information used to get the state of the spatial container.
+- `state` is a pointer to the [XrSpatialContainerStateEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerStateEXT) in which the spatial container state is returned.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrGetSpatialContainerStateEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to calling [xrGetSpatialContainerStateEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrGetSpatialContainerStateEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrGetSpatialContainerStateEXT-spatialContainer-parameter) `spatialContainer` **must** be a valid [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) handle
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrGetSpatialContainerStateEXT-getInfo-parameter) If `getInfo` is not `NULL` , `getInfo` **must** be a pointer to a valid [XrSpatialContainerStateGetInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerStateGetInfoEXT) structure
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrGetSpatialContainerStateEXT-state-parameter) `state` **must** be a pointer to an [XrSpatialContainerStateEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerStateEXT) structure
+
+### Return Codes
+
+[Success](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
+
+- `XR_SUCCESS`
+- `XR_SESSION_LOSS_PENDING`
+
+[Failure](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
+
+- `XR_ERROR_FUNCTION_UNSUPPORTED`
+- `XR_ERROR_HANDLE_INVALID`
+- `XR_ERROR_INSTANCE_LOST`
+- `XR_ERROR_RUNTIME_FAILURE`
+- `XR_ERROR_SESSION_LOST`
+- `XR_ERROR_SPATIAL_CONTAINER_CLOSED_EXT`
+- `XR_ERROR_VALIDATION_FAILURE`
+
+The [XrSpatialContainerStateGetInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerStateGetInfoEXT) is used with [xrGetSpatialContainerStateEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrGetSpatialContainerStateEXT) to query an [XrSpatialContainerStateEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerStateEXT) .
+
+    typedef struct XrSpatialContainerStateGetInfoEXT {
+        XrStructureType    type;
+        const void*        next;
+    } XrSpatialContainerStateGetInfoEXT;
+
+### Member Description
+
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerStateGetInfoEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrSpatialContainerStateGetInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerStateGetInfoEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerStateGetInfoEXT-type-type) `type` **must** be `XR_TYPE_SPATIAL_CONTAINER_STATE_GET_INFO_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerStateGetInfoEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+
+    typedef struct XrSpatialContainerStateEXT {
+        XrStructureType                    type;
+        void*                              next;
+        XrBool32                           visible;
+        XrBool32                           interactable;
+        XrSpatialContainerBoundsModeEXT    boundsMode;
+    } XrSpatialContainerStateEXT;
+
+### Member Description
+
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `visible` represents whether a spatial container is visible.
+- `interactable` represents if a spatial container is currently able to receive any type of input. It is similar to "focus" for desktop 2D windowing systems with the difference that multiple spatial containers **may** be interactable at once.
+- `boundsMode` is the current [XrSpatialContainerBoundsModeEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsModeEXT) of the spatial container.
+
+Changes to a spatial container's state is communicated via events.
+
+Field Changed event
+
+`visible`
+
+[XrEventDataSpatialContainerVisibleChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerVisibleChangedEXT)
+
+`interactable`
+
+[XrEventDataSpatialContainerInteractableChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerInteractableChangedEXT)
+
+`boundsMode`
+
+[XrEventDataSpatialContainerBoundsChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerBoundsChangedEXT)
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerStateEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrSpatialContainerStateEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerStateEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerStateEXT-type-type) `type` **must** be `XR_TYPE_SPATIAL_CONTAINER_STATE_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerStateEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+
+## Visibility
+
+Apps request to show or hide a spatial container with [xrRequestSpatialContainerVisibleEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrRequestSpatialContainerVisibleEXT) .
+
+    XrResult xrRequestSpatialContainerVisibleEXT(
+        XrSpatialContainerEXT                       spatialContainer,
+        const XrSpatialContainerVisibleRequestInfoEXT* info);
+
+### Parameter Descriptions
+
+- `spatialContainer` is the [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) to request a change for.
+- `info` is a pointer to an [XrSpatialContainerVisibleRequestInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerVisibleRequestInfoEXT) containing the requested visible state.
+
+Showing or hiding a spatial container is an asynchronous operation.
+
+Apps **should** request to hide a spatial container before destroying it, enabling runtimes to display a smooth transition. Runtimes **should** honor requests to hide a spatial container.
+
+A runtime **may** deny requests to show a spatial container, in which case the runtime **must** queue an [XrEventDataSpatialContainerVisibleRequestDeniedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerVisibleRequestDeniedEXT) event. For example, some runtimes will deny a request to show a spatial container that the user hid by interacting with a system provided "minimize" button.
+
+Runtimes **must** not show a spatial container prior to the app requesting to show that spatial container at least once. After the app's first request to show a spatial container, runtimes **may** change the visibility that spatial container independent of an app's requests. This enables the app to control the initial state and contents of a spatial container and enables runtimes to provide system UI like a taskbar that allow a user to choose which spatial containers are visible.
+
+Runtimes **must** deny requests to show a spatial container in a bounds mode not supported based on [XrSystemSpatialContainerPropertiesEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSystemSpatialContainerPropertiesEXT) :: `supportsBounded` and [XrSystemSpatialContainerPropertiesEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSystemSpatialContainerPropertiesEXT) :: `supportsImmersive` . This is possible when the default bounds mode, `XR_SPATIAL_CONTAINER_BOUNDS_MODE_BOUNDED_EXT` , is unsupported for a given system.
+
+### Note
+
+On some implementations showing or hiding a spatial container requires communicating with system services and **may** be deferred until after the user interacts with a system dialog. The asnchyronous design for requesting visibility state changes is intended to allow runtimes the time to complete both of these operations.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrRequestSpatialContainerVisibleEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to calling [xrRequestSpatialContainerVisibleEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrRequestSpatialContainerVisibleEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrRequestSpatialContainerVisibleEXT-spatialContainer-parameter) `spatialContainer` **must** be a valid [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) handle
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrRequestSpatialContainerVisibleEXT-info-parameter) `info` **must** be a pointer to a valid [XrSpatialContainerVisibleRequestInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerVisibleRequestInfoEXT) structure
+
+### Return Codes
+
+[Success](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
+
+- `XR_SUCCESS`
+- `XR_SESSION_LOSS_PENDING`
+
+[Failure](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
+
+- `XR_ERROR_FUNCTION_UNSUPPORTED`
+- `XR_ERROR_HANDLE_INVALID`
+- `XR_ERROR_INSTANCE_LOST`
+- `XR_ERROR_RUNTIME_FAILURE`
+- `XR_ERROR_SESSION_LOST`
+- `XR_ERROR_SPATIAL_CONTAINER_CLOSED_EXT`
+- `XR_ERROR_VALIDATION_FAILURE`
+
+The [XrSpatialContainerVisibleRequestInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerVisibleRequestInfoEXT) is used with [xrRequestSpatialContainerVisibleEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrRequestSpatialContainerVisibleEXT) to change a spatial container's visibility.
+
+    typedef struct XrSpatialContainerVisibleRequestInfoEXT {
+        XrStructureType    type;
+        const void*        next;
+        XrBool32           visible;
+    } XrSpatialContainerVisibleRequestInfoEXT;
+
+### Member Description
+
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `visible` represents whether a spatial container is requested to be shown or hidden.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerVisibleRequestInfoEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrSpatialContainerVisibleRequestInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerVisibleRequestInfoEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerVisibleRequestInfoEXT-type-type) `type` **must** be `XR_TYPE_SPATIAL_CONTAINER_VISIBLE_REQUEST_INFO_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerVisibleRequestInfoEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+
+Every time a runtime changes the visibility of a spatial container, the runtime **must** queue an [XrEventDataSpatialContainerVisibleChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerVisibleChangedEXT) event with the new state.
+
+    typedef struct XrEventDataSpatialContainerVisibleChangedEXT {
+        XrStructureType          type;
+        const void*              next;
+        XrSpatialContainerEXT    spatialContainer;
+        XrBool32                 visible;
+    } XrEventDataSpatialContainerVisibleChangedEXT;
+
+### Member Description
+
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `spatialContainer` is the [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) that this event is for.
+- `visible` is the new visible state for the spatial container.
+
+This event replaces `XR_SESSION_STATE_VISIBLE` , allowing the value to be different per-container. The event **must** be queued for all changes, including app requested changes and runtime initiated changes.
+
+A runtime **may** delay rendering a container for a few frames after queuing this event with `visible` set to `XR_TRUE` to avoid displaying an empty container and provide the app time to submit its initial content. During this time, [XrSpatialContainerStateEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerStateEXT) ::visible will be `XR_TRUE` . Runtimes **should** not delay rendering a container for over 0.5 seconds.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerVisibleChangedEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrEventDataSpatialContainerVisibleChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerVisibleChangedEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerVisibleChangedEXT-type-type) `type` **must** be `XR_TYPE_EVENT_DATA_SPATIAL_CONTAINER_VISIBLE_CHANGED_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerVisibleChangedEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+
+Every time a runtime denies a request to show a container, the runtime **must** queue an [XrEventDataSpatialContainerVisibleRequestDeniedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerVisibleRequestDeniedEXT) event.
+
+    typedef struct XrEventDataSpatialContainerVisibleRequestDeniedEXT {
+        XrStructureType          type;
+        const void*              next;
+        XrSpatialContainerEXT    spatialContainer;
+    } XrEventDataSpatialContainerVisibleRequestDeniedEXT;
+
+### Member Description
+
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `spatialContainer` is the [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) that this event is for.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerVisibleRequestDeniedEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrEventDataSpatialContainerVisibleRequestDeniedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerVisibleRequestDeniedEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerVisibleRequestDeniedEXT-type-type) `type` **must** be `XR_TYPE_EVENT_DATA_SPATIAL_CONTAINER_VISIBLE_REQUEST_DENIED_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerVisibleRequestDeniedEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+
+## Interactable
+
+An app **cannot** request a spatial container be interactable. What spatial containers are interactable is fully controlled by runtimes. A spatial container that is interactable **must** also be visible.
+
+Every time a runtime changes the interactable state of a spatial container, the runtime **must** queue an [XrEventDataSpatialContainerInteractableChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerInteractableChangedEXT) event with the new state.
+
+    typedef struct XrEventDataSpatialContainerInteractableChangedEXT {
+        XrStructureType          type;
+        const void*              next;
+        XrSpatialContainerEXT    spatialContainer;
+        XrBool32                 interactable;
+    } XrEventDataSpatialContainerInteractableChangedEXT;
+
+### Member Description
+
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `spatialContainer` is the [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) that this event is for.
+- `interactable` is the new interactable state for the spatial container.
+
+This event replaces `XR_SESSION_STATE_FOCUSED` , allowing the value to be different per-container. The event is queued for all changes, including runtime initiated changes.
+
+Runtimes **may** enable or disable interaction with a spatial container at any time. If a runtime only supports at most one spatial container being interactable at a time, when the runtime changes the interactable spatial container, the runtime **must** queue the event for the spatial container that stops being interactable ( `interactable` set to false) before the event for the container that starts being interactable ( `interactable` set to true).
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerInteractableChangedEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrEventDataSpatialContainerInteractableChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerInteractableChangedEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerInteractableChangedEXT-type-type) `type` **must** be `XR_TYPE_EVENT_DATA_SPATIAL_CONTAINER_INTERACTABLE_CHANGED_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerInteractableChangedEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+
+## Bounds
+
+A spatial container has a bounds mode and a bounding box. A spatial container's bounds mode describes how the bounds behave. Its bounding box is what the spatial container draws inside of.
+
+The [XrSpatialContainerBoundsModeEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsModeEXT) enumeration identifies different modes a spatial container's bounds are able to be in.
+
+    typedef enum XrSpatialContainerBoundsModeEXT {
+        XR_SPATIAL_CONTAINER_BOUNDS_MODE_BOUNDED_EXT = 1,
+        XR_SPATIAL_CONTAINER_BOUNDS_MODE_IMMERSIVE_EXT = 2,
+        XR_SPATIAL_CONTAINER_BOUNDS_MODE_MAX_ENUM_EXT = 0x7FFFFFFF
+    } XrSpatialContainerBoundsModeEXT;
+
+Enum Description
+
+`XR_SPATIAL_CONTAINER_BOUNDS_MODE_BOUNDED_EXT`
+
+Spatial container is bounded. The bounds are a finite box. The spatial container will only appear in this region.
+
+`XR_SPATIAL_CONTAINER_BOUNDS_MODE_IMMERSIVE_EXT`
+
+Spatial container is immersive and has infinite bounds. The spatial container is displayed over the entire screen.
+
+Spatial containers that are in bounds mode `XR_SPATIAL_CONTAINER_BOUNDS_MODE_IMMERSIVE_EXT` have additional requirements:
+
+- Runtimes **must** treat these spatial containers the same as a full-screen and immersive app created without spatial container usage, except for the behavior changes called out in [Changes to session state](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#ext_spatial_container-changes_to_session_state) .
+- Runtimes **may** provide additional extensions that enable immersive spatial containers to behave differently from full-screen and immersive apps created without this extension.
+- Runtimes **must** report infinite bounds for these spatial containers.
+- Runtimes **may** hide other spatial containers while an immersive spatial container is visible. Because this might be different per runtime, apps **should** not rely on spatial containers being automatically shown or hidden based on immersive spatial container visibility. Like all other visible state transitions, runtimes **must** queue an [XrEventDataSpatialContainerVisibleChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerVisibleChangedEXT) event when a spatial container is hidden due to an immersive container being visible.
+
+### Note
+
+The above requirements imply that all runtimes **can** implement the OpenXR 1.x path without this extension by implicitly creating a spatial container, setting the container's bounds mode to immersive, and requesting it be visible.
+
+Apps request to change a spatial container's bounds mode with [xrRequestSpatialContainerBoundsModeEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrRequestSpatialContainerBoundsModeEXT) .
+
+    XrResult xrRequestSpatialContainerBoundsModeEXT(
+        XrSpatialContainerEXT                       spatialContainer,
+        const XrSpatialContainerBoundsModeRequestInfoEXT* info);
+
+### Parameter Descriptions
+
+- `spatialContainer` is the [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) to request a change for.
+- `info` is a pointer to an [XrSpatialContainerBoundsModeRequestInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsModeRequestInfoEXT) containing the requested bounds mode.
+
+Changing a spatial container's bounds mode is an asynchronous operation and runtimes **may** queue a changed or denied event many seconds after the app requests a change. This allows runtimes to pop up UI that is necessary to allow a user to safely enter an immersive mode.
+
+Runtimes **must** honor a request to change the bounds mode for a not visible spatial container. If a runtime would deny a bounds mode request for a not visible container, it instead **may** reject or defer a request to show such a spatial container. This allows apps to start a container as an immersive container. A runtime **may** deny requests to change the bounds mode of a visible spatial container, in which case the runtime **must** queue an [XrEventDataSpatialContainerBoundsModeRequestDeniedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerBoundsModeRequestDeniedEXT) event. For example, some runtimes will deny a request to change the bounds mode of a visible spatial container that the user is not actively interacting with.
+
+Runtimes **must** return `XR_ERROR_VALIDATION_FAILURE` if an app requests a bounds mode not supported based on [XrSystemSpatialContainerPropertiesEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSystemSpatialContainerPropertiesEXT) :: `supportsBounded` and [XrSystemSpatialContainerPropertiesEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSystemSpatialContainerPropertiesEXT) :: `supportsImmersive` .
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrRequestSpatialContainerBoundsModeEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to calling [xrRequestSpatialContainerBoundsModeEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrRequestSpatialContainerBoundsModeEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrRequestSpatialContainerBoundsModeEXT-spatialContainer-parameter) `spatialContainer` **must** be a valid [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) handle
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrRequestSpatialContainerBoundsModeEXT-info-parameter) `info` **must** be a pointer to a valid [XrSpatialContainerBoundsModeRequestInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsModeRequestInfoEXT) structure
+
+### Return Codes
+
+[Success](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
+
+- `XR_SUCCESS`
+- `XR_SESSION_LOSS_PENDING`
+
+[Failure](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
+
+- `XR_ERROR_FUNCTION_UNSUPPORTED`
+- `XR_ERROR_HANDLE_INVALID`
+- `XR_ERROR_INSTANCE_LOST`
+- `XR_ERROR_RUNTIME_FAILURE`
+- `XR_ERROR_SESSION_LOST`
+- `XR_ERROR_SPATIAL_CONTAINER_CLOSED_EXT`
+- `XR_ERROR_VALIDATION_FAILURE`
+
+The [XrSpatialContainerBoundsModeRequestInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsModeRequestInfoEXT) is used with [xrRequestSpatialContainerBoundsModeEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrRequestSpatialContainerBoundsModeEXT) to change a spatial container's bounds mode.
+
+    typedef struct XrSpatialContainerBoundsModeRequestInfoEXT {
+        XrStructureType                    type;
+        const void*                        next;
+        XrSpatialContainerBoundsModeEXT    boundsMode;
+    } XrSpatialContainerBoundsModeRequestInfoEXT;
+
+### Member Description
+
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `boundsMode` is the desired [XrSpatialContainerBoundsModeEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsModeEXT) for the spatial container.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerBoundsModeRequestInfoEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrSpatialContainerBoundsModeRequestInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsModeRequestInfoEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerBoundsModeRequestInfoEXT-type-type) `type` **must** be `XR_TYPE_SPATIAL_CONTAINER_BOUNDS_MODE_REQUEST_INFO_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerBoundsModeRequestInfoEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerBoundsModeRequestInfoEXT-boundsMode-parameter) `boundsMode` **must** be a valid [XrSpatialContainerBoundsModeEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsModeEXT) value
+
+Every time a runtime changes the bounds or bounds mode of a spatial container, the runtime **must** queue an [XrEventDataSpatialContainerBoundsChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerBoundsChangedEXT) event with the new bounds information.
+
+    typedef struct XrEventDataSpatialContainerBoundsChangedEXT {
+        XrStructureType                    type;
+        const void*                        next;
+        XrSpatialContainerEXT              spatialContainer;
+        XrExtent3Df                        bounds;
+        XrBool32                           infiniteBounds;
+        XrSpatialContainerBoundsModeEXT    boundsMode;
+    } XrEventDataSpatialContainerBoundsChangedEXT;
+
+### Member Description
+
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `spatialContainer` is the [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) that this event is for.
+- `bounds` is the new width, height, and depth of the spatial container's bounds.
+- `infiniteBounds` is true if the container has infinite bounds.
+- `boundsMode` is the new [XrSpatialContainerBoundsModeEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsModeEXT) of the spatial container.
+
+The event is queued for all changes, including app requested changes and runtime initiated changes.
+
+While a user is interactively resizing a spatial container, runtimes **must** behave in one of the following ways:
+
+- queue many events, likely at framerate, as the user is resizing the spatial container
+- queue a single event at the end of the resize
+
+If a runtime queues only a single event at the end of the resize, that runtime **must** continue to report the old bounds from [xrGetSpatialContainerBoundsEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrGetSpatialContainerBoundsEXT) until the runtime queues a resize event. Runtimes **must** coalesce multiple unpolled bounds changed events. In other words, if the bounds or bounds mode changes while there is an [XrEventDataSpatialContainerBoundsChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerBoundsChangedEXT) event still queued, runtimes **must** report only a single event containing the last bounds change that occurred. Because apps **can** also poll a spatial container's bounds directly with [xrGetSpatialContainerBoundsEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrGetSpatialContainerBoundsEXT) , the number of bounds changes from events **can** be different the number of changes from polling based on the timing of runtime generated bounds changes, app calls to [xrPollEvent](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrPollEvent) , and app calls to [xrGetSpatialContainerBoundsEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrGetSpatialContainerBoundsEXT) .
+
+When a spatial container's bounds changes, the spatial container's local origin **may** change as well. For example, if a runtime allows a user to resize the spatial container's bounds by dragging one of the container's edges, the bounds and the local origin for that container will change when the user drags a single edge. In such situations, the runtime **must** change the bounds and the local origin simultaneously.
+
+Runtimes **must** set `infiniteBounds` to `XR_TRUE` and set width, height, and depth to 0.0 to represent infinite bounds. Runtimes **must** set `infiniteBounds` to `XR_FALSE` and set width, height, and depth to finite positive numbers for finite bounds.
+
+Runtimes **must** set `bounds` and `infiniteBounds` following the same rules as for [XrSpatialContainerBoundsEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsEXT) .
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerBoundsChangedEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrEventDataSpatialContainerBoundsChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerBoundsChangedEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerBoundsChangedEXT-type-type) `type` **must** be `XR_TYPE_EVENT_DATA_SPATIAL_CONTAINER_BOUNDS_CHANGED_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerBoundsChangedEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+
+Every time a runtime denies a request to change the bounds mode of a container, the runtime **must** queue an [XrEventDataSpatialContainerBoundsModeRequestDeniedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerBoundsModeRequestDeniedEXT) event.
+
+    typedef struct XrEventDataSpatialContainerBoundsModeRequestDeniedEXT {
+        XrStructureType          type;
+        const void*              next;
+        XrSpatialContainerEXT    spatialContainer;
+    } XrEventDataSpatialContainerBoundsModeRequestDeniedEXT;
+
+### Member Description
+
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `spatialContainer` is the [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) that this event is for.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerBoundsModeRequestDeniedEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrEventDataSpatialContainerBoundsModeRequestDeniedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerBoundsModeRequestDeniedEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerBoundsModeRequestDeniedEXT-type-type) `type` **must** be `XR_TYPE_EVENT_DATA_SPATIAL_CONTAINER_BOUNDS_MODE_REQUEST_DENIED_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrEventDataSpatialContainerBoundsModeRequestDeniedEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+
+The [XrSpatialContainerBoundsEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsEXT) structure describes the bounding box of a spatial container.
+
+    typedef struct XrSpatialContainerBoundsEXT {
+        XrStructureType    type;
+        void*              next;
+        XrExtent3Df        bounds;
+        XrBool32           infiniteBounds;
+    } XrSpatialContainerBoundsEXT;
+
+### Member Description
+
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `bounds` is the width, height, and depth of the spatial container's bounds. The bounds are in meters.
+- `infiniteBounds` is true if the container has infinite bounds.
+
+Runtimes **must** set `infiniteBounds` to `XR_TRUE` and set width, height, and depth to 0.0 to represent infinite bounds. Runtimes **must** set `infiniteBounds` to `XR_FALSE` and set width, height, and depth to finite positive numbers for finite bounds.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerBoundsEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrSpatialContainerBoundsEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerBoundsEXT-type-type) `type` **must** be `XR_TYPE_SPATIAL_CONTAINER_BOUNDS_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerBoundsEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+
+The [xrGetSpatialContainerBoundsEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrGetSpatialContainerBoundsEXT) function queries the current bounds of a spatial container.
+
+    XrResult xrGetSpatialContainerBoundsEXT(
+        XrSpatialContainerEXT                       spatialContainer,
+        const XrSpatialContainerBoundsGetInfoEXT*   getInfo,
+        XrSpatialContainerBoundsEXT*                bounds);
+
+### Parameter Descriptions
+
+- `spatialContainer` is the [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) to query.
+- `getInfo` is the [XrSpatialContainerBoundsGetInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsGetInfoEXT) with the information used to get the state of the spatial container.
+- `bounds` is a pointer to the [XrSpatialContainerBoundsEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsEXT) in which the bounds is returned.
+
+While a spatial container is bounded it **must** not have infinite bounds, while a spatial container is immersive it **must** have infinite bounds.
+
+Runtimes **may** change a spatial container's bounds to any positive finite value at any time while the spatial container is bounded. Changes to a spatial container's bounds is communicated via [XrEventDataSpatialContainerBoundsChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerBoundsChangedEXT) .
+
+With this extension, an app **cannot** request changes to bounds other than changing between bounded and immersive with [xrRequestSpatialContainerBoundsModeEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrRequestSpatialContainerBoundsModeEXT) . Other extensions might provide such a way in the future.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrGetSpatialContainerBoundsEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to calling [xrGetSpatialContainerBoundsEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrGetSpatialContainerBoundsEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrGetSpatialContainerBoundsEXT-spatialContainer-parameter) `spatialContainer` **must** be a valid [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT) handle
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrGetSpatialContainerBoundsEXT-getInfo-parameter) If `getInfo` is not `NULL` , `getInfo` **must** be a pointer to a valid [XrSpatialContainerBoundsGetInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsGetInfoEXT) structure
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrGetSpatialContainerBoundsEXT-bounds-parameter) `bounds` **must** be a pointer to an [XrSpatialContainerBoundsEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsEXT) structure
+
+### Return Codes
+
+[Success](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
+
+- `XR_SUCCESS`
+- `XR_SESSION_LOSS_PENDING`
+
+[Failure](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
+
+- `XR_ERROR_FUNCTION_UNSUPPORTED`
+- `XR_ERROR_HANDLE_INVALID`
+- `XR_ERROR_INSTANCE_LOST`
+- `XR_ERROR_RUNTIME_FAILURE`
+- `XR_ERROR_SESSION_LOST`
+- `XR_ERROR_SPATIAL_CONTAINER_CLOSED_EXT`
+- `XR_ERROR_VALIDATION_FAILURE`
+
+The [XrSpatialContainerBoundsGetInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsGetInfoEXT) structure is an input structure that exists for future extension purposes.
+
+    typedef struct XrSpatialContainerBoundsGetInfoEXT {
+        XrStructureType    type;
+        const void*        next;
+    } XrSpatialContainerBoundsGetInfoEXT;
+
+### Member Description
+
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerBoundsGetInfoEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrSpatialContainerBoundsGetInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsGetInfoEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerBoundsGetInfoEXT-type-type) `type` **must** be `XR_TYPE_SPATIAL_CONTAINER_BOUNDS_GET_INFO_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSpatialContainerBoundsGetInfoEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+
+The [XrSpatialContainerVolumeClippingEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerVolumeClippingEXT) enumeration identifies different volume clipping behavior for a spatial container.
+
+    typedef enum XrSpatialContainerVolumeClippingEXT {
+        XR_SPATIAL_CONTAINER_VOLUME_CLIPPING_NONE_EXT = 0,
+        XR_SPATIAL_CONTAINER_VOLUME_CLIPPING_STRICT_EXT = 1,
+        XR_SPATIAL_CONTAINER_VOLUME_CLIPPING_MAX_ENUM_EXT = 0x7FFFFFFF
+    } XrSpatialContainerVolumeClippingEXT;
+
+Enum Description
+
+`XR_SPATIAL_CONTAINER_VOLUME_CLIPPING_NONE_EXT`
+
+No content is clipped to the bounding volume of the spatial container. Content can draw outside of the spatial container's bounds.
+
+`XR_SPATIAL_CONTAINER_VOLUME_CLIPPING_STRICT_EXT`
+
+Content is strictly clipped to the bounding volume of the spatial container.
+
+There is no use of this enumeration in this extension. It is defined to allow other extensions to specify the volume clipping behavior desired. For example, an app **may** want to draw a background for a bounded spatial container. A monocular cubemap a convenient way to specify a background, however a monocular cubemap is conceptually positioned at infinity which is outside of the container.
+
+## System capabilities
+
+An app **can** inspect system capabilities by chaining an [XrSystemSpatialContainerPropertiesEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSystemSpatialContainerPropertiesEXT) structure to the [XrSystemProperties](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSystemProperties) when calling [xrGetSystemProperties](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrGetSystemProperties) .
+
+    typedef struct XrSystemSpatialContainerPropertiesEXT {
+        XrStructureType    type;
+        void*              next;
+        uint32_t           maxSpatialContainerCount;
+        XrBool32           supportsBounded;
+        XrBool32           supportsImmersive;
+    } XrSystemSpatialContainerPropertiesEXT;
+
+### Member Description
+
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `maxSpatialContainerCount` is the maximum number of spatial containers that are able to be created.
+- `supportsBounded` is true if spatial containers are able to be bounded.
+- `supportsImmersive` is true if spatial containers are allowed to be immersive.
+
+Runtimes that support this extension **should** support an app creating many spatial containers, only limited by memory allocation. A runtime **may** have a different limit for the number of simultaneous displayed spatial containers. There is no way to query the number of simultaneous displayed containers in this extension because a runtime **may** limit individual apps based on the state across all running apps. The assumption is that highly constrained devices and less constrained devices will have different limits for the number of simultaneously displayed containers; highly constrained devices **may** support only one spatial container being displayed at a time and less constrained devices **may** support a large number of spatial containers being displayed simultaneously, subject to rendering compute limits.
+
+Runtimes that support this extension **must** support at least one of bounded spatial containers or immersive spatial containers.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSystemSpatialContainerPropertiesEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrSystemSpatialContainerPropertiesEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSystemSpatialContainerPropertiesEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSystemSpatialContainerPropertiesEXT-type-type) `type` **must** be `XR_TYPE_SYSTEM_SPATIAL_CONTAINER_PROPERTIES_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSystemSpatialContainerPropertiesEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+
+The [xrEnumerateSupportedSpatialContainerGraphicsPresentationsEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrEnumerateSupportedSpatialContainerGraphicsPresentationsEXT) function returns the graphics presentation methods supported on a system.
+
+    XrResult xrEnumerateSupportedSpatialContainerGraphicsPresentationsEXT(
+        XrInstance                                  instance,
+        XrSystemId                                  systemId,
+        uint32_t                                    graphicsPresentationCapacityInput,
+        uint32_t*                                   graphicsPresentationCountOutput,
+        XrSpatialContainerGraphicsPresentationEXT*  graphicsPresentations);
+
+### Parameter Descriptions
+
+- `instance` is the [XrInstance](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrInstance) from which `systemId` was retrieved.
+- `systemId` is the `XrSystemId` being queried.
+- `graphicsPresentationCapacityInput` is the capacity of the `graphicsPresentations` array, or 0 to indicate a request to retrieve the required capacity.
+- `graphicsPresentationCountOutput` is a pointer to the count of graphics presentations written, or a pointer to the required capacity in the case that `graphicsPresentationCapacityInput` is 0.
+- `graphicsPresentations` is a pointer to an array of [XrSpatialContainerGraphicsPresentationEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerGraphicsPresentationEXT) values, but **can** be null if `graphicsPresentationCapacityInput` is 0.
+- See the [Buffer Size Parameters](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-buffer-size-parameters) section for a detailed description of retrieving the required `graphicsPresentations` size.
+
+Runtimes **must** always return identical buffer contents from this enumeration for the given systemId and for the lifetime of the instance.
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrEnumerateSupportedSpatialContainerGraphicsPresentationsEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to calling [xrEnumerateSupportedSpatialContainerGraphicsPresentationsEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrEnumerateSupportedSpatialContainerGraphicsPresentationsEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrEnumerateSupportedSpatialContainerGraphicsPresentationsEXT-instance-parameter) `instance` **must** be a valid [XrInstance](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrInstance) handle
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrEnumerateSupportedSpatialContainerGraphicsPresentationsEXT-graphicsPresentationCountOutput-parameter) `graphicsPresentationCountOutput` **must** be a pointer to a `uint32_t` value
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-xrEnumerateSupportedSpatialContainerGraphicsPresentationsEXT-graphicsPresentations-parameter) If `graphicsPresentationCapacityInput` is not `0` , `graphicsPresentations` **must** be a pointer to an array of `graphicsPresentationCapacityInput` [XrSpatialContainerGraphicsPresentationEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerGraphicsPresentationEXT) values
+
+### Return Codes
+
+[Success](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
+
+- `XR_SUCCESS`
+
+[Failure](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
+
+- `XR_ERROR_FUNCTION_UNSUPPORTED`
+- `XR_ERROR_HANDLE_INVALID`
+- `XR_ERROR_INSTANCE_LOST`
+- `XR_ERROR_RUNTIME_FAILURE`
+- `XR_ERROR_SIZE_INSUFFICIENT`
+- `XR_ERROR_SYSTEM_INVALID`
+- `XR_ERROR_VALIDATION_FAILURE`
+
+## Changes to session state
+
+Spatial container support is enabled for a session by chaining an [XrSessionCreateInfoSpatialContainersEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSessionCreateInfoSpatialContainersEXT) when calling [xrCreateSession](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrCreateSession) .
+
+    typedef struct XrSessionCreateInfoSpatialContainersEXT {
+        XrStructureType    type;
+        const void*        next;
+    } XrSessionCreateInfoSpatialContainersEXT;
+
+When spatial container support is enabled, an [XrSession](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSession) behaves differently. This is because when using spatial containers the session no longer presents image content on the display(s), the spatial containers do so instead. Therefore, when this extension is enabled a session is effectively "headless". Unlike other headless extensions, apps **can** submit image data through the spatial containers.
+
+Enabling spatial container support alters core OpenXR APIs in the following way.
+
+runtime: losing system or device
+
+runtime: losing system or device
+
+**xrDestroySession**
+
+xrDestroySession
+
+IDLE  
+
+(running)
+
+IDLE...
+
+**xrGetSystem**   
+
+**xrCreateSession**
+
+xrGetSystem...
+
+**xrCreateInstance**
+
+xrCreateIn...
+
+**xrDestroySession**
+
+xrDestroySession
+
+LOSS_PENDING  
+
+(not running)
+
+LOSS_PENDING...
+
+**xrDestroyInstance**
+
+xrDestroyInstance
+
+app: optionally  
+
+relaunch XR
+
+app: optionally...
+
+### Figure 19. New session state machine
+
+- The session never enters the states `XR_SESSION_STATE_VISIBLE` , `XR_SESSION_STATE_FOCUSED` , or `XR_SESSION_STATE_EXITING` . Runtimes **must** never queue events for these states. These states are replaced by per-spatial container events [XrEventDataSpatialContainerVisibleChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerVisibleChangedEXT) , [XrEventDataSpatialContainerInteractableChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerInteractableChangedEXT) , and [XrEventDataSpatialContainerClosedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerClosedEXT) , respectively.
+- The session also never enters the states `XR_SESSION_STATE_READY` , `XR_SESSION_STATE_SYNCHRONIZED` , `XR_SESSION_STATE_STOPPING` . Runtimes **must** never queue events for these states. There are no replacement for these states.
+- Runtimes **must** treat the session as running when it is in the state `XR_SESSION_STATE_IDLE` .
+- Runtimes **must** treat the session as focused when it is in the state `XR_SESSION_STATE_IDLE` and at least one spatial container exists which is interactable.
+- The [xrBeginSession](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrBeginSession) and [xrEndSession](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrEndSession) functions are no longer needed. Runtimes **must** return `XR_ERROR_SPATIAL_CONTAINERS_ENABLED_EXT` when these functions are called. Other extensions **may** provide replacements for these functions.
+- The [xrRequestExitSession](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrRequestExitSession) function is also no longer needed. Runtimes **must** return `XR_ERROR_SPATIAL_CONTAINERS_ENABLED_EXT` when this function is called. Apps that want to exit a running session instead **can** call [xrRequestSpatialContainerVisibleEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrRequestSpatialContainerVisibleEXT) to hide their containers, and destroy the session after all containers are no longer visible.
+- Extensions that would queue additional events when the session starts running is called now **must** queue those events after session creation. Such extensions are called out below.
+
+  Extension Event
+
+`XR_EXT_user_presence`
+
+[XrEventDataUserPresenceChangedEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrEventDataUserPresenceChangedEXT)
+
+`XR_META_boundary_visibility`
+
+[XrEventDataBoundaryVisibilityChangedMETA](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrEventDataBoundaryVisibilityChangedMETA)
+
+- The [xrLocateViews](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrLocateViews) function is not valid to call for the session. Runtimes **must** return `XR_ERROR_SPATIAL_CONTAINERS_ENABLED_EXT` from [xrLocateViews](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrLocateViews) . Other extensions **may** provide ways to locate the views for a particular spatial container.
+- The [xrWaitFrame](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrWaitFrame) function **must** always set [XrFrameState](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrFrameState) :: `shouldRender` to false. Other extensions **may** provide ways to know if a particular spatial container **should** update its composition layers.
+- The [xrEndFrame](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrEndFrame) function is not a valid way to submit composition layers. If an app sets [XrFrameEndInfo](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrFrameEndInfo) :: `layerCount` to a non-zero value, runtimes **must** return `XR_ERROR_VALIDATION_FAILURE` . Other extensions **may** provide ways to submit composition layers for a particular spatial container.
+- Entering the state `XR_SESSION_STATE_LOSS_PENDING` also closes all spatial containers. Runtimes **must** queue an [XrEventDataSpatialContainerClosedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerClosedEXT) event for each active spatial container before queueing a session state change for `XR_SESSION_STATE_LOSS_PENDING` .
+- The [xrCreateSession](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrCreateSession) function no longer needs a graphics API binding structure. Other extensions **may** require a graphics binding, for example for a spatial container to render using a graphics API.
+
+The above behavior is slightly different from the behavior in `XR_MND_headless` . Runtimes **must** not enable the headless session behavior from `XR_MND_headless` when spatial container support is enabled for that session.
+
+### Note
+
+When spatial containers are enabled, a session transitions between only two states: `XR_SESSION_STATE_IDLE` (running) and `XR_SESSION_STATE_LOSS_PENDING` (not running). As a result, runtimes no longer return `XR_ERROR_SESSION_RUNNING` or `XR_ERROR_SESSION_NOT_RUNNING` . Instead, when a session is not running, runtimes return either `XR_ERROR_SESSION_LOST` or `XR_SESSION_LOSS_PENDING` following the rules in OpenXR core. Furthermore, [xrBeginSession](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrBeginSession) , the only function that returns `XR_ERROR_SESSION_RUNNING` , will now always return `XR_ERROR_SPATIAL_CONTAINERS_ENABLED_EXT` .
+
+### Valid Usage (Implicit)
+
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSessionCreateInfoSpatialContainersEXT-extension-notenabled) The `XR_EXT_spatial_container` extension **must** be enabled prior to using [XrSessionCreateInfoSpatialContainersEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSessionCreateInfoSpatialContainersEXT)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSessionCreateInfoSpatialContainersEXT-type-type) `type` **must** be `XR_TYPE_SESSION_CREATE_INFO_SPATIAL_CONTAINERS_EXT`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#VUID-XrSessionCreateInfoSpatialContainersEXT-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+
+## Android Manifest entries
+
+AOSP based runtimes **may** have custom behavior based on the initial spatial container state that is started before running any app code. For example, a runtime **may** alter resources allocated for the activity, launch animations, or splash screen display. The following properties are provided for this purpose. They replace the `<category android:name="org.khronos.openxr.intent.category.IMMERSIVE_HMD" />` tag, which spatial container based apps **should** not specify except for compatibility with earlier AOSP based runtimes.
+
+    <property android:name="org.khronos.openxr.PROPERTY_ACTIVITY_HINT_XR_SPATIAL_CONTAINER_USED_BOUNDS_MODES"
+              android:value="list of modes" />
+
+This property hints to runtimes that the bounds modes used by an activity. By default it is an empty list, which implies no hint.
+
+The following strings are valid for this attribute. Multiple values are separated by `|` , such as `"bounded|immersive"` .
+
+Value
+
+Description
+
+`"2d_panel"`
+
+The activity displays using Android's 2D view framework.
+
+`"bounded"`
+
+The activity uses `XR_SPATIAL_CONTAINER_BOUNDS_MODE_BOUNDED_EXT` .
+
+`"immersive"`
+
+The activity uses `XR_SPATIAL_CONTAINER_BOUNDS_MODE_IMMERSIVE_EXT` .
+
+    <property android:name="org.khronos.openxr.PROPERTY_ACTIVITY_HINT_XR_SPATIAL_CONTAINER_INITIAL_BOUNDS_MODE"
+              android:value="XR_SPATIAL_CONTAINER_INITIAL_BOUNDS_MODE_BOUNDED|
+                             XR_SPATIAL_CONTAINER_INITIAL_BOUNDS_MODE_IMMERSIVE|
+                             XR_SPATIAL_CONTAINER_INITIAL_BOUNDS_MODE_UNDEFINED" />
+
+This property hints to runtimes the activity's initial [XrSpatialContainerBoundsModeEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsModeEXT) when it is first created. By default it is the string XR_SPATIAL_CONTAINER_INITIAL_BOUNDS_MODE_UNDEFINED, which implies no hint.
+
+Runtimes **must** not require apps to have these properties to otherwise behave according to this spec. Runtimes **must** not alter app visible behavior based on these properties. All such metadata **must** be specifiable at either the \<activity\> level or the \<application\> level. If specified at the \<application\> level, it applies to all activities in the application that do not specify their own values.
+
+## Example code
+
+The following code shows how to use this extension for perception-only use cases without any rendering.
+
+    XrInstance instance;    // Already initialized
+
+
+    // Create the session with spatial containers enabled
+    XrSession session;
+
+    XrSessionCreateInfoSpatialContainersEXT spatialContainerCreateInfo {
+      .type = XR_TYPE_SESSION_CREATE_INFO_SPATIAL_CONTAINERS_EXT,
+    };
+    XrSessionCreateInfo sessionCreateInfo {
+      .type = XR_TYPE_SESSION_CREATE_INFO,
+      .next = &spatialContainerCreateInfo,   // Enable spatial containers
+    };
+    (void)sessionCreateInfo.systemId;                             // Other create fields set in usual way
+
+    CHK_XR(xrCreateSession(instance, &sessionCreateInfo, &session));
+
+
+    // Because spatial containers are enabled, the session is considered
+    // running. App is able to query perception data such as head poses and hand
+    // poses.
+
+
+    // Based on app logic or when a system lost event happens, destroy the
+    // session
+    CHK_XR(xrDestroySession(session));
+
+## New Object Types
+
+- [XrSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerEXT)
+
+## New Commands
+
+- [xrCreateSpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrCreateSpatialContainerEXT)
+- [xrCreateSpatialContainerSpaceEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrCreateSpatialContainerSpaceEXT)
+- [xrDestroySpatialContainerEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrDestroySpatialContainerEXT)
+- [xrEnumerateSupportedSpatialContainerGraphicsPresentationsEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrEnumerateSupportedSpatialContainerGraphicsPresentationsEXT)
+- [xrGetSpatialContainerBoundsEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrGetSpatialContainerBoundsEXT)
+- [xrGetSpatialContainerStateEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrGetSpatialContainerStateEXT)
+- [xrRequestSpatialContainerBoundsModeEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrRequestSpatialContainerBoundsModeEXT)
+- [xrRequestSpatialContainerVisibleEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#xrRequestSpatialContainerVisibleEXT)
+
+## New Structures
+
+- [XrEventDataSpatialContainerBoundsChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerBoundsChangedEXT)
+- [XrEventDataSpatialContainerBoundsModeRequestDeniedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerBoundsModeRequestDeniedEXT)
+- [XrEventDataSpatialContainerClosedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerClosedEXT)
+- [XrEventDataSpatialContainerInteractableChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerInteractableChangedEXT)
+- [XrEventDataSpatialContainerVisibleChangedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerVisibleChangedEXT)
+- [XrEventDataSpatialContainerVisibleRequestDeniedEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrEventDataSpatialContainerVisibleRequestDeniedEXT)
+- [XrSpatialContainerBoundsEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsEXT)
+- [XrSpatialContainerBoundsGetInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsGetInfoEXT)
+- [XrSpatialContainerBoundsModeRequestInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsModeRequestInfoEXT)
+- [XrSpatialContainerCreateInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerCreateInfoEXT)
+- [XrSpatialContainerSpaceCreateInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerSpaceCreateInfoEXT)
+- [XrSpatialContainerStateEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerStateEXT)
+- [XrSpatialContainerStateGetInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerStateGetInfoEXT)
+- [XrSpatialContainerVisibleRequestInfoEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerVisibleRequestInfoEXT)
+- Extending [XrSessionCreateInfo](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSessionCreateInfo) :
+
+  - [XrSessionCreateInfoSpatialContainersEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSessionCreateInfoSpatialContainersEXT)
+- Extending [XrSystemProperties](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSystemProperties) :
+
+  - [XrSystemSpatialContainerPropertiesEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSystemSpatialContainerPropertiesEXT)
+
+## New Enums
+
+- [XrSpatialContainerBoundsModeEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerBoundsModeEXT)
+- [XrSpatialContainerGraphicsPresentationEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerGraphicsPresentationEXT)
+- [XrSpatialContainerVolumeClippingEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container#XrSpatialContainerVolumeClippingEXT)
+
+## New Enum Constants
+
+- `XR_EXT_SPATIAL_CONTAINER_EXTENSION_NAME`
+- `XR_EXT_spatial_container_SPEC_VERSION`
+- Extending [XrObjectType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrObjectType) :
+
+  - `XR_OBJECT_TYPE_SPATIAL_CONTAINER_EXT`
+- Extending [XrResult](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrResult) :
+
+  - `XR_ERROR_COMPATIBLE_SPATIAL_CONTAINER_MISSING_EXT`
+  - `XR_ERROR_SPATIAL_CONTAINERS_ENABLED_EXT`
+  - `XR_ERROR_SPATIAL_CONTAINERS_NOT_ENABLED_EXT`
+  - `XR_ERROR_SPATIAL_CONTAINER_CLOSED_EXT`
+- Extending [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) :
+
+  - `XR_TYPE_EVENT_DATA_SPATIAL_CONTAINER_BOUNDS_CHANGED_EXT`
+  - `XR_TYPE_EVENT_DATA_SPATIAL_CONTAINER_BOUNDS_MODE_REQUEST_DENIED_EXT`
+  - `XR_TYPE_EVENT_DATA_SPATIAL_CONTAINER_CLOSED_EXT`
+  - `XR_TYPE_EVENT_DATA_SPATIAL_CONTAINER_INTERACTABLE_CHANGED_EXT`
+  - `XR_TYPE_EVENT_DATA_SPATIAL_CONTAINER_VISIBLE_CHANGED_EXT`
+  - `XR_TYPE_EVENT_DATA_SPATIAL_CONTAINER_VISIBLE_REQUEST_DENIED_EXT`
+  - `XR_TYPE_SESSION_CREATE_INFO_SPATIAL_CONTAINERS_EXT`
+  - `XR_TYPE_SPATIAL_CONTAINER_BOUNDS_EXT`
+  - `XR_TYPE_SPATIAL_CONTAINER_BOUNDS_GET_INFO_EXT`
+  - `XR_TYPE_SPATIAL_CONTAINER_BOUNDS_MODE_REQUEST_INFO_EXT`
+  - `XR_TYPE_SPATIAL_CONTAINER_CREATE_INFO_EXT`
+  - `XR_TYPE_SPATIAL_CONTAINER_SPACE_CREATE_INFO_EXT`
+  - `XR_TYPE_SPATIAL_CONTAINER_STATE_EXT`
+  - `XR_TYPE_SPATIAL_CONTAINER_STATE_GET_INFO_EXT`
+  - `XR_TYPE_SPATIAL_CONTAINER_VISIBLE_REQUEST_INFO_EXT`
+  - `XR_TYPE_SYSTEM_SPATIAL_CONTAINER_PROPERTIES_EXT`
+
+## Issues
+
+- How do we handle multiple outstanding visible requests? Should the app get one change / denied back or multiple? The answer might be different if the calls are over multiple frames. The answer might also be different if the multiple requests result in a noop, i.e. requesting a spatial container to be visible, then not visible for a container that starts out not visible.
+
+  - **Resolved. Different choices for change events and denied events.** Noop requests do not queue a change event, this just generates noise for the app developer and is easy for runtimes to filter out. If multiple visible requests get denied, runtimes **must** each generate a corresponding denied event.
+- How is a conformance automation extension expected to be defined so that all the optional spec text for policy behaviors is still testable by CTS?
+
+  - **Resolved. Separate test extension.** There will be a test extension runtimes implement for CTS only, allowing CTS to control all the system policy.
+- Do we need an event for when a spatial container's position changes?
+
+  - **Resolved. No.** The spatial container space is non-world locked and other such spaces, like `XR_REFERENCE_SPACE_TYPE_VIEW` , do not have events when they change.
+- How does [xrSyncActions](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrSyncActions) work if there are multiple spatial containers?
+
+  - **Resolved. No change needed.** [xrSyncActions](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrSyncActions) would apply to all spatial containers in the session. If an app wants to direct the input actions to a particular spatial container it **can** look at interactable per-container state to choose which containers are valid targets. If an app wants to only sync the input action state for a single spatial container that would require an additional extension. However, we expect to instead focus on an extension that allows apps to be fully event based and avoid the need for an [xrSyncActions](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrSyncActions) call in a frame loop.
+- How does infrequently updated apps deal with input?
+
+  - **Resolved. No change needed.** While valuable to EXT_spatial_container, it is also valuable outside of spatial containers. This is able to be handled via an event channel extension and work in both cases. For spatial containers we will add additional ways to filter events for a single spatial container.
+- Do we need a wait to throttle / control timing of the input loop for apps with decoupled input and rendering loops?
+
+  - **Resolved. No change needed.** This is expected to be handled via event channel and present request extensions. Present request extension allows rendering to be event based and decoupled from a frame loop.
+- Can a spatial container get its pose relative to other spatial containers? Key thoughts here: Do we have a use case for this? And if so, how do the spatial container spaces connect to LOCAL?
+
+  - **Resolved. Yes.** This is already possible for spatial containers within the same session by going through `XR_REFERENCE_SPACE_TYPE_VIEW` and supporting view-dependent content is desirable. For sharing spatial container poses across sessions (like to another process) the expected path is to leverage `XR_EXT_spatial_anchor` and its existing persistence and sharing patterns.
+- Is a spatial container's space locatable if it is not visible?
+
+  - **Resolved. No.** The spatial container's space is not locatable when the spatial container is not visible. This implies that it does not have spatialized audio nor is the app able to "warm up" view dependent content when the spatial_container is not visible. These are both ok because when a spatial container is not visible, the app is expected to stop any CPU / GPU load that is used for that spatial container.
+- Where is the spatial container space expected to be placed in the spatial container? Suggestions have been the center or the minimal point (minX, minY, minZ).
+
+  - **Resolved. In the center.** There is no location that does not move in most of the ways a spatial container resize UX is expected (moving edges). Center is commonly used in other parts of OpenXR. We did not align with windows in 2D computing, which use the minimum coordinate, because 3D model viewers often do not follow this convention.
+- When is a runtime expected to create resources underlying the spatial container? This sometimes involves IPC with system services.
+
+  - **Resolved. Synchronously as part of `xrCreateSpatialContainerEXT` .** While there might be IPC involved, the actual creation of a container is generally expected to be cheap. Some vendors have global mutexes around managing containers but these are not expected to commonly be a long wait. Issues with mutex contention are vendor-specific bugs that are expected to get addressed by each vendor.
+- Do we need a signal that an [XrSession](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSession) will create spatial containers and therefore not support the legacy rendering path?
+
+  - **Resolved. Yes.** We change the session state machine in a fundamental way.
+
+## Version History
+
+- Revision 1, 2026-08-06 (Jared Finder, Google)
+
+  - Initial extension description

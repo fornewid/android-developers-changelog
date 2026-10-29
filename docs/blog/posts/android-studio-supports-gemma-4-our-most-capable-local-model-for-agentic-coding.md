@@ -8,7 +8,7 @@ source: md.txt
 
 # Android Studio supports Gemma 4: our most capable local model for agentic coding
 
-2 min read ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_1Ctd29.webp) 02 Apr 2026 [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) Product Manager Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced [the ability to choose any local or remote AI model to power AI functionality in Android Studio,](https://android-developers.googleblog.com/2026/01/llm-flexibility-agent-mode-improvements.html) and today, we're announcing the availability of [Gemma 4](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/) for AI coding assistance in Android Studio. This new local model trained on Android development provides the best of both worlds: the privacy and cost-efficiency of on-device processing alongside state-of-the-art reasoning and tool-calling capabilities.
+2 min read ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_1Ctd29.webp) 02 Apr 2026 [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) Product Manager, Android Developer Experience Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced [the ability to choose any local or remote AI model to power AI functionality in Android Studio,](https://android-developers.googleblog.com/2026/01/llm-flexibility-agent-mode-improvements.html) and today, we're announcing the availability of [Gemma 4](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/) for AI coding assistance in Android Studio. This new local model trained on Android development provides the best of both worlds: the privacy and cost-efficiency of on-device processing alongside state-of-the-art reasoning and tool-calling capabilities.
 
 ### AI assistance, locally delivered
 
@@ -64,6 +64,13 @@ Written by:
   [read_more
   View profile](https://developer.android.com/blog/authors/matthew-warner) ![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp) ![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)
 Continue reading
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Rabbit2_Strapi_27563aeaf4_1BAzRM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Your favorite agents are now integrated in Android Studio](https://developer.android.com/blog/posts/ai-agents-android-studio-integration)
+
+  [arrow_forward](https://developer.android.com/blog/posts/ai-agents-android-studio-integration) Android Studio Rabbit 2 is now stable and ready for you to use in production. This release includes key features to improve your development such as Bring Your Own Agent, new XR Emulator features, a LeakCanary update, a new agent skills manager tool, AI code review, and more.
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 3 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 - [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
@@ -82,16 +89,6 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio) Last year, Android Studio opened up to any AI model. Today, we're taking the next step by introducing support for your choice of coding agents.
   [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
-
-  [arrow_forward](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0) Wireless debugging on Android is now faster, more reliable, and easier to set up than ever. With ADB Wi-Fi 2.0, we've introduced a new server stack and smarter network handling to directly address developer feedback around usability gaps.
-  [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins), [Sherif Eid](https://developer.android.com/blog/authors/sherif-eid), [Fabien Sanglard](https://developer.android.com/blog/authors/fabien-sanglard) • 1 min read
-  - [#Wireless Debugging](https://developer.android.com/blog/topics/wireless-debugging)
-  - [#ADB Wi-Fi 2.0](https://developer.android.com/blog/topics/adb-wi-fi-2-0)
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-  - +1 ↩
 Stay in the loop
 
 

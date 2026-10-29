@@ -57,15 +57,15 @@ either the **File** \> **Project
 Structure** \> **Project** menu in Android Studio, or
 the top-level `build.gradle.kts` file. The plugin version applies to
 all modules built in that Android Studio project. The following example sets
-the plugin to version 9.4.0 from the
+the plugin to version 9.5.0 from the
 `build.gradle.kts` file:
 
 ### Kotlin
 
 ```kotlin
 plugins {
-    id("com.android.application") version "9.4.0" apply false
-    id("com.android.library") version "9.4.0" apply false
+    id("com.android.application") version "9.5.0" apply false
+    id("com.android.library") version "9.5.0" apply false
     id("org.jetbrains.kotlin.android") version "2.4.10" apply false
 }
 ```
@@ -74,8 +74,8 @@ plugins {
 
 ```groovy
 plugins {
-    id 'com.android.application' version '9.4.0' apply false
-    id 'com.android.library' version '9.4.0' apply false
+    id 'com.android.application' version '9.5.0' apply false
+    id 'com.android.library' version '9.5.0' apply false
     id 'org.jetbrains.kotlin.android' version '2.4.10' apply false
 }
 ```
@@ -83,7 +83,7 @@ plugins {
 
 **Caution:** You should not use dynamic dependencies in version
 numbers, such as
-`'com.android.tools.build:gradle:9.4.+'`.
+`'com.android.tools.build:gradle:9.5.+'`.
 Using this feature can cause unexpected version updates and difficulty
 resolving version differences.
 
@@ -107,6 +107,7 @@ use the latest possible version of both Gradle and the plugin.
 
 | Plugin version | Minimum required Gradle version |
 |---|---|
+| 9.5 | 9.6.0 |
 | 9.4 | 9.6.0 |
 | 9.3 | 9.5.0 |
 | 9.2 | 9.4.1 |
@@ -196,6 +197,7 @@ Android Studio.
 
 | Android Studio version | Required AGP version |
 |---|---|
+| Rabbit 2 \| 2026.2.2 | 7.1-9.5 |
 | Rabbit 1 \| 2026.2.1 | 7.1-9.4 |
 | Quail 4 \| 2026.1.4 | 7.1-9.4 |
 | Quail 3 \| 2026.1.3 | 7.1-9.3 |

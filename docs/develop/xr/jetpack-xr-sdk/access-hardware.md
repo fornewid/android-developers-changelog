@@ -14,7 +14,7 @@ Display Glasses [](https://developer.android.com/develop/xr/devices#audio-displa
 
 After you've learned the basics for [creating an activity for audio glasses and
 display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/first-activity), you can take advantage of the unique hardware available on
-the glasses, such as the camera and microphone. Accessing the hardware on audio
+the glasses, such as the camera. Accessing the hardware on audio
 glasses and display glasses lets you build more helpful and connected
 experiences.
 

@@ -1,47 +1,34 @@
 ---
-title: android device remote list  |  Android Studio  |  Android Developers
+title: https://developer.android.com/tools/agents/android-cli/commands/device_remote_list
 url: https://developer.android.com/tools/agents/android-cli/commands/device_remote_list
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [Agent tools and resources](https://developer.android.com/tools/agents)
-
-# android device remote list Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 Lists remote device reservations.
 
 ## Usage
 
-```
-android device remote list [-h] [--all] [--short] [<reservation-id>]
-```
+    android device remote list [-h] [--all] [--short] [<reservation-id>]
 
 ## Options
 
-* `--all` - Prints all reservations irrespective of their state.
-* `-h,--help` - Shows the help message for the specified command.
-* `--short` - Prints only the ID of each reservation.
+- `--all` - Prints all reservations irrespective of their state.
+- `-h,--help` - Shows the help message for the specified command.
+- `--short` - Prints only the ID of each reservation.
 
 `remote` options:
 
-* `--project=PARAM` - The Google Cloud project ID.
+- `--project=PARAM` - The Google Cloud project ID.
 
 `android` options:
 
-* `--sdk=PARAM` - Path to the Android SDK.
-* `-v,--verbose` - Enable verbose output for troubleshooting.
-* `-V,--version` - Print version information and exit.
+- `--sdk=PARAM` - Path to the Android SDK.
+- `-v,--verbose` - Enable verbose output for troubleshooting.
+- `-V,--version` - Print version information and exit.
 
 ## Positional arguments
 
-* `<reservation-id>` - Restricts the output to the reservation with this ID.
+- `<reservation-id>` - Restricts the output to the reservation with this ID.
 
 ## Description
 
@@ -54,26 +41,19 @@ state.
 
 ### Configure listing options
 
-* `--all`: Includes reservations that have already ended.
-* `--short`: Prints only the ID of each reservation, one per line, which is
-  useful for scripting.
+- `--all`: Includes reservations that have already ended.
+- `--short`: Prints only the ID of each reservation, one per line, which is useful for scripting.
 
 ### Examples
 
 List your active reservations:
 
-```
-android device remote list --project=my-project
-```
+    android device remote list --project=my-project
 
 List the IDs of all reservations, including the ones that have ended:
 
-```
-android device remote list --all --short --project=my-project
-```
+    android device remote list --all --short --project=my-project
 
 Show the details of a single reservation:
 
-```
-android device remote list abc123 --project=my-project
-```
+    android device remote list abc123 --project=my-project

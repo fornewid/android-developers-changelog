@@ -78,6 +78,8 @@ Explore how modern Android architecture is implemented in a real world app [View
 | [annotation.keep](https://developer.android.com/jetpack/androidx/releases/annotation-keep) | TODO |
 | [annotation](https://developer.android.com/jetpack/androidx/releases/annotation) | Expose metadata that helps tools and other developers understand your app's code. |
 | [appfunctions](https://developer.android.com/jetpack/androidx/releases/appfunctions) | Allows apps to share functionality and data with AI assistants, enabling them to discover and execute tasks directly on the device to fulfill user requests. |
+| [appstate.statestore](https://developer.android.com/jetpack/androidx/releases/appstate-statestore) | -- |
+| [appstate.transform](https://developer.android.com/jetpack/androidx/releases/appstate-transform) | -- |
 | [arch.core](https://developer.android.com/jetpack/androidx/releases/arch-core) | Helper for other arch dependencies, including JUnit test rules that can be used with LiveData. |
 | [asynclayoutinflater](https://developer.android.com/jetpack/androidx/releases/asynclayoutinflater) | Inflate layouts asynchronously to avoid jank in the UI. |
 | [autofill](https://developer.android.com/jetpack/androidx/releases/autofill) | Improve autofill accuracy via extending hints. |

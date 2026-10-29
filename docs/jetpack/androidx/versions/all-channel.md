@@ -31,6 +31,11 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
 
 These Jetpack libraries have been recently updated.
 
+## October 28, 2026
+
+- [Appstate Statestore Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/appstate-statestore#1.0.0-alpha01)
+- [Appstate Transform Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/appstate-transform#1.0.0-alpha01)
+
 ## October 26, 2026
 
 - [Media3 Version 1.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/media3#1.12.0-alpha02)

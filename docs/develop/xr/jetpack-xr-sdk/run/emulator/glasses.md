@@ -26,8 +26,8 @@ can use.
 To run your app on the emulator, follow these steps:
 
 1. In the Android Studio **Device Manager** , find the [phone AVD that you
-   created](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/glasses#phone-avd-host-device) to act as a host device for the glasses AVD, and click
-   **Start** .
+   created](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/glasses#phone-avd-host-device) to act as a host device for the glasses AVD, and click **Start**
+   .
 
    ![Click](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/phone-avd-start.png)
 2. In the Android Studio **Device Manager** , find the [glasses AVD that you
@@ -156,28 +156,40 @@ Follow these steps to trigger Gemini Live in the glasses emulator:
 
 ### Use custom environments
 
-You can test using photos of real environments or webcam camera input to help
-you evaluate how your augmented experiences would render in those scenarios
-using [Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer).
+You can test using photos of real environments (including still 2D images and
+360-degree panoramic images) or webcam camera input to help you evaluate how
+your augmented experiences would render in those scenarios using [Jetpack
+Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer).
 
 While the [default theme](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/whats-included#theme) is pre-optimized for light and dark environments,
 brand-specific customizations require careful re-testing. Test carefully so that
 your UI maintains high visibility and contrast on optical see-through displays,
 regardless of the user's environment.
 
-To use a custom still image or webcam camera input as the background within
-the emulator:
+To use a custom still image or webcam camera input as the background within the
+emulator:
 
 1. Select **Environments** from the emulator controls.
-2. In the drop-down menu, select **Custom Environment** for custom still
+2. In the drop-down menu, select **Custom Environment** for custom, uploaded
    images, or **Camera** for webcam camera input.
 
-   ![Select a custom photo environment image or webcam camera input in Android Studio.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/display-glasses-environment-camera-input.png)
+   ![Select a custom photo environment image or webcam camera input in Android
+   Studio.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/display-glasses-environment-camera-input.jpg)
 3. For custom environments, pick an image to use or select a previously-used
    image from the **Recent Environments** list.
 
    ![While you preview your app's UI, the custom environment appears in the
    background.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/display-glasses-custom-environment.png)
+
+#### 360-degree panoramic photo environments
+
+The emulator supports standard equirectangular panoramas in JPG or PNG formats.
+360-degree photos let you test your glasses apps in a more realistic backdrop
+where movement and head rotation play a role in evaluating glanceable UI
+elements.
+
+To rotate your view in the environment, hold the `Shift` key while using your
+mouse or your keyboard's arrow keys.
 
 ### Capture a screenshot
 
@@ -207,3 +219,21 @@ To capture a screen recording of your app running within the emulator:
 ### Capture photos or videos
 
 Camera capture features in the Android XR Emulator aren't available yet.
+
+### Enable the display snooze timeout
+
+By default, the display on the emulator doesn't snooze while you develop and
+test your app. However, display timeout behavior matters when you design
+experiences for real display glasses. Due to the strict battery and thermal
+constraints on display glasses, you should optimize power consumption so that
+users can engage with their devices for as long as possible. Enable the display
+snooze timeout and test your app so that you can observe real-world device
+behavior and adjust your app accordingly.
+
+To enable the display timeout, run the following ADB command:
+
+    adb shell dumpsys activity service com.google.android.glasses.core/com.google.android.projection.core.app.service.AndroidProjectionCoreService preferences_set pref_automatic_snooze_timeout true
+
+To restore the default behavior with no timeout, run the following ADB command:
+
+    adb shell dumpsys activity service com.google.android.glasses.core/com.google.android.projection.core.app.service.AndroidProjectionCoreService preferences_set pref_automatic_snooze_timeout false

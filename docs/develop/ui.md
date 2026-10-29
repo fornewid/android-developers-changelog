@@ -47,9 +47,13 @@ Create new apps for TVs based on what you already know about Android. Or, extend
 
 Bring your app to vehicles running Android Auto or Android Automotive OS; one app architecture works for both. Guide
 
-### [Android for XR](http://developer.android.com/develop/xr/get-started)
+### [Spatial UI for Android XR](http://developer.android.com/develop/xr/get-started)
 
-Android XR is an extension of the Android platform, so you can build XR apps with Android APIs and tools or open standards such as OpenXR and WebXR. [![](http://developer.android.com/static/images/guide/topics/ui/accessibility/hero-accessibility.png)](http://developer.android.com/develop/ui/compose/accessibility)
+Use familiar compose concepts to build spatial UI layouts that features 2D and 3D content, creating immersive experiences for Android XR devices. Guide
+
+### [Glanceable UI for Android XR](http://developer.android.com/develop/xr/get-started)
+
+Use familiar compose concepts to build glanceable UI that is optimized for Android XR devices with optical see-through displays. [![](http://developer.android.com/static/images/guide/topics/ui/accessibility/hero-accessibility.png)](http://developer.android.com/develop/ui/compose/accessibility)
 
 ### [Support accessibility](http://developer.android.com/develop/ui/compose/accessibility)
 

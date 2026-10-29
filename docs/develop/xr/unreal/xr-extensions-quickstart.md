@@ -42,3 +42,12 @@ After the plugin is added, you must enable it within the editor:
 2. Search for the **Android XR** or **OpenXR** extensions, and then enable them.
 3. In **Project Settings** , navigate to the **Android** platform section.
 4. Make sure that **Minimum SDK Version** and **Target SDK Version** are set to at least **34**.
+
+## Next steps
+
+After installing and enabling the Android XR Extensions plugins, explore the
+following resources to start building and testing your app:
+
+- Explore the [Android XR Extensions for Unreal API reference](https://developer.android.com/develop/xr/unreal/reference) for the Blueprint function libraries, subsystems, and components available for each extension.
+- Review the [supported OpenXR extensions](https://developer.android.com/develop/xr/unreal#supported-extensions) to see which Unreal classes and OpenXR extensions are available for each capability.
+- Set up [Direct Preview for Unreal Engine](https://developer.android.com/develop/xr/unreal/direct-preview) to stream and test your project live from the Unreal Editor on an Android XR device.

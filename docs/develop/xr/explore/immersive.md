@@ -9,13 +9,13 @@ source: md.txt
 ### Build immersive experiences
 
 Build fully-immersive experiences that transport the user to a fully-virtual space, enabling goals from focused productivity to boundless entertainment, or build semi-immersive experiences that blend digital content with the user's environment to unlock real-world multitasking.
-- [![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) Build for XR headsets](https://developer.android.com/develop/xr/jetpack-xr-sdk/build-immersive)
-- [![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Build for wired XR glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/build-immersive)
+- [![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg)
+  Build for XR headsets and wired XR glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/build-immersive)
 [![](http://developer.android.com/static/images/develop/xr/androidify-spatial-ui.png)](http://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose)
 
 ### [Build spatial UI](http://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose)
 
-Build UI that's free from the limits of a device screen. Bring your app's UI into the boundless, 3D area of Full Space, or enable multitasking across multiple app windows in Home Space. For your app in Full Space, you can add 3D content, build 3D layouts, and add depth to otherwise 2D content. Do it all with a familiar, declarative toolkit using Jetpack Compose for XR. [Build spatial UI](http://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose) [Learn about spatial UI design](http://developer.android.com/design/ui/xr/guides/spatial-ui) [](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments)
+Build UI that's free from the limits of a flat, device screen. Bring your app's UI into the boundless, 3D area of Full Space, or enable multitasking across multiple app windows in Home Space. For your app in Full Space, you can add 3D content, build 3D layouts, and add depth to otherwise 2D content. Do it all with a familiar, declarative toolkit using Jetpack Compose for XR. [Build spatial UI](http://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose) [Learn about spatial UI design](http://developer.android.com/design/ui/xr/guides/spatial-ui) [](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments)
 
 ### [Add spatial environments and spatial entitites](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments)
 
@@ -31,7 +31,7 @@ Create apps for the next generation of computing using familiar Android developm
 
 ### [Jetpack XR SDK](http://developer.android.com/develop/xr/jetpack-xr-sdk)
 
-Most Android apps are compatible with Android XR without any additional development effort. Create differentiated app experiences with Jetpack Compose for XR, Android Studio, the emulator, and your preferred 3D tools. [Develop with Jetpack XR SDK](http://developer.android.com/develop/xr/jetpack-xr-sdk)
+Bring your existing, 2D Android compatibile app to XR with minimal development. Create differentiated app experiences for any type of XR device with Jetpack libraries, Android Studio, the emulator, and your preferred 3D tools. [Develop with Jetpack XR SDK](http://developer.android.com/develop/xr/jetpack-xr-sdk)
 
 ### [Unity](http://developer.android.com/develop/xr/unity)
 

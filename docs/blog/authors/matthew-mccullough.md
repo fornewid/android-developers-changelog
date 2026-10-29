@@ -4,11 +4,18 @@ url: https://developer.android.com/blog/authors/matthew-mccullough
 source: md.txt
 ---
 
-17 posts ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
+18 posts ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 
 # Matthew McCullough
 
 Vice President, Product Management, Android Developer
+- 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
+
+  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
+  4 min read
+  - [#Android](https://developer.android.com/blog/topics/android)
 - 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
@@ -45,14 +52,6 @@ Vice President, Product Management, Android Developer
   [arrow_forward](https://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android) Today, we are enhancing Android development with Gemma 4, our latest state-of-the-art open model designed with complex reasoning and autonomous tool-calling capabilities.
   2 min read
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-- 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [The Third Beta of Android 17](https://developer.android.com/blog/posts/the-third-beta-of-android-17)
-
-  [arrow_forward](https://developer.android.com/blog/posts/the-third-beta-of-android-17) Android 17 has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store.
-  5 min read
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
-  - [#beta](https://developer.android.com/blog/topics/beta)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1

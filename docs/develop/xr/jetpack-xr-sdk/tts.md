@@ -17,6 +17,7 @@ Speech (TTS) technology. TTS is built into Android (requiring no additional
 libraries) and works even when offline. These characteristics makes TTS ideal
 for handling error conditions in displayless mode. You can reference TTS
 features using the [`TextToSpeech`](https://developer.android.com/reference/kotlin/android/speech/tts/TextToSpeech) class.
+[![](https://developer.android.com/static/images/picto-icons/machine-learning.svg) Enhance with AI Try out the ML Kit GenAI Text-to-Speech API, which uses a generative AI model to produce speech audio that is more natural sounding than standard TTS.](https://developers.google.com/ml-kit/genai/text-to-speech/android)
 
 ### Instantiate TextToSpeech
 

@@ -13,7 +13,7 @@ Redefine how users interact with your app with Android XR --- from focused produ
 
 ### [Build immersive experiences](https://developer.android.com/develop/xr/explore/immersive)
 
-Build helpful and delightful immersive experiences that transport users to a fully-virtual space, or blend semi-immersive digital content with the user's environment to unlock real-world multi-tasking. [Build immersive](https://developer.android.com/develop/xr/explore/immersive) Audio glasses \| Display glasses
+Build engaging, immersive experiences that transport users to a fully-virtual space, or blend semi-immersive digital content with the user's environment to unlock real-world productivity and multi-tasking. [Build immersive](https://developer.android.com/develop/xr/explore/immersive) Audio glasses \| Display glasses
 
 ### [Build augmented experiences](https://developer.android.com/develop/xr/explore/augmented)
 
@@ -21,22 +21,22 @@ Build lightweight, additive experiences that help users in everyday life on the 
 
 ### [Start with the tools you're familiar with](http://developer.android.com/develop/xr/tools-technologies)
 
-The Android XR Software Development Kit supports developing from where your app is today. Choose whether you want to develop with the Android Jetpack XR SDK, Unity, Godot, Unreal Engine, OpenXR, or WebXR. [Select your tools](http://developer.android.com/develop/xr/tools-technologies) [![](http://developer.android.com/static/images/cluster-illustrations/share-feedback.svg)](https://google.qualtrics.com/jfe/form/SV_ezBhaM4WC0T7g8d?Q_Language=en&utm_campaign=Q3&campaignDate=August2025&referral_code=UXRMkVr1825587)
+Use the tools you already know to bring your app to XR---like Android development tools with the Jetpack XR SDK; game engines like Unity, Godot, Unreal Engine; the open standards of OpenXR, or the widely-accessible WebXR. [Select your tools](http://developer.android.com/develop/xr/tools-technologies) [![](http://developer.android.com/static/images/cluster-illustrations/share-feedback.svg)](https://google.qualtrics.com/jfe/form/SV_ezBhaM4WC0T7g8d?Q_Language=en&utm_campaign=Q3&campaignDate=August2025&referral_code=UXRMkVr1825587)
 
 ### [Improve the Android XR Developer Experience](https://google.qualtrics.com/jfe/form/SV_ezBhaM4WC0T7g8d?Q_Language=en&utm_campaign=Q3&campaignDate=August2025&referral_code=UXRMkVr1825587)
 
-Your feedback is important. Sign up to participate in user research studies and influence how we evolve tools, APls, and guidance for millions worldwide. Get rewarded if selected. [Learn more](https://google.qualtrics.com/jfe/form/SV_ezBhaM4WC0T7g8d?Q_Language=en&utm_campaign=Q3&campaignDate=August2025&referral_code=UXRMkVr1825587)
+Your feedback is important. Sign up to participate in user research studies and influence how we evolve tools, APIs, and guidance for millions worldwide. Get rewarded if selected. [Learn more](https://google.qualtrics.com/jfe/form/SV_ezBhaM4WC0T7g8d?Q_Language=en&utm_campaign=Q3&campaignDate=August2025&referral_code=UXRMkVr1825587)
 
 ## Build or spatialize an Android app
 
-You can build a new app from scratch or adapt an Android large screen or mobile app for XR immersive experiences by adding spatial components. [Develop with Jetpack XR SDK](http://developer.android.com/develop/xr/jetpack-xr-sdk) Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/develop-xr-adapted-opt.mp4) and watch it with a video player.
-This JetNews app is an Android large-screen app adapted for Android XR.
+You can build a new app from scratch or adapt an exisiting Android app for XR. Differentiate your app's immersive experiences by adding spatial components. [Develop with Jetpack XR SDK](http://developer.android.com/develop/xr/jetpack-xr-sdk) Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/develop-xr-adapted-opt.mp4) and watch it with a video player.
+This JetNews app is an Android adaptive app that's been spatialized for Android XR.
 
 *** ** * ** ***
 
 ## Build new, or port an app using other XR tools
 
-Bring your apps and experiences built with Unity, Godot, Unreal Engine, OpenXR, or WebXR to a new audience with minimal development lift. [Develop with other XR tools](http://developer.android.com/develop/xr#build-with) ![](https://developer.android.com/static/images/develop/xr/job-simulator.jpg) Job Simulator is an Unity game ported to Android XR.
+Bring your apps and experiences built with Unity, Godot, Unreal Engine, OpenXR, or WebXR to a new audience with minimal development. [Develop with other XR tools](http://developer.android.com/develop/xr#build-with) ![](https://developer.android.com/static/images/develop/xr/job-simulator.jpg) Job Simulator is an Unity game ported to Android XR.
 
 *** ** * ** ***
 
@@ -50,7 +50,7 @@ Extend your mobile app to intelligent eyewear, such as audio glasses and display
 
 ### [Most Android apps are compatible with XR headsets and wired XR glasses](http://developer.android.com/develop/xr/jetpack-xr-sdk)
 
-Existing 2D mobile or large-screen apps work by default in Android XR for XR headsets and wired XR glasses---displayed as a 2D panel inside 3D space. Use familiar Android APIs, frameworks, and tools---like Jetpack Compose for XR, Android Studio, the emulator, and your preferred 3D tools. [Develop with the Jetpack XR SDK](http://developer.android.com/develop/xr/jetpack-xr-sdk)
+Existing 2D apps work by default in Android XR on XR headsets and ide 3D space. Differentiate your app for XR using familiar Android APIs, frameworks, and tools---like Jetpack Compose for XR, Android Studio, the emulator, and your preferred 3D tools. [Develop with the Jetpack XR SDK](http://developer.android.com/develop/xr/jetpack-xr-sdk)
 
 ## Easy on-ramp to bring apps to XR headsets and wired XR glasses
 
@@ -75,11 +75,11 @@ Create XR experiences using familiar tools, extended for XR. All XR devices
 
 ### Android Studio
 
-Develop with familiar Android Studio tools. Test your app using virtual devices for [XR headsets and wired XR glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses) or [audio glasses and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/glasses). Debug your app's layout using the Layout Inspector. Display glasses
+Develop with familiar Android Studio tools. Test your app using virtual devices in the emulator for [XR headsets and wired XR glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses) or [audio glasses and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/glasses). Debug your app's layout using the Layout Inspector. Display glasses \| Wired XR glasses
 
 ### [Jetpack Compose Glimmer](http://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer)
 
-Jetpack Compose Glimmer is a UI toolkit for building augmented Android XR experiences, optimized for display glasses. Build beautiful, minimal, and comfortable UI for devices that are worn all day. XR headsets \| Wired XR glasses
+Jetpack Compose Glimmer is a Google design system and UI toolkit for optical see-through (OST) displays like display glasses and wired XR glasses. Build high-contrast, glanceable UIs that preserve real-world presence. XR headsets \| Wired XR glasses
 
 ### [Jetpack Compose for XR](http://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose)
 
@@ -138,4 +138,4 @@ Build meaningful experiences for XR headsets and wired XR glasses directly in a 
 
 ## Get started with design
 
-Android XR includes ready-to-go UI, components, and spatial elements. [Design for XR headsets \& wired XR glasses](http://developer.android.com/design/ui/xr) [Design for audio glasses and display glasses](http://developer.android.com/design/ui/ai-glasses)
+Android XR includes ready-to-go UI, components, and elements to help you design. [Design for XR headsets \& wired XR glasses](http://developer.android.com/design/ui/xr) [Design for audio glasses and display glasses](http://developer.android.com/design/ui/ai-glasses)

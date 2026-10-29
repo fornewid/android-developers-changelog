@@ -47,7 +47,7 @@ creates a registry record that serves two key purposes:
 
 Use the `OpenId4VpRegistry` class to register your digital credentials,
 as it supports both mdoc and SD-JWT credential formats. Verifiers will send
-[OpenID4VP requests](https://developer.android.com/identity/digital-credentials/credential-verifier#construct_a_digital_credential_request) to request these credentials.
+[OpenID4VP requests](https://developer.android.com/identity/digital-credentials/credential-verifier/request-credential#add-dependencies) to request these credentials.
 
 ### Credential issuance methods
 

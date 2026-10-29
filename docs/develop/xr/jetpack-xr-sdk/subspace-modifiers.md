@@ -65,20 +65,43 @@ the [`gravityAligned`](https://developer.android.com/reference/kotlin/androidx/x
 > [!NOTE]
 > **Note:** This modifier requires your app to [configure](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore#configure-session) the [current session's](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#localsession) object with [`DeviceTrackingMode.SPATIAL_LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode#SPATIAL_LAST_KNOWN()).
 
-## Move and Resize with composables
+## Move and resize composables
 
-Let users directly manipulate the position and size of objects in 3D space. You
-can add these modifiers to individual components (like `SpatialPanel`),
-subspaces, and spatial layout components (like `SpatialRow` or `SpatialColumn`).
+Let users directly manipulate the position and size of objects in 3D space.
 
 ### Move elements
 
 When the [`movable`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).movable(kotlin.Boolean,androidx.xr.compose.subspace.layout.MovePolicy)) modifier is present and enabled, draggable UI
-controls will be shown that allow the user to move the element in 3D space. The
-specific behavior of this movement is defined by the provided `movePolicy`:
+controls are shown that let the user move the element in 3D space. You
+can apply `movable` modifiers to an entire `Subspace`, spatial layout
+components (like `SpatialRow` and `SpatialColumn`), and
+individual components (like `SpatialPanel` and `SpatialGltfModel`).
 
-- `MovePolicy.default`: The system handles the movement entirely and automatically calculates and applies the new pose and scale based on user input.
-- `MovePolicy.custom`: The system calculates the target Pose based on input, but does not automatically apply it to the associated element. This is useful for restricting movement or creating custom movement in your app.
+The specific behavior of this movement is defined by the provided `movePolicy`:
+
+- `MovePolicy.Default` (or `MovePolicy.system()`): The system handles the movement entirely and automatically calculates and applies the new pose and scale based on user input.
+- `MovePolicy.custom()`: The system calculates the target `Pose` based on input, but doesn't automatically apply it to the associated element. This is useful for restricting movement or creating custom movement in your app.
+- [`MovePolicy.anchor()`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/MovePolicy#anchor(kotlin.collections.Set,kotlin.collections.Set,kotlin.Function1)): Lets the user snap and anchor the movable element to detected real-world planes.
+
+### Anchor composables
+
+To be able to anchor a movable subspace composable to real-world surfaces, pass
+[`MovePolicy.anchor()`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/MovePolicy#anchor(kotlin.collections.Set,kotlin.collections.Set,kotlin.Function1)) to the [`movable`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).movable(kotlin.Boolean,androidx.xr.compose.subspace.layout.MovePolicy)) modifier.
+This policy lets users snap elements (such as `SpatialPanel` and
+`SpatialGltfModel`) to physical surfaces like tables, walls, or floors.
+
+> [!WARNING]
+> **Preview:** `MovePolicy.anchor()` is an [experimental
+> API](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/ExperimentalMoveAnchorPolicy) and is currently supported for `SpatialPanel` and `SpatialGltfModel`. After a composable is anchored to a plane, it's reparented outside the normal Compose hierarchy, so pose-based modifiers (such as `rotate` or `gravityAligned`) aren't compatible with the anchored composable.
+
+You can filter which detected planes an element can snap to using the following
+parameters (if left empty, the element can anchor to any detected plane):
+
+- `anchorPlaneOrientations`: A set of [`PlaneOrientation`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/PlaneOrientation) values (`Horizontal`, `Vertical`, or `Any`).
+- `anchorPlaneSemantics`: A set of [`PlaneSemantic`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/PlaneSemantic) values (`Wall`, `Floor`, `Ceiling`, `Table`, or `Any`).
+
+> [!NOTE]
+> **Note:** Anchoring elements to planes requires your app to [configure](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/planes#configure-session) the [current session's](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#localsession) object with [`PlaneTrackingMode.HORIZONTAL_AND_VERTICAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/PlaneTrackingMode#HORIZONTAL_AND_VERTICAL()) and grant the `android.permission.SCENE_UNDERSTANDING_COARSE` runtime permission.
 
 ### Resize elements
 

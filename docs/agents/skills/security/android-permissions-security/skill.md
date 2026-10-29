@@ -172,12 +172,20 @@ object UriPermissionManager {
         return context.contentResolver.persistedUriPermissions
     }
 
-    /** Revokes temporary URI access when data transfer completes. */
-    fun revokeScopedUriAccess(context: Context, uri: Uri) {
-        context.revokeUriPermission(
-            uri,
-            Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-        )
+    /** Revokes temporary URI access for a specific partner package when data transfer completes. */
+    fun revokeScopedUriAccess(context: Context, targetPackage: String, uri: Uri) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            context.revokeUriPermission(
+                targetPackage,
+                uri,
+                Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+            )
+        } else {
+            context.revokeUriPermission(
+                uri,
+                Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+            )
+        }
     }
 }
 ```
@@ -371,13 +379,23 @@ class RuntimePermissionsActivity : ComponentActivity() {
                 startCameraPreview()
             }
             shouldShowRequestPermissionRationale(permission) -> {
-                showSnackbar("Camera permission is needed to preview camera feed.")
-                cameraLauncher.launch(permission)
+                showRationaleDialog(permission)
             }
             else -> {
                 cameraLauncher.launch(permission)
             }
         }
+    }
+
+    private fun showRationaleDialog(permission: String) {
+        AlertDialog.Builder(this)
+            .setTitle("Camera permission required")
+            .setMessage("Camera permission is needed to preview the camera feed.")
+            .setPositiveButton("Continue") { _, _ ->
+                cameraLauncher.launch(permission)
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
     }
 
     private fun startCameraPreview() {

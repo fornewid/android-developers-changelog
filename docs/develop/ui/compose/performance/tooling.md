@@ -1,27 +1,17 @@
 ---
-title: Tooling  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/performance/tooling
 url: https://developer.android.com/develop/ui/compose/performance/tooling
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Tooling Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 It can be hard to know where a performance issue lies and what code to start
 optimizing. Start by using tools to help narrow down where your issue is.
 
 ## Layout Inspector
 
-Use the [Layout Inspector](/develop/ui/compose/tooling/debug#layout_inspector) to inspect your layout and see recomposition
+[Video](https://www.youtube.com/watch?v=SWBN0y0lFNY)
+
+Use the [Layout Inspector](https://developer.android.com/develop/ui/compose/tooling/debug#layout_inspector) to inspect your layout and see recomposition
 counts.
 
 If your UI has poor performance, this is often because of a coding error that
@@ -36,23 +26,22 @@ benchmarks: skipping a composable has slot table and parameter comparison
 overhead, and once composition is scheduled, skipping a single intermediate
 composable saves little time compared to deferring rapidly changing state reads
 to the Layout or Draw phases. Always verify performance changes using
-[composition tracing](/develop/ui/compose/tooling/tracing) and Macrobenchmark.
+[composition tracing](https://developer.android.com/develop/ui/compose/tooling/tracing) and Macrobenchmark.
 
-For more information, see the Layout Inspector [recomposition counts](/develop/ui/compose/tooling/debug#recomposition-counts)
+For more information, see the Layout Inspector [recomposition counts](https://developer.android.com/develop/ui/compose/tooling/debug#recomposition-counts)
 documentation.
 
 ## Composition tracing
 
-Use [composition tracing](/develop/ui/compose/tooling/tracing) to trace your composable functions in a system
+Use [composition tracing](https://developer.android.com/develop/ui/compose/tooling/tracing) to trace your composable functions in a system
 trace. Traces are often the best source of information when first looking into a
 performance issue. They allow you to form a hypothesis of what the issue is and
 where to start looking.
 
 ## Additional resources
 
-* **[App performance guide](/topic/performance/overview):** Discover best
-  practices, libraries, and tools to improve performance on Android.
-* **[Inspect Performance](/topic/performance/inspecting-overview):** Inspect app performance.
-* **[Benchmarking](/topic/performance/benchmarking/benchmarking-overview):** Benchmark app performance.
-* **[App startup](/topic/performance/appstartup/analysis-optimization):** Optimize app startup.
-* **[Baseline profiles](/baseline-profiles):** Understand baseline profiles.
+- **[App performance guide](https://developer.android.com/topic/performance/overview):** Discover best practices, libraries, and tools to improve performance on Android.
+- **[Inspect Performance](https://developer.android.com/topic/performance/inspecting-overview):** Inspect app performance.
+- **[Benchmarking](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview):** Benchmark app performance.
+- **[App startup](https://developer.android.com/topic/performance/appstartup/analysis-optimization):** Optimize app startup.
+- **[Baseline profiles](https://developer.android.com/baseline-profiles):** Understand baseline profiles.

@@ -25,7 +25,7 @@ Unreal Engine.
 Before beginning, ensure your development environment meets the following
 requirements:
 
-- **Unreal Engine version** : [Unreal Engine 5.6.1](https://www.unrealengine.com/download) or higher.
+- **Unreal Engine version** : [Unreal Engine 5.6.x or 5.8.x](https://www.unrealengine.com/download).
 - **Project setup** : Complete all steps in the [Unreal Engine project setup](https://developer.android.com/develop/xr/unreal/setup) guide.
 
 <!-- -->

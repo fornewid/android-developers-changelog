@@ -28,6 +28,8 @@ Select a category:
 | [appcompat \*](https://developer.android.com/jetpack/androidx/releases/appcompat) | Allows access to new APIs on older API versions of the platform (many using Material Design). |
 | [appfunctions](https://developer.android.com/jetpack/androidx/releases/appfunctions) | Allows apps to share functionality and data with AI assistants, enabling them to discover and execute tasks directly on the device to fulfill user requests. |
 | [appsearch \*](https://developer.android.com/jetpack/androidx/releases/appsearch) | Build custom in-app search capabilities for your users. |
+| [appstate.statestore](https://developer.android.com/jetpack/androidx/releases/appstate-statestore) | -- |
+| [appstate.transform](https://developer.android.com/jetpack/androidx/releases/appstate-transform) | -- |
 | [arch.core](https://developer.android.com/jetpack/androidx/releases/arch-core) | Helper for other arch dependencies, including JUnit test rules that can be used with LiveData. |
 | [asynclayoutinflater](https://developer.android.com/jetpack/androidx/releases/asynclayoutinflater) | Inflate layouts asynchronously to avoid jank in the UI. |
 | [autofill](https://developer.android.com/jetpack/androidx/releases/autofill) | Improve autofill accuracy via extending hints. |

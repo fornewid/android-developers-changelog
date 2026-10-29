@@ -144,7 +144,7 @@ appropriate times.
 A common pattern to handle these updates is to listen to
 [`Player.Listener.onEvents()`](https://developer.android.com/reference/androidx/media3/common/Player.Listener#onEvents(androidx.media3.common.Player,%20androidx.media3.common.Player.Events)) for any change in selected tracks
 (`EVENT_TRACKS_CHANGED`) and for when the first video frame has been rendered
-(`EVENT_RENDERED_FIRST_FRAME`), as well as [`ImageOutput.onImageAvailable()`](https://developer.android.com/reference/androidx/media3/ui/ImageOutput#onImageAvailable(long,%20android.graphics.Bitmap))
+(`EVENT_RENDERED_FIRST_FRAME`), as well as [`ImageOutput.onImageAvailable()`](https://developer.android.com/reference/androidx/media3/exoplayer/image/ImageOutput#onImageAvailable(long,android.graphics.Bitmap))
 for when a new image is available:
 
 

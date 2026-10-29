@@ -185,6 +185,7 @@ An application **can** use [xrDestroyGeospatialTrackerANDROID](https://developer
 - `XR_ERROR_CALL_ORDER_INVALID`
 - `XR_ERROR_FUNCTION_UNSUPPORTED`
 - `XR_ERROR_HANDLE_INVALID`
+- `XR_ERROR_RUNTIME_FAILURE`
 
 ## Geospatial Tracker State
 
@@ -425,6 +426,7 @@ The [xrLocateGeospatialPoseANDROID](https://developer.android.com/develop/xr/ope
 - `XR_ERROR_GEOSPATIAL_TRACKER_NOT_RUNNING_ANDROID`
 - `XR_ERROR_HANDLE_INVALID`
 - `XR_ERROR_INSTANCE_LOST`
+- `XR_ERROR_POSE_INVALID`
 - `XR_ERROR_RUNTIME_FAILURE`
 - `XR_ERROR_SESSION_LOST`
 - `XR_ERROR_TIME_INVALID`

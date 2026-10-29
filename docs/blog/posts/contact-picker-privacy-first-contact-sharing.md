@@ -1,67 +1,42 @@
 ---
-title: Contact Picker: Privacy-First Contact Sharing  |  Android Developers' Blog
+title: https://developer.android.com/blog/posts/contact-picker-privacy-first-contact-sharing
 url: https://developer.android.com/blog/posts/contact-picker-privacy-first-contact-sharing
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-[Product News](/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Contact Picker: Privacy-First Contact Sharing
 
-4 min read
-
-![](/static/blog/assets/contact_Picker_4392c5da87_SiXoB.webp)
-
-26
-
-Mar
-2026
-
-[![View Roxanna Aliabadi Walker's profile](/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](/blog/authors/roxanna-walker)
-
-[Roxanna Aliabadi Walker](/blog/authors/roxanna-walker)
-
-Product Manager, Android
-
-Privacy and user control remain at the heart of the Android experience. Just as the photo picker made media sharing secure and easy to implement, we are now bringing that same level of privacy, simplicity, and great user experience to contact selection.
+4 min read ![](https://developer.android.com/static/blog/assets/contact_Picker_4392c5da87_SiXoB.webp) 26 Mar 2026 [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](https://developer.android.com/blog/authors/roxanna-walker) [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) Product Manager, Android Privacy and user control remain at the heart of the Android experience. Just as the photo picker made media sharing secure and easy to implement, we are now bringing that same level of privacy, simplicity, and great user experience to contact selection.
 
 ### A New Standard for Contact Privacy
 
-Historically, applications requiring access to a specific user's contacts relied on the broad `READ_CONTACTS` permission. While functional, this approach often granted apps more data than necessary. The new Android Contact Picker, introduced in Android 17, changes this dynamic by providing a standardized, secure, and searchable interface for contact selection.  
-  
-This feature allows users to grant apps access only to the specific contacts they choose, aligning with Android's commitment to data transparency and minimized permission footprints.
+Historically, applications requiring access to a specific user's contacts relied on the broad `READ_CONTACTS` permission. While functional, this approach often granted apps more data than necessary. The new Android Contact Picker, introduced in Android 17, changes this dynamic by providing a standardized, secure, and searchable interface for contact selection.  
 
-![picker.png](/static/blog/assets/picker_204b45fd1e_25er74.webp)
-![selection.png](/static/blog/assets/selection_a612ca8b4b_ZRyIcg.webp)
+This feature allows users to grant apps access only to the specific contacts they choose, aligning with Android's commitment to data transparency and minimized permission footprints.
+![picker.png](https://developer.android.com/static/blog/assets/picker_204b45fd1e_25er74.webp) ![selection.png](https://developer.android.com/static/blog/assets/selection_a612ca8b4b_ZRyIcg.webp)
 
 ### How It Works
 
-Developers can integrate the Contact Picker using the `Intent.ACTION_PICK_CONTACTS` intent. This updated API offers several powerful capabilities:
+Developers can integrate the Contact Picker using the `Intent.ACTION_PICK_CONTACTS` intent. This updated API offers several powerful capabilities:
 
-* **Granular Data Requests:** Apps can specify exactly which fields they need, such as phone numbers or email addresses, rather than receiving the entire contact record.
-* **Multi-Selection Support:** The picker supports both single and multiple contact selections, giving developers more flexibility for features like group invitations.
-* **Selection Limits:** Developers can set custom limits on the number of contacts a user can select at one time.
-* **Temporary Access:** Upon selection, the system returns a Session URI that provides temporary read access to the requested data, ensuring that access does not persist longer than necessary.
-* **Access to other profiles:**When using this new intent, the interface will allow users to select contents from other user profiles such as a work profile, cloned profile or a private space.
-* **Optimized Performance:**The Contact Picker returns a single Uri that allows for collective result querying, eliminating the need to query individual contact Uri separately as required by `ACTION_PICK`. This efficiency further reduces system overhead by utilizing a single `Binder` transaction.
+- **Granular Data Requests:** Apps can specify exactly which fields they need, such as phone numbers or email addresses, rather than receiving the entire contact record.
+- **Multi-Selection Support:** The picker supports both single and multiple contact selections, giving developers more flexibility for features like group invitations.
+- **Selection Limits:** Developers can set custom limits on the number of contacts a user can select at one time.
+- **Temporary Access:** Upon selection, the system returns a Session URI that provides temporary read access to the requested data, ensuring that access does not persist longer than necessary.
+- **Access to other profiles:**When using this new intent, the interface will allow users to select contents from other user profiles such as a work profile, cloned profile or a private space.
+- **Optimized Performance:** The Contact Picker returns a single Uri that allows for collective result querying, eliminating the need to query individual contact Uri separately as required by `ACTION_PICK`. This efficiency further reduces system overhead by utilizing a single `Binder` transaction.
 
 ### Backward Compatibility and Implementation
 
-For devices running Android 17 or higher, the system automatically upgrades legacy `ACTION_PICK` intents that specify contact data types to the new, more secure interface. However, to take full advantage of advanced features like multi-selection, developers are encouraged to update their implementation code and utilize the `ContentResolver` to query the returned Session URI.
+For devices running Android 17 or higher, the system automatically upgrades legacy `ACTION_PICK` intents that specify contact data types to the new, more secure interface. However, to take full advantage of advanced features like multi-selection, developers are encouraged to update their implementation code and utilize the `ContentResolver` to query the returned Session URI.
 
-Integrate the contact pickerTo integrate the Contact Picker, developers use the `ACTION_PICK_CONTACTS` intent. Below is a code example demonstrating how to launch the picker and request specific data fields, such as email and phone numbers.
+<br />
 
-```
+Integrate the contact pickerTo integrate the Contact Picker, developers use the `ACTION_PICK_CONTACTS` intent. Below is a code example demonstrating how to launch the picker and request specific data fields, such as email and phone numbers.
+
+```kotlin
 // State to hold the list of selected contacts
 var contacts by remember { mutableStateOf<List>(emptyList()) }
 // Launcher for the Contact Picker intent
@@ -94,7 +69,7 @@ pickContact.launch(pickContactIntent)
 
 After the user makes a selection, the app processes the result by querying the returned Session URI to extract the requested contact information.
 
-```
+```kotlin
 // Data class representing a parsed Contact with selected details
 data class Contact(val id: String, val name: String, val email: String?, val phone: String?)
 
@@ -141,115 +116,49 @@ private suspend fun processContactPickerResultUri(
 }
 ```
 
-Check out the full documentation [here](/about/versions/17/features/contact-picker).
+Check out the full documentation [here](https://developer.android.com/about/versions/17/features/contact-picker).
 
 ### Best Practices for Developers
 
 To provide the best user experience and maintain high security standards, we recommend the following:
 
-* **Data Minimization:** Only request the specific data fields (e.g., email) your app needs.
-* **Immediate Persistence:** Persist selected data immediately, as the Session URI access is temporary.
-
+- **Data Minimization:** Only request the specific data fields (e.g., email) your app needs.
+- **Immediate Persistence:** Persist selected data immediately, as the Session URI access is temporary.
 Written by:
 
-* ## [Roxanna Aliabadi Walker](/blog/authors/roxanna-walker)
+-
+
+  ## [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker)
 
   ###### Product Manager
 
-  [read\_more
-  View profile](/blog/authors/roxanna-walker)
-
-  ![View Roxanna Aliabadi Walker's profile](/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)
-
-  ![View Roxanna Aliabadi Walker's profile](/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)
-
+  [read_more
+  View profile](https://developer.android.com/blog/authors/roxanna-walker) ![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp) ![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)
 Continue reading
+- [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](https://developer.android.com/blog/authors/roxanna-walker) 21 Oct 2026 21 Oct 2026 ![](https://developer.android.com/static/blog/assets/1009_ABL_142_A_more_reliable_way_to_add_and_edit_contacts_on_Android_Strapi_b510ec4fc0_ZXfljU.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-* [![View Roxanna Aliabadi Walker's profile](/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](/blog/authors/roxanna-walker)
+  ## [A more reliable way to add and edit contacts on Android](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android)
 
-  21
+  [arrow_forward](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android) Apps that target the upcoming Android release will no longer be able to directly write to contacts with the WRITE_CONTACTS permission.
+  [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) • 6 min read
+  - [#Android](https://developer.android.com/blog/topics/android)
+- [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](https://developer.android.com/blog/authors/roxanna-walker)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/yacine-rezgui) 27 Jan 2026 27 Jan 2026 ![](https://developer.android.com/static/blog/assets/Android_Photo_Picker_Blogger_60fa0ede59_ZODDpJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Oct
-  2026
+  ## [The Embedded Photo Picker](https://developer.android.com/blog/posts/the-embedded-photo-picker)
 
-  21
+  [arrow_forward](https://developer.android.com/blog/posts/the-embedded-photo-picker) The Embedded Photo Picker: A more seamless way to privately request photos and videos in your app.
+  [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker), [Yacine Rezgui](https://developer.android.com/blog/authors/yacine-rezgui) • 8 min read
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Oct
-  2026
+  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
 
-  ![](/static/blog/assets/1009_ABL_142_A_more_reliable_way_to_add_and_edit_contacts_on_Android_Strapi_b510ec4fc0_ZXfljU.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [A more reliable way to add and edit contacts on Android](/blog/posts/reliable-way-to-add-and-edit-contacts-android)
-
-  [arrow\_forward](/blog/posts/reliable-way-to-add-and-edit-contacts-android)
-
-  Apps that target the upcoming Android release will no longer be able to directly write to contacts with the WRITE\_CONTACTS permission.
-
-  [Roxanna Aliabadi Walker](/blog/authors/roxanna-walker)
-  •
-  6 min read
-  + [#Android](/blog/topics/android)
-* [![View Roxanna Aliabadi Walker's profile](/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](/blog/authors/roxanna-walker)[![View Charles Munger's profile](/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](/blog/authors/yacine-rezgui)
-
-  27
-
-  Jan
-  2026
-
-  27
-
-  Jan
-  2026
-
-  ![](/static/blog/assets/Android_Photo_Picker_Blogger_60fa0ede59_ZODDpJ.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [The Embedded Photo Picker](/blog/posts/the-embedded-photo-picker)
-
-  [arrow\_forward](/blog/posts/the-embedded-photo-picker)
-
-  The Embedded Photo Picker: A more seamless way to privately request photos and videos in your app.
-
-  [Roxanna Aliabadi Walker](/blog/authors/roxanna-walker),
-  [Yacine Rezgui](/blog/authors/yacine-rezgui)
-  •
-  8 min read
-* [![View Jason Buchel's profile](/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](/blog/authors/jason-buchel)
-
-  13
-
-  Oct
-  2026
-
-  13
-
-  Oct
-  2026
-
-  ![](/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [Bringing our latest frontier model to Android Developers](/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
-
-  [arrow\_forward](/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
-
-  As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use.
-
-  [Jason Buchel](/blog/authors/jason-buchel)
-  •
-  3 min read
-  + [#Agentic Android development](/blog/topics/agentic-android-development)
-
+  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
+  - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
+
 
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

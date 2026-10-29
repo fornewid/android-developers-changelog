@@ -23,7 +23,7 @@ features.
 
 Complete the steps in the following topics no matter what types of XR features
 your project supports. Afterwards, review the features outlined in the [list of
-optional steps]() to determine whether your project requires additional work.
+optional steps](https://developer.android.com/develop/xr/godot/add-support#optional-steps) to determine whether your project requires additional work.
 
 ### Update Godot and the Godot OpenXR Vendors Plugin
 

@@ -20,7 +20,7 @@ Emulator.
 This guide covers the following areas:
 
 - Running your app on virtual XR headset and XR glasses devices, including:
-  - [Creating virtual XR headset and XR glasses devices](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses)
+  - [Creating virtual devices for XR headsets and XR glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses)
   - [Running your app on virtual XR headset or XR glasses devices](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/xr-headsets-glasses)
 - [Debugging your immersive app layout with Layout Inspector](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/debug-layout/immersive)
 

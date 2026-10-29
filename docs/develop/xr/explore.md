@@ -10,7 +10,7 @@ Redefine how users interact with your app with Android XR --- from focused produ
 
 ### [Build immersive experiences](https://developer.android.com/develop/xr/explore/immersive)
 
-Build helpful and delightful immersive experiences that transport users to a fully-virtual space, or blend semi-immersive digital content with the user's environment to unlock real-world multi-tasking. [Build immersive](https://developer.android.com/develop/xr/explore/immersive) Audio glasses \| Display glasses
+Build engaging, immersive experiences that transport users to a fully-virtual space, or blend semi-immersive digital content with the user's environment to unlock real-world productivity and multi-tasking. [Build immersive](https://developer.android.com/develop/xr/explore/immersive) Audio glasses \| Display glasses
 
 ### [Build augmented experiences](https://developer.android.com/develop/xr/explore/augmented)
 

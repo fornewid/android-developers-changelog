@@ -76,7 +76,8 @@ First, create a phone AVD to act as the host device for the glasses:
    ![](https://developer.android.com/static/studio/images/buttons/ic_plus.png) \> Create Virtual Device**.
 2. In the **Add Device** window, in the **Form Factor** section, select **Phone**.
 3. Select any phone device (this example uses a Pixel 9 Pro), and then click **Next**.
-4. From the **API** drop-down menu, select **API CANARY Preview**.
+4. From the **API** drop-down menu, select **API CANARY Preview** with API
+   level **canary-20261007**.
 
    ![The AVD API level configuration for the phone host device.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/host-device-avd-api.png)
 5. In the **Select system image** section, select the most-recent system image
@@ -85,7 +86,8 @@ First, create a phone AVD to act as the host device for the glasses:
    - Pre-Release 16 KB Page Size Google Play ARM 64 v8a System Image (macOS)
    - Pre-Release 16 KB Page Size Google Play Intel x86_64 Atom System Image (Windows and Linux)
 
-   ![The AVD system image configuration for the phone host device.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/host-device-avd-system-image.png)
+   <br />
+
 6. Click **Finish** , and also click **Yes** if prompted to download the system
    image that you selected.
 

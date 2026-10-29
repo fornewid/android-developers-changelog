@@ -24,13 +24,13 @@ If a [`SpatialEnvironment`](https://developer.android.com/reference/kotlin/andro
 app, 3D models will be lit with lighting information provided by the environment
 skybox. Reflective materials and specular highlights will also reflect the
 environment skybox. If passthrough has been enabled, then the lighting,
-reflections and specular highlights will be based on a bright room with
-a single directional light.
+reflections and specular highlights will be based on a bright room with a single
+directional light.
 
 For a quick overview of the supported materials, refer to the [glTF PBR
 Properties](https://www.khronos.org/gltf/pbr/) on the Khronos site. To learn how to customize your
-3D models with these properties and others, see
-[Customize 3D models in your app](https://developer.android.com/develop/xr/jetpack-xr-sdk/customize-3d-models)
+3D models with these properties and others, see [Customize 3D models in your
+app](https://developer.android.com/develop/xr/jetpack-xr-sdk/customize-3d-models)
 
 ## Add a glTF file to your assets folder
 
@@ -47,15 +47,15 @@ your asset types.
 
 ## Add a 3D object using SpatialGltfModel
 
-Android XR supports the [glTF](https://www.khronos.org/gltf/) format for 3D models, typically saved as
-`.glb` files. To add these objects to your layout, use the
-[`SpatialGltfModel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModel.composable#SpatialGltfModel(androidx.xr.compose.subspace.SpatialGltfModelState,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function0)) composable. This API simplifies the
-process of loading assets and managing their state.
+Android XR supports the [glTF](https://www.khronos.org/gltf/) format for 3D models, typically
+saved as `.glb` files. To add these objects to your layout, use
+[`SpatialGltfModel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModel.composable#SpatialGltfModel(androidx.xr.compose.subspace.SpatialGltfModelState,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function0)). A `SpatialGltfModel` is a [subspace composable](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/components#subspace-composables)
+that lets you add 3D models in the glTF format to your spatial layout. This API
+simplifies the process of loading assets and managing their state.
 
 To display a model, first define its source and state using
-[`rememberSpatialGltfModelState`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/rememberSpatialGltfModelState.composable#rememberSpatialGltfModelState(androidx.xr.compose.subspace.SpatialGltfModelSource)). You can load
-models from your app's [`assets`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelSource#fromPath(java.nio.file.Path)) folder, a [`URI`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelSource#fromUri(android.net.Uri)), or
-[`raw data`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelSource#fromData(kotlin.ByteArray,kotlin.String)).
+[`rememberSpatialGltfModelState`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/rememberSpatialGltfModelState.composable#rememberSpatialGltfModelState(androidx.xr.compose.subspace.SpatialGltfModelSource)). You can load models from your app's
+[`assets`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelSource#fromPath(java.nio.file.Path)) folder, a [`URI`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelSource#fromUri(android.net.Uri)), or [`raw data`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelSource#fromData(kotlin.ByteArray,kotlin.String)).
 
 
 ```kotlin
@@ -68,8 +68,8 @@ val modelState = rememberSpatialGltfModelState(
 
 <br />
 
-Once the state is defined, use the `SpatialGltfModel` composable to render it
-within a subspace.
+After the state is defined, use the `SpatialGltfModel` composable to render it
+within a subspace:
 
 
 ```kotlin
@@ -78,17 +78,23 @@ SpatialGltfModel(state = modelState, modifier = SubspaceModifier)
 
 <br />
 
+### Key points about the code
+
+- **Asynchronous loading**: The model is loaded asynchronously. During initial composition, its intrinsic size might be zero; the layout re-measures once the model is ready.
+- **Controlling state** : Use [`SpatialGltfModelState.status`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelState#status()) to query the loading status or to control animations.
+- **Sizing and scaling** : By default, the layout size matches the bounding box of the asset. You can override this with a `SubspaceModifier.size` to scale the model uniformly to fit within specified bounds.
+
 ## Place a 3D model using a Compose SceneCoreEntity
 
-To place a 3D model using [`SceneCoreEntity`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SceneCoreEntity.composable#SceneCoreEntity(kotlin.Function0,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1,androidx.xr.compose.subspace.SceneCoreEntitySizeAdapter,kotlin.Function0)), you first need to load
-the glTF into memory using [`GltfModel.create()`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModel#create(androidx.xr.runtime.Session,java.nio.file.Path)). You can then place a 3D
-model into a [`SceneCoreEntity`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SceneCoreEntity.composable#SceneCoreEntity(kotlin.Function0,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1,androidx.xr.compose.subspace.SceneCoreEntitySizeAdapter,kotlin.Function0)) to bridge SceneCore components with
-Compose for XR layouts. Refer to
-[Use a SceneCoreEntity to place a 3D object in your layout](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose#use-scenecoreentity).
+To place a 3D model using [`SceneCoreEntity`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelSource#fromUri(android.net.Uri)), you first need to load the
+glTF into memory using [`GltfModel.create()`](https://developer.android.com/guide/playcore/asset-delivery). You can then place a 3D model
+into a [`SceneCoreEntity`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelSource#fromUri(android.net.Uri)) to bridge SceneCore components with Compose for
+XR layouts. Refer to [Use a SceneCoreEntity to place a 3D object in your
+layout](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelSource#fromData(kotlin.ByteArray,kotlin.String)).
 
 ## Place a 3D model using Jetpack Scenecore
 
-To load the glTF model, call [`GltfModel.create()`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModel#create(androidx.xr.runtime.Session,java.nio.file.Path)).
+To load the glTF model, call [`GltfModel.create()`](https://developer.android.com/guide/playcore/asset-delivery).
 
 
 ```kotlin
@@ -102,10 +108,10 @@ If you have many 3D models to load or your model is large, it's a good idea to
 load them asynchronously ahead of time. This way, users don't have to wait for
 your models to be loaded into memory.
 
-Add the glTF to the [`ActivitySpace`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ActivitySpace). Call
-[`GltfModelEntity.create`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModelEntity#create) to create an entity and place it into the
-`ActivitySpace`. As best practice, you should [check that the app is in a state
-which allows for spatial capabilities](https://developer.android.com/develop/xr/jetpack-xr-sdk/check-spatial-capabilities).
+Add the glTF to the [`ActivitySpace`](https://www.khronos.org/gltf/). Call [`GltfModelEntity.create`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/rememberSpatialGltfModelState.composable#rememberSpatialGltfModelState(androidx.xr.compose.subspace.SpatialGltfModelSource))
+to create an entity and place it into the `ActivitySpace`. As best practice, you
+should [check that the app is in a state which allows for spatial
+capabilities](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelSource#fromPath(java.nio.file.Path)).
 
 
 ```kotlin
@@ -136,7 +142,7 @@ Space Mode. As a result, when you invoke it, your app will no longer be visible
 and Scene Viewer will have focus. Any [environments](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments) you may have changed
 will be reset to the user's system preferences.
 
-Here's an example of using an [`Intent`](https://developer.android.com/reference/android/content/Intent) to view a glTF file in Scene Viewer
+Here's an example of using an [`Intent`](https://developer.android.com/reference/kotlin/android/content/Intent) to view a glTF file in Scene Viewer
 on Android XR:
 
 
@@ -168,7 +174,7 @@ Jetpack XR SDK supports several glTF extensions that expand the capabilities of
 3D models. These capabilities are available through both the
 [`GltfModelEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModelEntity) and Scene Viewer.
 
-- [`KHR_animation_pointer`](https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Khronos/KHR_animation_pointer/README.md)
+- [`KHR_animation_pointer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelState#status())
 - [`KHR_draco_mesh_compression`](https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Khronos/KHR_draco_mesh_compression/README.md)
 - [`KHR_lights_punctual`](https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_lights_punctual)
 - [`KHR_materials_clearcoat`](https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_materials_clearcoat)

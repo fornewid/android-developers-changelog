@@ -4,11 +4,20 @@ url: https://developer.android.com/blog/authors/matthew-warner
 source: md.txt
 ---
 
-3 posts ![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)
+4 posts ![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)
 
 # Matthew Warner
 
 Product Manager
+
+Android Developer Experience
+- 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Rabbit2_Strapi_27563aeaf4_1BAzRM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Your favorite agents are now integrated in Android Studio](https://developer.android.com/blog/posts/ai-agents-android-studio-integration)
+
+  [arrow_forward](https://developer.android.com/blog/posts/ai-agents-android-studio-integration) Android Studio Rabbit 2 is now stable and ready for you to use in production. This release includes key features to improve your development such as Bring Your Own Agent, new XR Emulator features, a LeakCanary update, a new agent skills manager tool, AI code review, and more.
+  3 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 - 24 Sep 2026 24 Sep 2026 ![](https://developer.android.com/static/blog/assets/BYOA_Backup_Strapi_1_5c3f94f766_Z1WI1Mt.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Build your way: Use any AI agent of your choice in Android Studio](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio)

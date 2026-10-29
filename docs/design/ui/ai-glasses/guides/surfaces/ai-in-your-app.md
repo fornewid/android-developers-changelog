@@ -4,11 +4,17 @@ url: https://developer.android.com/design/ui/ai-glasses/guides/surfaces/ai-in-yo
 source: md.txt
 ---
 
-The AI glasses form factor provides a first-person and muli-modal view of the user interacting with their environment. Combined with voice input and hardware sensors, it has the potential to provide an unprecedented level of contextual information to your app. To utilize this context in your app, you can use an in-app agent and route these multi-modal inputs to your LLM. Your app can take advantage of the Gemini Live API or integrate a custom AI agent.
+Audio and display glasses provide a first-person and muli-modal view of the user
+interacting with their environment. Combined with voice input and hardware
+sensors, this has the potential to provide an unprecedented level of contextual
+information to your app. To utilize this context in your app, you can use an
+in-app agent and route these multi-modal inputs to your LLM. Your app can take
+advantage of the Gemini Live API or integrate a custom AI agent.
 
 ## Use AI Responsibly
 
-Design for all aspects of user comfort, including Sensory, Cognitive, Social, and Comfort with AI.
+Design for all aspects of user comfort, including Sensory, Cognitive, Social,
+and Comfort with AI.
 
 Design your apps for 'Consent First':
 
@@ -19,9 +25,12 @@ Design your apps for 'Consent First':
 
 ## Design considerations for your agent
 
-For AI glasses, AI features provide an efficient manner to accomplish tasks like text to speech and image recognition. AI allows for interaction through natural language, instead of static trees.
+For audio and display glasses, AI features provide an efficient manner to
+accomplish tasks like text to speech and image recognition. AI allows for
+interaction through natural language, instead of static trees.
 
-AI can help make completing tasks between phone and glasses more natural with natural audio cues and subtle visuals.
+AI can help make completing tasks between phone and glasses more natural with
+natural audio cues and subtle visuals.
 
 When integrating an agent within your app, consider:
 
@@ -31,4 +40,5 @@ When integrating an agent within your app, consider:
 - Don't overwhelm the user
 - Design for social comfort
 
-For AI glasses, the AI agent should be concise and unobtrusive, following conversational UX best practices and[AI patterns](https://developer.android.com/design/ui/ai-glasses/guides/interaction/ai-patterns)
+The AI agent should be concise and unobtrusive, following conversational UX best
+practices and [AI patterns](https://developer.android.com/design/ui/ai-glasses/guides/interaction/ai-patterns)

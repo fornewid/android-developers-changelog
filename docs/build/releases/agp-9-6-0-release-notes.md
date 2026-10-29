@@ -17,7 +17,7 @@ Here is other compatibility info:
 
 |   | Minimum version | Default version | Notes |
 |---:|:---:|:---:|:---:|
-| Gradle | 9.6.0 | 9.6.0 | To learn more, see [updating Gradle](https://developer.android.com/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
+| Gradle | 9.7.1 | 9.7.1 | To learn more, see [updating Gradle](https://developer.android.com/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
 | SDK Build Tools | 36.0.0 | 36.0.0 | [Install](https://developer.android.com/studio/intro/update#sdk-manager) or [configure](https://developer.android.com/tools/releases/build-tools) SDK Build Tools. |
 | NDK | N/A | 28.2.13676358 | [Install](https://developer.android.com/studio/projects/install-ndk#specific-version) or [configure](https://developer.android.com/studio/projects/install-ndk#apply-specific-version) a different version of the NDK. |
 | JDK | 17 | 17 | To learn more, see [setting the JDK version](https://developer.android.com/studio/intro/studio-config#jdk). |
@@ -45,6 +45,10 @@ reports (with on-device agent)](https://developer.android.com/studio/test/on-dev
 
 ## Fixed issues
 
+
+### Android Gradle plugin 9.6.0-alpha02
+
+Fixed Issues **Android Gradle Plugin** [Issue #567815521](https://issuetracker.google.com/issues/567815521) Unsafe system properties read for R8 tasks
 
 ### Android Gradle plugin 9.6.0-alpha01
 

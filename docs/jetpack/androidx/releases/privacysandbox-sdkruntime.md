@@ -1,39 +1,21 @@
 ---
-title: privacysandbox sdkruntime  |  Jetpack  |  Android Developers
+title: https://developer.android.com/jetpack/androidx/releases/privacysandbox-sdkruntime
 url: https://developer.android.com/jetpack/androidx/releases/privacysandbox-sdkruntime
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Get started](https://developer.android.com/get-started/overview)
-* [Jetpack](https://developer.android.com/jetpack)
-* [Libraries](https://developer.android.com/jetpack/androidx/explorer)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-
-
 # privacysandbox sdkruntime
-
-API Reference  
-[androidx.privacysandbox.sdkruntime.client](/reference/kotlin/androidx/privacysandbox/sdkruntime/client/package-summary)  
-[androidx.privacysandbox.sdkruntime.core](/reference/kotlin/androidx/privacysandbox/sdkruntime/core/package-summary)  
-[androidx.privacysandbox.sdkruntime.provider](/reference/kotlin/androidx/privacysandbox/sdkruntime/provider/package-summary)
 
 This library provides components for SdkRuntime aware consumers
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
-| --- | --- | --- | --- | --- |
-| December 17, 2025 | - | - | - | [1.0.0-alpha19](/jetpack/androidx/releases/privacysandbox-sdkruntime#1.0.0-alpha19) |
+|---|---|---|---|---|
+| December 17, 2025 | - | - | - | [1.0.0-alpha19](https://developer.android.com/jetpack/androidx/releases/privacysandbox-sdkruntime#1.0.0-alpha19) |
 
 ## Declaring dependencies
 
 To add a dependency on privacysandbox-sdkruntime, you must add the Google Maven repository to your
-project. Read [Google's Maven repository](/studio/build/dependencies#google-maven)
+project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
@@ -41,7 +23,7 @@ your app or module:
 
 ### Groovy
 
-```
+```groovy
 dependencies {
 
     implementation "androidx.privacysandbox.sdkruntime:sdkruntime-client:1.0.0-alpha19"
@@ -51,20 +33,20 @@ dependencies {
 
 ### Kotlin
 
-```
+```kotlin
 dependencies {
     implementation("androidx.privacysandbox.sdkruntime:sdkruntime-core:1.0.0-alpha19")
     implementation "androidx.privacysandbox.sdkruntime:sdkruntime-client:1.0.0-alpha19"
 }
 ```
 
-For more information about dependencies, see [Add build dependencies](/studio/build/dependencies).
+For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
 
 ## Feedback
 
 Your feedback helps make Jetpack better. Let us know if you discover new issues or have
 ideas for improving this library. Please take a look at the
-[existing issues](https://issuetracker.google.com/issues?q=componentid:1301120%20status:open)
+[existing issues](https://issuetracker.google.com/issues?q=componentid:1301120+status:open)
 in this library before you create a new one. You can add your vote to an existing issue by
 clicking the star button.
 
@@ -81,12 +63,12 @@ December 17, 2025
 
 `androidx.privacysandbox.sdkruntime:sdkruntime-client:1.0.0-alpha19`, `androidx.privacysandbox.sdkruntime:sdkruntime-core:1.0.0-alpha19`, and `androidx.privacysandbox.sdkruntime:sdkruntime-provider:1.0.0-alpha19` are released. Version 1.0.0-alpha19 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/98552a7cab42f1d19ee63ca0b2cd5f5bb862510d..ec985eed3cba8444e5aaa52a748333397a1298f3/privacysandbox/sdkruntime).
 
-* This library has been deprecated and will not receive any future updates.
+- This library has been deprecated and will not receive any future updates.
 
 **API Changes**
 
-* Deprecated `privacysandbox.sdkruntime` APIs ([Ibe81a](https://android-review.googlesource.com/#/q/Ibe81a7d407c64a8ff69d8dd13dfda1d13f79267c), [b/452878636](https://issuetracker.google.com/issues/452878636))
-* Deprecated `SdkSandboxControllerCompat (sdkruntime-core)` removed. ([Ibe8fe](https://android-review.googlesource.com/#/q/Ibe8fe4aa35472ac28ebd841978c9f4fc8b3387c7), [b/427472024](https://issuetracker.google.com/issues/427472024))
+- Deprecated `privacysandbox.sdkruntime` APIs ([Ibe81a](https://android-review.googlesource.com/#/q/Ibe81a7d407c64a8ff69d8dd13dfda1d13f79267c), [b/452878636](https://issuetracker.google.com/issues/452878636))
+- Deprecated `SdkSandboxControllerCompat (sdkruntime-core)` removed. ([Ibe8fe](https://android-review.googlesource.com/#/q/Ibe8fe4aa35472ac28ebd841978c9f4fc8b3387c7), [b/427472024](https://issuetracker.google.com/issues/427472024))
 
 ### Version 1.0.0-alpha18
 
@@ -96,12 +78,12 @@ July 16, 2025
 
 **API Changes**
 
-* `SandboxedSdkProviderCompat.getView()` completely removed. If the project also uses `androidx.privacysandbox.tools`, the latest version should be used.
-* `SdkSandboxControllerCompat` migrated to `sdkruntime-provider`. `SdkSandboxControllerCompat` in `sdkruntime-core` is deprecated and will be removed next release.
+- `SandboxedSdkProviderCompat.getView()` completely removed. If the project also uses `androidx.privacysandbox.tools`, the latest version should be used.
+- `SdkSandboxControllerCompat` migrated to `sdkruntime-provider`. `SdkSandboxControllerCompat` in `sdkruntime-core` is deprecated and will be removed next release.
 
 **Bug Fixes**
 
-* `SandboxedSdkProviderCompat.onLoadSdk()` now called from the main thread regardless of `loadSdk()` caller thread.
+- `SandboxedSdkProviderCompat.onLoadSdk()` now called from the main thread regardless of `loadSdk()` caller thread.
 
 ### Version 1.0.0-alpha17
 
@@ -113,12 +95,12 @@ March 26, 2025
 
 **API Changes**
 
-* Deprecated `SandboxedSdkProviderCompat.getView()` with removal in next release. Please migrate to `androidx.privacysandbox.tools 1.0.0-alpha13` before next release.
-* Dropped support for 1.0-alpha13 libraries (both App and SDK should use more recent versions to work with counterpart libraries from this release)
+- Deprecated `SandboxedSdkProviderCompat.getView()` with removal in next release. Please migrate to `androidx.privacysandbox.tools 1.0.0-alpha13` before next release.
+- Dropped support for 1.0-alpha13 libraries (both App and SDK should use more recent versions to work with counterpart libraries from this release)
 
 **Bug Fixes**
 
-* Migrated `AppOwnedInterfaces` to local implementation on API33 devices.
+- Migrated `AppOwnedInterfaces` to local implementation on API33 devices.
 
 ### Version 1.0.0-alpha16
 
@@ -128,11 +110,11 @@ December 11, 2024
 
 **API Changes**
 
-* Introduce `SdkSandboxClientImportanceListenerCompat` for SDKs to getting notifications about changes in client's app importance (foreground status)
+- Introduce `SdkSandboxClientImportanceListenerCompat` for SDKs to getting notifications about changes in client's app importance (foreground status)
 
 **Bug Fixes**
 
-* Fixed a bug prevented client app with proguard from loading SDK in backcompat mode.
+- Fixed a bug prevented client app with proguard from loading SDK in backcompat mode.
 
 ### Version 1.0.0-alpha15
 
@@ -142,8 +124,8 @@ November 13, 2024
 
 **New Features**
 
-* Supported `LayoutInflater` creation from `SdkContext` in backcompat mode.
-* Supported `DisplayContext/WindowContext` creation from `SdkContext` in backcompat mode.
+- Supported `LayoutInflater` creation from `SdkContext` in backcompat mode.
+- Supported `DisplayContext/WindowContext` creation from `SdkContext` in backcompat mode.
 
 ### Version 1.0.0-alpha14
 
@@ -153,11 +135,11 @@ July 24, 2024
 
 **New Features**
 
-* Introduce `SdkSandboxControllerCompat#getClientPackageName` for retrieving client app package name.
+- Introduce `SdkSandboxControllerCompat#getClientPackageName` for retrieving client app package name.
 
 **API Changes**
 
-* `SandboxedSdkProviderAdapter` from sdkruntime-core completely removed. Please use `SandboxedSdkProviderAdapter` from sdkruntime-provider library.
+- `SandboxedSdkProviderAdapter` from sdkruntime-core completely removed. Please use `SandboxedSdkProviderAdapter` from sdkruntime-provider library.
 
 ### Version 1.0.0-alpha13
 
@@ -167,7 +149,7 @@ March 6, 2024
 
 **New Features**
 
-* `Backcompat` support for SDK-SDK loading (`SdkSandboxControllerCompat#loadSdk`) - now SDKs loaded locally (in Application process) could load other SDKs
+- `Backcompat` support for SDK-SDK loading (`SdkSandboxControllerCompat#loadSdk`) - now SDKs loaded locally (in Application process) could load other SDKs
 
 ### Version 1.0.0-alpha12
 
@@ -177,11 +159,11 @@ January 24, 2024
 
 **New Features**
 
-* Introduce `SdkSandboxControllerCompat#loadSdk` for loading SDKs by other SDKs in sandbox (currently supported on API 34 Extension 10 only)
+- Introduce `SdkSandboxControllerCompat#loadSdk` for loading SDKs by other SDKs in sandbox (currently supported on API 34 Extension 10 only)
 
 **API Changes**
 
-* Remove sandbox support on API 33 devices - backcompat (in app) mode should be used before API 34.
+- Remove sandbox support on API 33 devices - backcompat (in app) mode should be used before API 34.
 
 ### Version 1.0.0-alpha11
 
@@ -191,7 +173,7 @@ November 15, 2023
 
 **New Features**
 
-* `AppOwnedSdkSandboxInterfaceCompat` supported on API34 Ext 8 devices (before worked only on `PrivacySandbox` Developer Preview builds)
+- `AppOwnedSdkSandboxInterfaceCompat` supported on API34 Ext 8 devices (before worked only on `PrivacySandbox` Developer Preview builds)
 
 ### Version 1.0.0-alpha10
 
@@ -201,7 +183,7 @@ October 18, 2023
 
 **Bug Fixes**
 
-* Fixed resource remapping for SDK loaded in app process.
+- Fixed resource remapping for SDK loaded in app process.
 
 ### Version 1.0.0-alpha09
 
@@ -211,13 +193,13 @@ October 4, 2023
 
 **API Changes**
 
-* First release of sdkruntime-provider library that should be used instead of sdkruntime-core library for SDKs.
-* `SandboxedSdkProviderAdapter` migrated to sdkruntime-provider. `SandboxedSdkProviderAdapter` in sdkruntime-core is deprecated and will be removed soon.
+- First release of sdkruntime-provider library that should be used instead of sdkruntime-core library for SDKs.
+- `SandboxedSdkProviderAdapter` migrated to sdkruntime-provider. `SandboxedSdkProviderAdapter` in sdkruntime-core is deprecated and will be removed soon.
 
 **Bug Fixes**
 
-* Unregister all `SdkSandboxActivityHandlerCompat` when SDK unloaded.
-* `ActivityHolder` Lifecycle events now matches behavior of `ReportFragment`
+- Unregister all `SdkSandboxActivityHandlerCompat` when SDK unloaded.
+- `ActivityHolder` Lifecycle events now matches behavior of `ReportFragment`
 
 ### Version 1.0.0-alpha08
 
@@ -227,7 +209,7 @@ August 9, 2023
 
 **Bug Fixes**
 
-* Fix `SharedPreferences` migration fails when target context `SharedPreferences` didn't exist.
+- Fix `SharedPreferences` migration fails when target context `SharedPreferences` didn't exist.
 
 ### Version 1.0.0-alpha07
 
@@ -237,8 +219,7 @@ July 26, 2023
 
 **New Features**
 
-* Per-SDK `SharedPreferences` support for SDKs loaded locally (in Application process).
-  `SandboxedSdkProviderCompat#context` customized to provide Per-SDK `SharedPreferences` support for SDKs in backcompat mode.
+- Per-SDK `SharedPreferences` support for SDKs loaded locally (in Application process). `SandboxedSdkProviderCompat#context` customized to provide Per-SDK `SharedPreferences` support for SDKs in backcompat mode.
 
 ### Version 1.0.0-alpha06
 
@@ -248,8 +229,8 @@ June 21, 2023
 
 **New Features**
 
-* Per-SDK Storage and Databases support for SDKs loaded locally (in Application process).
-* `SandboxedSdkProviderCompat#context` customized to provide Per-SDK Storage and Database support for SDKs in backcompat mode.
+- Per-SDK Storage and Databases support for SDKs loaded locally (in Application process).
+- `SandboxedSdkProviderCompat#context` customized to provide Per-SDK Storage and Database support for SDKs in backcompat mode.
 
 ### Version 1.0.0-alpha05
 
@@ -257,11 +238,12 @@ June 7, 2023
 
 `androidx.privacysandbox.sdkruntime:sdkruntime-client:1.0.0-alpha05` and `androidx.privacysandbox.sdkruntime:sdkruntime-core:1.0.0-alpha05` are released. This version is developed in an internal branch.
 
-**Note:** This version will only compile against the Android 14 (Upside Down Cake) Beta 1 SDK or higher.
+> [!NOTE]
+> **Note:** This version will only compile against the Android 14 (Upside Down Cake) Beta 1 SDK or higher.
 
 **New Features**
 
-* (`PrivacySandbox` Developer Preview 8+ only) Add support for App-Sandbox mediation (see `SdkSandboxManagerCompat#registerAppOwnedSdkSandboxInterface` + `SdkSandboxControllerCompat#getAppOwnedSdkSandboxInterfaces`)
+- (`PrivacySandbox` Developer Preview 8+ only) Add support for App-Sandbox mediation (see `SdkSandboxManagerCompat#registerAppOwnedSdkSandboxInterface` + `SdkSandboxControllerCompat#getAppOwnedSdkSandboxInterfaces`)
 
 ### Version 1.0.0-alpha04
 
@@ -269,11 +251,12 @@ May 10, 2023
 
 `androidx.privacysandbox.sdkruntime:sdkruntime-client:1.0.0-alpha04` and `androidx.privacysandbox.sdkruntime:sdkruntime-core:1.0.0-alpha04` are released. This version is developed in an internal branch.
 
-**Note:** This version will only compile against the [Android 14 (Upside Down Cake) Beta 2 SDK](https://developer.android.com/about/versions/14#beta-2).
+> [!NOTE]
+> **Note:** This version will only compile against the [Android 14 (Upside Down Cake) Beta 2 SDK](https://developer.android.com/about/versions/14#beta-2).
 
 **New Features**
 
-* Initial support for starting Activities inside SDK sandbox (available for UDC+ devices): SDK need to register handler by calling `SdkSandboxControllerCompat#registerSdkSandboxActivityHandler` then App could start Activity for SDK by calling `SdkSandboxManagerCompat#startSdkSandboxActivity`.
+- Initial support for starting Activities inside SDK sandbox (available for UDC+ devices): SDK need to register handler by calling `SdkSandboxControllerCompat#registerSdkSandboxActivityHandler` then App could start Activity for SDK by calling `SdkSandboxManagerCompat#startSdkSandboxActivity`.
 
 ### Version 1.0.0-alpha03
 
@@ -283,12 +266,12 @@ April 5, 2023
 
 **New Features**
 
-* Added support for `SandboxProcessDeathCallback`
-* Added support for SDK unloading
+- Added support for `SandboxProcessDeathCallback`
+- Added support for SDK unloading
 
 **API Changes**
 
-* `SandboxedSdkCompat#create(binder)` removed, please use constructor `SandboxedSdkCompat(binder)`
+- `SandboxedSdkCompat#create(binder)` removed, please use constructor `SandboxedSdkCompat(binder)`
 
 ### Version 1.0.0-alpha02
 
@@ -298,7 +281,7 @@ March 22, 2023
 
 **New Features**
 
-* Added an API for fetching list of loaded SDKs - `SdkSandboxControllerCompat.getSandboxedSdks()`.
+- Added an API for fetching list of loaded SDKs - `SdkSandboxControllerCompat.getSandboxedSdks()`.
 
 ### Version 1.0.0-alpha01
 
@@ -306,4 +289,4 @@ January 11, 2023
 
 `androidx.privacysandbox.sdkruntime:sdkruntime-*:1.0.0-alpha01`is released.
 
-* This is a new Jetpack library that contains components for building and loading Runtime enabled SDKs (Privacy Sandbox) on old versions of Android Platform.
+- This is a new Jetpack library that contains components for building and loading Runtime enabled SDKs (Privacy Sandbox) on old versions of Android Platform.

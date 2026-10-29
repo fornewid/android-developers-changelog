@@ -1,64 +1,39 @@
 ---
-title: Track a device's pose using ARCore for Jetpack XR  |  Android XR for Jetpack XR SDK  |  Android Developers
+title: https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/device-pose
 url: https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/device-pose
-source: html-scrape
+source: md.txt
 ---
 
-The Android XR SDK has  [reached Developer Preview 4](https://android-developers.googleblog.com/2026/05/android-xr-sdk-developer-preview-4-updates.html), and we want your feedback! Try things out, and visit our [support page](/develop/xr/support) to reach out.
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Android XR](https://developer.android.com/develop/xr)
-* [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk)
-* [Guides](https://developer.android.com/develop/xr/get-started)
-
-# Track a device's pose using ARCore for Jetpack XR Stay organized with collections Save and categorize content based on your preferences.
+<br />
 
 
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
-
-
-Applicable XR devices
-
-This guidance helps you build experiences for these types of XR devices.
-
-[Learn about XR device types →](/develop/xr/devices)
-
-![](/static/images/develop/xr/xr-headsets-icon.svg)
-
-
-XR Headsets
-
-![](/static/images/develop/xr/xr-glasses-icon.svg)
-
-
-Wired XR Glasses
-
-[Learn about XR device types →](/develop/xr/devices)
+<br />
 
 With ARCore for Jetpack XR, your app can retrieve a device's *pose*: the
 orientation (pitch, yaw, roll) and a position (X, Y, Z) of the device relative
 to the world origin.
 
-**Note:** The accuracy of the positional data varies depending on the sensors and
-capabilities of the user's device.
+> [!NOTE]
+> **Note:** The accuracy of the positional data varies depending on the sensors and capabilities of the user's device.
 
 Use this information to render digital content in the real world, or convert the
 device pose to a geospatial pose to generate location-aware data.
 
 ## Access a session
 
-Access device pose information through a Jetpack XR Runtime [`Session`](/reference/kotlin/androidx/xr/runtime/Session),
-which your [app must create](/develop/xr/jetpack-xr-sdk/arcore#access-session-runtime).
+Access device pose information through a Jetpack XR Runtime [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session),
+which your [app must create](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore#access-session-runtime).
 
 ## Configure the session
 
 Device pose information is not enabled by default on XR sessions. To enable your
 app to retrieve device pose information, configure the session and set the
-[`DeviceTrackingMode.SPATIAL`](/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode#SPATIAL()) mode:
+[`DeviceTrackingMode.SPATIAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode#SPATIAL()) mode:
 
-```
+
+```kotlin
 // Define the configuration object to enable tracking device pose.
 val newConfig = Config.Builder(session.config)
     .setDeviceTracking(DeviceTrackingMode.SPATIAL)
@@ -76,23 +51,23 @@ try {
 } catch (e: UnsupportedOperationException) {
     // Handle configuration failure. For example, if the specific mode is not supported on the current device or API version.
 }
-
-DevicePose.kt
 ```
 
-Not all XR devices support the `DeviceTrackingMode.SPATIAL` mode. If
-[`Session.configure()`](/reference/kotlin/androidx/xr/runtime/Session#configure(androidx.xr.runtime.Config)) succeeds, the device supports this mode.
+<br />
 
-**Note:** Enabling this mode on immersive devices requires the
-`android.permission.HEAD_TRACKING` [runtime permission](/guide/topics/permissions/overview#runtime) to be granted to your
-app.
+Not all XR devices support the `DeviceTrackingMode.SPATIAL` mode. If
+[`Session.configure()`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session#configure(androidx.xr.runtime.Config)) succeeds, the device supports this mode.
+
+> [!NOTE]
+> **Note:** Enabling this mode on immersive devices requires the `android.permission.HEAD_TRACKING` [runtime permission](https://developer.android.com/guide/topics/permissions/overview#runtime) to be granted to your app.
 
 ## Obtain the device pose
 
 After you've configured the session, you can obtain the device's pose within the
-AR coordinate system using the [`ArDevice`](/reference/kotlin/androidx/xr/arcore/ArDevice) object:
+AR coordinate system using the [`ArDevice`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/ArDevice) object:
 
-```
+
+```kotlin
 // Get the ArDevice instance
 val arDevice = ArDevice.getInstance(session)
 // There are two ways to get the device pose.
@@ -107,9 +82,9 @@ processDevicePose(devicePose)
 arDevice.state.collect { state ->
     processDevicePose(state.devicePose)
 }
-
-DevicePose.kt
 ```
+
+<br />
 
 ## Get the device pose's translation and rotation
 
@@ -117,17 +92,16 @@ The device `Pose` represents the device's position (translation) and orientation
 (rotation) relative to the tracking origin. Use this information in your app to
 enhance your app's experience:
 
-* **Provide positionally accurate navigation instructions**: Use positional
-  data to help a user orient themselves and navigate their surroundings
-  with help from overlaid digital content.
+- **Provide positionally accurate navigation instructions**: Use positional data to help a user orient themselves and navigate their surroundings with help from overlaid digital content.
 
-```
+
+```kotlin
 fun processDevicePose(pose: Pose) {
     // Extract Translation and Rotation
     val translation = pose.translation // Vector3(x, y, z)
     val rotation = pose.rotation // Quaternion (x, y, z, w)
     TODO(/* Use the translation and rotation in your app. */)
 }
-
-DevicePose.kt
 ```
+
+<br />

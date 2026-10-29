@@ -4,18 +4,18 @@ url: https://developer.android.com/design/ui/ai-glasses/guides/foundations/get-s
 source: md.txt
 ---
 
-Build your AI Glasses app using the Jetpack Compose Glimmer UI framework for
-augmented experiences that work across AI Glasses. Jetpack Compose Glimmer is
-one of the first UI frameworks to be optimized for transparent displays and the
-AI glasses form-factor.
+Build your app using the Jetpack Compose Glimmer UI framework for augmented
+experiences that work on optical see-through displays. Jetpack Compose Glimmer
+is one of the first UI frameworks to be optimized for transparent displays and
+the glasses form-factor.
 
 ## 1. Decide on user journeys
 
-Focus on critical user journeys (CUJs) that are compatible with the AI glasses
-form factor's glanceable principles. That could be expressed with minimal UI or
-audio only while allowing the user to stay present in their surroundings. To
-find opportunities, consider starting entry points in your current app that
-would benefit from Glasses.
+Focus on critical user journeys (CUJs) that are compatible with the glasses form
+factor's glanceable principles. That could be expressed with minimal UI or audio
+only while allowing the user to stay present in their surroundings. To find
+opportunities, consider starting entry points in your current app that would
+benefit from Glasses.
 
 For example, a user may benefit with hands-free, turn-by-turn walking directions
 to help them navigate to their destination.
@@ -47,23 +47,23 @@ For display mode UI, start with a CUJ from your core app:
 - **Design from the bottom up**: When building mocks, start from the bottom,
   laying out components upward.
 
-- **Translate visual components**: For display AI glasses, use Jetpack Compose
+- **Translate visual components**: For display glasses, use Jetpack Compose
   Glimmer components and layout patterns.
 
 Read more on [components](https://developer.android.com/design/ui/ai-glasses/guides/components/overview) and [app view](https://developer.android.com/design/ui/ai-glasses/guides/surfaces/app).
-![The shopping list app reduces the list view down to a minimal list experience and needs feedback UI only.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_foundation_getstarted_step.png) **Figure 1.**: A shopping list app translated to Display AI glasses elements. The system bars are visually distinct, AI glasses are usually empty. Here the app bar could translate to a title chip while the Material list elements be translated to the Jetpack Compose Glimmer list.
+![The shopping list app reduces the list view down to a minimal list experience and needs feedback UI only.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_foundation_getstarted_step.png) **Figure 1.**: A shopping list app translated into elements for display glasses. The system bars are visually distinct because the UI on display glasses is usually empty. Here the app bar could translate to a title chip, while the Material list elements are translated into a Jetpack Compose Glimmer list.
 
 ## 3. Audio flow \& cues
 
-Get conversational with the Audio. While audio should make up a large part of
-your AI Glasses app without overwhelming the user, you also need to account for
-an audio-only experience for certain devices. You can do this by creating an
+Get conversational with the audio. While audio should make up a large part of
+your app's experience even on display glasses, you also need to account for an
+audio-only experience for audio glasses. You can do this by creating an
 audio-only flow map to describe this experience. Notate interactions and
-feedback with audio cues and dialogue.
+feedback with audio cues and dialogue. Evaluate your design to avoid
+overwhelming the user with your audio flow.
 
 ![Create an audio-only flow map to help you plan conversational experiences that
-don't overwhelm the
-user.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_foundation_getstarted_step4.png)
+don't overwhelm the user.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_foundation_getstarted_step4.png)
 
 ## 4. Map input controls
 
@@ -73,8 +73,7 @@ start by translating basic app interactions, like tap, to a trackpad tap.
 [Continue to inputs.](https://developer.android.com/design/ui/ai-glasses/guides/interaction/inputs)
 
 ![An XR differentiated app has a user experience explicitly designed for XR, and
-it implements features that are only offered on
-XR.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_foundation_getstarted_step3.png)
+it implements features that are only offered on XR.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_foundation_getstarted_step3.png)
 
 
 ## 5. Consider SysUI
@@ -94,9 +93,9 @@ user.](https://developer.android.com/static/images/design/ui/glasses/guides/glas
 
 ## 6. Additional states
 
-Your app will encounter different scenarios on AI glasses, such as connection or
-permission issues. Account for these different states both within your core app
-and glasses app.
+Your app will encounter different scenarios on audio and display glasses, such
+as connection or permission issues. Account for these different states both
+within your core app and glasses app.
 
 Make sure to ask for device feature permissions.
 
@@ -104,8 +103,5 @@ Remember, you will need to consider these through visual UI and audio. For
 example, give audio feedback to communicate that they should complete a
 permission flow on their mobile device or to read out errors.
 
-![Account for different app states both within your core app and glasses
-app.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_foundation_getstarted_step6.png)
-
-> [!NOTE]
-> **Note:** Get started with the [Jetpack Compose Glimmer UI Kit on Figma](http://www.figma.com/@androiddesign).
+![Account for different app states both within your core app and glasses app.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_foundation_getstarted_step6.png)
+Note: Get started with the [Jetpack Compose Glimmer UI Kit on Figma](http://www.figma.com/@androiddesign).

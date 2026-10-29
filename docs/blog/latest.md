@@ -7,6 +7,27 @@ source: md.txt
 # The Latest
 
 Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
+
+  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
+  - [#Android](https://developer.android.com/blog/topics/android)
+- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+
+  ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance) This year at Android Dev Summit we shared how Android's developer tools are evolving to help you be more productive alongside your agents.
+  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando) • 10 min read
+  - [#Android](https://developer.android.com/blog/topics/android)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Rabbit2_Strapi_27563aeaf4_1BAzRM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Your favorite agents are now integrated in Android Studio](https://developer.android.com/blog/posts/ai-agents-android-studio-integration)
+
+  [arrow_forward](https://developer.android.com/blog/posts/ai-agents-android-studio-integration) Android Studio Rabbit 2 is now stable and ready for you to use in production. This release includes key features to improve your development such as Bring Your Own Agent, new XR Emulator features, a LeakCanary update, a new agent skills manager tool, AI code review, and more.
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 3 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 - [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](https://developer.android.com/blog/authors/roxanna-walker) 21 Oct 2026 21 Oct 2026 ![](https://developer.android.com/static/blog/assets/1009_ABL_142_A_more_reliable_way_to_add_and_edit_contacts_on_Android_Strapi_b510ec4fc0_ZXfljU.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [A more reliable way to add and edit contacts on Android](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android)
@@ -137,39 +158,19 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
   - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- [![View Raghavendra Hareesh Pottamsetty's profile](https://developer.android.com/static/blog/assets/Raghavendra_Hareesh_Pottamsetty_72fdb063a0_HTSBv.webp)](https://developer.android.com/blog/authors/raghavendra-hareesh-pottamsetty) 26 Aug 2026 26 Aug 2026 ![](https://developer.android.com/static/blog/assets/Raising_the_bar_Google_Play_Strapi_2_a80695bf12_ZCNvdc.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Elevating app quality: Reducing memory usage and improving device migration](https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration)
-
-  [arrow_forward](https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration) Maintaining a healthy Android ecosystem is a shared commitment where every app and game has a role to play.
-  [Raghavendra Hareesh Pottamsetty](https://developer.android.com/blog/authors/raghavendra-hareesh-pottamsetty) • 4 min read
-- [![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_ZRiq2s.webp)](https://developer.android.com/blog/authors/ron-aquino) 25 Aug 2026 25 Aug 2026 ![](https://developer.android.com/static/blog/assets/Ensuring_a_safe_Gen_AI_ecosystem_on_Google_Play_Scrapi_a8fa6da415_1HFCG4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Ensuring Safety in the Generative AI Ecosystem: Protecting Users from Non-Consensual Intimate Content](https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content)
-
-  [arrow_forward](https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content) At Google Play, user safety and developer success go hand in hand. We continue to see growth in apps with AI generated features, and indeed, adding generative AI into your apps is a great way to unlock incredible creative possibilities.
-  [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino) • 4 min read
-- 3 Authors 24 Aug 2026 24 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_1_Strapi_6f49d09922_1I8TFC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [AAOS SDV - Secure by Design](https://developer.android.com/blog/posts/aaos-sdv-secure-by-design)
-
-  [arrow_forward](https://developer.android.com/blog/posts/aaos-sdv-secure-by-design) At Google, we believe our products should be secure by design, which is why we built the Android Automotive Operating System for Software Defined Vehicle (AAOS SDV) on existing, market-proven platforms, leveraging virtualization technologies like Cuttlefish.
-  [Markus Vill](https://developer.android.com/blog/authors/markus-vill), [Sean Keys](https://developer.android.com/blog/authors/sean-keys), [István Nádor](https://developer.android.com/blog/authors/istvan-nador) • 5 min read
-  - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
-  - [#Security](https://developer.android.com/blog/topics/security)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
 
-###### of 10
+###### of 11
 
 [arrow_forward](https://developer.android.com/blog/latest/2)
 
 # Popular Topics
 
 - [#Android](https://developer.android.com/blog/topics/android)
-- [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+- [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 - [#Compose](https://developer.android.com/blog/topics/compose)
 - [#Performance](https://developer.android.com/blog/topics/performance)
 - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)

@@ -1,56 +1,38 @@
 ---
-title: android input scroll  |  Android Studio  |  Android Developers
+title: https://developer.android.com/tools/agents/android-cli/commands/input_scroll
 url: https://developer.android.com/tools/agents/android-cli/commands/input_scroll
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [Agent tools and resources](https://developer.android.com/tools/agents)
-
-# android input scroll Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 Scroll a container element, optionally until a target element appears.
 
 ## Usage
 
-```
-android input scroll [-h] [--amount=PARAM] [--dir=PARAM] [--match=PARAM] [--speed=PARAM] [--until=PARAM] [--wait=PARAM] <target>
-```
+    android input scroll [-h] [--amount=PARAM] [--dir=PARAM] [--match=PARAM] [--speed=PARAM] [--until=PARAM] [--wait=PARAM] <target>
 
 ## Options
 
-* `--amount=PARAM` - Scroll distance as fraction of container size (0.0 to
-  1.0).
-* `--dir=PARAM` - Direction to scroll (up, down, left, right).
-* `-h,--help` - Shows the help message for the specified command.
-* `--match=PARAM` - Behavior when multiple elements match: 'single' (error on
-  multiple matches) or 'first'.
-* `--speed=PARAM` - Speed of each scroll gesture in pixels per second.
-* `--until=PARAM` - Selector of target element to scroll until visible. Same
-  syntax as .
-* `--wait=PARAM` - Maximum duration to wait for the scroll target to appear
-  in layout (ms).
+- `--amount=PARAM` - Scroll distance as fraction of container size (0.0 to 1.0).
+- `--dir=PARAM` - Direction to scroll (up, down, left, right).
+- `-h,--help` - Shows the help message for the specified command.
+- `--match=PARAM` - Behavior when multiple elements match: 'single' (error on multiple matches) or 'first'.
+- `--speed=PARAM` - Speed of each scroll gesture in pixels per second.
+- `--until=PARAM` - Selector of target element to scroll until visible. Same syntax as .
+- `--wait=PARAM` - Maximum duration to wait for the scroll target to appear in layout (ms).
 
 `input` options:
 
-* `--device=PARAM` - Device serial number or emulator ID (as reported by 'adb
-  devices').
+- `--device=PARAM` - Device serial number or emulator ID (as reported by 'adb devices').
 
 `android` options:
 
-* `--sdk=PARAM` - Path to the Android SDK.
-* `-v,--verbose` - Enable verbose output for troubleshooting.
-* `-V,--version` - Print version information and exit.
+- `--sdk=PARAM` - Path to the Android SDK.
+- `-v,--verbose` - Enable verbose output for troubleshooting.
+- `-V,--version` - Print version information and exit.
 
 ## Positional arguments
 
-* `<target>` - Target container element selector to scroll
+- `<target>` - Target container element selector to scroll
 
 Target UI elements using selectors composed of comma-separated key=value pairs
 matching accessibility node properties. You can also write key:value.
@@ -78,9 +60,9 @@ selector txt=var would match "var", "Variable", and "There was significant
 variance". The selector txt=\* matches any non-empty value. Spaces around a value
 are ignored, except inside a regular expression.
 Wrap a value in slashes to use a regular expression instead. Regular expressions
-are case-sensitive and can match any part of the value. For example, txt=/^Var$/
+are case-sensitive and can match any part of the value. For example, txt=/\^Var$/
 matches only "Var". Add the i flag for a case-insensitive match, for example
-txt=/^var$/i. Escape a "/" inside a regular expression as "\/", for example
-id=/:id\/submit$/. Commas and spaces inside a regular expression are part of it,
-for example txt=/^Item [0-9]{1,2}$/. A value that starts with "/" is always a
-regular expression, so use txt=/^\/help/ to match text that starts with "/help"
+txt=/\^var$/i. Escape a "/" inside a regular expression as "\\/", for example
+id=/:id\\/submit$/. Commas and spaces inside a regular expression are part of it,
+for example txt=/\^Item \[0-9\]{1,2}$/. A value that starts with "/" is always a
+regular expression, so use txt=/\^\\/help/ to match text that starts with "/help"

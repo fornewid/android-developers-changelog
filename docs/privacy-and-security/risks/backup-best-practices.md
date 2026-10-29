@@ -1,19 +1,10 @@
 ---
-title: Security recommendations for backups  |  Android Developers
+title: https://developer.android.com/privacy-and-security/risks/backup-best-practices
 url: https://developer.android.com/privacy-and-security/risks/backup-best-practices
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [Security](https://developer.android.com/security)
-* [Guides](https://developer.android.com/privacy-and-security/security-tips)
-
-# Security recommendations for backups Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
+<br />
 
 **OWASP category:** [MASVS-CODE: Code Quality](https://mas.owasp.org/MASVS/10-MASVS-CODE)
 
@@ -27,8 +18,8 @@ that no sensitive data is leaked.
 
 The Standard Android Backup system provides the most secure, robust, and easiest
 solution for apps to back up their data to the cloud or to transfer data to a
-new device through [Auto Backup](/identity/data/autobackup) (which is [enabled by default](/identity/data/backup), requires
-no work to implement and can also be extended) and [key-value backup](/guide/topics/data/keyvaluebackup). We
+new device through [Auto Backup](https://developer.android.com/identity/data/autobackup)(which is [enabled by default](https://developer.android.com/identity/data/backup), requires
+no work to implement and can also be extended) and [key-value backup](https://developer.android.com/guide/topics/data/keyvaluebackup). We
 recommend using this solution because it stores the resulting backup data in
 directories that cannot be accessed by other 3p apps, as well as facilitating
 encryption at rest, encryption in transit, and configurations allowing for the
@@ -60,8 +51,8 @@ has a lock screen set, then the backup data is not only encrypted, but encrypted
 with a key not known to Google (the lock screen secret protects the encryption
 key, thus enabling end-to-end encryption).
 
-In general remember to follow the [data storage](/training/data-storage) and [security
-guidelines](/privacy-and-security/risks/sensitive-data-external-storage).
+In general remember to follow the [data storage](https://developer.android.com/training/data-storage) and [security
+guidelines](https://developer.android.com/privacy-and-security/risks/sensitive-data-external-storage).
 
 If your backup includes particularly sensitive data, then we recommend to either
 exclude this data or, if you cannot exclude it, require end-to-end encryption as
@@ -74,38 +65,33 @@ conventionally called `backup_rules.xml`and placed in the `res/xml` app folder.
 There are some differences in how backup rules are configured depending on the
 version of Android that's used:
 
-* [For Android versions 12 (API level 31) and higher](/guide/topics/data/autobackup#include-exclude-android-12), add an
-  `android:dataExtractionRules` attribute to the `<application>` element within
-  the `AndroidManifest.xml`:
-* xml
-  `xml
+- [For Android versions 12 (API level 31) and higher](https://developer.android.com/guide/topics/data/autobackup#include-exclude-android-12), add an `android:dataExtractionRules` attribute to the `<application>` element within the `AndroidManifest.xml`:
+- xml `xml
   <application android:name="com.example.foo" android:dataExtractionRules="@xml/backup_rules_extraction">
-  …
+  ...
   </application>`
 
-Then, [configure](/guide/topics/data/autobackup#include-exclude-android-12) the `backup_rules.xml` file according to the
+Then, [configure](https://developer.android.com/guide/topics/data/autobackup#include-exclude-android-12) the `backup_rules.xml` file according to the
 data persistence and security requirements of the application, following the
-[updated configuration format](/guide/topics/data/autobackup#xml-syntax-android-12).
+[updated configuration format](https://developer.android.com/guide/topics/data/autobackup#xml-syntax-android-12).
 
 The format required for the `backup_rules.xml` file configuration allows
 developers to define custom backup rules for both Cloud and [Device-To-Device
-(D2D) transfers](/about/versions/12/behavior-changes-12#xml-changes). If the `<device-transfer>`attribute is not set, all the
+(D2D) transfers](https://developer.android.com/about/versions/12/behavior-changes-12#xml-changes). If the `<device-transfer>`attribute is not set, all the
 application data will be transferred during a D2D migration. It is important to
 highlight that even if the target application targets Android 12 or higher, a
-separate file with [an additional set of backup rules](/identity/data/autobackup#include-exclude-android-11) should always be
+separate file with [an additional set of backup rules](https://developer.android.com/identity/data/autobackup#include-exclude-android-11) should always be
 specified for devices running Android 11 (API level 30) or lower.
 
-* [For Android versions 11 and lower](/guide/topics/data/autobackup#include-exclude-android-11), add an `android:fullBackupContent`
-  attribute to the `<application>` element within the `AndroidManifest.xml`:
-* xml
-  `xml
+- [For Android versions 11 and lower](https://developer.android.com/guide/topics/data/autobackup#include-exclude-android-11), add an `android:fullBackupContent` attribute to the `<application>` element within the `AndroidManifest.xml`:
+- xml `xml
   <application android:name="com.example.foo" android:fullBackupContent="@xml/backup_rules_full">
-  …
+  ...
   </application>`
 
 Then, configure the `backup_rules.xml` file according to the data persistence
 and security requirements of the application using the syntax reported in the
-[back up user data](/guide/topics/data/autobackup#include-exclude-android-11) article.
+[back up user data](https://developer.android.com/guide/topics/data/autobackup#include-exclude-android-11) article.
 
 #### Requiring end-to-end encryption
 
@@ -114,7 +100,7 @@ requiring end-to-end encryption which means allowing backups only on Android 9
 or higher and only when the lock screen is set. You can achieve this by using
 the `requireFlags="clientSideEncryption"`flag, which needs to be renamed to
 `disableIfNoEncryptionCapabilities` and set to `true` starting from [Android
-12](/identity/data/autobackup#include-exclude-android-12).
+12](https://developer.android.com/identity/data/autobackup#include-exclude-android-12).
 
 ### If you can't use the Standard Android Backup system
 
@@ -127,16 +113,16 @@ to the expected backup behavior.
 
 ## Resources
 
-* [Description of the allowBackup attribute](/guide/topics/manifest/application-element#allowbackup)
-* [File-Based Encryption](https://source.android.com/docs/security/features/encryption/file-based)
-* [D2D transfer behavior changes](/about/versions/12/behavior-changes-12#functionality-changes)
-* [Back up user data with Auto Backup](/identity/data/autobackup)
-* [Back up key-value pairs with Android Backup Service](/identity/data/keyvaluebackup)
-* [Control backup on Android 12 or higher](/guide/topics/data/autobackup#include-exclude-android-12)
-* [Control backup on Android 11 and lower](/guide/topics/data/autobackup#include-exclude-android-11)
-* [Understanding PII in Google's contracts and policies](https://support.google.com/analytics/answer/7686480)
-* [Test backup and restore](/identity/data/testingbackup)
-* [Cryptography](/guide/topics/security/cryptography)
-* [Android Keystore system](/training/articles/keystore)
-* [ADB](/tools/adb)
-* [Developer options](/studio/debug/dev-options)
+- [Description of the allowBackup attribute](https://developer.android.com/guide/topics/manifest/application-element#allowbackup)
+- [File-Based Encryption](https://source.android.com/docs/security/features/encryption/file-based)
+- [D2D transfer behavior changes](https://developer.android.com/about/versions/12/behavior-changes-12#functionality-changes)
+- [Back up user data with Auto Backup](https://developer.android.com/identity/data/autobackup)
+- [Back up key-value pairs with Android Backup Service](https://developer.android.com/identity/data/keyvaluebackup)
+- [Control backup on Android 12 or higher](https://developer.android.com/guide/topics/data/autobackup#include-exclude-android-12)
+- [Control backup on Android 11 and lower](https://developer.android.com/guide/topics/data/autobackup#include-exclude-android-11)
+- [Understanding PII in Google's contracts and policies](https://support.google.com/analytics/answer/7686480)
+- [Test backup and restore](https://developer.android.com/identity/data/testingbackup)
+- [Cryptography](https://developer.android.com/guide/topics/security/cryptography)
+- [Android Keystore system](https://developer.android.com/training/articles/keystore)
+- [ADB](https://developer.android.com/tools/adb)
+- [Developer options](https://developer.android.com/studio/debug/dev-options)

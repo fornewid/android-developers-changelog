@@ -4,10 +4,10 @@ url: https://developer.android.com/design/ui/ai-glasses/guides/surfaces/overview
 source: md.txt
 ---
 
-When designing for AI Glasses, it's crucial to consider various surfaces and
-contexts. These include the Glasses System UI (Home and Notifications), your app
-projected on Glasses, and the seamless handoff experience integrated within your
-mobile application.
+When designing UI for display glasses, it's crucial to consider various surfaces
+and contexts. These include the Glasses System UI (Home and Notifications), your
+app projected on Glasses, and the seamless handoff experience integrated within
+your mobile application.
 
 Design surfaces can be described in three states: Home, App view, and system
 bar.
@@ -18,8 +18,7 @@ Inspired by the phone's lock screen, [home](https://developer.android.com/design
 user. It provides minimal, contextual information and actions.
 
 ![An existing mobile app that hasn't been modified to adapt to a large screen or
-any other form
-factor.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_surfaces_overview_home.webp)
+any other form factor.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_surfaces_overview_home.webp)
 
 ### App view
 
@@ -28,8 +27,7 @@ default to allow for system alerts to be less intrusive for the user's line of
 sight.
 
 ![A large screen Tier 1 or Tier 2 Android app that has implemented layout
-optimizations for all screen sizes and device configurat
-ions.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_surfaces_overview_nonhome.png)
+optimizations for all screen sizes and device configurat ions.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_surfaces_overview_nonhome.png)
 
 ### System bar
 
@@ -37,8 +35,7 @@ ions.](https://developer.android.com/static/images/design/ui/glasses/guides/glas
 Notifications, system alerts, device controls, etc.
 
 ![An XR differentiated app has a user experience explicitly designed for XR, and
-it implements features that are only offered on
-XR.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_surfaces_overview_anytime.png)
+it implements features that are only offered on XR.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_surfaces_overview_anytime.png)
 
 ## Customize system surfaces
 

@@ -551,6 +551,7 @@ A quad in a 2D space is a convex quadrilateral with clockwise order. The value o
     typedef enum XrSpatialAnnotationQuadAlignmentANDROID {
         XR_SPATIAL_ANNOTATION_QUAD_ALIGNMENT_SCREEN_ANDROID = 0,
         XR_SPATIAL_ANNOTATION_QUAD_ALIGNMENT_OBJECT_ANDROID = 1,
+        XR_SPATIAL_ANNOTATION_QUAD_ALIGNMENT_SURFACE_ANDROID = 2,
         XR_SPATIAL_ANNOTATION_QUAD_ALIGNMENT_MAX_ENUM_ANDROID = 0x7FFFFFFF
     } XrSpatialAnnotationQuadAlignmentANDROID;
 
@@ -567,6 +568,10 @@ The annotation quad is parallel to the screen plane, while its in-plane rotation
 `XR_SPATIAL_ANNOTATION_QUAD_ALIGNMENT_OBJECT_ANDROID`
 
 The annotation quad is anchored directly to the object, matching the alignment defined in the reference image. The output is a convex quadrilateral, adjusting its shape to match the perspective of the object.
+
+`XR_SPATIAL_ANNOTATION_QUAD_ALIGNMENT_SURFACE_ANDROID`
+
+The annotation quad is coplanar with the surface of the underlying object, assuming the tracked target is a planar object or surface. The output aligns seamlessly with the object's physical geometry, adjusting its perspective to lie flat against that specific surface.
 
 ### Quad Components
 

@@ -1,41 +1,28 @@
 ---
-title: android device remote models  |  Android Studio  |  Android Developers
+title: https://developer.android.com/tools/agents/android-cli/commands/device_remote_models
 url: https://developer.android.com/tools/agents/android-cli/commands/device_remote_models
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [Agent tools and resources](https://developer.android.com/tools/agents)
-
-# android device remote models Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 Lists available remote device models.
 
 ## Usage
 
-```
-android device remote models [-h]
-```
+    android device remote models [-h]
 
 ## Options
 
-* `-h,--help` - Shows the help message for the specified command.
+- `-h,--help` - Shows the help message for the specified command.
 
 `remote` options:
 
-* `--project=PARAM` - The Google Cloud project ID.
+- `--project=PARAM` - The Google Cloud project ID.
 
 `android` options:
 
-* `--sdk=PARAM` - Path to the Android SDK.
-* `-v,--verbose` - Enable verbose output for troubleshooting.
-* `-V,--version` - Print version information and exit.
+- `--sdk=PARAM` - Path to the Android SDK.
+- `-v,--verbose` - Enable verbose output for troubleshooting.
+- `-V,--version` - Print version information and exit.
 
 ## Description
 
@@ -51,12 +38,8 @@ that project.
 
 List the available devices:
 
-```
-android device remote models
-```
+    android device remote models
 
 List the devices available to the `my-project` project:
 
-```
-android device remote models --project=my-project
-```
+    android device remote models --project=my-project

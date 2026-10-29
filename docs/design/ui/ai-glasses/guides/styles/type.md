@@ -1,34 +1,22 @@
 ---
-title: Typography for glasses  |  AI Glasses  |  Android Developers
+title: https://developer.android.com/design/ui/ai-glasses/guides/styles/type
 url: https://developer.android.com/design/ui/ai-glasses/guides/styles/type
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [UI Design](https://developer.android.com/design/ui)
-* [AI Glasses](https://developer.android.com/design/ui/ai-glasses)
-* [Guides](https://developer.android.com/design/ui/ai-glasses/guides/foundations/design-principles)
-
-# Typography for glasses Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-
-Type is optimized for comfort and glanceability for AI glasses this includes an
-optimized typescale and font family characteristics.
+Type is optimized for comfort and glanceability for display glasses this
+includes an optimized typescale and font family characteristics.
 
 ![Typescale for
-glasses.](/static/images/design/ui/glasses/guides/glasses_styles_type_scale.png)
-
+glasses.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_styles_type_scale.png)
 Jetpack Compose Glimmer has an optimized default typescale. Composed of two
 roles with 3 styles each, type roles are based on their purpose and hierarchy.
 
 You can find the typescale roles and values in the [Jetpack Compose Glimmer
 Figma kit](https://www.figma.com/community/file/1579881278082580424/jetpack-compose-glimmer-ui), along with type role use in the components.
 
-**Note:** Google Sans Flex is now available at [fonts.google.com](https://fonts.google.com/specimen/Google+Sans+Flex?query=google+sans)!
+> [!NOTE]
+> **Note:** Google Sans Flex is now available at [fonts.google.com](https://fonts.google.com/specimen/Google+Sans+Flex?query=google+sans)!
 
 ## Measured in degrees
 
@@ -37,8 +25,11 @@ pixels or points. This unit of measurement corresponds to how much space UI
 takes up in the user's field of view.
 **The size of type changes based on how far away it appears.**
 
+
 ![Design elements should be anchored to the bottom of the
-frame.](/static/images/design/ui/glasses/guides/glasses_styles_type_size.png)
+frame.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_styles_type_size.png)
+
+<br />
 
 #### The minimum size for text is 0.6°
 
@@ -47,15 +38,17 @@ minimum size for readable body text is around 0.6° at any given depth. To meet
 the minimum legibility metric, text must be at least 18px in size. 30 PPD × 0.6°
 minimum = 18px text size.
 
+<br />
+
 ## Customize fonts
 
 Fonts like Google Sans Flex can be optimized for glasses display. If using
 Google Sans Flex, you can optimize your font through variable font axes to make
 adjustments that create a more comfortable reading experience:
 
-* Optical size, optimizes letterforms for each point size
-* Roundness axis to adjust formality
-* Wide range of weights and widths
+- Optical size, optimizes letterforms for each point size
+- Roundness axis to adjust formality
+- Wide range of weights and widths
 
 Halation and chromatic aberration in glasses displays spreads light in all
 directions, causing the boundaries of the letters to disappear. Rounded
@@ -63,39 +56,19 @@ letterforms can mitigate halation and chromatic aberration in glasses displays
 due their simplified letterforms geometry. Consider letter spacing, letterform
 shape and glanceable sizing improves readability and comfort.
 
-![A customized hiking
-app.](/static/images/design/ui/glasses/guides/glasses_surfaces_app_customize_hike.png)
+![A customized hiking app.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_surfaces_app_customize_hike.png)
 Here Google Sans Flex has been replaced with Nunito, a rounded font at an
 increased weight axes.
 
 These principles are based on optical science for this specific display
 form-factor, and adhering to them is key to creating a comfortable and legible
 user experience.
-
-![](/static/images/design/ui/glasses/guides/glasses_style_type_rounded_do.png)
-
-check\_circle
+![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_style_type_rounded_do.png)
 
 ### Do
 
-Use rounded fonts with increased weight and letter-spacing.
-
-![](/static/images/design/ui/glasses/guides/glasses_style_type_rounded_dont.png)
-
-cancel
+Use rounded fonts with increased weight and letter-spacing. ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_style_type_rounded_dont.png)
 
 ### Don't
 
 Use condensed thin typefaces.
-
-[Previous
-
-arrow\_back
-
-Color](/design/ui/ai-glasses/guides/styles/color)
-
-[Next
-
-Surfaces & Depth
-
-arrow\_forward](/design/ui/ai-glasses/guides/styles/surfaces)

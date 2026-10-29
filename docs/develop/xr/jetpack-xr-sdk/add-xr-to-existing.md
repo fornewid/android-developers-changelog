@@ -29,7 +29,7 @@ Consider these important principles when bringing your Android app into XR.
   - Verify your app isn't opted-out of XR publishing from your [Google Play
     Console](https://developer.android.com/distribute/console) to prevent your app from being excluded from Play Store search results.
 
-## Tips for converting 2D UI components to 3D
+## Convert 2D UI components to 3D
 
 Following these tips can make a big difference in making your app feel like it's
 been optimized for XR.
@@ -48,7 +48,7 @@ as typical 2D UI when spatial UI isn't available, and they show your app's
 spatial UI when they can. Using them is as straightforward as making a one-line
 change to replace the corresponding 2D UI element.
 
-## Convert a dialog to SpatialDialog
+### Convert a dialog to SpatialDialog
 
 
 ```kotlin
@@ -69,7 +69,7 @@ SpatialDialog(
 
 <br />
 
-## Convert a popup to SpatialPopup
+### Convert a popup to SpatialPopup
 
 
 ```kotlin
@@ -86,7 +86,7 @@ SpatialPopup(onDismissRequest = onDismissRequest) {
 
 <br />
 
-## Elevate 2D UI elements
+### Elevate 2D UI elements
 
 When you want to elevate UI with more fine-grained control, we provide
 `SpatialElevation` to allow you to elevate any composable in your app to a level
@@ -104,12 +104,12 @@ SpatialElevation(elevation = SpatialElevationLevel.Level4) {
 
 <br />
 
-### Key points about the code
+#### Key points about the code
 
 - Don't spatialize or elevate big areas and planes such as bottom sheets and side sheets.
 - Don't elevate UI elements that are scrollable with the content.
 
-## Migrate 2D components to orbiters
+### Migrate 2D components to orbiters
 
 Orbiters are floating elements that typically contain controls the user can
 interact with. Orbiters can be anchored to spatial panels or other entities such
@@ -149,14 +149,14 @@ Orbiter(
 
 <br />
 
-### Key points about orbiters
+#### Key points about orbiters
 
 - Orbiters are components designed to attach existing UI elements to a spatial panel
 - See our [Android XR app design guidance](https://developer.android.com/docs/quality-guidelines/android-xr) to verify which elements to migrate for orbiters, and for patterns to avoid.
 - We recommend adapting only a few navigation components like the navigation rail, top app bar, or bottom app bar.
 - Orbiters don't show up when spatial UI isn't enabled. For example, they won't show up in Home Space or on devices like phones, tablets, and foldables.
 
-## Migrate 2D components to Spatial panels
+### Migrate 2D components to Spatial panels
 
 Spatial panels are the fundamental building blocks of Android XR apps' UI.
 
@@ -165,7 +165,7 @@ immersive content. When designing, you can add components like orbiters for user
 controls, and spatially elevate UI elements to call attention to specific
 interactions.
 
-### Key points about the code
+#### Key points about the code
 
 - See [Android XR app design guidance](https://developer.android.com/docs/quality-guidelines/android-xr) to verify which elements to migrate to panels, and for patterns to avoid.
 - Follow best practices for spatial panel placement:
@@ -179,7 +179,7 @@ interactions.
   color system](https://m3.material.io/styles/color/system/overview) to implement dark and light themes for your app.
 - Use the spatial panels API with existing UI elements.
 
-### Migrate 2D UI to a single spatial panel
+#### Migrate 2D UI to a single spatial panel
 
 By default, your app shows with a single panel in Home Space. [Learn how to
 transition between Home Space and Full Space](https://developer.android.com/develop/xr/jetpack-xr-sdk/transition-home-space-to-full-space). To bring that content to Full
@@ -204,7 +204,7 @@ if (LocalSpatialCapabilities.current.isSpatialUiEnabled) {
 
 <br />
 
-### Migrate your 2D UI to multiple spatial panels
+#### Migrate your 2D UI to multiple spatial panels
 
 You can either use a single spatial panel for your app's UI, or you can migrate
 your 2D UI to multiple spatial panels. If you choose to use multiple panels for
@@ -264,7 +264,13 @@ SpatialRow {
 
 <br />
 
-## Check for spatial capabilities
+## Add spatial capabilities
+
+After you conceptualize and begin to convert your 2D UI components to 3D, you
+can also start looking at other spatial capabilities that you can add to
+your app to help create a more differentiated experience for Android XR.
+
+### Check for spatial capabilities
 
 When you're deciding whether to display a specific UI element, avoid checking
 for specific XR devices or modes. Checking for devices or modes rather than
@@ -290,7 +296,7 @@ val spatialAudioEnabled = LocalSpatialCapabilities.current.isSpatialAudioEnabled
 
 <br />
 
-## Use environments to change the user's surroundings
+### Use environments to change the user's surroundings
 
 When you want to create a feeling of immersion in your app by changing your
 user's surroundings, you can do so with environments. Adding an environment in
@@ -298,7 +304,7 @@ code is a straightforward change that you can make without significantly
 impacting your app's existing UI. For more on setting environments, be sure to
 check out our full [guidance](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments).
 
-## Add 3D content
+### Add 3D content
 
 3D content such as 3D models and spatial video can help create a more immersive
 experience and add spatial understanding. Your app can only show 3D content when

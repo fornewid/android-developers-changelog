@@ -152,6 +152,13 @@ Continue reading
 
   [arrow_forward](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week) From the foundational powers of the R8 optimizer and Profile Guided Optimizations, to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the low effort, high impact tools you need to build a performant app.
   [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss), [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton) • 3 min read
+- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+
+  ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance) This year at Android Dev Summit we shared how Android's developer tools are evolving to help you be more productive alongside your agents.
+  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando) • 10 min read
+  - [#Android](https://developer.android.com/blog/topics/android)
 - 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
@@ -162,14 +169,6 @@ Continue reading
   - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
   - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
   - +1 ↩
-- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_Z20LEeM.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
-
-  ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
-
-  [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed) The Google I/O schedule is here!
-  1 min read
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
 Stay in the loop
 
 

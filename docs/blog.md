@@ -7,21 +7,35 @@ source: md.txt
 # The Android Developers' Blog
 
 Tools and resources to help you build faster and easier.
-![](https://developer.android.com/static/blog/assets/BYOA_Backup_Strapi_1_5c3f94f766_Z1WI1Mt.webp) 24 Sep 2026 24 Sep 2026 [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner)
+![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) 28 Oct 2026 28 Oct 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough)
 
 #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-## [Build your way: Use any AI agent of your choice in Android Studio](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio)
+## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
 
-[arrow_forward](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio) Last year, Android Studio opened up to any AI model. Today, we're taking the next step by introducing support for your choice of coding agents.
+[arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
 
-###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
-3 min read
+###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+4 min read
 
-- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+- [#Android](https://developer.android.com/blog/topics/android)
 
 ## The Latest
 
+- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+
+  ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance)
+
+  This year at Android Dev Summit we shared how Android's developer tools are evolving to help you be more productive alongside your agents.
+  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando) • 10 min read
+  - [#Android](https://developer.android.com/blog/topics/android)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Rabbit2_Strapi_27563aeaf4_1BAzRM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Your favorite agents are now integrated in Android Studio](https://developer.android.com/blog/posts/ai-agents-android-studio-integration)
+
+  Android Studio Rabbit 2 is now stable and ready for you to use in production. This release includes key features to improve your development such as Bring Your Own Agent, new XR Emulator features, a LeakCanary update, a new agent skills manager tool, AI code review, and more.
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 3 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 - [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](https://developer.android.com/blog/authors/roxanna-walker) 21 Oct 2026 21 Oct 2026 ![](https://developer.android.com/static/blog/assets/1009_ABL_142_A_more_reliable_way_to_add_and_edit_contacts_on_Android_Strapi_b510ec4fc0_ZXfljU.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [A more reliable way to add and edit contacts on Android](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android)
@@ -49,20 +63,6 @@ Tools and resources to help you build faster and easier.
 
   Today, we shared how we're taking our "more than a store" vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
   [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
-- [![View Cyrus Stoller's profile](https://developer.android.com/static/blog/assets/unnamed_26_f996d1f7cf_2bofD0.webp)](https://developer.android.com/blog/authors/cyrus-stoller) 12 Oct 2026 12 Oct 2026 ![](https://developer.android.com/static/blog/assets/1006_ABL_141_Strapi_1_540d64279e_Z1veewf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Introducing the Googlebook Linux Terminal Preview: A VM-Backed Environment for AI and Development](https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm)
-
-  With Googlebook, we're excited to help users express themselves and gain access to these tools.
-  [Cyrus Stoller](https://developer.android.com/blog/authors/cyrus-stoller) • 2 min read
-  - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
-- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic) 02 Oct 2026 02 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_135_Android_CLI_and_Android_skills_Strapi_d22702426a_ZIUXgH.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Device Streaming and Android skills - available in Android CLI](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills)
-
-  As Android developers, you have many choices when it comes to the agents, LLMs, tools, and command-line interfaces (CLI) you use for app development. Our goal is to help you build beautiful, high-quality Android apps, no matter how you choose to build.
-  [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) • 4 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
 [arrow_forward
 See all latest posts](https://developer.android.com/blog/latest) ![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1Ad42c.webp)
 
@@ -98,10 +98,11 @@ See all latest posts](https://developer.android.com/blog/latest) ![](https://dev
 [arrow_forward
 More](https://developer.android.com/blog/categories/product-news) [arrow_forward
 More](https://developer.android.com/blog/categories/product-news) [Highlighted Author
-# Caren Chang
-## 6
-Posts ![](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp) <button class="adb--button adb--large adb--filled adb--global-hover-button astro-vnzlvqnm"> arrow_forward </button>
-###### Developer Relations Engineer](https://developer.android.com/blog/authors/caren-chang) Stay in the loop
+# Matthew Warner
+## 4
+Posts ![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp) <button class="adb--button adb--large adb--filled adb--global-hover-button astro-vnzlvqnm"> arrow_forward </button>
+###### Product Manager,
+Android Developer Experience](https://developer.android.com/blog/authors/matthew-warner) Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

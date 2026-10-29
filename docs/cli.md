@@ -86,7 +86,11 @@ Give coding agents expert Android guidance and best practices, helping them work
 
 ### [Terminal \& automation workflows](http://developer.android.com/tools/agents/android-cli/journeys)
 
-Bring Android CLI into scripts, CI, maintenance tasks, and supported automated validation workflows. [Run Journeys](http://developer.android.com/tools/agents/android-cli/journeys)
+Bring Android CLI into scripts, CI, maintenance tasks, and supported automated validation workflows. [Run Journeys](http://developer.android.com/tools/agents/android-cli/journeys) [![](http://developer.android.com/static/images/picto-icons/puzzle.svg)](http://developer.android.com/tools/agents/android-cli/agent-plugins)
+
+### [Agent plugins](http://developer.android.com/tools/agents/android-cli/agent-plugins)
+
+Now available for Antigravity, Claude Code, and Codex. Add the official Android CLI plugin to give your agent Android tools, devices, and platform knowledge. [Get the plugin](http://developer.android.com/tools/agents/android-cli/agent-plugins)
 
 ## Ready to start building?
 

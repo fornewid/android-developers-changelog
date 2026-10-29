@@ -59,9 +59,7 @@ xrSession.scene.requestHomeSpace()
 
 <br />
 
-See the [Learn Android XR Fundamentals: Part 1 - Modes and Spatial Panels](https://developer.android.com/codelabs/xr-fundamentals-part-1#5)
-codelab for examples of how to use these requests to transition between modes by
-clicking a button. We also recommend reviewing our [design guidance](https://developer.android.com/design/ui/xr/guides/foundations) to learn
+Review our [design guidance](https://developer.android.com/design/ui/xr/guides/foundations) to learn
 more about Home Space to Full Space and how to best transition between the two.
 
 ## Declare the default mode for launch

@@ -90,6 +90,8 @@ release notes to view the version updates for all of the artifacts.
 | [appcompat](https://developer.android.com/jetpack/androidx/releases/appcompat) | August 12, 2026 | [1.8.0](https://developer.android.com/jetpack/androidx/releases/appcompat#1.8.0) | - | - | - |
 | [appfunctions](https://developer.android.com/jetpack/androidx/releases/appfunctions) | October 21, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-beta01) | - |
 | [appsearch](https://developer.android.com/jetpack/androidx/releases/appsearch) | August 26, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/appsearch#1.1.0) | - | - | [1.2.0-alpha02](https://developer.android.com/jetpack/androidx/releases/appsearch#1.2.0-alpha02) |
+| [appstate.statestore](https://developer.android.com/jetpack/androidx/releases/appstate-statestore) | October 28, 2026 | - | - | - | [1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/appstate-statestore#1.0.0-alpha01) |
+| [appstate.transform](https://developer.android.com/jetpack/androidx/releases/appstate-transform) | October 28, 2026 | - | - | - | [1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/appstate-transform#1.0.0-alpha01) |
 | [arch.core](https://developer.android.com/jetpack/androidx/releases/arch-core) | February 22, 2023 | [2.2.0](https://developer.android.com/jetpack/androidx/releases/arch-core#2.2.0) | - | - | - |
 | [asynclayoutinflater](https://developer.android.com/jetpack/androidx/releases/asynclayoutinflater) | April 9, 2025 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/asynclayoutinflater#1.1.0) | - | - | - |
 | [autofill](https://developer.android.com/jetpack/androidx/releases/autofill) | June 4, 2025 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/autofill#1.3.0) | - | - | - |
@@ -235,4 +237,4 @@ release notes to view the version updates for all of the artifacts.
 
 (\*) This library has multiple artifacts. See its release notes for more information.  
 
-Last updated: October 21, 2026
+Last updated: October 28, 2026

@@ -55,8 +55,8 @@ if (LocalSpatialCapabilities.current.isSpatialUiEnabled) {
 
 ## Check for spatial capabilities using SceneCore
 
-When using the SceneCore library, you'll have to create a [session](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session). Once
-the session is created, use [`spatialCapabilities`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/Scene#spatialCapabilities()) from the session's
+When using the SceneCore library, you'll have to create a [session](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session). Once the
+session is created, use [`spatialCapabilities`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/Scene#spatialCapabilities()) from the session's
 [`scene`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/Scene) to query which spatial capabilities are currently available.
 
 - [`SPATIAL_3D_CONTENT`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialCapability#SPATIAL_3D_CONTENT()): The activity can create 3D contents.
@@ -96,8 +96,8 @@ capabilities, especially concerning their display type. You might need to adapt
 the colors of your app's UI and rendered objects to maximize visibility, which
 might be influenced by the display type and the preferred blend mode employed by
 the device. The [`DisplayBlendMode`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/XrDevice.DisplayBlendMode) API provides the device's blend mode
-capability for rendering. Use this API to determine how virtual content is
-added to the real world.
+capability for rendering. Use this API to determine how virtual content is added
+to the real world.
 
 Here are some of the blend mode types to be aware of:
 

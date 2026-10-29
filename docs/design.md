@@ -42,9 +42,13 @@ Get started with Android UI design guides. Follow style guidance, learn about th
 
 Wear OS has a unique set of design principles. Learn the specifics of designing an app for Wear OS. Guide
 
-### [XR design guides](http://developer.android.com/design/ui/xr/guides/get-started)
+### [XR: immersive design guides](http://developer.android.com/design/ui/xr)
 
-Build experiences that push boundaries and transform how people create, explore, and enjoy entertainment, powered by Android XR. Guide
+Design immersive experiences that push boundaries and transform how people create, explore, and enjoy entertainment, powered by Android XR. Guide
+
+### [XR: augmented design guides](http://developer.android.com/design/ui/ai-glasses)
+
+Design augmented experiences that feel like a natural extension of the user's perception, providing convenient access to information, powered by Android XR. Guide
 
 ### [TV design guides](http://developer.android.com/design/ui/tv/guides/foundations/design-for-tv)
 

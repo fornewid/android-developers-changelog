@@ -1,19 +1,8 @@
 ---
-title: App architecture  |  Android Developers
+title: https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-syntheticbackstack
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-syntheticbackstack
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-
 
 # Deep Link Synthetic BackStack Recipe
 
@@ -25,11 +14,11 @@ managing a synthetic backStack and Task stacks.
 This recipe simulates a real-world scenario where "App A" deep links
 into "App B".
 
-"App A" is simulated by the module [syntheticbackstack](/app/src/main/java/com/example/nav3recipes/deeplink/handlerequests/syntheticbackstack), which
+"App A" is simulated by the module [syntheticbackstack](https://developer.android.com/app/src/main/java/com/example/nav3recipes/deeplink/handlerequests/syntheticbackstack), which
 contains the `SyntheticBackStackDeepLinkActivity` that allows you to create a deeplink intent and
 trigger that in either the existing Task, or in a new Task.
 
-"App B" is simulated by the module [syntheticbackstackapp](/syntheticbackstackapp/src/main/java/com/example/nav3recipes/deeplink/syntheticbackstack), which contains
+"App B" is simulated by the module [syntheticbackstackapp](https://developer.android.com/syntheticbackstackapp/src/main/java/com/example/nav3recipes/deeplink/syntheticbackstack), which contains
 the `SyntheticBackStackAppActivity` that you deeplink into. That module shows you how to build a synthetic backStack
 and how to manage the Task stack properly in order to support both Back and Up buttons.
 
@@ -42,7 +31,7 @@ On the recipe's landing page, choose the filters and click the button to deep li
 
 # How it Works
 
-The recipe follows the deep link guideline summarized [here](/docs/deeplink-guide#summary).
+The recipe follows the deep link guideline summarized [here](https://developer.android.com/docs/deeplink-guide#summary).
 
 To see behavior of `Existing Task`:
 
@@ -65,20 +54,13 @@ To see behavior of `New Task`:
 # Core implementation
 
 The core helper functions for navigateUp and building synthetic backStack can be
-found [here](/syntheticbackstackapp/src/main/java/com/example/nav3recipes/deeplink/syntheticbackstack/util)
+found [here](https://developer.android.com/syntheticbackstackapp/src/main/java/com/example/nav3recipes/deeplink/syntheticbackstack/util)
 
 # Further Read
 
-Check out the [deep link guide](/docs/deeplink-guide) for a
+Check out the [deep link guide](https://developer.android.com/docs/deeplink-guide) for a
 comprehensive guide on Deep linking principles and how to apply them in Navigation 3.
-
-[![](/static/images/picto-icons/code.svg)
-
-Explore
-
-View the full recipe on GitHub.
-
-arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/deeplink/handlerequests/syntheticbackstack)
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/deeplink/handlerequests/syntheticbackstack)
 
 ```
 package com.example.nav3recipes.deeplink.handlerequests.syntheticbackstack
@@ -205,6 +187,4 @@ private val MENU_OPTIONS_LOCATION = mapOf(
 private val MENU_OPTIONS_TASK_STACK = mapOf(
     TAG_TASK_STACK to listOf(TAG_CURRENT_TASK, TAG_NEW_TASK),
 )
-
-SyntheticBackStackDeepLinkActivity.kt
 ```

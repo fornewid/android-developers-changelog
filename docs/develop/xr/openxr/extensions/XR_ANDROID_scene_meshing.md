@@ -118,6 +118,7 @@ The [XrSceneMeshSemanticLabelSetANDROID](https://developer.android.com/develop/x
     typedef enum XrSceneMeshSemanticLabelSetANDROID {
         XR_SCENE_MESH_SEMANTIC_LABEL_SET_NONE_ANDROID = 0,
         XR_SCENE_MESH_SEMANTIC_LABEL_SET_DEFAULT_ANDROID = 1,
+        XR_SCENE_MESH_SEMANTIC_LABEL_SET_DEFAULT2_ANDROID = 1000801000,
         XR_SCENE_MESH_SEMANTIC_LABEL_SET_MAX_ENUM_ANDROID = 0x7FFFFFFF
     } XrSceneMeshSemanticLabelSetANDROID;
 
@@ -132,6 +133,10 @@ This semantic label set represents absence of semantic labels.
 `XR_SCENE_MESH_SEMANTIC_LABEL_SET_DEFAULT_ANDROID`
 
 This semantic label set represents XrSceneMeshSemanticLabelANDROID.
+
+`XR_SCENE_MESH_SEMANTIC_LABEL_SET_DEFAULT2_ANDROID`
+
+This semantic label set represents XrSceneMeshSemanticLabel2ANDROID. (Added by the `XR_ANDROID_scene_meshing_semantic_label2` extension)
 
 The [xrEnumerateSupportedSemanticLabelSetsANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_scene_meshing#xrEnumerateSupportedSemanticLabelSetsANDROID) function is defined as:
 

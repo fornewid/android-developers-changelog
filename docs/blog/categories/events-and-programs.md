@@ -9,6 +9,13 @@ source: md.txt
 # Events \& Programs
 
 Get the details on upcoming webinars, workshops, meetups, and special initiatives designed to help you grow.
+- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp)
+
+  ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance) This year at Android Dev Summit we shared how Android's developer tools are evolving to help you be more productive alongside your agents.
+  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando) • 10 min read
+  - [#Android](https://developer.android.com/blog/topics/android)
 - 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp)
 
   ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
@@ -45,12 +52,6 @@ Get the details on upcoming webinars, workshops, meetups, and special initiative
 
   [arrow_forward](https://developer.android.com/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show) Today, during The Android Show \| XR Edition, we shared a look at the expanding Android XR platform, which is fundamentally evolving to bring a unified developer experience to the entire XR ecosystem.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 2 min read
-- [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)](https://developer.android.com/blog/authors/don-turner) 01 Dec 2025 01 Dec 2025 ![](https://developer.android.com/static/blog/assets/Spotlightweek_Blog_banner_2_77cf3dc16b_Z9Ky13.webp)
-
-  ## [Learn about our newest Jetpack Navigation library with the Nav3 Spotlight Week](https://developer.android.com/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week)
-
-  [arrow_forward](https://developer.android.com/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week) Jetpack Navigation 3 is now stable, and using it can help you reduce tech debt, provide better separation of concerns, speed up feature development time, and support new form factors.
-  [Don Turner](https://developer.android.com/blog/authors/don-turner) • 1 min read
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1

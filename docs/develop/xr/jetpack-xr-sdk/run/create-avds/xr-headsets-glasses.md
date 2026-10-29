@@ -32,7 +32,7 @@ Before you start creating Android Virtual Devices (AVDs), review the following
 system requirements.
 
 > [!NOTE]
-> **Note:** The Android XR Emulator is designed for developing Android apps in Android Studio and doesn't support Unity or OpenXR apps.
+> **Note:** The Android XR Emulator is designed for developing Android apps in Android Studio and doesn't support apps built with other tools like Unity, Godot, Unreal Engine, or OpenXR.
 
 ### System requirements for XR headsets and XR glasses AVDs
 

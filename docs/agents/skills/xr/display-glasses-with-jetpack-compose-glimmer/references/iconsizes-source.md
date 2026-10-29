@@ -1,19 +1,14 @@
 ---
-title: API source code for Icon Sizes for Glimmer Icon component  |  Android Developers
+title: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/iconsizes-source
 url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/iconsizes-source
-source: html-scrape
+source: md.txt
 ---
-
-# API source code for Icon Sizes for Glimmer Icon component Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 When creating a Glimmer Icon component, refer to the following source code in
 `IconSizes.kt` for setting icon sizes:
 
-```
+
+```kotlin
 /*
  * Copyright 2025 The Android Open Source Project
  *
@@ -84,6 +79,6 @@ public class IconSizes(
         return "IconSizes(small=$small, medium=$medium, large=$large)"
     }
 }
-
-IconSizes.kt
 ```
+
+<br />

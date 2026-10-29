@@ -59,3 +59,80 @@ prevent the screen from timing out using [`addLayoutParamsFlags`](https://develo
     var projectedDisplayController = ProjectedDisplayController.create(activity)
 
     projectedDisplayController.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
+## Monitor battery state changes
+
+To track the real-time battery status of connected audio or display glasses, use
+the [`addBatteryStateChangedListener`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDeviceController#addBatteryStateChangedListener(kotlin.coroutines.CoroutineContext,kotlin.Function1)) method provided by the
+[`ProjectedDeviceController`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDeviceController). This listener notifies your app whenever the
+battery level or charging state changes, allowing you to optimize app
+performance, enable power-savings modes, or update your user interface.
+
+
+```kotlin
+@OptIn(ExperimentalProjectedApi::class)
+private var deviceController: ProjectedDeviceController? = null
+
+private val batteryListener = { batteryState: BatteryState ->
+    val batteryLevel = batteryState.batteryLevel
+    val isCharging = batteryState.isCharging
+
+    if (batteryLevel <= 15 && !isCharging) {
+        switchToLowPowerMode()
+    }
+
+    updateBatteryUi(batteryLevel, isCharging)
+}
+// ...
+
+@OptIn(ExperimentalProjectedApi::class)
+private fun monitorBatteryStatus() {
+    lifecycleScope.launch {
+        try {
+            if (deviceController == null) {
+                deviceController = ProjectedDeviceController.create(this@PhoneMainActivity)
+            }
+
+            if (lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) {
+                deviceController?.addBatteryStateChangedListener(coroutineContext, batteryListener)
+            }
+        } catch (e: Exception) {
+            Log.e("BatteryMonitor", "Unexpected error: ${e.message}")
+        }
+    }
+}
+```
+
+<br />
+
+When you are done monitoring the device or when your component is being
+destroyed, call `close` on the `ProjectedDeviceController` to release underlying
+resources properly.
+
+
+```kotlin
+@OptIn(ExperimentalProjectedApi::class)
+override fun onDestroy() {
+    super.onDestroy()
+    // Unregisters the active listeners
+    deviceController?.close()
+    deviceController = null
+}
+```
+
+<br />
+
+You can also unregister a listener explicitly before the scope ends by using
+[`removeBatteryStateChangedListener`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDeviceController#removeBatteryStateChangedListener(kotlin.Function1)).
+
+
+```kotlin
+@OptIn(ExperimentalProjectedApi::class)
+override fun onPause() {
+    super.onPause()
+    // Explicitly unregister the listener when it is no longer needed
+    deviceController?.removeBatteryStateChangedListener(batteryListener)
+}
+```
+
+<br />

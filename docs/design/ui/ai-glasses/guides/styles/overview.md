@@ -9,10 +9,10 @@ Design for clarity, legibility, and minimal distraction.
 <br />
 
 Visual design principles emphasize clarity, legibility, and minimal distraction,
-adapted to the unique constraints of a small, near-eye display on AI glasses.
-Consider the limited display area and the user's primary focus on the real
-world. Visual elements should be designed to be crisp, high-contrast, and appear
-only when necessary, quickly fading when no longer relevant.
+adapted to the unique constraints of a small, near-eye display on display
+glasses. Consider the limited display area and the user's primary focus on the
+real world. Visual elements should be designed to be crisp, high-contrast, and
+appear only when necessary, quickly fading when no longer relevant.
 
 ![Design elements should be anchored to the bottom of the
 frame.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_style_visualdesign.png)

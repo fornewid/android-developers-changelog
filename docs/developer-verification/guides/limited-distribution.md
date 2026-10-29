@@ -20,7 +20,7 @@ regions.
 ## What can a limited distribution account do?
 
 1. Register apps
-2. Share apps with up to 20 devices that end-users have explicitly authorized.
+2. Share apps with up to 50 devices that end-users have explicitly authorized.
 
 ## How much does it cost?
 

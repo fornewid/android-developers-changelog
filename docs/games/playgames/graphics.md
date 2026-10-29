@@ -1,39 +1,27 @@
 ---
-title: Configure graphics for Google Play Games on PC  |  Android game development  |  Android Developers
+title: https://developer.android.com/games/playgames/graphics
 url: https://developer.android.com/games/playgames/graphics
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Games dev center](https://developer.android.com/games)
-* [Guides](https://developer.android.com/games/guides)
-
-Send feedback
-
-# Configure graphics for Google Play Games on PC Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 Google Play Games on PC requires that you update the graphics capabilities of
 your game and add support for large screens. This document describes those
 requirements and related recommendations.
 
-**Note:** For additional requirements, such as the other [PC compatibility
-requirements](/games/playgames/pc-compatibility), see the [get started](/games/playgames/start) guide.
+> [!NOTE]
+> **Note:** For additional requirements, such as the other [PC compatibility
+> requirements](https://developer.android.com/games/playgames/pc-compatibility), see the [get started](https://developer.android.com/games/playgames/start) guide.
 
 Here's a summary of the requirements and recommendations on this page:
 
-* [Prefer using Vulkan, up to version 1.1](#prefer-vulkan) (recommended)
-* [When possible, use texture compression](#texture-compression) (recommended)
-* [When possible, avoid textures that require transcoding](#transcoding-textures) (recommended)
-* [Increase or remove frame rate limits](#increase-max-frame-rate) (recommended)
-* [Use high resolution assets and textures](#high-resolution-assets) (required)
-* [Adjust UI scaling](#ui-scaling) (required)
-* [Support the required aspect ratios](#aspect-ratios) (required)
-* [Make dynamic display updates](#dynamic-display) (required)
+- [Prefer using Vulkan, up to version 1.1](https://developer.android.com/games/playgames/graphics#prefer-vulkan) (recommended)
+- [When possible, use texture compression](https://developer.android.com/games/playgames/graphics#texture-compression) (recommended)
+- [When possible, avoid textures that require transcoding](https://developer.android.com/games/playgames/graphics#transcoding-textures) (recommended)
+- [Increase or remove frame rate limits](https://developer.android.com/games/playgames/graphics#increase-max-frame-rate) (recommended)
+- [Use high resolution assets and textures](https://developer.android.com/games/playgames/graphics#high-resolution-assets) (required)
+- [Adjust UI scaling](https://developer.android.com/games/playgames/graphics#ui-scaling) (required)
+- [Support the required aspect ratios](https://developer.android.com/games/playgames/graphics#aspect-ratios) (required)
+- [Make dynamic display updates](https://developer.android.com/games/playgames/graphics#dynamic-display) (required)
 
 ## Prefer Vulkan to OpenGL ES
 
@@ -59,7 +47,7 @@ them, which requires runtime software transcoding to other texture formats.
 
 Texture transcoding has a slight negative impact on performance and texture
 memory usage, so it's better to use one of the desktop-friendly compressed
-texture formats [discussed earlier](#texture-compression).
+texture formats [discussed earlier](https://developer.android.com/games/playgames/graphics#texture-compression).
 
 ## Increase maximum frame rate limits
 
@@ -81,19 +69,19 @@ last 12 months. Textures and assets designed for a smaller phone screen degrade
 a player's perception of your game when viewed on a large 4k monitor on a PC.
 When possible, ensure high resolution assets are available on first launch.
 
-If you're using [Opaque Binary Blob OBB files](/studio/command-line/jobb) (also known as APK expansion
+If you're using [Opaque Binary Blob OBB files](https://developer.android.com/studio/command-line/jobb) (also known as APK expansion
 files) to deliver assets, additional high resolution assets might cause the
 total size to exceed the OBB limit of 2 GB main plus 2GB patch). In this case,
-consider using [Play Asset Delivery](/guide/app-bundle/asset-delivery) to deliver your assets.
+consider using [Play Asset Delivery](https://developer.android.com/guide/app-bundle/asset-delivery) to deliver your assets.
 
 Play Asset Delivery lets you automatically deliver textures matching a device's
 best supported compression format without increasing game size. You can also
 target devices by performance level to deliver higher or lower resolution
 textures.
 
-Play Asset Delivery is supported on [Unity 5.6 and above](/guide/app-bundle/asset-delivery/build-unity) through the Play
+Play Asset Delivery is supported on [Unity 5.6 and above](https://developer.android.com/guide/app-bundle/asset-delivery/build-unity) through the Play
 Asset Delivery Unity plugin, and on [Unreal Engine 4.25](https://docs.unrealengine.com/en-US/Platforms/Mobile/Android/Distribution/GooglePlayAssetDeliveryReference/index.html). For
-other engines, we provide [Java and Native SDKs](/guide/app-bundle/asset-delivery/build-native-java).
+other engines, we provide [Java and Native SDKs](https://developer.android.com/guide/app-bundle/asset-delivery/build-native-java).
 
 ### UI scaling
 
@@ -104,7 +92,7 @@ screen.
 ### Aspect ratios
 
 Google Play Games on PC requires support for the 16:9 aspect ratio to be badged
-as an [optimized build](/games/playgames/checklist#optimized-requirements). For an ideal player experience, games should also
+as an [optimized build](https://developer.android.com/games/playgames/checklist#optimized-requirements). For an ideal player experience, games should also
 support 21:9, 16:10, and 3:2.
 
 #### Portrait mode
@@ -128,7 +116,7 @@ elements.
 
 Google Play Games on PC provides your game with the aspect ratio that is the
 closest match between a player's primary display and the advertised support in
-your [app manifest](/guide/topics/manifest/manifest-intro). The default resolution is chosen using internal
+your [app manifest](https://developer.android.com/guide/topics/manifest/manifest-intro). The default resolution is chosen using internal
 heuristics to give the player the best possible experience.
 
 The player can override the default resolution for your game on their machine.
@@ -143,47 +131,23 @@ you don't have to handle this change at runtime.
 
 To give your players the best experience, do the following:
 
-* If your game plays best in portrait mode and players are likely to play it
-  while multitasking, set [`android:screenOrientation="portrait"`](/guide/topics/manifest/activity-element#screen). This
-  ensures a portrait-oriented window for your game.
-* Specify supported min and max aspect ratios with `android:minAspectRatio`
-  and `android:maxAspectRatio` to restrict your game to a range of verified
-  aspect ratios. Thoroughly test your game within this range paying special
-  attention to what happens with extremely wide, square, and tall aspect
-  ratios.
-* Although Google Play Games on PC reports DPI, this doesn't change while
-  your game is active. Therefore it's impossible to figure out the physical
-  size of an in-game element and it's best to place game elements based on
-  ratios of the screen size rather than trying to [match a physically based
-  size unit](/training/multiscreen/screendensities).
-* Test the legibility of your game elements on a laptop screen and in windowed
-  mode.
-* Give players in-game control over the ui scale so they can size in-game
-  elements or text to meet their personal preferences or environment needs.
-  This helps avoid having players lower your game's resolution (and therefore
-  visible quality) only to make text larger.
+- If your game plays best in portrait mode and players are likely to play it while multitasking, set [`android:screenOrientation="portrait"`](https://developer.android.com/guide/topics/manifest/activity-element#screen). This ensures a portrait-oriented window for your game.
+- Specify supported min and max aspect ratios with `android:minAspectRatio` and `android:maxAspectRatio` to restrict your game to a range of verified aspect ratios. Thoroughly test your game within this range paying special attention to what happens with extremely wide, square, and tall aspect ratios.
+- Although Google Play Games on PC reports DPI, this doesn't change while your game is active. Therefore it's impossible to figure out the physical size of an in-game element and it's best to place game elements based on ratios of the screen size rather than trying to [match a physically based
+  size unit](https://developer.android.com/training/multiscreen/screendensities).
+- Test the legibility of your game elements on a laptop screen and in windowed mode.
+- Give players in-game control over the ui scale so they can size in-game elements or text to meet their personal preferences or environment needs. This helps avoid having players lower your game's resolution (and therefore visible quality) only to make text larger.
 
 #### Testing dynamic display
 
 The Google Play Games on PC Developer Emulator doesn't have extensive GUI-based
 controls for verifying every potential combination of resolution and aspect
 ratio. To simulate running your game at a specific resolution, use the
-`wm size` command in your [adb shell](/games/playgames/pg-emulator#adb-compatibility). For example, to test a game at
+`wm size` command in your [adb shell](https://developer.android.com/games/playgames/pg-emulator#adb-compatibility). For example, to test a game at
 4K, use the following command:
 
-```
-adb shell wm size 3840x2160
-```
+    adb shell wm size 3840x2160
 
 You can reset the display scale using the following command:
 
-```
-adb shell wm size reset
-```
-
-
-
-
-
-
-Send feedback
+    adb shell wm size reset

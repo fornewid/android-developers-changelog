@@ -61,10 +61,9 @@ Follow these steps to assist the developer:
      - \[ \] Registered `EngageBroadcastReceiver` **dynamically** by calling `EngageBroadcastReceiver.register(context)` in the `Application` class or main `Activity` class.
      - \[ \] Implemented the `register` method in `EngageBroadcastReceiver`'s `companion object` to handle dynamic registration.
      - \[ \] Handled empty data lists in `EngageWorker` (for example, by deleting the cluster instead of publishing empty data).
-     - \[ \] Used `--no-daemon` for all Gradle compilations.
    - Perform a Gradle sync.
    - If errors occur (such as import failures, namespace conflicts, or compile errors), read **[references/troubleshooting.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/troubleshooting)** to resolve them.
-   - Execute a Gradle compilation. You must run `./gradlew compileDebugUnitTestSources --no-daemon` or `./gradlew assembleDebug --no-daemon`. See **[references/troubleshooting.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/troubleshooting)** for compile rules and warnings about fast-compilation shortcuts. Repeat this step until compilation is successful.
+   - Execute a Gradle compilation (`./gradlew compileDebugUnitTestSources` or `./gradlew assembleDebug`). See **[references/troubleshooting.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/troubleshooting)** for compile rules and warnings about fast-compilation shortcuts. Repeat this step until compilation is successful.
 7. **User checklist:** At the end of code generation, notify the user to go
    through this checklist to verify that the integration is complete and as
    intended:

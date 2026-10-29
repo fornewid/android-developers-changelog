@@ -98,4 +98,10 @@ Fixed Issues **Lint** [Issue #546124524](https://issuetracker.google.com/issues/
 
 Fixed Issues **Android Gradle Plugin** [Issue #533547933](https://issuetracker.google.com/issues/533547933) Add a test that validate relocation does not affect task execution
 
+### Android Gradle plugin 9.5.0
+
+| Fixed Issues ||
+|---|---|
+| No public issues were marked as fixed in AGP 9.5.0 ||
+
 <br />

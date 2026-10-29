@@ -70,20 +70,20 @@ example:
             motion:constraintSetStart="@id/start"
             motion:constraintSetEnd="@+id/next"
             motion:duration="1000"
-       >     andr<oid:id="@+id/forward"
-            OnSwipe
-                motion:dragDirection="dragLeft>"<;
-             >   mot<ion:touchAnchorSide="left" /
-        /Transition
+            android:id="@+id/forward">
+            <OnSwipe
+                motion:dragDirection="dragLeft"
+                motion:touchAnchorSide="left" />
+        </Transition>
 
-        Transition
+        <Transition
             motion:constraintSetStart="@+id/start"
-            moti>on:constr<aintSetEnd="@+id/previous"
-            android:id="@+id/backward"
-            OnSwipe>
-        <        motion:dragDirection="dragRight"
-                motion:touchAnchorSide="right" /
-        /Transition
+            motion:constraintSetEnd="@+id/previous"
+            android:id="@+id/backward">
+            <OnSwipe
+                motion:dragDirection="dragRight"
+                motion:touchAnchorSide="right" />
+        </Transition>
 
 ### Add the Carousel
 
@@ -103,13 +103,13 @@ For example, you have something like this in your layout XML file:
 
         <androidx.constraintlayout.motion.widget.MotionLayout ... >
 
-            <ImageView  android:id="@+id/imageView0&>quot; .. </
-            ImageView  android:id="@+id/i>mageView1<" .. /
-            ImageView  android:id=&q>uot;@+id/<imageView2" .. /
-            ImageView  and>roid:id=&<quot;@+id/imageView3" .. /
-            Imag>eView  and<roid:id="@+id/imageView4" .. /
+            <ImageView  android:id="@+id/imageView0" .. />
+            <ImageView  android:id="@+id/imageView1" .. />
+            <ImageView  android:id="@+id/imageView2" .. />
+            <ImageView  android:id="@+id/imageView3" .. />
+            <ImageView  android:id="@+id/imageView4" .. />
 
-            androidx.constraintlayout.helper.widget.Carousel
+            <androidx.constraintlayout.helper.widget.Carousel
                 android:id="@+id/carousel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -118,10 +118,10 @@ For example, you have something like this in your layout XML file:
                 app:carousel_previousState="@+id/previous"
                 app:carousel_nextState="@+id/next"
                 app:carousel_infinite="true"
-                app:carouse>l_firs<tView="@+id/imageView2"
-                app:con>straint_referenced_ids="imageView0,imageView1,imageView2,imageView3,imageView4" /
+                app:carousel_firstView="@+id/imageView2"
+                app:constraint_referenced_ids="imageView0,imageView1,imageView2,imageView3,imageView4" />
 
-        /androidx.constraintlayout.motion.widget.MotionLayout
+        </androidx.constraintlayout.motion.widget.MotionLayout>
 
 Set up a `Carousel` adapter in code:
 

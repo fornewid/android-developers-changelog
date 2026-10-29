@@ -122,6 +122,13 @@ Written by:
   [read_more
   View profile](https://developer.android.com/blog/authors/paris-hsu) ![View Paris Hsu's profile](https://developer.android.com/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_ZASx4V.webp) ![View Paris Hsu's profile](https://developer.android.com/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_ZASx4V.webp)
 Continue reading
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Rabbit2_Strapi_27563aeaf4_1BAzRM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Your favorite agents are now integrated in Android Studio](https://developer.android.com/blog/posts/ai-agents-android-studio-integration)
+
+  [arrow_forward](https://developer.android.com/blog/posts/ai-agents-android-studio-integration) Android Studio Rabbit 2 is now stable and ready for you to use in production. This release includes key features to improve your development such as Bring Your Own Agent, new XR Emulator features, a LeakCanary update, a new agent skills manager tool, AI code review, and more.
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 3 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 - 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
@@ -140,16 +147,6 @@ Continue reading
   [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 5 min read
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
   - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
-- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_1b91Ge.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)
-
-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent) Android Studio Quail 2 is now stable and ready for you to use in production, bringing a shift to your IDE with concurrent agentic workflows, natively integrated memory leak profiling, and context-aware crash remediation.
-  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 3 min read
-  - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
-  - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-  - +1 ↩
 Stay in the loop
 
 

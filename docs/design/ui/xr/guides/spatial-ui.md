@@ -78,7 +78,7 @@ or body movement.
 Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/spatial-ui-stationary.mp4) and watch it with a video player.
 A user can move around in their space, and spatial panels will stay in place.
 Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/spatial-ui-interaction-patterns.mp4) and watch it with a video player.
-Android XR includes ready-to-go interaction patterns to make it easy for
+Android XR includes ready-to-go interaction patterns to make it seamless for
 users to manipulate elements and to simplify your development process. A
 user can move elements to adapt to their personal space. You can configure
 move and resize behaviors.

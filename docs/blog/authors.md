@@ -22,8 +22,8 @@ source: md.txt
   ###### Group Product Manager
 
   [read_more
-  1 post](https://developer.android.com/blog/authors/adarsh-fernando) [read_more
-  1 post](https://developer.android.com/blog/authors/adarsh-fernando) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)
+  2 posts](https://developer.android.com/blog/authors/adarsh-fernando) [read_more
+  2 posts](https://developer.android.com/blog/authors/adarsh-fernando) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)
 -
 
   ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai)

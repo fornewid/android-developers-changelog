@@ -1,21 +1,8 @@
 ---
-title: Media session callbacks  |  Legacy media APIs  |  Android Developers
+title: https://developer.android.com/media/legacy/audio/mediasession
 url: https://developer.android.com/media/legacy/audio/mediasession
-source: html-scrape
+source: md.txt
 ---
-
-These guides discuss the MediaCompat APIs, which are no longer updated. We strongly recommend using the [Jetpack Media3](/guide/topics/media/media3) library instead.
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Camera & media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# Media session callbacks Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 Your media session callbacks call methods in several APIs to control the player, manage the audio focus,
 and communicate with the media session and media browser service. Note that the
@@ -26,21 +13,24 @@ an activity in the same app running the `MediaSession` or any other app with a
 
 The following table summarizes how these tasks are distributed across callbacks.
 
-|  |  |  |  |
-| --- | --- | --- | --- |
-|  | **onPlay()** | **onPause()** | **onStop()** |
-| [Audio Focus](/guide/topics/media-apps/audio-focus) | `requestFocus()` passing in your `OnAudioFocusChangeListener`. *Always call `requestFocus()` first, proceed only if focus is granted.* |  | `abandonAudioFocus()` |
-| [Service](/guide/topics/media-apps/audio-app/building-a-mediabrowserservice) | `startService()` |  | `stopSelf()` |
-| [Media Session](/guide/topics/media-apps/working-with-a-media-session) | `setActive(true)`   - Update metadata and state | - Update metadata and state | `setActive(false)`   - Update metadata and state |
+<br />
+
+|---|---|---|---|
+|   | **onPlay()** | **onPause()** | **onStop()** |
+| [Audio Focus](https://developer.android.com/guide/topics/media-apps/audio-focus) | `requestFocus()` passing in your `OnAudioFocusChangeListener`. *Always call `requestFocus()` first, proceed only if focus is granted.* |   | `abandonAudioFocus()` |
+| [Service](https://developer.android.com/guide/topics/media-apps/audio-app/building-a-mediabrowserservice) | `startService()` |   | `stopSelf()` |
+| [Media Session](https://developer.android.com/guide/topics/media-apps/working-with-a-media-session) | `setActive(true)` - Update metadata and state | - Update metadata and state | `setActive(false)` - Update metadata and state |
 | Player Implementation | Start the player | Pause the player | Stop the player |
-| [Becoming Noisy](/guide/topics/media-apps/volume-and-earphones#becoming-noisy) | Register your `BroadcastReceiver` | Unregister your `BroadcastReceiver` |  |
-| [Notifications](/guide/topics/media-apps/audio-app/building-a-mediabrowserservice#mediastyle-notifications) | `startForeground(notification)` | `stopForeground(false)` | `stopForeground(false)` |
+| [Becoming Noisy](https://developer.android.com/guide/topics/media-apps/volume-and-earphones#becoming-noisy) | Register your `BroadcastReceiver` | Unregister your `BroadcastReceiver` |   |
+| [Notifications](https://developer.android.com/guide/topics/media-apps/audio-app/building-a-mediabrowserservice#mediastyle-notifications) | `startForeground(notification)` | `stopForeground(false)` | `stopForeground(false)` |
+
+<br />
 
 Here is a sample framework for the callback:
 
 ### Kotlin
 
-```
+```kotlin
 private val intentFilter = IntentFilter(ACTION_AUDIO_BECOMING_NOISY)
 
 // Defined elsewhere...
@@ -111,7 +101,7 @@ private val callback = object: MediaSessionCompat.Callback() {
 
 ### Java
 
-```
+```java
 private IntentFilter intentFilter = new IntentFilter(AudioManager.ACTION_AUDIO_BECOMING_NOISY);
 
 // Defined elsewhere...
@@ -183,7 +173,5 @@ MediaSessionCompat.Callback callback = new
     };
 ```
 
-**Note:** People using the Google Assistant can control your app with voice commands
-if you create your MediaSession with the necessary callbacks. The
-requirements are explained in the
-[Google Assistant documentation](/guide/topics/media-apps/interacting-with-assistant).
+> [!NOTE]
+> **Note:** People using the Google Assistant can control your app with voice commands if you create your MediaSession with the necessary callbacks. The requirements are explained in the [Google Assistant documentation](https://developer.android.com/guide/topics/media-apps/interacting-with-assistant).

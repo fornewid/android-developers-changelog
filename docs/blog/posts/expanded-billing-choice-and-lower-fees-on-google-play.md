@@ -1,198 +1,104 @@
 ---
-title: Expanded billing choice and lower fees on Google Play  |  Android Developers' Blog
+title: https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play
 url: https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-[Product News](/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Expanded billing choice and lower fees on Google Play
 
-2 min read
-
-![](/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_HfapE.webp)
-
-24
-
-Jun
-2026
-
-[![View Paul Feng's profile](/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](/blog/authors/paul-feng)
-
-[Paul Feng](/blog/authors/paul-feng)
-
-VP, Google Play Eng, Product, UX
-
-At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed. Guided by this commitment, [**earlier this year**](https://android-developers.googleblog.com/2026/03/a-new-era-for-choice-and-openness.html) we announced updates to our business model introducing more billing flexibility, lower fees, and new programs to help your business thrive.
+2 min read ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_HfapE.webp) 24 Jun 2026 [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) [Paul Feng](https://developer.android.com/blog/authors/paul-feng) VP, Google Play Eng, Product, UX At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed. Guided by this commitment, [**earlier this year**](https://android-developers.googleblog.com/2026/03/a-new-era-for-choice-and-openness.html) we announced updates to our business model introducing more billing flexibility, lower fees, and new programs to help your business thrive.
 
 With some of these changes rolling out soon, the breakdown below outlines what is coming, where to find more information, key dates, and how to get started.
 
 ## More billing flexibility
 
-Google Play’s billing system safely, efficiently, and intuitively handles the complexities of taxes, compliance, and subscriptions across 195+ markets with 300+ local payment methods. However, we understand there are situations where your business needs more flexibility, and that's why we're offering you more options in how you handle digital commerce.
-
-![MM6_Offer alt billing.jpg](/static/blog/assets/MM_6_Offer_alt_billing_4648fa3b66_Z1mascA.webp)
+Google Play's billing system safely, efficiently, and intuitively handles the complexities of taxes, compliance, and subscriptions across 195+ markets with 300+ local payment methods. However, we understand there are situations where your business needs more flexibility, and that's why we're offering you more options in how you handle digital commerce.
+![MM6_Offer alt billing.jpg](https://developer.android.com/static/blog/assets/MM_6_Offer_alt_billing_4648fa3b66_Z1mascA.webp)
 
 Building from existing programs, the new billing choice program is available to all developers globally who provide digital services or content to users within the United Kingdom and the European Economic Area, alongside programs in the United States. Following this initial phase, we will continue expanding availability to additional markets. You will find the global release schedule at the bottom of this post.
 
-Through these programs, developers can offer an alternative billing system or link users to their own website for purchases, alongside Google Play’s billing. You may also design your own choice screen in accordance with our UX guidelines, as an alternative to Google Play’s default version.
+Through these programs, developers can offer an alternative billing system or link users to their own website for purchases, alongside Google Play's billing. You may also design your own choice screen in accordance with our UX guidelines, as an alternative to Google Play's default version.
 
-Please find all the details in the [**program page here**](https://support.google.com/googleplay/android-developer/answer/17161464).
+Please find all the details in the [**program page here**](https://support.google.com/googleplay/android-developer/answer/17161464).
 
 ## Lower, separate fees
 
 To enable this new level of flexibility, we're separating our service fee from the billing fee. This starts on June 30, 2026, beginning with the United States, European Economic Area, and United Kingdom.
 
 Regardless of whether you use Google Play's billing system, alternative billing, or external web links, the service fee starts at 10% on your first $1M (USD) in annual earnings. This 10% service fee also applies to all auto-renewing subscriptions. For all other transactions, the rates in the table below applies:
-
-![MM6 rate card without border.jpg](/static/blog/assets/MM_6_rate_card_without_border_afb62ddf6d_W7yyq.webp)
+![MM6 rate card without border.jpg](https://developer.android.com/static/blog/assets/MM_6_rate_card_without_border_afb62ddf6d_W7yyq.webp)
 
 For other transactions, the service fee will be determined by whether the transacting user's install is new or existing relative to the regional rollout date:
 
-* **New installs**: A transaction from a user whose first-time install or first update of the app from Google Play occurred on or after the date that the new fee structure launched in their region.
-* **Existing installs**: A transaction from a user whose first-time install or first update of the app from Google Play occurred before the date that the new fee structure launches in their market.
+- **New installs**: A transaction from a user whose first-time install or first update of the app from Google Play occurred on or after the date that the new fee structure launched in their region.
+- **Existing installs**: A transaction from a user whose first-time install or first update of the app from Google Play occurred before the date that the new fee structure launches in their market.
 
-For transactions that use Google Play’s billing system, an additional billing fee applies. In the United States, United Kingdom, and the European Economic Area, the billing fee is set at 5%. We'll announce billing fee details for other markets soon. For transactions processed via alternative billing or external web links, the billing fee does not apply.
+For transactions that use Google Play's billing system, an additional billing fee applies. In the United States, United Kingdom, and the European Economic Area, the billing fee is set at 5%. We'll announce billing fee details for other markets soon. For transactions processed via alternative billing or external web links, the billing fee does not apply.
 
 Review[**this Help Center article**](https://support.google.com/googleplay/android-developer/answer/16954621) to understand how these rates apply to your business.
 
 ## Games Level Up and Apps Experience program guidelines
 
-We are also excited to announce even more opportunities for partners who deliver exceptional user experiences across the Android ecosystem: the revamped [**Games Level Up**](https://play.google.com/console/about/levelup/) and the new [**Apps Experience**](https://play.google.com/console/about/programs/appsexperience/) program. Detailed guidelines are now available on the respective program websites.
+We are also excited to announce even more opportunities for partners who deliver exceptional user experiences across the Android ecosystem: the revamped [**Games Level Up**](https://play.google.com/console/about/levelup/) and the new [**Apps Experience**](https://play.google.com/console/about/programs/appsexperience/) program. Detailed guidelines are now available on the respective program websites.
 
 Apps and games that meet all requirements are eligible for a new program rate card with reduced rates. See the table below for details:
+![MM6 rate card with border.jpg](https://developer.android.com/static/blog/assets/MM_6_rate_card_with_border_ebdc11a285_21VzlV.webp)
 
-![MM6 rate card with border.jpg](/static/blog/assets/MM_6_rate_card_with_border_ebdc11a285_21VzlV.webp)
-
-Visit the [**Games Level Up**](https://play.google.com/console/about/levelup/) and [**Apps Experience**](https://play.google.com/console/about/programs/appsexperience/)program websites, review the guidelines, and start preparing your games and apps ahead of September 30, 2026, when the program rate cards officially become available.
+Visit the [**Games Level Up**](https://play.google.com/console/about/levelup/) and [**Apps Experience**](https://play.google.com/console/about/programs/appsexperience/)program websites, review the guidelines, and start preparing your games and apps ahead of September 30, 2026, when the program rate cards officially become available.
 
 ## Global release schedule
 
 Evolving our business model requires technical infrastructure and alignment with local regulations, so these updates will roll out on a staggered timeline. To help you plan, here is the previously announced release schedule for each update across all markets:
-
-![MM6 Release Schedule.jpg](/static/blog/assets/MM_6_Release_Schedule_d93eab417f_1rAcUj.webp)
+![MM6 Release Schedule.jpg](https://developer.android.com/static/blog/assets/MM_6_Release_Schedule_d93eab417f_1rAcUj.webp)
 
 Here is a quick recap of the resources available to help you get started:
 
-* Review the [**billing choice program**](https://support.google.com/googleplay/android-developer/answer/17161464);
-* Learn more about[**Google Play's lower service fees**](https://support.google.com/googleplay/android-developer/answer/16954621);
-* Explore detailed guidelines on the [**Games Level Up**](https://play.google.com/console/about/levelup/) and [**Apps Experience**](https://play.google.com/console/about/programs/appsexperience/) program websites.
+- Review the [**billing choice program**](https://support.google.com/googleplay/android-developer/answer/17161464);
+- Learn more about[**Google Play's lower service fees**](https://support.google.com/googleplay/android-developer/answer/16954621);
+- Explore detailed guidelines on the [**Games Level Up**](https://play.google.com/console/about/levelup/) and [**Apps Experience**](https://play.google.com/console/about/programs/appsexperience/) program websites.
 
 We look forward to building the next generation of Google Play experiences together.
-
 Written by:
 
-* ## [Paul Feng](/blog/authors/paul-feng)
+-
+
+  ## [Paul Feng](https://developer.android.com/blog/authors/paul-feng)
 
   ###### VP, Google Play Eng, Product, UX
 
-  [read\_more
-  View profile](/blog/authors/paul-feng)
-
-  ![View Paul Feng's profile](/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)
-
-  ![View Paul Feng's profile](/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)
-
+  [read_more
+  View profile](https://developer.android.com/blog/authors/paul-feng) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)
 Continue reading
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-* [![View Paul Feng's profile](/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](/blog/authors/paul-feng)
+  ## [New ways to drive smarter discovery, deeper engagement, and business growth on Google Play](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth)
 
-  13
+  [arrow_forward](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth) Today, we shared how we're taking our "more than a store" vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_ZrrS2v.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Oct
-  2026
+  ## [Delivering safer, age-appropriate experiences on Google Play](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play)
 
-  13
+  [arrow_forward](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play) Providing a safe online experience and protecting users from harm is a top priority at Google Play.
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_7GyQM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Oct
-  2026
+  ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
 
-  ![](/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp)
+  [arrow_forward](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play) At this year's Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
 
-  [Product News](/blog/categories/product-news)
-
-  ## [New ways to drive smarter discovery, deeper engagement, and business growth on Google Play](/blog/posts/google-play-discovery-engagement-growth)
-
-  [arrow\_forward](/blog/posts/google-play-discovery-engagement-growth)
-
-  Today, we shared how we’re taking our “more than a store” vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
-
-  [Paul Feng](/blog/authors/paul-feng)
-  •
-  3 min read
-* [![View Paul Feng's profile](/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](/blog/authors/paul-feng)
-
-  29
-
-  Jul
-  2026
-
-  29
-
-  Jul
-  2026
-
-  ![](/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_ZrrS2v.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [Delivering safer, age-appropriate experiences on Google Play](/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play)
-
-  [arrow\_forward](/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play)
-
-  Providing a safe online experience and protecting users from harm is a top priority at Google Play.
-
-  [Paul Feng](/blog/authors/paul-feng)
-  •
-  2 min read
-* [![View Paul Feng's profile](/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](/blog/authors/paul-feng)
-
-  19
-
-  May
-  2026
-
-  19
-
-  May
-  2026
-
-  ![](/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_7GyQM.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [I/O 2026: What's new in Google Play](/blog/posts/i-o-2026-what-s-new-in-google-play)
-
-  [arrow\_forward](/blog/posts/i-o-2026-what-s-new-in-google-play)
-
-  At this year’s Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
-
-  [Paul Feng](/blog/authors/paul-feng)
-  •
-  6 min read
-  + [#Google Play](/blog/topics/google-play)
-  + [#Play Console](/blog/topics/play-console)
-  + [#Google I/O](/blog/topics/google-i-o)
-  + [#Android Developers](/blog/topics/android-developers)
-  + +2
-    ↩
-
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 6 min read
+  - [#Google Play](https://developer.android.com/blog/topics/google-play)
+  - [#Play Console](https://developer.android.com/blog/topics/play-console)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
+  - +2 ↩
 Stay in the loop
+
 
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

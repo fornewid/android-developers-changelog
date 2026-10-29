@@ -137,6 +137,7 @@ The [XrSpatialPersistenceContextCreateInfoEXT](https://developer.android.com/dev
     typedef enum XrSpatialPersistenceScopeEXT {
         XR_SPATIAL_PERSISTENCE_SCOPE_SYSTEM_MANAGED_EXT = 1,
         XR_SPATIAL_PERSISTENCE_SCOPE_LOCAL_ANCHORS_EXT = 1000781000,
+        XR_SPATIAL_PERSISTENCE_SCOPE_ANCHORS_FOR_CLOUD_SHARING_ANDROIDX1 = 1000808000,
         XR_SPATIAL_PERSISTENCE_SCOPE_MAX_ENUM_EXT = 0x7FFFFFFF
     } XrSpatialPersistenceScopeEXT;
 
@@ -153,6 +154,10 @@ Provides the application with read-only access (i.e. application cannot modify t
 `XR_SPATIAL_PERSISTENCE_SCOPE_LOCAL_ANCHORS_EXT`
 
 Persistence operations and data access is limited to spatial anchors, on the same device, for the same user and same app (Added by the `XR_EXT_spatial_persistence_operations` extension)
+
+`XR_SPATIAL_PERSISTENCE_SCOPE_ANCHORS_FOR_CLOUD_SHARING_ANDROIDX1`
+
+Persistence operations and data access is limited to spatial anchors, owned and managed by the same cloud project. (Added by the `XR_ANDROIDX1_spatial_anchor_cloud_sharing` extension)
 
 The [xrEnumerateSpatialPersistenceScopesEXT](https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_persistence#xrEnumerateSpatialPersistenceScopesEXT) function is defined as:
 
@@ -291,6 +296,10 @@ The runtime **must** set `createResult` only if `futureResult` is a success code
         XR_SPATIAL_PERSISTENCE_CONTEXT_RESULT_SUCCESS_EXT = 0,
         XR_SPATIAL_PERSISTENCE_CONTEXT_RESULT_ENTITY_NOT_TRACKING_EXT = -1000781001,
         XR_SPATIAL_PERSISTENCE_CONTEXT_RESULT_PERSIST_UUID_NOT_FOUND_EXT = -1000781002,
+        XR_SPATIAL_PERSISTENCE_CONTEXT_RESULT_LOCALIZATION_FAILURE_ANDROIDX1 = -1000808000,
+        XR_SPATIAL_PERSISTENCE_CONTEXT_RESULT_MAP_FEATURE_INSUFFICIENT_ANDROIDX1 = -1000808001,
+        XR_SPATIAL_PERSISTENCE_CONTEXT_RESULT_NETWORK_FAILURE_ANDROIDX1 = -1000808002,
+        XR_SPATIAL_PERSISTENCE_CONTEXT_RESULT_NETWORK_TIMEOUT_ANDROIDX1 = -1000808003,
         XR_SPATIAL_PERSISTENCE_CONTEXT_RESULT_MAX_ENUM_EXT = 0x7FFFFFFF
     } XrSpatialPersistenceContextResultEXT;
 
@@ -311,6 +320,22 @@ The persistence operation failed because the entity could not be tracked by the 
 `XR_SPATIAL_PERSISTENCE_CONTEXT_RESULT_PERSIST_UUID_NOT_FOUND_EXT`
 
 The provided persist UUID was not found in the storage. (Added by the `XR_EXT_spatial_persistence_operations` extension)
+
+`XR_SPATIAL_PERSISTENCE_CONTEXT_RESULT_LOCALIZATION_FAILURE_ANDROIDX1`
+
+The persistence operation failed because the localization is failed. (Added by the `XR_ANDROIDX1_spatial_anchor_cloud_sharing` extension)
+
+`XR_SPATIAL_PERSISTENCE_CONTEXT_RESULT_MAP_FEATURE_INSUFFICIENT_ANDROIDX1`
+
+The persistence operation failed because the localization map feature is insufficient. (Added by the `XR_ANDROIDX1_spatial_anchor_cloud_sharing` extension)
+
+`XR_SPATIAL_PERSISTENCE_CONTEXT_RESULT_NETWORK_FAILURE_ANDROIDX1`
+
+The persistence operation failed because the network connection is failed. (Added by the `XR_ANDROIDX1_spatial_anchor_cloud_sharing` extension)
+
+`XR_SPATIAL_PERSISTENCE_CONTEXT_RESULT_NETWORK_TIMEOUT_ANDROIDX1`
+
+The persistence operation failed because the network timeout. (Added by the `XR_ANDROIDX1_spatial_anchor_cloud_sharing` extension)
 
 ### Destroy the spatial persistence context
 

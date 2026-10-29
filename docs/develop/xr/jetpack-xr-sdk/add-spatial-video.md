@@ -19,9 +19,6 @@ depth---also known as *stereopsis*.
 You can render non-stereoscopic 2D video on Android XR apps with the [standard
 media APIs](https://developer.android.com/media/audio-and-video) used for Android development on other form factors.
 
-> [!CAUTION]
-> **Caution:** An issue with `SurfaceEntity` in SceneCore version 1.0.0-alpha12 can cause apps to crash when creating instances of `SurfaceEntity`. This also affects apps creating instances of `SpatialExternalSurface` with Compose for XR version 1.0.0-alpha11. This issue is resolved in `androidx.xr.scenecore:scenecore-*:1.0.0-alpha13`, `androidx.xr.compose:compose:1.0.0-alpha12`, and their subsequent releases. Affected apps should update to the latest versions.
-
 ## Play side-by-side video using Jetpack SceneCore
 
 With side-by-side video, each stereoscopic frame is presented as two images

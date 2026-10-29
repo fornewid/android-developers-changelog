@@ -462,6 +462,9 @@ objects*.
 See the [state hoisting in Compose](https://developer.android.com/develop/ui/compose/state-hoisting) documentation or, more generally, the
 [State holders and UI State](https://developer.android.com/topic/architecture/ui-layer/stateholders) page in the architecture guide to learn more.
 
+> [!NOTE]
+> **Note:** To share Compose `State` across application components or transform data streams into `State` outside UI composables, see the [AppState](https://developer.android.com/topic/libraries/architecture/appstate) libraries (Transform and StateStore).
+
 ## Retrigger remember calculations when keys change
 
 The [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable#remember(kotlin.Any,kotlin.Any,kotlin.Any,kotlin.Function0)) API is frequently used together with [`MutableState`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState):

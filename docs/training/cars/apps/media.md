@@ -20,6 +20,7 @@ templates instead of those built using the [Build media apps for cars](https://d
 `MediaBrowser` data structure. You still must provide a `MediaSession`
 for playback controls, and a `MediaBrowserService` or `MediaLibraryService`,
 which is used for recommendations and other smart experiences.
+Park-to-drive experiences are now available in beta Templated media apps are now eligible to add a park-to-drive experience on Android Automotive OS. This allows your app to add adaptive native activities while parked and seamlessly transition to the templated media playback experience when the car is driving. [Express interest in publishing with a park-to-drive experience →](https://goo.gle/4dY9l7w) ![](https://developer.android.com/static/images/picto-icons/test-tube-2.svg)
 
 ## Configure your app's manifest
 

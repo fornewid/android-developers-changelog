@@ -21,9 +21,9 @@ Views](https://developer.android.com/develop/ui/views/layout/declaring-layout) b
 
 ## Reuse your existing Views within SpatialPanels
 
-While [`SpatialPanel`s](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,kotlin.Function0)) are part of the Jetpack Compose for XR library, they
-also accept Views. When using [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#Subspace(kotlin.Function1)) in your MainActivity,
-place an existing view into a [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,kotlin.Function0)) as shown in the following
+While a [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable) is part of the Jetpack Compose for XR library, it
+also accepts Views. When using [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#Subspace(kotlin.Function1)) in your MainActivity,
+place an existing view into a `SpatialPanel` as shown in the following
 example.
 
 

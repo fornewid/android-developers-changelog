@@ -7,7 +7,8 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
@@ -37,17 +38,15 @@ How your app should access a session depends on the types of app experiences
 that you're enhancing with perception features:
 
 - If your app is enhancing immersive experiences with [spatial UI](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose) using Jetpack Compose for XR, [access a session from Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#localsession).
-- For all other situations, you can access [access a session from Jetpack XR
+- For all other situations, you can [create a session using Jetpack XR
   Runtime](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore#access-session-runtime), which is covered in the following section on this page.
 
-### Access a session from Jetpack XR Runtime
-
-To access a session from Jetpack XR Runtime, you'll create it:
+### Create a session using Jetpack XR Runtime
 
 To create a session, pass a [`Context`](https://developer.android.com/reference/kotlin/android/content/Context) to the
 [`create()`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session#create(android.content.Context,kotlin.coroutines.CoroutineContext,androidx.lifecycle.LifecycleOwner)) method. This `Context` can be an `Activity` on
-Immersive XR devices or mobile devices, or a
-[projected context](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context).
+immersive XR devices or mobile devices, or a
+[projected context](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context) on Intelligent Eyewear.
 
 Creating an ARCore session can be an expensive task, and should be
 [processed in the background](https://developer.android.com/develop/background-work/background-tasks/asynchronous), as shown in
@@ -70,10 +69,13 @@ lifecycleScope.launch {
 <br />
 
 > [!NOTE]
-> **Note:** You can only create a session on either an Android XR device, or on a [supported ARCore device](https://developers.google.com/ar/devices).
+> **Note:** You can only create a session on either an Android XR device, or on a [supported ARCore device](https://developers.google.com/ar/devices). See [`SessionCreateResult`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/SessionCreateResult) to see reasons why a session may not be able to be created.
 
-When a session's activity is destroyed, all AR content associated with that
-session is destroyed, and the session is no longer valid.
+The `create()` function can use an optional
+[`LifecycleOwner`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LifecycleOwner) parameter, which allows the
+session's lifecycle to be managed by a different `LifecycleOwner`. The
+`LifecycleOwner` must begin and end its lifecycle within the scope of the
+provided context, otherwise the `Session` may be prone to leaks.
 
 ## Configure a session
 

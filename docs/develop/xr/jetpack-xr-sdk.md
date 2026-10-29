@@ -67,28 +67,28 @@ or submit feedback](https://developer.android.com/develop/xr/support).
 
 ### Jetpack Compose for XR
 
-**Applicable XR devices**: XR headsets, wired XR glasses
+Applicable XR devices This library helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
-With Jetpack Compose for XR, you can use familiar [Compose concepts](https://developer.android.com/develop/ui/compose/layouts/basics) such as
-[rows](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)) and [columns](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) to create spatial UI layouts in XR, whether you're
-porting an existing 2D app to XR or creating a new XR app from scratch.
+With Jetpack Compose for XR, you can use spatialized components like [rows](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialRow.composable)
+and [columns](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialColumn.composable) to build spatial UI and layouts using a [familiar,
+declarative Compose model](https://developer.android.com/develop/ui/compose/layouts/basics).
 
-This library provides [subspace composeables](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SubspaceComposable), such as [spatial panels](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialPanel(android.content.Intent,androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape))
-and [orbiters](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Orbiter.composable#Orbiter(androidx.xr.compose.spatial.ContentEdge.Horizontal,androidx.compose.ui.unit.Dp,androidx.xr.compose.spatial.OrbiterOffsetType,androidx.compose.ui.Alignment.Horizontal,androidx.xr.compose.subspace.layout.SpatialShape,androidx.compose.ui.unit.Dp,kotlin.Boolean,kotlin.Function0)), which let you place your existing 2D Compose or Views-based
-UI in a spatial layout.
-
-See [Develop UI with Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose) for detailed guidance.
+This library also provides [subspace composeables](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SubspaceComposable), such as [spatial
+panels](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable) and [orbiters](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Orbiter.composable), which let you place your existing 2D Compose or
+Views-based UI in a spatial layout. Other subspace composeables handle other
+types of spatial use cases, such as [`SceneCoreEntity`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SceneCoreEntity.composable) that lets you [place
+entities](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose#use-scenecoreentity) like 3D models relative to your UI.
 ![Develop UI XR components orbiter generic example](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/index/develop-ui-xr-component-orbiter-generic.jpg)
 
-Compose for XR introduces the [`SceneCoreEntity`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SceneCoreEntity.composable#SceneCoreEntity(kotlin.Function0,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1,androidx.xr.compose.subspace.SceneCoreEntitySizeAdapter,kotlin.Function0)) subspace composable, which
-lets you [place entities](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose#use-scenecoreentity), such as 3D models, relative to your UI.
+You can use Jetpack Compose for XR regardless of whether you're [spatializing
+your existing Android app](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-xr-to-existing) or creating a new XR app from scratch.
 
-Learn how to [spatialize your existing Android app](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-xr-to-existing) or view the API reference
-for more detailed information.
+For more information, [see the developer guide for spatial UI](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose) and [the
+library and API reference documentation](https://developer.android.com/jetpack/androidx/releases/xr-compose).
 
 ### Material Design for XR
 
-**Applicable XR devices**: XR headsets, wired XR glasses
+Applicable XR devices This library helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 Material Design provides components and layouts that adapt for XR. If you're
 building with [adaptive layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive). [Learn more about implementing Material
@@ -96,7 +96,7 @@ Design for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-
 
 ### Jetpack SceneCore
 
-**Applicable XR devices**: XR headsets, wired XR glasses
+Applicable XR devices This library helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 The Jetpack SceneCore library lets you place and arrange 3D content, defined by
 [entities](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-entities), relative to each other and your environment. With SceneCore, you
@@ -117,8 +117,8 @@ View the [API reference](https://developer.android.com/reference/kotlin/androidx
 
 ### ARCore for Jetpack XR
 
-**Applicable XR devices**: XR headsets, wired XR glasses, audio glasses, display
-glasses
+Applicable XR devices This library helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 Inspired by the existing [ARCore library](https://developers.google.com/ar), the ARCore for
 Jetpack XR library provides capabilities for blending digital content with the
@@ -135,7 +135,7 @@ View [Work with ARCore for Jetpack XR](https://developer.android.com/develop/xr/
 
 ### Jetpack Compose Glimmer
 
-**Applicable XR devices**: Display glasses
+Applicable XR devices This library helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 Jetpack Compose Glimmer is a UI toolkit for building augmented Android XR
 experiences, optimized for display glasses. Build beautiful, minimal, and
@@ -151,7 +151,8 @@ comfortable UI for devices that are worn all day.
 
 ### Jetpack Projected
 
-**Applicable XR devices**: Audio glasses, display glasses
+Applicable XR devices This library helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 When you [build for audio glasses and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/build), your app runs on a
 companion *host device*, such as an Android phone, that projects your app's XR
@@ -162,6 +163,19 @@ audio or display glasses if the host devices have XR projected capabilities.
 - **Simplify permission requests** : Audio glasses and display glasses follow the [standard Android permission model](https://developer.android.com/guide/topics/permissions/overview), with glasses-specific permissions that must be [requested at runtime](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions#request-permissions) before your app can access device hardware, such as the camera. Permission helper streamlines these permission request mechanisms across both the phone and glasses interfaces to provide a consistent request experience.
 - **Check device and display capabilities**: Check if the projected device has a display and the state of the display to present visuals. Adapt your app based on capabilities of the device. For example, you might want to provide more audio context if the device has no display or the display is off.
 - **Access app camera actions**: Your app can access user camera actions, for example to turn the camera on or off in a video streaming app.
+
+## Test XR app experiences with the Android XR Emulator
+
+The Android XR Emulator is a specialized version of the Android Emulator that is
+designed for XR app development. It lets you test and debug your XR apps within
+the familiar environment of Android Studio. Create virtual devices for any type
+of Android XR device, from immersive devices like XR headsets and wired XR
+glasses, to intelligent eyewear like audio and display glasses.
+
+When you're ready to run and debug your app, see these guides to get started:
+
+- [Create virtual devices for XR headsets and XR glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses)
+- [Create virtual devices for audio and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/glasses)
 
 *** ** * ** ***
 

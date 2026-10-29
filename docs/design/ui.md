@@ -22,7 +22,7 @@ Create groundbreaking immersive experiences with powerful tools that transform h
 
 ## Extend your app for all-day wear
 
-Create augmented experiences that feel like a natural extension of the user's perception, providing convenient access to information. [Design for AI glasses →](http://developer.android.com/design/ui/ai-glasses) ![](https://developer.android.com/static/images/design/ui/glasses_hero.jpg) ![](https://developer.android.com/static/images/design/ui/glasses_hero.jpg)
+Create augmented experiences that feel like a natural extension of the user's perception, providing convenient access to information. [Design for intelligent eyewear →](http://developer.android.com/design/ui/ai-glasses) ![](https://developer.android.com/static/images/design/ui/glasses_hero.jpg) ![](https://developer.android.com/static/images/design/ui/glasses_hero.jpg)
 
 ## Enhance your app with widgets
 

@@ -14,7 +14,7 @@ augmented capabilities, the only limit to what you can build is your imagination
 
 ### [Build immersive experiences](https://developer.android.com/develop/xr/explore/immersive)
 
-Build helpful and delightful immersive experiences that transport users to a fully-virtual space, or blend semi-immersive digital content with the user's environment to unlock real-world multi-tasking. [Build immersive](https://developer.android.com/develop/xr/explore/immersive) Audio glasses \| Display glasses
+Build engaging, immersive experiences that transport users to a fully-virtual space, or blend semi-immersive digital content with the user's environment to unlock real-world productivity and multi-tasking. [Build immersive](https://developer.android.com/develop/xr/explore/immersive) Audio glasses \| Display glasses
 
 ### [Build augmented experiences](https://developer.android.com/develop/xr/explore/augmented)
 
@@ -26,7 +26,7 @@ Create apps for the next generation of computing using [familiar Android develop
 
 ### [Jetpack XR SDK](http://developer.android.com/develop/xr/jetpack-xr-sdk)
 
-Most Android apps are compatible with Android XR without any additional development effort. Create differentiated app experiences with Jetpack Compose for XR, Android Studio, the emulator, and your preferred 3D tools. [Develop with Jetpack XR SDK](http://developer.android.com/develop/xr/jetpack-xr-sdk)
+Bring your existing, 2D Android compatibile app to XR with minimal development. Create differentiated app experiences for any type of XR device with Jetpack libraries, Android Studio, the emulator, and your preferred 3D tools. [Develop with Jetpack XR SDK](http://developer.android.com/develop/xr/jetpack-xr-sdk)
 
 ### [Unity](http://developer.android.com/develop/xr/unity)
 
@@ -54,11 +54,11 @@ Use the power of web technologies to build XR experiences directly in a browser.
 
 ### [Design immersive experiences](http://developer.android.com/design/ui/xr)
 
-Android XR is a flexible platform where you can design immersive experiences and bring your app into extended reality on XR headsets and wired XR glasses devices. [Go design immersive](http://developer.android.com/design/ui/xr) [![](http://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/build-augmented_720.png)](http://developer.android.com/design/ui/ai-glasses) Audio glasses \| Display glasses
+Bring your app into a world of infinite space on XR headsets and wired XR glasses devices. Users can multitask while grounded in the real world, or escape into full immersion. [Go design immersive](http://developer.android.com/design/ui/xr) [![](http://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/build-augmented_720.png)](http://developer.android.com/design/ui/ai-glasses) Audio glasses \| Display glasses
 
 ### [Design augmented experiences](http://developer.android.com/design/ui/ai-glasses)
 
-Audio and display glasses extend the reach of Android apps into a new, highly-personal form factor. Apps designed for glasses should enrich daily life, providing hands-free utility and discreet access to digital services. [Go design augmented](http://developer.android.com/design/ui/ai-glasses) ![](http://developer.android.com/static/images/cluster-illustrations/samples.svg)
+Design experiences for audio and display glasses that enrich daily life, providing hands-free utility and discreet access to digital services. Audio and display glasses extend the reach of Android apps into a new, highly-personal form factor. [Go design augmented](http://developer.android.com/design/ui/ai-glasses) ![](http://developer.android.com/static/images/cluster-illustrations/samples.svg)
 
 ## Try out samples
 
@@ -71,7 +71,7 @@ Curious about what Android XR can do?
 Check out the Hello Android XR sample app. See firsthand how spatial panels and environments come together in a real-world application.
 Audio glasses \| Display glasses
 
-### [Prototype Sample](https://github.com/android/ai-samples/tree/prototype-ai-glasses)
+### [Gemini Live Todo AI Glasses Sample](https://github.com/android/ai-samples/tree/prototype-ai-glasses)
 
 This sample demonstrates how to use the Gemini Live API for real-time, voice-based interactions in a simple to-do app.
 
@@ -79,21 +79,19 @@ Users can add, remove, and update tasks by speaking to the app, showcasing a han
 
 ## What's new
 
-[![](http://developer.android.com/static/images/cluster-illustrations/experimental.svg)](https://android-developers.googleblog.com/2026/05/android-xr-sdk-developer-preview-4-updates.html)
+[![](http://developer.android.com/static/images/home/ads-droid-26.png)](https://rsvp.withgoogle.com/events/android-dev-summit-bayview/agenda)
 
-### [Developer Preview 4](https://android-developers.googleblog.com/2026/05/android-xr-sdk-developer-preview-4-updates.html)
+### [Android Dev Summit](https://rsvp.withgoogle.com/events/android-dev-summit-bayview/agenda)
 
-[Developer Preview 4 of the Android XR SDK is here](https://android-developers.googleblog.com/2026/05/android-xr-sdk-developer-preview-4-updates.html), continuing our focus on unifying cross-device development for headsets, wired XR glasses, audio glasses, and display glasses.
+We're back in person with Android Dev Summit, along with a dedicated track for Android XR! Check out [the agenda](https://rsvp.withgoogle.com/events/android-dev-summit-bayview/agenda), and tune in to the talks to learn the latest about both Android XR and other products and features for developers across Android.
+[Read more](https://rsvp.withgoogle.com/events/android-dev-summit-bayview/agenda) [![](http://developer.android.com/static/images/spot-icons/android-games.svg)](http://developer.android.com/develop/xr/openxr/spatial-containers)
 
-Join in, and be one of the first developers to bring your app's experiences to Android XR.
-[Read more](https://android-developers.googleblog.com/2026/05/android-xr-sdk-developer-preview-4-updates.html) [![](http://developer.android.com/static/images/spot-icons/android-games.svg)](https://android-developers.googleblog.com/2026/05/android-xr-updates-unity-unreal-godot.html)
+### [Updates for game engines](http://developer.android.com/develop/xr/openxr/spatial-containers)
 
-### [Updates for game engines](https://android-developers.googleblog.com/2026/05/android-xr-updates-unity-unreal-godot.html)
+Spatial Containers bring volumetric windowing to Android XR through OpenXR and Spatial API Version 4!
 
-Official support for Unreal Engine and Godot has arrived for Android XR!
-
-We're also launching new tools to help boost your productivity and enable new XR capabilities.
-[Read more](https://android-developers.googleblog.com/2026/05/android-xr-updates-unity-unreal-godot.html)
+Render 3D OpenXR content inside a bounded 3D box that coexists alongside 2D spatial panels.
+[Read more](http://developer.android.com/develop/xr/openxr/spatial-containers)
 
 ## Share your feedback
 

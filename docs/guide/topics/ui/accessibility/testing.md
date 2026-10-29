@@ -1,24 +1,11 @@
 ---
-title: Test your app's accessibility  |  App quality  |  Android Developers
+title: https://developer.android.com/guide/topics/ui/accessibility/testing
 url: https://developer.android.com/guide/topics/ui/accessibility/testing
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App quality](https://developer.android.com/quality)
-* [User experience](https://developer.android.com/quality/user-experience)
-
-# Test your app's accessibility Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-
-**Note:** Documentation across developer.android.com is being refactored to show
-how to accomplish tasks with Compose. We recommend using Compose for your app,
-but you can still access the Views-specific information for the concepts on this
-page at [Test your app's accessibility (Views)](/guide/topics/ui/accessibility/views/testing-views).
+> [!NOTE]
+> **Note:** Documentation across developer.android.com is being refactored to show how to accomplish tasks with Compose. We recommend using Compose for your app, but you can still access the Views-specific information for the concepts on this page at [Test your app's accessibility (Views)](https://developer.android.com/guide/topics/ui/accessibility/views/testing-views).
 
 Testing for accessibility lets you experience your app from the user's
 perspective and find usability issues that you might miss. Accessibility testing
@@ -27,23 +14,21 @@ users, including those with disabilities.
 
 For the best results, use all of the approaches described in this document:
 
-* **Manual testing:** interact with your app using Android accessibility
-  services.
-* **Testing using analysis tools:** use tools to discover opportunities to
-  improve your app's accessibility.
-* **Automated testing:** use Compose testing APIs to automate UI tests.
-* **User testing:** get feedback from people who interact with your app.
+- **Manual testing:** interact with your app using Android accessibility services.
+- **Testing using analysis tools:** use tools to discover opportunities to improve your app's accessibility.
+- **Automated testing:** use Compose testing APIs to automate UI tests.
+- **User testing:** get feedback from people who interact with your app.
 
 ## Manual testing
 
 Manual testing puts you in the shoes of your user. Android
-[`AccessibilityService`](/reference/android/accessibilityservice/AccessibilityService)
+[`AccessibilityService`](https://developer.android.com/reference/android/accessibilityservice/AccessibilityService)
 objects change the way your app's content is presented to the user and how the
 user interacts with the content. By interacting with your app using
 accessibility services, you can experience your app as your users do.
 
 For more information on testing in Compose,
-see [Testing](/develop/ui/compose/accessibility/testing) and [Test your Compose layout](/develop/ui/compose/testing).
+see [Testing](https://developer.android.com/develop/ui/compose/accessibility/testing) and [Test your Compose layout](https://developer.android.com/develop/ui/compose/testing).
 
 ### TalkBack
 
@@ -58,19 +43,15 @@ visual impairments might rely on TalkBack to use your app.
 3. At the top of the TalkBack screen, press **On/Off** to turn on TalkBack.
 4. In the confirmation dialog, select **OK** to confirm permissions.
 
-**Note:** The first time you enable TalkBack, a tutorial launches. To open the
-tutorial again in the future, navigate to
-**Settings > Accessibility > TalkBack > Settings > Launch TalkBack tutorial**.
+> [!NOTE]
+> **Note:** The first time you enable TalkBack, a tutorial launches. To open the tutorial again in the future, navigate to **Settings \> Accessibility \> TalkBack \> Settings \> Launch TalkBack tutorial**.
 
 #### Explore your app with TalkBack
 
 Once TalkBack is on, there are two common ways to navigate:
 
-* **Linear navigation:** quickly swipe right or left to navigate through
-  screen elements in sequence. Double-tap anywhere to select the current
-  screen element.
-* **Explore by tapping:** drag your finger over the screen to hear what's
-  under your finger. Double-tap anywhere to select the current element.
+- **Linear navigation:** quickly swipe right or left to navigate through screen elements in sequence. Double-tap anywhere to select the current screen element.
+- **Explore by tapping:** drag your finger over the screen to hear what's under your finger. Double-tap anywhere to select the current element.
 
 To explore your app with TalkBack, complete these steps:
 
@@ -78,13 +59,12 @@ To explore your app with TalkBack, complete these steps:
 2. Swipe through each element in sequence.
 3. As you navigate, look for the following issues:
 
-   * Does the spoken feedback for each element convey its content or purpose
-     appropriately? Learn how to [write meaningful
+   - Does the spoken feedback for each element convey its content or purpose appropriately? Learn how to [write meaningful
      labels](https://m3.material.io/foundations/accessible-design/accessibility-basics#c1dcafdc-c001-4a1d-ab51-c76a99b7f497).
-     + Are announcements succinct, or are they needlessly verbose?
-   * Can you complete the main workflows easily?
-   * Can you reach every element by swiping?
-   * If alerts or other temporary messages appear, are they read aloud?
+     - Are announcements succinct, or are they needlessly verbose?
+   - Can you complete the main workflows easily?
+   - Can you reach every element by swiping?
+   - If alerts or other temporary messages appear, are they read aloud?
 
 For more information and tips, refer to the [TalkBack user
 documentation](https://support.google.com/accessibility/android/answer/6006589).
@@ -98,11 +78,10 @@ To view or change developer settings, complete these steps:
 
 1. Open your device's Settings app.
 2. Navigate to **Accessibility** and select **TalkBack**.
-3. Select **Settings > Advanced settings > Developer settings**:
+3. Select **Settings \> Advanced settings \> Developer settings**:
 
    1. **Log output level:** select **VERBOSE**.
-   2. **Display speech output:** turn on this setting to view TalkBack speech
-      output on the screen.
+   2. **Display speech output:** turn on this setting to view TalkBack speech output on the screen.
 
 ### Switch Access
 
@@ -121,45 +100,42 @@ designated as the "Next" switch and moves focus around the screen, and a second
 "Select" switch selects the focused element. To use this two-switch method, you
 can use any pair of hardware keys.
 
-**Note:** Your experience with Switch Access might vary, depending on
-the tools and software you use.
-
-* If you use an external switch, such as a keyboard, there are additional
-  setup steps. For example, you need to re-enable the soft keyboard. For
-  more information, refer to the
-  [Switch
-  Access user documentation.](https://support.google.com/accessibility/android/answer/6301497)
-* If you're using TalkBack 5.1 or later, a setup wizard is available to
-  configure Switch Access. To use this wizard instead of the following
-  steps, go to **Settings > Accessibility > Switch Access > Settings > Open
-  Switch Access setup**.
+> [!NOTE]
+> **Note:** Your experience with Switch Access might vary, depending on
+> the tools and software you use.
+>
+> - If you use an external switch, such as a keyboard, there are additional setup steps. For example, you need to re-enable the soft keyboard. For more information, refer to the [Switch
+>   Access user documentation.](https://support.google.com/accessibility/android/answer/6301497)
+> - If you're using TalkBack 5.1 or later, a setup wizard is available to configure Switch Access. To use this wizard instead of the following steps, go to **Settings \> Accessibility \> Switch Access \> Settings \> Open
+>   Switch Access setup**.
 
 To set up Switch Access using the volume down key as the "Next" switch and the
 volume up key as the "Select" switch, complete the following steps:
 
 1. Make sure TalkBack is turned off.
 2. Open your device's Settings app.
-3. Navigate to **Accessibility** and select **Switch Access**, then select
-   **Settings**.
+3. Navigate to **Accessibility** and select **Switch Access** , then select **Settings**.
 4. On the Switch Access Preferences screen, make sure **Auto-scan** is off.
 5. Use the volume down key as your "Next" switch:
 
-   1. Tap **Assign Keys for Scanning > Next**.
-   2. When the dialog opens, press the volume down key. The dialog shows
-      KEYCODE\_VOLUME\_DOWN.
+   1. Tap **Assign Keys for Scanning \> Next**.
+   2. When the dialog opens, press the volume down key. The dialog shows KEYCODE_VOLUME_DOWN.
    3. Tap **OK** to confirm and exit the dialog.
 6. Use the volume up key as your "Select" switch:
 
    1. Tap Select.
-   2. When the dialog opens, press the volume up key. The dialog shows
-      KEYCODE\_VOLUME\_UP.
+   2. When the dialog opens, press the volume up key. The dialog shows KEYCODE_VOLUME_UP.
    3. Tap **OK** to confirm and exit the dialog.
 7. Return to Switch Access Preferences by tapping the back button.
+
 8. Optional: If you're using TalkBack 5.1 or later, you can select
    **Spoken feedback** to turn on spoken feedback.
+
 9. Return to the main Switch Access screen by tapping the back button.
+
 10. At the top of the Switch Access screen, press **On/Off** to turn on Switch
     Access.
+
 11. In the confirmation dialog, select **OK** to confirm permissions.
 
 #### Explore your app using Switch Access
@@ -169,19 +145,15 @@ To explore your app with Switch Access, complete these steps:
 1. Open your app.
 2. Start scanning by pressing your "Next" key (the volume down button).
 3. Continue pressing "Next" until you reach the item you want to select.
-4. Select the highlighted item by pressing your "Select" key (the volume up
-   button).
+4. Select the highlighted item by pressing your "Select" key (the volume up button).
 5. As you navigate, look for the following issues:
 
-   * Can you complete the main workflows easily?
-   * If you have text or other inputs, can you add and edit content easily?
-   * Are items highlighted only if you can perform an action with them?
-   * Is each item highlighted only once?
-   * Is all functionality that's available through touch screen gestures also
-     available as selectable controls or custom actions within Switch Access?
-   * If you're using TalkBack 5.1 or later and you've turned on spoken
-     feedback, does the spoken feedback for each element convey its content
-     or purpose appropriately? Learn how to [write meaningful
+   - Can you complete the main workflows easily?
+   - If you have text or other inputs, can you add and edit content easily?
+   - Are items highlighted only if you can perform an action with them?
+   - Is each item highlighted only once?
+   - Is all functionality that's available through touch screen gestures also available as selectable controls or custom actions within Switch Access?
+   - If you're using TalkBack 5.1 or later and you've turned on spoken feedback, does the spoken feedback for each element convey its content or purpose appropriately? Learn how to [write meaningful
      labels](https://m3.material.io/foundations/accessible-design/accessibility-basics#c1dcafdc-c001-4a1d-ab51-c76a99b7f497).
 
 #### Optional: Use group selection to see all scannable items
@@ -193,15 +165,12 @@ whether the correct elements on the screen are highlighted.
 To turn on group selection, complete these steps:
 
 1. Open your device's Settings app.
-2. Navigate to **Accessibility** and select **Switch Access**, then select
-   **Settings**.
+2. Navigate to **Accessibility** and select **Switch Access** , then select **Settings**.
 3. On the Switch Access Preferences screen, make sure **Auto-scan** is off.
-4. Select **Scanning method > Group selection**.
+4. Select **Scanning method \> Group selection**.
 5. Tap **Assign switches for scanning**.
 6. Make sure the text under **Group selection switch 1** and **Group selection
-   switch 2** shows that a switch is assigned to each. If you follow the steps
-   in this document to [turn on Switch Access](#turn-on-switch-access), the
-   volume buttons are already assigned.
+   switch 2** shows that a switch is assigned to each. If you follow the steps in this document to [turn on Switch Access](https://developer.android.com/guide/topics/ui/accessibility/testing#turn-on-switch-access), the volume buttons are already assigned.
 
 To explore your app with Switch Access using group selection, complete these
 steps:
@@ -209,9 +178,9 @@ steps:
 1. Press the "Select" key (the volume up button) to highlight all actionable
    items on the current screen. Look for the following issues:
 
-   * Are only actionable items highlighted?
-   * Are all actionable items highlighted?
-   * Does the density of highlighted items make sense?
+   - Are only actionable items highlighted?
+   - Are all actionable items highlighted?
+   - Does the density of highlighted items make sense?
 2. Navigate to a different screen to clear the highlight.
 
 To learn more about how users can navigate with group selection, see [Tips for
@@ -234,33 +203,21 @@ miss with manual testing.
 ### Compose UI Check
 
 Activate Compose UI Check mode
-![](/static/studio/images/buttons/compose-ui-check-mode-icon.png)
+![](https://developer.android.com/static/studio/images/buttons/compose-ui-check-mode-icon.png)
 on a Compose Preview to enable Android Studio to automatically audit your
 Compose UI for accessibility issues. Android Studio checks that your UI works
 across different screen sizes by highlighting issues such as text stretched on
 large screens or low color contrast in the problems panel.
-
-![Android Studio, highlighting the button labeled 'Start UI Check Mode'.](/static/studio/images/design/compose-ui-check-entry.png)
-
-
-**Figure 1.** Start UI Check Mode button.
+![Android Studio, highlighting the button labeled 'Start UI Check Mode'.](https://developer.android.com/static/studio/images/design/compose-ui-check-entry.png) **Figure 1.** Start UI Check Mode button.
 
 When UI Check Mode is activated, the problems panel shows details about the
 detected accessibility issues, as shown in Figure 2.
-
-![Android Studio with UI Check Mode activated. The problems panel is open, showing a list of accessibility issues detected.](/static/studio/images/design/compose-ui-check.png)
-
-
-**Figure 2.** UI Check mode activated, with details in the problems panel.
+![Android Studio with UI Check Mode activated. The problems panel is open, showing a list of accessibility issues detected.](https://developer.android.com/static/studio/images/design/compose-ui-check.png) **Figure 2.** UI Check mode activated, with details in the problems panel.
 
 For example, UI Check Mode can show recommendations for how to fix insufficient
 color contrast. It also lets you preview how the UI might look for users with
 different types of color vision deficiencies, as shown in Figure 3.
-
-![Android Studio with a UI Check problem selected in the problems panel. The problem is about insufficient color contrast, and the panel shows recommended fixes with previews of the UI for color vision deficiencies.](/static/studio/images/design/compose-ui-check-colorblind.png)
-
-
-**Figure 3.** UI Check Mode shows previews of the UI with recommendations for how to fix insufficient color contrast.
+![Android Studio with a UI Check problem selected in the problems panel. The problem is about insufficient color contrast, and the panel shows recommended fixes with previews of the UI for color vision deficiencies.](https://developer.android.com/static/studio/images/design/compose-ui-check-colorblind.png) **Figure 3.** UI Check Mode shows previews of the UI with recommendations for how to fix insufficient color contrast.
 
 ### Accessibility Scanner
 
@@ -274,11 +231,11 @@ items, contrast, and more.
 
 To learn more, refer to the following resources:
 
-* [Get started with Accessibility Scanner](https://support.google.com/accessibility/android/answer/6376570)
-* [Accessibility Scanner results](https://support.google.com/accessibility/android/answer/6376559)
+- [Get started with Accessibility Scanner](https://support.google.com/accessibility/android/answer/6376570)
+- [Accessibility Scanner results](https://support.google.com/accessibility/android/answer/6376559)
 
-**Note:** Keep in mind that the Android Accessibility Test Framework in Android
-Studio can't detect issues that occur when the app is running on a device.
+> [!NOTE]
+> **Note:** Keep in mind that the Android Accessibility Test Framework in Android Studio can't detect issues that occur when the app is running on a device.
 
 ### Pre-launch report on Google Play
 
@@ -300,24 +257,24 @@ The table organizes opportunities for improvement into the following categories:
 
 Touch target size
 :   Interactive elements in your app that have a focusable area,
-    or [touch target size](/guide/topics/ui/accessibility/apps#large-controls),
+    or [touch target size](https://developer.android.com/guide/topics/ui/accessibility/apps#large-controls),
     that is smaller than recommended.
 
 Low contrast
 :   Instances where the pair of colors used for a text element and
     the background behind that element has a lower [color contrast
-    ratio](/guide/topics/ui/accessibility/apps#text-visibility) than
+    ratio](https://developer.android.com/guide/topics/ui/accessibility/apps#text-visibility) than
     recommended.
 
 Content labeling
 :   UI elements that don't have a [label that describes the
-    elements' purpose](/guide/topics/ui/accessibility/apps#describe-ui-element).
+    elements' purpose](https://developer.android.com/guide/topics/ui/accessibility/apps#describe-ui-element).
 
 Implementation
 :   Attributes assigned to UI elements that make it more difficult
     for the system's accessibility services to interpret the elements
-    correctly—for example, using an element [traversal
-    order](/develop/ui/compose/accessibility/traversal) that doesn't match the
+    correctly---for example, using an element [traversal
+    order](https://developer.android.com/develop/ui/compose/accessibility/traversal) that doesn't match the
     elements' logical arrangement.
 
 Following the table, the pre-launch report shows snapshots of your app. These
@@ -330,12 +287,7 @@ Figure 4 shows an example of the table that appears on the **Accessibility** tab
 of a pre-launch report within Google Play. This figure also includes one of the
 app's snapshots, showing that the **Next** button has a touch target size that
 is smaller than recommended.
-
-![An image showing the Pre-launch Accessibility report](/static/images/guide/topics/ui/accessibility/pre-launch-report.svg)
-
-
-**Figure 4.** Example summary table (left) and screenshot (right) from
-the **Accessibility** tab of a pre-launch report.
+![An image showing the Pre-launch Accessibility report](https://developer.android.com/static/images/guide/topics/ui/accessibility/pre-launch-report.svg) **Figure 4.** Example summary table (left) and screenshot (right) from the **Accessibility** tab of a pre-launch report.
 
 ### UI Automator Viewer
 
@@ -353,8 +305,8 @@ doesn't have the speakable text it requires or an element receives focus when it
 must not, you can use the tool to help locate the source of the issue.
 
 To learn more about UI Automator Viewer, see [Write automated tests with UI
-Automator](/training/testing/ui-testing/uiautomator-testing) and
-[Interoperability with UiAutomator](/develop/ui/compose/testing/interoperability#uiautomator-interop).
+Automator](https://developer.android.com/training/testing/ui-testing/uiautomator-testing) and
+[Interoperability with UiAutomator](https://developer.android.com/develop/ui/compose/testing/interoperability#uiautomator-interop).
 
 ## Automated testing
 
@@ -369,7 +321,7 @@ means your accessibility tests can more accurately reflect real-world
 accessibility use cases.
 
 For more information about automated testing in Compose and the Compose testing
-APIs, see [Test your Compose layout](/develop/ui/compose/testing).
+APIs, see [Test your Compose layout](https://developer.android.com/develop/ui/compose/testing).
 
 ## User testing
 
@@ -378,13 +330,9 @@ specific and valuable insights about the usability of your app.
 
 To find users who can test your app, use methods such as the following:
 
-1. Reach out to local organizations, colleges, or universities that provide
-   training for people with disabilities.
-2. Ask your social circle. There might be people with disabilities who are
-   willing to help.
-3. Ask a user testing service, such as
-   [usertesting.com](https://www.usertesting.com/), if they can
-   test your app and include users with disabilities.
+1. Reach out to local organizations, colleges, or universities that provide training for people with disabilities.
+2. Ask your social circle. There might be people with disabilities who are willing to help.
+3. Ask a user testing service, such as [usertesting.com](https://www.usertesting.com/), if they can test your app and include users with disabilities.
 
 For more tips, watch the user testing section of the following video, from
 31:10 to 44:51: [Behind the scenes: What's new in Android accessibility -
@@ -396,4 +344,4 @@ For more information about accessibility testing, see the following resources:
 
 ### Views content
 
-* [Test your app's accessibility (Views)](/guide/topics/ui/accessibility/views/testing-views)
+- [Test your app's accessibility (Views)](https://developer.android.com/guide/topics/ui/accessibility/views/testing-views)

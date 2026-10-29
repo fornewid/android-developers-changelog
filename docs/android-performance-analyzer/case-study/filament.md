@@ -1,21 +1,8 @@
 ---
-title: Profiling the Filament GLTF Viewer  |  Android Performance Analyzer  |  Android Developers
+title: https://developer.android.com/android-performance-analyzer/case-study/filament
 url: https://developer.android.com/android-performance-analyzer/case-study/filament
-source: html-scrape
+source: md.txt
 ---
-
-Android Performance Analyzer is currently intended for profiling games and Vulkan-based graphics. For all other apps, use the [profilers in Android Studio](/studio/profile).
-
-* [Home](https://developer.android.com/)
-* [Android Performance Analyzer](https://developer.android.com/android-performance-analyzer)
-* [Google Play](https://developer.android.com/distribute)
-* [Guides](https://developer.android.com/games/guides)
-
-# Profiling the Filament GLTF Viewer Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 Effective use of 3D graphics enables user-pleasing visual enhancement for apps.
 Android developers have a range of options for rendering 3D models. When
@@ -52,15 +39,13 @@ device dependent.
 Our initial profile uses a high fidelity 3D model made up of a large number of
 geometric primitives, nearly 2,000,000 triangles, rendered with multiple high
 resolution textures.
+![](https://developer.android.com/static/android-performance-analyzer/images/cs-filament-2a.png)
 
-![](/static/android-performance-analyzer/images/cs-filament-2a.png)
-
-Filament spawns a utility thread it names “GPU Completion” that emits marker
+Filament spawns a utility thread it names "GPU Completion" that emits marker
 data for the profiler signalling when Filament is waiting on the GPU. We can
 select this thread in the profiler and pin it to keep it as a track at the top
 of the capture as shown below.
-
-![](/static/android-performance-analyzer/images/cs-filament-2b.png)
+![](https://developer.android.com/static/android-performance-analyzer/images/cs-filament-2b.png)
 
 In the timeline at the top, by drag selecting we can see that for a particular
 frame, Filament was waiting on GPU completion on the frame for approximately 25
@@ -94,27 +79,14 @@ applying enhancements to make the scaling less noticeable.
 
 Modern graphics processors can run sophisticated upscaling algorithms that are
 still more efficient than rendering at the raw display resolution.
-
-![](/static/android-performance-analyzer/images/cs-filament-3a.png)
-
-
-Visual comparison of a section of the original scene and the
-original scene with dynamic rendering enabled (2x scale factor, high
-quality).
-
-
-![](/static/android-performance-analyzer/images/cs-filament-3b.png)
-
-
-Zoomed-in view of the same comparison.
+![](https://developer.android.com/static/android-performance-analyzer/images/cs-filament-3a.png) Visual comparison of a section of the original scene and the original scene with dynamic rendering enabled (2x scale factor, high quality). ![](https://developer.android.com/static/android-performance-analyzer/images/cs-filament-3b.png) Zoomed-in view of the same comparison.
 
 Examining a new profile with dynamic resolution enabled, we can see that the
 waiting for GPU completion is now around 20 milliseconds, down from 25:
-
-![](/static/android-performance-analyzer/images/cs-filament-3c.png)
+![](https://developer.android.com/static/android-performance-analyzer/images/cs-filament-3c.png)
 
 Dynamic rendering gave a significant improvement without altering the 3D assets,
-but wasn’t enough for us to reach our target. The next step will be to look at
+but wasn't enough for us to reach our target. The next step will be to look at
 other data available in the profile to determine which aspects of our assets are
 most in need of optimization. In this study we will constrain our explorations
 to two basic elements of the 3D rendering process: vertex (geometry) processing
@@ -140,8 +112,7 @@ slower stage.
 
 Starting with the vertex stage, if we pin counters that show vertex stage
 activity to the top of our trace we can see the following:
-
-![](/static/android-performance-analyzer/images/cs-filament-4a.png)
+![](https://developer.android.com/static/android-performance-analyzer/images/cs-filament-4a.png)
 
 Vertex processing is taking around 18.5 milliseconds, suggesting it is the
 limiting factor for performance. Dynamic resolution optimizes the fragment stage
@@ -151,11 +122,10 @@ primitives, which for this application, suggests it has a level of fine-grained
 detail that takes computational time, but may be too small to further enhance
 the visual impact of the model.
 
-After using a tool to generate a reduced geometry ‘level of detail’ version of
+After using a tool to generate a reduced geometry 'level of detail' version of
 the model data, we profile again, this time rendering around 860,000 primitives,
 a reduction of slightly more than half:
-
-![](/static/android-performance-analyzer/images/cs-filament-4b.png)
+![](https://developer.android.com/static/android-performance-analyzer/images/cs-filament-4b.png)
 
 The waiting for GPU completion now measures 14.7 milliseconds, below our 16.6
 millisecond target. Vertex stage processing was cut nearly in half, to around
@@ -197,18 +167,7 @@ this configuration, rendering time is only 13.5 milliseconds, and graphics
 memory is 840 MB. These optimizations have resulted in reaching a target 60
 frames per second, with headroom, and a large reduction in graphics memory
 usage. The visual difference between the two is relatively small in comparison:
-
-![](/static/android-performance-analyzer/images/cs-filament-5a.png)
-
-
-Visual comparison of original scene and a reduced detail version
-of the scene with texture compression.
-
-
-![](/static/android-performance-analyzer/images/cs-filament-5b.png)
-
-
-Zoomed-in view of the same comparison.
+![](https://developer.android.com/static/android-performance-analyzer/images/cs-filament-5a.png) Visual comparison of original scene and a reduced detail version of the scene with texture compression. ![](https://developer.android.com/static/android-performance-analyzer/images/cs-filament-5b.png) Zoomed-in view of the same comparison.
 
 ## Summary
 

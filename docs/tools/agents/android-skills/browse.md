@@ -14,9 +14,17 @@ repository](https://github.com/android/skills).
 ### Upgrade to AGP 9
 Guidance on upgrading your project to Android Gradle Plugin 9.](https://github.com/android/skills/tree/main/build-system/agp/agp-9-upgrade) [![](https://developer.android.com/static/images/picto-icons/increased-productivity.svg)
 ### Use Android CLI
-Use Android CLI to create projects, run apps on devices, manage virtual devices, and inspect UI.](https://github.com/android/skills/tree/main/devtools/android-cli) [![](https://developer.android.com/static/images/picto-icons/security.svg)
+Use Android CLI to create projects, run apps on devices, manage virtual devices, and inspect UI.](https://github.com/android/skills/tree/main/devtools/android-cli) [![](https://developer.android.com/static/images/picto-icons/interoperable.svg)
+### Adapt parked apps for cars
+Adapt existing Android video streaming apps, games, and web browsers to run as parked apps on Android Auto and Android Automotive OS.](https://github.com/android/skills/tree/main/cars/android-for-cars-parked-apps) [![](https://developer.android.com/static/images/picto-icons/security.svg)
 ### Android Intent security
-Secure Android components and handle Intents safely, preventing privilege escalation and unauthorized access.](https://github.com/android/skills/tree/main/security/android-intent-security) [![](https://developer.android.com/static/images/picto-icons/code-2.svg)
+Secure Android components and handle Intents safely, preventing privilege escalation and unauthorized access.](https://github.com/android/skills/tree/main/security/android-intent-security) [![](https://developer.android.com/static/images/picto-icons/security.svg)
+### Audit and fix permission security
+Audit, detect gaps, and remediate Android permissions and IPC component security vulnerabilities.](https://github.com/android/skills/tree/main/security/android-permissions-security) [![](https://developer.android.com/static/images/picto-icons/graph.svg)
+### Use Android profilers
+Record and analyze Android performance data to diagnose bottlenecks, jank, and memory leaks, and convert natural language into executable trace queries, such as PerfettoSQL queries.](https://github.com/android/skills/tree/main/profilers/android-profiler) [![](https://developer.android.com/static/images/picto-icons/bug.svg)
+### Audit and fix ANRs
+Audit Android codebases for Application Not Responding (ANR) risks and diagnose ANR stack dumps.](https://github.com/android/skills/tree/main/performance/anr-audit-and-fix) [![](https://developer.android.com/static/images/picto-icons/gemini.svg)
 ### Implement AppFunctions
 Expose key user workflows to the Android system, allowing AI agents to discover and execute them on-device.](https://github.com/android/skills/tree/main/device-ai/appfunctions) [![](https://developer.android.com/static/images/picto-icons/phone.svg)
 ### CameraX
@@ -24,29 +32,37 @@ Migrate to CameraX and implement CameraX best practices.](https://github.com/and
 ### Make app adaptive
 Build responsive UIs that adapt to different Android devices, handling varying window sizes and input methods.](https://github.com/android/skills/tree/main/jetpack-compose/adaptive) [![](https://developer.android.com/static/images/picto-icons/design.svg)
 ### Migrate to Compose
-Instructions to help you migrate your view-based UI to Jetpack Compose.](https://github.com/android/skills/tree/main/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose) [![](https://developer.android.com/static/images/picto-icons/accent.svg)
-### Adopt Compose Styles
-Integrate the Jetpack Compose Styles API to set up component themes and make custom components styleable.](https://github.com/android/skills/tree/main/jetpack-compose/theming/styles) [![](https://developer.android.com/static/images/picto-icons/app-quality.svg)
+Instructions to help you migrate your view-based UI to Jetpack Compose.](https://github.com/android/skills/tree/main/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose) [![](https://developer.android.com/static/images/picto-icons/improve-performance.svg)
+### Optimize Compose performance
+Diagnose and optimize Jetpack Compose UI code to minimize recomposition overhead and prevent dropped frames and UI lag.](https://github.com/android/skills/tree/main/jetpack-compose/jetpack-compose-performance) [![](https://developer.android.com/static/images/picto-icons/app-quality.svg)
 ### Make app edge-to-edge
 Modernize your app UI by implementing edge-to-edge layout support.](https://github.com/android/skills/tree/main/system/edge-to-edge) [![](https://developer.android.com/static/images/picto-icons/user-friendly-integration.svg)
 ### Integrate Play Engage SDK
-Integrate the Play Engage SDK into your app to publish content clusters and engage users on Google Play.](https://github.com/android/skills/tree/main/play/engage-sdk-integration) [![](https://developer.android.com/static/images/picto-icons/pencil.svg)
+Integrate the Play Engage SDK into your app to publish content clusters and engage users on Google Play.](https://github.com/android/skills/tree/main/play/engage-sdk-integration) [![](https://developer.android.com/static/images/picto-icons/sync.svg)
+### Manage Glance state and memory
+Manage Android AppWidget state updates, background syncs, and RemoteViews bitmap memory limits with Jetpack Glance.](https://github.com/android/skills/tree/main/system/glance-appwidget-updates-and-memory) [![](https://developer.android.com/static/images/picto-icons/layout.svg)
+### Create Glance widget layouts
+Create home screen widgets using Jetpack Glance canonical layouts from the Android Platform Samples project.](https://github.com/android/skills/tree/main/system/glance-canonical-layouts) [![](https://developer.android.com/static/images/picto-icons/pencil.svg)
 ### Build Ink drawing apps
 Build freehand drawing surfaces in Jetpack Compose with the Jetpack Ink API, handling stylus input, wet-to-dry stroke handoff, erasing, and persistence.](https://github.com/android/skills/tree/main/jetpack-compose/ink/ink-app-builder) [![](https://developer.android.com/static/images/picto-icons/pencils.svg)
 ### Create custom Ink brushes
 Design custom BrushFamily styles in Jetpack Compose for the Jetpack Ink API with custom tips, dynamic behaviors, textures, and coats.](https://github.com/android/skills/tree/main/jetpack-compose/ink/ink-custom-brush-builder) [![](https://developer.android.com/static/images/picto-icons/hardware.svg)
 ### Migrate Leanback to Compose for TV
-Migrate Android TV apps from the legacy Leanback UI Toolkit to Jetpack Compose for TV.](https://github.com/android/skills/tree/main/tv/leanback-to-compose-tv-migration) [![](https://developer.android.com/static/images/picto-icons/cast.svg)
+Migrate Android TV apps from the legacy Leanback UI Toolkit to Jetpack Compose for TV.](https://github.com/android/skills/tree/main/tv/leanback-to-compose-tv-migration) [![](https://developer.android.com/static/images/picto-icons/gemini.svg)
+### Run on-device LLMs with LiteRT-LM
+Build an Android app that runs an open text LLM on-device on CPU or GPU using the LiteRT-LM Kotlin API.](https://github.com/android/skills/tree/main/device-ai/litert/litert-lm) [![](https://developer.android.com/static/images/picto-icons/gemini.svg)
+### Run on-device models with LiteRT
+Configure and implement on-device .tflite inference on CPU and GPU in Kotlin using the LiteRT CompiledModel API.](https://github.com/android/skills/tree/main/device-ai/litert/litert-runtime) [![](https://developer.android.com/static/images/picto-icons/cast.svg)
 ### Integrate Media3 Cast
 Implement Google Cast support in Android apps.](https://github.com/android/skills/tree/main/media/media3-cast-integration) [![](https://developer.android.com/static/images/picto-icons/gemini.svg)
 ### Use ML Kit GenAI Prompt API
-Send natural language requests on-device to Gemini Nano.](https://github.com/android/skills/tree/main/device-ai/ml-kit-genai-prompt-api) [![](https://developer.android.com/static/images/picto-icons/code.svg)
+Send natural language requests on-device to Gemini Nano.](https://github.com/android/skills/tree/main/device-ai/ml-kit-genai-prompt-api) [![](https://developer.android.com/static/images/picto-icons/gemini.svg)
+### Build agents with ML Kit GenAI
+Build autonomous on-device agentic workflows in Android apps using the ML Kit GenAI Agent API powered by Gemini Nano.](https://github.com/android/skills/tree/main/device-ai/mlkit-agent-api) [![](https://developer.android.com/static/images/picto-icons/code.svg)
 ### Set up Navigation 3
 Best practices for setting up and using Navigation 3 in your app.](https://github.com/android/skills/tree/main/navigation/navigation-3) [![](https://developer.android.com/static/images/picto-icons/platform.svg)
 ### Use the NavigationEvent library
-Intercept back gestures and run Predictive Back animations.](https://github.com/android/skills/tree/main/navigation/navigation-event) [![](https://developer.android.com/static/images/picto-icons/graph.svg)
-### Use Android profilers
-Record and analyze Android performance data to diagnose bottlenecks, jank, and memory leaks, and convert natural language into executable trace queries, such as PerfettoSQL queries.](https://github.com/android/skills/tree/main/profilers/android-profiler) [![](https://developer.android.com/static/images/picto-icons/billing.svg)
+Intercept back gestures and run Predictive Back animations.](https://github.com/android/skills/tree/main/navigation/navigation-event) [![](https://developer.android.com/static/images/picto-icons/billing.svg)
 ### Upgrade Play Billing library
 Access new features by upgrading your Play Billing Library.](https://github.com/android/skills/tree/main/play/play-billing-library-version-upgrade) [![](https://developer.android.com/static/images/picto-icons/policy.svg)
 ### Audit Play policy compliance
@@ -60,6 +76,10 @@ Analyze your project and set up a comprehensive testing strategy, including unit
 ### Retrieve verified email
 Integrate a secure, OTP-less email verification flow into your app using Credential Manager.](https://github.com/android/skills/tree/main/identity/verified-email) [![](https://developer.android.com/static/images/picto-icons/wear-os-development.svg)
 ### Develop for Wear OS with Compose
-Guidance for building Wear OS apps with Compose Material 3, including scaffolding, layouts, and migrations from earlier versions.](https://github.com/android/skills/tree/main/wear/wear-compose-m3) [![](https://developer.android.com/static/images/picto-icons/xr.svg)
+Guidance for building Wear OS apps with Compose Material 3, including scaffolding, layouts, and migrations from earlier versions.](https://github.com/android/skills/tree/main/wear/wear-compose-m3) [![](https://developer.android.com/static/images/picto-icons/wear-os-development.svg)
+### Build Wear OS widgets
+Create, migrate, update, and verify Wear OS widgets using Glance Wear and Remote Compose.](https://github.com/android/skills/tree/main/wear/wear-widgets) [![](https://developer.android.com/static/images/picto-icons/xr.svg)
 ### Build for display glasses
-Develop projected Android XR apps for display glasses using the Jetpack Compose Glimmer UI toolkit.](https://github.com/android/skills/tree/main/xr/display-glasses-with-jetpack-compose-glimmer)
+Develop projected Android XR apps for display glasses using the Jetpack Compose Glimmer UI toolkit.](https://github.com/android/skills/tree/main/xr/display-glasses-with-jetpack-compose-glimmer) [![](https://developer.android.com/static/images/picto-icons/xr.svg)
+### Access XR projected hardware
+Access and manage hardware like cameras and microphones on Android XR projected devices, such as audio and display glasses.](https://github.com/android/skills/tree/main/xr/projected-hardware)

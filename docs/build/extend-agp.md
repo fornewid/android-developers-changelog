@@ -56,7 +56,7 @@ plugin implementation artifact.
 
 AGP publishes two primary artifacts:
 
-- **`com.android.tools.build:gradle-api`** : Contains official AGP APIs, including stable APIs (such as [`AndroidComponentsExtension`](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/variant/AndroidComponentsExtension), [`Variant`](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/variant/Variant), and public DSL interfaces), incubating APIs (marked `@Incubating`), and deprecated APIs (marked `@Deprecated`).
+- **`com.android.tools.build:gradle-api`** : Contains official AGP APIs, including stable APIs (such as [`AndroidComponentsExtension`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/variant/AndroidComponentsExtension), [`Variant`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/variant/Variant), and public DSL interfaces), incubating APIs (marked `@Incubating`), and deprecated APIs (marked `@Deprecated`).
 - **`com.android.tools.build:gradle`**: Contains the full AGP runtime implementation, including internal classes, build tasks, and compiler integrations.
 
 Compiling against the `gradle-api` artifact provides several key benefits:
@@ -81,7 +81,7 @@ If your project uses a [version catalog](https://developer.android.com/build/mig
 `gradle-api` dependency in the `gradle/libs.versions.toml` file:
 
     [versions]
-    androidGradlePlugin = "9.4.0"
+    androidGradlePlugin = "9.5.0"
 
     [libraries]
     android-gradle-plugin-api = { group = "com.android.tools.build", name = "gradle-api", version.ref = "androidGradlePlugin" }
@@ -117,7 +117,7 @@ in your plugin's build file:
 
 ```kotlin
 dependencies {
-    compileOnly("com.android.tools.build:gradle-api:9.4.0")
+    compileOnly("com.android.tools.build:gradle-api:9.5.0")
 }
 ```
 
@@ -125,7 +125,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    compileOnly 'com.android.tools.build:gradle-api:9.4.0'
+    compileOnly 'com.android.tools.build:gradle-api:9.5.0'
 }
 ```
 
