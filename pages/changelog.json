@@ -1,5 +1,2318 @@
 [
   {
+    "date": "2026-10-29T15:09:42Z",
+    "commit_hash": "c8bfa282",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/marshmallow/android-6.0\" target=\"_blank\">Android 6.0 APIs</a>",
+        "path": "about/versions/marshmallow/android-6.0.md",
+        "summary": "Updated documentation links across the Android 6.0 Marshmallow API guide to point to absolute URLs on the official Android Developers website and converted code snippets to explicit Markdown formats.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_android-6.0.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/performance/anr-audit-and-fix/skill\" target=\"_blank\">Android ANR audit and fix</a>",
+        "path": "agents/skills/performance/anr-audit-and-fix/skill.md",
+        "summary": "Updated the frontmatter metadata and normalized internal markdown links to absolute URLs for the ANR audit and fix skill documentation, ensuring correct reference resolution.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/play/engage-sdk-integration/references/troubleshooting\" target=\"_blank\">Engage SDK integration troubleshooting guide</a>",
+        "path": "agents/skills/play/engage-sdk-integration/references/troubleshooting.md",
+        "summary": "The troubleshooting guide for Play Engage SDK integration was streamlined by removing environment-specific sandbox instructions (such as handling Android SDK 36 jlink errors, missing ANDROID_HOME configurations, and Roborazzi test workarounds) and simplifying the compilation instructions to focus on standard full build tasks without specific daemon flags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_troubleshooting.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/play/engage-sdk-integration/skill\" target=\"_blank\">Engage SDK integration skill</a>",
+        "path": "agents/skills/play/engage-sdk-integration/skill.md",
+        "summary": "Removed the requirement to use the `--no-daemon` flag for Gradle compilations and checklisst items during the Engage SDK integration process. This streamlines the build instructions by allowing standard Gradle daemon behavior.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/security/android-permissions-security/skill\" target=\"_blank\">Android permission security: Audit and remediation guide</a>",
+        "path": "agents/skills/security/android-permissions-security/skill.md",
+        "summary": "Updated the Android permissions security skill documentation to improve API compatibility and user experience. The `revokeScopedUriAccess` function now supports target package-specific permission revocation for Android O and above using `revokeUriPermission(String, Uri, int)`, preventing broader permission leaks. Additionally, the runtime permissions handling flow was improved by replacing an inline Snackbar notification with a dedicated `AlertDialog` for permission rationales, ensuring better compliance with Android UI guidelines for requesting permissions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/collections/layout/RoundedScrollingLazyColumn.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/collections/layout/RoundedScrollingLazyColumn.kt.rawcontent.md",
+        "summary": "The file content was updated to remove the Markdown code block wrapper and web scraping boilerplate text, directly exposing the raw Kotlin source code for `RoundedScrollingLazyColumn.kt`. This improves the readability and utility of the reference file for developers and automated skill agents.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_RoundedScrollingLazyColumn.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_home_icon.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_home_icon.xml.rawcontent.md",
+        "summary": "Cleaned up the documentation file by removing HTML scraping artifacts, generic webpage boilerplate text, and markdown code block wrappers around the vector asset. This ensures the file contains only the raw vector drawable content and accurate metadata.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_sample_home_icon.xml.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/text/LongTextAppWidget.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/text/LongTextAppWidget.kt.rawcontent.md",
+        "summary": "Cleaned up the Markdown documentation file by removing HTML scraping artifacts, updating metadata headers, and removing code block wrappers around the Kotlin source code snippet.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_LongTextAppWidget.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai-in-android\" target=\"_blank\">AI in Android Studio - Android Developers</a>",
+        "path": "ai-in-android.md",
+        "summary": "Updated documentation to rebrand the Android Studio AI features to the generic 'built-in agent', added support for ACP-compliant agents, and updated download references and version numbers to Android Studio Rabbit 2 (2026.2.2).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_ai-in-android.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/appfunctions/create-manage-connected-apps\" target=\"_blank\">Create and manage Connected Apps using AppFunctions and Android MCP in Google Connected Console</a>",
+        "path": "ai/appfunctions/create-manage-connected-apps.md",
+        "summary": "This new guide explains how to use the Google Connected Console to integrate on-device Android AppFunctions with Gemini using the Android MCP connection type. It outlines the end-to-end self-service workflow covering app creation, Play app linking, metadata configuration, bundle submission, testing, and production publishing.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog\" target=\"_blank\">The Android Developers' Blog</a>",
+        "path": "blog.md",
+        "summary": "Updated the Android Developers' Blog page with recent announcements from the Android Dev Summit 2026. This includes new featured posts covering agentic Android development, Android Studio Rabbit 2 stability updates (featuring Bring Your Own Agent, XR Emulator features, and LeakCanary updates), developer tools performance, and changes to the highlighted author section.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_blog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/adarsh-fernando\" target=\"_blank\">Adarsh Fernando</a>",
+        "path": "blog/authors/adarsh-fernando.md",
+        "summary": "Added a new blog post titled 'What's new in Android developer tools and performance at Android Dev Summit' by Adarsh Fernando, updating the author's total post count to 2.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_adarsh-fernando.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/matthew-mccullough\" target=\"_blank\">Matthew McCullough</a>",
+        "path": "blog/authors/matthew-mccullough.md",
+        "summary": "Updated Matthew McCullough's author page to reflect a new blog post titled 'Agentic and Flexible: A next era of Android development' announced at the Android Dev Summit, while removing an older post entry regarding the Android 17 Third Beta, bringing the total post count to 18.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_matthew-mccullough.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/matthew-mccullough/2\" target=\"_blank\">Matthew McCullough</a>",
+        "path": "blog/authors/matthew-mccullough/2.md",
+        "summary": "The author page for Matthew McCullough has been updated to include a new post regarding the release of the Third Beta of Android 17 and removed an older post about the Android XR SDK Developer Preview 3, keeping the developer blog listings up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/matthew-mccullough/3\" target=\"_blank\">Matthew McCullough</a>",
+        "path": "blog/authors/matthew-mccullough/3.md",
+        "summary": "Matthew McCullough's author page was updated to reflect a new post count of 18 and includes a newly added blog post entry regarding the Android XR SDK Developer Preview 3 release for AI glasses. This keeps the developer documentation and author profile synchronized with the latest Android product announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/matthew-warner\" target=\"_blank\">Matthew Warner</a>",
+        "path": "blog/authors/matthew-warner.md",
+        "summary": "Updated author Matthew Warner's profile to include a new blog post about AI agents integration in Android Studio, increasing the total post count from 3 to 4.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_matthew-warner.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/events-and-programs\" target=\"_blank\">Events \\& Programs</a>",
+        "path": "blog/categories/events-and-programs.md",
+        "summary": "The events and programs blog category documentation was updated to add a new post regarding Android developer tools and performance updates from the Android Dev Summit, and to remove an older post about the Nav3 Spotlight Week. This keeps the events feed current with the latest developer communications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_events-and-programs.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/events-and-programs/2\" target=\"_blank\">Events \\& Programs</a>",
+        "path": "blog/categories/events-and-programs/2.md",
+        "summary": "Added a new blog post entry for the Nav3 Spotlight Week to the Events & Programs category page. This update highlights the stability of Jetpack Navigation 3 and its benefits for reducing tech debt and supporting new form factors, keeping developers informed about the latest architectural tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news.md",
+        "summary": "The Product News documentation was updated to include recent blog posts covering the Android Dev Summit announcements, agentic development tools, and stable Android Studio integrations, while removing older entries and adjusting the total page count.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_product-news.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/10\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/10.md",
+        "summary": "The Product News category page (Page 10) was updated to include recent announcements regarding Android Studio Panda 4 and experimental hybrid inference with new Gemini models, while removing older Gemma 4 posts and adjusting the total page count from 21 to 22.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/11\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/11.md",
+        "summary": "Updated the Product News category page to include recent blog posts highlighting Gemma 4 features, such as Gemma 4 support in Android Studio and its announcement in the AICore Developer Preview. These updates provide developers with timely information regarding new local AI models and agentic coding capabilities.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/12\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/12.md",
+        "summary": "Added two new product news blog posts regarding Android 17 Beta 3 (reaching platform stability and API locking) and location privacy updates, while removing older entries and updating the pagination total to reflect the changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_12.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/13\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/13.md",
+        "summary": "Updated the product news blog index to include new posts highlighting the release of Room 3.0 with Kotlin Multiplatform and WASM support, and the introduction of AutoFDO for the Android kernel, while removing older entries and adjusting the total page count to 22.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_13.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/14\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/14.md",
+        "summary": "The product news documentation was updated to include recent blog posts regarding Android Studio Gemini tips and the release of Android 17 Beta 2, while removing older entries. Additionally, the total page count was adjusted from 21 to 22 pages to reflect the current catalog of articles.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_14.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/15\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/15.md",
+        "summary": "Updated the Product News category page to include recent blog posts regarding Google Play Console monetization data upgrades and Automated Prompt Optimization for ML Kit's GenAI Prompt API, while removing older entries and updating the total page count to 22.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_15.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/16\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/16.md",
+        "summary": "Updated the Product News blog category pagination (adjusting total pages to 22) and added recent posts regarding Media3 1.9.0 and adaptive apps development in 2025, while removing older entries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_16.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/17\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/17.md",
+        "summary": "Updated the Product News blog category page (page 17) to include recent articles covering Android Runtime (ART) compile time improvements and enhanced Android security features, while removing older entries and adjusting the total page count.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/18\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/18.md",
+        "summary": "The product news documentation was updated to include recent blog posts such as the Android 16 QPR2 release and Play Integrity API updates, while removing older entries and updating the total page count to 22.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_18.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/19\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/19.md",
+        "summary": "Updated the Product News blog category page 19 to include recent posts regarding the excessive partial wake locks metric exiting beta and the release of Health Connect Jetpack v1.1.0, while removing older entries and adjusting the total page count from 21 to 22.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_19.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/2\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/2.md",
+        "summary": "Added new product news blog posts covering Device Streaming and Android skills in the Android CLI, as well as updates on Google Play subscriptions, while removing older entries and updating the total page count from 21 to 22.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/20\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/20.md",
+        "summary": "Added new product news blog entries covering the Samsung Galaxy XR launch and Dynamic App Links, removed older posts on wake lock metrics and Media3 preloading, and updated the total page count to 22.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_20.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/21\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/21.md",
+        "summary": "Added new product news blog posts regarding Android vitals wake lock metric optimization and Media3's PreloadManager (Part 2), while updating pagination data to reflect page 21 out of 22.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_21.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/22\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/22.md",
+        "summary": "This new product news page introduces the latest updates for the Android XR SDK Developer Preview 2. It matters because it keeps developers informed about new tools and releases for extended reality development.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/3\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/3.md",
+        "summary": "Updated the Product News category page to include recent announcements regarding Android Bench 2.0 and ADB Wi-Fi 2.0 while removing older posts, keeping the documentation synchronized with the latest developer blog publications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/4\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/4.md",
+        "summary": "Added new product news blog posts covering memory limit preparations and Jetpack XR SDK beta updates, while removing older entries and updating the total page count to 22.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/5\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/5.md",
+        "summary": "Added new product news blog posts celebrating 5 years of Jetpack Compose and optimizing apps for new Samsung Galaxy devices, while removing older entries and updating the total page count to 22.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/6\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/6.md",
+        "summary": "Updated the Product News blog category page (page 6) to include recent posts regarding Android developer verification and mixed-reality tour guide development with Android XR, the Geospatial API, and Gemini. Older posts were removed and the total page count was updated from 21 to 22.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/7\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/7.md",
+        "summary": "Added new product news blog posts covering Google I/O '26 AI updates and Android XR developments for Unreal and Godot, while removing a couple of older entries and updating the total page count to 22.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/8\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/8.md",
+        "summary": "Updated the Product News blog category page (Page 8) to include new posts regarding Google I/O '26 developer highlights and the new Android Performance Analyzer tool, while removing older entries and adjusting the total page count pagination metadata to 22.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/9\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/9.md",
+        "summary": "Updated the Product News category page to include recent blog posts regarding the stable Android CLI 1.0 release and native Android app building capabilities in Google AI Studio, while removing older entries and updating the total page count.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest.md",
+        "summary": "The Android developer documentation updates feature announcements from the Android Dev Summit, highlighting agentic workflows, developer tools, and performance enhancements including the stable release of Android Studio Rabbit 2. Additionally, older blog posts were removed and pagination metadata was updated to reflect an increased total page count.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_latest.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/10\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/10.md",
+        "summary": "Added the latest Android blog posts covering CameraX 1.5 feature combinations, AI Image Generation for enhanced user engagement, and the stable release of Jetpack WindowManager 1.5. The update also adjusts pagination to 11 pages and updates popular topic listings.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/11\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/11.md",
+        "summary": "This new documentation page introduces the final blog index page (page 11) highlighting articles such as alternatives to idling resources in Compose tests, along with popular Android developer topics.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/2\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/2.md",
+        "summary": "The latest blog updates page was modified to include recent product announcements regarding app quality, safety in the generative AI ecosystem, and security for Android Automotive OS (AAOS SDV), while older entries from July 2026 were removed and the total page count was updated to reflect pagination changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/3\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/3.md",
+        "summary": "Updated the Android Developers' Blog latest posts listing page to feature newer articles from July and June 2026, including announcements on Android Studio Quail 2, updates to Android Bench for LLMs, and the Google Play Indie Games Fund in Africa.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/4\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/4.md",
+        "summary": "Updated the latest Android blog documentation feed to include Google I/O 2026 announcements covering Google Play updates, key developer takeaways, and adaptive development standards, while removing older entries and adjusting the total page count.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/5\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/5.md",
+        "summary": "Updated the latest blog list on page 5 with new posts covering Google Play policy updates, Google I/O livestream details, and Android Emulator multi-device interaction testing, while removing older entries and adjusting the total page count.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/6\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/6.md",
+        "summary": "The latest Android blog documentation page (6.md) was updated to add three new posts covering Google Play Games' Test Sidekick, AutoFDO for the Android kernel performance optimization, and Meta's use of Media3 PreloadManager for instant playback. Additionally, older posts were pruned, pagination was updated from 10 to 11 total pages, and popular topics lists were reordered.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/7\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/7.md",
+        "summary": "Updated the latest Android blog posts list to include recent announcements such as Trade-in mode on Android 16+, Google Play Console's 'Save for later' feature, and the stable release of Android Studio Otter 3 Feature Drop. Older entries were removed, and the total page count increased to 11.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/8\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/8.md",
+        "summary": "Updated the latest Android blog listing by adding recent posts covering AI sample catalogs, the Jetpack Navigation 3 stable release, and a #WeArePlay community feature, while removing older case studies and adjusting the total pagination count.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/9\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/9.md",
+        "summary": "Updated the blog listings on page 9 to include new case studies focusing on Gemini Nano integration by Kakao Mobility, Gemini Flash usage by redBus, and Calm's development for Android XR, while removing older entries and updating the total page count.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/a-look-ahead-making-it-easier-and-faster-to-publish-safer-apps\" target=\"_blank\">A look ahead: Making it easier and faster to publish safer apps</a>",
+        "path": "blog/posts/a-look-ahead-making-it-easier-and-faster-to-publish-safer-apps.md",
+        "summary": "Updated the related blog posts section in the 'making-it-easier-and-faster-to-publish-safer-apps' documentation. This change replaces an older entry about Android Studio I/O Edition with a new post from the Android Dev Summit titled 'Agentic and Flexible: A next era of Android development' by Matthew McCullough, keeping the recommended reading list current with recent product news.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_a-look-ahead-making-it-easier-and-faster-to-publish-safer-apps.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness\" target=\"_blank\">A new era for choice and openness</a>",
+        "path": "blog/posts/a-new-era-for-choice-and-openness.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to feature newer developer articles and announcements from the Android Dev Summit, including updates on Android development tools, Android Studio AI agent integrations, and contact management permissions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_a-new-era-for-choice-and-openness.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/ai-agents-android-studio-integration\" target=\"_blank\">Your favorite agents are now integrated in Android Studio</a>",
+        "path": "blog/posts/ai-agents-android-studio-integration.md",
+        "summary": "Introduces new Android Studio features including Bring Your Own Agent (BYOA) support, stable Android XR emulators, Android skills management, LeakCanary AI fixes, Gemini Enterprise support, and AI-powered Change Review.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-16-qpr-2-is-released\" target=\"_blank\">Android 16 QPR2 is Released</a>",
+        "path": "blog/posts/android-16-qpr-2-is-released.md",
+        "summary": "Updated the related blog posts section in the Android 16 QPR2 release notes by adding a link to the Android Dev Summit announcement ('Agentic and Flexible: A next era of Android development') and removing an older Google I/O 2026 entry. This keeps the 'Continue reading' section current with the latest platform and development tool updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_android-16-qpr-2-is-released.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-17-is-here\" target=\"_blank\">Android 17 is Here</a>",
+        "path": "blog/posts/android-17-is-here.md",
+        "summary": "The 'Continue reading' section of the Android 17 post was updated to include a new related blog post about agentic and flexible Android development announcements from the Android Dev Summit, while removing an older post reference regarding app memory limits.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_android-17-is-here.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance\" target=\"_blank\">What's new in Android developer tools and performance at Android Dev Summit</a>",
+        "path": "blog/posts/android-dev-summit-26-developer-tools-performance.md",
+        "summary": "This new documentation page summarizes the core developer tools and performance announcements from Android Dev Summit, focusing on agent-driven workflows in Android Studio, the Android CLI, and enhanced app performance tuning.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools\" target=\"_blank\">Android Studio I/O Edition: What's new in Android Developer tools</a>",
+        "path": "blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md",
+        "summary": "Updated the author's title and refreshed the 'Continue reading' blog post recommendations at the end of the article, replacing an older post about contacts with a new announcement regarding AI agents integrated into Android Studio.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_android-studio-i-o-edition-what-s-new-in-android-developer-tools.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent\" target=\"_blank\">Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent</a>",
+        "path": "blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent.md",
+        "summary": "The 'Continue reading' recommendation section at the end of the post was updated to include a reference to the newer Android Studio Rabbit 2 release and its AI agent integrations, while removing an older Google I/O edition post. This keeps the suggested reading list current and aligned with recent tooling announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview\" target=\"_blank\">Announcing Gemma 4 in the AICore Developer Preview</a>",
+        "path": "blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview.md",
+        "summary": "The related blog post recommendation at the bottom of the Gemma 4 developer preview announcement was updated to feature the Android Dev Summit post on agentic and flexible Android development by Matthew McCullough, replacing the older post about contacts permissions by Roxanna Aliabadi Walker.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_announcing-gemma-4-in-the-ai-core-developer-preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation\" target=\"_blank\">Boost user engagement with AI Image Generation</a>",
+        "path": "blog/posts/boost-user-engagement-with-ai-image-generation.md",
+        "summary": "The 'Continue reading' section at the end of the post was updated to replace a recommended article about adding and edit contacts with a new post highlighting the latest announcements from the Android Dev Summit regarding agentic and flexible Android development tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_boost-user-engagement-with-ai-image-generation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now\" target=\"_blank\">Build for the future with the Android XR Developer Catalyst Program --- Apply now!</a>",
+        "path": "blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md",
+        "summary": "Updated the 'Continue reading' section recommendations in the Android XR Developer Catalyst Program blog post by adding a new related article about Android developer tools and performance from Android Dev Summit '26, while removing an outdated post regarding Google I/O. This ensures readers are directed to the most current Android development content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development\" target=\"_blank\">Agentic and Flexible: A next era of Android development</a>",
+        "path": "blog/posts/build-it-your-way-a-next-era-of-android-development.md",
+        "summary": "This new documentation announces broad availability of agent-focused tools, the Android Intelligence System, and expanded cross-device form factor APIs. It matters because it empowers developers to leverage flexible AI coding agents, simplify app scaling, and build natively for emerging XR and adaptive device ecosystems.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash\" target=\"_blank\">Build smarter apps with Gemini 3 Flash</a>",
+        "path": "blog/posts/build-smarter-apps-with-gemini-3-flash.md",
+        "summary": "Updated the \"Continue reading\" section of the Gemini 3 Flash blog post to replace a featured article about contacts with a new Android Dev Summit announcement regarding agentic and flexible Android development tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_build-smarter-apps-with-gemini-3-flash.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android\" target=\"_blank\">Building for the Intelligence System on Android</a>",
+        "path": "blog/posts/building-for-the-intelligence-system-on-android.md",
+        "summary": "Updated the related blog posts and reading recommendations section by adding a new post on agentic and flexible Android development from the Android Dev Summit and removing an older entry about Android Bench 2.0. This keeps the recommended reading list current and relevant for developers exploring modern Android development paradigms.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_building-for-the-intelligence-system-on-android.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions\" target=\"_blank\">Driving growth on Google Play: The next era of subscriptions</a>",
+        "path": "blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions.md",
+        "summary": "Updated the 'Related Posts' or 'Continue Reading' section at the end of the subscription blog post to feature recent Android Dev Summit and Android Studio announcements instead of older articles, keeping the recommended reading material up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_driving-growth-on-google-play-the-next-era-of-subscriptions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data\" target=\"_blank\">Enhancing Android security: Stop malware from snooping on your app data</a>",
+        "path": "blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data.md",
+        "summary": "Updated the 'Continue reading' section at the end of the blog post to replace a featured article link about contacts with a new announcement regarding agentic and flexible Android development from the Android Dev Summit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_enhancing-android-security-stop-malware-from-snooping-on-your-app-data.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content\" target=\"_blank\">Ensuring Safety in the Generative AI Ecosystem: Protecting Users from Non-Consensual Intimate Content</a>",
+        "path": "blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the bottom of the blog post to feature newer developer blog posts regarding Android Dev Summit announcements and Android Studio AI agent integrations instead of older articles.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/faster-compiles\" target=\"_blank\">18% Faster Compiles, 0% Compromises</a>",
+        "path": "blog/posts/faster-compiles.md",
+        "summary": "Updated the 'Continue reading' footer section of the blog post to feature recent Android Dev Summit announcements, replacing older article references with new posts on agentic Android development and Android Studio integrations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_faster-compiles.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week\" target=\"_blank\">Fully Optimized: Wrapping up Performance Spotlight Week</a>",
+        "path": "blog/posts/fully-optimized-wrapping-up-performance-spotlight-week.md",
+        "summary": "The 'Continue reading' section of the performance spotlight wrap-up blog post was updated to include a new article about Android developer tools and performance announcements from the Android Dev Summit, while removing an outdated entry regarding the Google I/O livestream schedule. This keeps the recommended reading list fresh and relevant for developers exploring modern performance and tooling updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_fully-optimized-wrapping-up-performance-spotlight-week.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android\" target=\"_blank\">Gemma 4: The new standard for local agentic intelligence on Android</a>",
+        "path": "blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to remove older articles and include recent posts regarding Android Dev Summit announcements and Android Studio agent integrations. This keeps the recommended reading list current and relevant for developers exploring local agentic intelligence.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_gemma-4-the-new-standard-for-local-agentic-intelligence-on-android.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop\" target=\"_blank\">Get inspired and take your apps to desktop</a>",
+        "path": "blog/posts/get-inspired-and-take-your-apps-to-desktop.md",
+        "summary": "Updated the 'Related Posts' or 'Continue Reading' section of the blog post to feature newer Android articles, specifically replacing older entries with announcements from the Android Dev Summit regarding agentic development, Android Studio updates (Rabbit 2 with AI agent integrations), and contact permission changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_get-inspired-and-take-your-apps-to-desktop.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed\" target=\"_blank\">Get ready for Google I/O: Livestream schedule revealed</a>",
+        "path": "blog/posts/get-ready-for-google-io-livestream-schedule-revealed.md",
+        "summary": "The blog post's related articles list was updated by removing an older reference to the 'Get ready for Google I/O' post and adding a new entry for 'What's new in Android developer tools and performance at Android Dev Summit' by Adarsh Fernando. This keeps the 'Continue reading' section current with recent Android events and announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_get-ready-for-google-io-livestream-schedule-revealed.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/get-ready-for-google-io-may\" target=\"_blank\">Get ready for Google I/O May 19-20</a>",
+        "path": "blog/posts/get-ready-for-google-io-may.md",
+        "summary": "The blog post list has been updated to include a reference to the Android Dev Summit '26 developer tools and performance post, while removing an older entry regarding the Level Up program and Test Sidekick.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_get-ready-for-google-io-may.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr\" target=\"_blank\">Giving your apps a new home on Samsung Galaxy XR, the first device powered by Android XR</a>",
+        "path": "blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr.md",
+        "summary": "The git diff shows updates to the 'Continue reading' section at the bottom of the Samsung Galaxy XR blog post. Specifically, it added a reference to a new Android Dev Summit post titled 'Agentic and Flexible: A next era of Android development' and removed an older entry related to Google I/O '26.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/grow-your-app-with-the-google-play-apps-accelerator-apply-now\" target=\"_blank\">Grow your app with the Google Play Apps Accelerator - apply now</a>",
+        "path": "blog/posts/grow-your-app-with-the-google-play-apps-accelerator-apply-now.md",
+        "summary": "The blog post sidebar was updated to include a reference to the latest Android Dev Summit 2026 developer tools and performance article while removing an older reference to the 'Level Up' program post. This keeps the recommended reading list current and relevant for developers exploring accelerator and event content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_grow-your-app-with-the-google-play-apps-accelerator-apply-now.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api\" target=\"_blank\">How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API</a>",
+        "path": "blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api.md",
+        "summary": "Updated the 'Continue reading' section at the end of the blog post to replace a related article link on contacts with a newer Android Dev Summit announcement regarding agentic and flexible Android development.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3\" target=\"_blank\">Increase Guidance and Control over Agent Mode with Android Studio Panda 3</a>",
+        "path": "blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3.md",
+        "summary": "The 'Continue reading' related posts section at the bottom of the blog post was updated. It now includes a recent post about Android Studio Rabbit 2 and its AI agent integrations while removing an older reference to Android Studio Quail 2, keeping the recommended reading list current for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week\" target=\"_blank\">Learn about our newest Jetpack Navigation library with the Nav3 Spotlight Week</a>",
+        "path": "blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the bottom of the Jetpack Navigation library spotlight post. A newer article regarding Android developer tools and performance from Android Dev Summit was added, while an older post about Google Play Games was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones\" target=\"_blank\">Level Up: Test Sidekick and prepare for upcoming program milestones</a>",
+        "path": "blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to feature a new article about Android developer tools and performance from Android Dev Summit 2026, while removing an older entry regarding Google I/O 2026.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_level-up-test-sidekick-and-prepare-for-upcoming-program-milestones.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4\" target=\"_blank\">Level up your development with Planning Mode and Next Edit Prediction in Android Studio Panda 4</a>",
+        "path": "blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4.md",
+        "summary": "Updated the 'Continue reading' section at the end of the blog post to replace a featured article link regarding contacts with a newer post about agentic Android development from the Android Dev Summit by Matthew McCullough. This ensures readers are directed to the most up-to-date and relevant product news.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4\" target=\"_blank\">Leverage Android skills and Gemma 4 in Android Studio Quail 4</a>",
+        "path": "blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4.md",
+        "summary": "The \"Continue reading\" section was updated to include a reference to the new Android Studio Rabbit 2 release and its AI agent integrations, while removing an older outdated entry for Android Studio I/O Edition. This keeps the recommended reading list current with recent tooling updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_leverage-android-skills-and-gemma-4-in-android-studio-quail-4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop\" target=\"_blank\">LLM flexibility, Agent Mode improvements, and new agentic experiences in Android Studio Otter 3 Feature Drop</a>",
+        "path": "blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop.md",
+        "summary": "Updated the 'Continue reading' section at the end of the documentation to replace a related post link about contacts with a newer blog post highlighting agentic and flexible Android development tools announced at the Android Dev Summit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/modernizing-the-room\" target=\"_blank\">Room 3.0 - Modernizing the Room</a>",
+        "path": "blog/posts/modernizing-the-room.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the bottom of the blog post to feature newer Android blog posts, including announcements on agentic development, Android Studio integrations, and contact permissions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_modernizing-the-room.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/new-agentic-experiences-for-android-studio-new-ai-ap-is-the-first-android-xr-device-and-more-in-our-fall-episode-of-the-android-show\" target=\"_blank\">New agentic experiences for Android Studio, new AI APIs, the first Android XR device and more, in our Fall episode of The Android Show</a>",
+        "path": "blog/posts/new-agentic-experiences-for-android-studio-new-ai-ap-is-the-first-android-xr-device-and-more-in-our-fall-episode-of-the-android-show.md",
+        "summary": "The blog post list was updated to include a new entry for the Android Dev Summit announcement regarding agentic and flexible Android development, while removing an older entry related to Google I/O '26 announcements. This keeps the 'Continue reading' section current with the latest product news and developer resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_new-agentic-experiences-for-android-studio-new-ai-ap-is-the-first-android-xr-device-and-more-in-our-fall-episode-of-the-android-show.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025\" target=\"_blank\">Notes from Google Play: A look back at the tools that powered your growth in 2025</a>",
+        "path": "blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025.md",
+        "summary": "Updated the 'Continue reading' section recommendations at the bottom of the Google Play notes blog post to feature recent articles on agentic Android development, Android Studio AI agent integrations, and contact permissions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android\" target=\"_blank\">A more reliable way to add and edit contacts on Android</a>",
+        "path": "blog/posts/reliable-way-to-add-and-edit-contacts-android.md",
+        "summary": "The blog post's sidebar recommendations were updated to replace an older article about building for the intelligence system with a newer announcement regarding agentic and flexible Android development from the Android Dev Summit. This keeps the related reading links current and relevant to readers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_reliable-way-to-add-and-edit-contacts-android.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show\" target=\"_blank\">Start building for glasses, new devices for Android XR and more in The Android Show \\| XR Edition</a>",
+        "path": "blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show.md",
+        "summary": "The blog post's related articles section was updated to include a new reference about developer tools and performance from the Android Dev Summit, while removing an older reference to the Google Play Games 'Level Up' program. This ensures readers are directed to the most current and relevant Android development content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/the-fourth-beta-of-android-17\" target=\"_blank\">The Fourth Beta of Android 17</a>",
+        "path": "blog/posts/the-fourth-beta-of-android-17.md",
+        "summary": "Updated the 'Continue reading' section recommendations in the Android 17 beta documentation to feature recent blog posts and announcements, replacing older entries on contact permissions and AI models with new content regarding Android Dev Summit announcements, Android Studio agent integrations, and updated contact handling guides.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_the-fourth-beta-of-android-17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/the-third-beta-of-android-17\" target=\"_blank\">The Third Beta of Android 17</a>",
+        "path": "blog/posts/the-third-beta-of-android-17.md",
+        "summary": "The 'Continue reading' section of the Android 17 blog post was updated to replace a related article about app memory limits with a new post announcement regarding agentic and flexible Android development from the Android Dev Summit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_the-third-beta-of-android-17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/top-3-updates-for-android-developer-productivity\" target=\"_blank\">Top 3 updates for Android developer productivity</a>",
+        "path": "blog/posts/top-3-updates-for-android-developer-productivity.md",
+        "summary": "Updated the \"Continue reading\" section of the blog post to feature a new article about agentic and flexible Android development by Matthew McCullough instead of the previous article on contacts permissions by Roxanna Aliabadi Walker.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_top-3-updates-for-android-developer-productivity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26\" target=\"_blank\">Top AI on Android updates for building intelligent experiences from Google I/O '26</a>",
+        "path": "blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md",
+        "summary": "The \"Continue reading\" related posts section at the end of the blog post was updated. Specifically, a new post reference regarding agentic and flexible Android development by Matthew McCullough was added, and an older post reference about Android XR updates was removed to keep the recommended reading list fresh and relevant.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/tune-in-for-our-fall-episode-of-the-android-show-2025\" target=\"_blank\">Set a reminder: Tune in on October 30 for our Fall episode of The Android Show, live from Droidcon London</a>",
+        "path": "blog/posts/tune-in-for-our-fall-episode-of-the-android-show-2025.md",
+        "summary": "The blog post updates its related reading and recent articles section by adding a new post about Android developer tools and performance at Android Dev Summit '26 by Adarsh Fernando, while removing an older post regarding Google Play Games Level Up and Test Sidekick by Maru Ahues Bouza.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_tune-in-for-our-fall-episode-of-the-android-show-2025.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app\" target=\"_blank\">Use R8 to shrink, optimize, and fast-track your app</a>",
+        "path": "blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app.md",
+        "summary": "The 'Continue reading' section at the end of the post was updated to include a reference to the Android Dev Summit '26 developer tools and performance article while removing an older Google I/O schedule announcement. This keeps the recommended reading list current and relevant to developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_use-r8-to-shrink-optimize-and-fast-track-your-app.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/welcome-to-android-xr-spotlight-week\" target=\"_blank\">Welcome to Android XR Spotlight Week!</a>",
+        "path": "blog/posts/welcome-to-android-xr-spotlight-week.md",
+        "summary": "The documentation was updated to add a reference to the Android Dev Summit '26 developer tools and performance post by Adarsh Fernando while removing an older reference to the Google Play Games 'Level Up' post by Maru Ahues Bouza. This keeps the related reading list current with recent developer events and announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_welcome-to-android-xr-spotlight-week.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-april-26-release\" target=\"_blank\">What's new in the Jetpack Compose April '26 release</a>",
+        "path": "blog/posts/whats-new-in-the-jetpack-compose-april-26-release.md",
+        "summary": "Updated the \"Continue reading\" section at the end of the Jetpack Compose release notes to feature recent Android blog posts, replacing older entries with new articles covering Android Dev Summit announcements, AI agent integrations in Android Studio, and contact permission updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_whats-new-in-the-jetpack-compose-april-26-release.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/android-studio\" target=\"_blank\">#Android Studio</a>",
+        "path": "blog/topics/android-studio.md",
+        "summary": "The Android Studio documentation was updated to include a new blog post entry about the integration of AI agents in Android Studio (Rabbit 2 release) featuring Bring Your Own Agent and new developer tools, while removing an older post entry regarding Gemma 4.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_android-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/android-studio/2\" target=\"_blank\">#Android Studio</a>",
+        "path": "blog/topics/android-studio/2.md",
+        "summary": "Added a new blog post entry regarding Gemma 4 to the Android Studio documentation topics. This update introduces developers to Gemma 4's local agentic intelligence and complex reasoning capabilities, highlighting its integration into the Android ecosystem.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/android\" target=\"_blank\">#Android</a>",
+        "path": "blog/topics/android.md",
+        "summary": "The Android blog topic documentation was updated to include recent announcements from the Android Dev Summit 2026, featuring new posts on agentic Android development and developer tools performance, while removing older posts from May 2026 regarding Google I/O and intelligence systems.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_android.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/android/2\" target=\"_blank\">#Android</a>",
+        "path": "blog/topics/android/2.md",
+        "summary": "The Android blog topic listing on Page 2 was updated to include recent May 2026 posts regarding Android Studio I/O Edition tools for the agentic era and the transition of Android into an intelligence system, while removing older entries from 2025.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/android/3\" target=\"_blank\">#Android</a>",
+        "path": "blog/topics/android/3.md",
+        "summary": "Added new blog post entries to the Android topic documentation, including updates on Android developer verification security and the Android XR SDK Developer Preview 2. These additions keep developers informed about recent platform security requirements and extended reality development tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build\" target=\"_blank\">Configure your build</a>",
+        "path": "build.md",
+        "summary": "Updated the Android Gradle plugin version from 9.4.0 to 9.5.0 in the build documentation's plugin configuration examples. This ensures that developers copying the setup examples are directed to use the newer AGP version, maintaining compatibility with the latest Android build tools and features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_build.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/android-settings-plugin\" target=\"_blank\">Configure project-wide build properties with the settings plugin</a>",
+        "path": "build/android-settings-plugin.md",
+        "summary": "Updated the version of the `com.android.settings` plugin from 9.4.0 to 9.5.0 in the configuration examples. This ensures developers use the latest recommended plugin version when setting up their Android projects.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_android-settings-plugin.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/extend-agp\" target=\"_blank\">Write Gradle plugins</a>",
+        "path": "build/extend-agp.md",
+        "summary": "Updated the documented Android Gradle Plugin (AGP) version references and API documentation links from version 9.4.0 (and API 9.4) to 9.5.0 (and API 9.5) for the gradle-api artifact dependencies and version catalogs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_extend-agp.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/about-agp\" target=\"_blank\">About Android Gradle plugin</a>",
+        "path": "build/releases/about-agp.md",
+        "summary": "The Android Gradle Plugin (AGP) documentation was updated to introduce version 9.5. This includes updating code examples and version number references from 9.4.0 to 9.5.0, adding AGP version 9.5 with a minimum required Gradle version of 9.6.0 to the compatibility table, and adding compatibility mapping for the new Android Studio Rabbit 2 | 2026.2.2 release supporting AGP versions 7.1 through 9.5.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_about-agp.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-9-5-0-release-notes\" target=\"_blank\">Android Gradle plugin 9.5.0 (October 2026)</a>",
+        "path": "build/releases/agp-9-5-0-release-notes.md",
+        "summary": "The release notes for Android Gradle Plugin 9.5.0 were updated to explicitly state that no public issues were marked as fixed in this version. This provides transparency to developers regarding the bug fix status of the 9.5.0 release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_agp-9-5-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-9-6-0-release-notes\" target=\"_blank\">Android Gradle plugin 9.6.0</a>",
+        "path": "build/releases/agp-9-6-0-release-notes.md",
+        "summary": "The Android Gradle Plugin 9.6.0 release notes have been updated to reflect an increased minimum and default Gradle version requirement to 9.7.1. Additionally, a new entry for AGP 9.6.0-alpha02 was added under the fixed issues section, documenting a fix for unsafe system properties reads during R8 tasks (Issue #567815521).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_agp-9-6-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/cli\" target=\"_blank\">Android CLI</a>",
+        "path": "cli.md",
+        "summary": "Added documentation for new Agent plugins supporting Antigravity, Claude Code, and Codex, allowing developers to integrate official Android CLI tools and platform knowledge into their AI coding agents.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_cli.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design\" target=\"_blank\">Design</a>",
+        "path": "design.md",
+        "summary": "The XR design documentation has been updated to split the guidelines into distinct 'immersive' and 'augmented' categories, providing developers with more targeted resources for building Android XR and AI glasses experiences.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_design.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses\" target=\"_blank\">Intelligent eyewear</a>",
+        "path": "design/ui/ai-glasses.md",
+        "summary": "The documentation was updated to rebrand terms like \"AI Glasses\" and \"AI AI Glasses\" to more precise terminology such as \"intelligent eyewear,\" \"audio glasses,\" and \"display glasses.\" Additionally, developer guide links were updated to point to the new XR SDK paths, ensuring developers are directed to the correct resources for building augmented reality experiences.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_ai-glasses.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses/guides/components/icon-marker\" target=\"_blank\">Icon markers</a>",
+        "path": "design/ui/ai-glasses/guides/components/icon-marker.md",
+        "summary": "This new documentation page introduces icon markers for AI glasses spatial annotation, providing design guidelines, usage principles, and anatomy for anchoring UI elements to real-world objects.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses/guides/foundations/get-started\" target=\"_blank\">Get started</a>",
+        "path": "design/ui/ai-glasses/guides/foundations/get-started.md",
+        "summary": "Updated the AI Glasses get-started documentation to generalize terminology from \"AI glasses\" to \"glasses\", \"optical see-through displays\", and specific device types like \"audio and display glasses\". These changes clarify the terminology across the UI guidelines, audio flow instructions, and system states without altering the core design principles.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses/guides/foundations/made-for-glasses\" target=\"_blank\">UI made for display glasses</a>",
+        "path": "design/ui/ai-glasses/guides/foundations/made-for-glasses.md",
+        "summary": "The documentation was updated to rebrand references from \"AI glasses\" to broader terms like \"display glasses\" and \"optical see-through displays,\" reflecting a wider scope for the Jetpack Compose Glimmer framework. Additionally, formatting improvements were made, markdown links for Styles and Components were added, and the Figma design kit reference was reformatted into a distinct callout note.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_made-for-glasses.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses/guides/interaction/ai-patterns\" target=\"_blank\">AI patterns</a>",
+        "path": "design/ui/ai-glasses/guides/interaction/ai-patterns.md",
+        "summary": "Updated the AI glasses design guidelines to rebrand terminology from \"AI glasses\" / \"displayless AI glasses\" to \"audio and display glasses\" (or specific variants like \"audio glasses\" and \"display glasses\"). These changes matter because they clarify the hardware categories and align the documentation with updated product terminology.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_ai-patterns.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses/guides/sound/audio-input\" target=\"_blank\">Audio focus and concurrency</a>",
+        "path": "design/ui/ai-glasses/guides/sound/audio-input.md",
+        "summary": "This new documentation guides developers on managing audio input, focus behavior, and earcon design for AI glasses to ensure seamless audio experiences across concurrent streams.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses/guides/sound/bespoke-earcon\" target=\"_blank\">Design custom sounds</a>",
+        "path": "design/ui/ai-glasses/guides/sound/bespoke-earcon.md",
+        "summary": "This new guide provides design best practices, ergonomics, and technical specifications for creating custom earcons for AI glasses. It matters because it helps developers build audible UI cues that are legible, non-fatiguing, and optimized for wearable hardware.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses/guides/sound/earcons\" target=\"_blank\">Earcons</a>",
+        "path": "design/ui/ai-glasses/guides/sound/earcons.md",
+        "summary": "Added new design guidelines for using earcons (audio icons) in AI glasses, detailing system-wide sounds, privacy alerts, camera activation cues, and app-specific audio feedback.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses/guides/sound/overview\" target=\"_blank\">Sound</a>",
+        "path": "design/ui/ai-glasses/guides/sound/overview.md",
+        "summary": "Introduces sound design guidelines for AI audio glasses, emphasizing close-range, open-ear audio principles, purposeful communication, and character over loudness to ensure a non-intrusive user experience.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses/guides/sound/voice-alerts\" target=\"_blank\">Voice alerts</a>",
+        "path": "design/ui/ai-glasses/guides/sound/voice-alerts.md",
+        "summary": "This new documentation page provides guidelines for designing and implementing voice alerts on AI glasses, detailing the use of generic versus bespoke voices, copywriting principles, and audio interaction patterns.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses/guides/surfaces/ai-in-your-app\" target=\"_blank\">AI in your app</a>",
+        "path": "design/ui/ai-glasses/guides/surfaces/ai-in-your-app.md",
+        "summary": "The documentation was updated to rebrand references from general 'AI glasses' to more specific 'audio and display glasses', while also fixing minor text wrapping and a broken markdown link format for AI patterns. This matters because it provides clearer terminology for developers designing experiences across different types of wearable form factors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_ai-in-your-app.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses/guides/surfaces/app\" target=\"_blank\">App View</a>",
+        "path": "design/ui/ai-glasses/guides/surfaces/app.md",
+        "summary": "Updated terminology across the AI glasses documentation, replacing 'AI glasses' and 'displayless AI glasses' with 'audio glasses' and 'display glasses'. Added several helpful links to related documentation topics including audio interactions, depth styles, lists, cards, color, and typography.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_app.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/cars/guides/components/row\" target=\"_blank\">Rows</a>",
+        "path": "design/ui/cars/guides/components/row.md",
+        "summary": "The changes to the row component documentation primarily involve formatting adjustments, updating relative image paths and internal links to absolute URLs, and refining the API reference links for `Row` and `Row.Builder`. These updates ensure proper link resolution and document rendering without introducing functional changes to the design guidance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_row.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/xr/guides/openxr\" target=\"_blank\">Design for Unity, OpenXR, and WebXR</a>",
+        "path": "design/ui/xr/guides/openxr.md",
+        "summary": "The changes in openxr.md primarily consist of formatting cleanups, such as updating metadata fields in the frontmatter, converting relative links to absolute URLs, removing the Developer Preview feedback banner and breadcrumbs, and fixing markdown table formatting. These updates improve consistency and link resolution for the documentation source without altering the core technical content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_openxr.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/xr/guides/spatial-anchor\" target=\"_blank\">Spatial anchors</a>",
+        "path": "design/ui/xr/guides/spatial-anchor.md",
+        "summary": "Added a new guide detailing spatial anchors and markers for Android XR development, explaining how to lock virtual points to physical objects and maintain user comfort.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/guides/camera-form-factors-support\" target=\"_blank\">Support camera on multiple form factors</a>",
+        "path": "develop/adaptive-apps/guides/camera-form-factors-support.md",
+        "summary": "The git diff updates documentation links from relative paths to absolute URLs, switches the source format identifier from HTML scrape to markdown text, and cleans up minor Markdown list formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_camera-form-factors-support.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/best-practices\" target=\"_blank\">Follow wake lock best practices</a>",
+        "path": "develop/background-work/background-tasks/awake/wakelock/best-practices.md",
+        "summary": "The changes update the wake lock best practices documentation by improving formatting, converting breadcrumbs and note blocks to standard Markdown/callout syntax, and fixing relative links to use absolute URLs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_best-practices.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/devices/chromeos/learn/design\" target=\"_blank\">Design recommendations</a>",
+        "path": "develop/devices/chromeos/learn/design.md",
+        "summary": "The changes in this documentation update internal relative links to absolute URLs pointing to developer.android.com, update the source metadata, and adjust markdown syntax for lists and headers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_design.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui\" target=\"_blank\">Develop UI</a>",
+        "path": "develop/ui.md",
+        "summary": "The Android XR documentation section was updated to split the general XR entry into two distinct topics: 'Spatial UI for Android XR' and 'Glanceable UI for Android XR'. This helps developers understand how to build both immersive spatial layouts and optimized glanceable interfaces using familiar Jetpack Compose concepts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_ui.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/migrate/strategy\" target=\"_blank\">Migration strategy</a>",
+        "path": "develop/ui/compose/migrate/strategy.md",
+        "summary": "Updated the Compose migration strategy documentation to use absolute URLs instead of relative paths, added proper markdown syntax highlighting for code blocks (Kotlin and XML), and formatted note blocks using standard Markdown blockquotes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_strategy.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/state\" target=\"_blank\">State and Jetpack Compose</a>",
+        "path": "develop/ui/compose/state.md",
+        "summary": "Added a new callout note to the Jetpack Compose state documentation directing developers to the new AppState libraries (Transform and StateStore) for sharing Compose State across application components or transforming data streams into State outside of UI composables. This helps developers discover recommended architectural tools for managing state beyond standard UI components.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_state.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/tooling/animation-preview\" target=\"_blank\">Animation Preview</a>",
+        "path": "develop/ui/compose/tooling/animation-preview.md",
+        "summary": "Updated the minimum required Android Studio version from Rabbit 1 to Rabbit 2 for Animation Preview documentation to ensure developers know which IDE version supports the latest animation features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_animation-preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/responsive-adaptive-design-with-views\" target=\"_blank\">Responsive/adaptive design with views</a>",
+        "path": "develop/ui/views/layout/responsive-adaptive-design-with-views.md",
+        "summary": "The changes in this file are primarily structural formatting updates resulting from a transition from HTML-style tags to Markdown, alongside fixing relative link paths into absolute URLs pointing to developer.android.com. These updates ensure cleaner rendering and fix broken local references without altering the core technical guidance on responsive and adaptive view-based design.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_responsive-adaptive-design-with-views.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/webapps/manage-webview-memory\" target=\"_blank\">Manage and diagnose WebView memory</a>",
+        "path": "develop/ui/views/layout/webapps/manage-webview-memory.md",
+        "summary": "Updated the WebView memory management documentation to fix relative internal link paths to absolute URLs, adjust code block formatting for Kotlin and Java samples, and correct minor markdown styling issues.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_manage-webview-memory.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/picture-in-picture\" target=\"_blank\">Use picture-in-picture (PiP)</a>",
+        "path": "develop/ui/views/picture-in-picture.md",
+        "summary": "Updated internal documentation formatting for the picture-in-picture guide, converting relative links to absolute URLs, updating callout blocks to standard Markdown extension syntax, and fixing minor list formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_picture-in-picture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method\" target=\"_blank\">Create an input method</a>",
+        "path": "develop/ui/views/touch-and-input/creating-input-method.md",
+        "summary": "Fixed corrupted XML syntax, missing closing brackets, and incorrect attribute formatting in the input method configuration and string resource code examples, ensuring developers have accurate copy-paste references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_creating-input-method.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/engine-hub\" target=\"_blank\">Android XR Engine Hub</a>",
+        "path": "develop/xr/engine-hub.md",
+        "summary": "Added comprehensive documentation for new features in the Android XR Engine Hub, including performance tracing with Gemini analysis, sideloading APKs, managing feature permissions, running ADB commands, streaming logcat messages, screencasting, capturing screenshots/recordings, and remote configuration tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_engine-hub.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/engine-hub/manage-devices\" target=\"_blank\">Manage and debug devices in the Android XR Engine Hub</a>",
+        "path": "develop/xr/engine-hub/manage-devices.md",
+        "summary": "Added documentation for the Device Manager dashboard in the Android XR Engine Hub, providing centralized tools to sideload APKs, manage XR feature permissions, execute ADB commands, filter device logs, and configure device settings.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/engine-hub/performance-tracing\" target=\"_blank\">Capture and analyze performance traces in the Android XR Engine Hub</a>",
+        "path": "develop/xr/engine-hub/performance-tracing.md",
+        "summary": "This new documentation page explains how to capture performance traces from Android XR devices using the Android XR Engine Hub and leverage Gemini for automated bottleneck analysis.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/godot\" target=\"_blank\">Develop with Godot for Android XR</a>",
+        "path": "develop/xr/godot.md",
+        "summary": "Updated the Godot Android XR documentation to expand interaction methods—such as adding mouse interaction and updating eye gaze extensions—and significantly augmented the list of supported OpenXR extensions for both the Vendors Plugin and Godot Native OpenXR to include spatial persistence, advanced foveation configurations, and new composition layers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_godot.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/godot/spatial-containers\" target=\"_blank\">Use Spatial Containers in Godot</a>",
+        "path": "develop/xr/godot/spatial-containers.md",
+        "summary": "Introduces guidance for using Spatial Containers in Godot for Android XR, allowing developers to render 3D OpenXR content within system-managed volumetric bounding boxes or transition to full-screen immersive mode.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk\" target=\"_blank\">Develop with the Jetpack XR SDK</a>",
+        "path": "develop/xr/jetpack-xr-sdk.md",
+        "summary": "The Jetpack XR SDK documentation was updated to replace plain text device support labels with rich icon and link elements across all libraries (Jetpack Compose for XR, Material Design, SceneCore, ARCore, Compose Glimmer, and Projected). Additionally, the Jetpack Compose for XR section was refined to reference updated subspace component classes, and a new section was added introducing the Android XR Emulator for testing apps across headsets, wired glasses, and intelligent eyewear.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_jetpack-xr-sdk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context\" target=\"_blank\">Use a projected context to access hardware on audio glasses and display glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md",
+        "summary": "Updated the Jetpack XR SDK documentation for accessing hardware in a projected context. The changes include improvements to audio recording code snippets with better buffer management and lifecycle handling, as well as significant expansions to camera streaming documentation. Specifically, it adds detailed guidance on dynamically querying supported resolutions and frame rates, calculating maximum frame rates using frame durations, and configuring CameraX use cases like ImageAnalysis and VideoCapture to optimize battery and thermal performance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_access-hardware-projected-context.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware\" target=\"_blank\">Access hardware on audio glasses and display glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/access-hardware.md",
+        "summary": "The documentation was updated to remove the reference to the microphone when discussing the unique hardware available on audio and display glasses, focusing instead on the camera. This minor correction ensures accuracy regarding the specific hardware features highlighted for developers building Jetpack XR SDK experiences.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_access-hardware.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models\" target=\"_blank\">Add 3D models to your app</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-3d-models.md",
+        "summary": "The Jetpack XR SDK documentation for adding 3D models has been updated to include key implementation details for SpatialGltfModel—such as asynchronous loading behavior, state control, and layout sizing. Note that several API reference links throughout the document were incorrectly modified to point to unrelated classes and URLs, introducing broken references that need correction.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_add-3d-models.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session\" target=\"_blank\">Access a session for creating spatialized UI and entities</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-session.md",
+        "summary": "The Jetpack XR SDK documentation for adding a session was updated to remove a caution note about activity lifecycle session invalidation and add clarification on using an optional `LifecycleOwner` parameter with the `create()` function. Additionally, minor updates were made to clarify supported contexts for Intelligent Eyewear and link to `SessionCreateResult` for session creation failures.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_add-session.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-video\" target=\"_blank\">Add spatial video to your app</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-spatial-video.md",
+        "summary": "Removed a caution callout regarding a known crash bug with `SurfaceEntity` and `SpatialExternalSurface` in older Jetpack XR SDK alpha versions, as the issue has been resolved in subsequent releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_add-spatial-video.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-subspace\" target=\"_blank\">Add a subspace to your app</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-subspace.md",
+        "summary": "Updated the Jetpack XR SDK subspace documentation by replacing an inline list of spatial components with a reference link to spatialized components, and updated API reference links to point directly to the Subspace composable documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_add-subspace.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-xr-to-existing\" target=\"_blank\">Bring your Android app into 3D with XR</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-xr-to-existing.md",
+        "summary": "The documentation updates restructure the headings for converting 2D UI components to 3D and introduce a new section on \"Add spatial capabilities.\" These changes improve the hierarchical organization of the guide and better categorize features like spatial checks, environments, and 3D content for developers building Android XR applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_add-xr-to-existing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore\" target=\"_blank\">Enhance app experiences with perception using ARCore for Jetpack XR</a>",
+        "path": "develop/xr/jetpack-xr-sdk/arcore.md",
+        "summary": "The ARCore documentation was updated to include support for Audio & Display Glasses under applicable XR devices and clarified how sessions are created using the Jetpack XR Runtime. Additionally, new details were added regarding the `SessionCreateResult` class, session lifecycle management using an optional `LifecycleOwner`, and guidance on using projected contexts with Intelligent Eyewear. These updates help developers correctly initialize sessions and manage resources across different XR form factors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_arcore.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial\" target=\"_blank\">Work with the Geospatial API using ARCore for Jetpack XR</a>",
+        "path": "develop/xr/jetpack-xr-sdk/arcore/geospatial.md",
+        "summary": "The ARCore geospatial documentation was significantly streamlined, removing detailed API setup, configuration, permissions, and code examples while updating the supported device types and providing a more concise overview of the Geospatial API and VPS capabilities.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_geospatial.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/anchors\" target=\"_blank\">Anchor content at real world locations</a>",
+        "path": "develop/xr/jetpack-xr-sdk/arcore/geospatial/anchors.md",
+        "summary": "This new documentation page introduces Geospatial anchors for the Jetpack XR SDK, explaining how developers can place 3D content using real-world latitude, longitude, and altitude coordinates.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/positioning\" target=\"_blank\">Work with Geospatial poses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/arcore/geospatial/positioning.md",
+        "summary": "This new documentation explains how to use the Jetpack XR SDK ARCore Geospatial API to convert coordinates between device-local poses and real-world Earth-based Geospatial poses.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/setup\" target=\"_blank\">Set up the Geospatial API in your app</a>",
+        "path": "develop/xr/jetpack-xr-sdk/arcore/geospatial/setup.md",
+        "summary": "This new documentation page provides a comprehensive guide on setting up and configuring the ARCore Geospatial API for Jetpack XR development. It details the necessary Google Cloud project setup, authorization methods, required permissions, session configuration modes, and how to monitor tracking states and accuracy values.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/troubleshooting\" target=\"_blank\">Troubleshoot issues with the Geospatial API</a>",
+        "path": "develop/xr/jetpack-xr-sdk/arcore/geospatial/troubleshooting.md",
+        "summary": "Added a new troubleshooting guide for the ARCore Geospatial API within the Jetpack XR SDK, helping developers resolve API key authorization issues and localization quality problems.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/build-immersive\" target=\"_blank\">Get started building immersive experiences</a>",
+        "path": "develop/xr/jetpack-xr-sdk/build-immersive.md",
+        "summary": "The documentation was updated to include support for the `android.hardware.xr.input.face_tracking` feature flag in the app manifest. Additionally, the privacy-sensitive capabilities note was expanded to include face tracking, body tracking, scene understanding, and location, ensuring developers are properly informed about runtime permission requirements for these advanced XR features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_build-immersive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/components\" target=\"_blank\">Spatialized components</a>",
+        "path": "develop/xr/jetpack-xr-sdk/compose/components.md",
+        "summary": "Introduces spatialized components and subspace composables in Jetpack Compose for XR, enabling developers to build adaptable spatial UI layouts that seamlessly fall back to 2D environments.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/orbiter\" target=\"_blank\">Orbiters</a>",
+        "path": "develop/xr/jetpack-xr-sdk/compose/orbiter.md",
+        "summary": "This new documentation page introduces the `Orbiter` component in the Jetpack XR SDK, explaining how developers can use it to attach contextual actions and navigation controls to spatial panels and layouts.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/scene-core-entity\" target=\"_blank\">SceneCore entities</a>",
+        "path": "develop/xr/jetpack-xr-sdk/compose/scene-core-entity.md",
+        "summary": "This new documentation introduces SceneCoreEntity, a subspace composable that bridges Jetpack SceneCore and Compose for XR. It allows developers to integrate low-level SceneCore entities into Compose layouts while utilizing Compose for sizing, positioning, and modifiers.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/spatial-dialog\" target=\"_blank\">Spatial dialogs</a>",
+        "path": "develop/xr/jetpack-xr-sdk/compose/spatial-dialog.md",
+        "summary": "Added new documentation for SpatialDialog in Jetpack XR SDK Compose, explaining how to implement spatialized dialogs that appear above base content with graceful 2D fallback support.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/spatial-external-surface\" target=\"_blank\">Spatial external surfaces</a>",
+        "path": "develop/xr/jetpack-xr-sdk/compose/spatial-external-surface.md",
+        "summary": "Introduces the `SpatialExternalSurface` subspace composable for the Jetpack XR SDK, which manages Android surfaces for rendering monoscopic, stereoscopic, or DRM-protected video and image content in spatial environments.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/spatial-panel\" target=\"_blank\">Spatial panels</a>",
+        "path": "develop/xr/jetpack-xr-sdk/compose/spatial-panel.md",
+        "summary": "This new documentation page introduces the SpatialPanel composable for the Jetpack XR SDK, explaining how developers can render 2D content in a 3D space, apply subspace modifiers, and arrange multiple panels using layout components like SpatialRow and SpatialColumn.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/subspace-layouts\" target=\"_blank\">Arrange 3D space with subspaces</a>",
+        "path": "develop/xr/jetpack-xr-sdk/compose/subspace-layouts.md",
+        "summary": "Introduces subspaces in the Jetpack XR SDK, explaining how to partition 3D space to build spatial layouts and add depth to apps using Jetpack Compose.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/display-blend-mode\" target=\"_blank\">Change how your content looks based on the display type</a>",
+        "path": "develop/xr/jetpack-xr-sdk/display-blend-mode.md",
+        "summary": "This new documentation page introduces display blend modes in the Jetpack XR SDK, explaining how apps can check and adapt to different device display characteristics such as additive blending, alpha blending, and no display.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/check-capabilities\" target=\"_blank\">Check device capabilities at runtime for audio glasses and display glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glasses/check-capabilities.md",
+        "summary": "Added documentation and code examples for monitoring battery state changes in connected XR glasses using the Jetpack XR SDK. This addition matters because developers can now track real-time battery levels and charging states to optimize app performance, trigger power-saving modes, update UI components, and properly manage device controller lifecycles.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_check-capabilities.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types\" target=\"_blank\">Plan to support different types of audio glasses and display glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glasses/support-different-types.md",
+        "summary": "The changes in this file consist entirely of Markdown formatting updates, specifically converting relative documentation links into absolute URLs, adjusting list item markers, and removing bottom navigation blocks. Because these changes are purely formatting and structural cleanups with no technical content modifications, no developer action is required.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_support-different-types.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer\" target=\"_blank\">Build glanceable UI with Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer.md",
+        "summary": "Introduces Jetpack Compose Glimmer, a new Compose UI toolkit tailored for building minimalist and comfortable augmented XR experiences optimized for display glasses.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/buttons\" target=\"_blank\">Buttons in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/buttons.md",
+        "summary": "Introduces documentation for Button and ButtonGroup components in Jetpack Compose Glimmer, optimized for display glasses input with support for visual states, sizing variants, and focus control.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/cards\" target=\"_blank\">Cards in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/cards.md",
+        "summary": "This new documentation introduces the `Card` and `ActionCard` components in Jetpack Compose Glimmer for XR devices, detailing their anatomy, default properties, and usage examples for building structured, interactive content containers.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/colors\" target=\"_blank\">Colors in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/colors.md",
+        "summary": "This new documentation introduces the Jetpack Compose Glimmer color system, tailored for additive displays and real-world XR environments. It details the specialized color palette, default roles, and best practices for spatial UI design.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/focus\" target=\"_blank\">Focus in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/focus.md",
+        "summary": "This new documentation page provides guidance on managing focus, pointer input, and navigation behavior using Jetpack Compose Glimmer for display glasses.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/icon-buttons\" target=\"_blank\">Icon buttons in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/icon-buttons.md",
+        "summary": "Introduces documentation for the `IconButton` component in Jetpack Compose Glimmer for XR, detailing its sizing, states, defaults, and usage guidelines.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/icons\" target=\"_blank\">Icons in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/icons.md",
+        "summary": "Added new documentation for the Jetpack Compose Glimmer Icon component, detailing proper usage for sizing, sources, tinting, and best practices on XR display glasses.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/indirect-pointer\" target=\"_blank\">Handle indirect pointer inputs in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/indirect-pointer.md",
+        "summary": "Added documentation for the `onIndirectPointerGesture` modifier in the Jetpack XR SDK, enabling developers to handle high-level input events like clicks and swipes from touchpads on XR devices.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/list-items\" target=\"_blank\">List items in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/list-items.md",
+        "summary": "This new documentation introduces the `ListItem` component in Jetpack Compose Glimmer, detailing how to build focus-responsive single-row elements for display glasses.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/lists\" target=\"_blank\">Lists in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/lists.md",
+        "summary": "Introduces documentation for GlimmerLazyColumn in Jetpack Compose Glimmer, explaining how to implement performance-optimized lists tailored for touchpad navigation and focus management on XR display glasses.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/pager\" target=\"_blank\">Horizontal pagers in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/pager.md",
+        "summary": "Introduces documentation for `GlimmerHorizontalPager`, a Jetpack Compose Glimmer component designed for horizontally scrollable layouts on display glasses with built-in snap animations, automatic page indicators, and text motion recommendations.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/preview\" target=\"_blank\">Preview your Jetpack Compose Glimmer UI with composable previews</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/preview.md",
+        "summary": "This new documentation explains how to use Android Studio composable previews to design and test Jetpack Compose Glimmer UI components for XR display glasses. It matters because it enables developers to quickly iterate on UI layouts and simulate additive display conditions without repeatedly deploying to a device.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/shapes\" target=\"_blank\">Shapes in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/shapes.md",
+        "summary": "This new documentation page introduces the shape system in Jetpack Compose Glimmer, explaining how to use and customize small, medium, and large shapes for XR surfaces and components.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/surfaces\" target=\"_blank\">Surfaces in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/surfaces.md",
+        "summary": "Added new documentation introducing the Jetpack Compose Glimmer `surface` component for XR development, detailing its core visual properties, interaction states, and implementation patterns for focusable and clickable elements.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/text\" target=\"_blank\">Text in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/text.md",
+        "summary": "This new documentation page introduces the Text component in Jetpack Compose Glimmer for XR devices, detailing its smart color-matching capabilities, typography scaling, and usage of the Google Sans Flex variable font.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/title-chips\" target=\"_blank\">Title chips in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/title-chips.md",
+        "summary": "This new documentation page introduces the TitleChip component for Jetpack Compose Glimmer, explaining how to use it to provide non-interactive context or labeling above components like cards and vertical lists.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/toggle-buttons\" target=\"_blank\">Toggle buttons in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/toggle-buttons.md",
+        "summary": "Added documentation for the ToggleButton component in Jetpack Compose Glimmer, detailing its anatomy, size variants, state animations, and usage examples for XR display glasses.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/vertical-stacks\" target=\"_blank\">Vertical stacks in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/vertical-stacks.md",
+        "summary": "This new documentation introduces the VerticalStack component in Jetpack Compose Glimmer, detailing its 3D overlapping layout, specialized scrolling behaviors, and focus management for XR devices.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/voice-input-indicator\" target=\"_blank\">Voice input indicator in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/voice-input-indicator.md",
+        "summary": "Added documentation for the VoiceInputIndicator Jetpack Compose Glimmer component, detailing how to capture and normalize microphone input to provide visual audio feedback in XR applications.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/whats-included\" target=\"_blank\">What's included in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/whats-included.md",
+        "summary": "Introduces Jetpack Compose Glimmer, a UI library built on Jetpack Compose specifically tailored for building native user interfaces and experiences for AI glasses with displays.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/glasses\" target=\"_blank\">Create virtual devices for audio and display glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/run/create-avds/glasses.md",
+        "summary": "Updated the documentation for creating a phone AVD host device for glasses by specifying the exact API level (`canary-20261007`) for the API CANARY Preview, ensuring developers select the correct target version required for compatibility.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_glasses.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses\" target=\"_blank\">Create virtual devices for XR headsets and XR glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses.md",
+        "summary": "Updated the Android XR Emulator system requirements note to explicitly clarify that the emulator does not support apps built with game engines like Unity, Godot, and Unreal Engine, in addition to the previously mentioned OpenXR apps. This helps developers better understand the tool's limitations before starting AVD creation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_xr-headsets-glasses.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/glasses\" target=\"_blank\">Run your app's augmented experiences on the emulator</a>",
+        "path": "develop/xr/jetpack-xr-sdk/run/emulator/glasses.md",
+        "summary": "The documentation was updated to include support for 360-degree panoramic photo environments, detailing how to use equirectangular JPG or PNG images and navigate them using the Shift key and mouse or arrow keys. Additionally, a new section was added explaining how to enable and disable the display snooze timeout using ADB commands to test power consumption and real-world battery behavior on display glasses.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_glasses.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/subspace-follow-target\" target=\"_blank\">Add a subspace that follows a target</a>",
+        "path": "develop/xr/jetpack-xr-sdk/subspace-follow-target.md",
+        "summary": "This new documentation explains how to use the experimental FollowTarget API in Jetpack XR SDK to create dynamic subspaces that either follow the user's head movements (like HUDs) or attach to real-world environmental anchors.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/subspace-modifiers\" target=\"_blank\">Understand subspace modifiers</a>",
+        "path": "develop/xr/jetpack-xr-sdk/subspace-modifiers.md",
+        "summary": "The subspace-modifiers documentation was updated to introduce the experimental `MovePolicy.anchor()` API, explaining how developers can allow users to snap and anchor movable elements (such as spatial panels and models) to detected real-world surfaces. The update details usage parameters like orientation and semantics, outlines necessary session configurations and permissions, and clarifies the behavior of updated move policies.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_subspace-modifiers.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/transition-home-space-to-full-space\" target=\"_blank\">Transition from Home Space to Full Space</a>",
+        "path": "develop/xr/jetpack-xr-sdk/transition-home-space-to-full-space.md",
+        "summary": "Removed a reference to the 'Learn Android XR Fundamentals: Part 1' codelab from the transition documentation, leaving only the link to the design guidance. This streamlines the learning resources and points developers directly to foundational design principles for space transitions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_transition-home-space-to-full-space.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/tts\" target=\"_blank\">Handle audio output for audio glasses and display glasses using Text to Speech</a>",
+        "path": "develop/xr/jetpack-xr-sdk/tts.md",
+        "summary": "Added a promotional callout and link to the ML Kit GenAI Text-to-Speech API documentation. This matters because it informs developers building XR applications that they can optionally leverage generative AI models for more natural-sounding speech audio compared to the standard Android TTS implementation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_tts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose\" target=\"_blank\">Create spatial layouts</a>",
+        "path": "develop/xr/jetpack-xr-sdk/ui-compose.md",
+        "summary": "The Jetpack Compose for XR UI documentation has been refactored into a hub page. The detailed implementation guides, code snippets, and tutorials for spatial components like panels, orbiters, and layouts have been removed from this file and organized into separate dedicated developer guides.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_ui-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr\" target=\"_blank\">Develop with OpenXR</a>",
+        "path": "develop/xr/openxr.md",
+        "summary": "The OpenXR documentation has been updated to reflect expanded XR capabilities on Android. Key additions include new framework features like Spatial Containers, Geospatial anchors, global passthrough dimming, viewport feathering, body tracking, and image/marker tracking, alongside expanded details for existing features such as scene meshing, light estimation, and face tracking. Furthermore, new sections were added for Unreal Engine and Godot engine support, detailing how developers can build Android XR apps using these engines via OpenXR.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_openxr.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions\" target=\"_blank\">Build with supported OpenXR extensions</a>",
+        "path": "develop/xr/openxr/extensions.md",
+        "summary": "Added four new Android XR OpenXR extensions (`XR_ANDROID_geospatial`, `XR_ANDROID_geospatial_anchor`, `XR_ANDROID_global_passthrough_dimming`, and `XR_ANDROID_google_cloud_auth`) targeting Spatial API version v4, introduced necessary runtime permissions for existing extensions like anchor sharing and scene meshing, and updated documentation formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_extensions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_geospatial\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_ANDROID_geospatial.md",
+        "summary": "Added new OpenXR error codes (`XR_ERROR_RUNTIME_FAILURE` to `xrDestroyGeospatialTrackerANDROID`, and both `XR_ERROR_POSE_INVALID` and `XR_ERROR_RUNTIME_FAILURE` to `xrLocateGeospatialPoseANDROID`) to improve error handling and robustness for Android Geospatial tracking.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_XR_ANDROID_geospatial.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_geospatial_anchor\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_ANDROID_geospatial_anchor.md",
+        "summary": "Added `XR_ERROR_POSE_INVALID` to the list of possible error returns for both `XrGeospatialTrackerANDROID` and `xrCreateSurfaceAnchorAsyncANDROID` functions. This matters because it provides developers with explicit error handling when an invalid pose is supplied during geospatial tracking or surface anchor creation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_XR_ANDROID_geospatial_anchor.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_global_passthrough_dimming\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_ANDROID_global_passthrough_dimming.md",
+        "summary": "This new OpenXR extension introduces global passthrough dimming capabilities for optical see-through Android XR devices, allowing apps to adjust passthrough darkness while enabling the system to override dimming for safety.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_scene_meshing\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_ANDROID_scene_meshing.md",
+        "summary": "Added `XR_SCENE_MESH_SEMANTIC_LABEL_SET_DEFAULT2_ANDROID` to the `XrSceneMeshSemanticLabelSetANDROID` enum to support the new `XR_ANDROID_scene_meshing_semantic_label2` extension. This matters because it enables developers to utilize expanded semantic labeling capabilities for scene meshes on Android.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_XR_ANDROID_scene_meshing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_spatial_annotation_tracking\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_ANDROID_spatial_annotation_tracking.md",
+        "summary": "Added the XR_SPATIAL_ANNOTATION_QUAD_ALIGNMENT_SURFACE_ANDROID enum value and its corresponding documentation to the XrSpatialAnnotationQuadAlignmentANDROID type. This addition allows developers to align spatial annotation quads coplanar with the surface of underlying objects, improving the integration of AR content with physical geometry.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_XR_ANDROID_spatial_annotation_tracking.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_spatial_discovery_bounds\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_ANDROID_spatial_discovery_bounds.md",
+        "summary": "This new OpenXR extension introduces spatial bounds definitions (spheres, boxes, and frustums) that applications can use to filter and restrict the discovery of spatial entities.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_spatial_discovery_raycast\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_ANDROID_spatial_discovery_raycast.md",
+        "summary": "Updated the OpenXR `XR_ANDROID_spatial_discovery_raycast` extension documentation to include internal anchor links for API structures, added Valid Usage Identifier (VUID) links to implicit valid usage lists, expanded the list of contributors, and removed the developer preview banner.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_XR_ANDROID_spatial_discovery_raycast.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_viewport_feathering\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_ANDROID_viewport_feathering.md",
+        "summary": "Introduces the XR_ANDROID_viewport_feathering OpenXR extension, which allows apps to query runtime-applied edge feathering insets on devices with small fields of view to improve visual comfort and UI layout.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_EXT_spatial_container.md",
+        "summary": "Introduces spatial containers to OpenXR, allowing apps to run in 3D window-like entities so users can interact with multiple simultaneous experiences in mixed reality.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_container_self_rendering\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_EXT_spatial_container_self_rendering.md",
+        "summary": "This document introduces the `XR_EXT_spatial_container_self_rendering` OpenXR extension, which enables applications to self-render pixels for spatial containers using standard swapchains and composition layers. It defines the rendering lifecycle, state management functions, and view configuration recommendations for efficient spatial container rendering.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_entity\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_EXT_spatial_entity.md",
+        "summary": "Updated the OpenXR spatial entity documentation to include new spatial component types (`XR_SPATIAL_COMPONENT_TYPE_GEOMETRY_POINT_ANDROID` and `XR_SPATIAL_COMPONENT_TYPE_PERSISTENCE_SCOPES_ANDROIDX1`), added corresponding error handling and configuration parameters for spatial annotation tracking, and included new context filter references for persistence structures.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_XR_EXT_spatial_entity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_entity_archetypes\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_EXT_spatial_entity_archetypes.md",
+        "summary": "Added documentation for the new `XR_EXT_spatial_entity_archetypes` OpenXR extension, which introduces spatial entity archetypes to simplify querying component data by unique component combinations.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_image_tracking\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_EXT_spatial_image_tracking.md",
+        "summary": "Added documentation for the new XR_EXT_spatial_image_tracking OpenXR extension, which enables applications to detect and track specific planar images as spatial entities in augmented and virtual reality environments.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_mesh_tracking\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_EXT_spatial_mesh_tracking.md",
+        "summary": "Added documentation for the new `XR_EXT_spatial_mesh_tracking` OpenXR extension, which defines capabilities for tracking environment triangle meshes to support virtual content collision and optional watertight mesh generation.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_object_tracking\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_EXT_spatial_object_tracking.md",
+        "summary": "This new OpenXR documentation introduces the `XR_EXT_spatial_object_tracking` extension, enabling applications to track predefined physical objects and their semantic labels in a 3D space without requiring prior input datasets.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_persistence\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_EXT_spatial_persistence.md",
+        "summary": "Added support for cloud-shared spatial anchors by introducing the `XR_SPATIAL_PERSISTENCE_SCOPE_ANCHORS_FOR_CLOUD_SHARING_ANDROIDX1` scope and new context result error codes (`LOCALIZATION_FAILURE`, `MAP_FEATURE_INSUFFICIENT`, `NETWORK_FAILURE`, and `NETWORK_TIMEOUT`) under the `XR_ANDROIDX1_spatial_anchor_cloud_sharing` extension. This matters because it enables developers to handle cloud-based spatial anchor persistence and troubleshoot cloud sharing, localization, and network-related failures more effectively.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_XR_EXT_spatial_persistence.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/extensions/XR_EXT_spatial_plane_tracking\" target=\"_blank\">Android XR for OpenXR</a>",
+        "path": "develop/xr/openxr/extensions/XR_EXT_spatial_plane_tracking.md",
+        "summary": "The changes update the OpenXR spatial plane tracking extension documentation by standardizing internal anchor links with absolute URLs, refining the list formatting for structure member descriptions and implicit valid usage, and updating the contributor list. These improvements ensure better navigation and compliance with the documentation format.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_XR_EXT_spatial_plane_tracking.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/get-started\" target=\"_blank\">Get started with OpenXR for Android XR</a>",
+        "path": "develop/xr/openxr/get-started.md",
+        "summary": "Updated the OpenXR get-started guide to include comprehensive instructions on configuring spatial container properties, declaring new hardware features like face tracking and precise GPS, and mapping dangerous permissions to specific OpenXR extensions to ensure proper Android XR app compliance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/openxr/spatial-containers\" target=\"_blank\">Build with Spatial Containers</a>",
+        "path": "develop/xr/openxr/spatial-containers.md",
+        "summary": "Introduces documentation for Spatial Containers in Android XR, detailing how to use OpenXR extensions to render 3D content within bounded volumetric windows or full-screen immersive modes.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/permissions\" target=\"_blank\">Understand permissions for XR</a>",
+        "path": "develop/xr/permissions.md",
+        "summary": "The XR permissions documentation has been updated to include new permissions, such as `android.permission.RECORD_AUDIO`, `android.permission.BODY_TRACKING`, and `android.permission.ACCESS_FINE_LOCATION`, along with expanded definitions for existing permissions like `EYE_TRACKING_FINE`, `SCENE_UNDERSTANDING_COARSE`, and `SCENE_UNDERSTANDING_FINE`. Additionally, numerous new OpenXR extensions and Unity features have been added across these categories to support advanced tracking, rendering, and spatial features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_permissions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/tools-technologies\" target=\"_blank\">Select your development tools and technologies</a>",
+        "path": "develop/xr/tools-technologies.md",
+        "summary": "This update cleans up document metadata by switching the source format, removing outdated Developer Preview 4 banner announcements, and fixing relative links to use absolute URLs. Additionally, terminology for glasses was slightly updated under the Jetpack XR SDK section (changing 'AI glasses' to 'audio and display glasses').",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_tools-technologies.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/unity\" target=\"_blank\">Develop with Unity for Android XR</a>",
+        "path": "develop/xr/unity.md",
+        "summary": "Updated the Unity XR documentation table to include new features like Bounding Box Detection, Shareable Anchors, and Spatial Container, while also expanding the description of Geospatial (VPS) capabilities to include plane tracking configuration for surface and geospatial anchors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_unity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/unity/reference\" target=\"_blank\">Android XR Extensions for Unity</a>",
+        "path": "develop/xr/unity/reference.md",
+        "summary": "Added reference documentation for new Android XR Extensions for Unity, including shareable anchor management classes, spatial bounding box and spatial container features, and XR input action mapping. These additions expand the available APIs for building immersive spatial experiences and handling cross-device anchors and spatial features in Unity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_reference.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/unity/spatial-containers\" target=\"_blank\">Use Spatial Containers in Unity</a>",
+        "path": "develop/xr/unity/spatial-containers.md",
+        "summary": "Added documentation for Spatial Containers in Unity for Android XR, explaining how to configure managed Full Space Mode, set up project requirements, and handle runtime states and bounds.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/unreal\" target=\"_blank\">Develop with Unreal Engine for Android XR</a>",
+        "path": "develop/xr/unreal.md",
+        "summary": "Updated the Unreal documentation for Android XR Extensions (v1.1.0) to include support for Unreal Engine 5.6.x and 5.8.x. The update adds references to the new API reference documentation, expands the feature and OpenXR extension mapping table with links to specific C++/Blueprint classes and version numbers, introduces new capabilities such as light estimation cubemaps and viewport feathering, and provides guidance on choosing between legacy anchor persistence and the newer Spatial Entities architecture.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_unreal.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/unreal/direct-preview\" target=\"_blank\">Set up Direct Preview for Unreal Engine</a>",
+        "path": "develop/xr/unreal/direct-preview.md",
+        "summary": "Updated the supported Unreal Engine version requirement from Unreal Engine 5.6.1 or higher to specifically Unreal Engine 5.6.x or 5.8.x. This clarifies the exact engine versions compatible with direct preview for Android XR development.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_direct-preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/unreal/reference\" target=\"_blank\">Android XR Unreal Reference</a>",
+        "path": "develop/xr/unreal/reference.md",
+        "summary": "Expanded the Android XR Unreal Extensions API reference documentation by adding numerous new structs, classes, and Blueprint function libraries. These additions cover extended functionalities such as light estimation, anchor persistence, eye and face tracking, global dimming, passthrough mesh support, spatial raycasting, and performance metrics, providing developers with comprehensive tools for building immersive XR experiences.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_reference.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/unreal/xr-extensions-quickstart\" target=\"_blank\">Android XR Extensions for Unreal Engine quickstart</a>",
+        "path": "develop/xr/unreal/xr-extensions-quickstart.md",
+        "summary": "Added a new 'Next steps' section to the Android XR Extensions quickstart guide for Unreal Engine. This update provides developers with direct links to the API reference, supported OpenXR extensions, and Direct Preview setup instructions to help them immediately transition from setup to building and testing their applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_xr-extensions-quickstart.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/developer-verification/guides/limited-distribution\" target=\"_blank\">Register for limited distribution on Android devices</a>",
+        "path": "developer-verification/guides/limited-distribution.md",
+        "summary": "The limited-distribution guide was updated to increase the maximum number of authorized end-user devices for app sharing from 20 to 50. This change matters for developers as it expands testing and distribution limits under a limited distribution account.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_limited-distribution.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/archive/adaptive/large-screen-app-quality\" target=\"_blank\">Large screen app quality</a>",
+        "path": "docs/quality-guidelines/archive/adaptive/large-screen-app-quality.md",
+        "summary": "This update converts internal documentation links and image sources from relative paths to absolute URLs pointing to the official Android developer website. These adjustments ensure that references resolve correctly when rendered outside of the standard site structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_large-screen-app-quality.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/events/dev-summit\" target=\"_blank\">Android Dev Summit</a>",
+        "path": "events/dev-summit.md",
+        "summary": "Updated the Android Dev Summit documentation to reflect that the live keynote has concluded. The page now directs developers to watch the keynote replay, points to upcoming on-demand sessions launching on November 2, and updates the YouTube video link accordingly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_dev-summit.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/optimize/adpf/best-practices-adpf\" target=\"_blank\">Best practices for ADPF</a>",
+        "path": "games/optimize/adpf/best-practices-adpf.md",
+        "summary": "Cleaned up the documentation source by removing scraping artifacts, fixing breadcrumbs/headers, and normalizing internal links to absolute URLs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_best-practices-adpf.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/integrate-achievements\" target=\"_blank\">Integrate the achievements</a>",
+        "path": "games/pgs/integrate-achievements.md",
+        "summary": "This update cleans up and formats the achievement integration documentation for Google Play Games Services, converting internal paths to absolute URLs, refining Markdown syntax for tables and callouts, and removing trailing incomplete sentences.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_integrate-achievements.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/overview\" target=\"_blank\">Android game development</a>",
+        "path": "games/pgs/overview.md",
+        "summary": "The Google Play Games Services overview documentation was updated to clean up scraping artifacts, remove site navigation breadcrumbs, convert relative links to absolute URLs, and slightly adjust markdown formatting for lists and dashes. These changes improve the raw source quality and consistency of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/recall\" target=\"_blank\">Recall API</a>",
+        "path": "games/pgs/recall.md",
+        "summary": "Updated documentation links in the Recall API guide to use absolute URLs instead of relative paths, and adjusted markdown formatting for consistency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_recall.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/unity/features\" target=\"_blank\">Features</a>",
+        "path": "games/playgames/native-pc/unity/features.md",
+        "summary": "The documentation update for the Google Play Games PC SDK for Unity includes metadata adjustments and improves the code snippet by explicitly specifying the language as C# rather than leaving it generic. These changes matter as they improve document parsing accuracy and enhance readability for developers reviewing the initialization logic.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/components/activities/tasks-and-back-stack\" target=\"_blank\">Tasks and the back stack</a>",
+        "path": "guide/components/activities/tasks-and-back-stack.md",
+        "summary": "Updated documentation links in the tasks and back stack guide to absolute URLs, adjusted markdown formatting for notes and warnings using blockquotes, and cleaned up metadata source properties.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_tasks-and-back-stack.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/migrate\" target=\"_blank\">Migrate to the Navigation component</a>",
+        "path": "guide/navigation/migrate.md",
+        "summary": "Updated documentation formatting to use standard Markdown blockquotes for notes and warnings, corrected internal links to absolute URLs, and added explicit language identifiers to code blocks for better readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_migrate.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/naventrydecorators\" target=\"_blank\">Apply logic or wrappers to destinations</a>",
+        "path": "guide/navigation/navigation-3/naventrydecorators.md",
+        "summary": "Updated links throughout the Navigation 3 NavEntryDecorator documentation from relative paths to absolute URLs (developer.android.com), improved Markdown formatting for code blocks and lists, and removed scraping metadata artifacts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_naventrydecorators.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-custom-back\" target=\"_blank\">Provide custom back navigation</a>",
+        "path": "guide/navigation/navigation-custom-back.md",
+        "summary": "Updated documentation links from relative paths to absolute URLs, modernized code block language identifiers for Kotlin and Java, and standardized note callouts and list formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_navigation-custom-back.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/large-screens/multitasking-and-multi-instance\" target=\"_blank\">Multitasking and multi-instance</a>",
+        "path": "guide/topics/large-screens/multitasking-and-multi-instance.md",
+        "summary": "The documentation for multitasking and multi-instance features on large screens was updated to fix broken relative links, correct markdown formatting and image paths, and align quality guideline references with the latest developer documentation structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_multitasking-and-multi-instance.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/providers/content-provider-basics\" target=\"_blank\">Content provider basics</a>",
+        "path": "guide/topics/providers/content-provider-basics.md",
+        "summary": "This change updates the documentation file format and adds fully qualified reference links to Android framework classes and methods (such as ContentResolver, ContentProvider, and Cursor). It also includes minor markdown syntax corrections and code block language annotations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_content-provider-basics.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/ui/accessibility/apps\" target=\"_blank\">Make apps more accessible</a>",
+        "path": "guide/topics/ui/accessibility/apps.md",
+        "summary": "The accessibility documentation for Android apps was updated to convert relative links to absolute URLs, format code blocks with explicit Kotlin syntax highlighting, and standardize Markdown elements like callouts, lists, and em-dashes. These improvements ensure better rendering and maintainability of the technical guides.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_apps.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/delete-data\" target=\"_blank\">Delete data</a>",
+        "path": "health-and-fitness/health-connect/delete-data.md",
+        "summary": "The documentation updates include cleaning up HTML scrape artifacts, fixing internal links to use absolute paths, specifying syntax highlighting for Kotlin code blocks, and removing deprecated migration notices and navigation breadcrumbs. These changes improve the overall readability, accuracy, and formatting consistency of the Health Connect delete data guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_delete-data.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/migration/android-13-to-14\" target=\"_blank\">Migrate Health Connect from Android 13 (APK) to Android 14 (framework)</a>",
+        "path": "health-and-fitness/health-connect/migration/android-13-to-14.md",
+        "summary": "The changes in the Android 13 to Android 14 Health Connect migration guide primarily consist of formatting, markdown link normalization, and removal of breadcrumbs/metadata artifacts. No substantive functional changes or technical guidance updates were made to the migration process itself.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_android-13-to-14.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/write-data\" target=\"_blank\">Write data</a>",
+        "path": "health-and-fitness/health-connect/write-data.md",
+        "summary": "Updated the Health Connect write-data documentation by adding explicit Kotlin syntax highlighting to code blocks, updating relative documentation links to absolute URLs, removing file name tags from code block endings, and incorporating compatibility details and formatting adjustments.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_write-data.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/credential-manager\" target=\"_blank\">About Credential Manager</a>",
+        "path": "identity/credential-manager.md",
+        "summary": "Updated internal document links from relative paths to absolute URLs and adjusted markdown list/formatting syntax. These changes ensure correct link resolution when rendering documentation outside of the primary site context and standardize the markdown styling.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_credential-manager.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials/credential-holder/about-storing-digital-credentials\" target=\"_blank\">About storing digital credentials</a>",
+        "path": "identity/digital-credentials/credential-holder/about-storing-digital-credentials.md",
+        "summary": "Updated the hyperlink for OpenID4VP requests to point to the new 'request-credential#add-dependencies' documentation page. This ensures developers are directed to the correct and current guide for constructing digital credential requests.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_about-storing-digital-credentials.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials/email-verification\" target=\"_blank\">About email verification</a>",
+        "path": "identity/digital-credentials/email-verification.md",
+        "summary": "Updated the email verification documentation to refresh image assets, correct broken link paths for verifiable credentials and phone number verification, and restructure the steps for the user experience flow and associated note callouts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_email-verification.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack\" target=\"_blank\">Android Jetpack Dev Resources - Android Developers</a>",
+        "path": "jetpack.md",
+        "summary": "Added new Jetpack library entries for `appstate.statestore` and `appstate.transform` to the Android Jetpack documentation, expanding the tracked libraries list to include new app state management components.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_jetpack.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/explorer\" target=\"_blank\">Explore the Jetpack libraries by type</a>",
+        "path": "jetpack/androidx/explorer.md",
+        "summary": "The AndroidX explorer documentation was updated to include two new library groups: appstate.statestore and appstate.transform. This addition allows developers to discover and utilize the newly introduced state management APIs within the Jetpack ecosystem.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_explorer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/appstate-statestore\" target=\"_blank\">Appstate Statestore</a>",
+        "path": "jetpack/androidx/releases/appstate-statestore.md",
+        "summary": "Added documentation for the initial 1.0.0-alpha01 release of the AppState StateStore library, which introduces Compose runtime-based state hoisting and persistence integrations across multiple platforms.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/appstate-transform\" target=\"_blank\">Appstate Transform</a>",
+        "path": "jetpack/androidx/releases/appstate-transform.md",
+        "summary": "Added documentation for the initial 1.0.0-alpha01 release of AppState Transform, a new multiplatform library leveraging the Compose runtime to run compositions outside the UI hierarchy.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/datastore\" target=\"_blank\">DataStore</a>",
+        "path": "jetpack/androidx/releases/datastore.md",
+        "summary": "Updated the Jetpack DataStore release notes documentation to include the stable version 1.3.0 release details. Key additions include new KMP web storage options (sessionStorage, localStorage, and OPFS storage), the `datastore-tink` artifact for encryption support via Tink, tracing support on Android, the modern `DataStore.Builder` API using structured concurrency, and performance improvements via baseline profiles.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_datastore.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions\" target=\"_blank\">AndroidX releases</a>",
+        "path": "jetpack/androidx/versions.md",
+        "summary": "Added initial alpha releases (version 1.0.0-alpha01) for the new appstate libraries (`appstate.statestore` and `appstate.transform`) and updated the documentation timestamp to October 28, 2026. This matters for developers looking to test early state management components in Jetpack.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_versions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/all-channel\" target=\"_blank\">Recent Release Notes</a>",
+        "path": "jetpack/androidx/versions/all-channel.md",
+        "summary": "Added release notes for October 28, 2026, introducing initial alpha versions for the Appstate Statestore (1.0.0-alpha01) and Appstate Transform (1.0.0-alpha01) libraries, expanding the available Jetpack app state management tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_all-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/alpha-channel\" target=\"_blank\">Alpha Releases</a>",
+        "path": "jetpack/androidx/versions/alpha-channel.md",
+        "summary": "Added release entries for Appstate Statestore version 1.0.0-alpha01 and Appstate Transform version 1.0.0-alpha01 under a new October 28, 2026 section. This documentation update informs developers of the initial alpha releases for these new Jetpack appstate libraries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_alpha-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin\" target=\"_blank\">Kotlin and Android</a>",
+        "path": "kotlin.md",
+        "summary": "The changes in the kotlin.md documentation primarily consist of formatting adjustments, Markdown cleanup, and link structure modifications. These updates are trivial and do not introduce any meaningful changes to the technical content, guides, or API references for Android development.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_kotlin.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/coroutines\" target=\"_blank\">Kotlin coroutines on Android</a>",
+        "path": "kotlin/coroutines.md",
+        "summary": "Updated the coroutines documentation by converting relative internal links to absolute URLs, refining Markdown list styling and code block language tags (e.g., adding `kotlin` and `groovy`), and updating note blocks to use the standard callout format.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_coroutines.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera2/capture-sessions-requests\" target=\"_blank\">Camera capture sessions and requests</a>",
+        "path": "media/camera/camera2/capture-sessions-requests.md",
+        "summary": "Updated documentation links to use absolute URLs and added explicit language identifiers (kotlin and java) to code blocks. These improvements ensure the documentation links function correctly in all rendering contexts and improve code block syntax highlighting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_capture-sessions-requests.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/legacy/mediasession\" target=\"_blank\">Using a media session</a>",
+        "path": "media/legacy/mediasession.md",
+        "summary": "Updated links and references in the legacy media session documentation to use absolute URLs, replaced shorthand code blocks with explicit language identifiers (kotlin/java), and converted notes to standard blockquote formatting to improve overall readability and documentation tooling compliance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_mediasession.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/playlists\" target=\"_blank\">Playlists</a>",
+        "path": "media/media3/exoplayer/playlists.md",
+        "summary": "The playlists documentation was significantly expanded to include new guides and code snippets for Kotlin and Java. Key additions cover identifying playlist items using media IDs, associating custom app data with media items via tags, detecting playback transitions between items using `onMediaItemTransition`, and tracking playlist structure changes with `onTimelineChanged`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_playlists.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play\" target=\"_blank\">Manage and play content</a>",
+        "path": "media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md",
+        "summary": "Fixed broken API reference links for batch addition and removal methods (`addMediaItems`, `addMediaSources`, `removeMediaItems`, and `removeMediaSources`) in the ExoPlayer preloading documentation. This ensures developers can correctly navigate to the official API reference for `BasePreloadManager` methods.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_manage-play.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ndk/guides/pgo\" target=\"_blank\">Profile-guided Optimization</a>",
+        "path": "ndk/guides/pgo.md",
+        "summary": "The changes in the pgo.md documentation are primarily trivial, consisting of markdown formatting updates such as removing HTML scrape headers, adjusting list formatting, and changing em-dashes. No substantial technical content or guidance was modified.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_pgo.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/registered-app-stores/faq\" target=\"_blank\">Frequently asked questions</a>",
+        "path": "registered-app-stores/faq.md",
+        "summary": "The FAQ documentation for Registered App Stores was updated to significantly expand the list of supported regions, adding numerous European and international countries. This update matters for developers and app store operators looking to understand the geographical availability of the program as it rolls out.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_faq.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/registered-app-stores/subscribe-to-registration-changes\" target=\"_blank\">Subscribe to app registration status changes in your catalog with the Android Developer ID API</a>",
+        "path": "registered-app-stores/subscribe-to-registration-changes.md",
+        "summary": "This new documentation details the Android Developer ID API, allowing Registered App Stores to verify if Android apps come from verified developers and manage installation eligibility. It outlines prerequisites, Google Cloud configuration, authentication, and REST endpoints for app attention sets and package certificates.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/social-and-messaging/guides/communication/basic-better-best\" target=\"_blank\">Take your messaging to the next level — basic, better, and best</a>",
+        "path": "social-and-messaging/guides/communication/basic-better-best.md",
+        "summary": "Updated internal links across the basic-better-best messaging documentation from relative paths to absolute URLs (developer.android.com), removed breadcrumb and header artifacts from HTML scraping, and cleaned up Markdown formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_basic-better-best.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio\" target=\"_blank\">Download Android Studio</a>",
+        "path": "studio.md",
+        "summary": "Updated the Android Studio documentation to reflect a new release version (Rabbit 2 | 2026.2.2), refreshed package download links, updated checksums and file sizes, and rebranded the AI assistant feature references from specific Gemini branding to more general AI agent terminology.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/generate-unit-tests\" target=\"_blank\">Generate unit tests with Gemini</a>",
+        "path": "studio/gemini/generate-unit-tests.md",
+        "summary": "Updated the 'Generate unit tests with Gemini' documentation to reflect Android Studio feature requirements (introducing version prerequisites for Android Studio Panda 4 | 2025.3.4 Canary 3 or higher), refine terminology by switching references from generic 'agent' to 'Gemini', and update UI paths and markdown formatting for consistency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_generate-unit-tests.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "Updated the Android Studio nightly build documentation to reference the latest 2026-10-29 build (version 2026.2.3.3) across all platforms including Windows, macOS (Apple and Intel chips), and Linux. This update ensures developers download the most recent nightly build containing the latest fixes and improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview\" target=\"_blank\">Android Studio Preview</a>",
+        "path": "studio/preview.md",
+        "summary": "Updated the Android Studio preview documentation to point to Android Studio Rabbit 3 | 2026.2.3 Canary 2. This includes updating version numbers, file names, and download URLs across Windows, macOS, and Linux platforms.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/backup-restore-testing-release-notes\" target=\"_blank\">Backup and restore testing release notes</a>",
+        "path": "studio/preview/backup-restore-testing-release-notes.md",
+        "summary": "The backup and restore testing release notes documentation was updated primarily to clean up formatting, converting breadcrumb navigation and HTML artifacts into standard Markdown, updating the page title to match the URL schema, and normalizing link paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_backup-restore-testing-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/analyze-performance-bottlenecks\" target=\"_blank\">Analyze performance bottlenecks</a>",
+        "path": "studio/prompt-gallery/prompts/analyze-performance-bottlenecks.md",
+        "summary": "The documentation for the 'Analyze performance bottlenecks' prompt in the Android Studio prompt gallery was updated to change the source format from an HTML scrape to a markdown file, update the page title metadata, and clean up the layout and formatting of the prompt text and usage instructions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_analyze-performance-bottlenecks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/publish/app-signing\" target=\"_blank\">Sign your app</a>",
+        "path": "studio/publish/app-signing.md",
+        "summary": "Updated documentation links from relative paths to absolute URLs and reformatted callouts to use Markdown alert syntax (e.g., `[!NOTE]`, `[!TIP]`, `[!IMPORTANT]`).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_app-signing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/publish/insights\" target=\"_blank\">Play Policy Insights in Android Studio</a>",
+        "path": "studio/publish/insights.md",
+        "summary": "Updated the minimum supported version for Play Policy Insights from Panda 1 to Panda 2 in the Android Studio documentation, ensuring developers are aware of the correct version requirement to access policy insights.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_insights.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/emulator/37\" target=\"_blank\">Android Emulator 37 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/emulator/37.md",
+        "summary": "Added release notes for Android Emulator 37.3.6 Canary, which includes important fixes for Windows-related issues such as incorrect default time zones, power-throttling on Intel hybrid CPUs, SD card support on arm64, timezone resets on cold boot, and hanging on Windows with non-ASCII paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_37.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.2\" target=\"_blank\">Android Studio Rabbit 2 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/studio/2026.2.2.md",
+        "summary": "Added release notes for Android Studio Rabbit 2 (2026.2.2), noting its release alongside Android Gradle Plugin 9.5.0 and its inclusion of minor fixes and improvements. This helps developers track the stable release details and companion plugin versions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_2026.2.2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.3\" target=\"_blank\">Android Studio Rabbit 3 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/studio/2026.2.3.md",
+        "summary": "Added release notes for Android Studio Rabbit 3 | 2026.2.3 Canary 2, released alongside Android Gradle Plugin 9.6.0-alpha02. This update documents fixes for several tracked issues, including an unsafe system property read for R8 tasks in the Android Gradle Plugin, a mouse scrolling bug in the Gemini agent margin, and an issue where Split Mode was not properly saved with the file in Layout and Resource Editing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_2026.2.3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-rabbit-1-release-notes\" target=\"_blank\">Android Studio Rabbit 1 (October 2026)</a>",
+        "path": "studio/releases/past-releases/as-rabbit-1-release-notes.md",
+        "summary": "This new documentation page introduces the release notes for Android Studio Rabbit 1, highlighting its integration into the Gemini Enterprise bundle with advanced security, data residency, and enterprise governance features.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/services\" target=\"_blank\">Service integrations in Android Studio</a>",
+        "path": "studio/services.md",
+        "summary": "Updated the minimum supported version for Android Studio cloud service integrations from Panda 1 to Panda 2. This matters because it informs developers of the updated version requirements for accessing features like Firebase and Gemini integrations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_services.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/journeys\" target=\"_blank\">Android CLI support for Journeys</a>",
+        "path": "tools/agents/android-cli/journeys.md",
+        "summary": "Removed the initial video demonstration and cleaned up minor formatting and text around writing and running journeys in the Android CLI documentation. This matters because it streamlines the introductory content and fixes image placement issues.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_journeys.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-skills/browse\" target=\"_blank\">Browse Android skills</a>",
+        "path": "tools/agents/android-skills/browse.md",
+        "summary": "Added multiple new documentation links and updated existing skill entries in the browse documentation. The additions cover new agent skills across various domains, including Android Auto parked apps, security auditing (permissions and ANRs), Jetpack Compose performance and Glance state management, on-device AI integration via LiteRT and ML Kit Agent APIs, Wear OS widgets, and Android XR hardware access.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_browse.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/lightbuild\" target=\"_blank\">Overview of Lightbuild</a>",
+        "path": "tools/agents/lightbuild.md",
+        "summary": "Updated the Lightbuild documentation to reflect its current experimental status, YAML-based configuration structure (including project.lightbuild.yaml, lightbuild.yaml, and resolved.deps), Android Studio Canary and CLI tool integrations, and detailed usage guidelines for developers and AI agents.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_lightbuild.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/lightbuild/cli-reference\" target=\"_blank\">Lightbuild CLI reference</a>",
+        "path": "tools/agents/lightbuild/cli-reference.md",
+        "summary": "Updated the Lightbuild CLI documentation (`cli-reference.md`) to provide a comprehensive guide on available commands, global options, syntax, and specific actions such as `build`, `clean`, `help`, `query`, and `resolve`. It also includes an experimental warning regarding the Lightbuild preview tool.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_cli-reference.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/lightbuild/commands\" target=\"_blank\">Build Lightbuild projects from the command line</a>",
+        "path": "tools/agents/lightbuild/commands.md",
+        "summary": "Added documentation for the experimental Lightbuild CLI tool, detailing installation steps, build targets, testing procedures, and dependency resolution for AI agents and developers.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/lightbuild/publish\" target=\"_blank\">Publish your Lightbuild app</a>",
+        "path": "tools/agents/lightbuild/publish.md",
+        "summary": "Replaced placeholder boilerplate documentation with a complete guide on how to configure release signing, set environment variables for security, build a signed Android App Bundle (AAB), and publish apps using the Lightbuild CLI.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_publish.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/lightbuild/release-notes\" target=\"_blank\">Lightbuild release notes</a>",
+        "path": "tools/agents/lightbuild/release-notes.md",
+        "summary": "This update introduces the release notes for Lightbuild version 0.0.30, the first public preview release of the experimental build system. It outlines supported features—such as YAML build configurations, Kotlin/Jetpack Compose, Android Studio Canary integration, KSP, and Protocol Buffers—alongside currently unsupported capabilities, providing developers with clear guidance on where the experimental tool is best applied.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/lightbuild/setup\" target=\"_blank\">Get started with Lightbuild</a>",
+        "path": "tools/agents/lightbuild/setup.md",
+        "summary": "This update introduces documentation for setting up the experimental Lightbuild build system. It covers environment configuration using Android Studio Canary and the Lightbuild CLI, project creation steps within the IDE or via command line, and basic build, run, and test commands.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/architecture/ui-layer\" target=\"_blank\">UI layer</a>",
+        "path": "topic/architecture/ui-layer.md",
+        "summary": "Refactored the `ui-layer.md` documentation to use absolute URLs instead of relative links, updated markdown list formats, introduced GitHub-style callouts (`[!NOTE]` and `[!IMPORTANT]`), and added code block language specifiers for better rendering.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_ui-layer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/architecture/views/dependency-injection/hilt-android-views\" target=\"_blank\">Dependency injection with Hilt (Views)</a>",
+        "path": "topic/architecture/views/dependency-injection/hilt-android-views.md",
+        "summary": "Updated internal link references and frontmatter metadata in the Hilt documentation for Android Views. This change converts relative links to absolute URLs and updates callout styling to standard Markdown blockquotes for improved rendering and navigation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_hilt-android-views.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/appstate\" target=\"_blank\">AppState</a>",
+        "path": "topic/libraries/architecture/appstate.md",
+        "summary": "Introduces Jetpack AppState, a new experimental library group that extends Jetpack Compose State beyond the UI layer to transform and share reactive state across app architecture using Transform and StateStore.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/appstate/state-beyond-ui\" target=\"_blank\">Use Compose State outside the UI</a>",
+        "path": "topic/libraries/architecture/appstate/state-beyond-ui.md",
+        "summary": "Introduces new experimental AppState libraries that enable developers to leverage Jetpack Compose State beyond the UI layer across ViewModels, repositories, and services, offering automatic dependency tracking and atomic multi-property updates.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/appstate/statestore\" target=\"_blank\">StateStore</a>",
+        "path": "topic/libraries/architecture/appstate/statestore.md",
+        "summary": "Introduces StateStore, a new experimental Jetpack library providing a type-safe container to share in-memory application state as Compose State across components within the same process.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/appstate/transform\" target=\"_blank\">Transform</a>",
+        "path": "topic/libraries/architecture/appstate/transform.md",
+        "summary": "Introduces the experimental AppState Transform library, which utilizes the Compose runtime and dependency tracking model without a UI to transform inputs into Compose State in ViewModels, repositories, or background services.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars/apps/media\" target=\"_blank\">Build a templated media app</a>",
+        "path": "training/cars/apps/media.md",
+        "summary": "The media apps documentation for cars has been updated to announce the beta availability of park-to-drive experiences for templated media apps on Android Automotive OS. This allows developers to integrate adaptive native activities while the car is parked, transitioning smoothly to the templated media playback experience once driving begins.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_media.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars/parked/browser\" target=\"_blank\">Build browsers for Android Automotive OS</a>",
+        "path": "training/cars/parked/browser.md",
+        "summary": "The browser documentation for Android Automotive OS was updated to fix relative links, changing them to absolute URLs for better portability, and styling callout boxes using standard Markdown blockquote syntax (e.g., `[!IMPORTANT]` and `[!CAUTION]`). Additionally, code snippets were updated to explicitly specify the language (`kotlin`), and minor formatting adjustments were made.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_browser.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars/testing/dhu\" target=\"_blank\">Test using the Desktop Head Unit</a>",
+        "path": "training/cars/testing/dhu.md",
+        "summary": "Updated documentation links from relative paths to absolute URLs, modernized markdown formatting for callouts and code blocks, and fixed minor formatting discrepancies across the Desktop Head Unit (DHU) testing guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_dhu.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/sync-adapters/running-sync-adapter\" target=\"_blank\">Run a sync adapter</a>",
+        "path": "training/sync-adapters/running-sync-adapter.md",
+        "summary": "The changes primarily update documentation formatting, replace generic inline references with explicit Android SDK API documentation links, add explicit language specifiers to code blocks (kotlin/java), and fix internal link paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_running-sync-adapter.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/system-ui\" target=\"_blank\">Control the system UI visibility</a>",
+        "path": "training/system-ui.md",
+        "summary": "The changes in the 'system-ui.md' documentation primarily involve metadata updates (such as changing the title format and source type) and converting relative links to absolute URLs for images and lessons. These updates ensure proper rendering and link resolution for the documentation source.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_system-ui.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/apps/auth-wear\" target=\"_blank\">Authentication on wearables: Credential Manager</a>",
+        "path": "training/wearables/apps/auth-wear.md",
+        "summary": "Updated internal links to use absolute URLs, added explicit language specifiers (kotlin) to code blocks for better syntax highlighting, and improved markdown formatting such as list items and callout blocks across the Wear OS authentication guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_auth-wear.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose/rotary-input\" target=\"_blank\">Rotary input with Compose</a>",
+        "path": "training/wearables/compose/rotary-input.md",
+        "summary": "The changes in the rotary input documentation primarily involve formatting improvements, such as adding the `kotlin` language specifier to code blocks, updating relative reference links to absolute URLs, and removing artifact text like file names from code snippets. These updates improve readability and ensure correct link resolution.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_rotary-input.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/xr\" target=\"_blank\">Android XR</a>",
+        "path": "xr.md",
+        "summary": "The Android XR documentation has been updated to refine messaging around immersive and augmented development, rebrand the prototype sample to the Gemini Live Todo AI Glasses Sample, and replace the Developer Preview 4 announcements with details on the upcoming Android Dev Summit and Spatial Containers for OpenXR game engines. These updates matter as they align the documentation with the latest SDK capabilities, tools, and community events.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/c8bfa282_xr.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-28T16:47:53Z",
     "commit_hash": "6238e3c0",
     "entries": [

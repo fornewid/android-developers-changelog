@@ -1,0 +1,13 @@
+diff --git a/docs/developer-verification/guides/limited-distribution.md b/docs/developer-verification/guides/limited-distribution.md
+index ef5ed527..37e52042 100644
+--- a/docs/developer-verification/guides/limited-distribution.md
++++ b/docs/developer-verification/guides/limited-distribution.md
+@@ -20,7 +20,7 @@ regions.
+ ## What can a limited distribution account do?
+ 
+ 1. Register apps
+-2. Share apps with up to 20 devices that end-users have explicitly authorized.
++2. Share apps with up to 50 devices that end-users have explicitly authorized.
+ 
+ ## How much does it cost?
+ 
