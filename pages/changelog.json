@@ -1,5 +1,258 @@
 [
   {
+    "date": "2026-10-30T15:09:50Z",
+    "commit_hash": "5ce666f8",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr3/download-ota\" target=\"_blank\">OTA images for Google Pixel</a>",
+        "path": "about/versions/17/qpr3/download-ota.md",
+        "summary": "Updated the Android 17 QPR3 device OTA images documentation with new build numbers (DP11.261016.003 and DP11.261016.004), a new release date of October 29, 2026, and refreshed the corresponding download links and SHA-256 checksums for all supported Pixel devices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_download-ota.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr3/download\" target=\"_blank\">Factory images for Google Pixel</a>",
+        "path": "about/versions/17/qpr3/download.md",
+        "summary": "Updated Android 17 QPR3 download documentation to point to Beta 3 (`cinnamonbun-qpr3-beta3`) and refreshed the factory image builds (such as DP11.261016.003), release dates, and SHA-256 checksums across supported Pixel devices. This ensures developers have access to the latest pre-release binaries for testing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_download.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr3/get\" target=\"_blank\">Get Android 17 QPR 3</a>",
+        "path": "about/versions/17/qpr3/get.md",
+        "summary": "Updated the Android Flash Tool link in the documentation from beta2 to beta3 for the Android 17 QPR3 release, ensuring developers use the correct flashing tool version for the latest beta builds.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_get.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr3/gsi-release-notes\" target=\"_blank\">Android 17 QPR 3 GSI binaries and release notes</a>",
+        "path": "about/versions/17/qpr3/gsi-release-notes.md",
+        "summary": "Updated the Android 17 QPR3 GSI documentation to reference build DP11.261016.003 (Beta 3), replacing the previous Beta 2 build. This update includes new download links, filenames, and SHA-256 checksums for ARM64 and x86_64 system images with and without GMS.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_gsi-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr3/release-notes\" target=\"_blank\">Release notes</a>",
+        "path": "about/versions/17/qpr3/release-notes.md",
+        "summary": "Android 17 QPR3 Beta 3 has been released, introducing build details for October 29, 2026, and a comprehensive list of fixed system issues. This update addresses critical stability bugs, UI rendering glitches (such as incorrect transparency and dark mode button display failures), foldable device display states, Bluetooth and Wi-Fi connectivity regressions, and memory leak concerns.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini-nano\" target=\"_blank\">Gemini Nano</a>",
+        "path": "ai/gemini-nano.md",
+        "summary": "The Gemini Nano documentation was updated to reflect the expanded ML Kit GenAI APIs. The changes reorganize and detail new capabilities—categorized into custom generation and agents, speech and audio, and text and image tasks—including direct model access with the GenerativeModel class, agentic workflows with AgentRunner, speech recognition, translation, text-to-speech, and semantic search with vector embeddings.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_gemini-nano.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini-nano/mlkit-agent-api\" target=\"_blank\">Build agentic workflows with Gemini Nano</a>",
+        "path": "ai/gemini-nano/mlkit-agent-api.md",
+        "summary": "This document introduces ML Kit's on-device Agent API (`com.google.mlkit:genai-agent`), enabling developers to build autonomous, multi-turn conversational agents powered by Gemini Nano, Android AICore, and AppFunctions.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/samples\" target=\"_blank\">Samples</a>",
+        "path": "ai/samples.md",
+        "summary": "The AI samples documentation has been updated to include the new 'Jetpacker' travel planning sample app. This addition highlights capabilities such as on-device inference with Gemini Nano, cloud and hybrid inference via Firebase AI Logic SDK, system integration with AppFunctions API, and agentic workflows using the Agent Development Kit and Jetpack Compose A2UI Renderer.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_samples.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android\" target=\"_blank\">A more reliable way to add and edit contacts on Android</a>",
+        "path": "blog/posts/reliable-way-to-add-and-edit-contacts-android.md",
+        "summary": "Refactored the code snippet presentation layout by removing the Markdown table structure and displaying the before-and-after code blocks sequentially. This improves readability and code block formatting on mobile and web documentation viewers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_reliable-way-to-add-and-edit-contacts-android.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/animation/choose-api\" target=\"_blank\">Choose an animation API</a>",
+        "path": "develop/ui/compose/animation/choose-api.md",
+        "summary": "Updated multiple documentation links and anchor references within the Compose animation decision tree to ensure they point to the correct, current URLs and section headings.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_choose-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/animation/customize\" target=\"_blank\">Customize animations</a>",
+        "path": "develop/ui/compose/animation/customize.md",
+        "summary": "Updated API references and terminology in the Jetpack Compose animation documentation to match recent API changes, specifically renaming `keyframesWithSplines` to `keyframesWithSpline`, correcting `FastOutLinearEasing` to `FastOutLinearInEasing`, and cleaning up a markdown anchor ID.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_customize.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/animation/value-based\" target=\"_blank\">Value-based animations</a>",
+        "path": "develop/ui/compose/animation/value-based.md",
+        "summary": "Updated the value-based animation documentation to replace references of `updateTransition` with `rememberTransition` when using `MutableTransitionState`, and corrected reference links for `AnimatedContent` and minor typo corrections.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_value-based.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements\" target=\"_blank\">Intrinsic measurements in Compose layouts</a>",
+        "path": "develop/ui/compose/layouts/intrinsic-measurements.md",
+        "summary": "Updated the intrinsic measurements documentation with concrete code examples for custom Layouts and LayoutModifiers. The additions replace placeholder comments with actual implementations of measure logic and corresponding intrinsic measurement overrides, providing clearer guidance on how intrinsic calculations must align with measurement behavior.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_intrinsic-measurements.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/layouts/visibility-modifiers\" target=\"_blank\">Visibility tracking in Compose</a>",
+        "path": "develop/ui/compose/layouts/visibility-modifiers.md",
+        "summary": "Updated the visibility modifiers documentation to rename the `minFraction` parameter to `minFractionVisible`, clarified its behavior regarding viewports, and added a new section introducing the `visible` modifier for hiding composables while preserving their layout space.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_visibility-modifiers.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts\" target=\"_blank\">Manage shortcuts</a>",
+        "path": "develop/ui/compose/system/shortcuts/managing-shortcuts.md",
+        "summary": "Updated the code snippet for managing shortcuts by fixing markdown code block syntax and replacing the deprecated `ShortcutManagerCompat.getPinnedShortcuts(this)` method with `ShortcutManagerCompat.getShortcuts(this, ShortcutManagerCompat.FLAG_MATCH_PINNED)` to align with current API standards.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_managing-shortcuts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/launch/splash-screen\" target=\"_blank\">Splash screens</a>",
+        "path": "develop/ui/views/launch/splash-screen.md",
+        "summary": "Updated the splash screen documentation to recommend the Jetpack `core-splashscreen` library version 1.2.0 and refactored code snippets to use modern APIs like `setKeepOnScreenCondition` and `setOnExitAnimationListener` instead of manual `ViewTreeObserver` listeners. These changes simplify the implementation of custom splash screens and exit animations while providing clearer guidance for Jetpack Compose integration.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_splash-screen.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/launch/splash-screen/migrate\" target=\"_blank\">Migrate your splash screen implementation to Android 12 and later</a>",
+        "path": "develop/ui/views/launch/splash-screen/migrate.md",
+        "summary": "The migration documentation for the Android SplashScreen API was updated to remove the Java code examples, leaving only the Kotlin implementations. This simplifies the guide by focusing strictly on Kotlin for setting up the splash screen transition and handling routing activities.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_migrate.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/events/dev-summit\" target=\"_blank\">Android Dev Summit</a>",
+        "path": "events/dev-summit.md",
+        "summary": "Added a link to the Android Developers Blog for Android Dev Summit (ADS) announcements, providing developers with direct access to the latest news alongside the existing registration and video links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_dev-summit.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-compiler\" target=\"_blank\">Compose Compiler</a>",
+        "path": "jetpack/androidx/releases/compose-compiler.md",
+        "summary": "Updated the recommended `jvmTarget` configuration in the Compose compiler documentation code snippets from \"19\" back to \"11\". This ensures compatibility with the standard minimum JDK requirements expected by the current stable toolchain.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_compose-compiler.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/test\" target=\"_blank\">Test</a>",
+        "path": "jetpack/androidx/releases/test.md",
+        "summary": "AndroidX Test libraries have been updated to the alpha03 (and monitor alpha04) release channel for October 29, 2026. This release includes new alpha versions for core components like Core, Espresso, Espresso Device, JUnit Extensions, Truth Extensions, Monitor, Orchestrator, Runner, Rules, and Services, alongside notable bug fixes such as using `SystemClock.uptimeMillis()` in `MonitoringInstrumentation` to prevent wall-clock adjustments from skewing timeouts and adding support for class-level `@CustomFilter` annotations in `TestRequestBuilder`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_test.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/all-channel\" target=\"_blank\">Recent Release Notes</a>",
+        "path": "jetpack/androidx/versions/all-channel.md",
+        "summary": "Added release notes for AndroidX Test libraries (Core 1.8.0-alpha03, Espresso 3.8.0-alpha03, Espresso Device 1.2.0-alpha03, JUnit 1.4.0-alpha03, Truth 1.8.0-alpha03, Monitor 1.9.0-alpha04, Orchestrator 1.7.0-alpha03, Runner 1.8.0-alpha03, Rules 1.8.0-alpha03, and Services 1.7.0-alpha03) under the October 29, 2026 update channel. This provides developers with the latest testing library updates and alpha releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_all-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/alpha-channel\" target=\"_blank\">Alpha Releases</a>",
+        "path": "jetpack/androidx/versions/alpha-channel.md",
+        "summary": "Added a new release entry for October 29, 2026, detailing alpha version updates for various AndroidX Test libraries, including Test Core, Espresso, JUnit extensions, and Runner. This update keeps developers informed about the latest pre-release testing tools available for Android applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_alpha-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/multiplatform/viewmodel\" target=\"_blank\">Set up ViewModel for KMP</a>",
+        "path": "kotlin/multiplatform/viewmodel.md",
+        "summary": "Updated the documentation to reflect that starting in Lifecycle 2.11.0, official `androidx.lifecycle` artifacts support all Kotlin Multiplatform (KMP) targets, deprecating the need for JetBrains-specific artifacts on newer versions. Additionally, new tips were added recommending the use of KMP-compatible dependency injection frameworks (such as Koin) to streamline ViewModel creation and dependency wiring across both Compose Multiplatform and SwiftUI.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_viewmodel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera2/multi-camera\" target=\"_blank\">Multi-camera API</a>",
+        "path": "media/camera/camera2/multi-camera.md",
+        "summary": "The multi-camera documentation updates improve code snippets by adding missing generic type parameters (such as List<String> and List<DualCamera>) to Kotlin and Java examples, fixing markdown image syntax, and removing code block fences from inline code samples to ensure better readability and compilation accuracy.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_multi-camera.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax/configuration\" target=\"_blank\">Configuration options</a>",
+        "path": "media/camera/camerax/configuration.md",
+        "summary": "The CameraX configuration documentation has been updated to include support details for torch strength and low-light boost features. Additionally, several Kotlin code snippets for focus metering and exposure compensation were corrected and refined for better accuracy and readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_configuration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/emulator\" target=\"_blank\">Emulator release notes</a>",
+        "path": "studio/releases/emulator.md",
+        "summary": "Added release notes for Emulator patch version 37.2.13, which fixes a host memory leak in OpenGL ES emulation related to unreleased graphics contexts, surfaces, and frame buffers when guest processes exit. This matters for stability and performance during prolonged testing sessions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_emulator.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/emulator/37\" target=\"_blank\">Android Emulator 37 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/emulator/37.md",
+        "summary": "Added release notes for Android Emulator 37.2.13 Stable, which includes minor fixes and improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_37.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/generic-system-image/releases\" target=\"_blank\">Generic System Image releases</a>",
+        "path": "topic/generic-system-image/releases.md",
+        "summary": "Updated the Generic System Image (GSI) documentation to reference Android 17 QPR3 Beta 3 (build DP11.261016.003), replacing the previous Beta 2 references and updating the corresponding download links, checksums, and filenames for ARM64 and x86_64 architectures.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_releases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/issues/anr\" target=\"_blank\">ANRs</a>",
+        "path": "topic/performance/issues/anr.md",
+        "summary": "Updated the broadcast intent ANR timeout duration from 5 seconds to 10 seconds for apps with a foreground activity. This matters for developers monitoring and debugging BroadcastReceiver execution time limits to prevent false-positive ANR reports.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_anr.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/sqlite-performance-best-practices\" target=\"_blank\">Best practices for SQLite performance</a>",
+        "path": "topic/performance/sqlite-performance-best-practices.md",
+        "summary": "This update significantly expands the SQLite performance documentation with advanced guidance on WAL configuration, connection and memory management, schema update best practices, statement cache tuning, and profiling tools like slow query logging and Perfetto tracing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_sqlite-performance-best-practices.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/views/vitals/anr-views\" target=\"_blank\">ANRs (Views)</a>",
+        "path": "topic/performance/views/vitals/anr-views.md",
+        "summary": "Updated the broadcast intent ANR timeout duration from 5 seconds to 10 seconds when the app has an activity in the foreground. This change matters because it aligns documentation with the actual system timeout behavior for BroadcastReceivers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/5ce666f8_anr-views.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-29T15:09:42Z",
     "commit_hash": "c8bfa282",
     "entries": [

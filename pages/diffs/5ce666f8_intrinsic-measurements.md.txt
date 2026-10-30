@@ -1,0 +1,125 @@
+diff --git a/docs/develop/ui/compose/layouts/intrinsic-measurements.md b/docs/develop/ui/compose/layouts/intrinsic-measurements.md
+index 2a4afac7..fcb6da0f 100644
+--- a/docs/develop/ui/compose/layouts/intrinsic-measurements.md
++++ b/docs/develop/ui/compose/layouts/intrinsic-measurements.md
+@@ -145,6 +145,10 @@ to override these defaults.
+ To specify the intrinsics measurements of your custom `Layout`, override the
+ `minIntrinsicWidth`, `minIntrinsicHeight`, `maxIntrinsicWidth`, and
+ `maxIntrinsicHeight` of the [`MeasurePolicy`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/MeasurePolicy) interface when creating it.
++Your override needs to match what `measure` does. For example, in a custom
++column that stacks its children vertically and gives each child the full column
++width, the minimum intrinsic height for a given `width` is the sum of its
++children's minimum intrinsic heights for that `width`:
+ 
+ 
+ ```kotlin
+@@ -161,16 +165,32 @@ fun MyCustomComposable(
+                 measurables: List<Measurable>,
+                 constraints: Constraints
+             ): MeasureResult {
+-                // Measure and layout here
+-                // ...
++                val childConstraints = constraints.copy(minHeight = 0)
++                val placeables = measurables.map { measurable ->
++                    measurable.measure(childConstraints)
++                }
++                val width = constraints.constrainWidth(
++                    placeables.maxOfOrNull { it.width } ?: 0
++                )
++                val height = constraints.constrainHeight(
++                    placeables.sumOf { it.height }
++                )
++                return layout(width, height) {
++                    var yPosition = 0
++                    placeables.forEach { placeable ->
++                        placeable.placeRelative(x = 0, y = yPosition)
++                        yPosition += placeable.height
++                    }
++                }
+             }
+ 
+-            override fun IntrinsicMeasureScope.minIntrinsicWidth(
++            override fun IntrinsicMeasureScope.minIntrinsicHeight(
+                 measurables: List<IntrinsicMeasurable>,
+-                height: Int
++                width: Int
+             ): Int {
+-                // Logic here
+-                // ...
++                return measurables.sumOf { measurable ->
++                    measurable.minIntrinsicHeight(width)
++                }
+             }
+ 
+             // Other intrinsics related methods have a default value,
+@@ -183,31 +203,50 @@ fun MyCustomComposable(
+ <br />
+ 
+ When creating your custom `layout` modifier, override the related methods
+-in the `LayoutModifier` interface.
++in the [`LayoutModifier`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/LayoutModifier) interface. The intrinsic calculation needs to match
++`measure`. For example, for a given `height`, a modifier that adds fixed padding
++on all sides subtracts the vertical padding before querying the child's
++`minIntrinsicWidth`, and adds the horizontal padding to the result:
+ 
+ 
+ ```kotlin
+-fun Modifier.myCustomModifier(/* ... */) = this then object : LayoutModifier {
+-
+-    override fun MeasureScope.measure(
+-        measurable: Measurable,
+-        constraints: Constraints
+-    ): MeasureResult {
+-        // Measure and layout here
+-        // ...
+-    }
++fun Modifier.myCustomModifier(padding: Dp = 8.dp) =
++    this then object : LayoutModifier {
++        override fun MeasureScope.measure(
++            measurable: Measurable,
++            constraints: Constraints
++        ): MeasureResult {
++            val paddingPx = padding.roundToPx()
++            val horizontal = paddingPx * 2
++            val vertical = paddingPx * 2
++            val placeable = measurable.measure(
++                constraints.offset(-horizontal, -vertical)
++            )
++            val width = constraints.constrainWidth(placeable.width + horizontal)
++            val height = constraints.constrainHeight(placeable.height + vertical)
++            return layout(width, height) {
++                placeable.place(paddingPx, paddingPx)
++            }
++        }
+ 
+-    override fun IntrinsicMeasureScope.minIntrinsicWidth(
+-        measurable: IntrinsicMeasurable,
+-        height: Int
+-    ): Int {
+-        // Logic here
+-        // ...
+-    }
++        override fun IntrinsicMeasureScope.minIntrinsicWidth(
++            measurable: IntrinsicMeasurable,
++            height: Int
++        ): Int {
++            val paddingPx = padding.roundToPx()
++            val horizontal = paddingPx * 2
++            val vertical = paddingPx * 2
++            val childHeight = if (height == Constraints.Infinity) {
++                Constraints.Infinity
++            } else {
++                (height - vertical).coerceAtLeast(0)
++            }
++            return measurable.minIntrinsicWidth(childHeight) + horizontal
++        }
+ 
+-    // Other intrinsics related methods have a default value,
+-    // you can override only the methods that you need.
+-}
++        // Other intrinsics related methods have a default value,
++        // you can override only the methods that you need.
++    }
+ ```
+ 
+ <br />

@@ -1,0 +1,39 @@
+diff --git a/docs/develop/ui/compose/system/shortcuts/managing-shortcuts.md b/docs/develop/ui/compose/system/shortcuts/managing-shortcuts.md
+index 962548c9..6289870f 100644
+--- a/docs/develop/ui/compose/system/shortcuts/managing-shortcuts.md
++++ b/docs/develop/ui/compose/system/shortcuts/managing-shortcuts.md
+@@ -247,17 +247,21 @@ the following points about app shortcuts in mind:
+ The following code snippet shows how best to restore your app's dynamic
+ shortcuts and how to check whether your app's pinned shortcuts were preserved:
+ 
+-    class MainActivity : ComponentActivity() {
+-        override fun onCreate(savedInstanceState: Bundle?) {
+-            super.onCreate(savedInstanceState)
+-            if (ShortcutManagerCompat.getDynamicShortcuts(this).isEmpty()) {
+-                // Application restored. Re-publish dynamic shortcuts.
+-                if (ShortcutManagerCompat.getPinnedShortcuts(this).isNotEmpty()) {
+-                    // Pinned shortcuts are restored. Use updateShortcuts() to make
+-                    // sure they contain up-to-date information.
+-                }
+ 
++```kotlin
++class MainActivity : ComponentActivity() {
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        if (ShortcutManagerCompat.getDynamicShortcuts(this).isEmpty()) {
++            // Application restored. Re-publish dynamic shortcuts.
++            if (ShortcutManagerCompat.getShortcuts(this, ShortcutManagerCompat.FLAG_MATCH_PINNED).isNotEmpty()) {
++                // Pinned shortcuts are restored. Use updateShortcuts() to make
++                // sure they contain up-to-date information.
+             }
+         }
+-        // ...
+-    }
+\ No newline at end of file
++    }
++    // ...
++}
++```
++
++<br />
+\ No newline at end of file
