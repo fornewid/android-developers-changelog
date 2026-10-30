@@ -45,9 +45,114 @@ You can further streamline the creation process by passing optional data payload
 - `EXTRA_ACCOUNT` suggests which account the contact saves to, which helps if your app syncs contacts. This extra already existed, but support varied by device. Starting in the upcoming Android release, support is standardized across devices.
 - `EXTRA_PHOTO_URI` passes a photo to pre-fill the contact picture. The editor handles the URI read permission for you. This is new with the upcoming Android release and will be supported across the ecosystem.
 
-|---|---|
-| **Before: writing directly with** `WRITE_CONTACTS` (*Results in a SecurityException or permission denial once your app targets the upcoming Android release.*) ```kotlin // Requires android.permission.WRITE_CONTACTS fun saveContactDirectly(context: Context, name: String, phone: String, account: Account) { val ops = arrayListOf( ContentProviderOperation.newInsert(ContactsContract.RawContacts.CONTENT_URI) .withValue(ContactsContract.RawContacts.ACCOUNT_TYPE, account.type) .withValue(ContactsContract.RawContacts.ACCOUNT_NAME, account.name) .build(), ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI) .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0) .withValue( ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE ) .withValue(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME, name) .build(), ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI) .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0) .withValue( ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE ) .withValue(ContactsContract.CommonDataKinds.Phone.NUMBER, phone) .build() ) context.contentResolver.applyBatch(ContactsContract.AUTHORITY, ops) } ``` | **After: opening the contact editor** (*No permission needed.*) ```kotlin fun saveContactWithEditor( context: Context, name: String, phone: String, account: Account, photoUri: Uri ) { val intent = Intent(Intent.ACTION_INSERT, ContactsContract.Contacts.CONTENT_URI).apply { putExtra(ContactsContract.Intents.Insert.NAME, name) putExtra(ContactsContract.Intents.Insert.PHONE, phone) // Suggest which account the contact is saved to putExtra(ContactsContract.Intents.Insert.EXTRA_ACCOUNT, account) // New in the upcoming Android release: pre-fill the contact photo putExtra(ContactsContract.Intents.Insert.EXTRA_PHOTO_URI, photoUri) clipData = ClipData.newRawUri("", photoUri) addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) } context.startActivity(intent) } ``` |
-| **Before: updating an existing contact directly** ```kotlin // Requires android.permission.WRITE_CONTACTS fun addPhoneDirectly(context: Context, rawContactId: Long, phone: String) { val values = ContentValues().apply { put(ContactsContract.Data.RAW_CONTACT_ID, rawContactId) put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE) put(ContactsContract.CommonDataKinds.Phone.NUMBER, phone) } context.contentResolver.insert(ContactsContract.Data.CONTENT_URI, values) } ``` | **After: letting the user choose a contact to update, or create a new one** ```kotlin fun addPhoneWithEditor(context: Context, phone: String) { val intent = Intent(Intent.ACTION_INSERT_OR_EDIT).apply { type = ContactsContract.Contacts.CONTENT_ITEM_TYPE putExtra(ContactsContract.Intents.Insert.PHONE, phone) } context.startActivity(intent) } ``` If you already know which contact to update, use `ACTION_EDIT` with that contact's URI: ```kotlin fun editKnownContact(context: Context, contactUri: Uri, phone: String) { val intent = Intent(Intent.ACTION_EDIT, contactUri).apply { putExtra(ContactsContract.Intents.Insert.PHONE, phone) } context.startActivity(intent) } ``` |
+**Before: writing directly with** `WRITE_CONTACTS` (*Results in a SecurityException or permission denial once your app targets the upcoming Android release.*)
+**After: opening the contact editor** (*No permission needed.*)
+
+```kotlin
+// Requires android.permission.WRITE_CONTACTS
+fun saveContactDirectly(
+context: Context,
+name: String,
+phone: String,
+account: Account
+) {
+  val ops = arrayListOf(
+    ContentProviderOperation.newInsert(
+      ContactsContract.RawContacts.CONTENT_URI
+    )
+    .withValue(ContactsContract.RawContacts.ACCOUNT_TYPE, account.type)
+    .withValue(ContactsContract.RawContacts.ACCOUNT_NAME, account.name)
+    .build(),
+    ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
+    .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0)
+    .withValue(
+      ContactsContract.Data.MIMETYPE,
+      ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE
+    )
+    .withValue(
+      ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME,
+      name
+    )
+    .build(),
+    ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
+    .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0)
+    .withValue(
+      ContactsContract.Data.MIMETYPE,
+      ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE
+    )
+    .withValue(ContactsContract.CommonDataKinds.Phone.NUMBER, phone)
+    .build()
+  )
+  context.contentResolver.applyBatch(ContactsContract.AUTHORITY, ops)
+}
+```
+
+```kotlin
+fun saveContactWithEditor(
+    context: Context,
+    name: String,
+    phone: String,
+    account: Account,
+    photoUri: Uri
+) {
+    val intent = Intent(
+    Intent.ACTION_INSERT,
+    ContactsContract.Contacts.CONTENT_URI
+    ).apply {
+        putExtra(ContactsContract.Intents.Insert.NAME, name)
+        putExtra(ContactsContract.Intents.Insert.PHONE, phone)
+        // Suggest which account the contact is saved to
+        putExtra(
+         ContactsContract.Intents.Insert.EXTRA_ACCOUNT,
+         account
+        )
+        // New in the upcoming Android release: pre-fill the contact photo
+        putExtra(ContactsContract.Intents.Insert.EXTRA_PHOTO_URI, photoUri)
+        clipData = ClipData.newRawUri("", photoUri)
+        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+    }
+    context.startActivity(intent)
+}
+```
+
+**Before: updating an existing contact directly**
+**After: letting the user choose a contact to update, or create a new one**
+
+```kotlin
+// Requires android.permission.WRITE_CONTACTS
+fun addPhoneDirectly(context: Context, rawContactId: Long, phone: String) {
+   val values = ContentValues().apply {
+       put(ContactsContract.Data.RAW_CONTACT_ID, rawContactId)
+       put(
+         ContactsContract.Data.MIMETYPE,
+         ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE
+       )
+       put(ContactsContract.CommonDataKinds.Phone.NUMBER, phone)
+   }
+  context.contentResolver.insert(ContactsContract.Data.CONTENT_URI, values)
+}
+```
+
+```kotlin
+fun addPhoneWithEditor(context: Context, phone: String) {
+    val intent = Intent(Intent.ACTION_INSERT_OR_EDIT).apply {
+        type = ContactsContract.Contacts.CONTENT_ITEM_TYPE
+        putExtra(ContactsContract.Intents.Insert.PHONE, phone)
+    }
+    context.startActivity(intent)
+}
+```
+
+If you already know which contact to update, use `ACTION_EDIT` with that contact's URI:
+
+```kotlin
+fun editKnownContact(context: Context, contactUri: Uri, phone: String) {
+    val intent = Intent(Intent.ACTION_EDIT, contactUri).apply {
+        putExtra(ContactsContract.Intents.Insert.PHONE, phone)
+    }
+    context.startActivity(intent)
+}
+```
 
 #### **Pick a contact: use the Contact Picker**
 

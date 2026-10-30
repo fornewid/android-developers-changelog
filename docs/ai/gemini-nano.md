@@ -17,25 +17,43 @@ model up-to-date.
 ## ML Kit GenAI APIs
 
 ML Kit's GenAI APIs harness the power of Gemini Nano to help your apps perform
-tasks. These APIs provide out-of-the-box quality for popular use cases through
-a high-level interface. The ML Kit GenAI APIs are built on top of AICore, an
+on-device generative AI tasks. These APIs are built on top of AICore, an
 Android system service that enables on-device execution of GenAI foundation
-models to facilitate features such as enhanced app functionality and
-improved user privacy by processing data locally. [Learn more](https://developers.google.com/ml-kit/genai).
+models to facilitate features such as enhanced app functionality and improved
+user privacy by processing data locally. [Learn more](https://developers.google.com/ml-kit/genai).
 
 > [!NOTE]
 > **Note:** The [ML Kit GenAI API Additional Terms of Service](https://developers.google.com/ml-kit/genai-terms) apply to the use of the GenAI APIs. Developers are solely responsible for the safety of their API client and their app's user experience.
 
 ### Key features
 
-The ML Kit GenAI APIs support the following features:
+ML Kit organizes its GenAI capabilities into the following categories:
 
-- [**Prompt**](https://developers.google.com/ml-kit/genai/prompt/android): Generate text content based on a custom text-only or multimodal prompt.
+#### Custom generation and agents
+
+Work directly with the Gemini Nano foundation model for custom use cases:
+
+- [**Direct model access**](https://developers.google.com/ml-kit/genai/prompt/android) (using the `GenerativeModel` class): Generate text or typed structured output from custom text-only or multimodal prompts, or manage your own multi-turn chat history directly by using a `List<Content>` object with `USER` and `MODEL` roles and a `sessionId` value.
+- [**Agentic workflows**](https://developers.google.com/ml-kit/genai/agent/android) (using the `AgentRunner` class): Built on top of the `GenerativeModel` class, automating multi-turn session management (including in-memory conversation history) and multi-step tool-calling loops.
+
+#### Speech and audio
+
+Transcribe, translate, and synthesize speech audio on-device:
+
+- [**Speech Recognition**](https://developers.google.com/ml-kit/genai/speech-recognition/android): Transcribe spoken audio content into text in the same language.
+- [**Speech Translation**](https://developers.google.com/ml-kit/genai/speech-translation/android): Translate spoken audio into text in another language in real time.
+- [**Text to Speech**](https://developers.google.com/ml-kit/genai/text-to-speech/android): Synthesize natural-sounding speech audio from text.
+
+#### Text and image tasks
+
+Use task-specific APIs optimized for common vision, writing, and search tasks
+through a high-level interface:
+
+- [**Image Description**](https://developers.google.com/ml-kit/genai/image-description/android): Generate a short description of a given image.
 - [**Summarization**](https://developers.google.com/ml-kit/genai/summarization/android): Summarize articles or conversations as a bulleted list.
 - [**Proofreading**](https://developers.google.com/ml-kit/genai/proofreading/android): Proofread short chat messages.
 - [**Rewriting**](https://developers.google.com/ml-kit/genai/rewriting/android): Rewrite short chat messages in different tones or styles.
-- [**Image Description**](https://developers.google.com/ml-kit/genai/image-description/android): Generate a short description of a given image.
-- [**Speech Recognition**](https://developers.google.com/ml-kit/genai/speech-recognition/android): Transcribe spoken audio to text.
+- [**Semantic Search**](https://developers.google.com/ml-kit/genai/embedding/android): Generate vector embeddings for text and images using the Embedding API and pair them with AndroidX AppSearch to find content by meaning.
 
 
 ## Android skills

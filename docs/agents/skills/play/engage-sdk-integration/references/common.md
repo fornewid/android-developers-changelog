@@ -286,149 +286,37 @@ This file defines common data models and entities used across the Engage SDK.
               "requirement": "Optional",
               "setter": "setSubtitle(String)",
               "getter": "getSubtitle()"
-           < },
-     >       "entityId": {
+            },
+            "entityId": {
               "type": "String",
               "requirement": "Optional",
               "setter": "setEntityId(String)",
-              "getter":< &quo>t;getEntityId()"
+              "getter": "getEntityId()"
             },
             "posterImages": {
-              "type": "ListImage",
+              "type": "List<Image>",
               "requirement": "Required",
               "adder": "addPosterImage(Image)",
               "getter": "getPosterImages()",
-              "adderAll": "addPosterImages(ListImage)"
+              "adderAll": "addPosterImages(List<Image>)"
             }
           }
         },
-        "GenericFeaturedEntit<y&quo>t;: {
+        "GenericFeaturedEntity": {
           "package": "com.google.android.engage.common.datamodel.GenericFeaturedEntity",
           "fields": {
             "entityId": {
-              "type":< "Str>ing",
-              "requirement": "Optional",
-              "setter": "setEntityId(String)",
-              "getter": "getEntityId()"
-            },
-            "posterImages": {
-              "type": "ListImage",
-              "requirement": "Required",
-              "adder": "addPosterImage(Image)",
-              "getter": "getPosterImages()",
-              "adderAll": "addPosterImages(ListImage)"
-            },
-            "actionUri": {
-              "type": "Uri",
-              "requirement": "Required",
-              "setter":< ">;setActionUri(Uri)",
-              "getter": "getActionUri()"
-            },
-            "title": {
-             < "type>": "String",
-              "requirement": "Optional",
-           <   "s>etter": "setTitle(String)",
-              "getter": "getTitle()"
-            },
-            "descripti<on&qu>ot;: {
-              "type": "String",
-              "requirement": "Optiona<l",
-              "setter": &quo>t;setDescription(String)",
-              "getter": "getDescription()"
-            },
-            "subtitles": {
-              "type": "ListString<",>
-              "requirement": "Optional",
-              "adder": &q<uot;addSubtitle(S>tring)",
-              "adderAll": "addSubtitles(ListString)"
-            },
-            "badges": {
-              "type": "ListBadge",
-              "requirement": "Optional",
-              "<;add<er": "a>>ddBadge(Badge)",
-              "adderAll": "addBadges(ListBadge)"
-            },
-            "contentCategories": {
-              "type":< "List@Eligi>bleContentCategory int",
-              "requirement": "Optional",
-              "adder": "addContentCategory(@EligibleContentCategory int)",
-              "adderAll": "addContentCategories(ListInteger)"
-            },
-            "displayTimeWindows": {
-              "type": "ListDisplayTimeWindow",
-              "requirement": "Optional",
-              "adder": "addDisplayTimeWindow(DisplayTimeWindow)",
-              "getter": "getDisplayTimeWindows()"
-            },
-            "allDisplayTimeWindows": {
-              "type": "ListListDisplayTimeWindow",
-              "requirement": "Optional",
-              "adder": "addAllDisplayTimeWindow(DisplayTimeWindow)",
-              "adderAll": "addAllDisplayTimeWindow(ListDisplayTimeWindow)"
-            }
-          }
-        },
-        "SubscriptionEntity": {
-          "package": "com.google.android.engage.common.datamodel.SubscriptionEntity",
-          "fields": {}
-        },
-        "UserSettingsCardEntity": {
-          "package": "com.google.android.engage.common.datamodel.UserSettingsCardEntity",
-          "fields": {
-            "actionText": {
-              "typ<e": ">String",
-              "requirement": "Required",
-              "setter": "setActionText(String)",
-              "getter": "getActionText()"
-            },
-            <">;actionUri": {
-              "type": "Uri",
-              "requirement": "Required",
-              "setter": "setActionUri(Uri)",
-              "getter": "getActionUri()"
-            },
-            "title": {
-              "type": "String",
-              "requirement": "Optional",
-              "setter": "setTitle(String)",
-              "getter": "g<etTit>le()"
-            },
-            "subtitle": {
-              "type": "String",
-              "requirement": "Optional",
-              "setter": "setSubtitle(String)&quo<t;,
-     >         "getter": "getSubtitle()"
-            },
-            "entityId": {
               "type": "String",
               "requirement": "Optional",
               "setter": "setEntityId(String)",
               "getter": "getEntityId()"
             },
             "posterImages": {
-              "type": "ListImage",
+              "type": "List<Image>",
               "requirement": "Required",
               "adder": "addPosterImage(Image)",
               "getter": "getPosterImages()",
-              "adderAll": "addPosterImages(ListImage)"
-            }
-          }
-        },
-    <    &q>uot;ArticleEntity": {
-          "package": "com.google.android.engage.common.datamodel.ArticleEntity",
-          "f<ields">: {
-            "entityId": {
-              "type": "St<ring">,
-              "requirement": "Optional",
-              "setter": "setEntityId(String)",
-              "getter": &qu<ot;ge>tEntityId()"
-            },
-            "posterImages": {
-       <       "type": "ListIma>ge",
-              "requirement": "Required",
-              "adder": "addPosterImage(Image)",
-              "getter": "getPosterImages()"<;,
-        >      "adderAll": "addPosterImages(ListImage)"
+              "adderAll": "addPosterImages(List<Image>)"
             },
             "actionUri": {
               "type": "Uri",
@@ -449,22 +337,134 @@ This file defines common data models and entities used across the Engage SDK.
               "getter": "getDescription()"
             },
             "subtitles": {
-              "type": "ListString",
+              "type": "List<String>",
               "requirement": "Optional",
               "adder": "addSubtitle(String)",
-              "adderAll": "addSubtitles(ListString)"
+              "adderAll": "addSubtitles(List<String>)"
             },
             "badges": {
-              "type": "ListBadge",
+              "type": "List<Badge>",
               "requirement": "Optional",
-           <   "adder&qu>ot;: "addBadge(Badge)",
-              "adderAll": "addBadges(ListBadge)"
+              "adder": "addBadge(Badge)",
+              "adderAll": "addBadges(List<Badge>)"
             },
             "contentCategories": {
-              "type": "List@EligibleContentCategory int",
-      <    <    "requirement">>: "Optional",
+              "type": "List<@EligibleContentCategory int>",
+              "requirement": "Optional",
               "adder": "addContentCategory(@EligibleContentCategory int)",
-              "adderAll": "addContentCat<egories(ListInteg>er)"
+              "adderAll": "addContentCategories(List<Integer>)"
+            },
+            "displayTimeWindows": {
+              "type": "List<DisplayTimeWindow>",
+              "requirement": "Optional",
+              "adder": "addDisplayTimeWindow(DisplayTimeWindow)",
+              "getter": "getDisplayTimeWindows()"
+            },
+            "allDisplayTimeWindows": {
+              "type": "List<List<DisplayTimeWindow>>",
+              "requirement": "Optional",
+              "adder": "addAllDisplayTimeWindow(DisplayTimeWindow)",
+              "adderAll": "addAllDisplayTimeWindow(List<DisplayTimeWindow>)"
+            }
+          }
+        },
+        "SubscriptionEntity": {
+          "package": "com.google.android.engage.common.datamodel.SubscriptionEntity",
+          "fields": {}
+        },
+        "UserSettingsCardEntity": {
+          "package": "com.google.android.engage.common.datamodel.UserSettingsCardEntity",
+          "fields": {
+            "actionText": {
+              "type": "String",
+              "requirement": "Required",
+              "setter": "setActionText(String)",
+              "getter": "getActionText()"
+            },
+            "actionUri": {
+              "type": "Uri",
+              "requirement": "Required",
+              "setter": "setActionUri(Uri)",
+              "getter": "getActionUri()"
+            },
+            "title": {
+              "type": "String",
+              "requirement": "Optional",
+              "setter": "setTitle(String)",
+              "getter": "getTitle()"
+            },
+            "subtitle": {
+              "type": "String",
+              "requirement": "Optional",
+              "setter": "setSubtitle(String)",
+              "getter": "getSubtitle()"
+            },
+            "entityId": {
+              "type": "String",
+              "requirement": "Optional",
+              "setter": "setEntityId(String)",
+              "getter": "getEntityId()"
+            },
+            "posterImages": {
+              "type": "List<Image>",
+              "requirement": "Required",
+              "adder": "addPosterImage(Image)",
+              "getter": "getPosterImages()",
+              "adderAll": "addPosterImages(List<Image>)"
+            }
+          }
+        },
+        "ArticleEntity": {
+          "package": "com.google.android.engage.common.datamodel.ArticleEntity",
+          "fields": {
+            "entityId": {
+              "type": "String",
+              "requirement": "Optional",
+              "setter": "setEntityId(String)",
+              "getter": "getEntityId()"
+            },
+            "posterImages": {
+              "type": "List<Image>",
+              "requirement": "Required",
+              "adder": "addPosterImage(Image)",
+              "getter": "getPosterImages()",
+              "adderAll": "addPosterImages(List<Image>)"
+            },
+            "actionUri": {
+              "type": "Uri",
+              "requirement": "Required",
+              "setter": "setActionUri(Uri)",
+              "getter": "getActionUri()"
+            },
+            "title": {
+              "type": "String",
+              "requirement": "Optional",
+              "setter": "setTitle(String)",
+              "getter": "getTitle()"
+            },
+            "description": {
+              "type": "String",
+              "requirement": "Optional",
+              "setter": "setDescription(String)",
+              "getter": "getDescription()"
+            },
+            "subtitles": {
+              "type": "List<String>",
+              "requirement": "Optional",
+              "adder": "addSubtitle(String)",
+              "adderAll": "addSubtitles(List<String>)"
+            },
+            "badges": {
+              "type": "List<Badge>",
+              "requirement": "Optional",
+              "adder": "addBadge(Badge)",
+              "adderAll": "addBadges(List<Badge>)"
+            },
+            "contentCategories": {
+              "type": "List<@EligibleContentCategory int>",
+              "requirement": "Optional",
+              "adder": "addContentCategory(@EligibleContentCategory int)",
+              "adderAll": "addContentCategories(List<Integer>)"
             },
             "progressPercentage": {
               "type": "Integer",
@@ -497,16 +497,16 @@ This file defines common data models and entities used across the Engage SDK.
               "getter": "getLastContentPublishTimestampMillis()"
             },
             "displayTimeWindows": {
-              "type": "ListDisplayTimeWindow",
+              "type": "List<DisplayTimeWindow>",
               "requirement": "Optional",
               "adder": "addDisplayTimeWindow(DisplayTimeWindow)",
               "getter": "getDisplayTimeWindows()"
             },
             "allDisplayTimeWindows": {
-              "type": "ListListDisplayTimeWindow",
+              "type": "List<List<DisplayTimeWindow>>",
               "requirement": "Optional",
               "adder": "addAllDisplayTimeWindow(DisplayTimeWindow)",
-              "adderAll": "addAllDisplayTimeWindow(ListDisplayTimeWindow)"
+              "adderAll": "addAllDisplayTimeWindow(List<DisplayTimeWindow>)"
             }
           }
         }

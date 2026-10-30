@@ -55,7 +55,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "19"
+        jvmTarget = "11"
     }
 }
 ```
@@ -73,7 +73,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "19"
+        jvmTarget = "11"
     }
 }
 ```

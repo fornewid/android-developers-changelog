@@ -118,10 +118,10 @@ val value by animateFloatAsState(
 
 <br />
 
-### Animate between keyframes smoothly with `keyframesWithSplines`
+### Animate between keyframes smoothly with `keyframesWithSpline`
 
 To create an animation that follows a smooth curve as it transitions between
-values, you can use `keyframesWithSplines` instead of `keyframes` animation
+values, you can use `keyframesWithSpline` instead of `keyframes` animation
 specs.
 
 
@@ -146,7 +146,7 @@ The following videos showcase the differences between `keyframes` and
 `keyframesWithSpline` given the same set of x, y coordinates that a circle
 should follow.
 
-| `keyframes` | `keyframesWithSplines` |
+| `keyframes` | `keyframesWithSpline` |
 |---|---|
 |   |   |
 
@@ -261,7 +261,7 @@ information about what Easing to use depending on your scenario.
 
 - `FastOutSlowInEasing`
 - `LinearOutSlowInEasing`
-- `FastOutLinearEasing`
+- `FastOutLinearInEasing`
 - `LinearEasing`
 - `CubicBezierEasing`
 - [See more](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#Ease())
@@ -338,5 +338,5 @@ The following list includes some built-in `VectorConverter`s:
 
 - Note: link text is displayed when JavaScript is off
 - [Value-based animations](https://developer.android.com/develop/ui/compose/animation/value-based)
-- [Iterative code development {:#iterative-code-dev }](https://developer.android.com/develop/ui/compose/tooling/iterative-development)
+- [Iterative code development](https://developer.android.com/develop/ui/compose/tooling/iterative-development)
 - [Animations in Compose](https://developer.android.com/develop/ui/compose/animation/introduction)

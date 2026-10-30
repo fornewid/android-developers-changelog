@@ -116,35 +116,20 @@ To migrate your splash screen, do the following:
 4. Call `installSplashScreen` in the starting activity before calling
    `super.onCreate()`.
 
-   ### Kotlin
 
    ```kotlin
    class MainActivity : Activity() {
 
-      override fun onCreate(savedInstanceState: Bundle?) {
-          // Handle the splash screen transition.
-          val splashScreen = installSplashScreen()
+       override fun onCreate(savedInstanceState: Bundle?) {
+           // Handle the splash screen transition.
+           val splashScreen = installSplashScreen()
 
-          super.onCreate(savedInstanceState)
-          setContentView(R.layout.main_activity)
-   ...
+           super.onCreate(savedInstanceState)
+           setContentView(R.layout.main_activity)
+           // ...
    ```
 
-   ### Java
-
-   ```java
-   public class MainActivity extends Activity {
-
-       @Override
-       protected void onCreate(Bundle savedInstanceState) {
-            // Handle the splash screen transition.
-            SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
-
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.main_activity);
-       }
-   }
-   ```
+   <br />
 
 `installSplashScreen` returns the splash screen object, which you can optionally
 use to customize animation or to keep the splash screen on screen for a longer
@@ -174,10 +159,9 @@ to keep the routing activity in place but stop it from rendering. Doing so
 transfers the splash screen to the next activity and supports a smooth
 transition.
 
-### Kotlin
 
 ```kotlin
-  class RoutingActivity : Activity() {
+class RoutingActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
@@ -187,30 +171,11 @@ transition.
         splashScreen.setKeepOnScreenCondition { true }
         startSomeNextActivity()
         finish()
-     }
-   ...
-  
-```
-
-### Java
-
-```java
-  public class RoutingActivity extends Activity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-      SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
-
-       super.onCreate(savedInstanceState);
-
-       // Keep the splash screen visible for this Activity.
-       splashScreen.setKeepOnScreenCondition(() -> true );
-       startSomeNextActivity();
-       finish();
     }
-  ...
-  
+    // ...
 ```
+
+<br />
 
 ### Keep the custom activity for branding
 

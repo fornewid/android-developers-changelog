@@ -7,7 +7,7 @@ source: md.txt
 Android apps can be written using Kotlin, the Java programming language, and C++ languages. The Android SDK tools compile
 your code along with any data and resource files into an APK or an Android App Bundle.
 
-An *Android package* , which is an archive file with an `.apk` suffix, contains
+An *Android package*, which is an archive file with an `.apk` suffix, contains
 the contents of an Android app required at runtime, and it is the file that Android-powered
 devices use to install the app.
 
@@ -85,7 +85,7 @@ The following sections describe the four types of app components.
     - Providing a way for apps to implement user flows between each other, and for the system to coordinate these flows. The primary example of this is sharing.
 
 
-    You implement an activity as a subclass of the [Activity](https://developer.android.com/reference/android/app/Activity) class. For more
+    You implement an activity as a subclass of the `https://developer.android.com/reference/android/app/Activity` class. For more
     information about the `Activity` class, see
     [Introduction to activities](https://developer.android.com/guide/components/activities/intro-activities).
 
@@ -128,15 +128,15 @@ The following sections describe the four types of app components.
     are all built as services that applications implement and the system binds to when they run.
 
 
-    A service is implemented as a subclass of [Service](https://developer.android.com/reference/android/app/Service). For more information
+    A service is implemented as a subclass of `https://developer.android.com/reference/android/app/Service`. For more information
     about the `Service` class, see the [Services overview](https://developer.android.com/guide/components/services).
 
 
     **Note:** If your app targets Android 5.0 (API level 21) or higher,
-    use the [JobScheduler](https://developer.android.com/reference/android/app/job/JobScheduler) class to schedule actions. JobScheduler has the
+    use the `https://developer.android.com/reference/android/app/job/JobScheduler` class to schedule actions. JobScheduler has the
     advantage of conserving battery by optimally scheduling jobs to reduce power consumption
     and by working with the [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) API.
-    For more information about using this class, see the [JobScheduler](https://developer.android.com/reference/android/app/job/JobScheduler)
+    For more information about using this class, see the `https://developer.android.com/reference/android/app/job/JobScheduler`
     reference documentation.
 
 
@@ -162,15 +162,15 @@ The following sections describe the four types of app components.
     to alert the user when a broadcast event occurs. More commonly, though, a broadcast receiver is
     just a *gateway* to other components and is intended to do a very minimal amount of work.
 
-    For instance, a broadcast receiver might schedule a [JobService](https://developer.android.com/reference/android/app/job/JobService) to perform some work based
-    on an event using [JobScheduler](https://developer.android.com/reference/android/app/job/JobScheduler).
+    For instance, a broadcast receiver might schedule a `https://developer.android.com/reference/android/app/job/JobService` to perform some work based
+    on an event using `https://developer.android.com/reference/android/app/job/JobScheduler`.
     Broadcast receivers often involve apps interacting with each other, so it's important to be aware of the
     security implications when setting them up.
 
 
-    A broadcast receiver is implemented as a subclass of [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver),
-    and each broadcast is delivered as an [Intent](https://developer.android.com/reference/android/content/Intent) object. For more information,
-    see the [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver) class.
+    A broadcast receiver is implemented as a subclass of `https://developer.android.com/reference/android/content/BroadcastReceiver`,
+    and each broadcast is delivered as an `https://developer.android.com/reference/android/content/Intent` object. For more information,
+    see the `https://developer.android.com/reference/android/content/BroadcastReceiver` class.
 
 **Content providers**
 :   A *content provider* manages a shared set of app data that you can store in
@@ -182,7 +182,7 @@ The following sections describe the four types of app components.
     For example, the Android system provides a content
     provider that manages the user's contact information. Any app with the proper
     permissions can query the content provider, such as using
-    [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data), to read and write information about
+    `https://developer.android.com/reference/android/provider/ContactsContract.Data`, to read and write information about
     a particular person.
 
     It is tempting to think of a content provider as an abstraction on a database, because there is a
@@ -202,7 +202,7 @@ The following sections describe the four types of app components.
     app and not shared.
 
 
-    A content provider is implemented as a subclass of [ContentProvider](https://developer.android.com/reference/android/content/ContentProvider)
+    A content provider is implemented as a subclass of `https://developer.android.com/reference/android/content/ContentProvider`
     and must implement a standard set of APIs that enable other apps to perform
     transactions. For more information, see the [Content providers](https://developer.android.com/guide/topics/providers/content-providers) developer
     guide.
@@ -237,7 +237,7 @@ Intents bind individual components to each other at runtime. You can think of th
 as the messengers that request an action from other components, whether the component belongs
 to your app or another.
 
-An intent is created with an [Intent](https://developer.android.com/reference/android/content/Intent) object, which defines a message to
+An intent is created with an `https://developer.android.com/reference/android/content/Intent` object, which defines a message to
 activate either a specific component (an *explicit* intent) or a specific type of component
 (an *implicit* intent).
 
@@ -258,7 +258,7 @@ broadcast announcement. For example, a broadcast to indicate that the device bat
 includes only a known action string that indicates *battery is low*.
 
 Unlike activities, services, and broadcast receivers, content providers are
-activated when targeted by a request from a [ContentResolver](https://developer.android.com/reference/android/content/ContentResolver). The content
+activated when targeted by a request from a `https://developer.android.com/reference/android/content/ContentResolver`. The content
 resolver handles all direct transactions with the content provider, and the component
 performing transactions with the provider calls methods on the
 `ContentResolver` object. This leaves a layer of abstraction for security reasons between the
@@ -266,17 +266,17 @@ content provider and the component requesting information.
 
 There are separate methods for activating each type of component:
 
-- You can start an activity or give it something new to do by passing an `Intent` to [startActivity()](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)) or, when you want the activity to return a result, [startActivityForResult()](https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)).
-- On Android 5.0 (API level 21) and higher, you can use the [JobScheduler](https://developer.android.com/reference/android/app/job/JobScheduler) class to schedule actions. For earlier Android versions, you can start a service or give new instructions to an ongoing service by passing an `Intent` to [startService()](https://developer.android.com/reference/android/content/Context#startService(android.content.Intent)). You can bind to the service by passing an `Intent` to [bindService()](https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent, android.content.ServiceConnection, int)).
-- You can initiate a broadcast by passing an `Intent` to methods such as [sendBroadcast()](https://developer.android.com/reference/android/content/Context#sendBroadcast(android.content.Intent)) or [sendOrderedBroadcast()](https://developer.android.com/reference/android/content/Context#sendOrderedBroadcast(android.content.Intent, java.lang.String)).
-- You can perform a query to a content provider by calling [query()](https://developer.android.com/reference/android/content/ContentProvider#query(android.net.Uri, java.lang.String[], android.os.Bundle, android.os.CancellationSignal)) on a `ContentResolver`.
+- You can start an activity or give it something new to do by passing an `Intent` to `https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)` or, when you want the activity to return a result, `https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)`.
+- On Android 5.0 (API level 21) and higher, you can use the `https://developer.android.com/reference/android/app/job/JobScheduler` class to schedule actions. For earlier Android versions, you can start a service or give new instructions to an ongoing service by passing an `Intent` to `https://developer.android.com/reference/android/content/Context#startService(android.content.Intent)`. You can bind to the service by passing an `Intent` to `https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent, android.content.ServiceConnection, int)`.
+- You can initiate a broadcast by passing an `Intent` to methods such as `https://developer.android.com/reference/android/content/Context#sendBroadcast(android.content.Intent)` or `https://developer.android.com/reference/android/content/Context#sendOrderedBroadcast(android.content.Intent, java.lang.String)`.
+- You can perform a query to a content provider by calling `https://developer.android.com/reference/android/content/ContentProvider#query(android.net.Uri, java.lang.String[], android.os.Bundle, android.os.CancellationSignal)` on a `ContentResolver`.
 
 For more information about using intents, see the [Intents and
 Intent Filters](https://developer.android.com/guide/components/intents-filters) document.
 The following documents provide more information about activating specific components:
 [Introduction to activities](https://developer.android.com/guide/components/activities/intro-activities),
 [Services overview](https://developer.android.com/guide/components/services),
-[BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver), and
+`https://developer.android.com/reference/android/content/BroadcastReceiver`, and
 [Content providers](https://developer.android.com/guide/topics/providers/content-providers).
 
 ## The manifest file
@@ -297,51 +297,51 @@ such as the following:
 ### Declare components
 
 The primary task of the manifest is to inform the system about the app's components. For
-example, a manifest file can declare an activity as follows:  
+example, a manifest file can declare an activity as follows:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<manifest ... >
-    <application android:icon="@drawable/app_icon.png" ... >
-        <activity android:name="com.example.project.ExampleActivity"
-                  android:label="@string/example_label" ... >
-        </activity>
+<?xml version="1.0" encodin>g<="utf-8&>quot;<?
+manifest ... 
+    application android:icon="@dr>awable/ap<p_icon.png" ... 
+        activity android:name="com.example.project.ExampleActivity"
+                  an>droid:lab<el=">@string/example_l<abel" .>.<. 
+      >  /activity
         ...
-    </application>
-</manifest>
+    /application
+/manifest
 ```
 
-In the [<application>](https://developer.android.com/guide/topics/manifest/application-element)
+In the `https://developer.android.com/guide/topics/manifest/application-element`
 element, the `android:icon` attribute points to resources for an icon that identifies the
 app.
 
-In the [<activity>](https://developer.android.com/guide/topics/manifest/activity-element) element,
+In the `https://developer.android.com/guide/topics/manifest/activity-element` element,
 the `android:name` attribute specifies the fully qualified class name of the
-[Activity](https://developer.android.com/reference/android/app/Activity) subclass, and the
+`https://developer.android.com/reference/android/app/Activity` subclass, and the
 `android:label` attribute specifies a string
 to use as the user-visible label for the activity.
 
 You must declare all app components using the following elements:
 
-- [<activity>](https://developer.android.com/guide/topics/manifest/activity-element) elements for activities
-- [<service>](https://developer.android.com/guide/topics/manifest/service-element) elements for services
-- [<receiver>](https://developer.android.com/guide/topics/manifest/receiver-element) elements for broadcast receivers
-- [<provider>](https://developer.android.com/guide/topics/manifest/provider-element) elements for content providers
+- `https://developer.android.com/guide/topics/manifest/activity-element` elements for activities
+- `https://developer.android.com/guide/topics/manifest/service-element` elements for services
+- `https://developer.android.com/guide/topics/manifest/receiver-element` elements for broadcast receivers
+- `https://developer.android.com/guide/topics/manifest/provider-element` elements for content providers
 
 Activities, services, and content providers that you include in your source but don't declare
 in the manifest aren't visible to the system and, consequently, can never run. However,
 broadcast
 receivers can either be declared in the manifest or created dynamically in code as
-[BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver)
+`https://developer.android.com/reference/android/content/BroadcastReceiver`
 objects and registered with the system by calling
-[registerReceiver()](https://developer.android.com/reference/android/content/Context#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter)).
+`https://developer.android.com/reference/android/content/Context#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter)`.
 
 For more about how to structure the manifest file for your app, see the [App manifest overview](https://developer.android.com/guide/topics/manifest/manifest-intro).
 
 ### Declare component capabilities
 
 As discussed in the [Activate components](https://developer.android.com/guide/components/fundamentals#ActivatingComponents) section, you can use an
-[Intent](https://developer.android.com/reference/android/content/Intent) to start activities, services, and broadcast receivers.
+`https://developer.android.com/reference/android/content/Intent` to start activities, services, and broadcast receivers.
 You do this
 by explicitly naming the target component, using the component class name, in the intent.
 You can also use an implicit intent, which
@@ -352,12 +352,12 @@ action and start it. If there are multiple components that can perform the actio
 intent, the user selects which one to use.
 
 **Caution:** If you use an intent to start a
-[Service](https://developer.android.com/reference/android/app/Service), make sure that your app is secure by using an
+`https://developer.android.com/reference/android/app/Service`, make sure that your app is secure by using an
 [explicit](https://developer.android.com/guide/components/intents-filters#Types)
 intent. Using an implicit intent to start a service is a
 security hazard, because you can't be certain what service responds to the intent
 and the user can't see which service starts. Beginning with Android 5.0 (API level 21), the system
-throws an exception if you call [bindService()](https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent, android.content.ServiceConnection, int))
+throws an exception if you call `https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent, android.content.ServiceConnection, int)`
 with an implicit intent. Don't declare intent filters for your services.
 
 The system identifies the components that can respond to an intent by comparing the
@@ -371,25 +371,25 @@ adding an [`<intent-filter>`](https://developer.android.com/guide/topics/manifes
 
 For example, if you build an email app with an activity for composing a new email, you can
 declare an intent filter to respond to "send" intents to send a new email,
-as shown in the following example:  
+as shown in the following example:
 
 ```xml
 <manifest ... >
     ...
-    <application ... >
-        <activity android:name="com.example.project.ComposeEmailActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <data android:type="*/*" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-    </application>
-</manifest>
+ <   application .>.. 
+     <   activity android:name="com.example.project.ComposeEmailActivity"&<gt;
+            intent-filter&g<t;
+                action android:name="android.intent.action.S<END" />
+                data androi<d:type="*/*" />
+                category android:name=&quo<t;android.intent.categor<y.DEFAULT"< />
+     > <      /intent-filter>
+        /activity>
+    /application
+/manifest>
 ```
 
-If another app creates an intent with the [ACTION_SEND](https://developer.android.com/reference/android/content/Intent#ACTION_SEND) action and passes it to
-[startActivity()](https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent)),
+If another app creates an intent with the `https://developer.android.com/reference/android/content/Intent#ACTION_SEND` action and passes it to
+`https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent)`,
 the system might start your activity so the user can draft and send an
 email.
 
@@ -410,7 +410,7 @@ for users when they search for apps from their device.
 For example, suppose your app requires a camera and uses APIs introduced in Android 8.0 (API level 26).
 You must declare these requirements.
 The values for `minSdkVersion` and `targetSdkVersion` are set in
-your app module's `build.gradle` file:  
+your app module's `build.gradle` file:
 
 ```groovy
 android {
@@ -429,14 +429,14 @@ they are overwritten by Gradle during the build process. For more information, s
 [Specify API level requirements](https://developer.android.com/studio/publish/versioning#minsdk).
 
 
-You declare the camera feature in your app's manifest file:  
+You declare the camera feature in your app's manifest file:
 
 ```xml
 <manifest ... >
-    <uses-feature android:name="android.hardware.camera.any"
-                  android:required="true" />
+ <   uses-feature android:name="android.hardware.camera.any"
+                  android:required="<;true" />
     ...
-</manifest>
+/manifest>
 ```
 
 With the declarations shown in these examples, devices that do *not* have a
@@ -503,23 +503,23 @@ see the [Guide to app architecture](https://developer.android.com/topic/librarie
 
 To learn Android development using videos and code tutorials, see the
 [Developing Android Apps with Kotlin](https://www.udacity.com/course/ud9012)
-Udacity course.  
+Udacity course.
 
 ### Continue reading about:
 
 [Intents and Intent Filters](https://developer.android.com/guide/components/intents-filters)
-:   Learn how to use the [Intent](https://developer.android.com/reference/android/content/Intent) APIs to
+:   Learn how to use the `https://developer.android.com/reference/android/content/Intent` APIs to
     activate app components, such as activities and services, and how to make your app components
     available for use by other apps.
 
 [Introduction to activities](https://developer.android.com/guide/components/activities/intro-activities)
-:   Learn how to create an instance of the [Activity](https://developer.android.com/reference/android/app/Activity) class,
+:   Learn how to create an instance of the `https://developer.android.com/reference/android/app/Activity` class,
     which provides a distinct screen in your application with a user interface.
 
 [App resources overview](https://developer.android.com/guide/topics/resources/providing-resources)
 :   Learn how Android apps are structured to separate app resources from the
     app code, including how you can provide alternative resources for specific device
-configurations.  
+    configurations.
 
 ### Also of interest:
 

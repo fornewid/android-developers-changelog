@@ -135,9 +135,9 @@ the same as `Transition.targetState`. You can use this as a signal for whether
 the transition has finished.
 
 Sometimes, you might want to have an initial state different from the first
-target state. You can use `updateTransition` with `MutableTransitionState` to
-achieve this. For example, it lets you start animation as soon as the code
-enters composition.
+target state. You can use [`rememberTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/rememberTransition.composable#rememberTransition(androidx.compose.animation.core.TransitionState,kotlin.String)) with
+[`MutableTransitionState`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/MutableTransitionState) to achieve this. For example, it lets you start
+animation as soon as the code enters composition.
 
 
 ```kotlin
@@ -199,7 +199,7 @@ fun Dialer(dialerState: DialerState) {
 
 ### Use transition with `AnimatedVisibility` and `AnimatedContent`
 
-[`AnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibility.composable#(androidx.compose.animation.core.Transition).AnimatedVisibility(kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.Function1)) and [`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#(androidx.compose.animation.core.Transition).AnimatedContent(androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.ui.Alignment,kotlin.Function2)) are available as extension
+[`AnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibility.composable#(androidx.compose.animation.core.Transition).AnimatedVisibility(kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.Function1)) and [`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContent.composable#(androidx.compose.animation.core.Transition).AnimatedContent(androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.ui.Alignment,kotlin.Function1,kotlin.Function2)) are available as extension
 functions of `Transition`. The `targetState` for `Transition.AnimatedVisibility`
 and `Transition.AnimatedContent` is derived from the `Transition`, and trigger
 enter, exit, and `sizeTransform` animations as needed when the `Transition`'s
@@ -442,8 +442,8 @@ animation calculation engine for higher-level APIs.
 
 Other APIs cover most use cases, but using `TargetBasedAnimation` directly lets
 you control the animation's play time. In the following example, you manually
-control the `TargetAnimation`'s play time based on the frame time provided by
-`withFrameNanos`.
+control the `TargetBasedAnimation`'s play time based on the frame time provided
+by `withFrameNanos`.
 
 
 ```kotlin

@@ -40,29 +40,29 @@ progress indicator and a scrollable text view:
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_h>eight=<"match_parent"
 
-        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="mat>ch_parent&<quot;
+            android:layout_height="match_parent"
 
-            <TextView style="?android:textAppearanceMedium"
+            TextView style="?android:textAppearanceMedium"
                 android:lineSpacingMultiplier="1.2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_heigh>t=&quo<t;wrap_cont>ent&qu<ot;
                 android:text="@string/lorem_ipsum"
-                android:padding="16dp" />
+                android:padding="16dp" /
 
-        </ScrollView>
+        /ScrollView
 
-        <ProgressBar android:id="@+id/loading_spinner"
-            style="?android:progressBarStyleLarge"
+        ProgressBar android:id="@+id/loading_spinner"
+            style="?android:progress>Ba<rStyleLarge&>quot;
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center" /
 
-    </FrameLayout>
+    /FrameLayout
 
 ### Set up the crossfade animation
 
@@ -234,97 +234,97 @@ animates in and from the right and when it animates out and to the right.
 
 card_flip_left_in.xml
 
-    <set xmlns:android="http://schemas.android.com/apk/res/android">
-        <!-- Before rotating, immediately set the alpha to 0. -->
-        <objectAnimator
+    <set xmlns:android="http://schemas.android.com/apk/res/and>roid&<quot;
+        !-- Before rotating, immediately set the alph>a to <0. --
+        objectAnimator
             android:valueFrom="1.0"
             android:valueTo="0.0"
-            android:propertyName="alpha"
-            android:duration="0" />
+            android:propertyName="al>pha&qu<ot;
+            an>droid<:duration="0" /
 
-        <!-- Rotate. -->
-        <objectAnimator
+        !-- Rotate. --
+        objectAnimator
             android:valueFrom="-180"
             android:valueTo="0"
             android:propertyName="rotationY"
-            android:interpolator="@android:interpolator/accelerate_decelerate"
-            android:duration="@integer/card_flip_time_full" />
+            android:interpolator="@android:interpol>ator/a<ccelerate_decelerate"
+            android:duration="@integer/card_f>lip_t<ime_full" /
 
-        <!-- Halfway through the rotation, set the alpha to 1. See startOffset. -->
-        <objectAnimator
+        !-- Halfway through the rotation, set the alpha to 1. See startOffset. --
+        objectAnimator
             android:valueFrom="0.0"
             android:valueTo="1.0"
-            android:propertyName="alpha"
+          > < android:propertyName="alpha"
             android:startOffset="@integer/card_flip_time_half"
-            android:duration="1" />
-    </set>
+            android:duration="1" /
+    /set
 
 card_flip_left_out.xml
 
-    <set xmlns:android="http://schemas.android.com/apk/res/android">
-        <!-- Rotate. -->
-        <objectAnimator
+    <set xmlns:android="http://schemas.android.com/apk/res/and>roid&<quot;
+        !-- >Rotat<e. --
+        objectAnimator
             android:valueFrom="0"
             android:valueTo="180"
             android:propertyName="rotationY"
             android:interpolator="@android:interpolator/accelerate_decelerate"
-            android:duration="@integer/card_flip_time_full" />
+           > andro<id:duration="@integer/card_flip_time_full" /
 
-        <!-- Halfway through the rotation, set the alpha to 0. See startOffset. -->
-        <objectAnimator
+        !-- Halfway t>hroug<h the rotation, set the alpha to 0. See startOffset. --
+        objectAnimator
             android:valueFrom="1.0"
             android:valueTo="0.0"
-            android:propertyName="alpha"
-            android:startOffset="@integer/card_flip_time_half"
-            android:duration="1" />
-    </set>
+            android:propertyName="alpha">
+    <    >    android:startOffset="@integer/card_flip_time_half"
+            android:duration="1" /
+    /set
 
 card_flip_right_in.xml
 
-    <set xmlns:android="http://schemas.android.com/apk/res/android">
-        <!-- Before rotating, immediately set the alpha to 0. -->
-        <objectAnimator
+    <set xmlns:android="http://schemas.android.com/apk/res/and>roid&<quot;
+        !-- Before rotating, immediately set the alph>a to <0. --
+        objectAnimator
             android:valueFrom="1.0"
             android:valueTo="0.0"
-            android:propertyName="alpha"
-            android:duration="0" />
+            android:propertyName="al>pha&qu<ot;
+            an>droid<:duration="0" /
 
-        <!-- Rotate. -->
-        <objectAnimator
+        !-- Rotate. --
+        objectAnimator
             android:valueFrom="180"
             android:valueTo="0"
             android:propertyName="rotationY"
-            android:interpolator="@android:interpolator/accelerate_decelerate"
-            android:duration="@integer/card_flip_time_full" />
+            android:interpolator="@android:interpol>ator/a<ccelerate_decelerate"
+            android:duration="@integer/card_f>lip_t<ime_full" /
 
-        <!-- Halfway through the rotation, set the alpha to 1. See startOffset. -->
-        <objectAnimator
+        !-- Halfway through the rotation, set the alpha to 1. See startOffset. --
+        objectAnimator
             android:valueFrom="0.0"
             android:valueTo="1.0"
-            android:propertyName="alpha"
+          > < android:propertyName="alpha"
             android:startOffset="@integer/card_flip_time_half"
-            android:duration="1" />
-    </set>
+            android:duration="1" /
+    /set
 
 card_flip_right_out.xml
 
-    <set xmlns:android="http://schemas.android.com/apk/res/android">
-        <!-- Rotate. -->
-        <objectAnimator
+    <set xmlns:android="http://schemas.android.com/apk/res/and>roid&<quot;
+        !-- >Rotat<e. --
+        objectAnimator
             android:valueFrom="0"
             android:valueTo="-180"
             android:propertyName="rotationY"
             android:interpolator="@android:interpolator/accelerate_decelerate"
-            android:duration="@integer/card_flip_time_full" />
+           > andro<id:duration="@integer/card_flip_time_full" /
 
-        <!-- Halfway through the rotation, set the alpha to 0. See startOffset. -->
-        <objectAnimator
+        !-- Halfway t>hroug<h the rotation, set the alpha to 0. See startOffset. --
+        objectAnimator
             android:valueFrom="1.0"
             android:valueTo="0.0"
-            android:propertyName="alpha"
-            android:startOffset="@integer/card_flip_time_half"
-            android:duration="1" />
-    </set>
+            android:propertyName="alpha">
+    <    >    android:startOffset="@integer/card_flip_time_half"
+            android:duration="1" /
+    /set
 
 ### Create the views
 
@@ -338,27 +338,27 @@ following layout creates one side of a card, which shows text:
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#a6c"
-        android:padding="16dp"
-        android:gravity="bottom">
+        a>ndroid<:padding="16dp"
+        android:gravity="bottom"
 
-        <TextView android:id="@android:id/text1"
+        TextView android:id="@android:id/text1"
             style="?android:textAppearanceLarge"
             android:textStyle="bold"
             android:textColor="#fff"
-            android:layout_width="match_parent"
+            android:layout_widt>h=&quo<t;match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/card_back_title" />
+            android:text="@string/card_back_title" /
 
-        <TextView style="?android:textAppearanceSmall"
+        TextView style="?android:textAppearanceSmall"
             android:textAllCaps="true"
             android:textColor="#80ffffff"
             android:textStyle="bold"
-            android:lineSpacingMultiplier="1.2"
+           > a<ndroid>:lineSpacingMultiplier="1.2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/card_back_description" />
+            android:text="@string/card_back_description" /
 
-    </LinearLayout>
+    /LinearLayout
 
 And the next layout creates the other side of the card, which displays an
 [`ImageView`](https://developer.android.com/reference/android/widget/ImageView):
@@ -368,7 +368,7 @@ And the next layout creates the other side of the card, which displays an
         android:layout_height="match_parent"
         android:src="@drawable/image1"
         android:scaleType="centerCrop"
-        android:contentDescription="@string/description_image_1" />
+        android:>contentDescription="@string/description_image_1" /
 
 ### Create the fragments
 
@@ -452,7 +452,7 @@ fragments to at runtime:
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:>layout_height="match_parent" /
 
 In the activity code, set the content view to be the layout that you create.
 It's good practice to show a default fragment when the activity is created. The

@@ -17,10 +17,9 @@ instances of the following content `MediaSource` implementations:
 - `ProgressiveMediaSource` for [regular media files](https://developer.android.com/guide/topics/media/exoplayer/progressive).
 - `RtspMediaSource` for [RTSP](https://developer.android.com/guide/topics/media/exoplayer/rtsp).
 
-`DefaultMediaSourceFactory` can also create more complex media sources depending
-on the properties of the corresponding media items. This is described in more
-detail on the
-[Media items page](https://developer.android.com/guide/topics/media/exoplayer/media-items).
+`DefaultMediaSourceFactory` can also create more complex media sources
+depending on the properties of the corresponding media items. This is
+described in more detail on the [Media items page](https://developer.android.com/guide/topics/media/exoplayer/media-items).
 
 For apps that need media source setups that are not supported by the
 default configuration of the player, there are several options for
@@ -57,15 +56,13 @@ ExoPlayer player =
 
 <br />
 
-The
-[`DefaultMediaSourceFactory` JavaDoc](https://developer.android.com/reference/androidx/media3/exoplayer/source/DefaultMediaSourceFactory)
+The [`DefaultMediaSourceFactory` JavaDoc](https://developer.android.com/reference/androidx/media3/exoplayer/source/DefaultMediaSourceFactory)
 describes the available options in more detail.
 
 It's also possible to inject a custom `MediaSource.Factory` implementation, for
 example to support creation of a custom media source type. The factory's
-`createMediaSource(MediaItem)` will be called to create a media source for each
-media item that is
-[added to the playlist](https://developer.android.com/guide/topics/media/exoplayer/playlists).
+`createMediaSource(MediaItem)` will be called to create a media source for
+each media item that is [added to the playlist](https://developer.android.com/guide/topics/media/exoplayer/playlists).
 
 ## Media source based playlist API
 

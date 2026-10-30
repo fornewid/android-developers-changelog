@@ -576,9 +576,10 @@ camera operations common to all bound use cases:
 These are the supported camera features with CameraControl:
 
 - Zoom
-- Torch
-- Focus and Metering (tap-to-focus)
-- Exposure Compensation
+- Torch, including [torch strength](https://developer.android.com/reference/androidx/camera/core/CameraControl#setTorchStrengthLevel(int)) on supported devices
+- [Low-light boost](https://developer.android.com/reference/androidx/camera/core/CameraControl#enableLowLightBoostAsync(boolean)) on supported devices
+- Focus and metering (tap-to-focus)
+- Exposure compensation
 
 ### Get instances of CameraControl and CameraInfo
 
@@ -589,25 +590,21 @@ The following code shows an example:
 
 ### Kotlin
 
-```kotlin
-val camera = processCameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, preview)
+    val camera = processCameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, preview)
 
-// For performing operations that affect all outputs.
-val cameraControl = camera.cameraControl
-// For querying information and states.
-val cameraInfo = camera.cameraInfo
-```
+    // For performing operations that affect all outputs.
+    val cameraControl = camera.cameraControl
+    // For querying information and states.
+    val cameraInfo = camera.cameraInfo
 
 ### Java
 
-```java
-Camera camera = processCameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, preview)
+    Camera camera = processCameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, preview);
 
-// For performing operations that affect all outputs.
-CameraControl cameraControl = camera.getCameraControl()
-// For querying information and states.
-CameraInfo cameraInfo = camera.getCameraInfo()
-```
+    // For performing operations that affect all outputs.
+    CameraControl cameraControl = camera.getCameraControl();
+    // For querying information and states.
+    CameraInfo cameraInfo = camera.getCameraInfo();
 
 For example, you can submit zoom and other `CameraControl` operations after
 calling `bindToLifecycle()`. After you stop or destroy the activity used to bind
@@ -667,16 +664,16 @@ complete immediately with a failed result and sets the torch state to
 `TorchState.OFF`.
 
 When the torch is enabled, it remains on during photo and video capture
-regardless of the flashMode setting. The
-[`flashMode`](https://developer.android.com/reference/android/hardware/Camera.Parameters#getFlashMode()) in
-`ImageCapture` works only when the torch is disabled.
+regardless of the flash mode setting. The flash mode set with
+[`ImageCapture.setFlashMode()`](https://developer.android.com/reference/androidx/camera/core/ImageCapture#setFlashMode(int))
+works only when the torch is disabled.
 
-### Focus and Metering
+### Focus and metering
 
-[`CameraControl.startFocusAndMetering()`](https://developer.android.com/reference/androidx/camera/core/CameraControl#setExposureCompensationIndex(int))
-triggers autofocus and exposure metering by setting AF/AE/AWB metering regions
-based on the given FocusMeteringAction. This is often used to implement the "tap
-to focus" feature in many camera applications.
+[`CameraControl.startFocusAndMetering()`](https://developer.android.com/reference/androidx/camera/core/CameraControl#startFocusAndMetering(androidx.camera.core.FocusMeteringAction)) triggers
+autofocus (AF), auto exposure (AE), and auto white balance (AWB) metering by
+setting metering regions based on the given `FocusMeteringAction`. You can use
+this method to implement a tap-to-focus feature in camera apps.
 
 #### MeteringPoint
 
@@ -686,7 +683,7 @@ To begin, create a
 size)`](https://developer.android.com/reference/androidx/camera/core/MeteringPointFactory#createPoint(float,%20float,%20float)).
 A `MeteringPoint` represents a single point on the camera
 [`Surface`](https://developer.android.com/reference/android/view/Surface). It's stored in a normalized form
-so that it can be easily converted to sensor coordinates for specifying
+so that it can be converted to sensor coordinates for specifying
 AF/AE/AWB regions.
 
 The size of the `MeteringPoint` ranges from 0 to 1, with a default size of
@@ -696,93 +693,78 @@ size)`, CameraX creates a rectangle region centered at `(x, y)` for the provided
 
 The following code demonstrates how to create a `MeteringPoint`:
 
-### Kotlin
+    // Use PreviewView.getMeteringPointFactory if PreviewView is used for preview.
+    previewView.setOnTouchListener { view, motionEvent ->
+        if (motionEvent.action == MotionEvent.ACTION_UP) {
+            val meteringPoint = previewView.meteringPointFactory
+                .createPoint(motionEvent.x, motionEvent.y)
+            // Build and start a FocusMeteringAction with meteringPoint.
+            view.performClick()
+        }
+        true
+    }
 
-```kotlin
-// Use PreviewView.getMeteringPointFactory if PreviewView is used for preview.
-previewView.setOnTouchListener((view, motionEvent) ->  {
-val meteringPoint = previewView.meteringPointFactory
-    .createPoint(motionEvent.x, motionEvent.y)
-...
-}
+    // Use DisplayOrientedMeteringPointFactory if SurfaceView / TextureView is used
+    // for preview. Note that if the preview is scaled or cropped in the View,
+    // it's the application's responsibility to transform the coordinates properly
+    // so that the width and height of this factory represents the full Preview FOV.
+    // And the (x,y) passed to create MeteringPoint might need to be adjusted with
+    // the offsets.
+    val displayFactory = DisplayOrientedMeteringPointFactory(
+        surfaceView.display,
+        camera.cameraInfo,
+        surfaceView.width.toFloat(),
+        surfaceView.height.toFloat()
+    )
 
-// Use DisplayOrientedMeteringPointFactory if SurfaceView / TextureView is used for
-// preview. Please note that if the preview is scaled or cropped in the View,
-// it's the application's responsibility to transform the coordinates properly
-// so that the width and height of this factory represents the full Preview FOV.
-// And the (x,y) passed to create MeteringPoint might need to be adjusted with
-// the offsets.
-val meteringPointFactory = DisplayOrientedMeteringPointFactory(
-     surfaceView.display,
-     camera.cameraInfo,
-     surfaceView.width,
-     surfaceView.height
-)
-
-// Use SurfaceOrientedMeteringPointFactory if the point is specified in
-// ImageAnalysis ImageProxy.
-val meteringPointFactory = SurfaceOrientedMeteringPointFactory(
-     imageWidth,
-     imageHeight,
-     imageAnalysis)
-```
+    // Use SurfaceOrientedMeteringPointFactory if the point is specified in
+    // ImageAnalysis ImageProxy.
+    val surfaceFactory = SurfaceOrientedMeteringPointFactory(
+        imageWidth.toFloat(),
+        imageHeight.toFloat(),
+        imageAnalysis
+    )
 
 #### startFocusAndMetering and FocusMeteringAction
 
-To invoke
-[`startFocusAndMetering()`](https://developer.android.com/reference/androidx/camera/core/CameraControl#startFocusAndMetering(androidx.camera.core.FocusMeteringAction)),
-applications must build a
-[`FocusMeteringAction`](https://developer.android.com/reference/androidx/camera/core/FocusMeteringAction),
-which consists of one or more `MeteringPoints` with optional metering mode
-combinations from
-[`FLAG_AF`](https://developer.android.com/reference/androidx/camera/core/FocusMeteringAction#FLAG_AF),
-[`FLAG_AE`](https://developer.android.com/reference/androidx/camera/core/FocusMeteringAction#FLAG_AE),
-[`FLAG_AWB`](https://developer.android.com/reference/androidx/camera/core/FocusMeteringAction#FLAG_AWB). The
-follow code demonstrates this usage:
+To invoke [`startFocusAndMetering()`](https://developer.android.com/reference/androidx/camera/core/CameraControl#startFocusAndMetering(androidx.camera.core.FocusMeteringAction)),
+applications must build a [`FocusMeteringAction`](https://developer.android.com/reference/androidx/camera/core/FocusMeteringAction),
+which consists of one or more `MeteringPoint` objects with optional metering
+mode combinations from [`FLAG_AF`](https://developer.android.com/reference/androidx/camera/core/FocusMeteringAction#FLAG_AF()), [`FLAG_AE`](https://developer.android.com/reference/androidx/camera/core/FocusMeteringAction#FLAG_AE()), and
+[`FLAG_AWB`](https://developer.android.com/reference/androidx/camera/core/FocusMeteringAction#FLAG_AWB()). The following code demonstrates this usage:
 
-### Kotlin
+    // meteringPointFactory is any MeteringPointFactory from the previous example.
+    val meteringPoint1 = meteringPointFactory.createPoint(x1, y1)
+    val meteringPoint2 = meteringPointFactory.createPoint(x2, y2)
+    val action = FocusMeteringAction.Builder(meteringPoint1) // default AF|AE|AWB
+        // Optionally add meteringPoint2 for AF/AE.
+        .addPoint(meteringPoint2, FLAG_AF or FLAG_AE)
+        // The action is canceled in 3 seconds (if not set, default is 5s).
+        .setAutoCancelDuration(3, TimeUnit.SECONDS)
+        .build()
 
-```kotlin
-val meteringPoint1 = meteringPointFactory.createPoint(x1, x1)
-val meteringPoint2 = meteringPointFactory.createPoint(x2, y2)
-val action = FocusMeteringAction.Builder(meteringPoint1) // default AF|AE|AWB
-      // Optionally add meteringPoint2 for AF/AE.
-      .addPoint(meteringPoint2, FLAG_AF | FLAG_AE)
-      // The action is canceled in 3 seconds (if not set, default is 5s).
-      .setAutoCancelDuration(3, TimeUnit.SECONDS)
-      .build()
-
-val result = cameraControl.startFocusAndMetering(action)
-// Adds listener to the ListenableFuture if you need to know the focusMetering result.
-result.addListener({
-   // result.get().isFocusSuccessful returns if the auto focus is successful or not.
-}, ContextCompat.getMainExecutor(this)
-```
+    val result = cameraControl.startFocusAndMetering(action)
+    // Adds listener to the ListenableFuture if you need to know the focusMetering
+    // result.
+    result.addListener({
+        // result.get().isFocusSuccessful returns if the auto focus is successful
+        // or not.
+    }, ContextCompat.getMainExecutor(this))
 
 As shown in the preceding code,
 [`startFocusAndMetering()`](https://developer.android.com/reference/androidx/camera/core/CameraControl#startFocusAndMetering(androidx.camera.core.FocusMeteringAction))
 takes a `FocusMeteringAction` consisting of one `MeteringPoint` for AF/AE/AWB
-metering regions and another MeteringPoint for AF and AE only.
+metering regions and another `MeteringPoint` for AF and AE only.
 
-Internally, CameraX converts it into Camera2
-[`MeteringRectangles`](https://developer.android.com/reference/android/hardware/camera2/params/MeteringRectangle)
-and sets the corresponding
-[`CONTROL_AF_REGIONS`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#CONTROL_AF_REGIONS)
-/
-[`CONTROL_AE_REGIONS`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#CONTROL_AE_REGIONS)
-/
-[`CONTROL_AWB_REGIONS`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#CONTROL_AWB_REGIONS)
-parameters to the capture request.
+Because not every device supports AF/AE/AWB and multiple regions, CameraX
+executes the `FocusMeteringAction` with best effort. CameraX uses the maximum
+number of `MeteringPoint` objects supported, in the order that points were
+added. All points added after the maximum count are ignored. For example, if a
+`FocusMeteringAction` is supplied with three `MeteringPoint` objects on a
+platform supporting only two, only the first two points are used. The final
+`MeteringPoint` is ignored by CameraX.
 
-Since not every device supports AF/AE/AWB and multiple regions, CameraX executes
-the `FocusMeteringAction` with best effort. CameraX uses the maximum number
-of MeteringPoints supported, in the order that points were added. All
-MeteringPoints added after the maximum count are ignored. For example, if a
-`FocusMeteringAction` is supplied with 3 MeteringPoints on a platform supporting
-just 2, only the first 2 MeteringPoints are used. The final `MeteringPoint` is
-ignored by CameraX.
-
-#### Exposure Compensation
+### Exposure compensation
 
 Exposure compensation is useful when applications need to fine-tune exposure
 values (EV) beyond the auto exposure (AE) output result. Exposure compensation
@@ -792,41 +774,37 @@ current image conditions:
 `Exposure = ExposureCompensationIndex * ExposureCompensationStep`
 
 CameraX provides the
-[`Camera.CameraControl.setExposureCompensationIndex()`](https://developer.android.com/reference/androidx/camera/core/CameraControl#setExposureCompensationIndex(int))
+[`CameraControl.setExposureCompensationIndex()`](https://developer.android.com/reference/androidx/camera/core/CameraControl#setExposureCompensationIndex(int))
 function for setting the exposure compensation as an index value.
 
 Positive index values make the image brighter, while negative values dim the
-image. Applications can query the supported range by
-[`CameraInfo.ExposureState.exposureCompensationRange()`](https://developer.android.com/reference/androidx/camera/core/ExposureState#getExposureCompensationRange())
-described in the next section. If the value is supported, the returned
+image. Applications can query the supported range with
+[`ExposureState.getExposureCompensationRange()`](https://developer.android.com/reference/androidx/camera/core/ExposureState#getExposureCompensationRange()).
+If the value is supported, the returned
 `ListenableFuture` completes when the value is successfully enabled in the
 capture request; if the specified index is out of the supported range,
 `setExposureCompensationIndex()` causes the returned `ListenableFuture` to
 complete immediately with a failed result.
 
 CameraX keeps only the latest outstanding `setExposureCompensationIndex()`
-request, and calling the function multiple times before the previous request
-gets executed results in its cancellation.
+request. If you call the function again before CameraX applies the previous
+request, CameraX cancels the previous request.
 
 The following snippet sets an exposure compensation index and registers a
 callback for when the exposure change request has been executed:
 
-### Kotlin
+    camera.cameraControl.setExposureCompensationIndex(exposureCompensationIndex)
+        .addListener({
+            // Get the current exposure compensation index, it might be
+            // different from the asked value in case this request was
+            // canceled by a newer setting request.
+            val currentExposureIndex = camera.cameraInfo.exposureState.exposureCompensationIndex
+            // Handle the updated exposure compensation index.
+        }, mainExecutor)
 
-```kotlin
-camera.cameraControl.setExposureCompensationIndex(exposureCompensationIndex)
-   .addListener({
-      // Get the current exposure compensation index, it might be
-      // different from the asked value in case this request was
-      // canceled by a newer setting request.
-      val currentExposureIndex = camera.cameraInfo.exposureState.exposureCompensationIndex
-      ...
-   }, mainExecutor)
-```
-
-- [`Camera.CameraInfo.getExposureState()`](https://developer.android.com/reference/androidx/camera/core/CameraInfo#getExposureState())
+- [`CameraInfo.getExposureState()`](https://developer.android.com/reference/androidx/camera/core/CameraInfo#getExposureState())
   retrieves the current
-  [`ExposureState`](https://developer.android.com/reference/androidx/camera/core/CameraInfo#getExposureState())
+  [`ExposureState`](https://developer.android.com/reference/androidx/camera/core/ExposureState)
   including:
 
   - The supportability of exposure compensation control.
@@ -836,19 +814,25 @@ camera.cameraControl.setExposureCompensationIndex(exposureCompensationIndex)
 
 For example, the following code initializes the settings for an exposure
 [`SeekBar`](https://developer.android.com/reference/android/widget/SeekBar) with current `ExposureState`
-values:
+values. Because a `SeekBar` progress value starts at 0, the code offsets it by
+the lower bound of the exposure compensation range:
 
-### Kotlin
-
-```kotlin
-val exposureState = camera.cameraInfo.exposureState
-binding.seekBar.apply {
-   isEnabled = exposureState.isExposureCompensationSupported
-   max = exposureState.exposureCompensationRange.upper
-   min = exposureState.exposureCompensationRange.lower
-   progress = exposureState.exposureCompensationIndex
-}
-```
+    val exposureState = camera.cameraInfo.exposureState
+    val range = exposureState.exposureCompensationRange
+    binding.seekBar.apply {
+        isEnabled = exposureState.isExposureCompensationSupported
+        max = range.upper - range.lower
+        progress = exposureState.exposureCompensationIndex - range.lower
+        setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                if (fromUser) {
+                    camera.cameraControl.setExposureCompensationIndex(progress + range.lower)
+                }
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar) {}
+        })
+    }
 
 ## Additional resources
 
@@ -866,4 +850,4 @@ To learn more about CameraX, consult the following additional resources.
 
 ### Developer community
 
-- [Android CameraX Discussion Group](http://g.co/camerax/developers)
+- [Android CameraX Discussion Group](https://g.co/camerax/developers)

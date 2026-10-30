@@ -5,24 +5,22 @@ source: md.txt
 ---
 
 > [!IMPORTANT]
-> **Important:** If you implemented a custom splash screen in Android 11 or lower, migrate your app to the [`SplashScreen`](https://developer.android.com/reference/android/window/SplashScreen) API to ensure it displays correctly in Android 12 and higher. For instructions, see [Migrate your existing splash screen implementation to Android
-> 12](https://developer.android.com/guide/topics/ui/splash-screen/migrate).
+> **Important:** If you implemented a custom splash screen in Android 11 or lower, migrate your app to the [`SplashScreen`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen) compat library to ensure it displays correctly in Android 12 and higher. For instructions, see [Migrate
+> your existing splash screen implementation to Android 12](https://developer.android.com/develop/ui/views/launch/splash-screen/migrate).
 
-Starting in Android 12, the
-[`SplashScreen`](https://developer.android.com/reference/android/window/SplashScreen) API lets apps launch
-with animation, including an into-app motion at launch, a splash screen showing
-your app icon, and a transition to your app itself. A `SplashScreen` is a
-[`Window`](https://developer.android.com/reference/android/view/Window) and
-therefore covers an
-[`Activity`](https://developer.android.com/reference/android/app/Activity).
+Starting in Android 12, apps launch with a system splash screen that includes
+an into-app motion at launch, a splash screen showing your app icon, and a
+transition to your app itself. The splash screen is a [`Window`](https://developer.android.com/reference/android/view/Window) and
+therefore covers an [`Activity`](https://developer.android.com/reference/android/app/Activity).
 **Figure 1.** A splash screen.
 
 The splash screen experience brings standard design elements to every app
 launch, but it's also customizable so your app can maintain its unique branding.
 
-In addition to using the `SplashScreen` platform API, you can also use the
-[`SplashScreen`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen)
-compat library, which wraps the `SplashScreen` API.
+To customize the splash screen from your app, use the Jetpack
+[`SplashScreen`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen) compat library. It wraps the platform [`SplashScreen`](https://developer.android.com/reference/android/window/SplashScreen)
+API and works with any `ComponentActivity`, including activities that set
+their UI with Compose using `setContent`.
 
 ## How the splash screen works
 
@@ -36,17 +34,16 @@ following events occur:
 
 2. When the app is ready, the splash screen is dismissed and the app displays.
 
-The splash screen never shows during a
-[hot start](https://developer.android.com/topic/performance/issues/launch-time#hot).
+The splash screen never shows during a [hot start](https://developer.android.com/topic/performance/issues/launch-time#hot).
 
 ## Elements and mechanics of the splash screen
 
 The elements of the splash screen are defined by XML resource files in the
-Android manifest file. There are light and dark mode versions for each element.
+Android manifest file. There are light and dark theme versions for each element.
 
 The customizable elements of a splash screen consist of the app icon, icon
 background, and window background:
-![An image showing the elements contained in a splash screen](https://developer.android.com/static/images/guide/topics/ui/splash-screen/splash-screen-composition.png) **Figure 2.** Customizable elements of a splash screen.
+![Splash screen with numbered callouts for its customizable elements](https://developer.android.com/static/images/guide/topics/ui/splash-screen/splash-screen-composition.png) **Figure 2.** Customizable elements of a splash screen.
 
 Consider the following elements, shown in figure 2:
 
@@ -56,20 +53,19 @@ we recommend not exceeding 1,000 milliseconds. The launcher icon is the default.
 
 2 The **icon background** is optional and useful if
 you need more contrast between the icon and the window background. If you use an
-[adaptive icon](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive), its
+[adaptive icon](https://developer.android.com/develop/ui/compose/system/icon_design_adaptive), its
 background is displayed if there is enough contrast with the window background.
 
 3 As with adaptive icons, one-third of the
 foreground is masked.
 
 4 The **window background** consists of a single
-opaque color. If the window background is set and is a plain color, it is used
+opaque color. If the window background is set and is a plain color, it's used
 by default if the attribute isn't set.
 
 ### Splash screen dimensions
 
-The splash screen icon uses the same specifications as
-[adaptive icons](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive),
+The splash screen icon uses the same specifications as [adaptive icons](https://developer.android.com/develop/ui/compose/system/icon_design_adaptive),
 as follows:
 
 - Branded image: this must be 200×80 dp.
@@ -79,7 +75,7 @@ as follows:
 For example, if the full size of an image is 300×300 dp, the icon needs to fit
 within a circle with a diameter of 200 dp. Everything outside the circle turns
 invisible (masked).
-![An image showing different icon dimensions for solid and transparent background](https://developer.android.com/static/images/guide/topics/ui/splash-screen/splash-screen-icon-dimensions.png) **Figure 3.** Splash screen icon dimensions for solid and transparent backgrounds, respectively.
+![Splash screen icon dimensions with solid and transparent icon backgrounds](https://developer.android.com/static/images/guide/topics/ui/splash-screen/splash-screen-icon-dimensions.png) **Figure 3.** Splash screen icon dimensions for solid and transparent backgrounds, respectively.
 
 ### Splash screen animations and the launch sequence
 
@@ -90,7 +86,7 @@ time is less when viewing an animation.
 
 A splash screen animation is embedded within the launch sequence components, as
 shown in figure 4.
-![An image showing the launch sequence in twelve consecutive frames, beginning with the launcher icon being tapped and filling the screen as it enlarges](https://developer.android.com/static/images/ui/splash-sequence.png) **Figure 4.** Launch sequence.
+![Launch sequence in twelve consecutive frames, beginning with the launcher icon being tapped and filling the screen as it enlarges](https://developer.android.com/static/images/ui/splash-sequence.png) **Figure 4.** Launch sequence.
 
 1. Enter animation: this consists of the system view to the splash screen. It
    is controlled by the system and isn't customizable.
@@ -102,7 +98,7 @@ shown in figure 4.
 
 3. Exit animation: this consists of the animation that hides the splash screen.
    If you want to [customize it](https://developer.android.com/develop/ui/views/launch/splash-screen#customize-animation), use the
-   [`SplashScreenView`](https://developer.android.com/reference/android/window/SplashScreenView) and its
+   [`SplashScreenViewProvider`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreenViewProvider) view and its
    icon. You can run any animation on them, with settings for transform,
    opacity, and color. In this case, manually remove the splash screen when the
    animation is done.
@@ -140,7 +136,7 @@ Your splash screen must adhere to the following specifications:
 **Figure 5.** Example AVD.
 
 Download the
-[](https://developer.android.com/static/resources/splash-screen-news-avd-assets.zip)example starter kit,
+[example starter kit](https://developer.android.com/static/resources/splash-screen-news-avd-assets.zip),
 which demonstrates how to create, format, and export an animation into an AVD.
 It includes the following:
 
@@ -178,7 +174,7 @@ your `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-splashscreen:1.0.0"
+    implementation "androidx.core:core-splashscreen:1.2.0"
 }
 ```
 
@@ -186,9 +182,16 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-splashscreen:1.0.0")
+    implementation("androidx.core:core-splashscreen:1.2.0")
 }
 ```
+
+Then create a splash screen theme that inherits from `Theme.SplashScreen`, set
+`postSplashScreenTheme` to the theme the activity uses afterward, apply the
+splash screen theme in your manifest (see [Migrate your existing splash screen
+implementation to Android 12](https://developer.android.com/develop/ui/views/launch/splash-screen/migrate)), and call `installSplashScreen()` in your
+starting activity before calling `super.onCreate()`, as shown in the examples in
+the following sections.
 
 ### Set a theme for the splash screen to change its appearance
 
@@ -224,7 +227,7 @@ providing an alternate resource file for Android 12 and higher.
    doesn't have any effect on the actual time during which the splash screen is
    shown, but you can retrieve it when customizing the splash screen exit
    animation using
-   [`SplashScreenView.getIconAnimationDuration`](https://developer.android.com/reference/android/window/SplashScreenView#getIconAnimationDuration()).
+   [`SplashScreenViewProvider.iconAnimationDurationMillis`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreenViewProvider#iconAnimationDurationMillis()).
    See the following section about
    [keeping the splash screen on-screen for longer periods](https://developer.android.com/develop/ui/views/launch/splash-screen#suspend-drawing)
    for more details.
@@ -260,88 +263,51 @@ providing an alternate resource file for Android 12 and higher.
 
 The splash screen is dismissed as soon as your app draws its first frame. If you
 need to load a small amount of data, such as loading in-app settings from a
-local disk asynchronously, you can use
-[`ViewTreeObserver.OnPreDrawListener`](https://developer.android.com/reference/android/view/ViewTreeObserver.OnPreDrawListener)
-to suspend the app to draw its first frame.
+local disk asynchronously, use
+[`setKeepOnScreenCondition`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen#setKeepOnScreenCondition(androidx.core.splashscreen.SplashScreen.KeepOnScreenCondition)) to keep the splash screen on-screen until the
+data is ready. The condition is evaluated before each frame is drawn, so keep it
+fast to avoid blocking the UI.
 
 If your starting activity finishes before drawing---for example, by not
-setting the content view and finishing before `onResume`---the pre-draw
-listener isn't needed.
+setting the content view and finishing before `onResume`---you don't need to
+set a condition.
 
-### Kotlin
 
 ```kotlin
-// Create a new event for the activity.
 override fun onCreate(savedInstanceState: Bundle?) {
+    // Install the splash screen before calling super.onCreate().
+    val splashScreen = installSplashScreen()
     super.onCreate(savedInstanceState)
-    // Set the layout for the content view.
-    setContentView(R.layout.main_activity)
 
-    // Set up an OnPreDrawListener to the root view.
-    val content: View = findViewById(android.R.id.content)
-    content.viewTreeObserver.addOnPreDrawListener(
-        object : ViewTreeObserver.OnPreDrawListener {
-            override fun onPreDraw(): Boolean {
-                // Check whether the initial data is ready.
-                return if (viewModel.isReady) {
-                    // The content is ready. Start drawing.
-                    content.viewTreeObserver.removeOnPreDrawListener(this)
-                    true
-                } else {
-                    // The content isn't ready. Suspend.
-                    false
-                }
-            }
-        }
-    )
+    // Keep the splash screen on-screen until the initial data is ready.
+    // The condition is checked each time the app is about to draw a frame.
+    splashScreen.setKeepOnScreenCondition { !viewModel.isReady.value }
+
+    setContent {
+        MyApp()
+    }
 }
 ```
 
-### Java
-
-```java
-// Create a new event for the activity.
-@Override
-protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    // Set the layout for the content view.
-    setContentView(R.layout.main_activity);
-
-    // Set up an OnPreDrawListener to the root view.
-    final View content = findViewById(android.R.id.content);
-    content.getViewTreeObserver().addOnPreDrawListener(
-            new ViewTreeObserver.OnPreDrawListener() {
-                @Override
-                public boolean onPreDraw() {
-                    // Check whether the initial data is ready.
-                    if (mViewModel.isReady()) {
-                        // The content is ready. Start drawing.
-                        content.getViewTreeObserver().removeOnPreDrawListener(this);
-                        return true;
-                    } else {
-                        // The content isn't ready. Suspend.
-                        return false;
-                    }
-                }
-            });
-}
-```
+<br />
 
 ### Customize the animation for dismissing the splash screen
 
-You can further customize the animation of the splash screen through
-[`Activity.getSplashScreen()`](https://developer.android.com/reference/android/app/Activity#getSplashScreen()).
+You can further customize the animation of the splash screen with
+[`setOnExitAnimationListener`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen#setOnExitAnimationListener(androidx.core.splashscreen.SplashScreen.OnExitAnimationListener)). The listener receives a
+[`SplashScreenViewProvider`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreenViewProvider) that gives you the splash screen view to
+animate. Call `remove()` on it when your animation ends.
 
-### Kotlin
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
+    val splashScreen = installSplashScreen()
     super.onCreate(savedInstanceState)
-    // ...
 
     // Add a callback that's called when the splash screen is animating to the
     // app content.
-    splashScreen.setOnExitAnimationListener { splashScreenView ->
+    splashScreen.setOnExitAnimationListener { splashScreenViewProvider ->
+        val splashScreenView = splashScreenViewProvider.view
         // Create your custom animation.
         val slideUp = ObjectAnimator.ofFloat(
             splashScreenView,
@@ -352,92 +318,43 @@ override fun onCreate(savedInstanceState: Bundle?) {
         slideUp.interpolator = AnticipateInterpolator()
         slideUp.duration = 200L
 
-        // Call SplashScreenView.remove at the end of your custom animation.
-        slideUp.doOnEnd { splashScreenView.remove() }
+        // Call SplashScreenViewProvider.remove at the end of your custom
+        // animation.
+        slideUp.doOnEnd { splashScreenViewProvider.remove() }
 
         // Run your animation.
         slideUp.start()
     }
+
+    setContent {
+        MyApp()
+    }
 }
 ```
 
-### Java
-
-```java
-@Override
-protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    // ...
-
-    // Add a callback that's called when the splash screen is animating to the
-    // app content.
-    getSplashScreen().setOnExitAnimationListener(splashScreenView -> {
-        final ObjectAnimator slideUp = ObjectAnimator.ofFloat(
-                splashScreenView,
-                View.TRANSLATION_Y,
-                0f,
-                -splashScreenView.getHeight()
-        );
-        slideUp.setInterpolator(new AnticipateInterpolator());
-        slideUp.setDuration(200L);
-
-        // Call SplashScreenView.remove at the end of your custom animation.
-        slideUp.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                splashScreenView.remove();
-            }
-        });
-
-        // Run your animation.
-        slideUp.start();
-    });
-}
-```
+<br />
 
 By the start of this callback, the
 [animated vector drawable](https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable)
 on the splash screen starts. Depending on the duration of the app launch, the
 drawable might be in the middle of its animation. Use
-[`SplashScreenView.getIconAnimationStart`](https://developer.android.com/reference/android/window/SplashScreenView#getIconAnimationStart())
+[`SplashScreenViewProvider.iconAnimationStartMillis`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreenViewProvider#iconAnimationStartMillis())
 to know when the animation started. You can calculate the remaining duration of
 the icon animation as follows:
 
-### Kotlin
 
 ```kotlin
 // Get the duration of the animated vector drawable.
-val animationDuration = splashScreenView.iconAnimationDuration
-// Get the start time of the animation.
-val animationStart = splashScreenView.iconAnimationStart
+val animationDuration = splashScreenViewProvider.iconAnimationDurationMillis
+// Get the start time of the animation, in milliseconds since the epoch.
+val animationStart = splashScreenViewProvider.iconAnimationStartMillis
 // Calculate the remaining duration of the animation.
-val remainingDuration = if (animationDuration != null && animationStart != null) {
-    (animationDuration - Duration.between(animationStart, Instant.now()))
-        .toMillis()
+val remainingDuration =
+    (animationDuration - (System.currentTimeMillis() - animationStart))
         .coerceAtLeast(0L)
-} else {
-    0L
-}
 ```
 
-### Java
-
-```java
-// Get the duration of the animated vector drawable.
-Duration animationDuration = splashScreenView.getIconAnimationDuration();
-// Get the start time of the animation.
-Instant animationStart = splashScreenView.getIconAnimationStart();
-// Calculate the remaining duration of the animation.
-long remainingDuration;
-if (animationDuration != null && animationStart != null) {
-    remainingDuration = animationDuration.minus(
-            Duration.between(animationStart, Instant.now())
-    ).toMillis();
-    remainingDuration = Math.max(remainingDuration, 0L);
-} else {
-    remainingDuration = 0L;
-}
-```
+<br />
 
 ## Additional resources
 

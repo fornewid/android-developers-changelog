@@ -4,10 +4,10 @@ url: https://developer.android.com/develop/ui/compose/animation/tooling
 source: md.txt
 ---
 
-Android Studio supports inspection of [`animate*AsState`](https://developer.android.com/develop/ui/compose/animation/value-based#animate-as-state), [`CrossFade`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#crossfade),
+Android Studio supports inspection of [`animate*AsState`](https://developer.android.com/develop/ui/compose/animation/value-based#animate-as-state), [`Crossfade`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#crossfade),
 [`rememberInfiniteTransition`](https://developer.android.com/develop/ui/compose/animation/value-based#rememberinfinitetransition), [`AnimatedContent`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedcontent),
-[`updateTransition`](https://developer.android.com/develop/ui/compose/animation/value-based#updateTransition), and [`animatedVisibility`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedvisibility) in
-[Animation Preview](https://developer.android.com/develop/ui/compose/tooling#animations). You can do the following:
+[`updateTransition`](https://developer.android.com/develop/ui/compose/animation/value-based#updateTransition), and [`AnimatedVisibility`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedvisibility) in
+[Animation Preview](https://developer.android.com/develop/ui/compose/tooling/animation-preview). You can do the following:
 
 - Preview a transition frame by frame.
 - Inspect values for all animations in the transition.

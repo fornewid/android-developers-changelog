@@ -4,14 +4,15 @@ url: https://developer.android.com/media/media3/exoplayer/media-items
 source: md.txt
 ---
 
-The [playlist API](https://developer.android.com/guide/topics/media/exoplayer/playlists) is based on `MediaItem` instances, which can be conveniently built
-using `MediaItem.Builder`. Inside the player, a `MediaItem` is converted into
-a playable `MediaSource` by a `MediaSource.Factory`. Without
-[custom configuration](https://developer.android.com/guide/topics/media/exoplayer/media-sources#customizing-media-source-creation),
-this conversion is carried out by a `DefaultMediaSourceFactory`, which is
-capable of building complex media sources corresponding to the properties of the
-media item. Some of the properties that can be set on media items are outlined
-below.
+The [playlist API](https://developer.android.com/guide/topics/media/exoplayer/playlists) is based on `MediaItem` instances, which can be
+conveniently built using `MediaItem.Builder`. Inside the player, a
+`MediaItem` is converted into a playable `MediaSource` by a
+`MediaSource.Factory`. Without
+[custom configuration](https://developer.android.com/guide/topics/media/exoplayer/media-sources#customizing-media-source-creation), this conversion is carried out
+by a `DefaultMediaSourceFactory`, which is capable of building complex media
+sources corresponding to the properties of the media item. Some of the
+properties that can be set on media items are outlined in the following
+sections.
 
 ## Simple media items
 
@@ -33,8 +34,8 @@ MediaItem mediaItem = MediaItem.fromUri(videoUri);
 
 <br />
 
-For all other cases, a `MediaItem.Builder` can be used. In the following example, a
-media item is built with an ID and some attached metadata:
+For all other cases, a `MediaItem.Builder` can be used. In the following
+example, a media item is built with an ID and some attached metadata:
 
 
 ### Kotlin
@@ -54,17 +55,14 @@ MediaItem mediaItem =
 <br />
 
 Attaching metadata can be useful for
-[updating your app's UI](https://developer.android.com/guide/topics/media/exoplayer/playlists#detecting-transitions)
-when playlist transitions occur.
+[updating your app's UI](https://developer.android.com/guide/topics/media/exoplayer/playlists#detecting-transitions) when playlist transitions occur.
 
 ## Images
 
-Playback of images requires a duration in the media item to specify for how long
-the image should be shown during playback. See the
-[Images](https://developer.android.com/media/media3/exoplayer/images) guide page for more information on
-[Motion Photos](https://developer.android.com/media/media3/exoplayer/images#motion-photos) and
-[Image Loading Libraries](https://developer.android.com/media/media3/exoplayer/images#image-loading-libraries)
-(for example, Glide).
+Playback of images requires a duration in the media item to specify for how
+long the image should be shown during playback. See the [Images](https://developer.android.com/media/media3/exoplayer/images) guide
+page for more information on [Motion Photos](https://developer.android.com/media/media3/exoplayer/images#motion-photos) and
+[Image Loading Libraries](https://developer.android.com/media/media3/exoplayer/images#image-loading-libraries) (for example, Glide).
 
 
 ### Kotlin
@@ -152,12 +150,10 @@ MediaItem mediaItem =
 
 <br />
 
-Inside the
-player, `DefaultMediaSourceFactory` will pass these properties to a
+Inside the player, `DefaultMediaSourceFactory` will pass these properties to a
 `DrmSessionManagerProvider` to obtain a `DrmSessionManager`, which is then
 injected into the created `MediaSource`. DRM behaviour can be
-[further customized](https://developer.android.com/guide/topics/media/exoplayer/drm#using-a-custom-drmsessionmanager)
-to your needs.
+[further customized](https://developer.android.com/guide/topics/media/exoplayer/drm#using-a-custom-drmsessionmanager) to your needs.
 
 ## Sideloading subtitle tracks
 
@@ -272,10 +268,10 @@ MediaItem mediaItem =
 
 <br />
 
-Internally, `DefaultMediaSourceFactory` will wrap the content media source in an
-`AdsMediaSource` to insert ads as defined by the ad tag. For this to work, the
-player also needs to have its `DefaultMediaSourceFactory`
+Internally, `DefaultMediaSourceFactory` will wrap the content media source in
+an `AdsMediaSource` to insert ads as defined by the ad tag. For this to work,
+the player also needs to have its `DefaultMediaSourceFactory`
 [configured accordingly](https://developer.android.com/guide/topics/media/exoplayer/ad-insertion#declarative-ad-support).
 
 > [!CAUTION]
-> **[Known issue #185:](https://github.com/androidx/media/issues/185)** Subtitles, clipping and ad insertion are only supported if you use `DefaultMediaSourceFactory`.
+> **Caution:** **[Known issue #185](https://github.com/androidx/media/issues/185):** Subtitles, clipping and ad insertion are only supported if you use `DefaultMediaSourceFactory`.

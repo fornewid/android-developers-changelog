@@ -11,7 +11,7 @@ features and improvements.
 
 ## Compatibility
 
-Android Gradle plugin 9.1.1 supports Android API level 37.0 and below.
+Android Gradle plugin 9.1.1 supports Android API level 37.0 and lower.
 
 Here is other compatibility info:
 

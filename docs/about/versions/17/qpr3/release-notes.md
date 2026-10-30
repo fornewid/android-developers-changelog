@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr3/release-notes
 source: md.txt
 ---
 
+### Beta 3
+
+|---|---|
+| **Release date** | October 29, 2026 |
+| **Builds** | DP11.261016.003 DP11.261016.004 |
+| **Emulator support** | x86 (64-bit), ARM (v8-A) |
+| **Security patch level** | 2026-10-05 |
+| **Google Play services** | 26.36.33 |
+
 ### Beta 2
 
 |---|---|
@@ -22,7 +31,7 @@ source: md.txt
 | **Security patch level** | 2026-08-05 |
 | **Google Play services** | 26.32.34 |
 
-### Android 17 QPR 3 Beta 2 (October 2026)
+### Android 17 QPR 3 Beta 3 (October 2026)
 
 Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
 update the platform with fixes and improvements that are then rolled out to
@@ -34,6 +43,37 @@ Although these updates don't include app-impacting API changes, we provide
 images of the latest QPR beta builds so you can test your app with these builds
 as needed (for example, if there are upcoming features that might impact the
 user experience of your app).
+
+### Top Issues fixed in Beta 3 (October 2026)
+
+Top issues fixed include:
+
+- *Images render with incorrect transparency when using the Multiply blend mode. ([**Issue #73186237**](https://issuetracker.google.com/issues/73186237))*
+- *Recents overview flickers when performing a home gesture immediately after quick-switching apps. ([**Issue #237526296**](https://issuetracker.google.com/issues/237526296), [**Issue #341680318**](https://issuetracker.google.com/issues/341680318))*
+- *Inner display remains black when unfolding the device. ([**Issue #311469796**](https://issuetracker.google.com/issues/311469796), [**Issue #311583772**](https://issuetracker.google.com/issues/311583772))*
+- *Twitter app crashes when viewing post thread mentions. ([**Issue #282904709**](https://issuetracker.google.com/issues/282904709), [**Issue #293383813**](https://issuetracker.google.com/issues/293383813))*
+- *Display randomly turns off and on during device usage. ([**Issue #325555461**](https://issuetracker.google.com/issues/325555461))*
+- *Poor video quality when using the device as a webcam. ([**Issue #313062628**](https://issuetracker.google.com/issues/313062628))*
+- *Toast notifications intermittently fail to display under high memory pressure. ([**Issue #321628126**](https://issuetracker.google.com/issues/321628126))*
+- *Home screen wallpaper incorrectly displays on the lock screen when waking the device from an open app. ([**Issue #343002680**](https://issuetracker.google.com/issues/343002680))*
+- *Equalizer frequency adjustment bars are cut off at the top of the screen. ([**Issue #342124654**](https://issuetracker.google.com/issues/342124654), [**Issue #358742436**](https://issuetracker.google.com/issues/358742436))*
+- *Force stop button in app settings fails to terminate running applications. ([**Issue #337240745**](https://issuetracker.google.com/issues/337240745))*
+- *Colored icons flicker when navigating back to the Accessibility settings page. ([**Issue #354424795**](https://issuetracker.google.com/issues/354424795))*
+- *Apps fail to launch new activities when opened with an active Picture-in-Picture window. ([**Issue #479561839**](https://issuetracker.google.com/issues/479561839))*
+- *Inconsistent spacing between status bar icons. ([**Issue #450097709**](https://issuetracker.google.com/issues/450097709))*
+- *Screen recording callback incorrectly reports active recording state after stopping screen share from floating controls. ([**Issue #442801639**](https://issuetracker.google.com/issues/442801639))*
+- *UI buttons render as blank white squares without icons in dark mode. ([**Issue #470561031**](https://issuetracker.google.com/issues/470561031))*
+- *Grouped notification icons and titles appear grayed out. ([**Issue #489219424**](https://issuetracker.google.com/issues/489219424), [**Issue #516800663**](https://issuetracker.google.com/issues/516800663), [**Issue #548675068**](https://issuetracker.google.com/issues/548675068), [**Issue #568096206**](https://issuetracker.google.com/issues/568096206))*
+- *Persistent UI message cannot be dismissed. ([**Issue #497831984**](https://issuetracker.google.com/issues/497831984), [**Issue #517093542**](https://issuetracker.google.com/issues/517093542))*
+- *Bubbles get stuck in a miniaturized state at the bottom of the screen when swiped to dismiss. ([**Issue #504704002**](https://issuetracker.google.com/issues/504704002), [**Issue #517621552**](https://issuetracker.google.com/issues/517621552))*
+- *Navigation bar animation glitches when swiping up to the recent apps screen. ([**Issue #552037549**](https://issuetracker.google.com/issues/552037549))*
+- *Mobile Data Quick Settings icon renders at an incorrect size with persistent visual artifacts. ([**Issue #508083737**](https://issuetracker.google.com/issues/508083737), [**Issue #508904751**](https://issuetracker.google.com/issues/508904751), [**Issue #504868272**](https://issuetracker.google.com/issues/504868272), [**Issue #527517148**](https://issuetracker.google.com/issues/527517148), [**Issue #544886523**](https://issuetracker.google.com/issues/544886523), [**Issue #550178753**](https://issuetracker.google.com/issues/550178753), [**Issue #567904796**](https://issuetracker.google.com/issues/567904796), [**Issue #571714475**](https://issuetracker.google.com/issues/571714475))*
+- *Display rendering issue when adjusting the font size slider in Settings. ([**Issue #554687371**](https://issuetracker.google.com/issues/554687371))*
+- *Image action icons missing from the Recent Apps screen. ([**Issue #570996132**](https://issuetracker.google.com/issues/570996132))*
+- *SettingsDumpService persists and consumes excessive memory after opening SIM settings. ([**Issue #567819031**](https://issuetracker.google.com/issues/567819031))*
+- *Device crashes intermittently on the lock screen or shortly after startup. ([**Issue #569613685**](https://issuetracker.google.com/issues/569613685))*
+- *Apps crash when BluetoothLeScanner.stopScan() is called with a null callback. ([**Issue #571626896**](https://issuetracker.google.com/issues/571626896))*
+- *WPA-Enterprise Wi-Fi connections fail when authenticating with PEAP. ([**Issue #572438311**](https://issuetracker.google.com/issues/572438311), [**Issue #569431116**](https://issuetracker.google.com/issues/569431116), [**Issue #565959472**](https://issuetracker.google.com/issues/565959472))*
 
 ### Top Issues fixed in Beta 2 (October 2026)
 

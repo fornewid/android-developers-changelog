@@ -24,6 +24,10 @@ Emulator, see the
 
 For known issues and troubleshooting, please see [Emulator Troubleshooting](https://developer.android.com/studio/run/emulator-troubleshooting).
 
+## 37.2.13 Patch (Oct 28, 2026)
+
+- \[Bug Fix\][Issue #568480829](https://issuetracker.google.com/568480829) Fixed a host memory leak in OpenGL ES emulation where graphics contexts, surfaces, and frame buffers were not released when guest Android apps or processes exited.
+
 ## Next Generation Android Emulator (Preview)
 
 Starting with Android Studio Rabbit 3 Canary 1, a preview of our next-generation

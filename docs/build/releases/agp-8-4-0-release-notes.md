@@ -131,18 +131,15 @@ Starting with Android Gradle Plugin 8.4, if an Android library project is
 minified, shrunk program classes will be published for inter-project publishing.
 This means that if an app depends on the shrunk version of the Android library
 subprojects, the APK will include shrunk Android library classes. You may need
-to adjust [library keep rules](https://developer.android.com/build/shrink-code#keep-code) in case there are
-missing classes in the APK.
+to adjust [library keep rules](https://developer.android.com/build/shrink-code) in case there are missing classes in the APK.
 
 In case you are building and publishing an AAR, local jars that your library
-depends on will be included unshrunk in the AAR, which means
-[code shrinker](https://developer.android.com/build/shrink-code) won't run on them.
+depends on will be included unshrunk in the AAR, which means [code shrinker](https://developer.android.com/build/shrink-code)
+won't run on them.
 
 To revert to previous behavior, set
 `android.disableMinifyLocalDependenciesForLibraries` in the `gradle.properties`
-file and
-[file a bug](https://issuetracker.google.com/issues/new?component=192708&template=840533&pli=1).
-Future versions of AGP will remove this flag remove this flag.
+file and [file a bug](https://issuetracker.google.com/issues/new?component=192708&template=840533&pli=1). Future versions of AGP will remove this flag.
 
 ## Fixed issues
 

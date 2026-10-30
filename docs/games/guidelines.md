@@ -10,11 +10,11 @@ business growth for your game. Participation in this program is voluntary and
 developers that choose not to participate will not have a change in benefits
 they are entitled through other programs. Developers can enroll through
 Play Console starting September 1, 2026. For more information, see
-[Enroll in the Level Up program](https://support.google.com/googleplay/android-developer/answer/18018581).
+**[Enroll in the Level Up program](https://support.google.com/googleplay/android-developer/answer/18018581)**.
 
 Our mission is to connect players with the best gaming experiences---ones that
-**[provide a consistent gamer experience](https://developer.android.com/games/guidelines#play-games-identity)** , **[reach across all
-screens](https://developer.android.com/games/guidelines#expand-reach)** and **[deliver stable and smoother gameplay sessions](https://developer.android.com/games/guidelines#deliver-stable-gameplay)**.
+[provide a consistent gamer experience](https://developer.android.com/games/guidelines#play-games-identity), [reach across all
+screens](https://developer.android.com/games/guidelines#expand-reach), and [deliver stable and smoother gameplay sessions](https://developer.android.com/games/guidelines#deliver-stable-gameplay).
 
 Player expectations and developer needs are always evolving, and the program is
 designed to evolve with them. User experience guidelines and benefits may be

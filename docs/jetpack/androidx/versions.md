@@ -199,7 +199,7 @@ release notes to view the version updates for all of the artifacts.
 | [sqlite](https://developer.android.com/jetpack/androidx/releases/sqlite) | October 21, 2026 | [2.7.1](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.1) | - | - | [2.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/sqlite#2.8.0-alpha03) |
 | [swiperefreshlayout](https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout) | December 3, 2025 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout#1.2.0) | - | - | - |
 | [test.backup](https://developer.android.com/jetpack/androidx/releases/test-backup) | October 21, 2026 | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test-backup#1.0.0-alpha03) |
-| [test (\*)](https://developer.android.com/jetpack/androidx/releases/test) | October 15, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/test#1.0.1) | - | - | [1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test#1.1.0-alpha04) |
+| [test (\*)](https://developer.android.com/jetpack/androidx/releases/test) | October 29, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/test#1.0.1) | - | - | [1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test#1.1.0-alpha04) |
 | [test.ext](https://developer.android.com/jetpack/androidx/releases/test-ext) | May 19, 2026 | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test-ext#1.0.0-alpha03) |
 | [test.uiautomator](https://developer.android.com/jetpack/androidx/releases/test-uiautomator) | July 01, 2026 | [2.4.0](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0) | - | - | - |
 | [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical) | October 21, 2026 | - | - | [1.0.0-beta03](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-beta03) | - |
@@ -237,4 +237,4 @@ release notes to view the version updates for all of the artifacts.
 
 (\*) This library has multiple artifacts. See its release notes for more information.  
 
-Last updated: October 28, 2026
+Last updated: October 29, 2026

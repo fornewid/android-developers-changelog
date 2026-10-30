@@ -16,7 +16,7 @@ disappearance, and layout changes.
 ![Green composable showing and hiding itself](https://developer.android.com/static/develop/ui/compose/images/animations/animated_visibility_column.gif) **Figure 1.** Animating the appearance and disappearance of an item in a column.
 
 The
-[`AnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibility.composable#AnimatedVisibility(androidx.compose.animation.core.MutableTransitionState,androidx.compose.ui.Modifier,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.String,kotlin.Function1))
+[`AnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibility.composable#AnimatedVisibility(kotlin.Boolean,androidx.compose.ui.Modifier,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.String,kotlin.Function1))
 composable animates the appearance and disappearance of its content.
 
 
@@ -84,10 +84,10 @@ information.
 | `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#expandHorizontally(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.ui.Alignment.Horizontal,kotlin.Boolean,kotlin.Function1)` ![A UI element expands horizontally into view.](https://developer.android.com/static/develop/ui/compose/images/animation-expandhorizontally.gif) | `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#shrinkHorizontally(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.ui.Alignment.Horizontal,kotlin.Boolean,kotlin.Function1)` ![A UI element shrinks horizontally out of view.](https://developer.android.com/static/develop/ui/compose/images/animation-shrinkhorizontally.gif) |
 | `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#expandVertically(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.ui.Alignment.Vertical,kotlin.Boolean,kotlin.Function1)` ![A UI element expands vertically into view.](https://developer.android.com/static/develop/ui/compose/images/animation-expandvertically.gif) | `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#shrinkVertically(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.ui.Alignment.Vertical,kotlin.Boolean,kotlin.Function1)` ![A UI element shrinks vertically out of view.](https://developer.android.com/static/develop/ui/compose/images/animation-shrinkvertically.gif) |
 
-`AnimatedVisibility` also offers a variant that takes a
-`MutableTransitionState` argument. This lets you trigger an animation as soon as
-the `AnimatedVisibility` composable is added to the composition tree. It is also
-useful for observing the animation state.
+`AnimatedVisibility` also offers a
+[variant that takes a `MutableTransitionState` argument](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibility.composable#AnimatedVisibility(androidx.compose.animation.core.MutableTransitionState,androidx.compose.ui.Modifier,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.String,kotlin.Function1)). This lets you
+trigger an animation as soon as the `AnimatedVisibility` composable is added to
+the composition tree. It is also useful for observing the animation state.
 
 
 ```kotlin
@@ -238,13 +238,11 @@ By default, the initial content fades out and then the target content fades in
 [fade through](https://material.io/design/motion/the-motion-system.html#fade-through)).
 You can customize this animation behavior by specifying a
 [`ContentTransform`](https://developer.android.com/reference/kotlin/androidx/compose/animation/ContentTransform)
-object to the `transitionSpec` parameter. You can create an
-instance of `ContentTransform` by combining an
-[`EnterTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/EnterTransition) object
-with an [`ExitTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/ExitTransition) object
-using the `with` infix function. You can apply [`SizeTransform`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SizeTransform)
-to the `ContentTransform` object by attaching it with the
-`using` infix function.
+object to the `transitionSpec` parameter. You can create an instance of
+`ContentTransform` by combining an [`EnterTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/EnterTransition) object with an
+[`ExitTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/ExitTransition) object using the [`togetherWith`](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#(androidx.compose.animation.EnterTransition).togetherWith(androidx.compose.animation.ExitTransition)) infix function. You
+can apply [`SizeTransform`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SizeTransform) to the `ContentTransform` object by attaching it
+with the `using` infix function.
 
 
 ```kotlin
@@ -339,8 +337,8 @@ Surface(
 
 Just like `AnimatedVisibility`, the [`animateEnterExit`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibilityScope#(androidx.compose.ui.Modifier).animateEnterExit(androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.String))
 modifier is available inside the content lambda of `AnimatedContent`. Use this
-to apply `EnterAnimation` and `ExitAnimation` to each of the direct or indirect
-children separately.
+to apply `EnterTransition` and `ExitTransition` to each of the direct or
+indirect children separately.
 
 #### Add custom animation
 
@@ -352,7 +350,7 @@ effect that runs simultaneously with the `AnimatedContent` transition. See
 ### Animate between two layouts
 
 `Crossfade` animates between two layouts with a crossfade animation. By toggling
-the value passed to the `current` parameter, the content is switched with a
+the value passed to the `targetState` parameter, the content is switched with a
 crossfade animation.
 
 

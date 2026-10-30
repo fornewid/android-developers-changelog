@@ -505,15 +505,12 @@ There are many different kinds of enter and exit transitions that apply
 different effects to the incoming and outgoing content, see the
 [documentation](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#enter-exit-transition) for more.
 
-> [!NOTE]
-> **Note:** Enter and Exit transitions are only available from navigation-compose [2.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation#2.7.0-alpha01).
-
 ## Repeat an animation
 
 ![A green background that transforms into a blue background, infinitely by animating between the two colors.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_forever.gif) **Figure 13.** Background color animating between two values, infinitely
 
 Use [`rememberInfiniteTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/InfiniteTransition) with an `infiniteRepeatable`
-`animationSpec` to continuously repeat your animation. Change `RepeatModes` to
+`animationSpec` to continuously repeat your animation. Change `RepeatMode` to
 specify how it should go back and forth.
 
 Use [`repeatable`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#repeatable(kotlin.Int,androidx.compose.animation.core.DurationBasedAnimationSpec,androidx.compose.animation.core.RepeatMode,androidx.compose.animation.core.StartOffset)) to repeat a set number of times.
@@ -566,7 +563,7 @@ Box(
 <br />
 
 > [!CAUTION]
-> **Caution:** Be careful when using `LaunchedEffects` inside lazy layouts. They relaunch when the items re-enter the composition. For example, this can occur when scrolling the list offscreen and back on screen. Instead, [hoist your
+> **Caution:** Be careful when using `LaunchedEffect` inside lazy layouts. It relaunches when the items re-enter the composition. For example, this can occur when scrolling the list offscreen and back on screen. Instead, [hoist your
 > state](https://developer.android.com/develop/ui/compose/state#state-hoisting) outside the lazy layout to ensure the animation doesn't happen for each scroll in and out of the composition.
 
 ## Create sequential animations
@@ -596,7 +593,7 @@ LaunchedEffect("animationKey") {
 
 ![Three circles with green arrows animating to each one, animating all together at the same time.](https://developer.android.com/static/develop/ui/compose/images/animations/multiple_properties.gif) **Figure 15.** Diagram indicating how concurrent animations progress, all at the same time.
 
-Use the coroutine APIs ([`Animatable#animateTo()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Animatable#animateTo(kotlin.Any,androidx.compose.animation.core.AnimationSpec,kotlin.Any,kotlin.Function1)) or [`animate`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#animate(kotlin.Float,kotlin.Float,kotlin.Float,androidx.compose.animation.core.AnimationSpec,kotlin.Function2))())), or
+Use the coroutine APIs ([`Animatable#animateTo()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Animatable#animateTo(kotlin.Any,androidx.compose.animation.core.AnimationSpec,kotlin.Any,kotlin.Function1)) or [`animate`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#animate(kotlin.Float,kotlin.Float,kotlin.Float,androidx.compose.animation.core.AnimationSpec,kotlin.Function2))), or
 the [`Transition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Transition) API to achieve concurrent animations. If you use multiple
 launch functions in a coroutine context, it launches the animations at the same
 time:

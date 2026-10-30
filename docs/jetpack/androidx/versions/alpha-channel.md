@@ -16,6 +16,19 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## October 29, 2026
+
+- [Test Core Version 1.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#core-1.8.0-alpha03)
+- [Test Espresso Version 3.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#espresso-3.8.0-alpha03)
+- [Test Espresso Device Version 1.2.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#espresso_device-1.2.0-alpha03)
+- [Test JUnit Extensions Version 1.4.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#junit-1.4.0-alpha03)
+- [Test Truth Extensions Version 1.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#truth-1.8.0-alpha03)
+- [Test Monitor Version 1.9.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test#monitor-1.9.0-alpha04)
+- [Test Orchestrator Version 1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#orchestrator-1.7.0-alpha03)
+- [Test Runner Version 1.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#runner-1.8.0-alpha03)
+- [Test Rules Version 1.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#rules-1.8.0-alpha03)
+- [Test Services Version 1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#services-1.7.0-alpha03)
+
 ## October 28, 2026
 
 - [Appstate Statestore Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/appstate-statestore#1.0.0-alpha01)

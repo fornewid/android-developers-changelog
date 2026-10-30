@@ -39,7 +39,7 @@ higher.
 The following example is a straightforward slider. That allows the user to
 select a value from `0.0` to `1.0`. Because the user can select any value in
 that range, the slider is *continuous*.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_29d9ad48d6e346db18f4ae6cd2ead260bde707438216a14da7ebf6210a56d227.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_3bacc7e8d1f65cdb6f9964b4f1a030c9875b024792de2b5a66b223d879f73c76.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -50,7 +50,7 @@ that range, the slider is *continuous*.
 The following snippet implements a slider that has three steps, with a range
 from `0.0` to `50.0`. Because the thumb snaps to each step, this slider is
 *discrete*.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_31750e2d1e0627429f45cba3b399c01e9dd52b7fab85c2301e2738f076fa53c2.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_fbd6b5dcbb9e895bffc146baa19b8ba6568e5253dc87c04d864813a2608c0a18.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -67,7 +67,7 @@ select a minimum and maximum price.
 
 The following example is a relatively straightforward example of a continuous
 range slider:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_2efefd2436297803cfc9d88ae2d58a4cc7bc02b78bb91906a73e4513e41fe422.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_7b893ccc696cd09d4f63404bbf1c04ecd49a4fe1a54d1970060bf2db81feb288.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 

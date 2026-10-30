@@ -10,7 +10,17 @@ source: md.txt
 
 ### [Android AI Sample Catalog](https://github.com/android/ai-samples)
 
-The Android AI Sample Catalog is a standalone application that gives you access to individual, self-contained samples that illustrate the possibilities for generative AI capabilities that can be unlocked by Google's AI models. [Get the code](https://github.com/android/ai-samples) [![](http://developer.android.com/static/ai/assets/images/androidify_header.png)](https://github.com/android/androidify) Cloud On-device
+The Android AI Sample Catalog is a standalone application that gives you access to individual, self-contained samples that illustrate the possibilities for generative AI capabilities that can be unlocked by Google's AI models. [Get the code](https://github.com/android/ai-samples) [![](http://developer.android.com/static/ai/assets/images/jetpacker_header.png)](https://github.com/android/ai-samples/tree/main/jetpacker) Cloud On-device
+
+### [Jetpacker](https://github.com/android/ai-samples/tree/main/jetpacker)
+
+Jetpacker is a travel planning sample app that showcases how to build personalized, intelligent, and agentic experiences on Android. It demonstrates the following capabilities:
+
+- On-device inference with Gemini Nano and the ML Kit GenAI APIs.
+- Cloud and hybrid inference with the Firebase AI Logic SDK.
+- Android system integration using the AppFunctions API.
+- In-app agentic workflows powered by the Agent Development Kit (ADK) and Jetpack Compose A2UI Renderer.
+[Get the code](https://github.com/android/ai-samples/tree/main/jetpacker) [Learn more](http://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) [![](http://developer.android.com/static/ai/assets/images/androidify_header.png)](https://github.com/android/androidify) Cloud On-device
 
 ### [Androidify](https://github.com/android/androidify)
 

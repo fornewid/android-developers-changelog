@@ -40,7 +40,7 @@ the binary framework:
     }
 
 > [!NOTE]
-> **Note:** JetBrains also provides a dependency for a [Common ViewModel](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-viewmodel.html#using-viewmodel-in-common-code). This dependency is only required if you want to retrieve a ViewModel in [Compose Multiplatform](https://www.jetbrains.com/compose-multiplatform/).
+> **Note:** Starting in Lifecycle 2.11.0, `androidx.lifecycle:lifecycle-viewmodel-compose` supports all KMP targets and provides Compose APIs such as the `viewModel()` function for shared Compose UI. JetBrains also publishes `org.jetbrains.androidx.lifecycle:lifecycle-viewmodel` and `org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose` for [Compose Multiplatform](https://www.jetbrains.com/compose-multiplatform/). On Lifecycle 2.11.0 and higher, use the `androidx.lifecycle` artifacts directly instead of the JetBrains artifacts; use `org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose` only with Lifecycle versions lower than 2.11.0. For more information, see [Multiplatform ViewModel](https://kotlinlang.org/docs/multiplatform/compose-viewmodel.html).
 
 ### Export ViewModel APIs for access from Swift
 
@@ -137,6 +137,9 @@ fun MainScreen(
 ```
 
 <br />
+
+> [!TIP]
+> **Tip:** Instead of passing a factory every time you retrieve a ViewModel, you can inject ViewModels with a dependency injection (DI) framework. The framework also provides each ViewModel's dependencies, so you don't wire them by hand. Hilt isn't available in `commonMain`; see [Integration with Hilt](https://developer.android.com/kotlin/multiplatform/viewmodel#integration-hilt) for DI frameworks that support Kotlin Multiplatform, such as Koin.
 
 ## Use ViewModel from SwiftUI
 
@@ -267,6 +270,9 @@ struct ContentView: View {
 ```
 
 <br />
+
+> [!TIP]
+> **Tip:** If you use a DI framework, SwiftUI and Android can get ViewModels and their dependencies from the same definitions in shared code, instead of wiring dependencies by hand in each factory. See [Integration with Hilt](https://developer.android.com/kotlin/multiplatform/viewmodel#integration-hilt) for DI frameworks that support Kotlin Multiplatform.
 
 ## Not Available in Kotlin Multiplatform
 

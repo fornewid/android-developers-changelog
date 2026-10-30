@@ -34,18 +34,23 @@ The following example demonstrates a capability definition in `shortcuts.xml`
 for [`actions.intent.START_EXERCISE`](https://developers.google.com/assistant/app/reference/built-in-intents/health-and-fitness/start-exercise), a BII that lets users use spoken
 commands with Assistant to begin a workout in a fitness app:
 
-    <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
-      <capability android:name="actions.intent.START_EXERCISE">
-        <intent
-          android:action="android.intent.action.VIEW"
-          android:targetPackage="com.example.sampleApp"
-          android:targetClass="com.example.sampleApp.ExerciseActivity">
-          <parameter
-            android:name="exercise.name"
-            android:key="exerciseType"/>
-        </intent>
-      </capability>
-    </shortcuts>
+
+```xml
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+  <capability android:name="actions.intent.START_EXERCISE">
+    <intent
+      android:action="android.intent.action.VIEW"
+      android:targetPackage="com.example.sampleApp"
+      android:targetClass="com.example.sampleApp.ExerciseActivity">
+      <parameter
+        android:name="exercise.name"
+        android:key="exerciseType"/>
+    </intent>
+  </capability>
+</shortcuts>
+```
+
+<br />
 
 In the preceding example, the `<capability>` `android:name` attribute refers to
 the `START_EXERCISE` BII. If a user invokes this BII by asking Assistant, *"Hey

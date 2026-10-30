@@ -247,17 +247,21 @@ the following points about app shortcuts in mind:
 The following code snippet shows how best to restore your app's dynamic
 shortcuts and how to check whether your app's pinned shortcuts were preserved:
 
-    class MainActivity : ComponentActivity() {
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            if (ShortcutManagerCompat.getDynamicShortcuts(this).isEmpty()) {
-                // Application restored. Re-publish dynamic shortcuts.
-                if (ShortcutManagerCompat.getPinnedShortcuts(this).isNotEmpty()) {
-                    // Pinned shortcuts are restored. Use updateShortcuts() to make
-                    // sure they contain up-to-date information.
-                }
 
+```kotlin
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (ShortcutManagerCompat.getDynamicShortcuts(this).isEmpty()) {
+            // Application restored. Re-publish dynamic shortcuts.
+            if (ShortcutManagerCompat.getShortcuts(this, ShortcutManagerCompat.FLAG_MATCH_PINNED).isNotEmpty()) {
+                // Pinned shortcuts are restored. Use updateShortcuts() to make
+                // sure they contain up-to-date information.
             }
         }
-        // ...
     }
+    // ...
+}
+```
+
+<br />

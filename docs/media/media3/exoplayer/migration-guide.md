@@ -24,7 +24,7 @@ that your app's project should meet.
   `MediaController`** API.
 - Advertise playback capabilities with **fine-grained access control**.
 - **Simplify your app** by removing `MediaSessionConnector` and `PlayerNotificationManager`.
-- **Backwards compatible** with media-compat client APIs (`MediaBrowserCompat`/`MediaControllerCompat`/`MediaMetadataCompat`)
+- **Backward compatible** with media-compat client APIs (`MediaBrowserCompat`/`MediaControllerCompat`/`MediaMetadataCompat`)
 
 ### Media APIs to migrate to AndroidX Media3
 
@@ -41,7 +41,7 @@ that your app's project should meet.
 
 1. **Make sure your project is under source control**
 
-   Make sure you can easily revert changes applied by scripted migration tools.
+   Make sure you can revert changes applied by scripted migration tools.
    If you don't have your project under source control yet, now is a good time
    to start with it. If for some reason you don't want to do that, make a
    backup copy of your project before starting the migration.
@@ -56,8 +56,8 @@ that your app's project should meet.
    - Increase the **compileSdkVersion of your app to at least 32**.
 
    - **Upgrade Gradle and the Android Studio Gradle plugin** to a recent
-     version that works with the updated dependencies from above. For
-     instance:
+     version that works with the updated dependencies mentioned earlier.
+     For example:
 
      - Android Gradle Plugin version: 7.1.0
      - Gradle version: 7.4
@@ -143,7 +143,7 @@ Complete these manual steps after running the script with the `-m` option:
    Clean project** , and then **Build \> Rebuild project** (monitor your build in the ['Build - Build Output' tab of Android Studio](https://developer.android.com/studio/run#gradle-console)).
 
 > [!NOTE]
-> **Note:** In some cases, the script is expected to leave your project in a state that doesn't build without manually migrating code. The script warns about this and requests the `-f` option to force execution. For instance, this is the case if an app is using `MediaSessionConnector` and `MediaSessionCompat`. See the next section for guidance on how you can migrate from `MediaSessionConnector` to Media3.
+> **Note:** In some cases, the script is expected to leave your project in a state that doesn't build without manually migrating code. The script warns about this and requests the `-f` option to force execution. For example, this is the case if an app is using `MediaSessionConnector` and `MediaSessionCompat`. See the next section for guidance on how you can migrate from `MediaSessionConnector` to Media3.
 
 Recommended follow-up steps:
 
@@ -156,8 +156,8 @@ Recommended follow-up steps:
 In the legacy `MediaSessionCompat` world, the `MediaSessionConnector` was
 responsible for syncing the state of the player with the state of the session
 and receiving commands from controllers that needed delegation to appropriate
-player methods. With AndroidX Media3, this is done by the `MediaSession` directly
-without requiring a connector.
+player methods. With AndroidX Media3, this is done by the `MediaSession`
+directly without requiring a connector.
 
 1. **Remove all references and usage of MediaSessionConnector:** If you used
    the automated script to migrate ExoPlayer classes and packages, then the
@@ -207,7 +207,7 @@ without requiring a connector.
    you want to allow controllers to add media items to the player, implement
    [`MediaSession.Callback.onAddMediaItems()`](https://github.com/androidx/media/blob/1.11.1/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L184). It serves various current and
    legacy API methods that add media items to the player for playback in a
-   backwards compatible way. This includes the
+   backward compatible way. This includes the
    `MediaController.set/addMediaItems()` methods of the Media3 controller, as
    well as the `TransportControls.prepareFrom*/playFrom*`
    methods of the legacy API. A sample implementation of `onAddMediaItems` can
@@ -263,7 +263,7 @@ AndroidX Media3 introduces `MediaLibraryService` that replaces the
 class `MediaSessionService` provide a good intro into the API and the
 asynchronous programming model of the service.
 
-The `MediaLibraryService` is backwards compatible with the
+The `MediaLibraryService` is backward compatible with the
 `MediaBrowserService`. A client app that is using `MediaBrowserCompat` or
 `MediaControllerCompat`, continues to work without code changes when connecting
 to a `MediaLibraryService`. For a client, it is transparent whether your app is
@@ -297,12 +297,12 @@ using a `MediaLibraryService` or a legacy `MediaBrowserServiceCompat`.
 
    The main differences compared to the legacy
    `MediaBrowserServiceCompat` are as follows:
-   - **Implement the service life-cycle methods:** The methods that need to
-     be overridden on the service itself are `onCreate/onDestroy`, where an
-     app allocates/releases the library session, the player, and other
-     resources. In addition to standard service life-cycle methods, an app
-     needs to override `onGetSession(MediaSession.ControllerInfo)` to return
-     the `MediaLibrarySession` that was built in `onCreate`.
+   - **Implement the service lifecycle methods:** The methods that need to
+     be overridden on the service itself are `onCreate` and `onDestroy`,
+     where an app allocates or releases the library session, the player, and
+     other resources. In addition to standard service lifecycle methods, an
+     app needs to override `onGetSession(MediaSession.ControllerInfo)` to
+     return the `MediaLibrarySession` that was built in `onCreate`.
 
    - **Implement MediaLibraryService.MediaLibrarySessionCallback:** Building
      a session requires a
@@ -331,19 +331,21 @@ using a `MediaLibraryService` or a legacy `MediaBrowserServiceCompat`.
 
      Find the [full API of the MediaLibrarySessionCallback](https://github.com/androidx/media/blob/1.11.1/libraries/session/src/main/java/androidx/media3/session/MediaLibraryService.java#L127) in the API
      documentation.
-   - **Implement [`MediaSession.Callback.onAddMediaItems()`](https://github.com/androidx/media/blob/1.11.1/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L184)** : The callback
-     `onAddMediaItems(MediaSession, ControllerInfo, List<MediaItem>)` serves
-     various current and legacy API methods that add media items to the player
-     for playback in a backwards compatible way. This includes the
-     `MediaController.set/addMediaItems()` methods of the Media3 controller,
-     as well as the `TransportControls.prepareFrom*/playFrom*`
-     methods of the legacy API. A sample implementation of the callback can
-     be found [in the `PlaybackService` of the session demo app](https://github.com/androidx/media/blob/1.11.1/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L184).
+   - **Implement [`MediaSession.Callback.onAddMediaItems()`](https://github.com/androidx/media/blob/1.11.1/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L184)** :
+     The callback
+     `onAddMediaItems(MediaSession, ControllerInfo, List<MediaItem>)`
+     serves various current and legacy API methods that add media items to
+     the player for playback in a backward compatible way. This includes
+     the `MediaController.set/addMediaItems()` methods of the Media3
+     controller, as well as the `TransportControls.prepareFrom*/playFrom*`
+     methods of the legacy API. A sample implementation of the callback
+     can be found [in the `PlaybackService` of the session demo app](https://github.com/androidx/media/blob/1.11.1/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L184).
 
    - AndroidX Media3 is using **`androidx.media3.common.MediaItem`** instead
-     of [MediaBrowserCompat.MediaItem](https://developer.android.com/reference/kotlin/android/support/v4/media/MediaBrowserCompat.MediaItem) and [MediaMetadataCompat](https://developer.android.com/reference/kotlin/android/support/v4/media/MediaMetadataCompat). Parts
-     of your code tied to the legacy classes need to be changed accordingly
-     or map to the Media3 `MediaItem` instead.
+     of [`MediaBrowserCompat.MediaItem`](https://developer.android.com/reference/kotlin/android/support/v4/media/MediaBrowserCompat.MediaItem) and
+     [`MediaMetadataCompat`](https://developer.android.com/reference/kotlin/android/support/v4/media/MediaMetadataCompat). Parts of your code tied
+     to the legacy classes need to be changed accordingly or map to the
+     Media3 `MediaItem` instead.
 
    - The general **asynchronous programming model changed to `Futures`** in
      contrast to the detachable `Result` approach of the
@@ -366,8 +368,8 @@ An app can **customize the notification** by setting a custom
 starting the service in the foreground as required.
 
 By overriding `MediaLibraryService.updateNotification()` an app can further take
-full ownership of posting a notification and starting/stopping the service in
-the foreground as required.
+full ownership of posting a notification and starting or stopping the service
+in the foreground as required.
 
 ## Migrate client code using a MediaBrowser
 
@@ -417,45 +419,47 @@ background.
 
 ## Further steps and clean up
 
+The following sections explain how to handle unstable API lint errors and
+deprecated APIs after completing the initial migration.
+
 ### Unstable API errors
 
 After migrating to Media3, you may see lint errors about unstable API usages.
 These APIs are safe to use and the lint errors are a by-product of our new
-binary compatibility guarantees. If you don't require strict binary
-compatibility, these errors can be safely suppressed with an `@OptIn`
-annotation.
+binary compatibility policy. If you don't require strict binary compatibility,
+these errors can be safely suppressed with an `@OptIn` annotation.
 
 #### Background
 
-Neither ExoPlayer v1 or v2 provided strict guarantees about binary compatibility
-of the library between subsequent versions. The ExoPlayer API surface is very
-large by design, in order to allow apps to customize nearly every aspect of
-playback. Subsequent versions of ExoPlayer would occasionally introduce symbol
-renames or other breaking changes (e.g. new required methods on interfaces). In
-most cases these breakages were mitigated by introducing the new symbol
-alongside deprecating the old symbol for a few versions, to allow developers
-time to migrate their usages, but this wasn't always possible.
+Neither ExoPlayer v1 or v2 provided strict binary compatibility of the
+library between subsequent versions. The ExoPlayer API surface is very large by
+design, in order to allow apps to customize nearly every aspect of playback.
+Subsequent versions of ExoPlayer would occasionally introduce symbol renames or
+other breaking changes (e.g. new required methods on interfaces). In most cases
+these breakages were mitigated by introducing the new symbol alongside
+deprecating the old symbol for a few versions, to allow developers time to
+migrate their usages, but this wasn't always possible.
 
 These breaking changes resulted in two problems for users of the ExoPlayer v1
 and v2 libraries:
 
 1. An upgrade from to the ExoPlayer version could cause code to stop compiling.
-2. An app that depended on ExoPlayer both directly and via an intermediate library had to ensure that both dependencies were the same version, otherwise binary incompatibilities could result in runtime crashes.
+2. An app that depended on ExoPlayer both directly and using an intermediate library had to ensure that both dependencies were the same version, otherwise binary incompatibilities could result in runtime crashes.
 
 #### Improvements in Media3
 
-Media3 guarantees binary compatibility for a subset of the API surface. The
-parts that **don't** guarantee binary compatibility are marked with
-[`@UnstableApi`](https://developer.android.com/reference/androidx/media3/common/util/UnstableApi). In order to make this distinction clear, usages of unstable
-API symbols generate a lint error unless they are annotated with `@OptIn`.
+Media3 provides binary compatibility for a subset of the API surface. The parts
+that **don't** provide binary compatibility are marked with [`@UnstableApi`](https://developer.android.com/reference/androidx/media3/common/util/UnstableApi).
+In order to make this distinction clear, usages of unstable API symbols
+generate a lint error unless they are annotated with `@OptIn`.
 
 After migrating from ExoPlayer v2 to Media3, you may see a lot of unstable API
 lint errors. This may make it seem like Media3 is 'less stable' than ExoPlayer
 v2. This is not the case. The 'unstable' parts of the Media3 API have the same
 level of stability as the **whole** of the ExoPlayer v2 API surface, and the
-guarantees of the stable Media3 API surface are not available in ExoPlayer v2 at
-all. The difference is simply that a lint error now alerts you to the different
-levels of stability.
+binary compatibility of the stable Media3 API surface is not available in
+ExoPlayer v2 at all. The difference is that a lint error now alerts you to the
+different levels of stability.
 
 #### Handle unstable API lint errors
 

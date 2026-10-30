@@ -38,7 +38,7 @@ Prepare your app for automation with Android Computer Control. This framework le
 
 ### [New ML Kit APIs](http://developer.android.com/ai/gemini-nano)
 
-Take advantage of Gemini Nano's audio capabilities with the Speech Recognition API, and reduce inference times when using Prompt API with the prefix caching feature. [Learn more](http://developer.android.com/ai/gemini-nano) New feature
+Take advantage of Gemini Nano's audio capabilities with the Speech Recognition API, and reduce inference times when using Gemini Nano direct model access with the prefix caching feature. [Learn more](http://developer.android.com/ai/gemini-nano) New feature
 
 ### [AICore Developer Preview](http://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
 

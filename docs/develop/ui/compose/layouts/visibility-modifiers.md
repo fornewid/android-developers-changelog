@@ -44,7 +44,7 @@ Text(
 
 The `onVisibilityChanged` modifier provides a boolean value that reflects the
 current visibility state of the composable. Additionally, it offers
-parameters such as `minFraction` and `minDurationMs`, which give you
+parameters such as `minFractionVisible` and `minDurationMs`, which give you
 finer control over when the visibility callback needs to be triggered.
 
 Like every other modifier, sequencing matters with the `onVisibilityChanged`
@@ -107,9 +107,12 @@ In such cases, use the `minFractionVisible` parameter in the
 `onVisibilityChanged` modifier to define the fraction that needs to be on screen
 for the composable to be marked as visible.
 It supports float values ranging from `0.0f` to `1.0f`, and is set as `1.0f` by
-default.
-`1.0f` means the composable needs to be completely visible on screen for the
-callback to be triggered.
+default. `1.0f` means the composable needs to be completely visible on screen,
+or to fill the whole viewport if it's larger than the viewport.
+
+The callback receives `true` when the visible fraction is greater than
+`minFractionVisible`, or when the composable is completely visible or fills the
+viewport. Otherwise, it receives `false`.
 
 
 ```kotlin
@@ -153,3 +156,37 @@ set, and the third bot loads before it is completely visible on screen.
 
 > [!NOTE]
 > **Note:** The preceding videos have been intentionally slowed down for clarity.
+
+## Hide a composable and keep its space
+
+To hide a composable without changing the layout around it, use the
+[`visible`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/visible.modifier#(androidx.compose.ui.Modifier).visible(kotlin.Boolean)) modifier. When you pass `false`, the composable is still measured
+but isn't placed or drawn. Unlike setting [`alpha`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/alpha.modifier#(androidx.compose.ui.Modifier).alpha(kotlin.Float)) to `0f`, `visible(false)`
+also removes the element from the accessibility tree and disables touch
+interactions while preserving its layout space.
+
+The following example shows a check icon that keeps its space while it's
+hidden, so the text next to it doesn't move:
+
+
+```kotlin
+Row(modifier, verticalAlignment = Alignment.CenterVertically) {
+    Icon(
+        painter = painterResource(R.drawable.check),
+        contentDescription = "Saved",
+        modifier = Modifier
+            // The icon keeps its space while it's hidden, so the text doesn't move.
+            .visible(isSaved)
+    )
+    Text("Draft", Modifier.padding(start = 8.dp))
+}
+```
+
+<br />
+
+Use `visible` when the layout around the composable must not move as the
+composable appears and disappears. To remove the composable and its space,
+don't call it, or use [`AnimatedVisibility`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedvisibility) to animate it in and out.
+
+> [!NOTE]
+> **Note:** Don't use `visible` on a composable in a [shared element transition](https://developer.android.com/develop/ui/compose/animation/shared-elements), because it prevents placement.

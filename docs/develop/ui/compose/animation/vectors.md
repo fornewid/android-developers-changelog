@@ -11,7 +11,7 @@ any of the following:
 - `ImageVector` with Compose animation APIs, like in [this Medium article](https://medium.com/androiddevelopers/making-jellyfish-move-in-compose-animating-imagevectors-and-applying-agsl-rendereffects-3666596a8888)
 - A third-party solution like [Lottie](https://airbnb.design/lottie/)
 
-## Animated vector drawables (experimental)
+## Animated vector drawables
 
 ![Hourglass animating its contents and rotating](https://developer.android.com/static/develop/ui/compose/images/animations/avd_example_compose.gif) **Figure 1.** Animated vector drawable in Compose
 

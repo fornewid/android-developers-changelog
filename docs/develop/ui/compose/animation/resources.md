@@ -13,7 +13,7 @@ The Compose animation cheat sheet is a quick reference of some of the most
 useful Compose animation APIs. The cheat sheet is also [downloadable in PDF
 format](https://storage.googleapis.com/android-stories/compose/Compose_Animation_Cheat_Sheet.pdf).
 
-[![Useful Compose testing APIs](https://developer.android.com/static/develop/ui/compose/images/compose_animation_cheat_sheet.png)](https://developer.android.com/static/develop/ui/compose/images/compose_animation_cheat_sheet.png)
+[![Compose animation cheat sheet summarizing common Compose animation APIs](https://developer.android.com/static/develop/ui/compose/images/compose_animation_cheat_sheet.png)](https://developer.android.com/static/develop/ui/compose/images/compose_animation_cheat_sheet.png)
 
 ## Samples
 
@@ -29,5 +29,4 @@ format](https://storage.googleapis.com/android-stories/compose/Compose_Animation
 ## Videos
 
 - [Animation Reimagined](https://www.youtube.com/watch?v=Z_T1bVjhMLk)
-
 - [Five quick animations in Compose](https://developer.android.com/develop/ui/compose/quick-guides/content/video/five-animations-compose)
