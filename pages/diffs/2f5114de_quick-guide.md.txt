@@ -1,0 +1,212 @@
+diff --git a/docs/develop/ui/compose/animation/quick-guide.md b/docs/develop/ui/compose/animation/quick-guide.md
+index 9f1899c1..f0184372 100644
+--- a/docs/develop/ui/compose/animation/quick-guide.md
++++ b/docs/develop/ui/compose/animation/quick-guide.md
+@@ -64,9 +64,7 @@ Box(
+         }
+         .clip(RoundedCornerShape(8.dp))
+         .background(colorGreen)
+-        .align(Alignment.TopCenter)
+-) {
+-}
++        .align(Alignment.TopCenckGuide.kt
+ ```
+ 
+ <br />
+@@ -93,8 +91,7 @@ Column(
+         drawRect(animatedColor)
+     }
+ ) {
+-    // your composable here
+-}
++    // your composackGuide.kt
+ ```
+ 
+ <br />
+@@ -165,7 +162,7 @@ val offset by animateIntOffsetAsState(
+     } else {
+         IntOffset.Zero
+     },
+-    label = "offset"
++    label = "offset&quot;
+ )
+ 
+ Box(
+@@ -180,8 +177,7 @@ Box(
+             indication = null
+         ) {
+             moved = !moved
+-        }
+-)
++ ckGuide.kt
+ ```
+ 
+ <br />
+@@ -229,7 +225,7 @@ Column(
+     )
+     Box(
+         modifier = Modifier
+-            .layout { measurable, constraints ->
++            .layout { measurable, con>straints -
+                 val offsetValue = if (isLookingAhead) offsetTarget else offset.value
+                 val placeable = measurable.measure(constraints)
+                 layout(placeable.width + offsetValue.x, placeable.height + offsetValue.y) {
+@@ -242,9 +238,7 @@ Column(
+     Box(
+         modifier = Modifier
+             .size(100.dp)
+-            .background(colorBlue)
+-    )
+-}
++            .background(colorBluckGuide.kt
+ ```
+ 
+ <br />
+@@ -282,8 +276,7 @@ Box(
+             indication = null
+         ) {
+             toggled = !toggled
+-        }
+-)
++ ckGuide.kt
+ ```
+ 
+ <br />
+@@ -320,9 +313,7 @@ Box(
+         }
+         .clickable(interactionSource = mutableInteractionSource, indication = null) {
+         }
+-        .background(colorGreen)
+-) {
+-}
++        .background(colorGrckGuide.kt
+ ```
+ 
+ <br />
+@@ -360,9 +351,9 @@ Box(modifier = Modifier.fillMaxSize()) {
+             .align(Alignment.Center),
+         // Text composable does not take TextMotion as a parameter.
+         // Provide it via style argument but make sure that we are copying from current theme
+-        style = LocalTextStyle.current.copy(textMotion = TextMotion.Animated)
+-    )
++        style = LocalTextStyle.current.copy(textMotion =    )
+ }
++AnimationQuickGuide.kt
+ ```
+ 
+ <br />
+@@ -386,10 +377,8 @@ val animatedColor by infiniteTransition.animateColor(
+ BasicText(
+     text = "Hello Compose",
+     color = {
+-        animatedColor
+-    },
+-    // ...
+-)
++        ani// ...
++)AnimationQuickGuide.kt
+ ```
+ 
+ <br />
+@@ -424,19 +413,17 @@ AnimatedContent(
+         }
+     },
+     label = "Animated Content"
+-) { targetState ->
++) { tar>getState -
+     when (targetState) {
+-        UiState.Loading -> {
++        UiState>.Loading - {
+             LoadingScreen()
+         }
+-        UiState.Loaded -> {
++        UiStat>e.Loaded - {
+             LoadedScreen()
+         }
+-        UiState.Error -> {
++        UiSta>te.Error - {
+             ErrorScreen()
+-        }
+-    }
+-}
++       ckGuide.kt
+ ```
+ 
+ <br />
+@@ -489,14 +476,13 @@ NavHost(
+             ) + slideOutOfContainer(
+                 animationSpec = tween(300, easing = EaseOut),
+                 towards = AnimatedContentTransitionScope.SlideDirection.End
+-            )
++        >    )
+         }
+-    ) { backStackEntry ->
+-        ScreenDetails(
+-            // ...
++    ) { backStackEntry -
++        ScreenDetai
+         )
+     }
+-}
++}AnimationQuickGuide.kt
+ ```
+ 
+ <br />
+@@ -532,8 +518,7 @@ Column(
+         drawRect(color)
+     }
+ ) {
+-    // your composable here
+-}
++    // yoimationQuickGuide.kt
+ ```
+ 
+ <br />
+@@ -583,8 +568,7 @@ val yAnimation = remember { Animatable(0f) }
+ LaunchedEffect("animationKey") {
+     alphaAnimation.animateTo(1f)
+     yAnimation.animateTo(100f)
+-    yAnimation.animateTo(500f, animationSpec = tween(100))
+-}
++    yAnimation.animateTo(500f, animationSpec = tweckGuide.kt
+ ```
+ 
+ <br />
+@@ -608,9 +592,7 @@ LaunchedEffect("animationKey") {
+         alphaAnimation.animateTo(1f)
+     }
+     launch {
+-        yAnimation.animateTo(100f)
+-    }
+-}
++        yAnimation.animateTo(100ckGuide.kt
+ ```
+ 
+ <br />
+@@ -624,18 +606,18 @@ animates two properties controlled by a state change, `rect` and `borderWidth`:
+ var currentState by remember { mutableStateOf(BoxState.Collapsed) }
+ val transition = updateTransition(currentState, label = "transition")
+ 
+-val rect by transition.animateRect(label = "rect") { state ->
++val rect by transition.animateRect(label = "r>ect") { state -
+     when (state) {
+-        BoxState.Collapsed -> Rect(0f, 0f, 100f, 100f)
+-        BoxState.Expanded -> Rect(100f, 100f, 300f, 300f)
++        >BoxState.Collapsed - Rect(0f, 0f, 100f, 100f)
++       > BoxState.Expanded - Rect(100f, 100f, 300f, 300f)
+     }
+ }
+-val borderWidth by transition.animateDp(label = "borderWidth") { state ->
+-    when (state) {
+-        BoxState.Collapsed -> 1.dp
+-        BoxState.Expanded -> 0.dp
++val borderWidth by transition.animateDp(label = &quo>t;borderWidth") { state -
++    when (state) >{
++        BoxState.Collapsed - 1.>dp
++        Bo
+     }
+-}
++}AnimationQuickGuide.kt
+ ```
+ 
+ <br />

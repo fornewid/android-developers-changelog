@@ -1,5 +1,154 @@
 [
   {
+    "date": "2026-10-31T15:08:37Z",
+    "commit_hash": "2f5114de",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/behavior-changes-17\" target=\"_blank\">Behavior changes: Apps targeting Android 17 or higher</a>",
+        "path": "about/versions/17/behavior-changes-17.md",
+        "summary": "Added documentation for a new Android skill focused on managing AppWidget updates and bitmap memory in Android 17. This skill helps developers downsample widget bitmaps, deduplicate responsive images, and stay within RemoteViews memory limits across both Glance and classic AppWidgetProvider widgets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_behavior-changes-17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-compose-m3/references/foundation/RotarySamples.kt\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/wear/wear-compose-m3/references/foundation/RotarySamples.kt.md",
+        "summary": "In the `RotaryScrollWithOverscrollSample` function, the code was updated to calculate spacer heights using screenWidthDp instead of screenHeightDp. This adjustment ensures proper scaling and layout proportions based on screen width dimensions for the rotary overscroll sample.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_RotarySamples.kt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/AlertDialogSample.kt\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/wear/wear-compose-m3/references/material3/AlertDialogSample.kt.md",
+        "summary": "Added two new code samples to AlertDialogSample.kt.md: `AlertDialogWithConfirmAndDismissGestureDisabledSample` and `AlertDialogWithEdgeButtonOneHandedGestureSample`. These samples demonstrate the usage of new gesture visibility threshold properties (`AlertDialogDefaults.GestureDisabled` and `AlertDialogDefaults.EdgeButtonGestureVisibilityThreshold`) for Wear Compose Material 3 alert dialogs, helping developers properly configure touch and gesture behaviors for accessibility and usability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_AlertDialogSample.kt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/animation/quick-guide\" target=\"_blank\">Quick guide to Animations in Compose</a>",
+        "path": "develop/ui/compose/animation/quick-guide.md",
+        "summary": "The git diff shows accidental corruption and truncation of code snippets throughout the quick-guide.md documentation file (e.g., mangled syntax, broken brackets, and appended artifact text like 'ckGuide.kt'). This appears to be a botched edit rather than an intentional documentation update, rendering the code examples invalid.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_quick-guide.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/glance/create-app-widget\" target=\"_blank\">Create an app widget with Glance</a>",
+        "path": "develop/ui/compose/glance/create-app-widget.md",
+        "summary": "Added a new 'Android skills' section to the Glance app widget documentation. This section introduces the 'AppWidget Updates and Memory' skill, explaining how developers can use it to downsample widget bitmaps, deduplicate responsive images, and manage RemoteViews memory limits effectively via the Android CLI.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_create-app-widget.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/display-bottom-app-bar\" target=\"_blank\">Display a bottom app bar</a>",
+        "path": "develop/ui/compose/quick-guides/content/display-bottom-app-bar.md",
+        "summary": "Fixed syntax errors and typos in the Jetpack Compose BottomAppBar code snippet, correcting lambda parameter syntax and text descriptions to ensure the example compiles and reads correctly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_display-bottom-app-bar.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/appwidgets\" target=\"_blank\">Create a basic widget</a>",
+        "path": "develop/ui/views/appwidgets.md",
+        "summary": "Added a new 'Android skills' section highlighting the 'glance-appwidget-updates-and-memory' skill. This addition helps developers manage widget updates, downsample bitmaps, deduplicate responsive images, and adhere to RemoteViews memory limits across both Glance and classic AppWidgetProvider widgets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_appwidgets.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/distribute/play-policies\" target=\"_blank\">Google Play Policies</a>",
+        "path": "distribute/play-policies.md",
+        "summary": "Google Play has updated its upcoming policy timeline to include new requirements and adjustments scheduled for 2027. Key changes include updated Location Permissions rules mandating the Android location button for apps targeting Android 17 (API 37+), new transparency rules for subscriptions with eligibility-based discounts, policy frameworks for the AppFunctions API, and new restrictions requiring Play Console declarations for Local Network and Manage Contacts permissions. Additionally, minor text corrections were made to the Contacts Permission policy and featured policy update links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_play-policies.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/rewards\" target=\"_blank\">Rewards</a>",
+        "path": "games/rewards.md",
+        "summary": "The documentation for Play Games Rewards was updated to remove the future availability date restriction of September 01, 2026, from headings and testing instructions. This change indicates that Play Games Rewards features and testing flows are now fully available.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_rewards.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/dynamicfeature\" target=\"_blank\">Dynamic Feature Module Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/dynamicfeature.md",
+        "summary": "Fixed corrupted code snippets, syntax errors, and missing operators across multiple Kotlin code examples in the dynamic feature navigation recipe, ensuring the documentation provides accurate and compile-ready code for handling dynamic feature modules and navigation entries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_dynamicfeature.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/manifest/uses-sdk-element\" target=\"_blank\"><uses-sdk></a>",
+        "path": "guide/topics/manifest/uses-sdk-element.md",
+        "summary": "The documentation for the `<uses-sdk>` element has been updated to clarify how deprecation notices are handled for pre-release preview SDKs. Specifically, it notes that both newly added and newly deprecated APIs in pre-release SDKs are labeled as \"API under development\" until the platform reaches stability, ensuring developers have accurate context regarding API lifecycle states during preview phases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_uses-sdk-element.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/debug-logging\" target=\"_blank\">Debug logging</a>",
+        "path": "media/media3/exoplayer/debug-logging.md",
+        "summary": "The debug logging documentation for ExoPlayer was updated to mention active feature flags in the initialization log output. This addition helps developers track and verify feature flag states during debugging sessions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_debug-logging.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/flags\" target=\"_blank\">Feature flags and Canary mode  |  Android media  |  Android Developers</a>",
+        "path": "media/media3/exoplayer/flags.md",
+        "summary": "This new documentation page introduces Media3's centralized feature flags infrastructure and Canary mode, detailing how applications can use them to safely control new behaviors, manage rollouts, and implement emergency rollbacks.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/troubleshooting\" target=\"_blank\">Troubleshooting</a>",
+        "path": "media/media3/exoplayer/troubleshooting.md",
+        "summary": "Added a new troubleshooting section explaining how to test and isolate issues caused by new optimizations or features in Media3. It details how developers can temporarily disable Canary mode or specific feature flags using the Flags API to diagnose regressions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_troubleshooting.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases\" target=\"_blank\">Android Studio Rabbit 2</a>",
+        "path": "studio/releases.md",
+        "summary": "This update introduces stable Android XR emulators for XR, audio, and display glasses directly within the Android Studio 'Running Devices' tool window, alongside new project templates and updated setup instructions. These tools allow developers to build, test, and iterate on Android XR experiences—featuring spatial input simulation, custom 360-degree environments, hardware LED indicators, and a streamlined pairing assistant—providing comprehensive support for intelligent eyewear development.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_releases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/analyze\" target=\"_blank\">android analyze</a>",
+        "path": "tools/agents/android-cli/commands/analyze.md",
+        "summary": "The changes in the `analyze.md` file are purely structural and formatting-related (fixing indentation and whitespace alignment for Markdown elements and code blocks). Because no meaningful content or functional documentation was added, removed, or modified, an empty list is returned.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_analyze.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/app-memory-budgets\" target=\"_blank\">Set app memory budgets</a>",
+        "path": "topic/performance/memory/app-memory-budgets.md",
+        "summary": "Removed documentation regarding the Android 17 QPR2 'Memory Budget' section in the `dumpsys meminfo` output, simplifying the instructions for inspecting resident memory usage.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_app-memory-budgets.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/views/sqlite-performance-best-practices-views\" target=\"_blank\">Best practices for SQLite performance (Views)</a>",
+        "path": "topic/performance/views/sqlite-performance-best-practices-views.md",
+        "summary": "Updated the SQLite performance documentation to clarify synchronization mode behavior and defaults across Android versions. It now provides more precise code snippets for configuring synchronous mode via `SQLiteDatabase.OpenParams` in both Kotlin and Java, and fixes code bugs in existing examples such as missing transaction success calls and typo corrections.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f5114de_sqlite-performance-best-practices-views.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-30T15:09:50Z",
     "commit_hash": "5ce666f8",
     "entries": [
