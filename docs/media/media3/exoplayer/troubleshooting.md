@@ -25,6 +25,7 @@ source: md.txt
 - [Can I play YouTube videos directly with ExoPlayer?](https://developer.android.com/media/media3/exoplayer/troubleshooting#can-i-play-youtube-videos-directly-with-exoplayer)
 - [Video playback is stuttering](https://developer.android.com/media/media3/exoplayer/troubleshooting#video-playback-is-stuttering)
 - [Unstable API lint errors](https://developer.android.com/media/media3/exoplayer/troubleshooting#unstable-api-lint-errors)
+- [How can I test or isolate issues caused by new optimizations or features?](https://developer.android.com/media/media3/exoplayer/troubleshooting#how-can-i-test-or-isolate-issues-caused-by-new-features)
 
 *** ** * ** ***
 
@@ -407,3 +408,18 @@ Whole projects can be opted-in by suppressing the specific lint error in their
 
 There is a `kotlin.OptIn` annotation as well that shouldn't be used. It's
 important to use the `androidx.annotation.OptIn` annotation.
+
+#### How can I test or isolate issues caused by new optimizations or features?
+
+Media3 includes a feature flags infrastructure where newly introduced features
+and optimizations are enabled by default under Canary mode.
+
+If you suspect that an issue or regression in your app is related to a newly
+introduced feature or optimization, you can temporarily disable Canary mode:
+
+    Flags.setCanaryModeEnabled(false);
+
+Or disable specific feature flags individually using
+`Flags.disableFlag(flagId)`. For more details on configuring Canary mode,
+overriding flags, and setting up remote kill switches, see the
+[Feature flags and Canary mode guide](https://developer.android.com/media/media3/exoplayer/flags).

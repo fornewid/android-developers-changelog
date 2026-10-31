@@ -300,15 +300,15 @@ The primary task of the manifest is to inform the system about the app's compone
 example, a manifest file can declare an activity as follows:
 
 ```xml
-<?xml version="1.0" encodin>g<="utf-8&>quot;<?
-manifest ... 
-    application android:icon="@dr>awable/ap<p_icon.png" ... 
-        activity android:name="com.example.project.ExampleActivity"
-                  an>droid:lab<el=">@string/example_l<abel" .>.<. 
-      >  /activity
+<?xml version="1.0" encoding="utf-8"?>
+<manifest ... >
+    <application android:icon="@drawable/app_icon.png" ... >
+        <activity android:name="com.example.project.ExampleActivity"
+                  android:label="@string/example_label" ... >
+        </activity>
         ...
-    /application
-/manifest
+    </application>
+</manifest>
 ```
 
 In the `https://developer.android.com/guide/topics/manifest/application-element`
@@ -376,16 +376,16 @@ as shown in the following example:
 ```xml
 <manifest ... >
     ...
- <   application .>.. 
-     <   activity android:name="com.example.project.ComposeEmailActivity"&<gt;
-            intent-filter&g<t;
-                action android:name="android.intent.action.S<END" />
-                data androi<d:type="*/*" />
-                category android:name=&quo<t;android.intent.categor<y.DEFAULT"< />
-     > <      /intent-filter>
-        /activity>
-    /application
-/manifest>
+    <application ... >
+        <activity android:name="com.example.project.ComposeEmailActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <data android:type="*/*" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
 ```
 
 If another app creates an intent with the `https://developer.android.com/reference/android/content/Intent#ACTION_SEND` action and passes it to
@@ -433,10 +433,10 @@ You declare the camera feature in your app's manifest file:
 
 ```xml
 <manifest ... >
- <   uses-feature android:name="android.hardware.camera.any"
-                  android:required="<;true" />
+    <uses-feature android:name="android.hardware.camera.any"
+                  android:required="true" />
     ...
-/manifest>
+</manifest>
 ```
 
 With the declarations shown in these examples, devices that do *not* have a

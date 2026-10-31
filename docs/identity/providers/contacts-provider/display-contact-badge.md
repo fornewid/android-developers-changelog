@@ -245,7 +245,6 @@ destination view and returns the properly sized thumbnail in a
 `Bitmap`. Start by constructing a URI that points to the
 thumbnail:
 
-
 ### Kotlin
 
 ```kotlin
@@ -628,7 +627,7 @@ including its constructor, and override
              * them up each time bindView() is called.
              */
             final ContactListLayoutBinding binding =
-            ContactListLayoutBinding.inflate(inflater, 
+            ContactListLayoutBinding.inflate(inflater,
                 viewGroup,
                 false);
             final ViewHolder holder = new ViewHolder();

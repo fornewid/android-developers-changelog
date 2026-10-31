@@ -944,7 +944,7 @@ BYOA offers the following benefits:
 
 To get started with BYOA, follow these steps:
 
-1. Update Android Studio to the latest canary release.
+1. Update Android Studio to the latest stable release.
 2. Connect your agents: In the agent window, select one of the default agents (Claude Agent, Codex, or Antigravity) and sign in or provide an API key. Additional agents can be found in the registry at **File** (**Android
    Studio** on macOS) **\> Settings \> Tools \> AI \> Agents**.
 
@@ -962,6 +962,55 @@ In Android Studio Rabbit 2, it's easier to discover, install, and manage Android
 [skills](https://developer.android.com/studio/gemini/skills) directly in the
 IDE, giving you granular control over the specialized workflows and procedural
 guidance available to the agent.
+
+### Android XR emulators for XR, audio, and display glasses
+
+The Android XR emulators for XR glasses, audio glasses, and display glasses are
+now stable in Android Studio with new and updated features, so you can build,
+iterate, and test Android XR experiences right from your workstation. All three
+glasses device types now launch by default as embedded emulators inside the
+**Running Devices** tool window.
+
+The XR glasses emulator lets you test electrochromatic dimming and spatial input
+features for optical see-through glasses, while the
+updated display glasses emulator lets you customize the environment with your
+own 360-degree panoramic photos, 2D still images, or a live video feed from a
+connected camera so you can test real physical environments from anywhere. We've
+also introduced hardware LED indicators for microphone and camera states, added
+a project template in the New Project Wizard, and made improvements to the
+Pairing Assistant to pair a virtual phone with virtual audio and display glasses
+faster and more reliably.
+Embedded XR glasses emulator running inside Android Studio. Customizing the environment with a 360-degree photo and pairing virtual glasses in Android Studio Rabbit 2.
+
+#### Key capabilities
+
+- **Embedded emulators for XR, audio, and display glasses** : Create and launch **XR Glasses** , **Display Glasses** , and **Audio Glasses** virtual devices from **Device Manager** directly inside the **Running Devices** tool window alongside your code and layout tools.
+- **Environment dimming and hand and eye input simulation (XR glasses)** : Test optical see-through experiences for devices like the XREAL Aura using the **Environment Visibility** slider, which adjusts simulated electrochromatic lens dimming across five opacity levels (from `0%` transparent to `100%` maximum dimming) alongside passthrough mode. Switch between **Hand** tracking (simulating pinch and raycast pointer events), **Eye** tracking (simulating gaze focus and selection), and **Hardware** (connected mouse and keyboard) input modes in the emulator toolbar, with distinct cursors for hand and eye interactions.
+- **Custom 360-degree photo and live camera environments (display glasses)** : Select **Environments \> Custom Environment** in the display glasses emulator toolbar to upload standard equirectangular 360-degree panoramic photos (JPEG or PNG) or 2D still images---or select **Environments \> Camera** to stream a live video feed from a connected webcam---to evaluate how Jetpack Compose Glimmer UI elements render across real-world lighting conditions. Hold **Shift** and drag with your mouse (or press the **Arrow keys**) to rotate your view inside 360-degree scenes.
+- **Hardware LED indicators (audio and display glasses)**: Preview user-facing privacy and status LED behavior directly on the emulator frame when your app accesses the microphone or camera.
+- **Streamlined Pairing Assistant and nested Device Manager view (audio and
+  display glasses)** : Pair a virtual host phone with virtual audio or display glasses without signing in to a Google Account. **Device Manager** now displays paired phone and glasses virtual devices in a nested hierarchy, persists and reconciles pairing state across Android Studio restarts, and automatically prompts you to launch the Pairing Assistant if you start an unpaired glasses virtual device.
+- **Display and audio glasses project template** : Jumpstart new intelligent eyewear apps from **File \> New \> New Project \> XR** using the **Basic Display
+  Glasses Activity** template, pre-configured with Jetpack Compose Glimmer and Jetpack Projected dependencies.
+
+#### Get started
+
+1. To create a new project for XR glasses, audio glasses, or display glasses, select **File \> New \> New Project** , choose **XR** under **Templates** , and select either **Basic Headset Activity** (for XR glasses and headsets) or **Basic Display Glasses Activity** (for display and audio glasses).
+2. Open **Tools \> Device Manager** , click **+** (**Create Virtual Device** ), and select **XR** in the **Form Factor** section to create an **XR Glasses** , **Display Glasses** , or **Audio Glasses** virtual device using the latest system image.
+3. For **Audio Glasses** or **Display Glasses** , also create a host **Phone** virtual device running the latest **API CANARY Preview** system image, then click **Pair Glasses** in **Device Manager** (or launch the glasses virtual device to open the Pairing Assistant automatically).
+4. Launch your virtual device from **Device Manager** to open it in the **Running Devices** tool window, and use the emulator toolbar to customize environments, adjust **Environment Visibility** dimming, or switch between **Hand** , **Eye** , and **Hardware** input modes.
+
+> [!NOTE]
+> **Note:** While these emulators and templates are available in the stable channel starting with Android Studio Rabbit 2 for a reliable day-to-day workflow, we recommend also installing the [latest Canary build of Android
+> Studio](https://developer.android.com/studio/preview) and the latest preview system images to access the newest experimental Android XR tools and APIs as they land.
+
+For detailed setup and interaction instructions, see the following pages:
+
+- [Create virtual devices for XR headsets and wired XR glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses)
+- [Use the Android XR Emulator for XR headsets and wired XR
+  glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/xr-headsets-glasses)
+- [Create virtual devices for audio and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/glasses)
+- [Use the emulators for audio and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/glasses)
 
 ### Resize Running Devices tool window by double-clicking empty space
 

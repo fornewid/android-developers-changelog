@@ -25,13 +25,12 @@ player.addAnalyticsListener(new EventLogger());
 
 <br />
 
-The easiest way to observe the log is using Android Studio's [logcat tab](https://developer.android.com/studio/debug/am-logcat). You
-can select your app as debuggable process by the package name
-(`androidx.media3.demo.main` if using the demo app) and tell the logcat tab to
-log only for that app by selecting **show only selected application** . It's
-possible to further filter the logging with the expression
-`EventLogger|ExoPlayerImpl`, to get only logging from `EventLogger` and the
-player itself.
+To observe the log, use Android Studio's [logcat tab](https://developer.android.com/studio/debug/am-logcat). You can select your
+app as debuggable process by the package name (`androidx.media3.demo.main` if
+using the demo app) and tell the logcat tab to log only for that app by
+selecting **show only selected application** . It's possible to further filter
+the logging with the expression `EventLogger|ExoPlayerImpl`, to get only logging
+from `EventLogger` and the player itself.
 
 An alternative to using Android Studio's logcat tab is to use the console. For
 example:
@@ -41,10 +40,10 @@ example:
 ### Player information
 
 The `ExoPlayerImpl` class delivers two important lines about the player version,
-the device and OS the app is running on and the modules of ExoPlayer that have
-been loaded:
+the device and OS the app is running on, active [feature flags](https://developer.android.com/media/media3/exoplayer/flags), and the
+modules of ExoPlayer that have been loaded:
 
-    ExoPlayerImpl: Init 59a18ab [AndroidXMedia3/1.0.0-rc02] [flame, Pixel 4, Google, 33]
+    ExoPlayerImpl: Init 59a18ab [AndroidXMedia3/1.0.0-rc02] [flame, Pixel 4, Google, 33] [Canary:ON]
     ExoPlayerImpl: Release 59a18ab [AndroidXMedia3/1.0.0-rc02] [flame, Pixel 4, Google, 33] [media3.common, media3.datasource, media3.ui, media3.exoplayer, media3.decoder, media3.exoplayer.dash, media3.extractor]
 
 ### Playback state

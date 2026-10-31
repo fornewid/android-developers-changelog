@@ -203,13 +203,9 @@ In this output:
 - `curProcState=4` and `state: cur=FGS` reflect that the process is in the foreground service state. If your app is hosting an active visible activity, this appears as `TOP`. If it is running an important foreground component (such as a download or sync), it appears as `IMPF`.
 - In the Process OOM control table, `prcp` indicates that the process is evaluated under the perceptible priority tier, which corresponds to the `perceptible` budget.
 
-To inspect the currently enforced memory budget and resident memory usage:
+To inspect your app's current resident memory usage:
 
     adb shell dumpsys meminfo <package-name>
-
-Starting in Android 17 QPR2, this output includes a **Memory Budget** section
-that displays the active limit ceiling, the limit source (such as
-`AndroidManifest` or `MemoryBudgetManager`), and current resident memory.
 
 ### Multi-process apps
 

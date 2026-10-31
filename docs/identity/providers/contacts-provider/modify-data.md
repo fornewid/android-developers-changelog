@@ -337,7 +337,7 @@ extended data, do the following:
 
 
 To add additional extended data to the `https://developer.android.com/reference/android/content/Intent`, call
-`https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String, android.os.Bundle)` as desired.
+`https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String, android.os.Bundle)` as needed.
 You can add extended data for common contact fields by using the key values specified in
 `https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert`. Remember that some
 columns in the `https://developer.android.com/reference/android/provider/ContactsContract.Contacts` table can't be modified.

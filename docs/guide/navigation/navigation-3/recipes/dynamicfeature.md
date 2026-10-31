@@ -513,15 +513,15 @@ interface AppNavKey : NavKey {
 /**
  * An extension on [EntryProviderScope] specifically for [AppNavKey]s that overrides the default
  * `contentKey` resolution. It explicitly resolves the key via `it.toContentKey()` instead of the default
- * string representat<ion.
+ * string representation.
  */
-inline fun r>eified K : AppNavKe<y Entr>yProviderScopeNavKey.appEntry(
-    noinline clazzContentKey: (key: @JvmSu>ppressWildcards K) - Any = { it.toContentKey() <},
-    meta>data: MapString, Any = emptyMap(),
-    noinline content: @androidx.compose.runt>ime.Composable (K) - Unit,
+inline fun <reified K : AppNavKey> EntryProviderScope<NavKey>.appEntry(
+    noinline clazzContentKey: (key: @JvmSuppressWildcards K) -> Any = { it.toContentKey() },
+    metadata: Map<String, Any> = emptyMap(),
+    noinline content: @androidx.compose.runtime.Composable (K) -> Unit,
 ) {
-    addEntryProvider(K::class, clazzContentKey, { mentent)
-}AppNavKey.kt
+    addEntryProvider(K::class, clazzContentKey, { metadata }, content)
+}
 ```
 
 ```
@@ -608,7 +608,7 @@ fun DynamicFeatureDownloadProgressDialog(
                         text = progressPercentage,
                         style = MaterialTheme.typography.labelSmall,
                     )
-                } e&&lse if (status !is InstallStatus.Failed  status !is InstallStatus.RequiresUserConfirmation) {
+                } else if (status !is InstallStatus.Failed && status !is InstallStatus.RequiresUserConfirmation) {
                     CircularProgressIndicator()
                 }
 
@@ -641,16 +641,16 @@ fun DynamicFeatureDownloadProgressDialog(
     )
 }
 
-private fun getStatusTitle(status: InstallStatus): >String {
+private fun getStatusTitle(status: InstallStatus): String {
     return when (status) {
-        is InstallS>tatus.Pending - "Requesting..."
-        is In>stallStatus.Downloading - "Downloading..."
-        is Inst>allStatus.Installing - "Installing..."
-        i>s InstallStatus.RequiresUserConfirmat>ion - "InstallStatus.Failed - "Installation Failed"
-        else - ""
+        is InstallStatus.Pending -> "Requesting..."
+        is InstallStatus.Downloading -> "Downloading..."
+        is InstallStatus.Installing -> "Installing..."
+        is InstallStatus.RequiresUserConfirmation -> "Requires Confirmation"
+        is InstallStatus.Failed -> "Installation Failed"
+        else -> ""
     }
 }
-DynamicFeatureDownloadProgressDialog.kt
 ```
 
 ````
@@ -703,8 +703,8 @@ abstract class DynamicModule(
  * **Example:**
  * ```kotlin
  * class ExampleEntryBuilder : DynamicModuleEntryBuilder {
- *     overrid<e fun >EntryProviderScopeNavKey.build<() {
- *         appE>ntryExampleModule.Screen {
+ *     override fun EntryProviderScope<NavKey>.build() {
+ *         appEntry<ExampleModule.Screen> {
  *             ExampleScreen()
  *         }
  *     }
@@ -712,14 +712,14 @@ abstract class DynamicModule(
  * ```
  */
 fun interface DynamicModuleEntryBuilder {
-  <  fun >EntryProviderScopeNavKey.build()
-}<
+    fun EntryProviderScope<NavKey>.build()
+}
 
-fun >EntryProviderScopeNavKey.buildDynamicEntries(
+fun EntryProviderScope<NavKey>.buildDynamicEntries(
     module: DynamicModule,
 ) {
     with(module.getDynamicModuleEntryBuilder()) {
+        build()
     }
 }
-DynamicModule.kt
 ````

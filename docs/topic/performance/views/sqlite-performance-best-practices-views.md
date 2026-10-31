@@ -40,27 +40,42 @@ performance in SQLite.
 
 ### Relax the synchronization mode
 
-When using WAL, by default every commit issues an `fsync` to help ensure that
-the data reaches the disk. This improves data durability but slows down your
-commits.
+SQLite has an option to [control synchronous mode](https://sqlite.org/pragma.html#pragma_synchronous). In `FULL` mode, every
+commit issues an `fsync` to help ensure that the data reaches the disk. This
+improves data durability but slows down your commits. With WAL, the `NORMAL`
+mode doesn't sync on every commit and still protects the database from
+corruption.
 
-SQLite has an option to [control synchronous mode](https://sqlite.org/pragma.html#pragma_synchronous). If you
-enable WAL, set synchronous mode to `NORMAL`:
+When you enable WAL through the framework, Android applies the device's default
+WAL synchronous mode, which is `NORMAL` in AOSP for Android 9 and higher.
+Device manufacturers can change this default, and databases that don't use WAL
+default to `FULL`. To make sure that your database uses `NORMAL`, set it when
+you open the database:
 
 ### Kotlin
 
     // When opening the database
-    val paramsBuilder: SQLiteDatabase.OpenParams.Builder = SQLiteDatabase.OpenParams.Builder()
-    paramsBuilder.journalMode = SQLiteDatabase.SYNC_MODE_NORMAL
+    val params = SQLiteDatabase.OpenParams.Builder()
+        .addOpenFlags(SQLiteDatabase.ENABLE_WRITE_AHEAD_LOGGING)
+        // SYNC_MODE_NORMAL is available in API level 33 and higher.
+        // On API levels 28 to 32, pass "NORMAL" instead.
+        .setSynchronousMode(SQLiteDatabase.SYNC_MODE_NORMAL)
+        .build()
+    // With SQLiteOpenHelper, call setOpenParams(params) in your constructor.
 
     // Or: after having opened the database
-    db.execSQL("PRAGMA synchronous = NORMAL");
+    db.execSQL("PRAGMA synchronous = NORMAL")
 
 ### Java
 
     // When opening the database
-    SQLiteDatabase.OpenParams.Builder paramsBuilder = new SQLiteDatabase.OpenParams.Builder();
-    paramsBuilder.setJournalMode(SQLiteDatabase.SYNC_MODE_NORMAL);
+    SQLiteDatabase.OpenParams params = new SQLiteDatabase.OpenParams.Builder()
+        .addOpenFlags(SQLiteDatabase.ENABLE_WRITE_AHEAD_LOGGING)
+        // SYNC_MODE_NORMAL is available in API level 33 and higher.
+        // On API levels 28 to 32, pass "NORMAL" instead.
+        .setSynchronousMode(SQLiteDatabase.SYNC_MODE_NORMAL)
+        .build();
+    // With SQLiteOpenHelper, call setOpenParams(params) in your constructor.
 
     // Or: after having opened the database
     db.execSQL("PRAGMA synchronous = NORMAL");
@@ -192,7 +207,7 @@ as the following:
 
 ### Kotlin
 
-    fun getNameById(id: Long): String?
+    fun getNameById(id: Long): String? {
         db.rawQuery(
             "SELECT name FROM customers WHERE id=$id", null
         ).use { cursor ->
@@ -643,7 +658,7 @@ Now you can insert a row and let SQLite check the constraint:
 ### Kotlin
 
     try {
-        db.execSql(
+        db.execSQL(
             "INSERT INTO Customers VALUES (?, ?, ?)",
             arrayOf(customer.id.toString(), customer.name, customer.username)
         )
@@ -687,11 +702,12 @@ accelerate performance, you can batch insertions:
     db.beginTransaction()
     try {
         customers.forEach { customer ->
-            db.execSql(
+            db.execSQL(
                 "INSERT INTO Customers VALUES (?, ?, ?)",
                 arrayOf(customer.id.toString(), customer.name, "customerValue")
             )
         }
+        db.setTransactionSuccessful()
     } finally {
         db.endTransaction()
     }
@@ -700,7 +716,7 @@ accelerate performance, you can batch insertions:
 
     db.beginTransaction();
     try {
-      for (customer : Customers) {
+      for (Customer customer : customers) {
         db.execSQL(
             "INSERT INTO Customers VALUES (?, ?, ?)",
             new String[] {
@@ -709,8 +725,9 @@ accelerate performance, you can batch insertions:
               "customerValue"
             });
       }
+      db.setTransactionSuccessful();
     } finally {
-      db.endTransaction()
+      db.endTransaction();
     }
 
 > [!NOTE]

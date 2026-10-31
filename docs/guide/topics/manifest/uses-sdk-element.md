@@ -167,9 +167,10 @@ integer identifier called *API level*. Each Android platform version supports
 exactly one API level, although support is implicit for all earlier API levels
 (down to API level 1). The initial release of the Android platform provided
 API level 1, and subsequent releases have incremented the API level. APIs
-introduced in pre-release preview SDKs that have not yet reached platform stability
-are marked as ["API under development"](https://developer.android.com/guide/topics/manifest/uses-sdk-element#apis-under-development)
-instead of an integer API level.
+introduced or deprecated in pre-release preview SDKs that haven't reached
+platform stability are marked as
+["API under development"](https://developer.android.com/guide/topics/manifest/uses-sdk-element#apis-under-development) instead of an API
+level number.
 
 The following table specifies the API level supported by each version of the
 Android platform. For information about the relative numbers of devices that
@@ -217,11 +218,13 @@ are running each version, see the [Distribution dashboard](https://developer.and
 
 ### APIs under development
 
-In the Android API reference documentation, some APIs are marked with
-"API under development" instead of an integer API level. APIs under development
-have the following characteristics:
+In the Android API reference documentation, APIs added or deprecated in a
+pre-release SDK are marked with "API under development" instead of an API level
+number. This label applies to both "Added in" and "Deprecated in" notices until
+the SDK reaches platform stability and receives a final major or minor API
+level. APIs under development have the following characteristics:
 
-- **Pre-release preview status:** These APIs are currently part of an active [Beta](https://developer.android.com/about/versions) or [Canary](https://developer.android.com/about/canary) preview SDK release and have not yet reached platform stability.
+- **Pre-release preview status:** The API addition or deprecation is part of an active [Beta](https://developer.android.com/about/versions) or [Canary](https://developer.android.com/about/canary) preview SDK release before API level finalization.
 - **No stability guarantee:** Unlike released APIs (which have a permanent API level and are backward-compatible across future releases), APIs under development might change signatures, be renamed, or be removed entirely between preview SDK releases.
 
 #### Check for APIs under development at runtime (`PREVIEW_SDK_INT`)
@@ -430,10 +433,12 @@ select **REL**, at the top of the API level menu. By default, API level filterin
 disabled, so that you can view the full framework API, regardless of API level.
 
 The reference documentation for individual API elements
-specifies the API level at which each element is introduced. The API level
-for packages and classes is specified as "Added in API level" at the
-top-right corner of the content area on each documentation page. The API level
-for class members is specified in their detailed description headers,
-at the right margin. For pre-release APIs that have not yet reached platform
-stability, this location displays ["API under development"](https://developer.android.com/guide/topics/manifest/uses-sdk-element#apis-under-development)
-instead of an API level integer.
+specifies the API level at which each element is introduced or deprecated. The
+API level for packages and classes is specified as "Added in API level" and,
+when applicable, "Deprecated in API level" at the top-right corner of the
+content area on each documentation page. The API level for class members is
+specified in their detailed description headers, at the right margin. For
+pre-release API additions or deprecations that haven't reached platform
+stability, these locations display
+["API under development"](https://developer.android.com/guide/topics/manifest/uses-sdk-element#apis-under-development) instead of an API
+level number.

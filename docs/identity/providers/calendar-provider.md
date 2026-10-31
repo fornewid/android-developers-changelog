@@ -5,8 +5,8 @@ source: md.txt
 ---
 
 The Calendar Provider is a repository for a user's calendar events. The
-Calendar Provider API allows you to perform query, insert, update, and delete
-operations on calendars, events, attendees, reminders, and so on.
+Calendar Provider API lets you perform query, insert, update, and delete
+operations on things like calendars, events, attendees, and reminders.
 
 The Calendar Provider API can be used by applications and sync adapters. The
 rules vary depending on what type of program is making the calls. This document
@@ -34,7 +34,7 @@ user's calendar data.
 
 Every content provider exposes a public URI (wrapped as a
 `https://developer.android.com/reference/android/net/Uri`
-object) that uniquely identifies its data set. A content provider that controls
+object) that uniquely identifies its dataset. A content provider that controls
 multiple data sets (multiple tables) exposes a separate URI for each one. All
 URIs for providers begin with the string "content://". This
 identifies the data as being controlled by a content provider. The Calendar
@@ -44,18 +44,16 @@ example, `https://developer.android.com/reference/android/provider/CalendarContr
 
 Figure 1 shows a graphical representation of the Calendar Provider data model. It shows the
 main tables and the fields that link them to each other.
-![Calendar Provider Data Model](https://developer.android.com/static/images/providers/datamodel.png)
-
-**Figure 1.** Calendar Provider data model.
+![Calendar Provider Data Model](https://developer.android.com/static/images/providers/datamodel.png) **Figure 1.** Calendar Provider data model.
 
 A user can have multiple calendars, and different calendars can be associated with different types of accounts (Google Calendar, Exchange, and so on).
 
-The `https://developer.android.com/reference/android/provider/CalendarContract` defines the data model of calendar and event related information. This data is stored in a number of tables, listed below.
+The `https://developer.android.com/reference/android/provider/CalendarContract` defines the data model of calendar and event related information. This data is stored in a number of tables, listed as follows.
 
 | Table (Class) | Description |
 |---|---|
-| `https://developer.android.com/reference/android/provider/CalendarContract.Calendars` | This table holds the calendar-specific information. Each row in this table contains the details for a single calendar, such as the name, color, sync information, and so on. |
-| `https://developer.android.com/reference/android/provider/CalendarContract.Events` | This table holds the event-specific information. Each row in this table has the information for a single event---for example, event title, location, start time, end time, and so on. The event can occur one-time or can recur multiple times. Attendees, reminders, and extended properties are stored in separate tables. They each have an `https://developer.android.com/reference/android/provider/CalendarContract.AttendeesColumns#EVENT_ID` that references the `https://developer.android.com/reference/android/provider/BaseColumns#_ID` in the Events table. |
+| `https://developer.android.com/reference/android/provider/CalendarContract.Calendars` | This table holds the calendar-specific information. Each row in this table contains the details for a single calendar, such as the name, color, and sync information. |
+| `https://developer.android.com/reference/android/provider/CalendarContract.Events` | This table holds the event-specific information. Each row in this table has the information for a single event---for example, event title, location, start time, end time. The event can occur one-time or can recur multiple times. Attendees, reminders, and extended properties are stored in separate tables. They each have an `https://developer.android.com/reference/android/provider/CalendarContract.AttendeesColumns#EVENT_ID` that references the `https://developer.android.com/reference/android/provider/BaseColumns#_ID` in the Events table. |
 | `https://developer.android.com/reference/android/provider/CalendarContract.Instances` | This table holds the start and end time for each occurrence of an event. Each row in this table represents a single event occurrence. For one-time events there is a 1:1 mapping of instances to events. For recurring events, multiple rows are automatically generated that correspond to multiple occurrences of that event. |
 | `https://developer.android.com/reference/android/provider/CalendarContract.Attendees` | This table holds the event attendee (guest) information. Each row represents a single guest of an event. It specifies the type of guest and the guest's attendance response for the event. |
 | `https://developer.android.com/reference/android/provider/CalendarContract.Reminders` | This table holds the alert/notification data. Each row represents a single alert for an event. An event can have multiple reminders. The maximum number of reminders per event is specified in `https://developer.android.com/reference/android/provider/CalendarContract.CalendarColumns#MAX_REMINDERS`, which is set by the sync adapter that owns the given calendar. Reminders are specified in minutes before the event and have a method that determines how the user will be alerted. |
@@ -65,7 +63,7 @@ same time, it's important to provide a good end user experience and
 protect the integrity of the calendar and its data. To this end, here are
 some things to keep in mind when using the API:
 
-- **Inserting, updating, and viewing calendar events.** To directly insert, modify, and read events from the Calendar Provider, you need the appropriate [permissions](https://developer.android.com/identity/providers/calendar-provider#manifest). However, if you're not building a full-fledged calendar application or sync adapter, requesting these permissions isn't necessary. You can instead use intents supported by Android's Calendar application to hand off read and write operations to that application. When you use the intents, your application sends users to the Calendar application to perform the desired operation in a pre-filled form. After they're done, they're returned to your application. By designing your application to perform common operations through the Calendar, you provide users with a consistent, robust user interface. This is the recommended approach. For more information, see [Calendar
+- **Inserting, updating, and viewing calendar events.** To directly insert, modify, and read events from the Calendar Provider, you need the appropriate [permissions](https://developer.android.com/identity/providers/calendar-provider#manifest). However, if you're not building a full-fledged calendar application or sync adapter, requesting these permissions isn't necessary. You can instead use intents supported by Android's Calendar application to hand off read and write operations to that application. When you use the intents, your application sends users to the Calendar application to perform the chosen operation in a pre-filled form. After they're done, they're returned to your application. By designing your application to perform common operations through the Calendar, you provide users with a consistent, robust user interface. This is the recommended approach. For more information, see [Calendar
   Intents](https://developer.android.com/identity/providers/calendar-provider#intents).
 - **Sync adapters.** A sync adapter synchronizes the calendar data on a user's device with another server or data source. In the `https://developer.android.com/reference/android/provider/CalendarContract.Calendars` and `https://developer.android.com/reference/android/provider/CalendarContract.Events` tables, there are columns that are reserved for the sync adapters to use. The provider and applications should not modify them. In fact, they are not visible unless they are accessed as a sync adapter. For more information about sync adapters, see [Sync Adapters](https://developer.android.com/identity/providers/calendar-provider#sync-adapter).
 
@@ -319,7 +317,7 @@ adapter. For a full list of supported fields, see the `https://developer.android
 | `https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns#EVENT_END_TIMEZONE` | The time zone for the end time of the event. |
 | `https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns#DURATION` | The duration of the event in [RFC5545](http://tools.ietf.org/html/rfc5545#section-3.8.2.5) format. For example, a value of `"PT1H"` states that the event should last one hour, and a value of `"P2W"` indicates a duration of 2 weeks. |
 | `https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns#ALL_DAY` | A value of 1 indicates this event occupies the entire day, as defined by the local time zone. A value of 0 indicates it is a regular event that may start and end at any time during a day. |
-| `https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns#RRULE` | The recurrence rule for the event format. For example, `"FREQ=WEEKLY;COUNT=10;WKST=SU"`. You can find more examples [here](http://tools.ietf.org/html/rfc5545#section-3.8.5.3). |
+| `https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns#RRULE` | The recurrence rule for the event format. For example, `"FREQ=WEEKLY;COUNT=10;WKST=SU"`. For more examples, see the [RFC5545 spec](http://tools.ietf.org/html/rfc5545#section-3.8.5.3). |
 | `https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns#RDATE` | The recurrence dates for the event. You typically use `https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns#RDATE` in conjunction with `https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns#RRULE` to define an aggregate set of repeating occurrences. For more discussion, see the [RFC5545 spec](http://tools.ietf.org/html/rfc5545#section-3.8.5.2). |
 | `https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns#AVAILABILITY` | If this event counts as busy time or is free time that can be scheduled over. |
 | `https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns#GUESTS_CAN_MODIFY` | Whether guests can modify the event. |
@@ -784,7 +782,7 @@ Your application doesn't need [permissions](https://developer.android.com/identi
 | `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW` | `content://com.android.calendar/time/<ms_since_epoch>` You can also refer to the URI with `https://developer.android.com/reference/android/provider/CalendarContract#CONTENT_URI`. For an example of using this intent, see [Using intents to view calendar data](https://developer.android.com/guide/topics/providers/calendar-provider#intent-view). | Open calendar to the time specified by `<ms_since_epoch>`. | None. |
 | `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW` | `content://com.android.calendar/events/<event_id>` You can also refer to the URI with `https://developer.android.com/reference/android/provider/CalendarContract.Events#CONTENT_URI`. For an example of using this intent, see [Using intents to view calendar data](https://developer.android.com/guide/topics/providers/calendar-provider#intent-view). | View the event specified by `<event_id>`. | `https://developer.android.com/reference/android/provider/CalendarContract#EXTRA_EVENT_BEGIN_TIME` <br /> <br /> `https://developer.android.com/reference/android/provider/CalendarContract#EXTRA_EVENT_END_TIME` |
 | `https://developer.android.com/reference/android/content/Intent#ACTION_EDIT` | `content://com.android.calendar/events/<event_id>` You can also refer to the URI with `https://developer.android.com/reference/android/provider/CalendarContract.Events#CONTENT_URI`. For an example of using this intent, see [Using an intent to edit an event](https://developer.android.com/guide/topics/providers/calendar-provider#intent-edit). | Edit the event specified by `<event_id>`. | `https://developer.android.com/reference/android/provider/CalendarContract#EXTRA_EVENT_BEGIN_TIME` <br /> <br /> `https://developer.android.com/reference/android/provider/CalendarContract#EXTRA_EVENT_END_TIME` |
-| `https://developer.android.com/reference/android/content/Intent#ACTION_EDIT` <br /> `https://developer.android.com/reference/android/content/Intent#ACTION_INSERT` | `content://com.android.calendar/events` You can also refer to the URI with `https://developer.android.com/reference/android/provider/CalendarContract.Events#CONTENT_URI`. For an example of using this intent, see [Using an intent to insert an event](https://developer.android.com/guide/topics/providers/calendar-provider#intent-insert). | Create an event. | Any of the extras listed in the table below. |
+| `https://developer.android.com/reference/android/content/Intent#ACTION_EDIT` <br /> `https://developer.android.com/reference/android/content/Intent#ACTION_INSERT` | `content://com.android.calendar/events` You can also refer to the URI with `https://developer.android.com/reference/android/provider/CalendarContract.Events#CONTENT_URI`. For an example of using this intent, see [Using an intent to insert an event](https://developer.android.com/guide/topics/providers/calendar-provider#intent-insert). | Create an event. | Any of the extras listed in the following table. |
 
 The following table lists the intent extras supported by the Calendar Provider:
 
@@ -816,7 +814,7 @@ then cancel the event, edit the form as needed, or save the event to their
 calendars.
 
 Here is a code snippet that schedules an event on January 19, 2012, that runs
-from 7:30 a.m. to 8:30 a.m. Note the following about this code snippet:
+from 7:30 AM to 8:30 AM. Note the following about this code snippet:
 
 - It specifies `https://developer.android.com/reference/android/provider/CalendarContract.Events#CONTENT_URI` as the Uri.
 - It uses the `https://developer.android.com/reference/android/provider/CalendarContract#EXTRA_EVENT_BEGIN_TIME` and `https://developer.android.com/reference/android/provider/CalendarContract#EXTRA_EVENT_END_TIME` extra fields to pre-populate the form with the time of the event. The values for these times must be in UTC milliseconds from the epoch.
@@ -962,7 +960,7 @@ access the Calendar Provider:
 
 - A sync adapter needs to specify that it's a sync adapter by setting `https://developer.android.com/reference/android/provider/CalendarContract#CALLER_IS_SYNCADAPTER` to `true`.
 - A sync adapter needs to provide an `https://developer.android.com/reference/android/provider/CalendarContract.SyncColumns#ACCOUNT_NAME` and an `https://developer.android.com/reference/android/provider/CalendarContract.SyncColumns#ACCOUNT_TYPE` as query parameters in the URI.
-- A sync adapter has write access to more columns than an application or widget. For example, an application can only modify a few characteristics of a calendar, such as its name, display name, visibility setting, and whether the calendar is synced. By comparison, a sync adapter can access not only those columns, but many others, such as calendar color, time zone, access level, location, and so on. However, a sync adapter is restricted to the `ACCOUNT_NAME` and `ACCOUNT_TYPE` it specified.
+- A sync adapter has write access to more columns than an application or widget. For example, an application can only modify a few characteristics of a calendar, such as its name, display name, visibility setting, and whether the calendar is synced. By comparison, a sync adapter can access not only those columns, but many others, such as calendar color, time zone, access level, and location. However, a sync adapter is restricted to the `ACCOUNT_NAME` and `ACCOUNT_TYPE` it specified.
 
 Here is a helper method you can use to return a URI for use with a sync adapter:
 

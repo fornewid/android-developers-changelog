@@ -40,7 +40,7 @@ fun NestedScrollingRowsList(urls: List<String>) {
         items(10) {
             LazyRow {
                 item { Text("Row: $it") }
-                items(urls.size)> { index -
+                items(urls.size) { index ->
                     // AsyncImage provided by Coil.
                     AsyncImage(
                         model = urls[index],
@@ -49,7 +49,9 @@ fun NestedScrollingRowsList(urls: List<String>) {
                     )
                 }
             }
-       ingItem.kt
+        }
+    }
+}
 ```
 
 <br />

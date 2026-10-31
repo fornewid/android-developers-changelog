@@ -22,9 +22,10 @@ Credential Manager. The reasons to migrate to Credential Manager include:
 - **Third party credential provider support:** On Android 14 and higher, Credential Manager supports multiple third party credential providers. This means your users can use their existing credentials from other providers to sign in to your app.
 - **Consistent user experience:** Credential Manager provides a more consistent user experience for authentication across apps and sign-in mechanisms. This makes it easier for users to understand and use your app's authentication flow.
 
-| **Note:** If your app requires non-discoverable [FIDO credentials](https://developers.google.com/identity/fido/android/native-apps) or uses physical security keys, you should continue to use FIDO at this time.
+> [!NOTE]
+> **Note:** If your app requires non-discoverable [FIDO credentials](https://developers.google.com/identity/fido/android/native-apps) or uses physical security keys, you should continue to use FIDO at this time.
 
-To begin migration from FIDO2 to Credential Manager, follow the steps below.
+To begin migration from FIDO2 to Credential Manager, take the following steps.
 
 ## Update dependencies
 
@@ -48,7 +49,7 @@ To begin migration from FIDO2 to Credential Manager, follow the steps below.
 
            // Play Services Authentication:
            // Optional - needed for credentials support from play services, for devices running
-           // Android 13 and below:
+           // Android 13 and lower:
            implementation 'androidx.credentials:credentials-play-services-auth:<latest-version>'
            // ...
          }
@@ -58,7 +59,8 @@ To begin migration from FIDO2 to Credential Manager, follow the steps below.
 
        val credMan = CredentialManager.create(context)
 
-| **Tip:** View models shouldn't handle activity or context. Keep server calls with your business logic.
+> [!TIP]
+> **Tip:** View models shouldn't handle activity or context. Keep server calls with your business logic.
 
 ## Create passkeys
 
@@ -117,7 +119,9 @@ it. Set up your app with this ability by updating the register function calls.
            }
        }
 
-   | **Note:** Refer to the list of allowed [enums](https://www.w3.org/TR/webauthn-2/#enum-attachment) as indicated in the specification.
+   > [!NOTE]
+   > **Note:** Refer to the list of allowed [enums](https://www.w3.org/TR/webauthn-2/#enum-attachment) as indicated in the specification.
+
 3. Safely remove any methods that handle intent launcher and activity result
    calls from your view.
 

@@ -82,7 +82,7 @@ parent `https://developer.android.com/reference/android/provider/ContactsContrac
 
 
 The important columns in the `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` table are
-listed in table 1. Please read the notes that follow after the table:
+listed in table 1. Make sure to read the notes that follow the table:
 
 
 **Table 1.** Important raw contact columns.
@@ -215,7 +215,7 @@ By convention, the column `DATA15` is reserved for storing Binary Large Object
 
 To facilitate working with the columns for a particular type of row, the Contacts Provider
 also provides type-specific column name constants, defined in subclasses of
-`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds`. The constants simply give a
+`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds`. The constants give a
 different constant name to the same column name, which helps you access data in a row of a
 particular type.
 
@@ -232,11 +232,11 @@ the same as the column's generic name.
 
 **Caution:** Don't add your own custom data to the
 `https://developer.android.com/reference/android/provider/ContactsContract.Data` table using a row that has one of the
-provider's pre-defined MIME types. If you do, you may lose the data or cause the provider to
+provider's predefined MIME types. If you do, you may lose the data or cause the provider to
 malfunction. For example, you should not add a row with the MIME type
-`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#CONTENT_ITEM_TYPE` that contains a user name instead of an email address in the
+`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#CONTENT_ITEM_TYPE` that contains a username instead of an email address in the
 column `DATA1`. If you use your own custom MIME type for the row, then you are free
-to define your own type-specific column names and use the columns however you wish.
+to define your own type-specific column names and use the columns however you want.
 
 
 Figure 2 shows how descriptive columns and data columns appear in a
@@ -327,7 +327,7 @@ written to these data fields:
 - [`ContactsContract.DataUsageStatColumns.TIMES_USED`](https://developer.android.com/reference/android/provider/ContactsContract.DataUsageStatColumns#TIMES_USED)
 
 
-APIs used to set the above data fields are also obsolete:
+APIs used to set the preceding data fields are also obsolete:
 
 - [`ContactsContract.Contacts.markAsContacted()`](https://developer.android.com/reference/android/provider/ContactsContract.Contacts#markAsContacted(android.content.ContentResolver,%20long))
 - [`ContactsContract.DataUsageFeedback`](https://developer.android.com/reference/android/provider/ContactsContract.DataUsageFeedback)
@@ -366,7 +366,7 @@ adb shell content delete \
 
 
 Users enter contacts data directly into the device, but data also flows into the Contacts
-Provider from web services via **sync adapters** , which automate
+Provider from web services through **sync adapters** , which automate
 the transfer of data between the device and services. Sync adapters run in the background
 under the control of the system, and they call `https://developer.android.com/reference/android/content/ContentResolver` methods
 to manage data.
@@ -391,7 +391,7 @@ Account name
 :
     Identifies a particular account or login for an account type. Google Contacts accounts
     are the same as Google Accounts, which have an email address as an account name.
-    Other services may use a single-word username or numeric id.
+    Other services may use a single-word username or numeric ID.
 
 
 Account types don't have to be unique. A user can configure multiple Google Contacts accounts
@@ -442,7 +442,7 @@ required permissions are discussed in the following section,
 Remember that the user's contacts data is personal and sensitive. Users are concerned about
 their privacy, so they don't want applications collecting data about them or their contacts.
 If it's not obvious why you need permission to access their contacts data, they may give
-your application low ratings or simply refuse to install it.
+your application low ratings or just refuse to install it.
 
 ## The user profile
 
@@ -464,7 +464,7 @@ respectively.
 
 
 Remember that you should consider a user's profile to be sensitive. The permission
-android.Manifest.permission#READ_PROFILE allows you to access the device user's
+android.Manifest.permission#READ_PROFILE lets you access the device user's
 personally-identifying data. Make sure to tell the user why
 you need user profile access permissions in the description of your application.
 
@@ -814,7 +814,7 @@ for the data row, because you haven't yet applied the
 `https://developer.android.com/reference/android/content/ContentProviderOperation` for the raw contact row. To work around this,
 the `https://developer.android.com/reference/android/content/ContentProviderOperation.Builder` class has the method
 `https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#withValueBackReference(java.lang.String, int)`.
-This method allows you to insert or modify a column with the
+This method lets you insert or modify a column with the
 result of a previous operation.
 
 
@@ -836,7 +836,7 @@ method has two arguments:
     the batch operations are applied, the result of each operation is stored in an
     intermediate array of results. The `previousResult` value is the index
     of one of these results, which is retrieved and stored with the `key`
-    value. This allows you to insert a new raw contact record and get back its
+    value. This lets you insert a new raw contact record and get back its
     `https://developer.android.com/reference/android/provider/BaseColumns#_ID` value, then make a "back reference" to the
     value when you add a `https://developer.android.com/reference/android/provider/ContactsContract.Data` row.
 
@@ -1304,7 +1304,7 @@ try
 ### Retrieval and modification with intents
 
 
-Sending an intent to the device's contacts application allows you to access the Contacts
+Sending an intent to the device's contacts application lets you access the Contacts
 Provider indirectly. The intent starts the device's contacts application UI, in which users can
 do contacts-related work. With this type of access, users can:
 
@@ -1318,7 +1318,7 @@ If the user is inserting or updating data, you can collect the data first and se
 part of the intent.
 
 
-When you use intents to access the Contacts Provider via the device's contacts application, you
+When you use intents to access the Contacts Provider through the device's contacts application, you
 don't have to write your own UI or code for accessing the provider. You also don't have to
 request permission to read or write to the provider. The device's contacts application can
 delegate read permission for a contact to you, and because you're making modifications to the
@@ -1326,7 +1326,7 @@ provider through another application, you don't have to have write permissions.
 
 
 The general process of sending an intent to access a provider is described in detail in the
-[Content Provider basics](https://developer.android.com/guide/topics/providers/content-provider-basics) guide in the section "Data access via intents." The action,
+[Content Provider basics](https://developer.android.com/guide/topics/providers/content-provider-basics) guide in the section "Data access using intents." The action,
 MIME type, and data values you use for the available tasks are summarized in Table 4, while the
 extras values you can use with
 `https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String, java.lang.String)` are listed in the
@@ -2070,7 +2070,7 @@ to add the element if you have a custom data row for which you don't want to dis
     The column name for the first of two values retrieved from the data row. The
     value is displayed as the first line of the entry for this data row. The first line is
     intended to be used as a summary of the data, but that is optional. See also
-    [android:detailColumn](https://developer.android.com/identity/providers/contacts-provider#detailColumn).
+    `android:detailColumn`.
 
 `android:detailColumn`
 :

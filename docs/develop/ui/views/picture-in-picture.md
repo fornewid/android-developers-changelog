@@ -364,7 +364,7 @@ into or out of PiP mode as needed, set the activity's `android:launchMode` to
     <activity android:name="VideoActivity"
         ...
         android:supportsPictureInPicture="true"
-        android:launchMode=&quot;singleTask"
+        android:launchMode="singleTask"
         ...
 
 In your activity, override [`onNewIntent()`](https://developer.android.com/reference/android/app/Activity#onNewIntent(android.content.Intent)) and handle the new video,
