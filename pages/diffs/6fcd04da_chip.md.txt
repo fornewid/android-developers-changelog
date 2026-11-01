@@ -1,0 +1,39 @@
+diff --git a/docs/develop/ui/compose/components/chip.md b/docs/develop/ui/compose/components/chip.md
+index 4bc675bf..e940c370 100644
+--- a/docs/develop/ui/compose/components/chip.md
++++ b/docs/develop/ui/compose/components/chip.md
+@@ -43,7 +43,7 @@ fun AssistChipExample() {
+         label = { Text("Assist chip") },
+         leadingIcon = {
+             Icon(
+-                Icons.Filled.Settings,
++                painter = rememberVectorPainter(AppIcons.Settings),
+                 contentDescription = "Localized description",
+                 Modifier.size(AssistChipDefaults.IconSize)
+             )
+@@ -78,7 +78,7 @@ fun FilterChipExample() {
+         leadingIcon = if (selected) {
+             {
+                 Icon(
+-                    imageVector = Icons.Filled.Done,
++                    painter = rememberVectorPainter(AppIcons.Done),
+                     contentDescription = "Done icon",
+                     modifier = Modifier.size(FilterChipDefaults.IconSize)
+                 )
+@@ -130,14 +130,14 @@ fun InputChipExample(
+         selected = enabled,
+         avatar = {
+             Icon(
+-                Icons.Filled.Person,
++                painter = rememberVectorPainter(AppIcons.Person),
+                 contentDescription = "Localized description",
+                 Modifier.size(InputChipDefaults.AvatarSize)
+             )
+         },
+         trailingIcon = {
+             Icon(
+-                Icons.Default.Close,
++                painter = rememberVectorPainter(AppIcons.Close),
+                 contentDescription = "Localized description",
+                 Modifier.size(InputChipDefaults.AvatarSize)
+             )

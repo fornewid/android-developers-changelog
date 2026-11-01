@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/components/scaffold.md b/docs/develop/ui/compose/components/scaffold.md
+index 88f0461f..03604b69 100644
+--- a/docs/develop/ui/compose/components/scaffold.md
++++ b/docs/develop/ui/compose/components/scaffold.md
+@@ -65,7 +65,7 @@ fun ScaffoldExample() {
+         },
+         floatingActionButton = {
+             FloatingActionButton(onClick = { presses++ }) {
+-                Icon(Icons.Default.Add, contentDescription = "Add")
++                Icon(painter = rememberVectorPainter(AppIcons.Add), contentDescription = "Add")
+             }
+         }
+     ) { innerPadding ->

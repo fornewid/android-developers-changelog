@@ -1,0 +1,49 @@
+diff --git a/docs/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss.md b/docs/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss.md
+index 2506c8ee..e3a7d1e4 100644
+--- a/docs/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss.md
++++ b/docs/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss.md
+@@ -56,7 +56,7 @@ fun TodoListItem(
+             when (swipeToDismissBoxState.dismissDirection) {
+                 StartToEnd -> {
+                     Icon(
+-                        if (todoItem.isItemDone) Icons.Default.CheckBox else Icons.Default.CheckBoxOutlineBlank,
++                        painter = rememberVectorPainter(if (todoItem.isItemDone) AppIcons.CheckBox else AppIcons.CheckBoxOutlineBlank),
+                         contentDescription = if (todoItem.isItemDone) "Done" else "Not done",
+                         modifier = Modifier
+                             .fillMaxSize()
+@@ -68,7 +68,7 @@ fun TodoListItem(
+                 }
+                 EndToStart -> {
+                     Icon(
+-                        imageVector = Icons.Default.Delete,
++                        painter = rememberVectorPainter(AppIcons.Delete),
+                         contentDescription = "Remove item",
+                         modifier = Modifier
+                             .fillMaxSize()
+@@ -110,7 +110,7 @@ fun TodoListItem(
+ 
+ ```kotlin
+ @Composable
+-private fun SwipeItemExample() {
++fun SwipeItemExample() {
+     val todoItems = remember {
+         mutableStateListOf(
+             TodoItem("Pay bills"), TodoItem("Buy groceries"),
+@@ -197,7 +197,7 @@ fun TodoListItemWithAnimation(
+             when (swipeToDismissBoxState.dismissDirection) {
+                 StartToEnd -> {
+                     Icon(
+-                        if (todoItem.isItemDone) Icons.Default.CheckBox else Icons.Default.CheckBoxOutlineBlank,
++                        painter = rememberVectorPainter(if (todoItem.isItemDone) AppIcons.CheckBox else AppIcons.CheckBoxOutlineBlank),
+                         contentDescription = if (todoItem.isItemDone) "Done" else "Not done",
+                         modifier = Modifier
+                             .fillMaxSize()
+@@ -211,7 +211,7 @@ fun TodoListItemWithAnimation(
+                 }
+                 EndToStart -> {
+                     Icon(
+-                        imageVector = Icons.Default.Delete,
++                        painter = rememberVectorPainter(AppIcons.Delete),
+                         contentDescription = "Remove item",
+                         modifier = Modifier
+                             .fillMaxSize()

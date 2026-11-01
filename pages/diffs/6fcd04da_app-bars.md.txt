@@ -1,0 +1,95 @@
+diff --git a/docs/develop/ui/compose/components/app-bars.md b/docs/develop/ui/compose/components/app-bars.md
+index 04637281..02d11df8 100644
+--- a/docs/develop/ui/compose/components/app-bars.md
++++ b/docs/develop/ui/compose/components/app-bars.md
+@@ -136,7 +136,7 @@ fun CenterAlignedTopAppBarExample() {
+                 navigationIcon = {
+                     IconButton(onClick = { /* do something */ }) {
+                         Icon(
+-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
++                            painter = rememberVectorPainter(AppIcons.ArrowBack),
+                             contentDescription = "Localized description"
+                         )
+                     }
+@@ -144,7 +144,7 @@ fun CenterAlignedTopAppBarExample() {
+                 actions = {
+                     IconButton(onClick = { /* do something */ }) {
+                         Icon(
+-                            imageVector = Icons.Filled.Menu,
++                            painter = rememberVectorPainter(AppIcons.Menu),
+                             contentDescription = "Localized description"
+                         )
+                     }
+@@ -195,7 +195,7 @@ fun MediumTopAppBarExample() {
+                 navigationIcon = {
+                     IconButton(onClick = { /* do something */ }) {
+                         Icon(
+-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
++                            painter = rememberVectorPainter(AppIcons.ArrowBack),
+                             contentDescription = "Localized description"
+                         )
+                     }
+@@ -203,7 +203,7 @@ fun MediumTopAppBarExample() {
+                 actions = {
+                     IconButton(onClick = { /* do something */ }) {
+                         Icon(
+-                            imageVector = Icons.Filled.Menu,
++                            painter = rememberVectorPainter(AppIcons.Menu),
+                             contentDescription = "Localized description"
+                         )
+                     }
+@@ -259,7 +259,7 @@ fun LargeTopAppBarExample() {
+                 navigationIcon = {
+                     IconButton(onClick = { /* do something */ }) {
+                         Icon(
+-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
++                            painter = rememberVectorPainter(AppIcons.ArrowBack),
+                             contentDescription = "Localized description"
+                         )
+                     }
+@@ -267,7 +267,7 @@ fun LargeTopAppBarExample() {
+                 actions = {
+                     IconButton(onClick = { /* do something */ }) {
+                         Icon(
+-                            imageVector = Icons.Filled.Menu,
++                            painter = rememberVectorPainter(AppIcons.Menu),
+                             contentDescription = "Localized description"
+                         )
+                     }
+@@ -305,23 +305,23 @@ fun BottomAppBarExample() {
+             BottomAppBar(
+                 actions = {
+                     IconButton(onClick = { /* do something */ }) {
+-                        Icon(Icons.Filled.Check, contentDescription = "Localized description")
++                        Icon(painter = rememberVectorPainter(AppIcons.Check), contentDescription = "Localized description")
+                     }
+                     IconButton(onClick = { /* do something */ }) {
+                         Icon(
+-                            Icons.Filled.Edit,
++                            painter = rememberVectorPainter(AppIcons.Edit),
+                             contentDescription = "Localized description",
+                         )
+                     }
+                     IconButton(onClick = { /* do something */ }) {
+                         Icon(
+-                            Icons.Filled.Mic,
++                            painter = rememberVectorPainter(AppIcons.Mic),
+                             contentDescription = "Localized description",
+                         )
+                     }
+                     IconButton(onClick = { /* do something */ }) {
+                         Icon(
+-                            Icons.Filled.Image,
++                            painter = rememberVectorPainter(AppIcons.Image),
+                             contentDescription = "Localized description",
+                         )
+                     }
+@@ -332,7 +332,7 @@ fun BottomAppBarExample() {
+                         containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
+                         elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation()
+                     ) {
+-                        Icon(Icons.Filled.Add, "Localized description")
++                        Icon(painter = rememberVectorPainter(AppIcons.Add), "Localized description")
+                     }
+                 }
+             )

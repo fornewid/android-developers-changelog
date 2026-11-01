@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/components/search-bar.md b/docs/develop/ui/compose/components/search-bar.md
+index eaf75d02..523a03eb 100644
+--- a/docs/develop/ui/compose/components/search-bar.md
++++ b/docs/develop/ui/compose/components/search-bar.md
+@@ -127,7 +127,7 @@ fun CustomizableSearchBar(
+     modifier: Modifier = Modifier,
+     // Customization options
+     placeholder: @Composable () -> Unit = { Text("Search") },
+-    leadingIcon: @Composable (() -> Unit)? = { Icon(Icons.Default.Search, contentDescription = "Search") },
++    leadingIcon: @Composable (() -> Unit)? = { Icon(painter = rememberVectorPainter(AppIcons.Search), contentDescription = "Search") },
+     trailingIcon: @Composable (() -> Unit)? = null,
+     supportingContent: (@Composable (String) -> Unit)? = null,
+     leadingContent: (@Composable () -> Unit)? = null,

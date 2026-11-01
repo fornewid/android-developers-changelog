@@ -1,0 +1,22 @@
+diff --git a/docs/develop/ui/compose/components/dialog.md b/docs/develop/ui/compose/components/dialog.md
+index afbf0025..212a124d 100644
+--- a/docs/develop/ui/compose/components/dialog.md
++++ b/docs/develop/ui/compose/components/dialog.md
+@@ -44,7 +44,7 @@ fun AlertDialogExample(
+ ) {
+     AlertDialog(
+         icon = {
+-            Icon(icon, contentDescription = "Example Icon")
++            Icon(painter = rememberVectorPainter(icon), contentDescription = "Example Icon")
+         },
+         title = {
+             Text(text = dialogTitle)
+@@ -101,7 +101,7 @@ fun DialogExamples() {
+                     },
+                     dialogTitle = "Alert dialog example",
+                     dialogText = "This is an example of an alert dialog with buttons.",
+-                    icon = Icons.Default.Info
++                    icon = AppIcons.Info
+                 )
+             }
+         }

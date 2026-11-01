@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/components/switch.md b/docs/develop/ui/compose/components/switch.md
+index 40b75be0..418b1676 100644
+--- a/docs/develop/ui/compose/components/switch.md
++++ b/docs/develop/ui/compose/components/switch.md
+@@ -81,7 +81,7 @@ fun SwitchWithIconExample() {
+         thumbContent = if (checked) {
+             {
+                 Icon(
+-                    imageVector = Icons.Filled.Check,
++                    painter = rememberVectorPainter(AppIcons.Check),
+                     contentDescription = null,
+                     modifier = Modifier.size(SwitchDefaults.IconSize),
+                 )

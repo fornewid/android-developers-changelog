@@ -1,0 +1,26 @@
+diff --git a/docs/develop/ui/compose/components/segmented-button.md b/docs/develop/ui/compose/components/segmented-button.md
+index 1688fecc..9ee32439 100644
+--- a/docs/develop/ui/compose/components/segmented-button.md
++++ b/docs/develop/ui/compose/components/segmented-button.md
+@@ -95,18 +95,15 @@ fun MultiChoiceSegmentedButton(modifier: Modifier = Modifier) {
+                 label = {
+                     when (label) {
+                         "Walk" -> Icon(
+-                            imageVector =
+-                            Icons.AutoMirrored.Filled.DirectionsWalk,
++                            painter = rememberVectorPainter(AppIcons.DirectionsWalk),
+                             contentDescription = "Directions Walk"
+                         )
+                         "Ride" -> Icon(
+-                            imageVector =
+-                            Icons.Default.DirectionsBus,
++                            painter = rememberVectorPainter(AppIcons.DirectionsBus),
+                             contentDescription = "Directions Bus"
+                         )
+                         "Drive" -> Icon(
+-                            imageVector =
+-                            Icons.Default.DirectionsCar,
++                            painter = rememberVectorPainter(AppIcons.DirectionsCar),
+                             contentDescription = "Directions Car"
+                         )
+                     }

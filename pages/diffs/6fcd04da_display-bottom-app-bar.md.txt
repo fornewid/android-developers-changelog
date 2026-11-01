@@ -1,0 +1,41 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/display-bottom-app-bar.md b/docs/develop/ui/compose/quick-guides/content/display-bottom-app-bar.md
+index 31b7a7cc..e0146496 100644
+--- a/docs/develop/ui/compose/quick-guides/content/display-bottom-app-bar.md
++++ b/docs/develop/ui/compose/quick-guides/content/display-bottom-app-bar.md
+@@ -37,23 +37,23 @@ fun BottomAppBarExample() {
+             BottomAppBar(
+                 actions = {
+                     IconButton(onClick = { /* do something */ }) {
+-                        Icon(Icons.Filled.Check, contentDescription = "Localized description")
++                        Icon(painter = rememberVectorPainter(AppIcons.Check), contentDescription = "Localized description")
+                     }
+                     IconButton(onClick = { /* do something */ }) {
+                         Icon(
+-                            Icons.Filled.Edit,
++                            painter = rememberVectorPainter(AppIcons.Edit),
+                             contentDescription = "Localized description",
+                         )
+                     }
+                     IconButton(onClick = { /* do something */ }) {
+                         Icon(
+-                            Icons.Filled.Mic,
++                            painter = rememberVectorPainter(AppIcons.Mic),
+                             contentDescription = "Localized description",
+                         )
+                     }
+                     IconButton(onClick = { /* do something */ }) {
+                         Icon(
+-                            Icons.Filled.Image,
++                            painter = rememberVectorPainter(AppIcons.Image),
+                             contentDescription = "Localized description",
+                         )
+                     }
+@@ -64,7 +64,7 @@ fun BottomAppBarExample() {
+                         containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
+                         elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation()
+                     ) {
+-                        Icon(Icons.Filled.Add, "Localized description")
++                        Icon(painter = rememberVectorPainter(AppIcons.Add), "Localized description")
+                     }
+                 }
+             )

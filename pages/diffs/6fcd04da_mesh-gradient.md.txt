@@ -1,0 +1,14 @@
+diff --git a/docs/develop/ui/compose/graphics/draw/mesh-gradient.md b/docs/develop/ui/compose/graphics/draw/mesh-gradient.md
+index 2280108c..5cbbee0e 100644
+--- a/docs/develop/ui/compose/graphics/draw/mesh-gradient.md
++++ b/docs/develop/ui/compose/graphics/draw/mesh-gradient.md
+@@ -222,8 +222,7 @@ Box(
+         .safeContentPadding()
+         .aspectRatio(16 / 9f)
+         .fillMaxWidth()
+-        .paint(gradientPainter)
+-)
++        .painhGradientSnippets.kt
+ ```
+ 
+ <br />

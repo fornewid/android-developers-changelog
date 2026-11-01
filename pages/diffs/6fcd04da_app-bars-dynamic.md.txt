@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/components/app-bars-dynamic.md b/docs/develop/ui/compose/components/app-bars-dynamic.md
+index fcc4e26e..672be755 100644
+--- a/docs/develop/ui/compose/components/app-bars-dynamic.md
++++ b/docs/develop/ui/compose/components/app-bars-dynamic.md
+@@ -41,7 +41,7 @@ fun AppBarSelectionActions(
+                     /* click action */
+                 }) {
+                     Icon(
+-                        imageVector = Icons.Filled.Share,
++                        painter = rememberVectorPainter(AppIcons.Share),
+                         contentDescription = "Share items"
+                     )
+                 }

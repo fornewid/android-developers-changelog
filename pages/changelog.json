@@ -1,5 +1,187 @@
 [
   {
+    "date": "2026-11-01T15:08:33Z",
+    "commit_hash": "6fcd04da",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/background-tasks/persistent/threading/coroutineworker\" target=\"_blank\">Threading in CoroutineWorker</a>",
+        "path": "develop/background-work/background-tasks/persistent/threading/coroutineworker.md",
+        "summary": "The changes in the Android WorkManager documentation for CoroutineWorker introduce syntax errors and malformed XML tags within the AndroidManifest.xml code snippet. These changes appear to be accidental typos or corruption of the text and do not reflect any functional API updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_coroutineworker.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/animation/quick-guide\" target=\"_blank\">Quick guide to Animations in Compose</a>",
+        "path": "develop/ui/compose/animation/quick-guide.md",
+        "summary": "Fixed multiple syntax errors, broken code snippets, and typo artifacts throughout the Compose animation quick guide documentation. These corrections ensure that all code examples for animations, transitions, and modifiers are accurate and syntactically valid for developers to copy and use.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_quick-guide.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/app-bars-dynamic\" target=\"_blank\">Create a dynamic top app bar</a>",
+        "path": "develop/ui/compose/components/app-bars-dynamic.md",
+        "summary": "Updated the share action icon implementation in the dynamic app bar sample from using a direct `Icons.Filled.Share` vector to `rememberVectorPainter(AppIcons.Share)`. This change matters because it aligns the sample with custom or centralized icon loading patterns, improving consistency and maintainability across the UI components.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_app-bars-dynamic.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/app-bars-navigate\" target=\"_blank\">Navigate from top app bar</a>",
+        "path": "develop/ui/compose/components/app-bars-navigate.md",
+        "summary": "Updated the TopBarNavigationExample code snippet in the app bars documentation to use a custom painter (`rememberVectorPainter(AppIcons.ArrowBack)`) instead of the standard `Icons.AutoMirrored.Filled.ArrowBack` image vector. This matters as it aligns the documentation with updated design system guidelines or custom icon loading practices in Jetpack Compose.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_app-bars-navigate.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/app-bars\" target=\"_blank\">App bars</a>",
+        "path": "develop/ui/compose/components/app-bars.md",
+        "summary": "Updated the code examples for top and bottom app bars to use custom vector painters (`rememberVectorPainter(AppIcons...)`) instead of standard material icons (`imageVector = Icons...`). This matters because it aligns the documentation with custom app icon sets, ensuring developers understand how to implement their own asset providers in Compose components.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_app-bars.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/badges\" target=\"_blank\">Badges</a>",
+        "path": "develop/ui/compose/components/badges.md",
+        "summary": "Updated the badge code examples in the documentation to use `rememberVectorPainter(AppIcons.Mail)` and `rememberVectorPainter(AppIcons.ShoppingCart)` instead of direct `imageVector` references. This matters because it aligns the documentation with best practices for custom icon loading in Compose UI components.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_badges.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/chip\" target=\"_blank\">Chip</a>",
+        "path": "develop/ui/compose/components/chip.md",
+        "summary": "Updated the Jetpack Compose chip documentation examples to use custom vector painters (`rememberVectorPainter(AppIcons...)`) instead of direct material icons (`Icons.Filled...`). This change matters because it aligns the documentation with best practices for handling custom app icons in Compose UI components.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_chip.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/dialog\" target=\"_blank\">Dialog</a>",
+        "path": "develop/ui/compose/components/dialog.md",
+        "summary": "Updated the AlertDialog code example in the Compose documentation to use explicit vector painters and custom app icons instead of direct Material vector icons, ensuring better alignment with best practices for icon handling in Jetpack Compose.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_dialog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/fab\" target=\"_blank\">Floating action button</a>",
+        "path": "develop/ui/compose/components/fab.md",
+        "summary": "Updated the code snippets in the Floating Action Button (FAB) documentation to use `rememberVectorPainter` with custom app icons (`AppIcons.Add` and `AppIcons.Edit`) instead of direct material icon references. This change ensures the documentation aligns with modern best practices for custom icon handling and vector rendering in Jetpack Compose.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_fab.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/menu\" target=\"_blank\">Menus</a>",
+        "path": "develop/ui/compose/components/menu.md",
+        "summary": "Updated the Jetpack Compose menu documentation code snippets to use custom AppIcons with rememberVectorPainter instead of default Material icons. This change ensures the documentation examples align with custom icon loading practices and modern architecture patterns.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_menu.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/scaffold\" target=\"_blank\">Scaffold</a>",
+        "path": "develop/ui/compose/components/scaffold.md",
+        "summary": "Updated the Scaffold example code to use `rememberVectorPainter` with `AppIcons.Add` instead of `Icons.Default.Add` for rendering the floating action button icon. This matters as it reflects best practices for custom icon loading and design system consistency within Compose UI components.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_scaffold.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/search-bar\" target=\"_blank\">Search bar</a>",
+        "path": "develop/ui/compose/components/search-bar.md",
+        "summary": "Updated the `CustomizableSearchBar` component example to use `rememberVectorPainter` with a custom `AppIcons.Search` instead of the default material `Icons.Default.Search`. This change matters as it aligns the documentation snippet with custom design system icon loading patterns.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_search-bar.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/segmented-button\" target=\"_blank\">Segmented button</a>",
+        "path": "develop/ui/compose/components/segmented-button.md",
+        "summary": "Updated the Segmented Button documentation code snippets to use custom `AppIcons` with `rememberVectorPainter` instead of direct `imageVector` references. This change ensures better consistency with the latest recommended icon loading patterns in Compose.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_segmented-button.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/switch\" target=\"_blank\">Switch</a>",
+        "path": "develop/ui/compose/components/switch.md",
+        "summary": "Updated the SwitchWithIconExample snippet to use a custom vector painter (`rememberVectorPainter(AppIcons.Check)`) instead of the direct Material icon `Icons.Filled.Check`. This change matters as it aligns the documentation snippet with custom app icon assets and best practices for vector rendering in Jetpack Compose.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_switch.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/tooltip\" target=\"_blank\">Tooltip</a>",
+        "path": "develop/ui/compose/components/tooltip.md",
+        "summary": "Updated the tooltip code examples in the Compose documentation to use custom painters (`rememberVectorPainter(AppIcons...)`) instead of standard material icons (`Icons.Filled...`). This matters because it aligns the documentation with best practices for custom icon loading and app-specific design systems.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_tooltip.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/graphics/draw/mesh-gradient\" target=\"_blank\">Mesh gradients</a>",
+        "path": "develop/ui/compose/graphics/draw/mesh-gradient.md",
+        "summary": "Fixed a syntax error in the Mesh Gradient documentation snippet where the `.paint(gradientPainter)` modifier was incorrectly replaced with leftover text (`.painhGradientSnippets.kt`). This ensures the code snippet for rendering mesh gradients in Jetpack Compose is valid and functional.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_mesh-gradient.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose\" target=\"_blank\">Using Views in Compose</a>",
+        "path": "develop/ui/compose/migrate/interoperability-apis/views-in-compose.md",
+        "summary": "The documentation updates contain unintended syntax errors and artifact insertions (such as broken comment text and trailing snippet names like 'CustomVPIsSnippets.kt') within code examples. These changes negatively impact the clarity and correctness of the AndroidView interop documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_views-in-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/create-floating-action-button\" target=\"_blank\">Create a floating action button (FAB)</a>",
+        "path": "develop/ui/compose/quick-guides/content/create-floating-action-button.md",
+        "summary": "The Floating Action Button (FAB) quick guide documentation was updated to replace direct references to material icons (like `Icons.Filled.Add` and `Icons.Filled.Edit`) with a custom `AppIcons` implementation utilizing `rememberVectorPainter`. This change aligns the documentation with modern app icon handling best practices and custom design systems.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_create-floating-action-button.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/display-bottom-app-bar\" target=\"_blank\">Display a bottom app bar</a>",
+        "path": "develop/ui/compose/quick-guides/content/display-bottom-app-bar.md",
+        "summary": "The BottomAppBar code example was updated to use `rememberVectorPainter` with custom `AppIcons` instead of direct `Icons.Filled` references. This change ensures better compatibility and consistency with custom icon sets in the Jetpack Compose UI guidelines.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_display-bottom-app-bar.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss\" target=\"_blank\">Swipe to dismiss or update</a>",
+        "path": "develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss.md",
+        "summary": "The swipe-to-dismiss documentation was updated to replace standard Material icon usages with custom vector painters (`rememberVectorPainter` with `AppIcons`) and changed the visibility of `SwipeItemExample` from private to public. This ensures the code examples align with the latest recommended icon handling practices and project structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_swipe-to-dismiss.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/analytics\" target=\"_blank\">Analytics</a>",
+        "path": "media/media3/exoplayer/analytics.md",
+        "summary": "Added documentation on tracking feature flags and Canary mode within ExoPlayer analytics. This explains how to use `Flags.getLogString` and related methods to correlate playback analytics data with active A/B tests and Media3 optimizations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_analytics.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/flags\" target=\"_blank\">Feature flags and Canary mode</a>",
+        "path": "media/media3/exoplayer/flags.md",
+        "summary": "Updated the feature flags and Canary mode documentation for Media3 ExoPlayer, converting internal relative documentation links to absolute URLs pointing to developer.android.com, refining code block language identifiers for Kotlin and Java snippets, and adjusting markdown formatting and spacing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6fcd04da_flags.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-31T15:08:37Z",
     "commit_hash": "2f5114de",
     "entries": [

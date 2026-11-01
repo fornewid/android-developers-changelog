@@ -1,0 +1,22 @@
+diff --git a/docs/develop/ui/compose/components/badges.md b/docs/develop/ui/compose/components/badges.md
+index ffba44db..3b73f533 100644
+--- a/docs/develop/ui/compose/components/badges.md
++++ b/docs/develop/ui/compose/components/badges.md
+@@ -39,7 +39,7 @@ fun BadgeExample() {
+         }
+     ) {
+         Icon(
+-            imageVector = Icons.Filled.Mail,
++            painter = rememberVectorPainter(AppIcons.Mail),
+             contentDescription = "Email"
+         )
+     }
+@@ -88,7 +88,7 @@ fun BadgeInteractiveExample() {
+             }
+         ) {
+             Icon(
+-                imageVector = Icons.Filled.ShoppingCart,
++                painter = rememberVectorPainter(AppIcons.ShoppingCart),
+                 contentDescription = "Shopping cart",
+             )
+         }

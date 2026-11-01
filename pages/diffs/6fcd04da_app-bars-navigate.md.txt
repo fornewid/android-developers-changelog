@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/components/app-bars-navigate.md b/docs/develop/ui/compose/components/app-bars-navigate.md
+index 2e32c42d..7db40ec0 100644
+--- a/docs/develop/ui/compose/components/app-bars-navigate.md
++++ b/docs/develop/ui/compose/components/app-bars-navigate.md
+@@ -33,7 +33,7 @@ fun TopBarNavigationExample(
+                 navigationIcon = {
+                     IconButton(onClick = navigateBack) {
+                         Icon(
+-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
++                            painter = rememberVectorPainter(AppIcons.ArrowBack),
+                             contentDescription = "Localized description"
+                         )
+                     }

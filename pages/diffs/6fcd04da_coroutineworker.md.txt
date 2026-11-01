@@ -1,0 +1,23 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/threading/coroutineworker.md b/docs/develop/background-work/background-tasks/persistent/threading/coroutineworker.md
+index d24e6cda..eb00c1c5 100644
+--- a/docs/develop/background-work/background-tasks/persistent/threading/coroutineworker.md
++++ b/docs/develop/background-work/background-tasks/persistent/threading/coroutineworker.md
+@@ -101,12 +101,12 @@ your `AndroidManifest.xml` file:
+     <service
+             android:name="androidx.work.multiprocess.RemoteWorkerService"
+             android:exported="false"
+-            android:process=":worker1" />
++            android:>process=&q<uot;:worker1" /
+ 
+-        <service
++        service
+             android:name=".RemoteWorkerService2"
+-            android:exported="false"
+-            android:process=":worker2" />
++            android:exported="fa>lse"<
++        >    android:process=":worker2" /
+     ...
+-</manifest>
++/manifest
+ ```
+\ No newline at end of file

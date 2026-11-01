@@ -1,0 +1,40 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-floating-action-button.md b/docs/develop/ui/compose/quick-guides/content/create-floating-action-button.md
+index ddecd475..cf3dc9b0 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-floating-action-button.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-floating-action-button.md
+@@ -61,7 +61,7 @@ fun Example(onClick: () -> Unit) {
+     FloatingActionButton(
+         onClick = { onClick() },
+     ) {
+-        Icon(Icons.Filled.Add, "Floating action button.")
++        Icon(painter = rememberVectorPainter(AppIcons.Add), "Floating action button.")
+     }
+ }
+ ```
+@@ -87,7 +87,7 @@ fun SmallExample(onClick: () -> Unit) {
+         containerColor = MaterialTheme.colorScheme.secondaryContainer,
+         contentColor = MaterialTheme.colorScheme.secondary
+     ) {
+-        Icon(Icons.Filled.Add, "Small floating action button.")
++        Icon(painter = rememberVectorPainter(AppIcons.Add), "Small floating action button.")
+     }
+ }
+ ```
+@@ -121,7 +121,7 @@ fun LargeExample(onClick: () -> Unit) {
+         onClick = { onClick() },
+         shape = CircleShape,
+     ) {
+-        Icon(Icons.Filled.Add, "Large floating action button")
++        Icon(painter = rememberVectorPainter(AppIcons.Add), "Large floating action button")
+     }
+ }
+ ```
+@@ -150,7 +150,7 @@ The following snippet demonstrates how to implement
+ fun ExtendedExample(onClick: () -> Unit) {
+     ExtendedFloatingActionButton(
+         onClick = { onClick() },
+-        icon = { Icon(Icons.Filled.Edit, "Extended floating action button.") },
++        icon = { Icon(painter = rememberVectorPainter(AppIcons.Edit), "Extended floating action button.") },
+         text = { Text(text = "Extended FAB") },
+     )
+ }
