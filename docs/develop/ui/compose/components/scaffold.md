@@ -65,7 +65,7 @@ fun ScaffoldExample() {
         },
         floatingActionButton = {
             FloatingActionButton(onClick = { presses++ }) {
-                Icon(Icons.Default.Add, contentDescription = "Add")
+                Icon(painter = rememberVectorPainter(AppIcons.Add), contentDescription = "Add")
             }
         }
     ) { innerPadding ->

@@ -46,7 +46,7 @@ fun PlainTooltipExample(
     ) {
         IconButton(onClick = { /* Do something... */ }) {
             Icon(
-                imageVector = Icons.Filled.Favorite,
+                painter = rememberVectorPainter(AppIcons.Favorite),
                 contentDescription = "Add to favorites"
             )
         }
@@ -102,7 +102,7 @@ fun RichTooltipExample(
     ) {
         IconButton(onClick = { /* Icon button's click event */ }) {
             Icon(
-                imageVector = Icons.Filled.Info,
+                painter = rememberVectorPainter(AppIcons.Info),
                 contentDescription = "Show more information"
             )
         }
@@ -170,7 +170,7 @@ fun AdvancedRichTooltipExample(
             }
         }) {
             Icon(
-                imageVector = Icons.Filled.Camera,
+                painter = rememberVectorPainter(AppIcons.Camera),
                 contentDescription = "Open camera"
             )
         }

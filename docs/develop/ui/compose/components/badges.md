@@ -39,7 +39,7 @@ fun BadgeExample() {
         }
     ) {
         Icon(
-            imageVector = Icons.Filled.Mail,
+            painter = rememberVectorPainter(AppIcons.Mail),
             contentDescription = "Email"
         )
     }
@@ -88,7 +88,7 @@ fun BadgeInteractiveExample() {
             }
         ) {
             Icon(
-                imageVector = Icons.Filled.ShoppingCart,
+                painter = rememberVectorPainter(AppIcons.ShoppingCart),
                 contentDescription = "Shopping cart",
             )
         }

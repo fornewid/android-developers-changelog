@@ -41,7 +41,7 @@ fun AppBarSelectionActions(
                     /* click action */
                 }) {
                     Icon(
-                        imageVector = Icons.Filled.Share,
+                        painter = rememberVectorPainter(AppIcons.Share),
                         contentDescription = "Share items"
                     )
                 }

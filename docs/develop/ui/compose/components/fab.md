@@ -47,7 +47,7 @@ fun Example(onClick: () -> Unit) {
     FloatingActionButton(
         onClick = { onClick() },
     ) {
-        Icon(Icons.Filled.Add, "Floating action button.")
+        Icon(painter = rememberVectorPainter(AppIcons.Add), "Floating action button.")
     }
 }
 ```
@@ -72,7 +72,7 @@ fun SmallExample(onClick: () -> Unit) {
         containerColor = MaterialTheme.colorScheme.secondaryContainer,
         contentColor = MaterialTheme.colorScheme.secondary
     ) {
-        Icon(Icons.Filled.Add, "Small floating action button.")
+        Icon(painter = rememberVectorPainter(AppIcons.Add), "Small floating action button.")
     }
 }
 ```
@@ -105,7 +105,7 @@ fun LargeExample(onClick: () -> Unit) {
         onClick = { onClick() },
         shape = CircleShape,
     ) {
-        Icon(Icons.Filled.Add, "Large floating action button")
+        Icon(painter = rememberVectorPainter(AppIcons.Add), "Large floating action button")
     }
 }
 ```
@@ -133,7 +133,7 @@ The following snippet demonstrates how to implement
 fun ExtendedExample(onClick: () -> Unit) {
     ExtendedFloatingActionButton(
         onClick = { onClick() },
-        icon = { Icon(Icons.Filled.Edit, "Extended floating action button.") },
+        icon = { Icon(painter = rememberVectorPainter(AppIcons.Edit), "Extended floating action button.") },
         text = { Text(text = "Extended FAB") },
     )
 }

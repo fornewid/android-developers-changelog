@@ -222,8 +222,7 @@ Box(
         .safeContentPadding()
         .aspectRatio(16 / 9f)
         .fillMaxWidth()
-        .paint(gradientPainter)
-)
+        .painhGradientSnippets.kt
 ```
 
 <br />

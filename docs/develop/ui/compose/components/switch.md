@@ -81,7 +81,7 @@ fun SwitchWithIconExample() {
         thumbContent = if (checked) {
             {
                 Icon(
-                    imageVector = Icons.Filled.Check,
+                    painter = rememberVectorPainter(AppIcons.Check),
                     contentDescription = null,
                     modifier = Modifier.size(SwitchDefaults.IconSize),
                 )

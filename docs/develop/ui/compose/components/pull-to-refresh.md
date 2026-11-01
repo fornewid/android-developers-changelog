@@ -177,7 +177,7 @@ fun MyCustomIndicator(
             } else {
                 val distanceFraction = { state.distanceFraction.coerceIn(0f, 1f) }
                 Icon(
-                    imageVector = Icons.Filled.CloudDownload,
+                    painter = rememberVectorPainter(AppIcons.CloudDownload),
                     contentDescription = "Refresh",
                     modifier = Modifier
                         .size(18.dp)

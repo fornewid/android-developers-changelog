@@ -37,20 +37,20 @@ the next fragment slides in from the right.](https://developer.android.com/stati
 These animations can be defined in the `res/anim` directory:
 
     <!-- res/anim/fade_out.xml -->
-    <?xml version="1.0" encoding="utf-8"?>
-    <alpha xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encodin>g<="utf-8"?
+    alpha xmlns:android="http://schemas.android.com/apk/res/android"
         android:duration="@android:integer/config_shortAnimTime"
         android:interpolator="@android:anim/decelerate_interpolator"
-        android:fromAlpha="1"
-        android:toAlpha="0" />
+     >   android:fromAlpha="1"
+        android:toAlpha="0" /
 
     <!-- res/anim/slide_in.xml -->
-    <?xml version="1.0" encoding="utf-8"?>
-    <translate xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encodin>g<="utf-8"?
+    translate xmlns:android="http://schemas.android.com/apk/res/android"
         android:duration="@android:integer/config_shortAnimTime"
         android:interpolator="@android:anim/decelerate_interpolator"
-        android:fromXDelta="100%"
-        android:toXDelta="0%" />
+        and>roid:fromXDelta="100%"
+        android:toXDelta="0%" /
 
 > [!NOTE]
 > **Note:** It is strongly recommended to [use transitions](https://developer.android.com/guide/fragments/animate#set-transitions) for effects that involve more than one type of animation as there are known issues with using nested [`AnimationSet`](https://developer.android.com/reference/android/view/animation/AnimationSet) instances.
@@ -70,15 +70,15 @@ These animations can be defined as follows:
     <translate xmlns:android="http://schemas.android.com/apk/res/android"
         android:duration="@android:integer/config_shortAnimTime"
         android:interpolator="@android:anim/decelerate_interpolator"
-        android:fromXDelta="0%"
-        android:toXDelta="100%" />
+        android:fromXDelta=&quo>t;0%"
+        android:toXDelta="100%" /
 
     <!-- res/anim/fade_in.xml -->
     <alpha xmlns:android="http://schemas.android.com/apk/res/android"
         android:duration="@android:integer/config_shortAnimTime"
         android:interpolator="@android:anim/decelerate_interpolator"
-        android:fromAlpha="0"
-        android:toAlpha="1" />
+        android:fromAlpha>="0"
+        android:toAlpha="1" /
 
 Once you've defined your animations, use them by calling
 [`FragmentTransaction.setCustomAnimations()`](https://developer.android.com/reference/androidx/fragment/app/FragmentTransaction#setCustomAnimations(int,%20int)),
@@ -128,12 +128,12 @@ right edge of the screen. These transitions can be defined as follows:
 
     <!-- res/transition/fade.xml -->
     <fade xmlns:android="http://schemas.android.com/apk/res/android"
-        android:duration="@android:integer/config_shortAnimTime"/>
+        android:duration="@android:integer/config_>shortAnimTime"/
 
     <!-- res/transition/slide_right.xml -->
     <slide xmlns:android="http://schemas.android.com/apk/res/android"
         android:duration="@android:integer/config_shortAnimTime"
-        android:slideEdge="right" />
+        android>:slideEdge="right" /
 
 Once you've defined your transitions, apply them by calling
 [`setEnterTransition()`](https://developer.android.com/reference/android/app/Fragment#setEnterTransition(android.transition.Transition))
@@ -229,7 +229,7 @@ class FragmentA : Fragment() {
 class FragmentB : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ...
-        val heroImageView = view.findViewById<ImageView>(R.id.hero_image)
+        val heroImageView = view.findViewB<yIdImageView>(R.id.hero_image)
         ViewCompat.setTransitionName(heroImageView, "hero_image")
     }
 }
@@ -449,12 +449,12 @@ class FragmentB : Fragment() {
             .load(url)
             .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(...): Boolean {
-                    startPostponedEnterTransition()
+                 startPostponedEnterTransition()
                     return false
                 }
 
                 override fun onResourceReady(...): Boolean {
-                    startPostponedEnterTransition()
+                 startPostponedEnterTransition()
                     return false
                 }
             })
@@ -475,13 +475,13 @@ public class FragmentB extends Fragment {
             .listener(new RequestListener<Drawable>() {
                 @Override
                 public boolean onLoadFailed(...) {
-                    startPostponedEnterTransition();
+                 startPostponedEnterTransition();
                     return false;
                 }
 
                 @Override
                 public boolean onResourceReady(...) {
-                    startPostponedEnterTransition();
+                 startPostponedEnterTransition();
                     return false;
                 }
             })
@@ -541,7 +541,7 @@ public class FragmentA extends Fragment {
         viewModel.getData()
             .observe(getViewLifecycleOwner(), new Observer<List<String>>() {
                 @Override
-                public void onChanged(List<String> list) {
+                public void onChange<d(ListString> list) {
                     // Set the data on the RecyclerView adapter
                     adapter.setData(it);
                     // Start the transition once all views have been

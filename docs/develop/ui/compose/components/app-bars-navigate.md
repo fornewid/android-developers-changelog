@@ -33,7 +33,7 @@ fun TopBarNavigationExample(
                 navigationIcon = {
                     IconButton(onClick = navigateBack) {
                         Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            painter = rememberVectorPainter(AppIcons.ArrowBack),
                             contentDescription = "Localized description"
                         )
                     }

@@ -41,7 +41,7 @@ fun MinimalDropdownMenu() {
             .padding(16.dp)
     ) {
         IconButton(onClick = { expanded = !expanded }) {
-            Icon(Icons.Default.MoreVert, contentDescription = "More options")
+            Icon(painter = rememberVectorPainter(AppIcons.MoreVert), contentDescription = "More options")
         }
         DropdownMenu(
             expanded = expanded,
@@ -92,7 +92,7 @@ fun LongBasicDropdownMenu() {
             .padding(16.dp)
     ) {
         IconButton(onClick = { expanded = !expanded }) {
-            Icon(Icons.Default.MoreVert, contentDescription = "More options")
+            Icon(painter = rememberVectorPainter(AppIcons.MoreVert), contentDescription = "More options")
         }
         DropdownMenu(
             expanded = expanded,
@@ -142,7 +142,7 @@ fun DropdownMenuWithDetails() {
             .padding(16.dp)
     ) {
         IconButton(onClick = { expanded = !expanded }) {
-            Icon(Icons.Default.MoreVert, contentDescription = "More options")
+            Icon(painter = rememberVectorPainter(AppIcons.MoreVert), contentDescription = "More options")
         }
         DropdownMenu(
             expanded = expanded,
@@ -151,12 +151,12 @@ fun DropdownMenuWithDetails() {
             // First section
             DropdownMenuItem(
                 text = { Text("Profile") },
-                leadingIcon = { Icon(Icons.Outlined.Person, contentDescription = null) },
+                leadingIcon = { Icon(painter = rememberVectorPainter(AppIcons.Person), contentDescription = null) },
                 onClick = { /* Do something... */ }
             )
             DropdownMenuItem(
                 text = { Text("Settings") },
-                leadingIcon = { Icon(Icons.Outlined.Settings, contentDescription = null) },
+                leadingIcon = { Icon(painter = rememberVectorPainter(AppIcons.Settings), contentDescription = null) },
                 onClick = { /* Do something... */ }
             )
 
@@ -165,8 +165,8 @@ fun DropdownMenuWithDetails() {
             // Second section
             DropdownMenuItem(
                 text = { Text("Send Feedback") },
-                leadingIcon = { Icon(Icons.Outlined.Feedback, contentDescription = null) },
-                trailingIcon = { Icon(Icons.AutoMirrored.Outlined.Send, contentDescription = null) },
+                leadingIcon = { Icon(painter = rememberVectorPainter(AppIcons.Feedback), contentDescription = null) },
+                trailingIcon = { Icon(painter = rememberVectorPainter(AppIcons.Send), contentDescription = null) },
                 onClick = { /* Do something... */ }
             )
 
@@ -175,13 +175,13 @@ fun DropdownMenuWithDetails() {
             // Third section
             DropdownMenuItem(
                 text = { Text("About") },
-                leadingIcon = { Icon(Icons.Outlined.Info, contentDescription = null) },
+                leadingIcon = { Icon(painter = rememberVectorPainter(AppIcons.Info), contentDescription = null) },
                 onClick = { /* Do something... */ }
             )
             DropdownMenuItem(
                 text = { Text("Help") },
-                leadingIcon = { Icon(Icons.AutoMirrored.Outlined.Help, contentDescription = null) },
-                trailingIcon = { Icon(Icons.AutoMirrored.Outlined.OpenInNew, contentDescription = null) },
+                leadingIcon = { Icon(painter = rememberVectorPainter(AppIcons.Help), contentDescription = null) },
+                trailingIcon = { Icon(painter = rememberVectorPainter(AppIcons.OpenInNew), contentDescription = null) },
                 onClick = { /* Do something... */ }
             )
         }

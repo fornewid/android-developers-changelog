@@ -44,7 +44,7 @@ fun AlertDialogExample(
 ) {
     AlertDialog(
         icon = {
-            Icon(icon, contentDescription = "Example Icon")
+            Icon(painter = rememberVectorPainter(icon), contentDescription = "Example Icon")
         },
         title = {
             Text(text = dialogTitle)
@@ -101,7 +101,7 @@ fun DialogExamples() {
                     },
                     dialogTitle = "Alert dialog example",
                     dialogText = "This is an example of an alert dialog with buttons.",
-                    icon = Icons.Default.Info
+                    icon = AppIcons.Info
                 )
             }
         }
