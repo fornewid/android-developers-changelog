@@ -1,5 +1,35 @@
 [
   {
+    "date": "2026-11-02T15:09:11Z",
+    "commit_hash": "6ed79ff1",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/graphics/draw/mesh-gradient\" target=\"_blank\">Mesh gradients</a>",
+        "path": "develop/ui/compose/graphics/draw/mesh-gradient.md",
+        "summary": "Fixed a syntax error in the MeshGradient code snippet by replacing a corrupted modifier string with the correct `.paint(gradientPainter)` call. This ensures the documentation example compiles and demonstrates the intended usage correctly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6ed79ff1_mesh-gradient.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose\" target=\"_blank\">Using Views in Compose</a>",
+        "path": "develop/ui/compose/migrate/interoperability-apis/views-in-compose.md",
+        "summary": "Fixed broken and malformed code snippets in the Views in Compose documentation by correcting a typo in a comment, properly closing the `ContentExample` composable function, and fixing a truncated `Text` composable call. These fixes ensure the code examples are syntactically correct and render properly for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6ed79ff1_views-in-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/input-sdk-start\" target=\"_blank\">Get started with the Input SDK</a>",
+        "path": "games/playgames/input-sdk-start.md",
+        "summary": "Fixed multiple syntax errors, formatting glitches, and broken generic type declarations across Kotlin, C#, and Java code snippets in the Input SDK documentation. This ensures that code examples copy-pasted by developers are syntactically correct and compile successfully.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/6ed79ff1_input-sdk-start.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-01T15:08:33Z",
     "commit_hash": "6fcd04da",
     "entries": [
