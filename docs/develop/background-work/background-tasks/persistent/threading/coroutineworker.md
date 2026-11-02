@@ -101,12 +101,12 @@ your `AndroidManifest.xml` file:
     <service
             android:name="androidx.work.multiprocess.RemoteWorkerService"
             android:exported="false"
-            android:>process=&q<uot;:worker1" /
+            android:process=":worker1" />
 
-        service
+        <service
             android:name=".RemoteWorkerService2"
-            android:exported="fa>lse"<
-        >    android:process=":worker2" /
+            android:exported="false"
+            android:process=":worker2" />
     ...
-/manifest
+</manifest>
 ```

@@ -273,7 +273,7 @@ private static readonly InputAction driveInputAction = InputAction.Create(
     (long)InputEventIds.DRIVE,
     InputControls.Create(
         new[] { new Integer(AndroidKeyCode.KEYCODE_SPACE) }.ToJavaList(),
-        new< ArrayL>istInteger()),
+        new ArrayList<Integer>()),
     InputEnums.REMAP_OPTION_ENABLED
 );
 ```
@@ -316,7 +316,7 @@ private static readonly InputAction mouseInputAction = InputAction.Create(
     "Move",
     (long)InputEventIds.MOUSE_MOVEMENT,
     InputControls.Create(
-        new< ArrayL>istInteger(),
+        new ArrayList<Integer>(),
         new[] { new Integer((int)PlayMouseAction.MouseLeftClick) }.ToJavaList()
     ),
     InputEnums.REMAP_OPTION_DISABLED
@@ -369,7 +369,7 @@ private static readonly InputAction turboInputAction = InputAction.Create(
             new Integer(AndroidKeyCode.KEYCODE_SHIFT_LEFT),
             new Integer(AndroidKeyCode.KEYCODE_SPACE)
         }.ToJavaList(),
-        new< ArrayL>istInteger()),
+        new ArrayList<Integer>()),
     InputEnums.REMAP_OPTION_ENABLED
 );
 ```
@@ -828,7 +828,7 @@ public class InputSDKMappingProvider : InputMappingProviderCallbackHelper
             "Enter menu",
             InputControls.Create(
                 new[] { new Integer(AndroidKeyCode.KEYCODE_SPACE)}.ToJavaList(),
-         <       >new ArrayListInteger()),
+                new ArrayList<Integer>()),
             InputIdentifier.Create(
                 INPUT_MAP_VERSION,
                 (long)InputEventIds.ENTER_MENU),
@@ -1018,7 +1018,7 @@ class InputSDKRemappingListener : InputRemappingListener {
     val mouseActions = remappedControls.mouseActions()
     val version = remappedInputAction.inputActionId().versionString()
     val remappedActionId = remappedInputAction.inputActionId().uniqueId()
-    val currentInputAction<: OptionalI>nputAction
+    val currentInputAction: Optional<InputAction>
     currentInputAction = if (version == null || version.isEmpty()
       || version == InputSDKProvider.INPUTMAP_VERSION
     ) {
@@ -1046,7 +1046,7 @@ class InputSDKRemappingListener : InputRemappingListener {
     // TODO: make display changes to match controls used by the user
   }
 
-  private fun getCu<rrentVersio>nInputAction(inputActionId: Long): OptionalInputAction {
+  private fun getCurrentVersionInputAction(inputActionId: Long): Optional<InputAction> {
     for (inputGroup in InputSDKProvider.gameInputMap.inputGroups()) {
       for (inputAction in inputGroup.inputActions()) {
         if (inputAction.inputActionId().uniqueId() == inputActionId) {
@@ -1058,14 +1058,14 @@ class InputSDKRemappingListener : InputRemappingListener {
   }
 
   private fun getCurrentVersionInputActionFromPreviousVersion(
-    inpu<tActionId: Long, previousVersion: String
-  ): OptionalInputAction7gt; {
+    inputActionId: Long, previousVersion: String
+  ): Optional<InputAction7gt; {
     // TODO: add logic to this method considering the diff between the current and previous
     //  InputMap.
-    return Optional.empt<y()>
+    return Optional.empty()
   }
 
-  private fun keyCodesToString(keyCodes: ListInt): String {
+  private fun keyCodesToString(keyCodes: List<Int>): String {
     val builder = StringBuilder()
     for (keyCode in keyCodes) {
       if (!builder.toString().isEmpty()) {
@@ -1114,12 +1114,12 @@ public class InputSDKRemappingListener implements InputRemappingListener {
     private void processRemappedAction(InputAction remappedInputAction) {
         // Get remapped action info
         InputControls remappedControls =
-            remappedInputAction.remappedInputCont<rols();>
-        ListInteger remappedKeyCodes = remappedControls.keyc<odes();>
-        ListInteger mouseActions = remappedControls.mouseActions();
+            remappedInputAction.remappedInputControls();
+        List<Integer> remappedKeyCodes = remappedControls.keycodes();
+        List<Integer> mouseActions = remappedControls.mouseActions();
         String version = remappedInputAction.inputActionId().versionString();
-        long remappedActionId = remappedInputAction.inputActionId().uniqueId<();
-       > OptionalInputAction currentInputAction;
+        long remappedActionId = remappedInputAction.inputActionId().uniqueId();
+        Optional<InputAction> currentInputAction;
         if (version == null || version.isEmpty()
                     || version.equals(InputSDKProvider.INPUTMAP_VERSION)) {
             currentInputAction = getCurrentVersionInputAction(remappedActionId);
@@ -1138,8 +1138,8 @@ public class InputSDKRemappingListener implements InputRemappingListener {
             return;
         }
         InputControls originalControls =
-          <      c>urrentInputAction.get().inputControls();
-        ListInteger originalKeyCodes = originalControls.keycodes();
+                currentInputAction.get().inputControls();
+        List<Integer> originalKeyCodes = originalControls.keycodes();
 
         Log.i(TAG, String.format(
                 "Found input action with id %d remapped from key %s to key %s",
@@ -1147,10 +1147,10 @@ public class InputSDKRemappingListener implements InputRemappingListener {
                 keyCodesToString(originalKeyCodes),
                 keyCodesToString(remappedKeyCodes)));
 
-        // TODO: make display <changes to >match controls used by the user
+        // TODO: make display changes to match controls used by the user
     }
 
-    private OptionalInputAction getCurrentVersionInputAction(
+    private Optional<InputAction> getCurrentVersionInputAction(
             long inputActionId) {
         for (InputGroup inputGroup :
                     InputSDKProvider.gameInputMap.inputGroups()) {
@@ -1159,19 +1159,19 @@ public class InputSDKRemappingListener implements InputRemappingListener {
                     return Optional.of(inputAction);
                 }
             }
-<        }
- >       return Optional.empty();
+        }
+        return Optional.empty();
     }
 
-    private OptionalInputAction
+    private Optional<InputAction>
             getCurrentVersionInputActionFromPreviousVersion(
                     long inputActionId, String previousVersion) {
         // TODO: add logic to this method considering the diff between your
         // current and previous InputMap.
-        re<turn Op>tional.empty();
+        return Optional.empty();
     }
 
-    private String keyCodesToString(ListInteger keyCodes) {
+    private String keyCodesToString(List<Integer> keyCodes) {
         StringBuilder builder = new StringBuilder();
         for (Integer keyCode : keyCodes) {
             if (!builder.toString().isEmpty()) {
@@ -1205,7 +1205,7 @@ public class InputSDKRemappingListener : InputRemappingListenerCallbackHelper
         {
             return;
         }
-  <      List>InputGroup inputGroups = inputMap.InputGroups();
+        List<InputGroup> inputGroups = inputMap.InputGroups();
         for (int i = 0; i < inputGroups.Size(); i ++)
         {
             InputGroup inputGroup = inputGroups.Get(i);
@@ -1214,7 +1214,7 @@ public class InputSDKRemappingListener : InputRemappingListenerCallbackHelper
             {
                 continue;
             }
-   <         Li>stInputAction inputActions = inputGroup.InputActions();
+            List<InputAction> inputActions = inputGroup.InputActions();
             for (int j = 0; j < inputActions.Size(); j ++)
             {
                 InputAction inputAction = inputActions.Get(j);
@@ -1231,9 +1231,9 @@ public class InputSDKRemappingListener : InputRemappingListenerCallbackHelper
     private void ProcessRemappedAction(InputAction remappedInputAction)
     {
         InputControls remappedInputControls =
-                remappedInputAction.RemappedInputControls<();
-   >     ListInteger remappedKeycodes = remappedInputControls.Keycodes<();
-   >     ListInteger mouseActions = remappedInputControls.MouseActions();
+                remappedInputAction.RemappedInputControls();
+        List<Integer> remappedKeycodes = remappedInputControls.Keycodes();
+        List<Integer> mouseActions = remappedInputControls.MouseActions();
         string version = remappedInputAction.InputActionId().VersionString();
         long remappedActionId = remappedInputAction.InputActionId().UniqueId();
         InputAction currentInputAction;
@@ -1259,8 +1259,8 @@ public class InputSDKRemappingListener : InputRemappingListenerCallbackHelper
                 string.IsNullOrEmpty(version) ? "UNKNOWN" : version));
             return;
         }
-        InputControls originalCon<trols => currentInputAction.InputControls();
-        ListInteger originalKeycodes = originalControls.Keycodes();
+        InputControls originalControls = currentInputAction.InputControls();
+        List<Integer> originalKeycodes = originalControls.Keycodes();
 
         Debug.Log(string.Format(
             "Found Input Action with id {0} remapped from key {1} to key {2}",
@@ -1270,15 +1270,15 @@ public class InputSDKRemappingListener : InputRemappingListenerCallbackHelper
         // TODO: update HUD according to the controls of the user
     }
 
-    private InputAction GetCurrentVers<ionInputAc>tion(
+    private InputAction GetCurrentVersionInputAction(
             long inputActionId)
     {
-        ListInputGroup inputGroups =
+        List<InputGroup> inputGroups =
             InputSDKMappingProvider.gameInputMap.InputGroups();
         for (int i = 0; i < inputGroups.Size(); i++)
         {
-   <         In>putGroup inputGroup = inputGroups.Get(i);
-            ListInputAction inputActions = inputGroup.InputActions();
+            InputGroup inputGroup = inputGroups.Get(i);
+            List<InputAction> inputActions = inputGroup.InputActions();
             for (int j = 0; j < inputActions.Size(); j++)
             {
                 InputAction inputAction = inputActions.Get(j);
@@ -1295,11 +1295,11 @@ public class InputSDKRemappingListener : InputRemappingListenerCallbackHelper
             long inputActionId, string version)
     {
         // TODO: add logic to this method considering the diff between your
-        // current and previous InputM<ap.
-   >     return null;
+        // current and previous InputMap.
+        return null;
     }
 
-    private string KeyCodesToString(ListInteger keycodes)
+    private string KeyCodesToString(List<Integer> keycodes)
     {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < keycodes.Size(); i ++)
