@@ -1,0 +1,21 @@
+diff --git a/docs/training/cars/testing/aaos-on-pixel.md b/docs/training/cars/testing/aaos-on-pixel.md
+index ce91f80e..67afc5ed 100644
+--- a/docs/training/cars/testing/aaos-on-pixel.md
++++ b/docs/training/cars/testing/aaos-on-pixel.md
+@@ -189,6 +189,16 @@ instructions.
+ 
+ ## Release notes
+ 
++### AAI5.260516.001.A6 (October 20, 2026)
++
++This release has builds available on the
++`git_internal-android15-automotiveos-release` branch.
++
++#### Updates
++
++- The `tangorpro_car_ext-user` build adds support for features from [version
++  1.9.0-alpha03](https://developer.android.com/jetpack/androidx/releases/car-app#1.9.0-alpha03) of the Car App Library.
++
+ ### AAI5.260516.001.A2 (May 16, 2026)
+ 
+ This release has builds available on the

@@ -1,0 +1,30 @@
+diff --git a/docs/blog/latest/8.md b/docs/blog/latest/8.md
+index 334a172a..56a40679 100644
+--- a/docs/blog/latest/8.md
++++ b/docs/blog/latest/8.md
+@@ -7,6 +7,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 02 Dec 2025 02 Dec 2025 ![](https://developer.android.com/static/blog/assets/a16released_7cb13cc79d_Z1pSAcy.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Android 16 QPR2 is Released](https://developer.android.com/blog/posts/android-16-qpr-2-is-released)
++
++  [arrow_forward](https://developer.android.com/blog/posts/android-16-qpr-2-is-released) Android 16 QPR2 is now released and available in AOSP
++  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
+ - [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Ivy Knight's profile](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_1s13kN.webp)](https://developer.android.com/blog/authors/ivy-knight) 02 Dec 2025 02 Dec 2025 ![](https://developer.android.com/static/blog/assets/sample_readme_bazel_9348d9f325_Z1WTT09.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 
+   ## [Explore AI on Android with Our Sample Catalog App](https://developer.android.com/blog/posts/explore-ai-on-android-with-our-sample-catalog-app)
+@@ -125,12 +131,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/we-are-play-meet-the-people-making-apps-and-games-to-improve-your-health) In our latest #WeArePlay stories, we meet the founders building apps and games that are making health and wellness fun and easy for everyone on Google Play.
+   [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+-- [![View Brenda Shaw's profile](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Z1RcuMg.webp)](https://developer.android.com/blog/authors/brenda-shaw) 03 Nov 2025 03 Nov 2025 ![](https://developer.android.com/static/blog/assets/health_Connect1_49b5a00627_Z1LaQc.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Health Connect Jetpack v1.1.0 is now available!](https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available) Health Connect is Android's on-device platform designed to simplify connectivity between health and fitness apps, allowing developers to build richer experiences with secure, centralized data.
+-  [Brenda Shaw](https://developer.android.com/blog/authors/brenda-shaw) • 2 min read
+ [arrow_back](https://developer.android.com/blog/latest/7)
+ 
+ #### Page 8

@@ -1,0 +1,22 @@
+diff --git a/docs/blog/topics/android/3.md b/docs/blog/topics/android/3.md
+index 5055b876..400b73c8 100644
+--- a/docs/blog/topics/android/3.md
++++ b/docs/blog/topics/android/3.md
+@@ -6,6 +6,17 @@ source: md.txt
+ 
+ # #Android
+ 
++- [![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_16cSIX.webp)](https://developer.android.com/blog/authors/daniel-galpin) 20 Oct 2025 20 Oct 2025 ![](https://developer.android.com/static/blog/assets/Now_In_Android121_f4ff784252_ZG9AcL.webp) [Community](https://developer.android.com/blog/categories/community)
++
++  ## [Now in Android #121](https://developer.android.com/blog/posts/now-in-android-121)
++
++  [arrow_forward](https://developer.android.com/blog/posts/now-in-android-121) Compose 1.9, Media 3 1.8, QPR2 Beta 1, Narwhal Feature Drop, and more!
++  [Daniel Galpin](https://developer.android.com/blog/authors/daniel-galpin) • 9 min read
++  - [#Android](https://developer.android.com/blog/topics/android)
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
++  - [#Now In Android](https://developer.android.com/blog/topics/now-in-android)
++  - [#Compose](https://developer.android.com/blog/topics/compose)
++  - +2 ↩
+ - [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 30 Sep 2025 30 Sep 2025 ![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_ZQycm0.webp) [Community](https://developer.android.com/blog/categories/community)
+ 
+   ## [Let's talk security: Answering your top questions about Android developer verification](https://developer.android.com/blog/posts/lets-talk-security-answering-your-top)

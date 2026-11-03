@@ -1,0 +1,31 @@
+diff --git a/docs/blog/latest/9.md b/docs/blog/latest/9.md
+index b33d3ac4..d56ff02d 100644
+--- a/docs/blog/latest/9.md
++++ b/docs/blog/latest/9.md
+@@ -7,6 +7,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Brenda Shaw's profile](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Z1RcuMg.webp)](https://developer.android.com/blog/authors/brenda-shaw) 03 Nov 2025 03 Nov 2025 ![](https://developer.android.com/static/blog/assets/health_Connect1_49b5a00627_Z1LaQc.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Health Connect Jetpack v1.1.0 is now available!](https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available)
++
++  [arrow_forward](https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available) Health Connect is Android's on-device platform designed to simplify connectivity between health and fitness apps, allowing developers to build richer experiences with secure, centralized data.
++  [Brenda Shaw](https://developer.android.com/blog/authors/brenda-shaw) • 2 min read
+ - 3 Authors 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/kakao_Mobility_fa49c20743_ciMAI.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+ 
+   ## [Kakao Mobility uses Gemini Nano on-device to reduce costs and boost call conversion by 45%](https://developer.android.com/blog/posts/kakao-mobility-uses-gemini-nano-on-device-to-reduce-costs-and-boost-call-conversion-by-45)
+@@ -127,13 +133,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/dynamic-app-links-elevating-your-android-deep-linking) We're excited to announce the availability of Dynamic App Links, a significant leap forward for Android App Links that brings them on par with, and in many ways surpasses, industry standards for deep linking.
+   [Ran Mor](https://developer.android.com/blog/authors/ran-mor) • 2 min read
+-- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 16 Oct 2025 16 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_f386d6e667_VwC3r.webp) [Community](https://developer.android.com/blog/categories/community)
+-
+-  ## [#WeArePlay: Meet the founder making breast cancer awareness simple and accessible](https://developer.android.com/blog/posts/we-are-play-meet-the-founder-making-breast-cancer-awareness-simple-and-accessible)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-meet-the-founder-making-breast-cancer-awareness-simple-and-accessible) The latest in our ongoing series #WeArePlay
+-  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 3 min read
+-  - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+ [arrow_back](https://developer.android.com/blog/latest/8)
+ 
+ #### Page 9
