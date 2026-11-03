@@ -4,607 +4,555 @@ url: https://developer.android.com/events/dev-summit/speakers
 source: md.txt
 ---
 
-### Android Dev Summit Speakers
+# Meet the speakers
 
-Android Dev Summit features a lineup of talks given by the Android team.![](http://developer.android.com/static/events/dev-summit/images/speakers/adarsh-fernando.jpg)  
+Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions from these Google engineers and community leaders as they dive deep into the latest technologies and best practices.
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/aayush-chaudhary.webp)
 
-### Adarsh Fernando
+  ## Aayush Chaudhary
 
-#### (he/him)
+  Software Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/adarsh-fernando.webp)
 
-Product Manager  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/alejandra-stamato.jpg)  
+  ## Adarsh Fernando
 
-### Alejandra Stamato
+  Group Product Manager
+  [Android Developers' Blog](https://developer.android.com/blog/authors/adarsh-fernando)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/alastair-breeze.webp)
 
-#### (she/her)
+  ## Alastair Breeze
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/alex-vanyo.jpg)  
+  Staff Software Engineer - Google Cloud's Office of the CTO
+  [LinkedIn](https://www.linkedin.com/in/alastair-breeze/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/alex-vanyo.webp)
 
-### Alex Vanyo
+  ## Alex Vanyo
 
-#### (he/him)
+  Software Engineer
+  [LinkedIn](https://www.linkedin.com/in/alexvanyo/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/alice-zheng.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/allison-chang.jpg)  
+  ## Alice Zheng
 
-### Allison Chang
+  Senior Product Manager
+  [LinkedIn](https://www.linkedin.com/in/alice-yi-zheng-1b6a0a110/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/aman-choudhary.webp)
 
-#### (she/her)
+  ## Aman Choudhary
 
-Product Manager  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/ash-nohe.jpg)  
+  Developer Relations Engineer
+  [LinkedIn](https://www.linkedin.com/in/amanc262)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/amy-zeppenfeld.webp)
 
-### Ash Nohe
+  ## Amy Zeppenfeld
 
-#### (she/her)
+  Developer Relations Engineer \| Android XR
+  [Android Developers' Blog](https://developer.android.com/blog/authors/amy-zeppenfeld) [LinkedIn](https://www.linkedin.com/in/amyzep/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/anastasia-soboleva.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/ataul-munim.jpg)  
+  ## Anastasia Soboleva
 
-### Ataul Munim
+  Software engineer
+  [LinkedIn](https://linkedin.com/in/anastasiasoboleva)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/andrei-shikov.webp)
 
-#### (he/him)
+  ## Andrei Shikov
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/ben-sagmoe.jpg)  
+  Software Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/andrei-shikov)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/andrew-bailey.webp)
 
-### Ben Sagmoe
+  ## Andrew Bailey
 
-#### (he/him)
+  Software Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/ankita-saxena.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/ben-trengrove.png)  
+  ## Ankita Saxena
 
-### Ben Trengrove
+  Product Manager
+  [LinkedIn](https://www.linkedin.com/in/ankitasaxena119)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/annyce-davis.webp)
 
-#### (he/him)
+  ## Annyce Davis
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/boris-farber.jpg)  
+  Sr. Director of Engineering
+  [LinkedIn](https://www.linkedin.com/in/annycedavis)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/anton-beloglazov.webp)
 
-### Boris Farber
+  ## Anton Beloglazov
 
-#### (he/him)
+  Software Engineer
+  [LinkedIn](https://www.linkedin.com/in/beloglazov/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/arthur-thompson.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/breana-tate.jpg)  
+  ## Arthur Thompson
 
-### Breana Tate
+  Developer Relations Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/ben-sagmoe.webp)
 
-#### (she/her)
+  ## Ben Sagmoe
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/caren-chang.jpg)  
+  Developer Relations Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/ben-trengrove.webp)
 
-### Caren Chang
+  ## Ben Trengrove
 
-#### (she/her)
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/ben-trengrove)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/bohdan-kosenko.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/carlos-vinueza.jpg)  
+  ## Bohdan Kosenko
 
-### Carlos Vinueza
+  Trust \& Safety Google Play
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/breana-tate.webp)
 
-#### (he/him)
+  ## Breana Tate
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/charmaine-d-silva.jpg)  
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/breana-tate) [LinkedIn](https://www.linkedin.com/in/breanatate/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/chintan-parikh.webp)
 
-### Charmaine D'Silva
+  ## Chintan Parikh
 
-#### (she/her)
+  Lead Product Manager
+  [LinkedIn](https://www.linkedin.com/in/chintansparikh/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/chiping-yeh.webp)
 
-Director of Product Management, Android Platform  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/chet-haase.jpg)  
+  ## Chiping Yeh
 
-### Chet Haase
+  Developer Relations Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/chris-craik.webp)
 
-#### (he/him)
+  ## Chris Craik
 
-Graphics Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/chiara-chiappini.png)  
+  Android Performance Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/clara-fok.webp)
 
-### Chiara Chiappini
+  ## Clara Fok
 
-#### (she/her)
+  Software Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/dan-galpin.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/chris-arriola.jpg)  
+  ## Dan Galpin
 
-### Chris Arriola
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/daniel-galpin) [LinkedIn](https://www.linkedin.com/in/dan-galpin/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/david-chou.webp)
 
-#### (he/him)
+  ## David Chou
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/clara-bayarri.jpg)  
+  PM, AICore
+  [Android Developers' Blog](https://developer.android.com/blog/authors/david-chou) [LinkedIn](https://linkedin.com/in/davidpchou)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/dereck-bridie.webp)
 
-### Clara Bayarri
+  ## Dereck Bridie
 
-#### (she/her)
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/dereck-bridie)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/devin-reimer.webp)
 
-Engineering Manager, Android UI  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/connie-shi.jpg)  
+  ## Devin Reimer
 
-### Connie Shi
+  CEO
+  [LinkedIn](https://www.linkedin.com/in/devinreimer/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/donovan-mcmurray.webp)
 
-#### (she/her)
+  ## Donovan McMurray
 
-Software Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/daniel-galpin.jpg)  
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/donovan-mcmurray) [LinkedIn](https://www.linkedin.com/in/donovan-mcmurray/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/egor-yusov.webp)
 
-### Daniel Galpin
+  ## Egor Yusov
 
-#### (he/him)
+  Software Engineer
+  [LinkedIn](https://www.linkedin.com/in/egor-yusov)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/elif-bilgin-morris.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/daniel-jacobson.png)  
+  ## Elif Bilgin Morris
 
-### Daniel Jacobson
+  Software Engineer
+  [LinkedIn](https://www.linkedin.com/in/theelifbilgin)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/emilie-roberts.webp)
 
-#### (he/him)
+  ## Emilie Roberts
 
-Product Manager  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/daniel-santiago-rivera.png)  
+  Developer Relations Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/esteban-de-la-canal.webp)
 
-### Daniel Santiago Rivera
+  ## Esteban de la Canal
 
-#### (he/him)
+  Software Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/esteban-de-la-canal)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/faustine-liao.webp)
 
-Software Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/dian-xiang.jpg)  
+  ## Faustine Liao
 
-### Dian Xiang
+  DFX Operations Lead
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/fergus-henderson.webp)
 
-#### (she/her)
+  ## Fergus Henderson
 
-Interaction Designer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/diana-garcia-rios.jpg)  
+  Staff Software Engineer
+  [LinkedIn](https://uk.linkedin.com/in/fergushenderson)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/francesco-romano.webp)
 
-### Diana García Ríos
+  ## Francesco Romano
 
-#### (she/her)
+  Senior Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/francesco-romano) [LinkedIn](https://www.linkedin.com/in/romanofranz/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/francois-deschenes.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/diana-wong.png)  
+  ## François Deschênes
 
-### Diana Wong
+  Product Manager
+  [LinkedIn](https://www.linkedin.com/in/frankdeschenes/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/fung-lam.webp)
 
-#### (she/her)
+  ## Fung Lam
 
-Product Manager, Android Large Screens  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/don-turner.jpg)  
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/fung-lam) [LinkedIn](https://www.linkedin.com/in/lamchofung/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/hanrui-gao.webp)
 
-### Don Turner
+  ## Hanrui Gao
 
-#### (he/him)
+  Developer Relations Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/haoyu-zhang.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/erin-walsh.jpg)  
+  ## Haoyu Zhang
 
-### Erin Walsh
+  Senior Software Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/ian-ballantyne.webp)
 
-#### (she/her)
+  ## Ian Ballantyne
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/florina-muntenescu.jpg)  
+  Technical Member of Staff, Google DeepMind
+  [LinkedIn](https://www.linkedin.com/in/ianballantyne/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/ian-lake.webp)
 
-### Florina Muntenescu
+  ## Ian Lake
 
-#### (she/her)
+  Engineering Manager
+  [LinkedIn](https://www.linkedin.com/in/ian-lake-41090711/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/jan-kleinert.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/francesco-romano.jpg)  
+  ## Jan Kleinert
 
-### Francesco Romano
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/jan-kleinert) [LinkedIn](https://www.linkedin.com/in/jankleinert/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/jay-abi-saad.webp)
 
-#### (Francesco)
+  ## Jay Abi-Saad
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/fung-lam.jpg)  
+  Software Engineer
+  [LinkedIn](https://www.linkedin.com/in/jay-abi-saad/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/jazmin-cano.webp)
 
-### Fung Lam
+  ## Jazmin Cano
 
-#### (he/him)
+  User Experience Research Lead
+  [LinkedIn](https://www.linkedin.com/in/jazmincano)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/jennifer-stanton.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/garan-jenkin.jpg)  
+  ## Jennifer Stanton
 
-### Garan Jenkin
+  Senior Software Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/jeremy-walker.webp)
 
-#### (he/him)
+  ## Jeremy Walker
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/gina-domergue.jpg)  
+  Compose Software Engineer
+  [LinkedIn](https://www.linkedin.com/in/readwritejeremy/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/joe-yezhou-wang.webp)
 
-### Gina Domergue
+  ## Joe Yezhou Wang
 
-#### (she/her)
+  Engineering manager at Logitech
+  [LinkedIn](https://www.linkedin.com/in/yezhouwang/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/john-hoford.webp)
 
-ChromeOS Software Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/ian-lake.jpg)  
+  ## John Hoford
 
-### Ian Lake
+  Developer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/john-zoeller.webp)
 
-#### (he/him)
+  ## John Zoeller
 
-Software Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/jamal-eason.jpg)  
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/john-zoeller)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/jolanda-verhoef.webp)
 
-### Jamal Eason
+  ## Jolanda Verhoef
 
-#### (he/him)
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/jolanda-verhoef) [LinkedIn](https://www.linkedin.com/in/jolandaverhoef/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/jon-boekenoogen.webp)
 
-Group Product Manager  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/jeremy-woods.png)  
+  ## Jon Boekenoogen
 
-### Jeremy Woods
+  Software Engineer
+  [LinkedIn](https://www.linkedin.com/in/jboekenoogen/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/jose-alcerreca.webp)
 
-#### (he/him)
+  ## Jose Alcérreca
 
-Software Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/jerome-dochez.jpg)  
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/jose-alcerreca) [LinkedIn](https://www.linkedin.com/in/jose-alc%C3%A9rreca-01490bb/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/joshua-lorett.webp)
 
-### Jerome Dochez
+  ## Joshua Lorett
 
-#### (he/him)
+  Android Staff Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/juan-sebastian-oviedo.webp)
 
-Software Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/jerome-gaillard.jpg)  
+  ## Juan Sebastian Oviedo
 
-### Jerome Gaillard
+  Senior Product Manager
+  [LinkedIn](https://www.linkedin.com/in/juansoviedo)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/kateryna-semenova.webp)
 
-#### (he/him)
+  ## Kateryna Semenova
 
-Software Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/jessica-earley-cha.jpg)  
+  Staff Developer Relations Engineer
+  [LinkedIn](https://www.linkedin.com/in/katerynasemenova/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/kaushik-gopal.webp)
 
-### Jessica Earley-Cha
+  ## Kaushik Gopal
 
-#### (she/her)
+  Principal Software Engineer
+  [LinkedIn](https://www.linkedin.com/in/gopalkaushik)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/kirill-grouchnikov.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/jolanda-verhoef.jpg)  
+  ## Kirill Grouchnikov
 
-### Jolanda Verhoef
+  Software engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/kristen-oleary.webp)
 
-#### (she/her)
+  ## Kristen O'Leary
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/jose-alcerreca.jpg)  
+  Senior Developer Relations Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/kristina-simakova.webp)
 
-### Jose Alcérreca
+  ## Kristina Simakova
 
-#### (he/him)
+  Engineering Manager
+  [Android Developers' Blog](https://developer.android.com/blog/authors/kristina-simakova) [LinkedIn](https://www.linkedin.com/in/ksimakova/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/levana-chen.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/kseniia-shumelchyk.png)  
+  ## Levana Chen
 
-### Kseniia Shumelchyk
+  Software Engineer
+  [LinkedIn](https://www.linkedin.com/in/levanachen)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/luis-artola.webp)
 
-#### (she/her)
+  ## Luis Artola
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/leland-richardson.jpg)  
+  Engineering Manager
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/luke-hopkins.webp)
 
-### Leland Richardson
+  ## Luke Hopkins
 
-#### (he/him)
+  Android XR Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/luke-hopkins) [LinkedIn](https://www.linkedin.com/in/luke-hopkins-02093833/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/mai-lowe.webp)
 
-Software Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/liam-spradlin.png)  
+  ## Mai Lowe
 
-### Liam Spradlin
+  Group Product Manager
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/martin-pelant.webp)
 
-#### (he/him)
+  ## Martin Pelant
 
-Senior Design Advocate  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/luke-hopkins.jpg)  
+  Software Engineer, Meta
+  [LinkedIn](https://www.linkedin.com/in/martinpelant/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/naheed-vora.webp)
 
-### Luke Hopkins
+  ## Naheed Vora
 
-#### (he/him)
+  Senior Product Manager
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/nataraj-k-r.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/manuel-vicente-vivo.jpg)  
+  ## Nataraj K R
 
-### Manuel Vicente Vivo
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/nataraj-k-r) [LinkedIn](https://www.linkedin.com/in/natarajkr007/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/nick-butcher.webp)
 
-#### (he/him)
+  ## Nick Butcher
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/marcel-pinto.jpg)  
+  Product Manager
+  [Android Developers' Blog](https://developer.android.com/blog/authors/nick-butcher) [LinkedIn](https://www.linkedin.com/in/nick-butcher-5831582/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/nicolas-roard.webp)
 
-### Marcel Pinto
+  ## Nicolas Roard
 
-#### (he/him)
+  Sr Staff Software Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/oli-thompson.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/matthew-mccullough-square.png)  
+  ## Oli Thompson
 
-### Matthew McCullough
+  Junior Data Scientist, Formula E
+  [LinkedIn](https://uk.linkedin.com/in/olithompson)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/paul-hoover.webp)
 
-#### (he/him)
+  ## Paul Hoover
 
-VP of Product Management, Android Developer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/matvei-malkov.jpg)  
+  Senior Interaction Designer
+  [LinkedIn](https://www.linkedin.com/in/pahoover/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/paul-hua.webp)
 
-### Matvei Malkov
+  ## Paul Hua
 
-#### (he/him)
+  Trust \& Safety Google Play
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/paul-lammertsma.webp)
 
-Software Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/mayank-jain.png)  
+  ## Paul Lammertsma
 
-### Mayank Jain
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/paul-lammertsma) [LinkedIn](https://www.linkedin.com/in/paullammertsma/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/polina-govorkova.webp)
 
-#### (he/him)
+  ## Polina Govorkova
 
-Product Manager, Android Studio  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/michael-stillwell.jpg)  
+  Senior Software Developer
+  [LinkedIn](https://www.linkedin.com/in/polinago/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/rahul-ravikumar.webp)
 
-### Michael Stillwell
+  ## Rahul Ravikumar
 
-#### (he/him)
+  Staff Software Engineer
+  [LinkedIn](https://www.linkedin.com/in/rahulrav)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/rahul-ray.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/miguel-montemayor.jpg)  
+  ## Rahul Ray
 
-### Miguel Montemayor
+  Developer Relations Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/rebecca-franks.webp)
 
-#### (he/him)
+  ## Rebecca Franks
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/milosz-moczkowski.jpg)  
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/rebecca-franks) [LinkedIn](https://www.linkedin.com/in/rebeccafranks/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/rob-clifford.webp)
 
-### Miłosz Moczkowski
+  ## Rob Clifford
 
-#### (he/him)
+  Developer Relations Engineer, Android Trust \& Safety
+  [LinkedIn](https://www.linkedin.com/in/rob-clifford-devrel/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/rodrigo-sanchez.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/mozart-louis.jpg)  
+  ## Rodrigo Sanchez
 
-### Mozart Louis
+  Software Developer - Beyond Sports
+  [LinkedIn](https://linkedin.com/in/rodrigo-sd)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/ryan-shea.webp)
 
-#### (he/him)
+  ## Ryan Shea
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/nader-jawad.jpg)  
+  Head of Android
+  [LinkedIn](https://www.linkedin.com/in/ryan-shea-803947138/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/sabs.webp)
 
-### Nader Jawad
+  ## Sabs
 
-#### (he/him)
+  Developer Relations Engineer
+  [LinkedIn](https://www.linkedin.com/in/sabs231/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/sara-smoot.webp)
 
-Android Graphics Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/nate-myren.jpg)  
+  ## Sara Smoot
 
-### Nate Myren
+  Engineering Lead Gemma
+  [LinkedIn](https://www.linkedin.com/in/sara-smoot-a723b437/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/sarah-shamsie.webp)
 
-#### (he/him)
+  ## Sarah Shamsie
 
-Software Engineer, Android Permissions  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/nevin-mital.jpg)  
+  Product Manager at Google
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/scott-myers.webp)
 
-### Nevin Mital
+  ## Scott Myers
 
-#### (he/him)
+  Developer Relations Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/scott-nien.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/nick-butcher.jpg)  
+  ## Scott Nien
 
-### Nick Butcher
+  Software Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/scott-nien) [LinkedIn](https://www.linkedin.com/in/scott-nien-b4bb4448/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/steven-jenkins.webp)
 
-#### (he/him)
+  ## Steven Jenkins
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/paris-hsu.jpg)  
+  Product Manager, Android Studio
+  [Android Developers' Blog](https://developer.android.com/blog/authors/steven-jenkins)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/subhag-bhatia.webp)
 
-### Paris Hsu
+  ## Subhag Bhatia
 
-#### (she/her)
+  Software Engineer, Meta
+  [LinkedIn](https://www.linkedin.com/in/subhag-bhatia-b0b006121/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/thomas-weathers.webp)
 
-Product Manager  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/patrick-fuentes.jpg)  
+  ## Thomas Weathers
 
-### Patrick Fuentes
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/thomas-weathers) [LinkedIn](https://www.linkedin.com/in/thomas-s-weathers)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/tom-colvin.webp)
 
-#### (he/him)
+  ## Tom Colvin
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/paul-lammertsma.jpg)  
+  CTO, Apptaura
+  [LinkedIn](https://www.linkedin.com/in/tdcolvin/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/tomas-mlynaric.webp)
 
-### Paul Lammertsma
+  ## Tomáš Mlynarič
 
-#### (he/him)
+  Android DevRel
+  [LinkedIn](https://www.linkedin.com/in/mlykotom/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/toni-heidenreich.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/rahul-ravikumar.jpg)  
+  ## Toni Heidenreich
 
-### Rahul Ravikumar
+  Software Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/toni-heidenreich) [LinkedIn](https://linkedin.com/in/toni-heidenreich)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/ty-smith.webp)
 
-#### (he/him)
+  ## Ty Smith
 
-Software Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/ran-nachmany.jpg)  
+  Principal Engineer
+  [LinkedIn](https://linkedin.com/in/tyvsmith)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/victoria-lestari.webp)
 
-### Ran Nachmany
+  ## Victoria Lestari
 
-#### (he/him)
+  Software Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/vinay-gaba.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/raymond-tiong.jpg)  
+  ## Vinay Gaba
 
-### Raymond Tiong
+  Senior Engineering Manager, Databricks
+  [LinkedIn](https://www.linkedin.com/in/vinaygaba/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/yacine-rezgui.webp)
 
-#### (he/him)
+  ## Yacine Rezgui
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/rebecca-franks.jpg)  
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/yacine-rezgui) [LinkedIn](https://www.linkedin.com/in/yrezgui)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/yasmine-quintana-evjen.webp)
 
-### Rebecca Franks
+  ## Yasmine Quintana Evjen
 
-#### (she/her)
+  Senior Product Manager
+  [Android Developers' Blog](https://developer.android.com/blog/authors/yasmine-evjen) [LinkedIn](https://www.linkedin.com/in/yasmineevjen/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/yuri-schimke.webp)
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/rebecca-gutteridge.jpg)  
+  ## Yuri Schimke
 
-### Rebecca Gutteridge
+  Software Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/zoe-lopez-latorre.webp)
 
-#### (she/her)
+  ## Zoe Lopez-Latorre
 
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/rob-orgiu.jpg)  
-
-### Rob Orgiu
-
-#### (he/him)
-
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/romain-guy.jpg)  
-
-### Romain Guy
-
-#### (he/him)
-
-Engineering Director, Android Toolkit  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/sara-hamilton.jpg)  
-
-### Sara Hamilton
-
-#### (she/her)
-
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/sarah-shamsie.jpg)  
-
-### Sarah Shamsie
-
-#### (she/her)
-
-Product Manager  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/sean-arietta.jpg)  
-
-### Sean Arietta
-
-#### (he/him)
-
-Engineering Manager  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/sean-mcbreen.webp)  
-
-### Sean McBreen
-
-#### (he/him)
-
-Product Lead, Android Toolkit, Kotlin \& Large Screen Developer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/simona-stojanovic.jpg)  
-
-### Simona Stojanovic
-
-#### (she/her)
-
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/sumir-kataria.jpg)  
-
-### Sumir Kataria
-
-#### (he/him)
-
-Software Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/takeshi-hagikura.jpg)  
-
-### Takeshi Hagikura
-
-#### (he/him)
-
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/terence-zhang.jpg)  
-
-### Terence Zhang
-
-#### (he/him)
-
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/thomas-ezan.jpg)  
-
-### Thomas Ezan
-
-#### (he/him)
-
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/tj-dahunsi.jpg)  
-
-### TJ Dahunsi
-
-#### (he/him)
-
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/todd-burner.jpg)  
-
-### Todd Burner
-
-#### (he/him)
-
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/tomas-mlynaric.jpg)  
-
-### Tomáš Mlynarič
-
-#### (he/him)
-
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/toni-klopfenstein.png)  
-
-### Toni Klopfenstein
-
-#### (she/her)
-
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/tor-norbye.jpg)  
-
-### Tor Norbye
-
-#### (he/him)
-
-Engineering Director for Android Studio  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/viki-turner.jpg)  
-
-### Viki Turner
-
-#### (she/her)
-
-Engineering Director, Wear OS  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/wojtek-kalicinski.jpg)  
-
-### Wojtek Kaliciński
-
-#### (he/him)
-
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/yacine-rezgui.jpg)  
-
-### Yacine Rezgui
-
-#### (he/him)
-
-Developer Relations Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/yi-yang.png)  
-
-### Yi Yang
-
-#### (he/him)
-
-Software Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/yigit-boyar.png)  
-
-### Yigit Boyar
-
-#### (he/him)
-
-Software Engineer  
-![](http://developer.android.com/static/events/dev-summit/images/speakers/yuri-schimke.png)  
-
-### Yuri Schimke
-
-#### (he/him)
-
-Software Engineer
+  Developer Relations Engineer
+  [Android Developers' Blog](https://developer.android.com/blog/authors/zoe-lopez-latorre)

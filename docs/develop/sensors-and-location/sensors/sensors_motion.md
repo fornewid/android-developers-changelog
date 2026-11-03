@@ -46,9 +46,9 @@ parameters. Table 1 summarizes the motion sensors that are available on the Andr
 | `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED` | `SensorEvent.values[0]` | Measured acceleration along the X axis without any bias compensation. | m/s^2^ |
 | `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED` | `SensorEvent.values[1]` | Measured acceleration along the Y axis without any bias compensation. | m/s^2^ |
 | `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED` | `SensorEvent.values[2]` | Measured acceleration along the Z axis without any bias compensation. | m/s^2^ |
-| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED` | `SensorEvent.values[3]` | Measured acceleration along the X axis with estimated bias compensation. | m/s^2^ |
-| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED` | `SensorEvent.values[4]` | Measured acceleration along the Y axis with estimated bias compensation. | m/s^2^ |
-| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED` | `SensorEvent.values[5]` | Measured acceleration along the Z axis with estimated bias compensation. | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED` | `SensorEvent.values[3]` | Estimated bias along the X axis. | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED` | `SensorEvent.values[4]` | Estimated bias along the Y axis. | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED` | `SensorEvent.values[5]` | Estimated bias along the Z axis. | m/s^2^ |
 | `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GRAVITY` | `SensorEvent.values[0]` | Force of gravity along the x axis. | m/s^2^ |
 | `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GRAVITY` | `SensorEvent.values[1]` | Force of gravity along the y axis. | m/s^2^ |
 | `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GRAVITY` | `SensorEvent.values[2]` | Force of gravity along the z axis. | m/s^2^ |

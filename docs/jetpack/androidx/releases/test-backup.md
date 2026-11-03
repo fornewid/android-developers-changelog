@@ -81,7 +81,7 @@ October 21, 2026
 - Fixed `fetchDeviceLogs` writing empty log files, and stopped cancelled test runs from generating false failure reports. ([I736c4](https://android-review.googlesource.com/#/q/I736c40fb4a858b8536cee9c8b7dbd11bb3692939), [I7b199](https://android-review.googlesource.com/#/q/I7b1990f00eeb871e7d34fb33730faf67e7dc0f11), [Ia847e](https://android-review.googlesource.com/#/q/Ia847e2fc30ee78174c7d258599ef6b32e2c3a914))
 - Cleaned up `backup-host` dependencies so `adblib` is available directly to callers and internal logging or test libraries no longer clash with your project's classpath. ([I6e822](https://android-review.googlesource.com/#/q/I6e8226eb8e2ff548e0e227abcf39c3ffd82cb400), [Iba9a4](https://android-review.googlesource.com/#/q/Iba9a4b46c39bf491d2bb7f4dadc9a83427730791), [Ib4ec9](https://android-review.googlesource.com/#/q/Ib4ec9530e581ba390b61dfabe16cc46e6e6b0cca))
 
-#### Version 1.0.0-alpha02
+### Version 1.0.0-alpha02
 
 October 07, 2026
 

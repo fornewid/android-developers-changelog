@@ -22,6 +22,13 @@ authentication guideline](https://developer.android.com/distribute/aep/aep-req-p
 |---|---|
 | AEP-RC-GAA | To qualify for AEP, your app must successfully integrate the Restore Credentials API in its latest production version. For the avoidance of doubt, restore credentials works with all accepted SSO providers from the [phishing resistant authentication guideline](https://developer.android.com/distribute/aep/aep-req-phishing-resistant-auth#accepted-federated). |
 
+> [!NOTE]
+> **Note:** Restore Credentials works alongside passwords, passkeys, and accepted federated SSO providers. Even if your app uses federated sign-in without user-facing passkeys, your backend must expose WebAuthn relying-party endpoints
+
+to issue creation challenges and verify `RestoreCredential` assertions during
+device restore. For implementation details, see [Implement Restore
+Credentials](https://developer.android.com/identity/sign-in/restore-credentials-implementation).
+
 ## Guideline applicability
 
 This guideline applies to:
@@ -46,4 +53,8 @@ the **Restore Credentials API**. These resources are for your reference only and
 don't contain additional program requirements.
 
 - [About Restore Credentials](https://developer.android.com/identity/sign-in/restore-credentials)
+- [Implement Restore Credentials](https://developer.android.com/identity/sign-in/restore-credentials-implementation)
+- [Test Restore Credentials](https://developer.android.com/identity/sign-in/test-restore-credentials)
+- [Automated backup and restore testing](https://developer.android.com/studio/preview/backup-restore-testing)
+- [Restore Credentials Android skill](https://developer.android.com/agents/skills/identity/restore-credentials/skill)
 - [Overview of Block Store](https://developer.android.com/identity/block-store)

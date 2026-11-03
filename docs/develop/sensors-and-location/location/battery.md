@@ -23,7 +23,7 @@ With [Background Location Limits](https://developer.android.com/about/versions/o
 
 This document assumes familiarity with the following APIs:
 
-- [Google Location Services.](https://developers.google.com/android/reference/com/google/android/gms/location/package-summary.html) These APIs offer higher accuracy and impose a lighter battery burden than the [framework location APIs](https://developer.android.com/reference/android/location/package-summary).
+- [Google Location Services.](https://developers.google.com/android/reference/com/google/android/gms/location/package-summary) These APIs offer higher accuracy and impose a lighter battery burden than the [framework location APIs](https://developer.android.com/reference/android/location/package-summary).
 - [Fused Location Provider.](https://developers.google.com/location-context/fused-location-provider/) This API combines signals from GPS, Wi-Fi, and cell networks, as well as accelerometer, gyroscope, magnetometer and other sensors.
 - [Geofencing](https://developers.google.com/location-context/geofencing/), This API is built on top of the Fused Location Provider API, and is optimized for battery performance.
 
@@ -40,10 +40,10 @@ Location gathering and battery drain are related as follows:
 You can specify location accuracy using the [`setPriority()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#public-locationrequest.builder-setpriority-int-priority) method, passing
 one of the following values as the argument:
 
-- [`PRIORITY_HIGH_ACCURACY`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#public-static-final-int-priority_high_accuracy) provides the most accurate location possible, which is computed using as many inputs as necessary (it enables GPS, Wi-Fi, and cell, and uses a variety of [Sensors](https://developer.android.com/guide/topics/sensors/sensors_overview)), and may cause significant battery drain.
+- [`PRIORITY_HIGH_ACCURACY`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#public-static-final-int-priority_high_accuracy) provides the most accurate location possible, which is computed using as many inputs as necessary (it enables GPS, Wi-Fi, and cell, and uses a variety of [Sensors](https://developer.android.com/develop/sensors-and-location/sensors/sensors_overview)), and may cause significant battery drain.
 - [`PRIORITY_BALANCED_POWER_ACCURACY`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#public-static-final-int-priority_balanced_power_accuracy) provides accurate location while optimizing for power. Very rarely uses GPS. Typically uses a combination of Wi-Fi and cell information to compute device location.
 - [`PRIORITY_LOW_POWER`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#public-static-final-int-priority_low_power) largely relies on cell towers and avoids GPS and Wi-Fi inputs, providing coarse (city-level) accuracy with minimal battery drain.
-- [`PRIORITY_NO_POWER`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_NO_POWER) receives locations passively from other apps for which location has already been computed.
+- [`PRIORITY_PASSIVE`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#public-static-final-int-priority_passive) receives locations passively from other apps for which location has already been computed.
 
 Use the balanced power or low power options to satisfy the location needs of
 most apps. Reserve high accuracy for apps that run in the foreground and require
@@ -77,7 +77,7 @@ largest possible value to the `setMaxUpdateDelayMillis()` method, effectively
 trading latency for more data and battery efficiency.
 
 When using geofences, apps should pass a large value into the
-[`setNotificationResponsiveness()`](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder.html#setNotificationResponsiveness(int)) method to preserve power. A value of
+[`setNotificationResponsiveness()`](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder#public-geofence.builder-setnotificationresponsiveness-int-notificationresponsivenessms) method to preserve power. A value of
 five minutes or larger is recommended.
 
 ## Further reading
@@ -85,4 +85,4 @@ five minutes or larger is recommended.
 For more information, see the following documents:
 
 - [Recommendations](https://developer.android.com/develop/sensors-and-location/location/battery/optimize): This guide lays out some concrete recommended actions you can use to improve your app's impact on battery life.
-- [Use cases](https://developer.android.com/develop/sensors-and-location/location/battery/scenarios): This guide provides several common use cases where you might use location services and how you could optimise the impact on battery life for those cases.
+- [Use cases](https://developer.android.com/develop/sensors-and-location/location/battery/scenarios): This guide provides several common use cases where you might use location services and how you could optimize the impact on battery life for those cases.

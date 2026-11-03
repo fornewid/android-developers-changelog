@@ -35,21 +35,16 @@ To be able to show recommendations on all versions of Android TV, your app
 should implement both recommendation APIs. Test the current system API level and
 use the appropriate API to build the recommendation row or channels.
 
-### Kotlin
 
-    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-      // Use the home screen recommendation channels API
-    } else {
-      // Use the recommendations row API
-    }
+```kotlin
+if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+    // Use the home screen recommendation channels API.
+} else {
+    // Use the recommendations row API.
+}
+```
 
-### Java
-
-    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-      // Use the home screen recommendation channels API
-    } else {
-      // Use the recommendations row API
-    }
+<br />
 
 If your app was compiled using API level 25 or earlier, it can still run on
 Android TV in level 26. The old recommendations behavior is forward-compatible,

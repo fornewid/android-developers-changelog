@@ -254,6 +254,13 @@ Written by:
   [read_more
   View profile](https://developer.android.com/blog/authors/daniel-galpin) ![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_16cSIX.webp) ![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_16cSIX.webp)
 Continue reading
+- [![View Florina Muntenescu's profile](https://developer.android.com/static/blog/assets/unnamed_27_1d76df3c3b_2gwEzo.webp)](https://developer.android.com/blog/authors/florina-muntenescu) 02 Nov 2026 02 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_155_Strapi_1_f48145e2db_Z2jyq4w.webp) [Community](https://developer.android.com/blog/categories/community)
+
+  ## [Developing for Today: 50+ New Developer Sessions on Building Apps Today](https://developer.android.com/blog/posts/building-apps-developer-sessions)
+
+  [arrow_forward](https://developer.android.com/blog/posts/building-apps-developer-sessions) Over 900 attendees joined our event spaces for a keynote about our outlook on the future, demo sessions, dozens of workshops, a hackathon, and for community discussions focused on ideas and feedback on Android platform.
+  [Florina Muntenescu](https://developer.android.com/blog/authors/florina-muntenescu) • 1 min read
+  - [#Android](https://developer.android.com/blog/topics/android)
 - [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 30 Sep 2025 30 Sep 2025 ![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_ZQycm0.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Let's talk security: Answering your top questions about Android developer verification](https://developer.android.com/blog/posts/lets-talk-security-answering-your-top)
@@ -270,13 +277,6 @@ Continue reading
   [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca) • 4 min read
   - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding)
   - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
-- [![View Steph Pio's profile](https://developer.android.com/static/blog/assets/security_pass_photo_b9ab37d5bf_Z18YGsT.webp)](https://developer.android.com/blog/authors/steph-pio) 06 Jul 2026 06 Jul 2026 ![](https://developer.android.com/static/blog/assets/IG_Fund26_Strapi_Header_716b75cbab_RbcqR.webp) [Community](https://developer.android.com/blog/categories/community)
-
-  ## [Google Play launches the first Indie Games Fund in Africa](https://developer.android.com/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa)
-
-  [arrow_forward](https://developer.android.com/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa) Google Play is launching the first Indie Games Fund in Africa, investing $1 million to empower 10 indie game studios across Sub-Saharan Africa.
-  [Steph Pio](https://developer.android.com/blog/authors/steph-pio) • 1 min read
-  - [#Google Play](https://developer.android.com/blog/topics/google-play)
 Stay in the loop
 
 

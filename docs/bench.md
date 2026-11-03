@@ -501,6 +501,10 @@ All categories App conversion App creation Migration New feature **Number of tas
 | XML views to Compose migration in WordPress: people invite screen | Migration | 38% | 0/5 | All runs failed tests |
 | New book searching app using the OpenLibrary API | App creation | 51% | 0/5 | 3 runs failed tests, 1 run failed the build, 1 run missed required test results |
 
+**Latest results as of
+October 26th.**   
+View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
+
 ### 1.0 task results
 
 All models Open weights models Closed weights models
@@ -541,7 +545,7 @@ All models Open weights models Closed weights models
 | ![](https://developer.android.com/static/images/bench/icons/qwen.png) Qwen3.6 35b A3b | **37.0** | 29.1 --- 44.3 | 16.3 | $17.8 |
 
 **Latest results as of
-October 26th.**   
+August 11th.**   
 View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
 
 ### [Latest Updates](http://developer.android.com/bench/changelog)
