@@ -1,0 +1,31 @@
+diff --git a/docs/games/pgs/gamestats.md b/docs/games/pgs/gamestats.md
+index c3b07d9e..0c34ce91 100644
+--- a/docs/games/pgs/gamestats.md
++++ b/docs/games/pgs/gamestats.md
+@@ -21,10 +21,8 @@ Game stats must:
+ > [!NOTE]
+ > **Note:** Only a maximum of 50 stats can be configured for a game.
+ 
+-The image shows Game Stats in the Gamer Profile on the **You** tab.
+-This user interface (UI) in the **You** tab is available only for testing
+-purposes. The Game Stats UI will be available in September 2026.
+-[![Game Stats on the You tab](https://developer.android.com/static/images/games/pgs/gamestats.png)](https://developer.android.com/static/images/games/pgs/gamestats.png) Game Stats with highlights on the You tab.
++The image shows Game Stats in the Gamer Profile.
++[![Game Stats in the gamer profile](https://developer.android.com/static/images/games/pgs/gamestats.png)](https://developer.android.com/static/images/games/pgs/gamestats.png) Game Stats with highlights in the gamer profile.
+ 
+ ## Aggregation type
+ 
+@@ -425,10 +423,4 @@ following resources:
+ 
+ - [Android](https://developer.android.com/games/pgs/android/gamestats)
+ - [Unity](https://developer.android.com/games/pgs/unity/gamestats)
+-- [C++](https://developer.android.com/games/pgs/cpp/gamestats)
+-
+-## Milestones
+-
+-| **Date** | **Game Stats API Integration** | **Game Stats configuration** |
+-|---|---|---|
+-| September 2026 | N/A | Players start seeing game stats on their Gamer profile. |
+\ No newline at end of file
++- [C++](https://developer.android.com/games/pgs/cpp/gamestats)
+\ No newline at end of file

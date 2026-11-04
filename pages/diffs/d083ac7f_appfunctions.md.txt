@@ -1,0 +1,58 @@
+diff --git a/docs/ai/appfunctions.md b/docs/ai/appfunctions.md
+index 3c064a0c..55b0190f 100644
+--- a/docs/ai/appfunctions.md
++++ b/docs/ai/appfunctions.md
+@@ -59,7 +59,7 @@ experiences within a variety of app categories:
+    * @param location The physical location associated with the task (e.g., "Work").
+    * @return The created Task
+    */
+-  @AppFunction(isDescribedByKDoc = true)
++  @AppFunctionDeclaration(isDescribedByKDoc = true)
+   suspend fun createTask(
+       title: String,
+       dueDateTime: LocalDateTime? = null,
+@@ -83,7 +83,7 @@ experiences within a variety of app categories:
+    * @param query The description used to generate the playlist (e.g., "top jazz albums from 2026").
+    * @return The final created playlist based on songs.
+    */
+-  @AppFunction(isDescribedByKDoc = true)
++  @AppFunctionDeclaration(isDescribedByKDoc = true)
+   suspend fun createPlaylistFromQuery(
+       query: String,
+   ): Playlist = TODO()
+@@ -105,7 +105,7 @@ experiences within a variety of app categories:
+    * @param query The search term or contact name (e.g., "Lisa noodle recipe").
+    * @return A list of matching email summaries containing the requested information.
+    */
+-  @AppFunction(isDescribedByKDoc = true)
++  @AppFunctionDeclaration(isDescribedByKDoc = true)
+   suspend fun searchEmails(
+       query: String,
+   ): List<EmailSummary> = TODO()
+@@ -116,7 +116,7 @@ experiences within a variety of app categories:
+    * @param items The names of the ingredients or products to add to the list.
+    * @return The final shopping list with new items added
+    */
+-  @AppFunction(isDescribedByKDoc = true)
++  @AppFunctionDeclaration(isDescribedByKDoc = true)
+   suspend fun addItemsToShoppingList(
+       items: List<String>,
+   ): ShoppingList = TODO()
+@@ -139,7 +139,7 @@ experiences within a variety of app categories:
+    * @param startDateTime The specific date and time the event is scheduled to begin.
+    * @return The created Event object.
+    */
+-  @AppFunction(isDescribedByKDoc = true)
++  @AppFunctionDeclaration(isDescribedByKDoc = true)
+   suspend fun createCalendarEvent(
+       title: String,
+       startDateTime: LocalDateTime,
+@@ -199,7 +199,7 @@ abstract class BaseTaskAppFunctionService : AppFunctionService() {
+      *
+      * @param createTaskParams The parameter to describe how to create the task.
+      */
+-    @AppFunction(isDescribedByKDoc = true)
++    @AppFunctionDeclaration(isDescribedByKDoc = true)
+     suspend fun createTask(
+         createTaskParams: CreateTaskParams,
+     ): Task = withContext(Dispatchers.IO) {

@@ -1,0 +1,22 @@
+diff --git a/docs/ai/appfunctions/add-appfunctions.md b/docs/ai/appfunctions/add-appfunctions.md
+index ae0f319a..e074bddb 100644
+--- a/docs/ai/appfunctions/add-appfunctions.md
++++ b/docs/ai/appfunctions/add-appfunctions.md
+@@ -58,7 +58,7 @@ abstract class BaseTaskAppFunctionService : AppFunctionService() {
+      *
+      * @param createTaskParams The parameter to describe how to create the task.
+      */
+-    @AppFunction(isDescribedByKDoc = true)
++    @AppFunctionDeclaration(isDescribedByKDoc = true)
+     suspend fun createTask(
+         createTaskParams: CreateTaskParams,
+     ): Task = withContext(Dispatchers.IO) {
+@@ -144,7 +144,7 @@ verified, set the `isEnabled` parameter of your `@AppFunction` annotation to
+ 
+ 
+ ```kotlin
+-@AppFunction(isEnabled = false, isDescribedByKDoc = true)
++@AppFunctionDeclaration(isEnabled = false, isDescribedByKDoc = true)
+ suspend fun createTask(
+     createTaskParams: CreateTaskParams,
+ ): Task = TODO()

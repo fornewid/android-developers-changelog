@@ -1,0 +1,17 @@
+diff --git a/docs/develop/ui/compose/performance.md b/docs/develop/ui/compose/performance.md
+index 502ba264..defd2e01 100644
+--- a/docs/develop/ui/compose/performance.md
++++ b/docs/develop/ui/compose/performance.md
+@@ -29,9 +29,9 @@ cold starting an app or scrolling a list or grid with images. We conduct these
+ benchmarks using the open-source Pokedex app, comparing its [Views](https://github.com/skydoves/pokedex) and
+ [Compose](https://github.com/skydoves/pokedex-compose) implementations.
+ 
+-These benchmarks show that Compose 1.9 and later match the Views performance for
+-jank while scrolling.
+-![Since Compose 1.9.0, Compose and Views have the same jank rate](https://developer.android.com/static/develop/ui/compose/performance/images/jank.svg) Since Compose 1.9.0, Compose and Views have the same jank rate.
++These benchmarks show that Compose matches Views performance for jank while
++scrolling since Compose 1.9.0 (achieving 0% jank on Pixel 6).
++![Since Compose 1.9.0, Compose matches Views scroll jank](https://developer.android.com/static/develop/ui/compose/performance/images/jank.svg) Since Compose 1.9.0, Compose matches Views scroll jank.
+ 
+ For additional metrics and to learn about our methodologies, see [Hero
+ benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark).

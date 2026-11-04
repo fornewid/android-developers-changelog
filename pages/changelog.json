@@ -1,5 +1,257 @@
 [
   {
+    "date": "2026-11-04T15:09:51Z",
+    "commit_hash": "d083ac7f",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/features\" target=\"_blank\">Features and APIs</a>",
+        "path": "about/versions/17/features.md",
+        "summary": "The Android 17 features documentation for `ProfilingManager` was updated to reflect API refinements. Specifically, the response type for `TRIGGER_TYPE_KILL_EXCESSIVE_CPU_USAGE` was updated from a call stack sample to a background system trace snapshot, documentation links for profile retrieval were split into dedicated upload and analysis guides, and the code example for registering anomaly triggers was improved with null safety, proper list initialization, and correct error-checking logic.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/appfunctions/references/implementation-configuration\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/device-ai/appfunctions/references/implementation-configuration.md",
+        "summary": "Updated the App Functions implementation references to replace the deprecated `@AppFunction` annotation with `@AppFunctionDeclaration` across code examples. This ensures developers use the correct current API annotation when declaring app functions that are described by KDoc.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_implementation-configuration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point\" target=\"_blank\">Migrating to the AppFunctionServiceEntryPoint API</a>",
+        "path": "agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point.md",
+        "summary": "Updated the annotation from `@AppFunction` to `@AppFunctionDeclaration` in the AppFunctions service entry point migration documentation. This change reflects API updates for declaring app functions correctly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_migrate-to-service-entry-point.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/AlertDialogSample.kt\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/wear/wear-compose-m3/references/material3/AlertDialogSample.kt.md",
+        "summary": "Removed the `AlertDialogWithConfirmAndDismissGestureDisabledSample` and `AlertDialogWithEdgeButtonOneHandedGestureSample` sample functions from the Wear Compose Material 3 AlertDialog documentation. This matters because it cleans up deprecated or redundant gesture-specific AlertDialog usage examples from the reference guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_AlertDialogSample.kt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/appfunctions\" target=\"_blank\">Overview of AppFunctions</a>",
+        "path": "ai/appfunctions.md",
+        "summary": "The documentation was updated to reflect an API change, renaming the `@AppFunction` annotation to `@AppFunctionDeclaration` across all code examples. This is important for developers to use the correct, up-to-date annotations when defining app functions for AI integration.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_appfunctions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/appfunctions/add-appfunctions\" target=\"_blank\">Add the AppFunctions API to your app</a>",
+        "path": "ai/appfunctions/add-appfunctions.md",
+        "summary": "Updated the App Functions documentation to reflect an API renaming, changing the `@AppFunction` annotation to `@AppFunctionDeclaration` in code examples. This matters for developers as it ensures their implementation matches the correct, updated SDK naming conventions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_add-appfunctions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/intelligence-system\" target=\"_blank\">Connect your app to the Android intelligence system</a>",
+        "path": "ai/intelligence-system.md",
+        "summary": "Removed the Agent-to-UI (A2UI) documentation section from the intelligence system overview, streamlining the content to focus solely on the Computer Control API. This change matters as it temporarily removes reference to the Jetpack Compose A2UI renderer feature from this specific documentation page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_intelligence-system.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/migrate/compare-metrics\" target=\"_blank\">Compare Compose and View metrics</a>",
+        "path": "develop/ui/compose/migrate/compare-metrics.md",
+        "summary": "Updated the Jetpack Compose migration metrics documentation to remove outdated references to version 1.0, replaced internal Skia dashboard links with the public Hero benchmarks guide for tracking performance against Views, and added the Hero benchmarks link to the recommended reading section.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_compare-metrics.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/migrate/strategy\" target=\"_blank\">Migration strategy</a>",
+        "path": "develop/ui/compose/migrate/strategy.md",
+        "summary": "Added references to the new 'Hero benchmarks' documentation across the additional resources and recommended sections. This matters because it provides developers with direct access to real-world performance comparisons regarding startup and scrolling between Jetpack Compose and traditional Views to help guide their migration strategy.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_strategy.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance\" target=\"_blank\">Jetpack Compose Performance</a>",
+        "path": "develop/ui/compose/performance.md",
+        "summary": "Updated the Jetpack Compose performance documentation to specify that Compose 1.9.0 and later achieves 0% jank on Pixel 6, matching the performance of the traditional Views system for scrolling.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_performance.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/bestpractices\" target=\"_blank\">Follow best practices</a>",
+        "path": "develop/ui/compose/performance/bestpractices.md",
+        "summary": "The Jetpack Compose performance best practices documentation was updated to include a link to new empirical Hero benchmark data demonstrating scrolling and startup performance when using R8 and Baseline Profiles. Additionally, a reference link for `computedStateOf` was corrected to point to the appropriate performance documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_bestpractices.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/herobenchmark\" target=\"_blank\">Hero benchmarks</a>",
+        "path": "develop/ui/compose/performance/herobenchmark.md",
+        "summary": "Updated the hero benchmark documentation to reflect the hardware migration from the Pixel 3a to the Pixel 6 (running Android 17 / API 37) starting with Compose 1.12. It adds a new summary table comparing Compose 1.12, Compose 1.11.4, and the Views baseline, updates startup metrics to show Compose 1.12 performing on par with Views for initial display (TTID) and about 2% slower for full display (TTFD), refines scroll jank descriptions for the Pixel 6, and expands instructions for running benchmarks locally.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_herobenchmark.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/system/pip-jetpack\" target=\"_blank\">Use the Jetpack Picture-in-Picture Library</a>",
+        "path": "develop/ui/compose/system/pip-jetpack.md",
+        "summary": "Updated the initialization of `BasicPictureInPicture` and `VideoPlaybackPictureInPicture` in the Jetpack Picture-in-Picture documentation to include a single-thread executor parameter (`Executors.newSingleThreadExecutor()`). This change ensures proper threading configuration for PiP implementations, making the code examples more accurate and robust for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_pip-jetpack.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/gamestats\" target=\"_blank\">Game Stats</a>",
+        "path": "games/pgs/gamestats.md",
+        "summary": "Removed the temporary testing disclaimer and the milestones table regarding the September 2026 rollout of Game Stats on the You tab, while also updating the corresponding image caption to generally refer to the gamer profile.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_gamestats.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/integrate-gamestats\" target=\"_blank\">Integrate Game Stats</a>",
+        "path": "games/pgs/integrate-gamestats.md",
+        "summary": "The testing and verification instructions for Game Stats have been significantly streamlined. Detailed steps involving internal test tracks, specific UI navigation methods (like the 'Track your playtime' section), and troubleshooting notes were removed in favor of a concise, simplified process focused on signing into the Play Store and viewing stats directly via the gamer profile.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_integrate-gamestats.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/tv/continue-watching/rest\" target=\"_blank\">Integrate continue watching using REST API</a>",
+        "path": "guide/playcore/engage/tv/continue-watching/rest.md",
+        "summary": "Updated the Engage REST API documentation to correct the API endpoint name from `clearClusters` to `clearCluster` and added documentation for the account-level URL endpoint that does not require a profile ID.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_rest.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/practices/page-sizes\" target=\"_blank\">Support 16 KB page sizes</a>",
+        "path": "guide/practices/page-sizes.md",
+        "summary": "This update significantly expands the documentation on verifying 16 KB ELF segment alignment and RELRO security flags for shared libraries. It adds guidance on using the Android Studio APK Analyzer as a recommended verification method, provides updated multi-platform command-line instructions (including Windows PowerShell support), and clarifies the compliance conditions and potential segmentation fault risks associated with `GNU_RELRO` and writable `LOAD` segments.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_page-sizes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/privacy-and-security/local-network-permission\" target=\"_blank\">Local network permission</a>",
+        "path": "privacy-and-security/local-network-permission.md",
+        "summary": "The documentation has been updated to reflect the transition of the local network permission from an opt-in feature in Android 16 to full enforcement starting in Android 17 (API level 37) using the new `ACCESS_LOCAL_NETWORK` runtime permission. The Android 16 opt-in configuration is now deprecated, and developers are directed to follow the Android 17 enforcement guidelines.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_local-network-permission.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/benchmarking/benchmarking-overview\" target=\"_blank\">Benchmark your app</a>",
+        "path": "topic/performance/benchmarking/benchmarking-overview.md",
+        "summary": "Added references to the new Jetpack Compose Hero benchmarks documentation under both 'Additional resources' and 'Recommended for you' sections. This matters because it directs developers to a real-world Macrobenchmark case study comparing Compose and Views performance using the Pokedex app.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_benchmarking-overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview\" target=\"_blank\">Write a Macrobenchmark</a>",
+        "path": "topic/performance/benchmarking/macrobenchmark-overview.md",
+        "summary": "Added references and links to the new Hero benchmarks case study in the Samples and Recommended for you sections. This matters because it provides developers with real-world examples of using Macrobenchmark to measure startup and scroll performance across Jetpack Compose and Views.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_macrobenchmark-overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/profiling-manager/analyze-profiles-with-ai\" target=\"_blank\">Analyze profiles with AI</a>",
+        "path": "topic/performance/tracing/profiling-manager/analyze-profiles-with-ai.md",
+        "summary": "Added documentation explaining how to use AI coding agents with the Perfetto AI skill to automate root-cause analysis for `ProfilingManager` performance profiles, system traces, and Java heap dumps.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/profiling-manager/bulk-trace-analysis\" target=\"_blank\">Analyze traces in bulk</a>",
+        "path": "topic/performance/tracing/profiling-manager/bulk-trace-analysis.md",
+        "summary": "The bulk-trace-analysis.md documentation has been updated to improve clarity, streamline explanations of PerfettoSQL query design, and polish the interpretation of violin plot results for high and low-latency traces.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_bulk-trace-analysis.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode\" target=\"_blank\">Debug commands for local profiling</a>",
+        "path": "topic/performance/tracing/profiling-manager/debug-mode.md",
+        "summary": "Updated the `ProfilingManager` debug-mode documentation to include comprehensive local testing instructions. The updates detail how to handle Android version-specific behaviors (Android 15 vs Android 16) for pulling unredacted/redacted profiles, force-enabling background traces for trigger testing, using the `cmd profiling_service` tool for verbose logging, triggering on-demand collections, simulating triggers, and inspecting overall service state via `dumpsys`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_debug-mode.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/profiling-manager/debugging-anr-example\" target=\"_blank\">Case study: Debug an ANR</a>",
+        "path": "topic/performance/tracing/profiling-manager/debugging-anr-example.md",
+        "summary": "Updated the ANR debugging documentation to include Kotlin code snippets alongside Java, detailed instructions on how to automate ANR investigations using an AI agent with Perfetto AI skills, and refined explanations of trace analysis steps to help developers identify thread blocking issues.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_debugging-anr-example.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/profiling-manager/debugging-oom-example\" target=\"_blank\">Case study: Debug an OOM crash</a>",
+        "path": "topic/performance/tracing/profiling-manager/debugging-oom-example.md",
+        "summary": "This new documentation page provides a comprehensive guide on how to use `ProfilingManager` to capture, deobfuscate, and analyze Java heap dumps following an `OutOfMemoryError` crash in Android apps.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/profiling-manager/overview\" target=\"_blank\">Overview</a>",
+        "path": "topic/performance/tracing/profiling-manager/overview.md",
+        "summary": "Updated the ProfilingManager documentation to reflect new capabilities across Android 15 and Android 16, including support for app-driven and trigger-based profile collections, Java heap dumps, heap profiles, and stack sampling. The guide now includes comprehensive sections on profile retrieval, analysis via Perfetto and AI agents, debugging case studies, and instructions for integrating ProfilingManager using AI coding agents.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/profiling-manager/querying-profiles\" target=\"_blank\">Query profiles with PerfettoSQL</a>",
+        "path": "topic/performance/tracing/profiling-manager/querying-profiles.md",
+        "summary": "Streamlined the documentation for querying `ProfilingManager` profiles using PerfettoSQL. The updates condense introductory explanations, improve query syntax (such as updating function creation to use `CREATE OR REPLACE PERFETTO FUNCTION`), refine descriptions for sample queries covering slice duplication, jank, memory aggregation, and cold startup latency, and align jank queries to match generalized `GLOB` patterns.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_querying-profiles.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/profiling-manager/retrieve-and-analyze\" target=\"_blank\">Visualize profiles in the Perfetto UI</a>",
+        "path": "topic/performance/tracing/profiling-manager/retrieve-and-analyze.md",
+        "summary": "Expanded the documentation for 'ProfilingManager' to cover visualization of Java heap dumps alongside system traces in the Perfetto UI. The updates explain how to use the Heapdump Explorer, detail the differences between 'ProfilingManager' heap dumps and standard HPROF dumps (including what metadata is collected versus what sensitive data is omitted for privacy), and add guidance on advanced next steps like PerfettoSQL querying and AI analysis.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_retrieve-and-analyze.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture\" target=\"_blank\">Trigger-based profiling</a>",
+        "path": "topic/performance/tracing/profiling-manager/trigger-based-capture.md",
+        "summary": "Updated the `ProfilingManager` trigger-based capture documentation for Android 16 (API level 36) and higher. The revision introduces a comprehensive categorization of trigger types (background trace-based, new capture-based, and variable anomaly triggers), details the persistence lifecycle of registered triggers across app restarts and reboots, adds guidelines on unregistering triggers, and updates code snippets and explanations for setting up and handling trigger callbacks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_trigger-based-capture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/profiling-manager/upload-worker\" target=\"_blank\">Retrieve and upload profiles</a>",
+        "path": "topic/performance/tracing/profiling-manager/upload-worker.md",
+        "summary": "Updated the ProfilingManager upload worker documentation with comprehensive details on file locations, naming conventions, automatic cleanup behavior, and best practices for compressing profile files before uploading them via WorkManager.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_upload-worker.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/profiling-manager/will-my-profile-always-be-collected\" target=\"_blank\">Rate limiting and collection behavior</a>",
+        "path": "topic/performance/tracing/profiling-manager/will-my-profile-always-be-collected.md",
+        "summary": "Updated documentation for `ProfilingManager` to include detailed data retention policies for undelivered profiles (up to 7 days for queued results and 5 days for local storage cleanup), clarified how process and system rate limits operate over rolling time windows, and added best practices for managing profile volume in production using population segmentation and remote configuration.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d083ac7f_will-my-profile-always-be-collected.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-03T15:09:08Z",
     "commit_hash": "24be1c5c",
     "entries": [

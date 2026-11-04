@@ -1,0 +1,54 @@
+diff --git a/docs/games/pgs/integrate-gamestats.md b/docs/games/pgs/integrate-gamestats.md
+index 6b4fd838..b5284bfc 100644
+--- a/docs/games/pgs/integrate-gamestats.md
++++ b/docs/games/pgs/integrate-gamestats.md
+@@ -67,46 +67,9 @@ To import stats, follow these steps:
+ 
+ To verify that the Game Stats work as intended, follow the steps to test them:
+ 
+-- In the Play Console, set up an [internal test track](https://support.google.com/googleplay/android-developer/answer/9845334).
+-- [Add test accounts](https://developer.android.com/games/pgs/console/publish) to your game project for testers.
+-- Create Play Games Services profile for one of the test account using Play Games App.
+-- Open the game using the same test account for which you created the Play Games Services profile.
+-- Verify that Play Games Services "Welcome toast" is shown on the screen as a confirmation of successful automatic authentication on game launch.
+-- The test account user can play the game to trigger the events. Check the API response to know if the events have been recorded.
+-
+-### Manage Game Stats visibility on your device for testing
+-
+-Once the game's available to your testers in the Play Console, follow these
+-steps to view the [Game Stats](https://developer.android.com/games/pgs/gamestats) on your device:
+-
+-1. Clear the Google Play Store cache:
+-
+-   1. Open the **Settings** app on your device.
+-   2. Tap **Apps** \> **Google Play Store**.
+-   3. Tap **Storage and cache** , and then tap **Clear cache**.
+-2. Open the **Google Play Store** app.
+-
+-3. View your game stats using either the **Track your playtime** section or
+-   your **gamer profile**:
+-
+-#### Method 1: Use the Track your playtime section
+-
+-Go to the **Track your playtime** section, and then tap it to view your game
+-stats.
+-[![Game Stats Test Method 1 to use the track your playtime section.](https://developer.android.com/static/images/games/pgs/gamestats-test-method1.png)](https://developer.android.com/static/images/games/pgs/gamestats-test-method1.png) The Track your playtime section on the You tab.
+-
+-#### Method 2: Use your gamer profile
+-
+-1. Tap the **You** tab, and then tap your gamer profile.
+-2. Go to the **Game Stats** section.
+-3. For the time range, select **All**.
+-4. If your game doesn't appear, tap **See all games**.
+-5. Select your game to view its stats.
+-
+-[![Game Stats Test Method 2 to use the gamer profile.](https://developer.android.com/static/images/games/pgs/gamestats-test-method2.png)](https://developer.android.com/static/images/games/pgs/gamestats-test-method2.png) The Game Stats section on the gamer profile.
+-
+-> [!NOTE]
+-> **Note:** Because the UI in the **You** tab's available only for testing purposes, it might take up to 3 days for stats to appear after you add internal test accounts in the Google Play Console. If **See all games** doesn't appear, play at least four games for more than 5 minutes each.
++- Open the **Google Play Store** app.
++- Sign in to your Play Games profile on the **Google Play Store** app.
++- View your **Game stats** in your gamer profile.
+ 
+ ### View the logs on your device
+ 

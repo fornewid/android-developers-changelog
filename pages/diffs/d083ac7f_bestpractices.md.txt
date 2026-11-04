@@ -1,0 +1,24 @@
+diff --git a/docs/develop/ui/compose/performance/bestpractices.md b/docs/develop/ui/compose/performance/bestpractices.md
+index 0d25373e..de94bf88 100644
+--- a/docs/develop/ui/compose/performance/bestpractices.md
++++ b/docs/develop/ui/compose/performance/bestpractices.md
+@@ -6,7 +6,9 @@ source: md.txt
+ 
+ You might encounter common Compose pitfalls. These mistakes might give you code
+ that seems to run well enough, but can hurt your UI performance. Follow best
+-practices to optimize your app on Compose.
++practices to optimize your app on Compose. For empirical benchmark data showing
++Compose scrolling and startup performance when built with R8 and Baseline
++Profiles, see [Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/backwards-write).
+ 
+ ## Use `remember` to minimize expensive calculations
+ 
+@@ -198,7 +200,7 @@ recomposed. However, you don't actually need to recompose it that often---you
+ don't need to recompose until a new item becomes visible at the top. So,
+ that's a lot of extra computation, which makes your UI perform badly.
+ 
+-The solution is to use [*derived state*](https://developer.android.com/develop/ui/compose/side-effects#derivedstateof) (or [`computedStateOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#computedStateOf(androidx.compose.runtime.SnapshotMutationPolicy,kotlin.Function0)) in
++The solution is to use [*derived state*](https://developer.android.com/develop/ui/compose/side-effects#derivedstateof) (or [`computedStateOf`](https://developer.android.com/develop/ui/compose/performance/herobenchmark) in
+ Compose Runtime 1.13 and higher). Derived state lets you tell Compose which
+ changes of state actually should trigger recomposition. In this case, specify
+ that you care about when the first visible item changes. When *that* state value

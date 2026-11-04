@@ -1,0 +1,43 @@
+diff --git a/docs/privacy-and-security/local-network-permission.md b/docs/privacy-and-security/local-network-permission.md
+index 9c459ea4..4cd79965 100644
+--- a/docs/privacy-and-security/local-network-permission.md
++++ b/docs/privacy-and-security/local-network-permission.md
+@@ -15,10 +15,10 @@ gating access to the local network behind a new runtime permission.
+ 
+ ## Impact
+ 
+-During Android 16, this permission is an opt-in feature which means only the
+-apps that opt-in will be affected. The goal of the opt-in is for app developers
+-to understand which parts of their app depend on implicit local network access
+-such that they can prepare to permission guard them on a future Android release.
++Starting in Android 17 (API level 37), local network protections are enforced
++for apps targeting Android 17 or higher. The prior Android 16 opt-in
++configuration is deprecated; see [Android 17 Enforcement](https://developer.android.com/privacy-and-security/local-network-permission#android-17-enforcement) for current
++implementation requirements.
+ 
+ Apps will be affected if they access the user's local network using:
+ 
+@@ -166,9 +166,12 @@ reset counter strategy when targeting Android 17 (SDK 37) or higher. If the
+ provides additional opportunities for the app to re-request the permission,
+ allowing developers to present a clearer rationale for the user.
+ 
+-## Android 16 Guidance
++## Android 16 guidance (deprecated)
+ 
+-To opt into local network restrictions, do the following:
++> [!CAUTION]
++> **Caution:** The Android 16 opt-in guidance using `RESTRICT_LOCAL_NETWORK` and `NEARBY_WIFI_DEVICES` is deprecated. Starting in Android 17 (API level 37), local network protections are enforced using the [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network) runtime permission. Follow the [Android 17 Enforcement](https://developer.android.com/privacy-and-security/local-network-permission#android-17-enforcement) guidance instead.
++
++To opt into local network restrictions on Android 16, do the following:
+ 
+ 1. Flash your device to a build with Android 16 Beta 3 or later
+ 2. Install the app to be tested
+@@ -189,7 +192,7 @@ To restore access, you must grant your app permission to `NEARBY_WIFI_DEVICES`.
+ - Go to **Settings** \> **Apps** \> **\[App Name\]** \> **Permissions** \> **Nearby devices** \> **Allow**
+ 
+ > [!NOTE]
+-> **Note:** in a future Android release, this feature will be guarded by a new permission in the [`NEARBY_DEVICES`](https://developer.android.com/reference/android/Manifest.permission_group#NEARBY_DEVICES) permission group.
++> **Note:** Starting in Android 17 (API level 37), this feature is guarded by the [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network) permission in the [`NEARBY_DEVICES`](https://developer.android.com/reference/android/Manifest.permission_group#NEARBY_DEVICES) permission group.
+ 
+ Now your app's access to the local network should be restored and all your
+ scenarios should work as they did prior to opting the app in. Here is how the

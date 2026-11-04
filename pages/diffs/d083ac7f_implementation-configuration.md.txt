@@ -1,0 +1,31 @@
+diff --git a/docs/agents/skills/device-ai/appfunctions/references/implementation-configuration.md b/docs/agents/skills/device-ai/appfunctions/references/implementation-configuration.md
+index 3505b3a5..f565ea6a 100644
+--- a/docs/agents/skills/device-ai/appfunctions/references/implementation-configuration.md
++++ b/docs/agents/skills/device-ai/appfunctions/references/implementation-configuration.md
+@@ -150,7 +150,7 @@ repositories or use cases using standard `@Inject internal lateinit var`:
+ abstract class BaseAppFunctionServiceHeader : AppFunctionService() {
+     @Inject internal lateinit var messageRepository: MessageRepository
+ 
+-    @AppFunction(isDescribedByKDoc = true)
++    @AppFunctionDeclaration(isDescribedByKDoc = true)
+     internal suspend fun send(
+         name: String,
+         endpointValue: String,
+@@ -187,7 +187,7 @@ abstract class BaseAppFunctionServiceLocator : AppFunctionService() {
+     // Or with Koin / alternative DI locators:
+     // private val messageRepository: MessageRepository by inject()
+ 
+-    @AppFunction(isDescribedByKDoc = true)
++    @AppFunctionDeclaration(isDescribedByKDoc = true)
+     internal suspend fun send(
+         name: String,
+         endpointValue: String,
+@@ -277,7 +277,7 @@ abstract class BaseTaskAppFunctionService : AppFunctionService() {
+      *
+      * @param createTaskParams The parameter to describe how to create the task.
+      */
+-    @AppFunction(isDescribedByKDoc = true)
++    @AppFunctionDeclaration(isDescribedByKDoc = true)
+     suspend fun createTask(
+         createTaskParams: CreateTaskParams,
+     ): Task = withContext(Dispatchers.IO) {
