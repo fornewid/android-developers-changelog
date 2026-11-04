@@ -233,12 +233,12 @@ The following code snippet showcases the request body payload for the
 
 ## Delete the Engage data
 
-Use the `clearClusters` API to remove the Engage data.
+Use the `clearCluster` API to remove the Engage data.
 
 To delete the continuation cluster data, perform a POST request to the
-`clearClusters` API using the following syntax.
+`clearCluster` API using the following syntax.
 
-    https://tvvideodiscovery.googleapis.com/v1/packages/{package_name}/accounts/{account_id}/profiles/{profile_id}/clearClusters
+    https://tvvideodiscovery.googleapis.com/v1/packages/{package_name}/accounts/{account_id}/profiles/{profile_id}/clearCluster
 
 Where:
 
@@ -246,7 +246,11 @@ Where:
 - `accountId`: The unique ID for the user's account in your system. It must match the `accountId` used in the on-device path.
 - `profileId`: The unique ID for the user's profile within the account in your system. It must match the profileId used in the on-device path.
 
-The payload for the `clearClusters` API contains only one field, `reason`, which
+The URL for the account without profile is:
+
+    https://tvvideodiscovery.googleapis.com/v1/packages/{package_name}/accounts/{account_id}/clearCluster
+
+The payload for the `clearCluster` API contains only one field, `reason`, which
 contains a [`DeleteReason`](https://developer.android.com/reference/com/google/android/engage/service/DeleteReason) that specifies the reason for
 removing data.
 

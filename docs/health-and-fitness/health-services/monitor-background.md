@@ -112,7 +112,7 @@ to the service:
 
     <service android:name=".PassiveDataService"
         android:permission="com.google.android.wearable.healthservices.permission.PASSIVE_DATA_BINDING"
-        andro>id:exported="true" /
+        android:exported="true" />
 
 ### Interpret time
 
@@ -181,17 +181,17 @@ two changes to the `AndroidManifest.xml` file.
 
 First, add the following permission as a child of `<manifest>`:
 
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLET>ED" /
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 Second, add the following receiver intent filter as a child of `<application>`:
 
     <receiver
         android:name=".StartupReceiver"
-        android:expor>ted=&<quot;true&quo>t;
-        in<tent-filter
-            action android:name="android.intent>.acti<on.BOOT_COMPLE>T<ED" >/
-        /intent-filter
-    /receiver
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED" />
+        </intent-filter>
+    </receiver>
 
 ## Activity state
 

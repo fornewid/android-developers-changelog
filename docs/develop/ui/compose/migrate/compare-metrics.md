@@ -144,7 +144,7 @@ written in Kotlin and compiled like the rest of your app.
 
 ### Benchmark Compose
 
-In Jetpack Compose 1.0, there are notable differences between the performance of
+In Jetpack Compose, there are notable differences between the performance of
 an app in `debug` and `release` modes. For representative timings, **always**
 use the `release` build instead of `debug` when profiling your app.
 
@@ -153,15 +153,15 @@ To check how your Jetpack Compose code is performing, you can use the
 to use it with Jetpack Compose, see the
 [MacrobenchmarkSample project](https://github.com/android/performance-samples/tree/main/MacrobenchmarkSample).
 
-The Jetpack Compose team also uses Macrobenchmark to catch any regressions that
-can happen. For example, see the [benchmark for lazy column](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/integration-tests/macrobenchmark/src/main/java/androidx/compose/integration/macrobenchmark/TrivialListScrollBenchmark.kt)
-and its [dashboard](https://androidx-perf.skia.org/e/?queries=test%3Dandroidx.benchmark.integration.macrobenchmark.SmallListStartupBenchmark_startup_startup_HOT_compilation_None_%26test%3Dandroidx.benchmark.integration.macrobenchmark.SmallListStartupBenchmark_startup_startup_WARM_compilation_None_%26test%3Dandroidx.benchmark.integration.macrobenchmark.SmallListStartupBenchmark_startup_startup_WARM_compilation_SpeedProfile_iterations_3__%26test%3Dandroidx.benchmark.integration.macrobenchmark.SmallListStartupBenchmark_startup_startup_HOT_compilation_SpeedProfile_iterations_3__%26test%3Dandroidx.benchmark.integration.macrobenchmark.SmallListStartupBenchmark_startup_startup_COLD_compilation_SpeedProfile_iterations_3__%26test%3Dandroidx.benchmark.integration.macrobenchmark.SmallListStartupBenchmark_startup_startup_COLD_compilation_None_)
-to track regressions.
+The Jetpack Compose team also uses Macrobenchmark to track regressions and
+validate performance against Views across releases. For detailed startup and
+scroll benchmarks comparing Compose and Views on the open-source Pokedex app,
+see [Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark).
 
 ### Compose profile installation
 
 Since Jetpack Compose is an unbundled library, it doesn't benefit from [Zygote](https://developer.android.com/topic/performance/memory-overview#SharingRAM) that preloads the View system's
-UI Toolkit classes and drawables. Jetpack Compose 1.0 utilizes profile
+UI Toolkit classes and drawables. Jetpack Compose utilizes profile
 installation for *release* builds. [Profile installers](https://developer.android.com/jetpack/androidx/releases/profileinstaller) let apps specify critical code to
 be ahead-of-time (AOT) compiled at installation time. Compose ships profile
 installation rules which reduce startup time and jank in Compose apps.
@@ -173,6 +173,7 @@ installation rules which reduce startup time and jank in Compose apps.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
+- [Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark)
 - [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations)
 - [Using Compose in Views](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/compose-in-views)
 - [Scroll](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/scroll)

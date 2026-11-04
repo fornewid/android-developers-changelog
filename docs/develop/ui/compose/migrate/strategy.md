@@ -224,6 +224,7 @@ more information.
 Check out the following additional resources to learn more about migrating your
 existing View-based app to Compose:
 
+- [Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark): Real-world benchmark comparisons between Compose and Views startup and scrolling performance.
 - Codelab
   - [Migrating to Jetpack Compose](https://developer.android.com/codelabs/jetpack-compose-migration#0): Learn how to migrate bits of the Sunflower app to Compose in this codelab.
 - Blog posts
@@ -238,6 +239,7 @@ app, explore the [Interoperability APIs](https://developer.android.com/develop/u
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
+- [Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark)
 - [Using Compose in Views](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/compose-in-views)
 - [Scroll](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/scroll)
 - [Migrate `RecyclerView` to Lazy list](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/recycler-view)

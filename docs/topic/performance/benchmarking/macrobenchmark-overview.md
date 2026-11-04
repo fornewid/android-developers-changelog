@@ -502,8 +502,9 @@ To learn more about the types of startup, see [App startup time](https://develop
 
 ## Samples
 
-A sample project is available in the [Macrobenchmark
-Sample](https://github.com/android/performance-samples/tree/main/MacrobenchmarkSample) of the repository on GitHub.
+- A sample project is available in the [Macrobenchmark
+  Sample](https://github.com/android/performance-samples/tree/main/MacrobenchmarkSample) of the repository on GitHub.
+- For a real-world case study using Macrobenchmark to measure startup and scroll performance across Jetpack Compose and Views, see the [Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark).
 
 ## Provide feedback
 
@@ -514,6 +515,7 @@ tracker](https://issuetracker.google.com/issues/new?component=975669&;template=1
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
+- [Jetpack Compose Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark)
 - [Capture Macrobenchmark metrics](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics)
 - [Create Baseline Profiles {:#creating-profile-rules}](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile)
 - [Automate measurement with the Macrobenchmark library

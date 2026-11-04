@@ -110,14 +110,19 @@ aren't 16 KB aligned.
 ### Check the alignment of ELF segments for shared libraries
 
 For any shared libraries, verify that the shared libraries' ELF segments are
-aligned properly using 16 KB ELF alignment. If you are developing on either
-Linux or macOS, you can use the `check_elf_alignment.sh` script as described in
-the following section. You can also [use the command-line tools directly](https://developer.android.com/guide/practices/page-sizes#alignment-use-tools).
+aligned properly using 16 KB ELF alignment.
+
+#### Use APK Analyzer (Recommended)
+
+The easiest way to verify the alignment of your shared libraries is to [use the
+APK Analyzer](https://developer.android.com/guide/practices/page-sizes#identify-native-code) in Android Studio. If a shared object
+file is not 16 KB aligned, the **Alignment** column will display a warning
+message.
 
 #### Use the check_elf_alignment.sh script (Linux or macOS)
 
-Follow these steps to check the alignment of ELF segments using the
-`check_elf_alignment.sh` script:
+If you are developing on either Linux or macOS and prefer to use a script, you
+can use the `check_elf_alignment.sh` script:
 
 1. Save the [`check_elf_alignment.sh`](https://cs.android.com/android/platform/superproject/main/+/main:system/extras/tools/check_elf_alignment.sh) script to a file.
 
@@ -201,82 +206,137 @@ tools directly:
 ### Check the RELRO security flag
 
 To mitigate security exploits, modern linkers use the
-[Relocation Read-Only (RELRO)](https://www.redhat.com/en/blog/hardening-elf-binaries-using-relocation-read-only-relro) flag to make relocation
-sections of the shared object file read-only after loading.
+[Relocation Read-Only (RELRO)](https://www.redhat.com/en/blog/hardening-elf-binaries-using-relocation-read-only-relro) flag to make relocation target
+sections (such as `.got` and `.data.rel.ro`) of the shared object file
+read-only after dynamic relocations are complete.
 Enable the RELRO flag in your [build](https://developer.android.com/guide/practices/page-sizes#compile-16-kb-alignment).
 
-A RELRO section having a start address plus segment size (MemSize) that is not
-16 KB aligned crashes the app at runtime with a segmentation fault. This
-happens if the `.so` file was built with NDK tool chain r27 and lower without
-enabling the [relevant flags](https://developer.android.com/guide/practices/page-sizes#compile-r27-lower).
+When `GNU_RELRO` shares a writable `LOAD` segment with subsequent writable data
+(such as `.data` or `.bss`), the end address of the `GNU_RELRO` segment
+(`VirtAddr` + `MemSiz`) must be 16 KB aligned (`0x4000`). Otherwise, when
+the [Android Linker](https://developer.android.com/ndk/reference/group/libdl) marks the 16 KB page containing the end of
+`GNU_RELRO` as read-only, any adjacent writable data residing in the remainder
+of that same 16 KB page also becomes read-only, crashing the app at
+runtime with a segmentation fault (`SIGSEGV`) when that data is written to.
+This typically happens if the `.so` file was built with NDK toolchain r27 and
+lower without enabling the [relevant flags](https://developer.android.com/guide/practices/page-sizes#compile-r27-lower).
 
-Run the following command on each shared object file (Linux or macOS):
+#### Use APK Analyzer (Recommended)
 
-    SDK_ROOT_LOCATION/Android/sdk/ndk/NDK_VERSION/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-readelf -Wl SHARED_OBJECT_FILE.so | grep 'RELRO\|Type'
+You can use the [APK Analyzer in Android Studio](https://developer.android.com/studio/debug/apk-analyzer) to check the
+RELRO alignment status of your shared object files directly.
+![APK Analyzer in Android Studio showing RELRO alignment for native libraries](https://developer.android.com/static/images/guide/practices/studio-apk-analyzer-relro.png)
+
+<br />
+
+#### Use command-line tools
+
+If you prefer to check the alignment manually or need to automate the process,
+follow these steps:
+
+##### Step 1: Inspect the program headers
+
+Run the following command on each shared object file (on Linux, replace
+`darwin-x86_64` with `linux-x86_64`):
+
+### Linux or macOS
+
+    SDK_ROOT_LOCATION/Android/sdk/ndk/NDK_VERSION/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-readelf -Wl SHARED_OBJECT_FILE.so | grep 'LOAD\|RELRO\|Type'
+
+### Windows (PowerShell)
+
+    SDK_ROOT_LOCATION\Android\sdk\ndk\NDK_VERSION\toolchains\llvm\prebuilt\windows-x86_64\bin\llvm-readelf.exe -Wl SHARED_OBJECT_FILE.so | Select-String -Pattern 'LOAD|RELRO|Type'
 
 The `GNU_RELRO` string is printed if there's a RELRO segment.
 
-Next, check the RELRO segment alignment by summing its virtual offset address
-(VirtAddr) with the segment memory size (MemSiz) and dividing by 16 KB
-(0x4000). If the remainder (modulo) is zero, then the RELRO segment is
-16 KB aligned.
+##### Step 2: Verify 16 KB compliance for RELRO
 
-Here's a an example for a non-aligned `.so` file:
+A shared object file is 16 KB compliant with respect to RELRO if **any**
+of the following conditions is met:
 
-    Type           Offset   VirtAddr           PhysAddr           FileSiz MemSiz  Flg Align  
+1. **No `GNU_RELRO` segment exists** in the program headers.
+2. **The `GNU_RELRO` end address is 16 KB aligned** : The sum of its virtual address (`VirtAddr`) and memory size (`MemSiz`) divided by 16 KB (`0x4000`) leaves a remainder (modulo) of zero: `(VirtAddr + MemSiz) % 0x4000 == 0`.
+3. **No writable data follows `GNU_RELRO` in the same `LOAD` segment** : `GNU_RELRO` occupies the entire remainder of its containing `LOAD` segment (meaning `LOAD.VirtAddr + LOAD.MemSiz == RELRO.VirtAddr + RELRO.MemSiz`), so no writable `.data` or `.bss` sections share the trailing page.
+
+*** ** * ** ***
+
+#### Examples
+
+The following examples show how to evaluate `llvm-readelf` output for different
+`GNU_RELRO` configurations.
+
+##### Example 1: Non-aligned `.so` file (Non-compliant)
+
+In this example, `GNU_RELRO` shares a `RW` `LOAD` segment with subsequent
+writable data, and its end address isn't a multiple of `0x4000`:
+
+    Type           Offset   VirtAddr           PhysAddr           FileSiz MemSiz  Flg Align
+    LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x0cfaf0 0x0cfaf0 R E 0x4000
+    LOAD           0x0cfaf0 0x00000000000dfaf0 0x00000000000dfaf0 0x02510 0x04510 RW  0x4000
     GNU_RELRO      0x0cfaf0 0x00000000000dfaf0 0x00000000000dfaf0 0x01510 0x01510 R   0x1
 
-**Formula**: (VirtAddr + MemSiz) % 0x4000 == 0
+- **Formula** : `(VirtAddr + MemSiz) % 0x4000 == 0`
+- **Result** : `(0xdfaf0 + 0x01510) % 0x4000 = 0xE1000 % 0x4000 == 0x1000`
 
-**Result**: (0xdfaf0 + 0x01510) % 0x4000 = 0xE1000 % 0x4000 == 0x1000
-
-Since 0x1000 is not zero, this `.so` file isn't 16 KB compliant. The RELRO
-protection range from DC000 (the previous page break) to E4000 is read-only,
-but [Android Linker](https://developer.android.com/ndk/reference/group/libdl) expects the sub-range from E1000 to E4000 to be
-writable, resulting in a segmentation fault. In this case, rebuild the `.so`
+Since `0x1000` isn't zero, and the containing `LOAD` segment continues past
+`0xE1000` (ending at `0xdfaf0 + 0x04510 = 0xE4000`), this `.so` file isn't
+16 KB compliant. On a 16 KB device, the linker rounds the RELRO
+protection range to 16 KB page boundaries, marking `0xDC000` (the previous
+page break) through `0xE4000` as read-only. However, the `.so` file's writable
+`.data` and `.bss` sections reside in the sub-range from `0xE1000` to `0xE4000`,
+resulting in a segmentation fault when modified at runtime. Rebuild this `.so`
 file as described in the
 [Compile your app using 16 KB ELF alignment](https://developer.android.com/guide/practices/page-sizes#compile-16-kb-alignment) section.
 
-Here is an example of an aligned `.so` file, with a RELRO segment:
+##### Example 2: Aligned `.so` file with a RELRO segment (Compliant)
+
+In this example, the end of the `GNU_RELRO` segment falls on a 16 KB page
+boundary:
 
     Type           Offset   VirtAddr           PhysAddr           FileSiz MemSiz  Flg Align
-    GNU_RELRO      0x0cfaf0 0x00000000000dfaf0 0x00000000000dfaf0 0x01510 0x00510 R   0x1  
+    LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x0cfaf0 0x0cfaf0 R E 0x4000
+    LOAD           0x0cfaf0 0x00000000000dfaf0 0x00000000000dfaf0 0x01510 0x03510 RW  0x4000
+    GNU_RELRO      0x0cfaf0 0x00000000000dfaf0 0x00000000000dfaf0 0x00510 0x00510 R   0x1
 
-Here is a an example of an `.so` file without a RELRO segment:
+- **Formula** : `(VirtAddr + MemSiz) % 0x4000 == 0`
+- **Result** : `(0xdfaf0 + 0x00510) % 0x4000 = 0xE0000 % 0x4000 == 0`
+
+Because the remainder is `0`, the RELRO protection ends cleanly at the `0xE0000`
+page boundary, leaving any writable data starting at `0xE0000` unaffected.
+
+##### Example 3: `.so` file without a RELRO segment (Compliant)
 
     Type           Offset   VirtAddr           PhysAddr           FileSiz MemSiz  Flg Align
+    LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x000680 0x000680 R E 0x4000
+    LOAD           0x000680 0x0000000000004680 0x0000000000004680 0x0001d8 0x0001d8 RW  0x4000
 
-This is a trivially 16 KB compliant `.so` file without having any RELRO
-segment.
+This `.so` file has no `GNU_RELRO` segment, so RELRO page-boundary issues don't
+apply (though enabling RELRO is still recommended for security).
 
-Here is an example of an aligned `.so` file where `GNU_RELRO` is in its own
-`LOAD` segment:
+##### Example 4: `GNU_RELRO` in its own `LOAD` segment (Compliant)
+
+In this example, `GNU_RELRO` does not end on a 16 KB boundary, but it is
+still compliant because no writable data follows it in the same `LOAD` segment:
 
     Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
     LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x000680 0x000680 R E 0x4000
     LOAD           0x000680 0x0000000000004680 0x0000000000004680 0x0001d8 0x000980 RW  0x4000
     GNU_RELRO      0x000680 0x0000000000004680 0x0000000000004680 0x0001d8 0x000980 R   0x1
 
-**Formula**: (VirtAddr + MemSiz) % 0x4000 == 0
+- **Formula** : `(VirtAddr + MemSiz) % 0x4000 == 0`
+- **Result** : `(0x4680 + 0x0980) % 0x4000 = 0x5000 % 0x4000 == 0x1000`
 
-**Result**: (0x4680 + 0x0980) % 0x4000 = 0x5000 % 0x4000 == 0x1000
+Although `0x1000` isn't zero, this `.so` file is still 16 KB compliant.
+Comparing `GNU_RELRO` against its containing `LOAD` segment (the second `LOAD`
+entry) shows that both start at `VirtAddr` `0x4680` and end at the exact same
+address (`0x4680 + 0x0980 = 0x5000`).
 
-Although 0x1000 isn't zero, this `.so` file is still 16 KB compliant.
-
-The modulo formula applies when `GNU_RELRO` shares a `LOAD` segment with
-subsequent writable data (such as `.data` or `.bss`).
-
-To check whether `GNU_RELRO` is in its own `LOAD` segment, inspect the
-program headers by running `llvm-readelf -Wl` and filtering with
-`grep 'LOAD\|RELRO\|Type'`. Compare the `VirtAddr` and `MemSiz` of
-`GNU_RELRO` against the containing `LOAD` segment. In this example,
-both have `VirtAddr` `0x4680` and `MemSiz` `0x0980`.
-
-Because the entire `LOAD` segment contains only RELRO data, there's no
-writable data in the sub-range from 0x5000 to 0x8000. Additionally, any
-subsequent writable `LOAD` segment begins on a separate 16 KB page
-boundary (at 0x8000 or beyond). The linker's read-only protection won't
-overlap with any writable data, so no segmentation fault occurs.
+Because the entire `LOAD` segment contains only RELRO data, there is no
+writable `.data` or `.bss` data in the sub-range from `0x5000` to `0x8000`
+(either the library has no non-RELRO writable data, or any subsequent writable
+`LOAD` segment begins on a separate 16 KB page boundary at `0x8000` or
+beyond). The linker's read-only protection won't overlap with any writable data,
+so no segmentation fault occurs.
 
 ## Build your app with support for 16 KB devices
 

@@ -37,6 +37,3 @@ services securely and contextually.
 - With this feature, the OEM-preloaded assistant is in control:
 
   - **Computer Control** : Computer Control is an upcoming Android API that allows an OEM-preloaded assistant to automate tasks by interacting directly with an app's user interface. The target app doesn't need any explicit code changes to integrate. Read about [Computer Control](https://developer.android.com/ai/computer-control).
-- To render interactive interfaces from in-app agents:
-
-  - **Agent-to-UI (A2UI)** : To go beyond the capabilities of AppFunctions, which enable agents to invoke discrete actions and tools, you can use agents to dynamically generate structured UI for your users. Using the [Jetpack Compose A2UI Renderer](https://developer.android.com/develop/ui/compose/agentic), your app can translate agent-to-UI (A2UI) protocol messages directly into native Jetpack Compose and Material 3 components.

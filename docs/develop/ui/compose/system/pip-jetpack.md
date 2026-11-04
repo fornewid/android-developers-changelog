@@ -111,7 +111,10 @@ class NavOrVideoCallJpipActivity : ComponentActivity(), PictureInPictureDelegate
     private lateinit var pictureInPictureImpl: BasicPictureInPicture
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pictureInPictureImpl = BasicPictureInPicture(this)
+        pictureInPictureImpl = BasicPictureInPicture(
+            this,
+            Executors.newSingleThreadExecutor()
+        )
         // BasicPictureInPicture is ideal for Navigation and Video call use cases.
         pictureInPictureImpl.addOnPictureInPictureEventListener(
             ContextCompat.getMainExecutor(this),
@@ -144,7 +147,10 @@ class VideoPlaybackJpipActivity : ComponentActivity(), PictureInPictureDelegate.
     private lateinit var pictureInPictureImpl: VideoPlaybackPictureInPicture
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pictureInPictureImpl = VideoPlaybackPictureInPicture(this)
+        pictureInPictureImpl = VideoPlaybackPictureInPicture(
+            this,
+            Executors.newSingleThreadExecutor()
+        )
         pictureInPictureImpl.addOnPictureInPictureEventListener(
             ContextCompat.getMainExecutor(this),
             this

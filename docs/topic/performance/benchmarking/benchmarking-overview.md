@@ -26,6 +26,8 @@ user.
 
 ## Additional resources
 
+- [Jetpack Compose Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark): Real-world Macrobenchmark case study comparing Compose and Views startup and scrolling performance on the open-source Pokedex app.
+
 ### Views content
 
 - [Benchmark your app (Views)](https://developer.android.com/topic/performance/views/benchmarking/benchmarking-overview-views)
@@ -33,6 +35,7 @@ user.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
+- [Jetpack Compose Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark)
 - [Create Baseline Profiles {:#creating-profile-rules}](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile)
 - [JankStats Library](https://developer.android.com/topic/performance/jankstats)
 - [Overview of measuring app performance](https://developer.android.com/topic/performance/measuring-performance)

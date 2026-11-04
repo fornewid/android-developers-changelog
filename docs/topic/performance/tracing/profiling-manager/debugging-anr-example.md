@@ -4,13 +4,33 @@ url: https://developer.android.com/topic/performance/tracing/profiling-manager/d
 source: md.txt
 ---
 
-This section shows how to debug an [Application Not Responding (ANR)](https://developer.android.com/topic/performance/anrs/keep-your-app-responsive) using
-`ProfilingManager` with an example trace.
+This page walks through how to debug an [Application Not Responding (ANR)](https://developer.android.com/topic/performance/anrs/keep-your-app-responsive)
+error using `ProfilingManager` with an example system trace.
 
 ## Set up app to collect ANRs
 
 Start by setting up an ANR trigger in your app:
 
+
+### Kotlin
+
+```kotlin
+fun addANRTrigger() {
+    val profilingManager =
+        applicationContext.getSystemService(ProfilingManager::class.java) ?: return
+    val triggers = ArrayList<ProfilingTrigger>()
+    val triggerBuilder = ProfilingTrigger.Builder(ProfilingTrigger.TRIGGER_TYPE_ANR)
+    triggers.add(triggerBuilder.build())
+    val callbackExecutor: Executor = Executors.newSingleThreadExecutor()
+    val resultCallback = Consumer<ProfilingResult> { profilingResult ->
+        // Handle uploading trace to your back-end
+    }
+    profilingManager.registerForAllProfilingResults(callbackExecutor, resultCallback)
+    profilingManager.addProfilingTriggers(triggers)
+}
+```
+
+### Java
 
 ```java
 public void addANRTrigger() {
@@ -20,86 +40,127 @@ public void addANRTrigger() {
   ProfilingTrigger.Builder triggerBuilder = new ProfilingTrigger.Builder(
       ProfilingTrigger.TRIGGER_TYPE_ANR);
   triggers.add(triggerBuilder.build());
-  Executor mainExecutor = Executors.newSingleThreadExecutor();
+  Executor callbackExecutor = Executors.newSingleThreadExecutor();
   Consumer<ProfilingResult> resultCallback =
       profilingResult -> {
         // Handle uploading trace to your back-end
       };
-  profilingManager.registerForAllProfilingResults(mainExecutor, resultCallback);
+  profilingManager.registerForAllProfilingResults(callbackExecutor, resultCallback);
   profilingManager.addProfilingTriggers(triggers);
 }
 ```
 
 <br />
 
-After capturing and uploading an ANR trace, open it in the [Perfetto UI](https://ui.perfetto.dev/).
+After capturing and uploading an ANR trace, you can inspect it manually in the
+[Perfetto UI](https://ui.perfetto.dev/) as shown in the following steps, or [automate the ANR
+investigation with an AI agent](https://developer.android.com/topic/performance/tracing/profiling-manager/debugging-anr-example#analyze-with-ai).
 
 ## Analyze the trace
 
 Because the ANR triggered the trace, you know the trace ended when the system
-detected unresponsiveness in your app's main thread. Figure 1 shows how to
-navigate to your app's main thread which is tagged accordingly within the UI.
+detected unresponsiveness in your app's main thread (or when another timeout
+occurred). Figure 1 shows how to navigate to your app's main thread, which is
+tagged accordingly within the UI.
 ![Perfetto UI navigation to app main thread.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-main-thread.png) **Figure 1.** Navigation to app's main thread.
 
 The end of the trace matches the ANR's timestamp, as shown in Figure 2.
 ![Perfetto UI showing the end of a trace, highlighting the ANR trigger
 location.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-anr-trigger.png) **Figure 2.** ANR trigger location.
 
-The trace also shows operations the app was running when the ANR occurred.
-Specifically, the app ran code in the `handleNetworkResponse` trace slice. This
-slice was inside the `MyApp:SubmitButton` slice. It used 1.48 seconds of CPU
-time (Figure 3).
+When the ANR occurred, the main thread was executing the
+`handleNetworkResponse` slice inside `MyApp:SubmitButton`, which consumed 1.48
+seconds of CPU time (Figure 3).
 ![Perfetto UI showing the CPU time consumed by the handleNetworkResponse
 execution at the time of the ANR.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-execution-at-trigger.png) **Figure 3.** Execution at the time of ANR.
 
-If you rely solely on stack traces at the moment of the ANR for debugging, you
-might wrongly attribute the ANR entirely to the code running within
-`handleNetworkResponse` trace slice which had not ended when the profile
-finished recording. However,
-1.48 seconds is insufficient to trigger an ANR on its own, even though it is an
-expensive operation. You need to look further back in time to understand what
-blocked the main thread before this method.
+Relying only on a stack dump taken at the moment of the ANR might misattribute
+the freeze entirely to `handleNetworkResponse`. However, 1.48 seconds isn't
+long enough on its own to trigger an ANR, so you need to inspect what blocked
+the main thread earlier.
 
 > [!TIP]
-> **Tip:** We recommend you to [add custom trace slices](https://developer.android.com/topic/performance/tracing/custom-events) to identify long running operations and to identify important user journeys.
+> **Tip:** [Add custom trace slices](https://developer.android.com/topic/performance/tracing/custom-events) to label long-running operations and key user journeys in your traces.
 
-To grab a starting point to look for the cause for the ANR we start looking
-after the last frame generated by the UI thread which corresponds to
-`Choreographer#doFrame 551275` slice and there aren't big sources of delay prior
-to starting the `MyApp:SubmitButton` slice that ended in the ANR (Figure 4).
+Start by locating the last UI frame rendered before the freeze
+(`Choreographer#doFrame 551275`), which immediately precedes the
+`MyApp:SubmitButton` slice (Figure 4).
 ![Perfetto UI showing last frame rendered by UI thread prior the ANR.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-last-frame-pre-anr.png) **Figure 4.** Last app frame generated before the ANR.
 
 To understand the blockage, zoom out to inspect the full `MyApp:SubmitButton`
-slice. You will notice a critical detail in the thread states, as shown in
-Figure 4: the thread spent **75% of the time (6.7 seconds) in `Sleeping` state**
-and only **24% of the time in `Running` state**.
+slice. You will notice a critical detail in the thread states for the manually
+selected range in Figure 5: the thread spent roughly **75% of the time (6.7
+seconds) in `Sleeping` state** and only **24% of the time in `Running` state**.
 ![Perfetto UI showing thread states during an operation, highlighting 75%
-sleeping and 24% running time.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-blockingop-thread-states.png) **Figure 5.** Thread states during \`MyApp:SubmitButton\` operation.
+sleeping and 24% running time.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-blockingop-thread-states.png) **Figure 5.** Thread states during `MyApp:SubmitButton` operation.
 
 This indicates that the primary cause of the ANR was waiting, not computation.
 Examine the individual sleep occurrences to find a pattern.
 ![Perfetto UI showing the first sleeping interval within the
-MyAppSubmitButton trace slice.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-first-sleep.png) **Figure 6.** First sleeping time within \`MyAppSubmitButton\`. ![Perfetto UI showing the second sleeping interval within the
-MyAppSubmitButton trace slice.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-second-sleep.png) **Figure 7.** Second sleeping time within \`MyAppSubmitButton\`. ![Perfetto UI showing the third sleeping interval within the
-MyAppSubmitButton trace slice.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-third-sleep.png) **Figure 8.** Third sleeping time within \`MyAppSubmitButton\`. ![Perfetto UI showing the fourth sleeping interval within the
-MyAppSubmitButton trace slice.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-fourth-sleep.png) **Figure 9.** Fourth sleeping time within \`MyAppSubmitButton\`.
+MyAppSubmitButton trace slice.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-first-sleep.png) **Figure 6.** First sleeping time within `MyApp:SubmitButton`. ![Perfetto UI showing the second sleeping interval within the
+MyAppSubmitButton trace slice.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-second-sleep.png) **Figure 7.** Second sleeping time within `MyApp:SubmitButton`. ![Perfetto UI showing the third sleeping interval within the
+MyAppSubmitButton trace slice.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-third-sleep.png) **Figure 8.** Third sleeping time within `MyApp:SubmitButton`. ![Perfetto UI showing the fourth sleeping interval within the
+MyAppSubmitButton trace slice.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-fourth-sleep.png) **Figure 9.** Fourth sleeping time within `MyApp:SubmitButton`.
 
-The first three sleep intervals (Figures 6--8) are nearly identical,
-approximately 2 seconds each. An outlier fourth sleep (Figure 9) is 0.7 seconds.
-A duration of exactly 2 seconds is rarely a coincidence in a computing
-environment. This strongly suggests a programmed timeout rather than random
-resource contention. The last sleep might be caused by the thread finishing its
-wait because the operation it was waiting on succeeded.
-
-This hypothesis is that **the app was hitting a user-defined timeout of 2
-seconds multiple times** and eventually succeeding, causing enough delay to
-trigger an ANR.
+The first three sleep intervals (Figures 6--8) are approximately 2 seconds each,
+and the fourth interval (Figure 9) is 0.7 seconds. Repeated 2-second pauses
+strongly suggest a programmed timeout that retried three times before succeeding
+on the fourth attempt---accumulating enough delay to trigger an ANR (Figure 10).
 ![Perfetto UI showing a summary of delays during the MyApp:SubmitButton
-trace slice, indicating multiple 2-second sleep intervals.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-delay-summary.png) **Figure 10.** Summary of delays during \`MyApp:SubmitButton\` slice.
+trace slice, indicating multiple 2-second sleep intervals.](https://developer.android.com/static/topic/performance/images/tracing/debugging-anr-example-delay-summary.png) **Figure 10.** Summary of delays during `MyApp:SubmitButton` slice.
 
-To verify this, inspect the code associated with the `MyApp:SubmitButton` trace
-section:
+## Identify the root cause in code
 
+To verify this hypothesis, inspect the code associated with the
+`MyApp:SubmitButton` trace section:
+
+
+### Kotlin
+
+```kotlin
+fun setupButtonCallback() {
+    findViewById<View>(R.id.submit).setOnClickListener {
+        trace("MyApp:SubmitButton") {
+            onClickSubmit()
+        }
+    }
+}
+
+fun onClickSubmit() {
+    prepareNetworkRequest()
+
+    var networkRequestSuccess = false
+    var maxAttempts = 10
+    while (!networkRequestSuccess && maxAttempts > 0) {
+        networkRequestSuccess = performNetworkRequest(NETWORK_TIMEOUT_MILLISECS)
+        maxAttempts--
+    }
+
+    if (networkRequestSuccess) {
+        handleNetworkResponse()
+    }
+}
+
+fun performNetworkRequest(timeoutMilliseconds: Int): Boolean {
+    // ...
+}
+
+fun prepareNetworkRequest() {
+    // ...
+}
+
+fun handleNetworkResponse() {
+    trace("handleNetworkResponse") {
+        // ...
+    }
+}
+
+companion object {
+    private const val NETWORK_TIMEOUT_MILLISECS = 2000
+}
+```
+
+### Java
 
 ```java
 private static final int NETWORK_TIMEOUT_MILLISECS = 2000;
@@ -157,7 +218,221 @@ the ANR.
 > [!NOTE]
 > **Note:** When trace analysis leads to a hypothesis (for example, "this is a network timeout") but the trace data is insufficient to prove it, use an iterative approach. Add new trace slices around the suspected logic and collect new field data to validate the hypothesis.
 
-Avoid this type of ANR by putting network-related operations that have varying
-latencies into a background thread instead of executing them in the main thread.
-This allows the UI to remain responsive even with poor connectivity, completely
-eliminating this class of ANRs.
+## Fix the ANR
+
+Avoid this type of ANR by moving network-related operations that have varying
+latencies to a background thread instead of executing them on the main thread.
+This keeps the UI responsive even with poor connectivity, eliminating this class
+of ANRs.
+
+## Automate the ANR investigation with an AI agent
+
+Instead of manually inspecting timelines and sleep intervals in the Perfetto
+UI, you can use an AI coding agent configured with the [Perfetto AI skill](https://developer.android.com/topic/performance/tracing/profiling-manager/analyze-profiles-with-ai)
+to query the ANR trace and correlate it with your codebase:
+
+    Analyze the Perfetto system trace at </path/to/trace.perfetto-trace>, which
+    corresponds to an ANR trace, and find the root cause of the ANR using the
+    Perfetto AI skill. The codebase is located at </path/to/codebase>.
+
+The agent queries the trace with `trace_processor` and reaches the same
+conclusion as the manual investigation---without getting misled by the unfinished
+`handleNetworkResponse` slice at the end of the trace. It identifies that
+`MyApp:SubmitButton` blocked the main thread for over 9.2 seconds, reconstructs
+the three 2-second network timeouts and 0.7-second fourth attempt in
+`performNetworkRequest` alongside the CPU busy-wait loops in
+`prepareNetworkRequest` and `handleNetworkResponse`, and maps each phase to
+`ProfilingManagerJavaSnippets.java` with a recommendation to move
+`onClickSubmit` off the UI thread:
+
+    # Perfetto ANR Root-Cause Analysis Report
+
+    * **Source Code:** `ProfilingManagerJavaSnippets.java`
+    * **Target Process:** `com.example.sampleapp` (`pid = 32579`, `upid = 27`)
+    * **Blocked Thread:** Main UI thread `ample.sampleapp` (`tid = 32579`, `utid = 760`)
+    * **Collection Mechanism:** Android `ProfilingManager` (`ProfilingTrigger.TRIGGER_TYPE_ANR`)
+
+    ---
+
+    ## 1. Executive Summary
+
+    > **Important:** The ANR in `com.example.sampleapp` is caused by executing **synchronous, blocking network retry logic (`Thread.sleep`) and heavy CPU busy-wait loops (`cpuIntensiveComputation`) directly on the main UI thread** inside the submit button click listener (`MyApp:SubmitButton` -> `onClickSubmit()`).
+
+    When the user taps the submit button at `7,967.78 ms` into the trace (`ts = 80459171444519`), the main UI thread is blocked continuously for **more than `9,281.30 ms`** (still unfinished when the trace ends at `17,249.08 ms`):
+
+    1. **`prepareNetworkRequest()`** runs a CPU busy-wait loop on the main thread for **`~1,019 ms`**.
+    2. **`performNetworkRequest(2000)`** executes in a synchronous `while` retry loop on the main thread. Each attempt begins with **`20 ms`** of CPU busy-waiting followed by a `Thread.sleep()`. The request times out (`2,000 ms` sleep) **3 times in a row** and succeeds on the **4th attempt** (`~701 ms` sleep), blocking the main thread for **`~6,764 ms`** across the 4 attempts (`6,703.18 ms` sleeping + `~60 ms` CPU).
+    3. **`handleNetworkResponse()`** begins at **`+7,783.44 ms`** after the button click and runs another `2,000 ms` CPU busy-wait loop on the main thread (`1,497.86 ms` captured before the trace ends).
+
+        [Touch UP & Click (t = +0 ms)]
+          -> prepareNetworkRequest() (~1,000 ms CPU Busy-Wait)
+          -> Attempt #1 (Timeout: 20 ms CPU + 2,001 ms Sleep)
+          -> Attempt #2 (Timeout: 20 ms CPU + 2,001 ms Sleep)
+          -> Attempt #3 (Timeout: 20 ms CPU + 2,001 ms Sleep, crosses 5s ANR threshold)
+          -> Attempt #4 (Success: 20 ms CPU + 701 ms Sleep)
+          -> handleNetworkResponse() (1,498 ms CPU, unfinished at trace end)
+
+<button type="button" class="expand-control button button-white"> Show full agent report Hide full agent report </button>
+
+    ## 2. PerfettoSQL Trace Analysis
+
+    ### 2.1 Open Main-Thread Slices at Trace End
+
+    Querying `thread_or_process_slice` on the main thread (`utid = 760`) around and after the touch event shows that `MyApp:SubmitButton` and its nested slice `handleNetworkResponse` both have `dur = -1` (still open when the trace completed):
+
+    ```sql
+    INCLUDE PERFETTO MODULE slices.with_context;
+
+    SELECT
+      id,
+      ts,
+      (ts - trace_start()) / 1e6 AS rel_ts_ms,
+      dur,
+      IIF(dur = -1, trace_end() - ts, dur) / 1e6 AS effective_dur_ms,
+      depth,
+      name
+    FROM thread_or_process_slice
+    WHERE utid = 760 AND ts >= 80459169800000
+    ORDER BY ts;
+    ```
+
+    | Slice ID | Slice Name | Start (`ts` ns) | Offset from Trace Start | Raw `dur` | Effective Duration (to trace end) | Depth |
+    | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+    | `40070` | `dispatchInputEvent MotionEvent UP` | `80459169801575` | `7,966.14 ms` | `190,633 ns` | `0.19 ms` | `0` |
+    | `40156` | **`MyApp:SubmitButton`** | `80459171444519` | `7,967.78 ms` | `-1` | **`9,281.30 ms`** | `0` |
+    | `97500` | **`handleNetworkResponse`** | `80466954886580` | `15,751.23 ms` | `-1` | **`1,497.86 ms`** | `1` |
+
+    ---
+
+    ### 2.2 Aggregate Main-Thread State (`thread_state`) During `MyApp:SubmitButton`
+
+    Aggregating `thread_state` for `utid = 760` from the start of `MyApp:SubmitButton` (`ts >= 80459171444519`) to the end of the trace reveals that the main thread spent **72.3%** of the time sleeping (`S`) and **27.6%** actively spinning on CPU (`Running`):
+
+    ```sql
+    SELECT
+      state,
+      COUNT(*) AS cnt,
+      SUM(dur) / 1e6 AS total_dur_ms,
+      MIN(dur) / 1e6 AS min_dur_ms,
+      MAX(dur) / 1e6 AS max_dur_ms
+    FROM thread_state
+    WHERE utid = 760 AND ts >= 80459171444519
+    GROUP BY state
+    ORDER BY total_dur_ms DESC;
+    ```
+
+    | Thread State | Interval Count | Total Duration | Min Duration | Max Duration | Cause in Code |
+    | :--- | :--- | :--- | :--- | :--- | :--- |
+    | **`S` (Sleeping)** | `4` | **`6,703.18 ms`** | `700.78 ms` | `2,000.82 ms` | 4 `Thread.sleep()` calls in `performNetworkRequest()` |
+    | **`Running` (On CPU)** | `20` | **`2,559.81 ms`** | `0.00 ms` | `578.77 ms` | Busy-wait `while` loops in `cpuIntensiveComputation()` |
+    | **`R` (Runnable)** | `20` | **`2.11 ms`** | `0.01 ms` | `1.21 ms` | Scheduler wakeups and brief preemptions |
+
+    ---
+
+    ### 2.3 Phase-by-Phase Reconstruction (`thread_state` Intervals)
+
+    Querying individual `thread_state` intervals (`dur > 2 ms`) shows the exact sequence of CPU bursts and sleeps on the main thread:
+
+    ```sql
+    SELECT
+      ts,
+      (ts - 80459171444519) / 1e6 AS ms_since_submit,
+      dur / 1e6 AS dur_ms,
+      state
+    FROM thread_state
+    WHERE utid = 760 AND ts >= 80459171444519 AND dur > 2e6
+    ORDER BY ts;
+    ```
+
+    | Phase | Offset from Submit (`ms_since_submit`) | State | Duration (`dur_ms`) | Corresponding Code Execution |
+    | :--- | :--- | :--- | :--- | :--- |
+    | **1. Request Prep + Attempt #1 CPU** | `+0.63 ms` -> `+1,019.36 ms` | `Running` | **`1,018.68 ms`** *(across 5 slices)* | `prepareNetworkRequest()` (`1,000 ms` CPU) + Attempt #1 `cpuIntensiveComputation(20)` |
+    | **2. Network Attempt #1 (Timeout)** | `+1,019.36 ms` -> `+3,020.18 ms` | `S` (Sleep) | **`2,000.82 ms`** | `performNetworkRequest(2000)` -> `Thread.sleep(2000)` (`return false`) |
+    | **3. Network Attempt #2 (CPU)** | `+3,020.23 ms` -> `+3,040.24 ms` | `Running` | **`20.00 ms`** | Attempt #2 `cpuIntensiveComputation(20)` |
+    | **4. Network Attempt #2 (Timeout)** | `+3,040.24 ms` -> `+5,041.01 ms` | `S` (Sleep) | **`2,000.78 ms`** | `performNetworkRequest(2000)` -> `Thread.sleep(2000)` (`return false`) -- **5s input ANR threshold crossed** |
+    | **5. Network Attempt #3 (CPU)** | `+5,041.06 ms` -> `+5,061.30 ms` | `Running` | **`20.11 ms`** *(8.05 + 7.93 + 4.14 ms)* | Attempt #3 `cpuIntensiveComputation(20)` |
+    | **6. Network Attempt #3 (Timeout)** | `+5,061.30 ms` -> `+7,062.09 ms` | `S` (Sleep) | **`2,000.80 ms`** | `performNetworkRequest(2000)` -> `Thread.sleep(2000)` (`return false`) |
+    | **7. Network Attempt #4 (CPU)** | `+7,062.15 ms` -> `+7,082.38 ms` | `Running` | **`20.22 ms`** | Attempt #4 `cpuIntensiveComputation(20)` |
+    | **8. Network Attempt #4 (Success)** | `+7,082.38 ms` -> `+7,783.16 ms` | `S` (Sleep) | **`700.78 ms`** | `performNetworkRequest(2000)` hits `Math.random() < 0.2`, sleeps `~700 ms`, `return true` |
+    | **9. Handle Response (CPU)** | `+7,783.21 ms` -> `+9,281.30 ms` | `Running` | **`1,479.68 ms`** *(across 6 slices)* | `handleNetworkResponse()` (`Trace.beginSection("handleNetworkResponse")` at `+7,783.44 ms`) runs `cpuIntensiveComputation(2000)` until trace ends |
+
+    ---
+
+    ## 3. Code Mapping (`ProfilingManagerJavaSnippets.java`)
+
+    In `ProfilingManagerJavaSnippets.java` (lines `38` and `158-221`), the `OnClickListener` for `R.id.submit` runs `onClickSubmit()` directly on the main UI thread:
+
+    ```java
+    private static final int NETWORK_TIMEOUT_MILLISECS = 2000;
+
+    public void setupButtonCallback() {
+      findViewById(R.id.submit).setOnClickListener(submitButtonView -> {
+        Trace.beginSection("MyApp:SubmitButton");
+        onClickSubmit();
+        Trace.endSection();
+      });
+    }
+
+    public void onClickSubmit() {
+      // 1. Blocks main thread on CPU for 1,000 ms
+      prepareNetworkRequest();
+
+      // 2. Synchronous retry loop on main thread (up to 10 attempts * 2,020 ms = 20.2 seconds!)
+      boolean networkRequestSuccess = false;
+      int maxAttempts = 10;
+      while (!networkRequestSuccess && maxAttempts > 0) {
+        networkRequestSuccess = performNetworkRequest(NETWORK_TIMEOUT_MILLISECS);
+        maxAttempts--;
+      }
+
+      // 3. Blocks main thread on CPU for another 2,000 ms
+      if (networkRequestSuccess) {
+        handleNetworkResponse();
+      }
+    }
+
+    boolean performNetworkRequest(int timeoutMilliseconds) {
+      cpuIntensiveComputation(20);
+      try {
+        if (Math.random() < 0.2) {
+          // Simulate performing a network request by waiting a random period of time
+          int networkRequestTimeMs = (int) (Math.random() * timeoutMilliseconds);
+          Thread.sleep(networkRequestTimeMs);
+          return true;
+        } else {
+          // Simulate a timeout
+          Thread.sleep(timeoutMilliseconds);
+        }
+      } catch (InterruptedException e) {
+      }
+      return false;
+    }
+
+    void cpuIntensiveComputation(int durationMs) {
+      long start = System.currentTimeMillis();
+      while (System.currentTimeMillis() - start < durationMs) {
+      }
+    }
+
+    void prepareNetworkRequest() {
+      cpuIntensiveComputation(1000);
+    }
+
+    public void handleNetworkResponse() {
+      Trace.beginSection("handleNetworkResponse");
+      cpuIntensiveComputation(2000);
+      Trace.endSection();
+    }
+    ```
+
+    ---
+
+    ## 4. Recommended Remediation
+
+    > **Tip:** Never perform network I/O, `Thread.sleep()`, or multi-hundred-millisecond CPU computations on the Android main UI thread.
+
+    1. **Offload `onClickSubmit()` to a Background Thread / Coroutine:**
+       * In Java, dispatch `prepareNetworkRequest()`, the `performNetworkRequest()` retry loop, and heavy response processing in `handleNetworkResponse()` to a background `ExecutorService` (e.g., `Executors.newSingleThreadExecutor()`), then marshal only lightweight UI updates back to the main thread via `runOnUiThread(...)` or `View.post(...)`.
+       * In Kotlin, use `lifecycleScope.launch(Dispatchers.IO)` (for network waiting) and `withContext(Dispatchers.Default)` (for CPU-intensive preparation/parsing).
+    2. **Use Non-Blocking / Asynchronous Retries with Backoff:**
+       * Avoid holding threads with `Thread.sleep()` inside tight retry loops; use asynchronous HTTP client timeouts/retries or `WorkManager` for deferrable background network tasks.

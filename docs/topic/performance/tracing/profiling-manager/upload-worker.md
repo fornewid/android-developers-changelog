@@ -4,30 +4,81 @@ url: https://developer.android.com/topic/performance/tracing/profiling-manager/u
 source: md.txt
 ---
 
-ProfilingManager saves traces locally on the device. While you can retrieve
-these files using ADB for local debugging, collecting field data requires
-uploading them to a server.
+Whether you capture an [app-driven profile](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture) or a [trigger-based profile](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture),
+`ProfilingManager` saves the completed file on the device and delivers a
+`ProfilingResult` to your registered callback. Call
+[`ProfilingResult.getResultFilePath`](https://developer.android.com/reference/android/os/ProfilingResult#getResultFilePath()) to get the path of the saved profile:
 
-Trace files can be large (often several MBs). To avoid negatively affecting the
-user experience or consuming mobile data, you should schedule uploads to occur
-in the background, preferably when the device is on an unmetered network
-(Wi-Fi), charging and idle.
+- **During local testing** : [Pull the file to your computer using `adb`](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode#retrieve-traces-adb).
+- **In production** : Pass the path to a [`WorkManager`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started) job that compresses and uploads the profile to your server.
 
-## Set up a WorkManager upload job
+> [!IMPORTANT]
+> **Key Point:** Always use `ProfilingResult.getResultFilePath` to locate the file in code and other `ProfilingResult` APIs such as [`ProfilingResult.getTriggerType`](https://developer.android.com/reference/android/os/ProfilingResult#getTriggerType()) or [`ProfilingResult.getTag`](https://developer.android.com/reference/android/os/ProfilingResult#getTag()) to inspect profile metadata, rather than parsing filenames, because the underlying directory structure and filename format can change.
 
-`ProfilingManager` is cloud-agnostic; you can upload traces to any
-infrastructure you choose. The following example demonstrates how to use
-[`WorkManager`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started) to schedule an upload job that avoids user disruption.
+## Retrieve profiles from a device
 
-## Code example to setup an upload job
+This section describes where `ProfilingManager` stores profiles on the device,
+how automatic file cleanup works, and how to pull files locally using `adb`.
 
-Here's an example on how you can set up a job that is not disruptive to the user
-to upload traces to your server.
+### File locations and naming formats
+
+`ProfilingManager` saves redacted profiles in your [app-specific storage
+directory](https://developer.android.com/training/data-storage/app-specific) at `/data/user/0/<app>/files/profiling/`. The filename format
+depends on how the profile was captured:
+
+- **App-driven profiles**:
+
+      profile_<tag>_<datetime>_uid-<uid>.<profile-type-ext>
+
+  If no tag was provided when requesting the profile, `<tag>_` is omitted:
+  `profile_<datetime>_uid-<uid>.<profile-type-ext>`.
+- **Trigger-based profiles**:
+
+      profile_trigger-type-<trigger_type>_<datetime>_uid-<uid>.<profile-type-ext>
+
+Where:
+
+- `<app>` is your app's package name.
+- `<tag>` is up to the first 20 alphanumeric characters (and hyphens) of the caller-supplied tag configured with [`setTag`](https://developer.android.com/reference/kotlin/androidx/core/os/ProfilingRequestBuilder#setTag(kotlin.String)) or passed to `requestProfiling`, converted to lowercase with any characters outside `a-z`, `0-9`, and `-` removed.
+- `<trigger_type>` is the integer constant code for the trigger from [`ProfilingTrigger`](https://developer.android.com/reference/android/os/ProfilingTrigger). Always call [`ProfilingResult.getTriggerType`](https://developer.android.com/reference/android/os/ProfilingResult#getTriggerType()) in code instead of parsing the filename.
+- `<datetime>` is the date and time the profile was recorded (`yyyy-MM-dd-HH-mm-ss-SSS`).
+- `<uid>` is your app's Linux user ID (included on recent `Profiling` module versions).
+- `<profile-type-ext>` is the file extension for the captured profile type:
+  - `.perfetto-trace` for system traces
+  - `.perfetto-java-heap-dump` for Java heap dumps
+  - `.perfetto-heap-profile` for heap profiles
+  - `.perfetto-stack-sample` for stack sampling profiles
+
+### On-device storage and cleanup
+
+To free up device storage promptly, **delete each profile file in your upload
+worker immediately after a successful upload** (because automatic cleanup only
+runs when `ProfilingManager` delivers results to your app, unuploaded files can
+otherwise remain on disk if your app stops registering callbacks after ending a
+campaign). As a fallback on recent `Profiling` module versions,
+`ProfilingManager` also automatically deletes delivered files in your
+app-specific storage directory that are older than 5 days when new results are
+delivered.
+
+> [!NOTE]
+> **Note:** To pull profiles from a test device using `adb` during local testing, see [Pull profiles using ADB](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode#retrieve-traces-adb) in [Debug commands for local profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode).
+
+## Upload profiles in production with WorkManager
+
+Because profile files can be several megabytes in size, schedule production
+uploads in the background when the device is on an unmetered network (Wi-Fi),
+charging, and idle.
+
+Before uploading, **compress the profile file** (for example, using
+`GZIPOutputStream` or `ZipOutputStream`). Perfetto protobuf profiles and Java
+heap dumps compress significantly, reducing network bandwidth and backend
+storage costs.
 
 ### Add WorkManager dependencies
 
-Besides your existing `ProfilingManager` dependencies, add these Jetpack
-libraries to your `build.gradle.kts` file. `WorkManager` needs them.
+`ProfilingManager` is cloud-agnostic, so you can schedule the upload of profiles
+to any backend using [`WorkManager`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started). Add the `WorkManager` library to your
+`build.gradle.kts` file:
 
 ### Kotlin
 
@@ -47,15 +98,14 @@ libraries to your `build.gradle.kts` file. `WorkManager` needs them.
    
 ```
 
-### Code snippet
+### Schedule an upload job
 
-This code shows how to set up a job for uploading traces. The job should be
-setup when the `ProfilingResult` is received by your app. The profiling section
-is omitted in this section but an example can be found in [Record a system
-trace](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture#record-system-trace).
+When your app receives a `ProfilingResult`, schedule the upload job. The
+following example omits the initial profiling request; for a complete request
+example, see [Record a system trace](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture#record-system-trace).
 
 > [!NOTE]
-> **Note:** The actual upload logic is not included. `ProfilingManager` works with any cloud platform. Use this setup as a starting point, then add the specific upload details for your app's cloud service.
+> **Note:** The actual network upload call is omitted because `ProfilingManager` works with any cloud platform. Use this setup as a starting point, then add compression and the upload logic for your backend service.
 
 
 ### Kotlin
@@ -118,6 +168,7 @@ public void setupProfileUploadWorker(String profileFilepath) {
   Constraints constraints = new Constraints.Builder()
       .setRequiredNetworkType(NetworkType.UNMETERED)
       .setRequiresDeviceIdle(true)
+      .setRequiresCharging(true)
       .build();
   workRequestBuilder.setConstraints(constraints);
 
@@ -133,36 +184,18 @@ public void setupProfileUploadWorker(String profileFilepath) {
 
 ### Code walkthrough
 
-The code does the following:
+The preceding example performs the following steps:
 
-- **Define the worker** : Create a `TraceUploadWorker` class extending
-  `Worker`. Implement the `doWork()` method to handle the actual file upload
-  logic using your preferred backend SDK or HTTP client.
-
-- **Request profiling** : Use `SystemTraceRequestBuilder` to configure the
-  trace (duration, buffer policy) and `Profiling.requestProfiling` to start
-  it.
-
-- **Schedule the work**:
-
+- **Define the worker** : Create a `TraceUploadWorker` class extending `Worker`. Implement `doWork` to verify that the profile file still exists, compress and upload it using your backend SDK or HTTP client, and delete the local file once the upload succeeds.
+- **Schedule the work** :
   - Create a `OneTimeWorkRequest` for your worker.
+  - **Set constraints** : Use `setRequiredNetworkType(NetworkType.UNMETERED)`, `setRequiresDeviceIdle(true)`, and `setRequiresCharging(true)` so the upload only runs when the device is on Wi-Fi, charging, and idle.
+  - **Pass data** : Use `setInputData` to pass the profile path from `getResultFilePath` to the worker.
+  - **Enqueue** : Submit the request to `WorkManager` by calling `WorkManager.enqueue`.
 
-  - Set constraints: Use `setRequiredNetworkType(NetworkType.UNMETERED)`,
-    `setRequiresDeviceIdle(true)` and `setRequiresCharging(true)` to ensure
-    the upload only happens when the user is on Wi-Fi, charging and not actively
-    using the device. This is important to avoid disruption to the user with the
-    upload job.
+## Next steps
 
-  - Pass data: Use `setInputData` to pass the trace path to the worker.
-
-  - Enqueue: Submit the request to WorkManager by calling
-    `WorkManager#enqueue`.
-
-## Next Steps
-
-After uploading traces, you can analyze them individually or perform [bulk trace
-analysis](https://developer.android.com/topic/performance/tracing/profiling-manager/bulk-trace-analysis). For guidance on setting up a scalable analysis pipeline, refer to
-[Deploying Bigtrace on Kubernetes](https://perfetto.dev/docs/deployment/deploying-bigtrace-on-kubernetes).
-
-> [!NOTE]
-> **Note:** You can delete profile files from the device after uploading them if they are no longer needed, as `ProfilingManager` no longer manages these files.
+After retrieving or uploading profiles, [visualize them in the Perfetto UI](https://developer.android.com/topic/performance/tracing/profiling-manager/retrieve-and-analyze),
+[query individual profiles with PerfettoSQL](https://developer.android.com/topic/performance/tracing/profiling-manager/querying-profiles), [analyze traces in bulk](https://developer.android.com/topic/performance/tracing/profiling-manager/bulk-trace-analysis),
+or [analyze profiles with AI](https://developer.android.com/topic/performance/tracing/profiling-manager/analyze-profiles-with-ai). For guidance on setting up a scalable
+server-side analysis pipeline, see [Deploying Bigtrace on Kubernetes](https://perfetto.dev/docs/deployment/deploying-bigtrace-on-kubernetes).
