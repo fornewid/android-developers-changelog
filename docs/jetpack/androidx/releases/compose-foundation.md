@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.1) | - | [1.13.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-beta02) | - |
+| November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-rc01) | - | - |
 
 ## Structure
 
@@ -99,6 +99,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.13
+
+### Version 1.13.0-rc01
+
+November 04, 2026
+
+`androidx.compose.foundation:foundation-*:1.13.0-rc01` is released. Version 1.13.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/8c4a5fab030e62e6dac58c45f5fff974facf903f..57354ca42849ed417dfe0f797132477674d917e0/compose/foundation).
+
+**API Changes**
+
+- `Modifier.border` now consistently uses the outline size when rendering borders. Use `ComposeFoundationFlags.isBorderMatchesOutlineBoundsFixEnabled` to temporarily disable this if it causes issues. ([I3e171](https://android-review.googlesource.com/#/q/I3e171be3f77c0b9794ad70de9d7be36a2adcf20c))
 
 ### Version 1.13.0-beta02
 

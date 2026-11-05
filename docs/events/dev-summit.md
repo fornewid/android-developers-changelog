@@ -7,7 +7,7 @@ source: md.txt
 # ![Android Dev Summit](https://developer.android.com/static/events/dev-summit/images/ads-2026-wordmark-lockup.png)
 
 That's a wrap for this year's Android Dev Summit! Catch up on all the latest tools, platform updates, and technical deep-dives with our full library of on-demand sessions.
-[Watch the keynote](https://www.youtube.com/watch?v=8Lmv7LGgL4E) ![](https://developer.android.com/static/events/dev-summit/images/ads-2026-keynote-hero.jpg) ![](https://developer.android.com/static/events/dev-summit/images/ads-search-icon.svg) All Tools \& Performance Apps foundation Intelligent Apps Android XR
+[Watch the keynote](https://www.youtube.com/watch?v=8Lmv7LGgL4E) ![](https://developer.android.com/static/events/dev-summit/images/ads-2026-keynote-hero-v2.jpg) ![](https://developer.android.com/static/events/dev-summit/images/ads-search-icon.svg) All Tools \& Performance Apps foundation Intelligent Apps Android XR
 
 - track-filter:Tools \& Performance ![](https://developer.android.com/static/events/dev-summit/images/talks/ADS26_102.webp) Tools \& Performance
 

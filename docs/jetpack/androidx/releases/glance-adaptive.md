@@ -10,7 +10,7 @@ TODO
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 23, 2026 | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/glance_adaptive#1.0.0-alpha03) |
+| November 04, 2026 | - | - | - | [1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/glance_adaptive#1.0.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -21,18 +21,13 @@ for more information.
 Add the dependencies for the artifacts you need in the `build.gradle` file for
 your app or module:
 
-\<!DOCTYPE html\>
-
-
-glance adaptive deps
-
 ### Groovy
 
 ```groovy
 dependencies {
-    implementation "androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha03"
-    implementation "androidx.glance.adaptive:adaptive-core:1.0.0-alpha03"
-    implementation "androidx.glance.adaptive:adaptive-wear:1.0.0-alpha03"
+    implementation "androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha04"
+    implementation "androidx.glance.adaptive:adaptive-core:1.0.0-alpha04"
+    implementation "androidx.glance.adaptive:adaptive-wear:1.0.0-alpha04"
 }
 ```
 
@@ -40,12 +35,11 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha03")
-    implementation("androidx.glance.adaptive:adaptive-core:1.0.0-alpha03")
-    implementation("androidx.glance.adaptive:adaptive-wear:1.0.0-alpha03")
+    implementation("androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha04")
+    implementation("androidx.glance.adaptive:adaptive-core:1.0.0-alpha04")
+    implementation("androidx.glance.adaptive:adaptive-wear:1.0.0-alpha04")
 }
 ```
-
 
 For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
 
@@ -53,16 +47,27 @@ For more information about dependencies, see [Add build dependencies](https://de
 
 Your feedback helps make Jetpack better. Let us know if you discover new issues or have
 ideas for improving this library. Please take a look at the
-[existing issues](https://issuetracker.google.com/issues?q=componentid:TODO+status:open)
+[existing issues](https://issuetracker.google.com/issues?q=componentid:+status:open)
 in this library before you create a new one. You can add your vote to an existing issue by
 clicking the star button.
 
-[Create a new issue](https://issuetracker.google.com/issues/new?component=TODO&template=TODO)
+[Create a new issue](https://issuetracker.google.com/issues/new?component&template)
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha04
+
+November 04, 2026
+
+`androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha04`, `androidx.glance.adaptive:adaptive-core:1.0.0-alpha04`, and `androidx.glance.adaptive:adaptive-wear:1.0.0-alpha04` are released. Version 1.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f..a021adf44194ae86e596ae25ca43d5e4e18f6926/glance/adaptive).
+
+**API Changes**
+
+- Added `GlanceAdaptiveWidgetReceiver` base `AppWidgetProvider` class as the main entry point for Glance Adaptive widgets. ([Iddecc](https://android-review.googlesource.com/#/q/Iddecc86920578ee4f5c6a66d96278ceae72758b7))
+- Added `@integer/glance_adaptive_widget_category_all_known` resource for `<appwidget-provider>`'s `android:widgetCategory` declaration, to opt in into all supported Widget surfaces. ([I4582e](https://android-review.googlesource.com/#/q/I4582e2140f96b5911d674a6892d726f7e8cda4ff))
 
 ### Version 1.0.0-alpha03
 

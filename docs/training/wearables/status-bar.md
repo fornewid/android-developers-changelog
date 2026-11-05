@@ -41,7 +41,7 @@ To support the system status bar in your app, update your app's `targetSdk`
 version to 35 or higher. The platform only activates the system status bar
 for apps targeting API 35+ to preserve backward compatibility for legacy apps.
 In addition, update your [Wear Compose dependencies](https://developer.android.com/jetpack/androidx/releases/wear-compose#version_18_2) to the latest alpha
-version---currently 1.8.0-alpha02---as shown in the following
+version---currently 1.8.0-alpha03---as shown in the following
 code snippet. If your app is using an older version of Wear Compose, you can use
 the [Wear Compose Material 3 migration skill](https://github.com/android/skills/tree/main/wear/wear-compose-m3) to facilitate the
 migration.
@@ -53,8 +53,8 @@ migration.
     }
 
     dependencies {
-        implementation("androidx.wear.compose:compose-foundation:1.8.0-alpha02")
-        implementation("androidx.wear.compose:compose-material3:1.8.0-alpha02")
+        implementation("androidx.wear.compose:compose-foundation:1.8.0-alpha03")
+        implementation("androidx.wear.compose:compose-material3:1.8.0-alpha03")
     }
 
 ## Use the system status bar
@@ -63,7 +63,7 @@ migration.
 > **Note:** The version of Compose for Wear OS used in the following snippets is an alpha release. The exact API surface is subject to change.
 
 In the latest alpha version of [Wear Compose Material 3 1.8.0](https://developer.android.com/jetpack/androidx/releases/wear-compose#version_18_2)---currently
-1.8.0-alpha02---the library automatically opts your app in by
+1.8.0-alpha03---the library automatically opts your app in by
 merging the `com.google.wear.ENABLE_GLOBAL_STATUS_BAR` `<meta-data>` property
 into your `AndroidManifest.xml`. At runtime, `AppScaffold` and `ScreenScaffold`
 check whether the system status bar is enabled on the device and whether this

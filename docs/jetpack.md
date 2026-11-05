@@ -196,6 +196,7 @@ Explore how modern Android architecture is implemented in a real world app [View
 | [wear.tiles](https://developer.android.com/jetpack/androidx/releases/wear-tiles) | Create applications for Wear OS by Google smartwatches. |
 | [wear.watchface](https://developer.android.com/jetpack/androidx/releases/wear-watchface) | Create applications for Wear OS by Google smartwatches. |
 | [wear.watchfacepush](https://developer.android.com/jetpack/androidx/releases/wear-watchfacepush) | Watch Face Push allows a Wear OS app to install a watch face on a watch programmatically. |
+| [web](https://developer.android.com/jetpack/androidx/releases/web) | -- |
 | [webgpu](https://developer.android.com/jetpack/androidx/releases/webgpu) | A modern GPU API for graphics and compute from Kotlin. |
 | [webkit](https://developer.android.com/jetpack/androidx/releases/webkit) | Work with modern WebView APIs on Android 5 and above. |
 | [window](https://developer.android.com/jetpack/androidx/releases/window) | Helps support different device form factors such as foldable devices. |

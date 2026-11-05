@@ -110,20 +110,20 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
 
     dependencies {
         implementation "androidx.xr.runtime:runtime:1.1.0-alpha02"
-        implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha18"
-        implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha18"
-        implementation "androidx.xr.projected:projected:1.0.0-alpha13"
-        implementation "androidx.xr.arcore:arcore:1.0.0-beta02"
+        implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha22"
+        implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha22"
+        implementation "androidx.xr.projected:projected:1.0.0-alpha14"
+        implementation "androidx.xr.arcore:arcore:1.1.0-alpha01"
     }
 
 ### Kotlin
 
     dependencies {
         implementation("androidx.xr.runtime:runtime:1.1.0-alpha02")
-        implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha18")
-        implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha18")
-        implementation("androidx.xr.projected:projected:1.0.0-alpha13")
-        implementation("androidx.xr.arcore:arcore:1.0.0-beta02")
+        implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha22")
+        implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha22")
+        implementation("androidx.xr.projected:projected:1.0.0-alpha14")
+        implementation("androidx.xr.arcore:arcore:1.1.0-alpha01")
     }
 
 > [!NOTE]

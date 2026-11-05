@@ -10,7 +10,7 @@ TODO
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/compose_remote_foundation#1.0.0-alpha05) |
+| November 04, 2026 | - | - | - | [1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose_remote_foundation#1.0.0-alpha06) |
 
 ## Declaring dependencies
 
@@ -21,16 +21,11 @@ for more information.
 Add the dependencies for the artifacts you need in the `build.gradle` file for
 your app or module:
 
-\<!DOCTYPE html\>
-
-
-compose remote foundation deps
-
 ### Groovy
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.remote.foundation:foundation:1.0.0-alpha05"
+    implementation "androidx.compose.remote.foundation:foundation:1.0.0-alpha06"
 }
 ```
 
@@ -38,10 +33,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.remote.foundation:foundation:1.0.0-alpha05")
+    implementation("androidx.compose.remote.foundation:foundation:1.0.0-alpha06")
 }
 ```
-
 
 For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
 
@@ -59,6 +53,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha06
+
+November 04, 2026
+
+`androidx.compose.remote.foundation:foundation:1.0.0-alpha06` is released. Version 1.0.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3566803898b060d7136357220affc9ece8236019..9b2acdf2ecd36aa5ddf9c43ebfc288ed11d2c49e/compose/remote/foundation/foundation).
+
+**API Changes**
+
+- Renamed `remoteBitmap` to `bitmap` on `RemoteBasicImage` and moved `style` to the final parameter on `RemoteBasicText` to match Compose Foundation. ([I2b57a](https://android-review.googlesource.com/#/q/I2b57acba50caad03246d3df009cf25533b1dbbd4))
 
 ### Version 1.0.0-alpha05
 

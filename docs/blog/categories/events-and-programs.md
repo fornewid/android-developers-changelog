@@ -9,6 +9,13 @@ source: md.txt
 # Events \& Programs
 
 Get the details on upcoming webinars, workshops, meetups, and special initiatives designed to help you grow.
+- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp)
+
+  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates)
+
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
+  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge) • 3 min read
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
 - [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp)
 
   ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance)
@@ -46,17 +53,11 @@ Get the details on upcoming webinars, workshops, meetups, and special initiative
 
   [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-may) Google I/O is back! Join us online as we share our latest AI breakthroughs and updates in products across the company, from Gemini to Android, Chrome, Cloud, and more.
   1 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/xr_Week4_07a795cac6_Z1OdVv4.webp)
-
-  ## [Start building for glasses, new devices for Android XR and more in The Android Show \| XR Edition](https://developer.android.com/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show)
-
-  [arrow_forward](https://developer.android.com/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show) Today, during The Android Show \| XR Edition, we shared a look at the expanding Android XR platform, which is fundamentally evolving to bring a unified developer experience to the entire XR ecosystem.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 2 min read
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
 
-###### of 2
+###### of 3
 
 [arrow_forward](https://developer.android.com/blog/categories/events-and-programs/2) Stay in the loop
 

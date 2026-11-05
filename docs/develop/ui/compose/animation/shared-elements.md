@@ -31,7 +31,7 @@ section to learn more about this important topic.
 
 The following transition will be built in this section, transitioning from the
 smaller "list" item, to the larger detailed item:
-![](https://developer.android.com/static/develop/ui/compose/images/animations/shared-element/basic_shared_element_jetsnack.gif) **Figure 2.** Basic example of a shared element transition between two composables.
+![Basic shared element transition between two composables in Jetsnack](https://developer.android.com/static/develop/ui/compose/images/animations/shared-element/basic_shared_element_jetsnack.gif) **Figure 2.** Basic example of a shared element transition between two composables.
 
 The best way to use `Modifier.sharedElement()` is in conjunction with
 `AnimatedContent`, [`AnimatedVisibility`](https://developer.android.com/develop/ui/compose/animation/shared-elements#animated-visibility), or [`NavHost`](https://developer.android.com/develop/ui/compose/animation/shared-elements/navigation), as this manages
@@ -39,7 +39,7 @@ the transition between composables automatically for you.
 
 The starting point is an existing basic `AnimatedContent` that has a
 `MainContent`, and `DetailsContent` composable before adding shared elements:
-![](https://developer.android.com/static/develop/ui/compose/images/animations/shared-element/basic_no_animation_jetsnack.gif) **Figure 3.** Starting `AnimatedContent` without any shared element transitions.
+![Animation showing the default crossfade-and-slide transition without shared elements](https://developer.android.com/static/develop/ui/compose/images/animations/shared-element/basic_no_animation_jetsnack.gif) **Figure 3.** Starting `AnimatedContent` without any shared element transitions.
 
 <br />
 
@@ -81,7 +81,7 @@ The starting point is an existing basic `AnimatedContent` that has a
 
    <br />
 
-2. Add [`Modifier.sharedElement()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).sharedElement(androidx.compose.animation.SharedTransitionScope.SharedContentState,androidx.compose.animation.AnimatedVisibilityScope,androidx.compose.animation.BoundsTransform,androidx.compose.animation.SharedTransitionScope.PlaceHolderSize,kotlin.Boolean,kotlin.Float,androidx.compose.animation.SharedTransitionScope.OverlayClip)) to your composable modifier chain on the
+2. Add [`Modifier.sharedElement()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).sharedElement(androidx.compose.animation.SharedTransitionScope.SharedContentState,androidx.compose.animation.AnimatedVisibilityScope,androidx.compose.animation.BoundsTransform,androidx.compose.animation.SharedTransitionScope.PlaceholderSize,kotlin.Boolean,kotlin.Float,androidx.compose.animation.SharedTransitionScope.OverlayClip)) to your composable modifier chain on the
    two composables that match. Create a `SharedContentState` object and
    remember it with [`rememberSharedContentState()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#rememberSharedContentState(kotlin.Any)). The
    `SharedContentState` object is storing the unique key which determines the
@@ -159,14 +159,14 @@ To get information on if a shared element match has occurred, extract
 > be shared before** the **`sharedElement()`** in the modifier chain.
 
 This results in the following automatic animation:
-![](https://developer.android.com/static/develop/ui/compose/images/animations/shared-element/basic_shared_element_jetsnack.gif) **Figure 4.** Basic example of a shared element transition between two composables.
+![Animation showing the image and text expanding smoothly across screens](https://developer.android.com/static/develop/ui/compose/images/animations/shared-element/basic_shared_element_jetsnack.gif) **Figure 4.** Basic example of a shared element transition between two composables.
 
 You may notice that the background color and size of the whole container still
 uses the default `AnimatedContent` settings.
 
 ## Shared bounds versus shared element
 
-[`Modifier.sharedBounds()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).sharedBounds(androidx.compose.animation.SharedTransitionScope.SharedContentState,androidx.compose.animation.AnimatedVisibilityScope,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,androidx.compose.animation.BoundsTransform,androidx.compose.animation.SharedTransitionScope.PlaceHolderSize,kotlin.Boolean,kotlin.Float,androidx.compose.animation.SharedTransitionScope.OverlayClip)) is similar to `Modifier.sharedElement()`.
+[`Modifier.sharedBounds()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).sharedBounds(androidx.compose.animation.SharedTransitionScope.SharedContentState,androidx.compose.animation.AnimatedVisibilityScope,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,androidx.compose.animation.BoundsTransform,androidx.compose.animation.SharedTransitionScope.ResizeMode,androidx.compose.animation.SharedTransitionScope.PlaceholderSize,kotlin.Boolean,kotlin.Float,androidx.compose.animation.SharedTransitionScope.OverlayClip)) is similar to `Modifier.sharedElement()`.
 However, the modifiers are different in the following ways:
 
 - `sharedBounds()` is for content that is visually different but should share the same area between states, whereas `sharedElement()` expects the content to be the same.
@@ -251,15 +251,15 @@ to switch between composables or when using `AnimatedVisibility` directly, or by
 the [`NavHost`](https://developer.android.com/develop/ui/compose/animation/shared-elements/navigation) composable function, unless you [manage the visibility
 manually](https://developer.android.com/develop/ui/compose/animation/shared-elements#managing-visibility). In order
 to use multiple scopes, save your required scopes in a
-[`CompositionLocal`](https://developer.android.com/develop/ui/compose/compositionlocal), use [context receivers in Kotlin](https://github.com/Kotlin/KEEP/blob/master/proposals/context-receivers.md), or pass the
+[`CompositionLocal`](https://developer.android.com/develop/ui/compose/compositionlocal), use [context parameters in Kotlin](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0367-context-parameters.md), or pass the
 scopes as parameters to your functions.
 
 Use `CompositionLocals` in the scenario where you have multiple scopes to keep
 track of, or a deeply nested hierarchy. A `CompositionLocal` lets you choose the
-exact scopes to save and use. On the other hand, when you use context receivers,
-other layouts in your hierarchy might accidentally override the provided scopes.
-For example, if you have multiple nested `AnimatedContent`, the scopes could be
-overridden.
+exact scopes to save and use. On the other hand, when you use context
+parameters, other layouts in your hierarchy might accidentally override the
+provided scopes. For example, if you have multiple nested `AnimatedContent`,
+the scopes could be overridden.
 
 
 ```kotlin
@@ -319,7 +319,7 @@ fun Details(
 Previous examples showed how to use shared elements with `AnimatedContent`, but
 shared elements work with `AnimatedVisibility` too.
 
-For example, in this lazy grid example, each element is wrapped in
+For example, in this `LazyColumn` example, each element is wrapped in
 `AnimatedVisibility`. When the item is clicked on, the content has the
 visual effect of being pulled out of the UI into a dialog-like component.
 
@@ -456,14 +456,15 @@ from before to measure and calculate the child's target size. The shared element
 modifiers create a series of animated constraints to gradually transform the
 child from the initial size to the target size.
 
-The exception to this is if you use `resizeMode = ScaleToBounds()` for
-the animation, or `Modifier.skipToLookaheadSize()` on a composable. In this
-case, Compose lays out the child using the target constraints, and instead uses
-a scale factor to perform the animation instead of changing the layout size
+The exception to this is if you use
+`resizeMode = SharedTransitionScope.ResizeMode.scaleToBounds()` for the
+animation, or `Modifier.skipToLookaheadSize()` on a composable. In this case,
+Compose lays out the child using the target constraints, and instead uses a
+scale factor to perform the animation instead of changing the layout size
 itself.
 
 > [!IMPORTANT]
-> **Important:** Be consistent with the order of modifiers on the matching items. Place size modifiers after the shared element modifiers, except when you use `requiredSize()`. If you use `requiredSize()` after shared element modifiers, there will be no relayout of children during the transform, even if you use `ScaleToBounds()`. On the other hand, if `requiredSize()` is before shared element modifiers, the parent of `requiredSize()` can never observe the shared elements `animatedSize`.
+> **Important:** Be consistent with the order of modifiers on the matching items. Place size modifiers after the shared element modifiers, except when you use `requiredSize()`. If you use `requiredSize()` after shared element modifiers, there will be no relayout of children during the transform, even if you use `scaleToBounds()`. On the other hand, if `requiredSize()` is before shared element modifiers, the parent of `requiredSize()` can never observe the shared element's animated size.
 
 ## Unique keys
 
@@ -471,7 +472,7 @@ When working with complex shared elements, it is a good practice to create a key
 that is not a string, because strings can be error prone to match. Each key must
 be unique for matches to occur. For example, in Jetsnack we have the following
 shared elements:
-![](https://developer.android.com/static/develop/ui/compose/images/animations/shared-element/unique_keys_shared_elements.jpeg) **Figure 7.** Image showing Jetsnack with annotations for each part of the UI.
+![Annotated Jetsnack interface identifying shared UI elements](https://developer.android.com/static/develop/ui/compose/images/animations/shared-element/unique_keys_shared_elements.jpeg) **Figure 7.** Image showing Jetsnack with annotations for each part of the UI.
 
 You could create an enum to represent the shared element type. In this example
 the whole snack card can also appear from multiple different places on the home

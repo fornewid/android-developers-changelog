@@ -6,10 +6,41 @@ source: md.txt
 
 Certain apps need to keep the screen turned on, such as games or movie apps.
 Some Android APIs automatically keep the screen on for you. In other cases,
-you can set a flag to manually keep the screen on.
+you can use a Compose modifier or set a flag to manually keep the screen on.
 
 > [!NOTE]
 > **Note:** Keeping the device's screen on can drain the battery quickly. Ordinarily, you should let the device turn the screen off if the user is not interacting with it. If you do need to keep the screen on, do so for as short a time as possible.
+
+## Keep the screen on in Compose
+
+If your app uses Jetpack Compose, apply the [`keepScreenOn`](https://developer.android.com/reference/kotlin/androidx/compose/ui/keepScreenOn.modifier) modifier to a
+composable. The modifier is available in Compose UI 1.9.0 and higher. The screen
+stays on as long as the modifier is part of the composition. When no composable
+uses the modifier, Compose stops keeping the screen on automatically.
+
+To keep the screen on only some of the time, apply the modifier conditionally.
+The following example keeps the screen on only while a video plays:
+
+
+```kotlin
+@Composable
+fun VideoPlayer(isPlaying: Boolean, modifier: Modifier = Modifier) {
+    Box(
+        modifier = modifier
+            // Keep the screen on only while the video plays.
+            .then(if (isPlaying) Modifier.keepScreenOn() else Modifier)
+    ) {
+        // Video surface and playback controls.
+    }
+}
+```
+
+<br />
+
+The modifier sets the same view property as the [`android:keepScreenOn`](https://developer.android.com/reference/android/R.attr#keepScreenOn)
+attribute described in the next section, so it keeps the screen on only while
+your app's window is visible. It doesn't clear a [`FLAG_KEEP_SCREEN_ON`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_KEEP_SCREEN_ON)
+flag that your app sets on the window.
 
 ## Manually keep the screen on
 

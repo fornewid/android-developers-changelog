@@ -273,4 +273,4 @@ activity.lifecycleScope.launch {
 ## Play spatial video using Jetpack Compose for XR
 
 If you're interested in learning how to play video using Jetpack Compose for XR,
-learn how to [add a surface for image or video content](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose#add-surface).
+learn how to [add a surface for image or video content](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/spatial-external-surface).

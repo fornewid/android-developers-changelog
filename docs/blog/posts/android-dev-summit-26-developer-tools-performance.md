@@ -192,6 +192,13 @@ Written by:
   [read_more
   View profile](https://developer.android.com/blog/authors/adarsh-fernando) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)
 Continue reading
+- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+
+  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates)
+
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
+  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge) • 3 min read
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
 - 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
@@ -210,12 +217,6 @@ Continue reading
   1 min read
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
-- [![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Z1ibqSI.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) 11 Mar 2026 11 Mar 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_27oFVg.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
-
-  ## [Level Up: Test Sidekick and prepare for upcoming program milestones](https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones)
-
-  [arrow_forward](https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones) Last September, we shared our vision for the future of Google Play Games grounded in a core belief: the best way to drive your game's success is to deliver a world-class player experience.
-  [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza) • 3 min read
 Stay in the loop
 
 

@@ -43,6 +43,25 @@ of the tools.
 
 ## Revisions
 
+#### 37.0.2
+
+**Canary: November 2026**
+
+##### adb
+
+- Reduce debug log spam. Demote high-frequency data-plane logs (such as reads and writes) to verbose level (for example: `usb:v, transport:v`) to prevent large log files.
+- Add support for syncing the `system_dlkm`, `vendor_dlkm`, and `odm_dlkm` partitions in the `adb sync` command.
+- Deprecate the `adb install --fastdeploy` option in favor of the [`android install`](https://developer.android.com/tools/agents/android-cli/commands/install) command. Fast Deploy remains temporarily available using the `--deprecated-fastdeploy` flag and will be removed in 37.0.3.
+- **Linux:**
+
+  - Introduce the `libadbusb` library to replace the legacy USB backend (`ADB_USB_LEGACY=1`). The `libadbusb` library uses periodic USB bus polling (`1000ms` default, configurable using the `ADB_USB_LINUX_POLL_INTERVAL_MS` environment variable) instead of netlink hotplug to avoid missing devices after in-place USB resets or concurrent `start-server` command races.
+  - Improve the legacy USB backend (`ADB_USB_LEGACY=1`). Add a reconnection retry loop to recover devices in case of missing netlink events.
+- **MacOS:**
+
+  - Introduce the `libadbusb` library to replace the legacy USB backend. The `libadbusb` library can be disabled by setting the `ADB_USB_LEGACY` environment variable to `1`.
+  - Fix an `adb` server crash (abort in `_Unwind_Backtrace`) on Apple Silicon M6 (macOS 27) caused by capturing backtraces on ignored non-ADB mDNS records.
+  - Fix an `adb` server crash (`KERN_INVALID_NAME` Mach port exception) on USB device attach when AMFI is disabled.
+
 #### 37.0.1 (July 2026)
 
 **adb**

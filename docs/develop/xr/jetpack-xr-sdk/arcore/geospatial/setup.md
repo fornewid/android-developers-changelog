@@ -116,7 +116,7 @@ explicitly enable it by configuring a `GeospatialMode` on the `Session`. The
 following modes are available:
 
 - [`GeospatialMode.SPATIAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode#SPATIAL()): The Geospatial API is enabled. The Geospatial API uses **Visual Positioning System (VPS)** , **Global Positioning System (GPS)** data, and the [device's motion
-  sensors](https://developer.android.com/develop/sensors-and-location/sensors/sensors_overview) to determine the device's geospatial pose. This mode is not available on Intelligent Eyewear devices.
+  sensors](https://developer.android.com/develop/sensors-and-location/sensors/sensors_overview) to determine the device's geospatial pose.
 - [`GeospatialMode.INERTIAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode#INERTIAL()): The Geospatial API is enabled in low-power mode. The Geospatial API only uses GPS and the [device's motion sensors](https://developer.android.com/develop/sensors-and-location/sensors/sensors_overview) to determine the device's geospatial pose. This mode is only available on Intelligent Eyewear devices.
 - [`GeospatialMode.DISABLED`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode#DISABLED()): Geospatial API is disabled; when transitioning from another mode to this mode, the Geospatial API releases all acquired resources and stop tracking.
 

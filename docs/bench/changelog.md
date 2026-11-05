@@ -8,7 +8,15 @@ source: md.txt
 
 ## Changelog
 
-Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. **October 26th, 2026**
+Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. **November 4th, 2026**
+
+- New agent results • Nov 4th   
+  **opencode results now available** ![](https://developer.android.com/static/images/bench/icons/deepseek.png) Deepseek V4.1 Flash 1017
+- New agent results • Nov 4th   
+  **kimi-code results now available** ![](https://developer.android.com/static/images/bench/icons/moonshotai.png) Kimi K3.1 Pro
+- New agent results • Nov 4th   
+  **codex results now available** ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 6.1 Terra
+**October 26th, 2026**
 
 - New updates • Oct 26th ![](https://developer.android.com/static/images/bench/icons/news.png) Results now showing a reasoning effort
 - New agent results • Oct 26th   

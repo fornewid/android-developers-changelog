@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | [1.5.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-beta02) | - |
+| November 04, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | [1.5.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-rc01) | - | - |
 
 > [!NOTE]
 > **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
@@ -52,7 +52,7 @@ plugins {
 dependencies {
     implementation "androidx.compose.material3:material3:1.4.0"
     implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
-    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-beta02"
+    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-rc01"
 }
 
 android {
@@ -76,7 +76,7 @@ plugins {
 dependencies {
     implementation("androidx.compose.material3:material3:1.4.0")
     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-beta02")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-rc01")
 }
 
 android {
@@ -377,6 +377,19 @@ Material3 adaptive pane scaffold APIs:
   - [AnimatedPane](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#(androidx.compose.material3.adaptive.ThreePaneScaffoldScope).AnimatedPane(androidx.compose.ui.Modifier,kotlin.Function2))
 
 ## Compose Material3 Version 1.5
+
+### Version 1.5.0-rc01
+
+November 04, 2026
+
+`androidx.compose.material3:material3-*:1.5.0-rc01` is released. Version 1.5.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4d933c98df7baa7ea2b83eea6e086915961e0ff..1f549b6f5ba84cb3553be9c79110c4c5f6413039/compose/material3).
+
+**Bug Fixes**
+
+- Resolve hardcoded pressed shape in `ToggleButton` to use design token `ButtonSmallTokens.PressedContainerShape`. ([Ia60dc](https://android-review.googlesource.com/#/q/Ia60dc38f5dc5174eb7028ee81945a37b9521471b), [b/531792521](https://issuetracker.google.com/issues/531792521))
+- Fixed `RangeSlider` not updating values on tap when thumbs overlap. ([I91d42](https://android-review.googlesource.com/#/q/I91d428e504f8b76c2a1903e56c18b47120e98a12), [b/352467346](https://issuetracker.google.com/issues/352467346))
+- Fixed floating-point precision loss in discrete `Slider` and `RangeSlider` when snapping to integer ticks. ([I91d42](https://android-review.googlesource.com/#/q/I91d428e504f8b76c2a1903e56c18b47120e98a12), [b/237634010](https://issuetracker.google.com/issues/237634010))
+- Fixed `RangeSlider` inside a horizontally scrollable container scrolling the container when dragging a thumb. ([I91d42](https://android-review.googlesource.com/#/q/I91d428e504f8b76c2a1903e56c18b47120e98a12), [b/415838608](https://issuetracker.google.com/issues/415838608))
 
 ### Version 1.5.0-beta02
 

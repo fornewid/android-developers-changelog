@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 28, 2026 | - | - | - | [1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/appstate-transform#1.0.0-alpha01) |
+| November 04, 2026 | - | - | - | [1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/appstate-transform#1.0.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -25,40 +25,40 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.appstate.transform:transform:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-android:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-desktop:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-iosarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-iossimulatorarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-js:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-linuxarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-linuxx64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-macosarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-mingwx64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-android:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-desktop:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-iosarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-iossimulatorarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-js:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-linuxarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-linuxx64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-macosarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-mingwx64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-tvosarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-tvossimulatorarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-wasm-js:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-watchosarm32:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-watchosarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-watchosdevicearm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-testing-watchossimulatorarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-tvosarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-tvossimulatorarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-wasm-js:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-watchosarm32:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-watchosarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-watchosdevicearm64:1.0.0-alpha01"
-    implementation "androidx.appstate.transform:transform-watchossimulatorarm64:1.0.0-alpha01"
+    implementation "androidx.appstate.transform:transform:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-android:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-desktop:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-iosarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-iossimulatorarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-js:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-linuxarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-linuxx64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-macosarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-mingwx64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-android:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-desktop:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-iosarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-iossimulatorarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-js:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-linuxarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-linuxx64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-macosarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-mingwx64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-tvosarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-tvossimulatorarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-wasm-js:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-watchosarm32:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-watchosarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-watchosdevicearm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-testing-watchossimulatorarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-tvosarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-tvossimulatorarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-wasm-js:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-watchosarm32:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-watchosarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-watchosdevicearm64:1.0.0-alpha02"
+    implementation "androidx.appstate.transform:transform-watchossimulatorarm64:1.0.0-alpha02"
 }
 ```
 
@@ -66,40 +66,40 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.appstate.transform:transform:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-android:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-desktop:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-iosarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-iossimulatorarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-js:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-linuxarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-linuxx64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-macosarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-mingwx64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-android:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-desktop:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-iosarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-iossimulatorarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-js:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-linuxarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-linuxx64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-macosarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-mingwx64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-tvosarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-tvossimulatorarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-wasm-js:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-watchosarm32:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-watchosarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-watchosdevicearm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-testing-watchossimulatorarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-tvosarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-tvossimulatorarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-wasm-js:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-watchosarm32:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-watchosarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-watchosdevicearm64:1.0.0-alpha01")
-    implementation("androidx.appstate.transform:transform-watchossimulatorarm64:1.0.0-alpha01")
+    implementation("androidx.appstate.transform:transform:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-android:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-desktop:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-iosarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-iossimulatorarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-js:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-linuxarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-linuxx64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-macosarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-mingwx64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-android:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-desktop:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-iosarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-iossimulatorarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-js:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-linuxarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-linuxx64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-macosarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-mingwx64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-tvosarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-tvossimulatorarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-wasm-js:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-watchosarm32:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-watchosarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-watchosdevicearm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-testing-watchossimulatorarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-tvosarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-tvossimulatorarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-wasm-js:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-watchosarm32:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-watchosarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-watchosdevicearm64:1.0.0-alpha02")
+    implementation("androidx.appstate.transform:transform-watchossimulatorarm64:1.0.0-alpha02")
 }
 ```
 
@@ -109,16 +109,22 @@ For more information about dependencies, see [Add build dependencies](https://de
 
 Your feedback helps make Jetpack better. Let us know if you discover new issues or have
 ideas for improving this library. Please take a look at the
-[existing issues](https://issuetracker.google.com/issues?q=componentid:2302904+status:open)
+[existing issues](https://issuetracker.google.com/issues?q=componentid:+status:open)
 in this library before you create a new one. You can add your vote to an existing issue by
 clicking the star button.
 
-[Create a new issue](https://issuetracker.google.com/issues/new?component=2302904&template=2430547)
+[Create a new issue](https://issuetracker.google.com/issues/new?component&template)
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha02
+
+November 04, 2026
+
+`androidx.appstate.transform:transform-*:1.0.0-alpha02` is released. Version 1.0.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f9cd04314f915c133a8f6e109ed8fbbf2a82bf65..a021adf44194ae86e596ae25ca43d5e4e18f6926/appstate/transform).
 
 ### Version 1.0.0-alpha01
 

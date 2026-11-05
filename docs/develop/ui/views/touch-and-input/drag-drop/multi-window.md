@@ -37,7 +37,7 @@ using a content URI. This requires the following:
 
 The following code snippets demonstrate how to release read-only access to
 dragged data immediately after the user drop operation takes place. See the
-[Drag and Drop Demo](https://github.com/android/user-interface-samples/tree/main/DragAndDrop)
+[Drag and Drop Demo](https://github.com/android/platform-samples/tree/main/samples/user-interface/draganddrop)
 on GitHub for a more complete example.
 
 ## Source activity

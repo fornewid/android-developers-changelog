@@ -10,7 +10,7 @@ Reduce the latency of input interactions by predicting future MotionEvents
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 19, 2025 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/input#1.0.0) | - | - | - |
+| November 04, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/input#1.0.1) | - | - | - |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.input:input-motionprediction:1.0.0"
+    implementation "androidx.input:input-motionprediction:1.0.1"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.input:input-motionprediction:1.0.0")
+    implementation("androidx.input:input-motionprediction:1.0.1")
 }
 ```
 
@@ -57,6 +57,16 @@ There are no release notes for this artifact.
 ## Input-Motionprediction
 
 ### Version 1.0
+
+#### Version 1.0.1
+
+November 04, 2026
+
+`androidx.input:input-motionprediction:1.0.1` is released. Version 1.0.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b2bd14a028581cd8869c8ef9116871da68fd875e..473a92c6d96596487a7e981a767358fe3bdc1418/input/input-motionprediction).
+
+**Bug Fixes**
+
+- Support stylus AXIS_RZ in motion event predictor ([I04f3a](https://android-review.googlesource.com/#/q/I04f3a4818bd4c41bdbef057a3211f5615e964252))
 
 #### Version 1.0.0
 

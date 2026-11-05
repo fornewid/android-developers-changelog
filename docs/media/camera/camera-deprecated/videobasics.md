@@ -10,6 +10,14 @@ recommend using [CameraX](https://developer.android.com/media/camera/camerax) or
 [Camera2](https://developer.android.com/media/camera/camera2). Both CameraX and Camera2 support Android 5.0
 (API level 21) and higher.
 
+<br />
+
+
+To learn how to migrate from Camera1 to CameraX, see
+[Migrate Camera1 to CameraX](https://developer.android.com/media/camera/camerax/camera1-to-camerax).
+Alternatively, you can use the
+[agentic skill for Camera1 to CameraX migration](https://github.com/android/skills/blob/main/camera/camerax/SKILL.md).
+
 This lesson explains how to capture video using existing camera
 applications.
 

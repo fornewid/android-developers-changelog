@@ -18,9 +18,9 @@ This table lists all the artifacts in the `androidx.wear` group.
 | wear-input-testing | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-input-testing-1.2.0) | - | - | - |
 | wear-ongoing | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-ongoing-1.1.0) | - | - | - |
 | wear-phone-interactions | [1.1.1](https://developer.android.com/jetpack/androidx/releases/wear#wear-phone-interactions-1.1.1) | - | - | - |
-| wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.2.0) | - | [1.3.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.3.0-beta01) | - |
+| wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.2.0) | [1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.3.0-rc01) | - | - |
 
-This library was last updated on: October 21, 2026
+This library was last updated on: November 04, 2026
 
 ## Declaring dependencies
 
@@ -723,6 +723,12 @@ April 15, 2020
 ## Wear-Remote-Interactions
 
 ### Version 1.3.0
+
+#### Version 1.3.0-rc01
+
+November 04, 2026
+
+`androidx.wear:wear-remote-interactions:1.3.0-rc01` is released. Version 1.3.0-rc01 does not contain any changes from beta01.
 
 #### Version 1.3.0-beta01
 

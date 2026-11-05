@@ -16,6 +16,11 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## November 04, 2026
+
+- [Biometric Version 1.4.0-beta01](https://developer.android.com/jetpack/androidx/releases/biometric#1.4.0-beta01)
+- [Exifinterface Version 1.5.0-beta01](https://developer.android.com/jetpack/androidx/releases/exifinterface#1.5.0-beta01)
+
 ## October 21, 2026
 
 - [Appfunctions Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-beta01)

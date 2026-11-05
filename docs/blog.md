@@ -22,6 +22,13 @@ Tools and resources to help you build faster and easier.
 
 ## The Latest
 
+- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+
+  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates)
+
+  The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
+  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge) • 3 min read
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
 - [![View Florina Muntenescu's profile](https://developer.android.com/static/blog/assets/unnamed_27_1d76df3c3b_2gwEzo.webp)](https://developer.android.com/blog/authors/florina-muntenescu) 02 Nov 2026 02 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_155_Strapi_1_f48145e2db_Z2jyq4w.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Developing for Today: 50+ New Developer Sessions on Building Apps Today](https://developer.android.com/blog/posts/building-apps-developer-sessions)
@@ -57,13 +64,6 @@ Tools and resources to help you build faster and easier.
   Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
   [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
   - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- [![View Jason Buchel's profile](https://developer.android.com/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](https://developer.android.com/blog/authors/jason-buchel) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Bringing our latest frontier model to Android Developers](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
-
-  As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use.
-  [Jason Buchel](https://developer.android.com/blog/authors/jason-buchel) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
 [arrow_forward
 See all latest posts](https://developer.android.com/blog/latest) ![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1Ad42c.webp)
 

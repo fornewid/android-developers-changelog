@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| April 22, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/biometric#1.1.0) | - | - | [1.4.0-alpha07](https://developer.android.com/jetpack/androidx/releases/biometric#1.4.0-alpha07) |
+| November 04, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/biometric#1.1.0) | - | [1.4.0-beta01](https://developer.android.com/jetpack/androidx/releases/biometric#1.4.0-beta01) | - |
 
 ## Declaring dependencies
 
@@ -61,6 +61,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.4
+
+### Version 1.4.0-beta01
+
+November 04, 2026
+
+`androidx.biometric:biometric:1.4.0-beta01` and `androidx.biometric:biometric-compose:1.4.0-beta01` are released. Version 1.4.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..090f3c60626d5dd314f7a448a916ff4b533b67ab/biometric).
 
 ### Version 1.4.0-alpha07
 

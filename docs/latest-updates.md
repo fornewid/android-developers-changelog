@@ -168,13 +168,13 @@ subset of functionality, each with its own set of release notes.
 
 | Maven Group ID | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|---|
-| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | October 21, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.1) | - | [1.13.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-beta02) | - |
+| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-rc01) | - | - |
 | [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) | August 7, 2024 | [1.5.15](https://developer.android.com/jetpack/androidx/releases/compose-compiler#1.5.15) | - | - | - |
-| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | October 21, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.1) | - | [1.13.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-beta02) | - |
-| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | October 21, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.1) | - | [1.13.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-beta02) | - |
-| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | October 21, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | [1.5.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-beta02) | - |
-| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | October 21, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.1) | - | [1.13.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-beta02) | - |
-| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | October 21, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.1) | - | [1.13.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-beta02) | - |
+| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-rc01) | - | - |
+| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-rc01) | - | - |
+| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | November 04, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | [1.5.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-rc01) | - | - |
+| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-rc01) | - | - |
+| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-rc01) | - | - |
 
 [View the Compose Library](https://developer.android.com/jetpack/androidx/releases/compose) <button class="devsite-dialog-close">Close</button>
 
@@ -185,20 +185,20 @@ This table lists all the artifacts in the `androidx.camera` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| camera-camera2 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
-| camera-core | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
-| camera-compose | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
-| camera-effects | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
-| camera-extensions | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
+| camera-camera2 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
+| camera-core | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
+| camera-compose | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
+| camera-effects | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
+| camera-extensions | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
 | camera-feature-combination-query | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
 | camera-feature-combination-query-play-services | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
-| camera-lifecycle | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
-| camera-mlkit-vision | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
-| camera-view | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
+| camera-lifecycle | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
+| camera-mlkit-vision | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
+| camera-view | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
 | camera-viewfinder | - | - | [1.3.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.3.0-beta02) | [1.4.0-alpha07](https://developer.android.com/jetpack/androidx/releases/camera#1.4.0-alpha07) |
-| camera-video | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
+| camera-video | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
 
-This library was last updated on: October 21, 2026 [View the Camera Library](https://developer.android.com/jetpack/androidx/releases/camera) <button class="devsite-dialog-close">Close</button>
+This library was last updated on: November 04, 2026 [View the Camera Library](https://developer.android.com/jetpack/androidx/releases/camera) <button class="devsite-dialog-close">Close</button>
 
 ### Wear Maven Group versions
 
@@ -212,6 +212,6 @@ This table lists all the artifacts in the `androidx.wear` group.
 | wear-input-testing | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#1.2.0) | - | - | - |
 | wear-ongoing | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#1.1.0) | - | - | - |
 | wear-phone-interactions | [1.1.1](https://developer.android.com/jetpack/androidx/releases/wear#1.1.1) | - | - | - |
-| wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#1.2.0) | - | [1.3.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear#1.3.0-beta01) | - |
+| wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#1.2.0) | [1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear#1.3.0-rc01) | - | - |
 
-This library was last updated on: October 21, 2026 [View the Wear Library](https://developer.android.com/jetpack/androidx/releases/wear) <button class="devsite-dialog-close">Close</button>
+This library was last updated on: November 04, 2026 [View the Wear Library](https://developer.android.com/jetpack/androidx/releases/wear) <button class="devsite-dialog-close">Close</button>

@@ -10,7 +10,7 @@ Framework for cross app functional UI testing
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | [2.4.0](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0) | - | - | - |
+| November 04, 2026 | [2.4.1](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.1) | - | - | - |
 
 ## Declaring dependencies
 
@@ -26,7 +26,7 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement UIAutomator tests
-    androidTestImplementation "androidx.test.uiautomator:uiautomator:2.4.0"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:2.4.1"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement UIAutomator tests
-    androidTestImplementation("androidx.test.uiautomator:uiautomator:2.4.0")
+    androidTestImplementation("androidx.test.uiautomator:uiautomator:2.4.1")
 }
 ```
 
@@ -55,6 +55,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 2.4
+
+### Version 2.4.1
+
+November 04, 2026
+
+`androidx.test.uiautomator:uiautomator:2.4.1`, `androidx.test.uiautomator:uiautomator-shell:2.4.1`, and `androidx.test.uiautomator:uiautomator-shell-android:2.4.1` are released. Version 2.4.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ec9022d156846f24e22bec3e475d4206d6f321ea..3054cd1c711b06fa33d39e66427dfc37e91c637d/test/uiautomator).
+
+**Bug Fixes**
+
+- Fixed an issue in `ShellServer` where random port selection could lead to port collisions and startup failures. ([I1951b](https://android-review.googlesource.com/#/q/I1951b6a1c46dbc7abfd08b33c1496258dac3522a))
 
 ### Version 2.4.0
 

@@ -2396,4 +2396,4 @@ Make a selection 2026.09.00 2026.08.00 2026.06.01 2026.06.00 2026.05.01 2026.05.
 
 Select two BOM versions to compare the Compose release notes---including new features, API changes, and bug fixes---between those versions across each Compose library group.
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/bom/bom-mapping_2a4e5a6df490fcc651993f66571e7f8a0366f7a1459922ab77e49316bf036a99.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/bom/bom-mapping_b6b1b885ad87950762f368145976e6596cf99686f73c619e065c97f9179d927f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>

@@ -31,6 +31,42 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
 
 These Jetpack libraries have been recently updated.
 
+## November 04, 2026
+
+- [Appfunctions Version 1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-rc01)
+- [Appstate Statestore Version 1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/appstate-statestore#1.0.0-alpha02)
+- [Appstate Transform Version 1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/appstate-transform#1.0.0-alpha02)
+- [Biometric Version 1.4.0-beta01](https://developer.android.com/jetpack/androidx/releases/biometric#1.4.0-beta01)
+- [Camera Featurecombinationquery Version 1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.7.0-rc02)
+- [Camera Version 1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02)
+- [Camera Viewfinder Version 1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-rc02)
+- [Compose Animation Version 1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-rc01)
+- [Compose Foundation Version 1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-rc01)
+- [Compose Material 3 Version 1.5.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-rc01)
+- [Compose Material Version 1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-rc01)
+- [Compose Remote Foundation Version 1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-remote-foundation#1.0.0-alpha06)
+- [Compose Remote Version 1.0.0-alpha23](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha23)
+- [Compose Runtime Version 1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-rc01)
+- [Compose UI Version 1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-rc01)
+- [Coordinatorlayout Version 1.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/coordinatorlayout#1.4.0-alpha01)
+- [Core-telecom Version 1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-telecom-1.1.0)
+- [Enterprise Version 1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/enterprise#1.2.0-alpha01)
+- [Exifinterface Version 1.5.0-beta01](https://developer.android.com/jetpack/androidx/releases/exifinterface#1.5.0-beta01)
+- [Glance Adaptive Version 1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/glance-adaptive#1.0.0-alpha04)
+- [Glance Wear Version 1.0.0-alpha22](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha22)
+- [Heifwriter Version 1.2.0-rc02](https://developer.android.com/jetpack/androidx/releases/heifwriter#1.2.0-rc02)
+- [Ink Version 1.1.0-alpha11](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha11)
+- [Input-motionprediction Version 1.0.1](https://developer.android.com/jetpack/androidx/releases/input#input-motionprediction-1.0.1)
+- [Navigation3 Version 1.2.1](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.1)
+- [Navigation3 Version 1.3.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation3#1.3.0-alpha04)
+- [Test Backup Version 1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test-backup#1.0.0-alpha04)
+- [Test Uiautomator Version 2.4.1](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.1)
+- [Wear Compose Remote Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha15)
+- [Wear Compose Version 1.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.8.0-alpha03)
+- [Wear-remote-interactions Version 1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.3.0-rc01)
+- [Web Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/web#web-1.0.0-alpha01)
+- [Webkit Version 1.19.0-alpha01](https://developer.android.com/jetpack/androidx/releases/webkit#1.19.0-alpha01)
+
 ## October 29, 2026
 
 - [Test Core Version 1.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#core-1.8.0-alpha03)

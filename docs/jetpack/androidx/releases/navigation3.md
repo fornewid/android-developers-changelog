@@ -10,7 +10,7 @@ Navigation 3 is a new navigation library designed to work with Compose.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0) | - | - | [1.3.0-alpha03](https://developer.android.com/jetpack/androidx/releases/navigation3#1.3.0-alpha03) |
+| November 04, 2026 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.1) | - | - | [1.3.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation3#1.3.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -25,8 +25,8 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation3:navigation3-runtime:1.3.0-alpha03"
-    implementation "androidx.navigation3:navigation3-ui:1.3.0-alpha03"
+    implementation "androidx.navigation3:navigation3-runtime:1.3.0-alpha04"
+    implementation "androidx.navigation3:navigation3-ui:1.3.0-alpha04"
 }
 ```
 
@@ -34,8 +34,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation3:navigation3-runtime:1.3.0-alpha03")
-    implementation("androidx.navigation3:navigation3-ui:1.3.0-alpha03")
+    implementation("androidx.navigation3:navigation3-runtime:1.3.0-alpha04")
+    implementation("androidx.navigation3:navigation3-ui:1.3.0-alpha04")
 }
 ```
 
@@ -55,6 +55,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.3
+
+### Version 1.3.0-alpha04
+
+November 04, 2026
+
+`androidx.navigation3:navigation3-*:1.3.0-alpha04` is released. Version 1.3.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3566803898b060d7136357220affc9ece8236019..a021adf44194ae86e596ae25ca43d5e4e18f6926/navigation3).
+
+**Bug Fixes**
+
+- Fix shared `NavEntry` not rendered on screen when it is popped then pushed again before the pop completes. ([I6a482](https://android-review.googlesource.com/#/q/I6a482e02627fa6804f9cf65809005c400a0b949e))
 
 ### Version 1.3.0-alpha03
 
@@ -82,11 +92,21 @@ September 23, 2026
 
 \*\* Bug Fixes \*\*
 
-- Fixed predictive back animation handoff in `NavDisplay` by migrating to `DeferredAnimatedContent` and resolving transition handoff issues. [I145eaedd](https://android-review.googlesource.com/q/I145eaedd3e2074826b14164f19369002f1cde37a) [b/430807423](https://buganizer.corp.google.com/issues/430807423)
+- Fixed predictive back animation handoff in `NavDisplay` by migrating to `DeferredAnimatedContent` and resolving transition handoff issues. [I145eaedd](https://android-review.googlesource.com/q/I145eaedd3e2074826b14164f19369002f1cde37a) [b/430807423](https://issuetracker.google.com/issues/430807423)
 
 There are no release notes for this artifact.
 
 ## Navigation3 Version 1.2
+
+### Version 1.2.1
+
+November 04, 2026
+
+`androidx.navigation3:navigation3-*:1.2.1` is released. Version 1.2.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/811e8c9c37f4955d520fe0cf7e39d96866066abc..65822252146d26e872acf03dc11bda43f11efa3b/navigation3).
+
+**Changes**
+
+- `compileSdk` has been downgraded from 37 to 36. Version 1.2 depends on Compose `1.10` which does not require `compileSdk` 37.
 
 ### Version 1.2.0
 

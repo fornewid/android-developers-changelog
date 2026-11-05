@@ -203,11 +203,6 @@ Data for captured images might be stored without rotation information. Exif data
 contains rotation information so that gallery applications can show the image in
 the correct orientation after saving.
 
-To display preview data with the correct orientation, you can use the metadata
-output from
-[`Preview.PreviewOutput()`](https://developer.android.com/reference/androidx/camera/core/Preview.PreviewOutput)
-to create transforms.
-
 The following code sample shows how to set the rotation on an orientation event:
 
 ### Kotlin
@@ -268,7 +263,7 @@ Based on the set rotation, each use case either rotates the image data
 directly or provides rotation metadata to the consumers of the non-rotated image
 data.
 
-- **Preview** : Metadata output is provided so that the rotation of the target resolution is known using [`Preview.getTargetRotation()`](https://developer.android.com/reference/androidx/camera/core/Preview#getTargetRotation()).
+- **Preview** : Metadata output is provided so that the rotation of the target resolution is known using [`Preview.getTargetRotation()`](https://developer.android.com/reference/androidx/camera/core/Preview#getTargetRotation()). To display preview data with the correct orientation, you can use the metadata output from [`SurfaceRequest.TransformationInfo`](https://developer.android.com/reference/androidx/camera/core/SurfaceRequest.TransformationInfo) to create transforms.
 - **ImageAnalysis**: Metadata output is provided so that image buffer coordinates are known relative to display coordinates.
 - **ImageCapture**: The image Exif metadata, buffer, or both the buffer and metadata are altered to note the rotation setting. The value altered depends upon the HAL implementation.
 

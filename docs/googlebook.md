@@ -43,7 +43,11 @@ Support file-level interactions and printing, ensuring your app handles document
 
 ## Differentiate on desktop
 
-Deliver a premium, desktop-grade experience by optimizing for professional workflows, ensuring your app meets the highest quality standards. [Review quality guidelines](http://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/experiences/desktop) [![](http://developer.android.com/static/googlebook/images/multi-instance.png)](http://developer.android.com/guide/topics/large-screens/multitasking-and-multi-instance)
+Deliver a premium, desktop-grade experience by optimizing for professional workflows, ensuring your app meets the highest quality standards. [Review quality guidelines](http://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/experiences/desktop)
+
+### [Continue On](http://developer.android.com/develop/better-together/continue-on)
+
+Enable seamless task continuity by allowing users to instantly resume their mobile activity on Googlebook. [Learn more](http://developer.android.com/develop/better-together/continue-on) [![](http://developer.android.com/static/googlebook/images/multi-instance.png)](http://developer.android.com/guide/topics/large-screens/multitasking-and-multi-instance)
 
 ### [Multi-instance](http://developer.android.com/guide/topics/large-screens/multitasking-and-multi-instance)
 

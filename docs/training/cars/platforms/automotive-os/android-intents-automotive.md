@@ -485,6 +485,7 @@ The following action intents with interfaces are available:
 | `geo.action:?act=query_destination` | Google Maps speaks the destination. |
 | `geo.action:?act=traffic_report` | Google Maps speaks the traffic report. |
 | `geo.action:?act=clear_search_results` | Google Maps closes the search results screen (if it's open). |
+| `geo.action:?act=open_destination_input` | Google Maps opens the destination input search screen. |
 | `geo.action:?act=apply_electric_vehicle_connector_filter` | Applies connector type filter for electric vehicle charging station search results. |
 | `geo.action:?act=remove_electric_vehicle_connector_filter` | Removes connector type filter for electric vehicle charging station search results. |
 | `geo.action:?act=apply_electric_vehicle_payment_filter` | Applies payment filter for electric vehicle charging station search results. |

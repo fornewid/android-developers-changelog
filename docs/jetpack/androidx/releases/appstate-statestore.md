@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 28, 2026 | - | - | - | [1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/appstate-statestore#1.0.0-alpha01) |
+| November 04, 2026 | - | - | - | [1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/appstate-statestore#1.0.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -25,25 +25,25 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.appstate.statestore:statestore:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-android:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-datastore:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-datastore-android:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-desktop:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-iosarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-iossimulatorarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-js:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-linuxarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-linuxx64:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-macosarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-mingwx64:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-tvosarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-tvossimulatorarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-wasm-js:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-watchosarm32:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-watchosarm64:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-watchosdevicearm64:1.0.0-alpha01"
-    implementation "androidx.appstate.statestore:statestore-watchossimulatorarm64:1.0.0-alpha01"
+    implementation "androidx.appstate.statestore:statestore:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-android:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-datastore:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-datastore-android:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-desktop:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-iosarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-iossimulatorarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-js:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-linuxarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-linuxx64:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-macosarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-mingwx64:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-tvosarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-tvossimulatorarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-wasm-js:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-watchosarm32:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-watchosarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-watchosdevicearm64:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore-watchossimulatorarm64:1.0.0-alpha02"
 }
 ```
 
@@ -51,25 +51,25 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.appstate.statestore:statestore:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-android:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-datastore:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-datastore-android:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-desktop:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-iosarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-iossimulatorarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-js:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-linuxarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-linuxx64:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-macosarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-mingwx64:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-tvosarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-tvossimulatorarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-wasm-js:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-watchosarm32:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-watchosarm64:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-watchosdevicearm64:1.0.0-alpha01")
-    implementation("androidx.appstate.statestore:statestore-watchossimulatorarm64:1.0.0-alpha01")
+    implementation("androidx.appstate.statestore:statestore:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-android:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-datastore:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-datastore-android:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-desktop:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-iosarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-iossimulatorarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-js:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-linuxarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-linuxx64:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-macosarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-mingwx64:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-tvosarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-tvossimulatorarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-wasm-js:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-watchosarm32:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-watchosarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-watchosdevicearm64:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore-watchossimulatorarm64:1.0.0-alpha02")
 }
 ```
 
@@ -89,6 +89,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha02
+
+November 04, 2026
+
+`androidx.appstate.statestore:statestore-*:1.0.0-alpha02` is released. Version 1.0.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f9cd04314f915c133a8f6e109ed8fbbf2a82bf65..a021adf44194ae86e596ae25ca43d5e4e18f6926/appstate/statestore).
 
 ### Version 1.0.0-alpha01
 

@@ -12,7 +12,7 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | [1.7.1](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.1) | - | - | [1.8.0-alpha02](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.8.0-alpha02) |
+| November 04, 2026 | [1.7.1](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.1) | - | - | [1.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.8.0-alpha03) |
 
 > [!NOTE]
 > **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
@@ -90,6 +90,24 @@ for more information.
 <br />
 
 ## Version 1.8
+
+### Version 1.8.0-alpha03
+
+November 04, 2026
+
+`androidx.wear.compose:compose-*:1.8.0-alpha03` is released. Version 1.8.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3566803898b060d7136357220affc9ece8236019..8c25756316d2436d4c1064969926f34c67bf2bc4/wear/compose).
+
+**API Changes**
+
+- Integrate material3-ripple in Wear material3 and add support for inset focus rings, introduce `LocalRippleThemeConfiguration` and `RippleThemeConfiguration` to support configuring focus indication, and deprecate `RippleConfiguration.rippleAlpha`. ([Ifb63a](https://android-review.googlesource.com/#/q/Ifb63a3c6f150219c262b10f4d40364deaaa2229b))
+- Added `LocalTimeSource` to allow overriding `TimeText`'s time source via `CompositionLocal` in tests and previews. ([Ic981a](https://android-review.googlesource.com/#/q/Ic981ae4793be554abb90d953054af83cd84963bc))
+- Added `Modifier.suppressStatusBar()` to allow screens and components to suppress the status bar and automatically collapse top status bar insets. Removed the unreleased `StatusBarSuppression()` composables; use `Modifier.suppressStatusBar()` instead. ([I0a0d6](https://android-review.googlesource.com/#/q/I0a0d6d102adc6271ada948007e8da1b62599f5c2))
+
+**Bug Fixes**
+
+- `Dialog` now only uses a full-screen offscreen layer while it is animating or being swiped, reducing GPU memory usage while it is shown and idle. ([I65baf](https://android-review.googlesource.com/#/q/I65bafbca490ba2f454f8ac4bb5e92892d71917a0))
+- Fixed an issue where state written from a background thread while `TransformingLazyColumn` was measuring could be lost. ([I3ed10](https://android-review.googlesource.com/#/q/I3ed10502ea07fe102166dcc1296099aee91a29a8))
+- Fixed a bug in `OneHandedGestureDefaults.scrollDownToNextItem` so that the first double pinch gesture always scrolls down, even when the list is at the top and the first item sits below the anchor point.
 
 ### Version 1.8.0-alpha02
 

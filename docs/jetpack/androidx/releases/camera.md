@@ -13,20 +13,20 @@ This table lists all the artifacts in the `androidx.camera` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| camera-camera2 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
-| camera-core | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
-| camera-compose | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
-| camera-effects | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
-| camera-extensions | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
+| camera-camera2 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
+| camera-core | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
+| camera-compose | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
+| camera-effects | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
+| camera-extensions | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
 | camera-feature-combination-query | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
 | camera-feature-combination-query-play-services | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
-| camera-lifecycle | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
-| camera-mlkit-vision | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
-| camera-view | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
+| camera-lifecycle | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
+| camera-mlkit-vision | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
+| camera-view | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
 | camera-viewfinder | - | - | [1.3.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.3.0-beta02) | [1.4.0-alpha07](https://developer.android.com/jetpack/androidx/releases/camera#1.4.0-alpha07) |
-| camera-video | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc01) | - | - |
+| camera-video | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
 
-This library was last updated on: October 21, 2026
+This library was last updated on: November 04, 2026
 
 ## Device testing
 
@@ -49,7 +49,7 @@ your app or module:
 ```groovy
 dependencies {
   // CameraX core library using the camera2 implementation
-  def camerax_version = "1.7.0-rc01"
+  def camerax_version = "1.7.0-rc02"
   // The following line is optional, as the core library is included indirectly by camera-camera2
   implementation "androidx.camera:camera-core:${camerax_version}"
   implementation "androidx.camera:camera-camera2:${camerax_version}"
@@ -71,7 +71,7 @@ dependencies {
 ```kotlin
 dependencies {
     // CameraX core library using the camera2 implementation
-    val camerax_version = "1.7.0-rc01"
+    val camerax_version = "1.7.0-rc02"
     // The following line is optional, as the core library is included indirectly by camera-camera2
     implementation("androidx.camera:camera-core:${camerax_version}")
     implementation("androidx.camera:camera-camera2:${camerax_version}")
@@ -139,6 +139,18 @@ May 14, 2024
 - Added `ZoomGestureDetector.ZoomEvent` to encapsulates the states of a zoom gesture. ([I84cdf](https://android-review.googlesource.com/#/q/I84cdfd505443171f9910fb0b3fd40fdaf307796b))
 
 ## Version 1.7
+
+### Version 1.7.0-rc02
+
+November 04, 2026
+
+`androidx.camera:camera-*:1.7.0-rc02` is released. Version 1.7.0-rc02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/678ffa9bb7ff9b6d63e55a32c452a45716cfdd71..c77cf64e9734c9c8f7497c161e5e631af91b111f/camera).
+
+**Bug Fixes**
+
+- Fixed an `UnsupportedOperationException` on API 30 when apps with `SYSTEM_ALERT_WINDOW` repeatedly bind camera use cases. ([I3235c](https://android-review.googlesource.com/q/I3235c1d64aa76a9084bdac63d81faa408e2f132f), [b/575161911](https://issuetracker.google.com/issues/575161911))
+
+- Fixed a native thread leak when unbinding `VideoCapture`, which left one media framework thread behind per bind. ([If5730](https://android-review.googlesource.com/#/q/If57302fe131c0771a60083be3a5128f99c1f5f77), [b/573671138](https://issuetracker.google.com/issues/573671138))
 
 ### Version 1.7.0-rc01
 

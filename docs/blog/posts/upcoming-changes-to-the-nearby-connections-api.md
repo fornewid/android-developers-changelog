@@ -43,19 +43,19 @@ Continue reading
   [Rob Orgiu](https://developer.android.com/blog/authors/rob-orgiu) • 2 min read
   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
   - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+
+  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates)
+
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
+  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge) • 3 min read
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
 - [![View Florina Muntenescu's profile](https://developer.android.com/static/blog/assets/unnamed_27_1d76df3c3b_2gwEzo.webp)](https://developer.android.com/blog/authors/florina-muntenescu) 02 Nov 2026 02 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_155_Strapi_1_f48145e2db_Z2jyq4w.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Developing for Today: 50+ New Developer Sessions on Building Apps Today](https://developer.android.com/blog/posts/building-apps-developer-sessions)
 
   [arrow_forward](https://developer.android.com/blog/posts/building-apps-developer-sessions) Over 900 attendees joined our event spaces for a keynote about our outlook on the future, demo sessions, dozens of workshops, a hackathon, and for community discussions focused on ideas and feedback on Android platform.
   [Florina Muntenescu](https://developer.android.com/blog/authors/florina-muntenescu) • 1 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
   - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
