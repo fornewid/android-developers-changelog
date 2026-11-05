@@ -1,0 +1,45 @@
+diff --git a/docs/blog/latest/2.md b/docs/blog/latest/2.md
+index 02f0f60b..784a9c8f 100644
+--- a/docs/blog/latest/2.md
++++ b/docs/blog/latest/2.md
+@@ -7,6 +7,14 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Rob Orgiu's profile](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_Z2l461S.webp)](https://developer.android.com/blog/authors/rob-orgiu) 31 Aug 2026 31 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_123_Streamline_adaptive_testing_with_emulator_commands_Strapi_0d1336f9a2_1recRz.webp) [Documentation](https://developer.android.com/blog/categories/documentation)
++
++  ## [Emulator control for adaptive app development](https://developer.android.com/blog/posts/emulator-control-for-adaptive-app-development)
++
++  [arrow_forward](https://developer.android.com/blog/posts/emulator-control-for-adaptive-app-development) Adaptive app development is fundamental on Android, but making sure everything looks good and every feature works the way it should require multiple tests on multiple devices. Or does it?
++  [Rob Orgiu](https://developer.android.com/blog/authors/rob-orgiu) • 2 min read
++  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
++  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+ - 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+ 
+   ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+@@ -161,13 +169,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post, we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
+   [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 6 min read
+   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+-- 3 Authors 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_28oUwB.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+-
+-  ## [Build intelligent Android apps: Cloud and hybrid inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
+-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 8 min read
+-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ [arrow_back](https://developer.android.com/blog/latest)
+ 
+ #### Page 2
+@@ -183,10 +184,10 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+ - [#Compose](https://developer.android.com/blog/topics/compose)
+ - [#Performance](https://developer.android.com/blog/topics/performance)
++- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+ - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+-- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Android 17](https://developer.android.com/blog/topics/android-17)
+ - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)

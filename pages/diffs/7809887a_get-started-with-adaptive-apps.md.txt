@@ -1,0 +1,13 @@
+diff --git a/docs/develop/adaptive-apps/guides/get-started-with-adaptive-apps.md b/docs/develop/adaptive-apps/guides/get-started-with-adaptive-apps.md
+index b20c8f68..055c98d9 100644
+--- a/docs/develop/adaptive-apps/guides/get-started-with-adaptive-apps.md
++++ b/docs/develop/adaptive-apps/guides/get-started-with-adaptive-apps.md
+@@ -307,4 +307,5 @@ see [Android Device Streaming, powered by Firebase](https://developer.android.co
+ 
+ ## Additional resources
+ 
+-- I/O presentation: [Building adaptive Android apps](https://io.google/2024/explore/d16737ba-e336-4b68-8928-24692a88e644/)
+\ No newline at end of file
++- I/O 2026: [Make your UI adaptive with Android Studio's AI agent](https://www.youtube.com/watch?v=vCHU6eUFxdk)
++- I/O 2024: [Building adaptive Android apps](https://io.google/2024/explore/d16737ba-e336-4b68-8928-24692a88e644/)
+\ No newline at end of file

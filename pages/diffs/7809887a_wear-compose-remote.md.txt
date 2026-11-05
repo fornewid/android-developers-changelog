@@ -1,0 +1,65 @@
+diff --git a/docs/jetpack/androidx/releases/wear-compose-remote.md b/docs/jetpack/androidx/releases/wear-compose-remote.md
+index f0a91c9c..e8cc74f2 100644
+--- a/docs/jetpack/androidx/releases/wear-compose-remote.md
++++ b/docs/jetpack/androidx/releases/wear-compose-remote.md
+@@ -10,7 +10,7 @@ Write Widgets and other Remote UI for Wear OS using the Material 3 Expressive de
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| October 21, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha14) |
++| November 04, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha15) |
+ 
+ ## Declaring dependencies
+ 
+@@ -26,7 +26,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha14"
++    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha15"
+ }
+ ```
+ 
+@@ -34,7 +34,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha14")
++    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha15")
+ }
+ ```
+ 
+@@ -56,6 +56,33 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha15
++
++November 04, 2026
++
++`androidx.wear.compose.remote:remote-material3:1.0.0-alpha15` is released. Version 1.0.0-alpha15 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3566803898b060d7136357220affc9ece8236019..9b2acdf2ecd36aa5ddf9c43ebfc288ed11d2c49e/wear/compose/remote/remote-material3).
++
++**API Changes**
++
++- Aligned `RemoteButton`, `RemoteCompactButton` (including defaulting `label` to `null`), `RemoteIconButton`, `RemoteTextButton`, `RemoteEdgeButton`, `RemoteCheckboxButton`, `RemoteRadioButton`, `RemoteSwitchButton`, `RemoteTitleCard`, `RemoteOutlinedCard`, `RemoteCardDefaults.outlinedCardBorder`, `RemoteHorizontalPageIndicator`, `RemoteVerticalPageIndicator`, and `RemoteText` parameter order, types, and names with Wear Compose Material 3, adopting `RemoteBorderStroke` for button borders and `indicatorSize` (`RemotePageIndicatorDefaults.IndicatorSize`) for page indicators. ([If09ff](https://android-review.googlesource.com/#/q/If09ffd4987f888b77c0a8d47601dca053f755013))
++- Updated action callbacks (`onClick`, `onCheckedChange`, `onSelect`, `onContainerClick`, and `onSelectionClick`) across `remote-material3` components to use `RemoteAction` instead of `Action`. ([I19913](https://android-review.googlesource.com/#/q/I19913e9857793b177ddbc440342bb3e28db42826))
++- Reordered `RemoteEdgeButtonShape.createOutline` parameters to `(size, layoutDirection, density)` to match `RemoteShape.createOutline` and Compose `Shape.createOutline`. ([Ifb87a](https://android-review.googlesource.com/#/q/Ifb87adb4b42eaee3874312f61aa5cca5571daa12))
++- Added `copy()` to `RemoteProgressIndicatorColors` and `RemoteShapes`, made `copy()` parameters non-nullable across `*Colors` and `*Shapes` classes, removed `@Composable` from non-theme shape properties on `*Defaults` objects, removed the redundant `RemoteEdgeButtonDefaults.shape` property (use `RemoteEdgeButtonDefaults.shape(buttonSize)`), and renamed constants on `RemotePageIndicatorDefaults` and `RemoteTimeTextDefaults` to `PascalCase`. ([Iae170](https://android-review.googlesource.com/#/q/Iae17044880c1a48c4bb37043e183adafaf03a4a9))
++- Removed `DefaultRemotePageIndicatorState` and `RemoteModifier.buttonSizeModifier()` from the public API. ([I3ada2](https://android-review.googlesource.com/#/q/I3ada2c9051e157bc26ffd1099c7f09e5310eef4c))
++- Added a required `defaultFontFamily` parameter to the `RemoteTypography(Typography)` constructor to apply a `RemoteFontFamily` to every style. Pass `RemoteFontFamily.Default` for the previous behavior. ([I34646](https://android-review.googlesource.com/#/q/I34646152dd520b22d2ee43cd8b295cd3826be84e))
++
++**Bug Fixes**
++
++- `RemoteButton`, `RemoteCompactButton`, `RemoteIconButton`, and `RemoteTextButton` now clip their container backgrounds to custom `RemoteShape` outlines when the creation profile supports path clipping. ([I3b0ab](https://android-review.googlesource.com/#/q/I3b0ab8eb261e1e363e1695b12d0899571f9fe568))
++- `RemoteTimeText` now defaults its color to `onBackground` with luminance 80, matching Wear Compose Material 3 `TimeText`. ([Ib53fc](https://android-review.googlesource.com/#/q/Ib53fcf9d30bec282eee850c711ae712002d957ec))
++- `RemoteSplitCheckboxButton` now draws the same check mark and check animation as `RemoteCheckboxButton`. ([I96f9f](https://android-review.googlesource.com/#/q/I96f9f8b9c7b38d137cf19bd19b81f626e675c519))
++- `RemoteSplitSwitchButton` now mirrors the switch thumb in right-to-left layouts and draws the same thumb check mark as `RemoteSwitchButton`. ([I686ec](https://android-review.googlesource.com/#/q/I686ec277cb9ddcc3ea1a01d46ffbd0a7411d4908))
++- Fixed `RemoteButtonDefaults.containerPainter` and `RemoteCardDefaults.containerPainter` ignoring alpha and `disabledContainerOpacity`, and aligned `RemoteIconButtonDefaults` `contentColor` defaults with Wear Compose Material 3. ([I9c5fb](https://android-review.googlesource.com/#/q/I9c5fbdab637df486682845835cfb87b5258a8da9))
++- `RemoteCheckboxButton`, `RemoteSwitchButton`, and `RemoteRadioButton` now tint their icon with the icon colors from their colors, which default to the primary color, matching Wear Compose Material 3. ([I31590](https://android-review.googlesource.com/#/q/I315906845f3443a01230665605bc00acae0dfcb1))
++- Remote selection buttons and their split variants now animate their container and content colors with the slow effects spec of `RemoteMaterialTheme.motionScheme`, matching Wear Compose Material 3, and the `RemoteCheckboxButton` tick no longer rotates while being unchecked. ([I822aa](https://android-review.googlesource.com/#/q/I822aa6b9e0f2e4da980f4b9c0a656dbfa32559af))
++- `RemoteCircularProgressIndicator` and `RemoteLinearProgressIndicator` now animate progress changes with `RemoteMaterialTheme.motionScheme`, matching Wear Compose Material 3, and `RemoteCircularProgressIndicator` now coerces progress into `0f..1f`. The indeterminate `RemoteCircularProgressIndicator` now uses the standard easing for its trims. ([Ief8ea](https://android-review.googlesource.com/#/q/Ief8ea398cc2c6dfc8c3566a7aa19c2954009929e))
++- Aligned default colors in `RemoteButtonDefaults`, `RemoteCardDefaults.outlinedCardBorderColor`, `RemoteCheckboxButtonDefaults`, and `RemotePageIndicatorDefaults` with Wear Compose Material 3. ([I87510](https://android-review.googlesource.com/#/q/I87510409fe33840e58a96f66348801fbe730ce13))
++
+ ### Version 1.0.0-alpha14
+ 
+ October 21, 2026

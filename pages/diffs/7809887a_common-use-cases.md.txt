@@ -1,0 +1,19 @@
+diff --git a/docs/develop/ui/compose/animation/shared-elements/common-use-cases.md b/docs/develop/ui/compose/animation/shared-elements/common-use-cases.md
+index f3af8f37..b93a35fb 100644
+--- a/docs/develop/ui/compose/animation/shared-elements/common-use-cases.md
++++ b/docs/develop/ui/compose/animation/shared-elements/common-use-cases.md
+@@ -45,10 +45,10 @@ AsyncImage(
+ 
+ ## Text
+ 
+-To animate `fontSize` changes, use `Modifier.sharedBounds()`, `resizeMode =
+-ScaleToBounds()`. This transition makes the size
+-change relatively fluid. The `contentScale` parameter can be tweaked to animate
+-a specific font weight or style.
++To animate `fontSize` changes, use `Modifier.sharedBounds()` with `resizeMode =
++SharedTransitionScope.ResizeMode.scaleToBounds()`. This transition makes the
++size change relatively fluid. The `contentScale` parameter can be tweaked to
++animate a specific font weight or style.
+ 
+ 
+ ```kotlin

@@ -1,0 +1,13 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md
+index 28a34606..f60ffa88 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md
+@@ -138,7 +138,7 @@ private fun LargeButtonWithLeadingAndTrailingIconSample() {
+ fun CustomFocusedColorButtonSample() {
+     Button(
+         onClick = {},
+-        focusedColor = ButtonDefaults.focusedColor(Color(0xFF34E0A1)),
++        focusedColor = ButtonDefaults.calculateFocusedColor(Color(0xFF34E0A1)),
+     ) {
+         Text("Button with custom colors")
+     }

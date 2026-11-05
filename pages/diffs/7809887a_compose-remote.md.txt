@@ -1,0 +1,100 @@
+diff --git a/docs/jetpack/androidx/releases/compose-remote.md b/docs/jetpack/androidx/releases/compose-remote.md
+index 0a1fa188..0aa6d8ae 100644
+--- a/docs/jetpack/androidx/releases/compose-remote.md
++++ b/docs/jetpack/androidx/releases/compose-remote.md
+@@ -10,7 +10,7 @@ Remote Compose is a framework to create UI for remote surfaces
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| October 21, 2026 | - | - | - | [1.0.0-alpha22](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha22) |
++| November 04, 2026 | - | - | - | [1.0.0-alpha23](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha23) |
+ 
+ ## Declaring dependencies
+ 
+@@ -26,20 +26,20 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.compose.remote:remote-core:1.0.0-alpha22"
++    implementation "androidx.compose.remote:remote-core:1.0.0-alpha23"
+ 
+     // Use to create Remote Compose documents
+-    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha22"
+-    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha22"
+-    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha22"
+-    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha22"
+-    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha22"
++    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha23"
++    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha23"
++    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha23"
++    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha23"
++    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha23"
+ 
+     // Use to render a Remote Compose document
+-    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha22"
+-    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha22"
++    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha23"
++    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha23"
+ 
+-    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha22"
++    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha23"
+ }
+ ```
+ 
+@@ -47,20 +47,20 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.compose.remote:remote-core:1.0.0-alpha22")
++    implementation("androidx.compose.remote:remote-core:1.0.0-alpha23")
+ 
+     // Use to create Remote Compose documents
+-    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha22")
+-    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha22")
+-    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha22")
+-    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha22")
+-    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha22")
++    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha23")
++    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha23")
++    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha23")
++    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha23")
++    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha23")
+ 
+     // Use to render a Remote Compose document
+-    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha22")
+-    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha22")
++    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha23")
++    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha23")
+ 
+-    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha22")
++    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha23")
+ }
+ ```
+ 
+@@ -82,6 +82,26 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha23
++
++November 04, 2026
++
++`androidx.compose.remote:remote-*:1.0.0-alpha23` is released. Version 1.0.0-alpha23 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3566803898b060d7136357220affc9ece8236019..9b2acdf2ecd36aa5ddf9c43ebfc288ed11d2c49e/compose/remote).
++
++**API Changes**
++
++- Renamed `Action` to `RemoteAction` in `remote-creation-compose` and updated action factories and touch/click modifiers (`clickable`, `onTouchDown`, `onTouchUp`, `onTouchCancel`). ([I19913](https://android-review.googlesource.com/#/q/I19913e9857793b177ddbc440342bb3e28db42826))
++- Reordered `RemoteShape.createOutline` and `RemoteCornerBasedShape.createOutline` parameters to `(size, layoutDirection, density)` to match Compose `Shape.createOutline`. ([Ifb87a](https://android-review.googlesource.com/#/q/Ifb87adb4b42eaee3874312f61aa5cca5571daa12))
++- Decoupled `RemoteColor` from Compose UI `Color`: `RemoteColor` now extends `BaseRemoteState<Int>` (ARGB `@ColorInt`) with `Int.rc` and `@ColorInt` factory overloads; Compose `Color` conversions (`Color.rc`, `Color.asRemoteColor()`, `RemoteColor.asConstantColor()`) remain available as extensions. ([Ib31ea](https://android-review.googlesource.com/#/q/Ib31ea808beeb923bd9c764a65a002dc714eef366))
++- Added `currentProfileSupportsPathClip()` to check whether the current Remote Compose creation profile supports clipping to a path. ([I3b0ab](https://android-review.googlesource.com/#/q/I3b0ab8eb261e1e363e1695b12d0899571f9fe568))
++- Deprecated `rememberMutableRemote*` factory functions (`rememberMutableRemoteBoolean`, `rememberMutableRemoteEnum`, `rememberMutableRemoteFloat`, `rememberMutableRemoteImageBitmap`, `rememberMutableRemoteInt`, and `rememberMutableRemoteString`) in `remote-creation-compose` in favor of `remember { MutableRemote*(initialValue) }`. ([Ifb1f8](https://android-review.googlesource.com/#/q/Ifb1f86ebaf91017f1f8f4bdf0bfe5d9a933e1378))
++- Removed `RemoteTypeface.toAndroidTypeface()` and `RemoteTypeface.Companion.fromAndroidTypeface()` from `remote-creation-compose`. ([I8867e](https://android-review.googlesource.com/#/q/I8867ef49d6557dd83723040c744a24e45e10e42d))
++- Removed the previously deprecated `RemoteModifier.animationSpec` modifier. ([I1aea8](https://android-review.googlesource.com/#/q/I1aea8966a25a7832124db35a99f1292d537c375a))
++
++**Bug Fixes**
++
++- Fixed chained `RemoteModifier.drawWithContent` modifiers dropping inner draw blocks (such as component container backgrounds when callers attach `drawWithContent`). ([If7e75](https://android-review.googlesource.com/#/q/If7e7512f84a6ca6907638fbade4170bf25a3d7ee))
++
+ ### Version 1.0.0-alpha22
+ 
+ October 21, 2026

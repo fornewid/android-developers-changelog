@@ -1,0 +1,42 @@
+diff --git a/docs/blog/authors/13.md b/docs/blog/authors/13.md
+index b5f0a650..4f2d052e 100644
+--- a/docs/blog/authors/13.md
++++ b/docs/blog/authors/13.md
+@@ -6,6 +6,15 @@ source: md.txt
+ 
+ # Authors
+ 
++-
++
++  ## [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino)
++
++  ###### Sr. Director
++
++  [read_more
++  2 posts](https://developer.android.com/blog/authors/ron-aquino) [read_more
++  2 posts](https://developer.android.com/blog/authors/ron-aquino) ![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_ZRiq2s.webp) ![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_ZRiq2s.webp)
+ -
+ 
+   ## [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker)
+@@ -78,20 +87,11 @@ source: md.txt
+   [read_more
+   1 post](https://developer.android.com/blog/authors/sara-hamilton) [read_more
+   1 post](https://developer.android.com/blog/authors/sara-hamilton) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
+--
+-
+-  ## [Scott Nien](https://developer.android.com/blog/authors/scott-nien)
+-
+-  ###### Software Engineer
+-
+-  [read_more
+-  1 post](https://developer.android.com/blog/authors/scott-nien) [read_more
+-  1 post](https://developer.android.com/blog/authors/scott-nien) ![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_ZaWsTm.webp) ![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_ZaWsTm.webp)
+ [arrow_back](https://developer.android.com/blog/authors/12)
+ 
+ #### Page 13
+ 
+-###### of 16
++###### of 17
+ 
+ [arrow_forward](https://developer.android.com/blog/authors/14) Stay in the loop
+ 

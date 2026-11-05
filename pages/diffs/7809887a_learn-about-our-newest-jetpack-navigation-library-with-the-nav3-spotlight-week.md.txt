@@ -1,0 +1,33 @@
+diff --git a/docs/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week.md b/docs/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week.md
+index 20e6c7b6..41bd0ea3 100644
+--- a/docs/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week.md
++++ b/docs/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week.md
+@@ -64,6 +64,13 @@ Written by:
+   [read_more
+   View profile](https://developer.android.com/blog/authors/don-turner) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)
+ Continue reading
++- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
++
++  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates)
++
++  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
++  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge) • 3 min read
++  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+ 
+   ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance)
+@@ -81,14 +88,6 @@ Continue reading
+   - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
+   - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
+   - +1 ↩
+-- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_Z20LEeM.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+-
+-  ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed) The Google I/O schedule is here!
+-  1 min read
+-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+-  - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
+ Stay in the loop
+ 
+ 

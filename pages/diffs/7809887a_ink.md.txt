@@ -1,0 +1,90 @@
+diff --git a/docs/jetpack/androidx/releases/ink.md b/docs/jetpack/androidx/releases/ink.md
+index c278a023..291d22c2 100644
+--- a/docs/jetpack/androidx/releases/ink.md
++++ b/docs/jetpack/androidx/releases/ink.md
+@@ -10,7 +10,7 @@ Inspire best-in-class pen apps. Lower the developer barrier to entry for high pe
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| October 21, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha10](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha10) |
++| November 04, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha11](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha11) |
+ 
+ ## Declaring dependencies
+ 
+@@ -26,16 +26,16 @@ your app or module:
+ ```groovy
+ dependencies {
+   
+-    implementation "androidx.ink:ink-authoring:1.1.0-alpha10"
+-    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha10"
+-    implementation "androidx.ink:ink-brush:1.1.0-alpha10"
+-    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha10"
+-    implementation "androidx.ink:ink-geometry:1.1.0-alpha10"
+-    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha10"
+-    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha10"
+-    implementation "androidx.ink:ink-rendering:1.1.0-alpha10"
+-    implementation "androidx.ink:ink-storage:1.1.0-alpha10"
+-    implementation "androidx.ink:ink-strokes:1.1.0-alpha10"
++    implementation "androidx.ink:ink-authoring:1.1.0-alpha11"
++    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha11"
++    implementation "androidx.ink:ink-brush:1.1.0-alpha11"
++    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha11"
++    implementation "androidx.ink:ink-geometry:1.1.0-alpha11"
++    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha11"
++    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha11"
++    implementation "androidx.ink:ink-rendering:1.1.0-alpha11"
++    implementation "androidx.ink:ink-storage:1.1.0-alpha11"
++    implementation "androidx.ink:ink-strokes:1.1.0-alpha11"
+     
+ }
+ ```
+@@ -46,16 +46,16 @@ dependencies {
+ dependencies {
+ 
+ 
+-    implementation("androidx.ink:ink-authoring:1.1.0-alpha10")
+-    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha10")
+-    implementation("androidx.ink:ink-brush:1.1.0-alpha10")
+-    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha10")
+-    implementation("androidx.ink:ink-geometry:1.1.0-alpha10")
+-    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha10")
+-    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha10")
+-    implementation("androidx.ink:ink-rendering:1.1.0-alpha10")
+-    implementation("androidx.ink:ink-storage:1.1.0-alpha10")
+-    implementation("androidx.ink:ink-strokes:1.1.0-alpha10")
++    implementation("androidx.ink:ink-authoring:1.1.0-alpha11")
++    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha11")
++    implementation("androidx.ink:ink-brush:1.1.0-alpha11")
++    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha11")
++    implementation("androidx.ink:ink-geometry:1.1.0-alpha11")
++    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha11")
++    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha11")
++    implementation("androidx.ink:ink-rendering:1.1.0-alpha11")
++    implementation("androidx.ink:ink-storage:1.1.0-alpha11")
++    implementation("androidx.ink:ink-strokes:1.1.0-alpha11")
+ }
+ ```
+ 
+@@ -87,6 +87,22 @@ for more information.
+ 
+ ## Ink Version 1.1
+ 
++### Version 1.1.0-alpha11
++
++November 04, 2026
++
++`androidx.ink:ink-*:1.1.0-alpha11` is released. Version 1.1.0-alpha11 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3566803898b060d7136357220affc9ece8236019..a021adf44194ae86e596ae25ca43d5e4e18f6926/ink).
++
++**API Changes**
++
++- Add experimental Ink APIs for calculating/storing phase offsets for strokes with animated textures ([I620e6](https://android-review.googlesource.com/#/q/I620e6f7a70715691bed4acfdc5ee199b0cc8d622))
++- Add experimental Ink brush APIs for specifying an animated paint texture ([If0f10](https://android-review.googlesource.com/#/q/If0f10a8a9455af33a8f51668f24e0208a48e7013))
++- Stroke shape (`PartitionedMesh`) serialization, to save partially erased strokes or to speed up document load times by saving mesh data ([I1604f](https://android-review.googlesource.com/#/q/I1604f6da99ce038abe51df87a673498c21a17997))
++
++**Bug Fixes**
++
++- Fixed handling of concurrent inputs, and improved barrel twist compatibility. ([I0fc23](https://android-review.googlesource.com/#/q/I0fc23934611435e978078368fa498a9d5e7d8abb))
++
+ ### Version 1.1.0-alpha10
+ 
+ October 21, 2026

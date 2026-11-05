@@ -1,0 +1,42 @@
+diff --git a/docs/blog/latest/9.md b/docs/blog/latest/9.md
+index d56ff02d..08b2e6e7 100644
+--- a/docs/blog/latest/9.md
++++ b/docs/blog/latest/9.md
+@@ -7,6 +7,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 06 Nov 2025 06 Nov 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_Z16RxqU.webp) [Community](https://developer.android.com/blog/categories/community)
++
++  ## [#WeArePlay: Meet the people making apps \& games to improve your health](https://developer.android.com/blog/posts/we-are-play-meet-the-people-making-apps-and-games-to-improve-your-health)
++
++  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-meet-the-people-making-apps-and-games-to-improve-your-health) In our latest #WeArePlay stories, we meet the founders building apps and games that are making health and wellness fun and easy for everyone on Google Play.
++  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+ - [![View Brenda Shaw's profile](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Z1RcuMg.webp)](https://developer.android.com/blog/authors/brenda-shaw) 03 Nov 2025 03 Nov 2025 ![](https://developer.android.com/static/blog/assets/health_Connect1_49b5a00627_Z1LaQc.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Health Connect Jetpack v1.1.0 is now available!](https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available)
+@@ -127,12 +133,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   - [#Now In Android](https://developer.android.com/blog/topics/now-in-android)
+   - [#Compose](https://developer.android.com/blog/topics/compose)
+   - +2 ↩
+-- [![View Ran Mor's profile](https://developer.android.com/static/blog/assets/Ran_Profile_Picture_4af70ee745_7ya3A.webp)](https://developer.android.com/blog/authors/ran-mor) 20 Oct 2025 20 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Dynamic_App_Links_Blog_42ba94ce09_FP0fF.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Dynamic App Links: Elevating your Android deep linking](https://developer.android.com/blog/posts/dynamic-app-links-elevating-your-android-deep-linking)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/dynamic-app-links-elevating-your-android-deep-linking) We're excited to announce the availability of Dynamic App Links, a significant leap forward for Android App Links that brings them on par with, and in many ways surpasses, industry standards for deep linking.
+-  [Ran Mor](https://developer.android.com/blog/authors/ran-mor) • 2 min read
+ [arrow_back](https://developer.android.com/blog/latest/8)
+ 
+ #### Page 9
+@@ -148,10 +148,10 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+ - [#Compose](https://developer.android.com/blog/topics/compose)
+ - [#Performance](https://developer.android.com/blog/topics/performance)
++- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+ - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+-- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Android 17](https://developer.android.com/blog/topics/android-17)
+ - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)

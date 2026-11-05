@@ -1,0 +1,26 @@
+diff --git a/docs/jetpack/androidx/releases/exifinterface.md b/docs/jetpack/androidx/releases/exifinterface.md
+index ef012bbe..f3a7e58c 100644
+--- a/docs/jetpack/androidx/releases/exifinterface.md
++++ b/docs/jetpack/androidx/releases/exifinterface.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| October 21, 2026 | [1.4.2](https://developer.android.com/jetpack/androidx/releases/exifinterface#1.4.2) | - | - | [1.5.0-alpha01](https://developer.android.com/jetpack/androidx/releases/exifinterface#1.5.0-alpha01) |
++| November 04, 2026 | [1.4.2](https://developer.android.com/jetpack/androidx/releases/exifinterface#1.4.2) | - | [1.5.0-beta01](https://developer.android.com/jetpack/androidx/releases/exifinterface#1.5.0-beta01) | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -54,6 +54,12 @@ for more information.
+ 
+ ## Version 1.5
+ 
++### Version 1.5.0-beta01
++
++November 04, 2026
++
++`androidx.exifinterface:exifinterface:1.5.0-beta01` is released. Version 1.5.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3566803898b060d7136357220affc9ece8236019..ce093d9bcebe73a513e5e1ab8aa716a2f8df336c/exifinterface/exifinterface).
++
+ ### Version 1.5.0-alpha01
+ 
+ October 21, 2026

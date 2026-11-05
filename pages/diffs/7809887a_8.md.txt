@@ -1,0 +1,42 @@
+diff --git a/docs/blog/latest/8.md b/docs/blog/latest/8.md
+index 56a40679..435fb931 100644
+--- a/docs/blog/latest/8.md
++++ b/docs/blog/latest/8.md
+@@ -7,6 +7,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher) 03 Dec 2025 03 Dec 2025 ![](https://developer.android.com/static/blog/assets/jetpack_Compose_99733114d6_1iREVR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [What's new in the Jetpack Compose December '25 release](https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-december-release)
++
++  [arrow_forward](https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-december-release) Today, the Jetpack Compose December '25 release is stable. This contains version 1.10 of the core Compose modules and version 1.4 of Material 3, adding new features and major performance improvements.
++  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 6 min read
+ - [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 02 Dec 2025 02 Dec 2025 ![](https://developer.android.com/static/blog/assets/a16released_7cb13cc79d_Z1pSAcy.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Android 16 QPR2 is Released](https://developer.android.com/blog/posts/android-16-qpr-2-is-released)
+@@ -125,12 +131,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta) A great user experience is built on a foundation of strong technical performance. We are committed to helping you create stable, responsive, and efficient apps that users love.
+   [Karan Jhavar](https://developer.android.com/blog/authors/karan-jhavar), [Dan Brown](https://developer.android.com/blog/authors/dan-brown), [Eric Brenner](https://developer.android.com/blog/authors/eric-brenner) • 3 min read
+-- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 06 Nov 2025 06 Nov 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_Z16RxqU.webp) [Community](https://developer.android.com/blog/categories/community)
+-
+-  ## [#WeArePlay: Meet the people making apps \& games to improve your health](https://developer.android.com/blog/posts/we-are-play-meet-the-people-making-apps-and-games-to-improve-your-health)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-meet-the-people-making-apps-and-games-to-improve-your-health) In our latest #WeArePlay stories, we meet the founders building apps and games that are making health and wellness fun and easy for everyone on Google Play.
+-  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+ [arrow_back](https://developer.android.com/blog/latest/7)
+ 
+ #### Page 8
+@@ -146,10 +146,10 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+ - [#Compose](https://developer.android.com/blog/topics/compose)
+ - [#Performance](https://developer.android.com/blog/topics/performance)
++- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+ - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+-- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Android 17](https://developer.android.com/blog/topics/android-17)
+ - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)

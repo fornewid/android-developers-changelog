@@ -1,0 +1,45 @@
+diff --git a/docs/blog/latest.md b/docs/blog/latest.md
+index 885d171c..e4b0c9bb 100644
+--- a/docs/blog/latest.md
++++ b/docs/blog/latest.md
+@@ -7,6 +7,13 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
++
++  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates)
++
++  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
++  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge) • 3 min read
++  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [![View Florina Muntenescu's profile](https://developer.android.com/static/blog/assets/unnamed_27_1d76df3c3b_2gwEzo.webp)](https://developer.android.com/blog/authors/florina-muntenescu) 02 Nov 2026 02 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_155_Strapi_1_f48145e2db_Z2jyq4w.webp) [Community](https://developer.android.com/blog/categories/community)
+ 
+   ## [Developing for Today: 50+ New Developer Sessions on Building Apps Today](https://developer.android.com/blog/posts/building-apps-developer-sessions)
+@@ -150,14 +157,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 5 min read
+   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+   - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+-- [![View Rob Orgiu's profile](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_Z2l461S.webp)](https://developer.android.com/blog/authors/rob-orgiu) 31 Aug 2026 31 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_123_Streamline_adaptive_testing_with_emulator_commands_Strapi_0d1336f9a2_1recRz.webp) [Documentation](https://developer.android.com/blog/categories/documentation)
+-
+-  ## [Emulator control for adaptive app development](https://developer.android.com/blog/posts/emulator-control-for-adaptive-app-development)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/emulator-control-for-adaptive-app-development) Adaptive app development is fundamental on Android, but making sure everything looks good and every feature works the way it should require multiple tests on multiple devices. Or does it?
+-  [Rob Orgiu](https://developer.android.com/blog/authors/rob-orgiu) • 2 min read
+-  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+ <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
+ 
+ #### Page 1
+@@ -173,10 +172,10 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+ - [#Compose](https://developer.android.com/blog/topics/compose)
+ - [#Performance](https://developer.android.com/blog/topics/performance)
++- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+ - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+-- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Android 17](https://developer.android.com/blog/topics/android-17)
+ - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)

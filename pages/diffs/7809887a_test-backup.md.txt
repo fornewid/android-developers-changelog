@@ -1,0 +1,74 @@
+diff --git a/docs/jetpack/androidx/releases/test-backup.md b/docs/jetpack/androidx/releases/test-backup.md
+index 894d7674..159f1307 100644
+--- a/docs/jetpack/androidx/releases/test-backup.md
++++ b/docs/jetpack/androidx/releases/test-backup.md
+@@ -10,7 +10,7 @@ Automated testing framework to verify that user data and account credentials saf
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| October 21, 2026 | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test-backup#1.0.0-alpha03) |
++| November 04, 2026 | - | - | - | [1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test-backup#1.0.0-alpha04) |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,8 +25,8 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.test.backup:backup:1.0.0-alpha03"
+-    implementation "androidx.test.backup:backup-host:1.0.0-alpha03"
++    implementation "androidx.test.backup:backup:1.0.0-alpha04"
++    implementation "androidx.test.backup:backup-host:1.0.0-alpha04"
+ }
+ ```
+ 
+@@ -34,8 +34,8 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.test.backup:backup:1.0.0-alpha03")
+-    implementation("androidx.test.backup:backup-host:1.0.0-alpha03")
++    implementation("androidx.test.backup:backup:1.0.0-alpha04")
++    implementation("androidx.test.backup:backup-host:1.0.0-alpha04")
+ }
+ ```
+ 
+@@ -45,17 +45,36 @@ For more information about dependencies, see [Add build dependencies](https://de
+ 
+ Your feedback helps make Jetpack better. Let us know if you discover new issues or have
+ ideas for improving this library. Please take a look at the
+-[existing issues](https://issuetracker.google.com/issues?q=componentid:2258505+status:open)
++[existing issues](https://issuetracker.google.com/issues?q=componentid:+status:open)
+ in this library before you create a new one. You can add your vote to an existing issue by
+ clicking the star button.
+ 
+-[Create a new issue](https://issuetracker.google.com/issues/new?component=2258505&template=2395410)
++[Create a new issue](https://issuetracker.google.com/issues/new?component&template)
+ 
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
+ ## Automated Backup Restore Test Version 1.0
+ 
++### Version 1.0.0-alpha04
++
++November 04, 2026
++
++`androidx.test.backup:backup:1.0.0-alpha04` and `androidx.test.backup:backup-host:1.0.0-alpha04` are released. Version 1.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3566803898b060d7136357220affc9ece8236019..a021adf44194ae86e596ae25ca43d5e4e18f6926/test/backup).
++
++**New Features**
++
++- Added `StorageDomain.DataStorePreference` to seed and verify Preferences `DataStore` entries, `StorageDomain.CustomData` to run custom device actions, and `StorageDomain.ExcludedData` to verify that excluded data is not restored. ([If127d](https://android-review.googlesource.com/#/q/If127d4dbf62c38ef67fc5e222b6a003a1fb8dde8), [I6190e](https://android-review.googlesource.com/#/q/I6190e2e2f9a72b43d8bff509fd8e3731636d7805))
++- Added `isDeviceProtectedStorage` across `StorageDomain` types to test Device Protected (DE) storage, and added support for `String` `Set` values in `StorageDomain.Preference`. ([Ie96be](https://android-review.googlesource.com/#/q/Ie96beb1bdf8a39d339316b10a7b9ec8f1bac8142))
++- Added a `restoreOn` parameter to `runBackupRestoreFlow` for cross-device restore flows, `BackupRestoreController.uninstallApp()`, and `minApi` and `maxApi` bounds on `@Device`. ([Ifa0e3](https://android-review.googlesource.com/#/q/Ifa0e33017a012e3742ab40f6a5f443f91abb2355))
++- Added `testApplicationId` and a default `applicationId` to `@BackupRestoreConfig`, and registered `BackupRestoreTestRunner` with `InstrumentationRegistry` for device actions. ([Ie96be](https://android-review.googlesource.com/#/q/Ie96beb1bdf8a39d339316b10a7b9ec8f1bac8142), [Ifa0e3](https://android-review.googlesource.com/#/q/Ifa0e33017a012e3742ab40f6a5f443f91abb2355))
++- Updated `BackupRestoreExtension` to automatically save device logs when a test fails and report the saved file paths in the failure message (disable via `androidx.test.backup.device.logs.enabled=false`). ([I7f605](https://android-review.googlesource.com/#/q/I7f6053dd3a1a8e529b248b046920b385cf82c59f))
++
++**API Changes**
++
++- Added `BackupActionResult.data` and `BackupActionResult.getOrThrow()` to read output payloads from device actions, along with `STORAGE_TYPE_DATASTORE_PREFS`, `VALUE_TYPE_DOUBLE`, and `VALUE_TYPE_BYTES` on `BackupActionValues`. ([I6190e](https://android-review.googlesource.com/#/q/I6190e2e2f9a72b43d8bff509fd8e3731636d7805), [If127d](https://android-review.googlesource.com/#/q/If127d4dbf62c38ef67fc5e222b6a003a1fb8dde8))
++- Removed `BackupDeviceAction.phase`, `PHASE_POPULATE`, and `PHASE_VERIFY` (remove the `phase` override from custom actions), as well as the `BackupRestoreExtension(AdbSession)` constructor. ([Ie96be](https://android-review.googlesource.com/#/q/Ie96beb1bdf8a39d339316b10a7b9ec8f1bac8142), [I1a349](https://android-review.googlesource.com/#/q/I1a34914a131160f2aaa109cee01277cd7dbddd52))
++
+ ### Version 1.0.0-alpha03
+ 
+ October 21, 2026

@@ -1,0 +1,29 @@
+diff --git a/docs/jetpack/androidx/versions/alpha-channel.md b/docs/jetpack/androidx/versions/alpha-channel.md
+index 00d15b36..31e46e2f 100644
+--- a/docs/jetpack/androidx/versions/alpha-channel.md
++++ b/docs/jetpack/androidx/versions/alpha-channel.md
+@@ -16,6 +16,24 @@ to 2018.
+ To view the current versions for every component,
+ see the [versions page](https://developer.android.com/jetpack/androidx/versions).
+ 
++## November 04, 2026
++
++- [Appstate Statestore Version 1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/appstate-statestore#1.0.0-alpha02)
++- [Appstate Transform Version 1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/appstate-transform#1.0.0-alpha02)
++- [Compose Remote Foundation Version 1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-remote-foundation#1.0.0-alpha06)
++- [Compose Remote Version 1.0.0-alpha23](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha23)
++- [Coordinatorlayout Version 1.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/coordinatorlayout#1.4.0-alpha01)
++- [Enterprise Version 1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/enterprise#1.2.0-alpha01)
++- [Glance Adaptive Version 1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/glance-adaptive#1.0.0-alpha04)
++- [Glance Wear Version 1.0.0-alpha22](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha22)
++- [Ink Version 1.1.0-alpha11](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha11)
++- [Navigation3 Version 1.3.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation3#1.3.0-alpha04)
++- [Test Backup Version 1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test-backup#1.0.0-alpha04)
++- [Wear Compose Remote Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha15)
++- [Wear Compose Version 1.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.8.0-alpha03)
++- [Web Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/web#web-1.0.0-alpha01)
++- [Webkit Version 1.19.0-alpha01](https://developer.android.com/jetpack/androidx/releases/webkit#1.19.0-alpha01)
++
+ ## October 29, 2026
+ 
+ - [Test Core Version 1.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#core-1.8.0-alpha03)

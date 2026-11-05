@@ -1,0 +1,48 @@
+diff --git a/docs/develop/ui/compose/animation/shared-elements/customize.md b/docs/develop/ui/compose/animation/shared-elements/customize.md
+index 04f782a8..1b6c3820 100644
+--- a/docs/develop/ui/compose/animation/shared-elements/customize.md
++++ b/docs/develop/ui/compose/animation/shared-elements/customize.md
+@@ -43,18 +43,19 @@ You can use any `AnimationSpec`. This example uses a `keyframes` spec.
+ ## Resize mode
+ 
+ When animating between two shared bounds, you can set the `resizeMode` parameter
+-to either `RemeasureToBounds` or `ScaleToBounds`. This parameter determines how
+-the shared element transitions between the two states. `ScaleToBounds` first
+-measures the child layout with the lookahead (or target) constraints. Then, the
+-child's stable layout is scaled to fit in the shared bounds.
+-`ScaleToBounds` can be thought of as a "graphical scale" between the states.
++to either `SharedTransitionScope.ResizeMode.RemeasureToBounds` or
++`SharedTransitionScope.ResizeMode.scaleToBounds()`. This parameter determines
++how the shared element transitions between the two states. `scaleToBounds()`
++first measures the child layout with the lookahead (or target) constraints.
++Then, the child's stable layout is scaled to fit in the shared bounds.
++`scaleToBounds()` can be thought of as a "graphical scale" between the states.
+ 
+ In contrast, `RemeasureToBounds` re-measures and re-layouts the child layout of
+ `sharedBounds` with animated fixed constraints based on the target size. The
+ re-measurement is triggered by the bounds size change, which could potentially
+ be every frame.
+ 
+-For `Text` composables, `ScaleToBounds` is recommended, as it avoids relayout
++For `Text` composables, `scaleToBounds()` is recommended, as it avoids relayout
+ and reflowing of text onto different lines. `RemeasureToBounds` is recommended
+ for bounds that are different aspect ratios, and if you'd like fluid continuity
+ between the two shared elements.
+@@ -62,7 +63,7 @@ between the two shared elements.
+ The difference between the two resize modes can be seen in the examples that
+ follow:
+ 
+-| `ScaleToBounds` | `RemeasureToBounds` |
++| `scaleToBounds()` | `RemeasureToBounds` |
+ |---|---|
+ |   |   |
+ 
+@@ -197,7 +198,7 @@ path from the parent `sharedBounds()`.
+ 
+ To support keeping specific UI elements, such as a bottom bar or floating action
+ button, always on top during a shared element transition, use
+-[`Modifier.renderInSharedTransitionScopeOverlay()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).renderInSharedTransitionScopeOverlay(kotlin.Function0,kotlin.Float,kotlin.Function2)). By default, this
++[`Modifier.renderInSharedTransitionScopeOverlay()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).renderInSharedTransitionScopeOverlay(kotlin.Float,kotlin.Function0)). By default, this
+ modifier keeps the content in the overlay during the time when the shared
+ transition is active.
+ 

@@ -1,0 +1,65 @@
+diff --git a/docs/jetpack/androidx/releases/appfunctions.md b/docs/jetpack/androidx/releases/appfunctions.md
+index d8f8d16b..47d14a5d 100644
+--- a/docs/jetpack/androidx/releases/appfunctions.md
++++ b/docs/jetpack/androidx/releases/appfunctions.md
+@@ -10,7 +10,7 @@ Allows apps to share functionality and data with AI assistants, enabling them to
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| October 21, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-beta01) | - |
++| November 04, 2026 | - | [1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-rc01) | - | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,10 +25,10 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.appfunctions:appfunctions:1.0.0-beta01"
++    implementation "androidx.appfunctions:appfunctions:1.0.0-rc01"
+     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
+     // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
+-    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-beta01"
++    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-rc01"
+ }
+ ```
+ 
+@@ -36,10 +36,10 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.appfunctions:appfunctions:1.0.0-beta01")
++    implementation("androidx.appfunctions:appfunctions:1.0.0-rc01")
+     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
+     // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
+-    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-beta01")
++    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-rc01")
+ }
+ ```
+ 
+@@ -62,6 +62,16 @@ There are no release notes for this artifact.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-rc01
++
++November 04, 2026
++
++`androidx.appfunctions:appfunctions:1.0.0-rc01`, `androidx.appfunctions:appfunctions-compiler:1.0.0-rc01`, and `androidx.appfunctions:appfunctions-testing:1.0.0-rc01` are released. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3e1d825a56395e550f616184e9364be9fa3b45a9..3a5a6c1812a9d0857c55d3a4e737157d9aa4c452/appfunctions).
++
++**New Features**
++
++- Version bump to RC and remove legacy aggregation compiler option.
++
+ ### Version 1.0.0-beta01
+ 
+ October 21, 2026
+@@ -205,7 +215,7 @@ November 19, 2025
+ 
+ **Bug Fixes**
+ 
+-- Fix issue with non-null required top-level parameters ([Ic60fc](https://android-review.googlesource.com/#/q/Ic60fc80c67ad724866313c3c744954493b9c0e78), [b/456717542](https://b.corp.google.com/issues/456717542))
++- Fix issue with non-null required top-level parameters ([Ic60fc](https://android-review.googlesource.com/#/q/Ic60fc80c67ad724866313c3c744954493b9c0e78), [b/456717542](https://issuetracker.google.com/issues/456717542))
+ 
+ ### Version 1.0.0-alpha06
+ 

@@ -1,0 +1,26 @@
+diff --git a/docs/develop/ui/compose/animation/shared-elements/navigation.md b/docs/develop/ui/compose/animation/shared-elements/navigation.md
+index 06d6cfa1..d269d95a 100644
+--- a/docs/develop/ui/compose/animation/shared-elements/navigation.md
++++ b/docs/develop/ui/compose/animation/shared-elements/navigation.md
+@@ -169,7 +169,7 @@ To use the shared element APIs with Navigation 2, you must first wrap your app's
+ [`NavHost`](https://developer.android.com/reference/kotlin/androidx/navigation/compose/NavHost.composable) in a `SharedTransitionLayout`. You can then pass the provided
+ `SharedTransitionScope` to the screen composables.
+ 
+-The `content` parameter of the [`composable`](https://developer.android.com/reference/kotlin/androidx/navigation/NavGraphBuilder#(androidx.navigation.NavGraphBuilder).composable(kotlin.collections.Map,kotlin.collections.List,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function2)) builder uses
++The `content` parameter of the [`composable`](https://developer.android.com/reference/kotlin/androidx/navigation/compose/package-summary#(androidx.navigation.NavGraphBuilder).composable(kotlin.String,kotlin.collections.List,kotlin.collections.List,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function2)) builder uses
+ `AnimatedContentScope` as a receiver, so you can use `this@composable` to
+ reference that scope.
+ 
+@@ -217,10 +217,10 @@ fun SharedElement_Nav2() {
+ To use [predictive back](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture) with shared elements, follow these steps:
+ 
+ 1. All versions of Navigation 3 support predictive back. For Navigation 2, use
+-   the `2.8.0-alpha02` release of [`navigation-compose`](https://developer.android.com/jetpack/androidx/releases/navigation) or newer:
++   the `2.8.0` release of [`navigation-compose`](https://developer.android.com/jetpack/androidx/releases/navigation) or higher:
+ 
+        [versions]
+-       androidx-navigation = "2.8.0-alpha02" # Or newer
++       androidx-navigation = "2.8.0" # Or higher
+ 
+        [libraries]
+        androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }

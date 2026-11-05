@@ -1,0 +1,55 @@
+diff --git a/docs/jetpack/androidx/releases/core.md b/docs/jetpack/androidx/releases/core.md
+index 75d40669..683eb10f 100644
+--- a/docs/jetpack/androidx/releases/core.md
++++ b/docs/jetpack/androidx/releases/core.md
+@@ -21,7 +21,7 @@ This table lists all the artifacts in the `androidx.core` group.
+ | core-role | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-role-1.1.0) | - | - | - |
+ | core-splashscreen | [1.2.0](https://developer.android.com/jetpack/androidx/releases/core#core-splashscreen-1.2.0) | - | - | - |
+ 
+-This library was last updated on: October 21, 2026
++This library was last updated on: November 04, 2026
+ 
+ ## Declaring dependencies
+ 
+@@ -2889,6 +2889,41 @@ July 2, 2019
+ 
+ ### Version 1.1
+ 
++#### Version 1.1.0
++
++November 04, 2026
++
++`androidx.core:core-telecom:1.1.0` is released. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0fb3f6f93fe07a7858b056f97ce456ff6bed7f86..b44a77505e345a9f0af437b0405e3f6cd3b534b2/core/core-telecom).
++
++**Important changes since 1.0.0:**
++
++Version 1.1.0 makes migrating to `core-telecom` even smoother by giving `VoIP` developers granular rollout control over the underlying platform implementation (`ConnectionService` vs. transactional APIs), promotes core Call Extensions to stable, introduces new call-logging and network-slicing controls, and further hardens call setup and audio routing across Android SDKs.
++
++**New Features \& API Changes**
++
++- **Seamless Migration \& Rollout Control (`ConnectionService` vs. Transactional APIs):** `core-telecom` abstracts two underlying Android framework Telecom implementations behind a single unified API surface: the `ConnectionService` APIs and the transactional `TelecomManager#addCall` APIs (used by default on SDK 34+). `CallsManager#registerAppWithTelecom(int, int)` now includes an optional `backwardsCompatSdkLevel` parameter (defaulting to SDK 33) that lets `VoIP` apps configure the upper SDK bound (inclusive) that uses the `ConnectionService`-backed implementation. For apps migrating from a direct platform `ConnectionService` integration, this enables a low-risk, phased rollout: you can adopt `core-telecom` once using the familiar `ConnectionService` backing across your target SDK range to avoid production regressions, and smoothly ramp up to the modern transactional platform APIs at your own pace---without changing your call management code. ([Ib9571](https://android-review.googlesource.com/#/q/Ib9571c205b36308ddaa588bde066e1b7c2d4dd79))
++- **Call Extensions Graduated to Stable:** Removed the `@ExperimentalAppActions` opt-in requirement from `CallsManager#addCallWithExtensions`, `InCallServiceCompat#connectExtensions`, `LocalCallSilenceExtension`, `ParticipantExtension`, and `MeetingSummaryRemote`, promoting them to stable APIs for syncing call state with remote surfaces such as Android Auto and Wear OS. ([I25ab2](https://android-review.googlesource.com/#/q/I25ab240a315affc39c7b694242a05766c6d519dd))
++- **Remote Microphone Mute Control:** Extended `LocalCallSilenceExtension` with `updateCanUserUpdateSilence(Boolean)` and an optional `onCanUserUpdateSilence` callback so `VoIP` apps can dynamically enable or disable microphone mute controls on remote surfaces (for example, when a user joins as a passive viewer, is muted by a meeting moderator, or uses Companion Mode). ([I55acf](https://android-review.googlesource.com/#/q/I55acff5d35fdfff83d4bba83fc7adcd97d826c05), [Ibb0c2](https://android-review.googlesource.com/#/q/Ibb0c2f91ee510704d38f1fc7f8620e5475bac9bb))
++- **Per-Call Call Log Exclusion (`CallAttributesCompat.isLogExcluded`):** Added an optional `isLogExcluded` property to `CallAttributesCompat`, allowing `VoIP` apps that opt into system call logging to exclude specific calls from being saved to the system call log on Android 16 QPR (`Build.VERSION_CODES_FULL.BAKLAVA_1`) and higher. ([Ia2a3a](https://android-review.googlesource.com/#/q/Ia2a3a86b05f70c4a4313a84031607cbee356011d))
++- **Opt-Out of Premium Network Slicing:** Introduced `CallsManager.CAPABILITY_OPT_OUT_OF_PREMIUM_NETWORK` for `registerAppWithTelecom`, allowing `VoIP` applications to opt out of automatic platform requests for premium network slices during voice and video calls. ([I2dfdb](https://android-review.googlesource.com/#/q/I2dfdb6499748a48fb728cd92e04158445778b5a8))
++- **Dynamic Call Type Observation \& Upgrades:** Added `CallControlScope#callTypeFlow()` and `CallControlScope#requestCallType(int)` so apps can observe live audio/video state transitions and dynamically upgrade or downgrade call types mid-session. ([I51065](https://android-review.googlesource.com/#/q/I510657e4ebad6bc72c920543ee0e560e3f0984f9))
++- **`DisconnectCause.ERROR` Support with Cross-SDK Fallback:** Allowed `VoIP` apps to disconnect calls with `DisconnectCause.ERROR` starting in SDK 38, with automatic Jetpack-layer remapping to `DisconnectCause.LOCAL` on older Android versions so apps do not need version checks. ([I5a58c](https://android-review.googlesource.com/#/q/I5a58cd455804532a8f605ab6ba34d4ef43075a13))
++
++**Cross-SDK Audio Routing \& Call Setup Reliability**
++
++- **Faster, Non-Blocking Call Setup:** Decoupled starting audio endpoint resolution and Bluetooth stabilization from the synchronous `CallsManager#addCall` path, eliminating a delay of up to 2 seconds before entering `CallControlScope`. ([Ia1e89](https://android-review.googlesource.com/#/q/Ia1e89af7a3e18a9feaefc3a79d5e9ceaefa2e952))
++- **OS `TransactionManager` Deadlock Prevention:** Added a transitory call-setup gatekeeper that immediately rejects overlapping or un-debounced `addCall` and `addCallWithExtensions` requests with `CallException(ERROR_CALL_NOT_PERMITTED_AT_PRESENT_TIME)`, preventing 5-second timeouts and serial queue deadlocks in the platform `TransactionManager` while preserving full multi-call and call-waiting support. ([If0ac8](https://android-review.googlesource.com/#/q/If0ac8aeefdff2ad4be661b6bff0df97b9c7a999e))
++- **Cross-SDK Audio vs. Video Routing Mitigations:**
++  - Fixed a platform constant mapping issue across SDK 34--36 where incoming audio-only `VoIP` calls could be misinterpreted by the OS as video calls and erroneously routed to the speakerphone instead of the earpiece, including a Jetpack fallback for missing platform video-state callbacks on SDK 34. ([I95902](https://android-review.googlesource.com/#/q/I959025dfd4231ca7beea7287a19e8094608a7d3a), [Ic7000](https://android-review.googlesource.com/#/q/Ic7000c50f1817065c25538abe7274018367662cc))
++  - Fixed video call routing on older Android versions and the `ConnectionService` compatibility path so incoming or dynamically upgraded video calls reliably default or fall back to speakerphone when no headset is connected. ([I29fd2](https://android-review.googlesource.com/#/q/I29fd225926d4830b36e09e7e15e7e66471eff7da), [I0fc79](https://android-review.googlesource.com/#/q/I0fc797186e4d22c29f3a45f9cf584015472597d7), [I9f2bd](https://android-review.googlesource.com/#/q/I9f2bd0ac012555277e189543fe6eda3a6bbd0854))
++- **Preferred Endpoint, Wired Headset \& Bluetooth Preservation:**
++  - Prevented platform call-start defaults from overriding a user's pre-call `preferredStartingCallEndpoint` (such as earpiece on video calls) or reverting an intentional early user switch to speakerphone. ([I38ea6](https://android-review.googlesource.com/#/q/I38ea69d9b482e694f4032bc2b4e86eeffa7448fc), [I9e251](https://android-review.googlesource.com/#/q/I9e251ce4c81b60e3e1712984483981682eb837e7), [I62871](https://android-review.googlesource.com/#/q/I62871b5072d87930238b1fc920d28caaaf79a38a))
++  - Fixed an issue where starting a video call with a connected wired/USB-C headset (`TYPE_WIRED_HEADSET`) or a connecting Bluetooth headset would prematurely switch audio to the device speaker. ([I575a8](https://android-review.googlesource.com/#/q/I575a8437740b801903921abbf96abcab67904a9d), [I82463](https://android-review.googlesource.com/#/q/I82463385ce37ef6d3f55f10f49702a3755cdb0bc))
++  - Added a permissionless fallback heuristic to identify paired wearables/watches for audio routing when `BLUETOOTH_CONNECT` is not granted ([Iec271](https://android-review.googlesource.com/#/q/Iec271c4a9a56a02bfd15824cae1bd25debe14e00), [I4d218](https://android-review.googlesource.com/#/q/I4d2182264cf97803695df310e665b8c9bf401e94)), and removed unsupported A2DP-only media devices from `getAvailableStartingCallEndpoints()` to match platform Telecom voice routing ([I98b72](https://android-review.googlesource.com/#/q/I98b729e518cca5b4f9087236838f50469350bfed)).
++- **ANR, Crash \& Extension Lifecycle Hardening:**
++  - Filtered redundant `CallAudioState` and `CallEndpoint` updates in the legacy compatibility path to prevent main-thread congestion and potential ANRs. ([Ibd794](https://android-review.googlesource.com/#/q/Ibd794ea1e1c326a7e17075293142170d35fc74e8))
++  - Fixed race conditions and null-pointer crashes across `JetpackConnectionService` ([I24306](https://android-review.googlesource.com/#/q/I24306d9c59362e95e9847996ac457bf7d9d1645a)), `PreCallEndpointsUpdater` ([Ifad5c](https://android-review.googlesource.com/#/q/Ifad5c37f197e57ee5118deffd1f0f3843d4c2ce5), [I2d722](https://android-review.googlesource.com/#/q/I2d722be8dcdf5669e49dc78968ad62519cf1ffd6)), `BluetoothProfileListener` ([Idbd57](https://android-review.googlesource.com/#/q/Idbd57d31151d1d30f7190c305b91d13408e40485), [I1901e](https://android-review.googlesource.com/#/q/I1901ee87e73d7bae2ac2efbad86c9df7fc4fbd12)), and remote extension binder teardown/setup ([I73a52](https://android-review.googlesource.com/#/q/I73a527d7f41b166b1f61a611c0d241011dcda146), [I00f82](https://android-review.googlesource.com/#/q/I00f829a4a2317d4a9d136df2712df450257f3681)).
++
+ #### Version 1.1.0-rc01
+ 
+ October 07, 2026

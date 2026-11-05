@@ -1,0 +1,63 @@
+diff --git a/docs/jetpack/androidx/releases/glance-wear.md b/docs/jetpack/androidx/releases/glance-wear.md
+index e2604e5c..1b88009f 100644
+--- a/docs/jetpack/androidx/releases/glance-wear.md
++++ b/docs/jetpack/androidx/releases/glance-wear.md
+@@ -10,7 +10,7 @@ Glance Wear is a library for building Widgets for Wear OS
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| October 21, 2026 | - | - | - | [1.0.0-alpha21](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha21) |
++| November 04, 2026 | - | - | - | [1.0.0-alpha22](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha22) |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,9 +25,9 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.glance.wear:wear:1.0.0-alpha21"
++    implementation "androidx.glance.wear:wear:1.0.0-alpha22"
+ 
+-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha21"
++    implementation "androidx.glance.wear:wear-core:1.0.0-alpha22"
+ }
+ ```
+ 
+@@ -35,9 +35,9 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.glance.wear:wear:1.0.0-alpha21")
++    implementation("androidx.glance.wear:wear:1.0.0-alpha22")
+ 
+-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha21")
++    implementation("androidx.glance.wear:wear-core:1.0.0-alpha22")
+ }
+ ```
+ 
+@@ -58,6 +58,25 @@ for more information.
+ 
+ ## Glance Wear Version 1.0
+ 
++### Version 1.0.0-alpha22
++
++November 04, 2026
++
++`androidx.glance.wear:wear:1.0.0-alpha22`, `androidx.glance.wear:wear-core:1.0.0-alpha22`, and `androidx.glance.wear:wear-tooling-preview:1.0.0-alpha22` are released. Version 1.0.0-alpha22 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3566803898b060d7136357220affc9ece8236019..a021adf44194ae86e596ae25ca43d5e4e18f6926/glance/wear).
++
++**API Changes**
++
++- Glance Wear now throws `WearWidgetContentTooLargeException` with actionable guidance when a widget's content is too large to be sent to the host (for example due to large bitmaps in `RemoteImage`), instead of failing with an obscure Binder error. ([I9eb1c](https://android-review.googlesource.com/#/q/I9eb1cf1f99f4e4162ac5125d1827f66f40bf04e5))
++- Added `WearWidgetConfigExtras` with helper to extract widget configuration parameters and moved constants from `GlanceWearWidget` to `WearWidgetConfigExtras`. ([I70561](https://android-review.googlesource.com/#/q/I7056161b8fabeb8cb173e9ed03034e5165ecaa97))
++- Added `GlanceWearProfiles.createWearWidgetsProfile(WearWidgetParams)` to create a profile configured with the host-supported operations. ([I51f28](https://android-review.googlesource.com/#/q/I51f284bc74acdcb5a5cac7eb54f0004562b38598))
++- Exposed `horizontalPaddingDp`, `verticalPaddingDp`, and `cornerRadiusDp` in `WearWidgetParams`. ([I19925](https://android-review.googlesource.com/#/q/I19925bc109768e7b075279fade17e4d9651e5ced))
++
++**Additional changes**
++
++- Changes to use newly aligned parameter names and order across Remote Compose library.([I2e164](https://android-review.googlesource.com/#/q/I2e16470215ea1568e5667056d44f6e17db4310f1))
++- Wear Widgets can now use the `onTouchDown`, `onTouchUp` and `onTouchCancel` modifiers on all Wear OS devices that support widgets, not only on devices with the latest widget renderer. Use them to show press feedback, such as a pressed state on a button. ([I6dce7](https://android-review.googlesource.com/#/q/I6dce7d3fa15ef09258f4411406270e2cb6646911))
++- Added the `MODIFIER_TOUCH_DOWN`, `MODIFIER_TOUCH_UP` and `MODIFIER_TOUCH_CANCEL` operations to the Wear Widgets profile (`GlanceWearProfiles`), so widgets can use `onTouchDown`, `onTouchUp` and `onTouchCancel` on hosts that support them. ([Id4a9a](https://android-review.googlesource.com/#/q/Id4a9a4520d6f123af811dc4b715e4d3fa409ab98))
++
+ ### Version 1.0.0-alpha21
+ 
+ October 21, 2026

@@ -1,5 +1,902 @@
 [
   {
+    "date": "2026-11-05T15:10:38Z",
+    "commit_hash": "7809887a",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/features\" target=\"_blank\">Features and APIs</a>",
+        "path": "about/versions/17/features.md",
+        "summary": "The UWB Downlink-TDoA API documentation for Android 17 was updated to remove inline Kotlin and Java code snippets, replacing them with a link to the dedicated developer guide. This helps keep the core version features document concise and points developers to the full API reference for code examples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point\" target=\"_blank\">Migrating to the AppFunctionServiceEntryPoint API</a>",
+        "path": "agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point.md",
+        "summary": "The documentation updates contain unintended syntax corruption and malformed XML snippets within the AppFunctions service migration guide. These changes disrupt the clarity and correctness of the code examples and manifest configurations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_migrate-to-service-entry-point.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-compose-m3/references/foundation/TransformingLazyColumnSample.kt\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/wear/wear-compose-m3/references/foundation/TransformingLazyColumnSample.kt.md",
+        "summary": "Added the `TransformingLazyColumnSnapSegmentThresholdSample` composable function to the reference documentation. This new sample demonstrates how to use `snapSegmentThreshold` with `TransformingLazyColumn` to control snap behavior for items of varying heights, improving list navigation on Wear OS devices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_TransformingLazyColumnSample.kt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/AlertDialogSample.kt\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/wear/wear-compose-m3/references/material3/AlertDialogSample.kt.md",
+        "summary": "Added two new code samples to AlertDialogSample.kt.md: `AlertDialogWithConfirmAndDismissGestureDisabledSample` demonstrating dialog confirmation with disabled gestures using `AlertDialogDefaults.GestureDisabled`, and `AlertDialogWithEdgeButtonOneHandedGestureSample` illustrating edge button usage with one-handed gesture visibility thresholds. These additions provide developers with correct reference implementations for handling specific touch and gesture behaviors in Wear Compose Material 3 alert dialogs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_AlertDialogSample.kt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/OneHandedGestureSamples.kt\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/wear/wear-compose-m3/references/material3/OneHandedGestureSamples.kt.md",
+        "summary": "Added the OneHandedGestureTransformingLazyColumnScrollFractionSample composable to the documentation. This new sample demonstrates how to implement custom scroll fractions for one-handed gestures in a TransformingLazyColumn using Wear Compose Material 3, providing developers with a clear reference for configuring gesture-based navigation and scroll indicators.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_OneHandedGestureSamples.kt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source\" target=\"_blank\">Implementation samples for Glimmer Button component</a>",
+        "path": "agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md",
+        "summary": "Updated the `CustomFocusedColorButtonSample` in the Jetpack Compose Glimmer XR documentation by replacing the direct `ButtonDefaults.focusedColor` call with `ButtonDefaults.calculateFocusedColor`. This ensures proper API usage for calculating custom focused colors on buttons in XR applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_button-samples-source.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-source\" target=\"_blank\">API source code for Glimmer Button component</a>",
+        "path": "agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-source.md",
+        "summary": "Updated the Button API in the Jetpack Compose Glimmer XR library by replacing the `ButtonDefaults.focusedColor` function with `ButtonDefaults.calculateFocusedColor` and changing its signature to accept a required `seedColor` parameter instead of a default `baseColor`. This refactoring also removes the `@Composable` annotation from the color calculation utility, making it a standard function and improving how focused background colors are derived.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_button-source.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench\" target=\"_blank\">Android Bench</a>",
+        "path": "bench.md",
+        "summary": "Updated the long-horizon task results documentation to include benchmark metrics and per-task breakdown details for newly added AI models and agents, specifically GPT 6.1 Terra, Kimi K3.1 Pro, and Deepseek V4.1 Flash 1017.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_bench.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench/archive\" target=\"_blank\">Android Bench</a>",
+        "path": "bench/archive.md",
+        "summary": "Added historical performance data and detailed per-task benchmark results for the October 26th, 2026 Android LLM Benchmark 2.0 release, including metrics and pass/failure breakdowns for models like Claude Sonnet 5.5, Claude Opus 5.5, and GPT 6.1 Sol.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_archive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench/changelog\" target=\"_blank\">Android Bench</a>",
+        "path": "bench/changelog.md",
+        "summary": "The changelog has been updated for November 4th, 2026, to introduce new benchmark results for several AI agents. This includes the addition of Deepseek V4.1 Flash 1017 under opencode results, Kimi K3.1 Pro under kimi-code results, and GPT 6.1 Terra under codex results, expanding the platform's continuous performance evaluations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_changelog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog\" target=\"_blank\">The Android Developers' Blog</a>",
+        "path": "blog.md",
+        "summary": "The Android developer blog index has been updated to feature a new post on Jetpack Compose updates from the Android Developer Summit, while removing an older post regarding frontier models for Android developers. This keeps the 'The Latest' section current with recent multi-device and adaptive development resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_blog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/12\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/12.md",
+        "summary": "The authors list on page 12 has been updated to include a new author, Rebecca Gutteridge (Developer Relations Manager), and remove Ron Aquino. Additionally, the total page count was updated from 16 to 17 to accommodate the directory changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_12.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/13\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/13.md",
+        "summary": "The authors list on page 13 was updated to include Ron Aquino and remove Scott Nien, which also adjusted the total page count from 16 to 17. These updates help keep the Android developer blog author directory accurate and up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_13.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/14\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/14.md",
+        "summary": "Updated the Android developer blog authors list on page 14 by adding new authors Scott Nien and Sean Keys, removing Steven Jenkins and Summers Pittman, and updating the total page count to 17.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_14.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/15\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/15.md",
+        "summary": "The authors list on page 15 was updated by adding Steven Jenkins, removing Trevor Johns, and updating the total page count from 16 to 17. These changes keep the Android developer blog author directory accurate and up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_15.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/17\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/17.md",
+        "summary": "This new documentation page adds author profile information for Zoe Lopez-Latorre, a Senior Developer Relations Engineer, on the Android blog platform.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/rebecca-gutteridge\" target=\"_blank\">Rebecca Gutteridge</a>",
+        "path": "blog/authors/rebecca-gutteridge.md",
+        "summary": "Added a new author profile page for Rebecca Gutteridge, highlighting her role as a Developer Relations Manager and listing her contributions, including recent updates on Jetpack Compose.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/community/2\" target=\"_blank\">Community</a>",
+        "path": "blog/categories/community/2.md",
+        "summary": "Updated the community blog category page by adding a new #WeArePlay entry highlighting DELISH KITCHEN and removing an older entry about Geocaching to keep the content fresh and relevant.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/events-and-programs\" target=\"_blank\">Events \\& Programs</a>",
+        "path": "blog/categories/events-and-programs.md",
+        "summary": "The events and programs blog category documentation was updated to include a new post by Rebecca Gutteridge regarding Jetpack Compose updates from the Android Developer Summit, removed an older post about Android XR, and updated the total pagination count from 2 to 3 pages to reflect the added content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_events-and-programs.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/events-and-programs/2\" target=\"_blank\">Events \\& Programs</a>",
+        "path": "blog/categories/events-and-programs/2.md",
+        "summary": "Added a new blog post entry about building for Android XR and glasses from The Android Show: XR Edition, removed an older post regarding the Google Play Apps Accelerator, and updated pagination links to include a third page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/events-and-programs/3\" target=\"_blank\">Events \\& Programs</a>",
+        "path": "blog/categories/events-and-programs/3.md",
+        "summary": "This new documentation page lists blog posts under the 'Events and Programs' category, specifically highlighting the Google Play Apps Accelerator program. It provides developers with updates on initiatives and programs designed to help them grow their apps.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest.md",
+        "summary": "The Android developer blog feed (latest.md) has been updated to include a new post regarding Jetpack Compose updates from the Android Developer Summit, while older entries like the emulator control post have been removed. These updates keep developers informed about multi-device and adaptive development practices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_latest.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/10\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/10.md",
+        "summary": "Updated the latest blog documentation page by adding an announcement for 'Dynamic App Links' by Ran Mor, removing an older entry for the Android XR SDK Developer Preview, and reordering the topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/11\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/11.md",
+        "summary": "Added a new blog post entry introducing the Android XR SDK Developer Preview by Matthew McCullough, highlighting its launch as a comprehensive development kit for extended reality headsets and glasses. Additionally, reordered the topics list to include Jetpack Compose prominently.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/2\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/2.md",
+        "summary": "Added a new blog post entry regarding emulator control for adaptive app development by Rob Orgiu, removed an older post on cloud and hybrid inference for intelligent apps, and reordered topic tags to keep the latest documentation up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/3\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/3.md",
+        "summary": "Added a new blog post entry regarding cloud and hybrid inference for building intelligent Android apps, removed an older post about the Android CLI 1.0 stable release, and reordered the topic tags on the latest updates page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/4\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/4.md",
+        "summary": "Added a new blog post announcement for the stable 1.0 release of the Android CLI, highlighting agent-based Android development. Concurrently, an older experimental CLI post was removed from this page, and minor reordering of topic tags was applied.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/5\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/5.md",
+        "summary": "The Android blog index was updated to add a new post regarding Android CLI and AI-assisted app development tools, while removing an older post about Room 3.0 alpha and reordering sidebar topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/6\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/6.md",
+        "summary": "Added an announcement for the release of Room 3.0 alpha, highlighting its major breaking changes focused on Kotlin Multiplatform (KMP) with new support for JavaScript and WebAssembly (WASM). Older entries and topic tag orders were also updated to keep the latest developer blog index current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/7\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/7.md",
+        "summary": "Updated the latest Android blog page to include new posts on the Embedded Photo Picker and a JioHotstar case study regarding foldables and tablets optimization, while removing older entries from December 2025 and adjusting topic tag order.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/8\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/8.md",
+        "summary": "The latest Android documentation updates introduce a blog post detailing the stable release of Jetpack Compose December '25 (featuring core Compose 1.10 and Material 3 version 1.4), while removing an older #WeArePlay community post and slightly reordering the topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/9\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/9.md",
+        "summary": "The latest blog updates page was updated to include a new #WeArePlay community story featuring app and game developers focusing on health and wellness by author Robbie McLachlan, while removing an older post about Dynamic App Links and slightly reordering the topics list.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates\" target=\"_blank\">Build for every screen with the latest Jetpack Compose updates from Android Developer Summit</a>",
+        "path": "blog/posts/build-for-every-screen-jetpack-compose-updates.md",
+        "summary": "This new documentation page highlights the latest Jetpack Compose updates from the Android Developer Summit, focusing on adaptive layouts, performance tools, and state management across multi-device form factors.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now\" target=\"_blank\">Build for the future with the Android XR Developer Catalyst Program --- Apply now!</a>",
+        "path": "blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md",
+        "summary": "Updated the 'Continue reading' sidebar section of the blog post by adding a reference to the latest Android Developer Summit Jetpack Compose updates article and removing an older Google Play Games program post. This keeps the recommended reading list current and relevant for developers exploring multi-device and XR development.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week\" target=\"_blank\">Fully Optimized: Wrapping up Performance Spotlight Week</a>",
+        "path": "blog/posts/fully-optimized-wrapping-up-performance-spotlight-week.md",
+        "summary": "Updated the \"Continue reading\" section by replacing an older Android XR Developer Catalyst Program post with a recent Android Developer Summit post regarding Jetpack Compose updates for building across multiple screens. This keeps the performance spotlight wrap-up page relevant with the latest ecosystem content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_fully-optimized-wrapping-up-performance-spotlight-week.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed\" target=\"_blank\">Get ready for Google I/O: Livestream schedule revealed</a>",
+        "path": "blog/posts/get-ready-for-google-io-livestream-schedule-revealed.md",
+        "summary": "Updated the 'Continue reading' blog recommendations section by removing a post about Google Play Level Up and adding a new related post covering Jetpack Compose updates from the Android Developer Summit. This keeps the suggested reading list fresh and relevant for developers browsing recent ecosystem updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_get-ready-for-google-io-livestream-schedule-revealed.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/get-ready-for-google-io-may\" target=\"_blank\">Get ready for Google I/O May 19-20</a>",
+        "path": "blog/posts/get-ready-for-google-io-may.md",
+        "summary": "The blog post updates its embedded related articles list by removing an older entry about the Google I/O livestream schedule and adding a newer post regarding Jetpack Compose updates from the Android Developer Summit. This keeps the recommended reading list fresh and relevant for developers navigating the site.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_get-ready-for-google-io-may.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week\" target=\"_blank\">Learn about our newest Jetpack Navigation library with the Nav3 Spotlight Week</a>",
+        "path": "blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week.md",
+        "summary": "Updated the 'Continue reading' section of the blog post by adding a recent article about Jetpack Compose updates from the Android Developer Summit and removing an older entry regarding the Google I/O livestream schedule. This keeps the recommended reading list current with the latest Android development content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones\" target=\"_blank\">Level Up: Test Sidekick and prepare for upcoming program milestones</a>",
+        "path": "blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones.md",
+        "summary": "The blog post's related articles list was updated to include a recent post about Jetpack Compose updates from the Android Developer Summit while removing an older reference to the Google I/O livestream schedule. This keeps the recommended reading section fresh and relevant for developers following current milestones.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_level-up-test-sidekick-and-prepare-for-upcoming-program-milestones.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/tune-in-for-our-fall-episode-of-the-android-show-2025\" target=\"_blank\">Set a reminder: Tune in on October 30 for our Fall episode of The Android Show, live from Droidcon London</a>",
+        "path": "blog/posts/tune-in-for-our-fall-episode-of-the-android-show-2025.md",
+        "summary": "The blog post's related articles section was updated to replace a past Google I/O announcement with a new entry highlighting the latest Jetpack Compose updates from the Android Developer Summit, while retaining the Android Dev Summit tools and performance post. This keeps the recommended reading list aligned with current multi-device and UI development priorities.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_tune-in-for-our-fall-episode-of-the-android-show-2025.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app\" target=\"_blank\">Use R8 to shrink, optimize, and fast-track your app</a>",
+        "path": "blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app.md",
+        "summary": "The 'Continue reading' section at the end of the post was updated to replace an older post entry about the Android XR Developer Catalyst Program with a newer blog post card covering Jetpack Compose updates from the Android Developer Summit. This keeps the recommended reading list current and relevant for developers exploring modern Android tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_use-r8-to-shrink-optimize-and-fast-track-your-app.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/welcome-to-android-xr-spotlight-week\" target=\"_blank\">Welcome to Android XR Spotlight Week!</a>",
+        "path": "blog/posts/welcome-to-android-xr-spotlight-week.md",
+        "summary": "The blog post list has been updated to include a recent entry about Jetpack Compose updates from the Android Developer Summit, while removing an outdated reference to the Google I/O livestream schedule. This keeps the recommended reading section aligned with current multi-device and adaptive development topics.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_welcome-to-android-xr-spotlight-week.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/jetpack-compose\" target=\"_blank\">#Jetpack Compose</a>",
+        "path": "blog/topics/jetpack-compose.md",
+        "summary": "Added a new blog post entry regarding the latest Jetpack Compose updates from the Android Developer Summit, focusing on building adaptive UIs for multiple screens across the Android ecosystem.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_jetpack-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/guides/flexbox/get-started\" target=\"_blank\">Get started with FlexBox</a>",
+        "path": "develop/adaptive-apps/guides/flexbox/get-started.md",
+        "summary": "Updated the Compose version reference from \"1.13.0-beta02\" to \"1.13.0-rc01\" in the version catalog setup instructions. This ensures developers use the latest release candidate for building Flexbox layouts with Jetpack Compose.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps\" target=\"_blank\">Get started with adaptive apps</a>",
+        "path": "develop/adaptive-apps/guides/get-started-with-adaptive-apps.md",
+        "summary": "The 'Additional resources' section was updated to include a new I/O 2026 presentation link titled 'Make your UI adaptive with Android Studio's AI agent', helping developers discover modern, AI-assisted tools for building adaptive Android interfaces.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_get-started-with-adaptive-apps.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/guides/grid/get-started\" target=\"_blank\">Get started</a>",
+        "path": "develop/adaptive-apps/guides/grid/get-started.md",
+        "summary": "Updated the Compose dependency version from \"1.13.0-beta02\" to \"1.13.0-rc01\" in the version catalog setup. This ensures developers use the latest release candidate for testing grid implementations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/background-tasks/awake/screen-on\" target=\"_blank\">Keep the screen on</a>",
+        "path": "develop/background-work/background-tasks/awake/screen-on.md",
+        "summary": "Added documentation for the new `keepScreenOn` modifier in Jetpack Compose (available in Compose UI 1.9.0 and higher). This allows developers to easily keep the screen on conditionally—such as during video playback—by applying the modifier to a composable, avoiding the need to manually manage WindowManager flags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_screen-on.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/ranging\" target=\"_blank\">Range between devices</a>",
+        "path": "develop/connectivity/ranging.md",
+        "summary": "The ranging documentation has been updated to include Android 17 (API level 37) features, such as Wi-Fi Proximity Detection, the Downlink-TDoA Tag (DT-Tag) device role for UWB sessions, and antenna mode configuration. It also documents Android 16 QPR2 additions like technology filtering for OOB configs, updates background location permission requirements for UWB DL-TDoA, and refines the Kotlin and Java code snippets for managing ranging sessions and callbacks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_ranging.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/animation/shared-elements/common-use-cases\" target=\"_blank\">Common shared element use cases</a>",
+        "path": "develop/ui/compose/animation/shared-elements/common-use-cases.md",
+        "summary": "Updated the shared element documentation for animating text font size changes in Jetpack Compose. The code snippet now correctly references the fully qualified `SharedTransitionScope.ResizeMode.scaleToBounds()` instead of the shorthand `ScaleToBounds()`, ensuring developers use the accurate API syntax.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_common-use-cases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/animation/shared-elements/customize\" target=\"_blank\">Customize shared element transition</a>",
+        "path": "develop/ui/compose/animation/shared-elements/customize.md",
+        "summary": "Updated the documentation for Jetpack Compose shared element transitions to reflect API naming and signature changes. Specifically, `ScaleToBounds` was updated to the `scaleToBounds()` function call, and the parameter order and signature for `Modifier.renderInSharedTransitionScopeOverlay()` were corrected to match the latest library version.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_customize.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/animation/shared-elements/navigation\" target=\"_blank\">Navigation with shared elements</a>",
+        "path": "develop/ui/compose/animation/shared-elements/navigation.md",
+        "summary": "Updated the documentation for Jetpack Compose navigation shared elements to reference stable library versions and correct API links. Specifically, the minimum required version for `navigation-compose` to support predictive back with shared elements was updated from the alpha release (`2.8.0-alpha02`) to the stable `2.8.0` release, and the reference link for the `composable` builder was updated to point to the correct package summary.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_navigation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/herobenchmark\" target=\"_blank\">Hero benchmarks</a>",
+        "path": "develop/ui/compose/performance/herobenchmark.md",
+        "summary": "The benchmark summary table comparing Compose 1.12 to Compose 1.11.4 and the Views baseline, along with a related note regarding runner device updates, has been removed from the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_herobenchmark.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/setup\" target=\"_blank\">Set up the Geospatial API in your app</a>",
+        "path": "develop/xr/jetpack-xr-sdk/arcore/geospatial/setup.md",
+        "summary": "The setup documentation for Jetpack XR SDK ARCore Geospatial was updated to remove the restriction stating that the `GeospatialMode.SPATIAL` mode is unavailable on Intelligent Eyewear devices. This change ensures the documentation accurately reflects the current capabilities and availability of spatial tracking modes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/first-activity\" target=\"_blank\">Create your first activity for audio glasses and display glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glasses/first-activity.md",
+        "summary": "Updated the Jetpack XR SDK dependency versions for glasses development in both Gradle Groovy and Kotlin DSL snippets. Specifically, the glimmer and glimmer-google-fonts libraries were bumped to version 1.0.0-alpha22, projected to 1.0.0-alpha14, and arcore to 1.1.0-alpha01 to ensure developers use the latest APIs and bug fixes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_first-activity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk\" target=\"_blank\">Set up the Jetpack XR SDK</a>",
+        "path": "develop/xr/jetpack-xr-sdk/set-up-sdk.md",
+        "summary": "Updated the Jetpack XR SDK dependency versions in the setup documentation for both Groovy and Kotlin build files. Specifically, glimmer and glimmer-google-fonts were bumped to alpha22, projected to alpha14, and arcore to 1.1.0-alpha01, ensuring developers integrate the latest stable pre-release APIs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_set-up-sdk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/events/dev-summit\" target=\"_blank\">![Android Dev Summit](https://developer.android.com/static/events/dev-summit/images/ads-2026-wordmark-lockup.png)</a>",
+        "path": "events/dev-summit.md",
+        "summary": "Updated the hero image asset reference for the Android Dev Summit keynote to version 2 (ads-2026-keynote-hero-v2.jpg). This change ensures the correct promotional visual is displayed on the event documentation page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_dev-summit.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/googlebook\" target=\"_blank\">Googlebook</a>",
+        "path": "googlebook.md",
+        "summary": "Added a new 'Continue On' section to the documentation to guide developers on enabling seamless task continuity from mobile to Googlebook devices, helping them deliver a more integrated multi-device experience.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_googlebook.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/get-started\" target=\"_blank\">Get started</a>",
+        "path": "guide/navigation/navigation-3/get-started.md",
+        "summary": "Updated the `nav3Core` dependency version from \"1.2.0\" to \"1.2.1\" in the version catalog instructions, ensuring developers use the latest stable release for Navigation 3.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/migration-guide\" target=\"_blank\">Migrate from Navigation 2 to Navigation 3</a>",
+        "path": "guide/navigation/navigation-3/migration-guide.md",
+        "summary": "Updated the recommended `nav3Core` library version from 1.2.1 in the version catalog setup of the Navigation 3 migration guide. This ensures developers adopt the latest stable release containing bug fixes and improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_migration-guide.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack\" target=\"_blank\">Android Jetpack Dev Resources - Android Developers</a>",
+        "path": "jetpack.md",
+        "summary": "Added the [web] Jetpack library entry to the documentation table, referencing the new AndroidX web release artifact. This update ensures developers can easily discover and access official resources for modern web integration APIs in Jetpack.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_jetpack.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/explorer\" target=\"_blank\">Explore the Jetpack libraries by type</a>",
+        "path": "jetpack/androidx/explorer.md",
+        "summary": "Added the [web] AndroidX library entry to the explorer documentation table, providing developers with a reference link to the new web release notes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_explorer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/appfunctions\" target=\"_blank\">appfunctions</a>",
+        "path": "jetpack/androidx/releases/appfunctions.md",
+        "summary": "The `androidx.appfunctions` library has been updated to version 1.0.0-rc01, promoting the release candidate build and removing the legacy aggregation compiler option. This transition marks a step closer to the stable release, enabling developers to test the latest feature set and dependency configurations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_appfunctions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/appstate-statestore\" target=\"_blank\">Appstate Statestore</a>",
+        "path": "jetpack/androidx/releases/appstate-statestore.md",
+        "summary": "Updated the Jetpack AppState StateStore library documentation to release version 1.0.0-alpha02 across all artifacts. This update provides developers with the latest bug fixes and improvements by bumping the dependency versions in the guide and adding the release notes entry for November 04, 2026.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_appstate-statestore.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/appstate-transform\" target=\"_blank\">Appstate Transform</a>",
+        "path": "jetpack/androidx/releases/appstate-transform.md",
+        "summary": "Released version 1.0.0-alpha02 of the androidx.appstate.transform library, updating all multiplatform dependencies and declaring the new version notes for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_appstate-transform.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/biometric\" target=\"_blank\">Biometric</a>",
+        "path": "jetpack/androidx/releases/biometric.md",
+        "summary": "The Biometric library has been updated to version 1.4.0-beta01, transitioning the 1.4 release from alpha to beta. This update includes both `androidx.biometric:biometric:1.4.0-beta01` and `androidx.biometric:biometric-compose:1.4.0-beta01`, signaling increased stability and moving closer to a final release for developers implementing biometric authentication and Compose-based authentication UI.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_biometric.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery\" target=\"_blank\">Camera Feature Combination Query</a>",
+        "path": "jetpack/androidx/releases/camera-featurecombinationquery.md",
+        "summary": "The Camera Feature Combination Query library has been updated to version 1.7.0-rc02, bumping the release candidate version and updating dependency snippets for both the base and play-services artifacts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_camera-featurecombinationquery.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/camera-viewfinder\" target=\"_blank\">camera viewfinder</a>",
+        "path": "jetpack/androidx/releases/camera-viewfinder.md",
+        "summary": "Updated the camera-viewfinder library artifacts (viewfinder-compose, viewfinder-core, and viewfinder-view) to version 1.7.0-rc02. This release includes the latest bug fixes and improvements leading up to the stable 1.7 release, and updates the corresponding dependency snippets and release notes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_camera-viewfinder.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/camera\" target=\"_blank\">CameraX</a>",
+        "path": "jetpack/androidx/releases/camera.md",
+        "summary": "Android CameraX libraries have been updated to version 1.7.0-rc02, which includes important bug fixes for an UnsupportedOperationException on API 30 when using SYSTEM_ALERT_WINDOW and a native thread leak when unbinding VideoCapture. Developers should update their dependency versions to 1.7.0-rc02 to benefit from these fixes and stability improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_camera.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-animation\" target=\"_blank\">Compose Animation</a>",
+        "path": "jetpack/androidx/releases/compose-animation.md",
+        "summary": "The documentation has been updated to reflect the release of Jetpack Compose Animation version 1.13.0-rc01, moving the release candidate into the RC phase and updating the latest update timestamp.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_compose-animation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-foundation\" target=\"_blank\">Compose Foundation</a>",
+        "path": "jetpack/androidx/releases/compose-foundation.md",
+        "summary": "Jetpack Compose Foundation version 1.13.0-rc01 has been released. This update introduces a notable API behavior change for `Modifier.border`, which now consistently uses the outline size during rendering, accompanied by a temporary feature flag (`ComposeFoundationFlags.isBorderMatchesOutlineBoundsFixEnabled`) to revert the behavior if necessary.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_compose-foundation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-material\" target=\"_blank\">Compose Material</a>",
+        "path": "jetpack/androidx/releases/compose-material.md",
+        "summary": "Jetpack Compose Material library updated to include the release of version 1.13.0-rc01, transitioning the library closer to a stable release by promoting it to a Release Candidate and removing the previous beta version from the latest updates table.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_compose-material.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-material3\" target=\"_blank\">Compose Material 3</a>",
+        "path": "jetpack/androidx/releases/compose-material3.md",
+        "summary": "Jetpack Compose Material3 version 1.5.0-rc01 has been released, updating the library dependencies and introducing important bug fixes. Key improvements include resolving a hardcoded pressed shape in `ToggleButton`, fixing value updates on tap when `RangeSlider` thumbs overlap, addressing precision loss in discrete `Slider` components, and fixing scroll interference issues when dragging a `RangeSlider` inside horizontally scrollable containers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_compose-material3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-remote-foundation\" target=\"_blank\">Compose Remote Foundation</a>",
+        "path": "jetpack/androidx/releases/compose-remote-foundation.md",
+        "summary": "Released version 1.0.0-alpha06 of `androidx.compose.remote.foundation:foundation`, which updates the dependency versions and introduces API changes. Specifically, it renames `remoteBitmap` to `bitmap` on `RemoteBasicImage` and adjusts `style` to be the final parameter on `RemoteBasicText` to align better with Compose Foundation standards.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_compose-remote-foundation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-remote\" target=\"_blank\">remote compose</a>",
+        "path": "jetpack/androidx/releases/compose-remote.md",
+        "summary": "Updated Remote Compose dependencies to version 1.0.0-alpha23 and documented release changes, including renaming Action to RemoteAction, decoupling RemoteColor from Compose UI Color, reordering shape outline parameters, deprecating rememberMutableRemote* factories, and fixing a bug in chained drawWithContent modifiers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_compose-remote.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-runtime\" target=\"_blank\">Compose Runtime</a>",
+        "path": "jetpack/androidx/releases/compose-runtime.md",
+        "summary": "The Compose Runtime documentation has been updated to reflect the release of version 1.13.0-rc01 on November 04, 2026. This release candidate promotes the 1.13.0 version branch and includes an update to the androidx.tracing:tracing-wire dependency to version 2.0.5.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_compose-runtime.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-ui\" target=\"_blank\">Compose UI</a>",
+        "path": "jetpack/androidx/releases/compose-ui.md",
+        "summary": "The Compose UI documentation has been updated to reflect the release of version 1.13.0-rc01 on November 04, 2026. This promotion from beta indicates that version 1.13 is nearing a stable release, allowing developers to test the release candidate for final stability verification.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_compose-ui.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose\" target=\"_blank\">Compose</a>",
+        "path": "jetpack/androidx/releases/compose.md",
+        "summary": "Updated Jetpack Compose library versions across multiple artifact groups (animation, foundation, material, material3, runtime, and UI) to the new 1.13.0-rc01 release candidate (and 1.5.0-rc01 for Material3), signaling progress toward upcoming stable releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/coordinatorlayout\" target=\"_blank\">Coordinatorlayout</a>",
+        "path": "jetpack/androidx/releases/coordinatorlayout.md",
+        "summary": "Added release notes for CoordinatorLayout version 1.4.0-alpha01, which updates the minimum SDK requirement to API 23, bumps compileSdk to API 36.1, introduces a new `CoordinatorLayout.Behavior#onRequestChildRectangleOnScreen` overload with request source information, removes obsolete API 21 annotations, and includes minor text formatting updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_coordinatorlayout.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/core\" target=\"_blank\">Core</a>",
+        "path": "jetpack/androidx/releases/core.md",
+        "summary": "Released `androidx.core:core-telecom:1.1.0`, introducing seamless migration controls via `backwardsCompatSdkLevel`, promoting Call Extensions to stable with new remote mic-mute capabilities, adding per-child call log exclusions and network-slicing opt-outs, and significantly hardening cross-SDK audio routing, call-setup performance, and deadlock prevention.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_core.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/enterprise\" target=\"_blank\">Enterprise</a>",
+        "path": "jetpack/androidx/releases/enterprise.md",
+        "summary": "Added release notes for Version 1.2.0-alpha01 of the enterprise-feedback library. This update raises the minimum SDK requirement from API 21 to API 23, introduces JSpecify nullness annotations, merges public and experimental API files, and fixes a potential ClassCastException or NullPointerException in KeyedAppStatesService.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_enterprise.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/exifinterface\" target=\"_blank\">Exifinterface</a>",
+        "path": "jetpack/androidx/releases/exifinterface.md",
+        "summary": "Exifinterface version 1.5.0-beta01 has been released, moving the library to beta stage and updating the release table accordingly. This update matters for developers tracking the progress of the Exifinterface library toward a stable 1.5.0 release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_exifinterface.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/glance-adaptive\" target=\"_blank\">Glance Adaptive</a>",
+        "path": "jetpack/androidx/releases/glance-adaptive.md",
+        "summary": "Updated the Glance Adaptive library documentation to reflect the release of version 1.0.0-alpha04 across adaptive-appwidget, adaptive-core, and adaptive-wear artifacts. This release introduces the new `GlanceAdaptiveWidgetReceiver` base class for Glance Adaptive widgets and adds an integer resource for declaring widget categories, along with dependency updates and minor feedback link fixes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_glance-adaptive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/glance-wear\" target=\"_blank\">Glance Wear</a>",
+        "path": "jetpack/androidx/releases/glance-wear.md",
+        "summary": "Glance Wear version 1.0.0-alpha22 has been released, introducing several meaningful API updates and behavioral improvements. Key additions include a new `WearWidgetContentTooLargeException` to handle oversized widget content with actionable guidance, new configuration helpers such as `WearWidgetConfigExtras` and `GlanceWearProfiles.createWearWidgetsProfile`, and expanded touch modifier support (`onTouchDown`, `onTouchUp`, `onTouchCancel`) across all compatible Wear OS devices for better press feedback.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_glance-wear.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/heifwriter\" target=\"_blank\">Heifwriter</a>",
+        "path": "jetpack/androidx/releases/heifwriter.md",
+        "summary": "Androidx.heifwriter has been updated to version 1.2.0-rc02, advancing the release candidate and updating the dependency implementation instructions for developers integrating the library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_heifwriter.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/ink\" target=\"_blank\">ink</a>",
+        "path": "jetpack/androidx/releases/ink.md",
+        "summary": "Android Jetpack Ink libraries have been updated to version 1.1.0-alpha11. This release introduces experimental APIs for animated paint textures and phase offsets for animated stroke textures, adds Stroke shape (PartitionedMesh) serialization for improved performance and saving partially erased strokes, and includes bug fixes for concurrent inputs and barrel twist compatibility.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_ink.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/input\" target=\"_blank\">input</a>",
+        "path": "jetpack/androidx/releases/input.md",
+        "summary": "Androidx.input:input-motionprediction version 1.0.1 has been released, introducing support for stylus AXIS_RZ in the motion event predictor. Developers should update their dependency declarations to version 1.0.1 to incorporate this bug fix and reduce input latency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_input.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/navigation3\" target=\"_blank\">navigation3</a>",
+        "path": "jetpack/androidx/releases/navigation3.md",
+        "summary": "The Navigation 3 library has been updated with the release of version 1.3.0-alpha04 and stable version 1.2.1. Version 1.3.0-alpha04 fixes an issue where shared NavEntries failed to render if popped and pushed again before completion, while version 1.2.1 downgrades the compileSdk requirement from 37 to 36 to align with Compose 1.10 dependencies.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_navigation3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/test-backup\" target=\"_blank\">Test Backup</a>",
+        "path": "jetpack/androidx/releases/test-backup.md",
+        "summary": "AndroidX Test Backup version 1.0.0-alpha04 has been released, introducing new features such as Preferences DataStore testing support, cross-device restore options, automatic test failure device log collection, and several API refinements and removals.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_test-backup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/test-uiautomator\" target=\"_blank\">Test Uiautomator</a>",
+        "path": "jetpack/androidx/releases/test-uiautomator.md",
+        "summary": "Updated the Jetpack UIAutomator documentation to reflect the release of version 2.4.1. This release updates the dependency versions and includes important bug fixes for ShellServer to prevent random port selection collisions and startup failures.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_test-uiautomator.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/wear-compose-remote\" target=\"_blank\">Wear Remote Compose Material 3</a>",
+        "path": "jetpack/androidx/releases/wear-compose-remote.md",
+        "summary": "Released Wear Compose Remote Material 3 version 1.0.0-alpha15, introducing significant API alignments with Wear Compose Material 3 (such as parameter updates across buttons, cards, and indicators, adopting RemoteAction for callbacks, and adding a required defaultFontFamily to RemoteTypography) alongside numerous bug fixes for clipping, animations, and default color pairings.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_wear-compose-remote.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/wear-compose\" target=\"_blank\">Wear Compose</a>",
+        "path": "jetpack/androidx/releases/wear-compose.md",
+        "summary": "Android released Wear Compose version 1.8.0-alpha03, introducing several API updates including material3-ripple integration, inset focus rings support, `LocalTimeSource` for testing `TimeText`, and `Modifier.suppressStatusBar()` while removing the unreleased `StatusBarSuppression()` composable. Key bug fixes include reduced GPU memory usage for idle `Dialogs`, state preservation fixes for `TransformingLazyColumn`, and gesture improvements for `OneHandedGestureDefaults.scrollDownToNextItem`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_wear-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/wear\" target=\"_blank\">Wear</a>",
+        "path": "jetpack/androidx/releases/wear.md",
+        "summary": "The `androidx.wear:wear-remote-interactions` library has been updated to version 1.3.0-rc01, transitioning from beta01 without any functional code changes. This brings the library closer to a stable 1.3.0 release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_wear.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/web\" target=\"_blank\">Web</a>",
+        "path": "jetpack/androidx/releases/web.md",
+        "summary": "This new documentation page introduces the initial 1.0.0-alpha01 release of the AndroidX Web library (`androidx.web:web` and `androidx.web:web-compose`), bringing new APIs like `WebContent` and `WebContentView` to manage persistent web engine session states across UI views and activities.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/webkit\" target=\"_blank\">Webkit</a>",
+        "path": "jetpack/androidx/releases/webkit.md",
+        "summary": "AndroidX Webkit version 1.19.0-alpha01 has been released, introducing significant API updates including an Executor overload for WebView startup, new immutable state classes (`NavigationState` and `PageState`) for `NavigationListener`, support for wildcard URLs in `Profile#addQuicHints`, and the deprecation of Attribution Reporting APIs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_webkit.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions\" target=\"_blank\">AndroidX releases</a>",
+        "path": "jetpack/androidx/versions.md",
+        "summary": "This update to the AndroidX versions documentation reflects a series of library progressions across Jetpack components for November 4, 2026. Notably, several core Jetpack Compose libraries (Animation, Foundation, Material, Material3, Runtime, and UI) advanced from beta to release candidate (1.13.0-rc01), signaling approaching stable releases. Additionally, Camera and its related viewfinder/feature combination modules moved to 1.7.0-rc02, Biometric progressed to 1.4.0-beta01, AppFunctions advanced to 1.0.0-rc01, and CoordinatorLayout introduced a new 1.4.0-alpha01 release. These updates matter as they indicate the stabilization phase for major UI and framework components, helping developers prepare for upcoming stable versions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_versions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/all-channel\" target=\"_blank\">Recent Release Notes</a>",
+        "path": "jetpack/androidx/versions/all-channel.md",
+        "summary": "Added Jetpack library release updates for November 04, 2026. This update includes release candidates and alpha versions for key libraries such as Appfunctions (1.0.0-rc01), Compose (1.13.0-rc01), Material 3 (1.5.0-rc01), Biometric (1.4.0-beta01), and various camera, navigation, and wear components, helping developers track the latest stable and pre-release androidx dependencies.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_all-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/alpha-channel\" target=\"_blank\">Alpha Releases</a>",
+        "path": "jetpack/androidx/versions/alpha-channel.md",
+        "summary": "Added a new release entry for November 04, 2026, documenting alpha version updates for various AndroidX libraries, including updates to Compose Remote, Coordinatorlayout, Navigation3, Wear Compose, and Webkit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_alpha-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/beta-channel\" target=\"_blank\">Beta Releases</a>",
+        "path": "jetpack/androidx/versions/beta-channel.md",
+        "summary": "Added release entries for November 04, 2026, introducing Biometric Version 1.4.0-beta01 and Exifinterface Version 1.5.0-beta01 to the beta channel. This matters for developers tracking early access and upcoming features in these specific AndroidX libraries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_beta-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/rc-channel\" target=\"_blank\">RC Releases</a>",
+        "path": "jetpack/androidx/versions/rc-channel.md",
+        "summary": "Added release candidate entries for November 04, 2026, including updates to Appfunctions 1.0.0-rc01, various Camera and Compose libraries, Heifwriter, and Wear Remote Interactions. This update tracks the latest stable candidates leading up to upcoming AndroidX library releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_rc-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/stable-channel\" target=\"_blank\">Stable Releases</a>",
+        "path": "jetpack/androidx/versions/stable-channel.md",
+        "summary": "Added release entries for November 04, 2026, documenting updates to Core-telecom (1.1.0), Input-motionprediction (1.0.1), Navigation3 (1.2.1), and Test Uiautomator (2.4.1). This helps developers track the latest stable library versions available for production use.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_stable-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/multiplatform\" target=\"_blank\">Kotlin Multiplatform</a>",
+        "path": "kotlin/multiplatform.md",
+        "summary": "Updated the Jetpack Multiplatform library release versions and dates in the documentation. Specifically, Compose Runtime advanced to release candidate 1.13.0-rc01, and Navigation3 updated to versions 1.2.1 and 1.3.0-alpha04, keeping developers informed on the latest KMP-ready library milestones.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_multiplatform.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/latest-updates\" target=\"_blank\">Android latest updates</a>",
+        "path": "latest-updates.md",
+        "summary": "Jetpack library versions have been updated to reflect recent pre-release milestones. Compose core and animation libraries advanced to version 1.13.0-rc01 (and Material3 to 1.5.0-rc01), CameraX artifacts advanced to version 1.7.0-rc02, and Wear remote interactions progressed to version 1.3.0-rc01.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_latest-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera-deprecated/cameradirect\" target=\"_blank\">Control the camera</a>",
+        "path": "media/camera/camera-deprecated/cameradirect.md",
+        "summary": "Added migration resources to the deprecated Camera1 documentation, directing developers to the official Camera1-to-CameraX migration guide and the corresponding GitHub agentic skill to facilitate updating legacy camera implementations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_cameradirect.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera-deprecated/photobasics\" target=\"_blank\">Take photos</a>",
+        "path": "media/camera/camera-deprecated/photobasics.md",
+        "summary": "Added migration resources to the deprecated Photo Basics documentation, directing developers to the official guide and an agentic skill for migrating from Camera1 to CameraX.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_photobasics.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax/configuration\" target=\"_blank\">Configuration options</a>",
+        "path": "media/camera/camerax/configuration.md",
+        "summary": "The CameraX configuration documentation was updated to remove deprecated references to Preview.PreviewOutput() and instead recommend using SurfaceRequest.TransformationInfo for handling preview orientation and creating proper transforms.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_configuration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/releases/platform-tools\" target=\"_blank\">SDK Platform Tools release notes</a>",
+        "path": "tools/releases/platform-tools.md",
+        "summary": "Platform Tools revision 37.0.2 introduces significant updates to ADB, including reduced debug log spam, extended partition support for `adb sync`, and the deprecation of `adb install --fastdeploy`. Additionally, it introduces the new `libadbusb` USB backend for Linux and macOS to improve device connection reliability, and fixes several critical server crashes on macOS.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_platform-tools.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars/platforms/automotive-os/android-intents-automotive\" target=\"_blank\">Google Maps for Android Automotive Intents</a>",
+        "path": "training/cars/platforms/automotive-os/android-intents-automotive.md",
+        "summary": "Added the `geo.action:?act=open_destination_input` intent action to the documentation. This addition allows developers to trigger Google Maps to open the destination input search screen, expanding the available navigation control options for Android Automotive OS apps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_android-intents-automotive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose/migrate-to-material3\" target=\"_blank\">Migrate from Material 2.5 to Material 3 in Compose for Wear OS</a>",
+        "path": "training/wearables/compose/migrate-to-material3.md",
+        "summary": "Updated the Wear Compose dependencies (Material3, Foundation, and Navigation) from version 1.8.0-alpha02 to 1.8.0-alpha03 in the migration guide to reflect the latest library releases and ensure compatibility with newer components and APIs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_migrate-to-material3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose/navigation3\" target=\"_blank\">Navigation 3</a>",
+        "path": "training/wearables/compose/navigation3.md",
+        "summary": "Updated the core Navigation 3 dependency versions for both Groovy and Kotlin DSL snippets from version 1.3.0-alpha03 to 1.3.0-alpha04. This ensures developers use the latest APIs and bug fixes when integrating Navigation 3 into their Wear OS Compose projects.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_navigation3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose/previews\" target=\"_blank\">Preview your UI in Compose for Wear OS</a>",
+        "path": "training/wearables/compose/previews.md",
+        "summary": "Updated the `androidx.wear.compose:compose-ui-tooling` dependency version from `1.8.0-alpha02` to `1.8.0-alpha03` in the Wear OS Compose previews guide. This ensures developers use the latest alpha release containing updated multipreview annotations and device constants.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_previews.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/status-bar\" target=\"_blank\">Coordinate your UI with the system status bar</a>",
+        "path": "training/wearables/status-bar.md",
+        "summary": "Updated the recommended Wear Compose dependencies from version 1.8.0-alpha02 to 1.8.0-alpha03 across the documentation and code snippets to reflect the latest release for supporting the system status bar.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_status-bar.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/widgets/get_started\" target=\"_blank\">Get started with widgets</a>",
+        "path": "training/wearables/widgets/get_started.md",
+        "summary": "Updated the dependency versions for Wear OS widgets and Remote Compose libraries in both Groovy and Kotlin DSL build files. These updates bump the Compose remote libraries and tooling previews to alpha23, Glance wear libraries to alpha22, and Remote Material3 to alpha15, ensuring developers use the latest APIs and bug fixes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7809887a_get_started.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-04T15:09:51Z",
     "commit_hash": "d083ac7f",
     "entries": [

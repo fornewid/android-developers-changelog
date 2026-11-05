@@ -1,0 +1,18 @@
+diff --git a/docs/jetpack/androidx/versions/stable-channel.md b/docs/jetpack/androidx/versions/stable-channel.md
+index 2e6b202a..e34d68c2 100644
+--- a/docs/jetpack/androidx/versions/stable-channel.md
++++ b/docs/jetpack/androidx/versions/stable-channel.md
+@@ -19,6 +19,13 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
+ The first stable release of AndroidX 1.0.0 suitable for use in
+ production was released on September 21, 2018.
+ 
++## November 04, 2026
++
++- [Core-telecom Version 1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-telecom-1.1.0)
++- [Input-motionprediction Version 1.0.1](https://developer.android.com/jetpack/androidx/releases/input#input-motionprediction-1.0.1)
++- [Navigation3 Version 1.2.1](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.1)
++- [Test Uiautomator Version 2.4.1](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.1)
++
+ ## October 21, 2026
+ 
+ - [Core-location-altitude Core-location-altitude-external-protobuf Core-location-altitude-proto Version 1.0.1](https://developer.android.com/jetpack/androidx/releases/core#1.0.1)

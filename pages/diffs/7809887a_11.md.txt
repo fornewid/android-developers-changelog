@@ -1,0 +1,29 @@
+diff --git a/docs/blog/latest/11.md b/docs/blog/latest/11.md
+index c82cb73f..4874fd42 100644
+--- a/docs/blog/latest/11.md
++++ b/docs/blog/latest/11.md
+@@ -7,6 +7,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 Dec 2024 12 Dec 2024 ![](https://developer.android.com/static/blog/assets/Android_XR_Unlocked_2a393b1726_OqFlk.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Introducing Android XR SDK Developer Preview](https://developer.android.com/blog/posts/introducing-android-xr-sdk-developer-preview)
++
++  [arrow_forward](https://developer.android.com/blog/posts/introducing-android-xr-sdk-developer-preview) Today, we're launching the developer preview of the Android XR SDK - a comprehensive development kit for Android XR. It's the newest platform in the Android family built for extended reality (XR) headsets (and glasses in the future!).
++  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 5 min read
+ - [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 21 Nov 2024 21 Nov 2024 ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_ZkMOm6.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+ 
+   ## [X improved login success rate by 2x after adopting passkeys](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys)
+@@ -38,10 +44,10 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+ - [#Compose](https://developer.android.com/blog/topics/compose)
+ - [#Performance](https://developer.android.com/blog/topics/performance)
++- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+ - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+-- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Android 17](https://developer.android.com/blog/topics/android-17)
+ - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)

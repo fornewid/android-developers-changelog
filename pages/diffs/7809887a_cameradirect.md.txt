@@ -1,0 +1,19 @@
+diff --git a/docs/media/camera/camera-deprecated/cameradirect.md b/docs/media/camera/camera-deprecated/cameradirect.md
+index de203b09..8316a6b0 100644
+--- a/docs/media/camera/camera-deprecated/cameradirect.md
++++ b/docs/media/camera/camera-deprecated/cameradirect.md
+@@ -14,6 +14,14 @@ recommend using [CameraX](https://developer.android.com/media/camera/camerax) or
+ [Camera2](https://developer.android.com/media/camera/camera2). Both CameraX and Camera2 support Android 5.0
+ (API level 21) and higher.
+ 
++<br />
++
++
++To learn how to migrate from Camera1 to CameraX, see
++[Migrate Camera1 to CameraX](https://developer.android.com/media/camera/camerax/camera1-to-camerax).
++Alternatively, you can use the
++[agentic skill for Camera1 to CameraX migration](https://github.com/android/skills/blob/main/camera/camerax/SKILL.md).
++
+ Directly controlling a device camera requires a lot more code than requesting pictures or videos
+ from existing camera applications. However, if you want to build a specialized camera application
+ or something fully integrated in your app UI, this lesson shows you how.

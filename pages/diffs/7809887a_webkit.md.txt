@@ -1,0 +1,58 @@
+diff --git a/docs/jetpack/androidx/releases/webkit.md b/docs/jetpack/androidx/releases/webkit.md
+index 00c81437..b94dca63 100644
+--- a/docs/jetpack/androidx/releases/webkit.md
++++ b/docs/jetpack/androidx/releases/webkit.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| October 21, 2026 | [1.18.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.18.0) | - | - | - |
++| November 04, 2026 | [1.18.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.18.0) | - | - | [1.19.0-alpha01](https://developer.android.com/jetpack/androidx/releases/webkit#1.19.0-alpha01) |
+ 
+ ## Declaring dependencies
+ 
+@@ -52,6 +52,44 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 1.19
++
++### Version 1.19.0-alpha01
++
++November 04, 2026
++
++`androidx.webkit:webkit:1.19.0-alpha01` is released. Version 1.19.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/fb536a9a01ea26779570787c8a6af74256f17cb0..21b800145da7b651ce947785e2e20815a3132c9d/webkit/webkit).
++
++**API Changes**
++
++- Fix accidental hidden callback on `NavigationListener` ([I1cd2e](https://android-review.googlesource.com/#/q/I1cd2e8bbaa6c3b827f44d8223ad68af2525b02df), [b/576625538](https://issuetracker.google.com/issues/576625538))
++- Added an overload of `WebViewCompat#startUpWebView` that accepts an `Executor` on which to invoke the `WebViewOutcomeReceiver` callback, allowing applications to handle startup completion on a background thread rather than the main looper. ([I51748](https://android-review.googlesource.com/#/q/I517483734a80c8d8662e454a9b8ce955be526593))
++- Changed `Navigation/Page#snapshotState` to `#captureState` and edited `NavigationState#didCommitErrorPage` javadoc ([I0405a](https://android-review.googlesource.com/#/q/I0405a2d341e77bae624e70e05148ed658c9e291a))
++- Adds `NavigationState` and `PageState`
++  which are immutable copies of `Navigation` and
++  `Page` at a certain point in time. They are supplied
++  via new callbacks within `NavigationListener`, which
++  have `NavigationState` and `PageState` as parameters
++  instead of `Navigation` and `Page`. The state objects
++  can also be supplied by `Navigation#snapshotState`
++  and `Page#snapshotState`.
++
++- Added `NavigationState#getNavigationStartUptimeMillis`
++  which returns the navigation's start up time in
++  milliseconds.
++
++- Added `NavigationState#getResponseHeaders`
++  and `NavigationRedirectParameters` which is
++  supplied via `onNavigationRedirect(NavigationState,NavigationRedirectParameters)` which exposes
++  the HTTP response headers for the Navigation. ([I9886a](https://android-review.googlesource.com/#/q/I9886a73001f22295762a7cc268812454c86347f1))
++
++- Added support for `Profile#addQuicHints` to take
++  wildcards as URLs (such as `https://*.example.com` or \`https://\*) ([Ic6d67](https://android-review.googlesource.com/#/q/Ic6d67d674316386681dbabb4c28d22c2a0297051), [b/442161273](https://issuetracker.google.com/issues/442161273))
++
++- Deprecated `WebSettingsCompat.getAttributionRegistrationBehavior`,
++  `WebSettingsCompat.setAttributionRegistrationBehavior`, and related constants
++  as `WebView` no longer supports Attribution Reporting in version 152 and later. ([I3453a](https://android-review.googlesource.com/#/q/I3453a4cf11826a8d6fd3bcd4ce9fef83f4a73e09), [b/528282384](https://issuetracker.google.com/issues/528282384))
++
+ ## Webkit
+ 
+ ### Version 1.18
