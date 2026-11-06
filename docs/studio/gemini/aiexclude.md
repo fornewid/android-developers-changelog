@@ -4,7 +4,7 @@ url: https://developer.android.com/studio/gemini/aiexclude
 source: md.txt
 ---
 
-When you opt in to sharing your project context with Gemini in Android Studio,
+When you opt in to sharing your project context with the agent,
 you can control which files specifically from the codebase are shared using
 `.aiexclude` files. AI features in Android Studio cannot access files outside of
 the current project and the Version Control System (VCS) roots attached to it.
@@ -12,7 +12,7 @@ With this in mind, you can place `.aiexclude` files anywhere within the project
 and its VCS roots to control which files AI features are allowed to access.
 
 Much like a `.gitignore` file, an `.aiexclude` file tracks files that shouldn't
-be shared with Gemini in Android Studio. This includes the chat experience as
+be shared with the agent. This includes the chat experience as
 well as AI features that operate in the editor, like [code completion](https://developer.android.com/studio/gemini/code-completion). An
 `.aiexclude` file operates on files at or below the directory that contains it.
 ![An example `.aiexclude` file in Android Studio.](https://developer.android.com/static/studio/images/gemini-aiexclude.png) An example of an \`.aiexclude\` file in Android Studio.

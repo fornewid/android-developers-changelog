@@ -179,7 +179,7 @@ Explore how modern Android architecture is implemented in a real world app [View
 | [test.backup](https://developer.android.com/jetpack/androidx/releases/test-backup) | Automated testing framework to verify that user data and account credentials safely survive device upgrades and cloud restores. |
 | [test.ext](https://developer.android.com/jetpack/androidx/releases/test-ext) | TODO |
 | [test.uiautomator](https://developer.android.com/jetpack/androidx/releases/test-uiautomator) | Framework for cross app functional UI testing |
-| [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical) | TODO |
+| [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical) | -- |
 | [textclassifier](https://developer.android.com/jetpack/androidx/releases/textclassifier) | Identifies conversations, links, selections, and other similar constructs in text. |
 | [tracing](https://developer.android.com/jetpack/androidx/releases/tracing) | Write trace events to the system trace buffer. |
 | [transition](https://developer.android.com/jetpack/androidx/releases/transition) | Animate motion in the UI with starting and ending layouts. |

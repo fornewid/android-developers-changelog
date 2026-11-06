@@ -16,7 +16,7 @@ determine how close physical objects are to the device.
 
 
 Your browser doesn't support HTML video. Here is a
-[link to the video](https://developer.android.com/static/develop/xr/develop/videos/arcore_raw_depth.mp4) instead.
+[link to the video](https://developer.android.com/static/develop/xr/jetpack-xr-sdk/videos/arcore_raw_depth.mp4) instead.
 
 ## Create an ARCore for Jetpack XR session
 
@@ -83,7 +83,7 @@ val hasStereoDepth = xrDevice.isRenderingModeSupported(RenderingMode.STEREO)
 
 ## Retrieve depth data
 
-To obtain depth data for a given camera, use [`DepthMap`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/DepthMap):
+To obtain depth data for a given camera, use [`Depth`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Depth):
 
 
 ```kotlin

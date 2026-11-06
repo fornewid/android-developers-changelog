@@ -94,7 +94,12 @@ The following restrictions apply to usage of the UWB API:
 
 ### Sample app
 
-For an end-to-end example on how to use the [UWB Jetpack library](https://developer.android.com/jetpack/androidx/releases/core-uwb), check our [sample application on Github](https://github.com/android/connectivity-samples/tree/main/UwbRanging). This sample app covers validating UWB compatibility on an Android device, enabling the discovery process using an OOB mechanism, and setting up UWB ranging between two UWB-capable devices. The sample also covers device control and media sharing use cases.
+For an end-to-end example on how to use the [UWB Jetpack library](https://developer.android.com/jetpack/androidx/releases/core-uwb),
+check our [sample application on Github](https://github.com/android/platform-samples/tree/main/samples/connectivity/UwbRanging). This sample app covers
+validating UWB compatibility on an Android-powered device, enabling the
+discovery process using an OOB mechanism, and setting up UWB ranging between
+two UWB-capable devices. The sample also covers device control and media
+sharing use cases.
 
 ### UWB Ranging
 

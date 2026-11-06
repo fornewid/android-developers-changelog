@@ -36,7 +36,7 @@ Suggest improvements to follow Compose layout best practices.
 
 
 > [!NOTE]
-> To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.   
-> To save and retrieve prompts in the Studio IDE, go to **Settings \> Gemini \> Prompt Library**.
+> To run this prompt in Android Studio, click **Agent** in the sidebar and paste it in the chat field.   
+> To save and retrieve prompts in the Studio IDE, go to **Settings \> Tools \> AI \> Prompt Library**.
 
 *** ** * ** ***

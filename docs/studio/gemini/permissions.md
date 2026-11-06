@@ -15,10 +15,10 @@ perform certain actions, including the following:
 
 While you're working with the agent, the agent will ask you for permission to do
 something if you haven't approved before:
-![](https://developer.android.com/static/studio/images/in-chat-permissions.png) Gemini prompts you for permissions when needed.
+![](https://developer.android.com/static/studio/images/in-chat-permissions.png) The agent prompts you for permissions when needed.
 
 You can choose **Allow** for one-time tasks or **Always allow** for trusted,
-repeated workflows. Gemini uses an intelligent request system, so granting a
+repeated workflows. The agent uses an intelligent request system, so granting a
 high-level permission (such as writing files) automatically authorizes all
 related sub-tools. Common commands like `ls` or `grep` are approved silently
 based on your existing read access, letting you stay in the flow without

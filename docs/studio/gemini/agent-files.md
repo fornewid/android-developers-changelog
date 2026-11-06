@@ -7,7 +7,7 @@ source: md.txt
 > [!NOTE]
 > **Note:** Agent files titled `AGENTS.md` are compatible with Android Studio Narwhal 4 Feature Drop Canary 4 and higher. To use agent files with Android Studio Narwhal 3 Feature Drop, use the name `AGENT.md` instead of `AGENTS.md`.
 
-Give Gemini in Android Studio customized instructions to follow using one or
+Give the agent customized instructions to follow using one or
 more `AGENTS.md` files. `AGENTS.md` files are placed alongside the other files
 in your codebase, so it's straightforward to check them in to your version
 control system (VCS) and share project-specific instructions, coding style
@@ -15,7 +15,7 @@ rules, and other guidance with your entire team.
 
 To get started, follow these steps:
 
-1. Create an `AGENTS.md` file anywhere in your project's file system. Gemini
+1. Create an `AGENTS.md` file anywhere in your project's file system. The agent
    scans the current directory and all parent directories for `AGENTS.md` files
    when you submit a query. For more details, see [How `AGENTS.md` files
    work](https://developer.android.com/studio/gemini/agent-files#how-agent-files-work).
@@ -86,13 +86,13 @@ files:
 
 ## How `AGENTS.md` files work
 
-Gemini automatically scans the current directory and parent directories for
+The agent automatically scans the current directory and parent directories for
 `AGENTS.md` files and adds their content to the beginning of every prompt as a
 preamble. If you don't have a file open when you submit a query, then the
 `AGENTS.md` file at the project root (if there is one) is included by default.
 
 > [!NOTE]
-> **Note:** If you have a `GEMINI.md` file and `AGENTS.md` file in the same directory, the `GEMINI.md` file takes precedence.
+> **Note:** If you're using Gemini and have a `GEMINI.md` file and `AGENTS.md` file in the same directory, the `GEMINI.md` file takes precedence.
 
 ## What's the difference between `AGENTS.md` files and Rules?
 
@@ -103,7 +103,7 @@ source code and are IDE-neutral. We recommend using `AGENTS.md` files if one of
 the primary purposes is to share the instructions with your team.
 
 > [!NOTE]
-> **Note:** Gemini combines rules and instructions in `AGENTS.md` files when processing your query.
+> **Note:** The agent combines rules and instructions in `AGENTS.md` files when processing your query.
 
 ## What's the difference between `AGENTS.md` files and skills?
 

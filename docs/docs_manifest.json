@@ -182,8 +182,8 @@
     },
     "studio/gemini/prompt-library.md": {
       "original_url": "https://developer.android.com/studio/gemini/prompt-library",
-      "hash": "b4947042fa601b907fd2f0eb776fedc11b9fffcb2ec83724f5c9b0d1da3577cb",
-      "last_updated": "2026-04-10T15:15:53.495073",
+      "hash": "1c7bde7166dbcd517d4d70d4dace56f0d371f73ece4ad2972c891be4f793d8e4",
+      "last_updated": "2026-11-06T15:06:48.650940",
       "fetch_method": "md.txt"
     },
     "training/secure-file-sharing/share-file.md": {
@@ -608,8 +608,8 @@
     },
     "studio/gemini/analyze-crashes-with-aqi.md": {
       "original_url": "https://developer.android.com/studio/gemini/analyze-crashes-with-aqi",
-      "hash": "d301c3595367693770ec56463d7ee39aa25575f0829821aa56d31aca666ec41d",
-      "last_updated": "2026-10-29T15:06:22.754251",
+      "hash": "ae44d69c168548196401ff5fffbc3a60e847e8c486e142fc9eaafcf910cfbae4",
+      "last_updated": "2026-11-06T15:05:04.087845",
       "fetch_method": "md.txt"
     },
     "xr.md": {
@@ -1082,8 +1082,8 @@
     },
     "studio/gemini/use-a-local-model.md": {
       "original_url": "https://developer.android.com/studio/gemini/use-a-local-model",
-      "hash": "b5dc9d18de8262a4c9991c3d992a89b42ecee8b94cd9d7d51ed1908e2215f456",
-      "last_updated": "2026-09-08T15:05:51.430508",
+      "hash": "52d9c16d0882a3a509d73a8e283ab03f2bbb96b470552d0d117f4dc6e1fb5440",
+      "last_updated": "2026-11-06T15:02:13.852146",
       "fetch_method": "md.txt"
     },
     "design/ui/wear/guides/get-started/design-for-wearables.md": {
@@ -1460,8 +1460,8 @@
     },
     "jetpack.md": {
       "original_url": "https://developer.android.com/jetpack",
-      "hash": "647b638755dd7ace6c5b02a9d6c3772fcad8b18011754270e1310faccc0b0c87",
-      "last_updated": "2026-11-05T15:06:28.387234",
+      "hash": "1de92745d93da66519db6dce3ff35974fe02e0fa335d930889abd90c211c5698",
+      "last_updated": "2026-11-06T15:05:08.098214",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/quick-guides/content/restrict-app-orientation-on-phones.md": {
@@ -2306,8 +2306,8 @@
     },
     "studio/gemini/transform-ui.md": {
       "original_url": "https://developer.android.com/studio/gemini/transform-ui",
-      "hash": "cd4368bf96f4fb94190ff5d93c3511b4416fa22ac0379eb36484507b87cd4a48",
-      "last_updated": "2026-04-09T15:30:00.548307",
+      "hash": "56974814b46d98058a76119006bac3876aaa4feff6f5ee7240c825a1d4407532",
+      "last_updated": "2026-11-06T15:08:38.343342",
       "fetch_method": "md.txt"
     },
     "identity/sign-in/legacy-gsi-migration.md": {
@@ -2618,14 +2618,14 @@
     },
     "develop/xr/jetpack-xr-sdk/add-xr-to-existing.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/add-xr-to-existing",
-      "hash": "70971db95af55b51e0b80148b3bd0b48b8c804de0623b1d7eea1291fff8d44a2",
-      "last_updated": "2026-10-29T15:03:33.858914",
+      "hash": "a3ab37d038a678061ed87296aff1c216687dfd55dfbd50b72be4432a93462bb7",
+      "last_updated": "2026-11-06T15:02:20.281200",
       "fetch_method": "md.txt"
     },
     "studio/prompt-gallery/prompts/optimize-complication-tile-battery-life.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/optimize-complication-tile-battery-life",
-      "hash": "a88c94aa33e9776f2a226b00d342970fd2a5a5e8c7351ac969399dcf0dd83689",
-      "last_updated": "2026-04-10T15:15:41.864292",
+      "hash": "abaca91f88cb010a526987c893518af0c9e0fb12a781014d564dcc4e8a287caf",
+      "last_updated": "2026-11-06T15:08:24.636017",
       "fetch_method": "md.txt"
     },
     "jetpack/androidx/versions/stable-channel.md": {
@@ -3590,8 +3590,8 @@
     },
     "studio/gemini/code-transformation.md": {
       "original_url": "https://developer.android.com/studio/gemini/code-transformation",
-      "hash": "2db3f1a0139e420d26b8a5fa760b4b3df9c653ae6827e33b8ef9a38a9c17f56c",
-      "last_updated": "2026-07-10T15:49:09.543025",
+      "hash": "d10604a3045470d0bafab48af6a3ac1ac331efa365fa3eb761a7874b06ce0f7c",
+      "last_updated": "2026-11-06T15:05:59.451873",
       "fetch_method": "md.txt"
     },
     "ndk/guides/memory-debug.md": {
@@ -3884,8 +3884,8 @@
     },
     "studio/preview/gemini/ai-code-completion.md": {
       "original_url": "https://developer.android.com/studio/preview/gemini/ai-code-completion",
-      "hash": "093b1f0fb45d98d5355c9f2565f0bbcf63d47e16e9832c0dc69fa316413344bb",
-      "last_updated": "2026-10-28T16:33:24.092480",
+      "hash": "41a838a5b14a343ea5af0c316eb4da6b30f8d13e305da73843cf6c7e46cd443f",
+      "last_updated": "2026-11-06T15:05:51.336194",
       "fetch_method": "html-scrape"
     },
     "develop/xr/jetpack-xr-sdk/arcore/device-pose.md": {
@@ -4370,8 +4370,8 @@
     },
     "games/playgames/native-pc/faq.md": {
       "original_url": "https://developer.android.com/games/playgames/native-pc/faq",
-      "hash": "5203012ea1072c575e8c6a42ce10329f919af9dd91744e10aa39ae92a22d53a0",
-      "last_updated": "2026-09-22T15:05:18.200856",
+      "hash": "4d4d5402c0960e5a2e1423592179fdcbe465c2d30c10c43341dd9616247664dc",
+      "last_updated": "2026-11-06T15:09:14.128818",
       "fetch_method": "md.txt"
     },
     "topic/performance/rendering/optimizing-view-hierarchies.md": {
@@ -4550,8 +4550,8 @@
     },
     "studio/gemini/add-api-key.md": {
       "original_url": "https://developer.android.com/studio/gemini/add-api-key",
-      "hash": "60aa877cfd1dcb4113581738e8887f88a9c097688f43813f5d41620dc6326af0",
-      "last_updated": "2026-04-10T15:16:21.759649",
+      "hash": "191c04f611768d58350823e4f1803b515a0e5e14966085024dda02eca4a57a38",
+      "last_updated": "2026-11-06T15:07:38.071118",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/components/tabs.md": {
@@ -4574,8 +4574,8 @@
     },
     "studio/gemini/overview.md": {
       "original_url": "https://developer.android.com/studio/gemini/overview",
-      "hash": "ea6d4d5473873dd27e886e3b3547138790879c086a3cb746411e0947bb38b539",
-      "last_updated": "2026-08-21T15:10:24.726685",
+      "hash": "9d5515088eacdcc95dae439087c062bf98fd282262626a058c11b885e1b12201",
+      "last_updated": "2026-11-06T15:02:51.970998",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/asr.md": {
@@ -4592,8 +4592,8 @@
     },
     "studio/prompt-gallery/prompts/generate-billing-client.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/generate-billing-client",
-      "hash": "633f2790fdbf6c3bff473446dfcfd4b6e4bd5fdf59c9128b04ac229c989a0a75",
-      "last_updated": "2026-04-09T17:01:08.663961",
+      "hash": "0b8c4271ccedc575cd689437696d8a2932354f917c73d9932f06215ee1325fe4",
+      "last_updated": "2026-11-06T15:07:40.773092",
       "fetch_method": "md.txt"
     },
     "license/gplv2+ce.txt.md": {
@@ -4796,8 +4796,8 @@
     },
     "studio/gemini/feature-comparison.md": {
       "original_url": "https://developer.android.com/studio/gemini/feature-comparison",
-      "hash": "01f62323c068b58b5213ca1ef4c37e26456429412230f7914a0743b508ee3590",
-      "last_updated": "2026-09-03T15:09:40.532948",
+      "hash": "55f47408445bad6024eddd067534682a33eb1e6fe415b1ed0f8f17501018f746",
+      "last_updated": "2026-11-06T15:03:12.492316",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/state-callbacks.md": {
@@ -4814,8 +4814,8 @@
     },
     "studio/gemini/best-practices.md": {
       "original_url": "https://developer.android.com/studio/gemini/best-practices",
-      "hash": "c3fdefaf20a3299a8818fef29466b9f74fc791afba54743f6059f9b46360276e",
-      "last_updated": "2026-04-10T15:16:28.055300",
+      "hash": "6b212737d05075d43148c4d3df64a344b8a11b029132c4f69dfa6be9b697e118",
+      "last_updated": "2026-11-06T15:05:52.665940",
       "fetch_method": "md.txt"
     },
     "develop/connectivity/telecom/voip-app/notifications.md": {
@@ -4910,8 +4910,8 @@
     },
     "studio/install.md": {
       "original_url": "https://developer.android.com/studio/install",
-      "hash": "0856bf0abab36fc4620b3714530ab761b51dd62def602979d458fd22bd8eb2e9",
-      "last_updated": "2026-10-28T16:47:41.679022",
+      "hash": "998094e9d0eff7dcfdb0bacc67bb24cd613ac97342ba67f2d19c193d8e662a9b",
+      "last_updated": "2026-11-06T15:09:21.698211",
       "fetch_method": "md.txt"
     },
     "studio/releases/fixed-bugs/studio/2023.3.2.md": {
@@ -5216,8 +5216,8 @@
     },
     "studio/prompt-gallery/prompts/convert-layout-xml-into-compose.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/convert-layout-xml-into-compose",
-      "hash": "5d29b9aad311b39521720d4a530b72a561cdbcc399abeb2f73dc2c937fd501be",
-      "last_updated": "2026-09-02T15:10:38.059932",
+      "hash": "b0e589d93c3a303a115c9ca1d5d5eeb7842437a51bd4ee4c311a9d6e316fbf8d",
+      "last_updated": "2026-11-06T15:03:04.044689",
       "fetch_method": "md.txt"
     },
     "identity/passkeys/sign-in-with-passkeys.md": {
@@ -5606,8 +5606,8 @@
     },
     "studio/prompt-gallery/prompts/custom-component-accessibility.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/custom-component-accessibility",
-      "hash": "892808f8e968198062a5e4882f5a84cc5324bf97109944e78f3251424a8f1726",
-      "last_updated": "2026-09-11T15:06:25.606309",
+      "hash": "588cd037a86c7b6a25da3e709de2264021d886f0dd2bca2763305892deb1d454",
+      "last_updated": "2026-11-06T15:05:59.707695",
       "fetch_method": "md.txt"
     },
     "design/ui/ai-glasses/guides/styles/surfaces.md": {
@@ -5618,8 +5618,8 @@
     },
     "studio/prompt-gallery/prompts/optimize-watch-face-for-screen-shapes.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/optimize-watch-face-for-screen-shapes",
-      "hash": "50e1ead691323708271959a791d9cdb86976996fc790ef5f57af2eca2d202726",
-      "last_updated": "2026-04-10T15:16:22.262481",
+      "hash": "0f99481931c3ac68001796f3a8fd92d6b8f4af15b9a1569274358048c5f50999",
+      "last_updated": "2026-11-06T15:05:59.747014",
       "fetch_method": "md.txt"
     },
     "stories/games/lineagew-adpf.md": {
@@ -6650,8 +6650,8 @@
     },
     "studio/prompt-gallery/prompts/tv-design-review.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/tv-design-review",
-      "hash": "27bbe00d1c49678673467afcfbc8aa7344678410ec716d30a3a49fd19ed48b43",
-      "last_updated": "2026-10-16T15:08:50.295015",
+      "hash": "0f8b364a12cc3a0bb106f4253516fe1d36a9e2ea67669c20e57834c5c415cdbe",
+      "last_updated": "2026-11-06T15:06:45.588359",
       "fetch_method": "md.txt"
     },
     "studio/releases/past-releases/as-4-2-0-release-notes.md": {
@@ -7388,8 +7388,8 @@
     },
     "studio/prompt-gallery/prompts/optimize-for-controller-input.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/optimize-for-controller-input",
-      "hash": "142803630bac40dc3bbe7f51c963841fc1024c955c9c549af0ad01c21dfa0ed3",
-      "last_updated": "2026-04-09T17:02:21.427674",
+      "hash": "68a6f9e1394f799f795012ce21b9a021596ab103c34c0a20192719f3b81cb28e",
+      "last_updated": "2026-11-06T15:08:24.925769",
       "fetch_method": "md.txt"
     },
     "media/legacy/video/activity.md": {
@@ -7478,8 +7478,8 @@
     },
     "studio/gemini/rethink-variable-names.md": {
       "original_url": "https://developer.android.com/studio/gemini/rethink-variable-names",
-      "hash": "7fd8ef1817a72a60ae82b3e647b5ee22f1b3118b32f9b5f1efce686e3a28655b",
-      "last_updated": "2026-09-01T15:05:46.837689",
+      "hash": "c1be9f20ff5f11fabb111e333d5182b0275d5407c623e2dbd0af1493bec6471e",
+      "last_updated": "2026-11-06T15:08:41.471112",
       "fetch_method": "md.txt"
     },
     "training/cars/parked/video.md": {
@@ -8210,8 +8210,8 @@
     },
     "studio/prompt-gallery/prompts/network-serialization-and-data-classes.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/network-serialization-and-data-classes",
-      "hash": "c83419da09adef2935ebfb005e347cdc63a60b9326537afd8ad490aed3a4cc1e",
-      "last_updated": "2026-04-10T15:17:05.579166",
+      "hash": "6775fc02d8a29d37102a10dca98d464b3f7e7b755745fe6ebe57ab4e961753b3",
+      "last_updated": "2026-11-06T15:06:34.865746",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/designsystems/material.md": {
@@ -8366,8 +8366,8 @@
     },
     "identity/sign-in/restore-credentials.md": {
       "original_url": "https://developer.android.com/identity/sign-in/restore-credentials",
-      "hash": "20368b5909e708afe23abda16b09fbbf7deedc4245ff3f43f1e51008ac11209b",
-      "last_updated": "2026-09-12T15:08:46.949094",
+      "hash": "25654b303ab88875eca0c45c98ca3b0a41162ecebeb8630363ccde979739732f",
+      "last_updated": "2026-11-06T15:08:42.561996",
       "fetch_method": "md.txt"
     },
     "studio/services/deprecated.md": {
@@ -8750,8 +8750,8 @@
     },
     "studio/prompt-gallery/prompts/validate-handling-of-configuration-changes.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/validate-handling-of-configuration-changes",
-      "hash": "73f0214648087597c94bf54be5692d92f1dacf0296319a9dfbab57cfb7df0541",
-      "last_updated": "2026-10-29T15:06:30.337499",
+      "hash": "66e6238bbba9524b6c66132da4656b56220b1fd67602d6d82c391f0447b032cb",
+      "last_updated": "2026-11-06T15:05:18.418406",
       "fetch_method": "md.txt"
     },
     "training/basics/intents/limit-play-loading.md": {
@@ -8876,8 +8876,8 @@
     },
     "studio/gemini/create-a-new-project-with-ai.md": {
       "original_url": "https://developer.android.com/studio/gemini/create-a-new-project-with-ai",
-      "hash": "3b6d9894c9e58907fcd5b5727dfa00eec4c9e417c30ff30aac088b27aa99375f",
-      "last_updated": "2026-05-16T15:22:42.936064",
+      "hash": "9232793c169f7244bd627e88c67a6ff181bf44e74f0540abac3dcc3cf5a66c68",
+      "last_updated": "2026-11-06T15:06:43.752650",
       "fetch_method": "md.txt"
     },
     "courses/quizzes/android-development-with-kotlin-1/android-development-with-kotlin-1.md": {
@@ -9296,8 +9296,8 @@
     },
     "develop/xr/jetpack-xr-sdk/add-spatial-audio.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-audio",
-      "hash": "0ad05b7ee243b0546d4c98faa34569a3faeb76eead9fd93911da7b6e0732d221",
-      "last_updated": "2026-09-01T15:09:40.810361",
+      "hash": "e6854bc6ce93976cb57193e4f1c63c3a40f8ef1b3ea85daae9ec927b08b7af19",
+      "last_updated": "2026-11-06T15:03:48.832881",
       "fetch_method": "md.txt"
     },
     "jetpack/androidx/releases/profileinstaller.md": {
@@ -9866,8 +9866,8 @@
     },
     "studio/services.md": {
       "original_url": "https://developer.android.com/studio/services",
-      "hash": "37820570ad7e802ec82f66a51900bea2388f2461c9fd680f79a5c0db1db9bdb9",
-      "last_updated": "2026-10-29T15:04:25.212947",
+      "hash": "ea5067704be57aea6d31497b0844bc2f952f47f35c8f81a105ececa2cdcad6f9",
+      "last_updated": "2026-11-06T15:03:14.221208",
       "fetch_method": "md.txt"
     },
     "jetpack/androidx/releases/relnotes-test/core/docs/release-notes.md": {
@@ -9878,8 +9878,8 @@
     },
     "studio/gemini/agent-mode.md": {
       "original_url": "https://developer.android.com/studio/gemini/agent-mode",
-      "hash": "e7a51a4a93898a97384af8c561399e5cc68713cf0383edf0a0705100dd5695c4",
-      "last_updated": "2026-07-14T15:29:48.182681",
+      "hash": "7c05048b4159829bbfb149035569effe7499c48755f768d6318fb690a1fc2026",
+      "last_updated": "2026-11-06T15:02:59.956550",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/layouts/adaptive/adaptive-dos-and-donts.md": {
@@ -10094,8 +10094,8 @@
     },
     "studio/gemini/generate-ui-with-images.md": {
       "original_url": "https://developer.android.com/studio/gemini/generate-ui-with-images",
-      "hash": "41abec36b38bc09d3f45dffa57e9335c90fa20763fa3c2212c8477bf7ece89c5",
-      "last_updated": "2026-09-01T15:05:40.419765",
+      "hash": "3bd70d028aa1fecfd84769a7efb83ab47f50caca7a228fa4a14e662a86acb29f",
+      "last_updated": "2026-11-06T15:07:27.886148",
       "fetch_method": "md.txt"
     },
     "stories/apps/microsoft-camerax.md": {
@@ -10682,8 +10682,8 @@
     },
     "jetpack/androidx/explorer.md": {
       "original_url": "https://developer.android.com/jetpack/androidx/explorer",
-      "hash": "c2012212065e6ccd11957127eb7a4a093354fe10047282b32db1e2c19d9918ed",
-      "last_updated": "2026-11-05T15:08:48.221969",
+      "hash": "a4b6d06c15bcd1d7a73436588cdfd651c3423104e16197e35c55efcffae2573f",
+      "last_updated": "2026-11-06T15:07:43.701178",
       "fetch_method": "md.txt"
     },
     "studio/report-bugs.md": {
@@ -11396,8 +11396,8 @@
     },
     "studio/gemini/attach-file.md": {
       "original_url": "https://developer.android.com/studio/gemini/attach-file",
-      "hash": "018ad49253eff76d5f8b0fde0943f226d6663cd0ce16a7470ba2a40f7ea78988",
-      "last_updated": "2026-09-01T15:05:03.211346",
+      "hash": "73bccc1c0e308897e9399c55036e3399637141c55dcf405b5292d818e4bdd09f",
+      "last_updated": "2026-11-06T15:05:52.492255",
       "fetch_method": "md.txt"
     },
     "design/ui/mobile/guides/widgets/sizing.md": {
@@ -11420,8 +11420,8 @@
     },
     "identity/sign-in/restore-credentials-implementation.md": {
       "original_url": "https://developer.android.com/identity/sign-in/restore-credentials-implementation",
-      "hash": "4903c0f3c3aba6b393dfe553c237bceb97c8fbce73ddfe4634c787afe7f002a9",
-      "last_updated": "2026-10-16T15:08:10.190839",
+      "hash": "b4f7b1b067fdc6e799a78255725ce59c1ae89e40e8c9173514b8e63ca879cc67",
+      "last_updated": "2026-11-06T15:03:11.823785",
       "fetch_method": "md.txt"
     },
     "games/optimize/64-bit.md": {
@@ -11510,8 +11510,8 @@
     },
     "latest-updates.md": {
       "original_url": "https://developer.android.com/latest-updates",
-      "hash": "731f14613306c900a819770d633dc387dc2e1cfddd06e83d587713058e773a01",
-      "last_updated": "2026-11-05T15:09:03.205893",
+      "hash": "a7e30f6ac6978c85f81a79188276bb6c915787ca4ec28969e065932cd53f5cc8",
+      "last_updated": "2026-11-06T15:07:40.983108",
       "fetch_method": "md.txt"
     },
     "design/ui/cars/guides/templates/map-content-template.md": {
@@ -12020,8 +12020,8 @@
     },
     "develop/xr/jetpack-xr-sdk/add-session.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session",
-      "hash": "e36c654c84bf4cc6b60fcdddb779d220383f002f74358f9a48ff2ce218d1d97f",
-      "last_updated": "2026-10-29T15:05:47.199737",
+      "hash": "4322b2d76752a6dfd73c895a891330de2d21a1a714424db02bff427aacb80978",
+      "last_updated": "2026-11-06T15:04:45.159352",
       "fetch_method": "md.txt"
     },
     "media/platform/av-capture.md": {
@@ -12818,8 +12818,8 @@
     },
     "develop/xr/jetpack-xr-sdk/arcore/planes.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/planes",
-      "hash": "1046dc27eeb1e97131c104f7d4a915152aeb84aed1910845c50c2e903e7310eb",
-      "last_updated": "2026-08-14T15:16:27.811793",
+      "hash": "15db56fffa707a708be0a71fa4fedc57daad1a53a9eb79a6c7938c96593b11e8",
+      "last_updated": "2026-11-06T15:02:20.330529",
       "fetch_method": "md.txt"
     },
     "courses/quizzes/jetpack-compose-for-android-developers-5/jetpack-compose-for-android-developers-5.md": {
@@ -13106,8 +13106,8 @@
     },
     "studio/prompt-gallery/prompts/refactor-for-large-screens-xml.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/refactor-for-large-screens-xml",
-      "hash": "727c1182834719f39fd7ebdd6c2dc4e11b1452e38cd04612f1b9f9a51f231855",
-      "last_updated": "2026-04-09T17:06:58.287080",
+      "hash": "cf0ffeb987c116787d4e5bcfc2cafa201976d9783ed8fbc39fd7b34bc4b804f1",
+      "last_updated": "2026-11-06T15:08:46.407878",
       "fetch_method": "md.txt"
     },
     "develop/connectivity/network-ops/reading-network-state.md": {
@@ -13352,8 +13352,8 @@
     },
     "studio/gemini/generate-commit-messages.md": {
       "original_url": "https://developer.android.com/studio/gemini/generate-commit-messages",
-      "hash": "bb3d57dae8e18b3c66a225c2611c92748118fa5b4c49a0390fd526875d651191",
-      "last_updated": "2026-04-10T15:18:37.351977",
+      "hash": "ef9e0e2ca612f765e0775be931168b91bdbc779abe15884d038f1baf234ab390",
+      "last_updated": "2026-11-06T15:08:41.439994",
       "fetch_method": "md.txt"
     },
     "develop/sensors-and-location/sensors/gnss-spoof-jam.md": {
@@ -13898,8 +13898,8 @@
     },
     "studio/prompt-gallery/prompts/add-parameter-to-compose-file.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/add-parameter-to-compose-file",
-      "hash": "214131e3650911053488460035e8af4d94b8d088fb426e87a82116a431caf52e",
-      "last_updated": "2026-04-10T15:18:37.169561",
+      "hash": "a851c8fa1418ccac1df097cb386d7c74540ce184587cd1a2bb74b04b771666aa",
+      "last_updated": "2026-11-06T15:05:21.410451",
       "fetch_method": "md.txt"
     },
     "training/data-storage/shared/photo-picker.md": {
@@ -14306,8 +14306,8 @@
     },
     "studio/prompt-gallery/prompts/generate-dart-tests.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/generate-dart-tests",
-      "hash": "7aa298a043a33dbf2d93ebc9982bd6e0f8ac2e8042b3c1dfac19211c6d032cfc",
-      "last_updated": "2026-04-10T15:18:25.904965",
+      "hash": "4054dad77cfd64b927a4a16014609a77e459d8f22ad42ba0f369a5109b060452",
+      "last_updated": "2026-11-06T15:06:45.215390",
       "fetch_method": "md.txt"
     },
     "studio/profile/jank-detection.md": {
@@ -14342,8 +14342,8 @@
     },
     "studio.md": {
       "original_url": "https://developer.android.com/studio",
-      "hash": "76a0a92d740ee99f3581fdbfdd368c66e116ccb464d819e8881c58dbe0ad9939",
-      "last_updated": "2026-10-29T15:06:31.187693",
+      "hash": "5644259b29850f45ece4e5795cb424138997c6088a1ff766f807bb98a786faf3",
+      "last_updated": "2026-11-06T15:04:58.836798",
       "fetch_method": "md.txt"
     },
     "studio/releases/past-releases/as-3-3-0-release-notes.md": {
@@ -14414,8 +14414,8 @@
     },
     "media/media3/session/control-playback.md": {
       "original_url": "https://developer.android.com/media/media3/session/control-playback",
-      "hash": "02b5973a149024af8bd747f94f6f1bc33618b4e72a10599b5191896128e845bb",
-      "last_updated": "2026-10-26T15:28:32.786161",
+      "hash": "e05f225b85482c07f7cb81d77fdfb95915a833dfd3de7ac87beeb6e22c23609d",
+      "last_updated": "2026-11-06T15:03:50.567049",
       "fetch_method": "md.txt"
     },
     "training/wearables/data/overview.md": {
@@ -14450,8 +14450,8 @@
     },
     "studio/prompt-gallery/prompts/generate-crud-form.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/generate-crud-form",
-      "hash": "c9513b0557864bb9ce0b2c76084b4082c43868ca1eb54c69d6bff585eb0bff3e",
-      "last_updated": "2026-04-05T15:15:55.030109",
+      "hash": "be56ba95caa0a8b2f3fbd55b508cf939654dc64b16e54b36a35bfcb6ffb0e4f6",
+      "last_updated": "2026-11-06T15:03:50.736491",
       "fetch_method": "md.txt"
     },
     "identity/block-store.md": {
@@ -14570,8 +14570,8 @@
     },
     "studio/gemini/agent-files.md": {
       "original_url": "https://developer.android.com/studio/gemini/agent-files",
-      "hash": "95e2ed54aa29ceba3dbe9a412784ded72edf1d98563af45182deb099b06be744",
-      "last_updated": "2026-06-27T15:28:44.438538",
+      "hash": "30d7f774045421219a674854e1f45f56d182d5cf6f0ba5373378527430d40fbf",
+      "last_updated": "2026-11-06T15:05:16.814474",
       "fetch_method": "md.txt"
     },
     "guide/platform.md": {
@@ -14714,8 +14714,8 @@
     },
     "develop/connectivity/uwb.md": {
       "original_url": "https://developer.android.com/develop/connectivity/uwb",
-      "hash": "69e69c53a13f3bf91edee873cb7b64ae5e95cafff013dea40f248d947be74ecc",
-      "last_updated": "2026-09-02T15:08:55.400390",
+      "hash": "f82475923408fe836c0719661dd6c71e72c693b462c8674b246876fb62b77c18",
+      "last_updated": "2026-11-06T15:05:00.117993",
       "fetch_method": "md.txt"
     },
     "health-and-fitness/health-connect/test/test-cases.md": {
@@ -14858,8 +14858,8 @@
     },
     "studio/gemini/code-completion.md": {
       "original_url": "https://developer.android.com/studio/gemini/code-completion",
-      "hash": "9a30f4cecf446517916e7be87030674c2f0f00a7c9b1f70a538361f73e407f38",
-      "last_updated": "2026-09-01T15:05:32.232910",
+      "hash": "0e9ed98a97829ca215616caf4447e6582f32986008d3a5a96779349772a64dcc",
+      "last_updated": "2026-11-06T15:03:41.929518",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/build-immersive.md": {
@@ -14888,8 +14888,8 @@
     },
     "studio/prompt-gallery/prompts/restyle-prompt.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/restyle-prompt",
-      "hash": "5c167ddac8fd75c4ac303f3869b0c0295183fd6fdb933dcf5eb23f39340bcebc",
-      "last_updated": "2026-04-05T15:16:33.481394",
+      "hash": "6fb44c4776d90e74b647303ce15acf022c4136c442ae2ae27145145549717b25",
+      "last_updated": "2026-11-06T15:08:45.478670",
       "fetch_method": "md.txt"
     },
     "about/versions/16/setup-sdk.md": {
@@ -14948,8 +14948,8 @@
     },
     "studio/gemini/generate-compose-previews.md": {
       "original_url": "https://developer.android.com/studio/gemini/generate-compose-previews",
-      "hash": "fbfddc6da169631d6a7f2651e8d7a4f29031a3d6b9a452b2311b441142f8b4cf",
-      "last_updated": "2026-04-10T15:18:24.834316",
+      "hash": "23b1dc5e2e07acaf1ef5a82c23c498ea059a667618fa40b7515c2df0e787594e",
+      "last_updated": "2026-11-06T15:05:11.104484",
       "fetch_method": "md.txt"
     },
     "design/ui/cars/guides/components/tabs-switch-views.md": {
@@ -15032,8 +15032,8 @@
     },
     "studio/prompt-gallery/prompts/generate-dartdoc-for-function.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/generate-dartdoc-for-function",
-      "hash": "a925498b9090281679102f4c17601a00f220bbe858defad677ebde9d6c8b2bdd",
-      "last_updated": "2026-06-03T16:34:07.133629",
+      "hash": "6062e30c99addf4fc634f404402536db7e0fb0dbdec18347c7f6a2974d501e88",
+      "last_updated": "2026-11-06T15:06:59.577575",
       "fetch_method": "md.txt"
     },
     "studio/debug/device-file-explorer.md": {
@@ -15182,8 +15182,8 @@
     },
     "studio/gemini/availability.md": {
       "original_url": "https://developer.android.com/studio/gemini/availability",
-      "hash": "caea185dbf3c4e5a5ec8bcebb98c644c5d094c14178729ce89a8c210ca2b3566",
-      "last_updated": "2026-07-16T15:33:13.674171",
+      "hash": "93c15f5df8be76f7c1831e8a9d361703318165b2a8d45bb1b80df5a4ce4d664c",
+      "last_updated": "2026-11-06T15:05:13.335804",
       "fetch_method": "md.txt"
     },
     "games/services/management/api/scores/resetAllForAllPlayers.md": {
@@ -15236,8 +15236,8 @@
     },
     "develop/xr/jetpack-xr-sdk/arcore/depth.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/depth",
-      "hash": "606a17e5adba92df1f7b423592976fd8b7b9b106c73a9266dcdeae8dd0e2dc04",
-      "last_updated": "2026-08-14T15:18:28.064310",
+      "hash": "f0fc53740c8dd7d20e955425842c661e499ac4661ad7ad8e4504b096c802a8e3",
+      "last_updated": "2026-11-06T15:03:56.060527",
       "fetch_method": "md.txt"
     },
     "google/play/developer-api.md": {
@@ -15536,8 +15536,8 @@
     },
     "studio/prompt-gallery.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery",
-      "hash": "d27ed36d5e06f8af0df3e62a845b297ee4bb2ae1e4ab47b1fe460e76517341cb",
-      "last_updated": "2026-04-08T15:36:35.510680",
+      "hash": "18db1ebad7bf4c9bbcc23704dc1635db0cc43d157654bd4f6c25f9f63adbc4ef",
+      "last_updated": "2026-11-06T15:05:16.935879",
       "fetch_method": "md.txt"
     },
     "guide/components/activities/parcelables-and-bundles.md": {
@@ -15704,8 +15704,8 @@
     },
     "studio/prompt-gallery/prompts/generic-data-class-modification.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/generic-data-class-modification",
-      "hash": "a15e4218ec366dd07e519a3a6bc6724b89ff3badaa128ab0467811bdaeb731c6",
-      "last_updated": "2026-04-10T15:18:43.263935",
+      "hash": "995118a7e8ba25cbcd6874d3e291ada4c65ef201561b0a267cdebb4d8bdd9870",
+      "last_updated": "2026-11-06T15:03:38.921632",
       "fetch_method": "md.txt"
     },
     "media/optimize/mct.md": {
@@ -16010,8 +16010,8 @@
     },
     "studio/releases.md": {
       "original_url": "https://developer.android.com/studio/releases",
-      "hash": "0ac1c19050f8b4ecf763411537092b2e003221d904ac1e8c689f658dd89b40c2",
-      "last_updated": "2026-10-31T15:07:48.899810",
+      "hash": "ca5c0f18e8c8785c602d3b1140392960b800d02a269b535b4a79cba17b7ced47",
+      "last_updated": "2026-11-06T15:08:45.357561",
       "fetch_method": "md.txt"
     },
     "games/pgs/android/troubleshooting.md": {
@@ -16196,8 +16196,8 @@
     },
     "develop/ui/views/animations/vp2-migration.md": {
       "original_url": "https://developer.android.com/develop/ui/views/animations/vp2-migration",
-      "hash": "1f15ef7b1bd0f8114c6fa1a0b1a2115bd2e0f3c2254f1f77a05599b23b34f94d",
-      "last_updated": "2026-04-06T15:25:26.508731",
+      "hash": "373f7d838eccfdc1f4cb65e1d07945e0a50a8bd1c366fb193910544b511db1aa",
+      "last_updated": "2026-11-06T15:07:30.482837",
       "fetch_method": "md.txt"
     },
     "guide/navigation/navigation-swipe-view-2.md": {
@@ -16388,8 +16388,8 @@
     },
     "studio/emulator_archive.md": {
       "original_url": "https://developer.android.com/studio/emulator_archive",
-      "hash": "b69f380113f1d7a68743df26c3eecd51b987d8d04978806e8d63f86fc943406c",
-      "last_updated": "2026-11-05T15:07:06.902066",
+      "hash": "ddd5957dfe050c9a2919d16f889f13f2d173829147bc1c106f85e005c878e217",
+      "last_updated": "2026-11-06T15:06:00.171894",
       "fetch_method": "md.txt"
     },
     "about/versions/11/behavior-changes-all.md": {
@@ -17024,8 +17024,8 @@
     },
     "studio/prompt-gallery/prompts/refactoring.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/refactoring",
-      "hash": "207c8ddb410f9618c450921362f2f690294ea835703a23b0ac37ca35e5c3dd1e",
-      "last_updated": "2026-09-02T15:10:29.044154",
+      "hash": "dae0d5f5ef21852edb3db2591fd06a7dc26f0e9e3f61d2c3f53e6e0615ec4586",
+      "last_updated": "2026-11-06T15:07:43.019101",
       "fetch_method": "md.txt"
     },
     "privacy-and-security/declare-data-use.md": {
@@ -17660,8 +17660,8 @@
     },
     "studio/gemini/rules.md": {
       "original_url": "https://developer.android.com/studio/gemini/rules",
-      "hash": "5887ba6deda0e38396470a03441a6cd09c1f963d9abe0ea1aa858b485e0fba69",
-      "last_updated": "2026-04-10T15:19:09.962206",
+      "hash": "9bc707e15409599046bbb8be3dffaebec4f43d3daafa4bcd801262bc3579098e",
+      "last_updated": "2026-11-06T15:04:42.375966",
       "fetch_method": "md.txt"
     },
     "training/testing/ui-tests.md": {
@@ -17726,8 +17726,8 @@
     },
     "develop/ui/views/animations/screen-slide-2.md": {
       "original_url": "https://developer.android.com/develop/ui/views/animations/screen-slide-2",
-      "hash": "8e7a0ebd5474e298123a15c3182c1ac605996967a12ec9cd0353b611e2ba3c93",
-      "last_updated": "2026-07-13T15:54:48.304992",
+      "hash": "85dd0c143f9b3ddd5bcb8d399d9798af282f073f1cf172b266e3aafec1c2bb0b",
+      "last_updated": "2026-11-06T15:09:32.650734",
       "fetch_method": "md.txt"
     },
     "design/ui/mobile/guides/home-screen/notifications.md": {
@@ -17738,8 +17738,8 @@
     },
     "develop/xr/jetpack-xr-sdk/request-hardware-permissions.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions",
-      "hash": "c50fc505925f7b73c58045ff724e7ec19cc54d5e82ebd090fc21df92fcbe5190",
-      "last_updated": "2026-10-29T15:09:35.405168",
+      "hash": "100d706bc9a845e8346c3081bd30b1246670267bdc9ac433938717b65dc12072",
+      "last_updated": "2026-11-06T15:09:31.502578",
       "fetch_method": "md.txt"
     },
     "health-and-fitness/fitness.md": {
@@ -18608,8 +18608,8 @@
     },
     "studio/prompt-gallery/prompts/accessibility-review.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/accessibility-review",
-      "hash": "655969df893b8e0f7ba78d38c2724e47508333eb1dadbc64811c0ad1684f4be7",
-      "last_updated": "2026-04-10T15:19:27.643294",
+      "hash": "fd153c611758d12fbd7f6d9f64ad3b28a3cd56aadfe55f6c4556badbd1d86329",
+      "last_updated": "2026-11-06T15:03:09.878030",
       "fetch_method": "md.txt"
     },
     "develop/ui/views/notifications/call-style.md": {
@@ -19100,8 +19100,8 @@
     },
     "studio/archive.md": {
       "original_url": "https://developer.android.com/studio/archive",
-      "hash": "7a8f79d61f9b18fc0fdd25df41ffb025b1331abdfaf20dddb8f733bd807c722e",
-      "last_updated": "2026-10-29T15:05:47.185118",
+      "hash": "778d49bf76a3c5f9ddd86254158f046614c4320280177fce8867d74a25c745b6",
+      "last_updated": "2026-11-06T15:04:42.901480",
       "fetch_method": "md.txt"
     },
     "kotlin/overview.md": {
@@ -19472,8 +19472,8 @@
     },
     "studio/gemini/labs.md": {
       "original_url": "https://developer.android.com/studio/gemini/labs",
-      "hash": "5af075aa78a664af1de756cc57efc58b50aae4e90f141f2c5670b709e48a13a2",
-      "last_updated": "2026-09-01T15:10:24.791691",
+      "hash": "5892f07f4f963c60878fcfc3720fbf42eee6cc04b2968382bc2470c743b0f7bd",
+      "last_updated": "2026-11-06T15:08:22.189539",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/accessibility/api-defaults.md": {
@@ -19898,8 +19898,8 @@
     },
     "studio/gemini/attach-image.md": {
       "original_url": "https://developer.android.com/studio/gemini/attach-image",
-      "hash": "fc788b54a028b9988ad43a95fd0f3ecc8ee28383be3c81fa81eaa38c2d6633fd",
-      "last_updated": "2026-10-16T15:08:14.133770",
+      "hash": "cf73698484505a096550747421485505e0b84c632be3cc51ec8abf42116a3aa4",
+      "last_updated": "2026-11-06T15:03:48.362791",
       "fetch_method": "md.txt"
     },
     "games/pgs/unity/unity-start.md": {
@@ -20114,8 +20114,8 @@
     },
     "studio/prompt-gallery/prompts/suggest-missing-permissions.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/suggest-missing-permissions",
-      "hash": "e042ccd1aec16fac3f57d1cac8fcaeb3967f516d818340d279db6f594ef2f9cd",
-      "last_updated": "2026-04-10T15:20:08.008643",
+      "hash": "d63070c2730bd71a44a35705d21dd458971a021c6936503f46cdc0a49af7c971",
+      "last_updated": "2026-11-06T15:06:45.570267",
       "fetch_method": "md.txt"
     },
     "guide/playcore/engage/watch.md": {
@@ -20192,8 +20192,8 @@
     },
     "develop/xr/jetpack-xr-sdk/subspace-modifiers.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/subspace-modifiers",
-      "hash": "f40fad84db5a57e06ab6d5da338c95e0bec8a70d9971cff07f7871b07a9383b7",
-      "last_updated": "2026-10-29T15:08:40.506346",
+      "hash": "380e0c224441386d074248f4208dec560c96da8065c1af925a1c44d59008c1da",
+      "last_updated": "2026-11-06T15:08:38.868355",
       "fetch_method": "md.txt"
     },
     "games/playgames/native-pc/setup/developer_mode.md": {
@@ -20402,8 +20402,8 @@
     },
     "studio/prompt-gallery/prompts/analyze-performance-bottlenecks.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/analyze-performance-bottlenecks",
-      "hash": "2209f2bc26e1c459b427b3df9769a4c76fecec82a072fc6a3590ba52c6d5e973",
-      "last_updated": "2026-10-29T15:08:50.420770",
+      "hash": "87bcc627b0ddd88123d9937ba9f122ee6a82acfb388d2b089c4c579fd5b304a6",
+      "last_updated": "2026-11-06T15:08:22.110289",
       "fetch_method": "md.txt"
     },
     "media/implement/surfaces/pause-and-resume-media-playback-with-spacebar.md": {
@@ -21338,8 +21338,8 @@
     },
     "studio/gemini/features.md": {
       "original_url": "https://developer.android.com/studio/gemini/features",
-      "hash": "141948746ffd4cf4345e0f01636228c788e48ae87e687e7d02c605cd5af40284",
-      "last_updated": "2026-08-21T15:14:27.895800",
+      "hash": "32040c2dd0bde8467c638f4f74476dfab1be5f23a66a65099a0a2a86c1ebd36a",
+      "last_updated": "2026-11-06T15:06:40.663844",
       "fetch_method": "md.txt"
     },
     "develop/background-work/background-tasks.md": {
@@ -21788,8 +21788,8 @@
     },
     "studio/prompt-gallery/prompts/analyze-compose-layout.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/analyze-compose-layout",
-      "hash": "03f63ef02c9bd019295170a27c83c66494f80cf61eabdbf32f1fb3c557250e4e",
-      "last_updated": "2026-07-06T16:08:15.141267",
+      "hash": "ee06126f093da562b5e63317431324b6aa42620c479948563d08b0caa4c812a9",
+      "last_updated": "2026-11-06T15:06:36.187612",
       "fetch_method": "md.txt"
     },
     "develop/ui/views/graphics/opengl/about-opengl.md": {
@@ -22178,8 +22178,8 @@
     },
     "studio/gemini/troubleshooting.md": {
       "original_url": "https://developer.android.com/studio/gemini/troubleshooting",
-      "hash": "d4fa1cb5931b2f3ddec2fbf4962c7d29f209d402f3fd4d32800419be1deab14e",
-      "last_updated": "2026-04-10T15:20:03.920422",
+      "hash": "b991287895688386ccfd8ba005619d01ed2638e8ec2464568ec42df4b6c7a1ab",
+      "last_updated": "2026-11-06T15:02:03.846219",
       "fetch_method": "md.txt"
     },
     "wear/gallery.md": {
@@ -22430,8 +22430,8 @@
     },
     "studio/prompt-gallery/prompts/suggest-new-features.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/suggest-new-features",
-      "hash": "322f10afa20b595ba6c8919c6b66050b8753011df1ef5d1a2a43305eb6f1be72",
-      "last_updated": "2026-04-09T17:13:16.829494",
+      "hash": "743e5ddd74afb15d1e273b30c5a1ee37a1d592bc2bd4ff9fc4036ad06a2f446b",
+      "last_updated": "2026-11-06T15:06:02.806726",
       "fetch_method": "md.txt"
     },
     "courses/pathways/android-basics-compose-unit-3-pathway-2.md": {
@@ -22478,8 +22478,8 @@
     },
     "studio/gemini/add-mcp-server.md": {
       "original_url": "https://developer.android.com/studio/gemini/add-mcp-server",
-      "hash": "9d376fd5d4268c8bb726d5216b8918cf1e4ed00eea74ef00c8e9a0e26e216e18",
-      "last_updated": "2026-10-29T15:06:55.898948",
+      "hash": "4c84d6bf77d0d40e4b49d7cb4c4ea28545b95c32eb724602ed5f39c2d8e7a182",
+      "last_updated": "2026-11-06T15:05:49.802521",
       "fetch_method": "md.txt"
     },
     "design/ui/mobile/guides/styles/themes.md": {
@@ -22562,8 +22562,8 @@
     },
     "studio/preview.md": {
       "original_url": "https://developer.android.com/studio/preview",
-      "hash": "362127f63b739be9a2ffaec4df4f6953cc053e6cbefbcb6bc6d653c8f4735738",
-      "last_updated": "2026-10-29T15:05:38.918893",
+      "hash": "94972b3d3df65473180c7ad7e1da6962e0375bf55c53ce53ef1211a70ecfa9cb",
+      "last_updated": "2026-11-06T15:04:23.279325",
       "fetch_method": "md.txt"
     },
     "games/agdk/get-agdk.md": {
@@ -22574,8 +22574,8 @@
     },
     "studio/prompt-gallery/prompts/android-auto-layout-optimization.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/android-auto-layout-optimization",
-      "hash": "4f5285a11687978131100d9fe818949a5aa436db98e7481006103a80ec7daac0",
-      "last_updated": "2026-04-09T17:13:47.863573",
+      "hash": "ef1bff570ea15d1191b900a864edb6ffea2e3711903ba9a457b8d64f1f80b652",
+      "last_updated": "2026-11-06T15:03:09.891327",
       "fetch_method": "md.txt"
     },
     "games/develop/gameloops.md": {
@@ -22736,8 +22736,8 @@
     },
     "studio/gemini/get-started.md": {
       "original_url": "https://developer.android.com/studio/gemini/get-started",
-      "hash": "4f4a6dd22e29876a5ddac281411149d73f83f333705c2da7576e24b71fb7cdd9",
-      "last_updated": "2026-07-10T15:52:18.148754",
+      "hash": "423cf65f194772fdcca3720cde367fb8bbfc2b8c17b519580634ac65d985f90d",
+      "last_updated": "2026-11-06T15:06:11.252736",
       "fetch_method": "md.txt"
     },
     "studio/debug/dev-options.md": {
@@ -22814,8 +22814,8 @@
     },
     "studio/gemini/journeys.md": {
       "original_url": "https://developer.android.com/studio/gemini/journeys",
-      "hash": "7425954b651ac0eb59194ae0731fa08f78aab4ed99378964d6279df004762844",
-      "last_updated": "2026-09-01T15:09:42.039743",
+      "hash": "df9743ac866a5eec5535b3d0020e2b9663d3b4820bfe5a9a263d4e820c24df7b",
+      "last_updated": "2026-11-06T15:03:09.534971",
       "fetch_method": "md.txt"
     },
     "jetpack/androidx/releases/privacysandbox-ui.md": {
@@ -22838,8 +22838,8 @@
     },
     "jetpack/androidx/releases/text-vertical.md": {
       "original_url": "https://developer.android.com/jetpack/androidx/releases/text-vertical",
-      "hash": "7e4910511edc7f2a006ba2f612e606f652e8e5149f6b26ec503a59b50b616d62",
-      "last_updated": "2026-10-22T15:09:18.806439",
+      "hash": "722d1026f63abd37967b19d0d10d12937d6ad853b1295eab1f01a4f52fe06e49",
+      "last_updated": "2026-11-06T15:03:06.455025",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/documentation.md": {
@@ -23054,8 +23054,8 @@
     },
     "develop/xr/jetpack-xr-sdk/check-spatial-capabilities.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/check-spatial-capabilities",
-      "hash": "2891c2112aa19fc316ae798a9c90dfc23a59d52d4e422daa4268218626fd728f",
-      "last_updated": "2026-10-29T15:07:02.577254",
+      "hash": "0b70e0e9f83ee50bbb0c023430c6d2a02f9488c848351aa35b85f999f252518d",
+      "last_updated": "2026-11-06T15:05:58.255965",
       "fetch_method": "md.txt"
     },
     "guide/topics/resources/multilingual-support.md": {
@@ -23270,8 +23270,8 @@
     },
     "develop/xr/jetpack-xr-sdk/add-environments.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments",
-      "hash": "c138021b3cb499d14a7c00253f8dfc7b6558d88cdc075b7627296845b613bbe0",
-      "last_updated": "2026-09-01T15:05:47.810979",
+      "hash": "6c00ce5550d90a95db32fa9f7bafe4bc7db5c9ddf748c4f94c2bb4dd968c098e",
+      "last_updated": "2026-11-06T15:05:58.792224",
       "fetch_method": "md.txt"
     },
     "google/play/billing/backend.md": {
@@ -23948,8 +23948,8 @@
     },
     "studio/prompt-gallery/prompts/generic-compose-list-optimization.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/generic-compose-list-optimization",
-      "hash": "23f38381421065ec2fa09d24344437f56782f223ef6dc4ac34806aac92afd420",
-      "last_updated": "2026-04-10T15:20:37.798381",
+      "hash": "5a1a115a31040ef54170609e6cfc854de896b0fc5ee5af5bff1759cab0a263ef",
+      "last_updated": "2026-11-06T15:07:43.156050",
       "fetch_method": "md.txt"
     },
     "training/permissions/requesting-special.md": {
@@ -24680,8 +24680,8 @@
     },
     "studio/gemini/aiexclude.md": {
       "original_url": "https://developer.android.com/studio/gemini/aiexclude",
-      "hash": "bac8dc620338ca0413259914cd6d1ccdb7bfdbda64b4aaf07d2144cae3c9e06b",
-      "last_updated": "2026-10-16T15:08:44.715880",
+      "hash": "3a8ada09eda85fde9cfdfc02825246d607c4807a76d3107eb63ab26979187704",
+      "last_updated": "2026-11-06T15:06:02.466504",
       "fetch_method": "md.txt"
     },
     "training/tv/tif/time-shifting.md": {
@@ -24776,8 +24776,8 @@
     },
     "studio/gemini/analyze-runtime-errors-with-logcat.md": {
       "original_url": "https://developer.android.com/studio/gemini/analyze-runtime-errors-with-logcat",
-      "hash": "a0e136e0a53a509d20b9e9d5532ff7c49e02e01f1fcb7519985c22778adf4202",
-      "last_updated": "2026-09-02T15:12:36.217357",
+      "hash": "0c83ae0cc7166d8f99f931f283a5a2318b0e6d86cd846f7cf001d1da04b8e7c3",
+      "last_updated": "2026-11-06T15:09:20.707427",
       "fetch_method": "md.txt"
     },
     "develop/ui/views/text-and-emoji/downloadable-fonts.md": {
@@ -25232,8 +25232,8 @@
     },
     "ai/appfunctions.md": {
       "original_url": "https://developer.android.com/ai/appfunctions",
-      "hash": "9fe29b292727a68710317dbc505069f047178fa3e9012cd8cc02d0f3de5dfc31",
-      "last_updated": "2026-11-04T15:05:34.009401",
+      "hash": "c89d92c0579a2fef6ae396067d52182985cd5c66bd0750720ae8e4eb84c22b83",
+      "last_updated": "2026-11-06T15:05:11.149869",
       "fetch_method": "md.txt"
     },
     "design/ui/gallery/social/comments.md": {
@@ -25760,8 +25760,8 @@
     },
     "studio/gemini/automate-dependency-updates.md": {
       "original_url": "https://developer.android.com/studio/gemini/automate-dependency-updates",
-      "hash": "2f6367b154d42abab2620cfd55f0c3dc29646d89bf2df70347b50ee92c2b7221",
-      "last_updated": "2026-09-26T15:06:12.756486",
+      "hash": "1dfe4f52cd67bbcb11a2fba1d6f3e589bdfd4214f8bbbdc8b401ad220270bcb3",
+      "last_updated": "2026-11-06T15:04:28.362014",
       "fetch_method": "md.txt"
     },
     "jetpack/androidx/releases/room3.md": {
@@ -26240,14 +26240,14 @@
     },
     "studio/gemini/permissions.md": {
       "original_url": "https://developer.android.com/studio/gemini/permissions",
-      "hash": "b800ee846af9c06c68ea372da37ab481bb2a06286b6f482aa72b9ad0e07073b6",
-      "last_updated": "2026-09-01T15:05:30.628217",
+      "hash": "4ae6fe26f6e878e1cd2e6786e35c4cc8b01bb24848cb0955eb17c90b83905829",
+      "last_updated": "2026-11-06T15:02:58.290889",
       "fetch_method": "md.txt"
     },
     "studio/gemini/skills.md": {
       "original_url": "https://developer.android.com/studio/gemini/skills",
-      "hash": "77ae4263d2b20750ac301745eedf4159fdd439cb82b37e1e751326f0e8f828c1",
-      "last_updated": "2026-09-26T15:07:40.070773",
+      "hash": "69e93fda21bc27a37c5afdabefd4d0e6a7c209634b0e8f27c5e2d78e6d7b0851",
+      "last_updated": "2026-11-06T15:02:02.430655",
       "fetch_method": "md.txt"
     },
     "agents/skills/r8-analyzer/references/REDUNDANT-RULES.md": {
@@ -26318,8 +26318,8 @@
     },
     "studio/prompt-gallery/prompts/query-product-details.md": {
       "original_url": "https://developer.android.com/studio/prompt-gallery/prompts/query-product-details",
-      "hash": "6064759bacc45d213b625dafc9374996839934754c12e64301bbc34243ffaea8",
-      "last_updated": "2026-09-11T15:06:29.615429",
+      "hash": "aa232896831d5f399aaa353b06da16b834a600dd17c9cfd12a52b9b62931c25b",
+      "last_updated": "2026-11-06T15:06:36.078964",
       "fetch_method": "md.txt"
     },
     "agents/skills/build/agp/agp-9-upgrade/skill.md": {
@@ -26372,8 +26372,8 @@
     },
     "blog/posts/bringing-androidify-to-wear-os-with-watch-face-push.md": {
       "original_url": "https://developer.android.com/blog/posts/bringing-androidify-to-wear-os-with-watch-face-push",
-      "hash": "af64f1a74f53af6d2b3f41b285a44c166d37ec98d60df80ad4dc68ccf7f87776",
-      "last_updated": "2026-10-29T15:03:44.870438",
+      "hash": "60ff890ad85018c4f8e1573c82874233e0f1f293dd1487719c2828f238dbcf72",
+      "last_updated": "2026-11-06T15:02:14.614441",
       "fetch_method": "md.txt"
     },
     "blog/topics/idling-resources.md": {
@@ -26414,8 +26414,8 @@
     },
     "blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data.md": {
       "original_url": "https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data",
-      "hash": "95d7090568a4db49b4d6c67f1408a1ff256432b7540dabf8d371259420cd95dc",
-      "last_updated": "2026-10-29T15:03:44.326002",
+      "hash": "1fa905617f6facfa667fb0f2cbd23bd2e8071b0e3693b0cd5ddee45abbf945e5",
+      "last_updated": "2026-11-06T15:02:06.674837",
       "fetch_method": "md.txt"
     },
     "blog/authors/caren-chang.md": {
@@ -26438,8 +26438,8 @@
     },
     "blog/categories/product-news/8.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/8",
-      "hash": "ccc9cd788297fb684348f11f8a296e6bfbb7fd5ef8f1686be8d5c44d7e86a9a3",
-      "last_updated": "2026-10-29T15:05:08.359729",
+      "hash": "47e6f07a03731bd8f712eb6106478de1f2a641089f26d9060ba0b123f5482e9a",
+      "last_updated": "2026-11-06T15:04:01.040967",
       "fetch_method": "md.txt"
     },
     "blog/categories/case-studies/3.md": {
@@ -26462,8 +26462,8 @@
     },
     "blog/posts/raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta.md": {
       "original_url": "https://developer.android.com/blog/posts/raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta",
-      "hash": "e9a2570848e51bfde63067bf3cb3521ce2a921dbf19e6bdee5ab9c339c6ab222",
-      "last_updated": "2026-10-29T15:06:20.480212",
+      "hash": "15f4113531a1592d7a08a1667a679bb71acac494470a0a0b06f4473212352287",
+      "last_updated": "2026-11-06T15:05:02.306957",
       "fetch_method": "md.txt"
     },
     "blog/authors/fahd-imtiaz.md": {
@@ -26486,8 +26486,8 @@
     },
     "blog/posts/health-connect-jetpack-v1-1-0-is-now-available.md": {
       "original_url": "https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available",
-      "hash": "617883640eee377e722d70bcfb3f56fd36d0de3468d9018d13e4f706ecc42f4e",
-      "last_updated": "2026-10-29T15:07:36.815040",
+      "hash": "e19917bd33b3bed63485eabb28b71f041a7b86e0443142e16d1685d7957872a1",
+      "last_updated": "2026-11-06T15:06:57.487407",
       "fetch_method": "md.txt"
     },
     "blog/authors/luke-hopkins.md": {
@@ -26516,20 +26516,20 @@
     },
     "blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md": {
       "original_url": "https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences",
-      "hash": "baee9e59c60b3ab4f6ca07f6c8b7bc0bc28e212c31af9b0ac98633b5946d244e",
-      "last_updated": "2026-10-29T15:06:32.113995",
+      "hash": "dd6a3d8b7c9a4ec9db5276e07913ff3f9970f239e969bb665c29f756c9c33e09",
+      "last_updated": "2026-11-06T15:05:01.184533",
       "fetch_method": "md.txt"
     },
     "blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio.md": {
       "original_url": "https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio",
-      "hash": "d8295cc44acb84a041c2870487e746b07c4f3a01114c8ca2d9b3d898d29b8986",
-      "last_updated": "2026-10-29T15:07:43.125766",
+      "hash": "db194d40c3fe73a47a5b5836426554becc8e2b2051b8f37b54c68359a3bbadb7",
+      "last_updated": "2026-11-06T15:06:57.972158",
       "fetch_method": "md.txt"
     },
     "blog/posts/android-studio-otter-2-feature-drop-is-stable.md": {
       "original_url": "https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable",
-      "hash": "d8085f6515ab61a194a23cedf33a64aac32f2018d94a1e94a3fe001f101785ac",
-      "last_updated": "2026-10-29T15:08:08.916172",
+      "hash": "eb6341d80dcfd3f8bbdc02898f400f0b73fb7bca383c8a783526367c4a565528",
+      "last_updated": "2026-11-06T15:07:29.755788",
       "fetch_method": "md.txt"
     },
     "blog/authors/prateek-batra.md": {
@@ -26546,14 +26546,14 @@
     },
     "blog/posts/faster-compiles.md": {
       "original_url": "https://developer.android.com/blog/posts/faster-compiles",
-      "hash": "9503a0980e9d143395dcb771a90068c1b0e35db8808c8535f304c7679ab8a642",
-      "last_updated": "2026-10-29T15:08:13.814120",
+      "hash": "6a0903f7ecd89b18da50c33c0d0d37e7705fd8a79d97b5e4f84b882002feacc3",
+      "last_updated": "2026-11-06T15:07:31.529760",
       "fetch_method": "md.txt"
     },
     "blog/authors/7.md": {
       "original_url": "https://developer.android.com/blog/authors/7",
-      "hash": "9bf5f854973211542ffba25ddf3519ce4a028523cd15e932ad74a7307a6b3506",
-      "last_updated": "2026-11-05T15:09:05.741011",
+      "hash": "aba11102826034581ffbdc32813213eb71c16edcde89ffdd9dc66cf3062e67fc",
+      "last_updated": "2026-11-06T15:07:39.101051",
       "fetch_method": "md.txt"
     },
     "blog/authors/sara-hamilton.md": {
@@ -26594,14 +26594,14 @@
     },
     "blog/categories/product-news/10.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/10",
-      "hash": "75a9f57c007725c03b47c9a4f3e4d1658cfe089a8387dde81b975945f284d291",
-      "last_updated": "2026-10-29T15:05:51.776974",
+      "hash": "79ab19a6ffa05944669231c28b12d4f2f600dd794b0ce7c957f83afb74d30a0e",
+      "last_updated": "2026-11-06T15:04:30.496099",
       "fetch_method": "md.txt"
     },
     "blog/latest/6.md": {
       "original_url": "https://developer.android.com/blog/latest/6",
-      "hash": "86421545a08ffc8fd6855e2cffba720523726e1f59fbdbb2c5eda158d303c033",
-      "last_updated": "2026-11-05T15:05:44.052478",
+      "hash": "b5f726a43a089589e7f218026399c297c54185492fcd2d8d53a936b1235e69a3",
+      "last_updated": "2026-11-06T15:04:40.308048",
       "fetch_method": "md.txt"
     },
     "blog/authors/daniel-galpin.md": {
@@ -26636,8 +26636,8 @@
     },
     "blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview.md": {
       "original_url": "https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview",
-      "hash": "8c1ed395a15db46ead7d7ab6a198e6976465b9f712101cbdd2a553c343b2dfbc",
-      "last_updated": "2026-10-29T15:08:14.712135",
+      "hash": "f9e8364568cf473dbde02a81c9421256bbfc7396b99e57c69037e38c5447a430",
+      "last_updated": "2026-11-06T15:07:36.272681",
       "fetch_method": "md.txt"
     },
     "blog/authors/yabin-cui.md": {
@@ -26672,8 +26672,8 @@
     },
     "blog/posts/boosting-android-performance-introducing-autofdo-for-the-kernel.md": {
       "original_url": "https://developer.android.com/blog/posts/boosting-android-performance-introducing-autofdo-for-the-kernel",
-      "hash": "725a4db1d307f2bfdf1db749e82514ee4e10c97d0d718c4f2f6fa19b281c1daf",
-      "last_updated": "2026-10-29T15:06:57.541895",
+      "hash": "d6cdff7042f28c8f92fb25f5ef151c9c6c06d7c907528771c98a4dc197523704",
+      "last_updated": "2026-11-06T15:06:03.879752",
       "fetch_method": "md.txt"
     },
     "blog/authors/breana-tate.md": {
@@ -26696,8 +26696,8 @@
     },
     "blog/posts/elevating-media-playback-introducing-preloading-with-media3-part-1.md": {
       "original_url": "https://developer.android.com/blog/posts/elevating-media-playback-introducing-preloading-with-media3-part-1",
-      "hash": "12881b9f1625b4d6bb662ca69172b43aa6574a528465855751836ea9f9bfa0b4",
-      "last_updated": "2026-10-29T15:07:06.706385",
+      "hash": "130b80db34a06157ae0f8d6c51830c1b8596aac5a22a65d5c03dc282185bf081",
+      "last_updated": "2026-11-06T15:05:49.349299",
       "fetch_method": "md.txt"
     },
     "blog/authors/yacine-rezgui.md": {
@@ -26726,8 +26726,8 @@
     },
     "blog/posts/trade-in-mode-on-android-16.md": {
       "original_url": "https://developer.android.com/blog/posts/trade-in-mode-on-android-16",
-      "hash": "8f3f86f22dd632da8f78c68234cba419a6f0c9f2638385ed2f02e1e42d160adf",
-      "last_updated": "2026-10-29T15:05:43.004104",
+      "hash": "fd7126c3ff730416ef40cb237f5432ea2002e71cb5834788175acbfa91c13c48",
+      "last_updated": "2026-11-06T15:04:28.188771",
       "fetch_method": "md.txt"
     },
     "blog/topics/compose.md": {
@@ -26750,8 +26750,8 @@
     },
     "blog/latest/3.md": {
       "original_url": "https://developer.android.com/blog/latest/3",
-      "hash": "4a2914080e7266c9a38adfb8d4162b950373a4d695599aca1c83c12d5044a0f7",
-      "last_updated": "2026-11-05T15:07:50.978377",
+      "hash": "e6ef7cd1deb3503a8f343f6ca87a90934dc566ab3afdc6632bdbc16f29656571",
+      "last_updated": "2026-11-06T15:06:53.557114",
       "fetch_method": "md.txt"
     },
     "blog/posts/we-are-play-meet-the-people-making-apps-and-games-to-improve-your-health.md": {
@@ -26780,14 +26780,14 @@
     },
     "blog/posts/android-devices-extend-seamlessly-to-connected-displays.md": {
       "original_url": "https://developer.android.com/blog/posts/android-devices-extend-seamlessly-to-connected-displays",
-      "hash": "5a4e4de872f2b8caef0772c0d4fe1b4917e74fab384d517c1576cadaa2813cbd",
-      "last_updated": "2026-10-29T15:06:32.362356",
+      "hash": "30ff7a44f418bdacc25766944ffc89a197579fa02c59f78c0ebdb498bfc26f5f",
+      "last_updated": "2026-11-06T15:05:13.780672",
       "fetch_method": "md.txt"
     },
     "blog.md": {
       "original_url": "https://developer.android.com/blog",
-      "hash": "7e5ef2e8c4114d35ef59264397aee561efce69a0671003f842d763b6680aa260",
-      "last_updated": "2026-11-05T15:05:01.401935",
+      "hash": "819467c04a9f2465f3f543738ec3fff7959431855a1218b3b2a68a2420941b5d",
+      "last_updated": "2026-11-06T15:03:43.929373",
       "fetch_method": "md.txt"
     },
     "blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety.md": {
@@ -26858,8 +26858,8 @@
     },
     "blog/latest/2.md": {
       "original_url": "https://developer.android.com/blog/latest/2",
-      "hash": "8391383b7e9a56043f6945373f575ae8f594e3b3d1a83401eb92b738c9f48772",
-      "last_updated": "2026-11-05T15:04:47.289418",
+      "hash": "2d78aef7d14a36240694f94f672ab377b049aa11c6b42295cd121c4dd86bcade",
+      "last_updated": "2026-11-06T15:03:36.633394",
       "fetch_method": "md.txt"
     },
     "blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets.md": {
@@ -26882,8 +26882,8 @@
     },
     "blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2.md": {
       "original_url": "https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2",
-      "hash": "d50df08a37e6e8f859521bd91d7153c90ee68dfe4c3132aca6230ffb9e8d57cc",
-      "last_updated": "2026-10-29T15:08:50.283998",
+      "hash": "0f4e54aee410dd4d4f0a2bbd1b92321c0eb51e24749c0de392ca874544609d23",
+      "last_updated": "2026-11-06T15:08:32.898542",
       "fetch_method": "md.txt"
     },
     "blog/authors/jose-alcerreca.md": {
@@ -26906,8 +26906,8 @@
     },
     "blog/posts/contact-picker-privacy-first-contact-sharing.md": {
       "original_url": "https://developer.android.com/blog/posts/contact-picker-privacy-first-contact-sharing",
-      "hash": "460413e88ad7cb57973293b49af3bb787ab72249c8357a1ca2cb81269f4a01aa",
-      "last_updated": "2026-10-29T15:07:39.471802",
+      "hash": "e2a3e8921f7cb81fda4733d502a486e4d4b38d12f4c11bcc500d0430858a2b05",
+      "last_updated": "2026-11-06T15:06:47.078835",
       "fetch_method": "md.txt"
     },
     "blog/posts/whats-new-in-the-jetpack-compose-december-release.md": {
@@ -26918,14 +26918,14 @@
     },
     "blog/categories/product-news/3.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/3",
-      "hash": "d23ff74672e502583295a1bf8806a11f2e6ac205e11932bb4d4d0fbad4542f9b",
-      "last_updated": "2026-10-29T15:03:38.341145",
+      "hash": "2b6fb127d482adb3dcba8fba1cd1ab90b5d276409e75ad7542db35bf022da91b",
+      "last_updated": "2026-11-06T15:02:13.034258",
       "fetch_method": "md.txt"
     },
     "blog/posts/a-new-era-for-choice-and-openness.md": {
       "original_url": "https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness",
-      "hash": "b9e197163a073a1f0b8694ec35868149d65a8cf696ad902bd9da60f0e2ba4cb2",
-      "last_updated": "2026-10-29T15:06:24.422153",
+      "hash": "2c2129d5eb187608c1bf237e4cf3666544fb26a6a5a205ea896d3021298f5b61",
+      "last_updated": "2026-11-06T15:05:14.345378",
       "fetch_method": "md.txt"
     },
     "blog/authors/3.md": {
@@ -26936,8 +26936,8 @@
     },
     "blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture.md": {
       "original_url": "https://developer.android.com/blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture",
-      "hash": "3b84659aeac6c2120b8e7992c73744583fe0670f48f4beec2d240210a707f4fd",
-      "last_updated": "2026-10-29T15:08:03.390108",
+      "hash": "f566d5a5638482bc49e90cefb5f7fa5838d222b5da2bef1f1df772d102dd7fba",
+      "last_updated": "2026-11-06T15:07:30.148411",
       "fetch_method": "md.txt"
     },
     "blog/authors/dereck-bridie.md": {
@@ -26954,8 +26954,8 @@
     },
     "blog/posts/get-inspired-and-take-your-apps-to-desktop.md": {
       "original_url": "https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop",
-      "hash": "6bb3c8b01cb52c41191eae9cc1fcd0e11fa4bc3e5535f0107c8548661c43020e",
-      "last_updated": "2026-10-29T15:08:14.710295",
+      "hash": "00347d0c359ab59512883ed50943c41e533e20887cd38796f9462c3a0d6becdb",
+      "last_updated": "2026-11-06T15:07:33.055772",
       "fetch_method": "md.txt"
     },
     "blog/posts/the-second-beta-of-android-17.md": {
@@ -26972,8 +26972,8 @@
     },
     "blog/posts/build-smarter-apps-with-gemini-3-flash.md": {
       "original_url": "https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash",
-      "hash": "7a5e5e88a03fa96cfc23cb6b8e494e91000da67d92517340f89074521b89fe96",
-      "last_updated": "2026-10-29T15:04:22.001744",
+      "hash": "7dfead97b3401259c513b4e1982eae0d00fd517df8116e8122db497ec3dcf0f2",
+      "last_updated": "2026-11-06T15:02:57.898526",
       "fetch_method": "md.txt"
     },
     "blog/authors/matthew-mccullough.md": {
@@ -26990,14 +26990,14 @@
     },
     "blog/categories/product-news/9.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/9",
-      "hash": "6e3ee8bd480b6b59f7de5cc1348d7f57e9c27d3213c8dab36d71961722d6e885",
-      "last_updated": "2026-10-29T15:05:43.391849",
+      "hash": "8da78f1b5a5f01c54ca17207398d9e314928d92167335eb9fcd7fec467174d8c",
+      "last_updated": "2026-11-06T15:04:37.293459",
       "fetch_method": "md.txt"
     },
     "blog/categories/product-news.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news",
-      "hash": "213e415bb9fa9bd1f86a2b2ccf69fd86cb932f47ca8413b16c0d626d8f21697e",
-      "last_updated": "2026-10-29T15:07:04.379955",
+      "hash": "200efa61df643e8745907e48659ed903afa5b3a9c9cb51ef5c3092ae71eeeb5a",
+      "last_updated": "2026-11-06T15:06:10.463930",
       "fetch_method": "md.txt"
     },
     "blog/authors/paul-feng.md": {
@@ -27020,8 +27020,8 @@
     },
     "blog/latest.md": {
       "original_url": "https://developer.android.com/blog/latest",
-      "hash": "0c192700053f098557fbb505620b40101595d42c6cb01630e2d85dbc60847e7e",
-      "last_updated": "2026-11-05T15:05:51.936442",
+      "hash": "d55cd24883f770343274dfc47f50759fbb9a9fec049293473c125947eb61d175",
+      "last_updated": "2026-11-06T15:04:25.142137",
       "fetch_method": "md.txt"
     },
     "blog/topics/automotive-os.md": {
@@ -27068,14 +27068,14 @@
     },
     "blog/posts/under-the-hood-android-17-lock-free-message-queue.md": {
       "original_url": "https://developer.android.com/blog/posts/under-the-hood-android-17-lock-free-message-queue",
-      "hash": "1f1bb7e230b3cc9fc0108dbfc167e4bf27db594022f13501cceb3db12eab03f8",
-      "last_updated": "2026-10-29T15:09:31.208892",
+      "hash": "ec5f646d090ece187349166f09ac1e268f427063010bde770e1843a837f61903",
+      "last_updated": "2026-11-06T15:09:17.544326",
       "fetch_method": "md.txt"
     },
     "blog/categories/product-news/4.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/4",
-      "hash": "34671619ac5e9566e691f15e5bf75e37de1a9d74f1f0cd18ad6063bb913dddcd",
-      "last_updated": "2026-10-29T15:06:56.427044",
+      "hash": "0d9e4242f30ac69b1ebf75736a345145d26899bd44b7495e6ec58ad0f06f1c92",
+      "last_updated": "2026-11-06T15:06:09.412961",
       "fetch_method": "md.txt"
     },
     "blog/authors/chengji-yan.md": {
@@ -27092,14 +27092,14 @@
     },
     "blog/posts/modernizing-the-room.md": {
       "original_url": "https://developer.android.com/blog/posts/modernizing-the-room",
-      "hash": "b6612b00124acb2c69c1fe4cbefb056dc9335ff6b691f6a14c9b9675c98239f2",
-      "last_updated": "2026-10-29T15:04:13.849758",
+      "hash": "5d053bb91cdd6d00b7bee33232891633f6aafebf0d55f06f0a2ee4c73011daa2",
+      "last_updated": "2026-11-06T15:03:00.731331",
       "fetch_method": "md.txt"
     },
     "blog/categories/product-news/12.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/12",
-      "hash": "32b10b156d6fd4658ef874a3809f80532c2c3dc366b6cf058d87f0f75aee67bb",
-      "last_updated": "2026-10-29T15:06:59.686023",
+      "hash": "53be868b2d06f1dd4b133325cbc2764d01ac7c38a4fed186d6b287b9dfe3c820",
+      "last_updated": "2026-11-06T15:05:52.407687",
       "fetch_method": "md.txt"
     },
     "blog/authors/trevor-johns.md": {
@@ -27110,8 +27110,8 @@
     },
     "blog/posts/jetpack-window-manager-1-5-is-stable.md": {
       "original_url": "https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable",
-      "hash": "dee0a859550d35a93ea7f01013eaf445771d2e29a148a6ebbb9a89f9bcd34833",
-      "last_updated": "2026-10-29T15:05:47.218723",
+      "hash": "4bf773fc28f9887285edc3f2997b5e5ea81936c8d13a91f57910affa96c9853d",
+      "last_updated": "2026-11-06T15:04:35.442377",
       "fetch_method": "md.txt"
     },
     "blog/posts/goodbye-mobile-only-hello-adaptive.md": {
@@ -27134,8 +27134,8 @@
     },
     "studio/gemini/generate-unit-tests.md": {
       "original_url": "https://developer.android.com/studio/gemini/generate-unit-tests",
-      "hash": "166bccba2512ab641712d0df597c5eee2f1900f0ee1fcf996913642170024b32",
-      "last_updated": "2026-10-29T15:07:02.099440",
+      "hash": "3cf198e69cc47c00dc1569b668904d554f83410280d98d48d479ce7a7bfd3f74",
+      "last_updated": "2026-11-06T15:06:06.573317",
       "fetch_method": "md.txt"
     },
     "blog/authors/paul-zhou.md": {
@@ -27146,8 +27146,8 @@
     },
     "blog/posts/the-embedded-photo-picker.md": {
       "original_url": "https://developer.android.com/blog/posts/the-embedded-photo-picker",
-      "hash": "811c40d05bb22110880e4c6c8f2e4c567515b231e3f4985600e402421e79e8e7",
-      "last_updated": "2026-10-29T15:05:45.809590",
+      "hash": "ad7301d6f7a328618e8209bbf6b5e0346d47f5a2a101a4cc162e9629e8ea4c0a",
+      "last_updated": "2026-11-06T15:04:45.931349",
       "fetch_method": "md.txt"
     },
     "blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week.md": {
@@ -27170,8 +27170,8 @@
     },
     "blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api.md": {
       "original_url": "https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api",
-      "hash": "1b535331ecc63a6da295c75b9dce99821414d9bd4f62f5bd8e58e3c81f5bb341",
-      "last_updated": "2026-10-29T15:08:45.532210",
+      "hash": "fc88986ef007bc89510ffe664951cbfd67254ddb3a77b28124921851148fd829",
+      "last_updated": "2026-11-06T15:08:24.781684",
       "fetch_method": "md.txt"
     },
     "blog/posts/getting-started-with-unity-and-android-xr.md": {
@@ -27182,8 +27182,8 @@
     },
     "blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop.md": {
       "original_url": "https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop",
-      "hash": "a4764aebd06b943c2ab5b587211cea0099f61a6673e39fd4219d6059853cdefa",
-      "last_updated": "2026-10-29T15:05:18.599853",
+      "hash": "c141aeee39c9af4650eb1cd88d49665980df463257a9b66770906c7171ec67de",
+      "last_updated": "2026-11-06T15:03:53.090879",
       "fetch_method": "md.txt"
     },
     "blog/topics/jetpack-navigation.md": {
@@ -27206,14 +27206,14 @@
     },
     "blog/categories/product-news/7.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/7",
-      "hash": "4201d65cc656ab8a0eccf074f5c7022405a2552cd1d40bc2f8f4b3d33fea925c",
-      "last_updated": "2026-10-29T15:07:30.691658",
+      "hash": "f1ce82a40f9e7a6c1343e9a3e75a3375ec84f5a72366924da6b2db3af4552599",
+      "last_updated": "2026-11-06T15:06:44.453042",
       "fetch_method": "md.txt"
     },
     "blog/latest/5.md": {
       "original_url": "https://developer.android.com/blog/latest/5",
-      "hash": "fe9235e55512431a97d858566bf815628ff10b5c673811471d7c9456f37eff55",
-      "last_updated": "2026-11-05T15:09:46.966537",
+      "hash": "6702e4ba132cb1ccb5693648ca35023d6331998c560658db1b0a080b46b37f5c",
+      "last_updated": "2026-11-06T15:08:38.111261",
       "fetch_method": "md.txt"
     },
     "blog/authors/robert-clifford.md": {
@@ -27230,8 +27230,8 @@
     },
     "blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2.md": {
       "original_url": "https://developer.android.com/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2",
-      "hash": "796c3e88de3e71d19bbfb7597a96e230de432f01385f5513e81dd16749fd1157",
-      "last_updated": "2026-10-29T15:07:45.161462",
+      "hash": "600ed7832bad56aa72399565d512d466a822191eaf763fe40977acf3bb2e1508",
+      "last_updated": "2026-11-06T15:06:37.483284",
       "fetch_method": "md.txt"
     },
     "blog/posts/introducing-android-xr-sdk-developer-preview.md": {
@@ -27284,14 +27284,14 @@
     },
     "blog/categories/product-news/6.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/6",
-      "hash": "d2f8796d77c68e2a30ce30b3d4c8e702743aef7e8910899e91c162b38b36ddfe",
-      "last_updated": "2026-10-29T15:05:17.907524",
+      "hash": "9d9b84275f95e0b18f3fd9375b4186041ddebe79e965f68234b9a2dd4cc9c75d",
+      "last_updated": "2026-11-06T15:03:49.757290",
       "fetch_method": "md.txt"
     },
     "blog/posts/media3-1-10-is-out.md": {
       "original_url": "https://developer.android.com/blog/posts/media3-1-10-is-out",
-      "hash": "bfd505deda2796bcee2d12c54dde312c68caaef649d59bbb8d7dca05bee2609b",
-      "last_updated": "2026-10-29T15:06:30.705710",
+      "hash": "8b49176c863960e0bf92b65153b5a312d9a2f1cc897fff8524adace4dc5a7c35",
+      "last_updated": "2026-11-06T15:05:13.162811",
       "fetch_method": "md.txt"
     },
     "blog/authors/leo-huang.md": {
@@ -27320,8 +27320,8 @@
     },
     "blog/posts/optimizing-performance-for-android-xr-with-unity.md": {
       "original_url": "https://developer.android.com/blog/posts/optimizing-performance-for-android-xr-with-unity",
-      "hash": "fa17f887731d012e9cfa88700f7ee5452bcd3ec04216186dfa3b7a0c5e1faf7c",
-      "last_updated": "2026-10-29T15:03:45.272347",
+      "hash": "25b9c38cedce56c04482a54b67fa22a6fed755ba6c7fa123967a4787093dcd54",
+      "last_updated": "2026-11-06T15:02:17.503165",
       "fetch_method": "md.txt"
     },
     "blog/topics/android-studio.md": {
@@ -27356,20 +27356,20 @@
     },
     "blog/categories/product-news/5.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/5",
-      "hash": "48ce5aab0168b4d8f3f068da3c5366ff5d561569120b18fe45b12546b0ba53b2",
-      "last_updated": "2026-10-29T15:08:46.350027",
+      "hash": "3c96aaa044aae591efbb92c4a23df8bf7991e61e2cf465066796291db0a8d383",
+      "last_updated": "2026-11-06T15:08:38.112686",
       "fetch_method": "md.txt"
     },
     "blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17.md": {
       "original_url": "https://developer.android.com/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17",
-      "hash": "ecb40fd71fbe972040476dea6d122840001e9417633545e7a8b240eefba82b5f",
-      "last_updated": "2026-10-29T15:07:28.046469",
+      "hash": "d684a85a8df82c94f05d30f8ab073e033b16b8f75603820054f80a555ec7a7ed",
+      "last_updated": "2026-11-06T15:06:40.419406",
       "fetch_method": "md.txt"
     },
     "blog/posts/beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles.md": {
       "original_url": "https://developer.android.com/blog/posts/beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles",
-      "hash": "d4e0009ab2d5325573d690c6e6f48699300b41f9944f0b84f5d57ee775b1bbab",
-      "last_updated": "2026-10-29T15:06:17.799789",
+      "hash": "1924b6999c825634925c8b7087dae09201d5e6042b37604347c24d95224b89b7",
+      "last_updated": "2026-11-06T15:05:01.089820",
       "fetch_method": "md.txt"
     },
     "blog/authors/8.md": {
@@ -27380,8 +27380,8 @@
     },
     "blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio.md": {
       "original_url": "https://developer.android.com/blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio",
-      "hash": "65d5e26c731200fe61e27e72823c9e6eec8cceb3b382048aae12adced728f799",
-      "last_updated": "2026-10-29T15:08:06.300580",
+      "hash": "7e9eee80406dd5412c04738ef59616f57dcc8853e03faf5f3fa33b619e4d9c38",
+      "last_updated": "2026-11-06T15:07:42.622209",
       "fetch_method": "md.txt"
     },
     "blog/authors/amrit-sanjeev.md": {
@@ -27410,8 +27410,8 @@
     },
     "blog/categories/product-news/2.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/2",
-      "hash": "e7676cf9fa815e9dfb4cda61e7db015843341393adefa6ebfdb61d7c91e81b3a",
-      "last_updated": "2026-10-29T15:04:31.732478",
+      "hash": "521296672c4a8f4ae10a03e7c3d0c5fdb7eb806f244df95462a524684ee5e461",
+      "last_updated": "2026-11-06T15:02:50.384928",
       "fetch_method": "md.txt"
     },
     "blog/authors/scott-nien.md": {
@@ -27422,8 +27422,8 @@
     },
     "blog/posts/get-your-wear-os-apps-ready-for-the-64-bit-requirement.md": {
       "original_url": "https://developer.android.com/blog/posts/get-your-wear-os-apps-ready-for-the-64-bit-requirement",
-      "hash": "f7f2dce4497a3a98f411f39c3fc24732e5733f855f72a565e7cfbfd59b31b1cc",
-      "last_updated": "2026-10-29T15:07:01.121101",
+      "hash": "da956df7ae76e73ae7349e1519157360e7762fbe51d2c42d3b3ffaf26929c551",
+      "last_updated": "2026-11-06T15:05:50.782845",
       "fetch_method": "md.txt"
     },
     "blog/authors/jossi-wolf.md": {
@@ -27452,8 +27452,8 @@
     },
     "blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations.md": {
       "original_url": "https://developer.android.com/blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations",
-      "hash": "954d970c6162c5c6f8d37e645fd308f1a6539fa6b5d991034e5d4ef1f56cd45d",
-      "last_updated": "2026-10-29T15:07:05.941497",
+      "hash": "648d5dd0b005995302f810630686f9f337fde5fff2b490b16e20fb17b7bcc39a",
+      "last_updated": "2026-11-06T15:06:04.480217",
       "fetch_method": "md.txt"
     },
     "blog/authors/phalene-gowling.md": {
@@ -27560,8 +27560,8 @@
     },
     "blog/posts/material-3-adaptive-1-2-0-is-stable.md": {
       "original_url": "https://developer.android.com/blog/posts/material-3-adaptive-1-2-0-is-stable",
-      "hash": "0347667e2bb75d0511383eccda650837e41acad3083a017eea74a9fc890de1a2",
-      "last_updated": "2026-10-29T15:04:28.312379",
+      "hash": "c22bf372aea72d4cd14f45b8d2f913652ab9af30b719d6a84d4d4d6df6567256",
+      "last_updated": "2026-11-06T15:03:03.609751",
       "fetch_method": "md.txt"
     },
     "blog/authors/donovan-mcmurray.md": {
@@ -27572,8 +27572,8 @@
     },
     "blog/categories/product-news/11.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/11",
-      "hash": "9382d740662950c40498eaaadd36f98dc08ef1dd373c7be130e4d66601ed94e3",
-      "last_updated": "2026-10-29T15:06:54.907893",
+      "hash": "aea90ad2c7aa5c2b823cbf4761facbb98ae39fa7a191199dd89c7ca2b189da45",
+      "last_updated": "2026-11-06T15:06:09.926370",
       "fetch_method": "md.txt"
     },
     "blog/authors/eric-brenner.md": {
@@ -27590,8 +27590,8 @@
     },
     "blog/posts/optimize-your-app-battery-using-android-vitals-wake-lock-metric.md": {
       "original_url": "https://developer.android.com/blog/posts/optimize-your-app-battery-using-android-vitals-wake-lock-metric",
-      "hash": "5a3a42c1af6ab884035e3d5da22198f52ef22931134b7a35dafc50c4144d14f8",
-      "last_updated": "2026-10-29T15:03:37.969014",
+      "hash": "ec5540459216597c3219ad805cad1d1b6b52e05558cafebb8b49567ce3289473",
+      "last_updated": "2026-11-06T15:02:15.828806",
       "fetch_method": "md.txt"
     },
     "blog/authors/niharika-arora.md": {
@@ -27644,8 +27644,8 @@
     },
     "blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md": {
       "original_url": "https://developer.android.com/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost",
-      "hash": "1b43d3a4b727e22183b195542ad80b4f01936efe6d0125603c1fc8d3a6c5cdb0",
-      "last_updated": "2026-10-29T15:05:13.154438",
+      "hash": "499ffb3f735a100d9493b30bec95ad141ba7a34e43ec60fbe3073ce923ea18a4",
+      "last_updated": "2026-11-06T15:04:00.034129",
       "fetch_method": "md.txt"
     },
     "agents/skills/performance/r8-analyzer/references/REDUNDANT-RULES.md": {
@@ -27662,8 +27662,8 @@
     },
     "blog/posts/configure-and-troubleshoot-r8-keep-rules.md": {
       "original_url": "https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep-rules",
-      "hash": "e3dce3a37f6c643683cfdb955011008380eb5cecabb3105e432982565e3370c0",
-      "last_updated": "2026-10-29T15:07:42.924004",
+      "hash": "da1c9a1a5a7abf3b674e206af62ed9a00630888cb63141d2504a89e0a561a9a8",
+      "last_updated": "2026-11-06T15:06:57.744941",
       "fetch_method": "md.txt"
     },
     "blog/posts/fully-optimized-wrapping-up-performance-spotlight-week.md": {
@@ -27704,8 +27704,8 @@
     },
     "blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api.md": {
       "original_url": "https://developer.android.com/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api",
-      "hash": "e605fe9f9bf137671c7360c512df7562fbe4e6f8533e7c59d15455c1a19b2f43",
-      "last_updated": "2026-10-29T15:06:21.256125",
+      "hash": "a3ddad68d879adf49c19c404f6a9adf93ba2eb71e0c6dc425741d891f23b10ee",
+      "last_updated": "2026-11-06T15:05:13.825001",
       "fetch_method": "md.txt"
     },
     "blog/authors/dan-brown.md": {
@@ -27728,8 +27728,8 @@
     },
     "blog/posts/try-using-play-consoles-new-save-for-later-feature.md": {
       "original_url": "https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature",
-      "hash": "a867b19018e06afadf4d24d97700ec97645387c10f36b23608acecef67f13369",
-      "last_updated": "2026-10-29T15:05:20.795885",
+      "hash": "c9b8fc7a15da5278106b7784b971492498f76ccfc884b3ddf4030133c8ce0b11",
+      "last_updated": "2026-11-06T15:03:57.992788",
       "fetch_method": "md.txt"
     },
     "blog/authors/robbie-mclachlan/2.md": {
@@ -27764,8 +27764,8 @@
     },
     "blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025.md": {
       "original_url": "https://developer.android.com/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025",
-      "hash": "b205dd2cda31c44c934f034eb46b6e3addbe9f9de9a5e1bd702d5e096814aeee",
-      "last_updated": "2026-10-29T15:05:08.029717",
+      "hash": "cc27c2ce31995f9b0b5102ecab629e157862658ec30d9990bec9fc5d261f0b3a",
+      "last_updated": "2026-11-06T15:03:48.691406",
       "fetch_method": "md.txt"
     },
     "blog/authors/eser-erdem.md": {
@@ -27782,8 +27782,8 @@
     },
     "blog/posts/dynamic-app-links-elevating-your-android-deep-linking.md": {
       "original_url": "https://developer.android.com/blog/posts/dynamic-app-links-elevating-your-android-deep-linking",
-      "hash": "6c30f90fe4a0d4d728ff45c251c4f02618f014b4b76b45a62bc2dff2cbd15d05",
-      "last_updated": "2026-10-29T15:08:59.883135",
+      "hash": "14e074ed952f9dec16d7c32a5884fea166d410380b23c05214f0f2549764c676",
+      "last_updated": "2026-11-06T15:08:25.128576",
       "fetch_method": "md.txt"
     },
     "blog/posts/product-manager-guide-to-adapting-android-apps-across-devices.md": {
@@ -27794,8 +27794,8 @@
     },
     "blog/posts/media3-whats-new.md": {
       "original_url": "https://developer.android.com/blog/posts/media3-whats-new",
-      "hash": "170bf9f99431d9f37416a2fab2c9e2bffe5620ebbaba891338e5ddd706279f95",
-      "last_updated": "2026-10-29T15:07:45.384555",
+      "hash": "171bda2898c1379b93dce2b5a82e4025a09f506074f8c2397a84b818b06e9661",
+      "last_updated": "2026-11-06T15:06:35.825023",
       "fetch_method": "md.txt"
     },
     "blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench.md": {
@@ -27848,14 +27848,14 @@
     },
     "blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5.md": {
       "original_url": "https://developer.android.com/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5",
-      "hash": "a9f59625124746a7ac09ff9d28d34e970c648bb6f410a1ac5b93d2b075e4244c",
-      "last_updated": "2026-10-29T15:09:25.390383",
+      "hash": "2b53ce6611391d87593f4f416f2161e1766327b01af133a71e1a10d3a608b74c",
+      "last_updated": "2026-11-06T15:09:18.928743",
       "fetch_method": "md.txt"
     },
     "blog/posts/boost-user-engagement-with-ai-image-generation.md": {
       "original_url": "https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation",
-      "hash": "c770f2520420cdcc72187f8732a12d7b7ce8b18f7e5a47d755416d2237e96c4d",
-      "last_updated": "2026-10-29T15:06:58.049744",
+      "hash": "c728af4e72403cd5f088d79b0b36f04ef1ceb0b17fc5254db72c2aed44ed4e37",
+      "last_updated": "2026-11-06T15:06:02.333568",
       "fetch_method": "md.txt"
     },
     "blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api.md": {
@@ -27872,8 +27872,8 @@
     },
     "blog/latest/4.md": {
       "original_url": "https://developer.android.com/blog/latest/4",
-      "hash": "2f527fe19a9c4d8cdd268de4a93179002a05b27ff469f3b24e7bf294fd75cacb",
-      "last_updated": "2026-11-05T15:09:02.482475",
+      "hash": "2a86db47560efddf2223a4348f306dfdca345f1fbc5c09a6e50d3f496eb1aea3",
+      "last_updated": "2026-11-06T15:07:35.508435",
       "fetch_method": "md.txt"
     },
     "blog/posts/we-are-play-building-apps-and-games-that-are-making-finance-simple.md": {
@@ -27890,8 +27890,8 @@
     },
     "blog/posts/jetpack-navigation-3-is-stable.md": {
       "original_url": "https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable",
-      "hash": "43bebfb439f8c72188386dd01f5a47287c1541816c91e982c0fd30d5c090bfff",
-      "last_updated": "2026-10-29T15:05:53.417945",
+      "hash": "7f29a127e5d2dd8068d8cb999d3c4b889599a781aa8e4528f3c560bc0c1530c8",
+      "last_updated": "2026-11-06T15:04:25.859624",
       "fetch_method": "md.txt"
     },
     "blog/authors/ron-aquino.md": {
@@ -27932,8 +27932,8 @@
     },
     "identity/sign-in/test-restore-credentials.md": {
       "original_url": "https://developer.android.com/identity/sign-in/test-restore-credentials",
-      "hash": "0c6a81dacdb715d17f7cfb2ad09a693a872e1a91e0559ff05d2ce98dee710a8f",
-      "last_updated": "2026-08-14T15:17:37.168686",
+      "hash": "3b93eadcade41fe1a9d92a1cc29f38bf2e01e8ef9430cb42988fe3fa27f69221",
+      "last_updated": "2026-11-06T15:03:53.885899",
       "fetch_method": "md.txt"
     },
     "agents/skills/performance/r8-analyzer/references/KEEP-RULES-IMPACT-HIERARCHY.md": {
@@ -27992,8 +27992,8 @@
     },
     "blog/posts/test-multi-device-interactions-with-the-android-emulator.md": {
       "original_url": "https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator",
-      "hash": "f51c7aa52dccb601c7f0e90d4c9e6b98d03d67b660240eba9aa8861a151dd6e6",
-      "last_updated": "2026-10-29T15:08:58.786491",
+      "hash": "efd9b61fd1e7578b52bafd824f4172b412af5c6a0f834fbbd4bec338986139ff",
+      "last_updated": "2026-11-06T15:08:43.692965",
       "fetch_method": "md.txt"
     },
     "blog/topics/generative-ai.md": {
@@ -28010,8 +28010,8 @@
     },
     "blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies.md": {
       "original_url": "https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies",
-      "hash": "2f146c9ef5cb012a047afbca43ebdd19f83b3386c0a6eb9e36404ed2875b65e0",
-      "last_updated": "2026-10-29T15:05:45.939700",
+      "hash": "7ccda4be6cc65273bc9141b4ad0b9596c29d7a94388574a0808ad8f8651f672f",
+      "last_updated": "2026-11-06T15:04:45.167506",
       "fetch_method": "md.txt"
     },
     "develop/xr/openxr/extensions/XR_ANDROID_spatial_annotation_tracking.md": {
@@ -28094,8 +28094,8 @@
     },
     "blog/posts/the-fourth-beta-of-android-17.md": {
       "original_url": "https://developer.android.com/blog/posts/the-fourth-beta-of-android-17",
-      "hash": "b25c38e0f574cda7785b6c57278b897ea0680d821a7911c095e6d0670c87d24c",
-      "last_updated": "2026-10-29T15:04:29.100142",
+      "hash": "e0950624724d1c55d7b22db93c93623cca4988110fdd50cb58b519f33df11713",
+      "last_updated": "2026-11-06T15:03:09.190743",
       "fetch_method": "md.txt"
     },
     "tools/agents.md": {
@@ -28160,8 +28160,8 @@
     },
     "blog/latest/7.md": {
       "original_url": "https://developer.android.com/blog/latest/7",
-      "hash": "2020cb65e2700396c42fd3bc53c03585d3a9ae206f90d5f607db524ceb22b985",
-      "last_updated": "2026-11-05T15:04:16.580735",
+      "hash": "c23bc55a91bd3dbd74774728e8f7b6fb38e242fb8d5f4332ce742a27b06cb6e7",
+      "last_updated": "2026-11-06T15:03:09.074313",
       "fetch_method": "md.txt"
     },
     "studio/gemini/knowledge-base.md": {
@@ -28178,20 +28178,20 @@
     },
     "blog/categories/product-news/13.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/13",
-      "hash": "05471ca62bcdeb82cc1f745e75937182ae9770422dfa5e0f1df89f30254f85f5",
-      "last_updated": "2026-10-29T15:08:15.830282",
+      "hash": "1c874dab23fb5326fc78712e3df1d25dd6489fbf36d4314336845cdcc02d0977",
+      "last_updated": "2026-11-06T15:07:39.505321",
       "fetch_method": "md.txt"
     },
     "blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android.md": {
       "original_url": "https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android",
-      "hash": "0570102d3a87621f2d3289b04047af8ca2260777db24c50554cfc7594d4ea65f",
-      "last_updated": "2026-10-29T15:09:41.341731",
+      "hash": "ac31635167af092e14f87984b951182a12e7a7fb7d56e69203724faa1374a158",
+      "last_updated": "2026-11-06T15:09:13.797732",
       "fetch_method": "md.txt"
     },
     "studio/gemini/next-edit-prediction.md": {
       "original_url": "https://developer.android.com/studio/gemini/next-edit-prediction",
-      "hash": "b6bde432d8923abdfb534c55efe5684e233a5575d4fd372facc46192280184c7",
-      "last_updated": "2026-09-01T15:06:39.556203",
+      "hash": "b37dded98fbd6fd0be7fc7adc878a27765dca5080cd70bcb734f1903c9062ee4",
+      "last_updated": "2026-11-06T15:02:58.622903",
       "fetch_method": "md.txt"
     },
     "topic/architecture/views/lifecycle-views.md": {
@@ -28208,14 +28208,14 @@
     },
     "studio/gemini/access-helpful-resources.md": {
       "original_url": "https://developer.android.com/studio/gemini/access-helpful-resources",
-      "hash": "4db42493563c8bc6f3428584ed54480ee7fafcfe5f73f123d13f944a0690a4ea",
-      "last_updated": "2026-09-26T15:04:28.008840",
+      "hash": "54512da520971f9ea5f8519326fe501fd1bf13eb514cd377bd4b2f0a7a7f6107",
+      "last_updated": "2026-11-06T15:05:48.262475",
       "fetch_method": "md.txt"
     },
     "blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4.md": {
       "original_url": "https://developer.android.com/blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4",
-      "hash": "b35a1c84304f5b312fddebb82725f348afd407351e15ac30ab4b22e796dc529e",
-      "last_updated": "2026-10-29T15:06:21.589670",
+      "hash": "5d222ad96c5481476ce8530d6ab2603defc370007100f79a71909b7a413c6a88",
+      "last_updated": "2026-11-06T15:05:03.291134",
       "fetch_method": "md.txt"
     },
     "topic/libraries/architecture/views/paging/v3-network-db-views.md": {
@@ -28346,8 +28346,8 @@
     },
     "blog/posts/whats-new-in-the-jetpack-compose-april-26-release.md": {
       "original_url": "https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-april-26-release",
-      "hash": "3e6e5b45ef202c4fe114a8f3142922fd22c677f002a75fbc41dfedd2cd779d05",
-      "last_updated": "2026-10-29T15:08:12.066643",
+      "hash": "be19b48a26bed371dc65512819634476ff81f7ff632dbf0f1bca6cf90b3ec841",
+      "last_updated": "2026-11-06T15:07:25.580665",
       "fetch_method": "md.txt"
     },
     "agents/skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/card-source.md": {
@@ -28892,8 +28892,8 @@
     },
     "ai/appfunctions/add-appfunctions.md": {
       "original_url": "https://developer.android.com/ai/appfunctions/add-appfunctions",
-      "hash": "26d65bef478628961e7c2654391d19d5722f28433413c718cadaf245e033c7a5",
-      "last_updated": "2026-11-04T15:07:24.570838",
+      "hash": "e45d6684d07ffba53892ce11c483b9c012ab41b70c5cacb4eaf1c2a3deaaec5b",
+      "last_updated": "2026-11-06T15:06:52.598952",
       "fetch_method": "md.txt"
     },
     "agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/material-hct-source.md": {
@@ -29258,8 +29258,8 @@
     },
     "blog/posts/bring-native-visibility-to-your-vo-ip-app-experience-with-telecom-s-latest-alpha.md": {
       "original_url": "https://developer.android.com/blog/posts/bring-native-visibility-to-your-vo-ip-app-experience-with-telecom-s-latest-alpha",
-      "hash": "0b636f86e0783bc676e1bea156b47b1b8f9a1bf1a37da4f3cb7029ce5ac641fc",
-      "last_updated": "2026-10-29T15:07:37.471887",
+      "hash": "8a596864d2035ddbcc2b6af9556525d88d2d749bb4cfb35ae6d4d997788171c5",
+      "last_updated": "2026-11-06T15:06:43.979693",
       "fetch_method": "md.txt"
     },
     "media/media3/transformer/composition.md": {
@@ -29858,8 +29858,8 @@
     },
     "blog/latest/8.md": {
       "original_url": "https://developer.android.com/blog/latest/8",
-      "hash": "e36237935d39dc03442990e2a302c7e9de3bd5cabddff817ce5dad4e47947b86",
-      "last_updated": "2026-11-05T15:09:51.496564",
+      "hash": "7fc9b0a08c9a64ee42cdb3043b45cade931b64486d8d7c9b69556e9888be60bc",
+      "last_updated": "2026-11-06T15:08:26.650081",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/glasses/notifications.md": {
@@ -29960,8 +29960,8 @@
     },
     "blog/posts/build-native-android-apps-in-google-ai-studio.md": {
       "original_url": "https://developer.android.com/blog/posts/build-native-android-apps-in-google-ai-studio",
-      "hash": "056c183d08db1a4c4b0425521ad8d9a28f3d01ca74b4d796f8ae623fd01cb12e",
-      "last_updated": "2026-10-29T15:06:53.952960",
+      "hash": "d89b5b26a1461c457d5f4175e986e2e12ff7999840bd640534949437a5d87baf",
+      "last_updated": "2026-11-06T15:05:55.986509",
       "fetch_method": "md.txt"
     },
     "training/wearables/versions/7/features.md": {
@@ -30008,8 +30008,8 @@
     },
     "develop/xr/jetpack-xr-sdk/glasses/notifications/behavior.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/notifications/behavior",
-      "hash": "1df251e6d8e8d87bd1d436fd8bfb1814ec027bb0e767e3bffe0f9516e9114dba",
-      "last_updated": "2026-09-18T15:05:50.776055",
+      "hash": "162567b979fb530b526b48be344e0c96002e03eb06c3c38c11e9ed03034fa069",
+      "last_updated": "2026-11-06T15:09:31.536998",
       "fetch_method": "md.txt"
     },
     "develop/xr/engine-hub/direct-preview.md": {
@@ -30104,8 +30104,8 @@
     },
     "develop/xr/unreal/setup.md": {
       "original_url": "https://developer.android.com/develop/xr/unreal/setup",
-      "hash": "c4967b40b07ff04f7759bff67738767d43bb8e4f304a89e6958645d6c2d82ad1",
-      "last_updated": "2026-10-29T15:07:44.080816",
+      "hash": "b254ef6abad3318a5bf5c08339bce3c4777d1cc6b7c61d000730e1ff04997054",
+      "last_updated": "2026-11-06T15:06:38.492120",
       "fetch_method": "md.txt"
     },
     "blog/authors/emma-louise-leavey.md": {
@@ -30116,8 +30116,8 @@
     },
     "blog/categories/product-news/14.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/14",
-      "hash": "0410d7038bcba5dc265fc787505de913b4253d43206750928d07bd2f3f4c715d",
-      "last_updated": "2026-10-29T15:05:13.363192",
+      "hash": "f919f01f3f0cbcf2eb59fbc2ed7cb82dc06d25ce0b86cf927d10680d5ad5a56f",
+      "last_updated": "2026-11-06T15:03:43.331814",
       "fetch_method": "md.txt"
     },
     "design/ui/ai-glasses/guides/components/voice-indicator.md": {
@@ -30128,8 +30128,8 @@
     },
     "blog/categories/product-news/15.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/15",
-      "hash": "c6ea8c831691901aff07ace52285836f6f93baf14b32b09076bea3bb36e6a255",
-      "last_updated": "2026-10-29T15:03:34.877658",
+      "hash": "80c46f56a984a42d7d4fb45973f53e8c8b2230137e55d009053d3858374945eb",
+      "last_updated": "2026-11-06T15:02:23.478931",
       "fetch_method": "md.txt"
     },
     "blog/topics/gemini-features.md": {
@@ -30176,8 +30176,8 @@
     },
     "blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences.md": {
       "original_url": "https://developer.android.com/blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences",
-      "hash": "3b9c376bc2127b9994a0d63e53e84b803d72a4c01e41b0c256d71c3574a46e60",
-      "last_updated": "2026-10-29T15:05:07.571567",
+      "hash": "5638dc39b31adc6905a09ed84b091dafac099f8ae0bfb441bb28c4979c3a9558",
+      "last_updated": "2026-11-06T15:03:45.641776",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/toggle-buttons.md": {
@@ -30362,8 +30362,8 @@
     },
     "blog/posts/introducing-android-performance-analyzer-the-next-evolution-in-profiling-for-android.md": {
       "original_url": "https://developer.android.com/blog/posts/introducing-android-performance-analyzer-the-next-evolution-in-profiling-for-android",
-      "hash": "d45a307d81b753f8298f0a8df905052a3a813119313369100ba8f9a5a8846821",
-      "last_updated": "2026-10-29T15:05:13.538203",
+      "hash": "de7bd73261e8401ee8514728b5863e747f1791dd41a8d71e6d82d51ebf7e9dfe",
+      "last_updated": "2026-11-06T15:03:40.965784",
       "fetch_method": "md.txt"
     },
     "blog/authors/mike-taylor-cai.md": {
@@ -30386,8 +30386,8 @@
     },
     "blog/categories/product-news/16.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/16",
-      "hash": "cedb28a2d8bb4e2ef6ac1a2225b4d78316a60cad05ff24e2e3ce35f539050166",
-      "last_updated": "2026-10-29T15:08:45.895945",
+      "hash": "e03f2e2dbc13b1f772a05b76ec47c0eae3717d3f4f1f91b5a2c90fa9a157e1e1",
+      "last_updated": "2026-11-06T15:08:30.750890",
       "fetch_method": "md.txt"
     },
     "studio/write/views/translations-editor-views.md": {
@@ -30572,8 +30572,8 @@
     },
     "blog/authors/jingyu-shi.md": {
       "original_url": "https://developer.android.com/blog/authors/jingyu-shi",
-      "hash": "03cd2cfb8504e4a1f3a156892a9c9d074680700683e96745ef94785fe76322bb",
-      "last_updated": "2026-09-24T15:07:06.884704",
+      "hash": "d561002f5c3d8974feaa9202bbf8e270f66d4ec49f37acde1fcb77d8d99b325d",
+      "last_updated": "2026-11-06T15:02:16.897052",
       "fetch_method": "md.txt"
     },
     "blog/topics/on-device.md": {
@@ -30608,8 +30608,8 @@
     },
     "blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md": {
       "original_url": "https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26",
-      "hash": "102ad742fff88ba74c2252f4dec6e16d738b528deb84362b983ee3c52a614f63",
-      "last_updated": "2026-10-29T15:07:42.509797",
+      "hash": "bb00d9d5451f3fdefef99587bb0f6815efd9698cb14c648b8a162e6abcec01d0",
+      "last_updated": "2026-11-06T15:06:51.673159",
       "fetch_method": "md.txt"
     },
     "studio/views/translations-editor-views.md": {
@@ -30620,8 +30620,8 @@
     },
     "studio/releases/fixed-bugs/emulator/37.md": {
       "original_url": "https://developer.android.com/studio/releases/fixed-bugs/emulator/37",
-      "hash": "32a608657e42754e39e833ac31d8e9220d6ef7c0aa7fa27f9009fc78c429b7c9",
-      "last_updated": "2026-10-30T15:09:44.939024",
+      "hash": "27f95b94f282dbeb1e57e694ceb8bc18c7ab7be81d5c017332fc5d2461f3a99d",
+      "last_updated": "2026-11-06T15:09:16.273256",
       "fetch_method": "md.txt"
     },
     "guide/navigation/testing/fragments.md": {
@@ -30740,8 +30740,8 @@
     },
     "blog/posts/top-3-updates-for-android-developer-productivity.md": {
       "original_url": "https://developer.android.com/blog/posts/top-3-updates-for-android-developer-productivity",
-      "hash": "d7fc3b74ea2b24be6c8006aea0cf75ef030c47e5279a9b5acf81f9f0277ded2f",
-      "last_updated": "2026-10-29T15:04:32.998816",
+      "hash": "9803c51eaaa1368af40c75e48261774001d1812f755d83862cd9caa1b02e7cb8",
+      "last_updated": "2026-11-06T15:02:54.863162",
       "fetch_method": "md.txt"
     },
     "about/versions/17/summary.md": {
@@ -30908,8 +30908,8 @@
     },
     "blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini.md": {
       "original_url": "https://developer.android.com/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini",
-      "hash": "096deb58901522994a9c905f63122be0ed2255957967820b755443caeaf77a95",
-      "last_updated": "2026-10-29T15:05:18.057813",
+      "hash": "2d1fcef86e3bdd76b3fed82dfd3a96e1395c88b8b661b220d4cbe44573a016d8",
+      "last_updated": "2026-11-06T15:03:58.339612",
       "fetch_method": "md.txt"
     },
     "google/play/billing/billingchoice/ux-guidelines.md": {
@@ -30962,8 +30962,8 @@
     },
     "games/rewards.md": {
       "original_url": "https://developer.android.com/games/rewards",
-      "hash": "3924e6cde3a5bc316d1ac01143d337368288176e7b72d13a24865a109287e2dc",
-      "last_updated": "2026-10-31T15:04:50.924492",
+      "hash": "3b95ea5a9362ef3420b116024629c30832822d6dace2a8736367d4a0d24ca7ec",
+      "last_updated": "2026-11-06T15:05:10.710054",
       "fetch_method": "md.txt"
     },
     "distribute/aep/aep-req-physics-based-motion.md": {
@@ -31142,14 +31142,14 @@
     },
     "blog/categories/product-news/17.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/17",
-      "hash": "87d1be2789360adc30fbe3a219a907c71dd1132f92df76843c07cfc979505365",
-      "last_updated": "2026-10-29T15:08:41.741300",
+      "hash": "b2882cfeffff6fc4f4b45421df6f1a18e136e537a3c55039d7cd35935834f123",
+      "last_updated": "2026-11-06T15:08:44.537552",
       "fetch_method": "md.txt"
     },
     "blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen.md": {
       "original_url": "https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen",
-      "hash": "f2b2be16a799814f56e9872aca2d27594d75572954aef0fba0da722dee166f95",
-      "last_updated": "2026-10-29T15:05:10.899217",
+      "hash": "298f7a9a48ba08a267df6f7994bcbfabdd9028a45277351641055d611d413c1e",
+      "last_updated": "2026-11-06T15:03:51.259088",
       "fetch_method": "md.txt"
     },
     "agents/skills/camera/camerax/references/expert-blueprints.md": {
@@ -31412,8 +31412,8 @@
     },
     "blog/posts/upcoming-changes-to-the-nearby-connections-api.md": {
       "original_url": "https://developer.android.com/blog/posts/upcoming-changes-to-the-nearby-connections-api",
-      "hash": "230c43eae687f03d78d580cf78688911e1eb667a14b2d00f53eba883a5a458e5",
-      "last_updated": "2026-11-05T15:08:02.074925",
+      "hash": "e49c4c98d36f23ee0d15ce2dae56364ae0416a6c1924fda8d86d7d343c8f6777",
+      "last_updated": "2026-11-06T15:06:47.368434",
       "fetch_method": "md.txt"
     },
     "google/play/age-signals/request-age-signals.md": {
@@ -31526,8 +31526,8 @@
     },
     "blog/latest/9.md": {
       "original_url": "https://developer.android.com/blog/latest/9",
-      "hash": "72c28c55f7b4bd93f450c50e89a14e0d7bee783d8cd2e09e16af202039b64c36",
-      "last_updated": "2026-11-05T15:05:54.789297",
+      "hash": "ae3d3d5531c674400d90259e734d6e5f2fd4648040679e3fe253c58a29b521a7",
+      "last_updated": "2026-11-06T15:04:45.585377",
       "fetch_method": "md.txt"
     },
     "google/play/age-signals/understand-age-signals-responses.md": {
@@ -32360,8 +32360,8 @@
     },
     "blog/categories/product-news/18.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/18",
-      "hash": "3742b3565ddcc52c20ad990b7ace5760b4938a1439238c8ef30e418eb3ae3bee",
-      "last_updated": "2026-10-29T15:05:51.926575",
+      "hash": "470b5e5c4f59e292a0d1479b5a8f43ae6e7e8e7507f8c41042c73fe69e77d41e",
+      "last_updated": "2026-11-06T15:04:38.645088",
       "fetch_method": "md.txt"
     },
     "privacy-and-security/encrypted-client-hello.md": {
@@ -32504,8 +32504,8 @@
     },
     "blog/posts/what-s-new-in-the-jetpack-compose-august-26-release.md": {
       "original_url": "https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release",
-      "hash": "b6010c6552b8957749fb6014f88f757d95e3d3c1fc3a0d4d5f07f32d2a328014",
-      "last_updated": "2026-10-01T15:04:42.989161",
+      "hash": "b2a714f5b3edfa3393716fab0c9f8d0ca2719592ebff657d383f2f75330da99a",
+      "last_updated": "2026-11-06T15:06:44.660285",
       "fetch_method": "md.txt"
     },
     "blog/topics/pixel-watch.md": {
@@ -32516,8 +32516,8 @@
     },
     "blog/topics/jetpack-compose.md": {
       "original_url": "https://developer.android.com/blog/topics/jetpack-compose",
-      "hash": "313cdedd7a4f86378dfa85276888e8e8a73d85e5ba42ffd0797dba66318f06a5",
-      "last_updated": "2026-11-05T15:07:13.413641",
+      "hash": "ae370964cc9595ad46dde94a80e1560301d1d93a2b31df533177c8b6fb9a7cef",
+      "last_updated": "2026-11-06T15:05:49.848485",
       "fetch_method": "md.txt"
     },
     "blog/topics/gemini-nano-4.md": {
@@ -32570,8 +32570,8 @@
     },
     "blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md": {
       "original_url": "https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google",
-      "hash": "747637ba16107bc7bb3ddbcacec2e8e8b067d1817231b9b99bf55972d0f90378",
-      "last_updated": "2026-10-16T15:09:42.377914",
+      "hash": "e60bae076c7dcb06f7796289c1215c86a48ef9c3e4dab03972dc4a50cc8e5bf1",
+      "last_updated": "2026-11-06T15:06:56.919939",
       "fetch_method": "md.txt"
     },
     "develop/xr/unreal/reference.md": {
@@ -32636,8 +32636,8 @@
     },
     "blog/categories/product-news/19.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/19",
-      "hash": "8ba049984e0ce777919f6cd22572e0292be8d19b22f19fcc83f36acf7962aa92",
-      "last_updated": "2026-10-29T15:05:12.474569",
+      "hash": "1aef6fe94fa3aac4b99b7e2c55072119146ac3ea9a0c5be7dc8ef006472dc641",
+      "last_updated": "2026-11-06T15:03:41.094188",
       "fetch_method": "md.txt"
     },
     "blog/topics/jetpack-xr-sdk.md": {
@@ -32702,8 +32702,8 @@
     },
     "identity/sign-in/restore-credentials-implementation-common.md": {
       "original_url": "https://developer.android.com/identity/sign-in/restore-credentials-implementation-common",
-      "hash": "ce0975c80c6ae27763ed08eec11c893c79ccd96d8f7f5925f4815e73d1cc008f",
-      "last_updated": "2026-09-14T15:07:45.348627",
+      "hash": "9be7cbe47272c2fd03a131f64c60cc0821e56f693625f4b9d17b100ff2109057",
+      "last_updated": "2026-11-06T15:08:34.404902",
       "fetch_method": "md.txt"
     },
     "blog/authors/blair-harmon.md": {
@@ -32756,8 +32756,8 @@
     },
     "ai-in-android.md": {
       "original_url": "https://developer.android.com/ai-in-android",
-      "hash": "bb6b094028e2000f9e80aa8d42a140573d1fe59209ef46c9f22000f74dcd8ad2",
-      "last_updated": "2026-10-29T15:07:05.855947",
+      "hash": "be2c6c2226b7decf2da686a2af16614c7e5da4ea8038f9736e0d6e09683d8963",
+      "last_updated": "2026-11-06T15:05:59.914028",
       "fetch_method": "md.txt"
     },
     "develop/ui/views/layout/webapps/manage-webview-memory.md": {
@@ -32798,8 +32798,8 @@
     },
     "blog/posts/aaos-sdv-secure-by-design.md": {
       "original_url": "https://developer.android.com/blog/posts/aaos-sdv-secure-by-design",
-      "hash": "4113cc8442e7e660e18ed3e587b293e6f5c4c9bad3bb34c176d04287a453634a",
-      "last_updated": "2026-10-29T15:05:02.299553",
+      "hash": "cd87bde0fb70d9c2ac6d8d1739e8749c23a9b75272812e76986fdca961aa1bb7",
+      "last_updated": "2026-11-06T15:03:53.524043",
       "fetch_method": "md.txt"
     },
     "jetpack/androidx/releases/compose-remote-foundation.md": {
@@ -32840,8 +32840,8 @@
     },
     "topic/performance/memory/guide/concepts.md": {
       "original_url": "https://developer.android.com/topic/performance/memory/guide/concepts",
-      "hash": "33a4a4087656ea51ce5aba4ec67108116401330b30503976dbbe078a3c7254c1",
-      "last_updated": "2026-08-27T18:34:29.377324",
+      "hash": "ce5aee5fafe63f49dcd823f8995e4e987cb74bba8a5cd5e229d2b3784f5be582",
+      "last_updated": "2026-11-06T15:08:38.480056",
       "fetch_method": "md.txt"
     },
     "topic/performance/memory/guide/procstats_sample.txt.md": {
@@ -32858,8 +32858,8 @@
     },
     "blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content.md": {
       "original_url": "https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content",
-      "hash": "df95f59de0ea9a6fde7da2019963bd2e44c1ce333d022a5915532b8302ab3434",
-      "last_updated": "2026-10-29T15:07:01.472512",
+      "hash": "feb19e5a65279860c106cf3fa016470b4a81be94ff1602d5c4fab8d6bce69668",
+      "last_updated": "2026-11-06T15:05:53.615055",
       "fetch_method": "md.txt"
     },
     "topic/performance/memory/guide/locality.md": {
@@ -32906,8 +32906,8 @@
     },
     "topic/performance/memory/guide/tools-overview.md": {
       "original_url": "https://developer.android.com/topic/performance/memory/guide/tools-overview",
-      "hash": "ee5e5d363af2cc147f91228f7be630c0750457c2b0ff292eb6e95a70dc40eae0",
-      "last_updated": "2026-08-27T18:36:29.004774",
+      "hash": "fbba89eb923cb04d2c8011b66712356c6c3f7ff6ace25504fc01c4c7525ac010",
+      "last_updated": "2026-11-06T15:05:53.901794",
       "fetch_method": "md.txt"
     },
     "topic/performance/memory/guide/app-code.md": {
@@ -32972,8 +32972,8 @@
     },
     "blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration.md": {
       "original_url": "https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration",
-      "hash": "92b585c9ab0baa4b3ed930c8e7b3d4f48fe2e33440cd17f75df5cd21895b8f6c",
-      "last_updated": "2026-10-29T15:09:25.020781",
+      "hash": "81f93714cec74e51b756690d8a6c5625624280e95bd77149f6f11b79b58dce31",
+      "last_updated": "2026-11-06T15:09:19.208871",
       "fetch_method": "md.txt"
     },
     "topic/performance/vitals/code-optimization.md": {
@@ -32984,8 +32984,8 @@
     },
     "blog/latest/10.md": {
       "original_url": "https://developer.android.com/blog/latest/10",
-      "hash": "5e840c7e04ef0151a8ffbf975f525a099088e08caa56ee861a803de6610d65a0",
-      "last_updated": "2026-11-05T15:07:03.252472",
+      "hash": "d3342f3d4e132a8d9b8fb000bf323b16ddae15edc6a5581c0b113e58d55a3206",
+      "last_updated": "2026-11-06T15:06:12.613974",
       "fetch_method": "md.txt"
     },
     "blog/authors/raghavendra-hareesh-pottamsetty.md": {
@@ -33230,8 +33230,8 @@
     },
     "blog/categories/product-news/20.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/20",
-      "hash": "dc06a19ca842cc095ef93fe07315eecc5591dbee5f3fabfbc5de3509a5a3ec60",
-      "last_updated": "2026-10-29T15:06:31.975220",
+      "hash": "1ac20394a2c8c622989228890a83f56efa4c65ce509569f87c3c736b7eec3dfe",
+      "last_updated": "2026-11-06T15:04:58.864746",
       "fetch_method": "md.txt"
     },
     "blog/authors/sherif-eid.md": {
@@ -33308,8 +33308,8 @@
     },
     "studio/releases/fixed-bugs/studio/2026.2.2.md": {
       "original_url": "https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.2",
-      "hash": "757d5d11050b3ea6b44fbe09995bfe634c7c3f247621581f1809c3a94b1ff6d7",
-      "last_updated": "2026-10-29T15:05:54.562303",
+      "hash": "10dd993bb86ddb6c78b20adc86eac2a3def21df2f87419fe402103dc9082cb3d",
+      "last_updated": "2026-11-06T15:04:26.423066",
       "fetch_method": "md.txt"
     },
     "topic/performance/views/hardware-accel-views.md": {
@@ -33344,8 +33344,8 @@
     },
     "blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security.md": {
       "original_url": "https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security",
-      "hash": "689cca74798a1362cec99cc0c3fc01fe33ddeacf83e0bf83dadedee42c442c06",
-      "last_updated": "2026-10-29T15:06:20.405809",
+      "hash": "5d6cc93767af744f092cbbc11fe64d53a6bd2e6170e0d19121bca94be4d3e0f1",
+      "last_updated": "2026-11-06T15:05:17.291489",
       "fetch_method": "md.txt"
     },
     "blog/authors/alec-garcia.md": {
@@ -33398,8 +33398,8 @@
     },
     "google/play/vitals/code-optimization.md": {
       "original_url": "https://developer.android.com/google/play/vitals/code-optimization",
-      "hash": "b6df828d0616510e15fb304fb8e7f9a5ab5531abdb49957fb7f2d17b2fffc05d",
-      "last_updated": "2026-10-10T15:05:01.100504",
+      "hash": "b31aed8be34a0210abcb9e1acfd7093e63527218ea6b51a4204e00b2769b0532",
+      "last_updated": "2026-11-06T15:04:30.134475",
       "fetch_method": "md.txt"
     },
     "google/play/vitals/crash.md": {
@@ -34040,14 +34040,14 @@
     },
     "blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions.md": {
       "original_url": "https://developer.android.com/blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions",
-      "hash": "4beb402fd66b42a33fda9976b3c303c0a7e1c838fd83a8157ef25cabee758a04",
-      "last_updated": "2026-10-29T15:05:53.899546",
+      "hash": "93fccf3c40734bef601581c7e607a5afae89ca944213842ce68b5eefd0f76ec5",
+      "last_updated": "2026-11-06T15:04:44.397446",
       "fetch_method": "md.txt"
     },
     "blog/categories/product-news/21.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/21",
-      "hash": "f69a61bc324019cd042675081cfae581c63cae846df82be0d2add533e23c5405",
-      "last_updated": "2026-10-29T15:07:42.827629",
+      "hash": "8090a0c0ad2cdd42ede501015899964c0ecb9c40388e7fc1a5e62797874b9b09",
+      "last_updated": "2026-11-06T15:06:38.126090",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/custom-modifiers-node.md": {
@@ -34130,8 +34130,8 @@
     },
     "blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md": {
       "original_url": "https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development",
-      "hash": "a58f553cbf9325d5106abeacafaa4db7d82115afefebb4069f688c285d05b77f",
-      "last_updated": "2026-10-14T15:10:58.474725",
+      "hash": "2c5f63513313292cf33e592e4f983a485687814f43172e5b008fc05d0ede3487",
+      "last_updated": "2026-11-06T15:06:02.913966",
       "fetch_method": "md.txt"
     },
     "blog/topics/android-bench.md": {
@@ -35060,8 +35060,8 @@
     },
     "blog/posts/googlebook-linux-terminal-preview-vm.md": {
       "original_url": "https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm",
-      "hash": "d2ef046d7403363acbacc37ac28e77021d5f1aaa64602677c5e95c76f061c71d",
-      "last_updated": "2026-10-29T15:07:37.610470",
+      "hash": "a6f1492fb03817e6f6a1980a1520cbddb9d3138b9ddb3271b0620bdbc13bacf7",
+      "last_updated": "2026-11-06T15:06:35.554177",
       "fetch_method": "md.txt"
     },
     "blog/authors/cyrus-stoller.md": {
@@ -35432,8 +35432,8 @@
     },
     "studio/releases/fixed-bugs/studio/2026.2.3.md": {
       "original_url": "https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.3",
-      "hash": "c5d16fcabb29b6b920752ff2f570df5cbf72206b826d5d0eac04fe301ebb18ed",
-      "last_updated": "2026-10-29T15:05:52.578957",
+      "hash": "4165187c03a35863126bfe4f1a089a879b207e43939ae32fe402e76e58806534",
+      "last_updated": "2026-11-06T15:04:45.072220",
       "fetch_method": "md.txt"
     },
     "agents/skills/system/glance-appwidget-updates-and-memory/references/AndroidManifest.xml.rawcontent.md": {
@@ -35846,8 +35846,8 @@
     },
     "training/wearables/status-bar.md": {
       "original_url": "https://developer.android.com/training/wearables/status-bar",
-      "hash": "e6f07859ddc657ee8cb31e97b952e6a498ee48b4d9e0c01b1fa3fd437706ae4e",
-      "last_updated": "2026-11-05T15:09:56.159269",
+      "hash": "088e049d2cb03d87c70c7aab6a073a1ca4cbdd04710716f68517f33a99a8277d",
+      "last_updated": "2026-11-06T15:08:31.860844",
       "fetch_method": "md.txt"
     },
     "identity/digital-credentials/implement-email-verification.md": {
@@ -35924,8 +35924,8 @@
     },
     "develop/xr/jetpack-xr-sdk/glimmer/voice-input-indicator.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/voice-input-indicator",
-      "hash": "d34615ff9197845c14fbfdc447764524118033430001262d74d39a8df9610340",
-      "last_updated": "2026-10-29T15:05:02.077923",
+      "hash": "d9d61fe2e117f47dc50857a81b5c6794cfd3bca0aa6b55699b589462a172788f",
+      "last_updated": "2026-11-06T15:03:37.972112",
       "fetch_method": "md.txt"
     },
     "blog/posts/build-it-your-way-a-next-era-of-android-development.md": {
@@ -35978,14 +35978,14 @@
     },
     "blog/latest/11.md": {
       "original_url": "https://developer.android.com/blog/latest/11",
-      "hash": "bd7d7e987d214b705f7eb0665a75fb079b0d1b789713d02230541788cb9f7e86",
-      "last_updated": "2026-11-05T15:05:34.787570",
+      "hash": "b4a21e7725592ee284509fdd34bcb4829e10be0f056bb88b57473bc0b1ad92da",
+      "last_updated": "2026-11-06T15:04:29.475642",
       "fetch_method": "md.txt"
     },
     "blog/categories/product-news/22.md": {
       "original_url": "https://developer.android.com/blog/categories/product-news/22",
-      "hash": "d278b52c2e3b1c4d057f3d8bf2310c56ac261c351e145dcb6f508643cccdd48b",
-      "last_updated": "2026-10-29T15:05:46.564645",
+      "hash": "65d05929dc0c43aeecc183f181a533ac4822cf7621f83f97b64990f8904f48cb",
+      "last_updated": "2026-11-06T15:04:40.575212",
       "fetch_method": "md.txt"
     },
     "develop/xr/openxr/extensions/XR_EXT_spatial_object_tracking.md": {
@@ -36188,8 +36188,8 @@
     },
     "develop/xr/jetpack-xr-sdk/glimmer/title-chips.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/title-chips",
-      "hash": "e9ae77e2856e53a9cba68c7043c90a71d83a644ae1a9cf4d1b7402bbde6a0a5e",
-      "last_updated": "2026-10-29T15:08:05.646707",
+      "hash": "89a53be3e78a0de8a786f73c6940db863008ca14dd5200f64094e218d9b39641",
+      "last_updated": "2026-11-06T15:07:32.145999",
       "fetch_method": "md.txt"
     },
     "topic/libraries/architecture/appstate/transform.md": {
@@ -36890,8 +36890,8 @@
     },
     "jetpack/androidx/releases/web.md": {
       "original_url": "https://developer.android.com/jetpack/androidx/releases/web",
-      "hash": "3c98af2ab9afef4a7d68ab016cde11e4f149b41334c2cc0bf702d3729b3b6594",
-      "last_updated": "2026-11-05T15:07:45.371788",
+      "hash": "818c07065f5c22d38420c39ebf850b6e5201f4e5f2620aaafa396a678a4cdca3",
+      "last_updated": "2026-11-06T15:06:58.181330",
       "fetch_method": "md.txt"
     },
     "blog/posts/build-for-every-screen-jetpack-compose-updates.md": {
@@ -36911,7 +36911,19 @@
       "hash": "ab1694dcb25a19dfbb46a1481fc9eab0df461f046f7073bb23d4d8a23077ed48",
       "last_updated": "2026-11-05T15:10:28.956663",
       "fetch_method": "md.txt"
+    },
+    "games/test-rewards.md": {
+      "original_url": "https://developer.android.com/games/test-rewards",
+      "hash": "4f72d0e5253fc710a32c33831046a0ca380b173438589f1fe4614efe06eeb78a",
+      "last_updated": "2026-11-06T15:04:36.000238",
+      "fetch_method": "md.txt"
+    },
+    "blog/posts/android-intelligence-system-in-app-agents-ads.md": {
+      "original_url": "https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads",
+      "hash": "a408aad110abe3c9eb006d32d5f131c5c97324563ebc2c8fa99bb8b2c4877b38",
+      "last_updated": "2026-11-06T15:08:40.878428",
+      "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-11-05T15:10:37.869445"
+  "last_updated": "2026-11-06T15:09:36.547151"
 }

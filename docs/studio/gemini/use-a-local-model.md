@@ -14,19 +14,12 @@ functionality.
 
 ## Choose a model
 
-A local model offers an alternative to the LLM support built into Android
-Studio; however, [Gemini in Android Studio](https://developer.android.com/ai-in-android) typically provides the best AI
-experience for Android developers because of the powerful [Gemini models](https://deepmind.google/models/gemini/). You
-can select from a variety of Gemini models for your Android development tasks,
-including the no-cost default model or models accessed with a paid [Gemini API
-key](https://developer.android.com/studio/gemini/add-api-key).
-
-Local model capability is a great option if you need to work offline, must
+Using a local model is a great option if you need to work offline, must
 adhere to strict company policies on AI tool usage, or are interested in
 experimenting with open-source research models.
 
 > [!CAUTION]
-> **Caution:** Local models typically offer lower performance compared to cloud-based Gemini models. You might experience less accurate responses, higher latency, and limited feature support. We recommend using [Gemini in Android Studio](https://developer.android.com/ai-in-android) for the best experience.
+> **Caution:** Local models typically offer lower performance compared to cloud-based models. You might experience less accurate responses, higher latency, and limited feature support.
 
 ### Try the Gemma 4 model
 
@@ -60,7 +53,7 @@ locally on your machine.
    - Set the port on which the provider is listening
    - Enable a model
 
-   ![Android Studio settings dialog showing the Gemini section with an option to enable offline mode.](https://developer.android.com/static/studio/gemini/images/local-model-provider-settings.png) **Figure 1.** Model provider settings.
+   ![Android Studio settings dialog showing Model Providers under Tools > AI.](https://developer.android.com/static/studio/gemini/images/local-model-provider-settings.png) **Figure 1.** Model provider settings.
 4. Download and install a model of your choice.
 
    See the [LM Studio](https://lmstudio.ai/models) and
@@ -78,10 +71,10 @@ locally on your machine.
    [LM Studio](https://lmstudio.ai/docs/app/basics) documentation.
 6. Select a model.
 
-   Open Android Studio. Navigate to the Gemini chat window. Use the model
-   picker to switch from the default Gemini model to your configured local
+   Open Android Studio. Navigate to the **Agent** tool window. Use the model
+   picker to switch from the default model to your configured local
    model.
-   ![Android Studio Gemini chat window showing the model picker with options for Gemini and a local model.](https://developer.android.com/static/studio/gemini/images/local-model-picker.png) **Figure 3.** Model picker.
+   ![Android Studio Agent tool window showing the model picker.](https://developer.android.com/static/studio/gemini/images/local-model-picker.png) **Figure 3.** Model picker.
 
 After you've connected Android Studio to your local model, you can use the chat
 features within the IDE. All interactions are powered entirely by the model
@@ -90,8 +83,8 @@ environment.
 
 ## Consider performance limitations
 
-A local, offline model typically won't be as performant or intelligent as the
-cloud-based Gemini models. Chat responses from local models are usually less
+A local, offline model typically won't be as performant or intelligent as
+cloud-based models. Chat responses from local models are usually less
 accurate and have higher latency compared to cloud-based models.
 
 Local models are usually not fine-tuned for Android development, and local
@@ -99,7 +92,3 @@ models can return responses that are uninformed about the Android Studio user
 interface. Some Android Studio AI features and Android development use cases are
 nonfunctional with a local model. However, the AI chat feature in Android Studio
 is generally supported by local models.
-
-For fast, accurate responses on all aspects of Android development and support
-for all Android Studio features, [Gemini in Android Studio](https://developer.android.com/ai-in-android), powered by the
-[Gemini models](https://deepmind.google/models/gemini/), is your best solution.

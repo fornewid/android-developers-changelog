@@ -140,7 +140,7 @@ Select a category:
 | [test \*](https://developer.android.com/jetpack/androidx/releases/test) | Testing in Android. |
 | [test.ext](https://developer.android.com/jetpack/androidx/releases/test-ext) | TODO |
 | [test.uiautomator](https://developer.android.com/jetpack/androidx/releases/test-uiautomator) | Framework for cross app functional UI testing |
-| [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical) | TODO |
+| [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical) | -- |
 | [textclassifier](https://developer.android.com/jetpack/androidx/releases/textclassifier) | Identifies conversations, links, selections, and other similar constructs in text. |
 | [tracing](https://developer.android.com/jetpack/androidx/releases/tracing) | Write trace events to the system trace buffer. |
 | [transition](https://developer.android.com/jetpack/androidx/releases/transition) | Animate motion in the UI with starting and ending layouts. |

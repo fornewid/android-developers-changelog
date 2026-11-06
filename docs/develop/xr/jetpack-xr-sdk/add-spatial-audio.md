@@ -347,6 +347,6 @@ if (session.scene.spatialCapabilities.contains(SpatialCapability.SPATIAL_AUDIO))
 
 **Key points about the code**
 
-- As with the previous snippets, the first step is to check if Spatial Audio capabilities are available using [`hasCapability()`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialCapabilities#hasCapability(kotlin.Int)).
+- As with the previous snippets, the first step is to check if Spatial Audio capabilities are available using [`spatialCapabilities`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/Scene#spatialCapabilities()).
 - The `contentType` and usage are purely informational.
-- The [`AMBISONICS_ORDER_FIRST_ORDER`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatializerConstants#AMBISONICS_ORDER_FIRST_ORDER()) signals to SceneCore that the sound field file defines four channels.
+- The [`SpatializerConstants.AmbisonicsOrder.FIRST_ORDER`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatializerConstants.AmbisonicsOrder#FIRST_ORDER()) signals to SceneCore that the sound field file defines four channels.

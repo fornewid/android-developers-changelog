@@ -13,7 +13,7 @@ Applicable XR devices This guidance helps you build experiences for these types 
 
 In Jetpack Compose Glimmer, the [`TitleChip`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/TitleChip.composable) component is a non-interactive
 component that provides brief context or labeling for associated content, such
-as a [`Card`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Card.composable) or a [`VerticalList`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/list/VerticalList.composable).
+as a [`Card`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Card.composable) or a [`GlimmerLazyColumn`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/list/GlimmerLazyColumn.composable).
 
 Use title chips for concise information like a short title, a category name, or
 a status indicator. Normally, you should place title chips above the content

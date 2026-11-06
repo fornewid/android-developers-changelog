@@ -50,19 +50,76 @@ the high SwapPss):
 
 ### Interpreting the data
 
-- **Pss Total** : The Proportional Set Size. This is the sum of `Private Dirty`
-  - `Private Clean` + your process's equitable share of memory shared with other processes (like the Zygote boot image). This is the best metric for "how much memory is this app responsible for."
+- **Pss Total** : The Proportional Set Size. This is the sum of `Private Dirty + Private Clean` + your process's equitable share of memory shared with other processes (like the Zygote boot image). This is the best metric for "how much memory is this app responsible for."
 - **Private Dirty**: This is RAM that only your process is using and has been modified (or is anonymous memory). This is the most critical number for finding leaks because this memory cannot be dropped.
 - **Private Clean**: RAM that only your process is using, but is an unmodified copy of a file on storage (like a DEX file). It can be dropped by the OS if memory is low.
-- **SwapPss** : Memory that has been compressed and swapped into ZRAM. This can happen either because the system is under memory pressure or because the Android Runtime has identified background processes to compact (moving their unused or inactive pages to ZRAM). In the `dumpsys` example, almost all of the `Native Heap` and `Dalvik Heap` have been moved to ZRAM.
+- **SwapPss** : Memory that has been compressed and swapped into ZRAM. This can
+  happen either because the system is under memory pressure or because the
+  Android Runtime has identified background processes to compact (moving their
+  unused or inactive pages to ZRAM). In the `dumpsys` example, almost all of
+  the `Native Heap` and `Dalvik Heap` have been moved to ZRAM.
 
-> [!IMPORTANT]
-> **Important note on app summary metrics:** The **Java Heap** and **Native Heap** values in the "App Summary" section represent\\ **resident** (physical) memory. If an application's memory has been compressed into ZRAM, these specific summary values may appear much lower than expected. Always check the **TOTAL SWAP PSS** or the detailed `SwapPss` column to get the full picture.
+- **Key Point** : The **Java Heap** and **Native Heap** values in the
+  "App Summary"section represent **resident** (physical) memory. If an
+  application's memory has been compressed into ZRAM, these specific summary
+  values may appear much lower than expected. Always check the
+  **TOTAL SWAP PSS** or the detailed `SwapPss` column to get the full picture.
 
-- **App Summary**: A higher-level categorization combining the detailed rows into understandable buckets.
-- **Objects** : Useful for tracking leaked `Activities` and `ViewRootImpl` instances. If you back out of your app and force a GC, the `Activities` count should return to 0.
+- **App Summary**: A higher-level categorization combining the detailed rows
+  into understandable buckets.
 
-### Hands-on exercise: quick triage with meminfo
+- **Objects** : Useful for tracking leaked `Activities` and `ViewRootImpl`
+  instances. If you back out of your app and force a GC, the `Activities`
+  count should return to 0.
+
+### Memory budget section
+
+In Android 18 and higher, `dumpsys meminfo` also prints a **Memory Budget**
+section when it dumps a single app. This section reads the [memcg
+statistics](https://developer.android.com/topic/performance/memory/guide/tools-overview#memcg) of the process and of the whole app (the package), so
+you don't need to find the cgroup files yourself. Here is the section from
+the MemoryLab sample app in the foreground, after three taps of **Allocate Java
+Memory (10MB)**:
+
+     Memory Budget
+                            Process(KB)       Package(KB)
+                            ---       ---
+      Current Usage:              83820             87976
+      Limit:                       none           4718592
+      Limit Source:                none     MemoryLimiter
+      Peak Usage:                 85136             89292
+      Swap Used:                      0                 0
+
+      Usage Breakdown
+        Anonymous:                81700             81700
+        File:                        96              4200
+        File Mapped:                 16               616
+        Shared Memory:               16                16
+        Kernel:                    1580              1632
+        Page Tables:                640               640
+        Slab:                       439               458
+
+      Pressure & Reclaim
+        Throttle Events:              0                 0
+        Refaults (Anon):              0                 0
+        Refaults (File):              0                 0
+
+- **Current Usage** : Memory charged to the memcg (`memory.current`). This is the number that memory budgets limit. In the sample, it rose by about 36,700 KB after the three 10MB Java allocations, in line with **TOTAL
+  PSS**. The package total is higher than the process total even for a single-process app when cached file pages from an earlier run haven't been reclaimed yet.
+- **Limit** : The reclaim threshold (`memory.high`) that applies right now, or `none` if there isn't one. In the sample, the package has a system memory limit and the process has no limit of its own.
+- **Limit Source** : Where the limit comes from. `AndroidManifest` is a `<memory-budget>` declared in the app manifest, `MemoryBudgetManager` is a budget that the app set at run time, `MemoryLimiter` is a system memory limit, and `am memory-limiter` is a manual override set with `adb`.
+- **Peak Usage** : The highest charge since the memcg was created (`memory.peak`). This shows `N/A` on kernels that don't support it.
+- **Swap Used** : Memory compressed into ZRAM (`memory.swap.current`).
+- **Usage Breakdown** : The main fields of `memory.stat`, such as anonymous and file-backed memory.
+- **Pressure \& Reclaim** : **Throttle Events** counts how many times the memcg went over its `memory.high` limit. **Refaults** count pages that were swapped out or evicted and then needed again. If these numbers climb while you use the app, the limit is tighter than the working set of the app.
+
+With the `-a` or `-v` flag, the section also lists every raw counter from
+`memory.stat` and `memory.events`.
+
+> [!NOTE]
+> **Note:** The Memory Budget section was added in Android 18. On devices running Android 17 QPR2 (API level 37.2), read the [memcg statistics](https://developer.android.com/topic/performance/memory/guide/tools-overview#memcg) directly.
+
+### Practice exercise: quick triage with meminfo
 
 This exercise shows how different types of allocations show up in `meminfo`.
 
@@ -87,6 +144,11 @@ This exercise shows how different types of allocations show up in `meminfo`.
 6. **Observe the change** : Run `meminfo -s` again. The **Native Heap** value
    should now show a massive increase (\~1,000,000 KB).
 
+7. **Compare with memcg (Android 18 and higher)** : Look at the **Memory
+   Budget** section at the end of the `meminfo -s` output. **Current Usage**
+   grows along with **TOTAL PSS** after each allocation, because both the Java
+   and the native allocations are charged to the app's memcg.
+
 ### Global view
 
 To see memory usage across the entire system, run:
@@ -101,6 +163,50 @@ of processes sorted by PSS.
 - **ZRAM**: Compressed swap in RAM.
 - **DMA-BUF** : Graphics and shared memory buffers. Modern Android versions use DMA-BUF extensively for UI rendering. If the `DMA-BUF` total is very high, investigate graphics-heavy processes using `/sys/kernel/debug/dma_buf/bufinfo`.
 - **Lost RAM**: Memory that is not accounted for by the kernel or any process (e.g., hardware-reserved regions).
+
+## memcg statistics
+
+Every app process has its own memory control group (memcg), and the kernel
+keeps running totals of the memory charged to it (see
+[memcg](https://developer.android.com/topic/performance/memory/guide/concepts#memcg) for how this accounting differs from RSS and PSS).
+Reading these files is cheap and doesn't disturb your app, so you can sample
+them every second while you run a user flow.
+
+> [!NOTE]
+> **Note:** memcg metrics are supported on devices running Android 17 QPR2 (API level 37.2) and higher.
+
+Look up the memcg path of a process from the `0::` line of `/proc/<PID>/cgroup`
+instead of building the path yourself, because the cgroup layout can differ
+between devices. Pass each device command to `adb shell` as a single quoted
+string so that the device shell sees the quotes:
+
+    PID=$(adb shell pidof -s <package_name>)
+
+    CG=/sys/fs/cgroup$(adb shell "sed -n 's/^0:://p' /proc/$PID/cgroup")
+
+    adb shell "cat $CG/memory.current $CG/memory.swap.current"
+
+    adb shell "grep -E '^(anon|file|workingset_refault_.*) ' $CG/memory.stat"
+
+The key files are:
+
+- **`memory.current`**: Memory charged to the process, in bytes. This is the number that memory budgets limit.
+- **`memory.swap.current`**: Memory compressed into ZRAM, in bytes.
+- **`memory.stat`** : A breakdown of the charge, in bytes for sizes. `anon` is anonymous memory, such as the Java and native heaps. `file` is file-backed page cache, such as code and resources. `workingset_refault_anon` and `workingset_refault_file` count pages that were swapped out or evicted and then needed again. Rising refault counts mean that the process is short on memory.
+- **`memory.events`** : Counts of memory limit events. `high` counts how many times the process was throttled for going over its `memory.high` limit.
+
+The parent directory of the process memcg belongs to the whole app (its UID).
+Its files include the memory of all the app's running processes, plus cached
+file pages left over from earlier processes of the app that have exited and
+haven't been reclaimed yet:
+
+    adb shell "cat $CG/../memory.current"
+
+If you get a permission error, run `adb root` and try again. Some devices only
+let you read these files as root.
+
+For a guided walkthrough of these files with the MemoryLab sample app, see
+[Hands-on exercise: exploring memcg](https://developer.android.com/topic/performance/memory/guide/reclaim#hands-on-memcg).
 
 ## showmap
 
@@ -137,7 +243,7 @@ Sample output:
     448   393216      448      448        0        0        0      448        0        0         0         0         0        0        0        0    2 [anon:dalvik-main space]
     ...
 
-### Hands-on exercise: deep dive with showmap
+### Practice exercise: deep dive with showmap
 
 Learn how to identify specific memory mappings and differentiate between clean
 and dirty memory.
@@ -225,7 +331,7 @@ pressure. Look for the **Run time Stats** section:
             Low: +2m10s
            Crit: +45s
 
-- **SOff / SOn**: Screen Off vs. Screen On.
+- **SOff / SOn**: Screen Off versus Screen On.
 - **Norm / Mod / Low / Crit**: Memory pressure levels (Normal, Moderate, Low, Critical).
 
 If a device is spending significant time in **Low** or **Crit** states, it will

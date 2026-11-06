@@ -26,7 +26,6 @@ your app or module:
 ```groovy
 dependencies {
     implementation "androidx.web:web:1.0.0-alpha01"
-    implementation "androidx.web:web-compose:1.0.0-alpha01"
 }
 ```
 
@@ -35,7 +34,6 @@ dependencies {
 ```kotlin
 dependencies {
     implementation("androidx.web:web:1.0.0-alpha01")
-    implementation("androidx.web:web-compose:1.0.0-alpha01")
 }
 ```
 

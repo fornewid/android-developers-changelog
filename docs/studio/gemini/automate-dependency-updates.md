@@ -11,7 +11,7 @@ networking, image loading, and UI components. These libraries are constantly
 evolving, with new versions offering bug fixes, performance improvements, and
 new features.
 
-Gemini in Android Studio automates and simplifies the dependency update
+The agent automates and simplifies the dependency update
 process, eliminating tedious work and improving project maintainability.
 
 
@@ -29,41 +29,41 @@ For example, use the [`android studio version-lookup`](https://developer.android
 
 <br />
 
-## How Gemini in Android Studio helps you
+## How the agent helps you
 
-Agent mode reliably automates dependency management to keep your project
+The agent reliably automates dependency management to keep your project
 current, allowing you to focus on building high-quality apps. With a single
 click, you can seamlessly update all your dependencies and get the benefits of
 the latest versions.
 
 ## How the update works
 
-Gemini in Android Studio intelligently handles the update process as follows:
+The agent intelligently handles the update process as follows:
 
 - **Identifies and updates dependencies**: Automatically identifies dependencies that can be updated and updates them to the latest compatible version.
 - **Resolves build errors**: Iterates through the build process, resolving any build errors that arise from the updates.
 - **Validates the project**: Runs tests to validate that the updated project still functions as expected.
-- **Generates an update report**: After the process is complete, Gemini in Android Studio provides a detailed report of all the changes. You can review these changes at a high level or drill down to individual file-level diffs before accepting them.
+- **Generates an update report**: After the process is complete, the agent provides a detailed report of all the changes. You can review these changes at a high level or drill down to individual file-level diffs before accepting them.
 
 You start the update process from the **Refactor** menu by selecting **Update
-Dependencies**:
-![The Refactor menu, showing the Update Dependencies menu item.](https://developer.android.com/static/studio/gemini/images/refactor_menu.png) **Figure 1.** Select **Update Dependencies** from the **Refactor** menu.
+All Libraries with AI**:
+![The Refactor menu, showing the Update All Libraries with AI menu item.](https://developer.android.com/static/studio/gemini/images/automate-dependency-updates-refactor-menu.png) **Figure 1.** Select **Update All Libraries with AI** from the **Refactor** menu.
 
 Or, from the `libs.versions.toml` file, hover over a version that is underlined,
 click the **Show Context Actions**
 ![](https://developer.android.com/static/studio/images/buttons/show-context-actions.png)
-menu that appears, and then click **Update all libraries with Gemini**.
-![Update libraries from the version catalog.](https://developer.android.com/static/studio/gemini/images/update-all-libraries-with-gemini.png) **Figure 2.** Update libraries from the version catalog.
+menu that appears, and then click **Update all libraries with AI**.
+![Update libraries from the version catalog.](https://developer.android.com/static/studio/gemini/images/automate-dependency-updates-version-catalog.png) **Figure 2.** Update libraries from the version catalog.
 
 > [!NOTE]
 > **Note:** Use the [Android Gradle plugin (AGP) Upgrade Assistant](https://developer.android.com/build/agp-upgrade-assistant) to upgrade versions of AGP. You can invoke the AGP Upgrade Assistant from the **Show
-> Context Actions** menu for the AGP entry in your `libs.versions.toml` file. Run the AGP Upgrade Assistant before asking Gemini to update all the other dependencies.
+> Context Actions** menu for the AGP entry in your `libs.versions.toml` file. Run the AGP Upgrade Assistant before asking the agent to update all the other dependencies.
 
-Whichever way you start the process, Gemini in Android Studio provides a
+Whichever way you start the process, the agent provides a
 high-level overview of its update plan so you can adjust the plan, monitor
 progress step by step, and review all changes before applying them:
-![A checklist of the libraries Gemini in Android Studio has
-proposed to update. You can uncheck items to remove them from the update.](https://developer.android.com/static/studio/gemini/images/refactor_checklist.png) **Figure 3.** Review, modify, approve, or cancel Gemini's plan.
+![A checklist of the libraries the agent has
+proposed to update. You can uncheck items to remove them from the update.](https://developer.android.com/static/studio/gemini/images/refactor_checklist.png) **Figure 3.** Review, modify, approve, or cancel the agent's plan.
 
 You can review, accept, or roll back changes, or stop the process at any point.
 

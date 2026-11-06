@@ -298,7 +298,8 @@ apps and system agents can access the entire pipeline.
 Consider which features of your app you want to expose to agentic automation.
 You can implement AppFunctions in your app. To do so, follow the steps in the
 preceding sections on this page, and verify that they are registered on the
-device by calling `adb shell cmd app_function list-app-functions`.
+device by calling `adb shell cmd app_function list-app-functions --package`
+with your app's package name.
 
 **Can I get early access to the end-to-end agentic developer experience?**
 

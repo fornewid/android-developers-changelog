@@ -7,7 +7,7 @@ source: md.txt
 Android Studio offers a set of service integrations to increase your
 productivity as you develop, release, and maintain Android apps. For example,
 you have access to Cloud services such as Firebase Device Streaming, Firebase
-Crashlytics, Play Vitals data, and Gemini in Android Studio.
+Crashlytics, Play Vitals data, and AI in Android Studio.
 
 > [!NOTE]
 > **Note:** Service integrations are only available in the latest stable channel version of Android Studio and major versions (including their patches) released in the previous 10 months. Currently, the oldest supported version is **Panda 2** . If you are using an older version of Android Studio, you will need to update to access Cloud services. For more information, see [Android
@@ -44,6 +44,6 @@ when specific cloud services are enabled.
 | Cloud service integration | Permissions |
 |---|---|
 | Android Vitals (Google Play) | Access metrics and data about your apps in your Google Play Developer account. |
-| Gemini in Android Studio | Manage your Google Cloud data. Submit data to Google for AI-based developer assistance. |
+| AI in Android Studio | Manage your Google Cloud data. Submit data to Google for AI-based developer assistance. |
 | Firebase Device Streaming \& Crashlytics | Manage your Google Cloud data. Manage all your Firebase data and settings. |
 | Backup \& Sync | Manage Android Studio configuration data in your Google Drive. |

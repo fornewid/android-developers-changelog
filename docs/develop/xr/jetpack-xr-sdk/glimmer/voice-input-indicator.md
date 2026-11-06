@@ -30,8 +30,7 @@ To capture audio data to drive the indicator, your app needs the
 
 When you build augmented experiences for display glasses, ensure that you
 request permissions correctly across both the device and the glasses. Use
-[`ProjectedPermissionsResultContract`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedActivityCompat) and
-[`ProjectedPermissionsRequestParams`](https://developer.android.com/reference/kotlin/androidx/xr/projected/permissions/ProjectedPermissionsRequestParams) to prompt the user.
+[`ProjectedActivityCompat.requestPermissions`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedActivityCompat#requestPermissions(android.app.Activity,kotlin.Array,kotlin.Int)) to prompt the user.
 
 For more information about requesting permissions in projected environments,
 see [Request hardware permissions](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions).

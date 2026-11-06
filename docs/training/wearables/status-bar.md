@@ -136,42 +136,49 @@ controller API.
 ### Switch to immersive mode
 
 To switch to immersive mode---where both the system status bar and local
-`TimeText` are hidden---add the `StatusBarSuppression` composable to your app or
-screen. Reserve immersive mode for screens the user sees briefly (confirmation
-overlays, dialogs) or that use the whole display (full-screen progress
-indicators).
+`TimeText` are hidden---apply the `Modifier.suppressStatusBar` modifier to your
+app, screen, or component. Reserve immersive mode for screens the user sees
+briefly (confirmation overlays, dialogs) or that use the whole display
+(full-screen progress indicators).
 
 #### Consider when to use screen-level immersive mode
 
-If only a specific screen in your app should be full-screen / immersive, call
-`StatusBarSuppression()` within the `ScreenScaffold`'s content.
-`ScreenScaffold` automatically suppresses the system status bar (and omits top
-status bar inset padding) while that screen is active, then restores the system
-status bar when navigating back to other screens:
+If only a specific screen in your app should be full-screen or immersive, apply
+`Modifier.suppressStatusBar` to `ScreenScaffold`. While that screen is active,
+`ScreenScaffold` automatically suppresses the system status bar and collapses
+top status bar inset padding to `0.dp`. When you navigate back to other screens,
+`ScreenScaffold` restores the system status bar:
 
     AppScaffold {
-        ScreenScaffold() {
-            StatusBarSuppression()
-            // Full-screen immersive content
+        ScreenScaffold(modifier = Modifier.suppressStatusBar()) { contentPadding ->
+            Box(modifier = Modifier.fillMaxSize().padding(contentPadding)) {
+                // Full-screen immersive content
+            }
         }
     }
+
+To suppress the system status bar while an individual component is on screen,
+apply `Modifier.suppressStatusBar` directly to that component. This modifier is
+helpful to apply to full-screen components, such as full-screen progress
+indicators and custom dialog windows.
 
 #### Consider when to use app-level immersive mode
 
 > [!CAUTION]
 > **Caution:** App-level immersive mode is not recommended for most apps because users will lose access to the time and important status indicators on every screen.
 
-If your entire application (or `Activity`) is an immersive full-screen
-experience across all screens, use `StatusBarSuppression` at `AppScaffold`
-level and wrap your content to suppress system status bar in all screens:
+If your entire app is an immersive full-screen experience, apply
+`Modifier.suppressStatusBar` to `AppScaffold` to suppress the system status bar
+across all screens:
 
-    // Use StatusBarSuppression at AppScaffold level and wrap your content
-    // to suppress status bar in the entire scaffold.
-    AppScaffold {
-        StatusBarSuppression {
-            SwipeDismissableNavHost(...) {
-                // Nested screens inherit suppression and 0.dp padding
-            }
+    // Apply Modifier.suppressStatusBar() to AppScaffold to suppress the status bar
+    // and collapse insets across all child screens.
+    AppScaffold(modifier = Modifier.suppressStatusBar()) {
+        SwipeDismissableNavHost(
+            navController = navController,
+            startDestination = "home",
+        ) {
+            // Nested screens inherit suppression and 0.dp padding
         }
     }
 

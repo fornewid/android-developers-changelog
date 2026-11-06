@@ -22,21 +22,18 @@ automatically enabled in canary releases and no action is required.
 [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys) helps make end-to-end
 tests easier to write and maintain by letting you use natural language
 to describe the steps and assertions for each test---called a journey. By
-leveraging Gemini's vision and reasoning capabilities, steps written in natural
-language are converted into actions that Gemini performs on your app, making
-your journeys easier to write and understand. Additionally, you can write and
-describe more complex assertions, which Gemini evaluates based on what it sees
-on the device in order to determine whether your journeys pass or fail.
+leveraging the agent's vision and reasoning capabilities, steps written in
+natural language are converted into actions that the agent performs on your app,
+making your journeys easier to write and understand. Additionally, you can write
+and describe more complex assertions, which the agent evaluates based on what it
+sees on the device in order to determine whether your journeys pass or fail.
 
-And because Gemini reasons about which actions to perform to satisfy the goals,
-journeys are more resilient to subtle changes to your app's layout or behavior,
-resulting in fewer flaky tests when running against different versions of your
-app and different device configurations.
+And because the agent reasons about which actions to perform to satisfy the
+goals, journeys are more resilient to subtle changes to your app's layout or
+behavior, resulting in fewer flaky tests when running against different versions
+of your app and different device configurations.
 
 Write and run journeys right from Android Studio against any local or remote
 Android-powered device. The IDE provides a new editor experience for crafting
-journeys as well as rich results that help you better follow Gemini's reasoning
-and execution of your journey.
-
-> [!NOTE]
-> **Note:** Before you get started, make sure that you're signed into your developer account and have enabled Gemini in Android Studio.
+journeys as well as rich results that help you better follow the agent's
+reasoning and execution of your journey.

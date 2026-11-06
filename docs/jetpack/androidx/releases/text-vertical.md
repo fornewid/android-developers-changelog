@@ -6,7 +6,7 @@ source: md.txt
 
 # text-vertical
 
-TODO
+--
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
@@ -52,9 +52,7 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Text-Vertical
-
-### Version 1.0
+## Version 1.0
 
 ### Version 1.0.0-beta03
 
@@ -85,7 +83,7 @@ October 21, 2026
 - Fixed the test app to demo emphasis mark position ([I3ffa3](https://android-review.googlesource.com/#/q/I3ffa3802cea6a2301afd8827d0c32db91261a9f5), [b/559972132](https://issuetracker.google.com/issues/559972132))
 - Added Kex symbolic execution branch tests for `LineLayout`, `TextUtils`, `CanvasCompat`, and `PaintCompat`. [I47edf](https://android-review.googlesource.com/q/I47edfe364a9eea5ee7c7be9bfbd01115827808b1) [b/569212211](https://buganizer.corp.google.com/issues/569212211)
 
-#### Version 1.0.0-beta02
+### Version 1.0.0-beta02
 
 September 23, 2026
 
@@ -109,7 +107,7 @@ September 23, 2026
 - Fixed `RubySpan.position` being ignored in vertical text layout. `AnnotationPosition.After` now correctly renders ruby text on the left side of the base text. ([I0be1c](https://android-review.googlesource.com/#/q/I0be1c5e85092cf7859d6505d5381bc668ef50959), [b/495457561](https://issuetracker.google.com/issues/495457561))
 - Upgrade Compose dependencies to 1.11.4 ([I9ef07](https://android-review.googlesource.com/#/q/I9ef070aeb2f36731da25ecf5ef5220ec34616f2d), [b/536925341](https://issuetracker.google.com/issues/536925341))
 
-#### Version 1.0.0-beta01
+### Version 1.0.0-beta01
 
 August 26, 2026
 
@@ -125,7 +123,7 @@ August 26, 2026
 - Removed incorrect API 36 minimum requirement documentation from `VerticalText`. ([I4f8e9](https://android-review.googlesource.com/#/q/I4f8e9874ad7975354776c09609709d2f9c700f34), [b/549288799](https://issuetracker.google.com/issues/549288799))
 - Used calculated ascent ratio for vertical baseline offset in backport mode ([07339d7](https://android.googlesource.com/platform/frameworks/support/+/07339d708aa73fb814e9547ffa54d308071bd724), [b/502088091](https://issuetracker.google.com/issues/502088091))
 
-#### Version 1.0.0-alpha06
+### Version 1.0.0-alpha06
 
 July 29, 2026
 
@@ -145,10 +143,6 @@ July 29, 2026
 **Bug Fixes**
 
 - Clarified documentation for `VerticalTextLayout` fallback behavior on older API levels. ([Ia7ccc](https://android-review.googlesource.com/#/q/Ia7ccc156c5c1d1a8b69c106b331b8f1f7a89a304), [b/449184326](https://issuetracker.google.com/issues/449184326))
-
-There are no release notes for this artifact.
-
-## Text Vertical Version 1.0
 
 ### Version 1.0.0-alpha05
 

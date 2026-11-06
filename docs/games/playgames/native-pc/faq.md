@@ -4,6 +4,8 @@ url: https://developer.android.com/games/playgames/native-pc/faq
 source: md.txt
 ---
 
+<br />
+
 This document answers common questions about SDKs and publishing for Google Play Games on PC.
 
 ## Monetization
@@ -55,21 +57,41 @@ This document answers common questions about SDKs and publishing for Google Play
    The maximum number of products that can be queried in a single call to the
    [`QueryProductDetails`](https://developer.android.com/games/playgames/native-pc/reference/class/google/play/billing/billing-client#queryproductdetails) API is 50. If you exceed this limit, you must
    split the request into multiple calls.
-9. What parameters are required when calling Query Purchases or Launch Purchase
-   Flow in the Billing Client?
+9. Why do product queries or purchase flows fail with internal errors when
+   loading many product SKUs?
 
-   The function accepts `QueryPurchasesContinuation`, which is a function
-   callback with the `std::function<void(QueryPurchasesResult)>` signature. The
-   callback passes the result to you with all the `ProductPurchaseDetails`.
-   This information is available in the SDK header files in the
-   `includes/billing/models.h` file.
+   > [!IMPORTANT]
+   > **Important:** If your game encounters payment failures or `BillingError` errors---such as `BillingError::kError` in C++, `BillingError.Error` in C#, or `INTERNAL` and `UNAUTHENTICATED` errors in Google Desktop Services logs---when querying your catalog or initiating purchases, check your product query implementation first. Smaller test catalogs often succeed in developer mode while full production catalogs fail if requests are not properly batched and throttled.
 
-   The resulting `launch_purchase_flow_result` has `ok()` and `code()`
-   functions. The `ok()` function returns whether the flow is successful. The
-   `code()` function returns the `BillingError` enum
-   (`includes/billing/enums.h`), which has 10 possible error cases, such as
-   user canceled or network error.
-10. Is a custom ordering supported for the Launch Purchase Flow in the Billing
+   Querying too many product SKUs at once or calling `QueryProductDetails` in
+   C++ or `QueryProductDetailsAsync` in Unity consecutively too many times in a
+   short period---for example, dispatching dozens of batch calls in a tight loop
+   or creating a new `BillingClient` instance per batch---can overload local
+   IPC and backend connections. When those connections reset, product detail
+   queries fail and your game can't obtain the offer tokens required to
+   launch a purchase flow.
+
+   To prevent these errors when loading your catalog, follow these practices:
+   - **Follow the supported number of products per call:** Query no more than 50 products in a single `QueryProductDetails` or `QueryProductDetailsAsync` call, and cache the returned `ProductDetails` in memory instead of re-querying the full catalog repeatedly. For more information about supported batch limits and querying product details, see the preceding API limits question, [Show products available to
+     buy](https://developer.android.com/games/playgames/native-pc/billing#show-products) for C++, and [Query product details](https://developer.android.com/games/playgames/native-pc/unity/billing#query-details) for Unity.
+   - **Avoid calling the APIs consecutively too many times in a short
+     period:** Don't dispatch multiple product query batches simultaneously or back-to-back without pacing. Reuse a single `BillingClient` instance, serialize requests or limit concurrency to two or three in-flight calls at a time, and add a brief delay between consecutive batches.
+   - **Update to the latest SDK:** Update your integration to the latest Google Play Games on PC SDK release, version 26.9.261.0 for C++ or 26.9.261.0 for Unity, from the [Play Games PC SDK downloads](https://developer.android.com/games/playgames/native-pc/downloads) page to ensure your client includes the latest billing and IPC stability improvements.
+10. What parameters are required when calling Query Purchases or Launch Purchase
+    Flow in the Billing Client?
+
+    The function accepts `QueryPurchasesContinuation`, which is a function
+    callback with the `std::function<void(QueryPurchasesResult)>` signature. The
+    callback passes the result to you with all the `ProductPurchaseDetails`.
+    This information is available in the SDK header files in the
+    `includes/billing/models.h` file.
+
+    The resulting `launch_purchase_flow_result` has `ok()` and `code()`
+    functions. The `ok()` function returns whether the flow is successful. The
+    `code()` function returns the `BillingError` enum
+    (`includes/billing/enums.h`), which has 10 possible error cases, such as
+    user canceled or network error.
+11. Is a custom ordering supported for the Launch Purchase Flow in the Billing
     Client?
 
     In the current SDK design, there is no way to pass in your own payload.
@@ -86,7 +108,7 @@ This document answers common questions about SDKs and publishing for Google Play
     dialog and associate it with your user's account ID, the SKU being
     purchased, and the current timestamp. For more information, see
     [Associate a purchase with internal data](https://developer.android.com/google/play/billing/developer-payload#associate).
-11. What are the prerequisites for switching from Google billing with OAuth to
+12. What are the prerequisites for switching from Google billing with OAuth to
     the DLL-based Google billing?
 
     Games can continue to use the OAuth sign-in with Google to manage the
@@ -94,17 +116,17 @@ This document answers common questions about SDKs and publishing for Google Play
     billing APIs. Switching from the REST billing APIs (with OAuth2 sign-in) to
     the SDK flow can be a feature-flagged operation, so both can coexist for a
     period of time while the game switches over.
-12. Is the Launch Purchase Flow API call processed through a web browser?
+13. Is the Launch Purchase Flow API call processed through a web browser?
 
     No, the purchase flow is now completed entirely in-game using a seamless
     WebView overlay, without leaving the game client.
-13. Does a user need to sign in separately for each game to make a purchase?
+14. Does a user need to sign in separately for each game to make a purchase?
 
     The foreground account in Google Play Games is used for each game session,
     so you don't need to sign in again. The account that you use in Google Play
     Games when the game session starts is the account that API calls are issued
     as. The purchase flow will use this account automatically.
-14. Can a game support both the PC SDK and legacy payment systems at the
+15. Can a game support both the PC SDK and legacy payment systems at the
     same time?
 
     The payment system operates under a dual-flow model depending on the game

@@ -40,7 +40,7 @@ using any agent and IDE of your choice. To learn more, see
 
 When the agent can't find what it needs from the
 [Android Knowledge Base](https://developer.android.com/studio/gemini/access-helpful-resources#android-knowledge-base), it can search the web. The
-Agent Web Search tool instructs Gemini to conduct a real-time web search from
+Agent Web Search tool instructs the agent to conduct a real-time web search from
 Google, reducing the chance of providing outdated guidance or obsolete code
 examples.
 

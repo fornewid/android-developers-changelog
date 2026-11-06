@@ -13,10 +13,6 @@ object. `ViewPager2` objects can animate screen slides automatically. Here's an 
 of a screen slide that transitions from one screen of content to the next:
 **Figure 1.** Screen slide animation.
 
-If you want to jump ahead and see a full working example,
-[view
-this sample app](https://github.com/android/views-widgets-samples/tree/main/ViewPager2) on GitHub.
-
 > [!NOTE]
 > **Note:** If your app already uses `https://developer.android.com/reference/kotlin/androidx/viewpager/widget/ViewPager`, see [Migrate from ViewPager to ViewPager2](https://developer.android.com/training/animation/vp2-migration).
 
@@ -507,10 +503,6 @@ public class DepthPageTransformer implements ViewPager2.PageTransformer {
 ## Additional resources
 
 To learn more about `ViewPager2`, see the following additional resources.
-
-### Samples
-
-- [ViewPager2 samples](https://goo.gle/viewpager2-sample) on GitHub.
 
 ### Videos
 

@@ -52,14 +52,14 @@ You can set your app's spatial environment to one of these three configurations:
 
 ### Spatial capabilities for spatial environments
 
-- [`SpatialCapabilities`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialCapabilities): Represents the spatial capabilities of the
+- [`SpatialCapability`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialCapability): Represents the spatial capabilities of the
   current session. Certain spatial capabilities are relevant to spatial
   environments.
 
-- [`SPATIAL_CAPABILITY_PASSTHROUGH_CONTROL`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialCapabilities#SPATIAL_CAPABILITY_PASSTHROUGH_CONTROL()): Indicates whether or not the
+- [`SpatialCapability.PASSTHROUGH_CONTROL`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialCapability#PASSTHROUGH_CONTROL()): Indicates whether or not the
   activity can enable or disable passthrough at the current time.
 
-- [`SPATIAL_CAPABILITY_APP_ENVIRONMENT`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialCapabilities#SPATIAL_CAPABILITY_APP_ENVIRONMENT()): Indicates whether or not the
+- [`SpatialCapability.APP_ENVIRONMENT`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialCapability#APP_ENVIRONMENT()): Indicates whether or not the
   activity can set its own spatial environment at the current time.
 
 ## Import and load spatial environment resources
@@ -97,11 +97,11 @@ val lightingForSkybox = ImageBasedLightingAsset.createFromZip(session, Paths.get
 
 ## Set the `SpatialEnvironmentPreference` for your app
 
-The [`preferredSpatialEnvironment`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialEnvironment#setSpatialEnvironmentPreference(androidx.xr.scenecore.SpatialEnvironment.SpatialEnvironmentPreference)) property controls the preferred spatial
+The [`preferredSpatialEnvironment`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialEnvironment#preferredSpatialEnvironment()) property controls the preferred spatial
 environment for an app. When this property is used to set a preference, it does
-not cause an immediate change unless [`isPreferredSpatialEnvironmentActive`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialEnvironment#isSpatialEnvironmentPreferenceActive())
+not cause an immediate change unless [`isPreferredSpatialEnvironmentActive`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialEnvironment#isPreferredSpatialEnvironmentActive())
 is already `true`. Once the device enters a state where the XR background can be
-changed and the [`SpatialCapabilities.SPATIAL_CAPABILITY_APP_ENVIRONMENT`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialCapabilities#SPATIAL_CAPABILITY_APP_ENVIRONMENT())
+changed and the [`SpatialCapability.APP_ENVIRONMENT`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialCapability#APP_ENVIRONMENT())
 capability is available, the preferred spatial environment for the application
 will be automatically displayed.
 
@@ -113,7 +113,7 @@ properties are null, then the spatial environment will consist of a black skybox
 and no geometry.
 
 To get notified of changes to the `SpatialEnvironment` state, use
-[`addOnSpatialEnvironmentChangedListener`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialEnvironment#addOnSpatialEnvironmentChangedListener(java.util.function.Consumer)).
+[`addOnSpatialEnvironmentChangedListener`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialEnvironment#addSpatialEnvironmentChangedListener(java.util.function.Consumer)).
 
 ### Basic usage
 
@@ -143,8 +143,8 @@ if (session.scene.spatialEnvironment.isPreferredSpatialEnvironmentActive) {
 ### Advanced usage
 
 For more advanced use cases where you need finer control over the environment,
-you can incorporate [`SpatialCapabilities`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialCapabilities) checks and implement an
-[`addOnSpatialEnvironmentChangedListener`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialEnvironment#addOnSpatialEnvironmentChangedListener(java.util.function.Consumer)) to determine when you want to set
+you can incorporate [`SpatialCapability`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialCapability) checks and implement an
+[`addOnSpatialEnvironmentChangedListener`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialEnvironment#addSpatialEnvironmentChangedListener(java.util.function.Consumer)) to determine when you want to set
 the spatial environment preference.
 
 ## Set the PassthroughOpacityPreference for the spatial environment for your app
@@ -153,12 +153,12 @@ One of the components of an app's immersive virtual background is a passthrough
 surface. In this case the background that is displayed is a live feed from the
 device's outward facing cameras.
 
-[`setPassthroughOpacityPreference`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialEnvironment#setPassthroughOpacityPreference(kotlin.Float)) is used to set the preferred passthrough
+[`setPassthroughOpacityPreference`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialEnvironment#preferredPassthroughOpacity()) is used to set the preferred passthrough
 opacity for an app. This method only sets a preference and does not cause an
 immediate change unless the
-[`SpatialCapabilities.SPATIAL_CAPABILITY_PASSTHROUGH_CONTROL`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialCapabilities#SPATIAL_CAPABILITY_PASSTHROUGH_CONTROL()) capability is
+[`SpatialCapability.PASSTHROUGH_CONTROL`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialCapability#PASSTHROUGH_CONTROL()) capability is
 available. Once the device enters a state where the passthrough opacity can be
-changed, and the `SpatialCapabilities.SPATIAL_CAPABILITY_PASSTHROUGH_CONTROL`
+changed, and the `SpatialCapability.PASSTHROUGH_CONTROL`
 capability is available, the preferred passthrough opacity for the application
 will be automatically applied.
 
@@ -196,8 +196,8 @@ if (session.scene.spatialEnvironment.currentPassthroughOpacity == 1.0f) {
 ### Advanced usage
 
 For more advanced use cases where you need finer control over the passthrough
-opacity, you can incorporate `SpatialCapabilities` checks and add a listener
-using [`addOnPassthroughOpacityChangedListener`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialEnvironment#addOnPassthroughOpacityChangedListener(java.util.function.Consumer)) to determine when you want
+opacity, you can incorporate `SpatialCapability` checks and add a listener
+using [`addOnPassthroughOpacityChangedListener`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialEnvironment#addPassthroughOpacityChangedListener(java.util.function.Consumer)) to determine when you want
 to set the passthrough opacity preference.
 
 ## Asset optimization

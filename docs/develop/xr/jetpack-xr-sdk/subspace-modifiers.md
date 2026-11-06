@@ -34,15 +34,14 @@ The modifiers [`size`](https://developer.android.com/reference/kotlin/androidx/x
 declare the preferred size of the content. To declare the exact size of the
 content, use [`requiredSize`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).requiredSize(androidx.compose.ui.unit.Dp)), [`requiredWidth`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).requiredWidth(androidx.compose.ui.unit.Dp)),
 [`requiredHeight`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).requiredHeight(androidx.compose.ui.unit.Dp)), and [`requiredDepth`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).requiredDepth(androidx.compose.ui.unit.Dp)). These units must be specified
-in `dp`; to convert from meters to dp, use [`Meter.toDp()`](https://developer.android.com/reference/kotlin/androidx/xr/compose/unit/Meter#toDp()).
+in `dp`.
 
 ## Position composables
 
 ### `offset`
 
 The [`offset`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).offset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) modifier moves the composable in 3D space along the `x`, `y`,
-and `z` axes. These units must be specified in `dp`; to convert from meters to
-dp, use [`Meter.toDp()`](https://developer.android.com/reference/kotlin/androidx/xr/compose/unit/Meter#toDp()).
+and `z` axes. These units must be specified in `dp`.
 
 ### `rotate`
 
@@ -63,7 +62,7 @@ combine the [`rotateToLookAtUser`](https://developer.android.com/reference/kotli
 the [`gravityAligned`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/package-summary#(androidx.xr.compose.subspace.layout.SubspaceModifier).gravityAligned()) modifier.
 
 > [!NOTE]
-> **Note:** This modifier requires your app to [configure](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore#configure-session) the [current session's](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#localsession) object with [`DeviceTrackingMode.SPATIAL_LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode#SPATIAL_LAST_KNOWN()).
+> **Note:** This modifier requires your app to [configure](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore#configure-session) the [current session's](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#localsession) object with [`DeviceTrackingMode.SPATIAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode#SPATIAL()).
 
 ## Move and resize composables
 

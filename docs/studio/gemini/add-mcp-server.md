@@ -6,9 +6,9 @@ source: md.txt
 
 [Video](https://www.youtube.com/watch?v=B-wzYo7pXaA)
 
-Gemini in Android Studio's agent can interact with external tools using the
+The agent can interact with external tools using the
 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction). This feature provides a
-standardized way for Agent mode to use tools and extend knowledge and
+standardized way for the agent to use tools and extend knowledge and
 capabilities with the external environment.
 
 There are many tools you can connect to the MCP Host in Android Studio. For
@@ -17,12 +17,11 @@ pull requests directly from Android Studio or with the [Figma remote MCP
 server](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/) to provide design information without downloading the
 desktop app. For more ideas, see the [MCP example servers](https://modelcontextprotocol.io/examples).
 
-To add an MCP server, follow these steps:
-
-1. Go to the MCP server settings by clicking **File** (**Android Studio** on macOS) **\> Settings \> Tools \> AI \> MCP Servers**.
-2. Select **Enable MCP Servers**.
-3. Add the MCP configuration in the field provided. The configuration is saved in an `mcp.json` file in the [configuration directory](https://developer.android.com/studio/troubleshoot#directories) of Android Studio.
-4. Click **OK**.
+To add an MCP server, go to the MCP server settings by clicking **File**
+(**Android Studio** on macOS) **\> Settings \> Tools \> AI \> MCP Servers** . You can
+add MCP servers using the marketplace, or click **Add via JSON** to add the MCP
+configuration to the `mcp.json` file in the [configuration directory](https://developer.android.com/studio/troubleshoot#directories) of
+Android Studio.
 
 The following example shows an `mcp.json` file with several server
 configurations:
@@ -71,7 +70,7 @@ to MCP server..." notification.
 
 ## Use MCP tools
 
-To see which tools are available to Gemini in Android Studio, type `/mcp` in the
+To see which tools are available to the agent, type `/mcp` in the
 chat.
 
 You can then reference the tools in the chat, for example, "list my repositories

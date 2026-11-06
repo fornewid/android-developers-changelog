@@ -17,10 +17,13 @@ devices or a single device.
 
 ## Prerequisites
 
-To use Android Studio's Backup and Restore feature, you need the following:
+To use Android Studio's Backup and Restore feature to test Restore Credentials,
+verify the following prerequisites:
 
 - [Android Studio Otter \| 2025.2.1](https://developer.android.com/studio/releases#test-backup-restore) or higher.
-- A [virtual device](https://developer.android.com/studio/run/managing-avds) or emulator.
+- A [virtual device](https://developer.android.com/studio/run/managing-avds) or physical device running Android 9 (API level 28) or higher with a **Google Play** system image and Google Play services version `242200000` or higher (verify with `adb shell dumpsys package
+  com.google.android.gms | grep versionCode`).
+- A Google Account signed in on the test device or emulator, with a PIN, pattern, or password screen lock configured under **Settings \> Security** so cloud end-to-end encryption (E2EE) is active and `E2eeUnavailableException` isn't thrown.
 - An app built with `debuggable true` or running in [`debug`](https://developer.android.com/studio/debug) mode. Debugging is enabled by default for emulators.
 
 ## Use Android Studio's Backup and Restore feature
@@ -34,12 +37,12 @@ restoring the app, the authentication state is automatically restored.
 To test the backup flow in Android Studio, complete the following steps:
 
 1. Run your app on the emulator.
-2. Sign in to the app using any authentication mechanism (for example, username and password, passkeys, or Sign in with Google).
-3. Click **Backup App Data** on the device options at the top of the running device window. ![Backup App Data in Android Studio](https://developer.android.com/static/identity/sign-in/images/test-restore-step1.png) Backup App Data in Android Studio
+2. Sign in to the app using any authentication mechanism (for example, username and password, passkeys, or Sign in with Google) so your app calls `createCredential()` with `CreateRestoreCredentialRequest`.
+3. Click **Backup App Data** on the device options at the top of the running device window. ![Backup App Data in Android Studio](https://developer.android.com/static/identity/sign-in/images/test-restore-step1.png) **Figure 1:**Backup App Data in Android Studio
 4. For **Backup type** , select **Device to Device** or **Cloud**.
 
    > [!NOTE]
-   > **Note:** When testing Restore Credentials from a **Cloud** backup, ensure that the `android:allowBackup` property is set to `true` in the Android manifest, which is the recommendation. If the `android:allowBackup` property is set to `false`, authentication state is automatically restored only for **Device to Device** backups when testing in Android Studio.
+   > **Note:** Google Play services transfers the `RestoreCredential` key pair regardless of `android:allowBackup`. However, Android Studio's **Cloud** backup test action and background restoration in `BackupAgent.onRestoreFinished()` require `android:allowBackup="true"` in `AndroidManifest.xml`. If `android:allowBackup` is `false`, test using the **Device to Device** backup type in Android Studio and verify foreground restoration on your launcher `Activity`'s first launch.
 
 5. Click **OK**.
 
@@ -50,22 +53,38 @@ step or use a different device.
 
 To test the restore flow in Android Studio, complete the following steps:
 
-1. To test with the same device, uninstall and reinstall the app. This clears
-   all data on the device. To use it on a new device, install the app on the
-   new device.
+1. To test with the same device, uninstall and reinstall the app (`adb
+   uninstall <package_name>` followed by `adb install <path_to_apk>`). This
+   clears all local app data and the previous restore key on the device. To use
+   it on a new device, install the app on the new device.
 
    > [!NOTE]
    > **Note:** In a production environment, users typically navigate the setup wizard while onboarding. However, Android Studio's restore flow simulates the setup wizard flow, enabling you to test the restoration process without manually performing the initial device setup.
 
-2. After the app is installed, check the current state of the app. If you are
-   redirected to the authentication page, the restore key is not yet available
-   on the device.
+2. To test **Tier-1 background restoration**
+   (`BackupAgent.onRestoreFinished()`) without launching the `Activity` first,
+   open **Run \> Edit Configurations** in Android Studio and set **Launch
+   Options \> Launch** to **Nothing** before installing. If you launch the app
+   before running **Restore App Data**, you are redirected to the
+   authentication screen because the restore key hasn't been restored to the
+   device yet.
 
 3. Click **Restore App data** on the device options of the running device
    window and select the recently created backup.
 
-   ![Restore App Data in Android Studio](https://developer.android.com/static/identity/sign-in/images/test-restore-step2.png) Restore App Data in Android Studio
+   ![Restore App Data in Android Studio](https://developer.android.com/static/identity/sign-in/images/test-restore-step2.png) **Figure 2:**Restore App Data in Android Studio
 
    <br />
 
-4. Reopening the app signs you in with the restore credential.
+4. Inspect Logcat to confirm `BackupAgent.onRestoreFinished()` retrieved the
+   `RestoreCredential` in the background, or open the app to verify that the
+   user is signed in automatically.
+
+## Test with `adb` or automated JUnit 5 test suites
+
+In addition to Android Studio's UI action, you can test backup and restore flows
+from the command line or in continuous integration (CI):
+
+- **Command-line testing with `bmgr`** : On a physical device or headless emulator, enable the backup manager (`adb shell bmgr enable true`), trigger a backup (`adb shell bmgr backupnow <package_name>`), reinstall the app, list available backup sets (`adb shell bmgr list sets`), and trigger a restore (`adb shell bmgr restore <token> <package_name>`). For full details, see [Test backup and restore](https://developer.android.com/identity/data/testingbackup).
+- **Automated JUnit 5 host tests (`androidx.test.backup`)** : Write automated JUnit 5 tests using `BackupRestoreController` to exercise both `BackupTransportMode.CLOUD_ENCRYPTED` and `BackupTransportMode.DEVICE_TO_DEVICE` across one or two connected devices. For setup instructions and sample tests, see [Automated backup and restore
+  testing](https://developer.android.com/studio/preview/backup-restore-testing).

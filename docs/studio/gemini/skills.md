@@ -4,12 +4,12 @@ url: https://developer.android.com/studio/gemini/skills
 source: md.txt
 ---
 
-Skills let you enhance Agent Mode's capabilities with specialized expertise
+Skills let you enhance the agent's capabilities with specialized expertise
 and custom workflows. They are based on the [Agent Skills](https://agentskills.io/)
 open standard.
 
 Unlike [`AGENTS.md`](https://developer.android.com/studio/gemini/agent-files) files, skills represent on-demand expertise. This
-structure allows Agent Mode to maintain a large number of specialized
+structure allows the agent to maintain a large number of specialized
 capabilities---such as migrating between specific library versions or making a
 composable adapt to different screen sizes---without cluttering the model's
 immediate context window.

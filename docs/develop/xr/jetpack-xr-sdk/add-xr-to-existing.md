@@ -20,9 +20,9 @@ Consider these important principles when bringing your Android app into XR.
 
 - **Spatial capabilities** : Android XR offers a diverse range of spatial features available to your app, but you don't have to implement every single capability. Strategically implement those that complement your app's visual hierarchy, layouts, and user journeys. Consider incorporating custom environments and multiple panels to create a truly immersive experience. Refer to the [spatial UI design guidance](https://developer.android.com/design/ui/xr/guides/spatial-ui) to determine the optimal integration of spatial elements.
 - **Adaptive UI** : XR gives you the flexibility to design a spacious UI that adapts seamlessly to an infinite canvas and freely resizable windows. One of the most important considerations is to use our [large screen design
-  guidance](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality) to optimize your app's layout for this expansive environment. Even if your app is mobile-only today, you can still utilize captivating environments to enhance the user experience, but a UI that's optimized for large screens is one of the best ways to optimize your app for Android XR.
+  guidance](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality) to optimize your app's layout for this expansive environment. Even if your app is mobile-only today, you can still utilize captivating environments to enhance the user experience, but a UI that's optimized for large screens is one of the best ways to optimize your app for Android XR.
 - **UI framework** : We recommend constructing your UI with Jetpack Compose for XR. If your app relies on Views, review [working with Views in
-  XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/develop-ui-views) to learn more about leveraging Compose interoperability when working with Views, or evaluate working directly with the Jetpack SceneCore library.
+  XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-views) to learn more about leveraging Compose interoperability when working with Views, or evaluate working directly with the Jetpack SceneCore library.
 - **Publishing on the Play Store** : To verify your XR-enhanced app is discoverable on the Play Store:
   - Consider streamlining your app by [removing any unnecessary feature
     requirements](https://android-developers.googleblog.com/2023/12/increase-your-apps-availability-across-device-types.html).
@@ -34,7 +34,7 @@ Consider these important principles when bringing your Android app into XR.
 Following these tips can make a big difference in making your app feel like it's
 been optimized for XR.
 
-- **Prioritize large screen compatibility** : Ensure your app's UI adheres to [large screen design principles](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality) to help ensure optimal legibility of text and content in expansive XR environments.
+- **Prioritize large screen compatibility** : Ensure your app's UI adheres to [large screen design principles](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality) to help ensure optimal legibility of text and content in expansive XR environments.
 - **Use spatial features strategically**: Identify key moments within your app's user journey where incorporating spatial features will enhance the experience and take advantage of the unique capabilities of the platform.
 - **Place spatial panels with user comfort in mind**: When designing your layout with spatial panels, position them at a comfortable distance from the user to avoid overwhelming or feeling too close.
 - **Use adaptive UI for spatial layouts**: Utilize adaptive UI concepts such as panes and progressive revealing to effectively decompose your layout into multiple spatial panels, optimizing information presentation.
@@ -183,7 +183,7 @@ interactions.
 
 By default, your app shows with a single panel in Home Space. [Learn how to
 transition between Home Space and Full Space](https://developer.android.com/develop/xr/jetpack-xr-sdk/transition-home-space-to-full-space). To bring that content to Full
-Space, you can use [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,androidx.xr.compose.subspace.layout.InteractionPolicy,kotlin.Function0)).
+Space, you can use [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.layout.InteractionPolicy,kotlin.Function0)).
 
 Here's an example of how you might do this.
 
@@ -211,7 +211,7 @@ your 2D UI to multiple spatial panels. If you choose to use multiple panels for
 your app's UI, you can position and rotate panels (analogous to laying out your
 UI in 2D). You'll start with a clear design vision for what you want to
 accomplish, and then you can use Spatial UI Layout APIs ([`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.Function1)),
-[`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialRow.composable#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment.Vertical,androidx.xr.compose.subspace.layout.SpatialAlignment.Depth,androidx.xr.compose.subspace.layout.SpatialArrangement.Horizontal,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialColumn.composable#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,androidx.xr.compose.subspace.layout.SpatialArrangement.Vertical,kotlin.Function1)), [`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)),
+[`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialRow.composable#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment.Vertical,androidx.xr.compose.subspace.layout.SpatialAlignment.Depth,androidx.xr.compose.subspace.layout.SpatialArrangement.Horizontal,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialColumn.composable#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment.Horizontal,androidx.xr.compose.subspace.layout.SpatialAlignment.Depth,androidx.xr.compose.subspace.layout.SpatialArrangement.Vertical,kotlin.Function1)), [`SpatialSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialSpacer.composable#SpatialSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)),
 [`SpatialAlignment`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SpatialAlignment)) and subspace modifiers to position and rotate panels.
 There are some key patterns that you'll want to avoid as you implement multiple
 panels.

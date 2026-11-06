@@ -15,7 +15,7 @@ The [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runti
 for your app. Each spatialized `Activity` must create and hold an instance of
 `Session`. After your app creates a session, it can use the `Session` interfaces
 to create spatialized content entities such as panels or 3D models, as well as
-[set a spatial environment](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments), [identify user position](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialUser), and [anchor
+[set a spatial environment](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments), [identify device position](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/device-pose), and [anchor
 content](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-entities) to the real world.
 
 ## Access a session from Jetpack Compose for XR
