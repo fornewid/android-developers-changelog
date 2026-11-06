@@ -1,0 +1,40 @@
+diff --git a/docs/studio/gemini/agent-mode.md b/docs/studio/gemini/agent-mode.md
+index 5c80a85c..fe4f6e40 100644
+--- a/docs/studio/gemini/agent-mode.md
++++ b/docs/studio/gemini/agent-mode.md
+@@ -6,7 +6,7 @@ source: md.txt
+ 
+ [Video](https://www.youtube.com/watch?v=jTlW8JeCClA)
+ 
+-Gemini in Android Studio's Agent Mode is designed to handle complex, multi-stage
++AI in Android Studio is designed to handle complex, multi-stage
+ development tasks. You can describe a high-level goal, and the agent creates and
+ executes a plan, invoking the necessary [tools](https://developer.android.com/studio/gemini/agent-mode#how-it-works), making changes
+ across multiple files, and iteratively fixing bugs. This agent-assisted workflow
+@@ -20,7 +20,7 @@ To get started in Agent Mode in Android Studio, follow these steps:
+ 1. Click **Agent** ![](https://developer.android.com/static/studio/images/agent-icon.png) in the tool window bar. Sign in and onboard if you need to.
+ 2. Describe the task you want the agent to perform.
+ 
+-   **Figure 1:** Gemini in Android Studio's Agent Mode.
++   **Figure 1:** Android Studio's Agent Mode.
+ 3. Review and approve any changes as the agent works to accomplish the task.
+ 
+    ![Agent Mode waits for you to accept or reject a change.](https://developer.android.com/static/studio/images/agent-accept-changes.png) **Figure 2:** Agent Mode waits for you to accept or reject a change.
+@@ -82,7 +82,7 @@ Some other prompts to try:
+ 
+ ## How the agent works
+ 
+-In Agent Mode, your prompt is sent to the Gemini API with a list of *tools* that
++In Agent Mode, your prompt is sent to the model with a list of *tools* that
+ are available. You can think of tools as skills: they include the ability to
+ search for files, read files, search the text within files, use any
+ [MCP servers](https://developer.android.com/studio/gemini/add-mcp-server) you have configured, and more.
+@@ -90,6 +90,6 @@ search for files, read files, search the text within files, use any
+ When you give the agent a task, it creates a plan and determines which
+ tools are needed. Some of these tools might need you to grant permission before
+ the agent can use them. Once you grant permission, the agent uses the tool to
+-perform the necessary action and sends the result back to the Gemini API. Gemini
++perform the necessary action and sends the result back to the model. The model
+ processes the result of the action and generates another response. This cycle of
+ action and evaluation continues until the task is complete.
+\ No newline at end of file

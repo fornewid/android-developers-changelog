@@ -1,0 +1,150 @@
+diff --git a/docs/media/media3/session/control-playback.md b/docs/media/media3/session/control-playback.md
+index 16c46c47..1e1711cb 100644
+--- a/docs/media/media3/session/control-playback.md
++++ b/docs/media/media3/session/control-playback.md
+@@ -173,6 +173,145 @@ at the index of the originally requested item. For a
+ [sample implementation of `onSetMediaItems()`](https://github.com/androidx/media/blob/4bcb60d31d8c8996a93c6703ee934f62a50a837a/demos/session_service/src/main/java/androidx/media3/demo/session/DemoMediaLibrarySessionCallback.kt#L163) with
+ this feature, see the session demo app.
+ 
++## Publish playlist metadata
++
++Media3 provides APIs to publish structured playlist metadata alongside active
++track playback. Standardizing how your app populates playlist membership and
++descriptive metadata across media sessions lets Android expose system-level
++entry points for playback in your app.
++
++In this context, the term *playlist* refers to any ordered grouping of tracks
++to be played in sequence. This applies not only to user- or app-defined lists
++of individual playable items, but also to groupings such as music albums,
++podcast episodes, and audiobook chapters.
++
++### Declare playlist ID and playlist metadata
++
++In Media3, playlist identification and playlist descriptive metadata are split
++across two [`MediaMetadata`](https://developer.android.com/reference/androidx/media3/common/MediaMetadata) scopes:
++
++- **Item-level playlist ID (`MediaItem.mediaMetadata.playlistId`)** :
++  - Mark a playing `MediaItem` as part of a playlist by calling [`MediaMetadata.Builder.setPlaylistId`](https://developer.android.com/reference/androidx/media3/common/MediaMetadata.Builder#setPlaylistId(java.lang.String)) on the item's `MediaMetadata`, while `MediaItem.mediaId` uniquely identifies the individual track.
++  - The `playlistId` is an opaque, app-defined string that uniquely identifies the playlist across sessions for as long as the playlist can be resumed (for example, `37i9dQZF1DX76Wlfdnj7AP`), and shouldn't be reused for a different playlist. Connected controllers don't interpret this ID; they store it and send it back to your app to resume the playlist.
++  - Every track that belongs to the playlist carries the same `playlistId`. Leave `playlistId` unset (`null`) for tracks that aren't played from a playlist context, such as a single standalone track.
++- **Player-level playlist metadata (`Player.getPlaylistMetadata`)** :
++  - Populate a dedicated `MediaMetadata` instance with the playlist's descriptive attributes (`setTitle`, `setArtworkUri`, and `setMediaType`) and set it on the player using [`Player.setPlaylistMetadata`](https://developer.android.com/reference/androidx/media3/common/Player#setPlaylistMetadata(androidx.media3.common.MediaMetadata)).
++  - When a connected controller detects a non-null `currentMediaItem.mediaMetadata.playlistId`, it inspects [`MediaController.getPlaylistMetadata`](https://developer.android.com/reference/androidx/media3/session/MediaController#getPlaylistMetadata()) to retrieve the playlist's title and artwork URI.
++  - Update the playlist metadata whenever the active playlist changes (for example, when the user starts a different playlist) so that `getPlaylistMetadata` always describes the playlist referenced by the current item's `playlistId`.
++
++The following example shows how to publish playlist metadata on the `Player`
++and associate a track `MediaItem` with that playlist:
++
++
++### Kotlin
++
++```kotlin
++// 1. Declare the playlist descriptive metadata on the Player
++val playlistMetadata =
++  MediaMetadata.Builder()
++    .setTitle("Morning Vibes")
++    .setArtworkUri(Uri.parse("https://example.com/image/morning-vibes"))
++    .setMediaType(MediaMetadata.MEDIA_TYPE_PLAYLIST)
++    .build()
++player.setPlaylistMetadata(playlistMetadata)
++
++// 2. Mark the playing track(s) with the playlistId it belongs to
++val trackItem =
++  MediaItem.Builder()
++    .setMediaId("foobar:track:6rqhFgbbKwnb9MLmUQDhG6")
++    .setMediaMetadata(
++      MediaMetadata.Builder()
++        .setTitle("Example Track")
++        .setArtist("Example Artist")
++        .setMediaType(MediaMetadata.MEDIA_TYPE_MUSIC)
++        .setPlaylistId("37i9dQZF1DX76Wlfdnj7AP")
++        .build()
++    )
++    .build()
++player.setMediaItem(trackItem)
++```
++
++### Java
++
++```java
++// 1. Declare the playlist descriptive metadata on the Player
++MediaMetadata playlistMetadata =
++    new MediaMetadata.Builder()
++        .setTitle("Morning Vibes")
++        .setArtworkUri(Uri.parse("https://example.com/image/morning-vibes"))
++        .setMediaType(MediaMetadata.MEDIA_TYPE_PLAYLIST)
++        .build();
++player.setPlaylistMetadata(playlistMetadata);
++
++// 2. Mark the playing track(s) with the playlistId it belongs to
++MediaItem trackItem =
++    new MediaItem.Builder()
++        .setMediaId("foobar:track:6rqhFgbbKwnb9MLmUQDhG6")
++        .setMediaMetadata(
++            new MediaMetadata.Builder()
++                .setTitle("Example Track")
++                .setArtist("Example Artist")
++                .setMediaType(MediaMetadata.MEDIA_TYPE_MUSIC)
++                .setPlaylistId("37i9dQZF1DX76Wlfdnj7AP")
++                .build())
++        .build();
++player.setMediaItem(trackItem);
++```
++
++<br />
++
++### Resume a playlist
++
++When a user selects a playlist to resume, the controller connects to your app's
++media session and sends a playlist `MediaItem` whose `mediaId` is set to the
++stored `playlistId`:
++
++
++### Kotlin
++
++```kotlin
++val playlistItem =
++  MediaItem.Builder()
++    .setMediaId("37i9dQZF1DX76Wlfdnj7AP")
++    .setMediaMetadata(
++      MediaMetadata.Builder()
++        .setMediaType(MediaMetadata.MEDIA_TYPE_PLAYLIST)
++        .setIsPlayable(true)
++        .build()
++    )
++    .build()
++controller.setMediaItem(playlistItem)
++controller.prepare()
++controller.play()
++```
++
++### Java
++
++```java
++MediaItem playlistItem =
++    new MediaItem.Builder()
++        .setMediaId("37i9dQZF1DX76Wlfdnj7AP")
++        .setMediaMetadata(
++            new MediaMetadata.Builder()
++                .setMediaType(MediaMetadata.MEDIA_TYPE_PLAYLIST)
++                .setIsPlayable(true)
++                .build())
++        .build();
++controller.setMediaItem(playlistItem);
++controller.prepare();
++controller.play();
++```
++
++<br />
++
++Your app expands the playlist `MediaItem` into its playable tracks inside
++[`MediaSession.Callback.onSetMediaItems`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onSetMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E,int,long)) (or
++[`onAddMediaItems`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onAddMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E))), and publishes `playlistId` and
++`playlistMetadata` again as shown in the preceding section.
++
++> [!NOTE]
++> **Note:** Your media app must accept its own `playlistId` values as `MediaItem.mediaId` in `onSetMediaItems`.
++
+ ## Manage media button preferences
+ 
+ Every controller, for example System UI, Android Auto, or Wear OS, can make its

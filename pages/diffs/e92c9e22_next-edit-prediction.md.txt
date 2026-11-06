@@ -1,0 +1,21 @@
+diff --git a/docs/studio/gemini/next-edit-prediction.md b/docs/studio/gemini/next-edit-prediction.md
+index 6cd2675a..73f9f3bf 100644
+--- a/docs/studio/gemini/next-edit-prediction.md
++++ b/docs/studio/gemini/next-edit-prediction.md
+@@ -9,7 +9,7 @@ move, even when it's not at your current cursor position. While traditional [AI
+ code completion](https://developer.android.com/studio/gemini/code-completion) focuses on suggesting code at your current cursor position,
+ NEP is designed for "away from cursor" updates.
+ 
+-By using Gemini to analyze your recent edits across multiple files, NEP
++By using the agent to analyze your recent edits across multiple files, NEP
+ anticipates your next logical move. It proactively suggests changes elsewhere
+ in your codebase---even in areas that are off-screen---helping you maintain
+ consistency and speed up repetitive refactoring tasks.
+@@ -61,4 +61,4 @@ and NEP in the Android Studio settings:
+ **File** (**Android Studio** on macOS) **\> Settings \> Tools \> AI \> Editor**.
+ 
+ > [!NOTE]
+-> **Note:** Next Edit Prediction is the default experience for developers that have a paid Gemini flash model enabled (for example, Flash 2.5, Flash 3.0 or Flash-Lite 3.0 using an API key). Because both NEP and classic code completion rely on the <kbd>Tab</kbd> key for interaction, they can't be used at the same time.
+\ No newline at end of file
++> **Note:** Next Edit Prediction is the default experience for developers that have a paid Gemini flash model enabled. Because both NEP and classic code completion rely on the <kbd>Tab</kbd> key for interaction, they can't be used at the same time.
+\ No newline at end of file

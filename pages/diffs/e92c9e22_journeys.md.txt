@@ -1,0 +1,101 @@
+diff --git a/docs/studio/gemini/journeys.md b/docs/studio/gemini/journeys.md
+index 17385d8a..fb8b6538 100644
+--- a/docs/studio/gemini/journeys.md
++++ b/docs/studio/gemini/journeys.md
+@@ -14,19 +14,19 @@ performs on your app. Additionally, you can write and describe more complex
+ assertions, which AI evaluates based on what it sees on the device.
+ ![Journeys for Android Studio.](https://developer.android.com/static/studio/gemini/images/journey-animation.gif) Journeys for Android Studio.
+ 
+-And because Gemini reasons about which actions to perform to satisfy the goals,
+-journeys are more resilient to subtle changes to your app's layout or behavior,
+-resulting in fewer flaky tests when running against different versions of your
+-app and different device configurations.
++And because the agent reasons about which actions to perform to satisfy the
++goals, journeys are more resilient to subtle changes to your app's layout or
++behavior, resulting in fewer flaky tests when running against different versions
++of your app and different device configurations.
+ 
+ You can write and run journeys right from Android Studio or from the command
+ line against any local or remote Android-powered device. The IDE provides a new
+ editor experience for crafting journeys as well as rich results that help you
+-better follow Gemini's reasoning and execution of your journey.
++better follow the agent's reasoning and execution of your journey.
+ 
+ > [!NOTE]
+-> **Note:** Before you get started, sign into your developer account and [enable
+-> Gemini in Android Studio](https://developer.android.com/studio/gemini/get-started).
++> **Note:** Before you get started, sign into your developer account and [configure
++> the agent of your choice](https://developer.android.com/studio/gemini/get-started).
+ 
+ ## Write a journey
+ 
+@@ -59,7 +59,8 @@ To create and start editing a journey, do the following:
+ 
+ 5. When viewing your journey in the **Design** view, use the text field to
+    describe each step of your journey. Each step can include descriptive actions
+-   you want Gemini to perform or assertions that you want Gemini to evaluate.
++   you want the agent to perform or assertions that you want the agent to
++   evaluate.
+ 
+ 6. Press <kbd>Enter</kbd> on your keyboard to start a new step in the same
+    journey. You can repeat this as needed for each step of the journey you want
+@@ -104,7 +105,7 @@ and expected results:
+ | "Type 'celery'" | "Type 'celery' in the search bar at the top of the home screen" |
+ | "Swipe to dismiss" | "Swipe left to dismiss, the card should then no longer be visible" |
+ 
+-- **Include the success criteria as part of the step:** This helps Gemini better understand your intention and clarifies when the action is complete and the next action can start.
++- **Include the success criteria as part of the step:** This helps the agent better understand your intention and clarifies when the action is complete and the next action can start.
+ 
+ | Instead of | Do this |
+ |---|---|
+@@ -112,7 +113,7 @@ and expected results:
+ | "Go to the shopping cart" | "Tap on the shopping cart icon which will take you to the shopping cart page. Verify it contains zero items" |
+ | "Click the first video" | "Click the first video and wait for it to fully load" |
+ 
+-- **Refine your journey:** If your journey isn't executing as expected, you can [view the results](https://developer.android.com/studio/gemini/journeys#results) and inspect 'Action Taken' and corresponding 'Reasoning' to understand why Gemini might not have executed the steps as you expected. Use this information to provide additional clarity to your instructions.
++- **Refine your journey:** If your journey isn't executing as expected, you can [view the results](https://developer.android.com/studio/gemini/journeys#results) and inspect 'Action Taken' and corresponding 'Reasoning' to understand why the agent might not have executed the steps as you expected. Use this information to provide additional clarity to your instructions.
+ - **Break down your journey into more specific steps:** Although the AI can interpret multi-action steps, sometimes more granular discrete steps may improve the accuracy and reproducibility of the journey.
+   - **"Error: Could not successfully complete the action in max allowed
+     attempt"**: If you encounter this error, try breaking up the failing steps into two or more smaller steps. That's because this error occurs if the AI is unable to complete the action after attempting a max number of interactions with your app.
+@@ -154,15 +155,15 @@ To test a journey, do the following:
+ 1. Select a target device from the main toolbar, like you would when running an instrumented test.
+ 2. Navigate to the journey XML file that you would like to test and open it in the editor.
+ 3. In the editor, do one of the following:
+-   1. If you're in the **Design** view, click ![](https://developer.android.com/static/studio/preview/gemini/images/run-journey-icon.png) **Run Journey**.
+-   2. If you're in the **Code** view, click ![](https://developer.android.com/static/studio/preview/gemini/images/run-test-icon.png) **Run 'test'** in the gutter next to where the name of the journey is defined in the XML.
++   1. If you're in the **Design** view, click ![](https://developer.android.com/static/studio/gemini/images/run-journey-icon.png) **Run Journey**.
++   2. If you're in the **Code** view, click ![](https://developer.android.com/static/studio/gemini/images/run-test-icon.png) **Run 'test'** in the gutter next to where the name of the journey is defined in the XML.
+ 
+ Android Studio creates a **Journeys Test** configuration for you and runs it on
+ the target device. During execution, Android Studio builds and deploys your app,
+-and connects to Gemini to determine which actions to take for each step of your
+-journey.
++and connects to the agent to determine which actions to take for each step of
++your journey.
+ ![The journey test results panel in Android Studio, displaying step
+-details and Gemini's reasoning.](https://developer.android.com/static/studio/gemini/images/journey-results.png) The journey test results panel in Android Studio, displaying step details and Gemini's reasoning.
++details and the agent's reasoning.](https://developer.android.com/static/studio/gemini/images/journey-results.png) The journey test results panel in Android Studio, displaying step details and the agent's reasoning.
+ 
+ #### Run journeys against any pre-installed app
+ 
+@@ -185,15 +186,15 @@ To run Journeys from the command line, use [Android CLI](https://developer.andro
+ When Android Studio completes testing your journey, the test results panel
+ appears automatically to show you the results.
+ ![The journey test results panel in Android Studio, displaying step
+-details and Gemini's reasoning.](https://developer.android.com/static/studio/gemini/images/journey-results.png) The journey test results panel in Android Studio, displaying step details and Gemini's reasoning.
++details and the agent's reasoning.](https://developer.android.com/static/studio/gemini/images/journey-results.png) The journey test results panel in Android Studio, displaying step details and the agent's reasoning.
+ 
+ Compared to other instrumented tests you might run in Android Studio,
+ there are some differences in how results for journeys are displayed.
+ 
+-- The **Tests** panel breaks down the journey into the discrete steps. You can click each step to find out more information about how Gemini executed it.
+-- The **Results** panel shows rich information to help you understand how Gemini understood and reasoned about your journey, and how it was executed.
+-  - The screenshots that were sent to Gemini are shown for visual aid at each action in the step.
+-  - Each action taken and Gemini's reasoning for why it took that action are described next to each screenshot.
++- The **Tests** panel breaks down the journey into the discrete steps. You can click each step to find out more information about how the agent executed it.
++- The **Results** panel shows rich information to help you understand how the agent understood and reasoned about your journey, and how it was executed.
++  - The screenshots that were sent to the agent are shown for visual aid at each action in the step.
++  - Each action taken and the agent's reasoning for why it took that action are described next to each screenshot.
+   - Each action in the step is numbered.
+ 
+ ## Known issues

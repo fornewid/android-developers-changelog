@@ -1,0 +1,40 @@
+diff --git a/docs/blog/latest/6.md b/docs/blog/latest/6.md
+index be689855..b9f9de46 100644
+--- a/docs/blog/latest/6.md
++++ b/docs/blog/latest/6.md
+@@ -7,6 +7,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Ivy Knight's profile](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_1s13kN.webp)](https://developer.android.com/blog/authors/ivy-knight) 16 Mar 2026 16 Mar 2026 ![](https://developer.android.com/static/blog/assets/get_Inspired_6627220d63_Z1HQRT7.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Get inspired and take your apps to desktop](https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop)
++
++  [arrow_forward](https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop) We're thrilled to announce major updates to our design resources, giving you the comprehensive guidance you need to create polished, adaptive Android apps across all form factors! We now have Desktop Experience guidance and a refreshed Android Design Gallery.
++  [Ivy Knight](https://developer.android.com/blog/authors/ivy-knight) • 1 min read
+ - [![View Daniel Santiago Rivera's profile](https://developer.android.com/static/blog/assets/Daniel_Santiago_Rivera_157422eedb_VG66u.webp)](https://developer.android.com/blog/authors/daniel-santiago-rivera) 13 Mar 2026 13 Mar 2026 ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_5IIEj.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Room 3.0 - Modernizing the Room](https://developer.android.com/blog/posts/modernizing-the-room)
+@@ -121,12 +127,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations) Today, we're announcing a suite of upgrades to the Google Play Console and beyond, giving you greater visibility into your financial performance and specific, data-backed steps to improve it.
+   [Phalene Gowling](https://developer.android.com/blog/authors/phalene-gowling) • 2 min read
+-- 4 Authors 28 Jan 2026 28 Jan 2026 ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_Zxdllo.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api) To further help bring your ML Kit Prompt API use cases to production, we are excited to announce Automated Prompt Optimization (APO) targeting On-Device models on Vertex AI. Automated Prompt Optimization is a tool that helps you automatically find the optimal prompt for your use cases.
+-  [Chetan Tekur](https://developer.android.com/blog/authors/chetan-tekur), [Chao Zhao](https://developer.android.com/blog/authors/chao-zhao), [Paul Zhou](https://developer.android.com/blog/authors/paul-zhou), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 3 min read
+ [arrow_back](https://developer.android.com/blog/latest/5)
+ 
+ #### Page 6
+@@ -141,8 +141,8 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+ - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+ - [#Compose](https://developer.android.com/blog/topics/compose)
+-- [#Performance](https://developer.android.com/blog/topics/performance)
+ - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
++- [#Performance](https://developer.android.com/blog/topics/performance)
+ - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+ - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)

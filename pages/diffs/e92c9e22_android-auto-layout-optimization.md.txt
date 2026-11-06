@@ -1,0 +1,15 @@
+diff --git a/docs/studio/prompt-gallery/prompts/android-auto-layout-optimization.md b/docs/studio/prompt-gallery/prompts/android-auto-layout-optimization.md
+index 4a8ce022..2c3d20db 100644
+--- a/docs/studio/prompt-gallery/prompts/android-auto-layout-optimization.md
++++ b/docs/studio/prompt-gallery/prompts/android-auto-layout-optimization.md
+@@ -14,7 +14,7 @@ Update an XML layout to follow Android Auto UI best practices.
+     $CURRENT_FILE
+ 
+ > [!NOTE]
+-> To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.   
+-> To save and retrieve prompts in the Studio IDE, go to **Settings \> Gemini \> Prompt Library**.
++> To run this prompt in Android Studio, click **Agent** in the sidebar and paste it in the chat field.   
++> To save and retrieve prompts in the Studio IDE, go to **Settings \> Tools \> AI \> Prompt Library**.
+ 
+ *** ** * ** ***
+\ No newline at end of file

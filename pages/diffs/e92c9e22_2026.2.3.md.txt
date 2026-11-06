@@ -1,0 +1,19 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2026.2.3.md b/docs/studio/releases/fixed-bugs/studio/2026.2.3.md
+index 9378f5be..e07e531d 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2026.2.3.md
++++ b/docs/studio/releases/fixed-bugs/studio/2026.2.3.md
+@@ -4,6 +4,14 @@ url: https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.3
+ source: md.txt
+ ---
+ 
++### Android Studio Rabbit 3 \| 2026.2.3 Canary 3
++
++**Released together with:**
++
++- Android Gradle Plugin 9.6.0-alpha03
++
++Fixed Issues **Android Gradle Plugin** [Issue #376975539](https://issuetracker.google.com/issues/376975539) Ladybug UI is slower than Koala [Issue #567487269](https://issuetracker.google.com/issues/567487269) Make analyzeReleaseR8Config output print out link to the report [Issue #396148600](https://issuetracker.google.com/issues/396148600) IDE Performance Slows to a Crawl During Gradle Build in large project **C++ Build** [Issue #491158080](https://issuetracker.google.com/issues/491158080) Prefab does not include prebuilt shared libraries in .aar **Compose Preview** [Issue #577972199](https://issuetracker.google.com/issues/577972199) Compose Preview misses previews whose annotation resolves only after the file was first scanned [Issue #348520440](https://issuetracker.google.com/issues/348520440) Enable Pseudolocales in Compose Previews **Gradle Files Editor** [Issue #526305384](https://issuetracker.google.com/issues/526305384) False positive warning in build.gradle.kts: Dependency 'null' is declared multiple times when using libs.versions.toml bundles **Import/Sync** [Issue #242856048](https://issuetracker.google.com/issues/242856048) "agp-missing-dimension-for-sync-only" is not reported in models as the only item in androidDsl.flavorDimensions **Lint Integration** [Issue #566069554](https://issuetracker.google.com/issues/566069554) \[AGP 9.x\] Broken Gradle cache: Moving sources fails Lint analysis **Multiplatform** [Issue #475431060](https://issuetracker.google.com/issues/475431060) R8 build job fails with com.android.kotlin.multiplatform.library **Open Project** [Issue #361777156](https://issuetracker.google.com/issues/361777156) Open project in "New Window" prompt shown twice when \`.idea\` folder is missing
++
+ ### Android Studio Rabbit 3 \| 2026.2.3 Canary 2
+ 
+ **Released together with:**

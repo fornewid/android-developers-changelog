@@ -1,0 +1,34 @@
+diff --git a/docs/develop/ui/views/animations/vp2-migration.md b/docs/develop/ui/views/animations/vp2-migration.md
+index f5b4cc27..d814f777 100644
+--- a/docs/develop/ui/views/animations/vp2-migration.md
++++ b/docs/develop/ui/views/animations/vp2-migration.md
+@@ -131,7 +131,7 @@ than they did for `ViewPager`:
+ 
+ > [!NOTE]
+ > **Note:** The [`DiffUtil`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/DiffUtil) utility class relies on identifying items by ID. If you are using `ViewPager2` to page through a mutable collection, you must also override [`getItemId()`](https://developer.android.com/reference/kotlin/androidx/viewpager2/adapter/FragmentStateAdapter#getitemid) and [`containsItem()`](https://developer.android.com/reference/kotlin/androidx/viewpager2/adapter/FragmentStateAdapter#containsitem).   
+-> Additionally, The [`getPageWidth()`](https://developer.android.com/reference/kotlin/androidx/viewpager/widget/PagerAdapter#getpagewidth) method is not supported for use with `ViewPager2`. If you currently use `getPageWidth()` with `ViewPager` to enable peeking on adjacent pages, you must instead use the [`clipToPadding`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView#getcliptopadding) attribute of `RecyclerView` as demonstrated in the [sample app](https://github.com/android/views-widgets-samples/blob/87e58d1c6d0c832c5b362d33390148679182d314/ViewPager2/app/src/main/java/androidx/viewpager2/integration/testapp/PreviewPagesActivity.kt).
++> Additionally, The [`getPageWidth()`](https://developer.android.com/reference/kotlin/androidx/viewpager/widget/PagerAdapter#getpagewidth) method is not supported for use with `ViewPager2`. If you currently use `getPageWidth()` with `ViewPager` to enable peeking on adjacent pages, you must instead use the [`clipToPadding`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView#getcliptopadding) attribute of `RecyclerView` as demonstrated in the [sample app](https://github.com/androidx/androidx/blob/1606adf0448db3b94758f3734111cb3a26976236/viewpager2/integration-tests/testapp/src/main/java/androidx/viewpager2/integration/testapp/PreviewPagesActivity.kt).
+ 
+ #### Summary
+ 
+@@ -358,17 +358,13 @@ To support a scroll view inside a `ViewPager2` object with the same orientation,
+ you must call
+ [`requestDisallowInterceptTouchEvent()`](https://developer.android.com/reference/android/view/ViewGroup#requestDisallowInterceptTouchEvent(boolean)) on the `ViewPager2` object when you
+ expect to scroll the nested element instead. The [ViewPager2 nested scrolling
+-sample](https://github.com/android/views-widgets-samples/blob/master/ViewPager2/app/src/main/res/layout/item_nested_recyclerviews.xml#L43) demonstrates one way of solving this problem with a versatile
+-[custom wrapper layout](https://github.com/android/views-widgets-samples/blob/master/ViewPager2/app/src/main/java/androidx/viewpager2/integration/testapp/NestedScrollableHost.kt).
++sample](https://github.com/androidx/androidx/blob/1606adf0448db3b94758f3734111cb3a26976236/viewpager2/integration-tests/testapp/src/main/res/layout/item_nested_recyclerviews.xml#L43) demonstrates one way of solving this problem with a versatile
++[custom wrapper layout](https://github.com/androidx/androidx/blob/1606adf0448db3b94758f3734111cb3a26976236/viewpager2/integration-tests/testapp/src/main/java/androidx/viewpager2/integration/testapp/NestedScrollableHost.kt).
+ 
+ ## Additional resources
+ 
+ To learn more about `ViewPager2`, see the following additional resources.
+ 
+-### Samples
+-
+-- [ViewPager2 samples](https://goo.gle/viewpager2-sample) on GitHub
+-
+ ### Videos
+ 
+ - [Turning the Page: Migrating to ViewPager2](https://www.youtube.com/watch?v=lAP6cz1HSzA) (Android Dev Summit '19)
+\ No newline at end of file

@@ -1,0 +1,101 @@
+diff --git a/docs/studio/gemini/overview.md b/docs/studio/gemini/overview.md
+index 80bb8284..ba8abeb9 100644
+--- a/docs/studio/gemini/overview.md
++++ b/docs/studio/gemini/overview.md
+@@ -5,19 +5,21 @@ source: md.txt
+ ---
+ 
+ > [!NOTE]
+-> **Note:** Gemini in Android Studio is only available in the latest stable channel version of Android Studio and major versions released in the previous 10 months. If you are using an older version of Android Studio, you will need to update to use Gemini. For more information, see [Android Studio and Cloud services
+-> compatibility](https://developer.android.com/studio/releases#service-compat).
++> **Note:** AI in Android Studio is only available in the latest stable channel version of Android Studio and major versions released in the previous 10 months. If you are using an older version of Android Studio, you will need to update to use AI in Android Studio. For more information, see [Android Studio and Cloud
++> services compatibility](https://developer.android.com/studio/releases#service-compat).
+ 
+-Gemini in Android Studio is your AI-powered coding companion for Android
+-development. It helps you be more productive by answering your development
+-queries, generating code, finding relevant resources, and encouraging best
+-practices. Most importantly, Gemini in Android Studio is uniquely equipped to
+-accelerate Android development---it can help you mock up and troubleshoot Compose
+-UIs, fix Gradle build errors, analyze crashes through integrations with Logcat
+-and App Quality Insights, and more.
+-[Video](https://www.youtube.com/watch?v=zGK1vIX87vw)
++You can use the agent of your choice as an AI-powered coding companion for
++Android development. The agent helps you be more productive by answering your
++development queries, generating code, finding relevant resources, and
++encouraging best practices. Most importantly, in Android Studio the agent is
++uniquely equipped to accelerate Android development---it can help you mock up and
++troubleshoot Compose UIs, fix Gradle build errors, analyze crashes through
++integrations with Logcat and App Quality Insights, and more.
+ 
+-Gemini in Android Studio is available for individual developers and businesses:
++## Gemini-based agents
++
++Android Studio's Gemini-based agents are available for individual developers and
++businesses:
+ 
+ - [Individual tier](https://developer.android.com/studio/gemini/feature-comparison#individuals)
+   - Free
+@@ -28,21 +30,25 @@ Gemini in Android Studio is available for individual developers and businesses:
+   Available through a subscription to [Gemini Enterprise](https://cloud.google.com/gemini-enterprise) or membership in
+   the [Google Developer Program](https://developers.google.com/program).
+ 
++If you're using the Gemini model, we recommend using Google Antigravity as your
++coding agent because it provides you with more quota and access to the latest
++models.
++
+ > [!NOTE]
+ > **Note:** If you're interested in agent-driven development for Android using agents outside of Android Studio, use [Android CLI](https://developer.android.com/tools/agents/android-cli).
+ 
+-## What is the right tier for me?
++### What is the right tier for me?
+ 
+ Choose the product tier and edition that are right for you.
+ 
+-### Individuals
++#### Individuals
+ 
+-If you're an individual freelance developer, student, or hobbyist, we recommend
+-the Gemini in Android Studio [free edition](https://developer.android.com/studio/gemini/feature-comparison#individuals). At no cost, you get access to a
+-lightweight version of Gemini with a small context window, which is appropriate
+-for most tasks. If you need to execute more complex tasks that would benefit
+-from Gemini Pro's full 1M token context window, you can
+-[add a Gemini API key](https://developer.android.com/studio/gemini/add-api-key) and pay per token.
++If you're an individual freelance developer, student, or hobbyist using Gemini,
++we recommend the [free edition](https://developer.android.com/studio/gemini/feature-comparison#individuals). At no cost, you get access to a lightweight
++version of Gemini with a small context window, which is appropriate for most
++tasks. If you need to execute more complex tasks that would benefit from Gemini
++Pro's full 1M token context window, you can [add a Gemini API key](https://developer.android.com/studio/gemini/add-api-key) and pay
++per token.
+ 
+ Or you can [subscribe to Google One](https://one.google.com/about/) and get 2 TB or more of cloud
+ storage, higher rate limits, and additional benefits such as Gemini in Google
+@@ -50,9 +56,9 @@ Docs and Gmail, access to Veo, and higher usage limits on products like Nano
+ Banana and NotebookLM. [Find the right Google One plan for you](https://one.google.com/intl/en_us/about/google-ai-plans/#compare-plans).
+ 
+ > [!NOTE]
+-> **Note:** If you already subscribe to Google One, you automatically get the Gemini in Android Studio added capabilities and benefits at no additional cost.
++> **Note:** If you already subscribe to Google One, you automatically get the AI in Android Studio added capabilities and benefits at no additional cost.
+ 
+-### Businesses
++#### Businesses
+ 
+ If you're a professional developer who works as part of a team, ask your admin
+ to consider subscribing to the [business tier](https://developer.android.com/studio/gemini/feature-comparison#businesses). The business tier includes
+@@ -66,12 +72,12 @@ limited to:
+ 
+ For more details about the different offerings, see [Feature comparison](https://developer.android.com/studio/gemini/feature-comparison).
+ 
+-## What's new in Gemini in Android Studio
++## What's new with AI in Android Studio
+ 
+-Gemini in Android Studio is under active development and updates frequently! You
+-can learn about the latest AI features and other preview features by checking
+-out the [Android Studio preview release notes](https://developer.android.com/studio/preview/features) and by [downloading a
+-preview](https://developer.android.com/studio/preview).
++AI in Android Studio is under active development and the features update
++frequently. You can learn about the latest AI features and other preview
++features by checking out the [Android Studio preview release notes](https://developer.android.com/studio/preview/features) and by
++[downloading a preview](https://developer.android.com/studio/preview).
+ 
+ ## Permissions
+ 

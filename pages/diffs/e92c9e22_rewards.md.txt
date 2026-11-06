@@ -1,0 +1,51 @@
+diff --git a/docs/games/rewards.md b/docs/games/rewards.md
+index daded4be..610bb667 100644
+--- a/docs/games/rewards.md
++++ b/docs/games/rewards.md
+@@ -55,13 +55,13 @@ steps:
+ 1. In the [Google Play Console](https://play.google.com/console/u/0/developers), select a game.
+ 2. Navigate to **Monetize with Play** \> **Products** \> **One-time products**.
+ 3. Select one or more available one-time products from the list that represents the entitlement you want to associate and create a new offer that represents the Play Games Rewards for your game.
+-   1. If you don't have any one-time products showing in this list, then you must first create some by navigating to **Monetise with Play** \> **Products** \> **One time products** and [follow these instructions](https://support.google.com/googleplay/android-developer/answer/16430488).
++   1. If you don't have any one-time products showing in this list, then you must first create some by navigating to **Monetize with Play** \> **Products** \> **One time products** and [follow these instructions](https://support.google.com/googleplay/android-developer/answer/16430488).
+ 
+ ### Remove a Play Games Reward
+ 
+ If you no longer want a SKU to be available to be used as a reward:
+ 
+-1. Go to **Monetise with Play** \> **Products \> One-time products**.
++1. Go to **Monetize with Play** \> **Products \> One-time products**.
+ 2. Select the specific SKU and associated "Play Game Reward" offer and make that offer inactive.
+ 
+ ### Ensure a Play Games Reward is delivered in game
+@@ -85,7 +85,27 @@ your game also prompts the user to decide which in-game identity such reward
+ should be delivered to. Users will only be shown these rewards if their PGS ID
+ and Play Billing account match.
+ 
++## Enroll in the Early Access Program (EAP)
++
++Play Games Rewards is available to Early Access Partners (EAP). To enroll in
++the EAP, complete the following steps:
++
++1. In the [Google Play Console](https://play.google.com/console/u/0/developers/help-and-support), select a game.
++2. Navigate to **Help** \> **Support tickets**.
++3. Select **Create support ticket**.
++4. Select **Play Programs**.
++5. Select **Google Play Games Level Up**.
++6. Select **I need help meeting a specific guideline**.
++7. Select **Play Games Rewards**.
++8. In the description, type your request to join the Play Games Rewards EAP.
++9. Click **Submit**.
++
++You will receive an email notification once your game has been enrolled in
++the EAP.
++
+ ## Test Play Games Rewards
+ 
++After enrolling in the EAP, you can test the Play Games Rewards.
++
+ For more information on how to test the Play Games Rewards flow, see
+-[Google Play Billing Library Testing and troubleshooting guide](https://developer.android.com/google/play/billing/test).
+\ No newline at end of file
++[Test Rewards](https://developer.android.com/games/test-rewards).
+\ No newline at end of file

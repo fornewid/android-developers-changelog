@@ -1,0 +1,20 @@
+diff --git a/docs/jetpack/androidx/releases/web.md b/docs/jetpack/androidx/releases/web.md
+index bf5f2717..2f824a78 100644
+--- a/docs/jetpack/androidx/releases/web.md
++++ b/docs/jetpack/androidx/releases/web.md
+@@ -26,7 +26,6 @@ your app or module:
+ ```groovy
+ dependencies {
+     implementation "androidx.web:web:1.0.0-alpha01"
+-    implementation "androidx.web:web-compose:1.0.0-alpha01"
+ }
+ ```
+ 
+@@ -35,7 +34,6 @@ dependencies {
+ ```kotlin
+ dependencies {
+     implementation("androidx.web:web:1.0.0-alpha01")
+-    implementation("androidx.web:web-compose:1.0.0-alpha01")
+ }
+ ```
+ 

@@ -1,0 +1,47 @@
+diff --git a/docs/studio/gemini/feature-comparison.md b/docs/studio/gemini/feature-comparison.md
+index 7606d28d..1fb15bf4 100644
+--- a/docs/studio/gemini/feature-comparison.md
++++ b/docs/studio/gemini/feature-comparison.md
+@@ -4,8 +4,13 @@ url: https://developer.android.com/studio/gemini/feature-comparison
+ source: md.txt
+ ---
+ 
+-Gemini in Android Studio is available in different editions for different use
+-cases. [Choose the product tier](https://developer.android.com/studio/gemini/overview#choose-tier) and edition that are right for you.
++If you're using the Gemini model, AI in Android Studio is available in different
++editions for different use cases. [Choose the product tier](https://developer.android.com/studio/gemini/overview#choose-tier) and edition that
++are right for you.
++
++Note that if you're using Gemini, we recommend using Google
++Antigravity as your coding agent because it provides you with more quota and
++access to the latest models.
+ 
+ ## Individual
+ 
+@@ -17,9 +22,9 @@ tier.
+ > [!NOTE]
+ > Google One AI Pro and AI Ultra memberships include additional benefits such as higher rate limits, Gemini in Google Docs and Gmail, higher usage limits on products such as Nano Banana and NotebookLM, and 2 TB or more of cloud storage. [Find the right Google One plan for you](https://one.google.com/intl/en_us/about/google-ai-plans/#compare-plans).
+ >
+-> If you already subscribe to Google One, you automatically get the Gemini in Android Studio added benefits at no cost.
++> If you already subscribe to Google One, you automatically get the AI in Android Studio added benefits at no cost.
+ 
+-| Gemini in Android Studio | Free | API key | Google One AI Pro | Google One AI Ultra |
++| Gemini | Free | API key | Google One AI Pro | Google One AI Ultra |
+ | Rate limits | Limited | Higher | Higher | Highest |
+ | Context window | Limited | Pay per token | Expanded | Expanded |
+ | Data used for AI training (See [Data and privacy](https://developer.android.com/studio/gemini/data-and-privacy)) | Yes | No | No | No |
+@@ -28,12 +33,12 @@ tier.
+ | Configure context sharing with `.aiexclude` files | Included | Included | Included | Included |
+ | Android UI development - Generate Compose previews - Transform UI - Generate UI with image attachments | Included | Included | Included | Included |
+ | Android integrations - Fix build errors - Get help with Logcat crashes - Analyze crashes in App Quality Insights | Included | Included | Included | Included |
+-| Test with Journeys with Gemini | Included | Included | Included | Included |
++| Journeys for Android Studio | Included | Included | Included | Included |
+ |---|---|---|---|---|
+ 
+ ### Next steps
+ 
+-See [Get started with Gemini in Android Studio](https://developer.android.com/studio/gemini/get-started).
++See [Get started with AI in Android Studio](https://developer.android.com/studio/gemini/get-started).
+ 
+ ## Business
+ 

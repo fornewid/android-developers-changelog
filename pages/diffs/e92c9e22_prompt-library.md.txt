@@ -1,0 +1,25 @@
+diff --git a/docs/studio/gemini/prompt-library.md b/docs/studio/gemini/prompt-library.md
+index fb035920..4cd636f5 100644
+--- a/docs/studio/gemini/prompt-library.md
++++ b/docs/studio/gemini/prompt-library.md
+@@ -31,18 +31,13 @@ To add a prompt, follow these steps:
+ 6. Optional: Clear the **Show in Prompt Library menu** checkbox if you don't want the prompt to appear in the [Prompt Library menu](https://developer.android.com/studio/gemini/prompt-library#use-saved-prompt).
+ 7. Click the **Apply** button to save changes and continue configuring settings. To save changes and exit the settings dialog immediately, click the **OK** button.
+ 
+-You can also right-click on a prompt in chat to save it for later use. To
+-apply a saved prompt, right-click in the Editor and navigate to
+-**Gemini \> Prompt Library** to apply the prompt.
+-![The 'Add to Prompt Library' context menu in Android Studio.](https://developer.android.com/static/studio/gemini/images/add-to-prompt-library.png) Figure 2: Save a prompt from the editor.
+-
+ ## Use a saved prompt
+ 
+ To use a prompt from the Prompt Library, follow these steps:
+ 
+ 1. Highlight the relevant code, if applicable to the prompt that you're planning to use. If the prompt doesn't reference specific code, it doesn't matter where your cursor is in the file.
+-2. To get your list of prompts, right-click in the editor and go to **Gemini \> Prompt Library**.
+-3. To submit the prompt to Gemini, select the prompt from the menu.
++2. To get your list of prompts, right-click in the editor and go to **AI \> Prompt Library \> Open Prompt Library**.
++3. To submit the prompt to the agent, select the prompt from the menu.
+ 
+ ## Share and manage project-level prompts
+ 

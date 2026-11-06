@@ -1,0 +1,24 @@
+diff --git a/docs/studio/gemini/availability.md b/docs/studio/gemini/availability.md
+index 09929dfc..8244cc4f 100644
+--- a/docs/studio/gemini/availability.md
++++ b/docs/studio/gemini/availability.md
+@@ -4,8 +4,8 @@ url: https://developer.android.com/studio/gemini/availability
+ source: md.txt
+ ---
+ 
+-Gemini in Android Studio is available in many countries and territories, with
+-support for the English language.
++Android Studio's built-in agent is available in many countries and territories,
++with support for the English language.
+ 
+ We'll gradually expand to more countries and territories in a way that is
+ consistent with local regulations and our
+@@ -13,7 +13,7 @@ consistent with local regulations and our
+ some locations depends on your version of Android Studio. For the widest
+ geographic availability, make sure you're using the [latest version](https://developer.android.com/studio).
+ 
+-**Gemini in Android Studio is available in the following countries and
++**The built-in agent is available in the following countries and
+ territories:**
+ 
+ - Åland Islands

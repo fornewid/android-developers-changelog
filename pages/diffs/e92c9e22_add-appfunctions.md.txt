@@ -1,0 +1,115 @@
+diff --git a/docs/ai/appfunctions/add-appfunctions.md b/docs/ai/appfunctions/add-appfunctions.md
+index e074bddb..bfc6750c 100644
+--- a/docs/ai/appfunctions/add-appfunctions.md
++++ b/docs/ai/appfunctions/add-appfunctions.md
+@@ -11,7 +11,7 @@ correctly.
+ ## Version compatibility
+ 
+ This implementation requires that your project `compileSdk` be set to API level
+-36 or higher.
++37 or higher. Your project must use Android Gradle Plugin 9.1.0 or higher.
+ 
+ Your app is not required to verify whether AppFunctions are supported; this is
+ automatically handled within the AppFunctions Jetpack library.
+@@ -25,10 +25,10 @@ build.gradle) file, and configure the KSP plugin in your top-level app module as
+ shown:
+ 
+     dependencies {
+-      implementation("androidx.appfunctions:appfunctions:1.0.0-alpha10")
++      implementation("androidx.appfunctions:appfunctions:1.0.0-beta01")
+       // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
+       // See Add the KSP plugin to your project
+-      ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-alpha10")
++      ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-beta01")
+     }
+ 
+ ## Implement AppFunctions logic
+@@ -91,7 +91,7 @@ abstract class BaseTaskAppFunctionService : AppFunctionService() {
+ - By default, an AppFunction implementation runs in the Android UI thread. Therefore, a long-running operation should do the following:
+   - Declare the AppFunction as a suspend function.
+   - Switch to a suitable coroutine dispatcher when the operation could block the thread.
+-- When `isDescribedByKDoc` is set to `true`, the function description or the serializable description is encoded as part of the `AppFunctionMetadata` to help the agent understand how to use the app's AppFunction.
++- When `isDescribedByKDoc` is set to `true`, the function description or the serializable description is encoded as part of the `AppFunctionMetadata` to help the agent understand how to use the app's AppFunction. Starting with version 1.0.0-beta01, `isDescribedByKDoc` has no default value, so set it explicitly.
+ 
+ ## Declare the AppFunction service in your manifest
+ 
+@@ -139,8 +139,8 @@ two-step process:
+ **Step 1. Make the function disabled by default**
+ 
+ To prevent the function from being accessible before your feature flag is
+-verified, set the `isEnabled` parameter of your `@AppFunction` annotation to
+-`false`.
++verified, set the `isEnabled` parameter of your `@AppFunctionDeclaration`
++annotation to `false`.
+ 
+ 
+ ```kotlin
+@@ -154,10 +154,11 @@ suspend fun createTask(
+ 
+ **Step 2. Dynamically enable the function at runtime**
+ 
+-For each `AppFunction` class, the compiler generates a corresponding class
+-containing function ID constants (using an `Ids` suffix). You can use these
+-generated ID constants alongside the `setAppFunctionEnabled` method from
+-`AppFunctionManagerCompat` to change a function's enabled state at runtime.
++For each `@AppFunctionServiceEntryPoint` class, the compiler generates a
++corresponding class containing function ID constants (using an `Ids` suffix).
++You can use these generated ID constants alongside the `setAppFunctionEnabled`
++method from `AppFunctionManager` to change a function's enabled state at
++runtime.
+ 
+ 
+ ```kotlin
+@@ -209,8 +210,8 @@ information, we recommend following these guidelines:
+ To verify whether you have correctly integrated AppFunctions, you can use `adb
+ shell cmd app_function`.
+ 
+-Use `adb shell cmd app_function list-app-functions | grep --after-context 10
+-$myPackageName` to see details of the AppFunctions your app provides.
++Use `adb shell cmd app_function list-app-functions --package $myPackageName` to
++see details of the AppFunctions your app provides.
+ 
+ You can also execute an AppFunction directly from the command line using its
+ explicit identifier (`"$enclosingClassName#$methodName"`):
+@@ -230,21 +231,26 @@ as the following:
+ 
+     Execute `adb shell cmd app_function` to learn how the tool works, then act as a
+     chat agent aiming to invoke AppFunctions to fulfil user prompts for this app.
+-    Rely on the AppFunction description as instructions.
++    Use the AppFunction descriptions to choose functions and parameters.
+ 
+ ## Migrate from lower API versions
+ 
+ In version 1.0.0-alpha10, AppFunctions introduced a compile-time
+ `@AppFunctionServiceEntryPoint` architecture that consolidates library
+ dependencies and replaces legacy configuration providers
+-(`AppFunctionConfiguration.Provider`).
+-
+-If your app currently uses an earlier version of AppFunctions (such as
+-1.0.0-alpha09), you can automate your migration using the [AppFunctions agent
++(`AppFunctionConfiguration.Provider`). Version 1.0.0-alpha12 removed the legacy
++providers. Version 1.0.0-alpha13 renamed the `@AppFunction` annotation to
++`@AppFunctionDeclaration`, and version 1.0.0-beta01 renamed the
++`appfn:description` attribute in your app metadata XML file to
++`appfn:instructions`.
++
++If your app uses an earlier version of AppFunctions (such as 1.0.0-alpha09 or
++1.0.0-alpha10), you can automate your migration using the [AppFunctions agent
+ skill](https://developer.android.com/ai/appfunctions/add-appfunctions#android-skills-card__implement-appfunctions) in an AI IDE like Gemini in Android Studio. The skill contains
+ dedicated migration rules that guide an agent to consolidate your build
+ dependencies, create the required `@AppFunctionServiceEntryPoint` service
+-wrapper, decouple context parameters, and update your manifest declarations.
++wrapper, decouple context parameters, update your manifest declarations, and
++apply the 1.0.0-beta01 renames.
+ 
+ 
+ ## Android skills
+@@ -259,6 +265,6 @@ Use the AppFunctions [Android skill](https://developer.android.com/tools/agents/
+ 
+ To activate the skill, try the following prompt:
+ 
+-    Use the AppFunctions migration skill to upgrade my app's AppFunctions implementation from 1.0.0-alpha09 to the 1.0.0-alpha10 @AppFunctionServiceEntryPoint architecture.
++    Use the AppFunctions skill to upgrade my app's AppFunctions implementation to 1.0.0-beta01.
+ 
+ <br />
+\ No newline at end of file

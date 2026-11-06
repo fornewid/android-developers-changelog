@@ -1,5 +1,1289 @@
 [
   {
+    "date": "2026-11-06T15:09:37Z",
+    "commit_hash": "e92c9e22",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/ai-in-android\" target=\"_blank\">AI in Android Studio - Android Developers</a>",
+        "path": "ai-in-android.md",
+        "summary": "Updated the Android Studio download links and headings from version 2026.2.2 to 2026.2.2 Patch 1. This update provides developers with the latest patch release binaries and ensures accurate download references across Linux and ChromeOS installation options.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_ai-in-android.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/appfunctions/add-appfunctions\" target=\"_blank\">Add the AppFunctions API to your app</a>",
+        "path": "ai/appfunctions/add-appfunctions.md",
+        "summary": "Updated the AppFunctions documentation to reflect the release of version 1.0.0-beta01 and Android Gradle Plugin 9.1.0 requirements (with compileSdk bumped to API 37). Key changes include upgrading dependency versions, noting that `isDescribedByKDoc` no longer has a default value, renaming the `@AppFunction` annotation to `@AppFunctionDeclaration`, updating `AppFunctionManagerCompat` references to `AppFunctionManager`, refining `adb` shell commands, and detailing migration steps for recent alpha and beta releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_add-appfunctions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog\" target=\"_blank\">The Android Developers' Blog</a>",
+        "path": "blog.md",
+        "summary": "The blog documentation was updated to add a new post about intelligent apps and AI agents from the Android Developer Summit by Jingyu Shi, while removing an older case study post regarding Grab's performance optimizations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_blog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/7\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/7.md",
+        "summary": "Updated author profile details for Jingyu Shi, changing the title from 'Staff Developer Relations Engineer' to 'Developer Relations Manager' and updating the post count from 1 to 2 to reflect their latest contributions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/jingyu-shi\" target=\"_blank\">Jingyu Shi</a>",
+        "path": "blog/authors/jingyu-shi.md",
+        "summary": "Updated author profile for Jingyu Shi to reflect a new title as Developer Relations Manager (previously Staff Developer Relations Engineer) and added a new blog post titled 'From in-app agents to the Android intelligence system: What's new in intelligent apps at the Android Developer Summit'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_jingyu-shi.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news.md",
+        "summary": "The product news blog category page was updated to include a new post regarding intelligent apps and AI agents announced at the Android Developer Summit, while removing an older post about the Googlebook Linux Terminal Preview. This keeps the developer documentation current with the latest platform highlights and feature releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_product-news.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/10\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/10.md",
+        "summary": "The product news blog index was updated to include the latest post regarding the stable release of Jetpack Compose April '26 (version 1.11 with shared element debug tools and trackpad events) while removing an older post about Android Studio Panda 3.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/11\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/11.md",
+        "summary": "The product news blog index was updated to include a new post regarding Android Studio Panda 3, focusing on enhanced guidance and control for agent mode, while an older post about Media3 1.10 was removed from this page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/12\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/12.md",
+        "summary": "Added an announcement for the release of Media3 1.10 featuring Material3-based playback widgets, ExoPlayer format support improvements, and Transformer updates, while removing an older post regarding desktop app design guidance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_12.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/13\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/13.md",
+        "summary": "The product news blog index was updated to include a new post regarding desktop app design resources and the Android Design Gallery, while an older post about Android Studio Panda 2 was removed from this page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_13.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/14\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/14.md",
+        "summary": "The product news category page has been updated to include a new blog post entry for Android Studio Panda 2 (\"Go from prompt to working prototype with Android Studio Panda 2\" by Matt Dyor) while removing an older entry regarding the Android 17 First Beta. This keeps the product news feed current with the latest tooling releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_14.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/15\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/15.md",
+        "summary": "Added an announcement for the release of the first beta of Android 17 by Matthew McCullough, focusing on privacy, security, and performance enhancements. Additionally, an older post regarding the Android Studio Otter 3 Feature Drop was removed in the pagination update.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_15.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/16\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/16.md",
+        "summary": "The product news blog index was updated to include the announcement for Android Studio Otter 3 Feature Drop, highlighting new agentic experiences and LLM flexibility, while an older end-of-year post regarding Google Play was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_16.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/17\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/17.md",
+        "summary": "The product news category page has been updated to include a new blog post entry from Sam Bright regarding Google Play's 2025 growth tools, while removing an older entry about the Jetpack Compose December '25 release. This keeps the product news feed fresh and accurately reflects the latest developer-focused publications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/18\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/18.md",
+        "summary": "The product news blog listing page was updated to include the Jetpack Compose December '25 release announcement (introducing core Compose modules v1.10 and Material 3 v1.4) while removing an older entry for CameraX 1.5.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_18.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/19\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/19.md",
+        "summary": "Updated the Product News blog category page (19.md) by adding the new blog post \"Introducing CameraX 1.5: Powerful Video Recording and Pro-level Image Capture\" by Scott Nien and removing an older entry regarding Android XR optimization with Unity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_19.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/2\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/2.md",
+        "summary": "Added a new blog post entry for the 'Googlebook Linux Terminal Preview' while removing an older entry about the AndroidX Security State Libraries from the product news category page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/20\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/20.md",
+        "summary": "Updated the Product News blog category page by adding a new post about optimizing performance for Android XR with Unity by Luke Hopkins, while removing an older post regarding the Android Studio Narwhal 4 Feature Drop.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_20.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/21\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/21.md",
+        "summary": "Updated the product news blog list to add the Android Studio Narwhal 4 Feature Drop announcement and removed an outdated entry for Google I/O 2025.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_21.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/22\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/22.md",
+        "summary": "Added a new blog post entry by Fahd Imtiaz regarding Google I/O 2025 and building adaptive Android apps for various form factors. This update keeps developers informed about modern UI adaptation strategies across the expanding Android ecosystem.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_22.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/3\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/3.md",
+        "summary": "The product news blog category page was updated to include the announcement of the stable release of AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries, while an older post regarding AAOS SDV security was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/4\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/4.md",
+        "summary": "Added a new blog post entry regarding 'AAOS SDV - Secure by Design' to the product news category, detailing how Android Automotive OS leverages virtualization and market-proven platforms for security. At the same time, an older blog post concerning 'Delivering safer, age-appropriate experiences on Google Play' was removed from this page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/5\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/5.md",
+        "summary": "The product news category page was updated to include a new blog post entry regarding safer, age-appropriate experiences on Google Play by Paul Feng, while an older post concerning expanded billing choices and lower fees was removed. This keeps the product news feed current with the latest platform guidelines and safety initiatives.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/6\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/6.md",
+        "summary": "Updated the product news blog listing by adding a new post on expanded billing choices and lower fees on Google Play by Paul Feng, while removing an older post about building premium Android experiences at Google I/O '26.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/7\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/7.md",
+        "summary": "Updated the Product News category page to include a new blog post about building premium Android experiences showcased at Google I/O '26 by Ataul Munim, while removing an older post regarding Google Play updates from the list.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/8\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/8.md",
+        "summary": "Added a new blog post entry for 'I/O 2026: What's new in Google Play' by Paul Feng and removed an older entry regarding Jetpack Compose UI development, keeping the product news category page up to date with the latest Google I/O announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/9\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/9.md",
+        "summary": "Added a new blog post entry regarding 'Android UI Development is Compose First' by Nick Butcher and removed an older entry for the April '26 Jetpack Compose release. This keeps the product news page updated with the latest strategic announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest.md",
+        "summary": "The Android developer blog 'The Latest' page was updated to include a new product news post regarding intelligent apps and AI agents from the Android Developer Summit by Jingyu Shi, while removing an older post about Android Studio Quail 4 and adjusting topic tag ordering.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_latest.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/10\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/10.md",
+        "summary": "Updated the latest Android blog documentation by adding the 'Now in Android #121' post entry, removing an older CameraX and Jetpack Compose blog post, and reordering topic tags to keep the feed current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/11\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/11.md",
+        "summary": "Added a new blog post entry regarding the creation of a spotlight effect using CameraX and Jetpack Compose, authored by Jolanda Verhoef, alongside minor topic tag reordering. This update keeps developers informed about recent Android tooling guides and visual effects implementations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/2\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/2.md",
+        "summary": "The Android blog updates page was updated to include a new post regarding Android Studio Quail 4 and Gemma 4 integration, while removing an older post entry and slightly reordering some topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/3\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/3.md",
+        "summary": "The Android developer blog listing page was updated to include a new post about building intelligent Android apps using AppFunctions by Ben Weiss, while removing an older post regarding Android for Cars. These updates keep developers informed on the latest platform features and intelligent app integration tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/4\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/4.md",
+        "summary": "Updated the latest blog list by adding a new post about 'What's new in Android for Cars' and removing an older post regarding experimental hybrid inference and Gemini models, alongside minor topic tag reordering.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/5\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/5.md",
+        "summary": "Added a new blog post entry regarding experimental hybrid inference and new Gemini models for Android by Thomas Ezan, removed an older post about desktop app design by Ivy Knight, and adjusted the ordering of topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/6\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/6.md",
+        "summary": "Added a new blog post entry regarding desktop experience guidance and design gallery updates by Ivy Knight, while removing an older post about ML Kit's GenAI Prompt API from the latest updates page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/7\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/7.md",
+        "summary": "Added a new blog post announcement for ML Kit's GenAI Prompt API focusing on Automated Prompt Optimization (APO), removed an older Android Studio Otter 2 release post, and reordered tag links at the bottom of the page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/8\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/8.md",
+        "summary": "The Android developer blog index was updated to include the announcement for the stable release of the Android Studio Otter 2 Feature Drop, while removing an older post regarding battery performance metrics and wake locks. These changes keep the latest announcements feed current and relevant for developers tracking platform tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/9\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/9.md",
+        "summary": "Added a new blog post announcement regarding the excessive partial wake locks metric leaving beta to help developers improve battery performance, while removing an older 'Now in Android #121' post and reordering topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness\" target=\"_blank\">A new era for choice and openness</a>",
+        "path": "blog/posts/a-new-era-for-choice-and-openness.md",
+        "summary": "The blog post list was updated to include a new article about intelligent apps and the Android intelligence system by Jingyu Shi, while removing an older post regarding contact permissions on Android.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_a-new-era-for-choice-and-openness.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads\" target=\"_blank\">From in-app agents to the Android intelligence system: What's new in intelligent apps at the Android Developer Summit</a>",
+        "path": "blog/posts/android-intelligence-system-in-app-agents-ads.md",
+        "summary": "This new documentation page outlines updates from the Android Developer Summit regarding intelligent apps and agentic workflows. It details how developers can connect apps to the Android intelligence system using Android MCP, build on-device intelligence with ML Kit and Gemini Nano, and reach high-intent users via the Connected Apps Platform.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable\" target=\"_blank\">Android Studio Otter 2 Feature Drop is stable!</a>",
+        "path": "blog/posts/android-studio-otter-2-feature-drop-is-stable.md",
+        "summary": "The 'Continue reading' section of the Android Studio Otter 2 Feature Drop stable post was updated to feature a new related article about intelligent apps and the Android intelligence system from the Android Developer Summit, replacing the previous post link by Matthew McCullough with a new entry by Jingyu Shi.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_android-studio-otter-2-feature-drop-is-stable.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview\" target=\"_blank\">Announcing Gemma 4 in the AICore Developer Preview</a>",
+        "path": "blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to reference a new article about intelligent apps and the Android intelligence system by Jingyu Shi, replacing the previous reference to Matthew McCullough's article on agentic Android development.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_announcing-gemma-4-in-the-ai-core-developer-preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5\" target=\"_blank\">Beyond Single Features: Guaranteeing Feature Combinations With CameraX 1.5</a>",
+        "path": "blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5.md",
+        "summary": "The git diff shows updates to the related blog posts and promotional links section at the bottom of the CameraX 1.5 documentation page. Specifically, a new post regarding intelligent apps and the Android Developer Summit was added, while an older post about contact permissions was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies\" target=\"_blank\">Boosting user privacy and business protection with updated Play policies</a>",
+        "path": "blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies.md",
+        "summary": "The 'Continue reading' section of the blog post was updated to include a new promotional post about intelligent apps and AI agents from the Android Developer Summit, while removing an older entry regarding Android Studio AI agent integrations. These changes keep the recommended reading list fresh and relevant to the latest Android developer ecosystem updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_boosting-user-privacy-and-business-protection-with-updated-play-policies.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-native-android-apps-in-google-ai-studio\" target=\"_blank\">Build native Android apps in Google AI Studio</a>",
+        "path": "blog/posts/build-native-android-apps-in-google-ai-studio.md",
+        "summary": "The documentation's 'Continue reading' section was updated to include a recent blog post about the Android intelligence system and in-app agents from the Android Developer Summit, while removing an older post regarding contact permissions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_build-native-android-apps-in-google-ai-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash\" target=\"_blank\">Build smarter apps with Gemini 3 Flash</a>",
+        "path": "blog/posts/build-smarter-apps-with-gemini-3-flash.md",
+        "summary": "Updated the related reading section in the Gemini 3 Flash documentation to feature a new blog post about the Android intelligence system and in-app agents from the Android Developer Summit, replacing the previous reference to the agentic development post.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_build-smarter-apps-with-gemini-3-flash.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini\" target=\"_blank\">Building a Mixed-Reality Tour Guide with Android XR, the Geospatial API, and Gemini</a>",
+        "path": "blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the end of the blog post to feature a new article on intelligent apps and Android AI systems from the Android Developer Summit, while removing an older post regarding contact permissions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/dynamic-app-links-elevating-your-android-deep-linking\" target=\"_blank\">Dynamic App Links: Elevating your Android deep linking</a>",
+        "path": "blog/posts/dynamic-app-links-elevating-your-android-deep-linking.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to add a new recommendation on intelligent apps from the Android Developer Summit, while removing an older post regarding contact permissions. This keeps the related articles section fresh and relevant to the latest Android ecosystem developments.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_dynamic-app-links-elevating-your-android-deep-linking.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration\" target=\"_blank\">Elevating app quality: Reducing memory usage and improving device migration</a>",
+        "path": "blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to add a new recommendation on intelligent apps from the Android Developer Summit while removing an older post about contact permissions. This keeps the related reading links fresh and aligned with current Android developer priorities.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_elevating-app-quality-reducing-memory-usage-and-improving-device-migration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2\" target=\"_blank\">Elevating media playback: A deep dive into Media3's PreloadManager - Part 2</a>",
+        "path": "blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2.md",
+        "summary": "Updated the \"Continue reading\" recommended blog posts section at the bottom of the article. Specifically, a post regarding Android intelligent apps by Jingyu Shi was added, and an older post about Android Studio AI agents by Matthew Warner was removed to keep the recommended reading fresh and relevant.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data\" target=\"_blank\">Enhancing Android security: Stop malware from snooping on your app data</a>",
+        "path": "blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data.md",
+        "summary": "Updated the 'Continue reading' section at the bottom of the article to replace a related post link and author reference with a newer post regarding intelligent apps and AI agents from the Android Developer Summit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_enhancing-android-security-stop-malware-from-snooping-on-your-app-data.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content\" target=\"_blank\">Ensuring Safety in the Generative AI Ecosystem: Protecting Users from Non-Consensual Intimate Content</a>",
+        "path": "blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content.md",
+        "summary": "Updated the \"Continue reading\" section at the end of the post to replace an older blog post reference with a new article about intelligent apps and the Android intelligence system from the Android Developer Summit, ensuring readers have access to the latest relevant content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android\" target=\"_blank\">Experimental hybrid inference and new Gemini models for Android</a>",
+        "path": "blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android.md",
+        "summary": "The git diff shows an update to the 'Continue reading' section of the blog post, replacing a recommended article reference. The previous link to 'Agentic and Flexible: A next era of Android development' by Matthew McCullough has been replaced with a new Android Developer Summit article titled 'From in-app agents to the Android intelligence system: What's new in intelligent apps at the Android Developer Summit' by Jingyu Shi, along with updated author profiles, publication dates, banners, and topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_experimental-hybrid-inference-and-new-gemini-models-for-android.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/faster-compiles\" target=\"_blank\">18% Faster Compiles, 0% Compromises</a>",
+        "path": "blog/posts/faster-compiles.md",
+        "summary": "The footer section containing related blog post recommendations and continue reading links was updated. A new article regarding intelligent apps and AI agents from the Android Developer Summit by Jingyu Shi was added, while an older article about contacts permissions was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_faster-compiles.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio\" target=\"_blank\">Gemini 3 is now available for AI assistance in Android Studio</a>",
+        "path": "blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio.md",
+        "summary": "The related blog posts and recommended reading section at the end of the Gemini 3 Android Studio article was updated to include a new post on intelligent apps from the Android Developer Summit while removing an older post regarding contact permissions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_gemini-3-is-now-available-for-ai-assistance-in-android-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop\" target=\"_blank\">Get inspired and take your apps to desktop</a>",
+        "path": "blog/posts/get-inspired-and-take-your-apps-to-desktop.md",
+        "summary": "The blog post's 'Continue reading' section was updated to include a new promotional card for intelligent apps from the Android Developer Summit while removing an older post regarding contact permissions. This keeps the recommended reading list current with recent AI-focused announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_get-inspired-and-take-your-apps-to-desktop.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm\" target=\"_blank\">Introducing the Googlebook Linux Terminal Preview: A VM-Backed Environment for AI and Development</a>",
+        "path": "blog/posts/googlebook-linux-terminal-preview-vm.md",
+        "summary": "The 'Continue reading' blog post recommendations section of the documentation was updated. Specifically, a new post regarding intelligent apps and the Android intelligence system by Jingyu Shi was added, while an older post regarding AI agents in Android Studio by Matthew Warner was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_googlebook-linux-terminal-preview-vm.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api\" target=\"_blank\">How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API</a>",
+        "path": "blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api.md",
+        "summary": "Updated the 'Continue reading' section at the end of the post to reference a newer Android Developer Summit blog post ('From in-app agents to the Android intelligence system') by Jingyu Shi, replacing the older placeholder article reference.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable\" target=\"_blank\">Jetpack WindowManager 1.5 is stable</a>",
+        "path": "blog/posts/jetpack-window-manager-1-5-is-stable.md",
+        "summary": "The 'Continue reading' section at the end of the Jetpack WindowManager 1.5 stable release post was updated to include a recent article about intelligent apps and Android AI features from the Android Developer Summit, while removing an older reference to Android Studio AI integrations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_jetpack-window-manager-1-5-is-stable.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development\" target=\"_blank\">Land your apps on Googlebook with adaptive development</a>",
+        "path": "blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md",
+        "summary": "Updated the 'Continue reading' section at the end of the post to replace a previous recommendation about the Googlebook Linux Terminal Preview with a new article regarding intelligent apps and the Android intelligence system by Jingyu Shi.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_land-your-apps-on-googlebook-with-adaptive-development.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4\" target=\"_blank\">Level up your development with Planning Mode and Next Edit Prediction in Android Studio Panda 4</a>",
+        "path": "blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4.md",
+        "summary": "Updated the 'Continue reading' section recommendations at the bottom of the Android Studio Panda 4 blog post. It replaced a related post reference by Matthew McCullough with a newer Android Developer Summit post by Jingyu Shi focusing on intelligent apps, updating the associated author profile, publication date, banner image, title, excerpt, and topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/material-3-adaptive-1-2-0-is-stable\" target=\"_blank\">Material 3 Adaptive 1.2.0 is stable</a>",
+        "path": "blog/posts/material-3-adaptive-1-2-0-is-stable.md",
+        "summary": "The blog post's related articles and recommended reading section was updated. A new promotional card for the Android Developer Summit regarding intelligent apps and AI agents was added, while an older post card regarding contacts permissions was removed to keep the suggested content fresh and relevant.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_material-3-adaptive-1-2-0-is-stable.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/media3-1-10-is-out\" target=\"_blank\">Media3 1.10 is out</a>",
+        "path": "blog/posts/media3-1-10-is-out.md",
+        "summary": "Updated the 'Continue reading' blog recommendations section at the bottom of the Media3 1.10 release post to include a recent article on intelligent apps from the Android Developer Summit while removing an older post about contact permissions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_media3-1-10-is-out.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences\" target=\"_blank\">ML Kit's Prompt API: Unlock Custom On-Device Gemini Nano Experiences</a>",
+        "path": "blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to feature a new article about intelligent apps and Android's intelligence system from the Android Developer Summit, replacing the previous reference to general Android development tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/modernizing-the-room\" target=\"_blank\">Room 3.0 - Modernizing the Room</a>",
+        "path": "blog/posts/modernizing-the-room.md",
+        "summary": "The 'Continue reading' section of the Room modernization blog post was updated to include a new related article about intelligent apps and the Android intelligence system by Jingyu Shi, while removing an older post regarding contact management permissions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_modernizing-the-room.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025\" target=\"_blank\">Notes from Google Play: A look back at the tools that powered your growth in 2025</a>",
+        "path": "blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025.md",
+        "summary": "The recent update to the Google Play year-in-review blog post modifies the 'Continue reading' recommendations section by adding a new related post about intelligent apps and the Android intelligence system by Jingyu Shi, while removing an older post regarding contact management permissions by Roxanna Aliabadi Walker. This update ensures that readers are directed to the latest AI-focused developer content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17\" target=\"_blank\">Prepare your app for the resizability and orientation changes in Android 17</a>",
+        "path": "blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to replace a featured article link about general Android development tools with a new article focusing on intelligent apps, AI agents, and the Android Developer Summit announcements from Jingyu Shi.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio\" target=\"_blank\">Supercharge your Android development with 6 expert tips for Gemini in Android Studio</a>",
+        "path": "blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio.md",
+        "summary": "Updated the 'Continue reading' section recommendations to replace an older post reference with a newer article about intelligent apps and the Android intelligence system from the Android Developer Summit, including updated author attribution, publication date, promotional banner, and topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/the-fourth-beta-of-android-17\" target=\"_blank\">The Fourth Beta of Android 17</a>",
+        "path": "blog/posts/the-fourth-beta-of-android-17.md",
+        "summary": "The blog post list has been updated to include a new article about intelligent apps and the Android intelligence system from the Android Developer Summit by Jingyu Shi, while removing an older entry regarding contact management permissions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_the-fourth-beta-of-android-17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/top-3-updates-for-android-developer-productivity\" target=\"_blank\">Top 3 updates for Android developer productivity</a>",
+        "path": "blog/posts/top-3-updates-for-android-developer-productivity.md",
+        "summary": "Updated the 'Continue reading' section to replace an older post reference about general agentic development by Matthew McCullough with a newer Android Developer Summit post by Jingyu Shi focusing on intelligent apps, in-app agents, and the Android intelligence system. This keeps the recommended reading fresh and aligned with the latest AI-focused Android updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_top-3-updates-for-android-developer-productivity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26\" target=\"_blank\">Top AI on Android updates for building intelligent experiences from Google I/O '26</a>",
+        "path": "blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md",
+        "summary": "Updated author title details for Jingyu Shi from Staff Developer Relations Engineer to Developer Relations Manager, and updated the 'Continue reading' section at the end of the post to include a new Android Developer Summit post regarding intelligent apps while removing an older post about contacts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature\" target=\"_blank\">Ready to review some changes but not others? Try using Play Console's new Save for later feature</a>",
+        "path": "blog/posts/try-using-play-consoles-new-save-for-later-feature.md",
+        "summary": "The blog post's sidebar recommendations were updated to include a new article about intelligent apps and AI agents from the Android Developer Summit, while removing an older article regarding contact permissions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_try-using-play-consoles-new-save-for-later-feature.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences\" target=\"_blank\">What's new in Android for Cars: Unifying platforms and unlocking premium experiences</a>",
+        "path": "blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences.md",
+        "summary": "The 'Continue reading' section of the Android for Cars blog post was updated to replace a generic product news reference with a targeted recommendation for the Android Developer Summit article on intelligent apps and AI agents. This change keeps the related reading links current and contextually relevant to modern AI-driven Android development.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/jetpack-compose\" target=\"_blank\">#Jetpack Compose</a>",
+        "path": "blog/topics/jetpack-compose.md",
+        "summary": "Added a new blog post entry regarding intelligent apps and AI agents at the Android Developer Summit to the Jetpack Compose documentation feed. This update helps developers stay informed about how modern AI features and multi-step workflows integrate with Android development.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_jetpack-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/animations/screen-slide-2\" target=\"_blank\">Slide between fragments using ViewPager2</a>",
+        "path": "develop/ui/views/animations/screen-slide-2.md",
+        "summary": "The documentation was updated to remove redundant links pointing to the ViewPager2 sample repository on GitHub, streamlining the reference section and reducing duplicate external links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_screen-slide-2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/animations/vp2-migration\" target=\"_blank\">Migrate from ViewPager to ViewPager2</a>",
+        "path": "develop/ui/views/animations/vp2-migration.md",
+        "summary": "Updated multiple sample app links in the ViewPager2 migration guide to point to the new androidx/androidx repository instead of the deprecated views-widgets-samples repository, and removed a broken samples link section.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_vp2-migration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-audio\" target=\"_blank\">Add spatial audio to your XR app</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-spatial-audio.md",
+        "summary": "Updated the Jetpack XR SDK spatial audio documentation to reflect API changes in the codebase. The method used to check spatial capabilities was updated from `hasCapability()` to `spatialCapabilities`, and the reference for the first-order Ambisonics constant was updated to `SpatializerConstants.AmbisonicsOrder.FIRST_ORDER()` to ensure developers use the correct and current API references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_add-spatial-audio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-xr-to-existing\" target=\"_blank\">Bring your Android app into 3D with XR</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-xr-to-existing.md",
+        "summary": "Updated documentation links and API references for the Jetpack XR SDK. Specifically, links to large screen quality guidelines were redirected to adaptive app quality guidelines, the Views in XR documentation link was updated, and reference URLs for `SpatialPanel`, `SpatialColumn`, and `SpatialSpacer` were corrected to match current API signatures.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_add-xr-to-existing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/check-spatial-capabilities\" target=\"_blank\">Check for spatial capabilities</a>",
+        "path": "develop/xr/jetpack-xr-sdk/check-spatial-capabilities.md",
+        "summary": "Updated reference links for the `DisplayBlendMode` API to reflect package path changes in the Jetpack XR Runtime library (moving from `XrDevice.DisplayBlendMode` to `DisplayBlendMode`), and corrected a broken \"Create a session\" documentation link in the 'See also' section.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_check-spatial-capabilities.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/notifications/behavior\" target=\"_blank\">Understand notification behavior for audio glasses and display glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glasses/notifications/behavior.md",
+        "summary": "Updated documentation links across the notification behavior guide for Jetpack XR glasses to point to the new Compose-based notification documentation URLs instead of the older Views-based ones. This ensures developers are directed to the most up-to-date best practices, channels, live updates, and direct reply resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_behavior.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/glimmer/voice-input-indicator\" target=\"_blank\">Voice input indicator in Jetpack Compose Glimmer</a>",
+        "path": "develop/xr/jetpack-xr-sdk/glimmer/voice-input-indicator.md",
+        "summary": "Updated the Jetpack XR SDK documentation for the voice input indicator to simplify permission requests. The code snippet now references `ProjectedActivityCompat.requestPermissions` directly instead of using separate request parameter and result contract classes, making it easier for developers to implement hardware permissions correctly in projected environments.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_voice-input-indicator.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/subspace-modifiers\" target=\"_blank\">Understand subspace modifiers</a>",
+        "path": "develop/xr/jetpack-xr-sdk/subspace-modifiers.md",
+        "summary": "The subspace-modifiers documentation was updated to remove references to the deprecated `Meter.toDp()` conversion utility method for sizing and positioning composables. Additionally, the device tracking mode requirement for user-facing rotation modifiers was updated from `DeviceTrackingMode.SPATIAL_LAST_KNOWN` to `DeviceTrackingMode.SPATIAL`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_subspace-modifiers.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/unreal/setup\" target=\"_blank\">Unreal Engine project setup</a>",
+        "path": "develop/xr/unreal/setup.md",
+        "summary": "Updated the minimum required Android Studio version from Rabbit 2 | 2026.2.2 to Rabbit 2 | 2026.2.2 Patch 1 or higher in the Unreal XR setup documentation. This ensures developers use a version with necessary bug fixes and stability improvements for XR development.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/faq\" target=\"_blank\">Frequently asked questions</a>",
+        "path": "games/playgames/native-pc/faq.md",
+        "summary": "Updated the Google Play Games on PC FAQ documentation to add comprehensive troubleshooting guidance for billing product query and purchase flow internal errors. The new entry explains why overloading IPC and backend connections with rapid or unbatched SKU queries fails, details best practices such as respecting the 50-item batch limit, reusing the BillingClient instance, pacing concurrent requests, and recommends updating to SDK version 26.9.261.0 for improved stability. Corresponding FAQ item numbers were also shifted to accommodate the addition.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_faq.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/rewards\" target=\"_blank\">Rewards</a>",
+        "path": "games/rewards.md",
+        "summary": "Added documentation for enrolling in the Early Access Program (EAP) for Play Games Rewards via the Google Play Console support ticket system, updated testing references, and corrected spelling from 'Monetise' to 'Monetize'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_rewards.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/test-rewards\" target=\"_blank\">Test Rewards</a>",
+        "path": "games/test-rewards.md",
+        "summary": "Added documentation for the Play Billing Lab app, detailing how to use out-of-app purchase (OOAP) preview testing to validate backend integrations for Play Games Rewards.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/vitals/code-optimization\" target=\"_blank\">DEX code optimization</a>",
+        "path": "google/play/vitals/code-optimization.md",
+        "summary": "Updated the DEX code optimization documentation to reflect new measurement workflows, specifically introducing the `android analyze` command-line tool for checking uncompressed DEX size and optimization scores that match Android vitals. The updates also clarify how scores are calculated using `r8.json` for newer versions of AGP (8.10+), expand guidance to include non-R8 and Bazel build systems, and refine troubleshooting instructions for analyzing large DEX files and library consumer keep rules.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_code-optimization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/sign-in/restore-credentials-implementation-common\" target=\"_blank\">Android Developers</a>",
+        "path": "identity/sign-in/restore-credentials-implementation-common.md",
+        "summary": "Updated the Restore Credentials implementation guide with detailed technical requirements, including precise GMS version numbers, exception handling for unsupported devices, WebAuthn relying party server integration rules, comprehensive JSON request payload structures and Base64URL encoding rules, and specific behaviors regarding `android:allowBackup` and local sync flag management.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_restore-credentials-implementation-common.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/sign-in/restore-credentials-implementation\" target=\"_blank\">Implement Restore Credentials with Credential Manager</a>",
+        "path": "identity/sign-in/restore-credentials-implementation.md",
+        "summary": "Updated the Restore Credentials implementation guide with detailed instructions on version compatibility fallbacks, WebAuthn server-side configuration, `android:allowBackup` nuances, local sync flag management to prevent backup pollution, and precise JSON structure requirements for credential creation options.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_restore-credentials-implementation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/sign-in/restore-credentials\" target=\"_blank\">About Restore Credentials</a>",
+        "path": "identity/sign-in/restore-credentials.md",
+        "summary": "The Restore Credentials documentation has been significantly updated to include implementation guidance, error handling for `E2eeUnavailableException`, expanded device-to-device transfer methods (including wireless Wi-Fi), and specific backup exclusion rules for sensitive security tokens. Additionally, it clarifies multi-profile behavior on enterprise devices, outlines precise system requirements (Android 9+ and Google Play services 242200000+), and adds comprehensive next steps linking to implementation, testing, and AI agent skill resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_restore-credentials.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/sign-in/test-restore-credentials\" target=\"_blank\">Test Restore Credentials</a>",
+        "path": "identity/sign-in/test-restore-credentials.md",
+        "summary": "Updated the documentation for testing restore credentials using Android Studio to include explicit hardware and software prerequisites, detailed configuration steps for background restoration, and instructions for command-line testing with `adb` (`bmgr`) and automated JUnit 5 host tests.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_test-restore-credentials.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack\" target=\"_blank\">Android Jetpack Dev Resources - Android Developers</a>",
+        "path": "jetpack.md",
+        "summary": "Updated the description placeholder for the text-vertical Jetpack library from 'TODO' to '--' in the documentation table.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_jetpack.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/explorer\" target=\"_blank\">Explore the Jetpack libraries by type</a>",
+        "path": "jetpack/androidx/explorer.md",
+        "summary": "Updated the description placeholder for the text-vertical Jetpack library from \"TODO\" to \"--\" in the AndroidX explorer documentation. This is a minor editorial cleanup with no impact on library functionality.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_explorer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/web\" target=\"_blank\">Web</a>",
+        "path": "jetpack/androidx/releases/web.md",
+        "summary": "The `androidx.web:web-compose` dependency has been removed from the setup instructions in the web release documentation. This matters because it indicates a change in the library's packaging or initial release scope, leaving only the core `androidx.web:web` module as the required dependency for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_web.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/latest-updates\" target=\"_blank\">Android latest updates</a>",
+        "path": "latest-updates.md",
+        "summary": "The latest-updates documentation was updated to reflect new release versions and dates for Android developer tools. Specifically, Android Studio Rabbit 3 advanced to Canary 3, Rabbit 2 received a Patch 1 release, and Android Gradle Plugin 9.5.0 along with the studio releases were updated with a release date of November 5, 2026.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_latest-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/session/control-playback\" target=\"_blank\">Control and advertise playback using a MediaSession</a>",
+        "path": "media/media3/session/control-playback.md",
+        "summary": "Added a new guide section detailing how to publish structured playlist metadata and manage playlist IDs using Media3. This explains how to use item-level playlist IDs and player-level playlist metadata to standardize playback tracking, enable system-level entry points, and handle playlist resumption in both Kotlin and Java.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_control-playback.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio\" target=\"_blank\">Download Android Studio</a>",
+        "path": "studio.md",
+        "summary": "Updated the Android Studio download links, package filenames, file sizes, and SHA-256 checksums across all supported platforms (Windows, macOS, Linux, and ChromeOS) to reflect the release of Android Studio Rabbit 2 | 2026.2.2 Patch 1.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/add-api-key\" target=\"_blank\">Add your own Gemini API key</a>",
+        "path": "studio/gemini/add-api-key.md",
+        "summary": "The documentation for adding a Gemini API key in Android Studio has been updated to reflect general model terminology (shifting away from specific mentions like 'Gemini 3 Pro' and 'Agent Mode' to broader references like 'Gemini-based agents' and 'later models'). Additionally, the settings path was updated to instruct users to click 'Google AI Studio' instead of 'Gemini', and a reference screenshot was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_add-api-key.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/add-mcp-server\" target=\"_blank\">Add an MCP server</a>",
+        "path": "studio/gemini/add-mcp-server.md",
+        "summary": "The documentation for adding Model Context Protocol (MCP) servers in Android Studio was updated to reflect UI changes. It now describes adding servers via the marketplace or the \"Add via JSON\" option, and updates references from \"Gemini in Android Studio's agent\" to simply \"the agent\".",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_add-mcp-server.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/agent-mode\" target=\"_blank\">Agent Mode</a>",
+        "path": "studio/gemini/agent-mode.md",
+        "summary": "Updated the documentation for Agent Mode in Android Studio by generalizing references from 'Gemini' to 'AI' and 'the model'. This change reflects the broader integration of AI models within the IDE's agent-assisted workflows.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_agent-mode.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/analyze-crashes-with-aqi\" target=\"_blank\">Analyze crashes with App Quality Insights</a>",
+        "path": "studio/gemini/analyze-crashes-with-aqi.md",
+        "summary": "The documentation for analyzing crashes with App Quality Insights in Android Studio was updated to replace references to \"Gemini\" with \"AI\" or \"the agent\" to align with branding updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_analyze-crashes-with-aqi.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/analyze-runtime-errors-with-logcat\" target=\"_blank\">Analyze runtime errors with Logcat</a>",
+        "path": "studio/gemini/analyze-runtime-errors-with-logcat.md",
+        "summary": "The documentation was updated to reflect rebranding changes in Android Studio, specifically replacing references to \"Gemini\" and \"Ask Gemini\" with \"agent\" and \"Fix with AI\" respectively, along with updated screenshot references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_analyze-runtime-errors-with-logcat.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/attach-file\" target=\"_blank\">Attach a file to your query</a>",
+        "path": "studio/gemini/attach-file.md",
+        "summary": "The documentation for attaching files in Android Studio chats was updated to reflect the transition from Gemini-specific branding to a more generalized 'agent' terminology. Additionally, instructions and UI descriptions for un-attaching files and managing automatic file suggestions were simplified.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_attach-file.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/attach-image\" target=\"_blank\">Attach an image to your query</a>",
+        "path": "studio/gemini/attach-image.md",
+        "summary": "The documentation was updated to reflect UI changes in Android Studio, specifically replacing references to the old \"Attach Image File\" button with the new \"Add Context > Media\" option and rebranding \"Gemini\" to \"the agent\" throughout the text.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_attach-image.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/automate-dependency-updates\" target=\"_blank\">Automate dependency updates</a>",
+        "path": "studio/gemini/automate-dependency-updates.md",
+        "summary": "The documentation for automating dependency updates in Android Studio was updated to replace brand-specific references to \"Gemini\" with \"the agent\" and to reflect UI changes, such as renaming the menu option from \"Update Dependencies\" and \"Update all libraries with Gemini\" to \"Update All Libraries with AI\" along with updated image paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_automate-dependency-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/availability\" target=\"_blank\">Gemini availability</a>",
+        "path": "studio/gemini/availability.md",
+        "summary": "The documentation was updated to rebrand references of 'Gemini in Android Studio' to 'the built-in agent'. This matters as it reflects a shift in product nomenclature and branding within the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_availability.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/best-practices\" target=\"_blank\">Best practices</a>",
+        "path": "studio/gemini/best-practices.md",
+        "summary": "Updated the documentation to rebrand references from 'Gemini' to 'the agent' throughout the Android Studio best practices guide, and removed the dedicated 'Use Agent Mode' section.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_best-practices.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/code-completion\" target=\"_blank\">Accelerate coding with AI code completion</a>",
+        "path": "studio/gemini/code-completion.md",
+        "summary": "The documentation for AI code completion in Android Studio was updated to introduce Next Edit Prediction as the default experience for certain Gemini models, with instructions on how to toggle between it and traditional completion. Additionally, references to 'Gemini' were updated to 'AI in Android Studio' or 'the agent', and permission configuration links and settings paths were revised.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_code-completion.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/code-transformation\" target=\"_blank\">Transform code</a>",
+        "path": "studio/gemini/code-transformation.md",
+        "summary": "The documentation for code transformation in Android Studio has been updated to reflect the transition from Gemini-specific branding to a generalized 'agent' terminology and 'AI > Inline edit' menu options. This matters because it aligns the documentation with the latest Android Studio UI updates and feature naming conventions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_code-transformation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/create-a-new-project-with-ai\" target=\"_blank\">Create a new project with AI</a>",
+        "path": "studio/gemini/create-a-new-project-with-ai.md",
+        "summary": "The documentation was updated to rephrase specific references to Gemini into generic mentions of 'the agent', relocate and rename the section detailing how to enhance the experience with a custom API key, and update the associated screenshot path for adding the API key in settings.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_create-a-new-project-with-ai.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/feature-comparison\" target=\"_blank\">Choose a tier</a>",
+        "path": "studio/gemini/feature-comparison.md",
+        "summary": "The feature comparison documentation has been updated to rebrand references of 'Gemini in Android Studio' to 'AI in Android Studio' and to introduce a recommendation for using Google Antigravity as a coding agent for higher quotas and model access. Additionally, table headers and feature names (such as 'Test with Journeys with Gemini' updated to 'Journeys for Android Studio') were revised to reflect current product naming conventions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_feature-comparison.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/generate-commit-messages\" target=\"_blank\">Generate commit messages</a>",
+        "path": "studio/gemini/generate-commit-messages.md",
+        "summary": "Updated the documentation for generating commit messages with Gemini in Android Studio by replacing references to \"Gemini\" with \"the agent\" and correcting the asset path for the suggest commit message icon. This matters for keeping the documentation aligned with rebranded terminology and fixing broken image links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_generate-commit-messages.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/generate-compose-previews\" target=\"_blank\">Generate Compose previews</a>",
+        "path": "studio/gemini/generate-compose-previews.md",
+        "summary": "The documentation for generating Compose previews using AI in Android Studio was updated to reflect rebranding changes (shifting from specific 'Gemini' terminology to general 'AI' and 'agent' references) and to update the UI navigation instructions and context menu options for generating previews.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_generate-compose-previews.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/generate-ui-with-images\" target=\"_blank\">Generate UI with image attachments</a>",
+        "path": "studio/gemini/generate-ui-with-images.md",
+        "summary": "The documentation was updated to reflect UI changes in Android Studio's Gemini integration, specifically updating instructions for attaching images (changing from 'Attach image file' to 'Add Context > Media') and adjusting figure numbering and branding terminology (transitioning from 'Gemini' to 'the AI agent'). Additionally, a note regarding the no-cost tier availability for image attachments was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_generate-ui-with-images.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/generate-unit-tests\" target=\"_blank\">Generate unit tests</a>",
+        "path": "studio/gemini/generate-unit-tests.md",
+        "summary": "The documentation was updated to rebrand references from Gemini to the generic \"agent\" terminology and removed the deprecated section on generating unit test scenarios only. This matters because it reflects the evolution of Android Studio's AI features toward a more unified agentic workflow for complete test generation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_generate-unit-tests.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/get-started\" target=\"_blank\">Get started with AI in Android Studio</a>",
+        "path": "studio/gemini/get-started.md",
+        "summary": "The get-started documentation for Gemini in Android Studio has been updated to reflect the transition to new agent-based workflows, including UI changes for launching agents, selecting models, navigating settings, and updated links to relevant guides.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/journeys\" target=\"_blank\">Journeys for Android Studio</a>",
+        "path": "studio/gemini/journeys.md",
+        "summary": "Updated the Android Studio Gemini journeys documentation to rebrand references of 'Gemini' to 'the agent', and updated setup instructions to reflect configuring an agent of choice.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_journeys.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/next-edit-prediction\" target=\"_blank\">Next Edit Prediction</a>",
+        "path": "studio/gemini/next-edit-prediction.md",
+        "summary": "The Next Edit Prediction (NEP) documentation was updated to refer generically to 'the agent' instead of 'Gemini' and removed specific version examples (like Flash 2.5, 3.0, or Flash-Lite 3.0) from the paid model requirement note, keeping it generalized to developers with a paid Gemini flash model enabled.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_next-edit-prediction.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/overview\" target=\"_blank\">About AI in Android Studio</a>",
+        "path": "studio/gemini/overview.md",
+        "summary": "The documentation has been updated to generalize references from 'Gemini' to 'AI in Android Studio' and 'agents', reflecting support for multiple coding agents. It also introduces recommendations for using Google Antigravity with Gemini models and adjusts heading levels for better content hierarchy.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/prompt-library\" target=\"_blank\">Save and manage prompts with the Prompt Library</a>",
+        "path": "studio/gemini/prompt-library.md",
+        "summary": "The Gemini prompt library documentation has been updated to reflect branding and UI navigation changes in Android Studio. References to the 'Gemini' menu and right-click saving shortcuts were removed, and the navigation path for accessing saved prompts was updated to 'AI > Prompt Library > Open Prompt Library', aligning with the rebranding from Gemini to AI and updated agent terminology.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_prompt-library.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/rethink-variable-names\" target=\"_blank\">Rethink variable names</a>",
+        "path": "studio/gemini/rethink-variable-names.md",
+        "summary": "The documentation for Gemini in Android Studio was updated to replace references to 'Gemini' with 'the agent', and the section detailing how to rethink all variables in a function or file was removed. This matters because it reflects recent rebranding or terminology shifts in the tooling and removes outdated instructions for batch variable refactoring.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_rethink-variable-names.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/rules\" target=\"_blank\">Customize your experience with Rules</a>",
+        "path": "studio/gemini/rules.md",
+        "summary": "The documentation has been updated to rebrand references from \"Gemini\" to \"the agent\" and to reflect updated navigation paths for accessing the Prompt Library and Settings dialog in Android Studio.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_rules.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/transform-ui\" target=\"_blank\">Transform UI</a>",
+        "path": "studio/gemini/transform-ui.md",
+        "summary": "The documentation was updated to reflect changes in Android Studio's UI transformation feature. References to \"Gemini\" were changed to generic terms like \"the agent\" or \"AI\", and the menu option to access the feature was updated from \"Transform UI with Gemini\" to \"AI Actions > Edit Component\" along with its corresponding screenshot.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_transform-ui.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/troubleshooting\" target=\"_blank\">Troubleshooting</a>",
+        "path": "studio/gemini/troubleshooting.md",
+        "summary": "The troubleshooting documentation for Android Studio was updated to rebrand references from 'Gemini' to generic 'AI' and 'the agent' terminology, reflecting a shift toward agentic development features and updated tier naming like Gemini Enterprise.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_troubleshooting.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/use-a-local-model\" target=\"_blank\">Use a local model</a>",
+        "path": "studio/gemini/use-a-local-model.md",
+        "summary": "The documentation for using local models in Android Studio was updated to reflect a broader rebranding from specific 'Gemini' terminology to more general terms like 'cloud-based models' and the 'Agent' tool window. These changes help generalize the AI assistant features beyond just Gemini while streamlining the setup and performance comparison instructions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_use-a-local-model.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/install\" target=\"_blank\">Install Android Studio</a>",
+        "path": "studio/install.md",
+        "summary": "Updated the Android Studio installation documentation to reflect the release of Android Studio Rabbit 2 | 2026.2.2 Patch 1. This update modifies the download headers, button text, file names, and download URLs to point to the new patch versions (build 2026.2.2.9) across supported platforms such as Linux and ChromeOS.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_install.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview\" target=\"_blank\">Android Studio Preview</a>",
+        "path": "studio/preview.md",
+        "summary": "Updated the Android Studio preview documentation to reference Android Studio Rabbit 3 2026.2.3 Canary 3 across all download links and headers, replacing Canary 2. This ensures developers download the latest canary build with updated binaries for Windows, macOS (Apple and Intel chips), and Linux.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/gemini/ai-code-completion\" target=\"_blank\">Accelerate coding with AI code completion  |  Android Studio  |  Android Developers</a>",
+        "path": "studio/preview/gemini/ai-code-completion.md",
+        "summary": "The documentation for AI code completion in Android Studio was updated to reflect rebranding changes, shifting terminology from specific references to \"Gemini\" to more general terms like \"AI\" and \"the agent\". Additionally, references to settings pathways and permission configurations were updated to align with current IDE interfaces.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_ai-code-completion.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery\" target=\"_blank\">Android Studio</a>",
+        "path": "studio/prompt-gallery.md",
+        "summary": "The prompt gallery documentation was updated to broaden its focus from exclusively Gemini in Android Studio to any coding agent of choice. This matters as it reflects the expansion of tool support and makes the resource more versatile for developers using different AI assistants.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_prompt-gallery.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/accessibility-review\" target=\"_blank\">Accessibility review</a>",
+        "path": "studio/prompt-gallery/prompts/accessibility-review.md",
+        "summary": "Updated the accessibility-review documentation to reflect recent UI and settings path changes in Android Studio, replacing references to the 'Gemini' sidebar with 'Agent' and updating the prompt library settings path to 'Settings > Tools > AI > Prompt Library'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_accessibility-review.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/add-parameter-to-compose-file\" target=\"_blank\">Add parameter to Compose file</a>",
+        "path": "studio/prompt-gallery/prompts/add-parameter-to-compose-file.md",
+        "summary": "Updated the Android Studio Gemini prompt gallery documentation to reflect UI and settings path changes, specifically replacing references to 'Gemini' with 'Agent' and updating the Prompt Library settings path from 'Settings > Gemini > Prompt Library' to 'Settings > Tools > AI > Prompt Library'. This matters because it ensures users have accurate instructions for navigating the IDE to use and save prompts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_add-parameter-to-compose-file.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/analyze-compose-layout\" target=\"_blank\">Analyze Compose layout</a>",
+        "path": "studio/prompt-gallery/prompts/analyze-compose-layout.md",
+        "summary": "Updated the documentation to reflect UI and settings path changes in Android Studio. The instructions now refer to the 'Agent' sidebar instead of 'Gemini' and point to the new settings path under 'Settings > Tools > AI > Prompt Library'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_analyze-compose-layout.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/analyze-performance-bottlenecks\" target=\"_blank\">Analyze performance bottlenecks</a>",
+        "path": "studio/prompt-gallery/prompts/analyze-performance-bottlenecks.md",
+        "summary": "Updated the prompt instructions to reflect UI changes in Android Studio. The sidebar tool reference was changed from 'Gemini' to 'Agent', and the settings path for the Prompt Library was updated from 'Settings > Gemini > Prompt Library' to 'Settings > Tools > AI > Prompt Library' to match the latest IDE navigation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_analyze-performance-bottlenecks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/android-auto-layout-optimization\" target=\"_blank\">Android Auto layout optimization</a>",
+        "path": "studio/prompt-gallery/prompts/android-auto-layout-optimization.md",
+        "summary": "Updated the documentation to reflect changes in the Android Studio user interface, specifically changing references from the 'Gemini' sidebar to the 'Agent' sidebar and updating the settings path for the Prompt Library to 'Settings > Tools > AI > Prompt Library'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_android-auto-layout-optimization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/convert-layout-xml-into-compose\" target=\"_blank\">Convert layout.xml into Compose</a>",
+        "path": "studio/prompt-gallery/prompts/convert-layout-xml-into-compose.md",
+        "summary": "Updated Android Studio UI terminology and settings paths in the conversion prompt documentation. Specifically, references to the Gemini sidebar were changed to Agent, and the prompt library settings path was updated to reflect the new Tools > AI menu structure, ensuring users follow the correct navigation steps in the latest IDE versions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_convert-layout-xml-into-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/custom-component-accessibility\" target=\"_blank\">Custom component accessibility</a>",
+        "path": "studio/prompt-gallery/prompts/custom-component-accessibility.md",
+        "summary": "Updated the Android Studio instructions in the custom component accessibility prompt to reference the 'Agent' sidebar instead of 'Gemini' and updated the navigation path for the Prompt Library in settings, reflecting recent UI and branding updates in the IDE.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_custom-component-accessibility.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/generate-billing-client\" target=\"_blank\">Generate a BillingClient</a>",
+        "path": "studio/prompt-gallery/prompts/generate-billing-client.md",
+        "summary": "Updated instructions in the generate-billing-client prompt documentation to reflect UI changes in Android Studio. References to the 'Gemini' sidebar and settings paths were updated to 'Agent' and 'Settings > Tools > AI > Prompt Library' to match current IDE tooling.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_generate-billing-client.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/generate-dart-tests\" target=\"_blank\">Generate Dart tests</a>",
+        "path": "studio/prompt-gallery/prompts/generate-dart-tests.md",
+        "summary": "Updated instructions in the generate-dart-tests.md prompt documentation to reflect UI changes in Android Studio. References to the 'Gemini' sidebar have been updated to 'Agent', and the path to the Prompt Library in settings was changed to 'Settings > Tools > AI > Prompt Library'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_generate-dart-tests.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/generate-dartdoc-for-function\" target=\"_blank\">Generate DartDoc for Function</a>",
+        "path": "studio/prompt-gallery/prompts/generate-dartdoc-for-function.md",
+        "summary": "Updated the documentation for running and saving prompts in Android Studio. The UI reference for the sidebar tool was changed from 'Gemini' to 'Agent', and the settings path for the Prompt Library was updated from 'Settings > Gemini > Prompt Library' to 'Settings > Tools > AI > Prompt Library' to reflect recent IDE changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_generate-dartdoc-for-function.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/generic-compose-list-optimization\" target=\"_blank\">Generic Compose list optimization</a>",
+        "path": "studio/prompt-gallery/prompts/generic-compose-list-optimization.md",
+        "summary": "Updated the Android Studio instructions to reflect UI and settings navigation changes, specifically replacing references to 'Gemini' with 'Agent' and updating the Prompt Library settings path to 'Settings > Tools > AI > Prompt Library'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_generic-compose-list-optimization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/network-serialization-and-data-classes\" target=\"_blank\">network-serialization-and-data-classes.md</a>",
+        "path": "studio/prompt-gallery/prompts/network-serialization-and-data-classes.md",
+        "summary": "Updated the Android Studio instructions for running and saving prompts, reflecting UI terminology changes where 'Gemini' was replaced by 'Agent' and the settings path for the Prompt Library was moved to 'Settings > Tools > AI > Prompt Library'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_network-serialization-and-data-classes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/optimize-complication-tile-battery-life\" target=\"_blank\">Optimize complication/tile battery life</a>",
+        "path": "studio/prompt-gallery/prompts/optimize-complication-tile-battery-life.md",
+        "summary": "Updated instructions in the complication and tile battery optimization prompt documentation to reflect UI changes in Android Studio. References to the 'Gemini' sidebar and settings paths were updated to 'Agent' and the new AI tools path ('Settings > Tools > AI > Prompt Library') to ensure accuracy for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_optimize-complication-tile-battery-life.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/optimize-for-controller-input\" target=\"_blank\">Optimize for controller input</a>",
+        "path": "studio/prompt-gallery/prompts/optimize-for-controller-input.md",
+        "summary": "Updated instructions in the Android Studio prompt gallery documentation to reflect UI changes. The reference to the sidebar item was updated from 'Gemini' to 'Agent', and the path to access the Prompt Library in Settings was updated from 'Gemini' to 'Tools > AI', ensuring accuracy with the latest IDE layout.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_optimize-for-controller-input.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/optimize-watch-face-for-screen-shapes\" target=\"_blank\">Optimize watch face for screen shapes</a>",
+        "path": "studio/prompt-gallery/prompts/optimize-watch-face-for-screen-shapes.md",
+        "summary": "Updated the Android Studio instructions for running and saving prompts to reflect UI changes, replacing references to the Gemini sidebar and settings path with the new Agent sidebar and Tools > AI > Prompt Library navigation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_optimize-watch-face-for-screen-shapes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/query-product-details\" target=\"_blank\">Query for ProductDetails</a>",
+        "path": "studio/prompt-gallery/prompts/query-product-details.md",
+        "summary": "Updated the Android Studio instructions in the prompt documentation to reference the new 'Agent' sidebar tab instead of 'Gemini' and updated the navigation path for the Prompt Library in settings to 'Settings > Tools > AI > Prompt Library'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_query-product-details.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/refactor-for-large-screens-xml\" target=\"_blank\">Refactor for large screens (XML)</a>",
+        "path": "studio/prompt-gallery/prompts/refactor-for-large-screens-xml.md",
+        "summary": "Updated the Android Studio instructions in the prompt documentation to reference the new 'Agent' sidebar instead of 'Gemini' and corrected the path to the Prompt Library in Settings to 'Tools > AI > Prompt Library', ensuring developers follow the latest UI paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_refactor-for-large-screens-xml.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/refactoring\" target=\"_blank\">Refactoring</a>",
+        "path": "studio/prompt-gallery/prompts/refactoring.md",
+        "summary": "Updated the Android Studio documentation instructions to reflect changes in the UI and settings navigation. Specifically, references to the Gemini sidebar were updated to Agent, and the prompt library settings path was updated to reflect the new Tools > AI menu structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_refactoring.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/restyle-prompt\" target=\"_blank\">Restyle prompt</a>",
+        "path": "studio/prompt-gallery/prompts/restyle-prompt.md",
+        "summary": "Updated the Android Studio instructions in the restyle prompt documentation to reflect UI changes. The sidebar panel is now referred to as 'Agent' instead of 'Gemini', and the settings path for the Prompt Library was updated from 'Settings > Gemini > Prompt Library' to 'Settings > Tools > AI > Prompt Library'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_restyle-prompt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/suggest-missing-permissions\" target=\"_blank\">Suggest missing permissions</a>",
+        "path": "studio/prompt-gallery/prompts/suggest-missing-permissions.md",
+        "summary": "Updated the documentation for the 'suggest-missing-permissions' prompt to reflect UI changes in Android Studio. References to the 'Gemini' sidebar were updated to 'Agent', and the path to access the Prompt Library was updated from 'Settings > Gemini > Prompt Library' to 'Settings > Tools > AI > Prompt Library'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_suggest-missing-permissions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/suggest-new-features\" target=\"_blank\">Suggest new features</a>",
+        "path": "studio/prompt-gallery/prompts/suggest-new-features.md",
+        "summary": "Updated the Android Studio instructions in the prompt documentation to reference the new 'Agent' sidebar tab instead of 'Gemini' and corrected the settings path to 'Settings > Tools > AI > Prompt Library' to reflect recent IDE interface changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_suggest-new-features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/tv-design-review\" target=\"_blank\">TV design review</a>",
+        "path": "studio/prompt-gallery/prompts/tv-design-review.md",
+        "summary": "Updated the Android Studio instructions in the TV design review prompt documentation to reflect UI terminology and settings path changes, replacing references to 'Gemini' with 'Agent' and updating the Prompt Library path to 'Settings > Tools > AI > Prompt Library'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_tv-design-review.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/prompt-gallery/prompts/validate-handling-of-configuration-changes\" target=\"_blank\">Validate handling of configuration changes</a>",
+        "path": "studio/prompt-gallery/prompts/validate-handling-of-configuration-changes.md",
+        "summary": "Updated instructions for running and saving prompts in Android Studio to reflect UI changes. Specifically, references to 'Gemini' in the sidebar were updated to 'Agent', and the settings path for the Prompt Library was changed from 'Settings > Gemini > Prompt Library' to 'Settings > Tools > AI > Prompt Library'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_validate-handling-of-configuration-changes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases\" target=\"_blank\">Android Studio Rabbit 2</a>",
+        "path": "studio/releases.md",
+        "summary": "Updated the Android Studio release documentation to point to Android Studio Rabbit 2 | 2026.2.2 Patch 1 (build version 2026.2.2.9), updating download links and file names for Linux and ChromeOS packages.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_releases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/emulator/37\" target=\"_blank\">Android Emulator 37 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/emulator/37.md",
+        "summary": "Added release notes for Android Emulator 37.3.7 Canary, indicating the inclusion of minor fixes and improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_37.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.2\" target=\"_blank\">Android Studio Rabbit 2 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/studio/2026.2.2.md",
+        "summary": "Added release notes for Android Studio Rabbit 2 | 2026.2.2 Patch 1, highlighting its release alongside Android Gradle Plugin 9.5.1 and minor fixes. This keeps developers informed about the latest patch updates and their corresponding AGP versions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_2026.2.2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.3\" target=\"_blank\">Android Studio Rabbit 3 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/studio/2026.2.3.md",
+        "summary": "Added release notes for Android Studio Rabbit 3 | 2026.2.3 Canary 3 and Android Gradle Plugin 9.6.0-alpha03, documenting fixes for performance issues, Compose Preview limitations, C++ Prefab shared library packaging, and Gradle build behavior.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_2026.2.3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/services\" target=\"_blank\">Service integrations in Android Studio</a>",
+        "path": "studio/services.md",
+        "summary": "Updated references from \"Gemini in Android Studio\" to \"AI in Android Studio\" across the documentation to reflect rebranding or broader AI integration naming conventions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_services.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/guide/concepts\" target=\"_blank\">Fundamental concepts</a>",
+        "path": "topic/performance/memory/guide/concepts.md",
+        "summary": "Added documentation for memcg (memory control group) accounting as a new metric alongside RSS, PSS, and USS. The updates detail how the kernel tracks memory usage via memcg, outline its benefits and limitations, explain how to use it on devices running Android 17 QPR2 and higher, and update metric selection and field measurement best practices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_concepts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/guide/tools-overview\" target=\"_blank\">Quick assessment tools</a>",
+        "path": "topic/performance/memory/guide/tools-overview.md",
+        "summary": "Updated the memory tools documentation to include details on the new Memory Budget section in `dumpsys meminfo` (available on Android 18 and higher) and added a dedicated guide for reading and tracking `memcg` statistics to monitor app memory usage.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_tools-overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/status-bar\" target=\"_blank\">Coordinate your UI with the system status bar</a>",
+        "path": "training/wearables/status-bar.md",
+        "summary": "The documentation was updated to reflect an API change in Wear OS Compose, replacing the `StatusBarSuppression` composable with the `Modifier.suppressStatusBar` modifier. This change affects how developers implement immersive mode at both the screen and app levels using `ScreenScaffold` and `AppScaffold`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e92c9e22_status-bar.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-05T15:10:38Z",
     "commit_hash": "7809887a",
     "entries": [
