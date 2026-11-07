@@ -1,0 +1,266 @@
+diff --git a/docs/training/wearables/status-bar.md b/docs/training/wearables/status-bar.md
+index cadf67bd..07565440 100644
+--- a/docs/training/wearables/status-bar.md
++++ b/docs/training/wearables/status-bar.md
+@@ -72,32 +72,38 @@ manifest opt-in property is set to `true`:
+ - **On the preview emulator / Wear OS 8+ (when opted in):** `AppScaffold` suppresses its internal `TimeText` so the system status bar renders cleanly at the 12 o'clock position without duplication. `ScreenScaffold` re-calculates `contentPadding` to take Status Bar inset boundaries into account and coordinates hiding and showing the status bar as the list scrolls.
+ - **On Wear OS 7 and older devices (or when not opted in):** `AppScaffold` automatically falls back to rendering the standard in-app `TimeText`, maintaining full backward compatibility from a single codebase.
+ 
+-    @Composable
+-    fun GsbSampleApp() {
+-        // AppScaffold coordinates the system status bar across the app
+-        // and falls back to rendering TimeText on Wear OS 7 and earlier.
+-        AppScaffold {
+-            val columnState = rememberTransformingLazyColumnState()
+-
+-            // ScreenScaffold includes status bar top inset clearance in
+-            // contentPadding and hides/shows the status bar during list scrolling.
+-            ScreenScaffold(scrollState = columnState) { contentPadding ->
+-                TransformingLazyColumn(
+-                    state = columnState,
+-                    contentPadding = contentPadding,
+-                ) {
+-                    item {
+-                        ListHeader { Text("Hello Status Bar") }
+-                    }
+-                    items(count = 15) { index ->
+-                        Button(onClick = { /* Handle click */ }) {
+-                            Text("Item #${index + 1}")
+-                        }
++<br />
++
++```kotlin
++@Composable
++fun GsbSampleApp() {
++    // AppScaffold coordinates the system status bar across the app
++    // and falls back to rendering TimeText on Wear OS 7 and earlier.
++    AppScaffold {
++        val columnState = rememberTransformingLazyColumnState()
++
++        // ScreenScaffold includes status bar top inset clearance in
++        // contentPadding and hides/shows the status bar during list scrolling.
++        ScreenScaffold(scrollState = columnState) { contentPadding ->
++            TransformingLazyColumn(
++                state = columnState,
++                contentPadding = contentPadding,
++            ) {
++                item {
++                    ListHeader { Text("Hello Status Bar") }
++                }
++                items(count = 15) { index ->
++                    Button(onClick = { /* Handle click */ }) {
++                        Text("Item #${index + 1}")
+                     }
+                 }
+             }
+         }
+     }
++}
++```
++
++<br />
+ 
+ Here's what to expect when running the sample:
+ 
+@@ -116,13 +122,19 @@ On screens that use a static layout (such as `Column` or `Box`) rather than a
+ scrolling list, apply the `contentPadding` provided by `ScreenScaffold` to your
+ root layout so top UI elements don't overlap the system status bar:
+ 
+-    AppScaffold {
+-        ScreenScaffold { contentPadding ->
+-            Column(modifier = Modifier.padding(contentPadding)) {
+-                Text("Static Screen Content")
+-            }
++<br />
++
++```kotlin
++AppScaffold {
++    ScreenScaffold { contentPadding ->
++        Column(modifier = Modifier.padding(contentPadding)) {
++            Text("Static Screen Content")
+         }
+     }
++}
++```
++
++<br />
+ 
+ ### Work with full-screen interactive components
+ 
+@@ -149,13 +161,18 @@ If only a specific screen in your app should be full-screen or immersive, apply
+ top status bar inset padding to `0.dp`. When you navigate back to other screens,
+ `ScreenScaffold` restores the system status bar:
+ 
+-    AppScaffold {
+-        ScreenScaffold(modifier = Modifier.suppressStatusBar()) { contentPadding ->
+-            Box(modifier = Modifier.fillMaxSize().padding(contentPadding)) {
+-                // Full-screen immersive content
+-            }
+-        }
++<br />
++
++```kotlin
++AppScaffold {
++    ScreenScaffold {
++        StatusBarSuppression()
++        // Full-screen immersive content
+     }
++}
++```
++
++<br />
+ 
+ To suppress the system status bar while an individual component is on screen,
+ apply `Modifier.suppressStatusBar` directly to that component. This modifier is
+@@ -171,16 +188,23 @@ If your entire app is an immersive full-screen experience, apply
+ `Modifier.suppressStatusBar` to `AppScaffold` to suppress the system status bar
+ across all screens:
+ 
+-    // Apply Modifier.suppressStatusBar() to AppScaffold to suppress the status bar
+-    // and collapse insets across all child screens.
+-    AppScaffold(modifier = Modifier.suppressStatusBar()) {
++<br />
++
++```kotlin
++// Use StatusBarSuppression at AppScaffold level and wrap your content
++// to suppress status bar in the entire scaffold.
++AppScaffold {
++    StatusBarSuppression {
+         SwipeDismissableNavHost(
+-            navController = navController,
+-            startDestination = "home",
++            // ...
+         ) {
+             // Nested screens inherit suppression and 0.dp padding
+         }
+     }
++}
++```
++
++<br />
+ 
+ ### Display custom time text overrides
+ 
+@@ -189,19 +213,25 @@ system status bar on a specific screen or across your app during migration for
+ Wear OS 8, passing a custom `timeText` composable suppresses the system status
+ bar:
+ 
+-    // Screen-level custom TimeText override:
+-    ScreenScaffold(
+-        timeText = { TimeText { timeTextCurvedText("Custom Status") } },
+-    ) {
+-        // Content
+-    }
++<br />
+ 
+-    // App-level opt-out using in-app TimeText:
+-    AppScaffold(
+-        timeText = { TimeText() },
+-    ) {
+-        // Screens
+-    }
++```kotlin
++// Screen-level custom TimeText override:
++ScreenScaffold(
++    timeText = { TimeText { timeTextCurvedText("Custom Status") } },
++) {
++    // Content
++}
++
++// App-level opt-out using in-app TimeText:
++AppScaffold(
++    timeText = { TimeText() },
++) {
++    // Screens
++}
++```
++
++<br />
+ 
+ ## Implement using Views (not recommended)
+ 
+@@ -214,11 +244,15 @@ using `AndroidManifest.xml`. Unlike the
+ status bar automatically, View-based apps must explicitly opt in by adding the
+ `ENABLE_GLOBAL_STATUS_BAR` `<meta-data>` tag inside `<application>`:
+ 
+-    <application ...>
+-        <meta-data
+-            android:name="com.google.wear.ENABLE_GLOBAL_STATUS_BAR"
+-            android:value="true" />
+-    </application>
++<br />
++
++```xml
++<meta-data
++    android:name="com.google.wear.ENABLE_GLOBAL_STATUS_BAR"
++    android:value="true" />
++```
++
++<br />
+ 
+ ### Monitor top window insets
+ 
+@@ -227,21 +261,27 @@ Use `ViewCompat.setOnApplyWindowInsetsListener` and check the value of
+ `statusBarInsets.top > 0`, remove your legacy 12 o'clock UI and adjust top
+ padding; otherwise, fall back to your legacy UI:
+ 
+-    ViewCompat.setOnApplyWindowInsetsListener(rootView) { view, windowInsets ->
+-        val statusBarInsets = windowInsets.getInsets(
+-            WindowInsetsCompat.Type.statusBars()
+-        )
++<br />
+ 
+-        if (statusBarInsets.top > 0) {
+-            // status bar is visible: remove legacy 12 o'clock UI and apply top inset padding
+-            view.updatePadding(top = statusBarInsets.top)
+-        } else {
+-            // status bar is not visible: fall back to legacy UI and padding
+-        }
++```kotlin
++ViewCompat.setOnApplyWindowInsetsListener(rootView) { view, windowInsets ->
++    val statusBarInsets = windowInsets.getInsets(
++        WindowInsetsCompat.Type.statusBars()
++    )
+ 
+-        WindowInsetsCompat.CONSUMED
++    if (statusBarInsets.top > 0) {
++        // status bar is visible: remove legacy 12 o'clock UI and apply top inset padding
++        view.updatePadding(top = statusBarInsets.top)
++    } else {
++        // status bar is not visible: fall back to legacy UI and padding
+     }
+ 
++    WindowInsetsCompat.CONSUMED
++}
++```
++
++<br />
++
+ ### Programmatically hide and show the status bar
+ 
+ Unlike `ScreenScaffold` in Compose, View-based apps must explicitly
+@@ -249,13 +289,19 @@ hide or show the system status bar (for example, when entering a full-screen
+ immersive view or coordinating scroll-away behavior) using
+ `WindowInsetsControllerCompat`:
+ 
+-    val insetsController = WindowCompat.getInsetsController(window, window.decorView)
++<br />
++
++```kotlin
++val insetsController = WindowCompat.getInsetsController(window, window.decorView)
++
++// Hide the status bar
++insetsController.hide(WindowInsetsCompat.Type.statusBars())
+ 
+-    // Hide the status bar
+-    insetsController.hide(WindowInsetsCompat.Type.statusBars())
++// Show the status bar
++insetsController.show(WindowInsetsCompat.Type.statusBars())
++```
+ 
+-    // Show the status bar
+-    insetsController.show(WindowInsetsCompat.Type.statusBars())
++<br />
+ 
+ ## Test your app
+ 

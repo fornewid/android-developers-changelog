@@ -1,0 +1,496 @@
+diff --git a/docs/studio/preview/backup-restore-testing.md b/docs/studio/preview/backup-restore-testing.md
+index a7b521a0..2248b3c8 100644
+--- a/docs/studio/preview/backup-restore-testing.md
++++ b/docs/studio/preview/backup-restore-testing.md
+@@ -39,13 +39,15 @@ let you seed and verify data without writing device actions:
+ 
+ | Storage domain | Data |
+ |---|---|
+-| `StorageDomain.Preference` | A key in a `SharedPreferences` file. |
+-| `StorageDomain.Database` | A row in a SQLite database table. |
+-| `StorageDomain.TextFile` | A text file in your app's internal storage. |
+-| `StorageDomain.BinaryFile` | A binary file in your app's internal storage. |
++| [`StorageDomain.Preference`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/StorageDomain.Preference) | A key in a `SharedPreferences` file. |
++| [`StorageDomain.DataStorePreference`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/StorageDomain.DataStorePreference) | A key in a [Preferences DataStore](https://developer.android.com/topic/libraries/architecture/datastore) file. |
++| [`StorageDomain.Database`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/StorageDomain.Database) | A row in a SQLite database table. |
++| [`StorageDomain.TextFile`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/StorageDomain.TextFile) | A text file in your app's internal storage. |
++| [`StorageDomain.BinaryFile`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/StorageDomain.BinaryFile) | A binary file in your app's internal storage. |
++| [`StorageDomain.ExcludedData`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/StorageDomain.ExcludedData) | Another built-in storage domain whose data shouldn't be restored, such as data excluded by your backup rules. |
+ 
+-To test other data, such as DataStore files, [write device
+-actions](https://developer.android.com/studio/preview/backup-restore-testing#custom-actions).
++To test other data, such as Proto DataStore files or Room databases,
++[write device actions](https://developer.android.com/studio/preview/backup-restore-testing#custom-actions).
+ 
+ ### Transport modes
+ 
+@@ -86,7 +88,7 @@ backup and restore testing:
+ |---|---|---|
+ | Android Studio | Rabbit 2 Canary 1 | Rabbit 2 Canary 4 or higher |
+ | Android Gradle plugin (AGP) | 9.5.0-alpha06 | 9.5.0-alpha09 or higher |
+-| `androidx.test.backup` libraries | 1.0.0-alpha01 | 1.0.0-alpha03 or higher |
++| `androidx.test.backup` libraries | 1.0.0-alpha01 | 1.0.0-alpha04 or higher |
+ 
+ Each preview version of AGP requires the matching preview version of Android
+ Studio. For more information, see [AGP previews](https://developer.android.com/studio/preview/features#agp-previews).
+@@ -113,7 +115,7 @@ the `testOptions` block:
+         testOptions {
+             backupTests {
+                 create("backupTest") {
+-                    backupTestLibraryVersion = "1.0.0-alpha03"
++                    backupTestLibraryVersion = "1.0.0-alpha04"
+                 }
+             }
+         }
+@@ -123,7 +125,7 @@ The suite name, `backupTest` in this example, determines the source set
+ directories and the Gradle task names. You can customize the suite with the
+ following optional properties:
+ 
+-- Use `backupTestLibraryVersion` to set the version of the `androidx.test.backup` libraries that AGP adds to the suite, such as `"1.0.0-alpha03"`. This property is optional. If you omit it, AGP falls back to a default library version based on the AGP version. The examples on this page require version 1.0.0-alpha03 or higher.
++- Use `backupTestLibraryVersion` to set the version of the `androidx.test.backup` libraries that AGP adds to the suite, such as `"1.0.0-alpha04"`. This property is optional. If you omit it, AGP falls back to a default library version based on the AGP version. The examples on this page require version 1.0.0-alpha04 or higher.
+ - Use `targetVariants` to specify the build variants that the suite tests, such as `targetVariants.add("demoDebug")`. This property is optional. If you omit it, the suite tests the variants of your module's `testBuildType`, which is `debug` by default. We recommend testing a debuggable variant because the cloud and device-to-device transport modes require a debuggable app.
+ 
+ AGP adds the host library, `androidx.test.backup:backup-host`, and JUnit 5 to
+@@ -178,7 +180,7 @@ that it uses.
+ 
+ ### Test built-in storage types
+ 
+-To test built-in storage types, call [`runBackupRestoreFlow`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/BackupRestoreController#runBackupRestoreFlow(kotlin.collections.List,java.nio.file.Path,androidx.test.backup.host.BackupTransportMode)) with
++To test built-in storage types, call [`runBackupRestoreFlow`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/BackupRestoreController#runBackupRestoreFlow(kotlin.collections.List,java.nio.file.Path,androidx.test.backup.host.BackupTransportMode,androidx.test.backup.host.BackupRestoreController)) with
+ the data to seed, a directory for the backup file, and a transport mode. The
+ method runs the following steps on the device:
+ 
+@@ -187,11 +189,11 @@ method runs the following steps on the device:
+ 3. Backs up the app.
+ 4. Clears the app's data.
+ 5. Restores the backup.
+-6. Verifies that each storage domain has the seeded value.
++6. Verifies that each storage domain has the seeded value or is absent when wrapped in `StorageDomain.ExcludedData`.
+ 
+ If a step fails, the method throws an exception, which fails the test. The
+-following example tests a `SharedPreferences` key, a SQLite row, and an
+-internal file using the local backup transport:
++following example tests `SharedPreferences`, Preferences DataStore, SQLite, an
++internal file, and an excluded file using the local backup transport:
+ 
+     package com.example.myapp
+ 
+@@ -217,8 +219,13 @@ internal file using the local backup transport:
+                 storages = listOf(
+                     StorageDomain.Preference(
+                         prefName = "settings",
+-                        key = "theme",
+-                        value = "dark",
++                        key = "channels",
++                        value = setOf("news", "alerts"),
++                    ),
++                    StorageDomain.DataStorePreference(
++                        dataStoreName = "user_prefs",
++                        key = "font_scale",
++                        value = 1.25f,
+                     ),
+                     StorageDomain.Database(
+                         dbName = "notes.db",
+@@ -231,6 +238,13 @@ internal file using the local backup transport:
+                         path = "drafts/note.txt",
+                         content = "Buy milk",
+                     ),
++                    // Check that a file excluded by backup rules isn't restored.
++                    StorageDomain.ExcludedData(
++                        StorageDomain.TextFile(
++                            path = "auth/session.txt",
++                            content = "temp-token",
++                        )
++                    ),
+                 ),
+                 outputDir = outputDir,
+                 mode = BackupTransportMode.LOCAL,
+@@ -241,42 +255,35 @@ internal file using the local backup transport:
+ Keep the following in mind when you define storage domains:
+ 
+ - `Preference` takes the name of the `SharedPreferences` file without the `.xml` extension.
++- `DataStorePreference` takes the name passed to `preferencesDataStore`. Use the same Kotlin type for `value` as your app's preference key, such as `1.25f` for `floatPreferencesKey`, so your app can read the restored entry.
+ - `TextFile` and `BinaryFile` resolve relative paths against your app's [`filesDir`](https://developer.android.com/reference/android/content/Context#getFilesDir()).
+-- `Database` writes the row with SQL, and creates the table with `TEXT` columns if the table doesn't exist. If your app uses Room, we recommend testing database content with [device actions](https://developer.android.com/studio/preview/backup-restore-testing#custom-actions) that use your DAOs so that the database has the schema that Room expects.
++- `Database` writes the row with SQL and creates the table with `TEXT` columns if the table doesn't exist. If your app uses Room, test database content with [device actions](https://developer.android.com/studio/preview/backup-restore-testing#custom-actions) that use your DAOs so the database matches Room's schema.
++- `ExcludedData` requires at least one non-excluded storage domain in the same `runBackupRestoreFlow` call.
++- `Preference`, `DataStorePreference`, `Database`, `TextFile`, and `BinaryFile` target device-protected storage instead of your app's default storage when you set `isDeviceProtectedStorage = true`.
+ 
+ ### Write device actions
+ 
+ To seed or verify data that the built-in storage types don't cover, write
+-device actions in the suite's `androidTest` source set. A device action
+-implements `BackupDeviceAction` and overrides two members:
+-
+-- Set `phase` to `BackupDeviceAction.PHASE_POPULATE` for an action that seeds data, or `BackupDeviceAction.PHASE_VERIFY` for an action that checks data.
+-- Implement `execute` to run the action with your app's `Context` and the arguments from the host test. Return a result created with the `BackupDeviceActionResult.success` or `BackupDeviceActionResult.failure` factory method, and pass an error message to `failure`.
++device actions in the suite's `androidTest` source set. Implement
++`BackupDeviceAction` and override `execute` to run the action with your app's
++`Context` and the arguments from the host test. Return a
++[`BackupDeviceActionResult`](https://developer.android.com/reference/kotlin/androidx/test/backup/BackupDeviceActionResult) created with
++`BackupDeviceActionResult.success` or `BackupDeviceActionResult.failure`,
++passing an error message to `failure`.
+ 
+ The `execute` method runs in your app's process on a background thread, so it
+-can block until reads and writes finish.
+-
+-The following example seeds and verifies a theme setting that the app stores
+-with [Preferences DataStore](https://developer.android.com/topic/libraries/architecture/datastore). The app defines the DataStore in its
+-main source set:
+-
+-    // In app/src/main/kotlin/com/example/myapp/Settings.kt
+-    package com.example.myapp
+-
+-    import android.content.Context
+-    import androidx.datastore.preferences.core.stringPreferencesKey
+-    import androidx.datastore.preferences.preferencesDataStore
++can block until reads and writes finish. To access the test runner's
++instrumentation, such as [`UiAutomation`](https://developer.android.com/reference/android/app/UiAutomation), call
++[`InstrumentationRegistry.getInstrumentation`](https://developer.android.com/reference/kotlin/androidx/test/platform/app/InstrumentationRegistry#getInstrumentation()).
+ 
+-    val Context.settingsDataStore by preferencesDataStore(name = "settings")
+-    val THEME_KEY = stringPreferencesKey("theme")
+-
+-The device actions use the same definitions:
++The following example seeds and verifies a theme setting in a
++[Proto DataStore](https://developer.android.com/topic/libraries/architecture/datastore), where `settingsDataStore` is a
++`DataStore<Settings>` property defined in your app:
+ 
+     // In app/src/backupTest/androidTest/kotlin/com/example/myapp/ThemeActions.kt
+     package com.example.myapp
+ 
+     import android.content.Context
+-    import androidx.datastore.preferences.core.edit
+     import androidx.test.backup.BackupDeviceAction
+     import androidx.test.backup.BackupDeviceActionArgs
+     import androidx.test.backup.BackupDeviceActionResult
+@@ -284,8 +291,6 @@ The device actions use the same definitions:
+     import kotlinx.coroutines.runBlocking
+ 
+     class SeedThemeAction : BackupDeviceAction {
+-        override val phase = BackupDeviceAction.PHASE_POPULATE
+-
+         override fun execute(
+             context: Context,
+             args: BackupDeviceActionArgs,
+@@ -293,22 +298,22 @@ The device actions use the same definitions:
+             val theme = args["theme"]
+                 ?: return BackupDeviceActionResult.failure("Missing theme argument")
+             runBlocking {
+-                context.settingsDataStore.edit { it[THEME_KEY] = theme }
++                context.settingsDataStore.updateData {
++                    it.toBuilder().setTheme(theme).build()
++                }
+             }
+             return BackupDeviceActionResult.success()
+         }
+     }
+ 
+     class VerifyThemeAction : BackupDeviceAction {
+-        override val phase = BackupDeviceAction.PHASE_VERIFY
+-
+         override fun execute(
+             context: Context,
+             args: BackupDeviceActionArgs,
+         ): BackupDeviceActionResult {
+             val expected = args["theme"]
+             val actual = runBlocking {
+-                context.settingsDataStore.data.first()[THEME_KEY]
++                context.settingsDataStore.data.first().theme
+             }
+             return if (actual == expected) {
+                 BackupDeviceActionResult.success()
+@@ -318,26 +323,19 @@ The device actions use the same definitions:
+         }
+     }
+ 
+-To return data to the host test, pass a map to the `success` method. The host
+-test reads the map from `BackupActionResult.Success.data`.
+-
+-### Run each step of the flow
+-
+-To use device actions, or to customize the flow, call each step yourself. The
+-following host test runs the device actions from the previous section around a
+-cloud backup and restore:
++To run populate and verify actions in `runBackupRestoreFlow`, pass their class
++names to [`StorageDomain.CustomData`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/StorageDomain.CustomData):
+ 
+     package com.example.myapp
+ 
+-    import androidx.test.backup.host.BackupActionResult
+     import androidx.test.backup.host.BackupRestoreController
+     import androidx.test.backup.host.BackupRestoreExtension
+     import androidx.test.backup.host.BackupTransportMode
++    import androidx.test.backup.host.StorageDomain
+     import java.nio.file.Path
+     import kotlinx.coroutines.runBlocking
+     import org.junit.jupiter.api.Test
+     import org.junit.jupiter.api.extension.ExtendWith
+-    import org.junit.jupiter.api.fail
+     import org.junit.jupiter.api.io.TempDir
+ 
+     const val SEED_THEME = "com.example.myapp.SeedThemeAction"
+@@ -350,9 +348,50 @@ cloud backup and restore:
+         fun themeSurvivesCloudBackup(
+             device: BackupRestoreController,
+             @TempDir outputDir: Path,
++        ): Unit = runBlocking {
++            device.runBackupRestoreFlow(
++                storage = StorageDomain.CustomData(
++                    populateAction = SEED_THEME,
++                    verifyAction = VERIFY_THEME,
++                    args = mapOf("theme" to "dark"),
++                ),
++                outputDir = outputDir,
++                mode = BackupTransportMode.CLOUD_ENCRYPTED,
++            )
++        }
++    }
++
++To pass values generated during seeding to the verify action, pass a map to
++`BackupDeviceActionResult.success`. `CustomData` merges those entries into the
++verify action's arguments.
++
++### Run each step of the flow
++
++To customize the flow---for example, calling [`uninstallApp`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/BackupRestoreController#uninstallApp()) and
++[`installApk`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/BackupRestoreController#installApk(java.nio.file.Path,kotlin.collections.List)) to test an upgrade, or calling
++[`launchApp`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/BackupRestoreController#launchApp(kotlin.String,kotlin.collections.Map,kotlin.String))---run each step yourself:
++
++    package com.example.myapp
++
++    import androidx.test.backup.host.BackupRestoreController
++    import androidx.test.backup.host.BackupRestoreExtension
++    import androidx.test.backup.host.BackupTransportMode
++    import java.nio.file.Path
++    import kotlinx.coroutines.runBlocking
++    import org.junit.jupiter.api.Test
++    import org.junit.jupiter.api.extension.ExtendWith
++    import org.junit.jupiter.api.io.TempDir
++
++    @ExtendWith(BackupRestoreExtension::class)
++    class CustomFlowBackupTest {
++
++        @Test
++        fun themeSurvivesLaunchAfterRestore(
++            device: BackupRestoreController,
++            @TempDir outputDir: Path,
+         ): Unit = runBlocking {
+             val args = mapOf("theme" to "dark")
+-            device.runOnDevice(SEED_THEME, args).assertSuccess()
++            device.runOnDevice(SEED_THEME, args).getOrThrow()
+ 
+             device.stopApp()
+             val backupFile = device.performBackup(
+@@ -361,25 +400,22 @@ cloud backup and restore:
+             )
+             device.clearAppData()
+             device.performRestore(backupFile)
++            device.launchApp()
+ 
+-            device.runOnDevice(VERIFY_THEME, args).assertSuccess()
++            device.runOnDevice(VERIFY_THEME, args).getOrThrow()
+         }
+     }
+ 
+-    fun BackupActionResult.assertSuccess() {
+-        if (this is BackupActionResult.Failure) fail(errorMessage)
+-    }
+-
+-When a device action fails, `runOnDevice` returns a
+-[`BackupActionResult.Failure`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/BackupActionResult) instead of throwing an exception,
+-so check the result. The other steps throw an exception if they fail.
++When a device action fails, [`runOnDevice`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/BackupRestoreController#runOnDevice(kotlin.String,kotlin.collections.Map,java.time.Duration,kotlin.Boolean)) returns a
++[`BackupActionResult.Failure`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/BackupActionResult.Failure) instead of throwing an exception.
++Call [`getOrThrow`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/BackupActionResult#getOrThrow()) to get the returned [`data`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/BackupActionResult#data()) map
++on success or throw an `IOException` on failure.
+ 
+ ### Test transfers between devices
+ 
+ To test a transfer between two devices, declare a `BackupRestoreController`
+-parameter for each device. Back up the app on the source device, and then
+-restore the backup file on the target device. The following example reuses
+-the constants and the `assertSuccess` helper from the previous example:
++parameter for each device and pass the target device to `restoreOn` in
++`runBackupRestoreFlow`:
+ 
+     package com.example.myapp
+ 
+@@ -387,6 +423,7 @@ the constants and the `assertSuccess` helper from the previous example:
+     import androidx.test.backup.host.BackupRestoreExtension
+     import androidx.test.backup.host.BackupTransportMode
+     import androidx.test.backup.host.Device
++    import androidx.test.backup.host.StorageDomain
+     import java.nio.file.Path
+     import kotlinx.coroutines.runBlocking
+     import org.junit.jupiter.api.Test
+@@ -402,33 +439,36 @@ the constants and the `assertSuccess` helper from the previous example:
+             @Device(role = "target") target: BackupRestoreController,
+             @TempDir outputDir: Path,
+         ): Unit = runBlocking {
+-            val args = mapOf("theme" to "dark")
+-            source.runOnDevice(SEED_THEME, args).assertSuccess()
+-            source.stopApp()
+-            val backupFile = source.performBackup(
+-                BackupTransportMode.DEVICE_TO_DEVICE,
+-                outputDir,
++            source.runBackupRestoreFlow(
++                storage = StorageDomain.DataStorePreference(
++                    dataStoreName = "settings",
++                    key = "theme",
++                    value = "dark",
++                ),
++                outputDir = outputDir,
++                mode = BackupTransportMode.DEVICE_TO_DEVICE,
++                restoreOn = target,
+             )
+-
+-            target.clearAppData()
+-            target.performRestore(backupFile)
+-            target.runOnDevice(VERIFY_THEME, args).assertSuccess()
+         }
+     }
+ 
++On `source`, the flow seeds and backs up the app. On `target`, it clears app
++data, restores the backup, and verifies the data. Restoring on another device
++requires `DEVICE_TO_DEVICE` or a cloud transport mode, because `LOCAL` backup
++data stays on the source device.
++
+ The `role` values of [`@Device`](https://developer.android.com/reference/kotlin/androidx/test/backup/host/Device) let you
+ [choose a device for each parameter](https://developer.android.com/studio/preview/backup-restore-testing#choose-devices) when you run the tests. If
+-only one device is connected, both parameters use that device, and the test
+-simulates the transfer on a single device. Clearing the target's data makes
+-sure that the restored data comes from the backup.
++only one matching device is connected, both parameters share that device and
++simulate the transfer on a single device.
+ 
+ ### Choose devices
+ 
+-By default, the test framework sorts the online devices by serial number and
+-assigns them to the `BackupRestoreController` parameters of each test in order.
+-If a test has more device parameters than there are devices, the extra
+-parameters share the first device. The `ANDROID_SERIAL` environment variable
+-doesn't affect device assignment.
++By default, the test framework sorts online devices by serial number and gives
++each `BackupRestoreController` parameter its own matching device when enough
++devices are connected. Parameters that can't get a separate device share the
++first matching device. The `ANDROID_SERIAL` environment variable doesn't affect
++device assignment.
+ 
+ To choose devices without putting serial numbers in your tests, give each device
+ parameter a role with `@Device(role = "...")`. Then, when you run the tests,
+@@ -440,23 +480,23 @@ following command runs the suite with `emulator-5554` as the source device and
+     ./gradlew :app:testDebugBackupTestDefaultTestSuite -Dandroidx.test.backup.device.serial.source=emulator-5554 -Dandroidx.test.backup.device.serial.target=emulator-5556
+ 
+ A binding applies only to parameters with that role. Other parameters get the
+-remaining devices.
++remaining matching devices.
+ 
+-You can also choose devices with the `serial` and `api` values of `@Device`, or
+-with the following system properties, which take precedence over `@Device`
+-values:
++You can also filter devices with `serial`, `api`, `minApi`, and `maxApi` on
++`@Device`, such as `@Device(role = "target", minApi = 35)`. To set serial
++numbers or exact API levels from the command line, pass the following system
++properties with `-D`:
+ 
+ | System property | Description |
+ |---|---|
+-| `androidx.test.backup.device.serial.{role}` | The serial number of the device for parameters annotated with `@Device(role = "{role}")`. It takes precedence over `serials` and `serial`. |
+-| `androidx.test.backup.device.serials` | A comma-separated list of serial numbers, assigned to device parameters in order. |
+-| `androidx.test.backup.device.serial` | The serial number of the device for the device parameters that `serials` doesn't cover. |
+-| `androidx.test.backup.device.apis` | A comma-separated list of API levels, assigned to device parameters in order. |
+-| `androidx.test.backup.device.api` | The API level of the device for the device parameters that `apis` doesn't cover. |
++| `androidx.test.backup.device.serial.{role}` | The serial number of the device for parameters annotated with `@Device(role = "{role}")`. Takes precedence over `serials`, `serial`, and the `serial` value of `@Device`. |
++| `androidx.test.backup.device.serials` | A comma-separated list of serial numbers, assigned to device parameters in order. Takes precedence over `serial` and the `serial` value of `@Device`. |
++| `androidx.test.backup.device.serial` | The serial number for device parameters that `serials` doesn't cover. Takes precedence over the `serial` value of `@Device`. |
++| `androidx.test.backup.device.apis` | A comma-separated list of API levels, assigned to device parameters in order. Use `0` to match any API level. Replaces `api` on `@Device`, within `minApi` and `maxApi`. |
++| `androidx.test.backup.device.api` | The API level for device parameters that `apis` doesn't cover. Use `0` to match any API level. Replaces `api` on `@Device`, within `minApi` and `maxApi`. |
+ 
+-Pass these properties with `-D` in the same way. The `serial`, `serials`,
+-`api`, and `apis` properties apply to every test that runs, so use the
+-`--tests` option to run only the tests that need them.
++The `serial`, `serials`, `api`, and `apis` properties apply to every test that
++runs, so use the `--tests` option to run only the tests that need them.
+ 
+ ### Test Restore Credentials
+ 
+@@ -487,8 +527,6 @@ app passes to Credential Manager:
+     import org.json.JSONObject
+ 
+     class CreateRestoreKeyAction : BackupDeviceAction {
+-        override val phase = BackupDeviceAction.PHASE_POPULATE
+-
+         override fun execute(
+             context: Context,
+             args: BackupDeviceActionArgs,
+@@ -503,8 +541,6 @@ app passes to Credential Manager:
+     }
+ 
+     class VerifyRestoreKeyAction : BackupDeviceAction {
+-        override val phase = BackupDeviceAction.PHASE_VERIFY
+-
+         override fun execute(
+             context: Context,
+             args: BackupDeviceActionArgs,
+@@ -526,16 +562,15 @@ app passes to Credential Manager:
+     }
+ 
+ The following host test creates the key on the source device, restores it on the
+-target device, and checks it there. It uses the `assertSuccess` helper from
+-[Run each step of the flow](https://developer.android.com/studio/preview/backup-restore-testing#step-by-step):
++target device, and verifies that the credential ID matches:
+ 
+     package com.example.myapp
+ 
+-    import androidx.test.backup.host.BackupActionResult
+     import androidx.test.backup.host.BackupRestoreController
+     import androidx.test.backup.host.BackupRestoreExtension
+     import androidx.test.backup.host.BackupTransportMode
+     import androidx.test.backup.host.Device
++    import androidx.test.backup.host.StorageDomain
+     import java.nio.file.Path
+     import kotlinx.coroutines.runBlocking
+     import org.junit.jupiter.api.Test
+@@ -554,21 +589,16 @@ target device, and checks it there. It uses the `assertSuccess` helper from
+             @Device(role = "target") target: BackupRestoreController,
+             @TempDir outputDir: Path,
+         ): Unit = runBlocking {
+-            val created = source.runOnDevice(CREATE_RESTORE_KEY)
+-            created.assertSuccess()
+-            val credentialId =
+-                (created as BackupActionResult.Success).data.getValue("credential_id")
+-            source.stopApp()
+-            val backupFile = source.performBackup(
+-                BackupTransportMode.DEVICE_TO_DEVICE,
+-                outputDir,
++            // Clears target (including any existing restore key) before restoring.
++            source.runBackupRestoreFlow(
++                storage = StorageDomain.CustomData(
++                    populateAction = CREATE_RESTORE_KEY,
++                    verifyAction = VERIFY_RESTORE_KEY,
++                ),
++                outputDir = outputDir,
++                mode = BackupTransportMode.DEVICE_TO_DEVICE,
++                restoreOn = target,
+             )
+-
+-            // Also deletes any restore key on the target.
+-            target.clearAppData()
+-            target.performRestore(backupFile)
+-            target.runOnDevice(VERIFY_RESTORE_KEY, mapOf("credential_id" to credentialId))
+-                .assertSuccess()
+         }
+     }
+ 
+@@ -618,6 +648,10 @@ After a test run completes, AGP generates an HTML test report at
+ `{module}/build/reports/tests/{taskName}/index.html`, such as
+ `app/build/reports/tests/testDebugBackupTestDefaultTestSuite/index.html`.
+ 
++When a test fails, the test framework saves logcat from each device that the
++test used and lists the saved file paths in the failure output. To turn off log
++saving, pass `-Dandroidx.test.backup.device.logs.enabled=false`.
++
+ ## Troubleshoot failed restores
+ 
+ A cloud or device-to-device restore fails with an error message in the

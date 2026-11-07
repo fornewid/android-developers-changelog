@@ -1,0 +1,35 @@
+diff --git a/docs/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4.md b/docs/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4.md
+index 2ca47a79..3ae59568 100644
+--- a/docs/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4.md
++++ b/docs/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4.md
+@@ -222,6 +222,13 @@ Continue reading
+   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+   - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+   - +1 ↩
++- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
++
++  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
++  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
++  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+ - [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)](https://developer.android.com/blog/authors/stevan-silva)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1JMs6H.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates)
+@@ -230,16 +237,6 @@ Continue reading
+   [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 2 min read
+   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+   - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
+-- [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_1yXUBh.webp)](https://developer.android.com/blog/authors/luke-hopkins)[![View Ryan Bartley's profile](https://developer.android.com/static/blog/assets/Ryan_Bartley_35cf836cd8_Z1nXWK3.webp)](https://developer.android.com/blog/authors/ryan-bartley) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_2hInNY.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Android XR Updates for Unity, Unreal, and Godot](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot) We are excited to announce that official support for Unreal Engine and Godot has arrived for Android XR. We are also launching new tools designed to boost your productivity and enable new XR capabilities: the Android XR Engine Hub and the Android XR Interaction Framework.
+-  [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins), [Ryan Bartley](https://developer.android.com/blog/authors/ryan-bartley) • 4 min read
+-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+-  - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development)
+-  - +1 ↩
+ Stay in the loop
+ 
+ 

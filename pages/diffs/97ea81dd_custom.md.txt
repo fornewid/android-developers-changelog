@@ -1,0 +1,84 @@
+diff --git a/docs/ai/custom.md b/docs/ai/custom.md
+index 51fae03e..9a91a56c 100644
+--- a/docs/ai/custom.md
++++ b/docs/ai/custom.md
+@@ -4,47 +4,49 @@ url: https://developer.android.com/ai/custom
+ source: md.txt
+ ---
+ 
+-LiteRT on Android provides essentials for deploying high performance, custom ML
+-features into your Android app.
++LiteRT on Android provides the essentials for deploying high-performance,
++custom ML features into your Android app.
+ 
+-![Diagram illustrating the architecture of LiteRT, a framework for
+-running machine learning models on Android devices. It shows the components
+-involved, including the ML runtime, hardware acceleration delegates, and Google
+-Play services.](https://developer.android.com/static/images/ml/litert-architecture.svg)
++![LiteRT architecture on Android: your app and ML model run on the LiteRT
++runtime and accelerators, which Google Play services delivers and which run
++the model on the device CPU and GPU.](https://developer.android.com/static/images/ml/litert-play-services-architecture.svg)
+ 
+ ## LiteRT for ML runtime
+ 
+-Use LiteRT with Google Play services, Android's official ML inference runtime,
+-to run high-performance ML inference in your app. [Learn more](https://ai.google.dev/edge/lite/android)
++Use LiteRT in Google Play services, Android's official ML inference runtime, to
++run high-performance ML inference in your app with the `CompiledModel` API.
++[Learn more](https://developers.google.com/edge/litert/android/play_services)
+ 
+-## Hardware Acceleration with LiteRT Delegates
++## Hardware acceleration with LiteRT accelerators
+ 
+-Use LiteRT Delegates distributed using Google Play services to run accelerated
+-ML on specialized hardware such as GPUs or NPUs. This helps you deliver more
+-fluid, lower latency user experiences to your users by accessing advanced
+-on-device compute capabilities.
++Use LiteRT accelerators to run your models on the CPU or GPU. The GPU
++accelerator runs models up to 1.4 times faster than the previous TensorFlow
++Lite GPU delegate, so you can deliver more fluid, lower-latency experiences to
++your users. [Learn more](https://developers.google.com/edge/litert/android/compiled_model_java#gpu)
+ 
+-We provide support for GPU delegates, and we're working with partners
+-to provide access to their custom delegates using Google Play services to
+-support advanced use cases. [Learn more](https://ai.google.dev/edge/lite/android/play_services#hardware-acceleration)
++NPU acceleration is available today in standalone LiteRT, and NPU support in
++Google Play services is coming soon. [Learn more](https://developers.google.com/edge/litert/next/npu)
+ 
+ ## Enabled by Google Play services
+ 
+-Use Google Play services to access the LiteRT runtime and delegates. This
+-ensures use of the latest stable versions while minimizing impact to your app's
+-binary size. [Learn more](https://ai.google.dev/edge/lite/android/play_services)
++Google Play services delivers the LiteRT runtime and accelerators, so you don't
++bundle them in your APK. Removing the bundled LiteRT runtime and GPU
++accelerator saves up to \~8 MB of app size. Google Play services also keeps the
++runtime up to date without an app release. [Learn more](https://developers.google.com/edge/litert/android/play_services#choose-api)
+ 
+-## Code samples
++## Build with your AI coding agent
+ 
+-Review the LiteRT Android code samples and test ML features on your device. [Learn more](https://github.com/tensorflow/examples/tree/master/lite/examples)
++Use the LiteRT runtime skill with your coding agent, such as Agent Mode in
++Android Studio, to add LiteRT to your app, run a model on the CPU or GPU, or
++migrate an existing TensorFlow Lite app to LiteRT in Google Play services.
++[Learn more](https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/skill)
+ 
+-## Get started with LiteRT
++## Code samples
+ 
+-Download the example code and get started with LiteRT and Android.
+-[Learn more](https://ai.google.dev/edge/lite/android)
++Explore the LiteRT Android code samples and test ML features on your device.
++[Learn more](https://github.com/google-ai-edge/litert-samples)
+ 
+-## Acceleration Service
++## Get started with LiteRT
+ 
+-The Acceleration Service API lets you to safely pick the optimal hardware
+-acceleration configuration at runtime without having to worry about the
+-underlying device hardware and drivers. [Learn more](https://ai.google.dev/edge/lite/android/acceleration_service)
+\ No newline at end of file
++Add LiteRT in Google Play services to your app and run your first model.
++[Learn more](https://developers.google.com/edge/litert/android/compiled_model_java)
+\ No newline at end of file

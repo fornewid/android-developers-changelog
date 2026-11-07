@@ -1,0 +1,14 @@
+diff --git a/docs/develop/background-work/background-tasks.md b/docs/develop/background-work/background-tasks.md
+index 3c6b592d..c7d51796 100644
+--- a/docs/develop/background-work/background-tasks.md
++++ b/docs/develop/background-work/background-tasks.md
+@@ -101,6 +101,9 @@ Some of the most common scenarios for background tasks include:
+ > **Note:** If a task is particularly urgent, you can mark it as *expedited* to instruct the system to prioritize the task to run as soon as possible. For more information, see [schedule expedited
+ > work](https://developer.android.com/guide/background/persistent/getting-started/define-work#expedited).
+ 
++> [!TIP]
++> **Tip:** To preserve battery life, instead of polling for changes, you can use a push-delivery service like [Firebase Cloud Messaging (FCM)](https://firebase.google.com/docs/cloud-messaging) to notify your device only when updates exist. You can then schedule WorkManager jobs on demand to process and sync the data. For more information, see [Use FCM to interact with your app while the device is idle](https://developer.android.com/training/monitoring-device-state/doze-standby#using_fcm).
++
+ ## Foreground services
+ 
+ Foreground services offer a powerful way to run tasks immediately that ought not

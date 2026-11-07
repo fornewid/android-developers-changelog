@@ -1,5 +1,797 @@
 [
   {
+    "date": "2026-11-07T15:08:39Z",
+    "commit_hash": "97ea81dd",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/cars/android-for-cars-parked-apps/skill\" target=\"_blank\">Parked apps for Android Auto and Android Automotive OS</a>",
+        "path": "agents/skills/cars/android-for-cars-parked-apps/skill.md",
+        "summary": "Updated the parked apps documentation for Android for Cars to include proper lifecycle management for the `Car` instance (retaining the instance, unregistering listeners, and calling `car.disconnect()`). Also clarified the initialization requirements for `BiometricPrompt` using a `FragmentActivity` or `Fragment`, main executor, and authentication callback to ensure correct credential-based authentication in vehicles.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/security/android-intent-security/skill\" target=\"_blank\">Android intent and component security: Audit and remediation guide</a>",
+        "path": "agents/skills/security/android-intent-security/skill.md",
+        "summary": "This new documentation page provides guidelines, security rules, and code patterns for securely handling Android components and Intents to prevent privilege escalation and unauthorized access.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/custom\" target=\"_blank\">Use LiteRT on Android</a>",
+        "path": "ai/custom.md",
+        "summary": "The LiteRT on Android documentation has been updated to reflect the latest APIs and best practices. Key updates include the introduction of the `CompiledModel` API, updated details on GPU and NPU hardware acceleration (noting significant performance improvements over older TensorFlow Lite delegates), guidance on saving ~8 MB of APK size by leveraging Google Play services for runtime delivery, and new resources for integrating LiteRT using AI coding agents in Android Studio.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_custom.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog\" target=\"_blank\">The Android Developers' Blog</a>",
+        "path": "blog.md",
+        "summary": "The blog documentation was updated to feature new Android Developer Summit announcements, specifically adding a post about building for Android XR devices with production-ready tools and updating the metadata, title, and topic tags for the intelligent apps post. Additionally, an older blog post regarding contacts permissions was removed from the list.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_blog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/amy-zeppenfeld\" target=\"_blank\">Amy Zeppenfeld</a>",
+        "path": "blog/authors/amy-zeppenfeld.md",
+        "summary": "Updated Amy Zeppenfeld's author page to include a new blog post about building for Android XR devices using production-ready tools announced at the Android Developer Summit, bringing her total post count to 3.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_amy-zeppenfeld.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/jingyu-shi\" target=\"_blank\">Jingyu Shi</a>",
+        "path": "blog/authors/jingyu-shi.md",
+        "summary": "Updated the blog post title and topic tags associated with Jingyu Shi's author profile for the Android Developer Summit intelligent apps article. The changes shorten the visible title and replace the generic Jetpack Compose tag with specific AI-related topics including Android MCP, Gemini Nano, ML Kit, and Connected Apps, accurately reflecting the technical scope of the content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_jingyu-shi.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/vinny-da-silva\" target=\"_blank\">Vinny DaSilva</a>",
+        "path": "blog/authors/vinny-da-silva.md",
+        "summary": "Vinny DaSilva's author profile was updated to reflect a total of 2 posts, including the addition of a new blog post titled 'Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_vinny-da-silva.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news.md",
+        "summary": "The product news page was updated to include a new post about building for Android XR devices with production-ready tools, updated categorization topics for the intelligent apps post from the Android Developer Summit, shortened a post title, and removed an older Google Play discovery blog post. These changes keep the developer news feed fresh and aligned with the latest announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_product-news.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/10\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/10.md",
+        "summary": "Updated the Product News category page (page 10) by adding a new blog post entry titled 'A look ahead: Making it easier and faster to publish safer apps' by Vijaya Kaza and removing an older entry about testing multi-device interactions with the Android Emulator by Steven Jenkins. This keeps the product news feed current with the latest announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/11\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/11.md",
+        "summary": "Added a new blog post entry regarding testing multi-device interactions with the Android Emulator by Steven Jenkins and removed an older post about Android developer verification by Matthew Forsythe from the product news category page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/12\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/12.md",
+        "summary": "Updated the product news blog list by removing an older post about Android developer verification and adding a new, updated post titled 'Android developer verification: Rolling out to all developers on Play Console and Android Developer Console' by Matthew Forsythe.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_12.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/13\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/13.md",
+        "summary": "The product news blog page was updated to add a new post regarding Android developer verification and safety measures by Matthew Forsythe, while removing an older post about connected displays by Francesco Romano. This keeps the product news category listing fresh and up-to-date with the latest developer communications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_13.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/14\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/14.md",
+        "summary": "The product news category page has been updated to include a new blog post about Android devices extending seamlessly to connected displays with Android 16 QPR3, while removing an older post regarding app preparation for Android 17 resizability and orientation changes. This keeps the developer blog index current with the latest platform announcements and feature releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_14.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/15\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/15.md",
+        "summary": "The product news documentation page was updated to include a new blog post entry about preparing apps for Android 17 resizability and orientation changes by Miguel Montemayor, while an older post regarding the Play Console 'Save for later' feature was removed due to pagination changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_15.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/16\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/16.md",
+        "summary": "Added a new blog post regarding the Google Play Console's 'Save for later' feature and removed an older post about 'Low Light Boost' for camera feeds. This update keeps the product news category fresh with the latest developer tools and announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_16.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/17\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/17.md",
+        "summary": "The product news blog index was updated to include a new post about the Low Light Boost (LLB) camera feature by Donovan McMurray, while an older post regarding the Android Studio Otter 2 Feature Drop was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/18\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/18.md",
+        "summary": "The product news blog index was updated to include the announcement of the stable Android Studio Otter 2 Feature Drop while removing an older entry regarding R8 keep rules troubleshooting. This keeps the product news feed current with the latest releases and relevant developer documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_18.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/19\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/19.md",
+        "summary": "The product news category page has been updated to include a new blog post entry regarding the configuration and troubleshooting of R8 keep rules, while removing an older post about the Material 3 Adaptive 1.2.0 stable release. This keeps the developer documentation aligned with the latest published articles and announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_19.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/2\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/2.md",
+        "summary": "The product news blog listing was updated to include a new post by Paul Feng regarding Google Play discovery, engagement, and growth features, while removing an older post about bringing Android games to car screens.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/20\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/20.md",
+        "summary": "Updated the product news blog index to include the announcement of Material 3 Adaptive 1.2.0 stability while removing an older entry for Jetpack WindowManager 1.5, keeping the product news feed current with the latest library releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_20.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/21\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/21.md",
+        "summary": "The product news blog index was updated to include the announcement of Jetpack WindowManager 1.5 reaching stable status, while removing an older entry regarding the product manager's guide to adapting Android apps across devices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_21.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/22\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/22.md",
+        "summary": "Added a new blog post entry by Fahd Imtiaz titled 'A product manager's guide to adapting Android apps across devices' to the Product News category. This update helps product managers and developers learn how to build and adapt Android applications for multiple form factors and connected displays.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_22.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/3\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/3.md",
+        "summary": "The product news blog category page was updated to include a new post regarding the general availability of games for Android Auto and Android Automotive OS, while removing an older post concerning safety in the generative AI ecosystem.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/4\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/4.md",
+        "summary": "The product news blog index was updated to include a new post regarding user safety and generative AI policies (\"Ensuring Safety in the Generative AI Ecosystem\") by Ron Aquino, while an older post about one-handed gestures for Wear OS by Chiara Chiappini was removed. This keeps the product news category listing current with the latest developer communications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/5\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/5.md",
+        "summary": "Added a new blog post entry regarding one-handed gestures on Wear OS by Chiara Chiappini, and removed an older post about Eclipsa Video HDR to keep the product news category page up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/6\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/6.md",
+        "summary": "The product news blog category page was updated to include a new post regarding 'Eclipsa Video: HDR That Looks Right on Every Screen' by Tibian Elsheikh and Jeffrey Jose, while removing an older post about Android developer productivity updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/7\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/7.md",
+        "summary": "The product news blog category page was updated to include a new post regarding Android developer productivity updates by Simona Milanovic, while older content about increasing app discovery and engagement on Google TV by Paul Lammertsma was removed. This keeps the product news feed fresh and aligned with the latest Google I/O announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/8\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/8.md",
+        "summary": "The product news blog index was updated to add a new post about increasing app discovery and engagement on Google TV by Paul Lammertsma, while removing an older entry regarding Wear OS 7. This keeps the product news category listing current with the latest developer communications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/9\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/9.md",
+        "summary": "The product news category page has been updated to include a new blog post entry for \"What's New in Wear OS 7\" authored by John Zoeller, while removing an older post regarding safer app publishing by Vijaya Kaza. This keeps the developer documentation current with the latest platform announcements and features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest.md",
+        "summary": "The latest Android blog documentation updates include a new post regarding Android XR development tools announced at the Android Developer Summit, updates to intelligent apps topics (incorporating tags like Gemini Nano, ML Kit, and Android MCP), title corrections, and removal of an older wireless debugging post.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_latest.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/10\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/10.md",
+        "summary": "Updated the 'Latest' Android blog overview page to include an announcement about the Google Play Apps Accelerator, removed an older case study entry regarding SoundCloud and Jetpack Glance, and refreshed the list of tagged developer topics (adding Android XR, Android MCP, Gemini Nano, ML Kit, and Connected Apps).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/11\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/11.md",
+        "summary": "Added a new case study blog post detailing how SoundCloud built their Liked Tracks widget using Jetpack Glance in just two weeks, along with several new topic tags for filtering content such as Android MCP, Gemini Nano, ML Kit, and Connected Apps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/2\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/2.md",
+        "summary": "The latest Android blog documentation page has been updated to include a new announcement regarding ADB Wi-Fi 2.0 for faster and more reliable wireless debugging, remove an older Jetpacker introduction post, and update topic tag listings with additions like Android MCP, Gemini Nano, and ML Kit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/3\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/3.md",
+        "summary": "The Android latest blog documentation was updated to include a new post introducing 'Jetpacker', a technical showcase app for building intelligent Android apps, while removing a previous post about the Android Performance Analyzer. Additionally, topic tags on the page were reorganized, adding new tags such as Android MCP, Gemini Nano, ML Kit, and Connected Apps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/4\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/4.md",
+        "summary": "The latest blog updates page has been updated to include an announcement for the Android Performance Analyzer (APA) profiling tool, remove an older post regarding Android Studio Panda 4, and refresh the list of topical tags with new additions like Android MCP, Gemini Nano, and ML Kit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/5\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/5.md",
+        "summary": "The latest Android blog page updates include the addition of an announcement for Android Studio Panda 4 stable release (featuring Planning Mode and Next Edit Prediction), the removal of an older post about Android developer verification, and updates to the sidebar topic tags (such as adding Android XR, Android MCP, Gemini Nano, ML Kit, and Connected Apps topics).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/6\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/6.md",
+        "summary": "Updated the latest blog listings on the Android developer portal by adding a post on Android developer verification by Matthew Forsythe, removing an older post regarding monetization insights, and updating the categorization tags to include topics like Android XR, Android MCP, Gemini Nano, ML Kit, and Connected Apps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/7\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/7.md",
+        "summary": "The latest Android blog updates introduce a new post regarding Google Play Console monetization improvements and data-backed recommendations by Phalene Gowling, while removing an older #WeArePlay profile post. Additionally, topic tags have been reorganized, adding new categories such as Android MCP, Gemini Nano, ML Kit, and Connected Apps to help developers easily discover relevant content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/8\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/8.md",
+        "summary": "Updated the latest blog list by adding a new #WeArePlay feature on Miksapix Interactive and removing an older post about Android developer verification early access. Additionally, reorganized and expanded the topic tags list to include new categories like Android MCP, Gemini Nano, ML Kit, and Connected Apps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/9\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/9.md",
+        "summary": "Updated the 'The Latest' blog listing page by adding a new post on Android developer verification early access by Matthew Forsythe, removing an older post about the Google Play Apps Accelerator, and reordering or adding several topic tags such as Android XR, Android MCP, Gemini Nano, ML Kit, and Connected Apps to keep the navigation categories current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness\" target=\"_blank\">A new era for choice and openness</a>",
+        "path": "blog/posts/a-new-era-for-choice-and-openness.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to include a new article about building for Android XR devices and updated topic tags for the intelligent apps post, while removing an older entry about Android Studio AI agent integrations to keep the recommended reading list fresh and relevant.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_a-new-era-for-choice-and-openness.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads\" target=\"_blank\">What's new in intelligent apps at the Android Developer Summit</a>",
+        "path": "blog/posts/android-intelligence-system-in-app-agents-ads.md",
+        "summary": "Updated the Android Developer Summit intelligent apps blog post to refine integration details for Android MCP and remote MCP, update article tags, and refresh the 'Continue reading' section with more relevant related posts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_android-intelligence-system-in-app-agents-ads.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable\" target=\"_blank\">Android Studio Otter 2 Feature Drop is stable!</a>",
+        "path": "blog/posts/android-studio-otter-2-feature-drop-is-stable.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to replace a recommended article on intelligent apps and in-app agents with a new post about building for Android XR devices and production-ready tools. This includes changing the author attribution, publication date, promotional banner image, read time, and associated topic tag.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_android-studio-otter-2-feature-drop-is-stable.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot\" target=\"_blank\">Android XR Updates for Unity, Unreal, and Godot</a>",
+        "path": "blog/posts/android-xr-updates-for-unity-unreal-and-godot.md",
+        "summary": "Updated the 'Continue reading' blog recommendations section by replacing an older post about Android XR tooling with a newer announcement regarding production-ready tools for Android XR devices from the Android Developer Summit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_android-xr-updates-for-unity-unreal-and-godot.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview\" target=\"_blank\">Announcing Gemma 4 in the AICore Developer Preview</a>",
+        "path": "blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview.md",
+        "summary": "Updated the \"Continue reading\" section of the Gemma 4 post to replace an outdated related blog card with a newer post regarding Android XR devices and tools. This ensures readers are directed to the most relevant and current developer content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_announcing-gemma-4-in-the-ai-core-developer-preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5\" target=\"_blank\">Beyond Single Features: Guaranteeing Feature Combinations With CameraX 1.5</a>",
+        "path": "blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5.md",
+        "summary": "Updated the 'Continue reading' section at the end of the CameraX 1.5 blog post to reflect newly published articles. Specifically, it added a recent post about building for Android XR devices and updated the topics list for the intelligent apps post while removing an older Android Studio AI agents post.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/bringing-androidify-to-wear-os-with-watch-face-push\" target=\"_blank\">Bringing Androidify to Wear OS with Watch Face Push</a>",
+        "path": "blog/posts/bringing-androidify-to-wear-os-with-watch-face-push.md",
+        "summary": "Updated the 'Continue reading' blog recommendations section at the end of the post to include a new article on Android XR devices, update titles and topic tags for intelligent apps, and remove an older article reference.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_bringing-androidify-to-wear-os-with-watch-face-push.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-android-xr-devices-tools\" target=\"_blank\">Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit</a>",
+        "path": "blog/posts/build-android-xr-devices-tools.md",
+        "summary": "Announces production-ready Android XR tools, including stable Jetpack XR libraries, device emulators, ARCore geospatial APIs, and 3D engine hubs to support the expanding ecosystem of XR devices like XREAL AURA.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-native-android-apps-in-google-ai-studio\" target=\"_blank\">Build native Android apps in Google AI Studio</a>",
+        "path": "blog/posts/build-native-android-apps-in-google-ai-studio.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to add a new recommendation for building Android XR devices and update the metadata and topic tags for the intelligent apps post, while removing an older Android Studio AI agents post.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_build-native-android-apps-in-google-ai-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini\" target=\"_blank\">Building a Mixed-Reality Tour Guide with Android XR, the Geospatial API, and Gemini</a>",
+        "path": "blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini.md",
+        "summary": "Updated the 'Continue reading' footer section of the blog post to add a new recommendation for an Android XR developer summit post, update metadata and topics for the intelligent apps post, and remove an older reference to Android Studio AI agent integrations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions\" target=\"_blank\">Driving growth on Google Play: The next era of subscriptions</a>",
+        "path": "blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to add a new recommendation for Android XR devices, update the intelligent apps post title and topic tags, and remove an outdated entry about AI agents in Android Studio.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_driving-growth-on-google-play-the-next-era-of-subscriptions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/dynamic-app-links-elevating-your-android-deep-linking\" target=\"_blank\">Dynamic App Links: Elevating your Android deep linking</a>",
+        "path": "blog/posts/dynamic-app-links-elevating-your-android-deep-linking.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the bottom of the blog post to add a new article on Android XR devices, update tags for the intelligent apps post, and remove an older article reference. These changes keep the related content links fresh and relevant for developers browsing the site.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_dynamic-app-links-elevating-your-android-deep-linking.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen\" target=\"_blank\">Eclipsa Video: HDR That Looks Right on Every Screen</a>",
+        "path": "blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen.md",
+        "summary": "Updated the 'Continue reading' section at the end of the blog post to refresh the list of recommended articles. This includes adding a new post about Android XR development, updating titles and topic tags for intelligent apps, and removing an older entry about Android Studio AI integrations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_eclipsa-video-hdr-that-looks-right-on-every-screen.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google\" target=\"_blank\">Enhance your app for the new Pixel lineup: Unveiled at Made by Google</a>",
+        "path": "blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md",
+        "summary": "The 'Continue reading' footer section of the blog post was updated to replace a recommended article about intelligent apps and the Android Developer Summit with a newer recommendation for the Jetpack Compose August '26 release. This keeps the related content links up to date for readers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data\" target=\"_blank\">Enhancing Android security: Stop malware from snooping on your app data</a>",
+        "path": "blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the bottom of the article to replace an older post about intelligent apps with a newer post regarding Android XR devices and production-ready tools. This ensures readers are directed to the most current Android ecosystem updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_enhancing-android-security-stop-malware-from-snooping-on-your-app-data.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android\" target=\"_blank\">Experimental hybrid inference and new Gemini models for Android</a>",
+        "path": "blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android.md",
+        "summary": "Updated the \"Continue reading\" section to replace a recommended blog post card about intelligent apps and Android AI with a new post highlighting tools for developing on Android XR devices. This ensures readers are directed to the latest spatial computing and Android XR announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_experimental-hybrid-inference-and-new-gemini-models-for-android.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop\" target=\"_blank\">Get inspired and take your apps to desktop</a>",
+        "path": "blog/posts/get-inspired-and-take-your-apps-to-desktop.md",
+        "summary": "Updated the related blog posts and reading recommendations section by adding a new post about Android XR devices and production-ready tools, updating metadata and topic tags for the intelligent apps post, and removing an outdated reference to an Android Studio AI agents post.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_get-inspired-and-take-your-apps-to-desktop.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm\" target=\"_blank\">Introducing the Googlebook Linux Terminal Preview: A VM-Backed Environment for AI and Development</a>",
+        "path": "blog/posts/googlebook-linux-terminal-preview-vm.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the bottom of the blog post to include new articles related to Android XR devices and intelligent apps while removing older references. This keeps the related content section fresh and aligned with recent Android Developer Summit announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_googlebook-linux-terminal-preview-vm.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api\" target=\"_blank\">How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API</a>",
+        "path": "blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api.md",
+        "summary": "Updated the 'Continue reading' section at the end of the blog post to replace recommended reading links, swapping an article about in-app agents and the Android intelligence system with a new post about building for Android XR devices using production-ready tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture\" target=\"_blank\">Introducing CameraX 1.5: Powerful Video Recording and Pro-level Image Capture</a>",
+        "path": "blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture.md",
+        "summary": "Updated the 'Continue reading' section at the end of the blog post to add a new related article about Android XR development tools, refresh the intelligent apps post title and associated topic tags, and remove an older post reference about AI agents in Android Studio.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_introducing-camera-x-powerful-video-recording-and-pro-level-image-capture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable\" target=\"_blank\">Jetpack WindowManager 1.5 is stable</a>",
+        "path": "blog/posts/jetpack-window-manager-1-5-is-stable.md",
+        "summary": "The git diff shows updates to the 'Continue reading' section of the blog post, including the addition of a new recommended post regarding Android XR development tools, adjustments to existing article titles, and updates to associated tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_jetpack-window-manager-1-5-is-stable.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development\" target=\"_blank\">Land your apps on Googlebook with adaptive development</a>",
+        "path": "blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md",
+        "summary": "Updated the 'Continue reading' section at the end of the post to replace a recommended article on intelligent apps and Android AI by Jingyu Shi with a new preview article about the Googlebook Linux Terminal by Cyrus Stoller. This change keeps the related reading links current with newer platform announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_land-your-apps-on-googlebook-with-adaptive-development.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4\" target=\"_blank\">Level up your development with Planning Mode and Next Edit Prediction in Android Studio Panda 4</a>",
+        "path": "blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4.md",
+        "summary": "Updated the \"Continue reading\" related articles section at the bottom of the blog post. The reference to the Android intelligence system article by Jingyu Shi was replaced with a new featured post about building for Android XR devices by Amy Zeppenfeld and Vinny DaSilva.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop\" target=\"_blank\">LLM flexibility, Agent Mode improvements, and new agentic experiences in Android Studio Otter 3 Feature Drop</a>",
+        "path": "blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to replace a related article link about intelligent apps with a new recommendation focusing on Android XR devices and production-ready tools from the Android Developer Summit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/media3-1-10-is-out\" target=\"_blank\">Media3 1.10 is out</a>",
+        "path": "blog/posts/media3-1-10-is-out.md",
+        "summary": "The recent changes to the Media3 1.10 blog post update the automated 'Continue reading' and related articles sidebar. Specifically, it added a new recommendation for building Android XR devices, updated the title and topic tags for an intelligent apps article, and removed an outdated reference to Android Studio AI agent integration.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_media3-1-10-is-out.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/media3-whats-new\" target=\"_blank\">Media3 1.9.0 - What's new</a>",
+        "path": "blog/posts/media3-whats-new.md",
+        "summary": "Updated the related blog posts and continued reading sections in the Media3 documentation to include recent announcements regarding Android XR development tools and intelligent apps from the Android Developer Summit, while removing outdated references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_media3-whats-new.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/modernizing-the-room\" target=\"_blank\">Room 3.0 - Modernizing the Room</a>",
+        "path": "blog/posts/modernizing-the-room.md",
+        "summary": "The footer links and recommended blog posts on the Room database modernization page were updated. This includes adding a new recommendation for Android XR development tools, shortening the title and updating the topic tags for the intelligent apps post, and removing an outdated reference to Android Studio AI agent integrations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_modernizing-the-room.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025\" target=\"_blank\">Notes from Google Play: A look back at the tools that powered your growth in 2025</a>",
+        "path": "blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to add a new related article about building for Android XR devices, update the title and topic tags for the intelligent apps article, and remove a deprecated post entry.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/optimize-your-app-battery-using-android-vitals-wake-lock-metric\" target=\"_blank\">Optimize your app battery using Android vitals wake lock metric</a>",
+        "path": "blog/posts/optimize-your-app-battery-using-android-vitals-wake-lock-metric.md",
+        "summary": "Updated the 'Continue reading' section at the end of the blog post to add a new related article about Android XR devices, update the title and tags for an intelligent apps article, and remove an older post reference.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_optimize-your-app-battery-using-android-vitals-wake-lock-metric.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/optimizing-performance-for-android-xr-with-unity\" target=\"_blank\">Optimizing Performance for Android XR with Unity</a>",
+        "path": "blog/posts/optimizing-performance-for-android-xr-with-unity.md",
+        "summary": "Updated the 'Continue reading' section at the end of the blog post to add a new related article about building for Android XR devices with production-ready tools, while removing and updating references to other recent Android Developer Summit announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_optimizing-performance-for-android-xr-with-unity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17\" target=\"_blank\">Prepare your app for the resizability and orientation changes in Android 17</a>",
+        "path": "blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17.md",
+        "summary": "Updated the 'Continue reading' section at the bottom of the blog post to replace a recommended article about intelligent apps and AI with a new recommended post covering Android XR devices and spatial application tools from the Android Developer Summit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/the-fourth-beta-of-android-17\" target=\"_blank\">The Fourth Beta of Android 17</a>",
+        "path": "blog/posts/the-fourth-beta-of-android-17.md",
+        "summary": "Updated the 'Continue reading' blog recommendations section by adding a new post about building for Android XR devices, updating titles and topic tags for the intelligent apps post, and removing an older post regarding AI agents in Android Studio.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_the-fourth-beta-of-android-17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/top-3-updates-for-android-developer-productivity\" target=\"_blank\">Top 3 updates for Android developer productivity</a>",
+        "path": "blog/posts/top-3-updates-for-android-developer-productivity.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to replace a recommended article on intelligent apps with a new post about building for Android XR devices using production-ready tools from the Android Developer Summit. This matters as it keeps developer reading recommendations aligned with the latest platform announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_top-3-updates-for-android-developer-productivity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4\" target=\"_blank\">Updates to the Android XR SDK: Introducing Developer Preview 4</a>",
+        "path": "blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4.md",
+        "summary": "The 'Continue reading' section of the Android XR SDK Developer Preview 4 blog post was updated to feature a newer article about building for Android XR devices using tools from the Android Developer Summit, while removing an older post reference about game engine updates for Unity, Unreal, and Godot.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_updates-to-the-android-xr-sdk-introducing-developer-preview-4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates\" target=\"_blank\">What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates</a>",
+        "path": "blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates.md",
+        "summary": "The blog post list was updated to include a new article about building for Android XR devices with production-ready tools announced at the Android Developer Summit, while an older post regarding engine updates was removed. This ensures readers are directed to the most current and relevant Android XR ecosystem and tooling content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences\" target=\"_blank\">What's new in Android for Cars: Unifying platforms and unlocking premium experiences</a>",
+        "path": "blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences.md",
+        "summary": "Updated the 'Continue reading' section at the bottom of the blog post to replace a recommended article about intelligent apps and AI agents with a new recommendation focusing on building for Android XR devices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-april-26-release\" target=\"_blank\">What's new in the Jetpack Compose April '26 release</a>",
+        "path": "blog/posts/whats-new-in-the-jetpack-compose-april-26-release.md",
+        "summary": "Updated the 'Continue reading' section of the Jetpack Compose release notes to include a new article on building for Android XR devices, update the title and topics for the intelligent apps article from the Android Developer Summit, and remove an older entry about Android Studio AI agent integrations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_whats-new-in-the-jetpack-compose-april-26-release.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/android-mcp\" target=\"_blank\">#Android MCP</a>",
+        "path": "blog/topics/android-mcp.md",
+        "summary": "This new documentation page introduces Android MCP and related intelligent app updates from the Android Developer Summit, highlighting how AI agents handle multi-step user workflows. It matters because it outlines the evolution toward AI-driven, cross-app capabilities on the Android platform.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/android-xr\" target=\"_blank\">#Android XR</a>",
+        "path": "blog/topics/android-xr.md",
+        "summary": "Added a new blog post announcement to the Android XR documentation regarding production-ready tools and the XREAL AURA launch showcased at the Android Developer Summit. This update highlights new resources for developers building spatial applications across an expanding lineup of Android XR devices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_android-xr.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/connected-apps\" target=\"_blank\">#Connected Apps</a>",
+        "path": "blog/topics/connected-apps.md",
+        "summary": "This new documentation page introduces the Connected Apps topic, focusing on how AI agents like Gemini handle multi-step workflows across applications in the intelligence era. It highlights recent product news and advancements in intelligent app development from the Android Developer Summit.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/gemini-nano\" target=\"_blank\">#Gemini Nano</a>",
+        "path": "blog/topics/gemini-nano.md",
+        "summary": "This new documentation page introduces updates regarding intelligent apps and AI agents like Gemini Nano on Android, highlighting multi-step workflows and developer resources from the Android Developer Summit.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/jetpack-compose\" target=\"_blank\">#Jetpack Compose</a>",
+        "path": "blog/topics/jetpack-compose.md",
+        "summary": "Removed an outdated blog post reference regarding intelligent apps and AI agents from the Jetpack Compose topic page, keeping the documentation focused on the latest screen building and Compose updates from the Android Developer Summit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_jetpack-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/ml-kit\" target=\"_blank\">#ML Kit</a>",
+        "path": "blog/topics/ml-kit.md",
+        "summary": "This new documentation page introduces product news and developer insights regarding intelligent apps, AI agents, and ML Kit updates from the Android Developer Summit.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/background-tasks\" target=\"_blank\">Background tasks overview</a>",
+        "path": "develop/background-work/background-tasks.md",
+        "summary": "Added a new tip to the background tasks documentation recommending the use of push-delivery services like Firebase Cloud Messaging (FCM) instead of polling to preserve battery life. This matters because it guides developers toward battery-efficient architectural patterns when syncing data and handling background updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_background-tasks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/network-ops/data-saver\" target=\"_blank\">Optimize network data usage</a>",
+        "path": "develop/connectivity/network-ops/data-saver.md",
+        "summary": "The documentation for Data Saver was updated to remove the Java code snippet for checking Data Saver preferences, keeping only the Kotlin example. Additionally, minor copyedits were made to improve phrasing, capitalize \"Data Saver\" and \"Wi-Fi\" consistently, and simplify the introductory text.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_data-saver.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/notifications\" target=\"_blank\">About notifications</a>",
+        "path": "develop/ui/compose/notifications.md",
+        "summary": "Added a note about using Firebase Cloud Messaging (FCM) to trigger notifications remotely from a server. This addition helps developers understand how to deliver time-efficient messages even when devices are in power-saving modes like Doze or App Standby.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_notifications.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design\" target=\"_blank\">Implement Material Design for your spatial UI</a>",
+        "path": "develop/xr/jetpack-xr-sdk/material-design.md",
+        "summary": "Updated the Material Design documentation for Jetpack XR SDK to replace the automatic `EnableXrComponentOverrides` approach with explicit spatial components from the new `androidx.xr.compose.material3` library. The documentation now details specific spatial composables—such as `SpatialNavigationRail`, `SpatialNavigationBar`, `SpatialBasicAlertDialog`, `SpatialTopAppBar`, and `SpatialListDetailPaneScaffold`—explaining how to check for spatial capabilities and render appropriate layouts for XR devices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_material-design.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials/credential-holder/present-credentials\" target=\"_blank\">Present credentials with your holder app</a>",
+        "path": "identity/digital-credentials/credential-holder/present-credentials.md",
+        "summary": "The documentation was updated to correct code snippets for presenting digital credentials. It fixes the `inlineIssuanceEntries` parameter structure in the `OpenId4VpRegistry` initialization by properly wrapping entries in a `listOf()` instead of passing them unformatted, and updates app signing info retrieval by replacing `.get(0)` with `.firstOrNull()` along with adding `requireNotNull()` for safer null-safety handling when computing the app origin.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_present-credentials.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials/credential-verifier/request-credential\" target=\"_blank\">Request a digital credential</a>",
+        "path": "identity/digital-credentials/credential-verifier/request-credential.md",
+        "summary": "Updated the exception handling code snippet in the credential requesting documentation to replace `CreateCredentialUnknownException` and `CreateCredentialCustomException` with `GetCredentialUnknownException` and `GetCustomCredentialOption` respectively, ensuring developers handle the correct retrieval exceptions for digital credentials.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_request-credential.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/digital-credentials/implement-phone-number-verification\" target=\"_blank\">Implement phone number verification</a>",
+        "path": "identity/digital-credentials/implement-phone-number-verification.md",
+        "summary": "This update fixes a JSON structure syntax error by adding a missing opening and closing curly brace for the credential object inside the DCQL query. Additionally, it corrects a variable reference bug in the backend validation snippet by changing response['vp_token'] to openId4VpResponse['vp_token'] when parsing the TS.43 Digital Credential.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_implement-phone-number-verification.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/legacy/one-tap/legacy-get-saved-credentials\" target=\"_blank\">Sign users in with their saved credentials</a>",
+        "path": "identity/legacy/one-tap/legacy-get-saved-credentials.md",
+        "summary": "This update cleans up documentation formatting, replaces references from the deprecated 'Google APIs console' to the 'Google Cloud console', converts standard paragraphs into bulleted lists for better readability, and adjusts code block indentations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_legacy-get-saved-credentials.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/legacy/one-tap/save-passwords\" target=\"_blank\">Save passwords with Credential Saving</a>",
+        "path": "identity/legacy/one-tap/save-passwords.md",
+        "summary": "The documentation updates fix formatting artifacts by converting standard blockquotes and notes to proper Markdown callout syntax (!CAUTION and !NOTE), adds a descriptive caption to the save password screenshot figure, and minorly updates terminology capitalization ('ID' instead of 'id'). These changes improve readability and adherence to documentation standards for the deprecated One Tap feature.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_save-passwords.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/platform/integrate-eclipsa-video\" target=\"_blank\">Integrate Eclipsa video</a>",
+        "path": "media/platform/integrate-eclipsa-video.md",
+        "summary": "Updated the compatibility and performance monitoring documentation to specify using `getOverlaySupport()` to retrieve `OverlayProperties` for checking `LutProperties`. This is important for accurately identifying the availability of hardware-accelerated paths for Eclipsa video rendering on Android devices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_integrate-eclipsa-video.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/social-and-messaging/guides/communication/notifications-conversations\" target=\"_blank\">About notifications and conversations</a>",
+        "path": "social-and-messaging/guides/communication/notifications-conversations.md",
+        "summary": "Added a new section on \"Cloud-to-device delivery with FCM\" to guide developers on using Firebase Cloud Messaging for real-time messaging, highlighting API support, payload types, and notification delegation for battery efficiency. Minor formatting improvements were also made to the introductory lists and references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_notifications-conversations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/backup-restore-testing-release-notes\" target=\"_blank\">Backup and restore testing release notes</a>",
+        "path": "studio/preview/backup-restore-testing-release-notes.md",
+        "summary": "The release notes for version 1.0.0-alpha04 of the backup and restore testing library introduce new StorageDomain types, device-to-device transfer options, and enhanced debugging capabilities like automated logcat saving on test failure. These updates expand testing flexibility and control, though developers need to be aware of breaking API changes such as the removal of BackupDeviceAction.phase.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_backup-restore-testing-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/backup-restore-testing\" target=\"_blank\">Automated backup and restore testing</a>",
+        "path": "studio/preview/backup-restore-testing.md",
+        "summary": "Updated the backup and restore testing documentation to reflect `androidx.test.backup` library version 1.0.0-alpha04. Key additions include built-in support for `StorageDomain.DataStorePreference` and `StorageDomain.ExcludedData`, streamlined `BackupDeviceAction` syntax (removing manual phase declarations), and updated guidance for handling custom data domains within `runBackupRestoreFlow`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_backup-restore-testing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/emulator/37\" target=\"_blank\">Android Emulator 37 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/emulator/37.md",
+        "summary": "Added release notes for Android Emulator 37.3.8 Canary, which includes minor fixes and improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_37.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/architecture/data-layer/offline-first\" target=\"_blank\">Build an offline-first app</a>",
+        "path": "topic/architecture/data-layer/offline-first.md",
+        "summary": "Updated documentation links to point to the modern developer.android.com URLs instead of legacy paths with tracking parameters, and added a note detailing how to use Firebase Cloud Messaging (FCM) alongside WorkManager for push-based synchronization.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_offline-first.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/status-bar\" target=\"_blank\">Coordinate your UI with the system status bar</a>",
+        "path": "training/wearables/status-bar.md",
+        "summary": "Updated code snippets and examples in the Wear OS status bar documentation to use proper Markdown code block formatting instead of indented text blocks. Additionally, minor updates were made to Compose code snippets—such as usage of `StatusBarSuppression`—to reflect the latest recommended APIs for managing status bar visibility and immersion.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/97ea81dd_status-bar.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-06T15:09:37Z",
     "commit_hash": "e92c9e22",
     "entries": [

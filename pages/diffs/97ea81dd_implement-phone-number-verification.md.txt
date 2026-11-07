@@ -1,0 +1,29 @@
+diff --git a/docs/identity/digital-credentials/implement-phone-number-verification.md b/docs/identity/digital-credentials/implement-phone-number-verification.md
+index 3ac19928..225e353c 100644
+--- a/docs/identity/digital-credentials/implement-phone-number-verification.md
++++ b/docs/identity/digital-credentials/implement-phone-number-verification.md
+@@ -129,6 +129,7 @@ as shown in the following example:
+ 
+     "dcql_query": {
+       "credentials": [
++        {
+           "id": "aggregator1",
+           "format": "dc-authorization+sd-jwt",
+           "meta": {
+@@ -147,6 +148,7 @@ as shown in the following example:
+               "values": ["+14155552671"]
+             }
+           ]
++        }
+       ]
+     }
+ 
+@@ -295,7 +297,7 @@ validation step in your app's backend:
+       # Step 1: Parse out the TS.43 Digital Credential from the response
+       openId4VpResponse = response['data']
+ 
+-      ts43_digital_credential = response['vp_token']["aggregator1"][0]
++      ts43_digital_credential = openId4VpResponse['vp_token']["aggregator1"][0]
+ 
+       # Step 2: Perform response validation
+       verifyResponse(ts43_digital_credential)

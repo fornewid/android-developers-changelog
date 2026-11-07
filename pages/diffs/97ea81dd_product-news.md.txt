@@ -1,0 +1,44 @@
+diff --git a/docs/blog/categories/product-news.md b/docs/blog/categories/product-news.md
+index 42a28d13..f065f96a 100644
+--- a/docs/blog/categories/product-news.md
++++ b/docs/blog/categories/product-news.md
+@@ -9,13 +9,24 @@ source: md.txt
+ # Product News
+ 
+ Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp)
++
++  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
++
++  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
++  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
++  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+ - [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp)
+ 
+-  ## [From in-app agents to the Android intelligence system: What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
++  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
+   [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
+-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
++  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
++  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
++  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
++  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
++  - +2 ↩
+ - [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp)
+ 
+   ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
+@@ -44,12 +55,6 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+   [arrow_forward](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli) As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use.
+   [Jason Buchel](https://developer.android.com/blog/authors/jason-buchel) • 3 min read
+   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp)
+-
+-  ## [New ways to drive smarter discovery, deeper engagement, and business growth on Google Play](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth) Today, we shared how we're taking our "more than a store" vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
+-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+ <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
+ 
+ #### Page 1

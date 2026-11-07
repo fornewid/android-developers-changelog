@@ -1,0 +1,21 @@
+diff --git a/docs/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md b/docs/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md
+index 2fd1c010..cc9eb473 100644
+--- a/docs/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md
++++ b/docs/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md
+@@ -124,12 +124,12 @@ Continue reading
+   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+   - +1 ↩
+-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_ZrjgNw.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  ## [From in-app agents to the Android intelligence system: What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
++  ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
+-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
++  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release) Today, the Jetpack Compose August '26 release is stable!
++  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 5 min read
+   - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ Stay in the loop
+ 
