@@ -4,15 +4,16 @@ url: https://developer.android.com/identity/legacy/one-tap/legacy-get-started
 source: md.txt
 ---
 
-| **Caution:** One Tap for Android is deprecated. To ensure the continued security and usability of your app, [migrate to
-| Credential Manager](https://developer.android.com/identity/sign-in/credential-manager). Credential Manager supports passkey, password, and federated identity authentication (such as Sign-in with Google), stronger security, and a more consistent user experience.
+> [!CAUTION]
+> **Caution:** One Tap for Android is deprecated. To ensure the continued security and usability of your app, [migrate to
+> Credential Manager](https://developer.android.com/identity/sign-in/credential-manager). Credential Manager supports passkey, password, and federated identity authentication (such as Sign-in with Google), stronger security, and a more consistent user experience.
 
 Before you add One Tap sign-in to your app, set up your Google APIs and Android
 projects.
 
-## Set up your Google APIs console project
+## Set up your Google Cloud console project
 
-1. Open your project in the [API Console](https://console.cloud.google.com/), or create a project if you don't already have one.
+1. Open your project in the [Google Cloud console](https://console.cloud.google.com/), or create a project if you don't already have one.
 2. On the OAuth consent screen page, make sure all of the information is complete and accurate. In particular, make sure you have specified the URLs of your app's privacy policy and terms of service.
 3. On the Credentials page, create an Android client ID for your app if you don't already have one. You will need to specify your app's package name and SHA-1 signature.
    1. Go to the [Credentials page](https://console.cloud.google.com/apis/credentials).
@@ -41,7 +42,7 @@ projects.
 
 If you have a web site that shares your app's sign-in backend,
 [create and publish a digital asset links file](https://developers.google.com/identity/smartlock-passwords/android/associate-apps-and-sites)
-so that users who sign in on one platform can easily sign in on the other.
+so that users who sign in on one platform can sign in on the other.
 
 ## Next steps
 

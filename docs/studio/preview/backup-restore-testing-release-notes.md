@@ -10,6 +10,21 @@ source: md.txt
 For the complete list of changes in each library version, see the
 [`androidx.test.backup` release notes](https://developer.android.com/jetpack/androidx/releases/test-backup).
 
+### 1.0.0-alpha04
+
+November 4, 2026
+
+- Added `StorageDomain` types for `runBackupRestoreFlow`: `DataStorePreference` for Preferences DataStore, `CustomData` for [custom device actions](https://developer.android.com/studio/preview/backup-restore-testing#custom-actions), and `ExcludedData` to check that excluded data isn't restored. For more information, see [Built-in storage types](https://developer.android.com/studio/preview/backup-restore-testing#storage-types).
+- Added `isDeviceProtectedStorage` to built-in `StorageDomain` types to test device-protected storage. Added `Set<String>` value support to `StorageDomain.Preference`.
+- Added `restoreOn` to `runBackupRestoreFlow` for [transfers between devices](https://developer.android.com/studio/preview/backup-restore-testing#device-to-device), `uninstallApp` to `BackupRestoreController`, and `minApi` and `maxApi` bounds to `@Device`. For more information, see [Choose devices](https://developer.android.com/studio/preview/backup-restore-testing#choose-devices).
+- Added `BackupActionResult.data` and `BackupActionResult.getOrThrow` to read data returned by device actions and fail when an action fails.
+- Updated `BackupRestoreExtension` to save logcat from each device when a test fails and list the file paths in the failure output. To turn off log saving, pass `-Dandroidx.test.backup.device.logs.enabled=false`. For more information, see [Inspect test reports](https://developer.android.com/studio/preview/backup-restore-testing#test-reports).
+- Registered `BackupRestoreTestRunner` with `InstrumentationRegistry` so device actions can call `getInstrumentation`. Added an optional `testApplicationId` value to `@BackupRestoreConfig` and made `applicationId` optional.
+- Removed `BackupDeviceAction.phase`, `PHASE_POPULATE`, `PHASE_VERIFY`, and the `BackupRestoreExtension(AdbSession)` constructor. Remove `override val phase` from custom device actions.
+
+To use this version, set `backupTestLibraryVersion` to `"1.0.0-alpha04"` in your
+test suite.
+
 ### 1.0.0-alpha03
 
 October 21, 2026

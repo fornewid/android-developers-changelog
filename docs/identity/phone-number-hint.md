@@ -52,15 +52,11 @@ Phone Number Hint flow.
 
 ### Kotlin
 
-```kotlin
-val request: GetPhoneNumberHintIntentRequest = GetPhoneNumberHintIntentRequest.builder().build()
-```
+    val request: GetPhoneNumberHintIntentRequest = GetPhoneNumberHintIntentRequest.builder().build()
 
 ### Java
 
-```java
-GetPhoneNumberHintIntentRequest request = GetPhoneNumberHintIntentRequest.builder().build();
-```
+    GetPhoneNumberHintIntentRequest request = GetPhoneNumberHintIntentRequest.builder().build();
 
 ### Requesting Phone Number Hint
 
@@ -70,43 +66,39 @@ to retrieve the `PendingIntent` to initiate the Phone Number Hint flow.
 
 ### Kotlin
 
-```kotlin
-val phoneNumberHintIntentResultLauncher = ...
+    val phoneNumberHintIntentResultLauncher = ...
 
-Identity.getSignInClient(activity)
-.getPhoneNumberHintIntent(request)
-.addOnSuccessListener { result: PendingIntent ->
-  try {
-    phoneNumberHintIntentResultLauncher.launch(
-      IntentSenderRequest.Builder(result).build()
-    )
-  } catch (e: Exception) {
-      Log.e(TAG, "Launching the PendingIntent failed")
-  }
-}
-.addOnFailureListener {
-    Log.e(TAG, "Phone Number Hint failed")
-}
-```
+    Identity.getSignInClient(activity)
+      .getPhoneNumberHintIntent(request)
+      .addOnSuccessListener { result: PendingIntent ->
+        try {
+          phoneNumberHintIntentResultLauncher.launch(
+            IntentSenderRequest.Builder(result).build()
+          )
+        } catch (e: Exception) {
+            Log.e(TAG, "Launching the PendingIntent failed")
+        }
+      }
+      .addOnFailureListener {
+          Log.e(TAG, "Phone Number Hint failed")
+      }
 
 ### Java
 
-```java
-ActivityResultLauncher phoneNumberHintIntentResultLauncher = ...
+    ActivityResultLauncher<Intent> phoneNumberHintIntentResultLauncher = ...
 
-Identity.getSignInClient(activity)
-  .getPhoneNumberHintIntent(request)
-  .addOnSuccessListener( result -> {
-      try {
-          phoneNumberHintIntentResultLauncher.launch(result.getIntentSender());
-      } catch(Exception e) {
-          Log.e(TAG, "Launching the PendingIntent failed", e);
-      }
-  })
-  .addOnFailureListener(e -> {
-      Log.e(TAG, "Phone Number Hint failed", e);
-  });
-```
+    Identity.getSignInClient(activity)
+        .getPhoneNumberHintIntent(request)
+        .addOnSuccessListener( result -> {
+            try {
+                phoneNumberHintIntentResultLauncher.launch(result.getIntentSender());
+            } catch(Exception e) {
+                Log.e(TAG, "Launching the PendingIntent failed", e);
+            }
+        })
+        .addOnFailureListener(e -> {
+            Log.e(TAG, "Phone Number Hint failed", e);
+        });
 
 ### Retrieving the phone number
 
@@ -115,31 +107,27 @@ to retrieve the phone number.
 
 ### Kotlin
 
-```kotlin
-val phoneNumberHintIntentResultLauncher =
-registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) { result ->
-      try {
-          val phoneNumber = Identity.getSignInClient(activity).getPhoneNumberFromIntent(result.data)
-      } catch(e: Exception) {
-          Log.e(TAG, "Phone Number Hint failed")
-      }
-  }
-```
+    val phoneNumberHintIntentResultLauncher =
+      registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) { result ->
+            try {
+                val phoneNumber = Identity.getSignInClient(activity).getPhoneNumberFromIntent(result.data)
+            } catch(e: Exception) {
+                Log.e(TAG, "Phone Number Hint failed")
+            }
+        }
 
 ### Java
 
-```java
-ActivityResultLauncher phoneNumberHintIntentResultLauncher =
-  registerForActivityResult(
-      new ActivityResultContracts.StartActivityForResult(),
-      new ActivityResultCallback() {
-          @Override
-          public void onActivityResult(ActivityResult result) {
-              try {
-                  String phoneNumber = Identity.getSignInClient(activity).getPhoneNumberFromIntent(result.getData());
-              } catch {
-                  Log.e(TAG, "Phone Number Hint failed", e);
-              }
-          }
-  });
-```
+    ActivityResultLauncher<Intent> phoneNumberHintIntentResultLauncher =
+        registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    try {
+                        String phoneNumber = Identity.getSignInClient(activity).getPhoneNumberFromIntent(result.getData());
+                    } catch {
+                        Log.e(TAG, "Phone Number Hint failed", e);
+                    }
+                }
+        });

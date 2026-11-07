@@ -22,17 +22,26 @@ re-engage your users, but there is a lot to know. Here are some of the basics:
 
 - [**Notification Runtime Permission**](https://developer.android.com/develop/ui/views/notifications/notification-permission) (**POST_NOTIFICATIONS** ): Starting in Android 13 (API level 33) and later, apps must request the [POST_NOTIFICATIONS](https://developer.android.com/reference/android/Manifest.permission#POST_NOTIFICATIONS) permission to send notifications, giving users direct control over which apps can send them notifications.
 - [**Notification Channels**](https://developer.android.com/develop/ui/views/notifications/channels): Apps are required to use channels to post notifications, and channels have unique IDs and user-visible names. Users can fine-tune notification settings per channel, so you should categorize your notifications by type or priority in ways that users can understand (e.g., messages, alerts, updates).
-- [**Notification Groups**](https://developer.android.com/develop/ui/views/notifications/group): Groups visually organize related notifications, and allow users to manage them as a unit.
+- [**Notification Groups**](https://developer.android.com/develop/ui/views/notifications/group): Groups visually organize related notifications and allow users to manage them as a unit.
 - [**Notification Badge**](https://developer.android.com/develop/ui/views/notifications/badges): This small dot or number on an app's icon (depending on launcher support) indicates unread notifications. (You can choose to have your app provide a custom number instead).
 - [**MessagingStyle**](https://developer.android.com/reference/android/app/Notification.MessagingStyle): A notification style that is used to represent conversations between different people or groups of people. Your notifications must be created with this style to use Android's [conversation features](https://developer.android.com/develop/ui/views/notifications/conversations).
 - [**Notification Actions**](https://developer.android.com/develop/ui/views/notifications#Actions): Buttons at the bottom of a notification that perform an action on the data the notification represents, such as "Archive" or "Reply." Notifications can even allow users to directly type replies.
 
 See [Notifications overview](https://developer.android.com/develop/ui/views/notifications) to learn about the basics of Android
-Notifications.
-See [Best practices for messaging apps](https://developer.android.com/develop/ui/views/notifications/build-notification#messaging-best-practices) for a more detailed overview of
-bringing your messaging app to the most Android surfaces.
+Notifications. See [Best practices for messaging apps](https://developer.android.com/develop/ui/views/notifications/build-notification#messaging-best-practices) for a more detailed
+overview of bringing your messaging app to the most Android surfaces.
 See [People and conversations](https://developer.android.com/develop/ui/views/notifications/conversations) to learn more about notifications and
 conversations best practices and fundamental tools.
+
+### Cloud-to-device delivery with FCM
+
+For real-time chat and communication apps, delivering messages reliably when
+your app isn't running requires cloud messaging infrastructure. For example,
+[Firebase Cloud Messaging (FCM)](https://firebase.google.com/docs/cloud-messaging) provides the following capabilities:
+
+- **API support**: Provides client and server-side APIs to send high-priority notifications and data payloads up to 4KB.
+- **Notification payloads vs. data payloads** : Use notification payloads for automatic system tray display, or data-only payloads to process incoming messages silently in [`FirebaseMessagingService`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessagingService) and construct custom [`MessagingStyle`](https://developer.android.com/reference/android/app/Notification.MessagingStyle) notifications.
+- [**Notification delegation**](https://firebase.google.com/docs/cloud-messaging/android/message-priority#proxy): On Android 10 (API level 29) and higher, FCM leverages Google Play services notification delegation to render notifications without waking your app process, saving battery life. To learn more, see [Use FCM to interact with your app while the device is idle](https://developer.android.com/training/monitoring-device-state/doze-standby#using_fcm).
 
 ### Level up your app
 

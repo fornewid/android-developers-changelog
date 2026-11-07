@@ -20,7 +20,7 @@ Every app you build has a fixed start destination. This is the first screen the
 user sees when they launch your app from the launcher. This destination is also
 the last screen the user sees when they return to the launcher after pressing
 the Back button. Let's take a look at the
-[Sunflower app](https://github.com/android/sunflower/tree/main/app)
+Sunflower app
 as an example.
 
 ![](https://developer.android.com/static/images/topic/libraries/architecture/navigation-principles-start-destination.png)

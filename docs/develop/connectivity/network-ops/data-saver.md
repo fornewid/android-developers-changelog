@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/connectivity/network-ops/data-saver
 source: md.txt
 ---
 
-Over the life of a smartphone, the cost of a cellular data plan can easily
+Over the life of a phone, the cost of a mobile data plan can
 exceed the cost of the device itself. On Android 7.0 (API level 24) and
 higher, users can enable Data Saver on a device-wide basis in order to
 optimize their device's data usage, and use less data. This ability
@@ -27,7 +27,7 @@ changes](https://developer.android.com/develop/connectivity/network-ops/data-sav
 user has enabled Data Saver and make an effort to limit foreground and
 background data usage.
 
-## Check data saver preferences
+## Check Data Saver preferences
 
 
 On Android 7.0 (API level 24) and higher, apps can use the
@@ -61,11 +61,9 @@ disabled or the app is allowed to bypass it. The following sample code uses
 and `ConnectivityManager.getRestrictBackgroundStatus()` to determine how much data the
 app should use:
 
-### Kotlin
-
 ```kotlin
-(getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).apply {
-    // Checks if the device is on a metered network
+with(getSystemService(ConnectivityManager::class.java)) {
+    // Checks if the device is on a metered network.
     if (isActiveNetworkMetered) {
         // Checks user's Data Saver settings.
         when (restrictBackgroundStatus) {
@@ -86,33 +84,6 @@ app should use:
         // The device is not on a metered network.
         // Use data as required to perform syncs, downloads, and updates.
     }
-}
-```
-
-### Java
-
-```java
-ConnectivityManager connMgr = (ConnectivityManager)
-        getSystemService(Context.CONNECTIVITY_SERVICE);
-// Checks if the device is on a metered network
-if (connMgr.isActiveNetworkMetered()) {
-  // Checks user's Data Saver settings.
-  switch (connMgr.getRestrictBackgroundStatus()) {
-    case RESTRICT_BACKGROUND_STATUS_ENABLED:
-    // Background data usage is blocked for this app. Wherever possible,
-    // the app should also use less data in the foreground.
-
-    case RESTRICT_BACKGROUND_STATUS_WHITELISTED:
-    // The app is allowed to bypass Data Saver. Nevertheless, wherever possible,
-    // the app should use less data in the foreground and background.
-
-    case RESTRICT_BACKGROUND_STATUS_DISABLED:
-    // Data Saver is disabled. Since the device is connected to a
-    // metered network, the app should use less data wherever possible.
-  }
-} else {
-  // The device is not on a metered network.
-  // Use data as required to perform syncs, downloads, and updates.
 }
 ```
 
@@ -141,7 +112,7 @@ good practice to first ask the user if they want to launch the
 **Settings** app for the purpose of enabling background data
 usage.
 
-## Monitor changes to data saver preferences
+## Monitor changes to Data Saver preferences
 
 
 Apps can monitor changes to Data Saver preferences by creating a
@@ -157,7 +128,7 @@ preferences affect its permissions](https://developer.android.com/develop/connec
 **Note:** The system only sends this broadcast to apps that dynamically register for
 them with
 `https://developer.android.com/reference/android/content/Context#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter)`.
-Apps that register to receive this broadcast in their manifest will not receive them.
+Apps that register to receive this broadcast in their manifest won't receive them.
 
 ## Test with Android Debug Bridge commands
 
@@ -204,11 +175,11 @@ networks.
 
 `$ adb shell cmd netpolicy list wifi-networks`
 :
-    Lists all wifi networks, displaying whether they're metered.
+    Lists all Wi-Fi networks, displaying whether they're metered.
 
 
 `$ adb shell cmd netpolicy set metered-network <WIFI_SSID>
 true`
 :
-    Sets wifi with the specified SSID as metered, allowing you to simulate a
+    Sets Wi-Fi with the specified SSID as metered, allowing you to simulate a
     metered network on an unmetered network.

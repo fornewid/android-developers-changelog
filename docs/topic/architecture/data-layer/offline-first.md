@@ -552,8 +552,13 @@ utilities:
   - Reads: Used as a signal to drain the read queue when the app is connected, and for synchronization.
   - Writes: Used as a signal to drain the write queue when the app is connected, and for synchronization.
 
-Both cases are examples of the [persistent work](https://developer.android.com/topic/libraries/architecture/workmanager?gclid=Cj0KCQjwlemWBhDUARIsAFp1rLWaF1OPHb6MKiUb_KzRlCoCPE3GJYPE7PnlZhhx816Fgyx7mZMehT8aAsREEALw_wcB&gclsrc=aw.ds#types) that [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager?gclid=Cj0KCQjwlemWBhDUARIsAFp1rLWaF1OPHb6MKiUb_KzRlCoCPE3GJYPE7PnlZhhx816Fgyx7mZMehT8aAsREEALw_wcB&gclsrc=aw.ds)
-excels at. For example, in the [Now in Android](https://github.com/android/nowinandroid) sample app,
+Both cases are examples of the [persistent work](https://developer.android.com/develop/background-work/background-tasks/persistent#types) that [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent)
+excels at.
+
+> [!NOTE]
+> **Note:** You can use [Firebase Cloud Messaging (FCM)](https://firebase.google.com/docs/cloud-messaging) messages for push-based synchronization. When the device receives an FCM data message in `FirebaseMessagingService.onMessageReceived()`, you can enqueue a [WorkManager request](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work) to execute the work. For more information, see [Receive messages in Android apps](https://firebase.google.com/docs/cloud-messaging/android/receive-messages).
+
+For example, in the [Now in Android](https://github.com/android/nowinandroid) sample app,
 WorkManager is used as both a read queue and network monitor when synchronizing
 the local data source. On startup, the app does the following:
 
@@ -566,8 +571,8 @@ the local data source. On startup, the app does the following:
 These actions are illustrated in the following diagram:
 ![Data synchronization in the Now in Android app](https://developer.android.com/static/images/topic/architecture/data-layer/nia-sync.png) **Figure 10**: Data synchronization in the Now in Android app.
 
-The enqueueing of the synchronization work with [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager?gclid=Cj0KCQjwio6XBhCMARIsAC0u9aHzO8I5koMyVoXhyCg9M5fkH4CnUhjDAo4MlC5lgKV2kO9iUTsMaEcaAsWDEALw_wcB&gclsrc=aw.ds) follows by
-specifying it as [unique work](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/managing-work#unique-work) with the `KEEP` [`ExistingWorkPolicy`](https://developer.android.com/reference/kotlin/androidx/work/ExistingWorkPolicy):
+The enqueueing of the synchronization work with [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent) follows by
+specifying it as [unique work](https://developer.android.com/develop/background-work/background-tasks/persistent/how-to/manage-work#unique-work) with the `KEEP` [`ExistingWorkPolicy`](https://developer.android.com/reference/kotlin/androidx/work/ExistingWorkPolicy):
 
     class SyncInitializer : Initializer<Sync> {
        override fun create(context: Context): Sync {

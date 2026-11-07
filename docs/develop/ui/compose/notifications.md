@@ -31,6 +31,9 @@ For more information about notification design and interaction patterns, see the
 [Notifications design
 guide](https://developer.android.com/design/ui/mobile/guides/home-screen/notifications).
 
+> [!NOTE]
+> **Note:** To trigger notifications remotely from a server, you can use a push-delivery service such as [Firebase Cloud Messaging (FCM)](https://firebase.google.com/docs/cloud-messaging). FCM maintains a battery-efficient connection that can deliver time-sensitive messages even when the device is in Doze or App Standby mode. For more information, see [Use FCM to interact with your app while the device is idle](https://developer.android.com/training/monitoring-device-state/doze-standby#using_fcm).
+
 ## Appearances on a device
 
 Notifications automatically appear to users in different locations and formats.

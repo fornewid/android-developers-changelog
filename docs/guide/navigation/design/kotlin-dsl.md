@@ -41,8 +41,7 @@ dependencies {
 
 ## Building a graph
 
-Here is a basic example based on the [Sunflower
-app](https://github.com/android/sunflower/tree/views). For this
+Here is a basic example based on the Sunflower app. For this
 example, we have two destinations: `home` and `plant_detail`. The `home`
 destination is present when the user first launches the app. This destination
 displays a list of plants from the user's garden. When the user selects one of

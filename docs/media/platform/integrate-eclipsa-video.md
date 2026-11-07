@@ -97,8 +97,8 @@ it exists in the active dynamic profile.
 ## Compatibility and performance considerations
 
 To monitor performance, retrieve the active `Display` object and check for
-`LutProperties` on its `overlayProperties` to identify the availability of
-hardware-accelerated paths.
+`LutProperties` on the `OverlayProperties` returned by `getOverlaySupport()` to
+identify the availability of hardware-accelerated paths.
 
 For devices that don't have hardware-acceleration capabilities, support for
 opting out of Eclipsa video rendering in Exoplayer is in development.

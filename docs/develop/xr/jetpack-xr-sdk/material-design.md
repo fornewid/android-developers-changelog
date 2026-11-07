@@ -11,30 +11,37 @@ Applicable XR devices This guidance helps you build experiences for these types 
 
 <br />
 
-Material Design provides components and layouts that adapt for XR. Using the
-existing [Material 3 library](https://developer.android.com/jetpack/androidx/releases/compose-material3), components and [adaptive layouts](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive) are
-enhanced with spatial UI behaviors.
+Material Design provides components and layouts for XR. Using the [Material 3
+library](https://developer.android.com/jetpack/androidx/releases/compose-material3), [adaptive layouts](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive), and the [XR Compose Material 3 library](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#declaring_dependencies),
+you can build spatial UI behaviors into your Compose app.
 Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the
 video](https://developer.android.com/static/videos/design/ui/xr/visual-design-ls-adapted-opt.mp4) and watch it with a video player.
 
-You can adapt your current M3 implementation by adding the
-`EnableXrComponentOverrides` wrapper. Add the [XR Compose Material3 library](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#declaring_dependencies)
-to your app's dependencies.
+Add the [XR Compose Material 3 library](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#declaring_dependencies) to your app's dependencies to use
+Material 3 for XR components, or place standard [Material 3](https://developer.android.com/jetpack/androidx/releases/compose-material3) components
+directly inside Jetpack Compose for XR containers such as [`Orbiter`](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/orbiter),
+[`SpatialDialog`](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/spatial-dialog), and [`SpatialPanel`](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/spatial-panel).
 
-## Use EnableXrComponentOverrides to adapt your existing app
+## Use Material 3 for XR components
 
-All M3 Compose UI inside of the [`EnableXrComponentOverrides`](https://developer.android.com/reference/kotlin/androidx/xr/compose/material3/package-summary#EnableXrComponentOverrides(androidx.xr.compose.material3.XrComponentOverrideEnabler,kotlin.Function0)) wrapper will
-adapt on XR devices. This wrapper lets you choose any components you want to
-exclude from this behavior.
+The [`androidx.xr.compose.material3`](https://developer.android.com/reference/kotlin/androidx/xr/compose/material3/package-summary) library provides Material 3 for XR
+components for common spatial UI patterns---including navigation rails and bars,
+top app bars, floating toolbars, dialogs, list-detail layouts, and a toggle
+button to switch between Home Space and Full Space. The spatialized `Spatial*`
+composables in this library are experimental and require opting in with
+[`@OptIn(ExperimentalMaterial3XrApi::class)`](https://developer.android.com/reference/kotlin/androidx/xr/compose/material3/ExperimentalMaterial3XrApi).
 
-Add the `EnableXrComponentOverrides` wrapper to adapt your app to Material
-Design for XR.
+Check [`LocalSpatialCapabilities.current.isSpatialUiEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/package-summary#LocalSpatialCapabilities()) to render
+Material 3 for XR components when spatial UI is enabled and standard Material 3
+components when spatial UI isn't enabled. For more information, see [Check for
+spatial capabilities](https://developer.android.com/develop/xr/jetpack-xr-sdk/check-spatial-capabilities).
 
 ## Navigation rail
 
-Navigation rail in any Compose layout, including [`NavigationSuiteScaffold`](https://developer.android.com/develop/ui/compose/layouts/adaptive/build-adaptive-navigation)
-will automatically adapt to XR Orbiter. For more information, read [Material
-Design guidelines](https://m3.material.io/components/navigation-rail/xr).
+Use [`SpatialNavigationRail`](https://developer.android.com/reference/kotlin/androidx/xr/compose/material3/SpatialNavigationRail.composable) or [`SpatialWideNavigationRail`](https://developer.android.com/reference/kotlin/androidx/xr/compose/material3/SpatialWideNavigationRail.composable) to display
+a Material 3 navigation rail in a start-aligned [`Orbiter`](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/orbiter) when spatial UI
+is enabled. For more information, see the [Material Design
+guidelines](https://m3.material.io/components/navigation-rail/xr).
 
 
 ![Non-spatialized navigation
@@ -50,9 +57,10 @@ Spatialized (XR-adapted) navigation rail
 
 ## Navigation bar
 
-Navigation bar in any Compose layout, including [`NavigationSuiteScaffold`](https://developer.android.com/develop/ui/compose/layouts/adaptive/build-adaptive-navigation)
-will automatically adapt to XR orbiter. For more information, read [Material
-Design guidelines](https://m3.material.io/components/navigation-bar/xr).
+Use [`SpatialNavigationBar`](https://developer.android.com/reference/kotlin/androidx/xr/compose/material3/SpatialNavigationBar.composable) or [`SpatialShortNavigationBar`](https://developer.android.com/reference/kotlin/androidx/xr/compose/material3/SpatialShortNavigationBar.composable) to display
+a Material 3 navigation bar in a bottom-aligned [`Orbiter`](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/orbiter) when spatial UI
+is enabled. For more information, see the [Material Design
+guidelines](https://m3.material.io/components/navigation-bar/xr).
 
 
 ![Non-spatialized navigation
@@ -68,9 +76,12 @@ Spatialized (XR-adapted) navigation bar
 
 ## Dialogs
 
-A `BasicAlertDialog` will adapt to XR, adding elevation to the component.
+Use [`SpatialBasicAlertDialog`](https://developer.android.com/reference/kotlin/androidx/xr/compose/material3/SpatialBasicAlertDialog.composable) to display a basic alert dialog inside a
+[`SpatialDialog`](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/spatial-dialog) with spatial elevation, or wrap standard Material 3 dialog
+content directly in `SpatialDialog`.
 
-Learn more about [Dialogs](https://m3.material.io/components/dialogs/xr) and [adaptive design guidelines](https://m3.material.io/foundations/adaptive-design).
+For more information, see [Dialogs](https://m3.material.io/components/dialogs/xr) and the [adaptive design
+guidelines](https://m3.material.io/foundations/adaptive-design).
 
 
 ![Non-spatialized
@@ -86,10 +97,12 @@ Spatialized (XR-adapted) dialog
 
 ## Top app bars
 
-A `TopAppBar` will automatically adapt to XR orbiter.
+Use [`SpatialTopAppBar`](https://developer.android.com/reference/kotlin/androidx/xr/compose/material3/SpatialTopAppBar.composable) or [`SpatialTwoRowsTopAppBar`](https://developer.android.com/reference/kotlin/androidx/xr/compose/material3/SpatialTwoRowsTopAppBar.composable) to display a
+Material 3 top app bar inside a top-aligned [`Orbiter`](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/orbiter) when spatial UI is
+enabled.
 
-Learn more about [Top app bars](https://m3.material.io/components/app-bars/xr) and [adaptive design
-guidelines](https://m3.material.io/foundations/adaptive-design).
+For more information, see [Top app bars](https://m3.material.io/components/app-bars/xr) and the [adaptive
+design guidelines](https://m3.material.io/foundations/adaptive-design).
 
 
 ![Non-spatialized top app
@@ -105,9 +118,11 @@ Spatialized (XR-adapted) top app bar
 
 ## List-detail layout for XR
 
-[Compose Material 3 Adaptive Layouts](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive) in XR have a 1:1 mapping where each
-pane is placed inside its own XR spatial panel. Learn more about
-[`ListDetailPaneScaffold`](https://developer.android.com/develop/ui/compose/layouts/adaptive/list-detail) and [adaptive design guidelines](https://m3.material.io/foundations/adaptive-design).
+Use [`SpatialListDetailPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/xr/compose/material3/SpatialListDetailPaneScaffold.composable) when spatial UI is enabled to display
+a [Material 3 adaptive](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive) list-detail layout where each pane is placed inside
+its own [`SpatialPanel`](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/spatial-panel). When spatial UI isn't enabled, use
+[`ListDetailPaneScaffold`](https://developer.android.com/develop/ui/compose/layouts/adaptive/list-detail). For more information, see [List-detail
+layout](https://developer.android.com/develop/ui/compose/layouts/adaptive/list-detail) and the [adaptive design guidelines](https://m3.material.io/foundations/adaptive-design).
 
 
 ![Non-spatialized
@@ -123,9 +138,11 @@ Spatialized (XR-adapted) ListDetailPaneScaffold
 
 ## Support pane layout for XR
 
-[Compose Material 3 Adaptive Layouts](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive) in XR have a 1:1 mapping where each
-pane is placed inside its own XR spatial panel. Learn more about
-[`SupportingPaneScaffold`](https://developer.android.com/develop/ui/compose/layouts/adaptive/build-a-supporting-pane-layout) and [adaptive design guidelines](https://m3.material.io/foundations/adaptive-design).
+When spatial UI is enabled, place your main pane and supporting pane into
+separate [`SpatialPanel`](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/spatial-panel) containers inside a [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialRow.composable) within a
+[`Subspace`](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-subspace). When spatial UI isn't enabled, use
+[`SupportingPaneScaffold`](https://developer.android.com/develop/ui/compose/layouts/adaptive/build-a-supporting-pane-layout). For more information, see [Supporting pane](https://developer.android.com/develop/ui/compose/layouts/adaptive/build-a-supporting-pane-layout)
+and the [adaptive design guidelines](https://m3.material.io/foundations/adaptive-design).
 
 
 ![Non-spatialized
@@ -148,4 +165,5 @@ Spatialized (XR-adapted) SupportingPaneScaffold
 ## See also
 
 - [Develop UI with Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose)
+- [Transition from Home Space to Full Space](https://developer.android.com/develop/xr/jetpack-xr-sdk/transition-home-space-to-full-space)
 - [Spatial UI design guidelines](https://developer.android.com/design/ui/xr/guides/spatial-ui)
