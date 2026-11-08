@@ -72,6 +72,4 @@ Initializes a new instance of the [NearbyConnectionConfiguration](https://develo
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | A callback that will be invoked when initialization completes. | | `localClientId` | The unique identifier for the local client. | |
+Details Parameters `callback` A callback that will be invoked when initialization completes. `localClientId` The unique identifier for the local client.

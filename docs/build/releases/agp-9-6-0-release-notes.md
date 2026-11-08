@@ -46,6 +46,10 @@ reports (with on-device agent)](https://developer.android.com/studio/test/on-dev
 ## Fixed issues
 
 
+### Android Gradle plugin 9.6.0-alpha03
+
+Fixed Issues **Android Gradle Plugin** [Issue #376975539](https://issuetracker.google.com/issues/376975539) Ladybug UI is slower than Koala [Issue #567487269](https://issuetracker.google.com/issues/567487269) Make analyzeReleaseR8Config output print out link to the report [Issue #396148600](https://issuetracker.google.com/issues/396148600) IDE Performance Slows to a Crawl During Gradle Build in large project **Lint Integration** [Issue #566069554](https://issuetracker.google.com/issues/566069554) \[AGP 9.x\] Broken Gradle cache: Moving sources fails Lint analysis
+
 ### Android Gradle plugin 9.6.0-alpha02
 
 Fixed Issues **Android Gradle Plugin** [Issue #567815521](https://issuetracker.google.com/issues/567815521) Unsafe system properties read for R8 tasks

@@ -163,8 +163,17 @@ After receiving the public key creation options JSON from your server, wrap the
 JSON in a [`CreateRestoreCredentialRequest`](https://developer.android.com/reference/androidx/credentials/CreateRestoreCredentialRequest) object and call
 [`createCredential()`](https://developer.android.com/reference/androidx/credentials/CredentialManager#createCredential(android.content.Context,androidx.credentials.CreateCredentialRequest)) on the `CredentialManager` object.
 
-    // createRestoreRequest contains the details sent by the server 
-    val response = credentialManager.createCredential(context, createRestoreRequest)
+    // requestJson contains the credential creation options sent by the server
+    val createRestoreRequest = CreateRestoreCredentialRequest(requestJson)
+    val response = try {
+        credentialManager.createCredential(context, createRestoreRequest)
+    } catch (e: E2eeUnavailableException) {
+        // Fall back to local device-to-device (D2D) restore if cloud E2EE is unavailable
+        credentialManager.createCredential(
+            context,
+            CreateRestoreCredentialRequest(requestJson, isCloudBackupEnabled = false),
+        )
+    }
 
 #### Key points about the code
 
@@ -249,17 +258,45 @@ Auto Backup instead of switching to legacy key-value backup.
 > [!IMPORTANT]
 > **Important:** Push notifications aren't automatically restored when credentials are retrieved. Inside `BackupAgent.onRestoreFinished()` (or immediately after Tier-2 sign-in), fetch a fresh Firebase Cloud Messaging (FCM) registration token using `FirebaseMessaging.getInstance().token.await()` and register it with your backend so background notifications resume before the user opens the app.
 
-    // Fetch the options required to get the restore key
-    val authenticationJson = fetchAuthenticationJson()
+        suspend fun getRestoreKey(
+            fetchAuthenticationJson: () -> String,
+        ) {
+            // Fetch the options required to get the restore key
+            val authenticationJson = fetchAuthenticationJson()
 
-    // Create the GetRestoreCredentialRequest object
-    val options = GetRestoreCredentialOption(authenticationJson)
-    val getRequest = GetCredentialRequest(listOf(options))
+            // Create the GetRestoreCredentialOption object
+            val options = GetRestoreCredentialOption(authenticationJson)
+            val getRequest = GetCredentialRequest(listOf(options))
 
-    val response = credentialManager.getCredential(context, getRequest)
+            try {
+                val response = credentialManager.getCredential(context, getRequest)
 
-    // Type-check and extract the restore credential
-    val credential = response.credential as RestoreCredential
+                // Type-check and extract the restore credential
+                val credential = response.credential
+                if (credential is RestoreCredential) {
+                    val responseJson = credential.authenticationResponseJson
+                }
+            } catch (e: NoCredentialException) {
+                // No restore key is present on this device
+            }
+        }
+
+    class MyBackupAgent : BackupAgent() {
+
+        override fun onRestoreFinished() {
+            super.onRestoreFinished()
+            val credentialManager = CredentialManager.create(this)
+            val restoreFunctions = RestoreCredentialsFunctions(this, credentialManager)
+
+            runBlocking(Dispatchers.IO) {
+                restoreFunctions.getRestoreKey(
+                    fetchAuthenticationJson = {
+                        /* Fetch challenge JSON from server */ ""
+                    }
+                )
+            }
+        }
+    }
 
 The Credential Manager API returns a [`GetCredentialResponse`](https://developer.android.com/reference/androidx/credentials/GetCredentialResponse) whose
 `credential` property is a [`RestoreCredential`](https://developer.android.com/reference/androidx/credentials/RestoreCredential) (not a
@@ -301,10 +338,11 @@ state and leaves the restore key intact, perform a **dual clear** on sign-out:
 2. Call `credentialManager.clearCredentialState()` with `ClearCredentialStateRequest(ClearCredentialStateRequest.TYPE_CLEAR_RESTORE_CREDENTIAL)` to delete the stored `RestoreCredential`.
 3. Delete your local `has_synced_restore_credential` marker from local storage.
 
-    // Create a ClearCredentialStateRequest object
-    val clearRequest = ClearCredentialStateRequest(TYPE_CLEAR_RESTORE_CREDENTIAL)
+    // Clear active credential provider session state
+    credentialManager.clearCredentialState(ClearCredentialStateRequest())
 
     // When the user logs out, delete the restore key
+    val clearRequest = ClearCredentialStateRequest(TYPE_CLEAR_RESTORE_CREDENTIAL)
     val response = credentialManager.clearCredentialState(clearRequest)
 
 ## Next steps

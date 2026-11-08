@@ -96,6 +96,4 @@ This is equivalent to calling [PlayGamesPlatform.ReportScore](https://developer.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | A callback to be invoked with a boolean indicating the success of the operation. | |
+Details Parameters `callback` A callback to be invoked with a boolean indicating the success of the operation.

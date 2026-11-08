@@ -4,8 +4,6 @@ url: https://developer.android.com/games/services/unity/v2/api/class/google-play
 source: md.txt
 ---
 
-# GooglePlayGames.BasicApi.RecallAccess Class Reference
-
 # GooglePlayGames.BasicApi.RecallAccess
 
 Recall Access data.
@@ -14,9 +12,9 @@ Recall Access data.
 
 This is the callback data when requesting Recall Access.
 
-|                                                                                                                          ### Properties                                                                                                                           ||
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
-| [sessionId](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/recall-access#class_google_play_games_1_1_basic_api_1_1_recall_access_1aa3bd77919e20175f3d9e7afad16447cb) | `string` The session ID for the Recall Access. |
+| ### Properties ||
+|---|---|
+| `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/recall-access#class_google_play_games_1_1_basic_api_1_1_recall_access_1aa3bd77919e20175f3d9e7afad16447cb` | `string` The session ID for the Recall Access. |
 
 ## Properties
 
@@ -24,5 +22,5 @@ This is the callback data when requesting Recall Access.
 
 ```c#
 string sessionId
-```  
+```
 The session ID for the Recall Access.

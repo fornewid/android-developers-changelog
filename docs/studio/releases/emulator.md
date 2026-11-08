@@ -2010,7 +2010,7 @@ includes the following updates:
 
 - Compatible with API level 26.
 - Fully GLES 2.0 compliant. Given a host GPU that has conformant desktop OpenGL drivers, the emulator now passes 100% of the Android CTS dEQP-GLES2 [`mustpass`
-  list](https://source.android.com/devices/graphics/cts-integration.md). This has been released for API level 24 x86 images (revision 11 and higher) and will soon be included for all system images.
+  list](https://source.android.com/devices/graphics/cts-integration). This has been released for API level 24 x86 images (revision 11 and higher) and will soon be included for all system images.
 - Improved video playback performance. The emulator now stores all video color buffers in host/guest shared memory and performs necessary final YUV to RGB conversion in the GPU. 1080p30 should be well within reach of most systems now. This has been released for API level 24 x86 images (revision 11 and higher) and will soon be included for all system images.
 - The emulator now correctly unregisters itself from the `adb
   devices` list on exit and closes open TCP ports on Linux machines.

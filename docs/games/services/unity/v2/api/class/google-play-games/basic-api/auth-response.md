@@ -36,10 +36,7 @@ Constructs an `https://developer.android.com/games/services/unity/v2/api/class/g
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `authCode` | The authentication code. | | `grantedScopes` | A list of `AuthScope` objects representing the granted scopes. | |
-| Exceptions | |---|---| | `ArgumentNullException` | If `grantedScopes` is null. | |
+Details Parameters `authCode` The authentication code. `grantedScopes` A list of `AuthScope` objects representing the granted scopes. Exceptions `ArgumentNullException` If `grantedScopes` is null.
 
 ### Equals
 

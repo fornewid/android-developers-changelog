@@ -4,8 +4,6 @@ url: https://developer.android.com/games/services/unity/v2/api/class/google-play
 source: md.txt
 ---
 
-# GooglePlayGames.BasicApi.PlayerProfile Class Reference
-
 # GooglePlayGames.BasicApi.PlayerProfile
 
 Represents a player, a real-world person (tied to a Games account).
@@ -14,4 +12,4 @@ Represents a player, a real-world person (tied to a Games account).
 
 ### Inheritance
 
-Inherits from:[GooglePlayGames.PlayGamesUserProfile](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-user-profile)
+Inherits from: [GooglePlayGames.PlayGamesUserProfile](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-user-profile)

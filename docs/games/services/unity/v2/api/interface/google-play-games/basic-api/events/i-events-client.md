@@ -34,9 +34,7 @@ Fetches all events defined for this game.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `source` | The source of the event (i.e. whether we can return stale cached values). | | `callback` | A callback for the results of the request. The passed list will only be non-empty if the request succeeded. This callback will be invoked on the game thread. | |
+Details Parameters `source` The source of the event (i.e. whether we can return stale cached values). `callback` A callback for the results of the request. The passed list will only be non-empty if the request succeeded. This callback will be invoked on the game thread.
 
 ### FetchEvent
 
@@ -51,9 +49,7 @@ Fetches the event with the specified ID.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `source` | The source of the event (i.e. whether we can return stale cached values). | | `eventId` | The ID of the event. | | `callback` | A callback for the result of the event. If the request failed, the passed event will be null. This callback will be invoked on the game thread. | |
+Details Parameters `source` The source of the event (i.e. whether we can return stale cached values). `eventId` The ID of the event. `callback` A callback for the result of the event. If the request failed, the passed event will be null. This callback will be invoked on the game thread.
 
 ### IncrementEvent
 
@@ -67,6 +63,4 @@ Increments the indicated event.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `eventId` | The ID of the event to increment. | | `stepsToIncrement` | The number of steps to increment by. | |
+Details Parameters `eventId` The ID of the event to increment. `stepsToIncrement` The number of steps to increment by.

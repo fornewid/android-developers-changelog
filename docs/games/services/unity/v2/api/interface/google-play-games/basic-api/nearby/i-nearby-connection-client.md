@@ -47,9 +47,7 @@ Accepts a connection request from a remote endpoint.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `remoteEndpointId` | The ID of the remote endpoint. | | `payload` | The connection acceptance payload. | | `listener` | Listener for message events. | |
+Details Parameters `remoteEndpointId` The ID of the remote endpoint. `payload` The connection acceptance payload. `listener` Listener for message events.
 
 ### DisconnectFromEndpoint
 
@@ -62,9 +60,7 @@ Disconnects from a remote endpoint.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `remoteEndpointId` | The ID of the remote endpoint to disconnect from. | |
+Details Parameters `remoteEndpointId` The ID of the remote endpoint to disconnect from.
 
 ### GetAppBundleId
 
@@ -129,9 +125,7 @@ Rejects a connection request from a remote endpoint.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `requestingEndpointId` | The ID of the endpoint that sent the request. | |
+Details Parameters `requestingEndpointId` The ID of the endpoint that sent the request.
 
 ### SendConnectionRequest
 
@@ -148,9 +142,7 @@ Sends a connection request to a remote endpoint.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `name` | The name of the local device. | | `remoteEndpointId` | The ID of the remote endpoint. | | `payload` | The connection request payload. | | `responseCallback` | Callback for the connection response. | | `listener` | Listener for message events. | |
+Details Parameters `name` The name of the local device. `remoteEndpointId` The ID of the remote endpoint. `payload` The connection request payload. `responseCallback` Callback for the connection response. `listener` Listener for message events.
 
 ### SendReliable
 
@@ -164,9 +156,7 @@ Sends a reliable message to a list of recipients.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `recipientEndpointIds` | List of recipient endpoint IDs. | | `payload` | The message payload to send. | |
+Details Parameters `recipientEndpointIds` List of recipient endpoint IDs. `payload` The message payload to send.
 
 ### SendUnreliable
 
@@ -180,9 +170,7 @@ Sends an unreliable message to a list of recipients.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `recipientEndpointIds` | List of recipient endpoint IDs. | | `payload` | The message payload to send. | |
+Details Parameters `recipientEndpointIds` List of recipient endpoint IDs. `payload` The message payload to send.
 
 ### StartAdvertising
 
@@ -199,9 +187,7 @@ Starts advertising the local device to nearby devices.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `name` | The name to advertise. | | `appIdentifiers` | List of application identifiers. | | `advertisingDuration` | Optional advertising duration. | | `resultCallback` | Callback for advertising result. | | `connectionRequestCallback` | Callback for incoming connection requests. | |
+Details Parameters `name` The name to advertise. `appIdentifiers` List of application identifiers. `advertisingDuration` Optional advertising duration. `resultCallback` Callback for advertising result. `connectionRequestCallback` Callback for incoming connection requests.
 
 ### StartDiscovery
 
@@ -216,9 +202,7 @@ Starts discovering nearby endpoints for a specific service.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `serviceId` | The service ID to discover. | | `advertisingTimeout` | Optional timeout for advertising discovery. | | `listener` | Listener for discovery events. | |
+Details Parameters `serviceId` The service ID to discover. `advertisingTimeout` Optional timeout for advertising discovery. `listener` Listener for discovery events.
 
 ### StopAdvertising
 
@@ -245,6 +229,4 @@ Stops discovering endpoints for a specific service.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `serviceId` | The service ID to stop discovering. | |
+Details Parameters `serviceId` The service ID to stop discovering.

@@ -165,9 +165,10 @@ top status bar inset padding to `0.dp`. When you navigate back to other screens,
 
 ```kotlin
 AppScaffold {
-    ScreenScaffold {
-        StatusBarSuppression()
-        // Full-screen immersive content
+    ScreenScaffold(modifier = Modifier.suppressStatusBar()) { contentPadding ->
+        Box(modifier = Modifier.fillMaxSize().padding(contentPadding)) {
+            // Full-screen immersive content
+        }
     }
 }
 ```
@@ -191,15 +192,14 @@ across all screens:
 <br />
 
 ```kotlin
-// Use StatusBarSuppression at AppScaffold level and wrap your content
-// to suppress status bar in the entire scaffold.
-AppScaffold {
-    StatusBarSuppression {
-        SwipeDismissableNavHost(
-            // ...
-        ) {
-            // Nested screens inherit suppression and 0.dp padding
-        }
+// Apply Modifier.suppressStatusBar() to AppScaffold to suppress the status bar
+// and collapse insets across all child screens.
+AppScaffold(modifier = Modifier.suppressStatusBar()) {
+    SwipeDismissableNavHost(
+        navController = navController,
+        startDestination = "home",
+    ) {
+        // Nested screens inherit suppression and 0.dp padding
     }
 }
 ```

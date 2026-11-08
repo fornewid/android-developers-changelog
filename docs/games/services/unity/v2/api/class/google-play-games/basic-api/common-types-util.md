@@ -14,10 +14,7 @@ This class checks if a response status is a success or not.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `status` | The response status to check. | |
-| **Returns** | True if the status is a success, false otherwise. |
+Details Parameters `status` The response status to check. **Returns** True if the status is a success, false otherwise.
 
 | ### Public static functions ||
 |---|---|
