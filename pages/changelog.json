@@ -1,5 +1,139 @@
 [
   {
+    "date": "2026-11-08T15:08:22Z",
+    "commit_hash": "987935ab",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/camera/camerax/references/camera2-to-camerax\" target=\"_blank\">Migrate from Camera2 to CameraX</a>",
+        "path": "agents/skills/camera/camerax/references/camera2-to-camerax.md",
+        "summary": "Updated the Camera2-to-CameraX migration documentation to provide more comprehensive, production-ready code examples. Changes include encapsulating use cases into a reusable `CameraUseCases` class, adding tap-to-focus and metering logic for both View and Compose implementations, utilizing `imageProxy.use { }` for safe resource management, and updating the `Camera2Interop` sample to highlight deprecation notices for CameraX 1.7.0.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_camera2-to-camerax.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/camera/camerax/references/foldables\" target=\"_blank\">Camera support for foldable devices</a>",
+        "path": "agents/skills/camera/camerax/references/foldables.md",
+        "summary": "The CameraX foldables documentation has been updated to provide more robust, production-ready Kotlin code snippets. The folding feature observation snippet was refactored into a reusable function using `WindowInfoTracker.getOrCreate(activity)`, and the use case building example was expanded to accept `ImageCapture` alongside `Preview` while properly handling display rotation null-safety.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_foldables.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/camera/camerax/references/low-light\" target=\"_blank\">Low-light development guide</a>",
+        "path": "agents/skills/camera/camerax/references/low-light.md",
+        "summary": "Updated the CameraX low-light documentation with production-ready Kotlin code snippets. The changes incorporate newer CameraX APIs—such as CameraX 1.6.0 extensions configuration using `ExtensionSessionConfig`, updated coroutine usage (`ExtensionsManager.getInstance`), detailed extension strength handling, progress reporting during long exposure captures, and robust error handling for native Low Light Boost.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_low-light.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/camera/camerax/references/mlkit-spatial\" target=\"_blank\">ML Kit spatial and coordinate mapping</a>",
+        "path": "agents/skills/camera/camerax/references/mlkit-spatial.md",
+        "summary": "Updated the ML Kit and CameraX integration guide by replacing low-level matrix transformation snippets with a complete, production-ready `startBarcodeScanning` function using `LifecycleCameraController` and `MlKitAnalyzer`. Additionally, improved the coordinate mapping code example by encapsulating landmark-to-screen pixel conversion into a clear, reusable utility function.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_mlkit-spatial.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/camera/camerax/references/thermals\" target=\"_blank\">Thermal-aware camera development</a>",
+        "path": "agents/skills/camera/camerax/references/thermals.md",
+        "summary": "Updated the Kotlin code snippets in the CameraX thermal reference documentation to follow best practices. The examples now wrap the logic inside proper functions, include correct API level annotations (Android 13+ for stream use cases and Android 10+ for thermal status listeners), handle deprecation warnings for CameraX 1.7.0 interop builders, and properly manage thermal listener references for cleanup.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_thermals.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/camera/camerax/references/wear-os\" target=\"_blank\">Wear OS camera remote development</a>",
+        "path": "agents/skills/camera/camerax/references/wear-os.md",
+        "summary": "The CameraX Wear OS reference documentation was updated to provide more robust, production-ready Kotlin code snippets. The phone-side frame-sending example was refactored into a suspend function that correctly offloads heavy JPEG compression to a background thread (`Dispatchers.Default`), preventing potential UI jank on the main thread. Additionally, the watch-side trigger example was wrapped into a reusable function with explicit parameter naming for better clarity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_wear-os.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point\" target=\"_blank\">Migrating to the AppFunctionServiceEntryPoint API</a>",
+        "path": "agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point.md",
+        "summary": "Fixed corrupted code snippets in the migration guide by correcting broken Kotlin function arguments and malformed XML manifest tags, ensuring developers have accurate copy-paste examples for setting up AppFunctionService.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_migrate-to-service-entry-point.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/identity/restore-credentials/skill\" target=\"_blank\">Restore Credentials</a>",
+        "path": "agents/skills/identity/restore-credentials/skill.md",
+        "summary": "Updated the Restore Credentials documentation to clarify version requirements, detail the interaction with `android:allowBackup`, provide explicit JSON structures and encoding rules for WebAuthn creation options, and expand implementation patterns including `E2eeUnavailableException` handling and local sync flag management.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/security/android-intent-security/skill\" target=\"_blank\">Android intent and component security: Audit and remediation guide</a>",
+        "path": "agents/skills/security/android-intent-security/skill.md",
+        "summary": "Updated the Bound Service security implementation to use an AIDL Stub and `PackageManager.hasSigningCertificate(int, ...)` taking the UID directly. This improves IPC security best practices by leveraging API 28+ UID-based signature verification and avoiding potential package name spoofing or package manager query gaps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/security/android-permissions-security/skill\" target=\"_blank\">Android permission security: Audit and remediation guide</a>",
+        "path": "agents/skills/security/android-permissions-security/skill.md",
+        "summary": "Updated the Android 14+ broadcast options snippet to handle broadcast sending conditionally based on the SDK version instead of passing a null bundle, and added a clarifying comment for broadcast receiver validation across different API levels.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/skill\" target=\"_blank\">Display Glasses with Jetpack Compose Glimmer</a>",
+        "path": "agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/skill.md",
+        "summary": "Fixed multiple syntax errors, typos, and corrupted code snippets across Jetpack Compose Glimmer XR samples and AndroidManifest configurations in the skill documentation. These corrections ensure that code examples for activities, cards, buttons, lists, pagers, and voice input indicators are syntactically valid and reliable for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/android-performance-analyzer\" target=\"_blank\">Android Performance Analyzer (APA)</a>",
+        "path": "android-performance-analyzer.md",
+        "summary": "Updated the Android Performance Analyzer Canary release from version 0.10.0-canary5 to 0.10.0-canary6, including updated download links, SHA-256 checksums, and file sizes for Windows, Mac, and Linux packages. This matters because developers testing the latest canary builds need accurate references to download the correct, verified tooling binaries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_android-performance-analyzer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-9-6-0-release-notes\" target=\"_blank\">Android Gradle plugin 9.6.0</a>",
+        "path": "build/releases/agp-9-6-0-release-notes.md",
+        "summary": "Added fixed issues for Android Gradle Plugin 9.6.0-alpha03, addressing performance bottlenecks in the UI and IDE during builds, improving the analyzeReleaseR8Config output report link, and fixing a broken Gradle cache issue related to Lint analysis.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_agp-9-6-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/sign-in/restore-credentials-implementation-common\" target=\"_blank\">Android Developers</a>",
+        "path": "identity/sign-in/restore-credentials-implementation-common.md",
+        "summary": "Updated the Restore Credentials implementation documentation to include robust error handling for cloud end-to-end encryption (E2EE) unavailability with fallback to device-to-device restore, wrapped credential creation and retrieval inside proper function and BackupAgent implementations, and corrected the credential state clearing code snippets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_restore-credentials-implementation-common.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/sign-in/restore-credentials-implementation\" target=\"_blank\">Implement Restore Credentials with Credential Manager</a>",
+        "path": "identity/sign-in/restore-credentials-implementation.md",
+        "summary": "Updated the restore credentials documentation with more robust code snippets. This includes handling fallback logic for `E2eeUnavailableException` during credential creation, encapsulating the retrieval logic inside a function and a sample `BackupAgent` implementation, and correcting the dual clear sign-out sequence.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_restore-credentials-implementation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/status-bar\" target=\"_blank\">Coordinate your UI with the system status bar</a>",
+        "path": "training/wearables/status-bar.md",
+        "summary": "Updated the Wearable Compose documentation to reflect API changes in status bar suppression. Replaced the previous `StatusBarSuppression` component approach with the new `Modifier.suppressStatusBar()` modifier applied to scaffolds and navigation hosts, ensuring cleaner implementation for full-screen immersive content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/987935ab_status-bar.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-07T15:08:39Z",
     "commit_hash": "97ea81dd",
     "entries": [

@@ -1,0 +1,151 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/skill.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/skill.md
+index 27cc7711..e22e8308 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/skill.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/skill.md
+@@ -50,12 +50,12 @@ source: md.txt
+   <activity
+       android:name="com.example.xr.projected.ProjectedMainActivity"
+       android:exported="true"
+-      android:requiredDisplayCategory="android.hardware.displ>ay.ca<tegory.XR_PRO>JECTED&qu<ot;
+-      intent-filter
+-          action android:name=>"and<roid.intent.action.MAIN" /
+-          category android:name="an>droid<.intent.catego>r<y.XR_PROJ>;/
+-      /intent-filter
+-  /activityAndroidManifest.xml
++      android:requiredDisplayCategory="android.hardware.display.category.XR_PROJECTED">
++      <intent-filter>
++          <action android:name="android.intent.action.MAIN" />
++          <category android:name="android.intent.category.XR_PROJECTED_LAUNCHER"/>
++      </intent-filter>
++  </activity>
+   ```
+ 
+   <br />
+@@ -222,8 +222,8 @@ and [card-samples-source.md](https://developer.android.com/agents/skills/xr/disp
+           }
+       }
+   ) {
+-      Text("This is a card with a title, leading icon, hea action")
+-  }CardSamples.kt
++      Text("This is a card with a title, leading icon, header image, and action")
++  }
+   ```
+ 
+   <br />
+@@ -243,8 +243,8 @@ and [card-samples-source.md](https://developer.android.com/agents/skills/xr/disp
+       Button(onClick = {}) { Text("Button 2") }
+       Button(onClick = {}) { Text("Button 3") }
+       Button(onClick = {}) { Text("Button 4") }
+-      But) { Text("Button 5") }
+-  }ButtonSamples.kt
++      Button(onClick = {}) { Text("Button 5") }
++  }
+   ```
+ 
+   <br />
+@@ -279,9 +279,9 @@ Compose Glimmer: Buttons](https://developer.android.com/develop/xr/jetpack-xr-sd
+           },
+           onCheckedChange = { checked = it }
+       ) {
+-          Text(if (checked) "On"
++          Text(if (checked) "On" else "Off")
+       }
+-  }ToggleButtonSamples.kt
++  }
+   ```
+ 
+   <br />
+@@ -312,10 +312,10 @@ instructions in [Jetpack Compose Glimmer: Title Chips](https://developer.android
+               subtitle = { Text("Subtitle") },
+               leadingIcon = { Icon(FavoriteIcon, "Localized description") },
+           ) {
+-            Content")
++              Text("Card Content")
+           }
+       }
+-  }TitleChipSample.kt
++  }
+   ```
+ 
+   <br />
+@@ -352,9 +352,10 @@ and [liststate-source.md](https://developer.android.com/agents/skills/xr/display
+   fun GlimmerLazyColumnWithTitleChipSample() {
+       val ingredientItems =
+           listOf("Milk", "Flour", "Egg", "Salt", "Apples", "Butter", "Vanilla", "Sugar", "Cinnamon")
+-      GlimmerLazyColum>n(title = { TitleChip { Text("        items(ingredientItems) { text - ListItem { Text(text) } }
++      GlimmerLazyColumn(title = { TitleChip { Text("Ingredients") } }) {
++          items(ingredientItems) { text -> ListItem { Text(text) } }
+       }
+-  }GlimmerLazyColumnSamples.kt
++  }
+   ```
+ 
+   <br />
+@@ -385,9 +386,10 @@ cards). **Never** use a `TitleChip` with `VerticalStack`. When implementing a
+               Card { Text("Second Card") }
+           }
+           item {
+-              Card { Text("Third C      }
++              Card { Text("Third Card") }
++          }
+       }
+-  }StackSamples.kt
++  }
+   ```
+ 
+   <br />
+@@ -419,7 +421,9 @@ walkthroughs (never foundation `HorizontalPager`).
+               text = "Page: $page",
+               // Recommended: use TextMotion.Animated for smooth transitions in a pager.
+               style = LocalTextStyle.current.copy(textMotion = TextMotion.Animated),
+-         rSample.kt
++          )
++      }
++  }
+   ```
+ 
+   <br />
+@@ -466,8 +470,9 @@ custom surfaces, follow the API definitions in [surface-source.md](https://devel
+               ) { /* Handle click action */ },
+           contentAlignment = Alignment.Center
+       ) {
+-          Text("Clic}
+-  }SurfaceSamples.kt
++          Text("Clickable")
++      }
++  }
+   ```
+ 
+   <br />
+@@ -515,7 +520,7 @@ custom surfaces, follow the API definitions in [surface-source.md](https://devel
+       putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+   }
+   // Begin listening for audio input
+-  speechRecognizer.startListening(inte.kt
++  speechRecognizer.startListening(intent)
+   ```
+ 
+   <br />
+@@ -531,7 +536,9 @@ custom surfaces, follow the API definitions in [surface-source.md](https://devel
+           // The VoiceInputIndicator component provides a visual "pulse" or indicator
+           // that changes based on the 'level' lambda, which returns a Float between 0.0 and 1.0.
+           level = { currentLevel },
+-          modifier IndicatorSample.kt
++          modifier = modifier
++      )
++  }
+   ```
+ 
+   <br />
+@@ -561,9 +568,9 @@ custom surfaces, follow the API definitions in [surface-source.md](https://devel
+                   .focusTarget(),
+           contentAlignment = Alignment.Center,
+       ) {
+-          Teure")
++          Text("Last Gesture: $lastGesture")
+       }
+-  }IndirectPointerGestureSamples.kt
++  }
+   ```
+ 
+   <br />
