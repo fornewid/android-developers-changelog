@@ -1,5 +1,51 @@
 [
   {
+    "date": "2026-11-09T15:10:21Z",
+    "commit_hash": "cbd207b8",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/behavior-changes-all\" target=\"_blank\">Behavior changes: all apps</a>",
+        "path": "about/versions/17/behavior-changes-all.md",
+        "summary": "The documentation for Android 17 behavior changes has been updated to clarify that autonomous re-pairing for Bluetooth bond losses requires user consent before the system re-establishes bonds in the background. This minor tweak ensures developers understand the security and user interaction model for handling lost Bluetooth bonds.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cbd207b8_behavior-changes-all.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/summary\" target=\"_blank\">Android 17 features and changes list</a>",
+        "path": "about/versions/17/summary.md",
+        "summary": "This change updates the documentation for Android 17 by refining the description and anchor link for the Bluetooth bond loss feature, changing it from 'Autonomous re-pairing' to 'Autonomous re-pairing initiation' to more accurately reflect that the system initiates the re-establishment process automatically.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cbd207b8_summary.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/bluetooth/ble/background\" target=\"_blank\">Communicate in the background</a>",
+        "path": "develop/connectivity/bluetooth/ble/background.md",
+        "summary": "The BLE background documentation was updated to clarify limitations of the CompanionDeviceManager API regarding non-bonded rotating MAC addresses. It now explicitly advises that for BLE devices using rotating Resolvable Private Addresses (RPAs), developers must bond with the device using BluetoothDevice.createBond() to allow the system to resolve rotating addresses for the startObservingDevicePresence() method.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cbd207b8_background.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/compose-customization\" target=\"_blank\">Core Compose</a>",
+        "path": "media/media3/ui/compose-customization.md",
+        "summary": "The Compose UI documentation for Media3 has been updated to include new features such as artwork handling, subtitle slots, enhanced PlayPauseButtonState options, PlaybackState, and TrackSelectionState for building track-selection menus.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cbd207b8_compose-customization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/compose-material3\" target=\"_blank\">Material3 Compose</a>",
+        "path": "media/media3/ui/compose-material3.md",
+        "summary": "Updated the Media3 Compose Material3 documentation to include new components such as `LiveButton` and `BufferingIndicator`, while expanding the descriptions of existing components like `Player`, `PlayPauseButton`, and `ContentFrame` to accurately reflect recent API additions like subtitle and artwork support.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cbd207b8_compose-material3.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-08T15:08:22Z",
     "commit_hash": "987935ab",
     "entries": [

@@ -1,0 +1,25 @@
+diff --git a/docs/about/versions/17/behavior-changes-all.md b/docs/about/versions/17/behavior-changes-all.md
+index a140ca25..a5289b81 100644
+--- a/docs/about/versions/17/behavior-changes-all.md
++++ b/docs/about/versions/17/behavior-changes-all.md
+@@ -305,16 +305,16 @@ hardening](https://developer.android.com/about/versions/17/changes/bg-audio).
+ Android 17 includes the following changes to enhance device
+ connectivity.
+ 
+-### Autonomous re-pairing for Bluetooth bond losses
++### Autonomous re-pairing initiation for Bluetooth bond losses
+ 
+ Android 17 introduces autonomous re-pairing, a system-level enhancement
+ designed to automatically resolve Bluetooth bond loss.
+ 
+ Previously, if a bond was lost, users had to manually navigate to Settings to
+ unpair and then re-pair the peripheral. This feature builds upon the security
+-improvement of Android 16 by allowing the system to re-establish bonds
+-in the background without requiring users to manually navigate to Settings to
+-unpair and re-pair peripherals.
++improvement of Android 16 by enabling the system to re-establish bonds
++after user consent is granted. This eliminates the need for users to manually
++navigate to Settings to unpair and re-pair peripherals.
+ 
+ While most apps will not require code changes, developers should be aware of the
+ following behavior changes in Bluetooth stack:
