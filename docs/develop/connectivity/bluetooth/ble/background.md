@@ -35,7 +35,7 @@ can use either of the following APIs:
   pairing](https://developer.android.com/develop/connectivity/bluetooth/companion-device-pairing#implement). ([Sample](https://github.com/android/platform-samples/blob/main/samples/connectivity/bluetooth/companion/src/main/java/com/example/platform/connectivity/bluetooth/cdm/CompanionDeviceManagerSample.kt))
 
 > [!NOTE]
-> **Note:** `CompanionDeviceManager` has certain limitations (such as limited filtering and no support for random MAC addresses) that might not satisfy your needs depending on the implementation of the peripheral device.
+> **Note:** The `CompanionDeviceManager` API has certain limitations (such as limited filtering and no support for non-bonded rotating MAC addresses) that might not satisfy your needs depending on the implementation of the peripheral device. For BLE devices that use rotating Resolvable Private Addresses (RPAs), you must bond with the device using the [`BluetoothDevice.createBond()`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#createBond()) method so the system can resolve rotating addresses for the [`CompanionDeviceManager.startObservingDevicePresence()`](https://developer.android.com/reference/android/companion/CompanionDeviceManager#startObservingDevicePresence(android.companion.ObservingDevicePresenceRequest)) method.
 
 ### In the background
 

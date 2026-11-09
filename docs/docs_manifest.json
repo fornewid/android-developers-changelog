@@ -7886,8 +7886,8 @@
     },
     "develop/connectivity/bluetooth/ble/background.md": {
       "original_url": "https://developer.android.com/develop/connectivity/bluetooth/ble/background",
-      "hash": "ab377a5f1b31517bdf0372061c4c2c1cf6a118076bad3d24a11bfac89a51c9e0",
-      "last_updated": "2026-04-10T15:17:06.089523",
+      "hash": "90551787314026398d971c1622fae14fcb165f25aa9ff2d356dbb184f09fcc0b",
+      "last_updated": "2026-11-09T15:09:16.247782",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/lists.md": {
@@ -10598,8 +10598,8 @@
     },
     "media/media3/ui/compose-customization.md": {
       "original_url": "https://developer.android.com/media/media3/ui/compose-customization",
-      "hash": "e50b504c0826711cde3d78c6bb161d43c18f4138dac7b52600d42c3a9e11d406",
-      "last_updated": "2026-10-22T15:06:13.607807",
+      "hash": "d2c825283868e7b38460b4b6195954922fca0686845e4b9d5c174af137c2d267",
+      "last_updated": "2026-11-09T15:08:38.546163",
       "fetch_method": "md.txt"
     },
     "guide/navigation/custom-back/support-animations.md": {
@@ -12950,8 +12950,8 @@
     },
     "media/media3/ui/compose-material3.md": {
       "original_url": "https://developer.android.com/media/media3/ui/compose-material3",
-      "hash": "7c229b2daeea1d3d6417ff1081b5f898a48c0c99eeee9d4223a5f1fbfaaf39b4",
-      "last_updated": "2026-10-16T15:09:34.125601",
+      "hash": "1d14a1cb7c50bf275a7e122fa1c41c6c4fd3fae6ca076e0c0dd184960e313377",
+      "last_updated": "2026-11-09T15:03:28.309617",
       "fetch_method": "md.txt"
     },
     "media/media3.md": {
@@ -16358,8 +16358,8 @@
     },
     "about/versions/17/behavior-changes-all.md": {
       "original_url": "https://developer.android.com/about/versions/17/behavior-changes-all",
-      "hash": "566d958cda551a1dc2c80898affb0968296164071a4839d3460eba34b7bc7132",
-      "last_updated": "2026-08-14T15:18:22.062656",
+      "hash": "22b9211627853ea86de6b02bec6ed3f960d26829aac1f91ccd040a4c22fbbffc",
+      "last_updated": "2026-11-09T15:04:14.601148",
       "fetch_method": "md.txt"
     },
     "training/constraint-layout/motionlayout/ref/constraintset.md": {
@@ -30746,8 +30746,8 @@
     },
     "about/versions/17/summary.md": {
       "original_url": "https://developer.android.com/about/versions/17/summary",
-      "hash": "1d2fd03b4da4a09e826ed73a3502566ecd6eba90fe9eb720f7fe4b76fd9cd22f",
-      "last_updated": "2026-10-10T15:07:52.930924",
+      "hash": "9e36be62ba283eee6eb5a17a5d5655029f0aa3e804193cf2ed0b4e7a98543c01",
+      "last_updated": "2026-11-09T15:07:21.433637",
       "fetch_method": "md.txt"
     },
     "bench/archive.md": {
@@ -36961,5 +36961,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-11-08T15:08:21.718079"
+  "last_updated": "2026-11-09T15:10:20.492151"
 }

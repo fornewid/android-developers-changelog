@@ -68,8 +68,9 @@ your app:
 | [`ShuffleButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/buttons/ShuffleButton.composable#ShuffleButton(androidx.media3.common.Player,kotlin.Function1)) | A state container for a button that toggles shuffle mode. |
 | [`MuteButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/buttons/MuteButton.composable#MuteButton(androidx.media3.common.Player,kotlin.Function1)) | A state container for a button that mutes and unmutes the player. |
 | [`TimeText`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/indicators/TimeText.composable#TimeText(androidx.media3.common.Player,kotlin.Int,kotlinx.coroutines.CoroutineScope,kotlin.Function1)) | A state container for a composable that displays the player progress. |
-| [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) | A surface for displaying media content that handles aspect ratio management, resizing, and a shutter |
+| [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) | A surface for media content that handles aspect ratio management, resizing, a shutter, artwork, and a subtitles slot. |
 | [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) | Raw surface which wraps `SurfaceView` and `TextureView` in `AndroidView`. |
+| [`Artwork`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/Artwork.composable) | A composable that displays the artwork of the current media item, such as an album cover. |
 
 ### Customize the `Player` composable
 
@@ -127,6 +128,11 @@ fun CustomPlayerSlots(player: Player, showControls: Boolean, modifier: Modifier 
 
 <br />
 
+The `Player` composable also displays subtitles and, when there's no video to
+show, the artwork of the current media item. To customize their appearance, pass
+your own composables to the `subtitles` and `artwork` slots. To hide them, pass
+an empty composable to `subtitles` and `null` to `artwork`.
+
 ## UI state holders
 
 If none of the scaffolding components meet your needs, you can also use the
@@ -143,12 +149,28 @@ be consumed by button-like composables.
 
 | State | remember\*State | Type |
 |---|---|---|
-| [`PlayPauseButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlayPauseButtonState#PlayPauseButtonState(androidx.media3.common.Player)) | [`rememberPlayPauseButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberPlayPauseButtonState.composable#rememberPlayPauseButtonState(androidx.media3.common.Player)) | 2-Toggle |
+| [`PlayPauseButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlayPauseButtonState#PlayPauseButtonState(androidx.media3.common.Player)) | [`rememberPlayPauseButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberPlayPauseButtonState.composable#rememberPlayPauseButtonState(androidx.media3.common.Player)) | 2-Toggle or N-Toggle |
 | [`PreviousButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PreviousButtonState) | [`rememberPreviousButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberPreviousButtonState.composable#rememberPreviousButtonState(androidx.media3.common.Player)) | Constant |
 | [`NextButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/NextButtonState) | [`rememberNextButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberNextButtonState.composable#rememberNextButtonState(androidx.media3.common.Player)) | Constant |
 | [`RepeatButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/RepeatButtonState) | [`rememberRepeatButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberRepeatButtonState.composable#rememberRepeatButtonState(androidx.media3.common.Player,kotlin.collections.List)) | 3-Toggle |
 | [`ShuffleButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/ShuffleButtonState) | [`rememberShuffleButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberShuffleButtonState.composable#rememberShuffleButtonState(androidx.media3.common.Player)) | 2-Toggle |
 | [`PlaybackSpeedState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlaybackSpeedState) | [`rememberPlaybackSpeedState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberPlaybackSpeedState.composable#rememberPlaybackSpeedState(androidx.media3.common.Player)) | Menu or N-Toggle |
+
+In addition to the play and pause states, `PlayPauseButtonState` exposes
+`showBuffering`, `showReplay`, and `showRetry`. Use them to show a buffering
+indicator while the player is buffering, a replay icon after playback ends, and
+a retry icon after a playback error. `showReplay` and `showRetry` refine
+`showPlay`: whenever one of them is `true`, `showPlay` is also `true`, so check
+them before `showPlay`. The `onClick` method handles these states as well, for
+example by preparing the player again after an error.
+
+To choose which of these states to show, pass a combination of
+`SHOW_BUFFERING_WHEN_PLAYING`, `SHOW_BUFFERING_ALWAYS`, `SHOW_REPLAY_ON_ENDED`,
+and `SHOW_RETRY_ON_ERROR` to the `displayMode` parameter of
+`rememberPlayPauseButtonState`. By default, `displayMode` combines
+`SHOW_BUFFERING_ALWAYS`, `SHOW_REPLAY_ON_ENDED`, and `SHOW_RETRY_ON_ERROR`,
+which shows all three states, and the buffering state even appears while
+playback is paused.
 
 Example usage of `PlayPauseButtonState`:
 
@@ -177,6 +199,12 @@ custom UI.
 
 [`ErrorState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/ErrorState) provides information about the current error state of the player,
 which can be used to display an error overlay.
+
+[`PlaybackState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlaybackState) exposes the core playback state of the player, such as
+`playbackState`, `isPlaying`, and `playerError`, independently of any specific
+UI component. Use it to drive overlays or custom layouts, for example to show a
+loading indicator while the player is buffering. For a prebuilt Material3
+indicator, use [`BufferingIndicator`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/indicator/BufferingIndicator.composable).
 
 [`PresentationState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PresentationState) holds to information for when the video output in a
 [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) can be shown or should be covered by a placeholder UI element.
@@ -221,8 +249,97 @@ the surface, which will disappear when the surface becomes ready.
 default it will be a black `@Composable Box` filling the size of the parent
 container.
 
+`PresentationState` also exposes `showArtwork`, which is `true` when the current
+media item plays without a video track, such as audio-only content. In
+that case, `ContentFrame` displays the [`Artwork`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/Artwork.composable) composable, which shows the
+artwork from the item's `MediaMetadata`. To customize or hide the artwork, pass
+your own composable or `null` to the `artwork` slot of `ContentFrame`.
+
+By default, `Artwork` only loads artwork data embedded in the metadata, or from
+a `content`, `file`, or `android.resource` URI. To load artwork from remote URIs
+or other sources, use one of the following options:
+
+- Pass a `BitmapLoader`, such as `DataSourceBitmapLoader`, to `Artwork`.
+- Use the `Artwork` overload that takes a `painter` to load images with the library of your choice.
+
+Unlike the `Player` composable, which renders subtitles by default,
+`ContentFrame` leaves its `subtitles` slot empty. To render subtitles in a
+`ContentFrame`, or to customize subtitle rendering in `Player`, observe the
+player's current cues with [`CuesState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/CuesState) and render them in the `subtitles`
+slot. `ContentFrame` lays out this slot within the bounds of the scaled video
+and draws it above the shutter and the artwork, so that subtitles stay visible
+when there's no video.
+
 > [!NOTE]
-> **Note:** These composables form a hierarchy of convenience: the [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) composable consists of a [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) plus UI control slots, and [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) consists of a [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) plus resizing and shutter logic. You don't need to use the lower-level composables when a higher-level one fits your needs.
+> **Note:** These composables form a hierarchy of convenience: the [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) composable consists of a [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) plus UI control slots, and [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) consists of a [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) plus resizing, shutter, and artwork logic. You don't need to use the lower-level composables when a higher-level one fits your needs.
+
+### Track selection state holders
+
+[`TrackSelectionState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/TrackSelectionState) helps you build a menu for a single track type, such as
+an audio language or subtitle menu. Create it with
+[`rememberTrackSelectionState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberTrackSelectionState.composable), passing the track type and a combination of
+filters, such as `TRACK_FILTER_LANGUAGE` or `TRACK_FILTER_RESOLUTION`, that
+determine which track properties distinguish the options. Set `hasOffOption` or
+`hasAutoOption` to `true` to add an option that disables the track type or one
+that lets the player choose tracks automatically.
+
+The state exposes the available `selectionOptions` and the `selectedOption`.
+Each `TrackSelectionOption` indicates whether the device supports it and whether
+it's selected. Passing an option to `selectOption` updates the player's track
+selection parameters accordingly. Before showing the menu, check
+`canSetTrackSelectionParameters` and whether there are enough options to choose
+from. For example, the following subtitle menu offers one option for each
+subtitle language and an option to turn subtitles off:
+
+
+```kotlin
+@Composable
+fun SubtitleMenu(player: Player, modifier: Modifier = Modifier) {
+  val state =
+    rememberTrackSelectionState(
+      player,
+      trackType = C.TRACK_TYPE_TEXT,
+      trackFilters = TRACK_FILTER_LANGUAGE,
+      hasOffOption = true,
+    )
+  // Hide the menu if the player can't change tracks or has no subtitles to choose from
+  if (!state.canSetTrackSelectionParameters || state.selectionOptions.size < 2) return
+
+  Column(modifier.selectableGroup()) {
+    for (option in state.selectionOptions) {
+      Row(
+        Modifier.fillMaxWidth()
+          .heightIn(min = 48.dp)
+          .selectable(
+            selected = option.isSelected,
+            enabled = option.isSupported,
+            role = Role.RadioButton,
+            onClick = { state.selectOption(option) },
+          )
+          .padding(horizontal = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+      ) {
+        RadioButton(selected = option.isSelected, onClick = null, enabled = option.isSupported)
+        Text(
+          text =
+            if (option.onOffState == TRACK_SELECTION_OFF) "Off"
+            else option.language?.let { Locale.forLanguageTag(it).displayName } ?: "Unknown",
+          color =
+            if (option.isSupported) Color.Unspecified
+            else LocalContentColor.current.copy(alpha = 0.38f),
+        )
+      }
+    }
+  }
+}
+```
+
+<br />
+
+If you need direct access to the player's `Tracks` and
+`TrackSelectionParameters`, use [`TrackSelectionParametersState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/TrackSelectionParametersState) instead. For
+more information about how the player selects tracks, see [Track selection](https://developer.android.com/media/media3/exoplayer/track-selection).
 
 ## Where are Flows?
 
