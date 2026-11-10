@@ -4,7 +4,7 @@ url: https://developer.android.com/media/media3/transformer/transformations
 source: md.txt
 ---
 
-[Jetpack Media3 Transformer](https://developer.android.com/media/media3/transformer) enables editing, converting, and exporting media
+[Jetpack Media3 Transformer](https://developer.android.com/media/media3/transformer.md.txt) enables editing, converting, and exporting media
 assets on Android. This page explains how to configure core transformations:
 
 - **Transcoding and transmuxing** : Convert audio and video formats, or bypass re-encoding through container sample copying (*transmuxing*).
@@ -288,7 +288,7 @@ Video effects are also supported for preview in ExoPlayer, using
 `ExoPlayer.setVideoEffects`. For an example of how to use this API, check out
 the [effect demo app](https://github.com/androidx/media/tree/release/demos/effect).
 
-The [demo app](https://developer.android.com/media/media3/transformer/demo-application) includes examples of custom video effects.
+The [demo app](https://developer.android.com/media/media3/transformer/demo-application.md.txt) includes examples of custom video effects.
 
 ## Image input
 

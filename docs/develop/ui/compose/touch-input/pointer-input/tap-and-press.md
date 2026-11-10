@@ -31,7 +31,7 @@ table lists these types of gestures:
 
 ## Respond to tap or click
 
-[`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0)) is a commonly used modifier that makes a composable react to
+[`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary.md.txt#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0)) is a commonly used modifier that makes a composable react to
 taps or clicks. This modifier also adds additional features, such as support for
 focus, mouse and stylus hovering, and a customizable visual indication when
 pressed. The modifier responds to "clicks" in the widest sense of the word-- not
@@ -78,7 +78,7 @@ The `clickable` modifier also adds additional behavior:
 
 ## Long-press to show a contextual context menu
 
-[`combinedClickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).combinedClickable(androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.foundation.Indication,kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.String,kotlin.Function0,kotlin.Function0,kotlin.Function0)) lets you add double tap or long-press behavior in
+[`combinedClickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary.md.txt#(androidx.compose.ui.Modifier).combinedClickable(androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.foundation.Indication,kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.String,kotlin.Function0,kotlin.Function0,kotlin.Function0)) lets you add double tap or long-press behavior in
 addition to normal click behavior. You can use `combinedClickable` to show a
 context menu when a user touches and holds a grid image:
 
@@ -218,6 +218,6 @@ Image(
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures)
-- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material)
-- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin)
+- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures.md.txt)
+- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material.md.txt)
+- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin.md.txt)

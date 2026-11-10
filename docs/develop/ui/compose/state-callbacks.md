@@ -4,10 +4,10 @@ url: https://developer.android.com/develop/ui/compose/state-callbacks
 source: md.txt
 ---
 
-In Jetpack Compose, an object can implement [`RememberObserver`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/RememberObserver) to receive
+In Jetpack Compose, an object can implement [`RememberObserver`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/RememberObserver.md.txt) to receive
 callbacks when it's used with `remember` to know when it starts and stops being
 remembered in the composition hierarchy. Similarly, you can use
-[`RetainObserver`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/RetainObserver) to receive information about the state of an object used
+[`RetainObserver`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/RetainObserver.md.txt) to receive information about the state of an object used
 with `retain`.
 
 For objects that use this lifecycle information from the composition hierarchy,
@@ -21,7 +21,7 @@ depth.
 
 ## Initialization and cleanup with `RememberObserver` and `RetainObserver`
 
-The [Thinking in Compose guide](https://developer.android.com/develop/ui/compose/mental-model) describes the mental model behind
+The [Thinking in Compose guide](https://developer.android.com/develop/ui/compose/mental-model.md.txt) describes the mental model behind
 composition. When working with `RememberObserver` and `RetainObserver`, it's
 important to keep in mind two behaviors of composition:
 
@@ -126,15 +126,17 @@ callbacks.
 
 Not recommended:
 
-    abstract class MyManager
+```kotlin
+abstract class MyManager
 
-    // Not Recommended: Exposing a public constructor (even implicitly) for an object implementing
-    // RememberObserver can cause unexpected invocations if it is remembered multiple times.
-    class MyComposeManager : MyManager(), RememberObserver { ... }
+// Not Recommended: Exposing a public constructor (even implicitly) for an object implementing
+// RememberObserver can cause unexpected invocations if it is remembered multiple times.
+class MyComposeManager : MyManager(), RememberObserver { ... }
 
-    // Not Recommended: The return type may be an implementation of RememberObserver and should be
-    // remembered explicitly.
-    fun createFoo(): MyManager = MyComposeManager()
+// Not Recommended: The return type may be an implementation of RememberObserver and should be
+// remembered explicitly.
+fun createFoo(): MyManager = MyComposeManager()
+```
 
 Recommended:
 
@@ -184,10 +186,12 @@ remember call happens in a different scope that has a different lifespan from
 the original `remember`, many implementations of `RememberObserver.onForgotten`
 dispose the object before it is finished being used.
 
-    val first: RememberObserver = rememberFoo()
+```kotlin
+val first: RememberObserver = rememberFoo()
 
-    // Not Recommended: Re-remembered `Foo` now gets double callbacks
-    val second = remember { first }
+// Not Recommended: Re-remembered `Foo` now gets double callbacks
+val second = remember { first }
+```
 
 This advice does not apply to objects that are remembered again transitively (as
 in, remembered objects that consume another remembered object). It is common to
@@ -215,13 +219,15 @@ unnecessary. If an input parameter must be remembered, either verify that it
 does not implement `RememberObserver`, or require callers to remember their
 argument.
 
-    @Composable
-    fun MyComposable(
-        parameter: Foo
-    ) {
-        // Not Recommended: Input should be remembered by the caller.
-        val rememberedParameter = remember { parameter }
-    }
+```kotlin
+@Composable
+fun MyComposable(
+    parameter: Foo
+) {
+    // Not Recommended: Input should be remembered by the caller.
+    val rememberedParameter = remember { parameter }
+}
+```
 
 This does not apply to objects remembered transitively. When remembering an
 object derived from a function's arguments, consider specifying it as one of the
@@ -247,7 +253,7 @@ fun MyComposable(
 
 Similar to re-remembering an object, you should avoid retaining an object that's
 remembered to try and extend its lifespan. This is a fallout of the advice in
-[State lifespans](https://developer.android.com/develop/ui/compose/state-lifespans): `retain` shouldn't be used with objects that have a
+[State lifespans](https://developer.android.com/develop/ui/compose/state-lifespans.md.txt): `retain` shouldn't be used with objects that have a
 lifespan that doesn't match the lifespan retain offers. Since `remembered`
 objects have a shorter lifespan than `retained` objects, you shouldn't retain a
 remembered object. Instead, prefer retaining the object at the origin site

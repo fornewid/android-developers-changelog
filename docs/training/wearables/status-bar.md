@@ -40,7 +40,7 @@ To get started, complete the following prerequisite steps:
 To support the system status bar in your app, update your app's `targetSdk`
 version to 35 or higher. The platform only activates the system status bar
 for apps targeting API 35+ to preserve backward compatibility for legacy apps.
-In addition, update your [Wear Compose dependencies](https://developer.android.com/jetpack/androidx/releases/wear-compose#version_18_2) to the latest alpha
+In addition, update your [Wear Compose dependencies](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt#version_18_2) to the latest alpha
 version---currently 1.8.0-alpha03---as shown in the following
 code snippet. If your app is using an older version of Wear Compose, you can use
 the [Wear Compose Material 3 migration skill](https://github.com/android/skills/tree/main/wear/wear-compose-m3) to facilitate the
@@ -62,7 +62,7 @@ migration.
 > [!NOTE]
 > **Note:** The version of Compose for Wear OS used in the following snippets is an alpha release. The exact API surface is subject to change.
 
-In the latest alpha version of [Wear Compose Material 3 1.8.0](https://developer.android.com/jetpack/androidx/releases/wear-compose#version_18_2)---currently
+In the latest alpha version of [Wear Compose Material 3 1.8.0](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt#version_18_2)---currently
 1.8.0-alpha03---the library automatically opts your app in by
 merging the `com.google.wear.ENABLE_GLOBAL_STATUS_BAR` `<meta-data>` property
 into your `AndroidManifest.xml`. At runtime, `AppScaffold` and `ScreenScaffold`
@@ -240,7 +240,7 @@ AppScaffold(
 
 If your app uses Android Views rather than Jetpack Compose for Wear OS, opt in
 using `AndroidManifest.xml`. Unlike the
-[latest alpha release of Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose#version_18_2), which enables the system
+[latest alpha release of Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt#version_18_2), which enables the system
 status bar automatically, View-based apps must explicitly opt in by adding the
 `ENABLE_GLOBAL_STATUS_BAR` `<meta-data>` tag inside `<application>`:
 

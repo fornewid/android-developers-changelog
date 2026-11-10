@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 You can customize images using properties on an `Image` composable
-(`contentScale`, `colorFilter`). You can also apply existing [modifiers](https://developer.android.com/develop/ui/compose/modifiers-list)
+(`contentScale`, `colorFilter`). You can also apply existing [modifiers](https://developer.android.com/develop/ui/compose/modifiers-list.md.txt)
 to apply different effects to your `Image`. Modifiers can be used on **any
 composable** , not just the `Image` composable, whereas `contentScale` and
 `colorFilter` are explicit parameters on the `Image` composable.
@@ -157,7 +157,7 @@ Image(
 
 ![A square image of a dog, clipped into a circle, with a yellow border around the circular shape.](https://developer.android.com/static/develop/ui/compose/images/graphics-border.png) **Figure 4**. A clipped image with a border around it.
 
-To create a gradient border, you can use the [`Brush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush) API to
+To create a gradient border, you can use the [`Brush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush.md.txt) API to
 draw a rainbow gradient border around the image:
 
 
@@ -258,14 +258,14 @@ Image(
 
 ![A dog with a green tint applied using BlendMode.Darken, resulting in darker green shades.](https://developer.android.com/static/develop/ui/compose/images/graphics-blendmode.png) **Figure 8** . `Color.Green tint` with `BlendMode.Darken`.
 
-See the [`BlendMode` reference documentation](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/BlendMode) for more information on the
+See the [`BlendMode` reference documentation](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/BlendMode.md.txt) for more information on the
 different blend modes available.
 
 ### Apply an `Image` filter with color matrix
 
 Transform your image using the color matrix `ColorFilter` option. For example,
 to apply a black and white filter onto your images you could use the
-[`ColorMatrix`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ColorMatrix) and set the saturation to `0f`.
+[`ColorMatrix`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ColorMatrix.md.txt) and set the saturation to `0f`.
 
 
 ```kotlin
@@ -283,7 +283,7 @@ Image(
 #### Adjust contrast or brightness of an `Image` composable
 
 To change the contrast and brightness of an image, you can use the
-[`ColorMatrix`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ColorMatrix) to change the values:
+[`ColorMatrix`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ColorMatrix.md.txt) to change the values:
 
 
 ```kotlin
@@ -308,7 +308,7 @@ Image(
 
 #### Invert colors of an `Image` composable
 
-To invert the colors of an image, set the [`ColorMatrix`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ColorMatrix) to invert the
+To invert the colors of an image, set the [`ColorMatrix`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ColorMatrix.md.txt) to invert the
 colors:
 
 
@@ -393,6 +393,6 @@ Image(
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Graphics Modifiers](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers)
-- [Loading images](https://developer.android.com/develop/ui/compose/graphics/images/loading)
-- [Material icons](https://developer.android.com/develop/ui/compose/graphics/images/material)
+- [Graphics Modifiers](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers.md.txt)
+- [Loading images](https://developer.android.com/develop/ui/compose/graphics/images/loading.md.txt)
+- [Material icons](https://developer.android.com/develop/ui/compose/graphics/images/material.md.txt)

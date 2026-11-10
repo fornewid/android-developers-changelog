@@ -11,14 +11,14 @@ experiences seamlessly.
 
 ## Understand Scenes
 
-In Navigation 3, a [`Scene`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/Scene) is the fundamental unit that renders one or more
-[`NavEntry`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavEntry) instances. Think of a `Scene` as a distinct visual state or
+In Navigation 3, a [`Scene`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/Scene.md.txt) is the fundamental unit that renders one or more
+[`NavEntry`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavEntry.md.txt) instances. Think of a `Scene` as a distinct visual state or
 section of your UI that can contain and manage the display of content from your
 back stack.
 
-Each `Scene` instance is uniquely identified by its [`key`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/Scene#key()) and the class of
+Each `Scene` instance is uniquely identified by its [`key`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/Scene.md.txt#key()) and the class of
 the `Scene` itself. This unique identifier is crucial because it drives the
-[top-level animation when the `Scene` changes](https://developer.android.com/guide/navigation/navigation-3/animate-destinations#understand).
+[top-level animation when the `Scene` changes](https://developer.android.com/guide/navigation/navigation-3/animate-destinations.md.txt#understand).
 
 The `Scene` interface has the following properties:
 
@@ -47,7 +47,7 @@ the logical scene state.
 
 ## Understand scene strategies
 
-A [`SceneStrategy`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/SceneStrategy) is the mechanism that determines how a given list of
+A [`SceneStrategy`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/SceneStrategy.md.txt) is the mechanism that determines how a given list of
 `NavEntry`s from the back stack should be arranged and transitioned into a
 `Scene`. Essentially, when presented with the current back stack entries, a
 `SceneStrategy` asks itself two key questions:
@@ -55,7 +55,7 @@ A [`SceneStrategy`](https://developer.android.com/reference/kotlin/androidx/navi
 1. **Can I create a `Scene` from these entries?** If the `SceneStrategy` determines it can handle the given `NavEntry`s and form a meaningful `Scene` (e.g., a dialog or a multi-pane layout), it proceeds. Otherwise, it returns `null`, giving other strategies a chance to create a `Scene`.
 2. **If so, how should I arrange those entries into the `Scene?`** Once a `SceneStrategy` commits to handling the entries, it takes on the responsibility of constructing a `Scene` and defining how the specified `NavEntry`s will be displayed within that `Scene`.
 
-The core of a `SceneStrategy` is its [`calculateScene`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/SceneStrategy#calculateScene(kotlin.collections.List)) method:
+The core of a `SceneStrategy` is its [`calculateScene`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/SceneStrategy.md.txt#calculateScene(kotlin.collections.List)) method:
 
 
 ```kotlin

@@ -9,9 +9,9 @@ metrics track tap actions such as a button click, scroll, impressions, and the
 widget's size and position.
 
 > [!NOTE]
-> **Note:** Testing widget engagement metrics requires a compileSdk of 36.1 or higher and a device running Android 16 or higher. Test with a physical device for the best results. For more information, see [Get Android 16 QPR2 Beta on a Google Pixel device](https://developer.android.com/about/versions/16/qpr2/get).
+> **Note:** Testing widget engagement metrics requires a compileSdk of 36.1 or higher and a device running Android 16 or higher. Test with a physical device for the best results. For more information, see [Get Android 16 QPR2 Beta on a Google Pixel device](https://developer.android.com/about/versions/16/qpr2/get.md.txt).
 
-The main API is [`AppWidgetEvent`](https://developer.android.com/reference/android/appwidget/AppWidgetEvent#getClickedIds%28%29). Use `WorkManager` to create a periodic
+The main API is [`AppWidgetEvent`](https://developer.android.com/reference/android/appwidget/AppWidgetEvent.md.txt#getClickedIds%28%29). Use `WorkManager` to create a periodic
 worker that captures widget engagement, whether daily, weekly, or whenever
 your app is opened.
 
@@ -100,6 +100,6 @@ to 0 ms and events are reported immediately.
     adb shell device_config override systemui widget_events_report_interval_ms 0
 
 In order to set a custom tag for reporting clicks and scrolls, you can use
-[RemoteViews.setAppWidgetEventTag](https://developer.android.com/reference/android/widget/RemoteViews#setAppWidgetEventTag(int,%20int)) on a view within your `RemoteViews`
+[RemoteViews.setAppWidgetEventTag](https://developer.android.com/reference/android/widget/RemoteViews.md.txt#setAppWidgetEventTag(int,%20int)) on a view within your `RemoteViews`
 layout. This integer tag is used when you query for `AppWidgetEvents` that
 include clicks or scrolls on this view.

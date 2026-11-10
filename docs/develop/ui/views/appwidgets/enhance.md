@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/views/appwidgets/enhance
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -13,7 +13,7 @@ starting in Android 12 (API level 31). These features are optional, but they're
 straightforward to implement and improve your users' widget experience.
 
 For additional ways to see how to enhance your widget, see the Compose guide
-[Enhance your Widget](https://developer.android.com/develop/ui/compose/glance/enhance).
+[Enhance your Widget](https://developer.android.com/develop/ui/compose/glance/enhance.md.txt).
 
 ## Use dynamic colors
 
@@ -142,7 +142,7 @@ their launcher, encouraging future engagement.
 
 For example, you can configure the workout summary widget for your exercise app
 to fulfill the user voice commands that trigger the
-[`GET_EXERCISE_OBSERVATION`](https://developer.android.com/reference/app-actions/built-in-intents/health-and-fitness/get-exercise-observation)
+[`GET_EXERCISE_OBSERVATION`](https://developer.android.com/reference/app-actions/built-in-intents/health-and-fitness/get-exercise-observation.md.txt)
 BII. Assistant proactively displays your widget when users trigger this BII by
 making requests like, *"Hey Google, how many miles did I run this week on
 ExampleApp?"*
@@ -174,7 +174,7 @@ To enable this improved transition, use `@android:id/background` or
 
 > [!WARNING]
 > **Warning:** Avoid using [broadcast
-> trampolines](https://developer.android.com/about/versions/12/behavior-changes-12#notification-trampolines). Starting in Android 12, an app can still launch an activity from a broadcast receiver or service if it's initiated from a widget click's [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent). However, the new app animation isn't used for apps launched from a broadcast receiver or service, which leads to a poor user experience.
+> trampolines](https://developer.android.com/about/versions/12/behavior-changes-12#notification-trampolines). Starting in Android 12, an app can still launch an activity from a broadcast receiver or service if it's initiated from a widget click's [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent.md.txt). However, the new app animation isn't used for apps launched from a broadcast receiver or service, which leads to a poor user experience.
 
 Your app can use `@android:id/background` on previous versions of Android
 without breaking, but it is ignored.
@@ -183,7 +183,7 @@ without breaking, but it is ignored.
 
 Starting in Android 12, you can take advantage of several
 `RemoteViews` methods that provide for runtime modification of `RemoteViews`
-attributes. See the [`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews) API
+attributes. See the [`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews.md.txt) API
 reference for the full list of added methods.
 
 The following code example shows how to use a few of these methods.

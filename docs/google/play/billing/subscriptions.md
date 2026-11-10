@@ -54,7 +54,7 @@ a full billing period, and their entitlement is extended by the duration
 specified in the top-up.
 
 After a top-up, the following fields in the
-[`Purchase`](https://developer.android.com/reference/com/android/billingclient/api/Purchase) result object
+[`Purchase`](https://developer.android.com/reference/com/android/billingclient/api/Purchase.md.txt) result object
 are updated to reflect the most recent top-up purchase:
 
 - Order ID
@@ -166,7 +166,7 @@ from the Play Store subscriptions center.
 To directly link to the management page for a non-expired subscription, indicate
 the package name and `productId` associated with the purchased subscription. To
 programmatically determine the `productId` for an existing subscription, query
-your app's backend or call [`BillingClient.queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) for a list
+your app's backend or call [`BillingClient.queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) for a list
 of subscriptions associated with a particular user. Each subscription contains
 the corresponding `productId` as part of the subscription status information.
 Each [`SubscriptionPurchaseLineItem`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2#subscriptionpurchaselineitem) object associated with a
@@ -230,7 +230,7 @@ count of payments considered paid.
 | `KEEP_EXISTING` | The payment schedule for the subscription item remains unchanged in the replacement. | Add or remove subscription item from a subscription with add-ons when a specific item should be unchanged. | N/A |
 
 > [!NOTE]
-> **Note:** In Play Billing Library version 5 and lower, replacement modes were represented by `ProrationMode`. The new [`ReplacementMode`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.ReplacementMode) enum includes equivalent modes for all proration modes. `ReplacementMode.DEFERRED` includes some improvements to make it simpler to manage deferred changes of plan. The user experience is exactly the same. Read the [Replacement examples and
+> **Note:** In Play Billing Library version 5 and lower, replacement modes were represented by `ProrationMode`. The new [`ReplacementMode`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.ReplacementMode.md.txt) enum includes equivalent modes for all proration modes. `ReplacementMode.DEFERRED` includes some improvements to make it simpler to manage deferred changes of plan. The user experience is exactly the same. Read the [Replacement examples and
 > behaviors](https://developer.android.com/google/play/billing/subscriptions#replacement-examples) section to learn more.
 
 To learn more about different upsell and winback applications of upgrade or
@@ -268,14 +268,14 @@ reason, you specify the proration rate *at runtime* as part of the purchase flow
 parameters.
 
 To correctly provide
-[`ReplacementMode`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.ReplacementMode)
+[`ReplacementMode`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.ReplacementMode.md.txt)
 in `SubscriptionProductReplacementParams` or `SubscriptionUpdateParams` as part
 of your runtime purchase flow configuration, note the following restrictions:
 
 - When upgrading, downgrading, or initiating doing a same-subscription switch **to** a prepaid plan **from** either a prepaid plan, auto-renewing plan, or installment plan, the only allowed replacement mode is `CHARGE_FULL_PRICE`. If you specify any other replacement mode, the purchase fails and an error is shown to the user.
 - When switching plans within the same subscription **to** an auto-renewing plan **from** either a prepaid plan or an auto-renewing plan, valid proration modes are `CHARGE_FULL_PRICE` and `WITHOUT_PRORATION`. If you specify any other proration mode, the purchase fails and an error is shown to the user.
 - Switching plans within the same subscription product from an installments base plan to a non-installments base plan is not allowed.
-- When using `KEEP_EXISTING` replacement mode in `SubscriptionProductReplacementParams` to keep an item's payment unchanged during replacement, the old product ID should be the same as the new product's product ID. The `KEEP_EXISTING` mode isn't supported in [`SubscriptionUpdateParams`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams).
+- When using `KEEP_EXISTING` replacement mode in `SubscriptionProductReplacementParams` to keep an item's payment unchanged during replacement, the old product ID should be the same as the new product's product ID. The `KEEP_EXISTING` mode isn't supported in [`SubscriptionUpdateParams`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.md.txt).
 
 ### Replacement examples and behaviors
 
@@ -301,9 +301,9 @@ that new subscription costs $36 per year, the $1 credit balance pays for only 10
 days (April 16-25); so on April 26, he is charged $36 for a new subscription and
 another $36 on April 26th of each year following.
 
-You should call your app's [`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener) the moment the
+You should call your app's [`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener.md.txt) the moment the
 purchase succeeds, and you are able to retrieve the new purchase as part of a
-[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) call. Your backend immediately receives a
+[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) call. Your backend immediately receives a
 `SUBSCRIPTION_PURCHASED` Real Time Developer Notification.
 
 `CHARGE_PRORATED_PRICE`
@@ -317,9 +317,9 @@ costs $36/year, the remaining 15 days costs $1.50; so he is charged the
 difference of $0.50 for his new subscription. On May 1st, Samwise is charged $36
 for his new subscription tier and another $36 on May 1 of each year following.
 
-You should call your app's [`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener) the moment the
+You should call your app's [`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener.md.txt) the moment the
 purchase succeeds, and you are able to retrieve the new purchase as part of a
-[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) call. Your backend immediately receives a
+[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) call. Your backend immediately receives a
 `SUBSCRIPTION_PURCHASED` Real Time Developer Notification.
 
 `WITHOUT_PRORATION`
@@ -328,9 +328,9 @@ Samwise's **Tier 1** subscription is immediately upgraded to **Tier 2** with no
 extra charge, and on May 1st he is charged $36 for his new subscription tier and
 another $36 on May 1 of each year following.
 
-You should call your app's [`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener) the moment the
+You should call your app's [`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener.md.txt) the moment the
 purchase succeeds, and you are able to retrieve the new purchase as part of a
-[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) call. Your backend immediately receives a
+[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) call. Your backend immediately receives a
 `SUBSCRIPTION_PURCHASED` Real Time Developer Notification.
 
 `DEFERRED`
@@ -339,9 +339,9 @@ Samwise's **Tier 1** subscription continues until it expires on April 30. On May
 1st, the **Tier 2** subscription takes effect, and Samwise is charged $36 for
 his new subscription tier.
 
-You should call your app's [`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener) the moment the
+You should call your app's [`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener.md.txt) the moment the
 purchase succeeds, and you are able to retrieve the new purchase as part of a
-[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) call. Your backend immediately receives a
+[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) call. Your backend immediately receives a
 `SUBSCRIPTION_PURCHASED` Real Time Developer Notification. You should [process
 the purchase](https://developer.android.com/google/play/billing/lifecycle/subscriptions#new-auto) the same way you would process any other new purchase at that
 point. In particular, make sure you acknowledge the new purchase. Note that the
@@ -381,7 +381,7 @@ Samwise's payment schedule is as follows:
 ### Trigger subscription changes in-app
 
 Your app can offer users an upgrade or downgrade using the same steps as with
-[launching a purchase flow](https://developer.android.com/google/play/billing/integrate#launch). However, when upgrading or downgrading, you
+[launching a purchase flow](https://developer.android.com/google/play/billing/integrate.md.txt#launch). However, when upgrading or downgrading, you
 need to provide details of the current subscription, the future (upgraded or
 downgraded) subscription, and the replacement mode to use.
 
@@ -390,7 +390,7 @@ downgraded) subscription, and the replacement mode to use.
 The following example shows how to update a subscription by using
 `SubscriptionProductReplacementParams`.
 
-- The [`BillingFlowParams.ProductDetailsParams`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.ProductDetailsParams) object now
+- The [`BillingFlowParams.ProductDetailsParams`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.ProductDetailsParams.md.txt) object now
   has a `setSubscriptionProductReplacementParams()` method to specify
   product level replacement information.
 
@@ -516,7 +516,7 @@ billingClient.launchBillingFlow(billingFlowParams);
 #### Set SubscriptionUpdateParams for replacement (deprecated)
 
 > [!NOTE]
-> **Note:** Starting with the PBL 8.1 release, [`SubscriptionUpdateParams`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams) is deprecated. Alternately, use `SubscriptionProductReplacementParams` to specify the replacement parameters.
+> **Note:** Starting with the PBL 8.1 release, [`SubscriptionUpdateParams`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.md.txt) is deprecated. Alternately, use `SubscriptionProductReplacementParams` to specify the replacement parameters.
 
 The following example shows how to update a subscription by using
 `SubscriptionUpdateParams`.
@@ -601,8 +601,8 @@ successfully. In addition to processing the new purchase appropriately, you have
 to retire the purchase that is being replaced.
 
 The in-app behavior is the same as for any new purchase. Your app receives the
-outcome of the new purchase in your [`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener), and the
-new purchase is available in [`queryPurchasesAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)).
+outcome of the new purchase in your [`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener.md.txt), and the
+new purchase is available in [`queryPurchasesAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)).
 
 The Google Play Developer API returns a `linkedPurchaseToken` in the
 [subscription resource](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2) when a purchase replaces an existing
@@ -612,12 +612,12 @@ Additionally, you can use the `offerPhase` field to identify the current offer
 phase (such as a proration period or free trial) for the new subscription in order to provide customized user experiences. Be
 sure to invalidate the token provided in the `linkedPurchaseToken` to
 ensure that the old token is not used to gain access to your services. See
-[Upgrades, downgrades, and resignups](https://developer.android.com/google/play/billing/lifecycle/subscriptions#upgrades-downgrades) for information on handling upgrade
+[Upgrades, downgrades, and resignups](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#upgrades-downgrades) for information on handling upgrade
 and downgrade purchases.
 
 When you receive the new purchase token, follow the same verification process as
-with [verifying a new purchase token](https://developer.android.com/google/play/billing/integrate#process). Make sure to acknowledge these
-purchases with [`BillingClient.acknowledgePurchase()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#acknowledgepurchase) from the Google Play
+with [verifying a new purchase token](https://developer.android.com/google/play/billing/integrate.md.txt#process). Make sure to acknowledge these
+purchases with [`BillingClient.acknowledgePurchase()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#acknowledgepurchase) from the Google Play
 Billing Library or [`Purchases.subscriptions:acknowledge`](https://developers.google.com/android-publisher/api-ref/purchases/subscriptions/acknowledge) from
 the Google Play Developer API.
 
@@ -626,8 +626,8 @@ the Google Play Developer API.
 Deferred replacement mode lets you let a user use up the remaining entitlement
 in their old plan before starting on the new plan.
 
-When you use [ReplacementMode.DEFERRED](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.ReplacementMode#DEFERRED) for a new purchase,
-[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) returns a new purchase token after the purchase
+When you use [ReplacementMode.DEFERRED](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.ReplacementMode.md.txt#DEFERRED) for a new purchase,
+[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) returns a new purchase token after the purchase
 flow that remains associated with the old product until the deferred replacement
 takes place on the next renewal date, after which the new product is returned.
 
@@ -638,9 +638,9 @@ differs:
 
 |---|---|---|
 | Time | ProrationMode.DEFERRED (deprecated) | ReplacementMode.DEFERRED |
-| Right after the purchase flow succeeds (app) | [`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener) is invoked after purchase with a status of whether the upgrade or downgrade was successful. Entitlement to the old plan continues until the next renewal date. To ensure that the app gives the right entitlement, [`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) returns a Purchase object with the **original** purchase token and the **original** entitlement until replacement occurs. The new purchase token is not surfaced, so it can't be processed at this point. | [`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener) gets invoked after purchase with a status of whether the upgrade or downgrade was successful. [`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) returns purchase with the **new** purchase token right away, and the **original entitlement** associated with it. The new purchase token is surfaced, so it should be [processed](https://developer.android.com/google/play/billing/integrate#process) at this point taking into account when the replacement is to take place. |
+| Right after the purchase flow succeeds (app) | [`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener.md.txt) is invoked after purchase with a status of whether the upgrade or downgrade was successful. Entitlement to the old plan continues until the next renewal date. To ensure that the app gives the right entitlement, [`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) returns a Purchase object with the **original** purchase token and the **original** entitlement until replacement occurs. The new purchase token is not surfaced, so it can't be processed at this point. | [`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener.md.txt) gets invoked after purchase with a status of whether the upgrade or downgrade was successful. [`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) returns purchase with the **new** purchase token right away, and the **original entitlement** associated with it. The new purchase token is surfaced, so it should be [processed](https://developer.android.com/google/play/billing/integrate.md.txt#process) at this point taking into account when the replacement is to take place. |
 | Right after the purchase flow succeeds (backend) | SUBSCRIPTION_PURCHASED RTDN is **not** sent after the purchase flow. The backend is not made aware of the new purchase yet. | SUBSCRIPTION_PURCHASED RTDN with the old product_id is sent immediately after the purchase flow for the new purchase token. Calling the [purchases.subscriptionsv2.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) method with the new purchase token returns a purchase having a 'startTime' indicating the purchase time with **two line items**: - One representing the **old** entitlement and has an 'expiryTime' in the future. The old entitlement will not be renewed and has a [DeferredItemReplacement](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2#DeferredItemReplacement) containing the product of the **new** entitlement. This indicates a pending replacement of the old entitlement upon its expiration. - One representing the **newly purchased** entitlement. It has no value set for 'expiryTime'. SUBSCRIPTION_EXPIRED sent for the **old** purchase token. When calling the [purchases.subscriptionsv2.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) method with the **old** purchase token, it appears as expired (the entitlement for the old plan is transferred to the new purchase for the remaining time). |
-| On replacement - first renewal after the purchase flow (app) | [`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) returns a new Purchase object with the **new** purchase token and entitlement. The new purchase token is now surfaced, so it should be [processed](https://developer.android.com/google/play/billing/integrate#process). | [`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) returns purchase with the **new** purchase token right away, and the **new entitlement** associated with it. The new purchase should have been processed already when the purchase flow succeeded, so the app shouldn't take any special action apart from making sure the right entitlement is granted. |
+| On replacement - first renewal after the purchase flow (app) | [`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) returns a new Purchase object with the **new** purchase token and entitlement. The new purchase token is now surfaced, so it should be [processed](https://developer.android.com/google/play/billing/integrate.md.txt#process). | [`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) returns purchase with the **new** purchase token right away, and the **new entitlement** associated with it. The new purchase should have been processed already when the purchase flow succeeded, so the app shouldn't take any special action apart from making sure the right entitlement is granted. |
 | On replacement - first renewal after the purchase flow (backend) | The new purchase can now be processed and acknowledged when the first SUBSCRIPTION_RENEWED RTDN is sent. The `linkedPurchaseToken` in the subscription resource can be used to determine which user in your subscription backend, if applicable, should be updated with the new entitlement. | New purchase was processed and acknowledged when the SUBSCRIPTION_PURCHASED RTDN was sent for the new purchase token and recorded as the 'startTime'. With ReplacementMode.DEFERRED, first renewals follow the standard behavior of any other renewal and you don't need to handle special logic for replacements when this event happens. When calling the [purchases.subscriptionsv2.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) method with the new purchase token returns a purchase with **two line items**: - One representing the **old** entitlement, with an \`expiryTime\` in the past and no set value for [DeferredItemReplacement](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2#DeferredItemReplacement). - One representing the **new** entitlement, with an \`expiryTime\` in the future and the auto_renewing_enabled flag turned on. |
 
 ReplacementMode.DEFERRED should be used from now on instead of the deprecated
@@ -690,7 +690,7 @@ were already subscribed to, as follows:
 If you would like to offer a different price---for example a new free trial or a
 winback discount---you can instead offer a different SKU to the user:
 
-- Initiate an [upgrade or downgrade](https://developer.android.com/google/play/billing/subscriptions#allow-users-change) with the different SKU using the replacement mode `WITHOUT_PRORATION`.
+- Initiate an [upgrade or downgrade](https://developer.android.com/google/play/billing/subscriptions.md.txt#allow-users-change) with the different SKU using the replacement mode `WITHOUT_PRORATION`.
 - The new subscription replaces the old one and renews on the same expiration date. The user is charged the price of the new SKU, including any introductory prices, on the original expiration date. If the old subscription was created using an obfuscated account ID, that same ID should be passed to the `BillingFlowParams` for upgrades and downgrades.
 - As an example, Achilles has a subscription to Example Music App, and the subscription is due to expire on August 1. On July 10, he resubscribes to an annual subscription with an introductory price. The new subscription is immediately active, and the user is charged the introductory price on August 1.
 - If you decide to include a free trial or intro price in your winback SKU, ensure that the user is eligible by unchecking the **Allow one free trial per app** box in the Google Play Console, which restricts the user to getting one free trial per app.
@@ -715,7 +715,7 @@ purchase token.
 ![subscriptions section in the google play store app showing a
 cancelled subscription with a resubscribe button](https://developer.android.com/static/images/google/play/billing/resubscribe.jpg) **Figure 8.** *Account \> Subscriptions* section in the Google Play Store app showing a cancelled subscription with a **Resubscribe** button.
 
-For more information on restoring subscriptions, see [Restorations](https://developer.android.com/google/play/billing/subscriptions#restore).
+For more information on restoring subscriptions, see [Restorations](https://developer.android.com/google/play/billing/subscriptions.md.txt#restore).
 
 ### After subscription expiration - in-app
 
@@ -833,15 +833,15 @@ users. To facilitate this, you can use the in-app messaging feature to
 inform them about any pending payments. If you have enabled in-app messaging,
 message for payment issues is shown during grace period and account hold
 once per day. This provides users an opportunity to fix their payment without
-leaving the app. For more information, see [in-app messaging](https://developer.android.com/google/play/billing/subscriptions#in-app-messaging).
+leaving the app. For more information, see [in-app messaging](https://developer.android.com/google/play/billing/subscriptions.md.txt#in-app-messaging).
 
 > [!NOTE]
-> **Note:** You can use [Play Billing Lab Subscription State Transition](https://developer.android.com/google/play/billing/test#subscription-state-transition) feature to test payment decline scenarios.
+> **Note:** You can use [Play Billing Lab Subscription State Transition](https://developer.android.com/google/play/billing/test.md.txt#subscription-state-transition) feature to test payment decline scenarios.
 
 ## In-app messaging
 
 If you've enabled in-app messaging with
-[`InAppMessageCategoryId.TRANSACTIONAL`](https://developer.android.com/reference/com/android/billingclient/api/InAppMessageParams.InAppMessageCategoryId#TRANSACTIONAL),
+[`InAppMessageCategoryId.TRANSACTIONAL`](https://developer.android.com/reference/com/android/billingclient/api/InAppMessageParams.InAppMessageCategoryId.md.txt#TRANSACTIONAL),
 Google Play will show a message to users when there is a payment issue or an
 outstanding opt-in price increase.
 ![Snackbar notifying the user to fix their payment](https://developer.android.com/static/images/google/play/billing/subscriptions-in-app-messaging-snackbar.png) **Figure 20.** Snackbar notifying the user to fix their payment.
@@ -851,14 +851,14 @@ whether the message should be shown.
 
 If the user successfully recovered their subscription or confirmed the price
 increase, you will receive a response code of
-[`SUBSCRIPTION_STATUS_UPDATED`](https://developer.android.com/reference/com/android/billingclient/api/InAppMessageResult.InAppMessageResponseCode#SUBSCRIPTION_STATUS_UPDATED)
+[`SUBSCRIPTION_STATUS_UPDATED`](https://developer.android.com/reference/com/android/billingclient/api/InAppMessageResult.InAppMessageResponseCode.md.txt#SUBSCRIPTION_STATUS_UPDATED)
 along with a purchase token. You should then use this purchase token to call the
 Google Play Developer API and refresh the subscription status in your app.
 
 ### Integrate in-app messaging
 
 To show in-app messaging to user, use
-[`BillingClient.showInAppMessages()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#showInAppMessages).
+[`BillingClient.showInAppMessages()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#showInAppMessages).
 
 Here is an example of triggering the in-app messaging flow:
 
@@ -946,14 +946,14 @@ a subscription. This functionality is also available in the [Google Play Console
 - **Cancel** : Users can cancel a subscription on Google Play. You can also
   provide an option for users to cancel in your app or on your website. Your
   app should handle these cancellations as described in
-  [Cancellations](https://developer.android.com/google/play/billing/lifecycle/subscriptions#cancel).
+  [Cancellations](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#cancel).
 
 - **Revoke** : When you revoke, the user immediately loses access to the
   subscription. This can be used if, for example, there was a technical error
   that prevented the user from accessing your product, and the user does not
   want to continue using the product. Your app should handle these
   cancellations as described in
-  [Revocations](https://developer.android.com/google/play/billing/lifecycle/subscriptions#revoke).
+  [Revocations](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#revoke).
 
 The following table illustrates the differences between cancel and revoke.
 
@@ -967,7 +967,7 @@ The following table illustrates the differences between cancel and revoke.
 > [!NOTE]
 > **Note:** Pending transactions are only available for purchasing prepaid plan with Google Play Billing Library versions 7.0 and higher. You need to support and enable pending transactions **explicitly**.
 
-[Pending transactions](https://developer.android.com/google/play/billing/integrate#pending) can happen in initial purchase, top-up, upgrade or
+[Pending transactions](https://developer.android.com/google/play/billing/integrate.md.txt#pending) can happen in initial purchase, top-up, upgrade or
 downgrade. The subscription purchase starts with the
 `SUBSCRIPTION_STATE_PENDING` state before transitioning to
 `SUBSCRIPTION_STATE_ACTIVE`. If the transaction is expired or canceled by the

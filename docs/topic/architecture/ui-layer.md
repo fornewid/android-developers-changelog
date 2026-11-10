@@ -75,7 +75,7 @@ The most fundamental of these is the definition of the UI state.
 
 ## Define UI state
 
-In the [case study](https://developer.android.com/topic/architecture/ui-layer#case-study) outlined earlier, the UI shows
+In the [case study](https://developer.android.com/topic/architecture/ui-layer.md.txt#case-study) outlined earlier, the UI shows
 a list of articles along with some metadata for each article. This information
 that the app presents to the user is the UI state.
 
@@ -109,7 +109,7 @@ data class NewsItemUiState(
 <br />
 
 For more information on UI state,
-see [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state).
+see [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state.md.txt).
 
 ### Immutability
 
@@ -170,16 +170,16 @@ State holders are the classes responsible for producing UI state and for the
 logic needed to produce that state.
 State holders come in various sizes depending on the scope of the corresponding
 UI elements that they manage, ranging from a single widget like a
-[bottom app bar](https://developer.android.com/develop/ui/compose/components/app-bars#bottom) to a whole screen or a navigation destination.
+[bottom app bar](https://developer.android.com/develop/ui/compose/components/app-bars.md.txt#bottom) to a whole screen or a navigation destination.
 
 In the latter case, the typical implementation is an instance of a
-[ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel), although depending on the
+[ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt), although depending on the
 requirements of the application, a simple class might suffice. The News app from
-the [case study](https://developer.android.com/topic/architecture/ui-layer#case-study), for example, uses a `NewsViewModel` class as a
+the [case study](https://developer.android.com/topic/architecture/ui-layer.md.txt#case-study), for example, uses a `NewsViewModel` class as a
 state holder to produce the UI state for the screen displayed in that section.
 
 > [!IMPORTANT]
-> **Key Point:** The [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) type is the recommended implementation for the management of screen-level UI state with access to the data layer. Furthermore, it survives configuration changes automatically. `ViewModel` classes define the logic to be applied to events in the app and produce updated state as a result.
+> **Key Point:** The [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt) type is the recommended implementation for the management of screen-level UI state with access to the data layer. Furthermore, it survives configuration changes automatically. `ViewModel` classes define the logic to be applied to events in the app and produce updated state as a result.
 
 There are many ways to model the codependency between the UI and its state
 producer. However, because the interaction between the UI and its `ViewModel`
@@ -202,7 +202,7 @@ architecture are as follows:
 For navigation destinations or screens, the ViewModel works with repositories or
 use case classes to get data and transform it into the UI state while
 incorporating the effects of events that may cause mutations of the state. The
-[case study](https://developer.android.com/topic/architecture/ui-layer#case-study) mentioned earlier contains a list of articles, each
+[case study](https://developer.android.com/topic/architecture/ui-layer.md.txt#case-study) mentioned earlier contains a list of articles, each
 having a title, description, source, author name, publication date, and whether
 it was bookmarked. The UI for each article item looks like this:
 ![A single article item from the case study app. The UI shows a thumbnail, the article title, the author, the estimated reading time for the article, and a bookmark icon.](https://developer.android.com/static/topic/libraries/architecture/images/mad-arch-ui-basic-case-study-item.png) **Figure 5.** UI of an article item in the case study app.
@@ -228,10 +228,10 @@ layer](https://developer.android.com/jetpack/guide/data-layer) page. However, th
 logic that are important to define:
 
 - **Business logic** is the implementation of product requirements for app data. As mentioned already, one example is bookmarking an article in the case study app. Business logic is usually placed in the domain or data layers, but never in the UI layer.
-- **UI behavior logic** or **UI logic** is *how* to display state changes on the screen. Examples include obtaining the right text to show on the screen using Android [`Resources`](https://developer.android.com/reference/android/content/res/Resources), navigating to a particular screen when the user clicks a button, or displaying a user message on the screen using a [toast](https://developer.android.com/guide/topics/ui/notifiers/toasts) or a [snackbar](https://developer.android.com/develop/ui/compose/components/snackbar).
+- **UI behavior logic** or **UI logic** is *how* to display state changes on the screen. Examples include obtaining the right text to show on the screen using Android [`Resources`](https://developer.android.com/reference/android/content/res/Resources.md.txt), navigating to a particular screen when the user clicks a button, or displaying a user message on the screen using a [toast](https://developer.android.com/guide/topics/ui/notifiers/toasts.md.txt) or a [snackbar](https://developer.android.com/develop/ui/compose/components/snackbar.md.txt).
 
 Keep UI logic in the UI, not in the ViewModel, particularly when it involves
-UI types like [`Context`](https://developer.android.com/reference/android/content/Context).
+UI types like [`Context`](https://developer.android.com/reference/android/content/Context.md.txt).
 If the UI grows in complexity and you want to delegate the UI
 logic to another class to favor testability and separation of concerns, **you
 can create a simple class as a state holder**. Simple classes created in the UI
@@ -282,7 +282,7 @@ class NewsViewModel(
 
 <br />
 
-For an introduction to Kotlin flows, see [Kotlin flows on Android](https://developer.android.com/kotlin/flow).
+For an introduction to Kotlin flows, see [Kotlin flows on Android](https://developer.android.com/kotlin/flow.md.txt).
 To learn how to use `StateFlow` as an observable data holder,
 see the
 [Advanced State and Side Effects in Jetpack Compose](https://developer.android.com/codelabs/jetpack-compose-advanced-state-side-effects) codelab.
@@ -320,7 +320,7 @@ class NewsViewModel(
 The ViewModel can then expose methods that internally mutate the state,
 publishing updates for the UI to consume. Take, for example, the case where
 you need to perform an asynchronous action.
-You can launch a coroutine using the [`viewModelScope`](https://developer.android.com/topic/libraries/architecture/coroutines#viewmodelscope),
+You can launch a coroutine using the [`viewModelScope`](https://developer.android.com/topic/libraries/architecture/coroutines.md.txt#viewmodelscope),
 and then update the mutable state upon completion.
 
 
@@ -358,7 +358,7 @@ for a certain category and then reflects the result of the attempt---whether
 success or
 failure---in the UI state, where the UI can react to it appropriately.
 For more information about error handling, see the
-[Show errors on the screen](https://developer.android.com/topic/architecture/ui-layer#show-errors) section.
+[Show errors on the screen](https://developer.android.com/topic/architecture/ui-layer.md.txt#show-errors) section.
 
 > [!NOTE]
 > **Note:** The pattern shown in the previous example, where state is mutated through functions on the ViewModel, is one of the more popular implementations of unidirectional data flow.
@@ -420,7 +420,7 @@ state:
     necessary.
 
 For more information about rendering and the UI state,
-see [Lifecycle of composables](https://developer.android.com/develop/ui/compose/lifecycle).
+see [Lifecycle of composables](https://developer.android.com/develop/ui/compose/lifecycle.md.txt).
 
 ## Consume UI state
 
@@ -528,7 +528,7 @@ data class NewsUiState(
 <br />
 
 You might then present the error messages to the user in the form of UI
-elements like [snackbars](https://developer.android.com/develop/ui/compose/components/snackbar).
+elements like [snackbars](https://developer.android.com/develop/ui/compose/components/snackbar.md.txt).
 For more information on how UI events are produced and consumed, see [UI
 events](https://developer.android.com/jetpack/guide/ui-layer/events).
 
@@ -542,22 +542,22 @@ If a ViewModel performs long-running operations, then it is also responsible for
 moving that logic to a background thread. Kotlin coroutines are a great way to
 manage concurrent operations, and the Jetpack Architecture Components provide
 built-in support for them. To learn more about using coroutines in Android apps,
-see [Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines).
+see [Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines.md.txt).
 
 ## Navigation
 
 Changes in app navigation are often driven by event-like emissions. For example,
 after a `SignInViewModel` class performs a sign-in, the `UiState` might have an
 `isSignedIn` field set to `true`. Consume triggers like these just
-like the ones covered in the earlier [Consume UI state](https://developer.android.com/topic/architecture/ui-layer#consume-ui-state) section,
-but defer the consumption implementation to the [Navigation component](https://developer.android.com/guide/navigation).
+like the ones covered in the earlier [Consume UI state](https://developer.android.com/topic/architecture/ui-layer.md.txt#consume-ui-state) section,
+but defer the consumption implementation to the [Navigation component](https://developer.android.com/guide/navigation.md.txt).
 
 For more information about UI navigation,
-see [Navigation 3](https://developer.android.com/guide/navigation/navigation-3).
+see [Navigation 3](https://developer.android.com/guide/navigation/navigation-3.md.txt).
 
 ## Paging
 
-The [Paging library](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) is
+The [Paging library](https://developer.android.com/topic/libraries/architecture/paging/v3-overview.md.txt) is
 consumed in the UI with a type called `PagingData`. Because `PagingData`
 represents and contains items that can change over time---in other words, it is
 not an immutable type---do not represent it in an immutable UI state.
@@ -592,8 +592,8 @@ you might want to wait for the second screen to load data before starting
 the animation.
 
 For more information on navigation transitions,
-see [Navigation 3](https://developer.android.com/guide/navigation/navigation-3/animate-destinations) and
-[Shared element transitions in Compose](https://developer.android.com/develop/ui/compose/animation/shared-elements).
+see [Navigation 3](https://developer.android.com/guide/navigation/navigation-3/animate-destinations.md.txt) and
+[Shared element transitions in Compose](https://developer.android.com/develop/ui/compose/animation/shared-elements.md.txt).
 
 ## Additional resources
 
@@ -609,6 +609,6 @@ Go explore them to see this guidance in practice:
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [UI State production](https://developer.android.com/topic/architecture/ui-layer/state-production)
-- [State holders and UI State {:#mad-arch}](https://developer.android.com/topic/architecture/ui-layer/stateholders)
-- [Guide to app architecture](https://developer.android.com/topic/architecture)
+- [UI State production](https://developer.android.com/topic/architecture/ui-layer/state-production.md.txt)
+- [State holders and UI State {:#mad-arch}](https://developer.android.com/topic/architecture/ui-layer/stateholders.md.txt)
+- [Guide to app architecture](https://developer.android.com/topic/architecture.md.txt)

@@ -8,7 +8,7 @@ ExoPlayer supports SmoothStreaming with the FMP4 container format. Media streams
 must be demuxed, meaning that video, audio, and text must be defined in distinct
 StreamIndex elements in the SmoothStreaming manifest. The contained audio and
 video sample formats must also be supported (see the
-[sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats#sample-formats) section for details).
+[sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats.md.txt#sample-formats) section for details).
 
 | Feature | Supported | Comments |
 |---|---|---|
@@ -29,11 +29,15 @@ module.
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-exoplayer-smoothstreaming:1.11.1")
+```kotlin
+implementation("androidx.media3:media3-exoplayer-smoothstreaming:1.11.1")
+```
 
 ### Groovy
 
-    implementation "androidx.media3:media3-exoplayer-smoothstreaming:1.11.1"
+```groovy
+implementation "androidx.media3:media3-exoplayer-smoothstreaming:1.11.1"
+```
 
 You can then create a `MediaItem` for a SmoothStreaming manifest URI and pass it
 to the player.

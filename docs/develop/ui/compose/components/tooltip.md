@@ -14,8 +14,8 @@ There are two types of tooltips:
 
 ## API surface
 
-You can use the [`TooltipBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipBox.composable) composable to implement tooltips in your app.
-You control [`TooltipBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipBox.composable) appearance with these main parameters:
+You can use the [`TooltipBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipBox.composable.md.txt) composable to implement tooltips in your app.
+You control [`TooltipBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipBox.composable.md.txt) appearance with these main parameters:
 
 - `positionProvider`: Places the tooltip relative to the anchor content. You typically use a default position provider from the `TooltipDefaults`, or you can provide your own if you need custom positioning logic.
 - `tooltip`: The composable that contains the tooltip's content. You typically use either the `PlainTooltip` or `RichTooltip` composables.
@@ -59,10 +59,10 @@ fun PlainTooltipExample(
 ### Key points about the code
 
 - `TooltipBox` generates a tooltip with the text "Add to favorites".
-  - [`TooltipDefaults.rememberPlainTooltipPositionProvider()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipDefaults#rememberPlainTooltipPositionProvider(androidx.compose.ui.unit.Dp)) provides default positioning for plain tooltips.
-  - `tooltip` is a lambda function that defines the tooltip's content using the [`PlainTooltip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipScope#(androidx.compose.material3.TooltipScope).PlainTooltip(androidx.compose.ui.Modifier,androidx.compose.ui.unit.DpSize,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,kotlin.Function0)) composable.
+  - [`TooltipDefaults.rememberPlainTooltipPositionProvider()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipDefaults.md.txt#rememberPlainTooltipPositionProvider(androidx.compose.ui.unit.Dp)) provides default positioning for plain tooltips.
+  - `tooltip` is a lambda function that defines the tooltip's content using the [`PlainTooltip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipScope.md.txt#(androidx.compose.material3.TooltipScope).PlainTooltip(androidx.compose.ui.Modifier,androidx.compose.ui.unit.DpSize,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,kotlin.Function0)) composable.
   - `Text(plainTooltipText)` displays the text within the tooltip.
-  - [`tooltipState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipState) controls the state of the tooltip.
+  - [`tooltipState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipState.md.txt) controls the state of the tooltip.
 - `IconButton` creates a clickable button with an icon.
   - `Icon(...)` displays a heart icon within the button.
   - When a user interacts with the `IconButton`, `TooltipBox` shows the tooltip with the text "Add to favorites". Depending on the device, users can trigger the tooltip in the following ways:
@@ -116,7 +116,7 @@ fun RichTooltipExample(
 
 - `TooltipBox` handles the event listeners for user interactions and updates `TooltipState` accordingly. When `TooltipState` indicates that the tooltip should be shown, the tooltip lambda executes, and `TooltipBox` displays the `RichTooltip`. The `TooltipBox` acts as the anchor and container for both content and the tooltip.
   - In this case, the content is an `IconButton` component, which provides the tappable action behavior. When long-pressed (on touch devices) or hovered over (as with the mouse pointer) anywhere in `TooltipBox`'s content, the tooltip will display to show more information.
-- The `RichTooltip` composable defines the tooltip's content, including the title and body text. [`TooltipDefaults.rememberRichTooltipPositionProvider()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipDefaults#rememberRichTooltipPositionProvider(androidx.compose.ui.unit.Dp)) provides positioning information for rich tooltips.
+- The `RichTooltip` composable defines the tooltip's content, including the title and body text. [`TooltipDefaults.rememberRichTooltipPositionProvider()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipDefaults.md.txt#rememberRichTooltipPositionProvider(androidx.compose.ui.unit.Dp)) provides positioning information for rich tooltips.
 
 ### Result
 

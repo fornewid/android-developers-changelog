@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 If you want to add controls (play, pause, etc.) to your PiP window, create a
-[`RemoteAction`](https://developer.android.com/reference/android/app/RemoteAction) for each control you want to add.
+[`RemoteAction`](https://developer.android.com/reference/android/app/RemoteAction.md.txt) for each control you want to add.
 
 > [!NOTE]
 > **Note:** If you are using a [`MediaSession`](https://developer.android.com/guide/topics/media/media3), there will be default actions added to the window that you don't need to implement yourself.
@@ -21,8 +21,8 @@ If you want to add controls (play, pause, etc.) to your PiP window, create a
    const val EXTRA_CONTROL_PLAY = 1
    const val EXTRA_CONTROL_PAUSE = 2
    ```
-2. Create a list of [`RemoteActions`](https://developer.android.com/reference/android/app/RemoteAction) for the controls in your PiP window.
-3. Next, add a [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) and override `onReceive()` to set the actions of each button. Use a [`DisposableEffect`](https://developer.android.com/develop/ui/compose/side-effects#disposableeffect) to register the receiver and the remote actions. When the player is disposed, unregister the receiver.
+2. Create a list of [`RemoteActions`](https://developer.android.com/reference/android/app/RemoteAction.md.txt) for the controls in your PiP window.
+3. Next, add a [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver.md.txt) and override `onReceive()` to set the actions of each button. Use a [`DisposableEffect`](https://developer.android.com/develop/ui/compose/side-effects.md.txt#disposableeffect) to register the receiver and the remote actions. When the player is disposed, unregister the receiver.
 
    ```kotlin
    @RequiresApi(Build.VERSION_CODES.O)
@@ -60,7 +60,7 @@ If you want to add controls (play, pause, etc.) to your PiP window, create a
        }
    }
    ```
-4. Pass in a list of your remote actions to the [`PictureInPictureParams.Builder`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder):
+4. Pass in a list of your remote actions to the [`PictureInPictureParams.Builder`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder.md.txt):
 
    ```kotlin
    val context = LocalContext.current
@@ -90,4 +90,4 @@ If you want to add controls (play, pause, etc.) to your PiP window, create a
 ## Next steps
 
 - See the [Socialite](https://github.com/android/socialite) app to see the best practices of Compose PiP in action.
-- See the [PiP design guidance](https://developer.android.com/design/ui/mobile/guides/home-screen/picture-in-picture) for more information.
+- See the [PiP design guidance](https://developer.android.com/design/ui/mobile/guides/home-screen/picture-in-picture.md.txt) for more information.

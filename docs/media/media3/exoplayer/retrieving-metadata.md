@@ -9,7 +9,7 @@ source: md.txt
 The metadata of the media can be retrieved during playback in multiple ways. The
 most straightforward is to listen for the
 `Player.Listener#onMediaMetadataChanged` event; this will provide a
-[`MediaMetadata`](https://developer.android.com/reference/androidx/media3/common/MediaMetadata) object for use, which has fields such as `title` and
+[`MediaMetadata`](https://developer.android.com/reference/androidx/media3/common/MediaMetadata.md.txt) object for use, which has fields such as `title` and
 `albumArtist`. Alternatively, calling `Player#getMediaMetadata` returns the same
 object.
 
@@ -35,7 +35,7 @@ public void onMediaMetadataChanged(MediaMetadata mediaMetadata) {
 
 <br />
 
-If your app needs access to specific [`Metadata.Entry`](https://developer.android.com/reference/androidx/media3/common/Metadata.Entry) objects, then it
+If your app needs access to specific [`Metadata.Entry`](https://developer.android.com/reference/androidx/media3/common/Metadata.Entry.md.txt) objects, then it
 should listen to `Player.Listener#onMetadata` (for dynamic metadata delivered
 during playback). Alternatively, if there is a need to look at static metadata,
 this can be accessed through the `TrackSelections#getFormat`.
@@ -44,7 +44,7 @@ this can be accessed through the `TrackSelections#getFormat`.
 ## Without playback
 
 If playback is not needed, it is more efficient to use the
-[`MetadataRetriever`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever) to extract the metadata because it avoids having to
+[`MetadataRetriever`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever.md.txt) to extract the metadata because it avoids having to
 create and prepare a player.
 
 
@@ -110,14 +110,14 @@ public void retrieveMetadata(Context context, MediaItem mediaItem) {
 ## Motion photos
 
 > [!NOTE]
-> **Note:** For motion photo **playback** , see [Media Items](https://developer.android.com/media/media3/exoplayer/images#motion-photos) and for motion photo **format support** , see [Supported formats](https://developer.android.com/media/media3/exoplayer/supported-formats#images).
+> **Note:** For motion photo **playback** , see [Media Items](https://developer.android.com/media/media3/exoplayer/images.md.txt#motion-photos) and for motion photo **format support** , see [Supported formats](https://developer.android.com/media/media3/exoplayer/supported-formats.md.txt#images).
 
 It is also possible to extract motion photo metadata, including the offsets and
 lengths of the image and video parts of the file.
 
 For motion photos, the `TrackGroupArray` obtained with the `MetadataRetriever`
 contains a `TrackGroup` with a single `Format` enclosing a
-[`MotionPhotoMetadata`](https://developer.android.com/reference/androidx/media3/extractor/metadata/MotionPhotoMetadata) metadata entry.
+[`MotionPhotoMetadata`](https://developer.android.com/reference/androidx/media3/extractor/metadata/MotionPhotoMetadata.md.txt) metadata entry.
 
 
 ### Kotlin

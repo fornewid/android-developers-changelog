@@ -4,17 +4,17 @@ url: https://developer.android.com/media/media3/inspector/retrieve-metadata
 source: md.txt
 ---
 
-The [`MetadataRetriever`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever) retrieves information (such as duration, video
-resolution, codecs, available tracks, and sampling rates) from a [`MediaItem`](https://developer.android.com/reference/androidx/media3/common/MediaItem)
+The [`MetadataRetriever`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever.md.txt) retrieves information (such as duration, video
+resolution, codecs, available tracks, and sampling rates) from a [`MediaItem`](https://developer.android.com/reference/androidx/media3/common/MediaItem.md.txt)
 without playback.
 
 > [!NOTE]
-> **Note:** `MetadataRetriever` is intended for extracting metadata from media formats supported by Media3 players, such as ExoPlayer, for playback. It is not designed to be a general-purpose metadata extractor for non-playback formats, such as standalone images. To extract properties like height, width, and rotation from images, use [`ExifInterface`](https://developer.android.com/reference/androidx/exifinterface/media/ExifInterface).
+> **Note:** `MetadataRetriever` is intended for extracting metadata from media formats supported by Media3 players, such as ExoPlayer, for playback. It is not designed to be a general-purpose metadata extractor for non-playback formats, such as standalone images. To extract properties like height, width, and rotation from images, use [`ExifInterface`](https://developer.android.com/reference/androidx/exifinterface/media/ExifInterface.md.txt).
 
 Common use cases include:
 
-- **[Retrieving motion photo metadata](https://developer.android.com/media/media3/exoplayer/retrieving-metadata#motion-photos)**: including the offsets and lengths of the image and video parts of the file.
-- **Building a media library** : Populating a [`MediaLibraryService`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService) with rich [`MediaItem`](https://developer.android.com/reference/androidx/media3/common/MediaItem) details (like duration and title) to serve a full media catalog to clients like Android Auto.
+- **[Retrieving motion photo metadata](https://developer.android.com/media/media3/exoplayer/retrieving-metadata.md.txt#motion-photos)**: including the offsets and lengths of the image and video parts of the file.
+- **Building a media library** : Populating a [`MediaLibraryService`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.md.txt) with rich [`MediaItem`](https://developer.android.com/reference/androidx/media3/common/MediaItem.md.txt) details (like duration and title) to serve a full media catalog to clients like Android Auto.
 - **Prefetching UI details**: Fetching information like video resolution or duration to prepare the UI before playback begins.
 - **Validating media files**: Checking if a file contains the required audio or video tracks or specific metadata before processing it.
 
@@ -22,8 +22,8 @@ Common use cases include:
 
 Using `MetadataRetriever` is a two-step process:
 
-1. **Build the retriever** : Create an instance using `MetadataRetriever.Builder`. Pass a `Context` and the `MediaItem` that you want to inspect to the builder. For advanced use cases, such as custom networking or caching, you can also supply a custom [`MediaSource.Factory`](https://developer.android.com/reference/androidx/media3/exoplayer/source/MediaSource.Factory).
-2. **Retrieve metadata** : Call methods like [`retrieveDurationUs()`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever#retrieveDurationUs()), [`retrieveTimeline()`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever#retrieveTimeline()), or [`retrieveTrackGroups()`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever#retrieveTrackGroups()) to fetch the required information. These methods are **asynchronous** , returning a `ListenableFuture` so that network or I/O operations don't block the main thread.
+1. **Build the retriever** : Create an instance using `MetadataRetriever.Builder`. Pass a `Context` and the `MediaItem` that you want to inspect to the builder. For advanced use cases, such as custom networking or caching, you can also supply a custom [`MediaSource.Factory`](https://developer.android.com/reference/androidx/media3/exoplayer/source/MediaSource.Factory.md.txt).
+2. **Retrieve metadata** : Call methods like [`retrieveDurationUs()`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever.md.txt#retrieveDurationUs()), [`retrieveTimeline()`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever.md.txt#retrieveTimeline()), or [`retrieveTrackGroups()`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever.md.txt#retrieveTrackGroups()) to fetch the required information. These methods are **asynchronous** , returning a `ListenableFuture` so that network or I/O operations don't block the main thread.
 
 
 ### Kotlin

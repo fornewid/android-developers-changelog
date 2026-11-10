@@ -11,7 +11,7 @@ set of APIs to easily handle drag events.
 
 The Compose dragging APIs abstract away the complexity of raw touch events.
 Instead of manually calculating touch coordinates and managing gesture
-lifecycles with [`pointerInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/package-summary#(androidx.compose.ui.Modifier).pointerInput(kotlin.Any,kotlin.Any,kotlin.coroutines.SuspendFunction1)), you can use built-in modifiers that tie
+lifecycles with [`pointerInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/package-summary.md.txt#(androidx.compose.ui.Modifier).pointerInput(kotlin.Any,kotlin.Any,kotlin.coroutines.SuspendFunction1)), you can use built-in modifiers that tie
 directly into Compose's state management and animation systems.
 
 This page describes how and when to use each dragging API.
@@ -20,10 +20,10 @@ This page describes how and when to use each dragging API.
 
 There are several APIs you can use for implementing draggable content.
 
-- **Choose standard Material components (like** [**`SwipeToDismissBox`**](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable) **or navigation drawers) when**: You need default Material 3 swipe or drag behavior (for example, deleting an email, archiving a task, or opening a side menu / bottom sheets). They provide built-in behaviors without requiring custom state or layout management.
-- **Choose** [**`Modifier.draggable`**](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/draggable.modifier) **when** : You only need raw drag deltas (for example, dragging a custom slider). For more information, see [Drag along a single axis with draggable](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-composables#draggable).
-  - **Choose** [**`Modifier.draggable2D`**](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).draggable2D(androidx.compose.foundation.gestures.Draggable2DState,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.Function1,kotlin.Function1,kotlin.Boolean)) **when** : You need a component to move continuously across both the X and Y axes simultaneously (for example, panning across a map or creating a floating action button that the user can drag anywhere on the screen). For more information, see [Drag in two dimensions with `Modifier.draggable2D`](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-composables#modifier-draggable2d).
-- **Choose** [**`Modifier.anchoredDraggable`**](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/anchoredDraggable.modifier) **when** : You're building custom interactive components that need to snap between two or more discrete positions (for example, a bottom sheet, a navigation drawer, or a swipe-to-reveal action). For more information, see [Drag components between
+- **Choose standard Material components (like** [**`SwipeToDismissBox`**](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable.md.txt) **or navigation drawers) when**: You need default Material 3 swipe or drag behavior (for example, deleting an email, archiving a task, or opening a side menu / bottom sheets). They provide built-in behaviors without requiring custom state or layout management.
+- **Choose** [**`Modifier.draggable`**](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/draggable.modifier) **when** : You only need raw drag deltas (for example, dragging a custom slider). For more information, see [Drag along a single axis with draggable](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-composables.md.txt#draggable).
+  - **Choose** [**`Modifier.draggable2D`**](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).draggable2D(androidx.compose.foundation.gestures.Draggable2DState,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.Function1,kotlin.Function1,kotlin.Boolean)) **when** : You need a component to move continuously across both the X and Y axes simultaneously (for example, panning across a map or creating a floating action button that the user can drag anywhere on the screen). For more information, see [Drag in two dimensions with `Modifier.draggable2D`](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-composables.md.txt#modifier-draggable2d).
+- **Choose** [**`Modifier.anchoredDraggable`**](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/anchoredDraggable.modifier.md.txt) **when** : You're building custom interactive components that need to snap between two or more discrete positions (for example, a bottom sheet, a navigation drawer, or a swipe-to-reveal action). For more information, see [Drag components between
   anchor points with `anchoredDraggable`](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-composables#anchoredDraggable).
 
 ## Drag along a single axis with `draggable`
@@ -33,7 +33,7 @@ a single orientation, and reports the drag distance in pixels.
 
 It's important to note that this modifier is similar to `scrollable`, in that it
 only detects the gesture. You need to hold the state and represent it on screen
-by, for example, moving the element via the [`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.ui.Modifier).offset(androidx.compose.ui.unit.Dp,%20androidx.compose.ui.unit.Dp)) modifier:
+by, for example, moving the element via the [`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.ui.Modifier).offset(androidx.compose.ui.unit.Dp,%20androidx.compose.ui.unit.Dp)) modifier:
 
 
 ```kotlin
@@ -57,7 +57,7 @@ private fun DraggableText() {
 <br />
 
 If you need to control the whole dragging gesture, consider using the drag
-gesture detector instead, via the [`pointerInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/package-summary#(androidx.compose.ui.Modifier).pointerInput(kotlin.Any,kotlin.coroutines.SuspendFunction1)) modifier.
+gesture detector instead, via the [`pointerInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/package-summary.md.txt#(androidx.compose.ui.Modifier).pointerInput(kotlin.Any,kotlin.coroutines.SuspendFunction1)) modifier.
 
 
 ```kotlin
@@ -90,7 +90,7 @@ private fun DraggableTextLowLevel() {
 
 ## Drag components between anchor points with `anchoredDraggable`
 
-The [`anchoredDraggable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/anchoredDraggable.modifier) modifier lets you drag a component between a set of
+The [`anchoredDraggable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/anchoredDraggable.modifier.md.txt) modifier lets you drag a component between a set of
 predefined positions called anchor points. When the user releases the drag
 gesture, the component settles at the closest anchor. `anchoredDraggable` is
 useful for creating components like custom bottom sheets, complex sliders, or
@@ -143,7 +143,7 @@ see an overscroll stretch effect.
 
 
    > [!NOTE]
-   > **Note:** Although `Modifier.layout` is generally recommended, you can also use [`Modifier.onSizeChanged`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).onSizeChanged(kotlin.Function1)) to get the component's size in the following situations:
+   > **Note:** Although `Modifier.layout` is generally recommended, you can also use [`Modifier.onSizeChanged`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).onSizeChanged(kotlin.Function1)) to get the component's size in the following situations:
    > - Your initial anchor is size-independent (e.g., `0f`).
    > - You want to observe the size without needing to measure and place the component. `Modifier.layout` requires you to manually intercept the measurement phase and dictate placement.
 
@@ -182,14 +182,14 @@ see an overscroll stretch effect.
 
    <br />
 
-4. \[Optional\] **Integrate overscroll** . The [`overscrollEffect`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/OverscrollEffect) API
+4. \[Optional\] **Integrate overscroll** . The [`overscrollEffect`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/OverscrollEffect.md.txt) API
    implements a visual effect that displays when the edges of a scrolling
    container have been reached with a scroll or fling. You can provide visual
    feedback when a user drags past the defined anchor bounds with an overscroll
    effect (typically a stretch or glow).
 
    1. **Dispatch** : Pass an `overscrollEffect` instance to the `anchoredDraggable` modifier. This dispatches drag deltas to either the `AnchoredDraggable` state or the overscroll effect, depending on whether the gesture is inside or outside the anchor bounds.
-   2. **Render** : Apply the [`Modifier.overscroll`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).overscroll(androidx.compose.foundation.OverscrollEffect)) with the same `OverscrollEffect` instance to the component that should visually render the effect.
+   2. **Render** : Apply the [`Modifier.overscroll`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).overscroll(androidx.compose.foundation.OverscrollEffect)) with the same `OverscrollEffect` instance to the component that should visually render the effect.
 
 The following snippet shows how to add a standard stretch effect:
 
@@ -306,7 +306,7 @@ to reveal the underlying navigation drawer.
 
 3. **Use `state.requireOffset()` to change multiple visual properties** .
    Instead of only offsetting the content, you can change multiple properties
-   with [`Modifier.graphicsLayer`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/graphicsLayer.modifier#(androidx.compose.ui.Modifier).graphicsLayer(kotlin.Function1)) to simultaneously animate translation,
+   with [`Modifier.graphicsLayer`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/graphicsLayer.modifier.md.txt#(androidx.compose.ui.Modifier).graphicsLayer(kotlin.Function1)) to simultaneously animate translation,
    scale, and corner radius based on the drag progress:
 
    - Use `state.requireOffset()` to get the current drag offset.
@@ -379,7 +379,7 @@ This example shows the most common use case for `draggable2D` --- allowing a use
 to pick up a UI element and reposition it anywhere within a parent container.
 
 > [!NOTE]
-> **Note:** `draggable2D` shouldn't be confused with the [Drag and Drop](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/drag-and-drop) pattern. The `dragAndDropSource` modifier is for use with transferring data (URIs, text) between applications, whereas `draggable2D` is for within the same composable hierarchy.
+> **Note:** `draggable2D` shouldn't be confused with the [Drag and Drop](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/drag-and-drop.md.txt) pattern. The `dragAndDropSource` modifier is for use with transferring data (URIs, text) between applications, whereas `draggable2D` is for within the same composable hierarchy.
 
 
 ```kotlin
@@ -489,6 +489,6 @@ The preceding snippet includes the following:
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures)
-- [Advanced animation example: Gestures {:#gesture-and-animation}](https://developer.android.com/develop/ui/compose/animation/advanced)
-- [Value-based animations](https://developer.android.com/develop/ui/compose/animation/value-based)
+- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures.md.txt)
+- [Advanced animation example: Gestures {:#gesture-and-animation}](https://developer.android.com/develop/ui/compose/animation/advanced.md.txt)
+- [Value-based animations](https://developer.android.com/develop/ui/compose/animation/value-based.md.txt)

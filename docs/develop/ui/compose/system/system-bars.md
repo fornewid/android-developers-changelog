@@ -4,13 +4,13 @@ url: https://developer.android.com/develop/ui/compose/system/system-bars
 source: md.txt
 ---
 
-Once your app targets SDK 35 or later, [edge-to-edge is enforced](https://developer.android.com/about/versions/15/behavior-changes-15#edge-to-edge). The
+Once your app targets SDK 35 or later, [edge-to-edge is enforced](https://developer.android.com/about/versions/15/behavior-changes-15.md.txt#edge-to-edge). The
 system status bar and gesture navigation bars are transparent, but the
 three-button navigation bar is translucent. Call `enableEdgeToEdge` to make this
 backward compatible.
 
 However, the system defaults might not work for all use cases. Consult the
-[Android system bars design guidance](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars) and [edge-to-edge design
+[Android system bars design guidance](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars.md.txt) and [edge-to-edge design
 guidance](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge) for an overview of when to consider having transparent or
 translucent system bars.
 
@@ -18,7 +18,7 @@ translucent system bars.
 
 Create a transparent gesture navigation bar by targeting Android 15 or later or
 by calling `enableEdgeToEdge()` with default arguments for earlier versions. For
-three-button navigation bar, set [`Window.setNavigationBarContrastEnforced`](https://developer.android.com/reference/android/view/Window#setNavigationBarContrastEnforced(boolean))
+three-button navigation bar, set [`Window.setNavigationBarContrastEnforced`](https://developer.android.com/reference/android/view/Window.md.txt#setNavigationBarContrastEnforced(boolean))
 to `false` otherwise there will be a translucent scrim applied.
 
 ## Create translucent system bars
@@ -79,5 +79,5 @@ private fun StatusBarProtection(
 **Figure 1.** A translucent status bar.
 
 For adaptive apps, insert a custom composable that matches the colors of each
-pane, as seen in the [Edge-to-edge design](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge). To create a translucent
-navigation bar, set [`Window.setNavigationBarContrastEnforced`](https://developer.android.com/reference/android/view/Window#setNavigationBarContrastEnforced(boolean)) to true.
+pane, as seen in the [Edge-to-edge design](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge.md.txt). To create a translucent
+navigation bar, set [`Window.setNavigationBarContrastEnforced`](https://developer.android.com/reference/android/view/Window.md.txt#setNavigationBarContrastEnforced(boolean)) to true.

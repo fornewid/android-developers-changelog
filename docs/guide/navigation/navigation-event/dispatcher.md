@@ -6,7 +6,7 @@ source: md.txt
 
 To implement a robust navigation system, your app needs a centralized way to
 handle back gestures and other navigation signals. This page describes how to
-use [`NavigationEventDispatcher`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher) to coordinate and distribute these
+use [`NavigationEventDispatcher`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher.md.txt) to coordinate and distribute these
 navigation events across your application.
 
 ## Declare a `NavigationEventDispatcher`
@@ -18,7 +18,7 @@ registered listeners within your app. Components can subscribe to these events
 to react to navigation changes or other system-driven navigation actions.
 
 You should provide `NavigationEventDispatcher` instances through a
-[`NavigationEventDispatcherOwner`](https://developer.android.com/reference/androidx/navigationevent/NavigationEventDispatcherOwner). This ensures that different parts of your
+[`NavigationEventDispatcherOwner`](https://developer.android.com/reference/androidx/navigationevent/NavigationEventDispatcherOwner.md.txt). This ensures that different parts of your
 app can access the same dispatcher and observe navigation events in a consistent
 and coordinated way.
 
@@ -96,7 +96,7 @@ navigationEventDispatcher.addInput(MyInput())
 <br />
 
 > [!NOTE]
-> **Note:** To provide a simple input, use the [`DirectNavigationEventInput`](https://developer.android.com/reference/androidx/navigationevent/DirectNavigationEventInput) class.
+> **Note:** To provide a simple input, use the [`DirectNavigationEventInput`](https://developer.android.com/reference/androidx/navigationevent/DirectNavigationEventInput.md.txt) class.
 
 ## Clean up resources with `dispose()`
 

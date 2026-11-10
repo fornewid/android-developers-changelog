@@ -22,8 +22,8 @@ blocks Compose provides to help you lay out your UI elements.
 
 The Jetpack Compose implementation of the layout system has two main goals:
 
-- [High performance](https://developer.android.com/develop/ui/compose/layouts/basics#performance)
-- Ability to easily write [custom layouts](https://developer.android.com/develop/ui/compose/layouts/custom)
+- [High performance](https://developer.android.com/develop/ui/compose/layouts/basics.md.txt#performance)
+- Ability to easily write [custom layouts](https://developer.android.com/develop/ui/compose/layouts/custom.md.txt)
 
 > [!NOTE]
 > **Note:** With the Android View system, you could face some performance issues when nesting certain Views such as `RelativeLayout`. Since Compose avoids multiple measurements, you can nest as deeply as you want without affecting performance.
@@ -66,7 +66,7 @@ In many cases, you can just use [Compose's standard layout
 elements](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary).
 
 Use
-[`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1))
+[`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable.md.txt#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1))
 to place items vertically on the screen.
 
 
@@ -85,7 +85,7 @@ fun ArtistCardColumn() {
 ![Two text elements arranged in a column layout, so the text is readable](https://developer.android.com/static/develop/ui/compose/images/layout-text-in-column.png)
 
 Similarly, use
-[`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1))
+[`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable.md.txt#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1))
 to place items horizontally on the screen. Both `Column` and `Row` support
 configuring the alignment of the elements they contain.
 
@@ -231,7 +231,7 @@ separately.
 
 ## Using modifiers in your layouts
 
-As discussed in [Compose modifiers](https://developer.android.com/develop/ui/compose/modifiers), you can use
+As discussed in [Compose modifiers](https://developer.android.com/develop/ui/compose/modifiers.md.txt), you can use
 modifiers to decorate or augment your composables. Modifiers are essential
 for customizing your layout. For example, here we chain several modifiers
 to customize the `ArtistCard`:
@@ -276,10 +276,10 @@ In the code above, notice different modifier functions used together.
 ## Scrollable layouts
 
 Learn more about scrollable layouts in the
-[Compose gestures documentation](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures).
+[Compose gestures documentation](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures.md.txt).
 
 For lists and lazy lists, check out the
-[Compose lists documentation](https://developer.android.com/develop/ui/compose/lists).
+[Compose lists documentation](https://developer.android.com/develop/ui/compose/lists.md.txt).
 
 ## Responsive layouts
 
@@ -333,7 +333,7 @@ For example, `TopAppBar` allows you to provide the content for `title`,
 `navigationIcon`, and `actions`.
 
 For example,
-[`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Scaffold.composable#Scaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.material3.FabPosition,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1))
+[`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Scaffold.composable.md.txt#Scaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.material3.FabPosition,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1))
 allows you to implement a UI with the basic Material Design layout structure.
 `Scaffold`provides slots for the most common top-level Material components,
 such as [`TopAppBar`](https://material.io/components/app-bars-top),
@@ -364,6 +364,6 @@ fun HomeScreen(/*...*/) {
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Compose modifiers](https://developer.android.com/develop/ui/compose/modifiers)
-- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin)
+- [Compose modifiers](https://developer.android.com/develop/ui/compose/modifiers.md.txt)
+- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin.md.txt)
 - [Material Components and layouts](https://developer.android.com/develop/ui/compose/layouts/material)

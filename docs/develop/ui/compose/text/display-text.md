@@ -21,7 +21,7 @@ fun SimpleText() {
 
 ## Display text from resource
 
-We recommend you use [string resources](https://developer.android.com/develop/ui/compose/resources#strings)
+We recommend you use [string resources](https://developer.android.com/develop/ui/compose/resources.md.txt#strings)
 instead of hardcoding `Text` values, as you can share the same strings with your
 Android Views as well as preparing your app for internationalization:
 
@@ -38,6 +38,6 @@ fun StringResourceText() {
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Enable user interactions](https://developer.android.com/develop/ui/compose/text/user-interactions)
-- [Thinking in Compose](https://developer.android.com/develop/ui/compose/mental-model)
-- [Display emoji](https://developer.android.com/develop/ui/compose/text/emoji)
+- [Enable user interactions](https://developer.android.com/develop/ui/compose/text/user-interactions.md.txt)
+- [Thinking in Compose](https://developer.android.com/develop/ui/compose/mental-model.md.txt)
+- [Display emoji](https://developer.android.com/develop/ui/compose/text/emoji.md.txt)

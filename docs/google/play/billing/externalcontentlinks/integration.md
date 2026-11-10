@@ -12,15 +12,15 @@ content and app downloads. To learn more about this program, see
 
 ## Play Billing Library setup
 
-[Add the Play Billing Library dependency](https://developer.android.com/google/play/billing/getting-ready#dependency) to your Android app. To use the
-[external links](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#launchExternalLink(android.app.Activity,com.android.billingclient.api.LaunchExternalLinkParams,com.android.billingclient.api.LaunchExternalLinkResponseListener)) APIs you need to use version 8.2.1 or higher. If you need to
+[Add the Play Billing Library dependency](https://developer.android.com/google/play/billing/getting-ready.md.txt#dependency) to your Android app. To use the
+[external links](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#launchExternalLink(android.app.Activity,com.android.billingclient.api.LaunchExternalLinkParams,com.android.billingclient.api.LaunchExternalLinkResponseListener)) APIs you need to use version 8.2.1 or higher. If you need to
 migrate from an earlier version, follow the instructions in the
-[migration guide](https://developer.android.com/google/play/billing/migrate-gpblv8) before adding the external content links.
+[migration guide](https://developer.android.com/google/play/billing/migrate-gpblv8.md.txt) before adding the external content links.
 
 ## Initialize the billing client
 
 To initialize the billing client follow the same steps as described in
-[Initialize a `BillingClient`](https://developer.android.com/google/play/billing/integrate#initialize) with the following modifications:
+[Initialize a `BillingClient`](https://developer.android.com/google/play/billing/integrate.md.txt#initialize) with the following modifications:
 
 - Don't enable the `PurchasesUpdatedListener` - this listener is not needed for external content links.
 - Call `enableBillingProgram()` with `BillingProgram.EXTERNAL_CONTENT_LINK` to indicate that your app uses the external content links.
@@ -45,20 +45,22 @@ val billingClient = BillingClient.newBuilder(context)
 
 ### Java
 
-    private BillingClient billingClient = BillingClient.newBuilder(context)
-        .enableBillingProgram(BillingProgram.EXTERNAL_CONTENT_LINK)
-        .build();
+```java
+private BillingClient billingClient = BillingClient.newBuilder(context)
+    .enableBillingProgram(BillingProgram.EXTERNAL_CONTENT_LINK)
+    .build();
+```
 
 ## Connect to Google Play
 
 After you initialize the `BillingClient`, connect to Google Play as described in
-[Connect to Google Play](https://developer.android.com/google/play/billing/integrate#connect_to_google_play).
+[Connect to Google Play](https://developer.android.com/google/play/billing/integrate.md.txt#connect_to_google_play).
 
 ## Check user eligibility
 
 After you connect to Google Play, you must check if the user is eligible for the
 external content links program by calling the
-[`isBillingProgramAvailableAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#isBillingProgramAvailableAsync(int,com.android.billingclient.api.BillingProgramAvailabilityListener)) method. This method returns
+[`isBillingProgramAvailableAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#isBillingProgramAvailableAsync(int,com.android.billingclient.api.BillingProgramAvailabilityListener)) method. This method returns
 `BillingResponseCode.OK` if the user is eligible for external content links
 program. The following sample shows how to check the user eligibility for
 external content links:
@@ -91,26 +93,28 @@ billingClient.isBillingProgramAvailableAsync(
 
 ### Java
 
-    billingClient.isBillingProgramAvailableAsync(
-      BillingProgram.EXTERNAL_CONTENT_LINK,
-      new BillingProgramAvailabilityListener() {
-        @Override
-        public void onBillingProgramAvailabilityResponse(
-          int billingProgram, BillingResult billingResult) {
-            if (billingResult.getResponseCode() != BillingResponseCode.OK) {
-                // Handle failures such as retrying due to network errors,
-                // handling external content links unavailable, etc.
-                return;
-            }
+```java
+billingClient.isBillingProgramAvailableAsync(
+  BillingProgram.EXTERNAL_CONTENT_LINK,
+  new BillingProgramAvailabilityListener() {
+    @Override
+    public void onBillingProgramAvailabilityResponse(
+      int billingProgram, BillingResult billingResult) {
+        if (billingResult.getResponseCode() != BillingResponseCode.OK) {
+            // Handle failures such as retrying due to network errors,
+            // handling external content links unavailable, etc.
+            return;
+        }
 
-            // External content links are available. Prepare an external
-            // transaction token.
-          }
+        // External content links are available. Prepare an external
+        // transaction token.
+      }
 
-        });
+    });
+```
 
-See the [response handling](https://developer.android.com/google/play/billing/externalcontentlinks/integration#response-handling) section for details on how your app should
-respond to other response codes. If you're [using Kotlin extensions](https://developer.android.com/google/play/billing/integrate#dependency), you
+See the [response handling](https://developer.android.com/google/play/billing/externalcontentlinks/integration.md.txt#response-handling) section for details on how your app should
+respond to other response codes. If you're [using Kotlin extensions](https://developer.android.com/google/play/billing/integrate.md.txt#dependency), you
 can use Kotlin coroutines so you don't have to define a separate listener.
 
 ## Prepare an external transaction token
@@ -118,7 +122,7 @@ can use Kotlin coroutines so you don't have to define a separate listener.
 Next, you must generate an external transaction token from the Play Billing
 Library. A new external transaction token must be generated each time the user
 visits an external website through the external links API. This can be done by
-calling the [`createBillingProgramReportingDetailsAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#createBillingProgramReportingDetailsAsync(com.android.billingclient.api.BillingProgramReportingDetailsParams,com.android.billingclient.api.BillingProgramReportingDetailsListener)) API. The token
+calling the [`createBillingProgramReportingDetailsAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#createBillingProgramReportingDetailsAsync(com.android.billingclient.api.BillingProgramReportingDetailsParams,com.android.billingclient.api.BillingProgramReportingDetailsListener)) API. The token
 should be generated immediately before the user is linked out.
 
 **Note**: The external transaction token should never be cached and you should
@@ -157,45 +161,47 @@ billingClient.createBillingProgramReportingDetailsAsync(
 
 ### Java
 
-    BillingProgramReportingDetailsParams params =
-        BillingProgramReportingDetailsParams.newBuilder()
-            .setBillingProgram(BillingProgram.EXTERNAL_CONTENT_LINK)
-            .build();
+```java
+BillingProgramReportingDetailsParams params =
+    BillingProgramReportingDetailsParams.newBuilder()
+        .setBillingProgram(BillingProgram.EXTERNAL_CONTENT_LINK)
+        .build();
 
-    billingClient.createBillingProgramReportingDetailsAsync(
-      params,
-      new BillingProgramReportingDetailsListener() {
-        @Override
-        public void onCreateBillingProgramReportingDetailsResponse(
-          BillingResult billingResult,
-          @Nullable BillingProgramReportingDetails
-            billingProgramReportingDetails) {
-            if (billingResult.getResponseCode() != BillingResponseCode.OK) {
-                // Handle failures such as retrying due to network errors.
-                return;
-            }
+billingClient.createBillingProgramReportingDetailsAsync(
+  params,
+  new BillingProgramReportingDetailsListener() {
+    @Override
+    public void onCreateBillingProgramReportingDetailsResponse(
+      BillingResult billingResult,
+      @Nullable BillingProgramReportingDetails
+        billingProgramReportingDetails) {
+        if (billingResult.getResponseCode() != BillingResponseCode.OK) {
+            // Handle failures such as retrying due to network errors.
+            return;
+        }
 
-            String transactionToken =
-              billingProgramReportingDetails.getExternalTransactionToken();
+        String transactionToken =
+          billingProgramReportingDetails.getExternalTransactionToken();
 
-            // Persist the external transaction token locally. Pass it to the
-            // external website when launchExternalLink is called.
-          }
-      });
+        // Persist the external transaction token locally. Pass it to the
+        // external website when launchExternalLink is called.
+      }
+  });
+```
 
-If you're [using Kotlin extensions](https://developer.android.com/google/play/billing/integrate#dependency), you
+If you're [using Kotlin extensions](https://developer.android.com/google/play/billing/integrate.md.txt#dependency), you
 can use Kotlin coroutines so you don't have to define a separate listener.
 
 ## Launch the external link
 
 After the external transaction token is ready, the user may be linked outside of
 the app to a digital content offer or app download by calling
-[`launchExternalLink`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#launchExternalLink(android.app.Activity,com.android.billingclient.api.LaunchExternalLinkParams,com.android.billingclient.api.LaunchExternalLinkResponseListener)) method. Google Play might render additional
+[`launchExternalLink`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#launchExternalLink(android.app.Activity,com.android.billingclient.api.LaunchExternalLinkParams,com.android.billingclient.api.LaunchExternalLinkResponseListener)) method. Google Play might render additional
 information dialogs to the user depending on their user settings when you call
 this API.
 
 When calling the `launchExternalLink` method, details of the external link
-must be provided through [`LaunchExternalLinkParams`](https://developer.android.com/reference/com/android/billingclient/api/LaunchExternalLinkParams). This class contains
+must be provided through [`LaunchExternalLinkParams`](https://developer.android.com/reference/com/android/billingclient/api/LaunchExternalLinkParams.md.txt). This class contains
 the following parameters:
 
 - **Link URI** - The link to the external website where the digital content or app download is offered. For app downloads, this link must be registered and approved in the Play Developer Console.
@@ -244,35 +250,37 @@ billingClient.launchExternalLink(activity, params, listener)
 
 ### Java
 
-    LaunchExternalLinkParams params =
-      LaunchExternalLinkParams.newBuilder()
-        .setBillingProgram(BillingProgram.EXTERNAL_CONTENT_LINK)
-        .setLinkUri(Uri.parse("https://www.myapprovedsite.com"))
-        .setLinkType(LaunchExternalLinkParams.LinkType.LINK_TO_APP_DOWNLOAD)
-        .setLaunchMode(
-          LaunchExternalLinkParams.LaunchMode.LAUNCH_IN_EXTERNAL_BROWSER_OR_APP)
-        .build()
+```java
+LaunchExternalLinkParams params =
+  LaunchExternalLinkParams.newBuilder()
+    .setBillingProgram(BillingProgram.EXTERNAL_CONTENT_LINK)
+    .setLinkUri(Uri.parse("https://www.myapprovedsite.com"))
+    .setLinkType(LaunchExternalLinkParams.LinkType.LINK_TO_APP_DOWNLOAD)
+    .setLaunchMode(
+      LaunchExternalLinkParams.LaunchMode.LAUNCH_IN_EXTERNAL_BROWSER_OR_APP)
+    .build()
 
-    LaunchExternalLinkResponseListener listener =
-      new LaunchExternalLinkResponseListener() {
-        @Override
-        public void onLaunchExternalLinkResponse(BillingResult billingResult) {
-            if (billingResult.getResponseCode() != BillingResponseCode.OK) {
-                // Handle failures such as retrying due to network errors.
-                return;
-            }
-
-            // If Launch Mode was set to LAUNCH_IN_EXTERNAL_BROWSER_OR_APP, the
-            // user was directed outside of the app by Play. This does not give
-            // any information on the user's actions during the link out, such
-            // as if a transaction was completed.
-
-            // If Launch Mode was set to CALLER_WILL_LAUNCH_LINK, then your app
-            // may proceed to direct the user to the external website.
+LaunchExternalLinkResponseListener listener =
+  new LaunchExternalLinkResponseListener() {
+    @Override
+    public void onLaunchExternalLinkResponse(BillingResult billingResult) {
+        if (billingResult.getResponseCode() != BillingResponseCode.OK) {
+            // Handle failures such as retrying due to network errors.
+            return;
         }
-      }
 
-    billingClient.launchExternalLink(activity, params, listener);
+        // If Launch Mode was set to LAUNCH_IN_EXTERNAL_BROWSER_OR_APP, the
+        // user was directed outside of the app by Play. This does not give
+        // any information on the user's actions during the link out, such
+        // as if a transaction was completed.
+
+        // If Launch Mode was set to CALLER_WILL_LAUNCH_LINK, then your app
+        // may proceed to direct the user to the external website.
+    }
+  }
+
+billingClient.launchExternalLink(activity, params, listener);
+```
 
 ## Response handling
 
@@ -299,4 +307,4 @@ information on configuring license testers.
 ## Next steps
 
 After you've finished in-app integration, you're ready to
-[integrate your backend](https://developer.android.com/google/play/billing/outside-gpb-backend).
+[integrate your backend](https://developer.android.com/google/play/billing/outside-gpb-backend.md.txt).

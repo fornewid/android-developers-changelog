@@ -9,7 +9,7 @@ devices have a back button (physical, software, or gesture-based). Usually, you
 shouldn't add a back button to your app. However, Android Automotive OS (AAOS)
 devices in compatibility mode use a system back button. This handles navigation,
 so you don't need to add your own. For details, see
-[AAOS Compatibility Mode](https://developer.android.com/training/cars/platforms/automotive-os/compatibility-mode).
+[AAOS Compatibility Mode](https://developer.android.com/training/cars/platforms/automotive-os/compatibility-mode.md.txt).
 
 Android maintains a *back stack* of destinations as the user navigates
 throughout your application. This usually allows Android to properly navigate to
@@ -21,19 +21,19 @@ navigate back through their web browsing history instead of the previous screens
 in your app.
 
 > [!NOTE]
-> **Note:** Android 13 introduces predictive back navigation, which works with custom back navigation, for Android devices. We strongly recommend that you implement predictive back navigation as soon as possible. Otherwise, users might experience unexpected behavior in a future Android release. To learn more, see [Add support for the predictive back gesture](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture).
+> **Note:** Android 13 introduces predictive back navigation, which works with custom back navigation, for Android devices. We strongly recommend that you implement predictive back navigation as soon as possible. Otherwise, users might experience unexpected behavior in a future Android release. To learn more, see [Add support for the predictive back gesture](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture.md.txt).
 
 ## Implement custom back navigation in Compose
 
 In Jetpack Compose, you can handle custom back navigation using the
-[`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/BackHandler.composable#BackHandler(kotlin.Boolean,kotlin.Function0)) composable.
+[`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/BackHandler.composable.md.txt#BackHandler(kotlin.Boolean,kotlin.Function0)) composable.
 
-When using [Navigation Compose](https://developer.android.com/guide/navigation#framework-options), you typically use
-[`NavController.navigateUp()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController#navigateUp()) or [`NavController.popBackStack()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController#popBackStack())
+When using [Navigation Compose](https://developer.android.com/guide/navigation.md.txt#framework-options), you typically use
+[`NavController.navigateUp()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController.md.txt#navigateUp()) or [`NavController.popBackStack()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController.md.txt#popBackStack())
 to navigate to the previous screen in the back stack. However, `BackHandler`
 is useful for cases where you want to implement custom behavior when the user
 presses the system back button or uses the back gesture. For example, if you
-are displaying a [`WebView`](https://developer.android.com/develop/ui/views/layout/webapps/webview) in your app, you might want to allow users to
+are displaying a [`WebView`](https://developer.android.com/develop/ui/views/layout/webapps/webview.md.txt) in your app, you might want to allow users to
 navigate back through browsing history when they press the system back button.
 
 ### Basic usage
@@ -73,26 +73,26 @@ your composable tree, only the innermost one intercepts the back event.
 
 ## Implement custom back navigation with Views
 
-[`ComponentActivity`](https://developer.android.com/reference/androidx/activity/ComponentActivity), the base class for [`FragmentActivity`](https://developer.android.com/reference/androidx/fragment/app/FragmentActivity) and
-[`AppCompatActivity`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity), lets you control the behavior of the Back button
-by using its [`OnBackPressedDispatcher`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher), which you can retrieve by calling
-[`getOnBackPressedDispatcher()`](https://developer.android.com/reference/androidx/activity/ComponentActivity#getOnBackPressedDispatcher()).
+[`ComponentActivity`](https://developer.android.com/reference/androidx/activity/ComponentActivity.md.txt), the base class for [`FragmentActivity`](https://developer.android.com/reference/androidx/fragment/app/FragmentActivity.md.txt) and
+[`AppCompatActivity`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity.md.txt), lets you control the behavior of the Back button
+by using its [`OnBackPressedDispatcher`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher.md.txt), which you can retrieve by calling
+[`getOnBackPressedDispatcher()`](https://developer.android.com/reference/androidx/activity/ComponentActivity.md.txt#getOnBackPressedDispatcher()).
 
 > [!NOTE]
-> **Note:** If your app uses Activity 1.5.0 or higher, you can also implement custom back navigation for a dialog by using [`ComponentDialog`](https://developer.android.com/reference/androidx/activity/ComponentDialog) and its `OnBackPressedDispatcher`.
+> **Note:** If your app uses Activity 1.5.0 or higher, you can also implement custom back navigation for a dialog by using [`ComponentDialog`](https://developer.android.com/reference/androidx/activity/ComponentDialog.md.txt) and its `OnBackPressedDispatcher`.
 
 The `OnBackPressedDispatcher` controls how Back button events are dispatched
-to one or more [`OnBackPressedCallback`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback) objects. The constructor for
+to one or more [`OnBackPressedCallback`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback.md.txt) objects. The constructor for
 `OnBackPressedCallback` takes a boolean for the initial enabled state. Only when
-a callback is enabled, for example when [`isEnabled()`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback#isEnabled()) returns `true`, will
-the dispatcher call the callback's [`handleOnBackPressed()`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback#handleOnBackPressed()) to handle the
+a callback is enabled, for example when [`isEnabled()`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback.md.txt#isEnabled()) returns `true`, will
+the dispatcher call the callback's [`handleOnBackPressed()`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback.md.txt#handleOnBackPressed()) to handle the
 Back button event. You can change the enabled state by calling
-[`setEnabled()`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback#setEnabled(boolean)).
+[`setEnabled()`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback.md.txt#setEnabled(boolean)).
 
 Callbacks are added using the `addCallback` methods. Use the
-[`addCallback()`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher#addCallback(androidx.lifecycle.LifecycleOwner,androidx.activity.OnBackPressedCallback)) method which takes a [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner). This way the
+[`addCallback()`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher.md.txt#addCallback(androidx.lifecycle.LifecycleOwner,androidx.activity.OnBackPressedCallback)) method which takes a [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner.md.txt). This way the
 `OnBackPressedCallback` is only added when the `LifecycleOwner` is
-[`Lifecycle.State.STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#STARTED). The activity also removes registered callbacks
+[`Lifecycle.State.STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State.md.txt#STARTED). The activity also removes registered callbacks
 when their associated `LifecycleOwner` is destroyed, which prevents memory leaks
 and makes it suitable for use in fragments or other lifecycle owners that have a
 shorter lifetime than the activity.
@@ -116,7 +116,7 @@ class MyFragment : Fragment() {
 }
 ```
 
-You can provide multiple callbacks using [`addCallback()`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher#addCallback(androidx.activity.OnBackPressedCallback)).
+You can provide multiple callbacks using [`addCallback()`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher.md.txt#addCallback(androidx.activity.OnBackPressedCallback)).
 When doing so, the callbacks are invoked in the reverse order in which they are
 added---the callback added last is the first given a chance to handle the
 Back button event. For example, if you added three callbacks named
@@ -131,10 +131,10 @@ preceding example, callback `two` would be invoked only if callback `three`
 wasn't enabled. Callback `one` would only be invoked if callback `two`
 wasn't enabled, and this pattern continues for any additional callbacks.
 
-Note that when added using [`addCallback()`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher#addCallback(androidx.lifecycle.LifecycleOwner,androidx.activity.OnBackPressedCallback)),
+Note that when added using [`addCallback()`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher.md.txt#addCallback(androidx.lifecycle.LifecycleOwner,androidx.activity.OnBackPressedCallback)),
 the callback isn't added to the chain of responsibility until the
 `LifecycleOwner` enters the
-[`Lifecycle.State.STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#STARTED)
+[`Lifecycle.State.STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State.md.txt#STARTED)
 state.
 
 Changing the enabled state on the callback is strongly
@@ -144,6 +144,6 @@ which is particularly important if you have callbacks registered on multiple
 different nested lifecycle owners.
 
 If you want to remove the callback entirely, call
-[`remove()`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback#remove()).
+[`remove()`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback.md.txt#remove()).
 This usually isn't necessary because callbacks are automatically
-removed when their associated [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner) is [destroyed](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#DESTROYED).
+removed when their associated [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner.md.txt) is [destroyed](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State.md.txt#DESTROYED).

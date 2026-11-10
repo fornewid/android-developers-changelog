@@ -6,7 +6,7 @@ source: md.txt
 
 <br />
 
-> This guide is compatible with Health Connect version [1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-rc01) or later.
+> This guide is compatible with Health Connect version [1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/health-connect.md.txt#1.1.0-rc01) or later.
 
 <br />
 
@@ -18,7 +18,7 @@ that is part of overall wellness in Health Connect.
 
 Before attempting to use Health Connect, your app should verify that Health Connect is available
 on the user's device. Health Connect might not be pre-installed on all devices or could be disabled.
-You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)`
+You can check for availability using the `HealthConnectClient.getSdkStatus()`
 method.
 
 #### How to check for Health Connect availability
@@ -62,17 +62,18 @@ To determine whether a user's device supports mindfulness session records on Hea
 
 <br />
 
-    if (healthConnectClient
-         .features
-         .getFeatureStatus(
-           HealthConnectFeatures.FEATURE_MINDFULNESS_SESSION
-         ) == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
+```kotlin
+if (healthConnectClient
+     .features
+     .getFeatureStatus(
+       HealthConnectFeatures.FEATURE_MINDFULNESS_SESSION
+     ) == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
 
-      // Feature is available
-    } else {
-      // Feature isn't available
-    }
-
+  // Feature is available
+} else {
+  // Feature isn't available
+}
+```
 See [Check for feature availability](https://developer.android.com/health-and-fitness/guides/health-connect/develop/feature-availability) to learn more.
 
 ## Required permissions
@@ -88,19 +89,23 @@ permissions for the `MindfulnessSession` data type.
 Here's the permission you need to declare to be able to write
 mindfulness:
 
-    <application>
-      <uses-permission
-    android:name="android.permission.health.WRITE_MINDFULNESS" />
-    ...
-    </application>
+```xml
+<application>
+  <uses-permission
+android:name="android.permission.health.WRITE_MINDFULNESS" />
+...
+</application>
+```
 
 To read mindfulness, you need to request the following permissions:
 
-    <application>
-      <uses-permission
-    android:name="android.permission.health.READ_MINDFULNESS" />
-    ...
-    </application>
+```xml
+<application>
+  <uses-permission
+android:name="android.permission.health.READ_MINDFULNESS" />
+...
+</application>
+```
 
 ### Request permissions from the user
 
@@ -119,7 +124,7 @@ val permissions =
         HealthPermission.getWritePermission(MindfulnessSessionRecord::class)
     )
 ```
-Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
+Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController.md.txt#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController.md.txt#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
 
 ```kotlin
 val permissions = setOf(
@@ -162,7 +167,7 @@ The following mindfulness session types are available for `MindfulnessSessionRec
 <br />
 
 For a full list of mindfulness session types, see the
-[`MindfulnessSessionRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/MindfulnessSessionRecord)
+[`MindfulnessSessionRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/MindfulnessSessionRecord.md.txt)
 reference documentation.
 
 ## Supported aggregations
@@ -172,7 +177,7 @@ reference documentation.
 The following aggregate values are available for
 `MindfulnessSessionRecord`:
 
-- [`MINDFULNESS_DURATION_TOTAL`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/MindfulnessSessionRecord#MINDFULNESS_DURATION_TOTAL())
+- [`MINDFULNESS_DURATION_TOTAL`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/MindfulnessSessionRecord.md.txt#MINDFULNESS_DURATION_TOTAL())
 
 <br />
 
@@ -209,24 +214,26 @@ if (isAvailable == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
 The following code snippet demonstrates how to read a mindfulness session
 within a time range:
 
-    Val now = Instant.now()
+```kotlin
+Val now = Instant.now()
 
-    val records = healthConnectClient.readRecords(
-        ReadRecordsRequest(
-            recordType = MindfulnessSessionRecord::class,
-            timeRangeFilter = TimeRangeFilter.between(
-                startTime = now.minus(Duration.ofHours(5)),
-                endTime = now
-            )
+val records = healthConnectClient.readRecords(
+    ReadRecordsRequest(
+        recordType = MindfulnessSessionRecord::class,
+        timeRangeFilter = TimeRangeFilter.between(
+            startTime = now.minus(Duration.ofHours(5)),
+            endTime = now
         )
     )
+)
 
-    // Process the returned records
-    records.records.forEach { session ->
-        println("Mindfulness session:")
-        println("Start: ${session.startTime}")
-        println("End: ${session.endTime}")
-        println("Title: ${session.title}")
-        println("Notes: ${session.notes}")
-        println("Type: ${session.mindfulnessSessionType}")
-    }
+// Process the returned records
+records.records.forEach { session ->
+    println("Mindfulness session:")
+    println("Start: ${session.startTime}")
+    println("End: ${session.endTime}")
+    println("Title: ${session.title}")
+    println("Notes: ${session.notes}")
+    println("Type: ${session.mindfulnessSessionType}")
+}
+```

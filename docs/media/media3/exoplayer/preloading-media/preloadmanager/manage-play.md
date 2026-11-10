@@ -11,10 +11,10 @@ the manager has already loaded some of the content.
 
 This page covers the following topics:
 
-- [Add media items to the preload manager](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play#add-items)
-- [Fetch and play media](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play#fetch-play)
-- [Remove items from the preload manager](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play#remove)
-- [Release the preload manager when you're done with it](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play#release)
+- [Add media items to the preload manager](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md.txt#add-items)
+- [Fetch and play media](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md.txt#fetch-play)
+- [Remove items from the preload manager](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md.txt#remove)
+- [Release the preload manager when you're done with it](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md.txt#release)
 
 ## Add media items to the preload manager
 
@@ -24,11 +24,11 @@ preload manager. Depending on your use case, you might add all the videos, or
 just all the videos near the video that's currently playing. You can also add
 new items to the preload manager later.
 
-To do this, use a batch addition method like [`addMediaItems`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager#addMediaItems(java.util.List%3Candroidx.media3.common.MediaItem%3E,java.util.List%3CT%3E))
-(or [`addMediaSources`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager#addMediaSources(java.util.List%3Candroidx.media3.exoplayer.source.MediaSource%3E,java.util.List%3CT%3E))). Alternatively, you can call [`add`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager#add(androidx.media3.common.MediaItem,T)) (or
+To do this, use a batch addition method like [`addMediaItems`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager.md.txt#addMediaItems(java.util.List%3Candroidx.media3.common.MediaItem%3E,java.util.List%3CT%3E))
+(or [`addMediaSources`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager.md.txt#addMediaSources(java.util.List%3Candroidx.media3.exoplayer.source.MediaSource%3E,java.util.List%3CT%3E))). Alternatively, you can call [`add`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager.md.txt#add(androidx.media3.common.MediaItem,T)) (or
 `addMediaSource`) to add media items individually. However, adding media items
 individually does not automatically trigger preloading. When using individual
-methods, you must explicitly call [`invalidate`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager#invalidate()) once you're done
+methods, you must explicitly call [`invalidate`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager.md.txt#invalidate()) once you're done
 adding items to tell the preload manager to update priorities and start
 preloading.
 
@@ -43,7 +43,7 @@ preloadManager.addMediaItems(initialMediaItems, rankingDataList)
 
 #### Key points about the code
 
-- This snippet shows how to initially populate the preload manager in batch mode after you've created it. You can call [`addMediaItems`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager#addMediaItems(java.util.List%3Candroidx.media3.common.MediaItem%3E,java.util.List%3CT%3E)) to add items to an existing, populated preload manager.
+- This snippet shows how to initially populate the preload manager in batch mode after you've created it. You can call [`addMediaItems`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager.md.txt#addMediaItems(java.util.List%3Candroidx.media3.common.MediaItem%3E,java.util.List%3CT%3E)) to add items to an existing, populated preload manager.
 - In this snippet, `pullMediaItemsFromService()` is the app's logic to fetch the list of content to play. The code calls that method to fetch a list of up to 20 items.
 - `preloadManager` is the `DefaultPreloadManager` created in [Create a
   `DefaultPreloadManager`](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/create).
@@ -85,8 +85,8 @@ preloadManager.setCurrentPlayingIndex(currentIndex)
 
 #### Key points about the code
 
-- `player` is the Media3 `ExoPlayer` the app is using to play the content. You must create that player by calling [`DefaultPreloadManager.Builder.buildExoPlayer()`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/DefaultPreloadManager.Builder#buildExoPlayer()) on the same builder you used to create the preload manager.
-- When the user switches to a new media item, the app calls `getMediaSource()` to get the media source from the preload manager. This must be a `mediaItem` you have [already added to the preload manager](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play#add-items). It's okay if the preload manager hasn't already started loading the content; in that case, it returns a `MediaSource` that doesn't have preloaded data. For example, this might happen if the user suddenly jumps far ahead in the carousel.
+- `player` is the Media3 `ExoPlayer` the app is using to play the content. You must create that player by calling [`DefaultPreloadManager.Builder.buildExoPlayer()`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/DefaultPreloadManager.Builder.md.txt#buildExoPlayer()) on the same builder you used to create the preload manager.
+- When the user switches to a new media item, the app calls `getMediaSource()` to get the media source from the preload manager. This must be a `mediaItem` you have [already added to the preload manager](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md.txt#add-items). It's okay if the preload manager hasn't already started loading the content; in that case, it returns a `MediaSource` that doesn't have preloaded data. For example, this might happen if the user suddenly jumps far ahead in the carousel.
 - After the user plays the new media item, call `setCurrentPlayingIndex` to tell the preload manager where in the carousel the new item is. The preload manager needs that information to prioritize loading the next item.
 
 ### Remove items from the preload manager
@@ -97,11 +97,11 @@ the carousel, but are far away from the user's current position. For example,
 you might decide that if an item is more than 15 items away from what the user
 is watching, it doesn't need to be preloaded. In that case, you'd remove items
 when they got that far away. If the user moves back towards those removed items,
-you can always [add them back](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play#add-items).
+you can always [add them back](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md.txt#add-items).
 
 If you have a list of media items to remove, you can use
-[`removeMediaItems`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager#removeMediaItems(java.util.List%3Candroidx.media3.common.MediaItem%3E)) (or [`removeMediaSources`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager#removeMediaSources(java.util.List%3Candroidx.media3.exoplayer.source.MediaSource%3E))). Alternatively, you can
-call [`remove`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager#remove(androidx.media3.common.MediaItem)) (or `removeMediaSource`) to remove media items
+[`removeMediaItems`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager.md.txt#removeMediaItems(java.util.List%3Candroidx.media3.common.MediaItem%3E)) (or [`removeMediaSources`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager.md.txt#removeMediaSources(java.util.List%3Candroidx.media3.exoplayer.source.MediaSource%3E))). Alternatively, you can
+call [`remove`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager.md.txt#remove(androidx.media3.common.MediaItem)) (or `removeMediaSource`) to remove media items
 individually.
 
 
@@ -113,7 +113,7 @@ preloadManager.removeMediaItems(mediaItemsToRemove)
 
 #### Key points about the code
 
-- If you want to remove *all* the items from the preload manager, you can call [`reset()`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager#reset()) instead of `remove()`. This approach is useful if you need to change all the items in your carousel. In that case, after you remove the items, you'll need to [add new items to the preload manager](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play#add-items).
+- If you want to remove *all* the items from the preload manager, you can call [`reset()`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/BasePreloadManager.md.txt#reset()) instead of `remove()`. This approach is useful if you need to change all the items in your carousel. In that case, after you remove the items, you'll need to [add new items to the preload manager](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md.txt#add-items).
 
 ### Release the preload manager when you're done with it
 

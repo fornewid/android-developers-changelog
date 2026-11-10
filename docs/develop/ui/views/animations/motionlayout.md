@@ -10,7 +10,7 @@ Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. L
 
 [Video](https://www.youtube.com/watch?v=M1jE3W3_NTQ)
 
-[`MotionLayout`](https://developer.android.com/reference/androidx/constraintlayout/motion/widget/MotionLayout)
+[`MotionLayout`](https://developer.android.com/reference/androidx/constraintlayout/motion/widget/MotionLayout.md.txt)
 is a layout type that helps you manage motion and widget animation in your app.
 `MotionLayout` is a subclass of
 [`ConstraintLayout`](https://developer.android.com/training/constraint-layout) and builds on its rich
@@ -21,7 +21,7 @@ is available as a support library.
 handling, offering a mix of features between the [property animation
 framework](https://developer.android.com/guide/topics/graphics/prop-animation),
 [`TransitionManager`](https://developer.android.com/training/transitions), and
-[`CoordinatorLayout`](https://developer.android.com/reference/androidx/coordinatorlayout/widget/CoordinatorLayout).
+[`CoordinatorLayout`](https://developer.android.com/reference/androidx/coordinatorlayout/widget/CoordinatorLayout.md.txt).
 **Figure 1.** Basic touch-controlled motion.
 
 In addition to describing transitions between layouts, `MotionLayout` lets you
@@ -157,7 +157,7 @@ Follow these steps to start using `MotionLayout` in your project.
 3. **Create a MotionScene:** in the previous `MotionLayout`
    example, the `app:layoutDescription` attribute references a
    *motion scene* . A motion scene is an XML resource file. Within its
-   [`<MotionScene>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/motionscene)
+   [`<MotionScene>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/motionscene.md.txt)
    root element, a motion scene contains all the motion descriptions for the
    corresponding layout. To keep layout information separate from motion
    descriptions, each `MotionLayout` references a separate motion
@@ -209,7 +209,7 @@ Follow these steps to start using `MotionLayout` in your project.
    ```
 
    Note the following:
-   - [`<Transition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/transition)
+   - [`<Transition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/transition.md.txt)
      contains the base definition of the motion.
 
      - `motion:constraintSetStart` and
@@ -220,7 +220,7 @@ Follow these steps to start using `MotionLayout` in your project.
      - `motion:duration` specifies the number of milliseconds
        it takes for the motion to complete.
 
-   - [`<OnSwipe>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/onswipe)
+   - [`<OnSwipe>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/onswipe.md.txt)
      lets you create touch control for the motion.
 
      - `motion:touchAnchorId` refers to the view the user can
@@ -234,7 +234,7 @@ Follow these steps to start using `MotionLayout` in your project.
        `motion:dragDirection="dragRight"` means progress
        increases as the view is dragged to the right.
 
-   - `https://developer.android.com/training/constraint-layout/motionlayout/ref/constraintset`
+   - `<ConstraintSet>`
      is where you define the various constraints that describe your motion.
      In this example, one `<ConstraintSet>` is defined for
      each endpoint of your motion. These endpoints are centered vertically
@@ -347,7 +347,7 @@ For more information about `MotionLayout`, see the following resources:
 
 - [Advanced Android in Kotlin 03.2: Animation with MotionLayout](https://codelabs.developers.google.com/codelabs/motion-layout)
 - [MotionLayout examples](https://developer.android.com/training/constraint-layout/motion-layout-examples)
-- [MotionLayout/ConstraintLayout Samples](https://github.com/android/views-widgets-samples/tree/main/ConstraintLayoutExamples) on GitHub
+- [MotionLayout/ConstraintLayout Samples](https://github.com/android/platform-samples/tree/main/samples/user-interface/constraintlayout) on GitHub
 - [Introduction to MotionLayout (part I)](https://medium.com/google-developers/introduction-to-motionlayout-part-i-29208674b10d)
 - [Introduction to MotionLayout (part II)](https://medium.com/google-developers/introduction-to-motionlayout-part-ii-a31acc084f59)
 - [Introduction to MotionLayout (part III)](https://medium.com/google-developers/introduction-to-motionlayout-part-iii-47cd64d51a5)

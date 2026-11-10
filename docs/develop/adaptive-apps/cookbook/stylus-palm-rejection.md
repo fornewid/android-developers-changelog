@@ -15,22 +15,22 @@ touch.
 ## Best practices
 
 Your app must identify extraneous touch events and ignore them. In Jetpack
-Compose, you can access the underlying Android [`MotionEvent`](https://developer.android.com/reference/kotlin/android/view/MotionEvent) from a
-[`PointerEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/PointerEvent). Check the `MotionEvent` for [`ACTION_CANCEL`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#action_cancel), which
+Compose, you can access the underlying Android [`MotionEvent`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt) from a
+[`PointerEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/PointerEvent.md.txt). Check the `MotionEvent` for [`ACTION_CANCEL`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt#action_cancel), which
 indicates that a gesture should stop and may need to be rolled back. On
-Android 13 (API level 33) and higher, check for the [`FLAG_CANCELED`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#flag_canceled) flag
-on [`ACTION_CANCEL`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#action_cancel) and [`ACTION_POINTER_UP`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#action_pointer_up) events, which provides a
+Android 13 (API level 33) and higher, check for the [`FLAG_CANCELED`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt#flag_canceled) flag
+on [`ACTION_CANCEL`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt#action_cancel) and [`ACTION_POINTER_UP`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt#action_pointer_up) events, which provides a
 strong signal that the touch was unintentional, such as a palm touch.
 
 ## Ingredients
 
-- [`Modifier.pointerInput()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/package-summary): The Compose modifier used to process pointer input.
-- [`PointerEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/PointerEvent): Represents a pointer event in Compose, which contains one or more changes.
-- [`PointerEvent.motionEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/PointerEvent#motionEvent()): Extension property that provides access to the underlying Android `MotionEvent` (nullable).
-- [`MotionEvent`](https://developer.android.com/reference/kotlin/android/view/MotionEvent): Represents touch and movement events. Contains the information necessary to determine whether an event should be disregarded.
-- [`ACTION_CANCEL`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#action_cancel): `MotionEvent` constant that indicates a gesture has been canceled; the gesture should stop and may need to be rolled back.
-- [`ACTION_POINTER_UP`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#action_pointer_up): `MotionEvent` constant that indicates a pointer other than the first pointer has gone up (that is, has relinquished contact with the device screen).
-- [`FLAG_CANCELED`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#flag_canceled): `MotionEvent` constant that indicates that the pointer going up caused an unintentional touch event. Added to `ACTION_POINTER_UP` and `ACTION_CANCEL` events on Android 13 (API level 33) and higher.
+- [`Modifier.pointerInput()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/package-summary.md.txt): The Compose modifier used to process pointer input.
+- [`PointerEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/PointerEvent.md.txt): Represents a pointer event in Compose, which contains one or more changes.
+- [`PointerEvent.motionEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/PointerEvent.md.txt#motionEvent()): Extension property that provides access to the underlying Android `MotionEvent` (nullable).
+- [`MotionEvent`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt): Represents touch and movement events. Contains the information necessary to determine whether an event should be disregarded.
+- [`ACTION_CANCEL`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt#action_cancel): `MotionEvent` constant that indicates a gesture has been canceled; the gesture should stop and may need to be rolled back.
+- [`ACTION_POINTER_UP`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt#action_pointer_up): `MotionEvent` constant that indicates a pointer other than the first pointer has gone up (that is, has relinquished contact with the device screen).
+- [`FLAG_CANCELED`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt#flag_canceled): `MotionEvent` constant that indicates that the pointer going up caused an unintentional touch event. Added to `ACTION_POINTER_UP` and `ACTION_CANCEL` events on Android 13 (API level 33) and higher.
 
 ## Steps
 
@@ -132,8 +132,8 @@ all API levels.
 
 For more information, see the following:
 
-- Android 13 features and APIs --- [Improved palm rejection](https://developer.android.com/about/versions/13/features/large-screens#palm_rejection)
+- Android 13 features and APIs --- [Improved palm rejection](https://developer.android.com/about/versions/13/features/large-screens.md.txt#palm_rejection)
 - Developer guides
-  - [Advanced stylus features](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/advanced-stylus-features)
-  - [Palm rejection](https://developer.android.com/develop/ui/compose/touch-input/input-compatibility-on-large-screens#palm_rejection) section of *Input compatibility on large screens*
+  - [Advanced stylus features](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/advanced-stylus-features.md.txt)
+  - [Palm rejection](https://developer.android.com/develop/ui/compose/touch-input/input-compatibility-on-large-screens.md.txt#palm_rejection) section of *Input compatibility on large screens*
 - Codelab --- [Enhance stylus support in an Android app](https://developer.android.com/codelabs/large-screens/advanced-stylus-support)

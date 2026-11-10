@@ -19,8 +19,8 @@ Consider these three use cases where you might use a progress indicator:
 
 In Material Design, there are two types of progress indicator:
 
-- [Determinate](https://developer.android.com/develop/ui/compose/quick-guides/content/create-progress-indicator#determinate): Displays exactly how much progress has been made.
-- [Indeterminate](https://developer.android.com/develop/ui/compose/quick-guides/content/create-progress-indicator#indeterminate): Animates continually without regard to progress.
+- [Determinate](https://developer.android.com/develop/ui/compose/quick-guides/content/create-progress-indicator.md.txt#determinate): Displays exactly how much progress has been made.
+- [Indeterminate](https://developer.android.com/develop/ui/compose/quick-guides/content/create-progress-indicator.md.txt#indeterminate): Animates continually without regard to progress.
 
 Likewise, a progress indicator can take one of the two following forms:
 
@@ -39,7 +39,7 @@ higher.
 ## Create determinate indicators
 
 A determinate indicator reflects exactly how complete an action is. Use either
-the [`LinearProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LinearProgressIndicator.composable#LinearProgressIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp)) or [`CircularProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CircularProgressIndicator.composable#CircularProgressIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp))
+the [`LinearProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LinearProgressIndicator.composable.md.txt#LinearProgressIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp)) or [`CircularProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CircularProgressIndicator.composable.md.txt#CircularProgressIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp))
 composables and pass a value for the `progress` parameter.
 
 The following snippet provides a relatively detailed example. When the user
@@ -50,7 +50,7 @@ progress indicator to iterate up in turn.
 > [!NOTE]
 > **Note:** The following example uses a coroutine to do the work of iterating the `progress` value because it would otherwise block the UI thread.
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_7eef40d60cee6ec7470db5c05d63fa3c4c814bd877a80c3e3640571b05391997.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_2a935b4e87992f8c1ebf977c655339574d1371c810a4baaf521ae38ec5185975.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -73,7 +73,7 @@ indeterminate indicator with a button press.
 > [!NOTE]
 > **Note:** This example also demonstrates how you can pass values for the `color` and `trackColor` parameters to customize the appearance of the indicator.
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_a76515ffbd1c46c3537b08122574b6aefc53ac2bf7260fe3b25a629014738689.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_f6cf908eb69265bcd022635d254739a689f1bda6fa9a7338a112c4f4454b9357.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -111,4 +111,4 @@ Lists and grids allow your app to display collections in a visually pleasing for
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

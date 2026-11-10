@@ -6,14 +6,14 @@ source: md.txt
 
 [Video](https://www.youtube.com/watch?v=qh72KAX6TSI)
 
-A [`Brush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush) in Compose describes how something is drawn on screen: it
+A [`Brush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush.md.txt) in Compose describes how something is drawn on screen: it
 determines the color(s) that are drawn in the drawing area (i.e. a circle,
 square, path). There are a few built-in Brushes that are useful for drawing,
-such as [`LinearGradient`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/LinearGradient), [`RadialGradient`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/RadialGradient) or a plain
-[`SolidColor`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/SolidColor) brush.
+such as [`LinearGradient`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/LinearGradient.md.txt), [`RadialGradient`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/RadialGradient.md.txt) or a plain
+[`SolidColor`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/SolidColor.md.txt) brush.
 
-Brushes can be used with [`Modifier.background()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier.background(androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Shape))), [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle), or
-[`DrawScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope) draw calls to apply the painting style to the content
+Brushes can be used with [`Modifier.background()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier.background(androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Shape))), [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.md.txt), or
+[`DrawScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope.md.txt) draw calls to apply the painting style to the content
 being drawn.
 
 For example, a horizontal gradient brush can be applied to drawing a circle in
@@ -43,14 +43,14 @@ A list of available gradient brushes and their corresponding output:
 
 | Gradient Brush Type | Output |
 |---|---|
-| [`Brush.horizontalGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush#horizontalGradient(kotlin.collections.List,kotlin.Float,kotlin.Float,androidx.compose.ui.graphics.TileMode)) | ![Horizontal Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/horizontal_gradient.png) |
-| [`Brush.linearGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush#linearGradient(kotlin.Array,androidx.compose.ui.geometry.Offset,androidx.compose.ui.geometry.Offset,androidx.compose.ui.graphics.TileMode)) | ![Linear Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/linear_gradient.png) |
-| [`Brush.verticalGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush#verticalGradient(kotlin.collections.List,kotlin.Float,kotlin.Float,androidx.compose.ui.graphics.TileMode)) | ![Vertical Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/vertical_gradient.png) |
-| [`Brush.sweepGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush#sweepGradient(kotlin.Array,androidx.compose.ui.geometry.Offset)) Note: To get a smooth transition between colors - set the last color to the start color. | ![Sweep Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/sweep_gradient.png) |
-| [`Brush.radialGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush#radialGradient(kotlin.Array,androidx.compose.ui.geometry.Offset,kotlin.Float,androidx.compose.ui.graphics.TileMode)) | ![Radial Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/radial_gradient.png) |
+| [`Brush.horizontalGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush.md.txt#horizontalGradient(kotlin.collections.List,kotlin.Float,kotlin.Float,androidx.compose.ui.graphics.TileMode)) | ![Horizontal Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/horizontal_gradient.png) |
+| [`Brush.linearGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush.md.txt#linearGradient(kotlin.Array,androidx.compose.ui.geometry.Offset,androidx.compose.ui.geometry.Offset,androidx.compose.ui.graphics.TileMode)) | ![Linear Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/linear_gradient.png) |
+| [`Brush.verticalGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush.md.txt#verticalGradient(kotlin.collections.List,kotlin.Float,kotlin.Float,androidx.compose.ui.graphics.TileMode)) | ![Vertical Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/vertical_gradient.png) |
+| [`Brush.sweepGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush.md.txt#sweepGradient(kotlin.Array,androidx.compose.ui.geometry.Offset)) Note: To get a smooth transition between colors - set the last color to the start color. | ![Sweep Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/sweep_gradient.png) |
+| [`Brush.radialGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush.md.txt#radialGradient(kotlin.Array,androidx.compose.ui.geometry.Offset,kotlin.Float,androidx.compose.ui.graphics.TileMode)) | ![Radial Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/radial_gradient.png) |
 
 > [!NOTE]
-> **Note:** When creating complex, multi-directional 2D color transitions (such as fluid aurora or multi-point organic backgrounds), use [mesh gradients](https://developer.android.com/develop/ui/compose/graphics/draw/mesh-gradient) instead of stacking multiple `radialGradient` or `linearGradient` brushes.
+> **Note:** When creating complex, multi-directional 2D color transitions (such as fluid aurora or multi-point organic backgrounds), use [mesh gradients](https://developer.android.com/develop/ui/compose/graphics/draw/mesh-gradient.md.txt) instead of stacking multiple `radialGradient` or `linearGradient` brushes.
 
 ### Change distribution of colors with `colorStops`
 
@@ -84,7 +84,7 @@ pair, less yellow than red and blue.
 
 ### Repeat a pattern with `TileMode`
 
-Each gradient brush has the option to set a [`TileMode`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/TileMode) on it. You may not
+Each gradient brush has the option to set a [`TileMode`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/TileMode.md.txt) on it. You may not
 notice the `TileMode` if you haven't set a start and end for the gradient, as
 it'll default to fill the whole area. A `TileMode` will only tile the gradient
 if the size of the area is bigger than the Brush size.
@@ -118,10 +118,10 @@ Here is a table detailing what the different Tile Modes do for the
 
 | TileMode | Output |
 |---|---|
-| [`TileMode.Repeated`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/TileMode#Repeated()): Edge is repeated from last color to first. | ![TileMode Repeated](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/tile_mode_repeated.png) |
-| [`TileMode.Mirror`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/TileMode#Mirror()): Edge is mirrored from last color to first. | ![TileMode Mirror](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/tile_mode_mirror.png) |
-| [`TileMode.Clamp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/TileMode#Clamp()): Edge is clamped to the final color. It'll then paint the closest color for the rest of the region. | ![Tile Mode Clamp](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/tile_mode_clamp.png) |
-| [`TileMode.Decal`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/TileMode#Decal()): Render only up to the size of the bounds. `TileMode.Decal` leverages transparent black to sample content outside the original bounds whereas `TileMode.Clamp` samples the edge color. | ![Tile Mode Decal](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/tile_mode_decal.png) |
+| [`TileMode.Repeated`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/TileMode.md.txt#Repeated()): Edge is repeated from last color to first. | ![TileMode Repeated](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/tile_mode_repeated.png) |
+| [`TileMode.Mirror`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/TileMode.md.txt#Mirror()): Edge is mirrored from last color to first. | ![TileMode Mirror](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/tile_mode_mirror.png) |
+| [`TileMode.Clamp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/TileMode.md.txt#Clamp()): Edge is clamped to the final color. It'll then paint the closest color for the rest of the region. | ![Tile Mode Clamp](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/tile_mode_clamp.png) |
+| [`TileMode.Decal`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/TileMode.md.txt#Decal()): Render only up to the size of the bounds. `TileMode.Decal` leverages transparent black to sample content outside the original bounds whereas `TileMode.Clamp` samples the edge color. | ![Tile Mode Decal](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/tile_mode_decal.png) |
 
 > [!NOTE]
 > **Note:** `TileMode.Decal` is only available on API 31+. Use `TileMode.isSupported()` to determine if a `TileMode` is supported on a device. If a `TileMode` that is not supported is used, the default of `TileMode.Clamp` is applied.
@@ -133,7 +133,7 @@ difference being the direction that the repetition occurs.
 
 If you know the size of the area in which your brush will be drawn, you can
 set the tile `endX` as we've seen above in the `TileMode` section. If you are in
-a `DrawScope`, you can use its [`size`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope#size()) property to get the size of the area.
+a `DrawScope`, you can use its [`size`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope.md.txt#size()) property to get the size of the area.
 
 If you don't know the size of your drawing area (for example if the
 `Brush` is assigned to Text), you can extend `Shader` and utilize the size of
@@ -261,7 +261,7 @@ Box(
 
 ## Use an image as a brush
 
-To use an [ImageBitmap](https://developer.android.com/develop/ui/compose/graphics/images/compare#image-bitmap) as a `Brush`, load up the image as an `ImageBitmap`,
+To use an [ImageBitmap](https://developer.android.com/develop/ui/compose/graphics/images/compare.md.txt#image-bitmap) as a `Brush`, load up the image as an `ImageBitmap`,
 and create an `ImageShader` brush:
 
 
@@ -307,7 +307,7 @@ pixels for the text.
 
 [Video](https://www.youtube.com/watch?v=wJx7EhGaDow)
 
-[AGSL](https://developer.android.com/develop/ui/views/graphics/agsl) offers a subset of [GLSL](https://developer.android.com/develop/ui/views/graphics/agsl/agsl-vs-glsl) Shader capabilities. Shaders can be
+[AGSL](https://developer.android.com/develop/ui/views/graphics/agsl.md.txt) offers a subset of [GLSL](https://developer.android.com/develop/ui/views/graphics/agsl/agsl-vs-glsl.md.txt) Shader capabilities. Shaders can be
 written in AGSL and used with a Brush in Compose.
 
 To create a Shader brush, first define the Shader as AGSL shader string:
@@ -389,7 +389,7 @@ Running this, you can see the following rendered on screen:
 
 It's worth noting that you can do a lot more with shaders than just gradients,
 as it's all math-based calculations. For more information on AGSL, check out the
-AGSL [documentation](https://developer.android.com/develop/ui/views/graphics/agsl).
+AGSL [documentation](https://developer.android.com/develop/ui/views/graphics/agsl.md.txt).
 
 > [!NOTE]
 > **Note:** `RuntimeShaders` only works on Android 13+. Wrap your Composable in an API if-else check and provide a suitable fallback.
@@ -405,6 +405,6 @@ For more examples of using Brush in Compose, check out the following resources:
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Graphics Modifiers](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers)
-- [Graphics in Compose](https://developer.android.com/develop/ui/compose/graphics/draw/overview)
-- [Style text](https://developer.android.com/develop/ui/compose/text/style-text)
+- [Graphics Modifiers](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers.md.txt)
+- [Graphics in Compose](https://developer.android.com/develop/ui/compose/graphics/draw/overview.md.txt)
+- [Style text](https://developer.android.com/develop/ui/compose/text/style-text.md.txt)

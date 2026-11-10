@@ -7,8 +7,8 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
-Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
@@ -17,7 +17,7 @@ lose their connection to the host device (such as the user's phone) or their
 glasses might be temporarily unavailable if they take their glasses off. To
 account for these kinds of changes in device availability, your app can use the
 XR Device Availability API, which consolidates device availability signals into
-the standard Android [`Lifecycle.State`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.State) values. Use this API to help manage
+the standard Android [`Lifecycle.State`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.State.md.txt) values. Use this API to help manage
 audio routing, hotword activation, and to know when to expect user input based
 on when the glasses are available.
 
@@ -76,7 +76,7 @@ case:
 
 ### Key points about the code
 
-- **Check for a connection** : Before accessing the device lifecycle, call [`ProjectedContext.isProjectedDeviceConnected`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext#isProjectedDeviceConnected(android.content.Context,kotlin.coroutines.CoroutineContext)) to verify that the projected device is connected to the host device.
-- **Obtain a `ProjectedContext`** : Only call [`ProjectedContext.createProjectedDeviceContext`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext#createProjectedDeviceContext(android.content.Context)) after verifying the connection, and make sure you pass this context into your [`XrDevice`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/XrDevice) instance.
+- **Check for a connection** : Before accessing the device lifecycle, call [`ProjectedContext.isProjectedDeviceConnected`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext.md.txt#isProjectedDeviceConnected(android.content.Context,kotlin.coroutines.CoroutineContext)) to verify that the projected device is connected to the host device.
+- **Obtain a `ProjectedContext`** : Only call [`ProjectedContext.createProjectedDeviceContext`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext.md.txt#createProjectedDeviceContext(android.content.Context)) after verifying the connection, and make sure you pass this context into your [`XrDevice`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/XrDevice.md.txt) instance.
 - **Handle context invalidation** : A new `deviceId` is generated every time a projected device connects. Once the state reaches `DESTROYED`, the current `ProjectedContext` is invalid. Stop using it immediately, and wait for a new connection.
 - **Optimize battery and resources** : Gracefully handle app functionality based on the lifecycle state to preserve system resources and reduce battery consumption. For example, you should release glasses-specific resources, such as a camera data stream, when the state transitions from `STARTED` back to `CREATED`. The `CREATED` state indicates the device is no longer being worn, so stopping these processes is essential to prevent unnecessary battery drain and to promote user privacy.

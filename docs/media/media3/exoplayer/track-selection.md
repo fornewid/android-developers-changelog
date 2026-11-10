@@ -6,7 +6,7 @@ source: md.txt
 
 When a media item contains multiple tracks, track selection is the process that
 determines which of them are chosen for playback. The track selection process is
-configured by [`TrackSelectionParameters`](https://developer.android.com/reference/androidx/media3/common/TrackSelectionParameters), which allows many different
+configured by [`TrackSelectionParameters`](https://developer.android.com/reference/androidx/media3/common/TrackSelectionParameters.md.txt), which allows many different
 constraints and overrides influencing track selection to be specified.
 
 ## Querying the available tracks
@@ -312,7 +312,7 @@ trackSelector.setParameters(
 ### Tunneling
 
 Tunneling may help with efficient video playback of high-resolution streams on
-some TV devices. See the [battery consumption](https://developer.android.com/media/media3/exoplayer/battery-consumption) page for further notes and
+some TV devices. See the [battery consumption](https://developer.android.com/media/media3/exoplayer/battery-consumption.md.txt) page for further notes and
 details.
 
 You can set a preference for tunneled playback to enable it in cases where the
@@ -322,12 +322,12 @@ combination of renderers and selected tracks supports it. To do this, use
 ### Audio Offload
 
 Audio offload may help to save power, in particular for longer playbacks with
-the screen turned off. See the [battery consumption](https://developer.android.com/media/media3/exoplayer/battery-consumption) page for further notes
+the screen turned off. See the [battery consumption](https://developer.android.com/media/media3/exoplayer/battery-consumption.md.txt) page for further notes
 and details.
 
 You can set preferences for offloaded audio playback to enable it in cases where
 the combination of renderers and selected tracks supports it. To do this,
-specify [`AudioOffloadModePreferences`](https://developer.android.com/reference/androidx/media3/common/TrackSelectionParameters.AudioOffloadPreferences) in your `TrackSelectionParameters`.
+specify [`AudioOffloadModePreferences`](https://developer.android.com/reference/androidx/media3/common/TrackSelectionParameters.AudioOffloadPreferences.md.txt) in your `TrackSelectionParameters`.
 
 
 ### Kotlin

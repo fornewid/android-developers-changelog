@@ -35,7 +35,7 @@ faces onto their connected watch.
 
 ## Considerations
 
-For details on building your watch faces, consult the [Watch Face Format](https://developer.android.com/training/wearables/wff)
+For details on building your watch faces, consult the [Watch Face Format](https://developer.android.com/training/wearables/wff.md.txt)
 guidance: Watch faces deployed using Watch Face Push are regular Watch Face
 Format watch faces.
 
@@ -118,9 +118,11 @@ The validator is available in three forms:
 1. Obtain the validator from Google's [Maven repository](https://maven.google.com/web/index.html#com.google.android.wearable.watchface.validator:validator-push-cli).
 2. Run the tool as follows:
 
-       java -jar validator-push-cli-1.0.0-alpha10.jar \
-           --apk_path=<your watch face>.apk \
-           --package_name=<your marketplace package name>
+   ```bash
+   java -jar validator-push-cli-1.0.0-alpha10.jar \
+       --apk_path=<your watch face>.apk \
+       --package_name=<your marketplace package name>
+   ```
 
    If successful, the output includes a *validation token*, which you must
    supply to the Watch Face Push API when adding or updating a watch face.
@@ -195,7 +197,7 @@ poor user experience and also draining on battery.
     this blog post for details on minimizing font file
     size](https://markoskon.com/creating-font-subsets/), for other cases.
 
-Refer to the [Optimize memory usage guidance](https://developer.android.com/training/wearables/wff/memory-usage#methods) for further suggestions on
+Refer to the [Optimize memory usage guidance](https://developer.android.com/training/wearables/wff/memory-usage.md.txt#methods) for further suggestions on
 keeping APK size to a minimum.
 
 ### APK signing
@@ -228,4 +230,4 @@ Consider the four main components of the system:
    3. **APK transmission** : Using [`ChannelClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/ChannelClient) or [`MessageClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/MessageClient), send APKs from the phone to the watch
    4. **Remote invocation** : Using [`Messageclient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/MessageClient), the phone can instruct the watch to call the Watch Face Push API, for example, to install a watch face.
 
-Refer to [the Data Layer API guidance](https://developer.android.com/training/wearables/data/overview) for further details.
+Refer to [the Data Layer API guidance](https://developer.android.com/training/wearables/data/overview.md.txt) for further details.

@@ -7,8 +7,8 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
-Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices.md.txt#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
@@ -31,25 +31,25 @@ with AR.
 
 ## Access a session
 
-Perception features in ARCore for Jetpack XR rely on a [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session), which
+Perception features in ARCore for Jetpack XR rely on a [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session.md.txt), which
 uses the Jetpack XR Runtime.
 
 How your app should access a session depends on the types of app experiences
 that you're enhancing with perception features:
 
-- If your app is enhancing immersive experiences with [spatial UI](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose) using Jetpack Compose for XR, [access a session from Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#localsession).
+- If your app is enhancing immersive experiences with [spatial UI](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose.md.txt) using Jetpack Compose for XR, [access a session from Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session.md.txt#localsession).
 - For all other situations, you can [create a session using Jetpack XR
   Runtime](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore#access-session-runtime), which is covered in the following section on this page.
 
 ### Create a session using Jetpack XR Runtime
 
-To create a session, pass a [`Context`](https://developer.android.com/reference/kotlin/android/content/Context) to the
-[`create()`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session#create(android.content.Context,kotlin.coroutines.CoroutineContext,androidx.lifecycle.LifecycleOwner)) method. This `Context` can be an `Activity` on
+To create a session, pass a [`Context`](https://developer.android.com/reference/kotlin/android/content/Context.md.txt) to the
+[`create()`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session.md.txt#create(android.content.Context,kotlin.coroutines.CoroutineContext,androidx.lifecycle.LifecycleOwner)) method. This `Context` can be an `Activity` on
 immersive XR devices or mobile devices, or a
-[projected context](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context) on Intelligent Eyewear.
+[projected context](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md.txt) on Intelligent Eyewear.
 
 Creating an ARCore session can be an expensive task, and should be
-[processed in the background](https://developer.android.com/develop/background-work/background-tasks/asynchronous), as shown in
+[processed in the background](https://developer.android.com/develop/background-work/background-tasks/asynchronous.md.txt), as shown in
 the following example:
 
 
@@ -69,10 +69,10 @@ lifecycleScope.launch {
 <br />
 
 > [!NOTE]
-> **Note:** You can only create a session on either an Android XR device, or on a [supported ARCore device](https://developers.google.com/ar/devices). See [`SessionCreateResult`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/SessionCreateResult) to see reasons why a session may not be able to be created.
+> **Note:** You can only create a session on either an Android XR device, or on a [supported ARCore device](https://developers.google.com/ar/devices). See [`SessionCreateResult`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/SessionCreateResult.md.txt) to see reasons why a session may not be able to be created.
 
 The `create()` function can use an optional
-[`LifecycleOwner`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LifecycleOwner) parameter, which allows the
+[`LifecycleOwner`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LifecycleOwner.md.txt) parameter, which allows the
 session's lifecycle to be managed by a different `LifecycleOwner`. The
 `LifecycleOwner` must begin and end its lifecycle within the scope of the
 provided context, otherwise the `Session` may be prone to leaks.
@@ -80,8 +80,8 @@ provided context, otherwise the `Session` may be prone to leaks.
 ## Configure a session
 
 Some features might be disabled by default and must be configured in order to
-function. To configure a session, use [`configure()`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session#configure(androidx.xr.runtime.Config)) and specify [the
-configuration options](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Config) that your [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session) needs. For details about
+function. To configure a session, use [`configure()`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session.md.txt#configure(androidx.xr.runtime.Config)) and specify [the
+configuration options](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Config) that your [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session.md.txt) needs. For details about
 the required configuration for different AR features, see the corresponding
 pages for each AR feature.
 
@@ -90,9 +90,9 @@ pages for each AR feature.
 After your app has a session, explore the ways you can use it to enhance app
 experiences for different XR devices:
 
-- [Detect planes using ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/anchors)
-- [Create anchors with ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/planes)
-- [Work with hands using ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/hands)
-- [Incorporate face tracking in your app with ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/face)
-- [Retrieve depth information in your app with ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/depth)
-- [Track a device's pose using ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/device-pose)
+- [Detect planes using ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/anchors.md.txt)
+- [Create anchors with ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/planes.md.txt)
+- [Work with hands using ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/hands.md.txt)
+- [Incorporate face tracking in your app with ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/face.md.txt)
+- [Retrieve depth information in your app with ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/depth.md.txt)
+- [Track a device's pose using ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/device-pose.md.txt)

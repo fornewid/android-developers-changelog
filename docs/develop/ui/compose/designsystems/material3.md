@@ -22,10 +22,12 @@ based entirely on Material Design 3.
 
 ## Dependency
 
-To start using Material 3 in your Compose app, add the [Compose Material 3](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary)
+To start using Material 3 in your Compose app, add the [Compose Material 3](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt)
 dependency to your `build.gradle` files:
 
-    implementation "androidx.compose.material3:material3:$material3_version"
+```kotlin
+implementation "androidx.compose.material3:material3:$material3_version"
+```
 
 Once the dependency is added, you can start adding Material Design systems,
 including color, typography, and shape, to your apps.
@@ -33,7 +35,7 @@ including color, typography, and shape, to your apps.
 ### Experimental APIs
 
 Some M3 APIs are considered experimental. In such cases you need to opt in at
-the function or file level using the [`ExperimentalMaterial3Api`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ExperimentalMaterial3Api) annotation:
+the function or file level using the [`ExperimentalMaterial3Api`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ExperimentalMaterial3Api.md.txt) annotation:
 
 
 ```kotlin
@@ -161,8 +163,8 @@ Dynamic color is available on Android 12 and above. If dynamic color is
 available, you can set up a dynamic `ColorScheme`. If not, you should fall back
 to using a custom light or dark `ColorScheme`.
 
-`ColorScheme` provides builder functions to create a dynamic [light](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#dynamiclightcolorscheme) or
-[dark](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#dynamicdarkcolorscheme) color scheme:
+`ColorScheme` provides builder functions to create a dynamic [light](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#dynamiclightcolorscheme) or
+[dark](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#dynamicdarkcolorscheme) color scheme:
 
 
 ```kotlin
@@ -261,8 +263,8 @@ and small sizes for each.
 
 #### Define typography
 
-Compose provides the M3 [`Typography`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Typography) class --- along with the existing
-[`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle) and [font-related](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/package-summary) classes --- to model the Material 3 type
+Compose provides the M3 [`Typography`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Typography.md.txt) class --- along with the existing
+[`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.md.txt) and [font-related](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/package-summary.md.txt) classes --- to model the Material 3 type
 scale. The `Typography` constructor offers defaults for each style so you can omit
 any parameters you do not want to customize:
 
@@ -294,8 +296,8 @@ Your product will likely not need all 15 default styles from the Material Design
 type scale. In this example, five sizes are chosen for a reduced set while the
 rest are omitted.
 
-You can customize your typography by changing default values of [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle)
-and [font-related](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/package-summary) properties like `fontFamily` and `letterSpacing`.
+You can customize your typography by changing default values of [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.md.txt)
+and [font-related](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/package-summary.md.txt) properties like `fontFamily` and `letterSpacing`.
 
 
 ```kotlin
@@ -357,7 +359,7 @@ roundedness from square to fully circular.
 
 #### Define shapes
 
-Compose provides the M3 [`Shapes`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Shapes) class with expanded parameters to support
+Compose provides the M3 [`Shapes`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Shapes.md.txt) class with expanded parameters to support
 new M3 shapes. The M3 shape scale is more like the [type scale](https://m3.material.io/styles/typography/),
 enabling an expressive range of shapes across the UI.
 
@@ -476,7 +478,7 @@ Elevation overlays in dark themes have also changed to tonal color overlays in
 Material 3. The overlay color comes from the primary color slot.
 ![Shadow elevation vs Tonal elevation in Material Design 3](https://developer.android.com/static/develop/ui/compose/images/m3-surface.png) **Figure 13**. Shadow elevation versus Tonal elevation in Material Design 3
 
-The M3 [Surface](https://developer.android.com/reference/kotlin/androidx/compose/material/Surface.composable#Surface(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.BorderStroke,androidx.compose.ui.unit.Dp,kotlin.Function0)) --- the backing composable behind most M3 components ---
+The M3 [Surface](https://developer.android.com/reference/kotlin/androidx/compose/material/Surface.composable.md.txt#Surface(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.BorderStroke,androidx.compose.ui.unit.Dp,kotlin.Function0)) --- the backing composable behind most M3 components ---
 includes support for both tonal and shadow elevation:
 
 
@@ -678,17 +680,17 @@ overscroll. No additional work is required to implement these changes.
 ### Ripple
 
 Ripple now uses a subtle sparkle to illuminate surfaces when pressed.
-[Compose Material Ripple](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/package-summary) uses a platform RippleDrawable under the hood on
+[Compose Material Ripple](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/package-summary.md.txt) uses a platform RippleDrawable under the hood on
 Android, so sparkle ripple is available on Android 12 and above for all Material
 components.
 ![Ripple in M2 vs M3](https://developer.android.com/static/develop/ui/compose/images/m3-ripple.gif) **Figure 17**. Ripple in M2 versus M3
 
 ### Overscroll
 
-Overscroll now uses a [stretch effect](https://developer.android.com/about/versions/12/behavior-changes-all#overscroll) at the edge of scrolling containers.
+Overscroll now uses a [stretch effect](https://developer.android.com/about/versions/12/behavior-changes-all.md.txt#overscroll) at the edge of scrolling containers.
 Stretch overscroll is on by default in scrolling container composables --- for
-example, [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#lazycolumn), [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#lazyrow), and [`LazyVerticalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#lazyverticalgrid) --- in
-[Compose Foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) 1.1.0 and above, regardless of API level.
+example, [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary.md.txt#lazycolumn), [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary.md.txt#lazyrow), and [`LazyVerticalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary.md.txt#lazyverticalgrid) --- in
+[Compose Foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt) 1.1.0 and above, regardless of API level.
 ![Overscroll using stretch effect at the edge of the container](https://developer.android.com/static/develop/ui/compose/images/m3-overscroll.gif) **Figure 18**. Overscroll using stretch effect at the edge of the container
 
 ## Accessibility
@@ -778,12 +780,12 @@ resources:
 
 ### Docs
 
-- [Migrating from Material 2 to Material 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material2-material3)
+- [Migrating from Material 2 to Material 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material2-material3.md.txt)
 - [Material design guidelines](https://m3.material.io/)
 
 ### API reference and source code
 
-- [Compose Material 3 API reference](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary)
+- [Compose Material 3 API reference](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt)
 - [Compose Material 3 samples in source code](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/material3/material3/samples/src/main/java/androidx/compose/material3/samples/)
 
 ### Videos
@@ -793,6 +795,6 @@ resources:
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Migrate from Material 2 to Material 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material2-material3)
-- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material)
-- [Custom design systems in Compose](https://developer.android.com/develop/ui/compose/designsystems/custom)
+- [Migrate from Material 2 to Material 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material2-material3.md.txt)
+- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material.md.txt)
+- [Custom design systems in Compose](https://developer.android.com/develop/ui/compose/designsystems/custom.md.txt)

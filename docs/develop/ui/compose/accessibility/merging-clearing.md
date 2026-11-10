@@ -16,10 +16,10 @@ semantics.
 
 ## Merge semantics
 
-When you apply a [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/clickable.modifier#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) modifier to a parent composable, Compose
+When you apply a [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/clickable.modifier.md.txt#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) modifier to a parent composable, Compose
 automatically merges all children elements under it. To understand how
 interactive Compose Material and Foundation components use merging strategies
-by default, see the [Interactive elements](https://developer.android.com/develop/ui/compose/accessibility/api-defaults#interactive-elements) section.
+by default, see the [Interactive elements](https://developer.android.com/develop/ui/compose/accessibility/api-defaults.md.txt#interactive-elements) section.
 
 It's common for a component to consist of multiple composables. These
 composables could form a logical group and each could contain important
@@ -112,12 +112,12 @@ defy merging can help you debug some potentially unexpected behaviors.
 Use merging when children elements constitute a logical and sensible group
 under their parent. But if the nested children need manual adjusting or removal
 of their own semantics, other APIs might better suit your needs (for example,
-[`clearAndSetSemantics`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/clearAndSetSemantics.modifier#(androidx.compose.ui.Modifier).clearAndSetSemantics(kotlin.Function1))).
+[`clearAndSetSemantics`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/clearAndSetSemantics.modifier.md.txt#(androidx.compose.ui.Modifier).clearAndSetSemantics(kotlin.Function1))).
 
 ## Clear and set semantics
 
 If semantic information needs to be completely cleared or overwritten, a
-powerful API to use is [`clearAndSetSemantics`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/clearAndSetSemantics.modifier#(androidx.compose.ui.Modifier).clearAndSetSemantics(kotlin.Function1)).
+powerful API to use is [`clearAndSetSemantics`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/clearAndSetSemantics.modifier.md.txt#(androidx.compose.ui.Modifier).clearAndSetSemantics(kotlin.Function1)).
 
 When a component needs its own and its descendant semantics cleared, use this
 API with an empty lambda. When its semantics must be overwritten, include your
@@ -170,8 +170,8 @@ indicate that this component is a toggleable. Merging is not sufficient because
 you must provide additional information about the component.
 
 Because the snippet above creates a custom toggle component, you need to add
-the toggle ability, as well as the [`stateDescription`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).stateDescription()),
-[`toggleableState`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).toggleableState()), and [`role`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).role()) semantics. This way, the component
+the toggle ability, as well as the [`stateDescription`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).stateDescription()),
+[`toggleableState`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).toggleableState()), and [`role`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).role()) semantics. This way, the component
 status and associated action are available---for example, TalkBack announces
 "Double tap to toggle" instead of "Double tap to activate."
 
@@ -191,7 +191,7 @@ When using `clearAndSetSemantics`, consider the following:
 In some scenarios, elements don't need to be sent to accessibility
 services---perhaps their additional information is redundant for accessibility,
 or it is purely visually decorative and non-interactive. In these cases, you
-can hide elements with the [`hideFromAccessibility`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).hideFromAccessibility()) API.
+can hide elements with the [`hideFromAccessibility`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).hideFromAccessibility()) API.
 
 In the following examples are components that might need to be hidden: a
 redundant watermark that spans a component, and a character used to
@@ -252,6 +252,6 @@ differentiate between the previous APIs:
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Accessibility in Compose](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/clearAndSetSemantics.modifier#(androidx.compose.ui.Modifier).clearAndSetSemantics(kotlin.Function1))
+- [Accessibility in Compose](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/clearAndSetSemantics.modifier.md.txt#(androidx.compose.ui.Modifier).clearAndSetSemantics(kotlin.Function1))
 - \[Material Design 2 in Compose\]\[19\]
-- [Testing your Compose layout](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).stateDescription())
+- [Testing your Compose layout](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).stateDescription())

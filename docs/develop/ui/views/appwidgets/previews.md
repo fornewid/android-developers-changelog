@@ -22,9 +22,9 @@ YouTube.
 
 To show Generated Widget Previews on Android 15 or later device, first set the
 `compileSdk` value to 35 or later in the module `build.gradle` file to have the
-ability to provide [`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews) to the widget picker
+ability to provide [`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews.md.txt) to the widget picker
 
-Apps can use `setWidgetPreview` in [`AppWidgetManager`](https://developer.android.com/reference/kotlin/android/appwidget/AppWidgetManager). To prevent abuse
+Apps can use `setWidgetPreview` in [`AppWidgetManager`](https://developer.android.com/reference/kotlin/android/appwidget/AppWidgetManager.md.txt). To prevent abuse
 and mitigate system health concerns, `setWidgetPreview` is a rate-limited API.
 The default limit is approximately two calls per hour.
 
@@ -40,14 +40,16 @@ The following example loads an XML widget layout resource and sets it as the
 preview. A compileSdk build setting of 35 or later is
 required for `setWidgetPreview` to show as a method in this snippet.
 
-    AppWidgetManager.getInstance(appContext).setWidgetPreview(
-        ComponentName(
-            appContext,
-            ExampleAppWidgetReceiver::class.java
-        ),
-        AppWidgetProviderInfo.WIDGET_CATEGORY_HOME_SCREEN,
-        RemoteViews("com.example", R.layout.widget_preview)
-    )
+```kotlin
+AppWidgetManager.getInstance(appContext).setWidgetPreview(
+    ComponentName(
+        appContext,
+        ExampleAppWidgetReceiver::class.java
+    ),
+    AppWidgetProviderInfo.WIDGET_CATEGORY_HOME_SCREEN,
+    RemoteViews("com.example", R.layout.widget_preview)
+)
+```
 
 ## Add scalable widget previews
 
@@ -58,17 +60,19 @@ some cases leading to previews inaccurately reflecting how widgets appear when
 they are added to the home screen.
 
 To implement scalable widget previews, use the
-[`previewLayout`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#previewLayout)
+[`previewLayout`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#previewLayout)
 attribute of the `appwidget-provider` element to provide an XML layout instead:
 
-    <appwidget-provider
-        android:previewLayout="@layout/my_widget_preview">
-    </appwidget-provider>
+```xml
+<appwidget-provider
+    android:previewLayout="@layout/my_widget_preview">
+</appwidget-provider>
+```
 
 We recommend using the same layout as the actual widget, with realistic default
 or test values. Most apps use the same `previewLayout` and `initialLayout`. For
 guidance on creating accurate preview layouts, see
-[Build accurate previews that include dynamic items](https://developer.android.com/develop/ui/views/appwidgets/previews#build-accurate-previews).
+[Build accurate previews that include dynamic items](https://developer.android.com/develop/ui/views/appwidgets/previews.md.txt#build-accurate-previews).
 
 We recommend specifying both the `previewLayout` and `previewImage` attributes,
 so that your app can fall back to using `previewImage` if the user's device
@@ -78,7 +82,7 @@ over the `previewImage` attribute.
 ## Add static widget previews for backward compatibility
 
 To let widget pickers on Android 11 (API level 30) or lower show previews of your
-widget, or as a fallback for scalable previews, specify the [`previewImage`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#previewImage)
+widget, or as a fallback for scalable previews, specify the [`previewImage`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#previewImage)
 attribute.
 
 If you change the widget's appearance, update the preview image.
@@ -110,68 +114,74 @@ preview. This separate layout file should include the following:
 
 To illustrate an example for a `ListView`, start with a separate layout file:
 
-    // res/layout/widget_preview.xml
+```xml
+// res/layout/widget_preview.xml
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:background="@drawable/widget_background"
-       android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   android:background="@drawable/widget_background"
+   android:orientation="vertical">
 
-        // Include the actual widget layout that contains ListView.
-        <include
-            layout="@layout/widget_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+    // Include the actual widget layout that contains ListView.
+    <include
+        layout="@layout/widget_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-        // The number of fake items you include depends on the values you provide
-        // for minHeight or targetCellHeight in the AppWidgetProviderInfo
-        // definition.
+    // The number of fake items you include depends on the values you provide
+    // for minHeight or targetCellHeight in the AppWidgetProviderInfo
+    // definition.
 
-        <TextView android:text="@string/fake_item1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="?attr/appWidgetInternalPadding" />
+    <TextView android:text="@string/fake_item1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="?attr/appWidgetInternalPadding" />
 
-        <TextView android:text="@string/fake_item2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="?attr/appWidgetInternalPadding" />
+    <TextView android:text="@string/fake_item2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="?attr/appWidgetInternalPadding" />
 
-    </LinearLayout>
+</LinearLayout>
+```
 
 Specify the preview layout file when providing the `previewLayout` attribute of
 the `AppWidgetProviderInfo` metadata. You still specify the actual widget layout
 for the `initialLayout` attribute and use the actual widget layout when
 constructing a `RemoteViews` at runtime.
 
-    <appwidget-provider
-        previewLayout="@layout/widget_preview"
-        initialLayout="@layout/widget_view" />
+```xml
+<appwidget-provider
+    previewLayout="@layout/widget_preview"
+    initialLayout="@layout/widget_view" />
+```
 
 ### Complex list items
 
 The example in the previous section provides fake list items, because the list
-items are [`TextView`](https://developer.android.com/reference/android/widget/TextView) objects. It can be
+items are [`TextView`](https://developer.android.com/reference/android/widget/TextView.md.txt) objects. It can be
 more complex to provide fake items if the items are complex layouts.
 
 Consider a list item that is defined in `widget_list_item.xml` and consists of
 two `TextView` objects:
 
-    <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+```xml
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <TextView android:id="@id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/fake_title" />
+    <TextView android:id="@id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fake_title" />
 
-        <TextView android:id="@id/content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/fake_content" />
-    </LinearLayout>
+    <TextView android:id="@id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fake_content" />
+</LinearLayout>
+```
 
 To provide fake list items, you can include the layout multiple times, but this
 causes each list item to be identical. To provide unique list items, follow
@@ -179,60 +189,65 @@ these steps:
 
 1. Create a set of attributes for the text values:
 
-       <resources>
-           <attr name="widgetTitle" format="string" />
-           <attr name="widgetContent" format="string" />
-       </resources>
-
+   ```xml
+   <resources>
+       <attr name="widgetTitle" format="string" />
+       <attr name="widgetContent" format="string" />
+   </resources>
+   ```
 2. Use these attributes to set the text:
 
-       <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
+   ```xml
+   <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
 
-           <TextView android:id="@id/title"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="?widgetTitle" />
+       <TextView android:id="@id/title"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="?widgetTitle" />
 
-           <TextView android:id="@id/content"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="?widgetContent" />
-       </LinearLayout>
-
+       <TextView android:id="@id/content"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="?widgetContent" />
+   </LinearLayout>
+   ```
 3. Create as many styles as required for the preview. Redefine the values in
    each style:
 
-       <resources>
+   ```xml
+   <resources>
 
-           <style name="Theme.Widget.ListItem">
-               <item name="widgetTitle"></item>
-               <item name="widgetContent"></item>
-           </style>
-           <style name="Theme.Widget.ListItem.Preview1">
-               <item name="widgetTitle">Fake Title 1</item>
-               <item name="widgetContent">Fake content 1</item>
-           </style>
-           <style name="Theme.Widget.ListItem.Preview2">
-               <item name="widgetTitle">Fake title 2</item>
-               <item name="widgetContent">Fake content 2</item>
-           </style>
+       <style name="Theme.Widget.ListItem">
+           <item name="widgetTitle"></item>
+           <item name="widgetContent"></item>
+       </style>
+       <style name="Theme.Widget.ListItem.Preview1">
+           <item name="widgetTitle">Fake Title 1</item>
+           <item name="widgetContent">Fake content 1</item>
+       </style>
+       <style name="Theme.Widget.ListItem.Preview2">
+           <item name="widgetTitle">Fake title 2</item>
+           <item name="widgetContent">Fake content 2</item>
+       </style>
 
-       </resources>
-
+   </resources>
+   ```
 4. Apply the styles on the fake items in the preview layout:
 
-       <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content" ...>
+   ```xml
+   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" ...>
 
-           <include layout="@layout/widget_view" ... />
+       <include layout="@layout/widget_view" ... />
 
-           <include layout="@layout/widget_list_item"
-               android:theme="@style/Theme.Widget.ListItem.Preview1" />
+       <include layout="@layout/widget_list_item"
+           android:theme="@style/Theme.Widget.ListItem.Preview1" />
 
-           <include layout="@layout/widget_list_item"
-               android:theme="@style/Theme.Widget.ListItem.Preview2" />
+       <include layout="@layout/widget_list_item"
+           android:theme="@style/Theme.Widget.ListItem.Preview2" />
 
-       </LinearLayout>
+   </LinearLayout>
+   ```

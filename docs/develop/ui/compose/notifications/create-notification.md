@@ -7,11 +7,11 @@ source: md.txt
 Notifications provide short, timely information about events in your app while
 it isn't in use. This document shows you how to create a notification with
 various features. For an introduction to how notifications appear on Android,
-see the [Notifications overview](https://developer.android.com/develop/ui/compose/notifications).
+see the [Notifications overview](https://developer.android.com/develop/ui/compose/notifications.md.txt).
 For sample code that uses notifications, see the [SociaLite sample](https://github.com/android/socialite) on
 GitHub.
 
-The code in this page uses the [`NotificationCompat`](https://developer.android.com/reference/androidx/core/app/NotificationCompat) APIs from the AndroidX
+The code in this page uses the [`NotificationCompat`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.md.txt) APIs from the AndroidX
 Library. These APIs let you add features available only on newer versions of
 Android while still providing compatibility back to Android 9 (API level 28).
 However, some features, such as the inline reply action, result in a no-op on
@@ -52,22 +52,22 @@ the following code snippet:
 ```
 
 For more details about runtime permissions, see
-[Notification runtime permission](https://developer.android.com/develop/ui/compose/notifications/notification-permission).
+[Notification runtime permission](https://developer.android.com/develop/ui/compose/notifications/notification-permission.md.txt).
 
 ### Set the notification content
 
 To get started, set the notification's content and channel using a
-[`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) object. The following example shows how to
+[`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt) object. The following example shows how to
 create a notification with the following:
 
-- A small icon, set by [`setSmallIcon()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setSmallIcon(int)). This is the only user-visible
+- A small icon, set by [`setSmallIcon()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setSmallIcon(int)). This is the only user-visible
   content that's required.
 
-- A title, set by [`setContentTitle()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setContentTitle(java.lang.CharSequence)).
+- A title, set by [`setContentTitle()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setContentTitle(java.lang.CharSequence)).
 
-- The body text, set by [`setContentText()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setContentText(java.lang.CharSequence)).
+- The body text, set by [`setContentText()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setContentText(java.lang.CharSequence)).
 
-- The notification priority, set by [`setPriority()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setPriority(int)). The priority
+- The notification priority, set by [`setPriority()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setPriority(int)). The priority
   determines how intrusive the notification is on Android 7.1 and earlier. For
   Android 8.0 and later, instead set the channel importance as shown in the
   next section.
@@ -100,7 +100,7 @@ notification in its collapsed and expanded forms.
 <br />
 
 If you want your notification to be longer, you can enable an expandable
-notification by adding a style template with [`setStyle()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setStyle(androidx.core.app.NotificationCompat.Style)). For example,
+notification by adding a style template with [`setStyle()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setStyle(androidx.core.app.NotificationCompat.Style)). For example,
 the following code creates a larger text area:
 
 
@@ -118,14 +118,14 @@ val builder = NotificationCompat.Builder(context, CHANNEL_ID)
 
 For more information about other large notification styles, including how to add
 an image and media playback controls, see
-[Create an expandable notification](https://developer.android.com/develop/ui/compose/notifications/expanded).
+[Create an expandable notification](https://developer.android.com/develop/ui/compose/notifications/expanded.md.txt).
 
 ### Create a channel and set the importance
 
 Before you can deliver the notification on Android 8.0 and later, register your
-app's [notification channel](https://developer.android.com/develop/ui/compose/notifications/channels) with the system by passing an instance of
-[`NotificationChannel`](https://developer.android.com/reference/android/app/NotificationChannel) to [`createNotificationChannel()`](https://developer.android.com/reference/android/app/NotificationManager#createNotificationChannel(android.app.NotificationChannel)). The
-following code is blocked by a condition on the [`SDK_INT`](https://developer.android.com/reference/android/os/Build.VERSION#SDK_INT) version:
+app's [notification channel](https://developer.android.com/develop/ui/compose/notifications/channels.md.txt) with the system by passing an instance of
+[`NotificationChannel`](https://developer.android.com/reference/android/app/NotificationChannel.md.txt) to [`createNotificationChannel()`](https://developer.android.com/reference/android/app/NotificationManager.md.txt#createNotificationChannel(android.app.NotificationChannel)). The
+following code is blocked by a condition on the [`SDK_INT`](https://developer.android.com/reference/android/os/Build.VERSION.md.txt#SDK_INT) version:
 
 
 ```kotlin
@@ -155,7 +155,7 @@ starts. It's safe to call repeatedly because creating an existing channel
 does nothing.
 
 The `NotificationChannel` constructor requires an importance level using a
-[`NotificationManager`](https://developer.android.com/reference/android/app/NotificationManager) constant. This determines how to interrupt the
+[`NotificationManager`](https://developer.android.com/reference/android/app/NotificationManager.md.txt) constant. This determines how to interrupt the
 user. To support Android 7.1 and lower, also set the priority with
 `setPriority()` as shown in the preceding example.
 
@@ -164,14 +164,14 @@ guarantee the alert behavior. The system might adjust it based on other
 factors, and the user can always customize the channel's importance level.
 
 For more information about what the different levels mean, read about
-[notification importance levels](https://developer.android.com/develop/ui/compose/notifications#importance).
+[notification importance levels](https://developer.android.com/develop/ui/compose/notifications.md.txt#importance).
 
 ### Set the notification's tap action
 
 Every notification must respond to a tap, usually to open an activity in your
 app that corresponds to the notification. To do so, specify a content intent
-defined with a [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent) object and pass it to
-[`setContentIntent()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setContentIntent(android.app.PendingIntent)).
+defined with a [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent.md.txt) object and pass it to
+[`setContentIntent()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setContentIntent(android.app.PendingIntent)).
 
 The following snippet shows how to create a basic intent to open an activity
 when the user taps the notification:
@@ -197,7 +197,7 @@ val builder = NotificationCompat.Builder(context, CHANNEL_ID)
 
 <br />
 
-This code calls [`setAutoCancel()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setAutoCancel(boolean)), which automatically [removes the
+This code calls [`setAutoCancel()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setAutoCancel(boolean)), which automatically [removes the
 notification](https://developer.android.com/develop/ui/compose/notifications/create-notification#Removing) when the user taps it.
 
 The intent flags in the preceding example preserve the user's expected
@@ -208,7 +208,7 @@ can be one of the following:
 - An activity that exists exclusively for responses to the notification.
   There's no reason the user navigates to this activity during normal app use,
   so the activity starts a new task instead of being added to your app's
-  existing [task and back stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack). This is the type of intent created in
+  existing [task and back stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack.md.txt). This is the type of intent created in
   the preceding sample.
 
 - An activity that exists in your app's regular app flow. In this case,
@@ -218,8 +218,8 @@ can be one of the following:
 ### Show the notification
 
 To make the notification appear, call
-[`NotificationManagerCompat.notify()`](https://developer.android.com/reference/androidx/core/app/NotificationManagerCompat#notify(int,android.app.Notification)), passing it a unique ID for the
-notification and the result of [`NotificationCompat.Builder.build()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#build()). This
+[`NotificationManagerCompat.notify()`](https://developer.android.com/reference/androidx/core/app/NotificationManagerCompat.md.txt#notify(int,android.app.Notification)), passing it a unique ID for the
+notification and the result of [`NotificationCompat.Builder.build()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#build()). This
 is shown in the following example:
 
 
@@ -246,8 +246,8 @@ with(NotificationManagerCompat.from(context)) {
 <br />
 
 Save the notification ID that you pass to `NotificationManagerCompat.notify()`,
-because you need it when you want to [update](https://developer.android.com/develop/ui/compose/notifications/create-notification#Updating) or
-[remove the notification](https://developer.android.com/develop/ui/compose/notifications/create-notification#Removing).
+because you need it when you want to [update](https://developer.android.com/develop/ui/compose/notifications/create-notification.md.txt#Updating) or
+[remove the notification](https://developer.android.com/develop/ui/compose/notifications/create-notification.md.txt#Removing).
 
 Additionally, in order to test basic notifications on devices running on Android
 13 and higher, turn on notifications manually or create a dialog to request
@@ -270,10 +270,10 @@ one action button.
 
 <br />
 
-To add an action button, pass a `PendingIntent` to the [`addAction()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#addAction(androidx.core.app.NotificationCompat.Action))
+To add an action button, pass a `PendingIntent` to the [`addAction()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#addAction(androidx.core.app.NotificationCompat.Action))
 method. This is like setting up the notification's default tap action, except
 instead of launching an activity, you can do other things such as start a
-[`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) that performs a job in the background so that the
+[`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver.md.txt) that performs a job in the background so that the
 action doesn't interrupt the app that's already open.
 
 For example, the following code shows how to send a broadcast to a specific
@@ -308,7 +308,7 @@ such as to pause and skip tracks, see how to [create a notification with media
 controls](https://developer.android.com/develop/ui/compose/notifications/expanded#media-style).
 
 > [!NOTE]
-> **Note:** In Android 10 (API level 29) and later, the platform automatically generates notification action buttons if an app doesn't provide its own. If you don't want your app's notifications to display any suggested replies or actions, you can opt-out of system-generated replies and actions by using [`setAllowGeneratedReplies()`](https://developer.android.com/reference/android/app/Notification.Action.Builder#setAllowGeneratedReplies(boolean)) and [`setAllowSystemGeneratedContextualActions()`](https://developer.android.com/reference/android/app/Notification.Builder#setAllowSystemGeneratedContextualActions(boolean)).
+> **Note:** In Android 10 (API level 29) and later, the platform automatically generates notification action buttons if an app doesn't provide its own. If you don't want your app's notifications to display any suggested replies or actions, you can opt-out of system-generated replies and actions by using [`setAllowGeneratedReplies()`](https://developer.android.com/reference/android/app/Notification.Action.Builder.md.txt#setAllowGeneratedReplies(boolean)) and [`setAllowSystemGeneratedContextualActions()`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setAllowSystemGeneratedContextualActions(boolean)).
 
 ## Add a direct reply action
 
@@ -334,7 +334,7 @@ intent to your app.
 
 To create a notification action that supports direct reply, follow these steps:
 
-Create an instance of [RemoteInput.Builder](https://developer.android.com/reference/androidx/core/app/RemoteInput.Builder)
+Create an instance of [RemoteInput.Builder](https://developer.android.com/reference/androidx/core/app/RemoteInput.Builder.md.txt)
 that you can add to your notification action. This class's constructor accepts
 a string that the system uses as the key for the text input. Your app later uses
 that key to retrieve the text of the input.
@@ -366,10 +366,10 @@ val replyPendingIntent: PendingIntent =
 <br />
 
 > [!CAUTION]
-> **Caution:** If you reuse a `PendingIntent`, a user might reply to a different conversation than the one they intend. You must provide a request code that is different for each conversation or provide an intent that doesn't return `true` when you call [`equals()`](https://developer.android.com/reference/android/app/PendingIntent#equals(java.lang.Object)) on the reply intent of any other conversation. The conversation ID is frequently passed as part of the intent's extras bundle, but is ignored when you call `equals()`.
+> **Caution:** If you reuse a `PendingIntent`, a user might reply to a different conversation than the one they intend. You must provide a request code that is different for each conversation or provide an intent that doesn't return `true` when you call [`equals()`](https://developer.android.com/reference/android/app/PendingIntent.md.txt#equals(java.lang.Object)) on the reply intent of any other conversation. The conversation ID is frequently passed as part of the intent's extras bundle, but is ignored when you call `equals()`.
 
-Attach the [`RemoteInput`](https://developer.android.com/reference/androidx/core/app/RemoteInput) object to an action using
-[`addRemoteInput()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Action.Builder#addRemoteInput(androidx.core.app.RemoteInput)).
+Attach the [`RemoteInput`](https://developer.android.com/reference/androidx/core/app/RemoteInput.md.txt) object to an action using
+[`addRemoteInput()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Action.Builder.md.txt#addRemoteInput(androidx.core.app.RemoteInput)).
 
 
 ```kotlin
@@ -385,16 +385,18 @@ val action: NotificationCompat.Action =
 
 Apply the action to a notification and issue the notification.
 
-    // Build the notification and add the action.
-    val newMessageNotification = NotificationCompat.Builder(context, CHANNEL_ID)
-        .setSmallIcon(R.drawable.ic_message)
-        .setContentTitle(context.getString(R.string.title))
-        .setContentText(context.getString(R.string.content))
-        .addAction(action)
-        .build()
+```kotlin
+// Build the notification and add the action.
+val newMessageNotification = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setSmallIcon(R.drawable.ic_message)
+    .setContentTitle(context.getString(R.string.title))
+    .setContentText(context.getString(R.string.content))
+    .addAction(action)
+    .build()
 
-    // Issue the notification.
-    NotificationManagerCompat.from(context).notify(notificationId, newMessageNotification)
+// Issue the notification.
+NotificationManagerCompat.from(context).notify(notificationId, newMessageNotification)
+```
 
 The system prompts the user to input a response when they trigger the
 notification action, as shown in figure 4.
@@ -402,7 +404,7 @@ notification action, as shown in figure 4.
 ### Retrieve user input from the reply
 
 To receive user input from the notification's reply UI, call
-[`RemoteInput.getResultsFromIntent()`](https://developer.android.com/reference/androidx/core/app/RemoteInput#getResultsFromIntent(android.content.Intent)), passing it the `Intent` received by
+[`RemoteInput.getResultsFromIntent()`](https://developer.android.com/reference/androidx/core/app/RemoteInput.md.txt#getResultsFromIntent(android.content.Intent)), passing it the `Intent` received by
 your `BroadcastReceiver`:
 
 
@@ -482,15 +484,15 @@ class ReplyReceiver : BroadcastReceiver() {
 <br />
 
 When working with this new notification, use the context that's passed to the
-receiver's [`onReceive()`](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context,%20android.content.Intent)) method.
+receiver's [`onReceive()`](https://developer.android.com/reference/android/content/BroadcastReceiver.md.txt#onReceive(android.content.Context,%20android.content.Intent)) method.
 
 Append the reply to the bottom of the notification by calling
-[`setRemoteInputHistory()`](https://developer.android.com/reference/android/app/Notification.Builder#setRemoteInputHistory(java.lang.CharSequence%5B%5D)). However, if you're building a messaging app,
-create a [messaging-style notification](https://developer.android.com/develop/ui/compose/notifications/expanded#message-style) and append the new message to the
+[`setRemoteInputHistory()`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setRemoteInputHistory(java.lang.CharSequence%5B%5D)). However, if you're building a messaging app,
+create a [messaging-style notification](https://developer.android.com/develop/ui/compose/notifications/expanded.md.txt#message-style) and append the new message to the
 conversation.
 
 For more advice for notifications from messaging apps, see the section about
-[best practices for messaging apps](https://developer.android.com/develop/ui/compose/notifications/create-notification#messaging-best-practices).
+[best practices for messaging apps](https://developer.android.com/develop/ui/compose/notifications/create-notification.md.txt#messaging-best-practices).
 
 ## Show an urgent message
 
@@ -508,7 +510,7 @@ the device's lock status:
 - If the user's device is unlocked, the notification appears in an expanded form that includes options for handling or dismissing the notification.
 
 > [!NOTE]
-> **Note:** If your app targets Android 10 (API level 29) or later, you must request the [`USE_FULL_SCREEN_INTENT`](https://developer.android.com/reference/android/Manifest.permission#USE_FULL_SCREEN_INTENT) permission in your app's manifest file for the system to launch the full-screen activity associated with the time-sensitive notification.
+> **Note:** If your app targets Android 10 (API level 29) or later, you must request the [`USE_FULL_SCREEN_INTENT`](https://developer.android.com/reference/android/Manifest.permission.md.txt#USE_FULL_SCREEN_INTENT) permission in your app's manifest file for the system to launch the full-screen activity associated with the time-sensitive notification.
 
 The following code snippet demonstrates how to associate your notification with
 a full-screen intent:
@@ -532,15 +534,15 @@ val builder = NotificationCompat.Builder(context, CHANNEL_ID)
 ## Set lock screen visibility
 
 To control the level of detail visible in the notification from the lock screen,
-call [`setVisibility()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setVisibility(int)) and specify one of the following values:
+call [`setVisibility()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setVisibility(int)) and specify one of the following values:
 
-- [`VISIBILITY_PUBLIC`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#VISIBILITY_PUBLIC()): the notification's full content shows on the lock
+- [`VISIBILITY_PUBLIC`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.md.txt#VISIBILITY_PUBLIC()): the notification's full content shows on the lock
   screen.
 
-- [`VISIBILITY_SECRET`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#VISIBILITY_SECRET()): no part of the notification shows on the lock
+- [`VISIBILITY_SECRET`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.md.txt#VISIBILITY_SECRET()): no part of the notification shows on the lock
   screen.
 
-- [`VISIBILITY_PRIVATE`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#VISIBILITY_PRIVATE()): only basic information, such as the
+- [`VISIBILITY_PRIVATE`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.md.txt#VISIBILITY_PRIVATE()): only basic information, such as the
   notification's icon and the content title, shows on the lock screen. The
   notification's full content doesn't show.
 
@@ -550,7 +552,7 @@ might display a notification that shows "You have 3 new text messages," but
 hides the message contents and senders. To provide this alternative
 notification, first create the alternative notification with
 `NotificationCompat.Builder` as usual. Then, attach the alternative notification
-to the normal notification with [`setPublicVersion()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setPublicVersion(android.app.Notification)).
+to the normal notification with [`setPublicVersion()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setPublicVersion(android.app.Notification)).
 
 Bear in mind that the user always has ultimate control over whether their
 notifications are visible on the lock screen and can control them based on your
@@ -563,7 +565,7 @@ To update a notification after you issue it, call
 before. If the previous notification is dismissed, a new notification is created
 instead.
 
-You can optionally call [`setOnlyAlertOnce()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setOnlyAlertOnce(boolean)) so your notification
+You can optionally call [`setOnlyAlertOnce()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setOnlyAlertOnce(boolean)) so your notification
 interrupts the user---with sound, vibration, or visual clues---only the
 first time the notification appears and not for later updates.
 
@@ -576,9 +578,9 @@ Notifications remain visible until one of the following happens:
 
 - The user dismisses the notification.
 - The user taps the notification, if you call `setAutoCancel()` when you create the notification.
-- You call [`cancel()`](https://developer.android.com/reference/android/app/NotificationManager#cancel(int)) for a specific notification ID. This method also deletes ongoing notifications.
-- You call [`cancelAll()`](https://developer.android.com/reference/android/app/NotificationManager#cancelAll()), which removes all notifications you previously issued.
-- The specified duration elapses, if you set a timeout when creating the notification, using [`setTimeoutAfter()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setTimeoutAfter(long)). If required, you can cancel a notification before the specified timeout duration elapses.
+- You call [`cancel()`](https://developer.android.com/reference/android/app/NotificationManager.md.txt#cancel(int)) for a specific notification ID. This method also deletes ongoing notifications.
+- You call [`cancelAll()`](https://developer.android.com/reference/android/app/NotificationManager.md.txt#cancelAll()), which removes all notifications you previously issued.
+- The specified duration elapses, if you set a timeout when creating the notification, using [`setTimeoutAfter()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setTimeoutAfter(long)). If required, you can cancel a notification before the specified timeout duration elapses.
 
 ## Best practices for messaging apps
 
@@ -589,7 +591,7 @@ messaging and chat apps.
 
 Starting in Android 7.0 (API level 24), Android provides a notification style
 template specifically for messaging content. Using the
-[`NotificationCompat.MessagingStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle) class, you can change several of the
+[`NotificationCompat.MessagingStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle.md.txt) class, you can change several of the
 labels displayed on the notification, including the conversation title,
 additional messages, and the content view for the notification.
 
@@ -621,26 +623,26 @@ notification = NotificationCompat.Builder(context, CHANNEL_ID)
 <br />
 
 Starting in Android 9.0 (API level 28), it is also required to use the
-[`Person`](https://developer.android.com/reference/kotlin/android/app/Person) class in order to get an optimal rendering of the notification
+[`Person`](https://developer.android.com/reference/kotlin/android/app/Person.md.txt) class in order to get an optimal rendering of the notification
 and its avatars.
 
 When using `NotificationCompat.MessagingStyle`, do the following:
 
-- Call [`MessagingStyle.setConversationTitle()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle#setConversationTitle(java.lang.CharSequence)) to set a title for group chats with more than two people. A good conversation title might be the name of the group chat or, if it doesn't have a name, a list of the participants in the conversation. Without this, the message might be mistaken as belonging to a one-to-one conversation with the sender of the most recent message in the conversation.
-- Use the [`MessagingStyle.setData()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle.Message#setData(java.lang.String,android.net.Uri)) method to include media messages such as images. MIME types of the pattern image/\* are supported.
+- Call [`MessagingStyle.setConversationTitle()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle.md.txt#setConversationTitle(java.lang.CharSequence)) to set a title for group chats with more than two people. A good conversation title might be the name of the group chat or, if it doesn't have a name, a list of the participants in the conversation. Without this, the message might be mistaken as belonging to a one-to-one conversation with the sender of the most recent message in the conversation.
+- Use the [`MessagingStyle.setData()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle.Message.md.txt#setData(java.lang.String,android.net.Uri)) method to include media messages such as images. MIME types of the pattern image/\* are supported.
 
 #### Use Direct Reply
 
 Direct Reply lets a user reply inline to a message.
 
-- After a user replies with the inline reply action, use [`MessagingStyle.addMessage()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle#addMessage(androidx.core.app.NotificationCompat.MessagingStyle.Message)) to update the `MessagingStyle` notification, and don't retract or cancel the notification. Not cancelling the notification lets the user send multiple replies from the notification.
-- To make the inline reply action compatible with Wear OS, call [`Action.WearableExtender.setHintDisplayInlineAction(true)`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Action.WearableExtender#setHintDisplayActionInline(boolean)).
-- Use the [`addHistoricMessage()`](https://developer.android.com/reference/android/app/Notification.MessagingStyle#addHistoricMessage(android.app.Notification.MessagingStyle.Message)) method to provide context to a direct reply conversation by adding historic messages to the notification.
+- After a user replies with the inline reply action, use [`MessagingStyle.addMessage()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle.md.txt#addMessage(androidx.core.app.NotificationCompat.MessagingStyle.Message)) to update the `MessagingStyle` notification, and don't retract or cancel the notification. Not cancelling the notification lets the user send multiple replies from the notification.
+- To make the inline reply action compatible with Wear OS, call [`Action.WearableExtender.setHintDisplayInlineAction(true)`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Action.WearableExtender.md.txt#setHintDisplayActionInline(boolean)).
+- Use the [`addHistoricMessage()`](https://developer.android.com/reference/android/app/Notification.MessagingStyle.md.txt#addHistoricMessage(android.app.Notification.MessagingStyle.Message)) method to provide context to a direct reply conversation by adding historic messages to the notification.
 
 #### Enable Smart Reply
 
-- To enable Smart Reply, call [`setAllowGeneratedResponses(true)`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Action.Builder#setAllowGeneratedReplies(boolean)) on the reply action. This causes Smart Reply responses to be available to users when the notification is bridged to a Wear OS device. Smart Reply responses are generated by an entirely on-watch machine learning model using the context provided by the `NotificationCompat.MessagingStyle` notification, and no data is uploaded to the internet to generate the responses.
+- To enable Smart Reply, call [`setAllowGeneratedResponses(true)`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Action.Builder.md.txt#setAllowGeneratedReplies(boolean)) on the reply action. This causes Smart Reply responses to be available to users when the notification is bridged to a Wear OS device. Smart Reply responses are generated by an entirely on-watch machine learning model using the context provided by the `NotificationCompat.MessagingStyle` notification, and no data is uploaded to the internet to generate the responses.
 
 #### Add notification metadata
 
-- Assign notification metadata to tell the system how to handle your app notifications when the device is in [Do Not Disturb mode](https://developer.android.com/develop/ui/compose/notifications#dnd-mode). For example, use the [`addPerson()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#addPerson(androidx.core.app.Person)) or [`setCategory(Notification.CATEGORY_MESSAGE)`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setCategory(java.lang.String)) method to override the Do Not Disturb.
+- Assign notification metadata to tell the system how to handle your app notifications when the device is in [Do Not Disturb mode](https://developer.android.com/develop/ui/compose/notifications.md.txt#dnd-mode). For example, use the [`addPerson()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#addPerson(androidx.core.app.Person)) or [`setCategory(Notification.CATEGORY_MESSAGE)`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setCategory(java.lang.String)) method to override the Do Not Disturb.

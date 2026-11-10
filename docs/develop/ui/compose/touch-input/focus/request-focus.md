@@ -12,9 +12,9 @@ you might want to automatically place focus into the search input field.
 
 To explicitly request focus:
 
-1. Create and remember a [`FocusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester) instance: `val focusRequester = remember { FocusRequester() }`.
-2. Attach the `FocusRequester` to the target composable using the [`focusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).focusRequester(androidx.compose.ui.focus.FocusRequester)) modifier.
-3. Call [`requestFocus()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester#requestFocus()) inside an event callback (such as `onClick`) or a coroutine scope.
+1. Create and remember a [`FocusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester.md.txt) instance: `val focusRequester = remember { FocusRequester() }`.
+2. Attach the `FocusRequester` to the target composable using the [`focusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).focusRequester(androidx.compose.ui.focus.FocusRequester)) modifier.
+3. Call [`requestFocus()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester.md.txt#requestFocus()) inside an event callback (such as `onClick`) or a coroutine scope.
 
 
 ```kotlin
@@ -56,19 +56,21 @@ Button(onClick = { focusRequester.requestFocus() }) {
 To place initial focus on a specific component when a screen first appears,
 trigger `requestFocus()` inside a `LaunchedEffect(Unit)`:
 
-    LaunchedEffect(Unit) {
-        focusRequester.requestFocus()
-    }
+```kotlin
+LaunchedEffect(Unit) {
+    focusRequester.requestFocus()
+}
+```
 
 When navigating between containers or returning from another screen,
 you can also attach `focusRestorer()` to parent containers
 to automatically return focus to the last focused child.
-For more information, see the [Restore focus](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-restoration) guide.
+For more information, see the [Restore focus](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-restoration.md.txt) guide.
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-target)
-- [Group focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-group)
-- [Restore focus](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-restoration)
-- [Move and clear focus](https://developer.android.com/develop/ui/compose/touch-input/focus/move-focus)
+- [Focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-target.md.txt)
+- [Group focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-group.md.txt)
+- [Restore focus](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-restoration.md.txt)
+- [Move and clear focus](https://developer.android.com/develop/ui/compose/touch-input/focus/move-focus.md.txt)

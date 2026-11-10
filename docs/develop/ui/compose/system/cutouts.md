@@ -41,10 +41,10 @@ recognition (touch sensitivity may be lower in the cutout area). While handling
 cutouts, don't hardcode the status bar height, as this can lead to overlapping
 or cut-off content. Instead, handle cutouts in any of the following ways:
 
-- Using [`WindowInsets.displayCutout`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).displayCutout()), [`WindowInsets.safeContent`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).safeContent()), or
-  [`WindowInsets.safeDrawing`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).safeDrawing())
+- Using [`WindowInsets.displayCutout`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).displayCutout()), [`WindowInsets.safeContent`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).safeContent()), or
+  [`WindowInsets.safeDrawing`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).safeDrawing())
 
-- Accessing the cutout `Path` object with [`LocalView.current.rootWindowInsets.displayCutout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalView())
+- Accessing the cutout `Path` object with [`LocalView.current.rootWindowInsets.displayCutout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary.md.txt#LocalView())
 
 For Compose, we recommend that you use `displayCutout`, `safeContent`, or
 `safeDrawing` to handle cutout insets in your composables. This approach lets
@@ -64,5 +64,5 @@ Canvas(modifier = Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.displa
 
 - Note: link text is displayed when JavaScript is off
 - [Window insets in Compose](https://developer.android.com/develop/ui/compose/layouts/insets)
-- [Graphics Modifiers](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers)
-- [Style paragraph](https://developer.android.com/develop/ui/compose/text/style-paragraph)
+- [Graphics Modifiers](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers.md.txt)
+- [Style paragraph](https://developer.android.com/develop/ui/compose/text/style-paragraph.md.txt)

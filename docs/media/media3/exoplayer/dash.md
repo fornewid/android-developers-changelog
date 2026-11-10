@@ -9,7 +9,7 @@ demuxed, meaning that video, audio, and text must be defined in distinct
 `AdaptationSet` elements in the DASH manifest (CEA-608 is an exception as
 described in the table below). The contained audio and video sample formats must
 also be supported (see the
-[sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats#sample-formats) section for details).
+[sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats.md.txt#sample-formats) section for details).
 
 | Feature | Supported | Comments |
 |---|---|---|
@@ -32,11 +32,11 @@ also be supported (see the
 | **Ad insertion** |   |   |
 | Multi-period playback | YES |   |
 | Server-guided ad insertion (xlinks) | NO |   |
-| IMA server-side and client-side ads | YES | [Ad insertion guide](https://developer.android.com/media/media3/exoplayer/ad-insertion) |
+| IMA server-side and client-side ads | YES | [Ad insertion guide](https://developer.android.com/media/media3/exoplayer/ad-insertion.md.txt) |
 | **Live playback** |   |   |
 | Regular live playback | YES |   |
 | Ultra low-latency CMAF live playback | YES |   |
-| **Common Media Client Data** **(CMCD)** | YES | [CMCD integration guide](https://developer.android.com/media/media3/exoplayer/cmcd) |
+| **Common Media Client Data** **(CMCD)** | YES | [CMCD integration guide](https://developer.android.com/media/media3/exoplayer/cmcd.md.txt) |
 
 ## Using MediaItem
 
@@ -44,11 +44,15 @@ To play a DASH stream, you need to depend on the DASH module.
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-exoplayer-dash:1.11.1")
+```kotlin
+implementation("androidx.media3:media3-exoplayer-dash:1.11.1")
+```
 
 ### Groovy
 
-    implementation "androidx.media3:media3-exoplayer-dash:1.11.1"
+```groovy
+implementation "androidx.media3:media3-exoplayer-dash:1.11.1"
+```
 
 You can then create a `MediaItem` for a DASH MPD URI and pass it to the player.
 

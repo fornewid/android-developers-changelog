@@ -11,23 +11,23 @@ ways appropriate to the locales where your app is used.
 This page describes best practices for localizing Android apps.
 
 You need to have a working knowledge of Kotlin and be
-familiar with [Android resource loading](https://developer.android.com/guide/topics/resources/providing-resources),
+familiar with [Android resource loading](https://developer.android.com/guide/topics/resources/providing-resources.md.txt),
 development considerations
-such as the [activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle),
+such as the [activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle.md.txt),
 and general principles of internationalization and localization.
 
 It is good practice to use the Android resource framework to separate the
 localized aspects of your app as much as possible from core app functionality.
 
-- Put most or all of the *contents* of your app's user interface into resource files, as described on this page and in the [App resources overview](https://developer.android.com/guide/topics/resources/providing-resources).
+- Put most or all of the *contents* of your app's user interface into resource files, as described on this page and in the [App resources overview](https://developer.android.com/guide/topics/resources/providing-resources.md.txt).
 - The *behavior* of the user interface, on the other hand, is driven by your Kotlin-based code. For example, if users input data that needs to be formatted or sorted differently depending on locale, then you use Kotlin to handle the data programmatically. This page doesn't cover how to localize your Kotlin-based code.
 
 This guide covers the core Android localization system used across all Android
 apps. To learn how to load these localized resources in your Jetpack Compose UI,
-see [Resources in Compose](https://developer.android.com/develop/ui/compose/resources).
+see [Resources in Compose](https://developer.android.com/develop/ui/compose/resources.md.txt).
 
 For a short guide to localizing strings in your app, see
-[Support different languages and cultures](https://developer.android.com/training/basics/supporting-devices/languages).
+[Support different languages and cultures](https://developer.android.com/training/basics/supporting-devices/languages.md.txt).
 
 ## Overview: Resource switching in Android
 
@@ -40,7 +40,7 @@ device.
 This page focuses on localization and locale. For a complete description
 of resource-switching and all the types of configurations that you can
 specify, such as screen orientation or touchscreen type, see
-[Provide alternative resources](https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources).
+[Provide alternative resources](https://developer.android.com/guide/topics/resources/providing-resources.md.txt#AlternativeResources).
 
 When you write your app, you create default and alternative resources
 for your app to use. When users run your app, the Android system
@@ -73,7 +73,7 @@ and that it defines every needed string. This situation applies to all types of
 resources, not just strings: you need to create a set of default resource files
 containing all the resources that your app calls on, such as drawables, fonts,
 or colors. For information about testing, see the
-[Test for default resources](https://developer.android.com/guide/topics/resources/localization#test-for-default) section.
+[Test for default resources](https://developer.android.com/guide/topics/resources/localization.md.txt#test-for-default) section.
 
 ## Use resources for localization
 
@@ -107,7 +107,7 @@ An app can specify many `res/\<qualifiers\>/`
 directories, each with different qualifiers. To create an alternative resource
 for a different locale, you use a qualifier that specifies a language or a
 language-region combination. The name of a resource directory must conform
-to the naming scheme described in [Provide alternative resources](https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources),
+to the naming scheme described in [Provide alternative resources](https://developer.android.com/guide/topics/resources/providing-resources.md.txt#AlternativeResources),
 or else your app can't compile.
 
 *Example:*
@@ -180,9 +180,9 @@ process, Android prefers an MCC match over a language match.
 
 The selection process isn't always as straightforward as these examples suggest.
 For a more nuanced description of the process, see
-[How Android finds the best-matching resource](https://developer.android.com/guide/topics/resources/providing-resources#BestMatch).
+[How Android finds the best-matching resource](https://developer.android.com/guide/topics/resources/providing-resources.md.txt#BestMatch).
 All the qualifiers are described and listed in order of precedence in the
-[App resources overview](https://developer.android.com/guide/topics/resources/providing-resources#table2).
+[App resources overview](https://developer.android.com/guide/topics/resources/providing-resources.md.txt#table2).
 
 ### Refer to resources in code
 
@@ -335,7 +335,7 @@ the app needs, when the app runs in an unsupported locale and
 attempts to load `res/values/strings.xml`, the user sees an error
 message and a Force Close button.
 
-For more information, see the [Test for default resources](https://developer.android.com/guide/topics/resources/localization#test-for-default) section.
+For more information, see the [Test for default resources](https://developer.android.com/guide/topics/resources/localization.md.txt#test-for-default) section.
 
 #### Avoid creating more resource files and text strings than you need
 
@@ -396,16 +396,16 @@ To change the locale or language on a device, use the Settings app.
 
 #### Test with composable previews
 
-Before testing on a device, you can use [composable previews](https://developer.android.com/develop/ui/compose/tooling/previews)
+Before testing on a device, you can use [composable previews](https://developer.android.com/develop/ui/compose/tooling/previews.md.txt)
 in Android Studio to test localized UIs without deploying to an emulator. To
-preview your UI in different languages, use the [`@Preview`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/Preview)
+preview your UI in different languages, use the [`@Preview`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/Preview.md.txt)
 annotation (like `@Preview(locale = "fr")`). You can also test right-to-left
 (RTL) layouts by specifying an RTL locale like `@Preview(locale = "ar")`.
 
 ### Test on an emulator
 
 For details about using the emulator, see
-[Run apps on the Android Emulator](https://developer.android.com/studio/run/emulator).
+[Run apps on the Android Emulator](https://developer.android.com/studio/run/emulator.md.txt).
 
 #### Create and use a custom locale
 
@@ -461,9 +461,9 @@ For more information about localization, see the following additional resources:
 
 ### Documentation
 
-- [App resources overview](https://developer.android.com/guide/topics/resources/providing-resources)
+- [App resources overview](https://developer.android.com/guide/topics/resources/providing-resources.md.txt)
 - [Translate and localize your app](https://support.google.com/googleplay/android-developer/answer/9844778?_ga=2.188605422.756657181.1679783723-1569914833.1659556491)
 
 ### Views content
 
-- [Localize your app (Views)](https://developer.android.com/topic/architecture/views/resources/localization-views)
+- [Localize your app (Views)](https://developer.android.com/topic/architecture/views/resources/localization-views.md.txt)

@@ -4,13 +4,15 @@ url: https://developer.android.com/kotlin/coroutines/test
 source: md.txt
 ---
 
-Unit testing code that uses [coroutines](https://developer.android.com/kotlin/coroutines) requires some extra attention, as their execution can be asynchronous and happen across multiple threads. This guide covers how suspending functions can be tested, the testing constructs you need to be familiar with, and how to make your code that uses coroutines testable.
+Unit testing code that uses [coroutines](https://developer.android.com/kotlin/coroutines.md.txt) requires some extra attention, as their execution can be asynchronous and happen across multiple threads. This guide covers how suspending functions can be tested, the testing constructs you need to be familiar with, and how to make your code that uses coroutines testable.
 
 The APIs used in this guide are part of the [kotlinx.coroutines.test](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/) library. Make sure to [add the artifact](https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-test#using-in-your-project) as a test dependency to your project to have access to these APIs.
 
-    dependencies {
-        testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
-    }
+```kotlin
+dependencies {
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+}
+```
 
 > [!NOTE]
 > **Note:** This guide uses the coroutine testing APIs introduced in kotlinx.coroutines.test 1.6. If you're looking to migrate from an earlier version, use the [migration guide](https://github.com/Kotlin/kotlinx.coroutines/blob/master/kotlinx-coroutines-test/MIGRATION.md).
@@ -43,8 +45,8 @@ Wrapping your test's code in `runTest` will work for testing basic suspending fu
 
 However, there are additional considerations to make, depending on what happens in your code under test:
 
-- When your code creates new coroutines other than the top-level test coroutine that `runTest` creates, you'll need to control how those new coroutines are scheduled by [choosing the appropriate `TestDispatcher`](https://developer.android.com/kotlin/coroutines/test#testdispatchers).
-- If your code moves the coroutine execution to other dispatchers (for example, by using [`withContext`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/with-context.html)), `runTest` will still generally work, but delays will no longer be skipped, and tests will be less predictable as code runs on multiple threads. For these reasons, in tests you should [inject test dispatchers](https://developer.android.com/kotlin/coroutines/test#injecting-test-dispatchers) to replace real dispatchers.
+- When your code creates new coroutines other than the top-level test coroutine that `runTest` creates, you'll need to control how those new coroutines are scheduled by [choosing the appropriate `TestDispatcher`](https://developer.android.com/kotlin/coroutines/test.md.txt#testdispatchers).
+- If your code moves the coroutine execution to other dispatchers (for example, by using [`withContext`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/with-context.html)), `runTest` will still generally work, but delays will no longer be skipped, and tests will be less predictable as code runs on multiple threads. For these reasons, in tests you should [inject test dispatchers](https://developer.android.com/kotlin/coroutines/test.md.txt#injecting-test-dispatchers) to replace real dispatchers.
 
 ## TestDispatchers
 
@@ -55,7 +57,7 @@ However, there are additional considerations to make, depending on what happens 
 
 There are two available implementations of `TestDispatcher`: [`StandardTestDispatcher`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-standard-test-dispatcher.html) and [`UnconfinedTestDispatcher`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-unconfined-test-dispatcher.html), which perform different scheduling of newly-started coroutines. These both use a [`TestCoroutineScheduler`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-test-coroutine-scheduler/index.html) to control virtual time and manage running coroutines within a test.
 
-**There should only be one scheduler instance used in a test** , shared between all `TestDispatchers`. See [Injecting TestDispatchers](https://developer.android.com/kotlin/coroutines/test#injecting-test-dispatchers) to learn about sharing schedulers.
+**There should only be one scheduler instance used in a test** , shared between all `TestDispatchers`. See [Injecting TestDispatchers](https://developer.android.com/kotlin/coroutines/test.md.txt#injecting-test-dispatchers) to learn about sharing schedulers.
 
 To start the top-level test coroutine, `runTest` creates a [`TestScope`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-test-scope.html), which is an implementation of [`CoroutineScope`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/) that will always use a `TestDispatcher`. If not specified, a `TestScope` will create a `StandardTestDispatcher` by default, and use that to run the top-level test coroutine.
 
@@ -69,7 +71,7 @@ To start the top-level test coroutine, `runTest` creates a [`TestScope`](https:/
 When you start new coroutines on a `StandardTestDispatcher`, they are queued up on the underlying scheduler, to be run whenever the test thread is free to use. To let these new coroutines run, you need to *yield* the test thread (free it up for other coroutines to use). This queueing behavior gives you precise control over how new coroutines run during the test, and it resembles the scheduling of coroutines in production code.
 
 > [!NOTE]
-> **Note:** For simplicity, the examples here show new coroutines started directly within `runTest`, as `runTest` uses a `StandardTestDispatcher` by default. However, the scheduling behavior shown here applies to any coroutine started on a `StandardTestDispatcher`, including ones [injected](https://developer.android.com/kotlin/coroutines/test#injecting-test-dispatchers) into classes under test.
+> **Note:** For simplicity, the examples here show new coroutines started directly within `runTest`, as `runTest` uses a `StandardTestDispatcher` by default. However, the scheduling behavior shown here applies to any coroutine started on a `StandardTestDispatcher`, including ones [injected](https://developer.android.com/kotlin/coroutines/test.md.txt#injecting-test-dispatchers) into classes under test.
 
 If the test thread is never yielded during the execution of the top-level test coroutine, any new coroutines will only run after the test coroutine is done (but before `runTest` returns):
 
@@ -172,7 +174,7 @@ In tests, replace these dispatchers with instances of `TestDispatchers`. This ha
 - You can control how new coroutines are scheduled and executed
 - TestDispatchers use a scheduler for virtual time, which skips delays automatically and lets you advance time manually
 
-Using [dependency injection](https://developer.android.com/training/dependency-injection) to provide
+Using [dependency injection](https://developer.android.com/training/dependency-injection.md.txt) to provide
 dispatchers to your classes makes it easy to replace the real dispatchers in
 tests. In these examples, we'll inject a `CoroutineDispatcher`, but you can also
 inject the broader
@@ -180,14 +182,14 @@ inject the broader
 type, which allows for even more flexibility during tests.
 
 For classes that start coroutines, you can also inject a `CoroutineScope`
-instead of a dispatcher, as detailed in the [Injecting a scope](https://developer.android.com/kotlin/coroutines/test#inject-scope)
+instead of a dispatcher, as detailed in the [Injecting a scope](https://developer.android.com/kotlin/coroutines/test.md.txt#inject-scope)
 section.
 
 > [!IMPORTANT]
 > **Key Point:** In tests, replace real dispatchers with instances of `TestDispatchers` to ensure that all code runs on the single test thread.
 
 > [!NOTE]
-> **Note:** See the [Setting the Main dispatcher](https://developer.android.com/kotlin/coroutines/test#setting-main-dispatcher) section to learn how to replace the Main dispatcher in tests.
+> **Note:** See the [Setting the Main dispatcher](https://developer.android.com/kotlin/coroutines/test.md.txt#setting-main-dispatcher) section to learn how to replace the Main dispatcher in tests.
 
 `TestDispatchers` will, by default, create a new scheduler when they're instantiated. Inside `runTest`, you can access the `testScheduler` property of the `TestScope` and pass it in to any newly created `TestDispatchers`. This will share their understanding of virtual time, and methods like `advanceUntilIdle` will run coroutines on all test dispatchers to completion.
 
@@ -279,14 +281,14 @@ fun repoInitWorks() = runTest {
 
 ## Setting the Main dispatcher
 
-In [local unit tests](https://developer.android.com/training/testing/local-tests), the `Main` dispatcher that wraps the Android UI thread will be unavailable, as these tests are executed on a local JVM and not an Android device. If your code under test references the main thread, it'll throw an exception during unit tests.
+In [local unit tests](https://developer.android.com/training/testing/local-tests.md.txt), the `Main` dispatcher that wraps the Android UI thread will be unavailable, as these tests are executed on a local JVM and not an Android device. If your code under test references the main thread, it'll throw an exception during unit tests.
 
 > [!NOTE]
-> **Note:** This only applies to local unit tests. You should not replace the `Main` dispatcher in [instrumented tests](https://developer.android.com/training/testing/instrumented-tests) where the real UI thread is available.
+> **Note:** This only applies to local unit tests. You should not replace the `Main` dispatcher in [instrumented tests](https://developer.android.com/training/testing/instrumented-tests.md.txt) where the real UI thread is available.
 
-In some cases, you can inject the `Main` dispatcher the same way as other dispatchers, as described in [the previous section](https://developer.android.com/kotlin/coroutines/test#injecting-test-dispatchers), allowing you to replace it with a `TestDispatcher` in tests. However, some APIs such as [`viewModelScope`](https://developer.android.com/topic/libraries/architecture/coroutines#viewmodelscope) use a hardcoded `Main` dispatcher under the hood.
+In some cases, you can inject the `Main` dispatcher the same way as other dispatchers, as described in [the previous section](https://developer.android.com/kotlin/coroutines/test.md.txt#injecting-test-dispatchers), allowing you to replace it with a `TestDispatcher` in tests. However, some APIs such as [`viewModelScope`](https://developer.android.com/topic/libraries/architecture/coroutines.md.txt#viewmodelscope) use a hardcoded `Main` dispatcher under the hood.
 
-Here's an example of a [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) implementation that uses `viewModelScope` to launch a coroutine that loads data:
+Here's an example of a [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt) implementation that uses `viewModelScope` to launch a coroutine that loads data:
 
 ```kotlin
 class HomeViewModel : ViewModel() {
@@ -537,9 +539,9 @@ class UserStateTest {
 
 To inject a scope outside of the test function, for example into an object under
 test that's created as a property in the test class, see
-[Creating your own TestScope](https://developer.android.com/kotlin/coroutines/test#creating-your-own-testscope).
+[Creating your own TestScope](https://developer.android.com/kotlin/coroutines/test.md.txt#creating-your-own-testscope).
 
 ## Additional resources
 
-- [Testing Kotlin flows on Android](https://developer.android.com/kotlin/flow/test)
+- [Testing Kotlin flows on Android](https://developer.android.com/kotlin/flow/test.md.txt)
 - [kotlinx.coroutines.test](https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-test) on GitHub

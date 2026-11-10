@@ -7,27 +7,27 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
-Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
 Augmented experiences for audio glasses and display glasses are built on the
-existing Android [`Activity` framework API](https://developer.android.com/guide/components/activities/intro-activities) and [include additional
+existing Android [`Activity` framework API](https://developer.android.com/guide/components/activities/intro-activities.md.txt) and [include additional
 concepts](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types#activity-lifecycle) to support the unique aspects of these glasses. Unlike XR headsets
 that run a full APK on the device, audio glasses and display glasses use a
 dedicated activity that runs within your phone's existing app. This activity is
 projected from the host device to the glasses.
 
 To create your app's experience for audio glasses and display glasses, you
-extend your existing phone app by creating a new projected [`Activity`](https://developer.android.com/reference/kotlin/android/app/Activity). This
+extend your existing phone app by creating a new projected [`Activity`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt). This
 activity serves as the main launch entry point for your app on the glasses. This
 approach simplifies development because you can share and reuse business logic
 between your phone and glasses experiences.
 
 ## Version compatibility
 
-Check the [Android SDK compatibility requirements](https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk#compatibility) for the Jetpack XR SDK.
+Check the [Android SDK compatibility requirements](https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk.md.txt#compatibility) for the Jetpack XR SDK.
 
 ### Dependencies
 
@@ -36,41 +36,47 @@ glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk#augm
 
 ### Groovy
 
-    dependencies {
-        implementation "androidx.xr.runtime:runtime:1.1.0-alpha02"
-        implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha22"
-        implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha22"
-        implementation "androidx.xr.projected:projected:1.0.0-alpha14"
-        implementation "androidx.xr.arcore:arcore:1.1.0-alpha01"
-    }
+```groovy
+dependencies {
+    implementation "androidx.xr.runtime:runtime:1.1.0-alpha02"
+    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha22"
+    implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha22"
+    implementation "androidx.xr.projected:projected:1.0.0-alpha14"
+    implementation "androidx.xr.arcore:arcore:1.1.0-alpha01"
+}
+```
 
 ### Kotlin
 
-    dependencies {
-        implementation("androidx.xr.runtime:runtime:1.1.0-alpha02")
-        implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha22")
-        implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha22")
-        implementation("androidx.xr.projected:projected:1.0.0-alpha14")
-        implementation("androidx.xr.arcore:arcore:1.1.0-alpha01")
-    }
+```kotlin
+dependencies {
+    implementation("androidx.xr.runtime:runtime:1.1.0-alpha02")
+    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha22")
+    implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha22")
+    implementation("androidx.xr.projected:projected:1.0.0-alpha14")
+    implementation("androidx.xr.arcore:arcore:1.1.0-alpha01")
+}
+```
 
 ## Declare your activity in your app's manifest
 
 Just like other types of activities, you need to declare your activity in your
 app's manifest file for the system to see and run it.
 
-    <application>
-      <activity
-          android:name="com.example.xr.projected.ProjectedMainActivity"
-          android:exported="true"
-          android:requiredDisplayCategory="android.hardware.display.category.XR_PROJECTED"
-          android:label="Example activity for audio glasses and display glasses">
-          <intent-filter>
-              <action android:name="android.intent.action.MAIN" />
-              <category android:name="android.intent.category.XR_PROJECTED_LAUNCHER"/>
-          </intent-filter>
-      </activity>
-    </application>
+```xml
+<application>
+  <activity
+      android:name="com.example.xr.projected.ProjectedMainActivity"
+      android:exported="true"
+      android:requiredDisplayCategory="android.hardware.display.category.XR_PROJECTED"
+      android:label="Example activity for audio glasses and display glasses">
+      <intent-filter>
+          <action android:name="android.intent.action.MAIN" />
+          <category android:name="android.intent.category.XR_PROJECTED_LAUNCHER"/>
+      </intent-filter>
+  </activity>
+</application>
+```
 
 ### Key points about the code
 
@@ -147,12 +153,12 @@ class ProjectedMainActivity : ComponentActivity() {
 
 ### Key points about the code
 
-- Opts in to using [opt-in APIs](https://developer.android.com/reference/kotlin/androidx/annotation/RequiresOptIn) from the [Jetpack Projected](https://developer.android.com/jetpack/androidx/releases/xr-projected) library.
-- `ProjectedMainActivity` extends [`ComponentActivity`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity), just as you would expect in mobile development.
-- Because not all glasses have a display, checks whether the device has a display using [`ProjectedDeviceController`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDeviceController).
+- Opts in to using [opt-in APIs](https://developer.android.com/reference/kotlin/androidx/annotation/RequiresOptIn.md.txt) from the [Jetpack Projected](https://developer.android.com/jetpack/androidx/releases/xr-projected.md.txt) library.
+- `ProjectedMainActivity` extends [`ComponentActivity`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.md.txt), just as you would expect in mobile development.
+- Because not all glasses have a display, checks whether the device has a display using [`ProjectedDeviceController`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDeviceController.md.txt).
 - The `setContent` block within the `onCreate` function defines the root of the Composable UI tree for the activity. You'll implement the `HomeScreen` composable using [Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer).
-- Initializes the UI during the activity's [`onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity#onCreate(android.os.Bundle)) method (see [projected activity lifecycle](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types#activity-lifecycle)).
-- To prepare for camera-related features that [access the glasses hardware](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context), [requests hardware permissions](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions) by registering a permissions launcher, defining the `hasCameraPermission` and `requestHardwarePermissions` functions, and checking whether permissions have been granted before calling `initializeGlassesFeatures`.
+- Initializes the UI during the activity's [`onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#onCreate(android.os.Bundle)) method (see [projected activity lifecycle](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types.md.txt#activity-lifecycle)).
+- To prepare for camera-related features that [access the glasses hardware](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md.txt), [requests hardware permissions](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions.md.txt) by registering a permissions launcher, defining the `hasCameraPermission` and `requestHardwarePermissions` functions, and checking whether permissions have been granted before calling `initializeGlassesFeatures`.
 
 ## Implement the composable
 
@@ -203,7 +209,7 @@ fun HomeScreen(
 ### Key points about the code
 
 - As you defined in your activity earlier, the `HomeScreen` function includes the composable content that the user sees when the glasses' display is on.
-- The Jetpack Compose Glimmer [`Text`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/package-summary#Text(kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.Function1,androidx.compose.foundation.text.TextAutoSize,androidx.compose.ui.text.TextStyle)) component displays the text "Hello, AI Glasses!" to the glasses' display.
+- The Jetpack Compose Glimmer [`Text`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/package-summary.md.txt#Text(kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.Function1,androidx.compose.foundation.text.TextAutoSize,androidx.compose.ui.text.TextStyle)) component displays the text "Hello, AI Glasses!" to the glasses' display.
 - The Jetpack Compose Glimmer `Button` closes the activity by calling `finish()` through `onClose` in the projected activity.
 
 > [!NOTE]
@@ -215,7 +221,7 @@ fun HomeScreen(
 
 To determine whether a user's audio or display glasses are connected to their
 phone before launching your activity, use the
-[`ProjectedContext.isProjectedDeviceConnected`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext#isProjectedDeviceConnected(android.content.Context,kotlin.coroutines.CoroutineContext)) method. This method
+[`ProjectedContext.isProjectedDeviceConnected`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext.md.txt#isProjectedDeviceConnected(android.content.Context,kotlin.coroutines.CoroutineContext)) method. This method
 returns a `Flow<Boolean>` that your app can observe to get real-time updates on
 the connection status.
 
@@ -226,7 +232,7 @@ the connection status.
 
 Now that you've created a basic activity, you can launch it onto your glasses.
 To access the glasses' hardware, your app must start your activity with specific
-options that tell the system to use a [projected context](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types#projected-context), as shown in the
+options that tell the system to use a [projected context](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types.md.txt#projected-context), as shown in the
 following code:
 
 
@@ -238,7 +244,7 @@ context.startActivity(intent, options.toBundle())
 
 <br />
 
-The [`createProjectedActivityOptions`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext#createProjectedActivityOptions(android.content.Context)) method in [`ProjectedContext`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext)
+The [`createProjectedActivityOptions`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext.md.txt#createProjectedActivityOptions(android.content.Context)) method in [`ProjectedContext`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext.md.txt)
 generates the necessary options to start your activity in a projected context.
 The `context` parameter can be a context from the phone or the glasses device.
 
@@ -250,7 +256,7 @@ The `context` parameter can be a context from the phone or the glasses device.
 Now that you've created your first activity for audio glasses and display
 glasses, explore other ways that you can extend its functionality:
 
-- [Handle audio output using Text to Speech](https://developer.android.com/develop/xr/jetpack-xr-sdk/tts)
-- [Handle audio input using Automatic Speech Recognition](https://developer.android.com/develop/xr/jetpack-xr-sdk/asr)
+- [Handle audio output using Text to Speech](https://developer.android.com/develop/xr/jetpack-xr-sdk/tts.md.txt)
+- [Handle audio input using Automatic Speech Recognition](https://developer.android.com/develop/xr/jetpack-xr-sdk/asr.md.txt)
 - [Build UI with Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer)
-- [Access hardware on audio glasses and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware)
+- [Access hardware on audio glasses and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware.md.txt)

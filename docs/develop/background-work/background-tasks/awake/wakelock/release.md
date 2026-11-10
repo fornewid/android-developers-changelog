@@ -10,10 +10,10 @@ finished using it to avoid draining the battery.
 
 ## Release an active wake lock
 
-To release an active wake lock, call its [`release()`](https://developer.android.com/reference/android/os/PowerManager.WakeLock#release()) method. Doing so
+To release an active wake lock, call its [`release()`](https://developer.android.com/reference/android/os/PowerManager.WakeLock.md.txt#release()) method. Doing so
 releases your claim to the CPU.
 
-For example, the following code [acquires a wake lock](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/set),
+For example, the following code [acquires a wake lock](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/set.md.txt),
 does some work, then releases the wake lock:
 
 
@@ -62,11 +62,11 @@ to release the lock as soon as the task finishes.
   on any of them.
 
 - It's best to acquire the wake lock with
-  [`WakeLock.acquire(long timeout)`](https://developer.android.com/reference/android/os/PowerManager.WakeLock#acquire(long)), which
+  [`WakeLock.acquire(long timeout)`](https://developer.android.com/reference/android/os/PowerManager.WakeLock.md.txt#acquire(long)), which
   automatically releases the wake lock after the specified timeout period.
   However, you should still release the wake lock explicitly when you no
   longer need it, so you don't hold the wake lock for longer than necessary.
 
 ## See also
 
-- [Set a wake lock](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/set)
+- [Set a wake lock](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/set.md.txt)

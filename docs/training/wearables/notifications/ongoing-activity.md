@@ -19,7 +19,7 @@ Returning to the app using the launcher can be difficult, especially while on
 the move, creating unnecessary friction.
 
 As of Wear OS 7, the solution is to pair an ongoing notification with an
-[`OngoingActivity`](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity), or a [Live Update notification](https://developer.android.com/training/wearables/notifications/live-updates). This lets the
+[`OngoingActivity`](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity.md.txt), or a [Live Update notification](https://developer.android.com/training/wearables/notifications/live-updates.md.txt). This lets the
 device display information about the long-running activity across the user
 interface, enabling features like the tappable icon at the bottom of the watch
 face. This indicator keeps users aware of the background task, and it provides a
@@ -27,9 +27,9 @@ one-tap way to return to the app.
 
 An ongoing activity or Live Update also keeps your app visible for longer,
 preventing the system from returning to the watch face after a period of
-inactivity. For more information, see [Keep your app visible on Wear](https://developer.android.com/training/wearables/always-on#background).
+inactivity. For more information, see [Keep your app visible on Wear](https://developer.android.com/training/wearables/always-on.md.txt#background).
 
-Use an ongoing activity or [Live Update](https://developer.android.com/training/wearables/notifications/live-updates) notification for experiences that
+Use an ongoing activity or [Live Update](https://developer.android.com/training/wearables/notifications/live-updates.md.txt) notification for experiences that
 are likely to last longer than one minute, or in cases where the user is likely
 to navigate away from your app before the task is complete.
 
@@ -39,8 +39,8 @@ available while user is in a store
 
 **Inappropriate uses:** recording short voice messages, promotions, the status
 of an updating app, and upcoming calendar events.
-> **Important:** Using an [`OngoingActivity`](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity) or [Live Update](https://developer.android.com/training/wearables/notifications/live-updates) in these
-> scenarios is a requirement under [Wear OS App Quality guidelines WO-V4](https://developer.android.com/docs/quality-guidelines/wear-app-quality#ongoing-activity).
+> **Important:** Using an [`OngoingActivity`](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity.md.txt) or [Live Update](https://developer.android.com/training/wearables/notifications/live-updates.md.txt) in these
+> scenarios is a requirement under [Wear OS App Quality guidelines WO-V4](https://developer.android.com/docs/quality-guidelines/wear-app-quality.md.txt#ongoing-activity).
 
 For example, in this workout app, the information can appear on the user's watch
 face as a tappable running icon:
@@ -95,14 +95,14 @@ dependencies to your app's `build.gradle` file:
 
 The process involves three steps:
 
-1. Create a standard [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) and configure it as ongoing.
-2. Create and configure an [`OngoingActivity`](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity) object, passing the notification builder to it.
+1. Create a standard [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt) and configure it as ongoing.
+2. Create and configure an [`OngoingActivity`](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity.md.txt) object, passing the notification builder to it.
 3. Apply the Ongoing Activity to the notification builder and post the resulting notification.
 
 ### Create and configure the notification
 
 Start by creating a **`NotificationCompat.Builder`** . The key step is to call
-[`setOngoing(true)`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean)) to mark it as an ongoing notification. You can also set
+[`setOngoing(true)`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setOngoing(boolean)) to mark it as an ongoing notification. You can also set
 other notification properties at this stage, like the small icon and category.
 
 
@@ -160,7 +160,7 @@ val ongoingActivity =
 ### Apply to the notification and post
 
 The final step is to link the `OngoingActivity` with the notification and then
-post it. The [`ongoingActivity.apply()`](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity#apply(android.content.Context)) method modifies the original
+post it. The [`ongoingActivity.apply()`](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity.md.txt#apply(android.content.Context)) method modifies the original
 notification builder, adding the necessary data so the system can display it on
 the extra surfaces. After applying it, you can build and post the notification
 as usual.
@@ -180,9 +180,9 @@ startForeground(NOTIFICATION_ID, notificationBuilder.build())
 
 The preceding code adds the tappable icon to the watch face. To provide even
 richer, real-time updates in the launcher's **Recents** section, create a
-[`Status`](https://developer.android.com/reference/androidx/wear/ongoing/Status) object and attach it to your `OngoingActivity`. If you don't
+[`Status`](https://developer.android.com/reference/androidx/wear/ongoing/Status.md.txt) object and attach it to your `OngoingActivity`. If you don't
 provide a custom `Status`, the system defaults to using the notification's
-content text (set using [`setContentText()`](https://developer.android.com/reference/android/app/Notification.Builder#setContentText(java.lang.CharSequence))). To display dynamic text, use a
+content text (set using [`setContentText()`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setContentText(java.lang.CharSequence))). To display dynamic text, use a
 `Status.Builder`. You can define a template string with placeholders and provide
 `Status.Part` objects to fill those placeholders. The `Status.Part` can be
 dynamic, such as a stopwatch or timer.
@@ -266,14 +266,14 @@ OEM's implementation.
   the app. If not provided, the notification's content intent is used. If
   neither is set, an exception is thrown.
 
-- **[`LocusId`](https://developer.android.com/reference/android/content/LocusId):** ID that assigns the launcher shortcut that the ongoing
+- **[`LocusId`](https://developer.android.com/reference/android/content/LocusId.md.txt):** ID that assigns the launcher shortcut that the ongoing
   activity corresponds to. Displays on the launcher in the **Recents** section
   while the activity is ongoing. If not provided, the launcher hides all app
   items in the **Recents** section from the same package and only shows the
   Ongoing Activity.
 
 - **Ongoing Activity ID:** ID used to disambiguate calls to
-  [`fromExistingOngoingActivity()`](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity#fromExistingOngoingActivity(android.content.Context)) when an application has more than one
+  [`fromExistingOngoingActivity()`](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity.md.txt#fromExistingOngoingActivity(android.content.Context)) when an application has more than one
   Ongoing Activity.
 
 ## Update an Ongoing Activity
@@ -322,14 +322,14 @@ it is paused.
 
 Remember the following things when working with the Ongoing Activity API:
 
-- Set a static icon for your Ongoing Activity, either [explicitly](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity.Builder#setStaticIcon(android.graphics.drawable.Icon)) or as a
-  fallback using the [notification](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setSmallIcon(int)). If you don't, you get an
+- Set a static icon for your Ongoing Activity, either [explicitly](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity.Builder.md.txt#setStaticIcon(android.graphics.drawable.Icon)) or as a
+  fallback using the [notification](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setSmallIcon(int)). If you don't, you get an
   `IllegalArgumentException`.
 
 - Use black and white vector icons with transparent backgrounds.
 
-- Set a touch intent for your Ongoing Activity, either [explicitly](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity.Builder#setTouchIntent(android.app.PendingIntent)) or as
-  a fallback using the [notification](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setContentIntent(android.app.PendingIntent)). If you don't, you get an
+- Set a touch intent for your Ongoing Activity, either [explicitly](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity.Builder.md.txt#setTouchIntent(android.app.PendingIntent)) or as
+  a fallback using the [notification](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setContentIntent(android.app.PendingIntent)). If you don't, you get an
   `IllegalArgumentException`.
 
 - If your app has more than one `MAIN LAUNCHER` activity declared in the
@@ -347,8 +347,8 @@ activity.
 
 If you are using Media3, the notification is published automatically. If you
 create your notification manually, it should use the
-[`MediaStyleNotificationHelper.MediaStyle`](https://developer.android.com/reference/androidx/media3/session/MediaStyleNotificationHelper.MediaStyle), and the corresponding
-`MediaSession` should have its [session activity](https://developer.android.com/reference/androidx/media3/session/MediaSession.Builder#setSessionActivity(android.app.PendingIntent)) populated.
+[`MediaStyleNotificationHelper.MediaStyle`](https://developer.android.com/reference/androidx/media3/session/MediaStyleNotificationHelper.MediaStyle.md.txt), and the corresponding
+`MediaSession` should have its [session activity](https://developer.android.com/reference/androidx/media3/session/MediaSession.Builder.md.txt#setSessionActivity(android.app.PendingIntent)) populated.
 
 ## Recommended for you
 

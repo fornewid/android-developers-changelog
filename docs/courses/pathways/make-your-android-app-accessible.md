@@ -36,7 +36,7 @@ Learn how the Android Framework communicates with Accessibility Services, provid
 
 Learn how users with disabilities can modify the default configurations of their Android device to make the device more functional for them.
 
-[Read article](https://developer.android.com/guide/topics/ui/accessibility/apps)
+[Read article](https://developer.android.com/guide/topics/ui/accessibility/apps.md.txt)
 
 ## Test your app's accessibility
 
@@ -44,7 +44,7 @@ Learn how users with disabilities can modify the default configurations of their
 
 Learn how to test for accessibility and experience your app from the perspective of your users.
 
-[Read article](https://developer.android.com/guide/topics/ui/accessibility/testing)
+[Read article](https://developer.android.com/guide/topics/ui/accessibility/testing.md.txt)
 
 ## Troubleshoot common accessibility issues
 

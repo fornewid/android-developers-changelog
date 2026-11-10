@@ -62,7 +62,7 @@ data class SampleMessage(val text: String, val content: Any)
 
 ### Key points about the code
 
-- Specifies the content type for each item by setting [`contentType`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#extension-functions-summary) in [`items()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope#items(kotlin.Int,kotlin.Function1,kotlin.Function1,kotlin.Function2)).
+- Specifies the content type for each item by setting [`contentType`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary.md.txt#extension-functions-summary) in [`items()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope.md.txt#items(kotlin.Int,kotlin.Function1,kotlin.Function1,kotlin.Function2)).
 - Maps each content type to a corresponding composable. For example, `Audio` is a `contentType` that is defined elsewhere and is mapped to an `AudioMessage` composable.
 - Compose reuses the rendered composables for each item of a given content type.
 
@@ -86,4 +86,4 @@ This series of videos introduces various Compose APIs, quickly showing you what'
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

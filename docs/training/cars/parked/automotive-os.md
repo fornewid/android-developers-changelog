@@ -12,16 +12,16 @@ guide explains those considerations.
 
 To begin building your app for Android Automotive OS, first test your existing
 app on an Android Automotive OS emulator. To set up an emulator, follow the
-steps in [Test using the Android Automotive OS emulator](https://developer.android.com/training/cars/testing/emulator).
+steps in [Test using the Android Automotive OS emulator](https://developer.android.com/training/cars/testing/emulator.md.txt).
 You can then run the app by following the instructions in
-[Run your app on the emulator](https://developer.android.com/studio/run/emulator#runningapp).
+[Run your app on the emulator](https://developer.android.com/studio/run/emulator.md.txt#runningapp).
 
 When running your app, watch for compatibility issues, such as the
 following:
 
 - Infotainment screens have fixed orientations. To meet the [car
   app quality guidelines](https://developer.android.com/docs/quality-guidelines/car-app-quality#display-orientation), apps must support both portrait and landscape orientations.
-- APIs available on other devices might not be available on Android Automotive OS. For example, some Google Play services APIs are not available on Android Automotive OS. See the [Disable features](https://developer.android.com/training/cars/parked/automotive-os#disable-features) section for details on how to handle these issues.
+- APIs available on other devices might not be available on Android Automotive OS. For example, some Google Play services APIs are not available on Android Automotive OS. See the [Disable features](https://developer.android.com/training/cars/parked/automotive-os.md.txt#disable-features) section for details on how to handle these issues.
 
 <br />
 
@@ -32,7 +32,7 @@ following:
 
 ### Android for Cars parked apps
 
-Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to adapt existing Android video streaming apps, games, and web browsers to run as parked apps on cars. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use an [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to adapt existing Android video streaming apps, games, and web browsers to run as parked apps on cars. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add android-for-cars-parked-apps
 
@@ -43,12 +43,12 @@ Use an [Android skill](https://developer.android.com/tools/agents/android-skills
 To target Android Automotive OS devices, your app must have certain manifest
 entries. After you've opted-in to distributing to Android Automotive OS devices,
 Google Play reviews compatible apps to help ensure that they're safe for use in
-a car. See [Distribute to cars](https://developer.android.com/training/cars/distribute) for more details.
+a car. See [Distribute to cars](https://developer.android.com/training/cars/distribute.md.txt) for more details.
 
 ### Required Android Automotive OS features
 
 All apps built for Android Automotive OS must meet certain requirements to be
-distributed using Google Play. See [Meet Google Play feature requirements](https://developer.android.com/training/cars/platforms/automotive-os#play-feature-requirements)
+distributed using Google Play. See [Meet Google Play feature requirements](https://developer.android.com/training/cars/platforms/automotive-os.md.txt#play-feature-requirements)
 for more information.
 
 > [!WARNING]
@@ -59,16 +59,16 @@ for more information.
 In addition to the preceding requirements, which apply to all parked apps, the
 video and games categories have additional requirements:
 
-- For video apps, see [Mark your app as a video app](https://developer.android.com/training/cars/parked/video#mark-video).
-- For games, see [Mark your app as a game](https://developer.android.com/training/cars/parked/games#mark-game).
+- For video apps, see [Mark your app as a video app](https://developer.android.com/training/cars/parked/video.md.txt#mark-video).
+- For games, see [Mark your app as a game](https://developer.android.com/training/cars/parked/games.md.txt#mark-game).
 
 ## Meet driver distraction requirements
 
 Avoiding driver distraction is critical when bringing your app to cars. For
 parked apps, this is primarily accomplished by preventing your app from being
-used or playing audio while [user experience (UX) restrictions](https://developer.android.com/training/cars/platforms/automotive-os#ux-restrictions)
-are active, as captured by the [`DD-2`](https://developer.android.com/docs/quality-guidelines/car-app-quality#DD-2) and
-[`DD-3`](https://developer.android.com/docs/quality-guidelines/car-app-quality#DD-3) quality guidelines.
+used or playing audio while [user experience (UX) restrictions](https://developer.android.com/training/cars/platforms/automotive-os.md.txt#ux-restrictions)
+are active, as captured by the [`DD-2`](https://developer.android.com/docs/quality-guidelines/car-app-quality.md.txt#DD-2) and
+[`DD-3`](https://developer.android.com/docs/quality-guidelines/car-app-quality.md.txt#DD-3) quality guidelines.
 
 > [!NOTE]
 > **Note:** The exception to this rule is video apps, which can [support audio while
@@ -79,26 +79,28 @@ are active, as captured by the [`DD-2`](https://developer.android.com/docs/quali
 By default, activities cannot be used or launched while UX restrictions are
 active. To ensure this behavior applies to your app, it must not include the
 following `<meta-data>` element in any
-[`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element) element within your
+[`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt) element within your
 manifest:
 
-    <!-- NOT ALLOWED -->
-    <meta-data
-      android:name="distractionOptimized"
-      android:value="true"/>
+```xml
+<!-- NOT ALLOWED -->
+<meta-data
+  android:name="distractionOptimized"
+  android:value="true"/>
+```
 
 If an activity in your app is *Resumed* when UX restrictions become active, it
 is obscured by an activity owned by the OS.
 
 At the minimum, your app's activity transitions to the
-[*Paused* lifecycle state](https://developer.android.com/guide/components/activities/activity-lifecycle#onpause). This happens as an `onPause` lifecycle
+[*Paused* lifecycle state](https://developer.android.com/guide/components/activities/activity-lifecycle.md.txt#onpause). This happens as an `onPause` lifecycle
 callback during which you must pause both video and audio playback from your
 app.
 
 On devices that include the [Android Automotive OS compatibility
 mode](https://developer.android.com/training/cars/platforms/automotive-os/compatibility-mode#activity-lifecycle),
 the system blocking causes your app's activities to transition through the
-*Paused* state to the [*Stopped* state](https://developer.android.com/guide/components/activities/activity-lifecycle#onstop).
+*Paused* state to the [*Stopped* state](https://developer.android.com/guide/components/activities/activity-lifecycle.md.txt#onstop).
 
 ### Stop playback and prevent playback resumption
 
@@ -108,13 +110,13 @@ distraction requirements.
 
 If reacting to lifecycle callbacks isn't sufficient for your app, you can listen
 to UX restriction state directly as described in the following section. For
-example, apps that support [picture-in-picture](https://developer.android.com/develop/ui/compose/system/picture-in-picture) might prefer to listen
+example, apps that support [picture-in-picture](https://developer.android.com/develop/ui/compose/system/picture-in-picture.md.txt) might prefer to listen
 directly rather than have conditional checks in lifecycle callbacks.
 
 #### Listen to user experience restrictions
 
 To listen to UX restrictions, first add a dependency on the
-[`android.car`](https://developer.android.com/reference/android/car/classes) library in your app module's `build.gradle` file.
+[`android.car`](https://developer.android.com/reference/android/car/classes.md.txt) library in your app module's `build.gradle` file.
 This is an extension to the Android SDK that provides APIs that are specific to
 Android Automotive OS.
 
@@ -123,7 +125,7 @@ Android Automotive OS.
         useLibrary("android.car")
     }
 
-Use the [`CarUxRestrictionsManager`](https://developer.android.com/reference/android/car/drivingstate/CarUxRestrictionsManager) to read UX restriction state. Don't
+Use the [`CarUxRestrictionsManager`](https://developer.android.com/reference/android/car/drivingstate/CarUxRestrictionsManager.md.txt) to read UX restriction state. Don't
 attempt to determine the UX restriction state from other hardware state
 such as gear or speed, because UX restrictions may vary from display to display
 within a vehicle.
@@ -152,8 +154,8 @@ car.disconnect()
 > [!TIP]
 > **Tip:** You can use a runtime check to support both Android Automotive OS and other form factors with the same code by only calling `Car.createCar()` on Android Automotive OS devices.
 
-The only value provided by [`CarUxRestrictions`](https://developer.android.com/reference/android/car/drivingstate/CarUxRestrictions) that your app
-refers to is the return value of [`isRequiresDistractionOptimization`](https://developer.android.com/reference/android/car/drivingstate/CarUxRestrictions#isRequiresDistractionOptimization()).
+The only value provided by [`CarUxRestrictions`](https://developer.android.com/reference/android/car/drivingstate/CarUxRestrictions.md.txt) that your app
+refers to is the return value of [`isRequiresDistractionOptimization`](https://developer.android.com/reference/android/car/drivingstate/CarUxRestrictions.md.txt#isRequiresDistractionOptimization()).
 Other values are only relevant for activities that are marked as distraction
 optimized.
 
@@ -162,8 +164,8 @@ optimized.
 Validate that your app meets driver distraction requirements using the
 following procedure:
 
-1. Install your app on a [system image](https://developer.android.com/training/cars/testing/emulator#generic-images) without the Google Play Store or Compatibility mode.
-2. With the launcher app grid open, [simulate driving](https://developer.android.com/training/cars/testing/emulator#simulate-driving) and verify that your app cannot be opened.
+1. Install your app on a [system image](https://developer.android.com/training/cars/testing/emulator.md.txt#generic-images) without the Google Play Store or Compatibility mode.
+2. With the launcher app grid open, [simulate driving](https://developer.android.com/training/cars/testing/emulator.md.txt#simulate-driving) and verify that your app cannot be opened.
 3. Stop simulating driving and open your app to a playback screen and begin playback.
 4. Simulate driving again and verify that playback pauses.
    1. If your app supports integrates with `MediaSession`, use `adb shell cmd media_session dispatch play` and verify that playback doesn't resume.
@@ -186,13 +188,13 @@ displays.
 By default, apps draw in an area that doesn't overlap with system bars
 or display cutouts. However, you might want your app to hide the system bars,
 draw content behind them, or show content in a display cutout as described
-in [Lay out your app within window insets](https://developer.android.com/develop/ui/views/layout/insets). If
+in [Lay out your app within window insets](https://developer.android.com/develop/ui/views/layout/insets.md.txt). If
 your app does any of these, refer to the following subsections for details on
 how to let your app work well across the ecosystem of Android Automotive OS
 devices.
 
 > [!CAUTION]
-> **Caution:** Navigation bars may or may not include a back affordance on Android Automotive OS, and gesture navigation isn't supported. Car app quality guideline [`AN-1`](https://developer.android.com/docs/quality-guidelines/car-app-quality#AN-1) requires that your app be navigable by users without a system or hardware back affordance.
+> **Caution:** Navigation bars may or may not include a back affordance on Android Automotive OS, and gesture navigation isn't supported. Car app quality guideline [`AN-1`](https://developer.android.com/docs/quality-guidelines/car-app-quality.md.txt#AN-1) requires that your app be navigable by users without a system or hardware back affordance.
 
 #### System bars, immersive mode, and edge-to-edge rendering
 
@@ -208,7 +210,7 @@ mode](https://developer.android.com/develop/ui/views/layout/immersive). For exam
 hiding the system bars, OEMs can ensure that vehicle controls, such as climate
 controls, are always accessible on screen. If an OEM has prevented apps from
 controlling system bars, nothing happens when an app calls the
-[`WindowInsetsController`](https://developer.android.com/reference/android/view/WindowInsetsController) (or [`WindowInsetsControllerCompat`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat))
+[`WindowInsetsController`](https://developer.android.com/reference/android/view/WindowInsetsController.md.txt) (or [`WindowInsetsControllerCompat`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat.md.txt))
 APIs to show or hide system bars. Refer to the documentation of `show` and
 `hide` to learn more about how to detect if your app was able to modify the
 insets.
@@ -220,19 +222,21 @@ edge-to-edge, check that only non-critical content is drawn behind system bars.
 This content may not be visible if the device OEM prevents setting the color
 or translucency of the bars.
 
-    <!-- Depending on OEM configuration, these style declarations
-         (and the corresponding runtime calls) may be ignored -->
-    <style name="...">
-      <item name="android:statusBarColor">...</item>
-      <item name="android:navigationBarColor">...</item>
-      <item name="android:windowTranslucentStatus">...</item>
-      <item name="android:windowTranslucentNavigation">...</status>
-    </style>
+```xml
+<!-- Depending on OEM configuration, these style declarations
+     (and the corresponding runtime calls) may be ignored -->
+<style name="...">
+  <item name="android:statusBarColor">...</item>
+  <item name="android:navigationBarColor">...</item>
+  <item name="android:windowTranslucentStatus">...</item>
+  <item name="android:windowTranslucentNavigation">...</status>
+</style>
+```
 
 If your app goes edge-to-edge, don't make assumptions about the size, number,
 type, or location of system bars. Instead, use the window insets APIs to lay out
 your app's content relative to the system bars. See
-[Display content edge-to-edge in your app](https://developer.android.com/develop/ui/views/layout/edge-to-edge)
+[Display content edge-to-edge in your app](https://developer.android.com/develop/ui/views/layout/edge-to-edge.md.txt)
 for more details on how to use these APIs. Hard-coded padding values are never
 recommended for any form factor, but in cars they likely won't work to keep
 content in the safe area at all.
@@ -254,31 +258,31 @@ to render within the safe area.
 If your app renders edge-to-edge, you can choose how you'd like it to
 behave with respect to display cutouts. You can accomplish this using resources
 by setting the
-[`android:windowLayoutInDisplayCutoutMode`](https://developer.android.com/reference/android/R.attr#windowLayoutInDisplayCutoutMode)
-attribute for your app's [theme](https://developer.android.com/develop/ui/views/theming/themes) or at runtime
+[`android:windowLayoutInDisplayCutoutMode`](https://developer.android.com/reference/android/R.attr.md.txt#windowLayoutInDisplayCutoutMode)
+attribute for your app's [theme](https://developer.android.com/develop/ui/views/theming/themes.md.txt) or at runtime
 by modifying the window's
-[`layoutInDisplayCutoutMode`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#layoutInDisplayCutoutMode)
+[`layoutInDisplayCutoutMode`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.md.txt#layoutInDisplayCutoutMode)
 attribute.
 
 Because the types of display cutouts present on Android Automotive OS devices
 are different than those on mobile devices, don't use the
-[`LAYOUT_IN_DISPLAY_CUTOUT_MODE_DEFAULT`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#LAYOUT_IN_DISPLAY_CUTOUT_MODE_DEFAULT)
-or [`LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES),
+[`LAYOUT_IN_DISPLAY_CUTOUT_MODE_DEFAULT`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.md.txt#LAYOUT_IN_DISPLAY_CUTOUT_MODE_DEFAULT)
+or [`LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.md.txt#LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES),
 which have behavior optimized for the cutouts found on mobile devices. Instead,
-use [`LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER)
-or [`LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS)
+use [`LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.md.txt#LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER)
+or [`LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.md.txt#LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS)
 to either always avoid or always enter the cutout. When choosing the latter,
-see [Support display cutouts](https://developer.android.com/develop/ui/views/layout/display-cutout) for more
+see [Support display cutouts](https://developer.android.com/develop/ui/views/layout/display-cutout.md.txt) for more
 details on the APIs related to display cutouts.
 
 If your app renders into the display cutout area and you'd like to have
 different behavior between Android Automotive OS and mobile, see
-[Disable features](https://developer.android.com/training/cars/parked/automotive-os#disable-features) for guidance if your app sets this
-behavior at runtime and [Use alternate resources](https://developer.android.com/training/cars/parked/automotive-os#alternate-resources) if your
+[Disable features](https://developer.android.com/training/cars/parked/automotive-os.md.txt#disable-features) for guidance if your app sets this
+behavior at runtime and [Use alternate resources](https://developer.android.com/training/cars/parked/automotive-os.md.txt#alternate-resources) if your
 app sets this behavior using resource files.
 
 > [!TIP]
-> **Tip:** For details on how to test how your app handles display cutouts, see [Test using the configurable emulator](https://developer.android.com/training/cars/testing/emulator/configurable#emulate-cutouts).
+> **Tip:** For details on how to test how your app handles display cutouts, see [Test using the configurable emulator](https://developer.android.com/training/cars/testing/emulator/configurable.md.txt#emulate-cutouts).
 
 ### Disable features
 
@@ -286,13 +290,13 @@ If you are making an existing mobile app available on Android Automotive OS,
 certain features and functionality might not be relevant or available. For
 example, cars generally don't provide access to cameras. Additionally, only a
 subset of Google Play services are available on Android Automotive OS; see
-[Google Play services for cars](https://developer.android.com/training/cars/platforms/automotive-os/google-play/google-services) for more
+[Google Play services for cars](https://developer.android.com/training/cars/platforms/automotive-os/google-play/google-services.md.txt) for more
 details.
 
-You can use the [`PackageManager.hasSystemFeature`](https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String))
+You can use the [`PackageManager.hasSystemFeature`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#hasSystemFeature(java.lang.String))
 API to detect whether the app is running on Android Automotive OS by checking
 for the
-[`FEATURE_AUTOMOTIVE`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_AUTOMOTIVE)
+[`FEATURE_AUTOMOTIVE`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#FEATURE_AUTOMOTIVE)
 feature, as shown in the following example:
 
 
@@ -331,12 +335,12 @@ networking](https://developer.android.com/docs/quality-guidelines/build-for-bill
 
 ### Use alternate resources
 
-To help adapt your app for cars, you can use the [`car` resource qualifier](https://developer.android.com/guide/topics/resources/providing-resources#UiModeQualifier)
-to [provide alternate resources](https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources)
+To help adapt your app for cars, you can use the [`car` resource qualifier](https://developer.android.com/guide/topics/resources/providing-resources.md.txt#UiModeQualifier)
+to [provide alternate resources](https://developer.android.com/guide/topics/resources/providing-resources.md.txt#AlternativeResources)
 when running on an Android Automotive OS vehicle. For example, if you use
-[Dimension resources](https://developer.android.com/guide/topics/resources/more-resources#Dimension) to store
+[Dimension resources](https://developer.android.com/guide/topics/resources/more-resources.md.txt#Dimension) to store
 padding values, you could use a larger value for the `car` resource set to make
 touch targets larger.
 
 > [!IMPORTANT]
-> **Important:** The `car` resource qualifier is matched when the mode returned by [`UiModeManager.getCurrentModeType`](https://developer.android.com/reference/android/app/UiModeManager#getCurrentModeType()) is [`UI_MODE_TYPE_CAR`](https://developer.android.com/reference/android/content/res/Configuration#UI_MODE_TYPE_CAR). This is always the case on Android Automotive OS, but it can occasionally be the case on other devices, such as when an app calls [`UiModeManager.enableCarMode`](https://developer.android.com/reference/android/app/UiModeManager#enableCarMode(int)) itself.
+> **Important:** The `car` resource qualifier is matched when the mode returned by [`UiModeManager.getCurrentModeType`](https://developer.android.com/reference/android/app/UiModeManager.md.txt#getCurrentModeType()) is [`UI_MODE_TYPE_CAR`](https://developer.android.com/reference/android/content/res/Configuration.md.txt#UI_MODE_TYPE_CAR). This is always the case on Android Automotive OS, but it can occasionally be the case on other devices, such as when an app calls [`UiModeManager.enableCarMode`](https://developer.android.com/reference/android/app/UiModeManager.md.txt#enableCarMode(int)) itself.

@@ -4,7 +4,7 @@ url: https://developer.android.com/topic/performance/views/benchmarking/macroben
 source: md.txt
 ---
 
-[Concepts and Jetpack Compose implementation](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-control-app)
+[Concepts and Jetpack Compose implementation](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-control-app.md.txt)
 
 Unlike most Android UI tests, Macrobenchmark tests run in a separate process
 from the app itself. This is necessary to enable things like stopping the
@@ -12,10 +12,10 @@ app process and compiling from DEX bytecode to machine code.
 
 You can drive your app's state using the [UIAutomator library](https://developer.android.com/training/testing/ui-automator) or other
 mechanisms that can control the target app from the test process.
-You can't use [Espresso](https://developer.android.com/training/testing/espresso) or [`ActivityScenario`](https://developer.android.com/reference/androidx/test/core/app/ActivityScenario) for
+You can't use [Espresso](https://developer.android.com/training/testing/espresso.md.txt) or [`ActivityScenario`](https://developer.android.com/reference/androidx/test/core/app/ActivityScenario.md.txt) for
 Macrobenchmark because they expect to run in a shared process with the app.
 
-The following example finds a [`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView) using its resource ID and
+The following example finds a [`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.md.txt) using its resource ID and
 scrolls down several times:
 
 ### Kotlin
@@ -86,7 +86,7 @@ produced.
 
 Sometimes you want to benchmark parts of your app that aren't directly
 accessible from outside. This might be, for example, accessing inner Activities
-that are marked with [`exported=false`](https://developer.android.com/guide/topics/manifest/activity-element#exported), navigating to a [`Fragment`](https://developer.android.com/reference/android/app/Fragment), or
+that are marked with [`exported=false`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#exported), navigating to a [`Fragment`](https://developer.android.com/reference/android/app/Fragment.md.txt), or
 swiping some part of your UI away. The benchmarks need to manually navigate to
 these parts of the app like a user.
 
@@ -156,6 +156,6 @@ public void scrollList() {
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Writing a Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview)
-- [Capture Macrobenchmark metrics](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics)
-- [Microbenchmark](https://developer.android.com/topic/performance/benchmarking/microbenchmark-overview)
+- [Writing a Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview.md.txt)
+- [Capture Macrobenchmark metrics](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics.md.txt)
+- [Microbenchmark](https://developer.android.com/topic/performance/benchmarking/microbenchmark-overview.md.txt)

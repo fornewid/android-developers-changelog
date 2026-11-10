@@ -4,7 +4,7 @@ url: https://developer.android.com/kotlin/flow/stateflow-and-sharedflow
 source: md.txt
 ---
 
-`StateFlow` and `SharedFlow` are [Flow APIs](https://developer.android.com/kotlin/flow)
+`StateFlow` and `SharedFlow` are [Flow APIs](https://developer.android.com/kotlin/flow.md.txt)
 that enable flows to optimally emit state updates and emit values to multiple
 consumers.
 
@@ -21,7 +21,7 @@ the `value` property of the
 In Android, `StateFlow` is a great fit for classes that need to maintain
 an observable mutable state.
 
-Following the examples from [Kotlin flows](https://developer.android.com/kotlin/flow), a `StateFlow`
+Following the examples from [Kotlin flows](https://developer.android.com/kotlin/flow.md.txt), a `StateFlow`
 can be exposed from the `LatestNewsViewModel` so that the `View` can
 listen for UI state updates and inherently make the screen state survive
 configuration changes.
@@ -71,7 +71,7 @@ collection root.
 When a new consumer starts collecting from the flow, it receives the last
 state in the stream and any subsequent states. You can find this behavior
 in other observable classes like
-[`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata).
+[`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata.md.txt).
 
 The `View` listens for `StateFlow` as with any other flow:
 
@@ -120,16 +120,16 @@ To convert any flow to a `StateFlow`, use the
 intermediate operator.
 
 > [!NOTE]
-> **Note:** Testing `StateFlows`, especially when they're created with `stateIn`, can require some extra attention. For details, see the [Testing Kotlin flows on Android](https://developer.android.com/kotlin/flow/test#stateflows) page.
+> **Note:** Testing `StateFlows`, especially when they're created with `stateIn`, can require some extra attention. For details, see the [Testing Kotlin flows on Android](https://developer.android.com/kotlin/flow/test.md.txt#stateflows) page.
 
 ### StateFlow, Flow, and LiveData
 
-`StateFlow` and [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata) have
+`StateFlow` and [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata.md.txt) have
 similarities. Both are observable data holder classes, and both follow
 a similar pattern when used in your app architecture.
 
 Note, however, that `StateFlow` and
-[`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata) do behave differently:
+[`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata.md.txt) do behave differently:
 
 - `StateFlow` requires an initial state to be passed in to the constructor, while `LiveData` does not.
 - `LiveData.observe()` automatically unregisters the consumer when the view goes to the `STOPPED` state, whereas collecting from a `StateFlow` or any other flow does not stop collecting automatically. To achieve the same behavior, you need to collect the flow from a `Lifecycle.repeatOnLifecycle` block.
@@ -142,7 +142,7 @@ root. You can turn cold flows hot by using the
 [`shareIn`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/share-in.html)
 operator.
 
-Using the `callbackFlow` created in [Kotlin flows](https://developer.android.com/kotlin/flow) as an
+Using the `callbackFlow` created in [Kotlin flows](https://developer.android.com/kotlin/flow.md.txt) as an
 example, instead of having each collector create a new flow, you can share
 the data retrieved from Firestore between collectors by using `shareIn`.
 You need to pass in the following:
@@ -255,8 +255,8 @@ function if you don't want to replay the latest information sent to the flow.
 
 ## Additional flow resources
 
-- [Kotlin flows on Android](https://developer.android.com/kotlin/flow)
-- [Testing Kotlin flows on Android](https://developer.android.com/kotlin/flow/test)
+- [Kotlin flows on Android](https://developer.android.com/kotlin/flow.md.txt)
+- [Testing Kotlin flows on Android](https://developer.android.com/kotlin/flow/test.md.txt)
 - [Things to know about Flow's shareIn and stateIn operators](https://medium.com/androiddevelopers/things-to-know-about-flows-sharein-and-statein-operators-20e6ccb2bc74)
 - [Migrating from LiveData to Kotlin Flow](https://medium.com/androiddevelopers/migrating-from-livedata-to-kotlins-flow-379292f419fb)
 - [Flows](https://kotlinlang.org/docs/coroutines-flow.html)

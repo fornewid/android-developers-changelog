@@ -15,16 +15,18 @@ They serialize declarative UI and state documents to the watch host process.
    - Otherwise, fetch the latest version from Google Maven metadata ([Glance Wear metadata](https://dl.google.com/dl/android/maven2/androidx/glance/wear/wear/maven-metadata.xml), [Compose Remote metadata](https://dl.google.com/dl/android/maven2/androidx/compose/remote/remote-creation-compose/maven-metadata.xml), [Wear Compose Remote metadata](https://dl.google.com/dl/android/maven2/androidx/wear/compose/remote/remote-material3/maven-metadata.xml)).
 2. **SDK and Compose compiler requirements** : Ask permission before modifying repo-wide Gradle files unless the user requested widget creation, tile migration, or dependency setup. Set `compileSdk = 37` or higher and enable `buildFeatures { compose = true }`. Keep the project's existing Android and Kotlin Gradle plugin declarations intact.
 
-    dependencies {
-        implementation("androidx.glance.wear:wear:{GLANCE_WEAR_VERSION}")
-        implementation("androidx.glance.wear:wear-core:{GLANCE_WEAR_VERSION}")
-        implementation("androidx.glance.wear:wear-tooling-preview:{GLANCE_WEAR_VERSION}")
-        implementation("androidx.compose.remote:remote-creation-compose:{COMPOSE_REMOTE_VERSION}")
-        implementation("androidx.compose.remote:remote-creation:{COMPOSE_REMOTE_VERSION}")
-        implementation("androidx.compose.remote:remote-core:{COMPOSE_REMOTE_VERSION}")
-        implementation("androidx.compose.remote:remote-tooling-preview:{COMPOSE_REMOTE_VERSION}")
-        implementation("androidx.wear.compose.remote:remote-material3:{WEAR_COMPOSE_REMOTE_VERSION}")
-    }
+```kotlin
+dependencies {
+    implementation("androidx.glance.wear:wear:{GLANCE_WEAR_VERSION}")
+    implementation("androidx.glance.wear:wear-core:{GLANCE_WEAR_VERSION}")
+    implementation("androidx.glance.wear:wear-tooling-preview:{GLANCE_WEAR_VERSION}")
+    implementation("androidx.compose.remote:remote-creation-compose:{COMPOSE_REMOTE_VERSION}")
+    implementation("androidx.compose.remote:remote-creation:{COMPOSE_REMOTE_VERSION}")
+    implementation("androidx.compose.remote:remote-core:{COMPOSE_REMOTE_VERSION}")
+    implementation("androidx.compose.remote:remote-tooling-preview:{COMPOSE_REMOTE_VERSION}")
+    implementation("androidx.wear.compose.remote:remote-material3:{WEAR_COMPOSE_REMOTE_VERSION}")
+}
+```
 
 ## Codebase exploration
 
@@ -40,7 +42,7 @@ Register the `GlanceWearWidgetService` subclass in
 `BIND_WIDGET_PROVIDER` intent action. Attach `<meta-data>` pointing to an
 `@xml/` `<wearwidget-provider>` resource with `SMALL` and `LARGE` `<container>`
 entries. When configuring the service, provider XML, or legacy `TileService`
-migration, you MUST follow [Widget service and manifest reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/widget-service-and-manifest).
+migration, you MUST follow [Widget service and manifest reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/widget-service-and-manifest.md.txt).
 
 ```xml
 <service
@@ -91,8 +93,8 @@ class MyWidget : GlanceWearWidget() {
 
 Remote Compose evaluates UI and state inside the Wear OS host process rather
 than the app process. When building adaptive layouts or full-bleed backgrounds,
-you MUST follow [Remote Compose layouts reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/remote-compose-layouts). When implementing state
-or click actions, you MUST follow [State and actions reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/state-and-actions).
+you MUST follow [Remote Compose layouts reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/remote-compose-layouts.md.txt). When implementing state
+or click actions, you MUST follow [State and actions reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/state-and-actions.md.txt).
 
 - **Remote value wrappers** : Convert primitives using `.rs` (`RemoteString`), `.rc` (`RemoteColor`), `.rdp` (`RemoteDp`), and `.ri` (`RemoteInt`). Format integers with the `RemoteInt.toRemoteString` member method.
 - **Adaptive container sizing** : Branch layout density, typography, and item counts on `params.containerType` (`ContainerInfo.CONTAINER_TYPE_SMALL` versus `ContainerInfo.CONTAINER_TYPE_LARGE`).
@@ -105,7 +107,7 @@ or click actions, you MUST follow [State and actions reference](https://develope
 2. **Rectangular picker PNGs (`res/drawable-nodpi/`)** : Use `RectangularAllWidgetPreviewParams` at `320 dpi` or render non-blank, unmasked rectangular PNGs for every `<container>` in the provider XML:
    - `SMALL` (`CONTAINER_TYPE_SMALL`): **`448x168` px** (`224x84` dp at 320 dpi, aspect ratio `2.67`).
    - `LARGE` (`CONTAINER_TYPE_LARGE`): **`464x288` px** (`232x144` dp at 320 dpi, aspect ratio `1.61`).
-   - Each preview PNG **MUST** depict the widget's actual UI elements, including backgrounds, text labels, icons, avatar initials, and buttons. **NEVER** use a blank placeholder, empty unlabeled shapes, or a 1:1 tile preview. When adding composable previews, picker PNGs, or unit tests, you MUST follow [Previews and testing reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/previews-and-testing).
+   - Each preview PNG **MUST** depict the widget's actual UI elements, including backgrounds, text labels, icons, avatar initials, and buttons. **NEVER** use a blank placeholder, empty unlabeled shapes, or a 1:1 tile preview. When adding composable previews, picker PNGs, or unit tests, you MUST follow [Previews and testing reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/previews-and-testing.md.txt).
 
 ## Component mapping
 
@@ -113,10 +115,10 @@ Use this sample table to load complete implementation patterns and imports:
 
 | Capability or API surface | Reference guide |
 |---|---|
-| `GlanceWearWidget`, `GlanceWearWidgetService`, `AndroidManifest.xml`, `<wearwidget-provider>`, legacy `TileService` migration | [Widget service and manifest reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/widget-service-and-manifest) |
-| `RemoteBox`, `RemoteColumn`, `RemoteRow`, `RemoteText`, `RemoteImage`, `ContainerInfo` (`SMALL` and `LARGE` adaptive layouts) | [Remote Compose layouts reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/remote-compose-layouts) |
-| `RemoteButton`, `rememberMutableRemoteInt`, `valueChange`, `pendingIntentAction`, `BroadcastReceiver`, `triggerUpdateAll` | [State and actions reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/state-and-actions) |
-| `WearWidgetPreview`, `SquircleAllWidgetPreviewParams`, `RoundAllWidgetPreviewParams`, `RectangularAllWidgetPreviewParams`, picker PNGs, `captureRawContent` tests | [Previews and testing reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/previews-and-testing) |
+| `GlanceWearWidget`, `GlanceWearWidgetService`, `AndroidManifest.xml`, `<wearwidget-provider>`, legacy `TileService` migration | [Widget service and manifest reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/widget-service-and-manifest.md.txt) |
+| `RemoteBox`, `RemoteColumn`, `RemoteRow`, `RemoteText`, `RemoteImage`, `ContainerInfo` (`SMALL` and `LARGE` adaptive layouts) | [Remote Compose layouts reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/remote-compose-layouts.md.txt) |
+| `RemoteButton`, `rememberMutableRemoteInt`, `valueChange`, `pendingIntentAction`, `BroadcastReceiver`, `triggerUpdateAll` | [State and actions reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/state-and-actions.md.txt) |
+| `WearWidgetPreview`, `SquircleAllWidgetPreviewParams`, `RoundAllWidgetPreviewParams`, `RectangularAllWidgetPreviewParams`, picker PNGs, `captureRawContent` tests | [Previews and testing reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/previews-and-testing.md.txt) |
 
 ### Legacy ProtoLayout and mobile Glance equivalents
 
@@ -140,7 +142,7 @@ Use this sample table to load complete implementation patterns and imports:
 ## Verification
 
 1. Run `./gradlew :app:assembleDebug` to verify that the widget, service, `AndroidManifest.xml` declarations, and `@xml/` `<wearwidget-provider>` resources compile and link without errors.
-2. If the project includes unit tests or new widget tests, run `./gradlew :app:testDebugUnitTest` and confirm all tests pass. When adding composable previews, picker PNGs, or unit tests, you MUST follow [Previews and testing reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/previews-and-testing).
+2. If the project includes unit tests or new widget tests, run `./gradlew :app:testDebugUnitTest` and confirm all tests pass. When adding composable previews, picker PNGs, or unit tests, you MUST follow [Previews and testing reference](https://developer.android.com/agents/skills/wear/wear-widgets/references/previews-and-testing.md.txt).
 
 ## Antipatterns
 

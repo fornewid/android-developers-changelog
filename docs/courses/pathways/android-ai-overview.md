@@ -21,7 +21,7 @@ Understand the landscape of artificial intelligence and machine learning (AI-ML)
 
 <br />
 
-[Read article](https://developer.android.com/ai/overview)
+[Read article](https://developer.android.com/ai/overview.md.txt)
 
 ## Set up the Android AI sample catalog
 
@@ -76,7 +76,7 @@ Access Google's most capable cloud-based generative models using Firebase AI Log
 
 <br />
 
-[Read article](https://developer.android.com/ai/gemini)
+[Read article](https://developer.android.com/ai/gemini.md.txt)
 
 ## Generate and edit images with Gemini Image models
 
@@ -87,7 +87,7 @@ Gemini Image models can generate and edit images by leveraging world knowledge a
 
 <br />
 
-[Read article](https://developer.android.com/ai/gemini/developer-api)
+[Read article](https://developer.android.com/ai/gemini/developer-api.md.txt)
 
 ## Codelab: Add Gemini capabilities to your Android app
 

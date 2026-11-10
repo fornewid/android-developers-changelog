@@ -15,13 +15,13 @@ bars. Their respective appearance and purpose are as follows:
 
 ![An example of a top and bottom app bar.](https://developer.android.com/static/develop/ui/compose/images/components/appbars.svg) **Figure 1.** A top app bar (left) and a bottom app bar (right).
 
-To implement a top app bar and bottom app bar, use the [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable#TopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) and
-[`BottomAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/BottomAppBar.composable#BottomAppBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composables, respectively. They let you create consistent
+To implement a top app bar and bottom app bar, use the [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable.md.txt#TopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) and
+[`BottomAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/BottomAppBar.composable.md.txt#BottomAppBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composables, respectively. They let you create consistent
 interfaces that encapsulate navigation and action controls, and which are
 aligned with Material Design principles.
 
 > [!IMPORTANT]
-> **Important:** App bars are generally passed to the `Scaffold` composable, which has specific parameters to receive them. For more information about how `Scaffold` provides a convenient way of structuring your app, visit the [`Scaffold` page](https://developer.android.com/develop/ui/compose/components/scaffold).
+> **Important:** App bars are generally passed to the `Scaffold` composable, which has specific parameters to receive them. For more information about how `Scaffold` provides a convenient way of structuring your app, visit the [`Scaffold` page](https://developer.android.com/develop/ui/compose/components/scaffold.md.txt).
 
 ## Top app bars
 
@@ -49,7 +49,7 @@ bars are quite similar. They share several key parameters:
 
 You can control how the app bar responds when the user scrolls the given
 scaffold's inner content. To do so, create an instance of
-[`TopAppBarScrollBehavior`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarScrollBehavior) and pass it to your top app bar for the
+[`TopAppBarScrollBehavior`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarScrollBehavior.md.txt) and pass it to your top app bar for the
 `scrollBehavior` parameter.
 
 There are three types of `TopAppBarScrollBehavior`. They are as follows:
@@ -67,7 +67,7 @@ top app bars, including varying examples of how you can control scroll behavior.
 
 #### Small
 
-To create a small top app bar, use the [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable#TopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable. The
+To create a small top app bar, use the [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable.md.txt#TopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable. The
 following example implements a basic top app bar that contains only a title.
 
 The following example does not pass `TopAppBar` a value for
@@ -105,7 +105,7 @@ This implementation appears as follows:
 
 The center aligned top app bar is essentially the same as the small app bar,
 though the title is centered within the component. To implement it, use the
-dedicated [`CenterAlignedTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CenterAlignedTopAppBar.composable#CenterAlignedTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable.
+dedicated [`CenterAlignedTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CenterAlignedTopAppBar.composable.md.txt#CenterAlignedTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable.
 
 This example uses `enterAlwaysScrollBehavior()` to get the value that it passes
 for `scrollBehavior`. As such, the bar collapses when the user scrolls the
@@ -166,7 +166,7 @@ This implementation appears as follows:
 #### Medium
 
 The medium top app bar places the title beneath any additional icons. To create
-one, use the [`MediumTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MediumTopAppBar.composable#MediumTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable.
+one, use the [`MediumTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MediumTopAppBar.composable.md.txt#MediumTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable.
 
 Like the previous snippet, this example uses `enterAlwaysScrollBehavior()` to
 get the value that it passes for `scrollBehavior`.
@@ -227,7 +227,7 @@ behavior from `enterAlwaysScrollBehavior()` appears:
 
 A large top app bar is similar to the medium, though the padding between the
 title and the icons is greater and it occupies more space on screen overall. To
-create one, use the [`LargeTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LargeTopAppBar.composable#LargeTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable.
+create one, use the [`LargeTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LargeTopAppBar.composable.md.txt#LargeTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable.
 
 Unlike the preceding snippets, this example uses
 `exitUntilCollapsedScrollBehavior()` to get the value that it passes for
@@ -358,4 +358,4 @@ This implementation appears as follows:
 
 - [Material3 docs - Top app bar](https://m3.material.io/components/top-app-bar/overview)
 - [Material3 docs - Bottom app bar](https://m3.material.io/components/bottom-app-bar/overview)
-- [Scaffold](https://developer.android.com/develop/ui/compose/components/scaffold)
+- [Scaffold](https://developer.android.com/develop/ui/compose/components/scaffold.md.txt)

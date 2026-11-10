@@ -82,9 +82,9 @@ fun PasswordTextField() {
 ### Key points about the code
 
 - Maintains the password visibility state in`showPassword`.
-- Uses a [`BasicSecureTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicSecureTextField.composable) composable for password entry.
+- Uses a [`BasicSecureTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicSecureTextField.composable.md.txt) composable for password entry.
 - Has a clickable trailing icon, which toggles the value of `showPassword`.
-- Defines the [`textObfuscationMode`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextObfuscationMode) attribute and the visible/not-visible state of the trailing icon by the state of `showPassword`.
+- Defines the [`textObfuscationMode`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextObfuscationMode.md.txt) attribute and the visible/not-visible state of the trailing icon by the state of `showPassword`.
 
 ## Collections that contain this guide
 
@@ -102,4 +102,4 @@ Learn how to implement ways for users to interact with your app by entering text
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

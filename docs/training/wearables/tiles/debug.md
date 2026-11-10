@@ -5,19 +5,19 @@ source: md.txt
 ---
 
 Tiles are not apps, and so are deployed and launched using different mechanisms.
-When a device has [developer options](https://developer.android.com/studio/debug/dev-options) enabled (emulators have these features
+When a device has [developer options](https://developer.android.com/studio/debug/dev-options.md.txt) enabled (emulators have these features
 enabled by default), additional features supporting tile development become
-available for use in both [Android Studio](https://developer.android.com/studio) and [`adb`](https://developer.android.com/tools/adb).
+available for use in both [Android Studio](https://developer.android.com/studio) and [`adb`](https://developer.android.com/tools/adb.md.txt).
 
 ## Deploy tiles
 
 To deploy your tile, you can install your app on a physical device or emulator
-using [Android Studio](https://developer.android.com/studio), as described in [Build and run your app](https://developer.android.com/studio/run). Then,
+using [Android Studio](https://developer.android.com/studio), as described in [Build and run your app](https://developer.android.com/studio/run.md.txt). Then,
 following the same steps as regular users, manually [add the tile to the tiles
 carousel](https://support.google.com/wearos/answer/9314375).
 
 During active development, you might find it easier and faster to use Android
-Studio's ["Wear OS Tile" Run/Debug Configuration](https://developer.android.com/studio/run/rundebugconfig) feature. This method
+Studio's ["Wear OS Tile" Run/Debug Configuration](https://developer.android.com/studio/run/rundebugconfig.md.txt) feature. This method
 deploys and activates your tile automatically, allowing for immediate
 interaction without additional manual steps.
 
@@ -25,7 +25,7 @@ interaction without additional manual steps.
 
 The easiest way to deploy and run a tile is to use the "run service" icon in the
 gutter. This automatically creates a run configuration if it doesn't already
-exist. See [Wear OS run/debug configurations](https://developer.android.com/studio/run/rundebugconfig#wear-os-configs) for more information.
+exist. See [Wear OS run/debug configurations](https://developer.android.com/studio/run/rundebugconfig.md.txt#wear-os-configs) for more information.
 ![Screenshot with red arrow pointing to "▷" in the gutter](https://developer.android.com/static/training/wearables/images/as-gutter-run.png) Click "▷" in the gutter ![Screenshot showing red arrow pointing to run configuration dropdown, and the "TestTileService" configuration option outlined in red](https://developer.android.com/static/training/wearables/images/as-run-command.png) A "run configuration" is automatically created
 
 ### Create configuration manually
@@ -67,18 +67,20 @@ preview annotation](https://developer.android.com/static/studio/images/design/we
 Include the following dependencies in your app's `build.gradle.kts` or
 `build.gradle` file:
 
-    dependencies {
-        implementation("androidx.wear.tiles:tiles-tooling-preview:1.6.2")
-        debugImplementation("androidx.wear.tiles:tiles-tooling:1.6.2")
-        implementation("androidx.wear:wear-tooling-preview:1.0.0")
-    }
+```kotlin
+dependencies {
+    implementation("androidx.wear.tiles:tiles-tooling-preview:1.6.2")
+    debugImplementation("androidx.wear.tiles:tiles-tooling:1.6.2")
+    implementation("androidx.wear:wear-tooling-preview:1.0.0")
+}
+```
 
 ### Configure tile previews
 
 To see a preview of your tile's appearance on different Wear OS display sizes,
 add the `@Preview` annotation, and pass in the `device` parameter. Note that
 this `@Preview` annotation is from a different package than the one you use for
-[composable previews](https://developer.android.com/develop/ui/compose/tooling/previews).
+[composable previews](https://developer.android.com/develop/ui/compose/tooling/previews.md.txt).
 
 <br />
 
@@ -95,7 +97,7 @@ fun tilePreview(context: Context) = TilePreviewData { request ->
 <br />
 
 > [!NOTE]
-> **Note:** Although the `@Preview` annotation is specific to Wear OS tiles, other options such as `device`, `name`, `group`, `fontScale`, and `locale` work the same for previews of Wear OS tiles as they do for previews of components that use [Compose on Wear OS](https://developer.android.com/training/wearables/compose/screen-size#previews).
+> **Note:** Although the `@Preview` annotation is specific to Wear OS tiles, other options such as `device`, `name`, `group`, `fontScale`, and `locale` work the same for previews of Wear OS tiles as they do for previews of components that use [Compose on Wear OS](https://developer.android.com/training/wearables/compose/screen-size.md.txt#previews).
 
 ### Add and register resources
 
@@ -156,7 +158,7 @@ fun previewWithPlatformOverride(context: Context) = TilePreviewData(
 
 ## Manipulate tiles using adb
 
-[`adb`](https://developer.android.com/tools/adb) can be used to programmatically install, remove and activate tiles
+[`adb`](https://developer.android.com/tools/adb.md.txt) can be used to programmatically install, remove and activate tiles
 during development.
 
 In the following commands, `ComponentName` is a string composed of the package
@@ -167,11 +169,15 @@ name and a class inside that package, for example
 
 Adds a tile provided by `COMPONENT_NAME` and returns the index.
 
-    adb shell am broadcast -a com.google.android.wearable.app.DEBUG_SURFACE --es operation add-tile --ecn component [COMPONENT_NAME]
+```bash
+adb shell am broadcast -a com.google.android.wearable.app.DEBUG_SURFACE --es operation add-tile --ecn component [COMPONENT_NAME]
+```
 
 Example output:
 
-    Broadcast completed: result=1, data="Index=[0]"
+```bash
+Broadcast completed: result=1, data="Index=[0]"
+```
 
 If a tile already exists in the carousel, it's removed and reinserted in the
 same location. Otherwise, it's inserted at `Index[0]`. Also, if the carousel is
@@ -181,21 +187,29 @@ at its maximum capacity, the last tile is removed to make room for the new tile.
 
 Activate tile at index `TILE_INDEX`.
 
-    adb shell am broadcast -a com.google.android.wearable.app.DEBUG_SYSUI --es operation show-tile --ei index [TILE_INDEX]
+```bash
+adb shell am broadcast -a com.google.android.wearable.app.DEBUG_SYSUI --es operation show-tile --ei index [TILE_INDEX]
+```
 
 Example output:
 
-    Broadcast completed: result=1
+```bash
+Broadcast completed: result=1
+```
 
 ### remove-tile
 
 Removes all tile instances on the carousel associated with `COMPONENT_NAME`.
 
-    adb shell am broadcast -a com.google.android.wearable.app.DEBUG_SURFACE --es operation remove-tile --ecn component [COMPONENT_NAME]
+```bash
+adb shell am broadcast -a com.google.android.wearable.app.DEBUG_SURFACE --es operation remove-tile --ecn component [COMPONENT_NAME]
+```
 
 Example output:
 
-    result=1, data="Tile(s) removed."
+```bash
+result=1, data="Tile(s) removed."
+```
 
 ### Return values
 

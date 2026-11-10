@@ -29,13 +29,13 @@ The following are examples of modern emoji.
 | 🧑🏻‍🦰 🧑🏿‍🦯 👩🏻‍🤝‍👩🏼 | [12.1](https://emojipedia.org/emoji-12.1/) (October 2019) |
 | 🦩 🦻🏿 👩🏼‍🤝‍👩🏻 | [12.0](https://emojipedia.org/emoji-12.0/) (February 2019) |
 
-[BOM March 2023](https://developer.android.com/develop/ui/compose/bom/bom) ([Compose UI 1.4](https://developer.android.com/jetpack/androidx/releases/compose-ui#version_14_2))) brings support for the [latest emoji
+[BOM March 2023](https://developer.android.com/develop/ui/compose/bom/bom) ([Compose UI 1.4](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#version_14_2))) brings support for the [latest emoji
 version](https://developer.android.com/develop/ui/views/text-and-emoji/emoji2), including backwards compatibility with older Android versions down
 to API 21.
 
 *This support requires no changes to your app* --- if you use `Text` and
-`TextField` (Material 2 or Material 3) or [`BasicText`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicText.composable) and
-[`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable#BasicTextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.ui.text.input.VisualTransformation,kotlin.Function1,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,kotlin.Function1)), you get modern emoji support out of the box.
+`TextField` (Material 2 or Material 3) or [`BasicText`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicText.composable.md.txt) and
+[`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable.md.txt#BasicTextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.ui.text.input.VisualTransformation,kotlin.Function1,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,kotlin.Function1)), you get modern emoji support out of the box.
 
 The best way to test the [latest emojis](https://unicode.org/emoji/charts/emoji-versions.html) in your app is by using
 a real device on API 30 or below.
@@ -66,13 +66,13 @@ sections describe when to use each API.
 
 ### Extending from `ComponentActivity`
 
-If your `Activity` extends from Compose [`ComponentActivity`](https://developer.android.com/reference/androidx/activity/ComponentActivity) instead of
-[`AppCompatActivity`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity), follow the [Support emoji without AppCompat](https://developer.android.com/develop/ui/views/text-and-emoji/emoji2#support-without-appcompat)
+If your `Activity` extends from Compose [`ComponentActivity`](https://developer.android.com/reference/androidx/activity/ComponentActivity.md.txt) instead of
+[`AppCompatActivity`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity.md.txt), follow the [Support emoji without AppCompat](https://developer.android.com/develop/ui/views/text-and-emoji/emoji2.md.txt#support-without-appcompat)
 instructions.
 
-Because you are not extending [`AppCompatActivity`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity), add the [Emoji2
-library](https://developer.android.com/jetpack/androidx/releases/emoji2) to your dependencies and use [`EmojiTextView`](https://developer.android.com/reference/androidx/emoji/widget/EmojiTextView) in your views
-instead of the [`TextView`](https://developer.android.com/reference/android/widget/TextView) widget, as shown in the following snippet:
+Because you are not extending [`AppCompatActivity`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity.md.txt), add the [Emoji2
+library](https://developer.android.com/jetpack/androidx/releases/emoji2) to your dependencies and use [`EmojiTextView`](https://developer.android.com/reference/androidx/emoji/widget/EmojiTextView.md.txt) in your views
+instead of the [`TextView`](https://developer.android.com/reference/android/widget/TextView.md.txt) widget, as shown in the following snippet:
 
 
 ```kotlin
@@ -111,10 +111,10 @@ Then, in your XML file:
 ### Extending from `AppCompatActivity`
 
 If your `Activity` extends from `AppCompatActivity`, you can use
-[`ComposeView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ComposeView) to call composable functions. Emojis render correctly across
+[`ComposeView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ComposeView.md.txt) to call composable functions. Emojis render correctly across
 Android versions when you use Text composables.
 
-If you are extending from `AppCompatActivity`, inflate [`TextView`](https://developer.android.com/reference/android/widget/TextView) from XML
+If you are extending from `AppCompatActivity`, inflate [`TextView`](https://developer.android.com/reference/android/widget/TextView.md.txt) from XML
 to have emojis rendered correctly.
 
 This applies if you are inflating the XML:
@@ -145,7 +145,7 @@ class MyActivity : AppCompatActivity() {
 
 <br />
 
-- inside `ComposeView`, via [view binding](https://developer.android.com/topic/libraries/view-binding) using [`AndroidViewBinding`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidViewBinding.composable#AndroidViewBinding(kotlin.Function3,androidx.compose.ui.Modifier,kotlin.Function1)), like in the following snippet:
+- inside `ComposeView`, via [view binding](https://developer.android.com/topic/libraries/view-binding.md.txt) using [`AndroidViewBinding`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidViewBinding.composable.md.txt#AndroidViewBinding(kotlin.Function3,androidx.compose.ui.Modifier,kotlin.Function1)), like in the following snippet:
 
 
 ```kotlin
@@ -173,8 +173,8 @@ class MyActivity : AppCompatActivity() {
 
 <br />
 
-To inflate a text with [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,kotlin.Function1)) inside `ComposeView`, use
-[`AppCompatTextView`](https://developer.android.com/reference/androidx/appcompat/widget/AppCompatTextView) to render emojis properly:
+To inflate a text with [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable.md.txt#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,kotlin.Function1)) inside `ComposeView`, use
+[`AppCompatTextView`](https://developer.android.com/reference/androidx/appcompat/widget/AppCompatTextView.md.txt) to render emojis properly:
 
 
 ```kotlin
@@ -203,20 +203,20 @@ class MyActivity : AppCompatActivity() {
 
 <br />
 
-See the [Interoperability APIs](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis) documentation for details.
+See the [Interoperability APIs](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis.md.txt) documentation for details.
 
 ## Troubleshooting
 
 If you're seeing *tofu* (☐) instead of the emoji, first check if the problem is
 your specific test device. There are a few main things you can check:
 
-- You might be using a [recently flashed device or a new emulator](https://developer.android.com/develop/ui/views/text-and-emoji/emoji2#appcompat-displays-tofu-new-or-flashed-device). If possible, try another real test device you use often that is signed into your Google Account. Remember that API should be 30 or below to ensure emojis work in the correct versions.
-- The test phone [doesn't support downloadable fonts](https://developer.android.com/develop/ui/views/text-and-emoji/emoji2#appcompat-displays-tofu-no-downloadable-font-support).
-- Check the [correct Google Play services version](https://developer.android.com/develop/ui/views/text-and-emoji/emoji2#appcompat-displays-tofu-earlier-emulator-has-early-google-play-services).
+- You might be using a [recently flashed device or a new emulator](https://developer.android.com/develop/ui/views/text-and-emoji/emoji2.md.txt#appcompat-displays-tofu-new-or-flashed-device). If possible, try another real test device you use often that is signed into your Google Account. Remember that API should be 30 or below to ensure emojis work in the correct versions.
+- The test phone [doesn't support downloadable fonts](https://developer.android.com/develop/ui/views/text-and-emoji/emoji2.md.txt#appcompat-displays-tofu-no-downloadable-font-support).
+- Check the [correct Google Play services version](https://developer.android.com/develop/ui/views/text-and-emoji/emoji2.md.txt#appcompat-displays-tofu-earlier-emulator-has-early-google-play-services).
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations)
-- [Text in Compose](https://developer.android.com/develop/ui/compose/text)
+- [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations.md.txt)
+- [Text in Compose](https://developer.android.com/develop/ui/compose/text.md.txt)
 - [Scroll](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/scroll)

@@ -189,7 +189,7 @@ private fun LargeButtonWithTrailingIconPreview() {
 @Preview
 @Composable
 private fun LargeButtonWithLeadingAndTrailingIconPreview() {
-    GlimmerTheme { LargeButtonWithLeadingAndTrailingIconSample() }
+    GrgeButtonWithLeadingAndTrailingIconSample() }
 }
 
 @Preview
@@ -197,6 +197,7 @@ private fun LargeButtonWithLeadingAndTrailingIconPreview() {
 private fun CustomFocusedColorButtonPreview() {
     GlimmerTheme { CustomFocusedColorButtonSample() }
 }
+ButtonSamples.kt
 ```
 
 <br />

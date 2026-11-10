@@ -177,7 +177,7 @@ terminal operator is called on the flow. In the previous example,
 having multiple flow collectors causes the data source to fetch the
 latest news multiple times on different fixed intervals. To optimize and
 share a flow when multiple consumers collect at the same time, use the
-[`shareIn`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow#sharein) operator.
+[`shareIn`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow.md.txt#sharein) operator.
 
 ## Catching unexpected exceptions
 
@@ -314,7 +314,7 @@ data updates and endless streams of data.
 You can use
 [Flow with Room](https://medium.com/androiddevelopers/room-flow-273acffe5b57)
 to be notified of changes in a database. When using
-[data access objects (DAO)](https://developer.android.com/training/data-storage/room/accessing-data),
+[data access objects (DAO)](https://developer.android.com/training/data-storage/room/accessing-data.md.txt),
 return a `Flow` type to get live updates.
 
 
@@ -335,13 +335,15 @@ Similarly, real-time cloud data sources such as [Cloud Firestore](https://fireba
 `Flow` extensions that stream live data updates directly to your repository
 layer:
 
-    class RemoteMessagesDataSource(
-        private val firestore: FirebaseFirestore
-    ) {
-        // Returns a Flow emitting updated message lists when collection changes
-        val messages: Flow<List<Message>> =
-            firestore.collection("messages").dataObjects()
-    }
+```kotlin
+class RemoteMessagesDataSource(
+    private val firestore: FirebaseFirestore
+) {
+    // Returns a Flow emitting updated message lists when collection changes
+    val messages: Flow<List<Message>> =
+        firestore.collection("messages").dataObjects()
+}
+```
 
 This pairs naturally with local storage: your repository can combine flows
 from both Room (local cache) and Firebase (remote cloud data) to provide an
@@ -360,41 +362,43 @@ especially useful when working with multi-event listeners in SDKs such as
 To convert a callback-based listener API to a flow---such as listening for
 Firestore database updates---use the following code:
 
-    class FirestoreUserEventsDataSource(
-        private val firestore: FirebaseFirestore
-    ) {
-        // Method to get user events from the Firestore database
-        fun getUserEvents(): Flow<UserEvents> = callbackFlow {
+```kotlin
+class FirestoreUserEventsDataSource(
+    private val firestore: FirebaseFirestore
+) {
+    // Method to get user events from the Firestore database
+    fun getUserEvents(): Flow<UserEvents> = callbackFlow {
 
-            // Reference to use in Firestore
-            var eventsCollection: CollectionReference? = null
-            try {
-                eventsCollection = FirebaseFirestore.getInstance()
-                    .collection("collection")
-                    .document("app")
-            } catch (e: Throwable) {
-                // If Firebase cannot be initialized, close the stream of data
-                // flow consumers will stop collecting and the coroutine will resume
-                close(e)
-            }
-
-            // Registers callback to firestore, which will be called on new events
-            val subscription = eventsCollection?.addSnapshotListener { snapshot, _ ->
-                if (snapshot == null) { return@addSnapshotListener }
-                // Sends events to the flow! Consumers will get the new events
-                try {
-                    trySend(snapshot.getEvents())
-                } catch (e: Throwable) {
-                    // Event couldn't be sent to the flow
-                }
-            }
-
-            // The callback inside awaitClose will be executed when the flow is
-            // either closed or cancelled.
-            // In this case, remove the callback from Firestore
-            awaitClose { subscription?.remove() }
+        // Reference to use in Firestore
+        var eventsCollection: CollectionReference? = null
+        try {
+            eventsCollection = FirebaseFirestore.getInstance()
+                .collection("collection")
+                .document("app")
+        } catch (e: Throwable) {
+            // If Firebase cannot be initialized, close the stream of data
+            // flow consumers will stop collecting and the coroutine will resume
+            close(e)
         }
+
+        // Registers callback to firestore, which will be called on new events
+        val subscription = eventsCollection?.addSnapshotListener { snapshot, _ ->
+            if (snapshot == null) { return@addSnapshotListener }
+            // Sends events to the flow! Consumers will get the new events
+            try {
+                trySend(snapshot.getEvents())
+            } catch (e: Throwable) {
+                // Event couldn't be sent to the flow
+            }
+        }
+
+        // The callback inside awaitClose will be executed when the flow is
+        // either closed or cancelled.
+        // In this case, remove the callback from Firestore
+        awaitClose { subscription?.remove() }
     }
+}
+```
 
 Unlike the `flow` builder, `callbackFlow`
 allows values to be emitted from a different `CoroutineContext` with the
@@ -420,6 +424,6 @@ successful result.
 
 ## Additional flow resources
 
-- [Testing Kotlin flows on Android](https://developer.android.com/kotlin/flow/test)
-- [`StateFlow` and `SharedFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow)
+- [Testing Kotlin flows on Android](https://developer.android.com/kotlin/flow/test.md.txt)
+- [`StateFlow` and `SharedFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow.md.txt)
 - [Flows](https://kotlinlang.org/docs/coroutines-flow.html)

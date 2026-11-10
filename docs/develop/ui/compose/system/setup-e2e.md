@@ -7,7 +7,7 @@ source: md.txt
 Edge-to-edge display allows your app to draw its UI behind the system bars---the
 status bar, caption bar, and navigation bar---to achieve a more immersive user
 experience. If you target devices running Android 15 (API level 35) or higher,
-[edge-to-edge is enforced](https://developer.android.com/about/versions/15/behavior-changes-15#edge-to-edge) by default.
+[edge-to-edge is enforced](https://developer.android.com/about/versions/15/behavior-changes-15.md.txt#edge-to-edge) by default.
 
 To correctly display content edge-to-edge on all Android versions, follow these
 setup steps. Without these steps, your app might draw solid colors behind the
@@ -21,7 +21,7 @@ system bars or not animate its content synchronously with on-screen keyboard
 
 ### Add Edge-to-Edge support
 
-Use the Edge-to-Edge [Android skill](https://developer.android.com/tools/agents/android-skills) to add adaptive edge-to-edge support to your Jetpack Compose app. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the Edge-to-Edge [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to add adaptive edge-to-edge support to your Jetpack Compose app. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add edge-to-edge
 
@@ -30,7 +30,7 @@ Use the Edge-to-Edge [Android skill](https://developer.android.com/tools/agents/
 ## 1. Enable edge-to-edge display
 
 To enable edge-to-edge on previous Android versions, call
-[`enableEdgeToEdge()`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity#(androidx.activity.ComponentActivity).enableEdgeToEdge(androidx.activity.SystemBarStyle,androidx.activity.SystemBarStyle)) in your `Activity.onCreate()` method:
+[`enableEdgeToEdge()`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.md.txt#(androidx.activity.ComponentActivity).enableEdgeToEdge(androidx.activity.SystemBarStyle,androidx.activity.SystemBarStyle)) in your `Activity.onCreate()` method:
 
 
 ```kotlin
@@ -55,15 +55,17 @@ Set `android:windowSoftInputMode="adjustResize"` in your Activity's
 enabling you to adjust your layout with padding when the on-screen keyboard
 appears or disappears.
 
-    <!-- In your AndroidManifest.xml file: -->
-    <activity
-      android:name=".ui.MainActivity"
-      android:label="@string/app_name"
-      android:windowSoftInputMode="adjustResize"
-      android:theme="@style/Theme.MyApplication"
-      android:exported="true">
-      ...
-    </activity>
+```xml
+<!-- In your AndroidManifest.xml file: -->
+<activity
+  android:name=".ui.MainActivity"
+  android:label="@string/app_name"
+  android:windowSoftInputMode="adjustResize"
+  android:theme="@style/Theme.MyApplication"
+  android:exported="true">
+  ...
+</activity>
+```
 
 ## 3. Handle overlaps using insets
 
@@ -79,7 +81,7 @@ gestures. The main types of insets to consider for edge-to-edge display are:
 - **Display cutout insets:** Represent areas where a physical cutout (like a camera notch) exists on the device screen.
 
 In Compose, you can handle insets using either rulers, padding modifiers or
-inset size modifiers. See [About window insets](https://developer.android.com/develop/ui/compose/system/insets) for detailed guidance.
+inset size modifiers. See [About window insets](https://developer.android.com/develop/ui/compose/system/insets.md.txt) for detailed guidance.
 
 ## Advanced topics
 
@@ -105,7 +107,7 @@ windowInsetsController.show(WindowInsetsCompat.Type.systemBars())
 <br />
 
 > [!NOTE]
-> **Note:** All apps running in [desktop windowing](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-desktop-windowing) have a caption bar, even in immersive mode. For games and other immersive apps, this means you must use either `WindowInsets.systemBars` (which includes the caption bar) or `WindowInsets.captionBar` to ensure your UI isn't covered by the system bars.
+> **Note:** All apps running in [desktop windowing](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-desktop-windowing.md.txt) have a caption bar, even in immersive mode. For games and other immersive apps, this means you must use either `WindowInsets.systemBars` (which includes the caption bar) or `WindowInsets.captionBar` to ensure your UI isn't covered by the system bars.
 
 ### System bar colors and icons
 
@@ -132,7 +134,7 @@ WindowCompat.getInsetsController(window, window.decorView)
 
 While `enableEdgeToEdge()` provides default transparent or translucent system
 bars, you might need to customize this. Consult the [Android system bars design
-guidance](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars) and [Edge-to-edge design guidance](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge) to decide when to use
+guidance](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars) and [Edge-to-edge design guidance](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge.md.txt) to decide when to use
 transparent versus translucent bars.
 
 To make the 3-button navigation bar fully transparent instead of translucent,
@@ -145,4 +147,4 @@ window.isNavigationBarContrastEnforced = false
 
 <br />
 
-For more information, see [About system bar protection](https://developer.android.com/develop/ui/compose/system/system-bars).
+For more information, see [About system bar protection](https://developer.android.com/develop/ui/compose/system/system-bars.md.txt).

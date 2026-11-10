@@ -13,7 +13,7 @@ shows you how you can delete records in two ways.
 ## Delete using Record IDs
 
 You can delete records using a list of unique identifiers such as the Record ID
-and your app's Client Record ID. Use [`deleteRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#deleteRecords(kotlin.reflect.KClass,kotlin.collections.List,kotlin.collections.List)), and
+and your app's Client Record ID. Use [`deleteRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient.md.txt#deleteRecords(kotlin.reflect.KClass,kotlin.collections.List,kotlin.collections.List)), and
 supply it with two lists of `Strings`, one for the Record IDs and one for the
 Client IDs. If you only have one of the IDs available, you can set `emptyList()`
 on the other list.
@@ -38,8 +38,8 @@ try {
 ## Delete using a time range
 
 You can also delete data using a time range as your filter.
-Use [`deleteRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#deleteRecords(kotlin.reflect.KClass,androidx.health.connect.client.time.TimeRangeFilter)), and supply it with a
-[`TimeRangeFilter`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/time/TimeRangeFilter) object that takes
+Use [`deleteRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient.md.txt#deleteRecords(kotlin.reflect.KClass,androidx.health.connect.client.time.TimeRangeFilter)), and supply it with a
+[`TimeRangeFilter`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/time/TimeRangeFilter.md.txt) object that takes
 a start and end timestamp values.
 
 The following code example shows how to delete Steps data of a specific time:

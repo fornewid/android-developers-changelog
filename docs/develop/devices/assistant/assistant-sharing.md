@@ -14,7 +14,7 @@ prompted.](https://developer.android.com/static/guide/app-actions/images/app-act
 This method of sharing is often sufficient, but users who receive content shared
 from your app might not re-enter the app to view content. You can provide
 Assistant with structured information about the current foreground content by
-implementing the [`onProvideAssistContent()`](https://developer.android.com/reference/android/app/Activity#onProvideAssistContent(android.app.assist.AssistContent)) method.
+implementing the [`onProvideAssistContent()`](https://developer.android.com/reference/android/app/Activity.md.txt#onProvideAssistContent(android.app.assist.AssistContent)) method.
 
 This process helps maintain the structure of data as it's shared to another
 user. Users who receive shared app content can then be deep linked or receive
@@ -33,7 +33,7 @@ preview screens.
 
 Provide contextual information as a [JSON-LD](https://json-ld.org/) object
 [using schema.org vocabulary](https://schema.org/docs/documents.html) in the
-`structuredData` field of [`AssistContent`](https://developer.android.com/reference/android/app/assist/AssistContent). The following code snippet shows
+`structuredData` field of [`AssistContent`](https://developer.android.com/reference/android/app/assist/AssistContent.md.txt). The following code snippet shows
 an example of logging contextual content:
 Kotlin
 
@@ -75,4 +75,4 @@ following fields are required:
 - `.url` (only required if the content is URL-addressable)
 
 To learn more about using `onProvideAssistContent()`, see the
-[Optimizing Contextual Content for the Assistant](https://developer.android.com/training/articles/assistant) guide.
+[Optimizing Contextual Content for the Assistant](https://developer.android.com/training/articles/assistant.md.txt) guide.

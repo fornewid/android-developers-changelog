@@ -4,9 +4,9 @@ url: https://developer.android.com/guide/navigation/navigation-3/deep-links
 source: md.txt
 ---
 
-Starting in version [1.2.0](https://developer.android.com/jetpack/androidx/releases/navigation3#navigation3_version_12_2), Navigation 3 supports deep linking to
-destinations in your app using the [`DeepLinkRequest`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkRequest) and
-[`DeepLinkMatcher`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkMatcher) classes.
+Starting in version [1.2.0](https://developer.android.com/jetpack/androidx/releases/navigation3.md.txt#navigation3_version_12_2), Navigation 3 supports deep linking to
+destinations in your app using the [`DeepLinkRequest`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkRequest.md.txt) and
+[`DeepLinkMatcher`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkMatcher.md.txt) classes.
 
 To support deep links in your app, complete the following steps:
 
@@ -17,11 +17,11 @@ To support deep links in your app, complete the following steps:
 ## Create a `DeepLinkRequest`
 
 A `DeepLinkRequest` represents an incoming deep link. It contains a
-[`DeepLinkUri`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkUri) and optional [`RequestExtras`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/RequestExtras) with additional
+[`DeepLinkUri`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkUri.md.txt) and optional [`RequestExtras`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/RequestExtras.md.txt) with additional
 information, such as the intent action or MIME type.
 
 > [!NOTE]
-> **Note:** On Android, `DeepLinkUri` is a typealias of [`android.net.Uri`](https://developer.android.com/reference/android/net/Uri).
+> **Note:** On Android, `DeepLinkUri` is a typealias of [`android.net.Uri`](https://developer.android.com/reference/android/net/Uri.md.txt).
 
 
 ```kotlin
@@ -53,14 +53,14 @@ val requestWithMimeType = DeepLinkRequest(
 ### Provide `DeepLinkRequest` extras
 
 To store additional information related to the deep link, use the
-[`RequestExtras`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/RequestExtras) class. To make defining and instantiating extras type-safe,
-the library provides the [`RequestExtrasKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/RequestExtrasKey) interface and
-[`requestExtras`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/package-summary#requestExtras(kotlin.Function1)) DSL.
+[`RequestExtras`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/RequestExtras.md.txt) class. To make defining and instantiating extras type-safe,
+the library provides the [`RequestExtrasKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/RequestExtrasKey.md.txt) interface and
+[`requestExtras`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/package-summary.md.txt#requestExtras(kotlin.Function1)) DSL.
 
 Additionally, the library provides two extras keys and associated helpers:
 
-- [`MimeTypeExtrasKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkRequest.Companion#MimeTypeExtrasKey): Used to store a MIME type `String`.
-- [`ActionExtrasKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkRequest.Companion#(androidx.navigation3.runtime.deeplink.DeepLinkRequest.Companion).ActionExtrasKey) (Android-only): Used to store an `Intent`'s action `String`.
+- [`MimeTypeExtrasKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkRequest.Companion.md.txt#MimeTypeExtrasKey): Used to store a MIME type `String`.
+- [`ActionExtrasKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkRequest.Companion.md.txt#(androidx.navigation3.runtime.deeplink.DeepLinkRequest.Companion).ActionExtrasKey) (Android-only): Used to store an `Intent`'s action `String`.
 
 
 ```kotlin
@@ -80,7 +80,7 @@ val combinedExtras: RequestExtras = extras + DeepLinkRequest.actionExtra(Intent.
 
 <br />
 
-To define your own custom extras, implement the [`RequestExtrasKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/RequestExtrasKey)
+To define your own custom extras, implement the [`RequestExtrasKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/RequestExtrasKey.md.txt)
 interface with a typed generic:
 
 
@@ -97,7 +97,7 @@ val campaignId: String? = customExtras[CampaignIdExtrasKey]
 
 <br />
 
-You can also use [`emptyRequestExtras()`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/package-summary#emptyRequestExtras()) to construct an empty instance, or
+You can also use [`emptyRequestExtras()`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/package-summary.md.txt#emptyRequestExtras()) to construct an empty instance, or
 combine extras using the `+` (`plus`) and `-` (`minus`) operators.
 
 ### Create a `DeepLinkRequest` from an `Intent`
@@ -105,9 +105,9 @@ combine extras using the `+` (`plus`) and `-` (`minus`) operators.
 On Android, you can create a `DeepLinkRequest` directly from an `Intent`. When
 constructed this way, the `DeepLinkRequest` is built as follows:
 
-- The `uri` is copied from the intent's [`data`](https://developer.android.com/reference/kotlin/android/content/Intent#getdata) field.
-- If not null, the MIME type and action [extras](https://developer.android.com/guide/navigation/navigation-3/deep-links#request-extras) are set from the corresponding intent fields.
-- All of the [`intent.extras`](https://developer.android.com/training/basics/intents/sending#add-extras) with non-null values are saved as a [`SavedState`](https://developer.android.com/reference/kotlin/androidx/savedstate/SavedState) in [`DeepLinkRequest.IntentExtrasKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkRequest.Companion#(androidx.navigation3.runtime.deeplink.DeepLinkRequest.Companion).IntentExtrasKey).
+- The `uri` is copied from the intent's [`data`](https://developer.android.com/reference/kotlin/android/content/Intent.md.txt#getdata) field.
+- If not null, the MIME type and action [extras](https://developer.android.com/guide/navigation/navigation-3/deep-links.md.txt#request-extras) are set from the corresponding intent fields.
+- All of the [`intent.extras`](https://developer.android.com/training/basics/intents/sending.md.txt#add-extras) with non-null values are saved as a [`SavedState`](https://developer.android.com/reference/kotlin/androidx/savedstate/SavedState.md.txt) in [`DeepLinkRequest.IntentExtrasKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkRequest.Companion.md.txt#(androidx.navigation3.runtime.deeplink.DeepLinkRequest.Companion).IntentExtrasKey).
 - Any additional extras provided using the `extras` parameter are added.
 
 
@@ -141,31 +141,31 @@ val campaignId: String? = request.extras[CampaignIdExtrasKey] // "spring_promo"
 
 ## Create `DeepLinkMatcher` instances
 
-A [`DeepLinkMatcher`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkMatcher) maps incoming [`DeepLinkRequest`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkRequest) instances to
+A [`DeepLinkMatcher`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkMatcher.md.txt) maps incoming [`DeepLinkRequest`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkRequest.md.txt) instances to
 navigation keys that can be added to your app's back stack. Navigation 3
-provides three built-in matchers: [`UriDeepLinkMatcher`](https://developer.android.com/guide/navigation/navigation-3/deep-links/uri-matcher) for
+provides three built-in matchers: [`UriDeepLinkMatcher`](https://developer.android.com/guide/navigation/navigation-3/deep-links/uri-matcher.md.txt) for
 pattern-based URI matching, `StaticKeyDeepLinkMatcher` for basic links, and
 `BackStackMatcher` for building synthetic back stacks. The library also
-supports [custom matchers](https://developer.android.com/guide/navigation/navigation-3/deep-links/custom-matchers) for use cases not covered by the built-in
+supports [custom matchers](https://developer.android.com/guide/navigation/navigation-3/deep-links/custom-matchers.md.txt) for use cases not covered by the built-in
 matchers.
 
-For more information, see [Create DeepLinkMatchers](https://developer.android.com/guide/navigation/navigation-3/deep-links/create-matchers).
+For more information, see [Create DeepLinkMatchers](https://developer.android.com/guide/navigation/navigation-3/deep-links/create-matchers.md.txt).
 
 ## Add intent filters
 
 To enable a deep link to start your activity, you must define the matching
 `<intent-filter>` elements in your app's `AndroidManifest.xml`. For more
-information, see [Add intent filters for incoming links](https://developer.android.com/training/app-links/create-deeplinks#add-intent).
+information, see [Add intent filters for incoming links](https://developer.android.com/training/app-links/create-deeplinks.md.txt#add-intent).
 
 ## Match an incoming request
 
-After you've [created your `DeepLinkMatcher` instances](https://developer.android.com/guide/navigation/navigation-3/deep-links/create-matchers), you can match
+After you've [created your `DeepLinkMatcher` instances](https://developer.android.com/guide/navigation/navigation-3/deep-links/create-matchers.md.txt), you can match
 incoming requests in your activity.
 
 To match an incoming request, complete the following steps:
 
 1. **Instantiate** your `DeepLinkMatcher` instances.
-2. **Collate** all of your `DeepLinkMatcher` instances, either explicitly or by using [multibindings](https://developer.android.com/guide/navigation/navigation-3/modularize#modularize-deeplinks).
+2. **Collate** all of your `DeepLinkMatcher` instances, either explicitly or by using [multibindings](https://developer.android.com/guide/navigation/navigation-3/modularize.md.txt#modularize-deeplinks).
 3. **Create** a `DeepLinkRequest` from the incoming `Intent`.
 4. **Match** the request against all matchers and find the best match.
 5. **Create** the back stack from the match result.

@@ -15,7 +15,7 @@ keyboard focus with the <kbd>Tab</kbd> key or directional (arrow) keys:
 An interactive component is a focus target by default. In other words, a UI
 element is a focus target if users can tap or click it.
 
-For example, consider three [Card](https://developer.android.com/develop/ui/compose/components/card) components. If the first and third cards are
+For example, consider three [Card](https://developer.android.com/develop/ui/compose/components/card.md.txt) components. If the first and third cards are
 interactive (they define an `onClick` callback), but the second card is purely
 informational (has no click handling), pressing the <kbd>Tab</kbd> key on the first card
 skips the second card and advances directly to the third card.
@@ -35,7 +35,7 @@ Card(onClick = { /* Third card action */ }) {
 
 <br />
 
-You can make the second card a focus target by providing an [`onClick`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1))
+You can make the second card a focus target by providing an [`onClick`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1))
 parameter:
 
 
@@ -47,8 +47,8 @@ Card(onClick = { /* Second card action */ }) {
 
 <br />
 
-The [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0)) modifier also turns custom or standard UI elements into
-focus targets. Refer to [Tap and press](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/tap-and-press) for details.
+The [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary.md.txt#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0)) modifier also turns custom or standard UI elements into
+focus targets. Refer to [Tap and press](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/tap-and-press.md.txt) for details.
 
 > [!WARNING]
 > **Warning:** Don't use the `focusable` modifier and the `clickable` modifier at the same time. It leads to incorrect behavior because it creates two independent focus targets.
@@ -67,7 +67,7 @@ Box(
 
 ## Make a composable a non-clickable focus target
 
-The [`focusable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).focusable(kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource)) modifier makes a composable a focus target without requiring
+The [`focusable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary.md.txt#(androidx.compose.ui.Modifier).focusable(kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource)) modifier makes a composable a focus target without requiring
 click semantics. Users can move keyboard focus to the modified composable (for
 example, to inspect content with accessibility tools or scroll the viewport),
 but pressing <kbd>Enter</kbd> or <kbd>Space</kbd> keys
@@ -90,7 +90,7 @@ Box(
 In some scenarios, you may want to exclude an interactive element from keyboard
 navigation without disabling pointer or click events. You can prevent a
 component from receiving focus by setting `canFocus = false` inside the
-[`focusProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary#(androidx.compose.ui.Modifier).focusProperties(kotlin.Function1)) modifier:
+[`focusProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary.md.txt#(androidx.compose.ui.Modifier).focusProperties(kotlin.Function1)) modifier:
 
 
 ```kotlin
@@ -110,8 +110,8 @@ Switch(
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Focus traversal order](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-traversal)
-- [Focus in text fields](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-in-text-fields)
-- [Group focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-group)
-- [Indicate focus state](https://developer.android.com/develop/ui/compose/touch-input/focus/focused-state)
-- [Test focus navigation](https://developer.android.com/develop/ui/compose/touch-input/focus/testing-focus)
+- [Focus traversal order](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-traversal.md.txt)
+- [Focus in text fields](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-in-text-fields.md.txt)
+- [Group focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-group.md.txt)
+- [Indicate focus state](https://developer.android.com/develop/ui/compose/touch-input/focus/focused-state.md.txt)
+- [Test focus navigation](https://developer.android.com/develop/ui/compose/touch-input/focus/testing-focus.md.txt)

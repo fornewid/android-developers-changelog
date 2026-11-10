@@ -8,7 +8,7 @@ source: md.txt
 
 The remote control of Android TV has a D-pad control that sends commands that
 arrive as key events at `dispatchKeyEvent(KeyEvent)` of your `Activity`. These
-need to be delegated to the [`PlayerView`](https://developer.android.com/reference/androidx/media3/ui/PlayerView):
+need to be delegated to the [`PlayerView`](https://developer.android.com/reference/androidx/media3/ui/PlayerView.md.txt):
 
 
 ### Kotlin
@@ -60,7 +60,7 @@ public void onCreate(@Nullable Bundle savedInstanceState) {
 
 <br />
 
-If you are using Compose on Android TV, you need to make the [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1))
+If you are using Compose on Android TV, you need to make the [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable.md.txt#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1))
 focusable and delegate the event by passing the modifier parameter into the
 `AndroidView` accordingly:
 
@@ -76,13 +76,13 @@ AndroidView(
 
 ### Use the `Player` composable
 
-If you use the [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) composable from the `media3-ui-compose-material3`
+If you use the [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable.md.txt) composable from the `media3-ui-compose-material3`
 library, D-pad navigation is supported by default. The `Player` and
-[`PlayerDefaults`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults) components have an automatic [`FocusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester) instance that
+[`PlayerDefaults`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults.md.txt) components have an automatic [`FocusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester.md.txt) instance that
 traverses the components with the D-pad, so you don't need additional code or
-[`Modifier.focusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary#(androidx.compose.ui.Modifier).focusRequester(androidx.compose.ui.focus.FocusRequester)) to handle focus and key events:
+[`Modifier.focusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary.md.txt#(androidx.compose.ui.Modifier).focusRequester(androidx.compose.ui.focus.FocusRequester)) to handle focus and key events:
 
-The [`PlayerDefaults`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults) are arranged in top, center, and bottom slots so the
+The [`PlayerDefaults`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults.md.txt) are arranged in top, center, and bottom slots so the
 D-pad navigation feels intuitive. For any customizations and overrides to those
 slots, ensure you provide a well-navigable component. Note that most Compose
 components, such as `Slider` or `Row` containing buttons, manage focus

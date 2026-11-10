@@ -4,28 +4,28 @@ url: https://developer.android.com/media/media3/exoplayer/troubleshooting
 source: md.txt
 ---
 
-- [Fixing "Cleartext HTTP traffic not permitted" errors](https://developer.android.com/media/media3/exoplayer/troubleshooting#fixing-cleartext-http-traffic-not-permitted-errors)
-- [Fixing "SSLHandshakeException", "CertPathValidatorException" and "ERR_CERT_AUTHORITY_INVALID" errors](https://developer.android.com/media/media3/exoplayer/troubleshooting#fixing-sslhandshakeexception-certpathvalidatorexception-and-err_cert_authority_invalid-errors)
-- [Why are some media files not seekable?](https://developer.android.com/media/media3/exoplayer/troubleshooting#why-are-some-media-files-not-seekable)
-- [Why is seeking inaccurate in some MP3 files?](https://developer.android.com/media/media3/exoplayer/troubleshooting#why-is-seeking-inaccurate-in-some-mp3-files)
-- [Why is seeking in my video slow?](https://developer.android.com/media/media3/exoplayer/troubleshooting#why-is-seeking-in-my-video-slow)
-- [Why do some MPEG-TS files fail to play?](https://developer.android.com/media/media3/exoplayer/troubleshooting#why-do-some-mpeg-ts-files-fail-to-play)
-- [Why are subtitles not found in some MPEG-TS files?](https://developer.android.com/media/media3/exoplayer/troubleshooting#why-are-subtitles-not-found-in-some-mpeg-ts-files)
-- [Why do some MP4/FMP4 files play incorrectly?](https://developer.android.com/media/media3/exoplayer/troubleshooting#why-do-some-mp4fmp4-files-play-incorrectly)
-- [Why do some streams fail with HTTP response code 301 or 302?](https://developer.android.com/media/media3/exoplayer/troubleshooting#why-do-some-streams-fail-with-http-response-code-301-or-302)
-- [Why do some streams fail with UnrecognizedInputFormatException?](https://developer.android.com/media/media3/exoplayer/troubleshooting#why-do-some-streams-fail-with-unrecognizedinputformatexception)
-- [Why doesn't setPlaybackParameters work properly on some devices?](https://developer.android.com/media/media3/exoplayer/troubleshooting#why-doesnt-setplaybackparameters-work-properly-on-some-devices)
-- [What do "Player is accessed on the wrong thread" errors mean?](https://developer.android.com/media/media3/exoplayer/troubleshooting#what-do-player-is-accessed-on-the-wrong-thread-errors-mean)
-- [How can I fix "Unexpected status line: ICY 200 OK"?](https://developer.android.com/media/media3/exoplayer/troubleshooting#how-can-i-fix-unexpected-status-line-icy-200-ok)
-- [How can I query whether the stream being played is a live stream?](https://developer.android.com/media/media3/exoplayer/troubleshooting#how-can-i-query-whether-the-stream-being-played-is-a-live-stream)
-- [How do I keep audio playing when my app is backgrounded?](https://developer.android.com/media/media3/exoplayer/troubleshooting#how-do-i-keep-audio-playing-when-my-app-is-backgrounded)
-- [Why does ExoPlayer support my content but the ExoPlayer Cast library doesn't?](https://developer.android.com/media/media3/exoplayer/troubleshooting#why-does-exoplayer-support-my-content-but-the-exoplayer-cast-library-doesnt)
-- [Why does content fail to play, but no error is surfaced?](https://developer.android.com/media/media3/exoplayer/troubleshooting#why-does-content-fail-to-play-but-no-error-is-surfaced)
-- [How can I get a decoding library to load and be used for playback?](https://developer.android.com/media/media3/exoplayer/troubleshooting#how-can-i-get-a-decoding-library-to-load-and-be-used-for-playback)
-- [Can I play YouTube videos directly with ExoPlayer?](https://developer.android.com/media/media3/exoplayer/troubleshooting#can-i-play-youtube-videos-directly-with-exoplayer)
-- [Video playback is stuttering](https://developer.android.com/media/media3/exoplayer/troubleshooting#video-playback-is-stuttering)
-- [Unstable API lint errors](https://developer.android.com/media/media3/exoplayer/troubleshooting#unstable-api-lint-errors)
-- [How can I test or isolate issues caused by new optimizations or features?](https://developer.android.com/media/media3/exoplayer/troubleshooting#how-can-i-test-or-isolate-issues-caused-by-new-features)
+- [Fixing "Cleartext HTTP traffic not permitted" errors](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#fixing-cleartext-http-traffic-not-permitted-errors)
+- [Fixing "SSLHandshakeException", "CertPathValidatorException" and "ERR_CERT_AUTHORITY_INVALID" errors](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#fixing-sslhandshakeexception-certpathvalidatorexception-and-err_cert_authority_invalid-errors)
+- [Why are some media files not seekable?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#why-are-some-media-files-not-seekable)
+- [Why is seeking inaccurate in some MP3 files?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#why-is-seeking-inaccurate-in-some-mp3-files)
+- [Why is seeking in my video slow?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#why-is-seeking-in-my-video-slow)
+- [Why do some MPEG-TS files fail to play?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#why-do-some-mpeg-ts-files-fail-to-play)
+- [Why are subtitles not found in some MPEG-TS files?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#why-are-subtitles-not-found-in-some-mpeg-ts-files)
+- [Why do some MP4/FMP4 files play incorrectly?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#why-do-some-mp4fmp4-files-play-incorrectly)
+- [Why do some streams fail with HTTP response code 301 or 302?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#why-do-some-streams-fail-with-http-response-code-301-or-302)
+- [Why do some streams fail with UnrecognizedInputFormatException?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#why-do-some-streams-fail-with-unrecognizedinputformatexception)
+- [Why doesn't setPlaybackParameters work properly on some devices?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#why-doesnt-setplaybackparameters-work-properly-on-some-devices)
+- [What do "Player is accessed on the wrong thread" errors mean?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#what-do-player-is-accessed-on-the-wrong-thread-errors-mean)
+- [How can I fix "Unexpected status line: ICY 200 OK"?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#how-can-i-fix-unexpected-status-line-icy-200-ok)
+- [How can I query whether the stream being played is a live stream?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#how-can-i-query-whether-the-stream-being-played-is-a-live-stream)
+- [How do I keep audio playing when my app is backgrounded?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#how-do-i-keep-audio-playing-when-my-app-is-backgrounded)
+- [Why does ExoPlayer support my content but the ExoPlayer Cast library doesn't?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#why-does-exoplayer-support-my-content-but-the-exoplayer-cast-library-doesnt)
+- [Why does content fail to play, but no error is surfaced?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#why-does-content-fail-to-play-but-no-error-is-surfaced)
+- [How can I get a decoding library to load and be used for playback?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#how-can-i-get-a-decoding-library-to-load-and-be-used-for-playback)
+- [Can I play YouTube videos directly with ExoPlayer?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#can-i-play-youtube-videos-directly-with-exoplayer)
+- [Video playback is stuttering](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#video-playback-is-stuttering)
+- [Unstable API lint errors](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#unstable-api-lint-errors)
+- [How can I test or isolate issues caused by new optimizations or features?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#how-can-i-test-or-isolate-issues-caused-by-new-features)
 
 *** ** * ** ***
 
@@ -69,7 +69,7 @@ If you require seeking but have unseekable media, we suggest converting your
 content to use a more appropriate container format. For MP3, ADTS and AMR files,
 you can also enable seeking under the assumption that the files have a constant
 bitrate, as described
-[here](https://developer.android.com/media/media3/exoplayer/customization#enabling-constant-bitrate-seeking).
+[here](https://developer.android.com/media/media3/exoplayer/customization.md.txt#enabling-constant-bitrate-seeking).
 
 #### Why is seeking inaccurate in some MP3 files?
 
@@ -81,14 +81,14 @@ require exact seeking. There are two reasons for this:
 
 For these reasons, the only way to perform an exact seek into a VBR MP3 file is
 to scan the entire file and manually build up a time-to-byte mapping in the
-player. This strategy can be enabled by using [`FLAG_ENABLE_INDEX_SEEKING`](https://developer.android.com/reference/androidx/media3/extractor/mp3/Mp3Extractor#FLAG_ENABLE_INDEX_SEEKING),
+player. This strategy can be enabled by using [`FLAG_ENABLE_INDEX_SEEKING`](https://developer.android.com/reference/androidx/media3/extractor/mp3/Mp3Extractor.md.txt#FLAG_ENABLE_INDEX_SEEKING),
 which can be [set on a `DefaultExtractorsFactory`](https://developer.android.com/guide/topics/media/exoplayer/customization#customizing-extractor-flags) using
-[`setMp3ExtractorFlags`](https://developer.android.com/reference/androidx/media3/extractor/DefaultExtractorsFactory#setMp3ExtractorFlags(int)). Note that it doesn't scale well to large MP3 files,
+[`setMp3ExtractorFlags`](https://developer.android.com/reference/androidx/media3/extractor/DefaultExtractorsFactory.md.txt#setMp3ExtractorFlags(int)). Note that it doesn't scale well to large MP3 files,
 particularly if the user tries to seek to near the end of the stream shortly
 after starting playback, which requires the player to wait until it's downloaded
 and indexed the entire stream before performing the seek. In ExoPlayer, we
 decided to optimize for speed over accuracy in this case and
-[`FLAG_ENABLE_INDEX_SEEKING`](https://developer.android.com/reference/androidx/media3/extractor/mp3/Mp3Extractor#FLAG_ENABLE_INDEX_SEEKING) is therefore disabled by default.
+[`FLAG_ENABLE_INDEX_SEEKING`](https://developer.android.com/reference/androidx/media3/extractor/mp3/Mp3Extractor.md.txt#FLAG_ENABLE_INDEX_SEEKING) is therefore disabled by default.
 
 If you control the media you're playing, we strongly advise that you use a more
 appropriate container format, such as MP4. There are no use cases we're aware of
@@ -106,8 +106,13 @@ The latency introduced by (1) can be mitigated by either increasing the amount
 of data buffered in memory by the player, or [pre-caching the data to disk](https://developer.android.com/guide/topics/media/exoplayer/downloading-media).
 
 The latency introduced by (2) can be mitigated by either reducing the accuracy
-of the seek using [`ExoPlayer.setSeekParameters`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer#setSeekParameters(androidx.media3.exoplayer.SeekParameters)), or re-encoding the video
+of the seek using [`ExoPlayer.setSeekParameters`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer.md.txt#setSeekParameters(androidx.media3.exoplayer.SeekParameters)), or re-encoding the video
 to have more frequent I-frames (which will result in a larger output file).
+
+If seeking is slow while a user drags a seek bar, enable
+[scrubbing mode](https://developer.android.com/media/media3/exoplayer/scrubbing.md.txt) (`ExoPlayer.setScrubbingModeEnabled`), which
+coalesces rapid seeks, increases decoder throughput, and supports setting a
+fractional seek tolerance based on the UI scrubber width.
 
 #### Why do some MPEG-TS files fail to play?
 
@@ -118,11 +123,11 @@ of keyframes considered by ExoPlayer.
 
 ExoPlayer will appear to be stuck in the buffering state when asked to play an
 MPEG-TS file that lacks AUDs or IDR keyframes. If you need to play such files,
-you can do so using [`FLAG_DETECT_ACCESS_UNITS`](https://developer.android.com/reference/androidx/media3/extractor/ts/DefaultTsPayloadReaderFactory#FLAG_DETECT_ACCESS_UNITS) and
-[`FLAG_ALLOW_NON_IDR_KEYFRAMES`](https://developer.android.com/reference/androidx/media3/extractor/ts/DefaultTsPayloadReaderFactory#FLAG_ALLOW_NON_IDR_KEYFRAMES) respectively. These flags can be [set on a
-`DefaultExtractorsFactory`](https://developer.android.com/guide/topics/media/exoplayer/customization#customizing-extractor-flags) using [`setTsExtractorFlags`](https://developer.android.com/reference/androidx/media3/extractor/DefaultExtractorsFactory#setTsExtractorFlags(int)) or on a
+you can do so using [`FLAG_DETECT_ACCESS_UNITS`](https://developer.android.com/reference/androidx/media3/extractor/ts/DefaultTsPayloadReaderFactory.md.txt#FLAG_DETECT_ACCESS_UNITS) and
+[`FLAG_ALLOW_NON_IDR_KEYFRAMES`](https://developer.android.com/reference/androidx/media3/extractor/ts/DefaultTsPayloadReaderFactory.md.txt#FLAG_ALLOW_NON_IDR_KEYFRAMES) respectively. These flags can be [set on a
+`DefaultExtractorsFactory`](https://developer.android.com/guide/topics/media/exoplayer/customization#customizing-extractor-flags) using [`setTsExtractorFlags`](https://developer.android.com/reference/androidx/media3/extractor/DefaultExtractorsFactory.md.txt#setTsExtractorFlags(int)) or on a
 `DefaultHlsExtractorFactory` using the
-[constructor](https://developer.android.com/reference/androidx/media3/exoplayer/hls/DefaultHlsExtractorFactory#DefaultHlsExtractorFactory(int,boolean)).
+[constructor](https://developer.android.com/reference/androidx/media3/exoplayer/hls/DefaultHlsExtractorFactory.md.txt#DefaultHlsExtractorFactory(int,boolean)).
 Use of `FLAG_DETECT_ACCESS_UNITS` has no side effects other than being
 computationally expensive relative to AUD based frame boundary detection. Use of
 `FLAG_ALLOW_NON_IDR_KEYFRAMES` may result in temporary visual corruption at the
@@ -183,11 +188,11 @@ starting on a synchronization sample, but it does not truncate audio samples or
 preroll media for edits that don't start on a synchronization sample.
 
 If you are seeing that part of the media is unexpectedly missing or repeated,
-try setting [`Mp4Extractor.FLAG_WORKAROUND_IGNORE_EDIT_LISTS`](https://developer.android.com/reference/androidx/media3/extractor/mp4/Mp4Extractor#FLAG_WORKAROUND_IGNORE_EDIT_LISTS) or
-[`FragmentedMp4Extractor.FLAG_WORKAROUND_IGNORE_EDIT_LISTS`](https://developer.android.com/reference/androidx/media3/extractor/mp4/FragmentedMp4Extractor#FLAG_WORKAROUND_IGNORE_EDIT_LISTS), which will cause
+try setting [`Mp4Extractor.FLAG_WORKAROUND_IGNORE_EDIT_LISTS`](https://developer.android.com/reference/androidx/media3/extractor/mp4/Mp4Extractor.md.txt#FLAG_WORKAROUND_IGNORE_EDIT_LISTS) or
+[`FragmentedMp4Extractor.FLAG_WORKAROUND_IGNORE_EDIT_LISTS`](https://developer.android.com/reference/androidx/media3/extractor/mp4/FragmentedMp4Extractor.md.txt#FLAG_WORKAROUND_IGNORE_EDIT_LISTS), which will cause
 the extractor to ignore edit lists entirely. These can be [set on a
-`DefaultExtractorsFactory`](https://developer.android.com/guide/topics/media/exoplayer/customization#customizing-extractor-flags) using [`setMp4ExtractorFlags`](https://developer.android.com/reference/androidx/media3/extractor/DefaultExtractorsFactory#setMp4ExtractorFlags(int)) or
-[`setFragmentedMp4ExtractorFlags`](https://developer.android.com/reference/androidx/media3/extractor/DefaultExtractorsFactory#setFragmentedMp4ExtractorFlags(int)).
+`DefaultExtractorsFactory`](https://developer.android.com/guide/topics/media/exoplayer/customization#customizing-extractor-flags) using [`setMp4ExtractorFlags`](https://developer.android.com/reference/androidx/media3/extractor/DefaultExtractorsFactory.md.txt#setMp4ExtractorFlags(int)) or
+[`setFragmentedMp4ExtractorFlags`](https://developer.android.com/reference/androidx/media3/extractor/DefaultExtractorsFactory.md.txt#setFragmentedMp4ExtractorFlags(int)).
 
 #### Why do some streams fail with HTTP response code 301 or 302?
 
@@ -219,9 +224,9 @@ so is a cross-protocol redirect. ExoPlayer will not follow this redirect in its
 default configuration, meaning playback will fail.
 
 If you need to, you can configure ExoPlayer to follow cross-protocol redirects
-when instantiating [`DefaultHttpDataSource.Factory`](https://developer.android.com/reference/androidx/media3/datasource/DefaultHttpDataSource.Factory) instances used in your
+when instantiating [`DefaultHttpDataSource.Factory`](https://developer.android.com/reference/androidx/media3/datasource/DefaultHttpDataSource.Factory.md.txt) instances used in your
 application. Learn about selecting and configuring the network stack
-[here](https://developer.android.com/media/media3/exoplayer/customization#configuring-the-network-stack).
+[here](https://developer.android.com/media/media3/exoplayer/customization.md.txt#configuring-the-network-stack).
 
 #### Why do some streams fail with UnrecognizedInputFormatException?
 
@@ -249,7 +254,7 @@ Please search for an existing feature request before submitting a new one.
 
 When running a debug build of your app on Android M and earlier, you may
 experience choppy performance, audible artifacts and high CPU utilization when
-using the [`setPlaybackParameters`](https://developer.android.com/reference/androidx/media3/common/Player#setPlaybackParameters(androidx.media3.common.PlaybackParameters)) API. This is because an optimization
+using the [`setPlaybackParameters`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#setPlaybackParameters(androidx.media3.common.PlaybackParameters)) API. This is because an optimization
 that's important to this API is disabled for debug builds running on these
 versions of Android.
 
@@ -272,8 +277,8 @@ status lines correctly.
 
 #### How can I query whether the stream being played is a live stream?
 
-You can query the player's [`isCurrentWindowLive`](https://developer.android.com/reference/androidx/media3/common/Player#isCurrentWindowLive()) method. In addition, you
-can check [`isCurrentWindowDynamic`](https://developer.android.com/reference/androidx/media3/common/Player#isCurrentWindowDynamic()) to find out whether the window is dynamic
+You can query the player's [`isCurrentWindowLive`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#isCurrentWindowLive()) method. In addition, you
+can check [`isCurrentWindowDynamic`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#isCurrentWindowDynamic()) to find out whether the window is dynamic
 (that is, still updating over time).
 
 #### How do I keep audio playing when my app is backgrounded?
@@ -281,8 +286,8 @@ can check [`isCurrentWindowDynamic`](https://developer.android.com/reference/and
 Follow these steps to ensure continued playback of audio when your app is in
 the background:
 
-1. You need to have a running [foreground service](https://developer.android.com/develop/background-work/services/fgs). This prevents the system from killing your process to free up resources.
-2. You need to hold a [`WifiLock`](https://developer.android.com/reference/android/net/wifi/WifiManager.WifiLock) and a [`WakeLock`](https://developer.android.com/reference/android/os/PowerManager.WakeLock). These ensure that the system keeps the WiFi radio and CPU awake. This can be easily done if using [`ExoPlayer`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer) by calling [`setWakeMode`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer#setWakeMode(int)), which will automatically acquire and release the required locks at the correct times.
+1. You need to have a running [foreground service](https://developer.android.com/develop/background-work/services/fgs.md.txt). This prevents the system from killing your process to free up resources.
+2. You need to hold a [`WifiLock`](https://developer.android.com/reference/android/net/wifi/WifiManager.WifiLock.md.txt) and a [`WakeLock`](https://developer.android.com/reference/android/os/PowerManager.WakeLock.md.txt). These ensure that the system keeps the WiFi radio and CPU awake. This can be easily done if using [`ExoPlayer`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer.md.txt) by calling [`setWakeMode`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer.md.txt#setWakeMode(int)), which will automatically acquire and release the required locks at the correct times.
 
 It's important that you release the locks (if not using `setWakeMode`) and stop
 the service as soon as audio is no longer being played.
@@ -300,7 +305,9 @@ support a specific media sample format. This can be easily confirmed by adding
 an [`EventLogger`](https://developer.android.com/guide/topics/media/exoplayer/debug-logging) as a listener to your player, and looking for a line
 similar to this one in Logcat:
 
-    [ ] Track:x, id=x, mimeType=mime/type, ... , supported=NO_UNSUPPORTED_TYPE
+```bash
+[ ] Track:x, id=x, mimeType=mime/type, ... , supported=NO_UNSUPPORTED_TYPE
+```
 
 `NO_UNSUPPORTED_TYPE` means that the device is not able to decode the media
 sample format specified by the `mimeType`. See the [Android media formats
@@ -312,8 +319,8 @@ a decoding library to load and be used for playback?](https://developer.android.
 - Most decoder libraries have manual steps to check out and build the dependencies, so make sure you've followed the steps in the README for the relevant library. For example, for the ExoPlayer FFmpeg library it's necessary to follow the instructions in [libraries/decoder_ffmpeg/README.md](https://github.com/androidx/media/tree/release/libraries/decoder_ffmpeg/README.md), including passing configuration flags to [enable decoders](https://developer.android.com/guide/topics/media/exoplayer/supported-formats#ffmpeg-library) for any formats you want to play.
 - For libraries that have native code, make sure you're using the correct version of the Android NDK as specified in the README, and look out for any errors that appear during configuration and building. You should see `.so` files appear in the `libs` subdirectory of the library's path for each supported architecture after following the steps in the README.
 - To try out playback using the library in the [demo application](https://developer.android.com/guide/topics/media/exoplayer/demo-application), see [enabling bundled decoders](https://developer.android.com/guide/topics/media/exoplayer/demo-application#enabling-bundled-decoders). See the README for the library for instructions on using the library from your own app.
-- If you're using [`DefaultRenderersFactory`](https://developer.android.com/reference/androidx/media3/exoplayer/DefaultRenderersFactory), you should see an info-level log line like "Loaded FfmpegAudioRenderer" in Logcat when the decoder loads. If that's missing, make sure the application has a dependency on the decoding library.
-- If you see warning-level logs from [`LibraryLoader`](https://developer.android.com/reference/androidx/media3/common/util/LibraryLoader) in Logcat, this indicates that loading the native component of the library failed. If this happens, check you've followed the steps in the library's README correctly and that no errors were output while following the instructions.
+- If you're using [`DefaultRenderersFactory`](https://developer.android.com/reference/androidx/media3/exoplayer/DefaultRenderersFactory.md.txt), you should see an info-level log line like "Loaded FfmpegAudioRenderer" in Logcat when the decoder loads. If that's missing, make sure the application has a dependency on the decoding library.
+- If you see warning-level logs from [`LibraryLoader`](https://developer.android.com/reference/androidx/media3/common/util/LibraryLoader.md.txt) in Logcat, this indicates that loading the native component of the library failed. If this happens, check you've followed the steps in the library's README correctly and that no errors were output while following the instructions.
 
 If you're still experiencing problems using decoding libraries, please check the
 Media3 [issue tracker](https://github.com/androidx/media/issues) for any relevant recent issues. If you need to file
@@ -343,7 +350,7 @@ particularly when playing DRM protected or high-frame-rate content, you can try
 
 Media3 guarantees binary compatibility for a subset of the API surface. The
 parts that **don't** guarantee binary compatibility are marked with
-[`@UnstableApi`](https://developer.android.com/reference/androidx/media3/common/util/UnstableApi). In order to make this distinction clear, usages of unstable
+[`@UnstableApi`](https://developer.android.com/reference/androidx/media3/common/util/UnstableApi.md.txt). In order to make this distinction clear, usages of unstable
 API symbols generate a lint error unless they are annotated with `@OptIn`.
 
 The `@UnstableApi` annotation implies nothing about the quality or performance of an API, only the fact that it is not "API-frozen."
@@ -362,49 +369,59 @@ You can also manually annotate specific usage sites:
 
 ### Kotlin
 
-    import androidx.annotation.OptIn
-    import androidx.media3.common.util.UnstableApi
+```kotlin
+import androidx.annotation.OptIn
+import androidx.media3.common.util.UnstableApi
 
-    @OptIn(UnstableApi::class)
-    fun functionUsingUnstableApi() { ... }
+@OptIn(UnstableApi::class)
+fun functionUsingUnstableApi() { ... }
+```
 
 ### Java
 
-    import androidx.annotation.OptIn;
-    import androidx.media3.common.util.UnstableApi;
+```java
+import androidx.annotation.OptIn;
+import androidx.media3.common.util.UnstableApi;
 
-    @OptIn(markerClass = UnstableApi.class)
-    private void methodUsingUnstableApis() { ... }
+@OptIn(markerClass = UnstableApi.class)
+private void methodUsingUnstableApis() { ... }
+```
 
 Whole packages can be opted-in by adding a `package-info` file:
 
 ### Kotlin
 
-    // In your package-info.kt
-    @OptIn(UnstableApi::class)
-    package name.of.your.package
+```kotlin
+// In your package-info.kt
+@OptIn(UnstableApi::class)
+package name.of.your.package
 
-    import androidx.annotation.OptIn
-    import androidx.media3.common.util.UnstableApi
+import androidx.annotation.OptIn
+import androidx.media3.common.util.UnstableApi
+```
 
 ### Java
 
-    // In your package-info.java
-    @OptIn(markerClass = UnstableApi.class)
-    package name.of.your.package;
+```java
+// In your package-info.java
+@OptIn(markerClass = UnstableApi.class)
+package name.of.your.package;
 
-    import androidx.annotation.OptIn;
-    import androidx.media3.common.util.UnstableApi;
+import androidx.annotation.OptIn;
+import androidx.media3.common.util.UnstableApi;
+```
 
 Whole projects can be opted-in by suppressing the specific lint error in their
-[`lint.xml` file](https://developer.android.com/studio/write/lint#pref):
+[`lint.xml` file](https://developer.android.com/studio/write/lint.md.txt#pref):
 
-     <?xml version="1.0" encoding="utf-8"?>
-     <lint>
-       <issue id="UnsafeOptInUsageError">
-         <option name="opt-in" value="androidx.media3.common.util.UnstableApi" />
-       </issue>
-     </lint>
+```xml
+ <?xml version="1.0" encoding="utf-8"?>
+ <lint>
+   <issue id="UnsafeOptInUsageError">
+     <option name="opt-in" value="androidx.media3.common.util.UnstableApi" />
+   </issue>
+ </lint>
+```
 
 There is a `kotlin.OptIn` annotation as well that shouldn't be used. It's
 important to use the `androidx.annotation.OptIn` annotation.
@@ -417,9 +434,11 @@ and optimizations are enabled by default under Canary mode.
 If you suspect that an issue or regression in your app is related to a newly
 introduced feature or optimization, you can temporarily disable Canary mode:
 
-    Flags.setCanaryModeEnabled(false);
+```java
+Flags.setCanaryModeEnabled(false);
+```
 
 Or disable specific feature flags individually using
 `Flags.disableFlag(flagId)`. For more details on configuring Canary mode,
 overriding flags, and setting up remote kill switches, see the
-[Feature flags and Canary mode guide](https://developer.android.com/media/media3/exoplayer/flags).
+[Feature flags and Canary mode guide](https://developer.android.com/media/media3/exoplayer/flags.md.txt).

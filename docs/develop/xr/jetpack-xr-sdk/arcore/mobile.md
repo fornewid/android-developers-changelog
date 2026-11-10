@@ -6,13 +6,13 @@ source: md.txt
 
 ARCore for Jetpack XR can run on [supported mobile devices](https://developers.google.com/ar/devices)
 as well as Android XR devices. The
-[ARCore for Jetpack XR library](https://developer.android.com/jetpack/androidx/releases/xr-arcore) can use the
+[ARCore for Jetpack XR library](https://developer.android.com/jetpack/androidx/releases/xr-arcore.md.txt) can use the
 [Google Play Services for AR](https://developers.google.com/ar/develop/java/enable-arcore) runtime on those devices.
 This lets you write apps for AR experiences that use a shared codebase to
 interact with the ARCore for Jetpack XR perception APIs.
 
 > [!WARNING]
-> **Experimental:** Running ARCore for Jetpack XR apps on mobile devices is currently in developer preview. Some features may be missing or may not work as expected. [Report any bugs](https://developer.android.com/develop/xr/support) you encounter.
+> **Experimental:** Running ARCore for Jetpack XR apps on mobile devices is currently in developer preview. Some features may be missing or may not work as expected. [Report any bugs](https://developer.android.com/develop/xr/support.md.txt) you encounter.
 
 ## Feature compatibility
 
@@ -33,7 +33,7 @@ Playback](https://developers.google.com/ar/develop/recording-and-playback).
 ### Add dependencies
 
 Your app needs to explicitly depend on the following libraries as an
-[`implementation` dependency](https://developer.android.com/build/dependencies#dependency_configurations) to access these classes
+[`implementation` dependency](https://developer.android.com/build/dependencies.md.txt#dependency_configurations) to access these classes
 directly.
 
 Use the following dependency specification in your `build.gradle` file:

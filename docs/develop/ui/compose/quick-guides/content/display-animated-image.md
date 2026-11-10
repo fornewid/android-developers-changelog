@@ -51,7 +51,7 @@ fun AnimatedVectorDrawable() {
 ### Key points about the code
 
 - Loads a vector resource, animating the drawing attributes over time.
-- An `Image` instance that uses a [`Painter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/painter/Painter) instance to perform the animation, created from the `AnimatedImageVector` and `boolean` state by the `rememberAnimatedVectorPainter()` function.
+- An `Image` instance that uses a [`Painter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/painter/Painter.md.txt) instance to perform the animation, created from the `AnimatedImageVector` and `boolean` state by the `rememberAnimatedVectorPainter()` function.
 - When `atEnd` is `true`, the `Painter` instance stops animating.
 
 ## Collections that contain this guide
@@ -66,4 +66,4 @@ Discover techniques for using bright, engaging visuals to give your Android app 
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

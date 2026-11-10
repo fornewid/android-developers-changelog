@@ -14,10 +14,10 @@ references](https://developer.android.com/training/data-storage/room/referencing
 
 Room supports the following relationship types:
 
-- [**One-to-one**](https://developer.android.com/training/data-storage/room/relationships/one-to-one): Represents a relationship where a single entity is related to another single entity.
-- [**One-to-many**](https://developer.android.com/training/data-storage/room/relationships/one-to-many): Represents a relationship where a single entity can be related to multiple entities of another type.
-- [**Many-to-many**](https://developer.android.com/training/data-storage/room/relationships/many-to-many): Represents a relationship where multiple entities of one type can be related to multiple entities of another type. This usually requires a junction table.
-- [**Nested relationships using embedded objects**](https://developer.android.com/training/data-storage/room/relationships/nested): Represents a relationship where an entity contains another entity as a property, and this nested entity can further contain other entities. This uses the `@Embedded` annotation.
+- [**One-to-one**](https://developer.android.com/training/data-storage/room/relationships/one-to-one.md.txt): Represents a relationship where a single entity is related to another single entity.
+- [**One-to-many**](https://developer.android.com/training/data-storage/room/relationships/one-to-many.md.txt): Represents a relationship where a single entity can be related to multiple entities of another type.
+- [**Many-to-many**](https://developer.android.com/training/data-storage/room/relationships/many-to-many.md.txt): Represents a relationship where multiple entities of one type can be related to multiple entities of another type. This usually requires a junction table.
+- [**Nested relationships using embedded objects**](https://developer.android.com/training/data-storage/room/relationships/nested.md.txt): Represents a relationship where an entity contains another entity as a property, and this nested entity can further contain other entities. This uses the `@Embedded` annotation.
 
 ## Choose between two approaches
 
@@ -29,7 +29,7 @@ You can use either:
 
 If you don't have a specific reason to use intermediate data classes, we
 recommend using the multimap return type approach. To learn more about this
-approach, see [Return a multimap](https://developer.android.com/training/data-storage/room/accessing-data#multimap).
+approach, see [Return a multimap](https://developer.android.com/training/data-storage/room/accessing-data.md.txt#multimap).
 
 The intermediate data class approach lets you avoid writing complex SQL queries,
 but it can also result in increased code complexity because it requires
@@ -93,7 +93,7 @@ suspend fun loadUserAndBookNames(): Map<User, List<Book>>
 With multimap return types, you can also query one-to-one relationships that
 don't involve another entity. The following query function returns a mapping of
 `User` and the number of books they have checked out using the
-[`@MapColumn`](https://developer.android.com/reference/kotlin/androidx/room3/MapColumn) annotation:
+[`@MapColumn`](https://developer.android.com/reference/kotlin/androidx/room3/MapColumn.md.txt) annotation:
 
 
 ```kotlin
@@ -113,7 +113,7 @@ suspend fun loadUserAndBookCount(): Map<User, @MapColumn(columnName = "book_coun
 
 Sometimes, you want to express an entity or data object as a cohesive whole in
 your database logic, even if the object contains several properties. In these
-situations, use the [`@Embedded`](https://developer.android.com/reference/kotlin/androidx/room3/Embedded) annotation to decompose an object into
+situations, use the [`@Embedded`](https://developer.android.com/reference/kotlin/androidx/room3/Embedded.md.txt) annotation to decompose an object into
 its subproperties within a table. You can then query the embedded properties
 just as you do for other columns.
 
@@ -149,5 +149,5 @@ names: `id`, `firstName`, `street`, `state`, `city`, and `post_code`.
 > **Note:** Embedded properties can also include other embedded properties.
 
 If an entity has multiple embedded properties of the same type, you can keep
-each column unique by setting the [`prefix`](https://developer.android.com/reference/kotlin/androidx/room3/Embedded#prefix()) property. Room then adds the
+each column unique by setting the [`prefix`](https://developer.android.com/reference/kotlin/androidx/room3/Embedded.md.txt#prefix()) property. Room then adds the
 provided value to the beginning of each column name in the embedded object.

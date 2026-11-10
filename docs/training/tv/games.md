@@ -37,12 +37,12 @@ having the best possible graphics.
 
 
 To enable or disable minimal post-processing, call
-`https://developer.android.com/reference/android/view/Window#setPreferMinimalPostProcessing(boolean)`,
+`Window.setPreferMinimalPostProcessing()`,
 or set the window's
-`https://developer.android.com/reference/android/R.attr#preferMinimalPostProcessing`
+`preferMinimalPostProcessing`
 attribute to `true`. Not all displays support minimal post-processing; to find out if a
 particular display does support it, call the
-`https://developer.android.com/reference/android/view/Display#isMinimalPostProcessingSupported()` method.
+`Display.isMinimalPostProcessingSupported()` method.
 
 ## Input devices
 
@@ -60,7 +60,7 @@ information about using TV controllers for games.
 
 
 In Android 13 (API level 33) and higher, you can determine keyboard layouts using
-`https://developer.android.com/reference/android/view/InputDevice#getKeyCodeForKeyLocation(int)`.
+`getKeyCodeForKeyLocation()`.
 For example, your game supports movement using the WASD keys, but this may not work correctly on
 an AZERTY keyboard which has the A and W keys in different locations. You can get the keycodes
 for the keys you expect at certain positions:
@@ -114,8 +114,8 @@ There are some special things games should include in the Android manifest.
 
 The Android TV home screen displays games in a separate row from regular apps.
 To make your game appear in the list of games, set the
-[`android:isGame`](https://developer.android.com/guide/topics/manifest/application-element#isGame) attribute to `"true"` in your app manifest's
-[`<application>`](https://developer.android.com/guide/topics/manifest/application-element) tag. For example:
+[`android:isGame`](https://developer.android.com/guide/topics/manifest/application-element.md.txt#isGame) attribute to `"true"` in your app manifest's
+[`<application>`](https://developer.android.com/guide/topics/manifest/application-element.md.txt) tag. For example:
 
 ```xml
 <application
@@ -147,7 +147,7 @@ badge and a pre-install warning on Google Play for Android TV, rather than
 blocking installation on TV devices.
 
 For more information about manifest entries, see
-[App manifest](https://developer.android.com/guide/topics/manifest/manifest-intro).
+[App manifest](https://developer.android.com/guide/topics/manifest/manifest-intro.md.txt).
 
 ## Google Play games services
 
@@ -195,7 +195,7 @@ Home button to provide an exit, as that is not consistent nor reliable across di
 Don't enable web browsing in games for Android TV. Android TV does not support a web browser.
 
 
-**Note:** You can use the `https://developer.android.com/reference/android/webkit/WebView` class for logins to
+**Note:** You can use the `WebView` class for logins to
 social media services.
 
 ## Networking

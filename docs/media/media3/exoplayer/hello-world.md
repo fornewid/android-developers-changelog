@@ -34,17 +34,21 @@ you can add dependencies on the modules like this:
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-exoplayer:1.11.1")
-    implementation("androidx.media3:media3-exoplayer-dash:1.11.1")
-    implementation("androidx.media3:media3-ui:1.11.1")
-    implementation("androidx.media3:media3-ui-compose-material3:1.11.1")
+```kotlin
+implementation("androidx.media3:media3-exoplayer:1.11.1")
+implementation("androidx.media3:media3-exoplayer-dash:1.11.1")
+implementation("androidx.media3:media3-ui:1.11.1")
+implementation("androidx.media3:media3-ui-compose-material3:1.11.1")
+```
 
 ### Groovy
 
-    implementation "androidx.media3:media3-exoplayer:1.11.1"
-    implementation "androidx.media3:media3-exoplayer-dash:1.11.1"
-    implementation "androidx.media3:media3-ui:1.11.1"
-    implementation("androidx.media3:media3-ui-compose-material3:1.11.1")
+```groovy
+implementation "androidx.media3:media3-exoplayer:1.11.1"
+implementation "androidx.media3:media3-exoplayer-dash:1.11.1"
+implementation "androidx.media3:media3-ui:1.11.1"
+implementation("androidx.media3:media3-ui-compose-material3:1.11.1")
+```
 
 where 1.11.1 is your preferred version (the latest version can be
 found by consulting the [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md)). All modules must be of the same
@@ -64,9 +68,11 @@ If not enabled already, you need to turn on at least Java 8 support in all
 `build.gradle` files that depend on ExoPlayer, by adding the following to the
 `android` section:
 
-    compileOptions {
-      targetCompatibility JavaVersion.VERSION_1_8
-    }
+```groovy
+compileOptions {
+  targetCompatibility JavaVersion.VERSION_1_8
+}
+```
 
 ## Create the player
 
@@ -145,9 +151,11 @@ receive decoded images.
 
 For a more comfortable user experience, consider adding the `keepScreenOn`
 attribute. You can investigate other actions that keep the device awake in the
-[background work pages](https://developer.android.com/develop/background-work/background-tasks/awake).
+[background work pages](https://developer.android.com/develop/background-work/background-tasks/awake.md.txt).
 
-    android:keepScreenOn="true"
+```xml
+android:keepScreenOn="true"
+```
 
 If your app uses Jetpack Compose for its UI, you can use the `Player` Composable
 from the `media3-ui-compose-material3` library. The `Player` displays video and
@@ -258,6 +266,7 @@ on the player. Here are some of the most commonly used methods:
 - `setRepeatMode` controls if and how media is looped.
 - `setShuffleModeEnabled` controls playlist shuffling.
 - `setPlaybackParameters` adjusts playback speed and audio pitch.
+- `setScrubbingModeEnabled` optimizes the player for frequent seeks while a user drags a scrubber bar. For details, see [Scrubbing mode](https://developer.android.com/media/media3/exoplayer/scrubbing.md.txt).
 
 If the player is bound to a `PlayerView` or `PlayerControlView`, then user
 interaction with these components will cause corresponding methods on the player

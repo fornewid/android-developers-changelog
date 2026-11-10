@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/views/appwidgets/collections
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance/build-ui#use-scrollable) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance/build-ui.md.txt#use-scrollable) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -15,36 +15,36 @@ cases: browsing the collection and opening an element of the collection to its
 detail view. Collection widgets can scroll vertically.
 
 These widgets use the
-[`RemoteViewsService`](https://developer.android.com/reference/android/widget/RemoteViewsService) to display
+[`RemoteViewsService`](https://developer.android.com/reference/android/widget/RemoteViewsService.md.txt) to display
 collections that are backed by remote data, such as from a [content
 provider](https://developer.android.com/guide/topics/providers/content-providers). The widget presents the
 data using one of the following view types, which are known as *collection
 views*:
 
-[`ListView`](https://developer.android.com/reference/android/widget/ListView): A view that shows items in a vertically scrolling list.
+[`ListView`](https://developer.android.com/reference/android/widget/ListView.md.txt): A view that shows items in a vertically scrolling list.
 
-[`GridView`](https://developer.android.com/reference/android/widget/GridView): A view that shows items in a two-dimensional scrolling grid.
+[`GridView`](https://developer.android.com/reference/android/widget/GridView.md.txt): A view that shows items in a two-dimensional scrolling grid.
 
-[`StackView`](https://developer.android.com/reference/android/widget/StackView): A stacked card view---kind of like a rolodex---where
+[`StackView`](https://developer.android.com/reference/android/widget/StackView.md.txt): A stacked card view---kind of like a rolodex---where
 the user can flick the front card up or down to see the previous or next card,
 respectively.
 
-[`AdapterViewFlipper`](https://developer.android.com/reference/android/widget/AdapterViewFlipper): An adapter-backed [`ViewAnimator`](https://developer.android.com/reference/android/widget/ViewAnimator) that animates
+[`AdapterViewFlipper`](https://developer.android.com/reference/android/widget/AdapterViewFlipper.md.txt): An adapter-backed [`ViewAnimator`](https://developer.android.com/reference/android/widget/ViewAnimator.md.txt) that animates
 between two or more views. Only one child is shown at a time.
 
 Because these collection views display collections backed by remote data, they
-use an [`Adapter`](https://developer.android.com/reference/android/widget/Adapter) to bind their user
+use an [`Adapter`](https://developer.android.com/reference/android/widget/Adapter.md.txt) to bind their user
 interface to their data. An `Adapter` binds individual items from a set of data
-to individual [`View`](https://developer.android.com/reference/android/view/View) objects.
+to individual [`View`](https://developer.android.com/reference/android/view/View.md.txt) objects.
 
 And because these collection views are backed by adapters, the Android framework
 must include extra architecture to support their use in widgets. In the context
 of a widget, the `Adapter` is replaced by a
-[`RemoteViewsFactory`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory),
+[`RemoteViewsFactory`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory.md.txt),
 which is a thin wrapper around the `Adapter` interface. When requested for a
 specific item in the collection, the `RemoteViewsFactory` creates and returns
 the item for the collection as a
-[`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews) object. To include a
+[`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews.md.txt) object. To include a
 collection view in your widget, implement `RemoteViewsService` and
 `RemoteViewsFactory`.
 
@@ -93,7 +93,7 @@ through nine. The sample widget has these primary behaviors:
   which in this case is the view ID of the stack view.
 
 - If the user touches the top view, the widget displays the
-  [`Toast`](https://developer.android.com/reference/android/widget/Toast) message "Touched view *n* ," where
+  [`Toast`](https://developer.android.com/reference/android/widget/Toast.md.txt) message "Touched view *n* ," where
   *n* is the index (position) of the touched view. For more discussion on how
   to implement behaviors, see the [Add behavior to individual
   items](https://developer.android.com/develop/ui/views/appwidgets/collections#behavior) section.
@@ -111,14 +111,16 @@ Beyond the requirements listed in [Declare a widget in the
 manifest](https://developer.android.com/develop/ui/views/appwidgets#Manifest), you need to make it possible for widgets with
 collections to bind to your `RemoteViewsService`. Do this by declaring the
 service in your manifest file with the permission
-[`BIND_REMOTEVIEWS`](https://developer.android.com/reference/android/Manifest.permission#BIND_REMOTEVIEWS).
+[`BIND_REMOTEVIEWS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#BIND_REMOTEVIEWS).
 This prevents other applications from freely accessing your widget's data.
 
 For example, when creating a widget that uses `RemoteViewsService` to populate a
 collection view, the manifest entry might look like this:
 
-    <service android:name="MyWidgetService"
-        android:permission="android.permission.BIND_REMOTEVIEWS" />
+```xml
+<service android:name="MyWidgetService"
+    android:permission="android.permission.BIND_REMOTEVIEWS" />
+```
 
 In this example, `android:name="MyWidgetService"` refers to your subclass of
 `RemoteViewsService`.
@@ -169,12 +171,12 @@ layout.
 ### AppWidgetProvider class for widgets with collections
 
 As with regular widgets, the bulk of the code in your
-[`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider) subclass
+[`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider.md.txt) subclass
 typically goes in
-[`onUpdate()`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider#onUpdate(android.content.Context,%20android.appwidget.AppWidgetManager,%20int%5B%5D)).
+[`onUpdate()`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider.md.txt#onUpdate(android.content.Context,%20android.appwidget.AppWidgetManager,%20int%5B%5D)).
 The major difference in your implementation for `onUpdate()` when creating a
 widget with collections is that you must call
-[`setRemoteAdapter()`](https://developer.android.com/reference/android/widget/RemoteViews#setRemoteAdapter(int,%20android.content.Intent)).
+[`setRemoteAdapter()`](https://developer.android.com/reference/android/widget/RemoteViews.md.txt#setRemoteAdapter(int,%20android.content.Intent)).
 This tells the collection view where to get its data.
 The `RemoteViewsService` can then return your implementation of
 `RemoteViewsFactory`, and the widget can serve up the appropriate data. When you
@@ -244,7 +246,7 @@ Specifically, perform these steps:
 You can't rely on a single instance of your service, or any data it contains, to
 persist. Don't store data in your `RemoteViewsService` unless it is static. If
 you want your widget's data to persist, the best approach is to use a
-[`ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider) whose data
+[`ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider.md.txt) whose data
 persists beyond the process lifecycle. For example, a grocery store widget can
 store the state of each grocery list item in a persistent location, such as a
 SQL database.
@@ -265,7 +267,7 @@ sample, the data source is an array of `WidgetItems`. The `RemoteViewsFactory`
 functions as an adapter to glue the data to the remote collection view.
 
 The two most important methods you need to implement for your
-`RemoteViewsFactory` subclass are [`onCreate()`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory#onCreate()) and [`getViewAt()`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory#getViewAt(int)).
+`RemoteViewsFactory` subclass are [`onCreate()`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory.md.txt#onCreate()) and [`getViewAt()`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory.md.txt#getViewAt(int)).
 
 The system calls `onCreate()` when creating your factory for the first time.
 This is where you set up any connections or cursors to your data source. For
@@ -325,15 +327,15 @@ collection view?
 
 As described in [Handle events with the `onUpdate()`
 class](https://developer.android.com/develop/ui/views/appwidgets#handle-events), you normally use
-[`setOnClickPendingIntent()`](https://developer.android.com/reference/android/widget/RemoteViews#setOnClickPendingIntent(int,%20android.app.PendingIntent)) to set an object's click behavior---such
-as to cause a button to launch an [`Activity`](https://developer.android.com/reference/android/app/Activity). But
+[`setOnClickPendingIntent()`](https://developer.android.com/reference/android/widget/RemoteViews.md.txt#setOnClickPendingIntent(int,%20android.app.PendingIntent)) to set an object's click behavior---such
+as to cause a button to launch an [`Activity`](https://developer.android.com/reference/android/app/Activity.md.txt). But
 this approach is not allowed for child views in an individual collection item.
 For example, you can use `setOnClickPendingIntent()` to set up a global button
 in the Gmail widget that launches the app, but not on the
 individual list items.
 
 Instead, to add click behavior to individual items in a collection, use
-[`setOnClickFillInIntent()`](https://developer.android.com/reference/android/widget/RemoteViews#setOnClickFillInIntent(int,%20android.content.Intent)). Set up a pending intent template for
+[`setOnClickFillInIntent()`](https://developer.android.com/reference/android/widget/RemoteViews.md.txt#setOnClickFillInIntent(int,%20android.content.Intent)). Set up a pending intent template for
 your collection view and set a fill-in intent on each item in the
 collection using your `RemoteViewsFactory`.
 
@@ -342,7 +344,7 @@ individual items. In the `StackWidget` sample, if the user touches the top view,
 the widget displays the `Toast` message "Touched view *n* ," where *n* is the
 index (position) of the touched view. This is how it works:
 
-- The `StackWidgetProvider`---an [`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider)
+- The `StackWidgetProvider`---an [`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider.md.txt)
   subclass---creates a pending intent with a custom action called
   `TOAST_ACTION`.
 
@@ -350,7 +352,7 @@ index (position) of the touched view. This is how it works:
   `TOAST_ACTION`.
 
 - This broadcast is intercepted by the `StackWidgetProvider` class's
-  [`onReceive()`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider#onReceive(android.content.Context,%20android.content.Intent)) method, and the widget displays the `Toast` message
+  [`onReceive()`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider.md.txt#onReceive(android.content.Context,%20android.content.Intent)) method, and the widget displays the `Toast` message
   for the touched view. The data for the collection items is provided by the
   `RemoteViewsFactory` through the `RemoteViewsService`.
 
@@ -359,7 +361,7 @@ index (position) of the touched view. This is how it works:
 
 #### Set up the pending intent template
 
-The `StackWidgetProvider` (an [`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider) subclass)
+The `StackWidgetProvider` (an [`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider.md.txt) subclass)
 sets up a pending intent. Individual items of a collection can't set up their
 own pending intents. Instead, the collection as a whole sets up a pending intent
 template, and the individual items set a fill-in intent to create unique
@@ -463,7 +465,7 @@ class StackWidgetProvider : AppWidgetProvider() {
 Your `RemoteViewsFactory` must set a fill-in intent on each item in the
 collection. This makes it possible to distinguish the individual on-click action
 of a given item. The fill-in intent is then combined with the
-[`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent) template to determine
+[`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent.md.txt) template to determine
 the final intent that is executed when the item is tapped.
 
 
@@ -531,9 +533,9 @@ possible, trigger your `RemoteViewsFactory` and collection view to fetch and
 display new data.
 
 To do this, use the
-[`AppWidgetManager`](https://developer.android.com/reference/android/appwidget/AppWidgetManager) to call
-[`notifyAppWidgetViewDataChanged()`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#notifyAppWidgetViewDataChanged(int,%20int)). This call results in a callback to
-your `RemoteViewsFactory` object's [`onDataSetChanged()`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory#onDataSetChanged())
+[`AppWidgetManager`](https://developer.android.com/reference/android/appwidget/AppWidgetManager.md.txt) to call
+[`notifyAppWidgetViewDataChanged()`](https://developer.android.com/reference/android/appwidget/AppWidgetManager.md.txt#notifyAppWidgetViewDataChanged(int,%20int)). This call results in a callback to
+your `RemoteViewsFactory` object's [`onDataSetChanged()`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory.md.txt#onDataSetChanged())
 method, which lets you fetch any new data.
 
 You can perform processing-intensive operations synchronously within the
@@ -542,7 +544,7 @@ view data is fetched from the `RemoteViewsFactory`. You
 can also perform processing-intensive operations within the `getViewAt()`
 method. If this call takes long, the loading view---specified by the
 `RemoteViewsFactory` object's
-[`getLoadingView()`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory#getLoadingView())
+[`getLoadingView()`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory.md.txt#getLoadingView())
 method---is displayed in the corresponding position of the collection view
 until it returns.
 
@@ -592,4 +594,4 @@ remoteView.setRemoteAdapter(
 <br />
 
 > [!NOTE]
-> **Note:** When calling [`setViewTypeCount()`](https://developer.android.com/reference/android/widget/RemoteViews.RemoteCollectionItems.Builder#setViewTypeCount(int)), pass in the maximum number of different layout IDs that are used by `RemoteViews` in this collection. Otherwise, the view type count is inferred from the provided items, and the adapter is recreated when sending an update that uses additional layouts.
+> **Note:** When calling [`setViewTypeCount()`](https://developer.android.com/reference/android/widget/RemoteViews.RemoteCollectionItems.Builder.md.txt#setViewTypeCount(int)), pass in the maximum number of different layout IDs that are used by `RemoteViews` in this collection. Otherwise, the view type count is inferred from the provided items, and the adapter is recreated when sending an update that uses additional layouts.

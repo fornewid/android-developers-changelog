@@ -4,8 +4,8 @@ url: https://developer.android.com/ai/gemini/agent-platform-api
 source: md.txt
 ---
 
-If you're new to the Gemini API, the [Gemini Developer API](https://developer.android.com/ai/gemini/developer-api) is the
-recommended [API provider](https://developer.android.com/ai/gemini#api-providers) for Android Developers. However, if you have
+If you're new to the Gemini API, the [Gemini Developer API](https://developer.android.com/ai/gemini/developer-api.md.txt) is the
+recommended [API provider](https://developer.android.com/ai/gemini.md.txt#api-providers) for Android Developers. However, if you have
 specific [data location requirements](https://firebase.google.com/docs/ai-logic/locations?api=vertex) or you're already embedded
 in the Google Cloud ecosystem, then you can use the
 Agent Platform Gemini API (formerly Vertex AI) with Firebase AI Logic to access
@@ -32,35 +32,39 @@ Add the following Gradle dependencies to your app module:
 
 ### Kotlin
 
-    dependencies {
-      // ... other androidx dependencies
+```groovy
+dependencies {
+  // ... other androidx dependencies
 
-      // Import the BoM for the Firebase platform
-      implementation(platform("com.google.firebase:firebase-bom:35.1.0"))
+  // Import the BoM for the Firebase platform
+  implementation(platform("com.google.firebase:firebase-bom:35.1.0"))
 
-      // Add the dependencies for the Firebase AI Logic and App Check libraries
-      // When using the BoM, you don't specify versions in Firebase library dependencies
-      implementation("com.google.firebase:firebase-ai")
-      implementation("com.google.firebase:firebase-appcheck-debug")
-    }
+  // Add the dependencies for the Firebase AI Logic and App Check libraries
+  // When using the BoM, you don't specify versions in Firebase library dependencies
+  implementation("com.google.firebase:firebase-ai")
+  implementation("com.google.firebase:firebase-appcheck-debug")
+}
+```
 
 ### Java
 
-    dependencies {
-      // Import the BoM for the Firebase platform
-      implementation(platform("com.google.firebase:firebase-bom:35.1.0"))
+```groovy
+dependencies {
+  // Import the BoM for the Firebase platform
+  implementation(platform("com.google.firebase:firebase-bom:35.1.0"))
 
-      // Add the dependencies for the Firebase AI Logic and App Check libraries
-      // When using the BoM, you don't specify versions in Firebase library dependencies
-      implementation("com.google.firebase:firebase-ai")
-      implementation("com.google.firebase:firebase-appcheck-debug")
+  // Add the dependencies for the Firebase AI Logic and App Check libraries
+  // When using the BoM, you don't specify versions in Firebase library dependencies
+  implementation("com.google.firebase:firebase-ai")
+  implementation("com.google.firebase:firebase-appcheck-debug")
 
-      // Required for one-shot operations (to use `ListenableFuture` from Guava Android)
-      implementation("com.google.guava:guava:31.0.1-android")
+  // Required for one-shot operations (to use `ListenableFuture` from Guava Android)
+  implementation("com.google.guava:guava:31.0.1-android")
 
-      // Required for streaming operations (to use `Publisher` from Reactive Streams)
-      implementation("org.reactivestreams:reactive-streams:1.0.4")
-    }
+  // Required for streaming operations (to use `Publisher` from Reactive Streams)
+  implementation("org.reactivestreams:reactive-streams:1.0.4")
+}
+```
 
 ### Configure the App Check debug provider for local development
 
@@ -75,18 +79,21 @@ enforcement of App Check.
 
    ### Kotlin
 
-       Firebase.initialize(context = this)
-       Firebase.appCheck.installAppCheckProviderFactory(
-           DebugAppCheckProviderFactory.getInstance(),
-       )
+   ```kotlin
+   Firebase.initialize(context = this)
+   Firebase.appCheck.installAppCheckProviderFactory(
+       DebugAppCheckProviderFactory.getInstance(),
+   )
+   ```
 
    ### Java
 
-       FirebaseApp.initializeApp(/*context=*/ this);
-       FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
-       firebaseAppCheck.installAppCheckProviderFactory(
-               DebugAppCheckProviderFactory.getInstance());
-
+   ```java
+   FirebaseApp.initializeApp(/*context=*/ this);
+   FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
+   firebaseAppCheck.installAppCheckProviderFactory(
+           DebugAppCheckProviderFactory.getInstance());
+   ```
 2. Obtain your debug token:
 
    1. Run your app in the emulator or on your test device.
@@ -193,7 +200,7 @@ Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
 
 Similar to the Gemini Developer API, you can also pass images, audio, video, and
 files with your text prompt. For details, see
-[Interact with the Gemini Developer API from your app](https://developer.android.com/ai/gemini/developer-api#interact-gemini).
+[Interact with the Gemini Developer API from your app](https://developer.android.com/ai/gemini/developer-api.md.txt#interact-gemini).
 
 To learn more about Firebase AI Logic SDK, see the
 [Firebase documentation](https://firebase.google.com/docs/ai-logic/get-started?api=vertex).

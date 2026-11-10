@@ -269,7 +269,7 @@ return object : MyClass() {
 <br />
 
 A few exceptions for
-[enum classes](https://developer.android.com/kotlin/style-guide#enum-classes)
+[enum classes](https://developer.android.com/kotlin/style-guide.md.txt#enum-classes)
 are given below.
 
 #### Empty blocks
@@ -438,7 +438,7 @@ A single blank line appears:
   - **Exception:** Blank lines between enum constants are covered below.
 - Between statements, *as needed* to organize the code into logical subsections.
 - *Optionally* before the first statement in a function, before the first member of a class, or after the last member of a class (neither encouraged nor discouraged).
-- As required by other sections of this document (such as the [Structure](https://developer.android.com/kotlin/style-guide#structure) section).
+- As required by other sections of this document (such as the [Structure](https://developer.android.com/kotlin/style-guide.md.txt#structure) section).
 
 Multiple consecutive blank lines are permitted, but not encouraged or
 ever required.
@@ -727,7 +727,7 @@ Identifiers use only ASCII letters and digits, and, in a small number of cases n
 Special prefixes or suffixes, like those seen in the examples
 `name_`, `mName`, `s_name`, and `kName`, are not used except in the case of
 backing properties (see
-[Backing properties](https://developer.android.com/kotlin/style-guide#backing-properties)).
+[Backing properties](https://developer.android.com/kotlin/style-guide.md.txt#backing-properties)).
 
 #### Package Names
 

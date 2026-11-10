@@ -18,15 +18,19 @@ as might be required for an app that only plays DASH content:
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-exoplayer:1.11.1")
-    implementation("androidx.media3:media3-exoplayer-dash:1.11.1")
-    implementation("androidx.media3:media3-ui:1.11.1")
+```kotlin
+implementation("androidx.media3:media3-exoplayer:1.11.1")
+implementation("androidx.media3:media3-exoplayer-dash:1.11.1")
+implementation("androidx.media3:media3-ui:1.11.1")
+```
 
 ### Groovy
 
-    implementation "androidx.media3:media3-exoplayer:1.11.1"
-    implementation "androidx.media3:media3-exoplayer-dash:1.11.1"
-    implementation "androidx.media3:media3-ui:1.11.1"
+```groovy
+implementation "androidx.media3:media3-exoplayer:1.11.1"
+implementation "androidx.media3:media3-exoplayer-dash:1.11.1"
+implementation "androidx.media3:media3-ui:1.11.1"
+```
 
 ## Enable code and resource shrinking
 

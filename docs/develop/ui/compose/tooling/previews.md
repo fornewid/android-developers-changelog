@@ -34,7 +34,7 @@ fun SimpleComposablePreview() {
 
 <br />
 
-The [`@Preview`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/Preview) annotation tells Android Studio that this
+The [`@Preview`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/Preview.md.txt) annotation tells Android Studio that this
 composable should be shown in the design view of this file. You can see live
 updates to your composable preview as you make your edits.
 
@@ -71,7 +71,7 @@ emulator or device.
 
 By default, `@Preview` dimensions are chosen automatically to wrap its content.
 To set the dimensions manually, add `heightDp` and `widthDp` parameters. Those
-values are already interpreted as [`dp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/Dp), so you don't need to add `.dp`
+values are already interpreted as [`dp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/Dp.md.txt), so you don't need to add `.dp`
 to them:
 
 
@@ -97,7 +97,7 @@ color](https://m3.material.io/styles/color/dynamic-color/overview) in your app,
 use the `wallpaper` attribute to switch wallpapers and see how your UI reacts to
 different users' chosen wallpaper. Select from the different wallpaper themes
 offered by the
-[`Wallpaper`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/Wallpapers)
+[`Wallpaper`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/Wallpapers.md.txt)
 class. This feature requires Compose 1.4.0 or higher.
 
 ### Use with different devices
@@ -154,7 +154,7 @@ flag](https://developer.android.com/static/develop/ui/compose/images/tooling-loc
 
 By default, your composable is displayed with a transparent background. To add a
 background, add the `showBackground` and `backgroundColor` parameters. Keep in
-mind that `backgroundColor` is an ARGB [`Long`](https://developer.android.com/reference/android/graphics/Color#color-longs), not a `Color`
+mind that `backgroundColor` is an ARGB [`Long`](https://developer.android.com/reference/android/graphics/Color.md.txt#color-longs), not a `Color`
 value:
 
 
@@ -191,7 +191,7 @@ fun DecoratedComposablePreview() {
 
 ### UI mode
 
-The parameter `uiMode` can take any of the [`Configuration.UI_*`](https://developer.android.com/reference/android/content/res/Configuration#UI_MODE_NIGHT_MASK)
+The parameter `uiMode` can take any of the [`Configuration.UI_*`](https://developer.android.com/reference/android/content/res/Configuration.md.txt#UI_MODE_NIGHT_MASK)
 constants and allows you to change the behavior of the preview accordingly. For
 example, you can set the preview to Night Mode to see how the theme reacts.
 
@@ -199,14 +199,14 @@ example, you can set the preview to Night Mode to see how the theme reacts.
 
 ### `LocalInspectionMode`
 
-You can read from the [`LocalInspectionMode`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalInspectionMode())
+You can read from the [`LocalInspectionMode`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary.md.txt#LocalInspectionMode())
 `CompositionLocal` to see if the composable is rendered in a preview (inside an
-[inspectable component](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/InspectableValue)). If the composition is rendered
+[inspectable component](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/InspectableValue.md.txt)). If the composition is rendered
 in a preview, `LocalInspectionMode.current` evaluates to `true`. This
 information lets you customize your preview; for example, you can show a
 placeholder image in the preview window instead of showing real data.
 
-This way, you can also work around the [limitations](https://developer.android.com/develop/ui/compose/tooling/previews#preview-limitations). For
+This way, you can also work around the [limitations](https://developer.android.com/develop/ui/compose/tooling/previews.md.txt#preview-limitations). For
 example, showing sample data instead of calling network request.
 
 
@@ -373,7 +373,7 @@ comprehensively test many properties of larger scale projects.
 
 Very often, a need arises where you must pass a large dataset to your composable
 preview. To do this, simply pass sample data to a Composable Preview function by
-adding a parameter with the [`@PreviewParameter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewParameter)
+adding a parameter with the [`@PreviewParameter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewParameter.md.txt)
 annotation.
 
 
@@ -390,7 +390,7 @@ fun UserProfilePreview(
 <br />
 
 To provide the sample data, create a class that implements
-[`PreviewParameterProvider`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewParameterProvider) and returns the
+[`PreviewParameterProvider`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewParameterProvider.md.txt) and returns the
 sample data as a sequence.
 
 
@@ -522,7 +522,7 @@ Previews are limited when using [`ViewModel`](https://developer.android.com/view
 composable. The previews system is not capable of constructing all of the
 parameters passed to a `ViewModel`, such as repositories, use cases, managers,
 or similar. Also, if your `ViewModel` participates in dependency injection (such
-as with [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)), the previews system can't build the whole dependency
+as with [Hilt](https://developer.android.com/training/dependency-injection/hilt-android.md.txt)), the previews system can't build the whole dependency
 graph to construct the `ViewModel`.
 
 When you try to preview a composable with `ViewModel`, Android Studio shows an
@@ -539,44 +539,46 @@ another composable with the parameters from `ViewModel` passed as arguments of
 the composable. This way, you don't need to preview the composable that uses the
 `ViewModel`.
 
-    @Composable
-    fun AuthorScreen(viewModel: AuthorViewModel = viewModel()) {
-      AuthorScreen(
-        name = viewModel.authorName,
-        // ViewModel sends the network requests and makes posts available as a state
-        posts = viewModel.posts
-      )
-    }
+```kotlin
+@Composable
+fun AuthorScreen(viewModel: AuthorViewModel = viewModel()) {
+  AuthorScreen(
+    name = viewModel.authorName,
+    // ViewModel sends the network requests and makes posts available as a state
+    posts = viewModel.posts
+  )
+}
 
-    @Composable
-    fun AuthorScreen(
-      name: NameLabel,
-      posts: PostsList
-    ) {
-      // ...
-    }
+@Composable
+fun AuthorScreen(
+  name: NameLabel,
+  posts: PostsList
+) {
+  // ...
+}
 
-    @Preview
-    @Composable
-    fun AuthorScreenPreview(
-      // You can use some sample data to preview your composable without the need to construct the ViewModel
-      name: String = sampleAuthor.name,
-      posts: List<Post> = samplePosts[sampleAuthor]
-    ) {
-      AuthorScreen(
-          name = NameLabel(name),
-          posts = PostsList(posts)
-      )
-    }
+@Preview
+@Composable
+fun AuthorScreenPreview(
+  // You can use some sample data to preview your composable without the need to construct the ViewModel
+  name: String = sampleAuthor.name,
+  posts: List<Post> = samplePosts[sampleAuthor]
+) {
+  AuthorScreen(
+      name = NameLabel(name),
+      posts = PostsList(posts)
+  )
+}
+```
 
 ## Additional resources
 
 - To read more about how Android Studio promotes `@Preview` ease of use, and learn more tooling tips, check out the blog [Compose Tooling](https://medium.com/androiddevelopers/compose-tooling-42621bd8719b).
-- For the legacy Views guidance, see [Develop a layout with Views](https://developer.android.com/studio/views/layout-editor).
+- For the legacy Views guidance, see [Develop a layout with Views](https://developer.android.com/studio/views/layout-editor.md.txt).
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Locally scoped data with CompositionLocal](https://developer.android.com/develop/ui/compose/compositionlocal)
-- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material)
-- [Using Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose)
+- [Locally scoped data with CompositionLocal](https://developer.android.com/develop/ui/compose/compositionlocal.md.txt)
+- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material.md.txt)
+- [Using Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose.md.txt)

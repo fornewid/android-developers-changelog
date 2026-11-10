@@ -17,7 +17,7 @@ Attributes of each element that are transformable are marked as such in the
 reference documentation.
 
 Specify the transform in the `value` attribute using the Watch Face Format
-[expression](https://developer.android.com/training/wearables/wff/expressions) language, which can include data sources. The `target` attribute
+[expression](https://developer.android.com/training/wearables/wff/expressions.md.txt) language, which can include data sources. The `target` attribute
 specifies the attribute to change in the parent element.
 
 For example, to change the angle of an `Arc` to reflect step progress:

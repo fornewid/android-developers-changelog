@@ -35,7 +35,7 @@ a number of separate sample projects within this repository:
 | [GridToPager](https://github.com/android/animation-samples/tree/main/GridToPager) | Shows how to create shared element transitions from a `RecyclerView` to a `ViewPager` and back again. |
 | [Interpolator](https://github.com/android/animation-samples/tree/main/Interpolator) | Shows how different interpolators affect the dynamics of your animations. |
 | [Motion](https://github.com/android/animation-samples/tree/main/Motion) | Shows how to implement various types of Material Design Motion for layouts, lists, and navigation. |
-| [MotionCompose](https://github.com/android/animation-samples/tree/main/MotionCompose) | Shows how to implement various different types of Material Design Motion for Jetpack Compose. |
+| [MotionCompose](https://github.com/android/snippets/tree/main/compose/snippets/src/main/java/com/example/compose/snippets/animations/demo) | Shows how to implement various different types of Material Design Motion for Jetpack Compose. |
 | [OurStreets](https://github.com/android/animation-samples/tree/main/OurStreets) | Showcases shared element transitions throughout the app. |
 | [RevealEffectBasic](https://github.com/android/animation-samples/tree/main/RevealEffectBasic) | Shows how to implement the circular reveal effect. |
 | [Unsplash](https://github.com/android/animation-samples/tree/main/Unsplash) | The example code from the Google I/O '16 talk [A window into transitions](https://www.youtube.com/watch?v=4L4fLrWDvAU). |

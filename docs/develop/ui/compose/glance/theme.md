@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 Glance provides an API to manage the color theme. For other style attributes,
-such as [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle), declare top-level variables.
+such as [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.md.txt), declare top-level variables.
 
 ## Add colors
 
@@ -136,10 +136,12 @@ Drawables API.
 
 For example, the following snippet shows how to create a drawable (a shape):
 
-    <shape xmlns:android="http://schemas.android.com/apk/res/android">
-        <corners android:radius="16dp"/>
-        <stroke android:color="@color/outline_color" android:width="1dp"/>
-    </shape>
+```xml
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="16dp"/>
+    <stroke android:color="@color/outline_color" android:width="1dp"/>
+</shape>
+```
 
 Provide it to the target composable:
 

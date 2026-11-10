@@ -68,7 +68,7 @@ content.
 If your app detects that there isn't a Bluetooth headset connected when you want
 to provide audio playback on devices running Wear OS 5 or higher, offer to take
 the user directly to the media output switcher. On devices that don't support
-the media output switcher, invoke the `ACTION_BLUETOOTH_SETTINGS` [intent](https://developer.android.com/reference/android/provider/Settings#ACTION_BLUETOOTH_SETTINGS)
+the media output switcher, invoke the `ACTION_BLUETOOTH_SETTINGS` [intent](https://developer.android.com/reference/android/provider/Settings.md.txt#ACTION_BLUETOOTH_SETTINGS)
 action, which takes the user to the Bluetooth page in system settings.
 
 The `launchOutputSelection()` [method](https://github.com/google/horologist/blob/v0.5.26/media/audio/src/main/java/com/google/android/horologist/audio/SystemAudioRepository.kt#L108), part of the [Horologist](https://github.com/google/horologist) library
@@ -156,7 +156,7 @@ After you detect and choose a suitable audio output, playing audio on Wear OS is
 the same as on mobile or other devices. For more information, see [MediaPlayer
 overview](https://developer.android.com/guide/topics/media/mediaplayer). For easier access to advanced features, for example, streaming and
 downloading media, use [ExoPlayer](https://developer.android.com/guide/topics/media/exoplayer). Follow best practices for audio apps, for
-example, [managing audio focus](https://developer.android.com/media/optimize/audio-focus).
+example, [managing audio focus](https://developer.android.com/media/optimize/audio-focus.md.txt).
 
 ### Prevent unintended media playback through built-in speakers
 
@@ -171,7 +171,7 @@ player your app uses.
 
 If your app uses ExoPlayer:
 
-1. Call `setSuppressPlaybackOnUnsuitableOutput(true)` [method](https://developer.android.com/reference/kotlin/androidx/media3/exoplayer/ExoPlayer.Builder#setSuppressPlaybackOnUnsuitableOutput(boolean)) while building the ExoPlayer instance:
+1. Call `setSuppressPlaybackOnUnsuitableOutput(true)` [method](https://developer.android.com/reference/kotlin/androidx/media3/exoplayer/ExoPlayer.Builder.md.txt#setSuppressPlaybackOnUnsuitableOutput(boolean)) while building the ExoPlayer instance:
 
 
 ```kotlin
@@ -183,7 +183,7 @@ val exoPlayer = ExoPlayer.Builder(context)
 
 <br />
 
-1. React to the playback suppression event by registering `WearUnsuitableOutputPlaybackSuppressionResolverListener` [listener](https://developer.android.com/reference/kotlin/androidx/media3/ui/WearUnsuitableOutputPlaybackSuppressionResolverListener) as a listener of the ExoPlayer instance:
+1. React to the playback suppression event by registering `WearUnsuitableOutputPlaybackSuppressionResolverListener` [listener](https://developer.android.com/reference/kotlin/androidx/media3/ui/WearUnsuitableOutputPlaybackSuppressionResolverListener.md.txt) as a listener of the ExoPlayer instance:
 
 
 ```kotlin
@@ -199,10 +199,10 @@ unintended media playback on built-in watch speakers.
 
 #### Other media players
 
-- Ensure that media audio playback starts only when a suitable output device, for example, a headset or external speakers, is [connected](https://developer.android.com/reference/android/media/AudioManager#getDevices(int)) to the watch. The following list shows suitable output devices for media apps:
-  - [`AudioDeviceInfo.TYPE_BLUETOOTH_A2DP`](https://developer.android.com/reference/android/media/AudioDeviceInfo#TYPE_BUILTIN_SPEAKER)
-  - [`AudioDeviceInfo.TYPE_BLE_BROADCAST`](https://developer.android.com/reference/android/media/AudioDeviceInfo#TYPE_BLE_BROADCAST)
-  - [`AudioDeviceInfo.TYPE_BLE_HEADSET`](https://developer.android.com/reference/android/media/AudioDeviceInfo#TYPE_BLE_HEADSET)
-  - [`AudioDeviceInfo.TYPE_BLE_SPEAKER`](https://developer.android.com/reference/android/media/AudioDeviceInfo#TYPE_BLE_SPEAKER)
-- If the [`AudioManager`](https://developer.android.com/reference/android/media/AudioManager) notifies your app that an external audio output device [disconnects from the watch](https://developer.android.com/reference/android/media/AudioDeviceCallback#onAudioDevicesRemoved(android.media.AudioDeviceInfo%5B%5D)), pause playback.
-- When the user attempts to initiate media playback but hasn't connected an external audio device, [prompt them to connect](https://developer.android.com/training/wearables/apps/audio#prompt-the-user-to-connect-a-headset) a device to their watch.
+- Ensure that media audio playback starts only when a suitable output device, for example, a headset or external speakers, is [connected](https://developer.android.com/reference/android/media/AudioManager.md.txt#getDevices(int)) to the watch. The following list shows suitable output devices for media apps:
+  - [`AudioDeviceInfo.TYPE_BLUETOOTH_A2DP`](https://developer.android.com/reference/android/media/AudioDeviceInfo.md.txt#TYPE_BUILTIN_SPEAKER)
+  - [`AudioDeviceInfo.TYPE_BLE_BROADCAST`](https://developer.android.com/reference/android/media/AudioDeviceInfo.md.txt#TYPE_BLE_BROADCAST)
+  - [`AudioDeviceInfo.TYPE_BLE_HEADSET`](https://developer.android.com/reference/android/media/AudioDeviceInfo.md.txt#TYPE_BLE_HEADSET)
+  - [`AudioDeviceInfo.TYPE_BLE_SPEAKER`](https://developer.android.com/reference/android/media/AudioDeviceInfo.md.txt#TYPE_BLE_SPEAKER)
+- If the [`AudioManager`](https://developer.android.com/reference/android/media/AudioManager.md.txt) notifies your app that an external audio output device [disconnects from the watch](https://developer.android.com/reference/android/media/AudioDeviceCallback.md.txt#onAudioDevicesRemoved(android.media.AudioDeviceInfo%5B%5D)), pause playback.
+- When the user attempts to initiate media playback but hasn't connected an external audio device, [prompt them to connect](https://developer.android.com/training/wearables/apps/audio.md.txt#prompt-the-user-to-connect-a-headset) a device to their watch.

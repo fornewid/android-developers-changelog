@@ -15,14 +15,14 @@ Material Design is the recommended design system for theming Android apps.
 
 For View-based apps, there are three versions of Material available:
 
-- Material Design 1 using the [AppCompat](https://developer.android.com/jetpack/androidx/releases/appcompat) library (i.e. `Theme.AppCompat.*`)
+- Material Design 1 using the [AppCompat](https://developer.android.com/jetpack/androidx/releases/appcompat.md.txt) library (i.e. `Theme.AppCompat.*`)
 - Material Design 2 using the [MDC-Android](https://github.com/material-components/material-components-android) library (i.e. `Theme.MaterialComponents.*`)
 - Material Design 3 using the [MDC-Android](https://github.com/material-components/material-components-android) library (i.e. `Theme.Material3.*`)
 
 For Compose apps, there are two versions of Material available:
 
-- Material Design 2 using the [Compose Material](https://developer.android.com/jetpack/androidx/releases/compose-material) library (i.e. `androidx.compose.material.MaterialTheme`)
-- Material Design 3 using the [Compose Material 3](https://developer.android.com/jetpack/androidx/releases/compose-material3) library (i.e. `androidx.compose.material3.MaterialTheme`)
+- Material Design 2 using the [Compose Material](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt) library (i.e. `androidx.compose.material.MaterialTheme`)
+- Material Design 3 using the [Compose Material 3](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt) library (i.e. `androidx.compose.material3.MaterialTheme`)
 
 We recommend using the latest version (Material 3) if your app's design system
 is in a position to do so. There are migration guides available for both Views
@@ -30,7 +30,7 @@ and Compose:
 
 - [Material 1 to Material 2 in Views](https://material.io/blog/migrate-android-material-components)
 - [Material 2 to Material 3 in Views](https://material.io/blog/migrating-material-3)
-- [Material 2 to Material 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material2-material3)
+- [Material 2 to Material 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material2-material3.md.txt)
 
 When creating new screens in Compose, regardless of which version of Material
 Design you're using, ensure that you apply a `MaterialTheme` before any
@@ -42,13 +42,13 @@ All
 [Jetpack Compose samples](https://github.com/android/compose-samples)
 use a custom Compose theme built on top of `MaterialTheme`.
 
-See [Design systems in Compose](https://developer.android.com/develop/ui/compose/designsystems) and [Migrating XML themes to Compose](https://developer.android.com/develop/ui/compose/designsystems/views-to-compose) to learn more.
+See [Design systems in Compose](https://developer.android.com/develop/ui/compose/designsystems.md.txt) and [Migrating XML themes to Compose](https://developer.android.com/develop/ui/compose/designsystems/views-to-compose) to learn more.
 
 ## Navigation
 
 If you use the [Navigation component](https://developer.android.com/guide/navigation/get-started) in your app, see
-the [Navigate from Compose in a Fragment-based app](https://developer.android.com/guide/navigation/use-graph/navigate#compose-interop) and
-[Migrate Jetpack Navigation to Navigation Compose](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/navigation) for more information.
+the [Navigate from Compose in a Fragment-based app](https://developer.android.com/guide/navigation/use-graph/navigate.md.txt#compose-interop) and
+[Migrate Jetpack Navigation to Navigation Compose](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/navigation.md.txt) for more information.
 
 ## Test your mixed Compose/Views UI
 
@@ -56,7 +56,7 @@ After migrating parts of your app to Compose, testing is critical to make sure
 you haven't broken anything.
 
 When an activity or fragment uses Compose, you need to use
-[`createAndroidComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/package-summary#createAndroidComposeRule())
+[`createAndroidComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/package-summary.md.txt#createAndroidComposeRule())
 instead of using `ActivityScenarioRule`. `createAndroidComposeRule` integrates
 `ActivityScenarioRule` with a `ComposeTestRule` that lets you test Compose and
 View code at the same time.
@@ -80,14 +80,14 @@ class MyActivityTest {
 
 <br />
 
-See [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing) to learn more about testing. For
+See [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing.md.txt) to learn more about testing. For
 interoperability with UI testing frameworks, see
-[interoperability with Espresso](https://developer.android.com/develop/ui/compose/testing#espresso-interop) and
-[interoperability with UiAutomator](https://developer.android.com/develop/ui/compose/testing#uiautomator-interop).
+[interoperability with Espresso](https://developer.android.com/develop/ui/compose/testing.md.txt#espresso-interop) and
+[interoperability with UiAutomator](https://developer.android.com/develop/ui/compose/testing.md.txt#uiautomator-interop).
 
 ## Integrating Compose with your existing app architecture
 
-[Unidirectional Data Flow](https://developer.android.com/develop/ui/compose/architecture#udf) (UDF) architecture
+[Unidirectional Data Flow](https://developer.android.com/develop/ui/compose/architecture.md.txt#udf) (UDF) architecture
 patterns work seamlessly with Compose. If the app uses other types of
 architecture patterns instead, like Model View Presenter (MVP), we recommend you
 migrate that part of the UI to UDF before or whilst adopting Compose.
@@ -96,13 +96,13 @@ migrate that part of the UI to UDF before or whilst adopting Compose.
 
 If you use the [Architecture Components
 `ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) library, you can access a
-[`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) from any composable by
+[`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel.md.txt) from any composable by
 calling the
-[`viewModel()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/compose/package-summary#viewmodel)
-function, as explained in [Compose and other libraries](https://developer.android.com/develop/ui/compose/libraries).
+[`viewModel()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/compose/package-summary.md.txt#viewmodel)
+function, as explained in [Compose and other libraries](https://developer.android.com/develop/ui/compose/libraries.md.txt).
 
 > [!NOTE]
-> **Note:** Due to their [lifecycle and scoping](https://developer.android.com/topic/libraries/architecture/viewmodel#lifecycle), *you should access and call `ViewModel` instances at screen-level
+> **Note:** Due to their [lifecycle and scoping](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt#lifecycle), *you should access and call `ViewModel` instances at screen-level
 > composables* ---that is, close to a root composable called from an activity, fragment, or destination of a Navigation graph. *You should never pass down
 > `ViewModel` instances to other composables*. Instead, pass only the data they need and functions that perform the required logic as parameters.
 
@@ -203,7 +203,7 @@ is closer to the root of the UI hierarchy.
 ### Compose as the source of truth
 
 Use the
-[`SideEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/SideEffect.composable#SideEffect(kotlin.Function0))
+[`SideEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/SideEffect.composable.md.txt#SideEffect(kotlin.Function0))
 composable to publish Compose state to non-Compose code. In this case, the
 source of truth is kept in a composable, which sends state updates.
 
@@ -232,7 +232,7 @@ fun rememberFirebaseAnalytics(user: User): FirebaseAnalytics {
 
 <br />
 
-For more information, see [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects).
+For more information, see [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects.md.txt).
 
 ### View system as the source of truth
 
@@ -344,7 +344,7 @@ class CallToActionViewButton @JvmOverloads constructor(
 
 Notice that the composable parameters become mutable variables inside the custom
 view. This makes the custom `CallToActionViewButton` view inflatable and usable,
-like a traditional view. See an example of this with [View Binding](https://developer.android.com/topic/libraries/view-binding)
+like a traditional view. See an example of this with [View Binding](https://developer.android.com/topic/libraries/view-binding.md.txt)
 below:
 
 
@@ -376,7 +376,7 @@ truth](https://developer.android.com/develop/ui/compose/migrate/other-considerat
 Traditionally, a `View` is stateful. A `View` manages fields that
 describe *what* to display, in addition to *how* to display it. When you
 convert a `View` to Compose, look to separate the data being rendered to
-achieve a unidirectional data flow, as explained further in [state hoisting](https://developer.android.com/develop/ui/compose/state#state-hoisting).
+achieve a unidirectional data flow, as explained further in [state hoisting](https://developer.android.com/develop/ui/compose/state.md.txt#state-hoisting).
 
 For example, a `View` has a `visibility` property that describes if it is
 visible, invisible, or gone. This is an inherent property of the `View`. While
@@ -460,7 +460,7 @@ In the example above, all three parts are more encapsulated and less coupled:
   swapping out content, or passing content on to other children.
 
 This pattern is known as the *inversion of control* , which you can read more
-about in the [`CompositionLocal` documentation](https://developer.android.com/develop/ui/compose/compositionlocal#inversion-of-control).
+about in the [`CompositionLocal` documentation](https://developer.android.com/develop/ui/compose/compositionlocal.md.txt#inversion-of-control).
 
 ## Handling screen size changes
 
@@ -470,7 +470,7 @@ for screen-level layout decisions, Compose makes it much easier to change
 layouts entirely in code with normal conditional logic. See [Use window size
 classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes) to learn more.
 
-Additionally, refer to [Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes)
+Additionally, refer to [Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes.md.txt)
 to learn about the techniques Compose offers to build adaptive UIs.
 
 ## Nested scrolling with Views
@@ -499,14 +499,14 @@ insets in Compose, and pad the `AndroidView` composables accordingly.
 
 By default, each `ComposeView` consumes all insets at the
 `WindowInsetsCompat` level of consumption. To change this default behavior, set
-[`ComposeView.consumeWindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ComposeView#(androidx.compose.ui.platform.ComposeView).consumeWindowInsets())
+[`ComposeView.consumeWindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ComposeView.md.txt#(androidx.compose.ui.platform.ComposeView).consumeWindowInsets())
 to `false`.
 
-For more information, read the [`WindowInsets` in Compose](https://developer.android.com/develop/ui/compose/system/insets) documentation.
+For more information, read the [`WindowInsets` in Compose](https://developer.android.com/develop/ui/compose/system/insets.md.txt) documentation.
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Display emoji](https://developer.android.com/develop/ui/compose/text/emoji)
-- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material)
-- [Window insets in Compose](https://developer.android.com/develop/ui/compose/system/insets)
+- [Display emoji](https://developer.android.com/develop/ui/compose/text/emoji.md.txt)
+- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material.md.txt)
+- [Window insets in Compose](https://developer.android.com/develop/ui/compose/system/insets.md.txt)

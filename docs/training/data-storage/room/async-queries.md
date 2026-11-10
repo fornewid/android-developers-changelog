@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 To prevent queries from blocking the UI, Room doesn't support database access
-on the main thread. This restriction means you must make your [DAO queries](https://developer.android.com/training/data-storage/room/accessing-data)
+on the main thread. This restriction means you must make your [DAO queries](https://developer.android.com/training/data-storage/room/accessing-data.md.txt)
 asynchronous. The Room library includes integrations with several frameworks to
 provide asynchronous query execution.
 
@@ -28,7 +28,7 @@ on query type and framework:
 | Observable read | `Flow<T>` | `Flowable<T>`, `Publisher<T>`, `Observable<T>` | N/A | `LiveData<T>` |
 
 > [!NOTE]
-> **Note:** Room supports RxJava, Guava, and LiveData return types using DAO return type converters. To use them, you must register the respective converter class. For more information, see [Custom DAO return type converters](https://developer.android.com/training/data-storage/room/async-queries#custom-converters).
+> **Note:** Room supports RxJava, Guava, and LiveData return types using DAO return type converters. To use them, you must register the respective converter class. For more information, see [Custom DAO return type converters](https://developer.android.com/training/data-storage/room/async-queries.md.txt#custom-converters).
 
 This guide demonstrates three ways to use these integrations to implement
 asynchronous queries in your DAOs.
@@ -39,7 +39,7 @@ Kotlin provides built-in language features that let you write asynchronous
 queries without third-party frameworks:
 
 - Room directly supports Kotlin's [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/) to write observable queries.
-- Room requires the `suspend` keyword to make your one-shot DAO queries asynchronous with [Kotlin coroutines](https://developer.android.com/kotlin/coroutines).
+- Room requires the `suspend` keyword to make your one-shot DAO queries asynchronous with [Kotlin coroutines](https://developer.android.com/kotlin/coroutines.md.txt).
 
 Coroutines and Flow support is built directly into the core Room runtime,
 so no additional artifacts are required.
@@ -107,12 +107,12 @@ interface ObservableUserDao {
 <br />
 
 > [!NOTE]
-> **Note:** Observable queries in Room have one important limitation: the query reruns whenever any row in the table is updated, regardless of whether that row is in the result set. You can ensure that the UI is only notified when the actual query results change by applying the `distinctUntilChanged` operator from the corresponding library: [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/distinct-until-changed), [RxJava](http://reactivex.io/documentation/operators/distinct), or [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/Transformations#(androidx.lifecycle.LiveData).distinctUntilChanged()).
+> **Note:** Observable queries in Room have one important limitation: the query reruns whenever any row in the table is updated, regardless of whether that row is in the result set. You can ensure that the UI is only notified when the actual query results change by applying the `distinctUntilChanged` operator from the corresponding library: [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/distinct-until-changed), [RxJava](http://reactivex.io/documentation/operators/distinct), or [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/Transformations.md.txt#(androidx.lifecycle.LiveData).distinctUntilChanged()).
 
 ### Track database invalidation manually
 
 When you need to build observable database operations manually, you can use the
-[`createFlow`](https://developer.android.com/reference/kotlin/androidx/room3/InvalidationTracker#createFlow(kotlin.Array,kotlin.Boolean)) API of [`InvalidationTracker`](https://developer.android.com/reference/kotlin/androidx/room3/InvalidationTracker). This API lets you
+[`createFlow`](https://developer.android.com/reference/kotlin/androidx/room3/InvalidationTracker.md.txt#createFlow(kotlin.Array,kotlin.Boolean)) API of [`InvalidationTracker`](https://developer.android.com/reference/kotlin/androidx/room3/InvalidationTracker.md.txt). This API lets you
 create a `Flow` that tracks modifications to specific tables and emits a
 notification whenever those tables change.
 
@@ -138,7 +138,7 @@ setting the `emitInitialState` parameter to `false`.
 For types that aren't directly supported by Room or its extension libraries,
 you can define custom DAO return type converters to support additional return
 types. To transform the result of a DAO function into your custom type,
-annotate a converter function with [`@DaoReturnTypeConverter`](https://developer.android.com/reference/kotlin/androidx/room3/DaoReturnTypeConverter).
+annotate a converter function with [`@DaoReturnTypeConverter`](https://developer.android.com/reference/kotlin/androidx/room3/DaoReturnTypeConverter.md.txt).
 
 For example, you can define a converter that uses `androidx.tracing` to add
 trace sections around the execution of a query to monitor performance-sensitive
@@ -165,7 +165,7 @@ object TracingDaoReturnTypeConverter {
 <br />
 
 To use the converter, annotate your database or DAO with
-[`@DaoReturnTypeConverters`](https://developer.android.com/reference/kotlin/androidx/room3/DaoReturnTypeConverters):
+[`@DaoReturnTypeConverters`](https://developer.android.com/reference/kotlin/androidx/room3/DaoReturnTypeConverters.md.txt):
 
 
 ```kotlin
@@ -184,7 +184,7 @@ interface MusicDao {
 Ordinarily, Room handles instantiation of DAO return type converters.
 However, if you must pass additional dependencies to your converter classes,
 your app must directly control their initialization. If so, annotate your
-converter class with [`@ProvidedDaoReturnTypeConverter`](https://developer.android.com/reference/kotlin/androidx/room3/ProvidedDaoReturnTypeConverter):
+converter class with [`@ProvidedDaoReturnTypeConverter`](https://developer.android.com/reference/kotlin/androidx/room3/ProvidedDaoReturnTypeConverter.md.txt):
 
 
 ```kotlin
@@ -207,7 +207,7 @@ class TracingDaoReturnTypeConverter(val tracer: Tracer) {
 
 Then, in addition to declaring your converter class in
 `@DaoReturnTypeConverters`, use the
-[`RoomDatabase.Builder.addDaoReturnTypeConverter`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.Builder#addDaoReturnTypeConverter(kotlin.Any)) function to pass an
+[`RoomDatabase.Builder.addDaoReturnTypeConverter`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.Builder.md.txt#addDaoReturnTypeConverter(kotlin.Any)) function to pass an
 instance of your converter class to the `RoomDatabase` builder:
 
 

@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 > [!WARNING]
-> **Warning:** The SafetyNet Attestation API is deprecated and has been replaced by the [Play Integrity API](https://developer.android.com/google/play/integrity/overview). The SafetyNet reCAPTCHA API is being deprecated and replaced with [reCAPTCHA](https://cloud.google.com/recaptcha/docs/instrument-android-apps).
+> **Warning:** The SafetyNet Attestation API is deprecated and has been replaced by the [Play Integrity API](https://developer.android.com/google/play/integrity/overview.md.txt). The SafetyNet reCAPTCHA API is being deprecated and replaced with [reCAPTCHA](https://cloud.google.com/recaptcha/docs/instrument-android-apps).
 
 This page explains how to add SafetyNet APIs to your app.
 

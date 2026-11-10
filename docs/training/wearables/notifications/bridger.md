@@ -23,7 +23,7 @@ To bridge some of the notifications that your phone app creates to the watch
 when your watch app is installed, set bridge tags.
 
 Set a bridge tag on a notification by using the
-[`setBridgeTag(String)`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.WearableExtender#setBridgeTag(java.lang.String))
+[`setBridgeTag(String)`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.WearableExtender.md.txt#setBridgeTag(java.lang.String))
 method, as shown in the following code sample:
 
 <br />
@@ -50,7 +50,7 @@ recommend that you selectively disable bridging.
 You can dynamically disable bridging and, optionally, permit some notifications
 through based on their tag. For example, to disable bridging for all
 notifications except those tagged as `tagOne`, `tagTwo`, or `tagThree`, use the
-[`BridgingConfig`](https://developer.android.com/reference/androidx/wear/phone/interactions/notifications/BridgingConfig)
+[`BridgingConfig`](https://developer.android.com/reference/androidx/wear/phone/interactions/notifications/BridgingConfig.md.txt)
 object as shown in the following example:
 
 <br />
@@ -99,7 +99,7 @@ watch, you want both notifications to be dismissed when the user dismisses
 either one of them.
 
 In the
-[`NotificationCompat.WearableExtender`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.WearableExtender),
+[`NotificationCompat.WearableExtender`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.WearableExtender.md.txt),
 you can set a global unique ID so that when a user dismisses a notification,
 other notifications with the same ID on paired watches are also dismissed.
 
@@ -132,7 +132,7 @@ val notification = NotificationCompat.Builder(context, channelId)
 
 ## Local-only notifications
 
-To prevent duplicate notifications, you can also use [`setLocalOnly()`](https://developer.android.com/reference/android/app/Notification.Builder#setLocalOnly(boolean)) to
+To prevent duplicate notifications, you can also use [`setLocalOnly()`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setLocalOnly(boolean)) to
 make notifications local to the phone.
 
 However, use this method only if the notification must appear *only* on the
@@ -151,9 +151,9 @@ phone and the notification indicates that the download is complete.
 
 The system doesn't bridge the following types of notifications:
 
-- Local-only notifications set using [`Notification.Builder.setLocalOnly(boolean)`](https://developer.android.com/reference/android/app/Notification.Builder#setLocalOnly(boolean)).
-- Ongoing notifications set using [`Notification.Builder.setOngoing(boolean)`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean)) or [`Notification.FLAG_ONGOING_EVENT`](https://developer.android.com/reference/android/app/Notification#FLAG_ONGOING_EVENT).
-- Non-clearable notifications set using [`Notification.FLAG_NO_CLEAR`](https://developer.android.com/reference/android/app/Notification#FLAG_NO_CLEAR).
+- Local-only notifications set using [`Notification.Builder.setLocalOnly(boolean)`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setLocalOnly(boolean)).
+- Ongoing notifications set using [`Notification.Builder.setOngoing(boolean)`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setOngoing(boolean)) or [`Notification.FLAG_ONGOING_EVENT`](https://developer.android.com/reference/android/app/Notification.md.txt#FLAG_ONGOING_EVENT).
+- Non-clearable notifications set using [`Notification.FLAG_NO_CLEAR`](https://developer.android.com/reference/android/app/Notification.md.txt#FLAG_NO_CLEAR).
 - Notifications where the counterpart wearable app has [disabled notification
   bridging](https://developer.android.com/training/wearables/notifications/bridger#disable-bridging).
 

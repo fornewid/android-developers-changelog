@@ -7,18 +7,18 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
 In Jetpack Compose Glimmer, [surfaces](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/surfaces) use shapes to define their visual
-boundaries and roundedness. The [`Shapes`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Shapes) class provides different levels of
+boundaries and roundedness. The [`Shapes`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Shapes.md.txt) class provides different levels of
 roundedness intended for various types of components.
 ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_style_shapes.webp) **Figure 1.** An example of large, medium, and small shapes in Jetpack Compose Glimmer.
 
 ## Shape categories
 
-The [`GlimmerTheme`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/GlimmerTheme) class defines three standard shape sizes:
+The [`GlimmerTheme`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/GlimmerTheme.md.txt) class defines three standard shape sizes:
 
 - **Small** : A shape with four same-sized corners. It is used for components such as cards. By default, this is a `RoundedCornerShape` of **24.dp**.
 - **Medium** : A shape with four same-sized corners sized between small and large. This is the most commonly used shape and is the default used in surface. By default, this is a `RoundedCornerShape` of **36.dp**.
@@ -26,7 +26,7 @@ The [`GlimmerTheme`](https://developer.android.com/reference/kotlin/androidx/xr/
 
 ### Example: Get shapes from GlimmerTheme and apply them to components
 
-First, get the defined shapes from [`GlimmerTheme.shapes`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/GlimmerTheme#shapes()), and then apply
+First, get the defined shapes from [`GlimmerTheme.shapes`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/GlimmerTheme.md.txt#shapes()), and then apply
 those shapes to some components:
 
 

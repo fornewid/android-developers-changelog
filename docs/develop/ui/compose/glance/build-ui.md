@@ -19,7 +19,7 @@ Glance has three main composable layouts:
 - `Row`: Places elements after each other in the horizontal axis. It translates
   to a `LinearLayout` with horizontal orientation.
 
-Glance supports [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/components/Scaffold.composable#Scaffold(androidx.glance.GlanceModifier,kotlin.Function0,androidx.glance.unit.ColorProvider,androidx.compose.ui.unit.Dp,kotlin.Function0)) objects. Place your `Column`, `Row`, and
+Glance supports [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/components/Scaffold.composable.md.txt#Scaffold(androidx.glance.GlanceModifier,kotlin.Function0,androidx.glance.unit.ColorProvider,androidx.compose.ui.unit.Dp,kotlin.Function0)) objects. Place your `Column`, `Row`, and
 `Box` composables within a given `Scaffold` object.
 ![A column, row, and box layout.](https://developer.android.com/static/develop/ui/compose/images/column_row_box.png) **Figure 1.** Examples of layouts with Column, Row, and Box.
 
@@ -161,7 +161,7 @@ Alas, your browser doesn't support HTML5 video. That's OK! You can still [downlo
 
 To implement snap scrolling, make sure you meet the following conditions:
 
-- Update your Glance [dependency](https://developer.android.com/jetpack/androidx/releases/glance#1.3.0-alpha01) to 1.3.0-alpha02 or higher.
+- Update your Glance [dependency](https://developer.android.com/jetpack/androidx/releases/glance.md.txt#1.3.0-alpha01) to 1.3.0-alpha02 or higher.
 - Set your `compileSdk` to 37 or higher, as snap scrolling is supported on devices running Android 17 and higher.
 - Configure your `LazyColumn` with `VerticalScrollMode`. If the device supports snap scrolling, use `SnapScrollMatchHeight`. Otherwise, use `Normal`.
 
@@ -227,7 +227,7 @@ modes.
 
 ### `SizeMode.Single`
 
-[`SizeMode.Single`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/SizeMode.Single) is the default mode. It indicates that only one type of
+[`SizeMode.Single`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/SizeMode.Single.md.txt) is the default mode. It indicates that only one type of
 content is provided; that is, even if the `AppWidget` available size changes,
 the content size is not changed.
 
@@ -259,7 +259,7 @@ class MyAppWidget : GlanceAppWidget() {
 
 When using this mode, ensure that:
 
-- The minimum and maximum size [metadata values](https://developer.android.com/develop/ui/compose/glance/create-app-widget#add-appwidgetproviderinfo) are properly defined based on the content size.
+- The minimum and maximum size [metadata values](https://developer.android.com/develop/ui/compose/glance/create-app-widget.md.txt#add-appwidgetproviderinfo) are properly defined based on the content size.
 - The content is flexible enough within the expected size range.
 
 In general, you should use this mode when either:
@@ -358,7 +358,7 @@ the `AppWidget` available size:
 
 ### `SizeMode.Exact`
 
-[`SizeMode.Exact`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/SizeMode.Exact) is the equivalent of [providing exact layouts](https://developer.android.com/guide/topics/appwidgets/layouts#provide-exact-layouts), which
+[`SizeMode.Exact`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/SizeMode.Exact.md.txt) is the equivalent of [providing exact layouts](https://developer.android.com/guide/topics/appwidgets/layouts#provide-exact-layouts), which
 requests the `GlanceAppWidget` content each time the available `AppWidget` size
 changes (for example, when the user resizes the `AppWidget` in the homescreen).
 
@@ -467,12 +467,12 @@ Text(
 
 ## Add compound buttons
 
-Compound buttons were [introduced in Android 12](https://developer.android.com/about/versions/12/features/widgets#new-compound-buttons). Glance supports backwards
+Compound buttons were [introduced in Android 12](https://developer.android.com/about/versions/12/features/widgets.md.txt#new-compound-buttons). Glance supports backwards
 compatibility for the following types of compound buttons:
 
-- [`Switch`](https://developer.android.com/reference/android/widget/Switch)
-- [`CheckBox`](https://developer.android.com/reference/android/widget/CheckBox)
-- [`RadioButton`](https://developer.android.com/reference/android/widget/RadioButton)
+- [`Switch`](https://developer.android.com/reference/android/widget/Switch.md.txt)
+- [`CheckBox`](https://developer.android.com/reference/android/widget/CheckBox.md.txt)
+- [`RadioButton`](https://developer.android.com/reference/android/widget/RadioButton.md.txt)
 
 These compound buttons each display a clickable view that represents the
 "checked" state.
@@ -597,4 +597,4 @@ following table:
 For more information on design specifics, see the component designs in this
 [design kit](https://www.figma.com/community/file/1237551184114564748/android-ui-kit) on Figma.
 
-For more information on canonical layouts visit [Canonical widget layouts](https://developer.android.com/design/ui/mobile/guides/widgets/layouts).
+For more information on canonical layouts visit [Canonical widget layouts](https://developer.android.com/design/ui/mobile/guides/widgets/layouts.md.txt).

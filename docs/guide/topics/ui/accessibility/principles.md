@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 > [!NOTE]
-> **Note:** Documentation across [developer.android.com](https://developer.android.com/) is being refactored to show how to accomplish tasks with Compose. We recommend using Compose for your app, but you can still access the Views-specific information for the concepts on this page at [Principles for improving app accessibility (Views)](https://developer.android.com/guide/topics/ui/accessibility/views/principles-views).
+> **Note:** Documentation across [developer.android.com](https://developer.android.com/) is being refactored to show how to accomplish tasks with Compose. We recommend using Compose for your app, but you can still access the Views-specific information for the concepts on this page at [Principles for improving app accessibility (Views)](https://developer.android.com/guide/topics/ui/accessibility/views/principles-views.md.txt).
 
 To assist users with accessibility needs, the Android framework lets you
 create an accessibility service that can present content from apps to users
@@ -24,26 +24,26 @@ accessible](https://developer.android.com/guide/topics/ui/accessibility/apps).
 Each of these best practices, described in the sections that follow,
 can further improve your app's accessibility:
 
-[Label elements](https://developer.android.com/guide/topics/ui/accessibility/principles#label-elements)
+[Label elements](https://developer.android.com/guide/topics/ui/accessibility/principles.md.txt#label-elements)
 :   Users must be able to understand the content and purpose of each interactive
     and meaningful UI element within your app.
 
-[Add accessibility actions](https://developer.android.com/guide/topics/ui/accessibility/principles#accessibility-actions)
+[Add accessibility actions](https://developer.android.com/guide/topics/ui/accessibility/principles.md.txt#accessibility-actions)
 :   By adding accessibility actions, you can enable users of accessibility
     services to complete critical user flows within your app.
 
-[Use built-in accessibility features](https://developer.android.com/guide/topics/ui/accessibility/principles#built-in-a11y)
+[Use built-in accessibility features](https://developer.android.com/guide/topics/ui/accessibility/principles.md.txt#built-in-a11y)
 :   Compose offers many accessibility behaviors by default. Take advantage of
     predefined accessibility behaviors to make your components accessible with
     little or no additional work. Compose also provides ways to support more
     specific accessibility requirements not covered by the default features.
 
-[Use cues other than color](https://developer.android.com/guide/topics/ui/accessibility/principles#cues-other-than-color)
+[Use cues other than color](https://developer.android.com/guide/topics/ui/accessibility/principles.md.txt#cues-other-than-color)
 :   Users must be able to clearly distinguish between categories of elements in
     a UI. To do so, use patterns and position, along with color, to express these
     differences.
 
-[Make media content more accessible](https://developer.android.com/guide/topics/ui/accessibility/principles#media-content)
+[Make media content more accessible](https://developer.android.com/guide/topics/ui/accessibility/principles.md.txt#media-content)
 :   Add descriptions to your app's video or audio content so that users
     who consume this content don't need to rely on entirely visual or aural cues.
 
@@ -55,10 +55,10 @@ of a particular element---that is, the element's meaning and purpose. Screen
 readers such as TalkBack can announce these labels to users.
 
 In most cases, Compose APIs and Material have
-[default accessibility support](https://developer.android.com/develop/ui/compose/accessibility/api-defaults) in place. However, if you need to manually
+[default accessibility support](https://developer.android.com/develop/ui/compose/accessibility/api-defaults.md.txt) in place. However, if you need to manually
 specify a UI element's semantic properties, use the `semantics` modifier and
 the `contentDescription` property. For more information about semantics, see
-[Semantics](https://developer.android.com/develop/ui/compose/accessibility/semantics).
+[Semantics](https://developer.android.com/develop/ui/compose/accessibility/semantics.md.txt).
 
 The following sections describe several other labeling techniques.
 
@@ -100,7 +100,7 @@ TextField(
 
 <br />
 
-For more information about text and user input, see [Configure text fields](https://developer.android.com/develop/ui/compose/text/user-input).
+For more information about text and user input, see [Configure text fields](https://developer.android.com/develop/ui/compose/text/user-input.md.txt).
 
 ### Elements in a collection
 
@@ -140,7 +140,7 @@ MilkyWayList(
 <br />
 
 For more information about semantics properties for lists and grids, see
-[List and item information](https://developer.android.com/develop/ui/compose/accessibility/semantics#list-item-info).
+[List and item information](https://developer.android.com/develop/ui/compose/accessibility/semantics.md.txt#list-item-info).
 
 ### Groups of related content
 
@@ -198,7 +198,7 @@ In a list or a grid context, a screen reader might consolidate the text of a
 list or grid element's child text nodes. It is best to avoid modifying this
 announcement.
 
-For more information about merging semantics, see [Merging and clearing](https://developer.android.com/develop/ui/compose/accessibility/merging-clearing).
+For more information about merging semantics, see [Merging and clearing](https://developer.android.com/develop/ui/compose/accessibility/merging-clearing.md.txt).
 
 ### Headings within text
 
@@ -225,7 +225,7 @@ Users of accessibility services can choose to navigate between headings
 instead of between paragraphs or between words. This flexibility improves the
 text navigation experience.
 
-For more information about the `heading` semantics property, see [Headings](https://developer.android.com/develop/ui/compose/accessibility/semantics#headings).
+For more information about the `heading` semantics property, see [Headings](https://developer.android.com/develop/ui/compose/accessibility/semantics.md.txt#headings).
 
 ### Accessibility pane titles
 
@@ -255,7 +255,7 @@ ShareSheet(
 > **Note:** Use unique pane titles across your app. Because TalkBack uses pane titles as identifiers, reusing generic titles (like "List" or "Details") on completely independent screens can cause unintended side effects and unpredictable accessibility behavior.
 
 For more information about the `paneTitle` semantics property, see
-[Window-like components](https://developer.android.com/develop/ui/compose/accessibility/semantics#window-like).
+[Window-like components](https://developer.android.com/develop/ui/compose/accessibility/semantics.md.txt#window-like).
 
 ### Decorative elements
 
@@ -315,7 +315,7 @@ fun FavoriteToggle() {
 <br />
 
 For more information about clearing semantics, see
-[Clear and set semantics](https://developer.android.com/develop/ui/compose/accessibility/merging-clearing#clear-and-set).
+[Clear and set semantics](https://developer.android.com/develop/ui/compose/accessibility/merging-clearing.md.txt#clear-and-set).
 
 ## Add accessibility actions
 
@@ -369,7 +369,7 @@ SwipeToDismissBox(
 With the custom accessibility action implemented, users can access the
 action through the actions menu.
 
-For more information about custom actions, see [Custom actions](https://developer.android.com/develop/ui/compose/accessibility/semantics#custom-actions).
+For more information about custom actions, see [Custom actions](https://developer.android.com/develop/ui/compose/accessibility/semantics.md.txt#custom-actions).
 
 ### Make available actions understandable
 
@@ -423,7 +423,7 @@ users understand the purpose of the action.
 You can also specify a label directly in the `semantics` modifier.
 
 For more information about responding to taps and clicks, see
-[Tap and press](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/tap-and-press) and [Interactive elements](https://developer.android.com/develop/ui/compose/accessibility/api-defaults#interactive-elements).
+[Tap and press](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/tap-and-press.md.txt) and [Interactive elements](https://developer.android.com/develop/ui/compose/accessibility/api-defaults.md.txt#interactive-elements).
 
 ## Use built-in accessibility features
 
@@ -512,7 +512,7 @@ properties for accessibility purposes. For example, if your component mimics
 a standard control like a switch or button, these properties include the
 component's role (such as `Role.Switch` or `Role.Button`), `stateDescription`
 (such as "On", "Off", "Checked", or "Not checked"), and any relevant action
-labels. For more information, see [Custom components](https://developer.android.com/develop/ui/compose/accessibility/api-defaults#custom-components).
+labels. For more information, see [Custom components](https://developer.android.com/develop/ui/compose/accessibility/api-defaults.md.txt#custom-components).
 
 ## Use cues other than color
 
@@ -552,4 +552,4 @@ additional resources:
 
 ### Views content
 
-- [Principles for improving app accessibility (Views)](https://developer.android.com/guide/topics/ui/accessibility/views/principles-views)
+- [Principles for improving app accessibility (Views)](https://developer.android.com/guide/topics/ui/accessibility/views/principles-views.md.txt)

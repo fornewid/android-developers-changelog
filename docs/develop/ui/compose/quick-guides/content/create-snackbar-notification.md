@@ -35,24 +35,24 @@ or higher.
 
 ## Create a basic snackbar
 
-To implement a snackbar, you first create [`SnackbarHost`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHost.composable#SnackbarHost(androidx.compose.material3.SnackbarHostState,androidx.compose.ui.Modifier,kotlin.Function1)), which includes a
-[`SnackbarHostState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHostState) property. `SnackbarHostState` provides access to the
-[`showSnackbar()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHostState#showsnackbar) function which you can use to display your snackbar.
+To implement a snackbar, you first create [`SnackbarHost`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHost.composable.md.txt#SnackbarHost(androidx.compose.material3.SnackbarHostState,androidx.compose.ui.Modifier,kotlin.Function1)), which includes a
+[`SnackbarHostState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHostState.md.txt) property. `SnackbarHostState` provides access to the
+[`showSnackbar()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHostState.md.txt#showsnackbar) function which you can use to display your snackbar.
 
 This suspending function requires a `CoroutineScope` such as with using
-[`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#remembercoroutinescope) --- and can be called in response to UI events to
-show a [`Snackbar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#snackbar) within `Scaffold`.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-snackbar-notification_ecd647beabfd062e1dd4cb0f4cf51666dbaacfd76b9fdec81a5870edab1fdc4b.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+[`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary.md.txt#remembercoroutinescope) --- and can be called in response to UI events to
+show a [`Snackbar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#snackbar) within `Scaffold`.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-snackbar-notification_0f686f5d7849d8a564092e749d8546db53ebf4cbb35f5f061839ec173c358803.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a snackbar with action
 
 You can provide an optional action and adjust the duration of the `Snackbar`.
 The `snackbarHostState.showSnackbar()` function accepts additional `actionLabel`
-and `duration` parameters, and returns a [`SnackbarResult`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarResult).
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-snackbar-notification_530ded597f3610f5c9b4558b279f4702fd316d21b2da091107e7a5fde685eb6d.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+and `duration` parameters, and returns a [`SnackbarResult`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarResult.md.txt).
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-snackbar-notification_249c68db39a4f3f2669351796307e487140b4e9bef77537c9e51c752988d4040.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 You can provide a custom `Snackbar` with the `snackbarHost` parameter. See the
-[`SnackbarHost` API reference docs](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#snackbarhost) for more information.
+[`SnackbarHost` API reference docs](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary.md.txt#snackbarhost) for more information.
 
 ## Collections that contain this guide
 
@@ -66,4 +66,4 @@ Learn how composable functions can enable you to easily create beautiful UI comp
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

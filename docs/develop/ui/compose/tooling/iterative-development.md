@@ -48,7 +48,7 @@ hierarchy changes. For more information, see the list of [Limitations of Live
 Edit](https://developer.android.com/develop/ui/compose/tooling/iterative-development#limitations).
 
 This feature is not a replacement for building and running your app or for
-[Apply Changes](https://developer.android.com/develop/ui/compose/tooling/iterative-development#apply-changes). Instead, it's designed to optimize your
+[Apply Changes](https://developer.android.com/develop/ui/compose/tooling/iterative-development.md.txt#apply-changes). Instead, it's designed to optimize your
 workflow as you build, deploy, and iterate to develop Compose UI.
 
 The best practice workflow is as follows:
@@ -246,7 +246,7 @@ Live Edit and Hot Reload for Compose Multiplatform are features that can save
 you time and increase your productivity as you develop with Compose. However,
 they serve the needs of different types of development:
 
-- [Live Edit](https://developer.android.com/develop/ui/compose/tooling/iterative-development#live-edit) supports iterative development with Jetpack Compose
+- [Live Edit](https://developer.android.com/develop/ui/compose/tooling/iterative-development.md.txt#live-edit) supports iterative development with Jetpack Compose
   for **Android applications**. It lets you update composables in emulators and
   physical devices in real time. This functionality minimizes context switches
   between writing and building your app, letting you focus on writing code
@@ -270,7 +270,7 @@ Compose Multiplatform, you should use Compose Hot Reload.
 ## Live Edit of literals (deprecated)
 
 > [!WARNING]
-> **Deprecated:** Live Edit of literals, an earlier version of Live Edit that is limited to just a few supported types, is deprecated. We recommend using [Live Edit](https://developer.android.com/develop/ui/compose/tooling/iterative-development#live-edit) instead.
+> **Deprecated:** Live Edit of literals, an earlier version of Live Edit that is limited to just a few supported types, is deprecated. We recommend using [Live Edit](https://developer.android.com/develop/ui/compose/tooling/iterative-development.md.txt#live-edit) instead.
 
 Android Studio can update in real time some constant literals used in
 composables within previews, emulator, and physical device. Here are some
@@ -298,9 +298,9 @@ Literals](https://developer.android.com/static/develop/ui/compose/images/live-ed
 
 ## Apply Changes
 
-[Apply Changes](https://developer.android.com/studio/run#use-apply-changes) lets you update code and resources
+[Apply Changes](https://developer.android.com/studio/run.md.txt#use-apply-changes) lets you update code and resources
 without having to redeploy your app to an emulator or physical device (with some
-[limitations](https://developer.android.com/studio/run#apply-changes-limitations)).
+[limitations](https://developer.android.com/studio/run.md.txt#apply-changes-limitations)).
 
 Whenever you add, modify, or delete composables, you can update your app without
 having to redeploy it by clicking on the **Apply Code Changes** button:
@@ -311,5 +311,5 @@ button](https://developer.android.com/static/develop/ui/compose/images/tooling-a
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Customize animations {:#customize-animations}](https://developer.android.com/develop/ui/compose/animation/customize)
-- [Value-based animations](https://developer.android.com/develop/ui/compose/animation/value-based)
+- [Customize animations {:#customize-animations}](https://developer.android.com/develop/ui/compose/animation/customize.md.txt)
+- [Value-based animations](https://developer.android.com/develop/ui/compose/animation/value-based.md.txt)

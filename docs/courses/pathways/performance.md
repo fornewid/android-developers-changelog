@@ -18,7 +18,7 @@ Go back
 
 Learn how to measure app performance with the Jetpack Macrobenchmark library.
 
-[Read article](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview)
+[Read article](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview.md.txt)
 
 ## Get your App Performance Score
 
@@ -26,7 +26,7 @@ Learn how to measure app performance with the Jetpack Macrobenchmark library.
 
 Take the app performance quiz to get your App Performance Score. Each score comes with actionable insights, evaluations and recommendations to help you improve your app's performance.
 
-[Read article](https://developer.android.com/topic/performance/app-score)
+[Read article](https://developer.android.com/topic/performance/app-score.md.txt)
 
 ## Understand how to improve app performance with the R8 optimizer.
 
@@ -34,7 +34,7 @@ Take the app performance quiz to get your App Performance Score. Each score come
 
 Learn how to use the R8 performance optimizer to improve app performance and reduce the size of your app.
 
-[Read article](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization)
+[Read article](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt)
 
 ## Understand how to use Baseline Profiles
 
@@ -42,7 +42,7 @@ Learn how to use the R8 performance optimizer to improve app performance and red
 
 Baseline Profiles improve app startup and runtime performance by reducing the need for Just-In-Time compilation. Learn how to use Baseline Profiles to optimize your app.
 
-<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/topic/performance/baselineprofiles/overview)
+<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt)
 
 ## Integrate Baseline Profiles in an Android app
 
@@ -58,7 +58,7 @@ Learn how to apply Baseline Profiles to an Android app.
 
 Learn how to diagnose and fix a wide variety of Application Not Responding errors.
 
-[Read article](https://developer.android.com/topic/performance/anrs/diagnose-and-fix-anrs)
+[Read article](https://developer.android.com/topic/performance/anrs/diagnose-and-fix-anrs.md.txt)
 
 ## Get an overview of Android system tracing
 
@@ -66,4 +66,4 @@ Learn how to diagnose and fix a wide variety of Application Not Responding error
 
 Learn how to use Android system tracing to profile your app.
 
-<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/topic/performance/tracing)
+<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/topic/performance/tracing.md.txt)

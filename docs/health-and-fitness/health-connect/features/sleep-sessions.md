@@ -6,7 +6,7 @@ source: md.txt
 
 <br />
 
-> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12) or later.
+> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect.md.txt#1.1.0-alpha12) or later.
 
 <br />
 
@@ -33,7 +33,7 @@ associated data consists of independent records, each with its own UUID.
 
 Before attempting to use Health Connect, your app should verify that Health Connect is available
 on the user's device. Health Connect might not be pre-installed on all devices or could be disabled.
-You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)`
+You can check for availability using the `HealthConnectClient.getSdkStatus()`
 method.
 
 #### How to check for Health Connect availability
@@ -88,19 +88,23 @@ permissions for the `SleepSession` data type.
 Here's the permission you need to declare to be able to write
 sleep session:
 
-    <application>
-      <uses-permission
-    android:name="android.permission.health.WRITE_SLEEP" />
-    ...
-    </application>
+```xml
+<application>
+  <uses-permission
+android:name="android.permission.health.WRITE_SLEEP" />
+...
+</application>
+```
 
 To read sleep session, you need to request the following permissions:
 
-    <application>
-      <uses-permission
-    android:name="android.permission.health.READ_SLEEP" />
-    ...
-    </application>
+```xml
+<application>
+  <uses-permission
+android:name="android.permission.health.READ_SLEEP" />
+...
+</application>
+```
 
 ### Request permissions from the user
 
@@ -119,7 +123,7 @@ val permissions =
         HealthPermission.getWritePermission(SleepSessionRecord::class)
     )
 ```
-Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
+Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController.md.txt#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController.md.txt#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
 
 ```kotlin
 val permissions = setOf(
@@ -150,7 +154,7 @@ Because users can grant or revoke permissions at any time, your app needs to che
 The following aggregate values are available for
 `SleepSessionRecord`:
 
-- [`SLEEP_DURATION_TOTAL`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/SleepSessionRecord#SLEEP_DURATION_TOTAL())
+- [`SLEEP_DURATION_TOTAL`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/SleepSessionRecord.md.txt#SLEEP_DURATION_TOTAL())
 
 <br />
 
@@ -233,22 +237,24 @@ SleepSessionRecord(
 
 Here's how to add stages that cover the entire period of a sleep session:
 
-    val stages = listOf(
-        SleepSessionRecord.Stage(
-            startTime = START_TIME,
-            endTime = END_TIME,
-            stage = SleepSessionRecord.STAGE_TYPE_SLEEPING,
-        )
+```kotlin
+val stages = listOf(
+    SleepSessionRecord.Stage(
+        startTime = START_TIME,
+        endTime = END_TIME,
+        stage = SleepSessionRecord.STAGE_TYPE_SLEEPING,
     )
+)
 
-    SleepSessionRecord(
-            title = "weekend sleep",
-            startTime = START_TIME,
-            endTime = END_TIME,
-            startZoneOffset = START_ZONE_OFFSET,
-            endZoneOffset = END_ZONE_OFFSET,
-            stages = stages,
-    )
+SleepSessionRecord(
+        title = "weekend sleep",
+        startTime = START_TIME,
+        endTime = END_TIME,
+        startZoneOffset = START_ZONE_OFFSET,
+        endZoneOffset = END_ZONE_OFFSET,
+        stages = stages,
+)
+```
 
 ### Read a sleep session
 

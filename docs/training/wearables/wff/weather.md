@@ -118,16 +118,18 @@ from a connected handheld device or from available networks.
 
 To make location data available for testing, do one of the following:
 
-- [Pair your Wear OS emulator](https://developer.android.com/training/wearables/get-started/connect-phone) with a physical or emulator phone.
+- [Pair your Wear OS emulator](https://developer.android.com/training/wearables/get-started/connect-phone.md.txt) with a physical or emulator phone.
 - Simulate location through the following adb command:
 
-    adb unroot
-    adb shell cmd location set-location-enabled true
-    adb root
-    adb shell appops set 0 android:mock_location allow
-    adb shell cmd location providers add-test-provider gps
-    adb shell cmd location providers set-test-provider-enabled gps true
-    adb shell cmd location providers set-test-provider-location gps --location 37.773972,-122.431297
+```bash
+adb unroot
+adb shell cmd location set-location-enabled true
+adb root
+adb shell appops set 0 android:mock_location allow
+adb shell cmd location providers add-test-provider gps
+adb shell cmd location providers set-test-provider-enabled gps true
+adb shell cmd location providers set-test-provider-location gps --location 37.773972,-122.431297
+```
 
 ## Further details
 
@@ -138,5 +140,5 @@ For a complete example of accessing and rendering weather data, see the
 
 - Note: link text is displayed when JavaScript is off
 - [Change focus behavior](https://developer.android.com/develop/ui/compose/touch-input/focus/change-focus-behavior)
-- [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects)
-- [AGSL Quick Reference](https://developer.android.com/develop/ui/views/graphics/agsl/agsl-quick-reference)
+- [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects.md.txt)
+- [AGSL Quick Reference](https://developer.android.com/develop/ui/views/graphics/agsl/agsl-quick-reference.md.txt)

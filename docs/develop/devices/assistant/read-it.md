@@ -14,7 +14,7 @@ the page. To learn more about this feature, you can also read the
 the help of the Google Assistant.](https://developer.android.com/static/guide/app-actions/images/read-it-blog-post.gif) **Figure 1.** Listening to an app read web content out loud.
 
 Android apps with web-based content can support Read It by providing information
-to Assistant using the [`onProvideAssistContent()`](https://developer.android.com/reference/android/app/Activity#onProvideAssistContent(android.app.assist.AssistContent)) method.
+to Assistant using the [`onProvideAssistContent()`](https://developer.android.com/reference/android/app/Activity.md.txt#onProvideAssistContent(android.app.assist.AssistContent)) method.
 
 This process helps maintain the structure of data as it's shared with
 Assistant. Users who receive shared app content can then be deep linked or
@@ -43,7 +43,7 @@ news articles, implement `onProvideAssistContent()` in the final screen
 showing the article; you don't need to implement it for any in-progress or
 preview screens.
 
-Provide a web URI for your content in the `uri` field of [`AssistContent`](https://developer.android.com/reference/android/app/assist/AssistContent).
+Provide a web URI for your content in the `uri` field of [`AssistContent`](https://developer.android.com/reference/android/app/assist/AssistContent.md.txt).
 Provide contextual information as a [JSON-LD](https://json-ld.org/) object
 [using schema.org vocabulary](https://schema.org/docs/documents.html) in the
 `structuredData` field.
@@ -110,6 +110,6 @@ fields are required:
 - `.name`
 - `.url` (only required if the content is URL-addressable)
 
-To learn more about using [`onProvideAssistContent()`](https://developer.android.com/reference/android/app/Activity#onProvideAssistContent(android.app.assist.AssistContent)), see the
-[Optimizing Contextual Content for the Assistant](https://developer.android.com/training/articles/assistant) guide in
+To learn more about using [`onProvideAssistContent()`](https://developer.android.com/reference/android/app/Activity.md.txt#onProvideAssistContent(android.app.assist.AssistContent)), see the
+[Optimizing Contextual Content for the Assistant](https://developer.android.com/training/articles/assistant.md.txt) guide in
 the Android developer documentation.

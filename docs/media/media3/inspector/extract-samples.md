@@ -4,8 +4,8 @@ url: https://developer.android.com/media/media3/inspector/extract-samples
 source: md.txt
 ---
 
-The [`MediaExtractorCompat`](https://developer.android.com/reference/androidx/media3/inspector/MediaExtractorCompat) class is a drop-in replacement for the platform's
-[`MediaExtractor`](https://developer.android.com/reference/android/media/MediaExtractor) class and provides identical APIs and functionality. It
+The [`MediaExtractorCompat`](https://developer.android.com/reference/androidx/media3/inspector/MediaExtractorCompat.md.txt) class is a drop-in replacement for the platform's
+[`MediaExtractor`](https://developer.android.com/reference/android/media/MediaExtractor.md.txt) class and provides identical APIs and functionality. It
 facilitates extraction of demuxed, typically encoded, media data from a data
 source.
 

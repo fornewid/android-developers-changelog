@@ -8,20 +8,24 @@ source: md.txt
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-ui:1.11.1")
+```kotlin
+implementation("androidx.media3:media3-ui:1.11.1")
+```
 
 ### Groovy
 
-    implementation "androidx.media3:media3-ui:1.11.1"
+```groovy
+implementation "androidx.media3:media3-ui:1.11.1"
+```
 
 ## PlayerView
 
-The most important component is [`PlayerView`](https://developer.android.com/reference/androidx/media3/ui/PlayerView), a view for media playback.
+The most important component is [`PlayerView`](https://developer.android.com/reference/androidx/media3/ui/PlayerView.md.txt), a view for media playback.
 `PlayerView` displays video, images, subtitles, and album art during playback,
 as well as playback controls.
 
-`PlayerView` has a [`setPlayer()`](https://developer.android.com/reference/androidx/media3/ui/PlayerView#setPlayer(androidx.media3.common.Player)) method for attaching and detaching (by
-passing `null`) [`Player`](https://developer.android.com/reference/androidx/media3/common/Player) instances.
+`PlayerView` has a [`setPlayer()`](https://developer.android.com/reference/androidx/media3/ui/PlayerView.md.txt#setPlayer(androidx.media3.common.Player)) method for attaching and detaching (by
+passing `null`) [`Player`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt) instances.
 
 `PlayerView` can be used for both video, image and audio playbacks. It renders
 video and subtitles in the case of video playback, bitmaps for image playback
@@ -29,12 +33,14 @@ and can display artwork included as metadata in audio files. You can include it
 in your layout files like any other UI component. For example, a `PlayerView`
 can be included with the following XML:
 
-    <androidx.media3.ui.PlayerView
-        android:id="@+id/player_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:show_buffering="when_playing"
-        app:show_shuffle_button="true"/>
+```xml
+<androidx.media3.ui.PlayerView
+    android:id="@+id/player_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:show_buffering="when_playing"
+    app:show_shuffle_button="true"/>
+```
 
 The snippet above illustrates that `PlayerView` provides several attributes.
 These attributes can be used to customize the view's behavior, as well as its
@@ -43,11 +49,13 @@ can be used to customize the view at runtime. The `PlayerView` documentation
 lists these attributes and setter methods in more detail.
 
 For a more comfortable user experience, consider adding the `keepScreenOn`
-Android attribute or [setting a wake lock](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer#setWakeMode(int)), if you are using ExoPlayer. You
+Android attribute or [setting a wake lock](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer.md.txt#setWakeMode(int)), if you are using ExoPlayer. You
 can investigate other actions that keep the device awake in the [background work
 pages](https://developer.android.com/develop/background-work/background-tasks/awake).
 
-    android:keepScreenOn="true"
+```xml
+android:keepScreenOn="true"
+```
 
 Once the view is declared in the layout file, it can be looked up in the
 `onCreate` method of the activity:
@@ -110,7 +118,7 @@ player.prepare();
 
 ### PlayerControlView
 
-[`PlayerControlView`](https://developer.android.com/reference/androidx/media3/ui/PlayerControlView) is one of `PlayerView` sub-Views that contains the
+[`PlayerControlView`](https://developer.android.com/reference/androidx/media3/ui/PlayerControlView.md.txt) is one of `PlayerView` sub-Views that contains the
 progress bar and buttons to control playback. Note that `PlayerControlView` is
 not intended to be used a standalone component outside of `PlayerView`. It can
 be customized by setting attributes on `PlayerView` (which will be passed onto
@@ -124,4 +132,4 @@ used for video playback. The allowed values are `surface_view`, `texture_view`,
 `spherical_gl_surface_view` (which is a special value for spherical video
 playback), `video_decoder_gl_surface_view` (which is for video rendering using
 extension renderers) and `none` (for audio playback only). More information on
-which surface type to pick can be found [on the Surface page](https://developer.android.com/media/media3/ui/surface).
+which surface type to pick can be found [on the Surface page](https://developer.android.com/media/media3/ui/surface.md.txt).

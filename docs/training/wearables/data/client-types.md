@@ -16,7 +16,7 @@ the set of client types that works best for your app.
 
 Use the Data Layer API when the interaction is strictly between the local watch
 and the local phone. For detailed examples, see the
-[Data Layer common use cases](https://developer.android.com/training/wearables/data/overview#common-use-cases).
+[Data Layer common use cases](https://developer.android.com/training/wearables/data/overview.md.txt#common-use-cases).
 
 ## Data client
 
@@ -76,5 +76,5 @@ The following table compares the capabilities of the different clients:
 | **Channel client** | No persistence (connection-oriented) | Yes | Bluetooth preferred, but can use Wi-Fi if it's the only type of connection available | No |
 
 For further information on working with the Data Layer APIs, see the
-[Sync data](https://developer.android.com/training/wearables/data/sync) guide. For power considerations when using the Data Layer APIs,
-see the [Conserve power](https://developer.android.com/training/wearables/apps/power#data_layer) guide.
+[Sync data](https://developer.android.com/training/wearables/data/sync.md.txt) guide. For power considerations when using the Data Layer APIs,
+see the [Conserve power](https://developer.android.com/training/wearables/apps/power.md.txt#data_layer) guide.

@@ -26,7 +26,7 @@ How do you build a successful app? Our advice: think like a building architect. 
 
 Understand why designing a good app Architecture matters. Learn about common architectural principles, the recommended app architecture, how to manage dependencies between components, and general best practices.
 
-[Read article](https://developer.android.com/topic/architecture)
+[Read article](https://developer.android.com/topic/architecture.md.txt)
 
 ## UI Layer
 
@@ -34,7 +34,7 @@ Understand why designing a good app Architecture matters. Learn about common arc
 
 Learn about the role of the UI layer, how to define, manage, expose, and consume UI state using the principles of Unidirectional Data Flow, and how to show in-progress operations and errors on the screen.
 
-[Read article](https://developer.android.com/topic/architecture/ui-layer)
+[Read article](https://developer.android.com/topic/architecture/ui-layer.md.txt)
 
 ## The UI layer - MAD Skills
 
@@ -50,7 +50,7 @@ Get an overview of UI state representation, production and consumption all withi
 
 Learn about the role of the Data layer, the different entities involved, the APIs to expose, threading, how to define a source of truth, the different types of data operations, how to test this layer, and examples of common tasks this layer usually performs.
 
-[Read article](https://developer.android.com/topic/architecture/data-layer)
+[Read article](https://developer.android.com/topic/architecture/data-layer.md.txt)
 
 ## The Data layer - MAD Skills
 
@@ -66,7 +66,7 @@ Learn about the data layer and its two basic components: repositories and data s
 
 Learn about the role of the Domain layer, why it's optional and when you should need it, how to better invoke use cases, and examples of common tasks this layer could perform.
 
-[Read article](https://developer.android.com/topic/architecture/domain-layer)
+[Read article](https://developer.android.com/topic/architecture/domain-layer.md.txt)
 
 ## The Domain layer - MAD Skills
 
@@ -82,7 +82,7 @@ Learn how the domain layer can simplify your app architecture, making it easier 
 
 Learn how to handle different types of UI events in the UI layer for events that are triggered both by the user or parts of your code. Also, learn what to do if your use case seems to be different from the ones covered in this page.
 
-[Read article](https://developer.android.com/topic/architecture/ui-layer/events)
+[Read article](https://developer.android.com/topic/architecture/ui-layer/events.md.txt)
 
 ## Handling UI events - MAD Skills
 
@@ -98,7 +98,7 @@ Learn about the different types of UI events, the best practices for handling th
 
 This guide helps you design your app to properly handle reads, writes, syncs, and conflict resolution on devices with no Internet connectivity.
 
-[Read article](https://developer.android.com/topic/architecture/data-layer/offline-first)
+[Read article](https://developer.android.com/topic/architecture/data-layer/offline-first.md.txt)
 
 ## State holders and UI state
 
@@ -106,7 +106,7 @@ This guide helps you design your app to properly handle reads, writes, syncs, an
 
 Take a closer look at state holders and how to deal with the different types of state and logic in the UI layer.
 
-[Read article](https://developer.android.com/topic/architecture/ui-layer/stateholders)
+[Read article](https://developer.android.com/topic/architecture/ui-layer/stateholders.md.txt)
 
 ## State production
 
@@ -114,7 +114,7 @@ Take a closer look at state holders and how to deal with the different types of 
 
 Learn best practices about how to model and expose UI state depending on the sources of state change.
 
-[Read article](https://developer.android.com/topic/architecture/ui-layer/state-production)
+[Read article](https://developer.android.com/topic/architecture/ui-layer/state-production.md.txt)
 
 ## Recommendations for Android architecture
 
@@ -122,7 +122,7 @@ Learn best practices about how to model and expose UI state depending on the sou
 
 Page that consolidates and centralizes important best practices you can find in our documentation.
 
-[Read article](https://developer.android.com/topic/architecture/recommendations)
+[Read article](https://developer.android.com/topic/architecture/recommendations.md.txt)
 
 ## Android Architecture quiz
 

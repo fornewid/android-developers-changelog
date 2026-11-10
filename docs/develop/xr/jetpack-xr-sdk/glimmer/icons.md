@@ -7,17 +7,17 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
-In Jetpack Compose Glimmer, the [`Icon`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Icon.composable) component is a UI element for
+In Jetpack Compose Glimmer, the [`Icon`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Icon.composable.md.txt) component is a UI element for
 rendering single-color icons. Icons intelligently handle tinting and scaling so
-that they remain legible and visually consistent with the [`GlimmerTheme`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/GlimmerTheme.composable).
+that they remain legible and visually consistent with the [`GlimmerTheme`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/GlimmerTheme.composable.md.txt).
 
 ## Sizes
 
-While icons default to the size provided by [`LocalIconSize`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/package-summary#LocalIconSize()), you can also
+While icons default to the size provided by [`LocalIconSize`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/package-summary.md.txt#LocalIconSize()), you can also
 use the three icon sizes provided to set an specific size. These sizes are also
 used by default for the following contexts:
 
@@ -29,16 +29,16 @@ used by default for the following contexts:
 
 ## Icon sources
 
-Icons can accept [`ImageVector`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/vector/ImageVector), [`ImageBitmap`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ImageBitmap), or [`Painter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/painter/Painter) as
+Icons can accept [`ImageVector`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/vector/ImageVector.md.txt), [`ImageBitmap`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ImageBitmap.md.txt), or [`Painter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/painter/Painter.md.txt) as
 their source. When defining your own icons, use `ImageVector` where possible to
 promote sharp rendering at any scale on display glasses.
 
 ## Color and Tinting
 
-- **Automatic tint** : The icon resolves its color based on the `LocalContentColor` provided by the parent surface `LocalContentColor` provided by the parent surface, such as a [`surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/surface.composable) or [`Button`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Button.composable).
+- **Automatic tint** : The icon resolves its color based on the `LocalContentColor` provided by the parent surface `LocalContentColor` provided by the parent surface, such as a [`surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/surface.composable.md.txt) or [`Button`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Button.composable.md.txt).
 - **Manual Tinting** : Use the `tint` parameter to apply a specific color.
 - **Multicolored Assets** : For icons that should not be tinted (like multicolored brand logos), set `tint = Color.Unspecified`.
-- **Generic Images** : For photographs or generic images that don't follow icon sizing and tinting rules, use the standard [`androidx.compose.foundation.Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Image.composable) instead.
+- **Generic Images** : For photographs or generic images that don't follow icon sizing and tinting rules, use the standard [`androidx.compose.foundation.Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Image.composable.md.txt) instead.
 
 ## Example: Basic icon
 
@@ -92,5 +92,5 @@ fun SizedIconSample() {
 
 ### Key points about the code
 
-- The icon's size is customized using [`GlimmerTheme.iconSizes`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/IconSizes) with a modifier. For icons, the default value is [`GlimmerTheme.iconSizes.medium`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/IconSizes#medium()). Use these sizes instead of hard-coding values to maintain consistency across your UI.
+- The icon's size is customized using [`GlimmerTheme.iconSizes`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/IconSizes.md.txt) with a modifier. For icons, the default value is [`GlimmerTheme.iconSizes.medium`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/IconSizes.md.txt#medium()). Use these sizes instead of hard-coding values to maintain consistency across your UI.
 - Provides a localized `contentDescription` for the icon. Always provide these descriptions unless the icon is purely decorative.

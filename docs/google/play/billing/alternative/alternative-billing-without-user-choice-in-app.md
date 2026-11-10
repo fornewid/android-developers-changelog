@@ -15,7 +15,7 @@ Billing](https://developer.android.com/google/play/billing/alternative).
 
 ## Play Billing Library setup
 
-[Add the Play Billing Library dependency](https://developer.android.com/google/play/billing/getting-ready#dependency) to your Android app. To use the
+[Add the Play Billing Library dependency](https://developer.android.com/google/play/billing/getting-ready.md.txt#dependency) to your Android app. To use the
 alternative billing APIs you need to use version 6.1 or higher.
 
 ## Connect to Google Play
@@ -24,10 +24,10 @@ alternative billing APIs you need to use version 6.1 or higher.
 > **Note:** When using alternative billing only, your app does not need to provide a `PurchasesUpdatedListener` which is used for listening to transactions made through Google Play's Billing system.
 
 The first steps in the integration process are the same as the ones described in
-the [Google Play Billing integration guide](https://developer.android.com/google/play/billing/integrate), with a few modifications when
-[initializing your BillingClient](https://developer.android.com/google/play/billing/integrate#initialize):
+the [Google Play Billing integration guide](https://developer.android.com/google/play/billing/integrate.md.txt), with a few modifications when
+[initializing your BillingClient](https://developer.android.com/google/play/billing/integrate.md.txt#initialize):
 
-- You need to call a new method to indicate that your app uses only an alternative billing system: [`enableAlternativeBillingOnly`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.Builder#enableAlternativeBillingOnly()).
+- You need to call a new method to indicate that your app uses only an alternative billing system: [`enableAlternativeBillingOnly`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.Builder.md.txt#enableAlternativeBillingOnly()).
 
 The following example demonstrates initializing a `BillingClient` with these
 modifications:
@@ -45,9 +45,11 @@ var billingClient = BillingClient.newBuilder(context)
 
 ### Java
 
-    private BillingClient billingClient = BillingClient.newBuilder(context)
-        .enableAlternativeBillingOnly()
-        .build();
+```java
+private BillingClient billingClient = BillingClient.newBuilder(context)
+    .enableAlternativeBillingOnly()
+    .build();
+```
 
 After you initialize the `BillingClient`, you need to [establish a connection to
 Google Play](https://developer.android.com/google/play/billing/integrate#connect_to_google_play) as described in the integration guide.
@@ -58,10 +60,10 @@ Google Play](https://developer.android.com/google/play/billing/integrate#connect
 > **Note:** See response handling section for instructions on how to handle errors from this API.
 
 Your app should confirm alternative billing only is available by calling
-[`isAlternativeBillingOnlyAvailableAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#isAlternativeBillingOnlyAvailableAsync(com.android.billingclient.api.AlternativeBillingOnlyAvailabilityListener)).
+[`isAlternativeBillingOnlyAvailableAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#isAlternativeBillingOnlyAvailableAsync(com.android.billingclient.api.AlternativeBillingOnlyAvailabilityListener)).
 
-This API will return [BillingResponseCode.OK](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#OK) if alternative billing only is
-available. Refer to [response handling](https://developer.android.com/google/play/billing/alternative/alternative-billing-without-user-choice-in-app#response-handling) for details on how your app should
+This API will return [BillingResponseCode.OK](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#OK) if alternative billing only is
+available. Refer to [response handling](https://developer.android.com/google/play/billing/alternative/alternative-billing-without-user-choice-in-app.md.txt#response-handling) for details on how your app should
 respond to other response codes.
 
 ### Kotlin
@@ -89,23 +91,25 @@ billingClient.isAlternativeBillingOnlyAvailableAsync(object :
 
 ### Java
 
+```java
 
-    billingClient.isAlternativeBillingOnlyAvailable(
-        new AlternativeBillingOnlyAvailabilityListener() {
-            @Override
-            public void onAlternativeBillingOnlyAvailabilityResponse(
-                BillingResult billingResult) {
-                if (billingResult.getResponseCode() != BillingResponseCode.OK) {
-                     // Handle failures such as retrying due to network errors,
-                     // handling alternative billing only being unavailable,
-                     // etc.
-                    return;
-                }
-
-                // Alternative billing only is available. Continue with steps in
-                // the guide.
+billingClient.isAlternativeBillingOnlyAvailable(
+    new AlternativeBillingOnlyAvailabilityListener() {
+        @Override
+        public void onAlternativeBillingOnlyAvailabilityResponse(
+            BillingResult billingResult) {
+            if (billingResult.getResponseCode() != BillingResponseCode.OK) {
+                 // Handle failures such as retrying due to network errors,
+                 // handling alternative billing only being unavailable,
+                 // etc.
+                return;
             }
-        });
+
+            // Alternative billing only is available. Continue with steps in
+            // the guide.
+        }
+    });
+```
 
 ## Information dialog for users
 
@@ -119,7 +123,7 @@ billingClient.isAlternativeBillingOnlyAvailableAsync(object :
 To integrate with alternative billing only, your eligible app must show an
 information screen which helps users understand that billing will not be managed
 by Google Play. The information screen must be shown to users by calling the
-[`showAlternativeBillingOnlyInformationDialog`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#showAlternativeBillingOnlyInformationDialog(android.app.Activity,%20com.android.billingclient.api.AlternativeBillingOnlyInformationDialogListener)) API before starting the
+[`showAlternativeBillingOnlyInformationDialog`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#showAlternativeBillingOnlyInformationDialog(android.app.Activity,%20com.android.billingclient.api.AlternativeBillingOnlyInformationDialogListener)) API before starting the
 alternative billing flow each time. If the user has already acknowledged the
 dialog, using this API will typically not result in the dialog being shown
 again. There may be times when the dialog is shown again to a user in situations
@@ -149,26 +153,28 @@ val billingResult =
 
 ### Java
 
+```java
 
-    // An activity reference from which the alternative billing only information
-    // dialog will be launched.
-    Activity activity = ...;
+// An activity reference from which the alternative billing only information
+// dialog will be launched.
+Activity activity = ...;
 
-    AlternativeBillingOnlyInformationDialogListener listener =
-        new AlternativeBillingOnlyInformationDialogListener() {
-            @Override
-            public void onAlternativeBillingOnlyInformationDialogResponse(
-                BillingResult billingResult) {
-                    // check billingResult
-                }
-        };
+AlternativeBillingOnlyInformationDialogListener listener =
+    new AlternativeBillingOnlyInformationDialogListener() {
+        @Override
+        public void onAlternativeBillingOnlyInformationDialogResponse(
+            BillingResult billingResult) {
+                // check billingResult
+            }
+    };
 
-    BillingResult billingResult =
-        billingClient.showAlternativeBillingOnlyInformationDialog(activity,
-            listener);
+BillingResult billingResult =
+    billingClient.showAlternativeBillingOnlyInformationDialog(activity,
+        listener);
+```
 
-If this method returns [BillingResponseCode.OK](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#OK) then your app can proceed
-with the transaction. In the case of [BillingResponseCode.USER_CANCELED](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#USER_CANCELED)
+If this method returns [BillingResponseCode.OK](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#OK) then your app can proceed
+with the transaction. In the case of [BillingResponseCode.USER_CANCELED](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#USER_CANCELED)
 your app should call showAlternativeBillingOnlyInformationDialog to show the
 dialog to the user again. For other response codes see the [response handling
 section](https://developer.android.com/google/play/billing/alternative/alternative-billing-without-user-choice-in-app#response-handling).
@@ -184,7 +190,7 @@ to Google Play by calling the Google Play Developer API from your backend within
 API described below. A new externalTransactionToken should be generated for each
 one-time purchase, each new subscription, and for any upgrade/downgrades to an
 existing subscription. To learn how to report a transaction once an
-`externalTransactionToken` is obtained see the [backend integration guide](https://developer.android.com/google/play/billing/outside-gpb-backend).
+`externalTransactionToken` is obtained see the [backend integration guide](https://developer.android.com/google/play/billing/outside-gpb-backend.md.txt).
 
 ### Kotlin
 
@@ -213,26 +219,28 @@ billingClient.createAlternativeBillingOnlyReportingDetailsAsync(object :
 
 ### Java
 
+```java
 
-    billingClient.createAlternativeBillingOnlyReportingDetailsAsync(
-        new AlternativeBillingOnlyReportingDetailsListener() {
-            @Override
-            public void onAlternativeBillingOnlyTokenResponse(
-                BillingResult billingResult,
-                @Nullable AlternativeBillingOnlyReportingDetails
-                    alternativeBillingOnlyReportingDetails) {
-                if (billingResult.getResponseCode() != BillingResponseCode.OK) {
-                    // Handle failures such as retrying due to network errors.
-                    return;
-                }
-
-                String transactionToken =
-                    alternativeBillingOnlyReportingDetails
-                    .getExternalTransactionToken();
-
-                // Send transaction token to backend and report to Google Play.
+billingClient.createAlternativeBillingOnlyReportingDetailsAsync(
+    new AlternativeBillingOnlyReportingDetailsListener() {
+        @Override
+        public void onAlternativeBillingOnlyTokenResponse(
+            BillingResult billingResult,
+            @Nullable AlternativeBillingOnlyReportingDetails
+                alternativeBillingOnlyReportingDetails) {
+            if (billingResult.getResponseCode() != BillingResponseCode.OK) {
+                // Handle failures such as retrying due to network errors.
+                return;
             }
-        });
+
+            String transactionToken =
+                alternativeBillingOnlyReportingDetails
+                .getExternalTransactionToken();
+
+            // Send transaction token to backend and report to Google Play.
+        }
+    });
+```
 
 ## Response handling
 

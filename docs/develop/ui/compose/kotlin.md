@@ -81,7 +81,7 @@ Text(text = "Hello, Android!")
 <br />
 
 That code has the same effect as the following, much more verbose code, in which
-more of the [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/Text.composable) parameters are set explicitly:
+more of the [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/Text.composable.md.txt) parameters are set explicitly:
 
 
 ```kotlin
@@ -107,7 +107,7 @@ the function.
 
 Kotlin supports [*higher-order functions*](https://kotlinlang.org/docs/reference/lambdas.html), functions that
 receive other functions as parameters. Compose builds upon this approach. For
-example, the [`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.material.ButtonElevation,androidx.compose.ui.graphics.Shape,androidx.compose.foundation.BorderStroke,androidx.compose.material.ButtonColors,androidx.compose.foundation.layout.PaddingValues,kotlin.Function1)) composable function provides an `onClick`
+example, the [`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material/Button.composable.md.txt#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.material.ButtonElevation,androidx.compose.ui.graphics.Shape,androidx.compose.foundation.BorderStroke,androidx.compose.material.ButtonColors,androidx.compose.foundation.layout.PaddingValues,kotlin.Function1)) composable function provides an `onClick`
 lambda parameter. The value of that parameter is a function, which the button
 calls when the user clicks it:
 
@@ -153,7 +153,7 @@ afterwards. This is a common situation in Compose, so you need to be familiar
 with how the code looks.
 
 For example, the last parameter to all layouts, such as the
-[`Column()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) composable function, is `content`, a function which
+[`Column()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable.md.txt#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) composable function, is `content`, a function which
 emits the child UI elements. Suppose you wanted to create a column containing
 three text elements, and you need to apply some formatting. This code would
 work, but it's very cumbersome:
@@ -308,7 +308,7 @@ showDialog = true
 <br />
 
 > [!NOTE]
-> **Note:** Learn more about `remember` and `mutableStateOf` in the [State in Jetpack Compose documentation](https://developer.android.com/develop/ui/compose/state).
+> **Note:** Learn more about `remember` and `mutableStateOf` in the [State in Jetpack Compose documentation](https://developer.android.com/develop/ui/compose/state.md.txt).
 
 ## Destructuring data classes
 
@@ -365,7 +365,7 @@ define a data class, the compiler automatically defines useful functions like
 Kotlin lets you declare *singletons* , classes which always have one and only one
 instance. These singletons are declared with the [`object` keyword](https://kotlinlang.org/docs/reference/object-declarations.html#object-declarations).
 Compose often makes use of such objects. For example,
-[`MaterialTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/MaterialTheme) is defined as a singleton object; the
+[`MaterialTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/MaterialTheme.md.txt) is defined as a singleton object; the
 `MaterialTheme.colors`, `shapes`, and `typography` properties all contain the
 values for the current theme.
 
@@ -375,8 +375,8 @@ Kotlin allows creating [domain-specific languages (DSLs)](https://wikipedia.org/
 with type-safe builders. DSLs allow building complex hierarchical data
 structures in a more maintainable and readable way.
 
-Jetpack Compose uses DSLs for some APIs such as [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable) and
-[`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable).
+Jetpack Compose uses DSLs for some APIs such as [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable.md.txt) and
+[`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt).
 
 
 ```kotlin
@@ -400,8 +400,8 @@ fun MessageList(messages: List<Message>) {
 
 Kotlin enables type-safe builders using
 [function literals with receiver](https://kotlinlang.org/docs/lambdas.html#function-literals-with-receiver).
-If we take the [`Canvas`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Canvas.composable#Canvas(androidx.compose.ui.Modifier,kotlin.Function1)) composable as an example, it takes as a
-parameter a function with [`DrawScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope) as the receiver,
+If we take the [`Canvas`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Canvas.composable.md.txt#Canvas(androidx.compose.ui.Modifier,kotlin.Function1)) composable as an example, it takes as a
+parameter a function with [`DrawScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope.md.txt) as the receiver,
 `onDraw: DrawScope.() -> Unit`, allowing the block of code to call member
 functions defined in `DrawScope`.
 
@@ -442,10 +442,10 @@ responsive UI is inherently asynchronous, and Jetpack Compose solves this by
 embracing coroutines at the API level instead of using callbacks.
 
 Jetpack Compose offers APIs that make using coroutines safe within the UI layer.
-The [`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rememberCoroutineScope.composable#rememberCoroutineScope(kotlin.Function0)) function returns
+The [`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rememberCoroutineScope.composable.md.txt#rememberCoroutineScope(kotlin.Function0)) function returns
 a [`CoroutineScope`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/) with which you can create coroutines
 in event handlers and call Compose suspend APIs. See the following example
-using the [`ScrollState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/ScrollState)'s `animateScrollTo` API.
+using the [`ScrollState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/ScrollState.md.txt)'s `animateScrollTo` API.
 
 
 ```kotlin
@@ -554,11 +554,11 @@ fun MoveBoxWhereTapped() {
 <br />
 
 To learn more about Coroutines, check out the
-[Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines) guide.
+[Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines.md.txt) guide.
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
 - [Material Components and layouts](https://developer.android.com/develop/ui/compose/layouts/material)
-- [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects)
-- [Compose layout basics](https://developer.android.com/develop/ui/compose/layouts/basics)
+- [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects.md.txt)
+- [Compose layout basics](https://developer.android.com/develop/ui/compose/layouts/basics.md.txt)

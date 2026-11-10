@@ -65,10 +65,10 @@ class RoundedPolygonShape(
 
 ### Key points about the code
 
-- `RoundedPolygon.getBounds()` defines an extension function on the [`RoundedPolygon`](https://developer.android.com/reference/kotlin/androidx/graphics/shapes/RoundedPolygon) class to calculate its bounds.
-- The `RoundedPolygonShape` class implements the [`Shape`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shape) interface, allowing you to define a custom shape (a rounded polygon) in Jetpack Compose.
-- The shape uses a [`Matrix`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Matrix) to manage scaling and translation operations for flexible rendering.
-- The `createOutline()` function takes a `RoundedPolygon` object, scales and translates it to fit within a given size, and returns an [`Outline`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Outline) object that describes the final shape to be drawn.
+- `RoundedPolygon.getBounds()` defines an extension function on the [`RoundedPolygon`](https://developer.android.com/reference/kotlin/androidx/graphics/shapes/RoundedPolygon.md.txt) class to calculate its bounds.
+- The `RoundedPolygonShape` class implements the [`Shape`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shape.md.txt) interface, allowing you to define a custom shape (a rounded polygon) in Jetpack Compose.
+- The shape uses a [`Matrix`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Matrix.md.txt) to manage scaling and translation operations for flexible rendering.
+- The `createOutline()` function takes a `RoundedPolygon` object, scales and translates it to fit within a given size, and returns an [`Outline`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Outline.md.txt) object that describes the final shape to be drawn.
 
 ## Clip the image to a shape
 
@@ -105,8 +105,8 @@ Box(
 ### Key points about the code
 
 - The `RoundedPolygon` and `RoundedPolygonShape` objects are used to define and apply a hexagonal shape to the image.
-- The code uses [`graphicsLayer`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/graphicsLayer.modifier#(androidx.compose.ui.Modifier).graphicsLayer(kotlin.Function1)) to add an elevation-based shadow to the image. This creates a sense of depth and visual separation from the background.
-- The use of [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable#remember(kotlin.Function0)) blocks optimizes performance by ensuring that the shape and clipping definitions are calculated only once and remembered for later recompositions of the UI.
+- The code uses [`graphicsLayer`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/graphicsLayer.modifier.md.txt#(androidx.compose.ui.Modifier).graphicsLayer(kotlin.Function1)) to add an elevation-based shadow to the image. This creates a sense of depth and visual separation from the background.
+- The use of [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable.md.txt#remember(kotlin.Function0)) blocks optimizes performance by ensuring that the shape and clipping definitions are calculated only once and remembered for later recompositions of the UI.
 
 ## Collections that contain this guide
 
@@ -120,4 +120,4 @@ Discover techniques for using bright, engaging visuals to give your Android app 
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

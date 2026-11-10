@@ -17,7 +17,7 @@ basic navigation.
 
 ## API surface
 
-Use the [`Tab`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Tab.composable#Tab(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.interaction.MutableInteractionSource)), [`PrimaryTabRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/PrimaryTabRow.composable#PrimaryTabRow(kotlin.Int,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,kotlin.Function0,kotlin.Function0)), and [`SecondaryTabRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SecondaryTabRow.composable#SecondaryTabRow(kotlin.Int,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,kotlin.Function0,kotlin.Function0)) composables
+Use the [`Tab`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Tab.composable.md.txt#Tab(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.interaction.MutableInteractionSource)), [`PrimaryTabRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/PrimaryTabRow.composable.md.txt#PrimaryTabRow(kotlin.Int,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,kotlin.Function0,kotlin.Function0)), and [`SecondaryTabRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SecondaryTabRow.composable.md.txt#SecondaryTabRow(kotlin.Int,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,kotlin.Function0,kotlin.Function0)) composables
 to implement tabs. The `Tab` composable represents an individual tab within the
 row, and is typically used inside of a `PrimaryTabRow` (for primary indicator
 tabs) or `SecondaryTabRow` (for secondary indicator tabs).
@@ -75,7 +75,7 @@ fun NavigationTabExample(modifier: Modifier = Modifier) {
 ### Key points
 
 - `PrimaryTabRow` displays a horizontal row of tabs, with each tab corresponding to a `Destination`.
-- `val navController = rememberNavController()` creates and remembers an instance of [`NavHostController`](https://developer.android.com/reference/androidx/navigation/NavHostController), which manages the navigation within a [`NavHost`](https://developer.android.com/reference/androidx/navigation/NavHost).
+- `val navController = rememberNavController()` creates and remembers an instance of [`NavHostController`](https://developer.android.com/reference/androidx/navigation/NavHostController.md.txt), which manages the navigation within a [`NavHost`](https://developer.android.com/reference/androidx/navigation/NavHost.md.txt).
 - `var selectedDestination by rememberSaveable {
   mutableIntStateOf(startDestination.ordinal) }` manages the state of the selected tab.
   - `startDestination.ordinal` gets the numerical index (position) of the `Destination.SONGS` enum entry.
@@ -91,4 +91,4 @@ The following image shows the result of the previous snippet:
 ## Additional resources
 
 - [Material 3 - Tabs](https://m3.material.io/components/tabs/guidelines)
-- [Navigation with Compose](https://developer.android.com/guide/navigation#framework-options)
+- [Navigation with Compose](https://developer.android.com/guide/navigation.md.txt#framework-options)

@@ -13,7 +13,7 @@ For example, you might want to show a different background for early morning,
 morning, lunch, afternoon, evening, and night.
 
 `Condition` statements in Watch Face Format let you include different parts
-of your watch face scene depending on the evaluation of [expressions](https://developer.android.com/training/wearables/wff/expressions), for
+of your watch face scene depending on the evaluation of [expressions](https://developer.android.com/training/wearables/wff/expressions.md.txt), for
 example:
 
 <br />

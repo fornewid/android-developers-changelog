@@ -14,7 +14,7 @@ that enable user interactions.
 
 By default, composables aren't selectable, which means that users can't
 select and copy text from your app. To enable text selection, wrap
-your text elements with a [`SelectionContainer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/selection/SelectionContainer.composable#SelectionContainer(androidx.compose.ui.Modifier,kotlin.Function0)) composable:
+your text elements with a [`SelectionContainer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/selection/SelectionContainer.composable.md.txt#SelectionContainer(androidx.compose.ui.Modifier,kotlin.Function0)) composable:
 
 
 ```kotlin
@@ -31,7 +31,7 @@ fun SelectableText() {
 ![A short passage of text, selected by the user.](https://developer.android.com/static/develop/ui/compose/images/text-selected.png)
 
 You may want to disable selection on specific parts of a selectable area. To do
-so, you need to wrap the unselectable part with a [`DisableSelection`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/selection/DisableSelection.composable#DisableSelection(kotlin.Function0))
+so, you need to wrap the unselectable part with a [`DisableSelection`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/selection/DisableSelection.composable.md.txt#DisableSelection(kotlin.Function0))
 composable:
 
 
@@ -60,10 +60,10 @@ fun PartiallySelectableText() {
 
 ## Create clickable sections of text with `LinkAnnotation`
 
-To listen for clicks on `Text`, you can add the [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0))
+To listen for clicks on `Text`, you can add the [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary.md.txt#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0))
 modifier. However, you may want to attach extra information to a certain part of
 the `Text` value, like a URL attached to a certain word to be opened in a
-browser. In cases like this, you need to use a [`LinkAnnotation`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/LinkAnnotation), which is
+browser. In cases like this, you need to use a [`LinkAnnotation`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/LinkAnnotation.md.txt), which is
 an annotation that represents a clickable part of the text.
 
 With `LinkAnnotation`, you can attach a URL to a part of a `Text` composable
@@ -138,5 +138,5 @@ fun AnnotatedStringWithListenerSample() {
 
 - Note: link text is displayed when JavaScript is off
 - [Semantics in Compose](https://developer.android.com/develop/ui/compose/semantics)
-- [Accessibility in Compose](https://developer.android.com/develop/ui/compose/accessibility)
-- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material)
+- [Accessibility in Compose](https://developer.android.com/develop/ui/compose/accessibility.md.txt)
+- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material.md.txt)

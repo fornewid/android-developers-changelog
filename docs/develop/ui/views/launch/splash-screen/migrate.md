@@ -5,22 +5,22 @@ source: md.txt
 ---
 
 If you implement a custom splash screen in Android 11 or earlier, migrate your
-app to the [`SplashScreen`](https://developer.android.com/reference/android/window/SplashScreen) API to help
+app to the [`SplashScreen`](https://developer.android.com/reference/android/window/SplashScreen.md.txt) API to help
 ensure it displays correctly in Android 12 and later.
 
 Starting in Android 12, the system applies the [Android system default splash
 screen](https://developer.android.com/about/versions/12/features/splash-screen) on
-[cold](https://developer.android.com/topic/performance/issues/launch-time#cold) and [warm
+[cold](https://developer.android.com/topic/performance/issues/launch-time.md.txt#cold) and [warm
 starts](https://developer.android.com/topic/performance/issues/launch-time#warm) for all apps. By default,
 this system splash screen is constructed using your app's launcher icon element
-and the [`windowBackground`](https://developer.android.com/reference/android/R.attr#windowBackground) of your
+and the [`windowBackground`](https://developer.android.com/reference/android/R.attr.md.txt#windowBackground) of your
 theme, if it's a single color.
 
 If you don't migrate your app, your app launch experience on Android 12 and
 later might be degraded or have unintended results.
 
 - If your existing splash screen is implemented using a
-  [custom theme that overrides `android:windowBackground`](https://developer.android.com/develop/ui/views/launch/splash-screen#set-theme),
+  [custom theme that overrides `android:windowBackground`](https://developer.android.com/develop/ui/views/launch/splash-screen.md.txt#set-theme),
   the system replaces your custom splash screen with a default Android system
   splash screen on Android 12 and later. This might not be your app's intended
   experience.
@@ -39,7 +39,7 @@ and creates a more consistent launch experience with other apps on the platform.
 ## SplashScreen compat library
 
 You can use the `SplashScreen` API directly, but we strongly recommend using the
-[Androidx `SplashScreen` compat library](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen)
+[Androidx `SplashScreen` compat library](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen.md.txt)
 instead. The compat library uses the `SplashScreen` API, enables
 backward-compatibility, and creates a consistent look and feel for splash screen
 display across all Android versions. This document is written using the compat
@@ -66,40 +66,43 @@ latency that is introduced with a dedicated splash screen activity.
 To migrate your splash screen, do the following:
 
 1. In the `build.gradle` file,
-   [change your `compileSdkVersion`](https://developer.android.com/about/versions/12/setup-sdk) and include
+   [change your `compileSdkVersion`](https://developer.android.com/about/versions/12/setup-sdk.md.txt) and include
    the `SplashScreen` compat library in dependencies.
 
-       build.gradle
+   ```groovy
+   build.gradle
 
-       android {
-          compileSdkVersion 31
-          ...
-       }
-       dependencies {
-          ...
-          implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
-       }
-
+   android {
+      compileSdkVersion 31
+      ...
+   }
+   dependencies {
+      ...
+      implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
+   }
+   ```
 2. Create a theme with a parent of `Theme.SplashScreen`. Set the value of
    `postSplashScreenTheme` to the theme that the `Activity` must use and the
    value of `windowSplashScreenAnimatedIcon` to a drawable or animated
    drawable. The other attributes are optional.
 
-       <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-          <!-- Set the splash screen background, animated icon, and animation
-          duration. -->
-          <item name="windowSplashScreenBackground">@color/...</item>
+   ```xml
+   <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+      <!-- Set the splash screen background, animated icon, and animation
+      duration. -->
+      <item name="windowSplashScreenBackground">@color/...</item>
 
-          <!-- Use windowSplashScreenAnimatedIcon to add a drawable or an animated
-               drawable. One of these is required. -->
-          <item name="windowSplashScreenAnimatedIcon">@drawable/...</item>
-          <!-- Required for animated icons. -->
-          <item name="windowSplashScreenAnimationDuration">200</item>
+      <!-- Use windowSplashScreenAnimatedIcon to add a drawable or an animated
+           drawable. One of these is required. -->
+      <item name="windowSplashScreenAnimatedIcon">@drawable/...</item>
+      <!-- Required for animated icons. -->
+      <item name="windowSplashScreenAnimationDuration">200</item>
 
-          <!-- Set the theme of the Activity that directly follows your splash
-          screen. This is required. -->
-          <item name="postSplashScreenTheme">@style/Theme.App</item>
-       </style>
+      <!-- Set the theme of the Activity that directly follows your splash
+      screen. This is required. -->
+      <item name="postSplashScreenTheme">@style/Theme.App</item>
+   </style>
+   ```
 
    If you want to add a background color underneath your icon, you can use the
    `Theme.SplashScreen.IconBackground` theme and set the
@@ -107,12 +110,13 @@ To migrate your splash screen, do the following:
 3. In the manifest, replace the theme of the starting activity to the theme you
    create in the previous step.
 
-       <manifest>
-          <application android:theme="@style/Theme.App.Starting">
-           <!-- or -->
-               <activity android:theme="@style/Theme.App.Starting">
-       ...
-
+   ```xml
+   <manifest>
+      <application android:theme="@style/Theme.App.Starting">
+       <!-- or -->
+           <activity android:theme="@style/Theme.App.Starting">
+   ...
+   ```
 4. Call `installSplashScreen` in the starting activity before calling
    `super.onCreate()`.
 
@@ -154,7 +158,7 @@ If your previous splash screen `Activity` is primarily used for routing,
 consider ways to remove it. For example, you might directly link to the actual
 activity or move to a singular activity with subcomponents. If this isn't
 feasible, you can use
-[`SplashScreen.setKeepOnScreenCondition`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen#setkeeponscreencondition)
+[`SplashScreen.setKeepOnScreenCondition`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen.md.txt#setkeeponscreencondition)
 to keep the routing activity in place but stop it from rendering. Doing so
 transfers the splash screen to the next activity and supports a smooth
 transition.
@@ -186,7 +190,7 @@ screen](https://developer.android.com/about/versions/12/features/splash-screen#c
 However, it's best to avoid this scenario if possible and use the `SplashScreen`
 API to brand your splash screen.
 
-If you need to display a [dialog](https://developer.android.com/develop/ui/views/components/dialogs), we
+If you need to display a [dialog](https://developer.android.com/develop/ui/views/components/dialogs.md.txt), we
 recommend displaying it over the subsequent custom splash screen activity or
 over the main activity after the system splash screen.
 
@@ -207,7 +211,7 @@ you can use to avoid showing redundant splash screen activities.
   possible.
 
   You can also benefit from using the
-  [App Startup library](https://developer.android.com/topic/libraries/app-startup) to initialize components
+  [App Startup library](https://developer.android.com/topic/libraries/app-startup.md.txt) to initialize components
   at application startup. When doing so, make sure to still load all the
   required modules for the starting activity and don't introduce janks where the
   lazily loaded modules become available.

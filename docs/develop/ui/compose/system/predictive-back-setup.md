@@ -6,7 +6,7 @@ source: md.txt
 
 Predictive back and system animations are enabled by default. If your app
 intercepts the back event and you haven't migrated to predictive back,
-[update your app to use supported back navigation APIs](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#update-custom).
+[update your app to use supported back navigation APIs](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture.md.txt#update-custom).
 The predictive back-to-home animation. The predictive cross-activity animation. The predictive cross-task animation.
 
 ## Enable default system animations
@@ -17,22 +17,22 @@ back handling APIs.
 
 - **Back-to-home**: Returns the user to the home screen.
 - **Cross-activity**: Transitions between activities within the app.
-- **Cross-task** : Transitions between [tasks](https://developer.android.com/guide/components/activities/tasks-and-back-stack).
+- **Cross-task** : Transitions between [tasks](https://developer.android.com/guide/components/activities/tasks-and-back-stack.md.txt).
 
 These animations are enabled by default on Android 15 and higher. On devices
 running Android 13 or 14, users can enable them through the
-[Developer options](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#dev-option).
+[Developer options](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture.md.txt#dev-option).
 
 > [!NOTE]
 > **Note:** Intercepting back at the root activity (e.g. `MainActivity.kt`) disables the back-to-home animation, and intercepting back at an Activity disables the cross-activity animation.
 
 To get the system animations, update your AndroidX `Activity` dependency
-to [1.6.0](https://developer.android.com/jetpack/androidx/releases/activity#version_160_3) or higher.
+to [1.6.0](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#version_160_3) or higher.
 
 ## Enable predictive back with Navigation Compose
 
 To use predictive back in Navigation Compose, ensure you're using the
-`navigation-compose` [2.8.0](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.0)
+`navigation-compose` [2.8.0](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.0)
 library or higher.
 
 Navigation Compose automatically cross-fades between screens when the user
@@ -40,7 +40,7 @@ swipes back:
 **Figure 2.** The default crossfade in-app animation in SociaLite.
 
 When navigating, you can create custom transitions with
-[`popEnterTransition`](https://developer.android.com/reference/kotlin/androidx/navigation/compose/NavHost.composable) and [`popExitTransition`](https://developer.android.com/reference/kotlin/androidx/navigation/compose/NavHost.composable). When applied to your
+[`popEnterTransition`](https://developer.android.com/reference/kotlin/androidx/navigation/compose/NavHost.composable.md.txt) and [`popExitTransition`](https://developer.android.com/reference/kotlin/androidx/navigation/compose/NavHost.composable.md.txt). When applied to your
 `NavHost`, these modifiers let you define how the enter and exit screens
 animate. You can use them to create a variety of effects, such as scaling,
 fading, or sliding.
@@ -89,26 +89,26 @@ composables with shared content, often used for navigation.
 **Figure 4.** Shared element transition with predictive back in Navigation Compose.
 
 To use shared elements with Navigation Compose, see
-[Predictive back with shared elements](https://developer.android.com/develop/ui/compose/animation/shared-elements/navigation#predictive-back).
+[Predictive back with shared elements](https://developer.android.com/develop/ui/compose/animation/shared-elements/navigation.md.txt#predictive-back).
 
 ## Support predictive back with Material Compose components
 
 Many components in the Material Compose library are designed to work seamlessly
 with predictive back gestures. To enable predictive back animations in these
-components, include the latest [Material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) dependency
+components, include the latest [Material3](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt) dependency
 (`androidx.compose.material3:material3-*:1.3.0` or higher) in your project.
 
 The Material components that support predictive back animations include:
 
 - [`SearchBar`](https://m3.material.io/components/search/guidelines#3f2d4e47-2cf5-4c33-b6e1-5368ceaade55)
 - [`ModalBottomSheet`](https://m3.material.io/components/bottom-sheets/guidelines#c72ba2b1-906d-4cfa-9a6a-91e79555bad0)
-- [`ModalDrawerSheet/DismissibleDrawerSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalDrawerSheet.composable#ModalDrawerSheet(androidx.compose.material3.DrawerState,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1))
-- [`ModalNavigationDrawer/DismissibleNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalDrawerSheet.composable#ModalDrawerSheet(androidx.compose.material3.DrawerState,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1))
+- [`ModalDrawerSheet/DismissibleDrawerSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalDrawerSheet.composable.md.txt#ModalDrawerSheet(androidx.compose.material3.DrawerState,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1))
+- [`ModalNavigationDrawer/DismissibleNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalDrawerSheet.composable.md.txt#ModalDrawerSheet(androidx.compose.material3.DrawerState,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1))
 
-[`SearchBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SearchBar.composable#SearchBar(kotlin.Function0,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.SearchBarColors,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) and [`ModalBottomSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalBottomSheet.composable#ModalBottomSheet(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.SheetState,androidx.compose.ui.unit.Dp,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,kotlin.Function0,kotlin.Function0,androidx.compose.material3.ModalBottomSheetProperties,kotlin.Function1)) automatically animate with
-predictive back gestures. [`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0)),
-[`ModalDrawerSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalDrawerSheet.composable#ModalDrawerSheet(androidx.compose.material3.DrawerState,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)), [`DismissibleDrawerSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DismissibleDrawerSheet.composable#DismissibleDrawerSheet(androidx.compose.material3.DrawerState,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)), and
-[`DismissibleNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DismissibleNavigationDrawer.composable#DismissibleNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,kotlin.Function0)) require you to pass the `drawerState` to
+[`SearchBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SearchBar.composable.md.txt#SearchBar(kotlin.Function0,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.SearchBarColors,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) and [`ModalBottomSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalBottomSheet.composable.md.txt#ModalBottomSheet(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.SheetState,androidx.compose.ui.unit.Dp,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,kotlin.Function0,kotlin.Function0,androidx.compose.material3.ModalBottomSheetProperties,kotlin.Function1)) automatically animate with
+predictive back gestures. [`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable.md.txt#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0)),
+[`ModalDrawerSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalDrawerSheet.composable.md.txt#ModalDrawerSheet(androidx.compose.material3.DrawerState,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)), [`DismissibleDrawerSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DismissibleDrawerSheet.composable#DismissibleDrawerSheet(androidx.compose.material3.DrawerState,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)), and
+[`DismissibleNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DismissibleNavigationDrawer.composable.md.txt#DismissibleNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,kotlin.Function0)) require you to pass the `drawerState` to
 their respective sheet content composables.
 
 ## Test the predictive back gesture animation

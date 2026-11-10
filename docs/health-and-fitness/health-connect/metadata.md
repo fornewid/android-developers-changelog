@@ -6,7 +6,7 @@ source: md.txt
 
 <br />
 
-> This guide is compatible with Health Connect version [1.2.0-alpha05](https://developer.android.com/jetpack/androidx/releases/health-connect#1.2.0-alpha05) or later.
+> This guide is compatible with Health Connect version [1.2.0-alpha05](https://developer.android.com/jetpack/androidx/releases/health-connect.md.txt#1.2.0-alpha05) or later.
 
 <br />
 
@@ -18,14 +18,16 @@ developers who upgrade to release 1.1.0-alpha12 or later.
 
 ## Library information
 
-The [Google Maven Android gradle plugin](https://developer.android.com/build/dependencies#google-maven) artifact ID
+The [Google Maven Android gradle plugin](https://developer.android.com/build/dependencies.md.txt#google-maven) artifact ID
 identifies the Health Connect library to which you will need to upgrade.
 Add this Health Connect SDK dependency to your module-level
 `build.gradle` file:
 
-    dependencies {
-      implementation "androidx.health.connect:connect-client:1.1.0-alpha12"
-    }
+```kotlin
+dependencies {
+  implementation "androidx.health.connect:connect-client:1.1.0-alpha12"
+}
+```
 
 ## Metadata changes
 
@@ -40,7 +42,7 @@ You must specify metadata details whenever
 a `Record()` type object is instantiated.
 
 When writing data to **Health Connect** , you must specify one of four recording
-methods by using one of the corresponding [factory methods](https://developer.android.com/health-and-fitness/health-connect/metadata#metadata-methods)
+methods by using one of the corresponding [factory methods](https://developer.android.com/health-and-fitness/health-connect/metadata.md.txt#metadata-methods)
 to instantiate `Metadata`:
 
 | Recording method | Description |
@@ -103,17 +105,18 @@ To determine whether a user's device supports Extended Device Types on Health Co
 
 <br />
 
-    if (healthConnectClient
-         .features
-         .getFeatureStatus(
-           HealthConnectFeatures.FEATURE_EXTENDED_DEVICE_TYPES
-         ) == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
+```kotlin
+if (healthConnectClient
+     .features
+     .getFeatureStatus(
+       HealthConnectFeatures.FEATURE_EXTENDED_DEVICE_TYPES
+     ) == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
 
-      // Feature is available
-    } else {
-      // Feature isn't available
-    }
-
+  // Feature is available
+} else {
+  // Feature isn't available
+}
+```
 See [Check for feature availability](https://developer.android.com/health-and-fitness/guides/health-connect/develop/feature-availability) to learn more.
 
 > [!NOTE]
@@ -167,7 +170,9 @@ and distinguish them from general consumer-wearable data.
 To write UDI details to Health Connect, you must declare the
 `WRITE_DEVICE_UDI` permission in your app's `AndroidManifest.xml` file:
 
-    <uses-permission android:name="android.permission.health.WRITE_DEVICE_UDI" />
+```xml
+<uses-permission android:name="android.permission.health.WRITE_DEVICE_UDI" />
+```
 
 Note that `WRITE_DEVICE_UDI` is a **normal permission**. You must declare it in
 your manifest, but you don't need to request it from the user at runtime. It's
@@ -268,12 +273,14 @@ Use the [Testing Library](https://developer.android.com/health-and-fitness/guide
 [`MetadataTestHelper`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:health/connect/connect-testing/src/main/java/androidx/health/connect/client/testing/MetadataTestHelper.kt) to mock expected metadata
 values:
 
-    private val TEST_METADATA =
-        Metadata.unknownRecordingMethod(
-            clientRecordId = "clientId",
-            clientRecordVersion = 1L,
-            device = Device(type = Device.TYPE_UNKNOWN),
-        ).populatedWithTestValues(id = "test")
+```kotlin
+private val TEST_METADATA =
+    Metadata.unknownRecordingMethod(
+        clientRecordId = "clientId",
+        clientRecordVersion = 1L,
+        device = Device(type = Device.TYPE_UNKNOWN),
+    ).populatedWithTestValues(id = "test")
+```
 
 This simulates the behavior of the Health Connect implementation,
 which automatically populates these values during record insertion.
@@ -281,9 +288,11 @@ which automatically populates these values during record insertion.
 For the testing library, you need to add this Health Connect SDK dependency to
 your module-level `build.gradle` file:
 
-    dependencies {
-      testImplementation "androidx.health.connect:connect-testing:1.0.0-alpha02"
-    }
+```kotlin
+dependencies {
+  testImplementation "androidx.health.connect:connect-testing:1.0.0-alpha02"
+}
+```
 
 ## Upgrade the library
 

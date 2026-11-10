@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/background-work/background-tasks/pers
 source: md.txt
 ---
 
-The [getting started guide](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started) covered how to create a [`WorkRequest`](https://developer.android.com/reference/androidx/work/WorkRequest)
+The [getting started guide](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started.md.txt) covered how to create a [`WorkRequest`](https://developer.android.com/reference/androidx/work/WorkRequest.md.txt)
 and enqueue it.
 
 In this guide you will learn how to define and customize `WorkRequest` objects
@@ -19,28 +19,32 @@ to handle common use cases, such as how to:
 
 ## Overview
 
-Work is defined in WorkManager using a [`WorkRequest`](https://developer.android.com/reference/androidx/work/WorkRequest). In order to
+Work is defined in WorkManager using a [`WorkRequest`](https://developer.android.com/reference/androidx/work/WorkRequest.md.txt). In order to
 schedule any work with WorkManager you must first create a
 `WorkRequest` object and then enqueue it.
 
 ### Kotlin
 
-    val myWorkRequest = ...
-    WorkManager.getInstance(myContext).enqueue(myWorkRequest)
+```kotlin
+val myWorkRequest = ...
+WorkManager.getInstance(myContext).enqueue(myWorkRequest)
+```
 
 ### Java
 
-    WorkRequest myWorkRequest = ...
-    WorkManager.getInstance(myContext).enqueue(myWorkRequest);
+```java
+WorkRequest myWorkRequest = ...
+WorkManager.getInstance(myContext).enqueue(myWorkRequest);
+```
 
 The `WorkRequest` object contains all of the information needed by WorkManager
 to schedule and run your work. It includes constraints which must be met for
 your work to run, scheduling information such as delays or repeating intervals,
 retry configuration, and may include input data if your work relies on it.
 
-[`WorkRequest`](https://developer.android.com/reference/androidx/work/WorkRequest) itself is an abstract base class. There are two
+[`WorkRequest`](https://developer.android.com/reference/androidx/work/WorkRequest.md.txt) itself is an abstract base class. There are two
 derived implementations of this class that you can use to create the request,
-[`OneTimeWorkRequest`](https://developer.android.com/reference/androidx/work/OneTimeWorkRequest) and [`PeriodicWorkRequest`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest).
+[`OneTimeWorkRequest`](https://developer.android.com/reference/androidx/work/OneTimeWorkRequest.md.txt) and [`PeriodicWorkRequest`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest.md.txt).
 As their names imply, `OneTimeWorkRequest` is useful for scheduling
 non-repeating work, whilst `PeriodicWorkRequest` is more appropriate for
 scheduling work that repeats on some interval.
@@ -52,27 +56,35 @@ method `from`:
 
 ### Kotlin
 
-    val myWorkRequest = OneTimeWorkRequest.from(MyWork::class.java)
+```kotlin
+val myWorkRequest = OneTimeWorkRequest.from(MyWork::class.java)
+```
 
 ### Java
 
-    WorkRequest myWorkRequest = OneTimeWorkRequest.from(MyWork.class);
+```java
+WorkRequest myWorkRequest = OneTimeWorkRequest.from(MyWork.class);
+```
 
 For more complex work, you can use a builder:
 
 ### Kotlin
 
-    val uploadWorkRequest: WorkRequest =
-       OneTimeWorkRequestBuilder<MyWork>()
-           // Additional configuration
-           .build()
+```kotlin
+val uploadWorkRequest: WorkRequest =
+   OneTimeWorkRequestBuilder<MyWork>()
+       // Additional configuration
+       .build()
+```
 
 ### Java
 
-    WorkRequest uploadWorkRequest =
-       new OneTimeWorkRequest.Builder(MyWork.class)
-           // Additional configuration
-           .build();
+```java
+WorkRequest uploadWorkRequest =
+   new OneTimeWorkRequest.Builder(MyWork.class)
+       // Additional configuration
+       .build();
+```
 
 ## Schedule expedited work
 
@@ -85,7 +97,7 @@ Expedited work is notable for the following characteristics:
 - **Importance**: Expedited work suits tasks which are important to the user or are user-initiated.
 - **Speed**: Expedited work best fits short tasks that start immediately and complete within a few minutes.
 - **Quotas**: A system-level quota that limits foreground execution time determines whether an expedited job can start.
-- **Power Management** : [Power management restrictions](https://developer.android.com/topic/performance/power/power-details), such as Battery Saver and Doze, are less likely to affect expedited work.
+- **Power Management** : [Power management restrictions](https://developer.android.com/topic/performance/power/power-details.md.txt), such as Battery Saver and Doze, are less likely to affect expedited work.
 - **Latency**: The system immediately executes expedited work, provided that the system's current workload enables it to do so. This means they are latency sensitive and can't be scheduled for later execution.
 
 A potential use case for expedited work might be within a chat app when the user
@@ -105,13 +117,13 @@ refreshes. This allows Android to more effectively balance resources between
 applications.
 
 The amount of execution time available to an app is based on the
-[standby bucket](https://developer.android.com/topic/performance/appstandby) and process importance.
+[standby bucket](https://developer.android.com/topic/performance/appstandby.md.txt) and process importance.
 
 You can determine what occurs when the execution quota does not allow for an
 expedited job to run immediately. See the following snippets for detail.
 
 > [!NOTE]
-> **Note:** While your app is in the foreground, quotas won't limit the execution of expedited work. An execution time quota applies only when your app is in the background, or when your app moves to the background. As such, you should expedite work that you want to continue in the background. You can continue to use `setForeground()` while your app is in the foreground. Consult [Power management resource limits](https://developer.android.com/topic/performance/power/power-details) for more details.
+> **Note:** While your app is in the foreground, quotas won't limit the execution of expedited work. An execution time quota applies only when your app is in the background, or when your app moves to the background. As such, you should expedite work that you want to continue in the background. You can continue to use `setForeground()` while your app is in the foreground. Consult [Power management resource limits](https://developer.android.com/topic/performance/power/power-details.md.txt) for more details.
 
 ## Execute expedited work
 
@@ -121,19 +133,23 @@ following code snippet provides an example of how to use `setExpedited()`:
 
 ### Kotlin
 
-    val request = OneTimeWorkRequestBuilder<SyncWorker>()
-        <b>.setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)</b>
-        .build()
+```kotlin
+val request = OneTimeWorkRequestBuilder<SyncWorker>()
+    <b>.setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)</b>
+    .build()
 
-    WorkManager.getInstance(context)
-        .enqueue(request)
+WorkManager.getInstance(context)
+    .enqueue(request)
+```
 
 ### Java
 
-    OneTimeWorkRequest request = new OneTimeWorkRequestBuilder<T>()
-        .setInputData(inputData)
-        <b>.setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)</b>
-        .build();
+```java
+OneTimeWorkRequest request = new OneTimeWorkRequestBuilder<T>()
+    .setInputData(inputData)
+    <b>.setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)</b>
+    .build();
+```
 
 In this example, we initialize an instance of `OneTimeWorkRequest` and call
 `setExpedited()` on it. This request then becomes expedited work. If the quota
@@ -161,7 +177,7 @@ When targeting Android 12 or higher, foreground services remain available to
 you through the corresponding `setForeground` method.
 
 > [!CAUTION]
-> **Caution:** `setForeground()` can throw runtime exceptions on Android 12, and might throw an exception if the [launch was restricted](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start).
+> **Caution:** `setForeground()` can throw runtime exceptions on Android 12, and might throw an exception if the [launch was restricted](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start.md.txt).
 
 ### Worker
 
@@ -181,24 +197,26 @@ notification in versions of Android prior to 12.
 
 Consider the following example:
 
-      class ExpeditedWorker(appContext: Context, workerParams: WorkerParameters):
-       CoroutineWorker(appContext, workerParams) {
+```kotlin
+  class ExpeditedWorker(appContext: Context, workerParams: WorkerParameters):
+   CoroutineWorker(appContext, workerParams) {
 
-       override suspend fun getForegroundInfo(): ForegroundInfo {
-           return ForegroundInfo(
-               NOTIFICATION_ID, createNotification()
-           )
-       }
+   override suspend fun getForegroundInfo(): ForegroundInfo {
+       return ForegroundInfo(
+           NOTIFICATION_ID, createNotification()
+       )
+   }
 
-       override suspend fun doWork(): Result {
-           TODO()
-       }
+   override suspend fun doWork(): Result {
+       TODO()
+   }
 
-        private fun createNotification() : Notification {
-           TODO()
-        }
-
+    private fun createNotification() : Notification {
+       TODO()
     }
+
+}
+```
 
 > [!NOTE]
 > **Note:** You should wrap `setForeground()` in a `try/catch` block to catch a potential `IllegalStateException`. These might occur when your app is not able to run in the foreground at this point. In Android 12 and higher you can use the more detailed `ForegroundServiceStartNotAllowedException`.
@@ -226,22 +244,26 @@ Your app may at times require that certain work runs periodically. For example,
 you may want to periodically backup your data, download fresh content in your
 app, or upload logs to a server.
 
-Here is how you use the [`PeriodicWorkRequest`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest) to create a
+Here is how you use the [`PeriodicWorkRequest`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest.md.txt) to create a
 `WorkRequest` object which executes periodically:
 
 ### Kotlin
 
-    val saveRequest =
-           PeriodicWorkRequestBuilder<SaveImageToFileWorker>(1, TimeUnit.HOURS)
-        // Additional configuration
-               .build()
+```kotlin
+val saveRequest =
+       PeriodicWorkRequestBuilder<SaveImageToFileWorker>(1, TimeUnit.HOURS)
+    // Additional configuration
+           .build()
+```
 
 ### Java
 
-    PeriodicWorkRequest saveRequest =
-           new PeriodicWorkRequest.Builder(SaveImageToFileWorker.class, 1, TimeUnit.HOURS)
-               // Constraints
-               .build();
+```java
+PeriodicWorkRequest saveRequest =
+       new PeriodicWorkRequest.Builder(SaveImageToFileWorker.class, 1, TimeUnit.HOURS)
+           // Constraints
+           .build();
+```
 
 In this example, the work is scheduled with a one hour interval.
 
@@ -251,12 +273,12 @@ that you are using in your WorkRequest object and on the optimizations performed
 by the system.
 
 > [!NOTE]
-> **Note:** The minimum repeat interval that can be defined is 15 minutes (same as the [JobScheduler API](https://developer.android.com/reference/android/app/job/JobScheduler)).
+> **Note:** The minimum repeat interval that can be defined is 15 minutes (same as the [JobScheduler API](https://developer.android.com/reference/android/app/job/JobScheduler.md.txt)).
 
 ### Flexible run intervals
 
 If the nature of your work makes it sensitive to run timing, you can configure
-your [`PeriodicWorkRequest`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest) to run within a **flex
+your [`PeriodicWorkRequest`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest.md.txt) to run within a **flex
 period** inside each interval period, as shown in Figure 1.
 
 ![You can set a flex interval for a periodic job. You define a repeat interval,
@@ -276,27 +298,31 @@ minutes of every one hour period.
 
 ### Kotlin
 
-    val myUploadWork = PeriodicWorkRequestBuilder<SaveImageToFileWorker>(
-           1, TimeUnit.HOURS, // repeatInterval (the period cycle)
-           15, TimeUnit.MINUTES) // flexInterval
-        .build()
+```kotlin
+val myUploadWork = PeriodicWorkRequestBuilder<SaveImageToFileWorker>(
+       1, TimeUnit.HOURS, // repeatInterval (the period cycle)
+       15, TimeUnit.MINUTES) // flexInterval
+    .build()
+```
 
 ### Java
 
-    WorkRequest saveRequest =
-           new PeriodicWorkRequest.Builder(SaveImageToFileWorker.class,
-                   1, TimeUnit.HOURS,
-                   15, TimeUnit.MINUTES)
-               .build();
+```java
+WorkRequest saveRequest =
+       new PeriodicWorkRequest.Builder(SaveImageToFileWorker.class,
+               1, TimeUnit.HOURS,
+               15, TimeUnit.MINUTES)
+           .build();
+```
 
 The repeat interval must be greater than or equal to
-[`PeriodicWorkRequest.MIN_PERIODIC_INTERVAL_MILLIS`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest#MIN_PERIODIC_INTERVAL_MILLIS) and the flex
+[`PeriodicWorkRequest.MIN_PERIODIC_INTERVAL_MILLIS`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest.md.txt#MIN_PERIODIC_INTERVAL_MILLIS) and the flex
 interval must be greater than or equal to
-[PeriodicWorkRequest.MIN_PERIODIC_FLEX_MILLIS\`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest#MIN_PERIODIC_FLEX_MILLIS).
+[PeriodicWorkRequest.MIN_PERIODIC_FLEX_MILLIS\`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest.md.txt#MIN_PERIODIC_FLEX_MILLIS).
 
 ### Effect of Constraints on Periodic Work
 
-You can apply [constraints](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work#work-constraints) to periodic work. For example, you could add a
+You can apply [constraints](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work.md.txt#work-constraints) to periodic work. For example, you could add a
 constraint to your work request such that the work only runs when the user's
 device is charging. In this case, even if the defined repeat interval passes,
 the `PeriodicWorkRequest` will not run until this condition is met. This could
@@ -305,11 +331,11 @@ conditions are not met within the run interval.
 
 ## Work constraints
 
-[`Constraints`](https://developer.android.com/reference/androidx/work/Constraints) ensure that work is deferred until optimal conditions are
+[`Constraints`](https://developer.android.com/reference/androidx/work/Constraints.md.txt) ensure that work is deferred until optimal conditions are
 met. The following constraints are available to WorkManager:
 
 |---|---|
-| **NetworkType** | Constrains the [type of network](https://developer.android.com/reference/androidx/work/NetworkType) required for your work to run. For example, Wi-Fi (`https://developer.android.com/reference/androidx/work/NetworkType#UNMETERED`). |
+| **NetworkType** | Constrains the [type of network](https://developer.android.com/reference/androidx/work/NetworkType.md.txt) required for your work to run. For example, Wi-Fi (`UNMETERED`). |
 | **BatteryNotLow** | When set to true, your work will not run if the device is in low battery mode. |
 | **RequiresCharging** | When set to true, your work will only run when the device is charging. |
 | **DeviceIdle** | When set to true, this requires the user's device to be idle before the work will run. This can be useful for running batched operations that might otherwise have a negative performance impact on other apps running actively on the user's device. |
@@ -324,27 +350,31 @@ user's device is both charging and on Wi-Fi:
 
 ### Kotlin
 
-    val constraints = Constraints.Builder()
-       .setRequiredNetworkType(NetworkType.UNMETERED)
-       .setRequiresCharging(true)
-       .build()
+```kotlin
+val constraints = Constraints.Builder()
+   .setRequiredNetworkType(NetworkType.UNMETERED)
+   .setRequiresCharging(true)
+   .build()
 
-    val myWorkRequest: WorkRequest =
-       OneTimeWorkRequestBuilder<MyWork>()
-           .setConstraints(constraints)
-           .build()
+val myWorkRequest: WorkRequest =
+   OneTimeWorkRequestBuilder<MyWork>()
+       .setConstraints(constraints)
+       .build()
+```
 
 ### Java
 
-    Constraints constraints = new Constraints.Builder()
-           .setRequiredNetworkType(NetworkType.UNMETERED)
-           .setRequiresCharging(true)
-           .build();
+```java
+Constraints constraints = new Constraints.Builder()
+       .setRequiredNetworkType(NetworkType.UNMETERED)
+       .setRequiresCharging(true)
+       .build();
 
-    WorkRequest myWorkRequest =
-           new OneTimeWorkRequest.Builder(MyWork.class)
-                   .setConstraints(constraints)
-                   .build();
+WorkRequest myWorkRequest =
+       new OneTimeWorkRequest.Builder(MyWork.class)
+               .setConstraints(constraints)
+               .build();
+```
 
 When multiple constraints are specified, your work will run only when all the
 constraints are met.
@@ -365,16 +395,20 @@ has been enqueued.
 
 ### Kotlin
 
-    val myWorkRequest = OneTimeWorkRequestBuilder<MyWork>()
-       .setInitialDelay(10, TimeUnit.MINUTES)
-       .build()
+```kotlin
+val myWorkRequest = OneTimeWorkRequestBuilder<MyWork>()
+   .setInitialDelay(10, TimeUnit.MINUTES)
+   .build()
+```
 
 ### Java
 
-    WorkRequest myWorkRequest =
-          new OneTimeWorkRequest.Builder(MyWork.class)
-                   .setInitialDelay(10, TimeUnit.MINUTES)
-                   .build();
+```java
+WorkRequest myWorkRequest =
+      new OneTimeWorkRequest.Builder(MyWork.class)
+               .setInitialDelay(10, TimeUnit.MINUTES)
+               .build();
+```
 
 While the example illustrates how to set an initial delay for a
 `OneTimeWorkRequest`, you can also set an initial delay for a
@@ -387,17 +421,17 @@ would be delayed.
 ## Retry and backoff policy
 
 If you require that WorkManager retry your work, you can return
-[`Result.retry()`](https://developer.android.com/reference/androidx/work/ListenableWorker.Result#retry()) from your worker. Your work is then
-rescheduled according to a [backoff delay](https://developer.android.com/reference/androidx/work/WorkRequest#DEFAULT_BACKOFF_DELAY_MILLIS) and [backoff policy](https://developer.android.com/reference/androidx/work/BackoffPolicy).
+[`Result.retry()`](https://developer.android.com/reference/androidx/work/ListenableWorker.Result.md.txt#retry()) from your worker. Your work is then
+rescheduled according to a [backoff delay](https://developer.android.com/reference/androidx/work/WorkRequest.md.txt#DEFAULT_BACKOFF_DELAY_MILLIS) and [backoff policy](https://developer.android.com/reference/androidx/work/BackoffPolicy.md.txt).
 
 - *Backoff delay* specifies the minimum amount of time to wait before retrying
   your work after the first attempt. This value can be no less than 10 seconds
-  (or [MIN_BACKOFF_MILLIS](https://developer.android.com/reference/androidx/work/WorkRequest#MIN_BACKOFF_MILLIS)).
+  (or [MIN_BACKOFF_MILLIS](https://developer.android.com/reference/androidx/work/WorkRequest.md.txt#MIN_BACKOFF_MILLIS)).
 
 - *Backoff policy* defines how the backoff delay should increase over time for
   subsequent retry attempts. WorkManager supports 2 backoff policies,
-  [`LINEAR`](https://developer.android.com/reference/androidx/work/BackoffPolicy#LINEAR) and
-  [`EXPONENTIAL`](https://developer.android.com/reference/androidx/work/BackoffPolicy#EXPONENTIAL).
+  [`LINEAR`](https://developer.android.com/reference/androidx/work/BackoffPolicy.md.txt#LINEAR) and
+  [`EXPONENTIAL`](https://developer.android.com/reference/androidx/work/BackoffPolicy.md.txt#EXPONENTIAL).
 
 Every work request has a backoff policy and backoff delay. The default policy
 is `EXPONENTIAL` with a delay of 30 seconds, but you can override this in your
@@ -407,22 +441,26 @@ Here is an example of customizing the backoff delay and policy.
 
 ### Kotlin
 
-    val myWorkRequest = OneTimeWorkRequestBuilder<MyWork>()
-       .setBackoffCriteria(
-           BackoffPolicy.LINEAR,
-           WorkRequest.MIN_BACKOFF_MILLIS,
-           TimeUnit.MILLISECONDS)
-       .build()
+```kotlin
+val myWorkRequest = OneTimeWorkRequestBuilder<MyWork>()
+   .setBackoffCriteria(
+       BackoffPolicy.LINEAR,
+       WorkRequest.MIN_BACKOFF_MILLIS,
+       TimeUnit.MILLISECONDS)
+   .build()
+```
 
 ### Java
 
-    WorkRequest myWorkRequest =
-           new OneTimeWorkRequest.Builder(MyWork.class)
-                   .setBackoffCriteria(
-                           BackoffPolicy.LINEAR,
-                           WorkRequest.MIN_BACKOFF_MILLIS,
-                           TimeUnit.MILLISECONDS)
-                   .build();
+```java
+WorkRequest myWorkRequest =
+       new OneTimeWorkRequest.Builder(MyWork.class)
+               .setBackoffCriteria(
+                       BackoffPolicy.LINEAR,
+                       WorkRequest.MIN_BACKOFF_MILLIS,
+                       TimeUnit.MILLISECONDS)
+               .build();
+```
 
 In this example, the minimum backoff delay is set to the minimum allowed value,
 10 seconds. Since the policy is `LINEAR` the retry interval will increase by
@@ -437,39 +475,43 @@ followed by 20, 30, 40, and so on, if the work continues to return
 
 ## Tag work
 
-Every work request has a [unique identifier](https://developer.android.com/reference/androidx/work/WorkRequest#getId()), which can be used to identify
+Every work request has a [unique identifier](https://developer.android.com/reference/androidx/work/WorkRequest.md.txt#getId()), which can be used to identify
 that work later in order to [cancel](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/managing-work#cancelling) the work or [observe its progress](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/states-and-observation#observing).
 
 If you have a group of logically related work, you may also find it helpful to
 tag those work items. Tagging lets you operate with a group of work
 requests together.
 
-For example, [`WorkManager.cancelAllWorkByTag(String)`](https://developer.android.com/reference/androidx/work/WorkManager#cancelAllWorkByTag(java.lang.String)) cancels
+For example, [`WorkManager.cancelAllWorkByTag(String)`](https://developer.android.com/reference/androidx/work/WorkManager.md.txt#cancelAllWorkByTag(java.lang.String)) cancels
 all work requests with a particular tag, and
-[`WorkManager.getWorkInfosByTag(String)`](https://developer.android.com/reference/androidx/work/WorkManager#getWorkInfosByTag(kotlin.String)) returns a list of the
+[`WorkManager.getWorkInfosByTag(String)`](https://developer.android.com/reference/androidx/work/WorkManager.md.txt#getWorkInfosByTag(kotlin.String)) returns a list of the
 WorkInfo objects which can be used to determine the current work state.
 
 The following code shows how you can add a "cleanup" tag to your work:
 
 ### Kotlin
 
-    val myWorkRequest = OneTimeWorkRequestBuilder<MyWork>()
-       .addTag("cleanup")
-       .build()
+```kotlin
+val myWorkRequest = OneTimeWorkRequestBuilder<MyWork>()
+   .addTag("cleanup")
+   .build()
+```
 
 ### Java
 
-    WorkRequest myWorkRequest =
-           new OneTimeWorkRequest.Builder(MyWork.class)
-           .addTag("cleanup")
-           .build();
+```java
+WorkRequest myWorkRequest =
+       new OneTimeWorkRequest.Builder(MyWork.class)
+       .addTag("cleanup")
+       .build();
+```
 
 Finally, multiple tags can be added to a single work request. Internally these
 tags are stored as a set of strings. To get the set of tags associated with
-the `WorkRequest` you can use [`WorkInfo.getTags()`](https://developer.android.com/reference/androidx/work/WorkInfo#getTags()).
+the `WorkRequest` you can use [`WorkInfo.getTags()`](https://developer.android.com/reference/androidx/work/WorkInfo.md.txt#getTags()).
 
 From your `Worker` class, you can retrieve its set of tags using
-[ListenableWorker.getTags()](https://developer.android.com/reference/androidx/work/ListenableWorker#getTags()).
+[ListenableWorker.getTags()](https://developer.android.com/reference/androidx/work/ListenableWorker.md.txt#getTags()).
 
 ## Assign input data
 
@@ -477,68 +519,72 @@ Your work may require input data in order to do its work. For example, work that
 handles uploading an image might require the URI of the image to be uploaded as
 input.
 
-Input values are stored as key-value pairs in a [`Data`](https://developer.android.com/reference/androidx/work/Data) object
+Input values are stored as key-value pairs in a [`Data`](https://developer.android.com/reference/androidx/work/Data.md.txt) object
 and can be set on the work request. WorkManager will deliver the input `Data` to
 your work when it executes the work. The `Worker` class can access
-the input arguments by calling [`Worker.getInputData()`](https://developer.android.com/reference/androidx/work/ListenableWorker#getInputData()). The
+the input arguments by calling [`Worker.getInputData()`](https://developer.android.com/reference/androidx/work/ListenableWorker.md.txt#getInputData()). The
 following code shows how you can create a `Worker` instance which
 requires input data and how to send it in your work request.
 
 ### Kotlin
 
-    // Define the Worker requiring input
-    class UploadWork(appContext: Context, workerParams: WorkerParameters)
-       : Worker(appContext, workerParams) {
+```kotlin
+// Define the Worker requiring input
+class UploadWork(appContext: Context, workerParams: WorkerParameters)
+   : Worker(appContext, workerParams) {
 
-       override fun doWork(): Result {
-           val imageUriInput =
-               inputData.getString("IMAGE_URI") ?: return Result.failure()
+   override fun doWork(): Result {
+       val imageUriInput =
+           inputData.getString("IMAGE_URI") ?: return Result.failure()
 
-           uploadFile(imageUriInput)
-           return Result.success()
-       }
-       ...
-    }
+       uploadFile(imageUriInput)
+       return Result.success()
+   }
+   ...
+}
 
-    // Create a WorkRequest for your Worker and sending it input
-    val myUploadWork = OneTimeWorkRequestBuilder<UploadWork>()
-       .setInputData(workDataOf(
-           "IMAGE_URI" to "http://..."
-       ))
-       .build()
+// Create a WorkRequest for your Worker and sending it input
+val myUploadWork = OneTimeWorkRequ<estBuilder>UploadWork()
+   .setInputData(workDataOf(
+       "IMAGE_URI" to "http://..."
+   ))
+   .build()
+```
 
 ### Java
 
-    // Define the Worker requiring input
-    public class UploadWork extends Worker {
+```java
+// Define the Worker requiring input
+public class UploadWork extends Worker {
 
-       public UploadWork(Context appContext, WorkerParameters workerParams) {
-           super(appContext, workerParams);
+   public UploadWork(Context appContext, WorkerParameters workerParams) {
+       super(appContext, workerParams);
+   }
+
+   @NonNull
+   @Override
+   public Result doWork() {
+       String imageUriInput = getInputData().getString("IMAGE_URI");
+       if(imageUriInput == null) {
+           return Result.failure();
        }
 
-       @NonNull
-       @Override
-       public Result doWork() {
-           String imageUriInput = getInputData().getString("IMAGE_URI");
-           if(imageUriInput == null) {
-               return Result.failure();
-           }
+       uploadFile(imageUriInput);
+       return Result.success();
+   }
+   ...
+}
 
-           uploadFile(imageUriInput);
-           return Result.success();
-       }
-       ...
-    }
-
-    // Create a WorkRequest for your Worker and sending it input
-    WorkRequest myUploadWork =
-          new OneTimeWorkRequest.Builder(UploadWork.class)
-               .setInputData(
-                   new Data.Builder()
-                       .putString("IMAGE_URI", "http://...")
-                       .build()
-               )
-               .build();
+// Create a WorkRequest for your Worker and sending it input
+WorkRequest myUploadWork =
+      new OneTimeWorkRequest.Builder(UploadWork.class)
+           .setInputData(
+               new Data.Builder()
+                   .putString("IMAGE_URI", "http://...")
+                   .build()
+           )
+           .build();
+```
 
 Similarly, you can use the `Data` class to output a return value.
 

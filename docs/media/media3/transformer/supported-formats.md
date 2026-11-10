@@ -15,14 +15,14 @@ formats supported. See [MediaCodec video codecs](https://developer.android.com/g
 for more information about encoding limitations.
 
 By default, `Transformer` outputs standard MP4 files using
-[`InAppMp4Muxer`](https://developer.android.com/reference/androidx/media3/transformer/InAppMp4Muxer). If your app requires fragmented MP4, you
+[`InAppMp4Muxer`](https://developer.android.com/reference/androidx/media3/transformer/InAppMp4Muxer.md.txt). If your app requires fragmented MP4, you
 can pass an
-[`InAppFragmentedMp4Muxer.Factory`](https://developer.android.com/reference/androidx/media3/transformer/InAppFragmentedMp4Muxer.Factory) when
+[`InAppFragmentedMp4Muxer.Factory`](https://developer.android.com/reference/androidx/media3/transformer/InAppFragmentedMp4Muxer.Factory.md.txt) when
 initializing your `Transformer` instance. Media3 also supports other formats
 such as WebM, AAC, Ogg, and WAV using dedicated muxers like
-[`WebmMuxer`](https://developer.android.com/reference/androidx/media3/muxer/WebmMuxer), [`AacMuxer`](https://developer.android.com/reference/androidx/media3/muxer/AacMuxer), [`OggMuxer`](https://developer.android.com/reference/androidx/media3/muxer/OggMuxer), and
-[`WavMuxer`](https://developer.android.com/reference/androidx/media3/muxer/WavMuxer). These must be wrapped in a custom
-[`Muxer.Factory`](https://developer.android.com/reference/androidx/media3/muxer/Muxer.Factory) to be injected, but future releases will
+[`WebmMuxer`](https://developer.android.com/reference/androidx/media3/muxer/WebmMuxer.md.txt), [`AacMuxer`](https://developer.android.com/reference/androidx/media3/muxer/AacMuxer.md.txt), [`OggMuxer`](https://developer.android.com/reference/androidx/media3/muxer/OggMuxer.md.txt), and
+[`WavMuxer`](https://developer.android.com/reference/androidx/media3/muxer/WavMuxer.md.txt). These must be wrapped in a custom
+[`Muxer.Factory`](https://developer.android.com/reference/androidx/media3/muxer/Muxer.Factory.md.txt) to be injected, but future releases will
 include ready-to-use factory implementations to simplify this process.
 
 ## Image support

@@ -8,7 +8,7 @@ Create tiles with content that changes as time passes.
 
 ## Work with timelines
 
-A timeline consists of one or more [`TimelineEntry`](https://developer.android.com/reference/androidx/wear/protolayout/TimelineBuilders.TimelineEntry) instances, each of which
+A timeline consists of one or more [`TimelineEntry`](https://developer.android.com/reference/androidx/wear/protolayout/TimelineBuilders.TimelineEntry.md.txt) instances, each of which
 contain a layout that is displayed during a specific time interval. All tiles
 need a timeline.
 ![Tile timeline including two timeline entries, each with a layout.](https://developer.android.com/static/images/training/articles/tiles_timeline.png) Diagram of tile timeline.
@@ -118,7 +118,7 @@ override fun onTileRequest(
     )
 ```
 
-When you set a freshness interval, the system calls [`onTileRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService#onTileRequest(androidx.wear.tiles.RequestBuilders.TileRequest))
+When you set a freshness interval, the system calls [`onTileRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt#onTileRequest(androidx.wear.tiles.RequestBuilders.TileRequest))
 shortly after the interval finishes. If you don't set a freshness interval, the
 system doesn't call `onTileRequest()`.
 
@@ -142,11 +142,11 @@ Use these best practices to determine how to configure your tile updates:
 - When you fetch platform data, use data binding so that the system updates the data automatically.
 - If the update can be calculated on-device in a small amount of time---such
   as updating the position of an image on a sunrise tile---use
-  [`onTileRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService#onTileRequest(androidx.wear.tiles.RequestBuilders.TileRequest)).
+  [`onTileRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt#onTileRequest(androidx.wear.tiles.RequestBuilders.TileRequest)).
 
   This is particularly useful when you need to generate all images ahead of
   time. If you need to generate a new image at a future time, call
-  [`setFreshnessIntervalMillis()`](https://developer.android.com/reference/androidx/wear/tiles/TileBuilders.Tile.Builder#setFreshnessIntervalMillis(long)).
+  [`setFreshnessIntervalMillis()`](https://developer.android.com/reference/androidx/wear/tiles/TileBuilders.Tile.Builder.md.txt#setFreshnessIntervalMillis(long)).
 - If you're doing more intensive background work repeatedly, such as polling
   for weather data, use [`WorkManager`](https://developer.android.com/topic/libraries/architecture/workmanager), and push updates to your tile.
 
@@ -164,6 +164,6 @@ Use these best practices to determine how to configure your tile updates:
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Minimize the effect of regular updates](https://developer.android.com/develop/connectivity/minimize-effect-regular-updates)
-- [Access location in the background](https://developer.android.com/develop/sensors-and-location/location/background)
-- [Getting started with WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started)
+- [Minimize the effect of regular updates](https://developer.android.com/develop/connectivity/minimize-effect-regular-updates.md.txt)
+- [Access location in the background](https://developer.android.com/develop/sensors-and-location/location/background.md.txt)
+- [Getting started with WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started.md.txt)

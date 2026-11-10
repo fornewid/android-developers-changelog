@@ -6,7 +6,7 @@ source: md.txt
 
 <br />
 
-> This guide is compatible with Health Connect version [1.1.0](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0) or later.
+> This guide is compatible with Health Connect version [1.1.0](https://developer.android.com/jetpack/androidx/releases/health-connect.md.txt#1.1.0) or later.
 
 <br />
 
@@ -26,7 +26,7 @@ You can build a comprehensive vitals tracking experience using Health Connect by
 following these core steps:
 
 - Requesting the appropriate permissions for vitals data types.
-- Writing vitals data using records like [`BloodPressureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BloodPressureRecord), [`HeartRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord), and other vitals records.
+- Writing vitals data using records like [`BloodPressureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BloodPressureRecord.md.txt), [`HeartRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord.md.txt), and other vitals records.
 - Reading vitals data for display, analysis, or syncing.
 - Using batching for efficient data writing and reading.
 
@@ -37,9 +37,9 @@ verifies user-controlled data access.
 
 Before implementing vitals features:
 
-- [Integrate Health Connect](https://developer.android.com/health-and-fitness/health-connect/get-started#step-1) using the appropriate dependency.
-- [Create a `HealthConnectClient`](https://developer.android.com/health-and-fitness/health-connect/get-started#step-2) instance.
-- Verify your app implements runtime [permission flows based on Health Permissions](https://developer.android.com/health-and-fitness/health-connect/get-started#declare-permissions).
+- [Integrate Health Connect](https://developer.android.com/health-and-fitness/health-connect/get-started.md.txt#step-1) using the appropriate dependency.
+- [Create a `HealthConnectClient`](https://developer.android.com/health-and-fitness/health-connect/get-started.md.txt#step-2) instance.
+- Verify your app implements runtime [permission flows based on Health Permissions](https://developer.android.com/health-and-fitness/health-connect/get-started.md.txt#declare-permissions).
 
 ## Key concepts
 
@@ -51,15 +51,15 @@ vitals are often recorded as point-in-time or interval-based data.
 
 Vitals data is represented by individual record types. Common types include:
 
-- [`BloodPressureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BloodPressureRecord): Represents a single blood pressure reading, including systolic and diastolic pressure, and body position.
-- [`HeartRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord): Represents a series of heart rate measurements.
-- [`RestingHeartRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/RestingHeartRateRecord): Represents a single measurement of resting heart rate.
-- [`BodyTemperatureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BodyTemperatureRecord): Represents a single body temperature reading, including measurement location.
-- [`BloodGlucoseRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BloodGlucoseRecord): Represents a single blood glucose reading, including relation to meal and specimen source.
-- [`OxygenSaturationRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/OxygenSaturationRecord): Represents a single blood oxygen saturation reading.
-- [`RespiratoryRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/RespiratoryRateRecord): Represents a single respiratory rate measurement.
+- [`BloodPressureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BloodPressureRecord.md.txt): Represents a single blood pressure reading, including systolic and diastolic pressure, and body position.
+- [`HeartRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord.md.txt): Represents a series of heart rate measurements.
+- [`RestingHeartRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/RestingHeartRateRecord.md.txt): Represents a single measurement of resting heart rate.
+- [`BodyTemperatureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BodyTemperatureRecord.md.txt): Represents a single body temperature reading, including measurement location.
+- [`BloodGlucoseRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BloodGlucoseRecord.md.txt): Represents a single blood glucose reading, including relation to meal and specimen source.
+- [`OxygenSaturationRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/OxygenSaturationRecord.md.txt): Represents a single blood oxygen saturation reading.
+- [`RespiratoryRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/RespiratoryRateRecord.md.txt): Represents a single respiratory rate measurement.
 
-For a complete list of data types, see [Health Connect data types](https://developer.android.com/health-and-fitness/health-connect/data-types).
+For a complete list of data types, see [Health Connect data types](https://developer.android.com/health-and-fitness/health-connect/data-types.md.txt).
 
 ## Development considerations
 
@@ -74,13 +74,13 @@ writing vitals data. Common permissions for vitals include blood pressure,
 heart rate, body temperature, blood glucose, oxygen saturation, and
 respiratory rate. This includes the following:
 
-- **Blood Pressure:** Read and write permissions for [`BloodPressureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BloodPressureRecord).
-- **Heart Rate:** Read and write permissions for [`HeartRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord).
-- **Resting Heart Rate:** Read and write permissions for [`RestingHeartRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/RestingHeartRateRecord).
-- **Body Temperature:** Read and write permissions for [`BodyTemperatureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BodyTemperatureRecord).
-- **Blood Glucose:** Read and write permissions for [`BloodGlucoseRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BloodGlucoseRecord).
-- **Oxygen Saturation:** Read and write permissions for [`OxygenSaturationRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/OxygenSaturationRecord).
-- **Respiratory Rate:** Read and write permissions for [`RespiratoryRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/RespiratoryRateRecord).
+- **Blood Pressure:** Read and write permissions for [`BloodPressureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BloodPressureRecord.md.txt).
+- **Heart Rate:** Read and write permissions for [`HeartRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord.md.txt).
+- **Resting Heart Rate:** Read and write permissions for [`RestingHeartRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/RestingHeartRateRecord.md.txt).
+- **Body Temperature:** Read and write permissions for [`BodyTemperatureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BodyTemperatureRecord.md.txt).
+- **Blood Glucose:** Read and write permissions for [`BloodGlucoseRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BloodGlucoseRecord.md.txt).
+- **Oxygen Saturation:** Read and write permissions for [`OxygenSaturationRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/OxygenSaturationRecord.md.txt).
+- **Respiratory Rate:** Read and write permissions for [`RespiratoryRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/RespiratoryRateRecord.md.txt).
 
 The following shows an example of how to request permissions for blood pressure,
 heart rate, and body temperature:
@@ -104,7 +104,7 @@ val permissions =
         HealthPermission.getWritePermission(BodyTemperatureRecord::class)
     )
 ```
-Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
+Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController.md.txt#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController.md.txt#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
 
 ```kotlin
 val permissions = setOf(
@@ -155,19 +155,23 @@ permissions for the `BloodPressureRecord` data type.
 Here's the permission you need to declare to be able to write
 blood pressure:
 
-    <application>
-      <uses-permission
-    android:name="android.permission.health.WRITE_BLOOD_PRESSURE" />
-    ...
-    </application>
+```xml
+<application>
+  <uses-permission
+android:name="android.permission.health.WRITE_BLOOD_PRESSURE" />
+...
+</application>
+```
 
 To read blood pressure, you need to request the following permissions:
 
-    <application>
-      <uses-permission
-    android:name="android.permission.health.READ_BLOOD_PRESSURE" />
-    ...
-    </application>
+```xml
+<application>
+  <uses-permission
+android:name="android.permission.health.READ_BLOOD_PRESSURE" />
+...
+</application>
+```
 
 ## Write vitals data
 
@@ -176,9 +180,9 @@ is typically written as individual records. If you are writing multiple records
 at once, such as syncing from a sensor or backend, use batching.
 
 > [!NOTE]
-> **Best Practice:** Use Client IDs When creating records, set a **metadata.clientRecordId** . This is the most effective way to prevent duplicates during sync retries. See [Best practices](https://developer.android.com/health-and-fitness/health-connect/experiences/vitals#best-practices) for a code example.
+> **Best Practice:** Use Client IDs When creating records, set a **metadata.clientRecordId** . This is the most effective way to prevent duplicates during sync retries. See [Best practices](https://developer.android.com/health-and-fitness/health-connect/experiences/vitals.md.txt#best-practices) for a code example.
 
-Example of writing a [`BloodPressureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BloodPressureRecord):
+Example of writing a [`BloodPressureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BloodPressureRecord.md.txt):
 
 ```kotlin
 suspend fun writeBloodPressureRecord(healthConnectClient: HealthConnectClient) {
@@ -230,7 +234,7 @@ Apps can read vitals data to display measurements, analyze trends, or sync data
 with an external server. To read vitals, use a `ReadRecordsRequest` with the
 specific record type and filter by a time range.
 
-Example of reading [`BloodPressureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BloodPressureRecord) data:
+Example of reading [`BloodPressureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BloodPressureRecord.md.txt) data:
 
 ```kotlin
 suspend fun readBloodPressureRecords(
@@ -257,7 +261,7 @@ If you need to sync vitals data with a backend server, or keep your app's
 datastore up-to-date with Health Connect, use ChangeLogs. This lets you retrieve
 a list of inserted, updated, or deleted records since a specific point in time,
 which is more efficient than manually tracking changes or repeatedly reading all
-data. For more information, see [Sync data with Health Connect](https://developer.android.com/health-and-fitness/health-connect/sync-data).
+data. For more information, see [Sync data with Health Connect](https://developer.android.com/health-and-fitness/health-connect/sync-data.md.txt).
 
 ## Best practices
 
@@ -283,22 +287,22 @@ Follow these guidelines to improve data reliability and user experience:
   ```
 - **Check existing data**: Before syncing data, query Health Connect for records within the sync time range to see if data from your app already exists, to avoid duplicates or overwriting newer data.
 - **Provide clear rationales for permission** : Use the `Permission.createIntent` flow to explain why your app needs access to health data, for example: 'To monitor your blood pressure trends and provide insights.'
-- **Align timestamps with measurements** : Verify record timestamps accurately reflect when measurements were taken. For interval data like [`HeartRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord), verify `startTime` and `endTime` are correct.
+- **Align timestamps with measurements** : Verify record timestamps accurately reflect when measurements were taken. For interval data like [`HeartRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord.md.txt), verify `startTime` and `endTime` are correct.
 
 ## Testing
 
 To verify data correctness and a high-quality user experience, follow these
-testing strategies and refer to the official [Test top use cases](https://developer.android.com/health-and-fitness/health-connect/test/test-cases)
+testing strategies and refer to the official [Test top use cases](https://developer.android.com/health-and-fitness/health-connect/test/test-cases.md.txt)
 documentation.
 
 ### Verification tools
 
-- **[Health Connect Toolbox](https://developer.android.com/health-and-fitness/health-connect/test/health-connect-toolbox):** Use this companion app to manually inspect records, delete test data, and simulate changes to the database. It is the best way to verify that your records are being stored correctly.
-- **[Unit testing with `FakeHealthConnectClient`](https://developer.android.com/health-and-fitness/health-connect/test/unit-tests):** Use the testing library to verify how your app handles edge cases, like permission revocation or API exceptions without needing a physical device.
+- **[Health Connect Toolbox](https://developer.android.com/health-and-fitness/health-connect/test/health-connect-toolbox.md.txt):** Use this companion app to manually inspect records, delete test data, and simulate changes to the database. It is the best way to verify that your records are being stored correctly.
+- **[Unit testing with `FakeHealthConnectClient`](https://developer.android.com/health-and-fitness/health-connect/test/unit-tests.md.txt):** Use the testing library to verify how your app handles edge cases, like permission revocation or API exceptions without needing a physical device.
 
 ### Quality checklist
 
-**Confirm records in Health Connect:** Open the Health Connect app and navigate to Data and access to verify records appear with expected values. **Read data from other apps:** Test your app's ability to read vitals written by other apps to verify ecosystem compatibility. See [Reading vitals data](https://developer.android.com/health-and-fitness/health-connect/experiences/vitals#reading-vitals-data). **Balance write frequency:** Monitor battery usage if writing frequently. Frequent writes provide high detail but can increase drain.
+**Confirm records in Health Connect:** Open the Health Connect app and navigate to Data and access to verify records appear with expected values. **Read data from other apps:** Test your app's ability to read vitals written by other apps to verify ecosystem compatibility. See [Reading vitals data](https://developer.android.com/health-and-fitness/health-connect/experiences/vitals.md.txt#reading-vitals-data). **Balance write frequency:** Monitor battery usage if writing frequently. Frequent writes provide high detail but can increase drain.
 
 ## Typical architecture
 
@@ -316,8 +320,8 @@ A vitals implementation commonly includes:
 
 | Symptom | Possible cause | Resolution |
 |---|---|---|
-| Missing data types (For example, Blood Pressure) | Missing write permissions or incorrect time filters. | Check that you have requested and the user has granted the specific data type permission. Verify your `ReadRecordsRequest` uses a `TimeRangeFilter` that covers the time of measurement. See [Permissions](https://developer.android.com/health-and-fitness/health-connect/experiences/vitals#permissions). |
-| Duplicate records appear | Missing `clientRecordId`. | Assign a unique `clientRecordId` in the `Metadata` of each record. This allows Health Connect to perform de-duplication if the same data is written twice during a sync retry. See [Best practices](https://developer.android.com/health-and-fitness/health-connect/experiences/vitals#best-practices). |
+| Missing data types (For example, Blood Pressure) | Missing write permissions or incorrect time filters. | Check that you have requested and the user has granted the specific data type permission. Verify your `ReadRecordsRequest` uses a `TimeRangeFilter` that covers the time of measurement. See [Permissions](https://developer.android.com/health-and-fitness/health-connect/experiences/vitals.md.txt#permissions). |
+| Duplicate records appear | Missing `clientRecordId`. | Assign a unique `clientRecordId` in the `Metadata` of each record. This allows Health Connect to perform de-duplication if the same data is written twice during a sync retry. See [Best practices](https://developer.android.com/health-and-fitness/health-connect/experiences/vitals.md.txt#best-practices). |
 | Records fail to write | Incorrect units or values outside valid range. | Health Connect validates record values. For example, blood pressure values must be in a physiologically plausible range. Check data type documentation for valid ranges and units. |
 
 <br />

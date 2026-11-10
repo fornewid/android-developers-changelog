@@ -17,8 +17,8 @@ relationship between the `User` entity and the `Playlist` entity.
 Follow these steps to define and query one-to-many relationships in your
 database:
 
-1. **[Define the relationship](https://developer.android.com/training/data-storage/room/relationships/one-to-many#define)**: Create classes for both entities, with the child entity referencing the parent's primary key.
-2. **[Query the entities](https://developer.android.com/training/data-storage/room/relationships/one-to-many#query)**: Model the relationship in a new data class and implement a function to retrieve the related data.
+1. **[Define the relationship](https://developer.android.com/training/data-storage/room/relationships/one-to-many.md.txt#define)**: Create classes for both entities, with the child entity referencing the parent's primary key.
+2. **[Query the entities](https://developer.android.com/training/data-storage/room/relationships/one-to-many.md.txt#query)**: Model the relationship in a new data class and implement a function to retrieve the related data.
 
 ## Define the relationship
 
@@ -53,9 +53,9 @@ one-to-many relationship between the two entities.
 To model the relationship, create a new data class. Each instance of this
 class holds an instance of the parent entity and a list of all corresponding
 child entity instances.
-Add the [`@Relation`](https://developer.android.com/reference/kotlin/androidx/room3/Relation) annotation to the property that represents the list
-of child entities. Set [`parentColumns`](https://developer.android.com/reference/kotlin/androidx/room3/Relation#parentColumns()) to the name of the parent entity's
-primary key column, and set [`entityColumns`](https://developer.android.com/reference/kotlin/androidx/room3/Relation#entityColumns()) to the name of the child
+Add the [`@Relation`](https://developer.android.com/reference/kotlin/androidx/room3/Relation.md.txt) annotation to the property that represents the list
+of child entities. Set [`parentColumns`](https://developer.android.com/reference/kotlin/androidx/room3/Relation.md.txt#parentColumns()) to the name of the parent entity's
+primary key column, and set [`entityColumns`](https://developer.android.com/reference/kotlin/androidx/room3/Relation.md.txt#entityColumns()) to the name of the child
 entity's column that references the parent entity's primary key.
 
 
@@ -74,7 +74,7 @@ data class UserWithPlaylists(
 
 Finally, add a function to the data access object (DAO) class that returns all
 instances of the data class pairing the parent entity and the child entity.
-Add the [`@Transaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transaction) annotation so Room performs the entire operation
+Add the [`@Transaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transaction.md.txt) annotation so Room performs the entire operation
 atomically. This annotation is necessary because the function requires Room
 to run two queries.
 

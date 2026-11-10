@@ -17,7 +17,7 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Adarsh Fernando
 
   Group Product Manager
-  [Android Developers' Blog](https://developer.android.com/blog/authors/adarsh-fernando)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/adarsh-fernando.md.txt)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/alastair-breeze.webp)
 
   ## Alastair Breeze
@@ -47,7 +47,7 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Amy Zeppenfeld
 
   Developer Relations Engineer \| Android XR
-  [Android Developers' Blog](https://developer.android.com/blog/authors/amy-zeppenfeld) [LinkedIn](https://www.linkedin.com/in/amyzep/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt) [LinkedIn](https://www.linkedin.com/in/amyzep/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/anastasia-soboleva.webp)
 
   ## Anastasia Soboleva
@@ -59,7 +59,7 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Andrei Shikov
 
   Software Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/andrei-shikov)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/andrei-shikov.md.txt)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/andrew-bailey.webp)
 
   ## Andrew Bailey
@@ -83,6 +83,12 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
 
   Software Engineer
   [LinkedIn](https://www.linkedin.com/in/beloglazov/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/arnaud-giuliani.webp)
+
+  ## Arnaud Giuliani
+
+  CPTO \& Co-founder @ Kotzilla
+  [LinkedIn](https://www.linkedin.com/in/arnaud-giuliani-0b2b73b/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/arthur-thompson.webp)
 
   ## Arthur Thompson
@@ -98,7 +104,7 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Ben Trengrove
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/ben-trengrove)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/ben-trengrove.md.txt)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/bohdan-kosenko.webp)
 
   ## Bohdan Kosenko
@@ -109,7 +115,7 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Breana Tate
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/breana-tate) [LinkedIn](https://www.linkedin.com/in/breanatate/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/breana-tate.md.txt) [LinkedIn](https://www.linkedin.com/in/breanatate/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/chintan-parikh.webp)
 
   ## Chintan Parikh
@@ -126,6 +132,11 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Chris Craik
 
   Android Performance Engineer
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/christos-gkekas.webp)
+
+  ## Christos Gkekas
+
+  Software Engineer
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/clara-fok.webp)
 
   ## Clara Fok
@@ -136,19 +147,19 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Dan Galpin
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/daniel-galpin) [LinkedIn](https://www.linkedin.com/in/dan-galpin/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/daniel-galpin.md.txt) [LinkedIn](https://www.linkedin.com/in/dan-galpin/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/david-chou.webp)
 
   ## David Chou
 
   PM, AICore
-  [Android Developers' Blog](https://developer.android.com/blog/authors/david-chou) [LinkedIn](https://linkedin.com/in/davidpchou)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/david-chou.md.txt) [LinkedIn](https://linkedin.com/in/davidpchou)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/dereck-bridie.webp)
 
   ## Dereck Bridie
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/dereck-bridie)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/dereck-bridie.md.txt)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/devin-reimer.webp)
 
   ## Devin Reimer
@@ -160,7 +171,7 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Donovan McMurray
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/donovan-mcmurray) [LinkedIn](https://www.linkedin.com/in/donovan-mcmurray/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) [LinkedIn](https://www.linkedin.com/in/donovan-mcmurray/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/egor-yusov.webp)
 
   ## Egor Yusov
@@ -183,7 +194,7 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Esteban de la Canal
 
   Software Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/esteban-de-la-canal)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/esteban-de-la-canal.md.txt)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/faustine-liao.webp)
 
   ## Faustine Liao
@@ -200,7 +211,7 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Francesco Romano
 
   Senior Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/francesco-romano) [LinkedIn](https://www.linkedin.com/in/romanofranz/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/francesco-romano.md.txt) [LinkedIn](https://www.linkedin.com/in/romanofranz/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/francois-deschenes.webp)
 
   ## François Deschênes
@@ -212,7 +223,7 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Fung Lam
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/fung-lam) [LinkedIn](https://www.linkedin.com/in/lamchofung/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/fung-lam.md.txt) [LinkedIn](https://www.linkedin.com/in/lamchofung/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/hanrui-gao.webp)
 
   ## Hanrui Gao
@@ -235,12 +246,18 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
 
   Engineering Manager
   [LinkedIn](https://www.linkedin.com/in/ian-lake-41090711/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/iury-souza.webp)
+
+  ## Iury Souza
+
+  Senior Engineer, SumUp
+  [LinkedIn](https://linkedin.com/in/iurysouza)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/jan-kleinert.webp)
 
   ## Jan Kleinert
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/jan-kleinert) [LinkedIn](https://www.linkedin.com/in/jankleinert/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/jan-kleinert.md.txt) [LinkedIn](https://www.linkedin.com/in/jankleinert/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/jay-abi-saad.webp)
 
   ## Jay Abi-Saad
@@ -280,13 +297,13 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## John Zoeller
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/john-zoeller)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/john-zoeller.md.txt)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/jolanda-verhoef.webp)
 
   ## Jolanda Verhoef
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/jolanda-verhoef) [LinkedIn](https://www.linkedin.com/in/jolandaverhoef/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) [LinkedIn](https://www.linkedin.com/in/jolandaverhoef/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/jon-boekenoogen.webp)
 
   ## Jon Boekenoogen
@@ -298,7 +315,7 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Jose Alcérreca
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/jose-alcerreca) [LinkedIn](https://www.linkedin.com/in/jose-alc%C3%A9rreca-01490bb/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/jose-alcerreca.md.txt) [LinkedIn](https://www.linkedin.com/in/jose-alc%C3%A9rreca-01490bb/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/joshua-lorett.webp)
 
   ## Joshua Lorett
@@ -337,7 +354,7 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Kristina Simakova
 
   Engineering Manager
-  [Android Developers' Blog](https://developer.android.com/blog/authors/kristina-simakova) [LinkedIn](https://www.linkedin.com/in/ksimakova/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/kristina-simakova.md.txt) [LinkedIn](https://www.linkedin.com/in/ksimakova/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/levana-chen.webp)
 
   ## Levana Chen
@@ -354,12 +371,17 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Luke Hopkins
 
   Android XR Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/luke-hopkins) [LinkedIn](https://www.linkedin.com/in/luke-hopkins-02093833/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/luke-hopkins.md.txt) [LinkedIn](https://www.linkedin.com/in/luke-hopkins-02093833/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/mai-lowe.webp)
 
   ## Mai Lowe
 
   Group Product Manager
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/maia-grotepass.webp)
+
+  ## Maia Grotepass
+
+  Staff Engineer Android, Qonto
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/martin-pelant.webp)
 
   ## Martin Pelant
@@ -376,13 +398,13 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Nataraj K R
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/nataraj-k-r) [LinkedIn](https://www.linkedin.com/in/natarajkr007/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/nataraj-k-r.md.txt) [LinkedIn](https://www.linkedin.com/in/natarajkr007/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/nick-butcher.webp)
 
   ## Nick Butcher
 
   Product Manager
-  [Android Developers' Blog](https://developer.android.com/blog/authors/nick-butcher) [LinkedIn](https://www.linkedin.com/in/nick-butcher-5831582/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/nick-butcher.md.txt) [LinkedIn](https://www.linkedin.com/in/nick-butcher-5831582/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/nicolas-roard.webp)
 
   ## Nicolas Roard
@@ -410,7 +432,7 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Paul Lammertsma
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/paul-lammertsma) [LinkedIn](https://www.linkedin.com/in/paullammertsma/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/paul-lammertsma.md.txt) [LinkedIn](https://www.linkedin.com/in/paullammertsma/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/polina-govorkova.webp)
 
   ## Polina Govorkova
@@ -433,7 +455,7 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Rebecca Franks
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/rebecca-franks) [LinkedIn](https://www.linkedin.com/in/rebeccafranks/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/rebecca-franks.md.txt) [LinkedIn](https://www.linkedin.com/in/rebeccafranks/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/rob-clifford.webp)
 
   ## Rob Clifford
@@ -479,13 +501,19 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Scott Nien
 
   Software Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/scott-nien) [LinkedIn](https://www.linkedin.com/in/scott-nien-b4bb4448/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/scott-nien.md.txt) [LinkedIn](https://www.linkedin.com/in/scott-nien-b4bb4448/)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/slobodan-manojlovic.webp)
+
+  ## Slobodan Manojlović
+
+  VP, Lead Software Engineer
+  [LinkedIn](https://www.linkedin.com/in/slobodanmanojlovic)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/steven-jenkins.webp)
 
   ## Steven Jenkins
 
   Product Manager, Android Studio
-  [Android Developers' Blog](https://developer.android.com/blog/authors/steven-jenkins)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/steven-jenkins.md.txt)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/subhag-bhatia.webp)
 
   ## Subhag Bhatia
@@ -497,7 +525,7 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Thomas Weathers
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/thomas-weathers) [LinkedIn](https://www.linkedin.com/in/thomas-s-weathers)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/thomas-weathers.md.txt) [LinkedIn](https://www.linkedin.com/in/thomas-s-weathers)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/tom-colvin.webp)
 
   ## Tom Colvin
@@ -515,7 +543,12 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Toni Heidenreich
 
   Software Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/toni-heidenreich) [LinkedIn](https://linkedin.com/in/toni-heidenreich)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/toni-heidenreich.md.txt) [LinkedIn](https://linkedin.com/in/toni-heidenreich)
+- ![](https://developer.android.com/static/events/dev-summit/images/speakers/tristan-hamilton.webp)
+
+  ## Tristan Hamilton
+
+  Technical Lead, HubSpot
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/ty-smith.webp)
 
   ## Ty Smith
@@ -538,13 +571,13 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Yacine Rezgui
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/yacine-rezgui) [LinkedIn](https://www.linkedin.com/in/yrezgui)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/yacine-rezgui.md.txt) [LinkedIn](https://www.linkedin.com/in/yrezgui)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/yasmine-quintana-evjen.webp)
 
   ## Yasmine Quintana Evjen
 
   Senior Product Manager
-  [Android Developers' Blog](https://developer.android.com/blog/authors/yasmine-evjen) [LinkedIn](https://www.linkedin.com/in/yasmineevjen/)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/yasmine-evjen.md.txt) [LinkedIn](https://www.linkedin.com/in/yasmineevjen/)
 - ![](https://developer.android.com/static/events/dev-summit/images/speakers/yuri-schimke.webp)
 
   ## Yuri Schimke
@@ -555,4 +588,4 @@ Meet the experts behind Android Dev Summit. Be sure to catch up on the sessions 
   ## Zoe Lopez-Latorre
 
   Developer Relations Engineer
-  [Android Developers' Blog](https://developer.android.com/blog/authors/zoe-lopez-latorre)
+  [Android Developers' Blog](https://developer.android.com/blog/authors/zoe-lopez-latorre.md.txt)

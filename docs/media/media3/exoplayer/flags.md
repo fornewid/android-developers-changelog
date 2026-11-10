@@ -21,11 +21,11 @@ unified, global toggle:
 
 - **Enabled by default** : In standard Media3 releases, Canary mode is enabled by default (`true`). This ensures your app automatically benefits from safe performance enhancements, optimizations, and new capabilities.
 - **Opt-out and rollback capability**: Applications can disable Canary mode globally or override specific feature flags individually at runtime.
-- **Zero wiring complexity** : Flags are managed through the central [`Flags`](https://developer.android.com/reference/androidx/media3/common/Flags) class in the `common` module, eliminating the need for bespoke setters or configuration objects across different components.
+- **Zero wiring complexity** : Flags are managed through the central [`Flags`](https://developer.android.com/reference/androidx/media3/common/Flags.md.txt) class in the `common` module, eliminating the need for bespoke setters or configuration objects across different components.
 
 ## Why use Flags in your app?
 
-While Canary mode is active by default, integrating [`Flags`](https://developer.android.com/reference/androidx/media3/common/Flags) with
+While Canary mode is active by default, integrating [`Flags`](https://developer.android.com/reference/androidx/media3/common/Flags.md.txt) with
 your app's configuration or experimentation framework provides several
 benefits:
 
@@ -61,7 +61,7 @@ Flags.setCanaryModeEnabled(false);
 ### 2. Controlled staged releases and A/B testing
 
 Rather than exposing 100% of your users to new library behaviors at once, you
-can wire [`Flags`](https://developer.android.com/reference/androidx/media3/common/Flags) to a remote configuration or experimentation
+can wire [`Flags`](https://developer.android.com/reference/androidx/media3/common/Flags.md.txt) to a remote configuration or experimentation
 system.
 
 You can enable Canary mode in stages (for example, 5% of users → 25%
@@ -79,7 +79,7 @@ hotfix or binary release.
 
 ## Configuring Canary mode and flags
 
-The [`Flags`](https://developer.android.com/reference/androidx/media3/common/Flags) API provides methods to control global Canary mode and
+The [`Flags`](https://developer.android.com/reference/androidx/media3/common/Flags.md.txt) API provides methods to control global Canary mode and
 individual flag overrides.
 
 ### Global Canary mode
@@ -165,7 +165,7 @@ boolean isFeatureActive = Flags.isEnabled(Flags.FLAG_PER_STREAM_MEDIA_PROGRESSIO
 When Media3 checks whether a feature is enabled at runtime, it resolves the
 state in the following order:
 
-1. **Explicit runtime override** : If [`enableFlag`](https://developer.android.com/reference/androidx/media3/common/Flags#enableFlag(int)) or [`disableFlag`](https://developer.android.com/reference/androidx/media3/common/Flags#disableFlag(int)) was called for the flag ID, that override value is returned.
+1. **Explicit runtime override** : If [`enableFlag`](https://developer.android.com/reference/androidx/media3/common/Flags.md.txt#enableFlag(int)) or [`disableFlag`](https://developer.android.com/reference/androidx/media3/common/Flags.md.txt#disableFlag(int)) was called for the flag ID, that override value is returned.
 2. **Static library state**: If the flag is statically disabled (for example, an early development feature not yet ready for Canary mode) or statically enabled (a feature graduated from Canary mode retaining a temporary opt-out fallback), that static value is returned.
 3. **Canary mode state** : Otherwise, the flag follows the global Canary mode setting (enabled if Canary mode is `true`, disabled if `false`).
 
@@ -174,7 +174,7 @@ state in the following order:
 Configure flags **before** instantiating any Media3 components (such as
 `ExoPlayer`, `Transformer`, or `MediaSession`):
 
-- **Early setup** : Configure [`Flags`](https://developer.android.com/reference/androidx/media3/common/Flags) during application startup (for example, inside `Application.onCreate`) or before initializing your app's media layer.
+- **Early setup** : Configure [`Flags`](https://developer.android.com/reference/androidx/media3/common/Flags.md.txt) during application startup (for example, inside `Application.onCreate`) or before initializing your app's media layer.
 - **Thread safety**: Media3 components read flags during instantiation and propagate those values to internal playback and processing threads. Ensure that flag configuration happens before creating Media3 components. Modifying flags while players or transformers are actively running is not supported.
 
 ## Integrating with remote configuration

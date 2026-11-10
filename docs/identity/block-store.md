@@ -92,36 +92,40 @@ the local device:
 
 ### Java
 
-    BlockstoreClient client = Blockstore.getClient(this);
-    byte[] bytes1 = new byte[] { 1, 2, 3, 4 };  // Store one data block.
-    String key1 = "com.example.app.key1";
-    StoreBytesData storeRequest1 = StoreBytesData.Builder()
-    .setBytes(bytes1)
-    // Call this method to set the key-value pair the data should be associated with.
-    .setKeys(Arrays.asList(key1))
-    .build();
-    client.storeBytes(storeRequest1)
-    .addOnSuccessListener(result -\> Log.d(TAG, "stored " + result + " bytes"))
-    .addOnFailureListener(e -\> Log.e(TAG, "Failed to store bytes", e));
+```java
+BlockstoreClient client = Blockstore.getClient(this);
+byte[] bytes1 = new byte[] { 1, 2, 3, 4 };  // Store one data block.
+String key1 = "com.example.app.key1";
+StoreBytesData storeRequest1 = StoreBytesData.Builder()
+.setBytes(bytes1)
+// Call this method to set the key-value pair the data should be associated with.
+.setKeys(Arrays.asList(key1))
+.build();
+client.storeBytes(storeRequest1)
+.addOnSuccessListener(result -\> Log.d(TAG, "stored " + result + " bytes"))
+.addOnFailureListener(e -\> Log.e(TAG, "Failed to store bytes", e));
+```
 
 ### Kotlin
 
-    val client = Blockstore.getClient(this)
+```kotlin
+val client = Blockstore.getClient(this)
 
-    val bytes1 = byteArrayOf(1, 2, 3, 4) // Store one data block.
-    val key1 = "com.example.app.key1"
-    val storeRequest1 = StoreBytesData.Builder()
-    .setBytes(bytes1) // Call this method to set the key value with which the data should be associated with.
-    .setKeys(Arrays.asList(key1))
-    .build()
-    client.storeBytes(storeRequest1)
-    .addOnSuccessListener { result: Int -\>
-    Log.d(TAG,
-    "Stored $result bytes")
-    }
-    .addOnFailureListener { e -\>
-    Log.e(TAG, "Failed to store bytes", e)
-    }
+val bytes1 = byteArrayOf(1, 2, 3, 4) // Store one data block.
+val key1 = "com.example.app.key1"
+val storeRequest1 = StoreBytesData.Builder()
+.setBytes(bytes1) // Call this method to set the key value with which the data should be associated with.
+.setKeys(Arrays.asList(key1))
+.build()
+client.storeBytes(storeRequest1)
+.addOnSuccessListener { result: Int -\>
+Log.d(TAG,
+"Stored $result bytes")
+}
+.addOnFailureListener { e -\>
+Log.e(TAG, "Failed to store bytes", e)
+}
+```
 
 > [!NOTE]
 > **Note:** **Previously stored bytes without a key?** If you have previously used the `StoreBytes()` API to save your data, it is recommended that you start saving your tokens with a key. Data previously saved using StoreBytes is now saved with the key `BlockstoreClient.DEFAULT_BYTES_DATA_KEY`.
@@ -133,32 +137,36 @@ Data saved using StoreBytes without a key uses the default key
 
 ### Java
 
-    BlockstoreClient client = Blockstore.getClient(this);
-    // The default key BlockstoreClient.DEFAULT_BYTES_DATA_KEY.
-    byte[] bytes = new byte[] { 9, 10 };
-    StoreBytesData storeRequest = StoreBytesData.Builder()
-    .setBytes(bytes)
-    .build();
-    client.storeBytes(storeRequest)
-    .addOnSuccessListener(result -\> Log.d(TAG, "stored " + result + " bytes"))
-    .addOnFailureListener(e -\> Log.e(TAG, "Failed to store bytes", e));
+```java
+BlockstoreClient client = Blockstore.getClient(this);
+// The default key BlockstoreClient.DEFAULT_BYTES_DATA_KEY.
+byte[] bytes = new byte[] { 9, 10 };
+StoreBytesData storeRequest = StoreBytesData.Builder()
+.setBytes(bytes)
+.build();
+client.storeBytes(storeRequest)
+.addOnSuccessListener(result -\> Log.d(TAG, "stored " + result + " bytes"))
+.addOnFailureListener(e -\> Log.e(TAG, "Failed to store bytes", e));
+```
 
 ### Kotlin
 
-    val client = Blockstore.getClient(this);
-    // the default key BlockstoreClient.DEFAULT_BYTES_DATA_KEY.
-    val bytes = byteArrayOf(1, 2, 3, 4)
-    val storeRequest = StoreBytesData.Builder()
-      .setBytes(bytes)
-      .build();
-    client.storeBytes(storeRequest)
-      .addOnSuccessListener { result: Int ->
-        Log.d(TAG,
-              "stored $result bytes")
-      }
-      .addOnFailureListener { e ->
-        Log.e(TAG, "Failed to store bytes", e)
-      }
+```kotlin
+val client = Blockstore.getClient(this);
+// the default key BlockstoreClient.DEFAULT_BYTES_DATA_KEY.
+val bytes = byteArrayOf(1, 2, 3, 4)
+val storeRequest = StoreBytesData.Builder()
+  .setBytes(bytes)
+  .build();
+client.storeBytes(storeRequest)
+  .addOnSuccessListener { result: Int ->
+    Log.d(TAG,
+          "stored $result bytes")
+  }
+  .addOnFailureListener { e ->
+    Log.e(TAG, "Failed to store bytes", e)
+  }
+```
 
 > [!NOTE]
 > **Note:** On device, Block Store data is stored in Google Play services' local private data directory. No other apps can directly access the data file. They can only access Block Store data using `retrieveBytes()` API, and an app can only retrieve data stored by itself. Google Play services checks both the package name and signature.
@@ -177,60 +185,64 @@ keys.
 
 ### Java
 
-    BlockstoreClient client = Blockstore.getClient(this);
+```java
+BlockstoreClient client = Blockstore.getClient(this);
 
-    // Retrieve data associated with certain keys.
-    String key1 = "com.example.app.key1";
-    String key2 = "com.example.app.key2";
-    String key3 = BlockstoreClient.DEFAULT_BYTES_DATA_KEY; // Used to retrieve data stored without a key
+// Retrieve data associated with certain keys.
+String key1 = "com.example.app.key1";
+String key2 = "com.example.app.key2";
+String key3 = BlockstoreClient.DEFAULT_BYTES_DATA_KEY; // Used to retrieve data stored without a key
 
-    List<String> requestedKeys = Arrays.asList(key1, key2, key3); // Add keys to array
-    RetrieveBytesRequest retrieveRequest = new RetrieveBytesRequest.Builder()
-        .setKeys(requestedKeys)
-        .build();
+List<String> requestedKeys = Arrays.asList(key1, key2, key3); // Add keys to array
+RetrieveBytesRequest retrieveRequest = new RetrieveBytesRequest.Builder()
+    .setKeys(requestedKeys)
+    .build();
 
-    client.retrieveBytes(retrieveRequest)
-        .addOnSuccessListener(
-            result -> {
-              Map<String, BlockstoreData> blockstoreDataMap = result.getBlockstoreDataMap();
-              for (Map.Entry<String, BlockstoreData> entry : blockstoreDataMap.entrySet()) {
-                Log.d(TAG, String.format(
-                    "Retrieved bytes %s associated with key %s.",
-                    new String(entry.getValue().getBytes()), entry.getKey()));
-              }
-            })
-        .addOnFailureListener(e -> Log.e(TAG, "Failed to store bytes", e));
+client.retrieveBytes(retrieveRequest)
+    .addOnSuccessListener(
+        result -> {
+          Map<String, BlockstoreData> blockstoreDataMap = result.getBlockstoreDataMap();
+          for (Map.Entry<String, BlockstoreData> entry : blockstoreDataMap.entrySet()) {
+            Log.d(TAG, String.format(
+                "Retrieved bytes %s associated with key %s.",
+                new String(entry.getValue().getBytes()), entry.getKey()));
+          }
+        })
+    .addOnFailureListener(e -> Log.e(TAG, "Failed to store bytes", e));
+```
 
 ### Kotlin
 
-    val client = Blockstore.getClient(this)
+```kotlin
+val client = Blockstore.getClient(this)
 
-    // Retrieve data associated with certain keys.
-    val key1 = "com.example.app.key1"
-    val key2 = "com.example.app.key2"
-    val key3 = BlockstoreClient.DEFAULT_BYTES_DATA_KEY // Used to retrieve data stored without a key
+// Retrieve data associated with certain keys.
+val key1 = "com.example.app.key1"
+val key2 = "com.example.app.key2"
+val key3 = BlockstoreClient.DEFAULT_BYTES_DATA_KEY // Used to retrieve data stored without a key
 
-    val requestedKeys = Arrays.asList(key1, key2, key3) // Add keys to array
+val requestedKeys = Arrays.asList(key1, key2, key3) // Add keys to array
 
-    val retrieveRequest = RetrieveBytesRequest.Builder()
-      .setKeys(requestedKeys)
-      .build()
+val retrieveRequest = RetrieveBytesRequest.Builder()
+  .setKeys(requestedKeys)
+  .build()
 
-    client.retrieveBytes(retrieveRequest)
-      .addOnSuccessListener { result: RetrieveBytesResponse ->
-        val blockstoreDataMap =
-          result.blockstoreDataMap
-        for ((key, value) in blockstoreDataMap) {
-          Log.d(ContentValues.TAG, String.format(
-            "Retrieved bytes %s associated with key %s.",
-            String(value.bytes), key))
-        }
-      }
-      .addOnFailureListener { e: Exception? ->
-        Log.e(ContentValues.TAG,
-              "Failed to store bytes",
-              e)
-      }
+client.retrieveBytes(retrieveRequest)
+  .addOnSuccessListener { result: RetrieveBytesResponse ->
+    val blockstoreDataMap =
+      result.blockstoreDataMap
+    for ((key, value) in blockstoreDataMap) {
+      Log.d(ContentValues.TAG, String.format(
+        "Retrieved bytes %s associated with key %s.",
+        String(value.bytes), key))
+    }
+  }
+  .addOnFailureListener { e: Exception? ->
+    Log.e(ContentValues.TAG,
+          "Failed to store bytes",
+          e)
+  }
+```
 
 #### Retrieving all tokens.
 
@@ -238,48 +250,52 @@ The following example shows how to retrieve all the tokens saved to BlockStore.
 
 ### Java
 
-    BlockstoreClient client = Blockstore.getClient(this)
+```java
+BlockstoreClient client = Blockstore.getClient(this)
 
-    // Retrieve all data.
-    RetrieveBytesRequest retrieveRequest = new RetrieveBytesRequest.Builder()
-        .setRetrieveAll(true)
-        .build();
+// Retrieve all data.
+RetrieveBytesRequest retrieveRequest = new RetrieveBytesRequest.Builder()
+    .setRetrieveAll(true)
+    .build();
 
-    client.retrieveBytes(retrieveRequest)
-        .addOnSuccessListener(
-            result -> {
-              Map<String, BlockstoreData> blockstoreDataMap = result.getBlockstoreDataMap();
-              for (Map.Entry<String, BlockstoreData> entry : blockstoreDataMap.entrySet()) {
-                Log.d(TAG, String.format(
-                    "Retrieved bytes %s associated with key %s.",
-                    new String(entry.getValue().getBytes()), entry.getKey()));
-              }
-            })
-        .addOnFailureListener(e -> Log.e(TAG, "Failed to store bytes", e));
+client.retrieveBytes(retrieveRequest)
+    .addOnSuccessListener(
+        result -> {
+          Map<String, BlockstoreData> blockstoreDataMap = result.getBlockstoreDataMap();
+          for (Map.Entry<String, BlockstoreData> entry : blockstoreDataMap.entrySet()) {
+            Log.d(TAG, String.format(
+                "Retrieved bytes %s associated with key %s.",
+                new String(entry.getValue().getBytes()), entry.getKey()));
+          }
+        })
+    .addOnFailureListener(e -> Log.e(TAG, "Failed to store bytes", e));
+```
 
 ### Kotlin
 
-    val client = Blockstore.getClient(this)
+```kotlin
+val client = Blockstore.getClient(this)
 
-    val retrieveRequest = RetrieveBytesRequest.Builder()
-        .setRetrieveAll(true)
-        .build()
+val retrieveRequest = RetrieveBytesRequest.Builder()
+    .setRetrieveAll(true)
+    .build()
 
-      client.retrieveBytes(retrieveRequest)
-        .addOnSuccessListener { result: RetrieveBytesResponse ->
-          val blockstoreDataMap =
-            result.blockstoreDataMap
-          for ((key, value) in blockstoreDataMap) {
-            Log.d(ContentValues.TAG, String.format(
-              "Retrieved bytes %s associated with key %s.",
-              String(value.bytes), key))
-          }
-        }
-        .addOnFailureListener { e: Exception? ->
-          Log.e(ContentValues.TAG,
-                "Failed to store bytes",
-                e)
-        }
+  client.retrieveBytes(retrieveRequest)
+    .addOnSuccessListener { result: RetrieveBytesResponse ->
+      val blockstoreDataMap =
+        result.blockstoreDataMap
+      for ((key, value) in blockstoreDataMap) {
+        Log.d(ContentValues.TAG, String.format(
+          "Retrieved bytes %s associated with key %s.",
+          String(value.bytes), key))
+      }
+    }
+    .addOnFailureListener { e: Exception? ->
+      Log.e(ContentValues.TAG,
+            "Failed to store bytes",
+            e)
+    }
+```
 
 > [!NOTE]
 > **Note:** **retrieveBytes() deprecation.** `retrieveBytes()` is now deprecated. To retrieve bytes, the key `BlockstoreClient.DEFAULT_BYTES_DATA_KEY` can be used in the `RetrieveBytesRequest` instance in order to get your saved data
@@ -288,20 +304,24 @@ The following example shows how to retrieve the default key.
 
 ### Java
 
-    BlockStoreClient client = Blockstore.getClient(this);
-    RetrieveBytesRequest retrieveRequest = new RetrieveBytesRequest.Builder()
-        .setKeys(Arrays.asList(BlockstoreClient.DEFAULT_BYTES_DATA_KEY))
-        .build();
-    client.retrieveBytes(retrieveRequest);
+```java
+BlockStoreClient client = Blockstore.getClient(this);
+RetrieveBytesRequest retrieveRequest = new RetrieveBytesRequest.Builder()
+    .setKeys(Arrays.asList(BlockstoreClient.DEFAULT_BYTES_DATA_KEY))
+    .build();
+client.retrieveBytes(retrieveRequest);
+```
 
 ### Kotlin
 
-    val client = Blockstore.getClient(this)
+```kotlin
+val client = Blockstore.getClient(this)
 
-    val retrieveRequest = RetrieveBytesRequest.Builder()
-      .setKeys(Arrays.asList(BlockstoreClient.DEFAULT_BYTES_DATA_KEY))
-      .build()
-    client.retrieveBytes(retrieveRequest)
+val retrieveRequest = RetrieveBytesRequest.Builder()
+  .setKeys(Arrays.asList(BlockstoreClient.DEFAULT_BYTES_DATA_KEY))
+  .build()
+client.retrieveBytes(retrieveRequest)
+```
 
 ### Deleting tokens
 
@@ -317,35 +337,39 @@ The following example demonstrates how to delete certain keys:
 
 ### Java
 
-    BlockstoreClient client = Blockstore.getClient(this);
+```java
+BlockstoreClient client = Blockstore.getClient(this);
 
-    // Delete data associated with certain keys.
-    String key1 = "com.example.app.key1";
-    String key2 = "com.example.app.key2";
-    String key3 = BlockstoreClient.DEFAULT_BYTES_DATA_KEY; // Used to delete data stored without key
+// Delete data associated with certain keys.
+String key1 = "com.example.app.key1";
+String key2 = "com.example.app.key2";
+String key3 = BlockstoreClient.DEFAULT_BYTES_DATA_KEY; // Used to delete data stored without key
 
-    List<String> requestedKeys = Arrays.asList(key1, key2, key3) // Add keys to array
-    DeleteBytesRequest deleteRequest = new DeleteBytesRequest.Builder()
-            .setKeys(requestedKeys)
-            .build();
-    client.deleteBytes(deleteRequest)
+List<String> requestedKeys = Arrays.asList(key1, key2, key3) // Add keys to array
+DeleteBytesRequest deleteRequest = new DeleteBytesRequest.Builder()
+        .setKeys(requestedKeys)
+        .build();
+client.deleteBytes(deleteRequest)
+```
 
 ### Kotlin
 
-    val client = Blockstore.getClient(this)
+```kotlin
+val client = Blockstore.getClient(this)
 
-    // Retrieve data associated with certain keys.
-    val key1 = "com.example.app.key1"
-    val key2 = "com.example.app.key2"
-    val key3 = BlockstoreClient.DEFAULT_BYTES_DATA_KEY // Used to retrieve data stored without a key
+// Retrieve data associated with certain keys.
+val key1 = "com.example.app.key1"
+val key2 = "com.example.app.key2"
+val key3 = BlockstoreClient.DEFAULT_BYTES_DATA_KEY // Used to retrieve data stored without a key
 
-    val requestedKeys = Arrays.asList(key1, key2, key3) // Add keys to array
+val requestedKeys = Arrays.asList(key1, key2, key3) // Add keys to array
 
-    val retrieveRequest = DeleteBytesRequest.Builder()
-          .setKeys(requestedKeys)
-          .build()
+val retrieveRequest = DeleteBytesRequest.Builder()
+      .setKeys(requestedKeys)
+      .build()
 
-    client.deleteBytes(retrieveRequest)
+client.deleteBytes(retrieveRequest)
+```
 
 #### Delete All Tokens
 
@@ -353,21 +377,25 @@ The following example shows how to delete all the tokens saved to Block Store:
 
 ### Java
 
-    // Delete all data.
-    DeleteBytesRequest deleteAllRequest = new DeleteBytesRequest.Builder()
-            .setDeleteAll(true)
-            .build();
-    client.deleteBytes(deleteAllRequest)
-      .addOnSuccessListener(result -> Log.d(TAG, "Any data found and deleted? " + result));
+```java
+// Delete all data.
+DeleteBytesRequest deleteAllRequest = new DeleteBytesRequest.Builder()
+        .setDeleteAll(true)
+        .build();
+client.deleteBytes(deleteAllRequest)
+  .addOnSuccessListener(result -> Log.d(TAG, "Any data found and deleted? " + result));
+```
 
 ### Kotlin
 
-    // Delete all data.
-    val deleteAllRequest = DeleteBytesRequest.Builder()
-            .setDeleteAll(true)
-            .build()
-    client.deleteBytes(deleteAllRequest)
-      .addOnSuccessListener { result -> Log.d(TAG, "Any data found and deleted? $result") }
+```kotlin
+// Delete all data.
+val deleteAllRequest = DeleteBytesRequest.Builder()
+        .setDeleteAll(true)
+        .build()
+client.deleteBytes(deleteAllRequest)
+  .addOnSuccessListener { result -> Log.d(TAG, "Any data found and deleted? $result") }
+```
 
 ### End-to-end encryption
 
@@ -379,10 +407,12 @@ be available on the device by calling [`isEndToEndEncryptionAvailable()`](https:
 The following sample shows how to verify if encryption will be available during
 cloud backup:
 
-    client.isEndToEndEncryptionAvailable()
-            .addOnSuccessListener { result ->
-              Log.d(TAG, "Will Block Store cloud backup be end-to-end encrypted? $result")
-            }
+```kotlin
+client.isEndToEndEncryptionAvailable()
+        .addOnSuccessListener { result ->
+          Log.d(TAG, "Will Block Store cloud backup be end-to-end encrypted? $result")
+        }
+```
 
 > [!NOTE]
 > **Note:** It is recommended to verify that end-to-end encryption is available prior to enabling cloud backup.
@@ -396,26 +426,28 @@ bytes stored when `setShouldBackupToCloud()` is set as true.
 The following sample shows how to enable cloud backup **only when cloud backup
 is end-to-end encrypted**:
 
-    val client = Blockstore.getClient(this)
-    val storeBytesDataBuilder = StoreBytesData.Builder()
-            .setBytes(/* BYTE_ARRAY */)
+```kotlin
+val client = Blockstore.getClient(this)
+val storeBytesDataBuilder = StoreBytesData.Builder()
+        .setBytes(/* BYTE_ARRAY */)
 
-    client.isEndToEndEncryptionAvailable()
-            .addOnSuccessListener { isE2EEAvailable ->
-              if (isE2EEAvailable) {
-                storeBytesDataBuilder.setShouldBackupToCloud(true)
-                Log.d(TAG, "E2EE is available, enable backing up bytes to the cloud.")
+client.isEndToEndEncryptionAvailable()
+        .addOnSuccessListener { isE2EEAvailable ->
+          if (isE2EEAvailable) {
+            storeBytesDataBuilder.setShouldBackupToCloud(true)
+            Log.d(TAG, "E2EE is available, enable backing up bytes to the cloud.")
 
-                client.storeBytes(storeBytesDataBuilder.build())
-                    .addOnSuccessListener { result ->
-                      Log.d(TAG, "stored: ${result.getBytesStored()}")
-                    }.addOnFailureListener { e ->
-                      Log.e(TAG, "Failed to store bytes", e)
-                    }
-              } else {
-                Log.d(TAG, "E2EE is not available, only store bytes for D2D restore.")
-              }
-            }
+            client.storeBytes(storeBytesDataBuilder.build())
+                .addOnSuccessListener { result ->
+                  Log.d(TAG, "stored: ${result.getBytesStored()}")
+                }.addOnFailureListener { e ->
+                  Log.e(TAG, "Failed to store bytes", e)
+                }
+          } else {
+            Log.d(TAG, "E2EE is not available, only store bytes for D2D restore.")
+          }
+        }
+```
 
 > [!NOTE]
 > **Note:** If [`storeBytes`](https://developers.google.com/android/reference/com/google/android/gms/auth/blockstore/BlockstoreClient#public-abstract-taskinteger-storebytes-storebytesdata-storebytesdata) is called with `shouldBackupToCloud` **unset** or set as **false**, then this device's bytes previously backed up to cloud will be deleted from the cloud upon next periodic sync.
@@ -445,7 +477,7 @@ You can follow these steps to test:
 ### Device-to-device
 
 In most cases, this will require a factory reset of the target device. You can
-then enter the [Android wireless restore flow](https://developer.android.com/identity/block-store/testing-restore-flows#android_wireless_restore) or [Google cable restore](https://developer.android.com/identity/block-store/testing-restore-flows#google_cable_restore)
+then enter the [Android wireless restore flow](https://developer.android.com/identity/block-store/testing-restore-flows.md.txt#android_wireless_restore) or [Google cable restore](https://developer.android.com/identity/block-store/testing-restore-flows.md.txt#google_cable_restore)
 (for supported devices).
 
 > [!NOTE]
@@ -460,7 +492,7 @@ then enter the [Android wireless restore flow](https://developer.android.com/ide
       1. After the backup finishes, search for log lines with tag `[CloudSyncBackupTaskService]`.
       2. You should see lines like this: `..., [CloudSyncBackupTaskService] sync result: SUCCESS,` `..., uploaded size: [size] bytes ...`
    2. After a Block Store cloud backup, there's a 5-minute "cooldown" period. Within that 5 minutes, clicking the "Backup Now" button won't trigger another Block Store cloud backup.
-4. Factory reset the target device and go through a cloud restore flow. Select to restore your test app during the restore flow. For more information about cloud restore flows, see [Supported cloud restore flows](https://developer.android.com/identity/block-store/testing-restore-flows#supported_cloud_restore_flow).
+4. Factory reset the target device and go through a cloud restore flow. Select to restore your test app during the restore flow. For more information about cloud restore flows, see [Supported cloud restore flows](https://developer.android.com/identity/block-store/testing-restore-flows.md.txt#supported_cloud_restore_flow).
 5. On the target device, use the test app to invoke the Block store API to retrieve your data.
 6. Verify that the bytes retrieved are the same as what were stored in the source device.
 
@@ -488,7 +520,7 @@ device. These will be the two devices which are transferring data.
 to restore.
 
 For more information on the device to device restore flow, see
-[Supported device-to-device restore flows](https://developer.android.com/identity/block-store/testing-restore-flows#supported_cloud_restore_flow).
+[Supported device-to-device restore flows](https://developer.android.com/identity/block-store/testing-restore-flows.md.txt#supported_cloud_restore_flow).
 
 ### Cloud Backup and Restore Flow
 

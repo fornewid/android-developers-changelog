@@ -14,7 +14,7 @@ transfer Wear OS data to the new mobile device. Data is synced automatically
 when it's transferred.
 
 > [!NOTE]
-> **Note:** This process of transferring data to a new mobile device is different from [cloud backup and restore](https://developer.android.com/training/wearables/data/cloud-backup-restore), where the user restores data to a new Wear OS device.
+> **Note:** This process of transferring data to a new mobile device is different from [cloud backup and restore](https://developer.android.com/training/wearables/data/cloud-backup-restore.md.txt), where the user restores data to a new Wear OS device.
 
 When the user requests a transfer, the [Wearable Data Layer](https://developer.android.com/training/wearables/data/data-layer) delivers
 [`DataItem`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataItem) objects, originally stored on one mobile device, to the other
@@ -71,11 +71,12 @@ steps:
 1. In your mobile app's build file, include a dependency on the latest version
    of the wearable library in Google Play services:
 
-       dependencies {
-           ...
-           implementation 'com.google.android.gms:play-services-wearable:20.0.1'
-       }
-
+   ```groovy
+   dependencies {
+       ...
+       implementation 'com.google.android.gms:play-services-wearable:20.0.1'
+   }
+   ```
 2. Declare and export the `WearableListenerService` in your app's
    manifest file:
 
@@ -147,4 +148,4 @@ steps:
 
 - Note: link text is displayed when JavaScript is off
 - [Integrate a Wear OS module](https://developer.android.com/health-and-fitness/guides/basic-fitness-app/integrate-wear-os)
-- [Conserve power and battery](https://developer.android.com/training/wearables/apps/power)
+- [Conserve power and battery](https://developer.android.com/training/wearables/apps/power.md.txt)

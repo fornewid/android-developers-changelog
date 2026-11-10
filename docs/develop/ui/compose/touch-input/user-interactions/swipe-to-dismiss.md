@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/compose/touch-input/user-interacti
 source: md.txt
 ---
 
-The [`SwipeToDismissBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable) component allows a user to dismiss or update an
+The [`SwipeToDismissBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable.md.txt) component allows a user to dismiss or update an
 item by swiping it to the left or right.
 
 ## API surface
@@ -144,10 +144,10 @@ fun SwipeItemExample() {
 
 - `mutableStateListOf(...)` creates an observable list that can hold `TodoItem` objects. When an item is added or removed from this list, Compose recomposes the parts of the UI that depend on it.
   - Inside `mutableStateListOf()`, four `TodoItem` objects are initialized with their respective descriptions: "Pay bills", "Buy groceries", "Go to gym", and "Get dinner".
-- [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) displays a vertically scrolling list of `todoItems`.
+- [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) displays a vertically scrolling list of `todoItems`.
 - `onToggleDone = { todoItem -> ... }` is a callback function invoked from within `TodoListItem` when the user marks an object as done. It updates the `isItemDone` property of the `todoItem`. Because `todoItems` is a `mutableStateListOf`, this change triggers a recomposition, updating the UI.
 - `onRemove = { todoItem -> ... }` is a callback function triggered when the user removes the item. It removes the specific `todoItem` from the `todoItems` list. This also causes a recomposition, and the item will be removed from the displayed list.
-- An [`animateItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyItemScope#(androidx.compose.ui.Modifier).animateItem(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.animation.core.FiniteAnimationSpec)) modifier is applied to each `TodoListItem` so that the modifier's `placementSpec` is called when the item has been dismissed. This animates the removal of the item, as well as the reordering of other items in the list.
+- An [`animateItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyItemScope.md.txt#(androidx.compose.ui.Modifier).animateItem(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.animation.core.FiniteAnimationSpec)) modifier is applied to each `TodoListItem` so that the modifier's `placementSpec` is called when the item has been dismissed. This animates the removal of the item, as well as the reordering of other items in the list.
 
 ### Result
 
@@ -239,13 +239,13 @@ fun TodoListItemWithAnimation(
 
 ### Key points about the code
 
-- [`drawBehind`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).drawBehind(kotlin.Function1)) draws directly into the canvas behind the content of the `Icon` composable.
+- [`drawBehind`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).drawBehind(kotlin.Function1)) draws directly into the canvas behind the content of the `Icon` composable.
   - `drawRect()` draws a rectangle on the canvas and fills the entire bounds of the drawing scope with the specified `Color`.
 - When swiping, the background color of the item smoothly transitions using `lerp`.
   - For a swipe from `StartToEnd`, the background color gradually changes from light gray to blue.
   - For a swipe from `EndToStart`, the background color gradually changes from light gray to red.
   - The amount of transition from one color to the next is determined by `swipeToDismissBoxState.progress`.
-- [`OutlinedCard`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedCard.composable#OutlinedCard(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) adds a subtle visual separation between the list items.
+- [`OutlinedCard`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedCard.composable.md.txt#OutlinedCard(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) adds a subtle visual separation between the list items.
 
 
 ```kotlin
@@ -282,7 +282,7 @@ private fun SwipeItemWithAnimationExample() {
 
 ### Key points about the code
 
-- For key points about this code, see [Key points](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss#key-points-basic-2) from a previous section, which describes an identical code snippet.
+- For key points about this code, see [Key points](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss.md.txt#key-points-basic-2) from a previous section, which describes an identical code snippet.
 
 ### Result
 
@@ -294,6 +294,6 @@ See the [GitHub source file](https://github.com/android/snippets/blob/d2ccac0e57
 
 ## Additional resources
 
-- [`SwipeToDismissBoxState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBoxState)
-- [`SwipeToDismissBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable)
+- [`SwipeToDismissBoxState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBoxState.md.txt)
+- [`SwipeToDismissBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable.md.txt)
 - [Swipe - Material 3](https://m3.material.io/foundations/interaction/gestures#a56fdfc3-5d7a-411a-8414-db9a1b0fca54)

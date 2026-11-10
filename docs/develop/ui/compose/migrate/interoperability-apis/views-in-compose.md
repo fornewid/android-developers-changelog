@@ -15,9 +15,9 @@ This approach also lets you reuse custom views you may have designed.
 
 <br />
 
-To include a view element or hierarchy, use the [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1))
+To include a view element or hierarchy, use the [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable.md.txt#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1))
 composable. `AndroidView` is passed a lambda that returns a
-[`View`](https://developer.android.com/reference/android/view/View). `AndroidView` also provides an `update`
+[`View`](https://developer.android.com/reference/android/view/View.md.txt). `AndroidView` also provides an `update`
 callback that is called when the view is inflated. The `AndroidView` recomposes
 whenever a `State` read within the callback changes. `AndroidView`, like many
 other built-in composables, takes a `Modifier` parameter that can be used, for
@@ -70,9 +70,9 @@ fun ContentExample() {
 ## `AndroidView` with view binding
 
 To embed an XML layout, use the
-[`AndroidViewBinding`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/package-summary#AndroidViewBinding(kotlin.Function3,%20androidx.compose.ui.Modifier,%20kotlin.Function1))
+[`AndroidViewBinding`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/package-summary.md.txt#AndroidViewBinding(kotlin.Function3,%20androidx.compose.ui.Modifier,%20kotlin.Function1))
 API, which is provided by the `androidx.compose.ui:ui-viewbinding` library. To
-do this, your project must enable [view binding](https://developer.android.com/topic/libraries/view-binding#setup).
+do this, your project must enable [view binding](https://developer.android.com/topic/libraries/view-binding.md.txt#setup).
 
 > [!NOTE]
 > **Note:** For Compose-only apps, don't use `AndroidViewBinding` to inflate full screen-level XML layouts, and instead use it only for smaller, legacy XML layouts during the incremental migration process.
@@ -92,7 +92,7 @@ fun AndroidViewBindingExample() {
 ## `AndroidView` in Lazy lists
 
 If you are using an `AndroidView` in a Lazy list (`LazyColumn`, `LazyRow`,
-`Pager`, etc.), consider using the [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/package-summary#AndroidView(kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1))
+`Pager`, etc.), consider using the [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/package-summary.md.txt#AndroidView(kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1))
 overload introduced in version 1.4.0-rc01. This overload allows Compose to reuse
 the underlying `View` instance when the containing composition is reused as is
 the case for Lazy lists.
@@ -136,7 +136,7 @@ fragment when the composable leaves the composition.
 > [!NOTE]
 > **Note:** Wrap existing Fragments in Compose only during incremental migration. For Compose-only apps, do not use Fragments and instead use the recommended Compose-only architecture with a single Activity and latest navigation libraries, like Navigation 3.
 
-To include a fragment, use the [`AndroidFragment`](https://developer.android.com/reference/kotlin/androidx/fragment/compose/package-summary#AndroidFragment)
+To include a fragment, use the [`AndroidFragment`](https://developer.android.com/reference/kotlin/androidx/fragment/compose/package-summary.md.txt#AndroidFragment)
 composable. You pass a `Fragment` class to `AndroidFragment`, which then adds
 an instance of that class directly into the composition. `AndroidFragment` also
 provides a `fragmentState` object to create the `AndroidFragment` with a given
@@ -160,15 +160,15 @@ fun FragmentInComposeExample() {
 
 ### Cap Fragment lifecycle state
 
-In Fragment [1.9.0](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0) and higher, you can use the `maxLifecycle`
+In Fragment [1.9.0](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.9.0) and higher, you can use the `maxLifecycle`
 parameter to cap the lifecycle state of the embedded `Fragment`.
 
-For example, in a [`HorizontalPager`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/HorizontalPager.composable), you can dynamically set `maxLifecycle`
-to [`RESUMED`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.State#RESUMED) only when the corresponding page is active, keeping offscreen
-pages capped at [`STARTED`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.State#STARTED). When the user navigates to another page, the
+For example, in a [`HorizontalPager`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/HorizontalPager.composable.md.txt), you can dynamically set `maxLifecycle`
+to [`RESUMED`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.State.md.txt#RESUMED) only when the corresponding page is active, keeping offscreen
+pages capped at [`STARTED`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.State.md.txt#STARTED). When the user navigates to another page, the
 previous page's fragment cap becomes `STARTED`. This pauses or cancels workloads
 scoped to `RESUMED` (such as coroutines running in
-[`repeatOnLifecycle(RESUMED)`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary#(androidx.lifecycle.LifecycleOwner).repeatOnLifecycle(androidx.lifecycle.Lifecycle.State,kotlin.coroutines.SuspendFunction1))), preventing offscreen pages from performing
+[`repeatOnLifecycle(RESUMED)`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary.md.txt#(androidx.lifecycle.LifecycleOwner).repeatOnLifecycle(androidx.lifecycle.Lifecycle.State,kotlin.coroutines.SuspendFunction1))), preventing offscreen pages from performing
 foreground-only work while keeping their UI initialized at `STARTED`:
 
 
@@ -198,11 +198,11 @@ on Android View classes, like `Activity` or `Fragment`, and might use Android
 framework classes like the `Context`, system resources,
 `Service`, or `BroadcastReceiver`.
 
-To learn more about system resources, see [Resources in Compose](https://developer.android.com/develop/ui/compose/resources).
+To learn more about system resources, see [Resources in Compose](https://developer.android.com/develop/ui/compose/resources.md.txt).
 
 ### Composition Locals
 
-[`CompositionLocal`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal)
+[`CompositionLocal`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal.md.txt)
 classes allow passing data implicitly through composable functions. They're
 usually provided with a value in a certain node of the UI tree. That value can
 be used by its composable descendants without declaring the `CompositionLocal`
@@ -211,10 +211,10 @@ as a parameter in the composable function.
 `CompositionLocal` is used to propagate values for Android framework types in
 Compose such as `Context`, `Configuration` or the `View` in which the Compose
 code is hosted with the corresponding
-[`LocalContext`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalContext()),
-[`LocalConfiguration`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalConfiguration()),
+[`LocalContext`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary.md.txt#LocalContext()),
+[`LocalConfiguration`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary.md.txt#LocalConfiguration()),
 or
-[`LocalView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalView()).
+[`LocalView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary.md.txt#LocalView()).
 Note that `CompositionLocal` classes are prefixed with `Local` for better
 discoverability with auto-complete in the IDE.
 

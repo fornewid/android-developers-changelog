@@ -16,12 +16,12 @@ delivers content to them, such as with a pinned shortcut, the context is defined
 by the user. The following scenarios describe a few use cases for each shortcut
 type:
 
-- **[Static shortcuts](https://developer.android.com/develop/ui/compose/system/shortcuts/creating-shortcuts#static) are best for apps that link to content using a
+- **[Static shortcuts](https://developer.android.com/develop/ui/compose/system/shortcuts/creating-shortcuts.md.txt#static) are best for apps that link to content using a
   consistent structure throughout the lifetime of a user's interaction with
-  the app.** Because most launchers [only display four shortcuts](https://developer.android.com/develop/ui/compose/system/shortcuts/best-practices) at once, static shortcuts are useful for performing a routine task in a consistent way, such as if the user wants to view their calendar or email in a specific way.
-- **[Dynamic shortcuts](https://developer.android.com/develop/ui/compose/system/shortcuts/creating-shortcuts#dynamic) are used for actions in apps that are
+  the app.** Because most launchers [only display four shortcuts](https://developer.android.com/develop/ui/compose/system/shortcuts/best-practices.md.txt) at once, static shortcuts are useful for performing a routine task in a consistent way, such as if the user wants to view their calendar or email in a specific way.
+- **[Dynamic shortcuts](https://developer.android.com/develop/ui/compose/system/shortcuts/creating-shortcuts.md.txt#dynamic) are used for actions in apps that are
   context-sensitive.** Context-sensitive shortcuts are tailored to the actions users perform in an app. For example, if you build a game that lets the user start from their current level on launch, you need to update the shortcut frequently. Using a dynamic shortcut lets you update the shortcut each time the user clears a level.
-- **[Pinned shortcuts](https://developer.android.com/develop/ui/compose/system/shortcuts/creating-shortcuts#pinned) are used for specific user-driven actions.** For example, a user might want to pin a specific website to the launcher. This is beneficial because it lets the user perform a custom action---like navigating to the website in one step, more quickly than using a default instance of a browser.
+- **[Pinned shortcuts](https://developer.android.com/develop/ui/compose/system/shortcuts/creating-shortcuts.md.txt#pinned) are used for specific user-driven actions.** For example, a user might want to pin a specific website to the launcher. This is beneficial because it lets the user perform a custom action---like navigating to the website in one step, more quickly than using a default instance of a browser.
 
 ## Create static shortcuts
 
@@ -32,26 +32,28 @@ alarm, and displaying a user's exercise activity for the day.
 
 To create a static shortcut, do the following:
 
-1. In your app's `AndroidManifest.xml` file, find the activity whose intent filters are set to the [`android.intent.action.MAIN`](https://developer.android.com/reference/kotlin/android/content/Intent#ACTION_MAIN) action and the [`android.intent.category.LAUNCHER`](https://developer.android.com/reference/kotlin/android/content/Intent#CATEGORY_LAUNCHER) category.
-2. Add a [`<meta-data>`](https://developer.android.com/guide/topics/manifest/meta-data-element) element to this activity that references the
+1. In your app's `AndroidManifest.xml` file, find the activity whose intent filters are set to the [`android.intent.action.MAIN`](https://developer.android.com/reference/kotlin/android/content/Intent.md.txt#ACTION_MAIN) action and the [`android.intent.category.LAUNCHER`](https://developer.android.com/reference/kotlin/android/content/Intent.md.txt#CATEGORY_LAUNCHER) category.
+2. Add a [`<meta-data>`](https://developer.android.com/guide/topics/manifest/meta-data-element.md.txt) element to this activity that references the
    resource file where the app's shortcuts are defined:
 
-       <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-                 package="com.example.myapplication">
-         <application ... >
-           <activity android:name="Main">
-             <intent-filter>
-               <action android:name="android.intent.action.MAIN" />
-               <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
-             <meta-data android:name="android.app.shortcuts"
-                        android:resource="@xml/shortcuts" />
-           </activity>
-         </application>
-       </manifest>
+   ```xml
+   <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+             package="com.example.myapplication">
+     <application ... >
+       <activity android:name="Main">
+         <intent-filter>
+           <action android:name="android.intent.action.MAIN" />
+           <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+         <meta-data android:name="android.app.shortcuts"
+                    android:resource="@xml/shortcuts" />
+       </activity>
+     </application>
+   </manifest>
+   ```
 
    > [!NOTE]
-   > **Note:** If using an [`activity-alias`](https://developer.android.com/guide/topics/manifest/activity-alias-element), define the metadata in the activity-alias rather than the activity it targets using the [`targetActivity`](https://developer.android.com/guide/topics/manifest/activity-alias-element#trgt) attribute.
+   > **Note:** If using an [`activity-alias`](https://developer.android.com/guide/topics/manifest/activity-alias-element.md.txt), define the metadata in the activity-alias rather than the activity it targets using the [`targetActivity`](https://developer.android.com/guide/topics/manifest/activity-alias-element.md.txt#trgt) attribute.
 
 3. Create a new resource file called `res/xml/shortcuts.xml`.
 
@@ -95,7 +97,7 @@ static shortcut. Provide a value for `android:shortcutId` and
 `android:shortcutId`
 
 :   A string literal that represents the shortcut when a
-    [`ShortcutManager`](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutManager) object performs operations on it.
+    [`ShortcutManager`](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutManager.md.txt) object performs operations on it.
 
     > [!NOTE]
     > **Note:** You can't set this attribute's value to a resource string, such as `@string/shortcut_id`.
@@ -105,7 +107,7 @@ static shortcut. Provide a value for `android:shortcutId` and
 :   A concise phrase that describes the shortcut's
     purpose. When possible, limit this short description to 10 characters.
 
-    For more information, see [`setShortLabel()`](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutInfo.Builder#setShortLabel(java.lang.CharSequence)).
+    For more information, see [`setShortLabel()`](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutInfo.Builder.md.txt#setShortLabel(java.lang.CharSequence)).
 
     > [!NOTE]
     > **Note:** This attribute's value must be a resource string, such as `@string/shortcut_short_label`.
@@ -117,7 +119,7 @@ static shortcut. Provide a value for `android:shortcutId` and
     of `android:shortcutShortLabel`. When possible, limit this long description
     to 25 characters.
 
-    For more information, see [`setLongLabel()`](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutInfo.Builder#setLongLabel(java.lang.CharSequence)).
+    For more information, see [`setLongLabel()`](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutInfo.Builder.md.txt#setLongLabel(java.lang.CharSequence)).
 
     > [!NOTE]
     > **Note:** This attribute's value must be a resource string, such as `@string/shortcut_long_label`.
@@ -166,20 +168,20 @@ inner element for each static shortcut that you define.
     > **Note:** This `intent` element can't include string resources.
 
     You can provide multiple intents for a single shortcut. See [Manage multiple
-    intents and activities](https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts#multiple-intents-activities), [Set an intent](https://developer.android.com/develop/ui/views/components/settings/customize-your-settings#set-an-intent), and the
-    [`TaskStackBuilder`](https://developer.android.com/reference/kotlin/android/app/TaskStackBuilder) class reference for details.
+    intents and activities](https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts#multiple-intents-activities), [Set an intent](https://developer.android.com/develop/ui/views/components/settings/customize-your-settings.md.txt#set-an-intent), and the
+    [`TaskStackBuilder`](https://developer.android.com/reference/kotlin/android/app/TaskStackBuilder.md.txt) class reference for details.
 
 `categories`
 
 :   Provides a grouping for the types of actions that your app's
     shortcuts perform, such as creating new chat messages.
 
-    For a list of supported shortcut categories, see the [`ShortcutInfo`](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutInfo)
+    For a list of supported shortcut categories, see the [`ShortcutInfo`](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutInfo.md.txt)
     class reference.
 
 `capability-binding`
 
-:   Declares the [capability](https://developer.android.com/develop/ui/compose/system/shortcuts/adding-capabilities) linked with the shortcut.
+:   Declares the [capability](https://developer.android.com/develop/ui/compose/system/shortcuts/adding-capabilities.md.txt) linked with the shortcut.
 
     In the previous example, the shortcut is linked to a capability declared for
     [`CREATE_MESSAGE`](https://developers.google.com/assistant/app/reference/built-in-intents/communications/create-message), which is an [App Actions](https://developers.google.com/assistant/app) built-in intent. This
@@ -194,8 +196,8 @@ is running. Good uses for dynamic shortcuts include calling a specific person,
 navigating to a specific location, and loading a game from the user's last save
 point. You can also use dynamic shortcuts to open a conversation.
 
-The [`ShortcutManagerCompat`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat) Jetpack library is a helper for the
-[`ShortcutManager`](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutManager) API, which lets you manage dynamic shortcuts in your
+The [`ShortcutManagerCompat`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt) Jetpack library is a helper for the
+[`ShortcutManager`](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutManager.md.txt) API, which lets you manage dynamic shortcuts in your
 app. Using the `ShortcutManagerCompat` library reduces boilerplate code and
 helps ensure that your shortcuts work consistently across Android versions. This
 library is also required for pushing dynamic shortcuts so that they are eligible
@@ -205,11 +207,11 @@ Shortcuts Integration Library](https://developer.android.com/develop/ui/compose/
 The `ShortcutManagerCompat` API lets your app perform the following operations
 with dynamic shortcuts:
 
-- **Push and update:** use [`pushDynamicShortcut()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#pushDynamicShortcut(android.content.Context,%20androidx.core.content.pm.ShortcutInfoCompat)) to publish and update your dynamic shortcuts. If there are already dynamic or pinned shortcuts with the same ID, each mutable shortcut updates.
-- **Remove:** remove a set of dynamic shortcuts using [`removeDynamicShortcuts()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#removeDynamicShortcuts(android.content.Context,%20java.util.List%3Cjava.lang.String%3E)). Remove all dynamic shortcuts using [`removeAllDynamicShortcuts()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#removeAllDynamicShortcuts(android.content.Context)).
+- **Push and update:** use [`pushDynamicShortcut()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#pushDynamicShortcut(android.content.Context,%20androidx.core.content.pm.ShortcutInfoCompat)) to publish and update your dynamic shortcuts. If there are already dynamic or pinned shortcuts with the same ID, each mutable shortcut updates.
+- **Remove:** remove a set of dynamic shortcuts using [`removeDynamicShortcuts()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#removeDynamicShortcuts(android.content.Context,%20java.util.List%3Cjava.lang.String%3E)). Remove all dynamic shortcuts using [`removeAllDynamicShortcuts()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#removeAllDynamicShortcuts(android.content.Context)).
 
 For more information about performing operations on shortcuts, see [Manage
-shortcuts](https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts) and the [`ShortcutManagerCompat`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat) reference.
+shortcuts](https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts) and the [`ShortcutManagerCompat`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt) reference.
 
 Here's an example of creating a dynamic shortcut and associating it with your
 app:
@@ -241,7 +243,7 @@ the launcher, and Google surfaces. Using this library helps users discover your
 shortcuts to quickly access specific content or replay actions in your app.
 
 Dynamic shortcuts pushed with this library aren't subject to the
-[shortcut limits](https://developer.android.com/develop/ui/compose/system/shortcuts#shortcut-limitations) enforced on a per-device basis. This lets your app push a
+[shortcut limits](https://developer.android.com/develop/ui/compose/system/shortcuts.md.txt#shortcut-limitations) enforced on a per-device basis. This lets your app push a
 shortcut every time a user completes an associated action in your app. Pushing
 frequent shortcuts this way lets Google understand your user's patterns of use
 and suggest contextually relevant shortcuts to them.
@@ -265,17 +267,21 @@ Integration Library and `ShortcutManagerCompat` to your `app/build.gradle` or
 
 ### Kotlin
 
-    dependencies {
-        implementation("androidx.core:core:1.6.0")
-        implementation("androidx.core:core-google-shortcuts:1.0.0")
-    }
+```kotlin
+dependencies {
+    implementation("androidx.core:core:1.6.0")
+    implementation("androidx.core:core-google-shortcuts:1.0.0")
+}
+```
 
 ### Groovy
 
-    dependencies {
-        implementation "androidx.core:core:1.6.0"
-        implementation 'androidx.core:core-google-shortcuts:1.0.0'
-    }
+```groovy
+dependencies {
+    implementation "androidx.core:core:1.6.0"
+    implementation 'androidx.core:core-google-shortcuts:1.0.0'
+}
+```
 
 With the library dependencies added to your Android project, your app can use
 the `pushDynamicShortcut()` method from `ShortcutManagerCompat` to push dynamic
@@ -298,8 +304,8 @@ types of shortcuts.
 To pin a shortcut to a supported launcher using your app, complete the following
 steps:
 
-1. Use [`isRequestPinShortcutSupported()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#isRequestPinShortcutSupported(android.content.Context)) to verify that the device's default launcher supports in-app pinning of shortcuts.
-2. Create a [`ShortcutInfoCompat`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutInfoCompat) object that contains an ID, an intent,
+1. Use [`isRequestPinShortcutSupported()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#isRequestPinShortcutSupported(android.content.Context)) to verify that the device's default launcher supports in-app pinning of shortcuts.
+2. Create a [`ShortcutInfoCompat`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutInfoCompat.md.txt) object that contains an ID, an intent,
    and a short label for the shortcut. If the shortcut exists, use the ID of
    the existing shortcut. The system finds and pins all other information
    related to the shortcut automatically.
@@ -308,18 +314,18 @@ steps:
    > **Note:** `ShortcutInfoCompat.Builder` requires a short label and an intent, also when you use the ID of an existing shortcut. If you don't set them, `build()` throws an `IllegalArgumentException`.
 
    > [!NOTE]
-   > **Note:** Because the system performs [backup and restore](https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts#backup-restore) on pinned shortcuts automatically, these shortcuts' IDs must contain stable, constant strings or server-side identifiers, rather than identifiers generated locally that might not make sense on other devices.
+   > **Note:** Because the system performs [backup and restore](https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts.md.txt#backup-restore) on pinned shortcuts automatically, these shortcuts' IDs must contain stable, constant strings or server-side identifiers, rather than identifiers generated locally that might not make sense on other devices.
 
 3. Pin the shortcut to the device's launcher by calling
-   [`requestPinShortcut()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#requestPinShortcut(android.content.Context,androidx.core.content.pm.ShortcutInfoCompat,android.content.IntentSender)). During this process, you can pass in a
-   [`PendingIntent`](https://developer.android.com/reference/kotlin/android/app/PendingIntent) object, which notifies your app only when the shortcut
+   [`requestPinShortcut()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#requestPinShortcut(android.content.Context,androidx.core.content.pm.ShortcutInfoCompat,android.content.IntentSender)). During this process, you can pass in a
+   [`PendingIntent`](https://developer.android.com/reference/kotlin/android/app/PendingIntent.md.txt) object, which notifies your app only when the shortcut
    pins successfully.
 
    > [!NOTE]
    > **Note:** If the user doesn't let the shortcut be pinned to the launcher, your app doesn't receive a callback.
 
    After a shortcut is pinned, your app can update its contents using the
-   [`updateShortcuts()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#updateShortcuts(android.content.Context,java.util.List)) method. For more information, read [Update
+   [`updateShortcuts()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#updateShortcuts(android.content.Context,java.util.List)) method. For more information, read [Update
    shortcuts](https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts#update-shortcuts).
 
 The following code snippet demonstrates how to create a pinned shortcut:
@@ -363,7 +369,7 @@ if (ShortcutManagerCompat.isRequestPinShortcutSupported(context)) {
 <br />
 
 > [!NOTE]
-> **Note:** On Android 7.1 (API level 25) and lower, [`ShortcutManagerCompat`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat) falls back to the deprecated [`EXTRA_SHORTCUT_INTENT`](https://developer.android.com/reference/kotlin/android/content/Intent#EXTRA_SHORTCUT_INTENT) extra to attempt the pinning process.
+> **Note:** On Android 7.1 (API level 25) and lower, [`ShortcutManagerCompat`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt) falls back to the deprecated [`EXTRA_SHORTCUT_INTENT`](https://developer.android.com/reference/kotlin/android/content/Intent.md.txt#EXTRA_SHORTCUT_INTENT) extra to attempt the pinning process.
 
 ### Create a custom shortcut activity
 
@@ -373,15 +379,15 @@ You can also create a specialized activity that helps users create shortcuts,
 complete with custom options and a confirmation button. Figure 2 shows an
 example of this type of activity in the Gmail app.
 
-In your app's manifest file, add [`ACTION_CREATE_SHORTCUT`](https://developer.android.com/reference/kotlin/android/content/Intent#ACTION_CREATE_SHORTCUT) to the
+In your app's manifest file, add [`ACTION_CREATE_SHORTCUT`](https://developer.android.com/reference/kotlin/android/content/Intent.md.txt#ACTION_CREATE_SHORTCUT) to the
 activity's `<intent-filter>` element. This declaration sets up the following
 behavior when the user attempts to create a shortcut:
 
 1. The system starts your app's specialized activity.
 2. The user sets options for the shortcut.
 3. The user selects the confirmation button.
-4. Your app creates the shortcut using the [`createShortcutResultIntent()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#createShortcutResultIntent(android.content.Context,androidx.core.content.pm.ShortcutInfoCompat)) method. This method returns an [`Intent`](https://developer.android.com/reference/kotlin/android/content/Intent), which your app relays back to the previously executing activity using [`setResult()`](https://developer.android.com/reference/kotlin/android/app/Activity#setResult(int)).
-5. Your app calls [`finish()`](https://developer.android.com/reference/kotlin/android/app/Activity#finish()) on the activity used to create the customized shortcut.
+4. Your app creates the shortcut using the [`createShortcutResultIntent()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#createShortcutResultIntent(android.content.Context,androidx.core.content.pm.ShortcutInfoCompat)) method. This method returns an [`Intent`](https://developer.android.com/reference/kotlin/android/content/Intent.md.txt), which your app relays back to the previously executing activity using [`setResult()`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#setResult(int)).
+5. Your app calls [`finish()`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#finish()) on the activity used to create the customized shortcut.
 
 Similarly, your app can prompt users to add pinned shortcuts to the home screen
 after installation or the first time the app is launched. This method is

@@ -4,8 +4,8 @@ url: https://developer.android.com/media/media3/inspector/extract-frames
 source: md.txt
 ---
 
-The [`FrameExtractor`](https://developer.android.com/reference/androidx/media3/inspector/frame/FrameExtractor) class provides an efficient way to extract decoded frames
-from a [`MediaItem`](https://developer.android.com/reference/androidx/media3/common/MediaItem).
+The [`FrameExtractor`](https://developer.android.com/reference/androidx/media3/inspector/frame/FrameExtractor.md.txt) class provides an efficient way to extract decoded frames
+from a [`MediaItem`](https://developer.android.com/reference/androidx/media3/common/MediaItem.md.txt).
 
 Common use cases include:
 
@@ -18,8 +18,8 @@ Common use cases include:
 
 Using `FrameExtractor` is a two-step process:
 
-1. **Build the extractor** : Create an instance using `FrameExtractor.Builder`. Pass a `Context` and the `MediaItem` that you want to inspect to the builder. You can also chain [configuration methods](https://developer.android.com/reference/androidx/media3/inspector/frame/FrameExtractor.Builder) on the `Builder` for advanced settings.
-2. **Extract frames** : Call [`getFrame()`](https://developer.android.com/reference/androidx/media3/inspector/frame/FrameExtractor#getFrame(long)) to extract a frame at a specific timestamp or [`getThumbnail()`](https://developer.android.com/reference/androidx/media3/inspector/frame/FrameExtractor#getThumbnail()) to request a representative thumbnail. These methods are **asynchronous** and return a `ListenableFuture`. Hence, the complex decoding work doesn't block the main thread.
+1. **Build the extractor** : Create an instance using `FrameExtractor.Builder`. Pass a `Context` and the `MediaItem` that you want to inspect to the builder. You can also chain [configuration methods](https://developer.android.com/reference/androidx/media3/inspector/frame/FrameExtractor.Builder.md.txt) on the `Builder` for advanced settings.
+2. **Extract frames** : Call [`getFrame()`](https://developer.android.com/reference/androidx/media3/inspector/frame/FrameExtractor.md.txt#getFrame(long)) to extract a frame at a specific timestamp or [`getThumbnail()`](https://developer.android.com/reference/androidx/media3/inspector/frame/FrameExtractor.md.txt#getThumbnail()) to request a representative thumbnail. These methods are **asynchronous** and return a `ListenableFuture`. Hence, the complex decoding work doesn't block the main thread.
 
 > [!IMPORTANT]
 > **Important:** `FrameExtractor` instances must be accessed from a single application thread.

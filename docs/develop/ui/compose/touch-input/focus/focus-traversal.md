@@ -49,7 +49,7 @@ Pressing <kbd>Shift+Tab</kbd> moves focus in reverse order.
 ## Two-dimensional focus traversal
 
 Pressing keyboard arrow keys or
-using a [D-pad](https://developer.android.com/training/tv/get-started/navigation#controllers) triggers two-dimensional focus traversal.
+using a [D-pad](https://developer.android.com/training/tv/get-started/navigation.md.txt#controllers) triggers two-dimensional focus traversal.
 
 In two-dimensional traversal,
 the system inspects the geometric coordinates and
@@ -70,21 +70,21 @@ or large-screen devices:
 - **Clear focus on tap or click**: Clicking or tapping on non-interactive space with a mouse or touchpad releases focus from the active element.
 - **Restart traversal** : After focus is cleared, the next <kbd>Tab</kbd> key press restarts one-dimensional traversal at the **first focus target** in visual appearance order, rather than resuming from the previously active element. It is same to the two-dimensional focus traversal. The directional keys moves keyboard focus to the closest focus target in the requested direction.
 
-For details on programmatically clearing focus, see [Move and clear focus](https://developer.android.com/develop/ui/compose/touch-input/focus/move-focus).
+For details on programmatically clearing focus, see [Move and clear focus](https://developer.android.com/develop/ui/compose/touch-input/focus/move-focus.md.txt).
 
 ## Customize focus traversal order
 
 You can customize traversal behavior
-with the [`focusProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary#(androidx.compose.ui.Modifier).focusProperties(kotlin.Function1)) modifier.
+with the [`focusProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary.md.txt#(androidx.compose.ui.Modifier).focusProperties(kotlin.Function1)) modifier.
 
 ### Customize one-dimensional traversal order
 
 To override one-dimensional traversal,
-specify the [`next`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusProperties#next()) or [`previous`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusProperties#previous()) property
-with a [`FocusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester):
+specify the [`next`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusProperties.md.txt#next()) or [`previous`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusProperties.md.txt#previous()) property
+with a [`FocusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester.md.txt):
 
 1. Create a `FocusRequester` object with `remember { FocusRequester() }`.
-2. Attach the `FocusRequester` to the target composable using the [`focusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).focusRequester(androidx.compose.ui.focus.FocusRequester)) modifier.
+2. Attach the `FocusRequester` to the target composable using the [`focusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).focusRequester(androidx.compose.ui.focus.FocusRequester)) modifier.
 3. Apply the `focusProperties` modifier to the source composable and assign the `FocusRequester` to `next` (for <kbd>Tab</kbd>) or `previous` (for <kbd>Shift+Tab</kbd>).
 
 
@@ -151,17 +151,17 @@ Button(
 
 To block focus navigation in a specific direction
 (for example, at layout boundaries),
-assign [`FocusRequester.Cancel`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester#Cancel()) to that property
+assign [`FocusRequester.Cancel`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester.md.txt#Cancel()) to that property
 (for example, `down = FocusRequester.Cancel`).
 To explicitly retain the system's default traversal algorithm for
-a given direction, assign [`FocusRequester.Default`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester#Default()).
+a given direction, assign [`FocusRequester.Default`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester.md.txt#Default()).
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-target)
-- [Focus in text fields](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-in-text-fields)
-- [Group focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-group)
-- [Move and clear focus](https://developer.android.com/develop/ui/compose/touch-input/focus/move-focus)
-- [Programmatically request focus](https://developer.android.com/develop/ui/compose/touch-input/focus/request-focus)
-- [Test focus navigation](https://developer.android.com/develop/ui/compose/touch-input/focus/testing-focus)
+- [Focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-target.md.txt)
+- [Focus in text fields](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-in-text-fields.md.txt)
+- [Group focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-group.md.txt)
+- [Move and clear focus](https://developer.android.com/develop/ui/compose/touch-input/focus/move-focus.md.txt)
+- [Programmatically request focus](https://developer.android.com/develop/ui/compose/touch-input/focus/request-focus.md.txt)
+- [Test focus navigation](https://developer.android.com/develop/ui/compose/touch-input/focus/testing-focus.md.txt)

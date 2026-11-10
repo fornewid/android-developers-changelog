@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 This page describes how to capture high-quality images with CameraX. You do so
-with the [`ImageCapture`](https://developer.android.com/reference/androidx/camera/core/ImageCapture) class and its associated methods.
+with the [`ImageCapture`](https://developer.android.com/reference/androidx/camera/core/ImageCapture.md.txt) class and its associated methods.
 
 > [!NOTE]
 > **Note:** This workflow accommodates the 3A features: auto-white-balance, auto-exposure, and auto-focus. It also supports basic manual camera controls.
@@ -14,9 +14,9 @@ with the [`ImageCapture`](https://developer.android.com/reference/androidx/camer
 
 The following are the primary concepts discussed in this document:
 
-- **[Storage method](https://developer.android.com/media/camera/camerax/take-photo#capture):** You can capture images either to an in-memory buffer or directly to a file.
-- **[Executors](https://developer.android.com/media/camera/camerax/take-photo#executors):** `ImageCapture` uses executors for handling callbacks and I/O operations. You can customize these executors for better performance and control.
-- **[Capture Modes](https://developer.android.com/media/camera/camerax/take-photo/options):** You can configure the capture mode to optimize for either latency or image quality.
+- **[Storage method](https://developer.android.com/media/camera/camerax/take-photo.md.txt#capture):** You can capture images either to an in-memory buffer or directly to a file.
+- **[Executors](https://developer.android.com/media/camera/camerax/take-photo.md.txt#executors):** `ImageCapture` uses executors for handling callbacks and I/O operations. You can customize these executors for better performance and control.
+- **[Capture Modes](https://developer.android.com/media/camera/camerax/take-photo/options.md.txt):** You can configure the capture mode to optimize for either latency or image quality.
 
 ### Storage method
 
@@ -36,12 +36,12 @@ There are two ways to capture images with
 
 ### Executors
 
-When you call `takePicture`, you pass an [`Executor`](https://developer.android.com/reference/java/util/concurrent/Executor) and either a
+When you call `takePicture`, you pass an [`Executor`](https://developer.android.com/reference/java/util/concurrent/Executor.md.txt) and either a
 `OnImageCapturedCallback` or `OnImageSavedCallback` function. The `Executor`
 runs the callback and handles any resulting IO.
 
 > [!NOTE]
-> **Note:** You can set the default executor for IO tasks with [`ImageCapture.Builder.setIoExecutor(Executor)`](https://developer.android.com/reference/androidx/camera/core/ImageCapture.Builder#setIoExecutor(java.util.concurrent.Executor)). If you don't set a default, CameraX uses to an internal IO executor.
+> **Note:** You can set the default executor for IO tasks with [`ImageCapture.Builder.setIoExecutor(Executor)`](https://developer.android.com/reference/androidx/camera/core/ImageCapture.Builder.md.txt#setIoExecutor(java.util.concurrent.Executor)). If you don't set a default, CameraX uses to an internal IO executor.
 
 ## Take photo
 
@@ -49,8 +49,8 @@ To take a photo, you set up the camera and then call `takePicture`.
 
 ### Set up the camera
 
-To set up the camera, create a [`CameraProvider`](https://developer.android.com/media/camera/camerax/preview#get-provider). Then, create an
-`ImageCapture` object. Use [`ImageCapture.Builder()`](https://developer.android.com/reference/androidx/camera/core/ImageCapture.Builder):
+To set up the camera, create a [`CameraProvider`](https://developer.android.com/media/camera/camerax/preview.md.txt#get-provider). Then, create an
+`ImageCapture` object. Use [`ImageCapture.Builder()`](https://developer.android.com/reference/androidx/camera/core/ImageCapture.Builder.md.txt):
 
 
 ```kotlin
@@ -64,12 +64,12 @@ cameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, imageCapture, pre
 <br />
 
 > [!NOTE]
-> **Note:** [`bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...)) returns a [`Camera`](https://developer.android.com/reference/androidx/camera/core/Camera) object. See the [Configuration options guide](https://developer.android.com/training/camerax/configuration#camera-output) for more on controlling camera output, such as zoom and exposure.
+> **Note:** [`bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider.md.txt#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...)) returns a [`Camera`](https://developer.android.com/reference/androidx/camera/core/Camera.md.txt) object. See the [Configuration options guide](https://developer.android.com/training/camerax/configuration#camera-output) for more on controlling camera output, such as zoom and exposure.
 
 ### Take a picture
 
 After you configure the camera, call `takePicture()` to capture an image.
-This example demonstrates how to use [`takePicture()`](https://developer.android.com/reference/androidx/camera/core/ImageCapture#takePicture(androidx.camera.core.ImageCapture.OutputFileOptions,%20java.util.concurrent.Executor,%20androidx.camera.core.ImageCapture.OnImageSavedCallback)) to save an image
+This example demonstrates how to use [`takePicture()`](https://developer.android.com/reference/androidx/camera/core/ImageCapture.md.txt#takePicture(androidx.camera.core.ImageCapture.OutputFileOptions,%20java.util.concurrent.Executor,%20androidx.camera.core.ImageCapture.OnImageSavedCallback)) to save an image
 to disk:
 
 
@@ -94,16 +94,16 @@ fun onClick() {
 
 Here are the key points about this snippet:
 
-- The [`ImageCapture.OutputFileOptions`](https://developer.android.com/reference/androidx/camera/core/ImageCapture.OutputFileOptions) lets you configure save location and metadata.
+- The [`ImageCapture.OutputFileOptions`](https://developer.android.com/reference/androidx/camera/core/ImageCapture.OutputFileOptions.md.txt) lets you configure save location and metadata.
   - Here, the `OutputFileOptions.Builder()` uses a `File` object to determine the save location.
 - The `takePicture()` function captures the image asynchronously using the provided options and executor.
-- The [`OnImageSavedCallback`](https://developer.android.com/reference/androidx/camera/core/ImageCapture#takePicture(androidx.camera.core.ImageCapture.OutputFileOptions,%20java.util.concurrent.Executor,%20androidx.camera.core.ImageCapture.OnImageSavedCallback)) provides callbacks for success and failure.
-  - The `onImageSaved()` callback handles successful image capture and provides access to the [saved image results](https://developer.android.com/reference/androidx/camera/core/ImageCapture.OutputFileResults).
+- The [`OnImageSavedCallback`](https://developer.android.com/reference/androidx/camera/core/ImageCapture.md.txt#takePicture(androidx.camera.core.ImageCapture.OutputFileOptions,%20java.util.concurrent.Executor,%20androidx.camera.core.ImageCapture.OnImageSavedCallback)) provides callbacks for success and failure.
+  - The `onImageSaved()` callback handles successful image capture and provides access to the [saved image results](https://developer.android.com/reference/androidx/camera/core/ImageCapture.OutputFileResults.md.txt).
   - The `onError()` callback handles image capture errors.
 
 ## Additional options
 
-See the [Configure for optimization, flash, and file format guide](https://developer.android.com/media/camera/camerax/take-photo/options) for extra
+See the [Configure for optimization, flash, and file format guide](https://developer.android.com/media/camera/camerax/take-photo/options.md.txt) for extra
 ways you can configure `ImageCapture`.
 
 ## Further resources

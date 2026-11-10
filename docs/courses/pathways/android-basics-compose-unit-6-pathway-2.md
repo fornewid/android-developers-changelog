@@ -26,7 +26,7 @@ Learn about the powerful and expressive Flow APIs and how to get the most out of
 
 Learn more about creating fakes to isolate code being tested, testing StateFlows created by stateIn, and more on how to test Flows and StateFlow.
 
-<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/kotlin/flow/test)
+<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/kotlin/flow/test.md.txt)
 
 ## Using Room Kotlin APIs
 

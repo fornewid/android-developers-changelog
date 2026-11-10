@@ -7,11 +7,11 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
-The [`VoiceInputIndicator`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/VoiceInputIndicator.composable) is a [Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer) component that
+The [`VoiceInputIndicator`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/VoiceInputIndicator.composable.md.txt) is a [Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer) component that
 displays sound activity to the user. You can use this component to accept voice
 input or other audio and provide visual feedback to show that your app is
 capturing audio.
@@ -26,26 +26,26 @@ by your app, which shows a visual representation of the audio intensity.
 ## Request projected permissions
 
 To capture audio data to drive the indicator, your app needs the
-[`Manifest.permission.RECORD_AUDIO`](https://developer.android.com/reference/kotlin/android/Manifest.permission#record_audio) permission.
+[`Manifest.permission.RECORD_AUDIO`](https://developer.android.com/reference/kotlin/android/Manifest.permission.md.txt#record_audio) permission.
 
 When you build augmented experiences for display glasses, ensure that you
 request permissions correctly across both the device and the glasses. Use
-[`ProjectedActivityCompat.requestPermissions`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedActivityCompat#requestPermissions(android.app.Activity,kotlin.Array,kotlin.Int)) to prompt the user.
+[`ProjectedActivityCompat.requestPermissions`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedActivityCompat.md.txt#requestPermissions(android.app.Activity,kotlin.Array,kotlin.Int)) to prompt the user.
 
 For more information about requesting permissions in projected environments,
-see [Request hardware permissions](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions).
+see [Request hardware permissions](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions.md.txt).
 
 ## Capture and normalize audio
 
-The [`VoiceInputIndicator`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/VoiceInputIndicator.composable) requires a `Float` between `0.0f` and `1.0f` to
+The [`VoiceInputIndicator`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/VoiceInputIndicator.composable.md.txt) requires a `Float` between `0.0f` and `1.0f` to
 visually reflect audio intensity. Because it operates purely as a visual
 component and doesn't capture audio, your app must actively monitor the
 microphone and stream the volume to the indicator's `level` parameter.
 
 While there are multiple ways to capture audio data, one approach is to
-use the [`SpeechRecognizer`](https://developer.android.com/reference/kotlin/android/speech/SpeechRecognizer) API. When using [`SpeechRecognizer`](https://developer.android.com/reference/kotlin/android/speech/SpeechRecognizer), you
+use the [`SpeechRecognizer`](https://developer.android.com/reference/kotlin/android/speech/SpeechRecognizer.md.txt) API. When using [`SpeechRecognizer`](https://developer.android.com/reference/kotlin/android/speech/SpeechRecognizer.md.txt), you
 can capture real-time volume updates using the
-[`RecognitionListener.onRmsChanged`](https://developer.android.com/reference/kotlin/android/speech/RecognitionListener#onRmsChanged(kotlin.Float)) callback, which provides the audio
+[`RecognitionListener.onRmsChanged`](https://developer.android.com/reference/kotlin/android/speech/RecognitionListener.md.txt#onRmsChanged(kotlin.Float)) callback, which provides the audio
 level in decibels, `rmsdB`.
 
 Because this raw value typically falls between 0 and 10, you must normalize the
@@ -55,7 +55,7 @@ level in a state variable to continuously update the indicator.
 > [!NOTE]
 > **Note:** It's not strictly required to map the full 0 to 10 dB range to the `0.0f` to `1.0f` scale. You can set custom minimums and maximums for your dB range, mapping whatever minimum and maximum threshold you choose to the `0.0f` to `1.0f` scale.
 
-Here's an example using a [`RecognitionListener`](https://developer.android.com/reference/kotlin/android/speech/RecognitionListener) to update a state
+Here's an example using a [`RecognitionListener`](https://developer.android.com/reference/kotlin/android/speech/RecognitionListener.md.txt) to update a state
 variable:
 
 
@@ -102,7 +102,7 @@ speechRecognizer.startListening(intent)
 ## Integrate the voice input indicator
 
 Once your audio stream is properly normalized and exposed as state, you can pass
-it directly into the [`VoiceInputIndicator`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/VoiceInputIndicator.composable).
+it directly into the [`VoiceInputIndicator`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/VoiceInputIndicator.composable.md.txt).
 
 
 ```kotlin
@@ -124,16 +124,16 @@ fun VoiceInputExample(modifier: Modifier) {
 
 ### Customization parameters
 
-The [`VoiceInputIndicator`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/VoiceInputIndicator.composable) provides a few parameters to customize its
+The [`VoiceInputIndicator`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/VoiceInputIndicator.composable.md.txt) provides a few parameters to customize its
 behavior and appearance:
 
 - `level`: A function returning a `Float` that represents the level of the voice input, ranging from `0.0` for silence to `1.0` for the loudest sound.
-- `indicatorColor`: The color of the indicator bars. By default, this uses the primary color from the Glimmer theme; see [`GlimmerTheme.colors.primary`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors#primary()).
-- `modifier`: The standard Compose [`modifier`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier) to be applied to the indicator.
+- `indicatorColor`: The color of the indicator bars. By default, this uses the primary color from the Glimmer theme; see [`GlimmerTheme.colors.primary`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors.md.txt#primary()).
+- `modifier`: The standard Compose [`modifier`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt) to be applied to the indicator.
 
 ### Related components
 
 If your UI requires the indicator to sit within a visible background container,
-use the [`ContainedVoiceInputIndicator`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ContainedVoiceInputIndicator.composable). This alternative ensures that the
+use the [`ContainedVoiceInputIndicator`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ContainedVoiceInputIndicator.composable.md.txt). This alternative ensures that the
 indicator bars are transparent, allowing the background container to show
 through.

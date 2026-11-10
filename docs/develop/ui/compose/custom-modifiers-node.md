@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/compose/custom-modifiers-node
 source: md.txt
 ---
 
-[`Modifier.composed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).composed(kotlin.Function1,kotlin.Function1)) was introduced in Compose 1.0 to let you access
+[`Modifier.composed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).composed(kotlin.Function1,kotlin.Function1)) was introduced in Compose 1.0 to let you access
 composition elements from modifiers. For example, one key use case is creating
 a stateful modifier that remembers local state and shares it with other
 modifiers in the `Modifier.composed` factory:
@@ -44,7 +44,7 @@ fun Modifier.pressScale(
 
 <br />
 
-Use [`Modifier.Node`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.Node) instead of `Modifier.composed`, as
+Use [`Modifier.Node`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.Node.md.txt) instead of `Modifier.composed`, as
 `Modifier.Node` improves how state is managed within modifiers. A
 `Modifier.Node` is a long-lived, stateful object created once per
 `Modifier.Element` applied to a `LayoutNode`, and it survives recomposition
@@ -54,7 +54,7 @@ information about why and how we designed `Modifier.Node`, see
 
 This document describes how to migrate from `Modifier.composed` to
 `Modifier.Node`. For more information about general usage of this API, see
-[Implement custom modifier behavior using Modifier.Node](https://developer.android.com/develop/ui/compose/custom-modifiers#implement-custom).
+[Implement custom modifier behavior using Modifier.Node](https://developer.android.com/develop/ui/compose/custom-modifiers.md.txt#implement-custom).
 
 ## Performance benefits of Modifier.Node
 
@@ -75,7 +75,7 @@ optimizations.
 
 The following example shows a typical custom modifier implemented with
 `Modifier.composed`. For more context, see
-[Implement custom modifier behavior using Modifier.Node](https://developer.android.com/develop/ui/compose/custom-modifiers#implement-custom).
+[Implement custom modifier behavior using Modifier.Node](https://developer.android.com/develop/ui/compose/custom-modifiers.md.txt#implement-custom).
 
 
 ```kotlin
@@ -253,7 +253,7 @@ implementation that reads `CompositionLocal`s using
 `CompositionLocalConsumerModifierNode`.
 
 For more information, see
-[Create a custom modifier using a composable modifier factory](https://developer.android.com/develop/ui/compose/custom-modifiers#create-custom).
+[Create a custom modifier using a composable modifier factory](https://developer.android.com/develop/ui/compose/custom-modifiers.md.txt#create-custom).
 
 
 ```kotlin
@@ -624,7 +624,7 @@ private class LogImpressionNode(
 
 ### Hold an animation state
 
-**Pattern:** `Modifier.composed` using [`animate*AsState`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/animateDpAsState.composable#animateDpAsState(androidx.compose.ui.unit.Dp,androidx.compose.animation.core.AnimationSpec,kotlin.String,kotlin.Function1)).
+**Pattern:** `Modifier.composed` using [`animate*AsState`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/animateDpAsState.composable.md.txt#animateDpAsState(androidx.compose.ui.unit.Dp,androidx.compose.animation.core.AnimationSpec,kotlin.String,kotlin.Function1)).
 
 **Migration path:** `animate*AsState` can be broken down into a custom modifier
 that monitors the lifecycle callbacks and holds an `Animatable` state:

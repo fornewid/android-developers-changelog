@@ -10,7 +10,7 @@ which is usually left-to-right, then top-to-bottom. However, there are some
 scenarios where Compose might need additional hints to determine the correct
 reading order.
 
-[`isTraversalGroup`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).isTraversalGroup()) and [`traversalIndex`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).traversalIndex()) are semantic properties that
+[`isTraversalGroup`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).isTraversalGroup()) and [`traversalIndex`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).traversalIndex()) are semantic properties that
 let you influence the traversal order for accessibility services in scenarios
 where Compose's default sorting algorithm is not sufficient. `isTraversalGroup`
 identifies semantically important groups that need customization, while
@@ -23,7 +23,7 @@ app to control screen reader traversal order.
 
 ## Group elements for traversal
 
-`isTraversalGroup` is a boolean property that defines whether a [semantics](https://developer.android.com/develop/ui/compose/accessibility/semantics)
+`isTraversalGroup` is a boolean property that defines whether a [semantics](https://developer.android.com/develop/ui/compose/accessibility/semantics.md.txt)
 node is a traversal group. This type of node is one whose function is to serve
 as a boundary or border in organizing the node's children.
 
@@ -128,7 +128,7 @@ right."
 
 ## Customize traversal order
 
-[`traversalIndex`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).traversalIndex()) is a float property that lets you customize TalkBack
+[`traversalIndex`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).traversalIndex()) is a float property that lets you customize TalkBack
 traversal order. If grouping elements together is not enough for TalkBack to
 work correctly, use `traversalIndex` in conjunction with
 `isTraversalGroup` to further customize screen reader ordering.
@@ -229,12 +229,12 @@ Consider the following when using the traversal APIs:
 
 - `isTraversalGroup = true` should be set on the parent containing the grouped elements.
 - `traversalIndex` should be set on a child component that contains semantics and will be selected by accessibility services.
-- Ensure that all the elements you're investigating are at the same [`zIndex`](https://developer.android.com/reference/kotlin/androidx/compose/ui/zIndex.modifier#(androidx.compose.ui.Modifier).zIndex(kotlin.Float)) level, as that also affects semantics and traversal order.
+- Ensure that all the elements you're investigating are at the same [`zIndex`](https://developer.android.com/reference/kotlin/androidx/compose/ui/zIndex.modifier.md.txt#(androidx.compose.ui.Modifier).zIndex(kotlin.Float)) level, as that also affects semantics and traversal order.
 - Ensure that no semantics are unnecessarily merged, as this may affect which components traversal indices are applied to.
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Accessibility in Compose](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).isTraversalGroup())
+- [Accessibility in Compose](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).isTraversalGroup())
 - \[Material Design 2 in Compose\]\[19\]
-- [Testing your Compose layout](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).traversalIndex())
+- [Testing your Compose layout](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).traversalIndex())

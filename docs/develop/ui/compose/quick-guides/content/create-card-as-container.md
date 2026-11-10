@@ -6,7 +6,7 @@ source: md.txt
 
 <br />
 
-The [`Card`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable acts as a Material Design container for your UI.
+The [`Card`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable.md.txt#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable acts as a Material Design container for your UI.
 Cards present a single coherent piece of content, such as:
 
 - A product in a shopping app.
@@ -21,10 +21,10 @@ and more generic API.
 
 This topic shows you how to implement four types of cards:
 
-- [Basic](https://developer.android.com/develop/ui/compose/quick-guides/content/create-card-as-container#basic)
-- [Filled](https://developer.android.com/develop/ui/compose/quick-guides/content/create-card-as-container#filled)
-- [Elevated](https://developer.android.com/develop/ui/compose/quick-guides/content/create-card-as-container#elevated)
-- [Outlined](https://developer.android.com/develop/ui/compose/quick-guides/content/create-card-as-container#outlined)
+- [Basic](https://developer.android.com/develop/ui/compose/quick-guides/content/create-card-as-container.md.txt#basic)
+- [Filled](https://developer.android.com/develop/ui/compose/quick-guides/content/create-card-as-container.md.txt#filled)
+- [Elevated](https://developer.android.com/develop/ui/compose/quick-guides/content/create-card-as-container.md.txt#elevated)
+- [Outlined](https://developer.android.com/develop/ui/compose/quick-guides/content/create-card-as-container.md.txt#outlined)
 
 ## Version compatibility
 
@@ -49,7 +49,7 @@ call to `Text` in the following minimal example:
 
 The key here is the use of the `colors` property to change the filled
 color:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_ca2b353e4e5e050e6e792d04b9f2c50d1aab7ce8cabb6c6be43900ed2b8337d3.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_6cd2c564b22f311942a2566570e8785d739aea0fd28b5db67eae8b0a540e63bb.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -58,11 +58,11 @@ color:
 ## Create an elevated card
 
 The following snippet demonstrates how to implement an elevated card. Use the
-dedicated [`ElevatedCard`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedCard.composable#ElevatedCard(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,kotlin.Function1)) composable.
+dedicated [`ElevatedCard`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedCard.composable.md.txt#ElevatedCard(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,kotlin.Function1)) composable.
 
 You can use the `elevation` property to control the appearance of elevation and
 the resulting shadow.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_3cbad46b09ad14dd3632e9af5855d82198e5bec50b13506b75a24d9f288fd28b.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_e6cb57deff30a68c5ef87b041951d58d21cc91dcee6bf66d030132805b05a472.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -71,8 +71,8 @@ the resulting shadow.
 ## Create an outlined card
 
 The following is an example of an outlined card. Use the dedicated
-[`OutlinedCard`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedCard.composable#OutlinedCard(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_9a4b03b928ded395349f8bebffbd32f3b67472828658af800be874303b1f06cc.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+[`OutlinedCard`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedCard.composable.md.txt#OutlinedCard(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_0bf9c1f752f7d45fd6c9a56bc16d220c87e1b30c9d8bfe807ccc381bb36de6cc.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -80,7 +80,7 @@ The following is an example of an outlined card. Use the dedicated
 
 ## Key points
 
-See the [reference](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) for the API definition of `Card`. It defines several
+See the [reference](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable.md.txt#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) for the API definition of `Card`. It defines several
 parameters that you can use to customize the appearance and behavior of the
 component.
 
@@ -93,8 +93,8 @@ Some key parameters include:
 
 Cards don't come with inherent scroll or dismiss actions, but can integrate into
 composables offering these features. For example, to implement swipe to dismiss
-on a card, integrate it with the [`SwipeToDismissBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable) composable. To integrate
-with scroll, use scroll modifiers such as [`verticalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)). See the [`Scroll`
+on a card, integrate it with the [`SwipeToDismissBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable.md.txt) composable. To integrate
+with scroll, use scroll modifiers such as [`verticalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier.md.txt#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)). See the [`Scroll`
 documentation](https://developer.android.com/develop/ui/compose/touch-input/scroll/scroll-modifiers) for more information.
 
 ## Collections that contain this guide
@@ -109,4 +109,4 @@ Learn how composable functions can enable you to easily create beautiful UI comp
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

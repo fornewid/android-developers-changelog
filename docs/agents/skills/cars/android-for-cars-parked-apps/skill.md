@@ -25,7 +25,7 @@ car app quality guidelines for Google Play distribution.
 - **Generally available categories**: Permitted on internal testing, closed testing, open testing, and production Google Play tracks for a supported platform.
 - **Beta categories**: Permitted on internal or closed testing tracks; open testing and production tracks require acceptance into an early access program.
 - **Audio while driving**: A beta feature on Android Automotive OS that lets video apps play audio while the vehicle is in motion.
-- **Car app quality guidelines** : When auditing an app against the Tier 3 (*Car ready* ), Tier 2 (*Car optimized* ), or Tier 1 (*Car differentiated* ) criteria, **MUST** check [car app quality guidelines](https://developer.android.com/docs/quality-guidelines/car-app-quality).
+- **Car app quality guidelines** : When auditing an app against the Tier 3 (*Car ready* ), Tier 2 (*Car optimized* ), or Tier 1 (*Car differentiated* ) criteria, **MUST** check [car app quality guidelines](https://developer.android.com/docs/quality-guidelines/car-app-quality.md.txt).
 - **Android Automotive OS compatibility mode** : Compatibility mode (`android.software.car.display_compatibility`) is a system feature on select vehicles providing a system back affordance, safe area rendering, density scaling, and opaque driving-mode blocking (moving activities to *Stopped*). Compatibility mode is only relevant to apps that support Android Automotive OS; it isn't relevant for apps that only support Android Auto.
 
 ## Codebase exploration

@@ -62,7 +62,7 @@ class DestinationAppWidget : GlanceAppWidget() {
 <br />
 
 Whenever the state or the data changes, it is the app's responsibility to notify
-and update the widget. See [Update GlanceAppWidget](https://developer.android.com/develop/ui/compose/glance/glance-app-widget#update-glance-appwidget) for more information.
+and update the widget. See [Update GlanceAppWidget](https://developer.android.com/develop/ui/compose/glance/glance-app-widget.md.txt#update-glance-appwidget) for more information.
 
 > [!NOTE]
 > **Note:** See the [Optimizations for updating widget content](https://developer.android.com/guide/topics/appwidgets/advanced#update-widgets) section in the app widgets guide to understand how and when to update.
@@ -70,7 +70,7 @@ and update the widget. See [Update GlanceAppWidget](https://developer.android.co
 ## Update `GlanceAppWidget`
 
 You can request to update your widget content using `GlanceAppWidget`. As
-explained in the [Manage `GlanceAppWidget` state](https://developer.android.com/develop/ui/compose/glance/glance-app-widget#manage-state) section, app
+explained in the [Manage `GlanceAppWidget` state](https://developer.android.com/develop/ui/compose/glance/glance-app-widget.md.txt#manage-state) section, app
 widgets are hosted in a different process. Glance translates the content into
 actual `RemoteViews` and sends them to the host. To update the content, Glance
 must recreate the `RemoteViews` and send them again.
@@ -136,7 +136,7 @@ class DataSyncWorker(
 
 <br />
 
-See [Kotlin Coroutines on Android](https://developer.android.com/kotlin/coroutines) for more details on coroutines.
+See [Kotlin Coroutines on Android](https://developer.android.com/kotlin/coroutines.md.txt) for more details on coroutines.
 
 ### When to update widgets
 
@@ -147,11 +147,11 @@ Your widget can update immediately when your app is awake. For example:
 - When a user interacts with a widget, triggering an action, a lambda call, or an intent to launch an activity.
 - When your user interacts with your app in the foreground, or while the app is already updating in response to a Firebase Cloud Messaging (FCM) message or a broadcast.
 
-In these cases, call the [`update`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/GlanceAppWidget#update(android.content.Context,androidx.glance.GlanceId)) method as described in this guide.
+In these cases, call the [`update`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/GlanceAppWidget.md.txt#update(android.content.Context,androidx.glance.GlanceId)) method as described in this guide.
 
 Your widget can update periodically when your app isn't awake. For example:
 
-- Use [`updatePeriodMillis`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#updatePeriodMillis) to update the widget up to once every 30 minutes.
+- Use [`updatePeriodMillis`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#updatePeriodMillis) to update the widget up to once every 30 minutes.
 - Use `WorkManager` to schedule more frequent updates, such as every 15 minutes.
 - Update the widget in response to a broadcast.
 

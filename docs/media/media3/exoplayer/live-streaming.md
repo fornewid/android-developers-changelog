@@ -137,7 +137,7 @@ If automatic playback speed adjustment isn't needed, it can be disabled by
 setting `minPlaybackSpeed` and `maxPlaybackSpeed` properties to `1.0f`.
 Similarly, it can be enabled for non-low-latency livestreams by setting these
 explicitly to values other than `1.0f`. See the
-[configuration section](https://developer.android.com/media/media3/exoplayer/live-streaming#configuring-live-playback-parameters) for more details
+[configuration section](https://developer.android.com/media/media3/exoplayer/live-streaming.md.txt#configuring-live-playback-parameters) for more details
 on how these properties can be set.
 
 ### Customizing the playback speed adjustment algorithm

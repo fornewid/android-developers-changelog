@@ -31,9 +31,9 @@ After you declare the permission, create a notification channel.
 
 Create a notification channel to display notifications and let users manage
 notification categories in system settings. For more information about
-notification channels, see [Create and manage notification channels](https://developer.android.com/develop/ui/compose/notifications/channels).
+notification channels, see [Create and manage notification channels](https://developer.android.com/develop/ui/compose/notifications/channels.md.txt).
 
-Create your notification channels in the [`onCreate`](https://developer.android.com/reference/android/app/Application#onCreate()) method of your
+Create your notification channels in the [`onCreate`](https://developer.android.com/reference/android/app/Application.md.txt#onCreate()) method of your
 `Application` class:
 
 
@@ -154,7 +154,7 @@ incoming phone call.
 > **Note:** If your notification includes a full-screen intent to display an activity when the device is locked, the system UI displays a heads-up notification instead while the user actively uses the device.
 
 If your notification represents an ongoing background task, such as an active
-phone call, associate the notification with a [foreground service](https://developer.android.com/develop/background-work/services/fgs).
+phone call, associate the notification with a [foreground service](https://developer.android.com/develop/background-work/services/fgs.md.txt).
 The following code snippet shows how to display a notification associated with
 a foreground service:
 
@@ -169,5 +169,5 @@ startForeground(notificationId, notification)
 ## Consider using Live Updates
 
 Time-sensitive ongoing notifications can benefit from increased visibility.
-Consider promoting ongoing notifications as [Live Updates](https://developer.android.com/develop/ui/compose/notifications/live-update) to display status
+Consider promoting ongoing notifications as [Live Updates](https://developer.android.com/develop/ui/compose/notifications/live-update.md.txt) to display status
 information across system UI surfaces.

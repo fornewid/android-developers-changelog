@@ -65,10 +65,10 @@ Use window size classes to make high‑level application layout decisions,
 such as deciding whether to use a specific canonical layout to take advantage of
 additional screen space.
 
-Compute the current [`WindowSizeClass`](https://developer.android.com/reference/androidx/window/core/layout/WindowSizeClass) using the
-[`currentWindowAdaptiveInfo()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/currentWindowAdaptiveInfo.composable#currentWindowAdaptiveInfo(kotlin.Boolean)) top‑level function of the
-[`androidx.compose.material3.adaptive`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary) library. The function returns an
-instance of [`WindowAdaptiveInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo), which contains [`windowSizeClass`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo#windowSizeClass()). To
+Compute the current [`WindowSizeClass`](https://developer.android.com/reference/androidx/window/core/layout/WindowSizeClass.md.txt) using the
+[`currentWindowAdaptiveInfo()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/currentWindowAdaptiveInfo.composable.md.txt#currentWindowAdaptiveInfo(kotlin.Boolean)) top‑level function of the
+[`androidx.compose.material3.adaptive`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary.md.txt) library. The function returns an
+instance of [`WindowAdaptiveInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo.md.txt), which contains [`windowSizeClass`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo.md.txt#windowSizeClass()). To
 support large and extra-large breakpoints, add the `supportLargeAndXLargeWidth`
 parameter set to `true` to the function call. The
 following example shows how to calculate the window size class and receive
@@ -125,9 +125,9 @@ the medium width size class; consider adding a specialized layout.
 To learn more about how to use window size classes to create responsive/adaptive
 layouts, see the following:
 
-- For Compose-based layouts: [Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes)
+- For Compose-based layouts: [Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes.md.txt)
 
-- For view-based layouts: [Responsive/adaptive design with views](https://developer.android.com/develop/ui/views/layout/responsive-adaptive-design-with-views)
+- For view-based layouts: [Responsive/adaptive design with views](https://developer.android.com/develop/ui/views/layout/responsive-adaptive-design-with-views.md.txt)
 
 To learn more about what makes an app great on all devices and screen sizes,
 see:

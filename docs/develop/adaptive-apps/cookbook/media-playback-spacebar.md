@@ -22,9 +22,9 @@ playback by pressing the Spacebar on a physical keyboard.
 
 ## Ingredients
 
-- [`KEYCODE_SPACE`](https://developer.android.com/reference/kotlin/android/view/KeyEvent#keycode_space): Key code constant for the Spacebar.
-- [`onPreviewKeyEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).onPreviewKeyEvent(kotlin.Function1)): `Modifier` that enables a component to intercept hardware key events when it (or one of its children) is focused.
-- [`onKeyEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).onKeyEvent(kotlin.Function1)): Similar to `onPreviewKeyEvent`, this `Modifier` enables a component to intercept hardware key events when it (or one of its children) is focused.
+- [`KEYCODE_SPACE`](https://developer.android.com/reference/kotlin/android/view/KeyEvent.md.txt#keycode_space): Key code constant for the Spacebar.
+- [`onPreviewKeyEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).onPreviewKeyEvent(kotlin.Function1)): `Modifier` that enables a component to intercept hardware key events when it (or one of its children) is focused.
+- [`onKeyEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).onKeyEvent(kotlin.Function1)): Similar to `onPreviewKeyEvent`, this `Modifier` enables a component to intercept hardware key events when it (or one of its children) is focused.
 
 ## Steps
 

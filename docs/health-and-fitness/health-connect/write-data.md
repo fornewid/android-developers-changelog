@@ -6,7 +6,7 @@ source: md.txt
 
 <br />
 
-> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12) or later.
+> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect.md.txt#1.1.0-alpha12) or later.
 
 <br />
 
@@ -27,12 +27,12 @@ data.
 
 Before writing data, we need to set up the records first. For more than 50 data
 types, each have their respective structures.
-See the [Jetpack reference](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/package-summary#classes) for more details about the data
+See the [Jetpack reference](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/package-summary.md.txt#classes) for more details about the data
 types available.
 
 ### Basic records
 
-The [Steps](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/StepsRecord) data type in Health Connect captures the number of steps a
+The [Steps](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/StepsRecord.md.txt) data type in Health Connect captures the number of steps a
 user has taken between readings. Step counts represent a common measurement
 across health, fitness, and wellness platforms.
 
@@ -57,18 +57,18 @@ healthConnectClient.insertRecords(listOf(stepsRecord))
 <br />
 
 > [!NOTE]
-> **Note:** Only write a zero value if the device was worn and no activity occurred. Don't write data if the device was off-body or the data is incomplete. For best practices on handling time zones, see the [Time zone handling](https://developer.android.com/health-and-fitness/health-connect/write-data#time-zone-handling) section.
+> **Note:** Only write a zero value if the device was worn and no activity occurred. Don't write data if the device was off-body or the data is incomplete. For best practices on handling time zones, see the [Time zone handling](https://developer.android.com/health-and-fitness/health-connect/write-data.md.txt#time-zone-handling) section.
 
 ### Records with units of measurement
 
 Health Connect can store values along with their units of measurement to provide
-accuracy. One example is the [Nutrition](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/NutritionRecord) data type that is vast and
+accuracy. One example is the [Nutrition](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/NutritionRecord.md.txt) data type that is vast and
 comprehensive. It includes a wide variety of optional nutrient fields ranging
 from total carbohydrates to vitamins. Each data point represents the nutrients
 that were potentially consumed as part of a meal or food item.
 
 In this data type, all of the nutrients are represented in units of
-[Mass](https://developer.android.com/reference/kotlin/androidx/health/connect/client/units/Mass), while `energy` is represented in a unit of [Energy](https://developer.android.com/reference/kotlin/androidx/health/connect/client/units/Energy).
+[Mass](https://developer.android.com/reference/kotlin/androidx/health/connect/client/units/Mass.md.txt), while `energy` is represented in a unit of [Energy](https://developer.android.com/reference/kotlin/androidx/health/connect/client/units/Energy.md.txt).
 
 The following example shows how to set nutrition data for a user who has
 eaten a banana:
@@ -105,11 +105,11 @@ val banana = NutritionRecord(
 ### Records with series data
 
 Health Connect can store a list of series data. One example is the
-[Heart Rate](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord) data type that captures a series of heartbeat samples
+[Heart Rate](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord.md.txt) data type that captures a series of heartbeat samples
 detected between readings.
 
 In this data type, the parameter `samples` is represented by a list of
-[Heart Rate samples](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord.Sample). Each sample contains a `beatsPerMinute`
+[Heart Rate samples](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord.Sample.md.txt). Each sample contains a `beatsPerMinute`
 value and a `time` value.
 
 The following example shows how to set heart rate series data:
@@ -157,7 +157,7 @@ val permissions =
         HealthPermission.getWritePermission(StepsRecord::class)
     )
 ```
-Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
+Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController.md.txt#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController.md.txt#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
 
 ```kotlin
 val permissions = setOf(
@@ -184,7 +184,7 @@ Because users can grant or revoke permissions at any time, your app needs to che
 ## Write data
 
 One of the common workflows in Health Connect is writing data. To add records,
-use [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#insertRecords(kotlin.collections.List)).
+use [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient.md.txt#insertRecords(kotlin.collections.List)).
 
 The following example shows how to write data inserting step counts:
 
@@ -216,8 +216,8 @@ identifier used to find records.
 ### Metadata
 
 It is worth examining the `Metadata` class first as this is necessary when
-updating data. On creation, each [`Record`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/Record) in Health Connect has a
-[`metadata`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/Metadata) field. The following properties are relevant to
+updating data. On creation, each [`Record`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/Record.md.txt) in Health Connect has a
+[`metadata`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/Metadata.md.txt) field. The following properties are relevant to
 synchronization:
 
 | Properties | Description |
@@ -230,7 +230,7 @@ synchronization:
 ### Update after reading by time range
 
 To update data, prepare the needed records first. Perform any changes to the
-records if necessary. Then, call [`updateRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#updateRecords(kotlin.collections.List)) to make
+records if necessary. Then, call [`updateRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient.md.txt#updateRecords(kotlin.collections.List)) to make
 the changes.
 
 The following example shows how to update data. For this purpose, each record
@@ -279,7 +279,7 @@ suspend fun updateSteps(
 ### Upsert through Client Record ID
 
 If you are using the optional Client Record ID and Client Record Version values,
-we recommend using [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#insertRecords(kotlin.collections.List)) instead of `updateRecords`.
+we recommend using [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient.md.txt#insertRecords(kotlin.collections.List)) instead of `updateRecords`.
 
 The `insertRecords` function has the ability to upsert data.
 If the data exists in Health Connect based on the given set of
@@ -346,7 +346,7 @@ upsertSteps(healthConnectClient, pullStepsFromDatastore(
 #### Value check in Client Record Version
 
 If your process of upserting data includes the Client Record Version, Health
-Connect performs comparison checks in the [`clientRecordVersion`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/Metadata#clientRecordVersion())
+Connect performs comparison checks in the [`clientRecordVersion`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/Metadata.md.txt#clientRecordVersion())
 values. If the version from the inserted data is higher than the
 version from the existing data, the upsert happens. Otherwise, the process
 ignores the change and the value remains the same.
@@ -398,7 +398,7 @@ To do this, you must supply the following metadata for each written record:
 - **`device.type`** : You are required to specify a device type from one of the supported `Device` types.
 - **`device.manufacturer`**: The device's manufacturer, for example, "Fitbit".
 - **`device.model`**: The device's model, for example, "Charge 3".
-- **`device.udi`** : (Optional) The Device Identifier (DI) portion of the medical device's Unique Device Identifier (UDI). For details on the required permission and privacy guidelines, refer to the [metadata](https://developer.android.com/health-and-fitness/health-connect/metadata#device-udi) guide.
+- **`device.udi`** : (Optional) The Device Identifier (DI) portion of the medical device's Unique Device Identifier (UDI). For details on the required permission and privacy guidelines, refer to the [metadata](https://developer.android.com/health-and-fitness/health-connect/metadata.md.txt#device-udi) guide.
 
 Setting metadata correctly is crucial for data transparency and helps
 users understand where their health information comes from. For complete
@@ -451,7 +451,7 @@ healthConnectClient.insertRecords(
 
 <br />
 
-See the [documentation for `ZoneId`](https://developer.android.com/reference/kotlin/java/time/ZoneId) for more details.
+See the [documentation for `ZoneId`](https://developer.android.com/reference/kotlin/java/time/ZoneId.md.txt) for more details.
 
 ### Write frequency and granularity
 
@@ -482,21 +482,23 @@ Follow these guidelines when writing data:
 The following code uses WorkManager to schedule periodic background tasks, with
 a maximum time period of 15 minutes, and a flex interval of 5 minutes. This
 configuration is set using the
-[`PeriodicWorkRequest.Builder`](https://developer.android.com/reference/kotlin/androidx/work/PeriodicWorkRequest.Builder#Builder(java.lang.Class,kotlin.Long,java.util.concurrent.TimeUnit,kotlin.Long,java.util.concurrent.TimeUnit)) class.
+[`PeriodicWorkRequest.Builder`](https://developer.android.com/reference/kotlin/androidx/work/PeriodicWorkRequest.Builder.md.txt#Builder(java.lang.Class,kotlin.Long,java.util.concurrent.TimeUnit,kotlin.Long,java.util.concurrent.TimeUnit)) class.
 
-    val constraints = Constraints.Builder()
-        .requiresBatteryNotLow()
-        .requiresDeviceIdle(true)
-        .build()
+```kotlin
+val constraints = Constraints.Builder()
+    .requiresBatteryNotLow()
+    .requiresDeviceIdle(true)
+    .build()
 
-    val writeDataWork = PeriodicWorkRequestBuilder<WriteDataToHealthConnectWorker>(
-            15,
-            TimeUnit.MINUTES,
-            5,
-            TimeUnit.MINUTES
-        )
-        .setConstraints(constraints)
-        .build()
+val writeDataWork = PeriodicWorkRequestBuilder<WriteDataToHealthConnectWorker>(
+        15,
+        TimeUnit.MINUTES,
+        5,
+        TimeUnit.MINUTES
+    )
+    .setConstraints(constraints)
+    .build()
+```
 
 ### Active tracking
 

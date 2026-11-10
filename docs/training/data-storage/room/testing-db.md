@@ -4,7 +4,7 @@ url: https://developer.android.com/training/data-storage/room/testing-db
 source: md.txt
 ---
 
-When you create databases using the [Room persistence library](https://developer.android.com/training/data-storage/room), you
+When you create databases using the [Room persistence library](https://developer.android.com/training/data-storage/room.md.txt), you
 should verify the stability of your app's database and your users' data.
 This page describes how to test your database and perform debugging steps to
 help your tests pass.
@@ -20,10 +20,10 @@ There are two ways to test your database:
 > **Note:** We don't recommend Android local unit tests with Robolectric. Use local JVM tests using Room KMP instead.
 
 For information about testing that's specific to database migrations, see
-[Testing Migrations](https://developer.android.com/training/data-storage/room/migrating-db-versions#test).
+[Testing Migrations](https://developer.android.com/training/data-storage/room/migrating-db-versions.md.txt#test).
 
 > [!NOTE]
-> **Note:** When you run tests for your app, Room lets you create mock instances of your [data access object (DAO)](https://developer.android.com/training/data-storage/room/accessing-data) classes. That way, if you aren't testing the database itself, you don't need to create a full database because your DAOs don't leak any details of your database.
+> **Note:** When you run tests for your app, Room lets you create mock instances of your [data access object (DAO)](https://developer.android.com/training/data-storage/room/accessing-data.md.txt) classes. That way, if you aren't testing the database itself, you don't need to create a full database because your DAOs don't leak any details of your database.
 
 ### Test on a device that runs Android
 
@@ -97,10 +97,10 @@ val db = Room.inMemoryDatabaseBuilder<TestDatabase>()
 
 ### Test your migrations
 
-Room supports [incremental database migrations](https://developer.android.com/training/data-storage/room/migrating-db-versions) to retain existing app data
+Room supports [incremental database migrations](https://developer.android.com/training/data-storage/room/migrating-db-versions.md.txt) to retain existing app data
 in situations where an app update changes the database schema. However, an
 incorrectly defined migration could cause your app to crash. Make sure that you
-[test your Room database migrations](https://developer.android.com/training/data-storage/room/migrating-db-versions#test).
+[test your Room database migrations](https://developer.android.com/training/data-storage/room/migrating-db-versions.md.txt#test).
 
 ## Debug your database
 
@@ -113,11 +113,11 @@ query, and modify your app's databases while your app runs. The Database
 Inspector is compatible with the version of SQLite that is bundled with Android
 and includes special features for use with Room:
 
-- Use gutter actions to run queries from your [DAO classes](https://developer.android.com/training/data-storage/room/accessing-data).
+- Use gutter actions to run queries from your [DAO classes](https://developer.android.com/training/data-storage/room/accessing-data.md.txt).
 - When your running app makes changes to the data, you can immediately see live updates in the Database Inspector.
 
 For more information about the Database Inspector, see
-[Debug your database with the Database Inspector](https://developer.android.com/studio/inspect/database).
+[Debug your database with the Database Inspector](https://developer.android.com/studio/inspect/database.md.txt).
 
 ### Dump data from the command line
 

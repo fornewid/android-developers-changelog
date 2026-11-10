@@ -4,22 +4,22 @@ url: https://developer.android.com/develop/ui/compose/layouts/alignment-lines
 source: md.txt
 ---
 
-The Compose layout model lets you use [`AlignmentLine`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/AlignmentLine) to create custom
+The Compose layout model lets you use [`AlignmentLine`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/AlignmentLine.md.txt) to create custom
 alignment lines that can be used by parent layouts to align and position their
-children. For example, [`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)) can use its children's custom alignment lines
+children. For example, [`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable.md.txt#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)) can use its children's custom alignment lines
 to align them.
 
 When a layout provides a value for a particular `AlignmentLine`, the layout's
-parents can read this value after measuring, using the [`Placeable.get`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Placeable#get(androidx.compose.ui.layout.AlignmentLine))
-operator on the corresponding [`Placeable`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Placeable) instance. Based on the position
+parents can read this value after measuring, using the [`Placeable.get`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Placeable.md.txt#get(androidx.compose.ui.layout.AlignmentLine))
+operator on the corresponding [`Placeable`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Placeable.md.txt) instance. Based on the position
 of the `AlignmentLine`, the parents can then decide the positioning of the
 children.
 
 Some composables in Compose already come with alignment lines. For example, the
-[`BasicText`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicText.composable) composable exposes the `FirstBaseline` and `LastBaseline`
+[`BasicText`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicText.composable.md.txt) composable exposes the `FirstBaseline` and `LastBaseline`
 alignment lines.
 
-In the following example, a custom [`LayoutModifier`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/LayoutModifier) called
+In the following example, a custom [`LayoutModifier`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/LayoutModifier.md.txt) called
 `firstBaselineToTop` reads the `FirstBaseline` to add padding to the `Text`
 starting from its first baseline.
 ![Shows the difference between adding normal padding to an element,
@@ -61,17 +61,17 @@ In order to read the `FirstBaseline` in the example, `placeable [FirstBaseline]`
 is used in the measurement phase.
 
 > [!NOTE]
-> **Note:** The `firstBaselineToTop` modifier is shown for educational purposes. The Compose library provides a [`paddingFrom`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/paddingFrom.modifier#(androidx.compose.ui.Modifier).paddingFrom(androidx.compose.ui.layout.AlignmentLine,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) modifier that lets you specify padding relative to any alignment line defined in that layout.
+> **Note:** The `firstBaselineToTop` modifier is shown for educational purposes. The Compose library provides a [`paddingFrom`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/paddingFrom.modifier.md.txt#(androidx.compose.ui.Modifier).paddingFrom(androidx.compose.ui.layout.AlignmentLine,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) modifier that lets you specify padding relative to any alignment line defined in that layout.
 
 ## Create custom alignment lines
 
-When creating a custom [`Layout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Layout.composable#Layout(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.layout.MeasurePolicy)) composable or a custom
-[`LayoutModifier`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/LayoutModifier), you can provide custom alignment lines so that other
+When creating a custom [`Layout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Layout.composable.md.txt#Layout(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.layout.MeasurePolicy)) composable or a custom
+[`LayoutModifier`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/LayoutModifier.md.txt), you can provide custom alignment lines so that other
 parent composables can use them to align and position their children
 accordingly.
 
 > [!NOTE]
-> **Note:** If you want to learn more about creating custom [`Layout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Layout.composable#Layout(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.layout.MeasurePolicy)) composables and layout modifiers, check out the [Custom layouts](https://developer.android.com/develop/ui/compose/layouts/custom) documentation.
+> **Note:** If you want to learn more about creating custom [`Layout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Layout.composable.md.txt#Layout(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.layout.MeasurePolicy)) composables and layout modifiers, check out the [Custom layouts](https://developer.android.com/develop/ui/compose/layouts/custom.md.txt) documentation.
 
 The following example shows a custom `BarChart` composable that exposes two
 alignment lines, `MaxChartValue` and `MinChartValue`, so that other composables
@@ -102,17 +102,17 @@ private val MinChartValue = HorizontalAlignmentLine(merger = { old, new ->
 <br />
 
 The custom alignment lines to create our example are of type
-[`HorizontalAlignmentLine`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/HorizontalAlignmentLine), as
+[`HorizontalAlignmentLine`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/HorizontalAlignmentLine.md.txt), as
 they're used to align children vertically. A merge policy is passed as a
 parameter in case multiple layouts provide a value for these alignment lines. As
-the Compose layout system coordinates and the [`Canvas`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Canvas.composable)
+the Compose layout system coordinates and the [`Canvas`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Canvas.composable.md.txt)
 coordinates represent `[0, 0]`, the top left corner and the `x` and `y` axis are
 positive downwards, so the `MaxChartValue` value will always be smaller than
 `MinChartValue`. Therefore, the merge policy is `min` for the maximum chart
 data value baseline, and `max` for the minimum chart data value baseline.
 
 When creating a custom `Layout` or `LayoutModifier`, specify custom alignment
-lines in the [`MeasureScope.layout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/MeasureScope#layout(kotlin.Int,kotlin.Int,kotlin.collections.Map,kotlin.Function1)) method, which takes an
+lines in the [`MeasureScope.layout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/MeasureScope.md.txt#layout(kotlin.Int,kotlin.Int,kotlin.collections.Map,kotlin.Function1)) method, which takes an
 `alignmentLines: Map<AlignmentLine, Int>` parameter.
 
 
@@ -228,6 +228,6 @@ private fun ChartDataPreview() {
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Graphics in Compose](https://developer.android.com/develop/ui/compose/graphics/draw/overview)
-- [Custom layouts {:#custom-layouts }](https://developer.android.com/develop/ui/compose/layouts/custom)
-- [Intrinsic measurements in Compose layouts](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements)
+- [Graphics in Compose](https://developer.android.com/develop/ui/compose/graphics/draw/overview.md.txt)
+- [Custom layouts {:#custom-layouts }](https://developer.android.com/develop/ui/compose/layouts/custom.md.txt)
+- [Intrinsic measurements in Compose layouts](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements.md.txt)

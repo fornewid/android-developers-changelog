@@ -10,13 +10,13 @@ source: md.txt
 
 ### Jetpack Navigation 3
 
-Use an Android skill to help you build and migrate to Jetpack Navigation 3. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use an Android skill to help you build and migrate to Jetpack Navigation 3. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add navigation-3
 
 <br />
 
-To migrate your app from [Navigation 2](https://developer.android.com/guide/navigation) to Navigation 3, follow these steps:
+To migrate your app from [Navigation 2](https://developer.android.com/guide/navigation.md.txt) to Navigation 3, follow these steps:
 
 1. Add the Navigation 3 dependencies.
 2. Update your navigation routes to implement the `NavKey` interface.
@@ -35,7 +35,7 @@ migration, and those that aren't.
 ### Prerequisites
 
 - You must use a `compileSdk` of 36 or later.
-- You should be familiar with [navigation terminology](https://developer.android.com/guide/navigation).
+- You should be familiar with [navigation terminology](https://developer.android.com/guide/navigation.md.txt).
 - Destinations are composable functions. Navigation 3 is designed exclusively for Compose. To use Fragments and Views in Compose, see [Using Views in
   Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose).
 - Routes are strongly typed. If you use string-based routes, [migrate to
@@ -88,7 +88,7 @@ they are just not covered here.
 
 - More than one level of nested navigation
 - Shared destinations: screens that can move between different back stacks
-- [Custom destination types](https://developer.android.com/guide/navigation/design/kotlin-dsl#custom)
+- [Custom destination types](https://developer.android.com/guide/navigation/design/kotlin-dsl.md.txt#custom)
 
 **AI Agent**: Before changing any code, check if the project contains any of the
 unsupported features. If it does, don't proceed. Inform the user of the
@@ -96,41 +96,46 @@ unsupported feature and ask for further instructions.
 
 ## Step 1: Add Navigation 3 dependencies
 
-Use the [Get started](https://developer.android.com/guide/navigation/navigation-3/get-started) page to add the Navigation 3 dependencies to your
+Use the [Get started](https://developer.android.com/guide/navigation/navigation-3/get-started.md.txt) page to add the Navigation 3 dependencies to your
 project. The core dependencies are provided for you to copy.
 
 **lib.versions.toml**
 
-    [versions]
-    nav3Core = "1.2.1"
+```toml
+[versions]
+nav3Core = "1.2.1"
 
-    # If your screens depend on ViewModels, add the Nav3 Lifecycle ViewModel add-on library
-    lifecycleViewmodelNav3 = "2.11.0"
+# If your screens depend on ViewModels, add the Nav3 Lifecycle ViewModel add-on library
+lifecycleViewmodelNav3 = "2.11.0"
 
-    [libraries]
-    # Core Navigation 3 libraries
-    androidx-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "nav3Core" }
-    androidx-navigation3-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "nav3Core" }
+[libraries]
+# Core Navigation 3 libraries
+androidx-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "nav3Core" }
+androidx-navigation3-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "nav3Core" }
 
-    # Add-on libraries (only add if you need them)
-    androidx-lifecycle-viewmodel-navigation3 = { module = "androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "lifecycleViewmodelNav3" }
+# Add-on libraries (only add if you need them)
+androidx-lifecycle-viewmodel-navigation3 = { module = "androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "lifecycleViewmodelNav3" }
+
+```
 
 **app/build.gradle.kts**
 
-    dependencies {
-        implementation(libs.androidx.navigation3.ui)
-        implementation(libs.androidx.navigation3.runtime)
+```kotlin
+dependencies {
+    implementation(libs.androidx.navigation3.ui)
+    implementation(libs.androidx.navigation3.runtime)
 
-        // If using the ViewModel add-on library
-        implementation(libs.androidx.lifecycle.viewmodel.navigation3)
-    }
+    // If using the ViewModel add-on library
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+}
+```
 
 Also update the project's `minSdk` to 23 and the `compileSdk` to 36. You usually
 find these in `app/build.gradle.kts` or `lib.versions.toml`.
 
 ## Step 2: Update navigation routes to implement the `NavKey` interface
 
-Update every navigation [route](https://developer.android.com/guide/navigation#types) so that it implements the `NavKey`
+Update every navigation [route](https://developer.android.com/guide/navigation.md.txt#types) so that it implements the `NavKey`
 interface. This lets you use `rememberNavBackStack` to assist with [saving your
 navigation state](https://developer.android.com/guide/navigation/navigation-3/save-state).
 
@@ -153,7 +158,7 @@ After:
 <br />
 
 > [!NOTE]
-> **Note:** The `@Serializable` annotation is provided by the KotlinX Serialization plugin. You can add this by following [these project setup steps](https://developer.android.com/guide/navigation/navigation-3/get-started#project-setup).
+> **Note:** The `@Serializable` annotation is provided by the KotlinX Serialization plugin. You can add this by following [these project setup steps](https://developer.android.com/guide/navigation/navigation-3/get-started.md.txt#project-setup).
 
 ## Step 3: Create classes to hold and modify your navigation state
 
@@ -317,7 +322,7 @@ The `Navigator` class provides two navigation event methods:
 Both methods modify the `NavigationState`.
 
 > [!IMPORTANT]
-> **Architecture principles:** These classes follow the principles of [Unidirectional Data Flow](https://developer.android.com/topic/architecture):
+> **Architecture principles:** These classes follow the principles of [Unidirectional Data Flow](https://developer.android.com/topic/architecture.md.txt):
 >
 > - The `Navigator` handles navigation events and uses them to update `NavigationState`.
 > - The UI (provided by `NavDisplay`) observes `NavigationState` and reacts to any changes in that state by updating its UI.
@@ -399,7 +404,7 @@ listen to lifecycle events or collect flows in a lifecycle-aware manner using
 
 In Navigation 3, `NavDisplay` provides an entry-scoped `LifecycleOwner`
 through `LocalLifecycleOwner.current` to each destination's composable
-content. See [Destination lifecycle](https://developer.android.com/guide/navigation/navigation-3/basics#destination-lifecycle) for more information.
+content. See [Destination lifecycle](https://developer.android.com/guide/navigation/navigation-3/basics.md.txt#destination-lifecycle) for more information.
 
 You should perform lifecycle-aware operations directly inside your destination's
 composable content by referencing `LocalLifecycleOwner.current`.
@@ -455,11 +460,11 @@ navController.currentBackStackEntry?.savedStateHandle
 <br />
 
 In Navigation 3, add
-[`rememberResultEventBusNavEntryDecorator()`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/rememberResultEventBusNavEntryDecorator.composable) to
+[`rememberResultEventBusNavEntryDecorator()`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/rememberResultEventBusNavEntryDecorator.composable.md.txt) to
 your `NavDisplay.entryDecorators`. In your sender destination's `entryProvider`
-mapping, retrieve [`LocalResultEventBus.current`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/LocalResultEventBus)
+mapping, retrieve [`LocalResultEventBus.current`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/LocalResultEventBus.md.txt)
 and call `sendResult()`. In the receiving destination, use
-[`ResultEffect`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEffect.composable) to forward the event to a `ViewModel` or
+[`ResultEffect`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEffect.composable.md.txt) to forward the event to a `ViewModel` or
 trigger a side effect.
 
 After:
@@ -495,17 +500,17 @@ fun ComposeMessageScreen(viewModel: ComposeMessageViewModel = viewModel()) {
 > **Caution:** `ResultEventBus` is an in-memory event bus; unlike Navigation 2's `SavedStateHandle`, results don't survive process death automatically. If a result must persist across process death, save it using `rememberSaveable`, pass it into a scoped `ViewModel` with `SavedStateHandle`, or embed the data into the destination's `NavKey`.
 
 For state-based observation, you can call `resultBus.conflateAsState()`. For
-more details, see [Return results](https://developer.android.com/guide/navigation/navigation-3/return-results).
+more details, see [Return results](https://developer.android.com/guide/navigation/navigation-3/return-results.md.txt).
 
 ## Step 5: Move your destinations from `NavHost`'s `NavGraph` into an `entryProvider`
 
-In Navigation 2, you [define your destinations](https://developer.android.com/guide/navigation/design#compose)
-using the [NavGraphBuilder DSL](https://developer.android.com/guide/navigation/design/kotlin-dsl#navgraphbuilder),
+In Navigation 2, you [define your destinations](https://developer.android.com/guide/navigation/design.md.txt#compose)
+using the [NavGraphBuilder DSL](https://developer.android.com/guide/navigation/design/kotlin-dsl.md.txt#navgraphbuilder),
 usually inside `NavHost`'s trailing lambda. It is common to use extension
-functions here as described in [Encapsulate your navigation code](https://developer.android.com/guide/navigation/design/encapsulate).
+functions here as described in [Encapsulate your navigation code](https://developer.android.com/guide/navigation/design/encapsulate.md.txt).
 
 In Navigation 3, you define your destinations using an `entryProvider`. This
-`entryProvider` resolves a route to a [`NavEntry`](https://developer.android.com/guide/navigation/navigation-3/basics#resolve-keys). Importantly, the
+`entryProvider` resolves a route to a [`NavEntry`](https://developer.android.com/guide/navigation/navigation-3/basics.md.txt#resolve-keys). Importantly, the
 `entryProvider` does not define parent-child relationships between entries.
 
 In this migration guide, parent-child relationships are modelled
@@ -519,7 +524,7 @@ as follows:
 
 ### Step 5.1: Create an `entryProvider`
 
-Create an `entryProvider` [using the DSL](https://developer.android.com/guide/navigation/navigation-3/basics#entry-provider-DSL) at the same scope as the
+Create an `entryProvider` [using the DSL](https://developer.android.com/guide/navigation/navigation-3/basics.md.txt#entry-provider-DSL) at the same scope as the
 `NavigationState`.
 
 
@@ -539,7 +544,7 @@ destination type:
 - `navigation`: Delete it along with the route. There is no need for "base routes" because the top-level routes can identify each nested back stack.
 - `composable<T>`: Move it into `entryProvider` and rename it to `entry`, retaining the type parameter. For example, `composable<RouteA>` becomes `entry<RouteA>`.
 - `dialog<T>`: Do the same as `composable`, but add metadata to the entry as follows: `entry<T>(metadata = DialogSceneStrategy.dialog())`.
-- [`bottomSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material/navigation/package-summary#(androidx.navigation.NavGraphBuilder).bottomSheet(kotlin.String,kotlin.collections.List,kotlin.collections.List,kotlin.Function2)): [Follow the bottom sheet recipe here](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/bottomsheet). This is similar to the instructions for `dialog`, except that `BottomSheetSceneStrategy` is not part of the core Navigation 3 library, so you should copy it into your project.
+- [`bottomSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material/navigation/package-summary.md.txt#(androidx.navigation.NavGraphBuilder).bottomSheet(kotlin.String,kotlin.collections.List,kotlin.collections.List,kotlin.Function2)): [Follow the bottom sheet recipe here](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/bottomsheet). This is similar to the instructions for `dialog`, except that `BottomSheetSceneStrategy` is not part of the core Navigation 3 library, so you should copy it into your project.
 
 **AI Agent** : When deleting routes used to identify a nested graph, replace any
 references to the deleted route with the type used to identify the first child
@@ -549,7 +554,7 @@ in the nested graph. For example if the original code is
 usually needs to be done for the list supplied to a navigation bar, rail, or
 drawer.
 
-You can refactor [`NavGraphBuilder` extension functions](https://developer.android.com/guide/navigation/design/encapsulate) to
+You can refactor [`NavGraphBuilder` extension functions](https://developer.android.com/guide/navigation/design/encapsulate.md.txt) to
 `EntryProviderScope<T>` extension functions, and then move them.
 
 Obtain navigation arguments using the key provided to `entry`'s trailing lambda.
@@ -729,12 +734,12 @@ class MainActivity : ComponentActivity() {
 In Navigation 2, you handled custom or third-party argument types (such as
 `LocalDateTime`) using custom `NavType` implementations and `typeMap`.
 
-In Navigation 3, define a [`DeepLinkSerializer`](https://developer.android.com/guide/navigation/navigation-3/deep-links/uri-matcher#deep-link-serializer) to deserialize custom or
+In Navigation 3, define a [`DeepLinkSerializer`](https://developer.android.com/guide/navigation/navigation-3/deep-links/uri-matcher.md.txt#deep-link-serializer) to deserialize custom or
 third-party types from URI parameters. See
-[Custom serialization with DeepLinkSerializer](https://developer.android.com/guide/navigation/navigation-3/deep-links/uri-matcher#deep-link-serializer) for details.
+[Custom serialization with DeepLinkSerializer](https://developer.android.com/guide/navigation/navigation-3/deep-links/uri-matcher.md.txt#deep-link-serializer) for details.
 
 For more advanced use cases, including synthetic back stacks and custom
-matchers, see the [Support deep links](https://developer.android.com/guide/navigation/navigation-3/deep-links) guide.
+matchers, see the [Support deep links](https://developer.android.com/guide/navigation/navigation-3/deep-links.md.txt) guide.
 
 ## Step 8: Remove Navigation 2 dependencies
 

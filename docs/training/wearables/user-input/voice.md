@@ -27,10 +27,10 @@ Call the system's built-in Speech Recognizer activity to get speech input from u
 input to send messages or perform searches.
 
 
-In your app, call `https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)`
-using the `https://developer.android.com/reference/android/speech/RecognizerIntent#ACTION_RECOGNIZE_SPEECH`
+In your app, call `startActivityForResult()`
+using the `ACTION_RECOGNIZE_SPEECH`
 action. This starts the speech recognition activity, and you can then handle the result in
-`https://developer.android.com/reference/android/app/Activity#onActivityResult(int, int, android.content.Intent)`.
+`onActivityResult()`.
 
 
 The following code sample shows how to start and handle a speech recognition activity.

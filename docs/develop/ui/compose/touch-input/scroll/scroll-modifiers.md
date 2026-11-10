@@ -9,9 +9,9 @@ source: md.txt
 > documentation](https://developer.android.com/develop/ui/compose/lists) for more information.
 
 The
-[`verticalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean))
+[`verticalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier.md.txt#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean))
 and
-[`horizontalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/horizontalScroll.modifier#(androidx.compose.ui.Modifier).horizontalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean))
+[`horizontalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/horizontalScroll.modifier.md.txt#(androidx.compose.ui.Modifier).horizontalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean))
 modifiers provide the simplest way to allow the user to scroll an element when
 the bounds of its contents are larger than its maximum size constraints. With
 the `verticalScroll` and `horizontalScroll` modifiers you don't need to
@@ -39,10 +39,10 @@ private fun ScrollBoxes() {
 ![A simple vertical list responding to scroll
 gestures](https://developer.android.com/static/develop/ui/compose/images/gestures-simplescroll.gif) **Figure 1.** A simple vertical list responding to scroll gestures.
 
-The [`ScrollState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/ScrollState)
+The [`ScrollState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/ScrollState.md.txt)
 lets you change the scroll position or get its current state. To create it
 with default parameters, use
-[`rememberScrollState()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/rememberScrollState.composable#rememberScrollState(kotlin.Int)).
+[`rememberScrollState()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/rememberScrollState.composable.md.txt#rememberScrollState(kotlin.Int)).
 
 
 ```kotlin
@@ -70,14 +70,14 @@ private fun ScrollBoxesSmooth() {
 
 ## Scrollable area modifier
 
-The [`scrollableArea`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/scrollableArea.modifier#(androidx.compose.ui.Modifier).scrollableArea(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.foundation.gestures.BringIntoViewSpec)) modifier is a fundamental building block for creating
+The [`scrollableArea`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/scrollableArea.modifier.md.txt#(androidx.compose.ui.Modifier).scrollableArea(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.foundation.gestures.BringIntoViewSpec)) modifier is a fundamental building block for creating
 custom scrollable containers. It provides a higher-level abstraction over the
-[`scrollable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/scrollable.modifier#(androidx.compose.ui.Modifier).scrollable(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource)) modifier, handling common requirements like gesture delta
+[`scrollable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/scrollable.modifier.md.txt#(androidx.compose.ui.Modifier).scrollable(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource)) modifier, handling common requirements like gesture delta
 interpretation, content clipping, and overscroll effects.
 
 While `scrollableArea` is used for custom implementations, you should generally
-prefer ready-made solutions like [`verticalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)), [`horizontalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/horizontalScroll.modifier#(androidx.compose.ui.Modifier).horizontalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)),
-or composables like [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) for standard scrolling lists. These
+prefer ready-made solutions like [`verticalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier.md.txt#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)), [`horizontalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/horizontalScroll.modifier.md.txt#(androidx.compose.ui.Modifier).horizontalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)),
+or composables like [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) for standard scrolling lists. These
 higher-level components are simpler for common use cases and are themselves
 built by using `scrollableArea`.
 
@@ -113,8 +113,8 @@ The following table summarizes the delta signs for common scenarios:
 In addition to inverting the scroll delta, `scrollableArea` also clips the
 content to the bounds of the layout and handles the rendering of overscroll
 effects. By default, it uses the effect provided by `LocalOverscrollFactory`.
-You can customize or disable this by using the [`scrollableArea`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/scrollableArea.modifier#(androidx.compose.ui.Modifier).scrollableArea(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.foundation.gestures.BringIntoViewSpec)) overload
-that accepts an [`OverscrollEffect`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/OverscrollEffect) parameter.
+You can customize or disable this by using the [`scrollableArea`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/scrollableArea.modifier.md.txt#(androidx.compose.ui.Modifier).scrollableArea(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.foundation.gestures.BringIntoViewSpec)) overload
+that accepts an [`OverscrollEffect`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/OverscrollEffect.md.txt) parameter.
 
 ### When to use `scrollableArea` modifier
 
@@ -187,14 +187,14 @@ private fun ScrollableAreaSample() {
 ## Scrollable modifier
 
 > [!NOTE]
-> **Note:** `scrollable` is a low level modifier that handles low level scrolling input gestures, without other behaviors commonly used for scrollable containers. For building scrollable containers, see [`androidx.compose.foundation.scrollableArea`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/scrollableArea.modifier#(androidx.compose.ui.Modifier).scrollableArea(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.foundation.gestures.BringIntoViewSpec)). `scrollableArea` clips its content to its bounds, renders overscroll, and adjusts the direction of scroll gestures to verify that the content moves with the user's gestures.
+> **Note:** `scrollable` is a low level modifier that handles low level scrolling input gestures, without other behaviors commonly used for scrollable containers. For building scrollable containers, see [`androidx.compose.foundation.scrollableArea`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/scrollableArea.modifier.md.txt#(androidx.compose.ui.Modifier).scrollableArea(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.foundation.gestures.BringIntoViewSpec)). `scrollableArea` clips its content to its bounds, renders overscroll, and adjusts the direction of scroll gestures to verify that the content moves with the user's gestures.
 
 The
-[`scrollable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/scrollable.modifier#(androidx.compose.ui.Modifier).scrollable(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource))
+[`scrollable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/scrollable.modifier.md.txt#(androidx.compose.ui.Modifier).scrollable(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource))
 modifier differs from the scroll modifiers in that `scrollable` detects the
 scroll gestures and captures the deltas, but does not offset its contents
 automatically. This is instead delegated to the user through
-[`ScrollableState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/ScrollableState)
+[`ScrollableState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/ScrollableState.md.txt)
 , which is required for this modifier to work correctly.
 
 When constructing `ScrollableState` you must provide a `consumeScrollDelta`
@@ -243,6 +243,6 @@ private fun ScrollableSample() {
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures)
-- [Migrate `CoordinatorLayout` to Compose](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/coordinator-layout)
-- [Using Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose)
+- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures.md.txt)
+- [Migrate `CoordinatorLayout` to Compose](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/coordinator-layout.md.txt)
+- [Using Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose.md.txt)

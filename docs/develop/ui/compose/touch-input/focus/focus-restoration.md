@@ -17,9 +17,9 @@ when focus re-enters the container.
 
 ## Restore focus in scrollable containers
 
-In Jetpack Compose, scrollable containers such as [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)), [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#LazyRow(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)),
-and [`LazyVerticalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/package-summary#LazyVerticalGrid(androidx.compose.foundation.lazy.grid.GridCells,androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.grid.LazyGridState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) automatically act as focus groups. To enable focus
-restoration on a lazy list or grid, attach the [`focusRestorer`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary#(androidx.compose.ui.Modifier).focusRestorer(kotlin.Function0)) modifier:
+In Jetpack Compose, scrollable containers such as [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary.md.txt#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)), [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary.md.txt#LazyRow(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)),
+and [`LazyVerticalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/package-summary.md.txt#LazyVerticalGrid(androidx.compose.foundation.lazy.grid.GridCells,androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.grid.LazyGridState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) automatically act as focus groups. To enable focus
+restoration on a lazy list or grid, attach the [`focusRestorer`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary.md.txt#(androidx.compose.ui.Modifier).focusRestorer(kotlin.Function0)) modifier:
 
 
 ```kotlin
@@ -43,11 +43,11 @@ instead of restarting at the top.
 ## Restore focus in Row and Column
 
 Unlike lazy layout containers, standard non-scrollable layout containers such
-as [`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)) and [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) don't establish a focus boundary by default.
+as [`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)) and [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) don't establish a focus boundary by default.
 Because they don't intercept focus entry events on their own,
 applying the `focusRestorer` modifier alone is not sufficient.
 
-To enable focus restoration on `Row` or `Column`, combine [`focusGroup`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).focusGroup()) with
+To enable focus restoration on `Row` or `Column`, combine [`focusGroup`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).focusGroup()) with
 `focusRestorer`:
 
 
@@ -78,7 +78,7 @@ no previously focused child exists.
 Compose follows the default focus order to determine which child to focuses.
 
 You can customize which child receives focus on the first entry by passing a
-fallback [`FocusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester) to `focusRestorer` (or a lambda returning a
+fallback [`FocusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester.md.txt) to `focusRestorer` (or a lambda returning a
 `FocusRequester` on earlier Compose versions):
 
 
@@ -111,13 +111,13 @@ Compose moves focus to the associated fallback target.
 
 ## Direct focus to the selected item in navigation components
 
-In navigation components such as [`NavigationRail`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#NavigationRail(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)), [`NavigationBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#NavigationBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)),
-[`NavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0)), or [`TabRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#TabRow(kotlin.Int,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,kotlin.Function0,kotlin.Function0)), users expect focus to land on the
+In navigation components such as [`NavigationRail`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#NavigationRail(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)), [`NavigationBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#NavigationBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)),
+[`NavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0)), or [`TabRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#TabRow(kotlin.Int,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,kotlin.Function0,kotlin.Function0)), users expect focus to land on the
 currently selected destination when entering the component from the content
 area.
 
 You can direct focus to the active destination by combining
-`Modifier.focusGroup()` with [`focusProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusProperties) and setting the [`onEnter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusProperties#onEnter())
+`Modifier.focusGroup()` with [`focusProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusProperties.md.txt) and setting the [`onEnter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusProperties.md.txt#onEnter())
 property (or `enter` on earlier Compose versions):
 
 
@@ -174,14 +174,14 @@ they clicked.
 To preserve and restore focus across screen transitions:
 
 1. Associate the container with a `FocusRequester`.
-2. Before triggering the navigation event, call [`saveFocusedChild()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester#saveFocusedChild()) on the container's `FocusRequester`.
-3. When the user navigates back to the screen, request initial focus on the container or call [`restoreFocusedChild()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester#restoreFocusedChild()).
+2. Before triggering the navigation event, call [`saveFocusedChild()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester.md.txt#saveFocusedChild()) on the container's `FocusRequester`.
+3. When the user navigates back to the screen, request initial focus on the container or call [`restoreFocusedChild()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester.md.txt#restoreFocusedChild()).
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-target)
-- [Focus traversal order](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-traversal)
-- [Group focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-group)
-- [Programmatically request focus](https://developer.android.com/develop/ui/compose/touch-input/focus/request-focus)
-- [Move and clear focus](https://developer.android.com/develop/ui/compose/touch-input/focus/move-focus)
+- [Focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-target.md.txt)
+- [Focus traversal order](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-traversal.md.txt)
+- [Group focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-group.md.txt)
+- [Programmatically request focus](https://developer.android.com/develop/ui/compose/touch-input/focus/request-focus.md.txt)
+- [Move and clear focus](https://developer.android.com/develop/ui/compose/touch-input/focus/move-focus.md.txt)

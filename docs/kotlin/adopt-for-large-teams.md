@@ -60,50 +60,52 @@ them in isolation.
 
 For example, assume the following snippet of Java:
 
-    public class Person {
+```java
+public class Person {
 
-       private String firstName;
-       private String lastName;
-       // ...
+   private String firstName;
+   private String lastName;
+   // ...
 
-       public String getFirstName() {
-           return firstName;
-       }
+   public String getFirstName() {
+       return firstName;
+   }
 
-       public void setFirstName(String firstName) {
-           this.firstName = firstName;
-       }
+   public void setFirstName(String firstName) {
+       this.firstName = firstName;
+   }
 
-       public String getLastName() {
-           return lastName;
-       }
+   public String getLastName() {
+       return lastName;
+   }
 
-       public void setLastName(String lastName) {
-           this.lastName = lastName;
-       }
+   public void setLastName(String lastName) {
+       this.lastName = lastName;
+   }
 
-       @Override
-       public boolean equals(Object o) {
-           if (this == o) return true;
-           if (o == null || getClass() != o.getClass()) return false;
-           Person person = (Person) o;
-           return Objects.equals(firstName, person.firstName) &&
-                   Objects.equals(lastName, person.lastName);
-       }
+   @Override
+   public boolean equals(Object o) {
+       if (this == o) return true;
+       if (o == null || getClass() != o.getClass()) return false;
+       Person person = (Person) o;
+       return Objects.equals(firstName, person.firstName) &&
+               Objects.equals(lastName, person.lastName);
+   }
 
-       @Override
-       public int hashCode() {
-           return Objects.hash(firstName, lastName);
-       }
+   @Override
+   public int hashCode() {
+       return Objects.hash(firstName, lastName);
+   }
 
-       @Override
-       public String toString() {
-           return "Person{" +
-                   "firstName='" + firstName + '\'' +
-                   ", lastName='" + lastName + '\'' +
-                   '}';
-       }
-    }
+   @Override
+   public String toString() {
+       return "Person{" +
+               "firstName='" + firstName + '\'' +
+               ", lastName='" + lastName + '\'' +
+               '}';
+   }
+}
+```
 
 You can replace the Java class with a single line of Kotlin, as shown in the
 following example:
@@ -134,29 +136,33 @@ and use them from your existing Java codebase.
 
 For example, consider you have a `StringUtils` class with a few methods:
 
-    package com.java.project;
+```java
+package com.java.project;
 
-    public class StringUtils {
+public class StringUtils {
 
-       public static String foo(String receiver) {
-           return receiver...;  // Transform the receiver in some way
-       }
+   public static String foo(String receiver) {
+       return receiver...;  // Transform the receiver in some way
+   }
 
-       public static String bar(String receiver) {
-           return receiver...;  // Transform the receiver in some way
-       }
+   public static String bar(String receiver) {
+       return receiver...;  // Transform the receiver in some way
+   }
 
-    }
+}
+```
 
 These methods might then be used elsewhere in your app, as shown in the
 following example:
 
-    ...
+```java
+...
 
-    String myString = ...
-    String fooString = StringUtils.foo(myString);
+String myString = ...
+String fooString = StringUtils.foo(myString);
 
-    ...
+...
+```
 
 Using Kotlin extension functions, you can provide the same `Utils` interface to
 Java callers while also offering a more succinct API for your growing Kotlin
@@ -166,54 +172,62 @@ To do this, you could start by converting this `Utils` class to Kotlin using the
 automatic conversion provided by the IDE. Example output might look similar to
 the following:
 
-    package com.java.project
+```kotlin
+package com.java.project
 
-    object StringUtils {
+object StringUtils {
 
-       fun foo(receiver: String): String {
-           return receiver...;  // Transform the receiver in some way
-       }
+   fun foo(receiver: String): String {
+       return receiver...;  // Transform the receiver in some way
+   }
 
-       fun bar(receiver: String): String {
-           return receiver...;  // Transform the receiver in some way
-       }
+   fun bar(receiver: String): String {
+       return receiver...;  // Transform the receiver in some way
+   }
 
-    }
+}
+```
 
 Next, remove the class or object definition, prefix each function name with the
 type on which this function should apply, and use this to reference the type
 inside the function, as shown in the following example:
 
-    package com.java.project
+```kotlin
+package com.java.project
 
-    fun String.foo(): String {
-        return this...;  // Transform the receiver in some way
-    }
+fun String.foo(): String {
+    return this...;  // Transform the receiver in some way
+}
 
-    fun String.bar(): String {
-        return this...;  // Transform the receiver in some way
-    }
+fun String.bar(): String {
+    return this...;  // Transform the receiver in some way
+}
+```
 
 Finally, add a `JvmName` annotation to the top of the source file to make the
 compiled name compatible with the rest of your app, as shown in the following
 example:
 
-    @file:JvmName("StringUtils")
-    package com.java.project
-    ...
+```kotlin
+@file:JvmName("StringUtils")
+package com.java.project
+...
+```
 
 The final version should look similar to the following:
 
-    @file:JvmName("StringUtils")
-    package com.java.project
+```kotlin
+@file:JvmName("StringUtils")
+package com.java.project
 
-    fun String.foo(): String {
-        return this...;  // Transform `this` string in some way
-    }
+fun String.foo(): String {
+    return this...;  // Transform `this` string in some way
+}
 
-    fun String.bar(): String {
-        return this...;  // Transform `this` string in some way
-    }
+fun String.bar(): String {
+    return this...;  // Transform `this` string in some way
+}
+```
 
 Note that these functions can now be called using Java or Kotlin with
 conventions that match each language.
@@ -259,12 +273,12 @@ grows:
 
 Be sure to define a standard set of coding conventions early on in your adoption
 process. You can diverge from the Android
-[Kotlin style guide](https://developer.android.com/kotlin/style-guide) where it makes sense.
+[Kotlin style guide](https://developer.android.com/kotlin/style-guide.md.txt) where it makes sense.
 
 ### Static analysis tools
 
 Enforce the coding standards set for your team by using
-[Android lint](https://developer.android.com/studio/write/lint) and other static analysis tools.
+[Android lint](https://developer.android.com/studio/write/lint.md.txt) and other static analysis tools.
 [ktlint](https://github.com/ktlint/ktlint), a third-party Kotlin
 linter, also provides additional rules for Kotlin.
 
@@ -358,7 +372,7 @@ with both unit and instrumented tests.
 
 For more information about using Kotlin, see the following links:
 
-- [Android's Kotlin-first approach](https://developer.android.com/kotlin/first)
-- [Resources for getting started with Kotlin](https://developer.android.com/kotlin/getting-started-resources)
-- [Resources for Java users learning Kotlin](https://developer.android.com/kotlin/kotlin-java-resources)
+- [Android's Kotlin-first approach](https://developer.android.com/kotlin/first.md.txt)
+- [Resources for getting started with Kotlin](https://developer.android.com/kotlin/getting-started-resources.md.txt)
+- [Resources for Java users learning Kotlin](https://developer.android.com/kotlin/kotlin-java-resources.md.txt)
 - [Java to Kotlin learning pathway](https://developer.android.com/kotlin/campaign/learn), a collection of resources that help Java programmers learn and write idiomatic Kotlin.

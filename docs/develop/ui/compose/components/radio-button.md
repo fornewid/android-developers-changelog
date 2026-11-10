@@ -12,7 +12,7 @@ instead.
 
 ## API surface
 
-Use the [`RadioButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/RadioButton.composable#RadioButton(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.RadioButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource)) composable to list the available options. Wrap each
+Use the [`RadioButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/RadioButton.composable.md.txt#RadioButton(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.RadioButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource)) composable to list the available options. Wrap each
 `RadioButton` option and its label inside a `Row` component to group them
 together.
 
@@ -70,8 +70,8 @@ fun RadioButtonSingleSelection(modifier: Modifier = Modifier) {
 - `radioOptions` represents the labels for the radio buttons.
 - The `remember` composable function creates a state variable `selectedOption` and a function to update that state called `onOptionSelected`. This state holds the selected radio button option.
   - `mutableStateOf(radioOptions[0])` initializes the state to the first item in the list. "Calls" is the first item, so it's the radio button selected by default.
-- [`Modifier.selectableGroup()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).selectableGroup()) ensures proper accessibility behavior for screen readers. It informs the system that the elements within this `Column` are part of a selectable group, which enables proper screen reader support.
-- [`Modifier.selectable()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).selectable(kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.semantics.Role,kotlin.Function0)) makes the entire `Row` act as a single selectable item.
+- [`Modifier.selectableGroup()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).selectableGroup()) ensures proper accessibility behavior for screen readers. It informs the system that the elements within this `Column` are part of a selectable group, which enables proper screen reader support.
+- [`Modifier.selectable()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).selectable(kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.semantics.Role,kotlin.Function0)) makes the entire `Row` act as a single selectable item.
   - `selected` indicates whether the current `Row` is selected based on the `selectedOption` state.
   - The `onClick` lambda function updates the `selectedOption` state to the clicked option when the `Row` is clicked.
   - `role = Role.RadioButton` informs accessibility services that the `Row` functions as a radio button.

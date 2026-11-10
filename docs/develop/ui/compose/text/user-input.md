@@ -5,9 +5,9 @@ source: md.txt
 ---
 
 > [!CAUTION]
-> **Caution:** [Value-based text fields](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable#BasicTextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.ui.text.input.VisualTransformation,kotlin.Function1,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,kotlin.Function1)) are deprecated. To migrate to the recommended state-based text fields, see [Migrate to state-based text fields](https://developer.android.com/develop/ui/compose/text/migrate-state-based).
+> **Caution:** [Value-based text fields](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable.md.txt#BasicTextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.ui.text.input.VisualTransformation,kotlin.Function1,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,kotlin.Function1)) are deprecated. To migrate to the recommended state-based text fields, see [Migrate to state-based text fields](https://developer.android.com/develop/ui/compose/text/migrate-state-based.md.txt).
 
-[`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable#TextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)) allows users to enter and modify text. This page describes how
+[`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable.md.txt#TextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)) allows users to enter and modify text. This page describes how
 you can implement `TextField`, style `TextField` input, and configure
 other `TextField` options, like keyboard options and visually transforming
 user input.
@@ -20,7 +20,7 @@ There are two levels of `TextField` implementation:
    guidelines](https://material.io/components/text-fields):
    - Default styling is [filled](https://material.io/components/text-fields#filled-text-field)
    - `OutlinedTextField` is the [outlined](https://material.io/components/text-fields#outlined-text-field) styling version
-2. [`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable#TextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)) enables users to edit text using the hardware or software keyboard, but provides no decorations like hint or placeholder.
+2. [`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable.md.txt#TextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)) enables users to edit text using the hardware or software keyboard, but provides no decorations like hint or placeholder.
 
 
 ```kotlin
@@ -126,17 +126,17 @@ The `MultiLine` configuration has the following characteristics:
 
 ## Style input with Brush API
 
-You can use the [Brush API](https://developer.android.com/develop/ui/compose/text/style-text#brush) for more advanced styling in your `TextField`.
+You can use the [Brush API](https://developer.android.com/develop/ui/compose/text/style-text.md.txt#brush) for more advanced styling in your `TextField`.
 The following section describes how you can use a Brush to add a colored
 gradient to `TextField` input.
 
 For more information about using the Brush API to style text, see
-[Enable advanced styling with Brush API](https://developer.android.com/develop/ui/compose/text/style-text#brush).
+[Enable advanced styling with Brush API](https://developer.android.com/develop/ui/compose/text/style-text.md.txt#brush).
 
 ### Implement colored gradients using `TextStyle`
 
 To implement a colored gradient as you type within a `TextField`, set your brush
-of choice as a [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle) for your `TextField`. In this example, we use a
+of choice as a [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.md.txt) for your `TextField`. In this example, we use a
 built-in brush with a `linearGradient` to view the rainbow gradient effect as
 text is typed into the `TextField`.
 
@@ -308,12 +308,12 @@ your state variable:
 
   <br />
 
-For other `TextFieldState` functions, see the [`TextFieldState` reference](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState#extension-functions_1).
+For other `TextFieldState` functions, see the [`TextFieldState` reference](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState.md.txt#extension-functions_1).
 
 ## Modify user input
 
 The following sections describe how to modify user input.
-[Input transformation](https://developer.android.com/develop/ui/compose/text/user-input#filter-input-transformations)
+[Input transformation](https://developer.android.com/develop/ui/compose/text/user-input.md.txt#filter-input-transformations)
 lets you filter `TextField` input while the user is typing, while [output
 transformation](https://developer.android.com/develop/ui/compose/text/user-input#format-input-display) formats user input before it's displayed
 on-screen.
@@ -377,7 +377,7 @@ class DigitOnlyInputTransformation : InputTransformation {
 #### Chain input transformations
 
 To add multiple filters on your text input, chain `InputTransformation`s using
-the [`then`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/InputTransformation#(androidx.compose.foundation.text.input.InputTransformation).then(androidx.compose.foundation.text.input.InputTransformation)) extension function. Filters are executed sequentially. As a
+the [`then`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/InputTransformation.md.txt#(androidx.compose.foundation.text.input.InputTransformation).then(androidx.compose.foundation.text.input.InputTransformation)) extension function. Filters are executed sequentially. As a
 best practice, apply the most selective filters first to avoid unnecessary
 transformations on data that would ultimately be filtered out.
 
@@ -488,7 +488,7 @@ reveal the keyboard.
 
 The action button on Android's software keyboard allows for interactive
 responses within your application. For more information about configuring the
-action button, see the [Set keyboard options](https://developer.android.com/develop/ui/compose/text/user-input#keyboard-options) section.
+action button, see the [Set keyboard options](https://developer.android.com/develop/ui/compose/text/user-input.md.txt#keyboard-options) section.
 ![A software keyboard action button (a checkmark icon) circled in red.](https://developer.android.com/static/develop/ui/compose/images/text/tf-action-button.png) **Figure 5.** Software keyboard action button.
 
 To define what occurs when a user taps this action button, use the
@@ -541,7 +541,7 @@ the next appropriate UI element, preserving the expected navigational flow.
 
 ## Create a secure password field
 
-[`SecureTextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SecureTextField.composable#SecureTextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.TextObfuscationMode,kotlin.Char,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,kotlin.Function2,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)) is a composable built on top of state-based text fields
+[`SecureTextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SecureTextField.composable.md.txt#SecureTextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.TextObfuscationMode,kotlin.Char,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,kotlin.Function2,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)) is a composable built on top of state-based text fields
 for writing a password field. We recommend using `SecureTextField` for creating
 password text fields, as it hides character input by default and disables cut
 and copy actions.
@@ -562,12 +562,12 @@ character input. `textObfuscationMode` has the following options:
 
 ## Additional resources
 
-- [Auto-format a phone number in a text field](https://developer.android.com/develop/ui/compose/quick-guides/content/auto-format-phone-number)
-- [Show or hide password based on a user toggle](https://developer.android.com/develop/ui/compose/quick-guides/content/show-hide-password)
-- [Validate input as the user types](https://developer.android.com/develop/ui/compose/quick-guides/content/validate-input)
+- [Auto-format a phone number in a text field](https://developer.android.com/develop/ui/compose/quick-guides/content/auto-format-phone-number.md.txt)
+- [Show or hide password based on a user toggle](https://developer.android.com/develop/ui/compose/quick-guides/content/show-hide-password.md.txt)
+- [Validate input as the user types](https://developer.android.com/develop/ui/compose/quick-guides/content/validate-input.md.txt)
 
 ## Recommended for you
 
-- [Architecting your Compose UI](https://developer.android.com/develop/ui/compose/architecture)
-- [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state)
-- [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving)
+- [Architecting your Compose UI](https://developer.android.com/develop/ui/compose/architecture.md.txt)
+- [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state.md.txt)
+- [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving.md.txt)

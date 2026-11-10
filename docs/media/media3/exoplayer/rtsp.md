@@ -27,11 +27,15 @@ To play an RTSP stream, you need to depend on the RTSP module.
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-exoplayer-rtsp:1.11.1")
+```kotlin
+implementation("androidx.media3:media3-exoplayer-rtsp:1.11.1")
+```
 
 ### Groovy
 
-    implementation "androidx.media3:media3-exoplayer-rtsp:1.11.1"
+```groovy
+implementation "androidx.media3:media3-exoplayer-rtsp:1.11.1"
+```
 
 You can then create a `MediaItem` for an RTSP URI and pass it to the player.
 

@@ -17,7 +17,7 @@ measurement and placement of composables.
 
 To understand how modifiers influence each other, it's helpful to visualize how
 they appear in the UI tree, which is generated during the composition phase. For
-more information, see the [Composition](https://developer.android.com/develop/ui/compose/phases#composition) section.
+more information, see the [Composition](https://developer.android.com/develop/ui/compose/phases.md.txt#composition) section.
 
 In the UI tree, you can visualize modifiers as wrapper nodes for the layout
 nodes:
@@ -25,11 +25,11 @@ nodes:
 
 Adding more than one modifier to a composable creates a chain of modifiers. When
 you chain multiple modifiers, each modifier node *wraps the rest of the chain
-and the layout node within* . For example, when you chain a [`clip`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).clip(androidx.compose.ui.graphics.Shape)) and a
-[`size`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).size(androidx.compose.ui.unit.Dp)) modifier, the `clip` modifier node wraps the `size` modifier node,
+and the layout node within* . For example, when you chain a [`clip`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).clip(androidx.compose.ui.graphics.Shape)) and a
+[`size`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).size(androidx.compose.ui.unit.Dp)) modifier, the `clip` modifier node wraps the `size` modifier node,
 which then wraps the `Image` layout node.
 
-In the layout phase, the [algorithm that walks the tree](https://developer.android.com/develop/ui/compose/phases#layout) stays the same, but
+In the layout phase, the [algorithm that walks the tree](https://developer.android.com/develop/ui/compose/phases.md.txt#layout) stays the same, but
 each modifier node is visited as well. This way, a modifier can change the size
 requirements and placement of the modifier or layout node that it wraps.
 
@@ -50,14 +50,14 @@ modifier chaining and how it influences the size of composables.
 
 ## Constraints in the layout phase
 
-[The layout phase](https://developer.android.com/develop/ui/compose/phases#layout) follows a three-step algorithm to find each layout
+[The layout phase](https://developer.android.com/develop/ui/compose/phases.md.txt#layout) follows a three-step algorithm to find each layout
 node's width, height, and x, y coordinate:
 
 1. **Measure children**: A node measures its children, if any.
 2. **Decide own size**: Based on those measurements, a node decides on its own size.
 3. **Place children**: Each child node is placed relative to a node's own position.
 
-[`Constraints`](https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/Constraints) help find the right sizes for the nodes during the first two
+[`Constraints`](https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/Constraints.md.txt) help find the right sizes for the nodes during the first two
 steps of the algorithm. Constraints define the minimum and maximum bounds for a
 node's width and height. When the node decides on its size, its measured size
 should fall within this size range.
@@ -116,7 +116,7 @@ constraints.
 
 ### The `size` modifier
 
-The [`size`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).size(androidx.compose.ui.unit.Dp)) modifier declares the preferred size of the content.
+The [`size`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).size(androidx.compose.ui.unit.Dp)) modifier declares the preferred size of the content.
 
 For example, the following UI tree should be rendered in a container of `300dp`
 by `200dp`. The constraints are bounded, allowing widths between `100dp` and
@@ -145,7 +145,7 @@ which is the result of the first value passed in and not the second value.](http
 
 ### The `requiredSize` modifier
 
-Use the [`requiredSize`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).requiredSize(androidx.compose.ui.unit.Dp)) modifier instead of [`size`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).size(androidx.compose.ui.unit.Dp)) if you need your
+Use the [`requiredSize`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).requiredSize(androidx.compose.ui.unit.Dp)) modifier instead of [`size`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).size(androidx.compose.ui.unit.Dp)) if you need your
 node to override the incoming constraints. The `requiredSize` modifier replaces
 the incoming constraints and passes the size you specify as exact bounds.
 
@@ -193,7 +193,7 @@ Image(
 This snippet produces the following output:
 ![A blue square that fills its parent container.](https://developer.android.com/static/develop/ui/compose/images/layouts/constraints-modifiers/example-1.png) **Figure 14.** The `Image` fills the maximum size as a result of the modifier chain.
 
-- The [`fillMaxSize`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).fillMaxSize(kotlin.Float)) modifier changes the constraints to set both the minimum width and height to the maximum value --- `300dp` in width and `200dp` in height.
+- The [`fillMaxSize`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).fillMaxSize(kotlin.Float)) modifier changes the constraints to set both the minimum width and height to the maximum value --- `300dp` in width and `200dp` in height.
 - Even though the `size` modifier wants to use a size of `50dp`, it still needs to adhere to the incoming minimum constraints. So the `size` modifier will also output the exact constraint bounds of `300` by `200`, effectively ignoring the value provided in the `size` modifier.
 - The `Image` follows these bounds and reports a size of `300` by `200`, which is passed all the way up the tree.
 
@@ -219,7 +219,7 @@ This snippet produces the following output:
   to bounded constraints*. The following node can now take up the whole space again, or be smaller than the entire space.
 - The `size` modifier sets the constraints to minimum and maximum bounds of `50`.
 - The `Image` resolves to a size of `50` by `50`, and the `size` modifier forwards that.
-- The [`wrapContentSize`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).wrapContentSize(androidx.compose.ui.Alignment,kotlin.Boolean)) modifier has a special property. It takes its child and *puts it in the center of the available minimum bounds* that were passed to it. The size it communicates to its parents is thus equal to the minimum bounds that were passed into it.
+- The [`wrapContentSize`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).wrapContentSize(androidx.compose.ui.Alignment,kotlin.Boolean)) modifier has a special property. It takes its child and *puts it in the center of the available minimum bounds* that were passed to it. The size it communicates to its parents is thus equal to the minimum bounds that were passed into it.
 
 By combining just three modifiers, you can define a size for the composable and
 center it in its parent.

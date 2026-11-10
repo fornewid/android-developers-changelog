@@ -239,6 +239,6 @@ resources:
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state)
-- [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving)
-- [Handle user input](https://developer.android.com/develop/ui/compose/text/user-input)
+- [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state.md.txt)
+- [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving.md.txt)
+- [Handle user input](https://developer.android.com/develop/ui/compose/text/user-input.md.txt)

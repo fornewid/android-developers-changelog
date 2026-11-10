@@ -60,9 +60,9 @@ Attaching metadata can be useful for
 ## Images
 
 Playback of images requires a duration in the media item to specify for how
-long the image should be shown during playback. See the [Images](https://developer.android.com/media/media3/exoplayer/images) guide
-page for more information on [Motion Photos](https://developer.android.com/media/media3/exoplayer/images#motion-photos) and
-[Image Loading Libraries](https://developer.android.com/media/media3/exoplayer/images#image-loading-libraries) (for example, Glide).
+long the image should be shown during playback. See the [Images](https://developer.android.com/media/media3/exoplayer/images.md.txt) guide
+page for more information on [Motion Photos](https://developer.android.com/media/media3/exoplayer/images.md.txt#motion-photos) and
+[Image Loading Libraries](https://developer.android.com/media/media3/exoplayer/images.md.txt#image-loading-libraries) (for example, Glide).
 
 
 ### Kotlin
@@ -236,7 +236,7 @@ MediaItem mediaItem =
 
 Internally, `DefaultMediaSourceFactory` will use a `ClippingMediaSource` to wrap
 the content media source. There are additional clipping properties. See the
-[`MediaItem.Builder` Javadoc](https://developer.android.com/reference/androidx/media3/common/MediaItem.Builder) for more details.
+[`MediaItem.Builder` Javadoc](https://developer.android.com/reference/androidx/media3/common/MediaItem.Builder.md.txt) for more details.
 
 > [!NOTE]
 > **Note:** When clipping the start of a video file, try to align the start position with a keyframe if possible. If the start position is not aligned with a keyframe then the player will need to decode and discard data from the previous keyframe up to the start position before playback can begin. This will introduce a short delay at the start of playback, including when the player transitions to playing a clipped media source as part of a playlist or due to looping.

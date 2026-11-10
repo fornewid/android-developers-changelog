@@ -35,7 +35,7 @@ The following are requirements for Play Games Rewards:
 - Rewards need to be available for every player in the published regions for your game.
 - Rewards need to be meaningful or desirable for players.
 - Developers need to create or nominate SKUs in Play Console to be used as Play Games Rewards.
-- Developers need to integrate with the [out of app purchase flow](https://developer.android.com/google/play/billing/integrate#process) using the Play Billing Library to give users in the game rewards that have been granted. Developers are responsible for ensuring the rewards are granted to the right in-game identity.
+- Developers need to integrate with the [out of app purchase flow](https://developer.android.com/google/play/billing/integrate.md.txt#process) using the Play Billing Library to give users in the game rewards that have been granted. Developers are responsible for ensuring the rewards are granted to the right in-game identity.
 
 ## Integrate Play Games Rewards
 
@@ -70,14 +70,14 @@ Play will grant a player a Play Games Reward after they have successfully
 completed an engagement mechanism, such as a Quest, for your game. At that point
 your game needs to acknowledge the one-time product once the player has claimed
 their Play Games Reward. This should be done using the
-[out of app purchase flow](https://developer.android.com/google/play/billing/integrate#process) for both single use and repeatable rewards.
+[out of app purchase flow](https://developer.android.com/google/play/billing/integrate.md.txt#process) for both single use and repeatable rewards.
 
 You can integrate with the out of app purchase flow and test
 the flow once Play Game Rewards have been created.
 
-1. Ensure you have integrated with the [out of app purchase flow](https://developer.android.com/google/play/billing/integrate#process) in your game.
-2. When your game starts, or is foregrounded, it should check if the player has any unacknowledged Play Games Rewards. For more information, follow instructions to call [`queryPurchasesAsync`](https://developer.android.com/google/play/billing/integrate#process). Games should check and grant rewards immediately.
-3. Follow the rest of the [out of app purchase flow](https://developer.android.com/google/play/billing/integrate#process) instructions to [verify the purchase](https://developer.android.com/google/play/billing/integrate#verifying-purchase), [grant the entitlement to the user](https://developer.android.com/google/play/billing/integrate#granting-entitlement), [notify the user](https://developer.android.com/google/play/billing/integrate#notifying-user), and notify Google that the [purchase was processed](https://developer.android.com/google/play/billing/integrate#notifying-google).
+1. Ensure you have integrated with the [out of app purchase flow](https://developer.android.com/google/play/billing/integrate.md.txt#process) in your game.
+2. When your game starts, or is foregrounded, it should check if the player has any unacknowledged Play Games Rewards. For more information, follow instructions to call [`queryPurchasesAsync`](https://developer.android.com/google/play/billing/integrate.md.txt#process). Games should check and grant rewards immediately.
+3. Follow the rest of the [out of app purchase flow](https://developer.android.com/google/play/billing/integrate.md.txt#process) instructions to [verify the purchase](https://developer.android.com/google/play/billing/integrate.md.txt#verifying-purchase), [grant the entitlement to the user](https://developer.android.com/google/play/billing/integrate.md.txt#granting-entitlement), [notify the user](https://developer.android.com/google/play/billing/integrate.md.txt#notifying-user), and notify Google that the [purchase was processed](https://developer.android.com/google/play/billing/integrate.md.txt#notifying-google).
 4. Users have up to 3 days to open the game and claim the reward. After 3 days the reward will no longer be available.
 
 **Important**: If you support multiple in-game identities, you must ensure that
@@ -85,27 +85,7 @@ your game also prompts the user to decide which in-game identity such reward
 should be delivered to. Users will only be shown these rewards if their PGS ID
 and Play Billing account match.
 
-## Enroll in the Early Access Program (EAP)
-
-Play Games Rewards is available to Early Access Partners (EAP). To enroll in
-the EAP, complete the following steps:
-
-1. In the [Google Play Console](https://play.google.com/console/u/0/developers/help-and-support), select a game.
-2. Navigate to **Help** \> **Support tickets**.
-3. Select **Create support ticket**.
-4. Select **Play Programs**.
-5. Select **Google Play Games Level Up**.
-6. Select **I need help meeting a specific guideline**.
-7. Select **Play Games Rewards**.
-8. In the description, type your request to join the Play Games Rewards EAP.
-9. Click **Submit**.
-
-You will receive an email notification once your game has been enrolled in
-the EAP.
-
 ## Test Play Games Rewards
 
-After enrolling in the EAP, you can test the Play Games Rewards.
-
 For more information on how to test the Play Games Rewards flow, see
-[Test Rewards](https://developer.android.com/games/test-rewards).
+[Test Rewards](https://developer.android.com/games/test-rewards.md.txt).

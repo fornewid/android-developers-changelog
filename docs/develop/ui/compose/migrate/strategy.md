@@ -37,7 +37,7 @@ working under the constraints of your app's architecture. If you are using
 Fragments and the Navigation component, then you would have to create a new
 Fragment and have its contents in Compose.
 
-To use Compose in a Fragment, return a [`ComposeView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ComposeView) in the
+To use Compose in a Fragment, return a [`ComposeView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ComposeView.md.txt) in the
 `onCreateView()` lifecycle method of your Fragment. `ComposeView` has a
 `setContent()` method where you can provide a composable function.
 
@@ -61,7 +61,7 @@ class NewFeatureFragment : Fragment() {
 
 <br />
 
-See [ComposeView in Fragments](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose#compose-in-fragments) to learn more.
+See [ComposeView in Fragments](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose.md.txt#compose-in-fragments) to learn more.
 
 ### Add new features in existing screens
 
@@ -95,7 +95,7 @@ in XML as follows:
 Once the view has been inflated, you can later reference the `ComposeView` in
 the hierarchy and call `setContent()`.
 
-To learn more about `ComposeView`, check out [Interoperability APIs](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis).
+To learn more about `ComposeView`, check out [Interoperability APIs](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis.md.txt).
 
 ## Build a library of common UI components
 
@@ -108,7 +108,7 @@ Compose](https://developer.android.com/develop/ui/compose/designsystems/custom).
 
 Depending on your app's size, this library could be a separate package, module,
 or library module. For more information on organizing modules in your app, check
-out the [Guide to Android app modularization](https://developer.android.com/topic/modularization).
+out the [Guide to Android app modularization](https://developer.android.com/topic/modularization.md.txt).
 
 ## Replace existing features with Compose
 
@@ -120,7 +120,7 @@ reduce the APK size and build times of your app. See [Compare Compose and View
 performance](https://developer.android.com/develop/ui/compose/migrate/compare-metrics) to learn more.
 
 > [!NOTE]
-> **Note:** Rely on UI testing to ensure you are not introducing regressions during migration. See [Test apps on Android](https://developer.android.com/training/testing) and [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing) to learn more about UI testing.
+> **Note:** Rely on UI testing to ensure you are not introducing regressions during migration. See [Test apps on Android](https://developer.android.com/training/testing.md.txt) and [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing.md.txt) to learn more about UI testing.
 
 ### Simple screens
 
@@ -207,13 +207,13 @@ also called the *bottom-up* approach.
 
 ## Removing Fragments and Navigation component
 
-You can migrate to [Navigation Compose](https://developer.android.com/guide/navigation#framework-options) once you're able to remove all of
+You can migrate to [Navigation Compose](https://developer.android.com/guide/navigation.md.txt#framework-options) once you're able to remove all of
 your Fragments and replace with corresponding screen-level composables. Screen-level
-composables can contain a [mix of Compose and View content](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose), but all
+composables can contain a [mix of Compose and View content](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose.md.txt), but all
 navigation destinations must be composables to enable Navigation Compose
 migration. Until then, you should continue using
 [Fragment-based Navigation component](https://developer.android.com/guide/navigation/navigation-getting-started) in your mixed View and Compose
-codebase. See [Migrate Jetpack Navigation to Navigation Compose](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/navigation) for
+codebase. See [Migrate Jetpack Navigation to Navigation Compose](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/navigation.md.txt) for
 more information.
 
 > [!NOTE]
@@ -224,7 +224,7 @@ more information.
 Check out the following additional resources to learn more about migrating your
 existing View-based app to Compose:
 
-- [Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark): Real-world benchmark comparisons between Compose and Views startup and scrolling performance.
+- [Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark.md.txt): Real-world benchmark comparisons between Compose and Views startup and scrolling performance.
 - Codelab
   - [Migrating to Jetpack Compose](https://developer.android.com/codelabs/jetpack-compose-migration#0): Learn how to migrate bits of the Sunflower app to Compose in this codelab.
 - Blog posts
@@ -234,12 +234,12 @@ existing View-based app to Compose:
 ## Next steps
 
 Now that you know the strategy you can take to migrate your existing View-based
-app, explore the [Interoperability APIs](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis) to learn more.
+app, explore the [Interoperability APIs](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis.md.txt) to learn more.
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark)
-- [Using Compose in Views](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/compose-in-views)
+- [Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark.md.txt)
+- [Using Compose in Views](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/compose-in-views.md.txt)
 - [Scroll](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/scroll)
-- [Migrate `RecyclerView` to Lazy list](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/recycler-view)
+- [Migrate `RecyclerView` to Lazy list](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/recycler-view.md.txt)

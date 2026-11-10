@@ -11,7 +11,7 @@ or disk operations.
 
 This topic provides a detailed look at coroutines on Android. If you're
 unfamiliar with coroutines, be sure to read
-[Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines) before reading this topic.
+[Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines.md.txt) before reading this topic.
 
 ## Manage long-running tasks
 
@@ -67,7 +67,7 @@ responsible for resuming them.
 To specify where the coroutines should run, Kotlin provides three dispatchers
 that you can use:
 
-- **Dispatchers.Main** - Use this dispatcher to run a coroutine on the main Android thread. This should be used only for interacting with the UI and performing quick work. Examples include calling `suspend` functions, running Android UI framework operations, and updating [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata) objects.
+- **Dispatchers.Main** - Use this dispatcher to run a coroutine on the main Android thread. This should be used only for interacting with the UI and performing quick work. Examples include calling `suspend` functions, running Android UI framework operations, and updating [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata.md.txt) objects.
 - **Dispatchers.IO** - This dispatcher is optimized to perform disk or network I/O outside of the main thread. Examples include using the [Room component](https://developer.android.com/topic/libraries/architecture/room), reading from or writing to files, and running any network operations.
 - **Dispatchers.Default** - This dispatcher is optimized to perform CPU-intensive work outside of the main thread. Example use cases include sorting a list and parsing JSON.
 
@@ -204,15 +204,15 @@ ongoing work (i.e. the running coroutines) can be cancelled by calling
 `scope.cancel()` at any point in time. In Android, some KTX libraries provide
 their own `CoroutineScope` for certain lifecycle classes. For example,
 `ViewModel` has a
-[`viewModelScope`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary#(androidx.lifecycle.ViewModel).viewModelScope:kotlinx.coroutines.CoroutineScope),
-and `Lifecycle` has [`lifecycleScope`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary#lifecyclescope).
+[`viewModelScope`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary.md.txt#(androidx.lifecycle.ViewModel).viewModelScope:kotlinx.coroutines.CoroutineScope),
+and `Lifecycle` has [`lifecycleScope`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary.md.txt#lifecyclescope).
 Unlike a dispatcher, however, a `CoroutineScope` doesn't run the coroutines.
 
 > [!NOTE]
 > **Note:** For more information about `viewModelScope`, see [Easy Coroutines in Android: viewModelScope](https://medium.com/androiddevelopers/easy-coroutines-in-android-viewmodelscope-25bffb605471).
 
 `viewModelScope` is also used in the examples found in
-[Background threading on Android with Coroutines](https://developer.android.com/kotlin/coroutines).
+[Background threading on Android with Coroutines](https://developer.android.com/kotlin/coroutines.md.txt).
 However, if you need to create your own `CoroutineScope` to control the
 lifecycle of coroutines in a particular layer of your app, you can create one
 as follows:
@@ -245,7 +245,7 @@ class ExampleClass {
 A cancelled scope cannot create more coroutines. Therefore, you should
 call `scope.cancel()` only when the class that controls its lifecycle
 is being destroyed. When using `viewModelScope`, the
-[`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) class cancels the
+[`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt) class cancels the
 scope automatically for you in the ViewModel's `onCleared()` method.
 
 ### Job
@@ -323,4 +323,4 @@ class ExampleClass {
 
 For more coroutines resources, see the following links:
 
-- [Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines)
+- [Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines.md.txt)

@@ -5,14 +5,14 @@ source: md.txt
 ---
 
 On Android 15 (API level 35) and higher, app-driven profiling lets your app
-explicitly start and stop [supported profile recordings](https://developer.android.com/topic/performance/tracing/profiling-manager/overview#supported-profile-types) in code using the
-[`ProfilingManager`](https://developer.android.com/reference/android/os/ProfilingManager) API or AndroidX Core (`androidx.core:core` 1.15.0 or
+explicitly start and stop [supported profile recordings](https://developer.android.com/topic/performance/tracing/profiling-manager/overview.md.txt#supported-profile-types) in code using the
+[`ProfilingManager`](https://developer.android.com/reference/android/os/ProfilingManager.md.txt) API or AndroidX Core (`androidx.core:core` 1.15.0 or
 higher) builders. Use direct profiling when you want to control profile timing
 or session parameters---such as durations, buffer policies, and sampling rates---or
 target a specific user journey or runtime condition.
 
 > [!TIP]
-> **Tip:** When testing locally, [disable the rate limiter](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode#disable-rate-limiter) so `ProfilingManager` captures every request without throttling.
+> **Tip:** When testing locally, [disable the rate limiter](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode.md.txt#disable-rate-limiter) so `ProfilingManager` captures every request without throttling.
 
 ## Add dependencies
 
@@ -218,11 +218,11 @@ steps:
 
 1. **Set up the executor** : Create a non-UI `Executor` to receive profiling results off the main thread.
 2. **Handle profiling results** : Create a `Consumer<ProfilingResult>` callback to receive the completed result or error from `ProfilingManager`.
-3. **Build the profiling request** : Create a [`SystemTraceRequestBuilder`](https://developer.android.com/reference/kotlin/androidx/core/os/SystemTraceRequestBuilder)
+3. **Build the profiling request** : Create a [`SystemTraceRequestBuilder`](https://developer.android.com/reference/kotlin/androidx/core/os/SystemTraceRequestBuilder.md.txt)
    to customize session settings (or omit customizations to use system
    defaults):
 
-   - `setTag()`: Attaches a caller-supplied tag that is returned by [`ProfilingResult.getTag`](https://developer.android.com/reference/android/os/ProfilingResult#getTag()) and appended to the output filename (up to the first 20 lowercase alphanumeric characters and hyphens).
+   - `setTag()`: Attaches a caller-supplied tag that is returned by [`ProfilingResult.getTag`](https://developer.android.com/reference/android/os/ProfilingResult.md.txt#getTag()) and appended to the output filename (up to the first 20 lowercase alphanumeric characters and hyphens).
    - `setDurationMs()`: Sets the maximum recording duration in milliseconds (for example, `60000` for 60 seconds).
    - `setBufferFillPolicy()`: Defines how the buffer handles capacity limits: `BufferFillPolicy.RING_BUFFER` overwrites the oldest data when full, whereas `BufferFillPolicy.DISCARD` stops recording new data once the buffer is full.
    - `setBufferSizeKb()`: Sets the recording buffer size in kilobytes.
@@ -230,19 +230,19 @@ steps:
    > [!NOTE]
    > **Note:** Not all Perfetto configurations are available for `ProfilingManager`.
 
-4. **Optional: Stop the recording early** : Pass a [`CancellationSignal`](https://developer.android.com/reference/android/os/CancellationSignal)
+4. **Optional: Stop the recording early** : Pass a [`CancellationSignal`](https://developer.android.com/reference/android/os/CancellationSignal.md.txt)
    (`stopSignal`) to stop the session as soon as the target operation finishes,
    saving the data recorded so far and delivering the `ProfilingResult` to your
-   callback. See [Stop an active recording](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture#stop-active-recording) for details.
+   callback. See [Stop an active recording](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture.md.txt#stop-active-recording) for details.
 
 5. **Start and receive results** : Call `requestProfiling()` to start recording
    in the background. When the session ends, `resultCallback.accept()` receives
-   a [`ProfilingResult`](https://developer.android.com/reference/android/os/ProfilingResult):
+   a [`ProfilingResult`](https://developer.android.com/reference/android/os/ProfilingResult.md.txt):
 
    - On success (`ERROR_NONE`), call `getResultFilePath()` to get the on-device path. For instructions on pulling files with `adb` or uploading them with `WorkManager`, see [Retrieve and upload
      profiles](https://developer.android.com/topic/performance/tracing/profiling-manager/upload-worker).
-   - On failure, inspect `getErrorCode()` and `getErrorMessage()`. Requests can fail due to [rate limiting](https://developer.android.com/topic/performance/tracing/profiling-manager/will-my-profile-always-be-collected) as well as several other reasons.
-   - If your app terminates before the result is delivered, the system queues the result and delivers it the next time your app registers a global listener with [`registerForAllProfilingResults`](https://developer.android.com/reference/android/os/ProfilingManager#registerForAllProfilingResults(java.util.concurrent.Executor,%20java.util.function.Consumer%3Candroid.os.ProfilingResult%3E)).
+   - On failure, inspect `getErrorCode()` and `getErrorMessage()`. Requests can fail due to [rate limiting](https://developer.android.com/topic/performance/tracing/profiling-manager/will-my-profile-always-be-collected.md.txt) as well as several other reasons.
+   - If your app terminates before the result is delivered, the system queues the result and delivers it the next time your app registers a global listener with [`registerForAllProfilingResults`](https://developer.android.com/reference/android/os/ProfilingManager.md.txt#registerForAllProfilingResults(java.util.concurrent.Executor,%20java.util.function.Consumer%3Candroid.os.ProfilingResult%3E)).
 6. **Add custom trace points** : Wrap operations in `trace("...") { ... }` (or
    `Trace.beginSection()` / `Trace.endSection()`) to label regions of the
    timeline.
@@ -264,7 +264,7 @@ redacts and saves the data collected up to that point, and delivers the
 `ProfilingResult` to your listener with `ERROR_NONE`.
 
 > [!NOTE]
-> **Note:** Recording doesn't begin instantaneously when you call `requestProfiling()`, and `ProfilingManager` doesn't emit a callback when recording starts. Account for a brief startup delay when timing your request, or start a `RING_BUFFER` trace ahead of time and cancel it after the event occurs. On Android 16 QPR2 (API level 36.1) and higher, if it's difficult to predict when to start a trace in advance, you can also register [`TRIGGER_TYPE_APP_REQUEST_RUNNING_TRACE`](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_APP_REQUEST_RUNNING_TRACE) and call [`requestRunningSystemTrace()`](https://developer.android.com/reference/android/os/ProfilingManager#requestRunningSystemTrace(java.lang.String)) to save a snapshot of an active [background
+> **Note:** Recording doesn't begin instantaneously when you call `requestProfiling()`, and `ProfilingManager` doesn't emit a callback when recording starts. Account for a brief startup delay when timing your request, or start a `RING_BUFFER` trace ahead of time and cancel it after the event occurs. On Android 16 QPR2 (API level 36.1) and higher, if it's difficult to predict when to start a trace in advance, you can also register [`TRIGGER_TYPE_APP_REQUEST_RUNNING_TRACE`](https://developer.android.com/reference/android/os/ProfilingTrigger.md.txt#TRIGGER_TYPE_APP_REQUEST_RUNNING_TRACE) and call [`requestRunningSystemTrace()`](https://developer.android.com/reference/android/os/ProfilingManager.md.txt#requestRunningSystemTrace(java.lang.String)) to save a snapshot of an active [background
 > trace](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture#background-trace-triggers), if one is running.
 
 ## Record system traces with call stack sampling
@@ -276,9 +276,9 @@ timeline events, such as thread states, frames, and custom trace slices,
 together with CPU call stacks for methods without explicit trace
 instrumentation.
 
-This example also shows how to call [`ProfilingManager.requestProfiling`](https://developer.android.com/reference/android/os/ProfilingManager#requestProfiling(int,%20android.os.Bundle,%20java.lang.String,%20android.os.CancellationSignal,%20java.util.concurrent.Executor,%20java.util.function.Consumer%3Candroid.os.ProfilingResult%3E))
+This example also shows how to call [`ProfilingManager.requestProfiling`](https://developer.android.com/reference/android/os/ProfilingManager.md.txt#requestProfiling(int,%20android.os.Bundle,%20java.lang.String,%20android.os.CancellationSignal,%20java.util.concurrent.Executor,%20java.util.function.Consumer%3Candroid.os.ProfilingResult%3E))
 directly without Jetpack builders by specifying one of the [supported profile
-types](https://developer.android.com/topic/performance/tracing/profiling-manager/overview#supported-profile-types) ([`PROFILING_TYPE_SYSTEM_TRACE`](https://developer.android.com/reference/android/os/ProfilingManager#PROFILING_TYPE_SYSTEM_TRACE)) and passing a configuration
+types](https://developer.android.com/topic/performance/tracing/profiling-manager/overview#supported-profile-types) ([`PROFILING_TYPE_SYSTEM_TRACE`](https://developer.android.com/reference/android/os/ProfilingManager.md.txt#PROFILING_TYPE_SYSTEM_TRACE)) and passing a configuration
 `Bundle`:
 
 
@@ -346,8 +346,8 @@ area.](https://developer.android.com/static/topic/performance/images/tracing/pro
 ## Capture a Java heap dump
 
 You can request a snapshot of your app's Java memory using
-[`JavaHeapDumpRequestBuilder`](https://developer.android.com/reference/kotlin/androidx/core/os/JavaHeapDumpRequestBuilder) (or [`PROFILING_TYPE_JAVA_HEAP_DUMP`](https://developer.android.com/reference/android/os/ProfilingManager#PROFILING_TYPE_JAVA_HEAP_DUMP)).
-Unlike standard `.hprof` heap dumps captured with [`Debug.dumpHprofData`](https://developer.android.com/reference/android/os/Debug#dumpHprofData(java.lang.String)),
+[`JavaHeapDumpRequestBuilder`](https://developer.android.com/reference/kotlin/androidx/core/os/JavaHeapDumpRequestBuilder.md.txt) (or [`PROFILING_TYPE_JAVA_HEAP_DUMP`](https://developer.android.com/reference/android/os/ProfilingManager.md.txt#PROFILING_TYPE_JAVA_HEAP_DUMP)).
+Unlike standard `.hprof` heap dumps captured with [`Debug.dumpHprofData`](https://developer.android.com/reference/android/os/Debug.md.txt#dumpHprofData(java.lang.String)),
 `ProfilingManager` heap dumps are designed for safe, low-overhead collection in
 production:
 
@@ -356,11 +356,11 @@ production:
   dumps differ from HPROF dumps](https://developer.android.com/topic/performance/tracing/profiling-manager/retrieve-and-analyze#heap-dump-differences).
 
 > [!NOTE]
-> **Note:** Capturing Java heap dumps, heap profiles, and call stack samples on a release build requires your app to be [profileable](https://developer.android.com/guide/topics/manifest/profileable-element) by the system, which is enabled by default unless your `AndroidManifest.xml` file explicitly sets `<profileable android:enabled="false" />`.
+> **Note:** Capturing Java heap dumps, heap profiles, and call stack samples on a release build requires your app to be [profileable](https://developer.android.com/guide/topics/manifest/profileable-element.md.txt) by the system, which is enabled by default unless your `AndroidManifest.xml` file explicitly sets `<profileable android:enabled="false" />`.
 
 Using the same `Context`, `Executor`, and `resultCallback` setup shown in
-[Record a system trace](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture#record-system-trace), build a request with
-[`JavaHeapDumpRequestBuilder`](https://developer.android.com/reference/kotlin/androidx/core/os/JavaHeapDumpRequestBuilder):
+[Record a system trace](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture.md.txt#record-system-trace), build a request with
+[`JavaHeapDumpRequestBuilder`](https://developer.android.com/reference/kotlin/androidx/core/os/JavaHeapDumpRequestBuilder.md.txt):
 
 
 ### Kotlin
@@ -396,7 +396,7 @@ Profiling.requestProfiling(
 <br />
 
 For a complete end-to-end walkthrough of analyzing a Java heap dump to diagnose
-a memory leak, see [Case study: Debug an OOM crash](https://developer.android.com/topic/performance/tracing/profiling-manager/debugging-oom-example).
+a memory leak, see [Case study: Debug an OOM crash](https://developer.android.com/topic/performance/tracing/profiling-manager/debugging-oom-example.md.txt).
 
 ## Next steps
 

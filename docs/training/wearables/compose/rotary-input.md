@@ -22,8 +22,8 @@ type of input, be sure to support rotary input for all essential interactions.
 
 Most users expect apps to support the scroll gesture. As the content scrolls on
 the screen, give the users visual feedback in response to rotary interactions.
-Visual feedback can include [scrolling indicators](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/ScrollIndicator.composable#ScrollIndicator(androidx.compose.foundation.lazy.LazyListState,androidx.compose.ui.Modifier,androidx.wear.compose.material3.ScrollIndicatorColors,kotlin.Boolean,androidx.compose.animation.core.AnimationSpec)) for vertical scroll or
-[page indicators](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/HorizontalPageIndicator.composable#HorizontalPageIndicator(androidx.wear.compose.foundation.pager.PagerState,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)).
+Visual feedback can include [scrolling indicators](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/ScrollIndicator.composable.md.txt#ScrollIndicator(androidx.compose.foundation.lazy.LazyListState,androidx.compose.ui.Modifier,androidx.wear.compose.material3.ScrollIndicatorColors,kotlin.Boolean,androidx.compose.animation.core.AnimationSpec)) for vertical scroll or
+[page indicators](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/HorizontalPageIndicator.composable.md.txt#HorizontalPageIndicator(androidx.wear.compose.foundation.pager.PagerState,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)).
 
 `ScalingLazyColumn`, `TransformingLazyColumn` and `Picker` support the scroll
 gesture by default, if you place these components inside `AppScaffold` and
@@ -58,13 +58,12 @@ ScreenScaffold(
     scrollIndicator = {
         ScrollIndicator(state = listState)
     }
-) {
-
-    val state = rememberScalingLazyListState()
+) { contentPadding ->
     ScalingLazyColumn(
         modifier = Modifier.fillMaxWidth(),
-        state = state,
-        flingBehavior = ScalingLazyColumnDefaults.snapFlingBehavior(state = state)
+        state = listState,
+        contentPadding = contentPadding,
+        flingBehavior = ScalingLazyColumnDefaults.snapFlingBehavior(state = listState)
     ) {
         // Content goes here
         // ...
@@ -140,6 +139,6 @@ that, if actually used are likely to be overly sensitive.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Programmatically request focus](https://developer.android.com/develop/ui/compose/touch-input/focus/request-focus)
+- [Programmatically request focus](https://developer.android.com/develop/ui/compose/touch-input/focus/request-focus.md.txt)
 - [Add keyboard, mouse, trackpad, and stylus support with Jetpack Compose](https://developer.android.com/codelabs/large-screens/add-keyboard-and-mouse-support-with-compose)
 - [Compose for Wear OS Codelab](https://developer.android.com/codelabs/compose-for-wear-os)

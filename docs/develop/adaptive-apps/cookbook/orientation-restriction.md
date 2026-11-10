@@ -17,7 +17,7 @@ small screens, but enable landscape on large?
 
 The best apps respect user preferences such as device orientation.
 
-The [Adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality) recommend that apps support all device
+The [Adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality.md.txt) recommend that apps support all device
 configurations, including portrait and landscape orientations, multi-window
 mode, and folded and unfolded states of foldable devices. Apps should optimize
 layouts and user interfaces for different configurations, and apps should save
@@ -29,10 +29,10 @@ configurations.
 
 ## Ingredients
 
-- [`screenOrientation`](https://developer.android.com/guide/topics/manifest/activity-element#screen): App manifest setting that enables you to specify how your app responds to device orientation changes
-- [`Activity#setRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#setrequestedorientation): Method with which you can change the app orientation at runtime
-- [`LocalConfiguration`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalConfiguration()): Composable local provider that exposes the current device `Configuration`, allowing you to read screen dimensions in DPs.
-- [`LaunchedEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#LaunchedEffect(kotlin.Any,kotlin.Function2)): Compose side-effect API that runs a block of code when a key changes (in this case, when the configuration changes).
+- [`screenOrientation`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#screen): App manifest setting that enables you to specify how your app responds to device orientation changes
+- [`Activity#setRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#setrequestedorientation): Method with which you can change the app orientation at runtime
+- [`LocalConfiguration`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary.md.txt#LocalConfiguration()): Composable local provider that exposes the current device `Configuration`, allowing you to read screen dimensions in DPs.
+- [`LaunchedEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary.md.txt#LaunchedEffect(kotlin.Any,kotlin.Function2)): Compose side-effect API that runs a block of code when a key changes (in this case, when the configuration changes).
 
 ## Steps
 
@@ -43,14 +43,16 @@ screens.
 
 ### 1. Specify orientation setting in the app manifest
 
-You can either avoid declaring the [`screenOrientation`](https://developer.android.com/guide/topics/manifest/activity-element#screen) element of the app
+You can either avoid declaring the [`screenOrientation`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#screen) element of the app
 manifest (in which case orientation defaults to `unspecified`) or set screen
 orientation to `fullUser`. If the user has not locked sensor-based rotation,
 your app will support all device orientations.
 
-    <activity
-        android:name=".MyActivity"
-        android:screenOrientation="fullUser">
+```xml
+<activity
+    android:name=".MyActivity"
+    android:screenOrientation="fullUser">
+```
 
 > [!NOTE]
 > **Note:** `screenOrientation` is ignored (or is equivalent to `unspecified`) when apps run in multi-window mode. So, if you restrict your app to one orientation or another, the app might not work properly in multi-window mode.
@@ -63,7 +65,7 @@ more closely the behavior the user defined for the device: if the user has
 locked sensor-based rotation, the app follows the user preference; otherwise,
 the system allows any of the four possible screen orientations (portrait,
 landscape, reverse portrait, or reverse landscape). See
-[`android:screenOrientation`](https://developer.android.com/guide/topics/manifest/activity-element#screen).
+[`android:screenOrientation`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#screen).
 
 ### 2. Dynamically restrict orientation in Compose
 
@@ -106,7 +108,7 @@ foldable device is folded or unfolded.
 > **Note:** The manifest setting is not changed, just overridden at runtime.
 
 For more information about when configuration changes occur and when they cause
-activity recreation, refer to [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes).
+activity recreation, refer to [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes.md.txt).
 
 > [!NOTE]
 > **Note:** If you did not specify `android:screenOrientation` in the app manifest, you should replace `ActivityInfo.SCREEN_ORIENTATION_FULL_USER` with `ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED` in your code to match the default system behavior.
@@ -123,5 +125,5 @@ For help with upgrading your app to support all device configurations all the
 time, see the following:
 
 - [Support different screen sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-screen-sizes)
-- [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes)
-- [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states)
+- [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes.md.txt)
+- [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt)

@@ -6,7 +6,7 @@ source: md.txt
 
 Apps that are currently using the standalone `com.google.android.exoplayer2`
 library and `androidx.media` should migrate to `androidx.media3`. Use
-the [migration script](https://developer.android.com/media/media3/exoplayer/migration-guide#exoplayer) to migrate gradle build files, Java and
+the [migration script](https://developer.android.com/media/media3/exoplayer/migration-guide.md.txt#exoplayer) to migrate gradle build files, Java and
 Kotlin source files, and XML layout files from ExoPlayer
 `2.19.1` to AndroidX Media3 `1.1.1`.
 
@@ -28,13 +28,13 @@ that your app's project should meet.
 
 ### Media APIs to migrate to AndroidX Media3
 
-- [**ExoPlayer and its extensions**](https://developer.android.com/media/media3/exoplayer/migration-guide#exoplayer)   
+- [**ExoPlayer and its extensions**](https://developer.android.com/media/media3/exoplayer/migration-guide.md.txt#exoplayer)   
   This includes all modules of the legacy [ExoPlayer project](https://github.com/google/ExoPlayer/) except the [mediasession](https://github.com/google/ExoPlayer/tree/release-v2/extensions/mediasession) module that is discontinued. Apps or modules depending on packages in `com.google.android.exoplayer2` can be migrated with the migration script.
-- [**MediaSessionConnector**](https://developer.android.com/media/media3/exoplayer/migration-guide#MediaSessionConnector) (depending on the `androidx.media.*` packages of `androidx.media:media:1.4.3+`)   
+- [**MediaSessionConnector**](https://developer.android.com/media/media3/exoplayer/migration-guide.md.txt#MediaSessionConnector) (depending on the `androidx.media.*` packages of `androidx.media:media:1.4.3+`)   
   Remove the `MediaSessionConnector` and use the `androidx.media3.session.MediaSession` instead.
-- [**MediaBrowserServiceCompat**](https://developer.android.com/media/media3/exoplayer/migration-guide#MediaBrowserService) (depending on the `androidx.media.*` packages of `androidx.media:media:1.4.3+`)   
-  Migrate subclasses of [`androidx.media.MediaBrowserServiceCompat`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat) to `androidx.media3.session.MediaLibraryService` and code using `MediaBrowserCompat.MediaItem` to `androidx.media3.common.MediaItem`.
-- [**MediaBrowserCompat**](https://developer.android.com/media/media3/exoplayer/migration-guide#MediaBrowser) (depending on the `android.support.v4.media.*` packages of `androidx.media:media:1.4.3+`)   
+- [**MediaBrowserServiceCompat**](https://developer.android.com/media/media3/exoplayer/migration-guide.md.txt#MediaBrowserService) (depending on the `androidx.media.*` packages of `androidx.media:media:1.4.3+`)   
+  Migrate subclasses of [`androidx.media.MediaBrowserServiceCompat`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat.md.txt) to `androidx.media3.session.MediaLibraryService` and code using `MediaBrowserCompat.MediaItem` to `androidx.media3.common.MediaItem`.
+- [**MediaBrowserCompat**](https://developer.android.com/media/media3/exoplayer/migration-guide.md.txt#MediaBrowser) (depending on the `android.support.v4.media.*` packages of `androidx.media:media:1.4.3+`)   
   Migrate client code using the `MediaBrowserCompat` or `MediaControllerCompat` to use the `androidx.media3.session.MediaBrowser` with `androidx.media3.common.MediaItem`.
 
 ## Prerequisites
@@ -50,7 +50,7 @@ that your app's project should meet.
    - We recommend updating your project to use the
      **[most recent version of the ExoPlayer library](https://github.com/google/ExoPlayer/blob/release-v2/RELEASENOTES.md)** and remove any
      calls to deprecated methods. If you intend to
-     [use the script](https://developer.android.com/media/media3/exoplayer/migration-guide#usingscript) for the migration, you need to match the
+     [use the script](https://developer.android.com/media/media3/exoplayer/migration-guide.md.txt#usingscript) for the migration, you need to match the
      version you are updating to with the version handled by the script.
 
    - Increase the **compileSdkVersion of your app to at least 32**.
@@ -74,9 +74,9 @@ that your app's project should meet.
 ## Migrate ExoPlayer with script support
 
 The script facilitates moving from `com.google.android.exoplayer2` to the new
-package and module structure under [`androidx.media3`](https://developer.android.com/jetpack/androidx/releases/media3). The script applies
+package and module structure under [`androidx.media3`](https://developer.android.com/jetpack/androidx/releases/media3.md.txt). The script applies
 some validation checks on your project and prints warnings if validation fails.
-Otherwise, it applies the [mappings of renamed classes and packages](https://developer.android.com/media/media3/exoplayer/mappings) in the
+Otherwise, it applies the [mappings of renamed classes and packages](https://developer.android.com/media/media3/exoplayer/mappings.md.txt) in the
 resources of an Android gradle project written in Java or Kotlin.
 
     usage: ./media3-migration.sh [-p|-c|-d|-v]|[-m|-l [-x <path>] [-f] PROJECT_ROOT]
@@ -99,55 +99,63 @@ resources of an Android gradle project written in Java or Kotlin.
 1. Download [the migration script](https://raw.githubusercontent.com/google/ExoPlayer/refs/heads/release-v2/media3-migration.sh) from the tag of the ExoPlayer project on
    GitHub corresponding to the version that you have updated your app to:
 
-       curl -o media3-migration.sh \
-         "https://raw.githubusercontent.com/google/ExoPlayer/r2.19.1/media3-migration.sh"
-
+   ```bash
+   curl -o media3-migration.sh \
+     "https://raw.githubusercontent.com/google/ExoPlayer/r2.19.1/media3-migration.sh"
+   ```
 2. Make the script executable:
 
-       chmod 744 media3-migration.sh
-
+   ```bash
+   chmod 744 media3-migration.sh
+   ```
 3. Run the script with `--help` to learn about options.
 
 4. Run the script with `-l` to list the set of files that are selected for
    migration (use `-f` to force the listing without warnings):
 
-       ./media3-migration.sh -l -f /path/to/gradle/project/root
-
+   ```bash
+   ./media3-migration.sh -l -f /path/to/gradle/project/root
+   ```
 5. Run the script with `-m` to map packages, classes, and modules to Media3.
    Running the script with the `-m` option will apply changes to the selected
    files.
 
    - Stop at validation error without making changes
 
-       ./media3-migration.sh -m /path/to/gradle/project/root
-
+   ```bash
+   ./media3-migration.sh -m /path/to/gradle/project/root
+   ```
    - Forced execution
 
    If the script finds a violation of the prerequisites, the migration can be
    forced with the `-f` flag:
 
-       ./media3-migration.sh -m -f /path/to/gradle/project/root
+   ```bash
+   ./media3-migration.sh -m -f /path/to/gradle/project/root
+   ```
 
 > [!NOTE]
 > **Note:** You can use the `-x` parameter to exclude a path from being selected for change.
 
-     # list files selected for migration when excluding paths
-     ./media3-migration.sh -l -x "app/src/test/" -x "service/" /path/to/project/root
-     # migrate the selected files
-     ./media3-migration.sh -m -x "app/src/test/" -x "service/" /path/to/project/root
+```bash
+ # list files selected for migration when excluding paths
+ ./media3-migration.sh -l -x "app/src/test/" -x "service/" /path/to/project/root
+ # migrate the selected files
+ ./media3-migration.sh -m -x "app/src/test/" -x "service/" /path/to/project/root
+```
 
 Complete these manual steps after running the script with the `-m` option:
 
 1. **Check how the script changed your code** : Use a diff tool and fix potential issues (consider filing [a bug](https://github.com/androidx/media/issues/new?assignees&labels=bug,needs+triage&template=bug.yml) if you think the script has a general problem that was introduced without passing the `-f` option).
 2. **Build the project** : Either use `./gradlew clean build` or in Android Studio choose **File \> Sync Project with Gradle Files** , then **Build \>
-   Clean project** , and then **Build \> Rebuild project** (monitor your build in the ['Build - Build Output' tab of Android Studio](https://developer.android.com/studio/run#gradle-console)).
+   Clean project** , and then **Build \> Rebuild project** (monitor your build in the ['Build - Build Output' tab of Android Studio](https://developer.android.com/studio/run.md.txt#gradle-console)).
 
 > [!NOTE]
 > **Note:** In some cases, the script is expected to leave your project in a state that doesn't build without manually migrating code. The script warns about this and requests the `-f` option to force execution. For example, this is the case if an app is using `MediaSessionConnector` and `MediaSessionCompat`. See the next section for guidance on how you can migrate from `MediaSessionConnector` to Media3.
 
 Recommended follow-up steps:
 
-1. Resolve [**opt-in for errors regarding usage of unstable APIs**](https://developer.android.com/media/media3/exoplayer/migration-guide#unstableapi).
+1. Resolve [**opt-in for errors regarding usage of unstable APIs**](https://developer.android.com/media/media3/exoplayer/migration-guide.md.txt#unstableapi).
 2. **Replace deprecated API calls**: Use the suggested replacement API. Hold the pointer over the warning in Android Studio, and consult the JavaDoc of the deprecated symbol to find out what to use instead of a given call.
 3. **Sort the import statements** : Open the project in Android Studio, then right-click on a package folder node in the project viewer and choose **Optimize imports** on the packages that contain the changed source files.
 
@@ -169,8 +177,9 @@ directly without requiring a connector.
    implementation dependency to the AndroidX Media3 session module** and remove
    the legacy dependency:
 
-       implementation "androidx.media3:media3-session:1.11.1"
-
+   ```groovy
+   implementation "androidx.media3:media3-session:1.11.1"
+   ```
 3. Replace the `MediaSessionCompat` with
    **`androidx.media3.session.MediaSession`**.
 
@@ -274,19 +283,21 @@ using a `MediaLibraryService` or a legacy `MediaBrowserServiceCompat`.
    interfaces** with your service in the `AndroidManifest.xml`. This way a
    client finds your service by the required service interface:
 
-       <service android:name=".MusicService" android:exported="true">
-           <intent-filter>
-               <action android:name="androidx.media3.session.MediaLibraryService"/>
-               <action android:name="android.media.browse.MediaBrowserService" />
-           </intent-filter>
-       </service>
-
+   ```xml
+   <service android:name=".MusicService" android:exported="true">
+       <intent-filter>
+           <action android:name="androidx.media3.session.MediaLibraryService"/>
+           <action android:name="android.media.browse.MediaBrowserService" />
+       </intent-filter>
+   </service>
+   ```
 2. In the `build.gradle` file where you maintain your dependencies, add **an
    implementation dependency to the [AndroidX Media3 session module](https://github.com/androidx/media/tree/release/libraries/session)** and
    remove the legacy dependency:
 
-       implementation "androidx.media3:media3-session:1.11.1"
-
+   ```groovy
+   implementation "androidx.media3:media3-session:1.11.1"
+   ```
 3. **Change your service to inherit from a `MediaLibraryService`** instead of
    `MediaBrowserService`
    As said earlier, the `MediaLibraryService` is compatible with the legacy
@@ -342,8 +353,8 @@ using a `MediaLibraryService` or a legacy `MediaBrowserServiceCompat`.
      can be found [in the `PlaybackService` of the session demo app](https://github.com/androidx/media/blob/1.11.1/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L184).
 
    - AndroidX Media3 is using **`androidx.media3.common.MediaItem`** instead
-     of [`MediaBrowserCompat.MediaItem`](https://developer.android.com/reference/kotlin/android/support/v4/media/MediaBrowserCompat.MediaItem) and
-     [`MediaMetadataCompat`](https://developer.android.com/reference/kotlin/android/support/v4/media/MediaMetadataCompat). Parts of your code tied
+     of [`MediaBrowserCompat.MediaItem`](https://developer.android.com/reference/kotlin/android/support/v4/media/MediaBrowserCompat.MediaItem.md.txt) and
+     [`MediaMetadataCompat`](https://developer.android.com/reference/kotlin/android/support/v4/media/MediaMetadataCompat.md.txt). Parts of your code tied
      to the legacy classes need to be changed accordingly or map to the
      Media3 `MediaItem` instead.
 
@@ -360,7 +371,7 @@ The **`MediaLibraryService` supports media notifications automatically** and the
 `MediaSessionService`.
 
 > [!NOTE]
-> **Note:** Apps targeting API Level 28+ still need to request the [`FOREGROUND_SERVICE`](https://developer.android.com/reference/android/Manifest.permission#FOREGROUND_SERVICE) permission.
+> **Note:** Apps targeting API Level 28+ still need to request the [`FOREGROUND_SERVICE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#FOREGROUND_SERVICE) permission.
 
 An app can **customize the notification** by setting a custom
 `MediaNotification.Provider` in `onCreate()` that replaces the
@@ -380,7 +391,7 @@ library. If you had to create a `MediaBrowserCompat` and a
 the `MediaBrowser` in Media3.
 
 > [!NOTE]
-> **Note:** Kotlin users can depend on [kotlin-coroutines-guava](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-guava/index.html) or [androidx.concurrent](https://developer.android.com/jetpack/androidx/releases/concurrent) in the `build.gradle` file to add the extension method `await` to the `ListenableFuture`. That makes the `MediaBrowser` API fit more naturally into a `suspend` method.
+> **Note:** Kotlin users can depend on [kotlin-coroutines-guava](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-guava/index.html) or [androidx.concurrent](https://developer.android.com/jetpack/androidx/releases/concurrent.md.txt) in the `build.gradle` file to add the extension method `await` to the `ListenableFuture`. That makes the `MediaBrowser` API fit more naturally into a `suspend` method.
 
 A `MediaBrowser` can be built and await for the connection to the
 service being established:
@@ -413,7 +424,7 @@ ListenableFuture<MediaBrowser> browserFuture =
 <br />
 
 Take a look into
-[*Control playback in the media session*](https://developer.android.com/media/media3/session/connect-to-media-app)
+[*Control playback in the media session*](https://developer.android.com/media/media3/session/connect-to-media-app.md.txt)
 to learn how to create a `MediaController` for controlling playback in the
 background.
 
@@ -449,7 +460,7 @@ and v2 libraries:
 #### Improvements in Media3
 
 Media3 provides binary compatibility for a subset of the API surface. The parts
-that **don't** provide binary compatibility are marked with [`@UnstableApi`](https://developer.android.com/reference/androidx/media3/common/util/UnstableApi).
+that **don't** provide binary compatibility are marked with [`@UnstableApi`](https://developer.android.com/reference/androidx/media3/common/util/UnstableApi.md.txt).
 In order to make this distinction clear, usages of unstable API symbols
 generate a lint error unless they are annotated with `@OptIn`.
 
@@ -463,7 +474,7 @@ different levels of stability.
 
 #### Handle unstable API lint errors
 
-See [the troubleshooting section on these lint errors](https://developer.android.com/media/media3/exoplayer/troubleshooting#unstable-api-lint-errors) for details on how to
+See [the troubleshooting section on these lint errors](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#unstable-api-lint-errors) for details on how to
 annotate Java and Kotlin usages of unstable APIs with `@OptIn`.
 
 ### Deprecated APIs

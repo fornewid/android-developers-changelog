@@ -18,18 +18,18 @@ You can explore an implementation of these layouts in the
 
 ## Implement a `VideoCompositorSettings`
 
-The [`VideoCompositorSettings`](https://developer.android.com/reference/androidx/media3/common/VideoCompositorSettings) interface contains 2 methods:
+The [`VideoCompositorSettings`](https://developer.android.com/reference/androidx/media3/common/VideoCompositorSettings.md.txt) interface contains 2 methods:
 
-- [`getOutputSize(List<Size> inputSizes)`](https://developer.android.com/reference/androidx/media3/common/VideoCompositorSettings#getOutputSize(java.util.List%3Candroidx.media3.common.util.Size%3E)), which you can use to specify the size of each input `EditedMediaItemSequence`
-- [`getOverlaySettings(int inputId, long presentationTimeUs)`](https://developer.android.com/reference/androidx/media3/common/VideoCompositorSettings#getOverlaySettings(int,long)), which is where you can specify how each sequence should appear in the frame
+- [`getOutputSize(List<Size> inputSizes)`](https://developer.android.com/reference/androidx/media3/common/VideoCompositorSettings.md.txt#getOutputSize(java.util.List%3Candroidx.media3.common.util.Size%3E)), which you can use to specify the size of each input `EditedMediaItemSequence`
+- [`getOverlaySettings(int inputId, long presentationTimeUs)`](https://developer.android.com/reference/androidx/media3/common/VideoCompositorSettings.md.txt#getOverlaySettings(int,long)), which is where you can specify how each sequence should appear in the frame
 
 ### Configure the presentation of a sequence with an `OverlaySettings`
 
 Your implementation of `getOverlaySettings()` should return an instance of the
-[`OverlaySettings`](https://developer.android.com/reference/androidx/media3/common/OverlaySettings) interface for each sequence in your project. The
+[`OverlaySettings`](https://developer.android.com/reference/androidx/media3/common/OverlaySettings.md.txt) interface for each sequence in your project. The
 `inputId` parameter identifies which sequence the settings will be applied to.
-To build an instance, you can use the [`StaticOverlaySettings`](https://developer.android.com/reference/androidx/media3/effect/StaticOverlaySettings) class
-included in Media3. See the [`StaticOverlaySettings.Builder`](https://developer.android.com/reference/androidx/media3/effect/StaticOverlaySettings.Builder) reference page
+To build an instance, you can use the [`StaticOverlaySettings`](https://developer.android.com/reference/androidx/media3/effect/StaticOverlaySettings.md.txt) class
+included in Media3. See the [`StaticOverlaySettings.Builder`](https://developer.android.com/reference/androidx/media3/effect/StaticOverlaySettings.Builder.md.txt) reference page
 for a full list of configuration options, which includes visual modifications
 like alpha transparency and HDR luminance, positional modifications like anchor
 point and location within the frame, and transformations like rotation and

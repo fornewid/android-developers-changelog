@@ -16,7 +16,7 @@ Automotive OS](https://developer.android.com/training/cars/parked/automotive-os)
 
 ### Android for Cars parked apps
 
-Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to adapt existing Android video streaming apps, games, and web browsers to run as parked apps on cars. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use an [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to adapt existing Android video streaming apps, games, and web browsers to run as parked apps on cars. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add android-for-cars-parked-apps
 
@@ -27,23 +27,24 @@ Use an [Android skill](https://developer.android.com/tools/agents/android-skills
 
 > [!IMPORTANT]
 > **Important:** Make sure your video app meets the [quality guidelines for video
-> apps](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=video), because it's [reviewed against them](https://developer.android.com/training/cars/distribute#understand-review) when submitted to tracks other than internal testing.
+> apps](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=video), because it's [reviewed against them](https://developer.android.com/training/cars/distribute.md.txt#understand-review) when submitted to tracks other than internal testing.
 
 ## Mark your app as a video app
 
 To indicate that your app is a video app, add the
-[`android:appCategory="video"`](https://developer.android.com/guide/topics/manifest/application-element#appCategory) attribute to the [`<application>`](https://developer.android.com/guide/topics/manifest/application-element) element
+[`android:appCategory="video"`](https://developer.android.com/guide/topics/manifest/application-element.md.txt#appCategory) attribute to the [`<application>`](https://developer.android.com/guide/topics/manifest/application-element.md.txt) element
 of your manifest.
 
-    <manifest ...>
+```xml
+<manifest ...>
+    ...
+    <application
+      ...
+      android:appCategory="video">
         ...
-        <application
-          ...
-          android:appCategory="video">
-            ...
-        </application>
-    </manifest>
-
+    </application>
+</manifest>
+```
 [![](https://developer.android.com/static/images/picto-icons/code.svg) Codelab Build and test a parked video streaming app for Android Automotive OS](https://developer.android.com/codelabs/build-a-parked-app)
 
 ## Support audio while driving
@@ -51,7 +52,7 @@ of your manifest.
 Audio while driving is a beta feature Publishing apps that support audio while driving is limited to early access partners. While this feature is in beta, you can prepare your app for support by following the guidance in this section. [Nominate yourself to be an early access partner →](https://goo.gle/440dHqw) ![](https://developer.android.com/static/images/picto-icons/test-tube-2.svg)
 
 In general, all video apps must pause playback when user experience restrictions
-are active, as described in [Meet driver distraction requirements](https://developer.android.com/training/cars/parked/automotive-os#driver-distraction).
+are active, as described in [Meet driver distraction requirements](https://developer.android.com/training/cars/parked/automotive-os.md.txt#driver-distraction).
 
 However, some vehicles have the ability to display driving-optimized playback
 controls while user experience restrictions are active, making it possible to
@@ -61,15 +62,17 @@ continue playing audio.
 ### Declare that your app supports audio while driving
 
 To indicate that your app supports audio while driving, add the following
-[`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element) element in your manifest:
+[`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt) element in your manifest:
 
-    <manifest ...>
-        ...
-        <uses-feature
-            android:name="com.android.car.background_audio_while_driving"
-            android:required="false" />
-        ...
-    </manifest>
+```xml
+<manifest ...>
+    ...
+    <uses-feature
+        android:name="com.android.car.background_audio_while_driving"
+        android:required="false" />
+    ...
+</manifest>
+```
 
 > [!IMPORTANT]
 > **Important:** Setting the `android:required` attribute to `false` ensures that your app can still be distributed to devices that don't support audio while driving.
@@ -78,20 +81,20 @@ To indicate that your app supports audio while driving, add the following
 
 Because your app's activities are hidden by the system UX restrictions, your app
 must support background playback to continue playing audio while driving. See
-[Background playback with a MediaSessionService](https://developer.android.com/media/media3/session/background-playback) for details on how to
+[Background playback with a MediaSessionService](https://developer.android.com/media/media3/session/background-playback.md.txt) for details on how to
 accomplish this using the Media3 library.
 
-Your app must post a [`MediaStyle`](https://developer.android.com/reference/androidx/media3/session/MediaStyleNotificationHelper.MediaStyle) notification that includes your app's
+Your app must post a [`MediaStyle`](https://developer.android.com/reference/androidx/media3/session/MediaStyleNotificationHelper.MediaStyle.md.txt) notification that includes your app's
 `MediaSession`. If you're using `MediaSessionService`, this is [handled for you
 by default](https://developer.android.com/media/media3/session/background-playback#notification).
 
 > [!CAUTION]
-> **Caution:** If you don't use a service for background playback, playback may continue for a short period of time, but your app will eventually be [cached](https://developer.android.com/guide/components/activities/process-lifecycle) by the system, causing playback to end.
+> **Caution:** If you don't use a service for background playback, playback may continue for a short period of time, but your app will eventually be [cached](https://developer.android.com/guide/components/activities/process-lifecycle.md.txt) by the system, causing playback to end.
 
 ### Determine support
 
 To determine if a device supports audio while driving, you can use the
-[`CarFeatures`](https://developer.android.com/reference/androidx/car/app/features/CarFeatures#summary) class from the [`androidx.car.app:app`](https://developer.android.com/jetpack/androidx/releases/car-app) library.
+[`CarFeatures`](https://developer.android.com/reference/androidx/car/app/features/CarFeatures.md.txt#summary) class from the [`androidx.car.app:app`](https://developer.android.com/jetpack/androidx/releases/car-app.md.txt) library.
 
 
 ```kotlin
@@ -105,15 +108,15 @@ CarFeatures.isFeatureEnabled(
 
 Use this information to modify your app's behavior depending on the capabilities
 of the device it's running on. On devices that don't support audio while
-driving, your app must still meet the [`DD-2`](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=video#DD-2) guideline.
+driving, your app must still meet the [`DD-2`](https://developer.android.com/docs/quality-guidelines/car-app-quality.md.txt?category=video#DD-2) guideline.
 
 ### Test audio while driving
 
-To test your implementation, you can [simulate driving](https://developer.android.com/training/cars/testing/emulator#simulate-driving) using an
-[emulator image that supports audio while driving](https://developer.android.com/training/cars/testing/emulator?filter=audio-while-driving#generic-images).
+To test your implementation, you can [simulate driving](https://developer.android.com/training/cars/testing/emulator.md.txt#simulate-driving) using an
+[emulator image that supports audio while driving](https://developer.android.com/training/cars/testing/emulator.md.txt?filter=audio-while-driving#generic-images).
 
 > [!CAUTION]
-> **Caution:** Be sure to test that your app still meets the [`DD-2`](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=video#DD-2) guideline on devices that don't support audio while driving.
+> **Caution:** Be sure to test that your app still meets the [`DD-2`](https://developer.android.com/docs/quality-guidelines/car-app-quality.md.txt?category=video#DD-2) guideline on devices that don't support audio while driving.
 
 ## Frequently asked questions
 

@@ -5,26 +5,26 @@ source: md.txt
 ---
 
 When a Play Billing Library call triggers an action, the library returns a
-[`BillingResult`](https://developer.android.com/reference/com/android/billingclient/api/BillingResult)
+[`BillingResult`](https://developer.android.com/reference/com/android/billingclient/api/BillingResult.md.txt)
 response to inform developers of the outcome. For example, if you use
-[`queryProductDetailsAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,%20com.android.billingclient.api.ProductDetailsResponseListener))
+[`queryProductDetailsAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,%20com.android.billingclient.api.ProductDetailsResponseListener))
 to get the available offers for the user, the response code either contains an
-OK code and provides the right [`ProductDetails`](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails)
+OK code and provides the right [`ProductDetails`](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails.md.txt)
 object, or it contains a different response that indicates the reason why the
-[`ProductDetails`](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails)
+[`ProductDetails`](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails.md.txt)
 object couldn't be provided.
 
-Not all response codes are errors. The [`BillingResponseCode`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode)
+Not all response codes are errors. The [`BillingResponseCode`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt)
 reference page provides a detailed description of each of the responses
 discussed in this guide.
 Some examples of response codes that don't indicate errors are:
 
-- [`BillingClient.BillingResponseCode.OK`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#OK) : the action triggered by the call was completed successfully.
-- [`BillingClient.BillingResponseCode.USER_CANCELED`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#USER_CANCELED) : for actions that display Play Store UI flows to the user, this response indicates the user navigated away from those UI flows without completing the process.
+- [`BillingClient.BillingResponseCode.OK`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#OK) : the action triggered by the call was completed successfully.
+- [`BillingClient.BillingResponseCode.USER_CANCELED`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#USER_CANCELED) : for actions that display Play Store UI flows to the user, this response indicates the user navigated away from those UI flows without completing the process.
 
 When the response code does indicate an error, the cause is sometimes due to
 transient conditions, and thus recovery is possible. When a call to a Play
-Billing Library method returns a [`BillingResponseCode`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode)
+Billing Library method returns a [`BillingResponseCode`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt)
 value that indicates a recoverable condition, you should retry the call. In
 other cases, conditions are not considered transient and therefore a retry is
 not recommended.
@@ -32,17 +32,17 @@ not recommended.
 Transient errors call for different retry strategies depending on factors like
 whether the error happens when users are in session---for example, when a user is
 going through a purchase flow---or the error happens in the background---for
-example, when you're querying the user's existing purchases during [`onResume`](https://developer.android.com/reference/android/app/Activity#onResume()).
-The [retry strategies section](https://developer.android.com/google/play/billing/errors#retry_strategies) below provides examples of
-these different strategies and the Retriable [`BillingResult`](https://developer.android.com/reference/com/android/billingclient/api/BillingResult)
-Responses [section](https://developer.android.com/google/play/billing/errors#retriable_billingresult_responses)
+example, when you're querying the user's existing purchases during [`onResume`](https://developer.android.com/reference/android/app/Activity.md.txt#onResume()).
+The [retry strategies section](https://developer.android.com/google/play/billing/errors.md.txt#retry_strategies) below provides examples of
+these different strategies and the Retriable [`BillingResult`](https://developer.android.com/reference/com/android/billingclient/api/BillingResult.md.txt)
+Responses [section](https://developer.android.com/google/play/billing/errors.md.txt#retriable_billingresult_responses)
 recommends which strategy works best for each response code.
 
 In addition to the response code, some error responses include messages for
 debugging and logging purposes.
 
 > [!TIP]
-> **Tip:** Before you deploy your app to the production environment, you can test how your app handles the various BillingResult response error codes by using the Response Simulator. For more information, see [Test BillingResult response codes](https://developer.android.com/google/play/billing/test-response-codes).
+> **Tip:** Before you deploy your app to the production environment, you can test how your app handles the various BillingResult response error codes by using the Response Simulator. For more information, see [Test BillingResult response codes](https://developer.android.com/google/play/billing/test-response-codes.md.txt).
 
 ## Retry strategies
 
@@ -54,7 +54,7 @@ possible. In that case, we recommend a simple retry strategy with a maximum
 number of attempts as an exit condition.
 
 The following example demonstrates a simple retry strategy to handle an error
-when establishing a [`BillingClient`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient)
+when establishing a [`BillingClient`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt)
 connection:
 
 
@@ -235,7 +235,7 @@ suspend fun acknowledgePurchase(purchaseToken: String) {
 
 ## Retriable BillingResult responses
 
-### [NETWORK_ERROR](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#NETWORK_ERROR) (Error Code 12)
+### [NETWORK_ERROR](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#NETWORK_ERROR) (Error Code 12)
 
 > [!NOTE]
 > **Note:** This error is only returned in Google Play Billing Library 6 and up. Previous versions are not supported.
@@ -250,10 +250,10 @@ between the device and Play systems.
 To recover, use simple retries or exponential backoff, depending on which
 action triggered the error.
 
-### [SERVICE_TIMEOUT](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#SERVICE_TIMEOUT) (Error Code -3)
+### [SERVICE_TIMEOUT](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#SERVICE_TIMEOUT) (Error Code -3)
 
 > [!NOTE]
-> **Note:** This error is only returned in Google Play Billing Library 5.2.0 and earlier. Starting with Google Play Billing 6.0.0, [SERVICE_UNAVAILABLE](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#SERVICE_UNAVAILABLE) is returned for the problem described below, and `SERVICE_TIMEOUT` is deprecated.
+> **Note:** This error is only returned in Google Play Billing Library 5.2.0 and earlier. Starting with Google Play Billing 6.0.0, [SERVICE_UNAVAILABLE](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#SERVICE_UNAVAILABLE) is returned for the problem described below, and `SERVICE_TIMEOUT` is deprecated.
 
 #### Problem
 
@@ -267,16 +267,16 @@ This is usually a transient issue. Retry the request using either either a
 simple or exponential backoff strategy, depending on which action returned the
 error.
 
-Unlike [`SERVICE_DISCONNECTED`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#SERVICE_DISCONNECTED)
+Unlike [`SERVICE_DISCONNECTED`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#SERVICE_DISCONNECTED)
 below, the connection to the Google Play Billing service is not severed, and you
 only need to retry whatever Play Billing Library operation was attempted.
 
-### [SERVICE_DISCONNECTED](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#SERVICE_DISCONNECTED) (Error Code -1)
+### [SERVICE_DISCONNECTED](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#SERVICE_DISCONNECTED) (Error Code -1)
 
 #### Problem
 
 This fatal error indicates that the client app's connection to the Google Play
-Store service via the [`BillingClient`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient)
+Store service via the [`BillingClient`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt)
 has been severed.
 
 #### Possible resolution
@@ -307,11 +307,13 @@ val billingClient = BillingClient.newBuilder(context)
 
 ### Java
 
-    BillingClient billingClient = BillingClient.newBuilder(context)
-        .setListener(listener)
-        .enablePendingPurchases()
-        .enableAutoServiceReconnection() // Enable automatic service reconnection
-        .build();
+```java
+BillingClient billingClient = BillingClient.newBuilder(context)
+    .setListener(listener)
+    .enablePendingPurchases()
+    .enableAutoServiceReconnection() // Enable automatic service reconnection
+    .build();
+```
 
 ##### If you have enabled automatic service reconnection
 
@@ -327,17 +329,17 @@ In this scenario, you should implement retry logic in your app:
 
 To avoid this error as much as possible, always check the connection to Google
 Play services before making calls with the Play Billing Library by calling
-[`BillingClient.isReady()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#isReady()).
+[`BillingClient.isReady()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#isReady()).
 
-To attempt recovery from [`SERVICE_DISCONNECTED`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#SERVICE_DISCONNECTED)
+To attempt recovery from [`SERVICE_DISCONNECTED`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#SERVICE_DISCONNECTED)
 , your client app should try to re-establish the connection using
-[`BillingClient.startConnection`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#startConnection(com.android.billingclient.api.BillingClientStateListener)).
+[`BillingClient.startConnection`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#startConnection(com.android.billingclient.api.BillingClientStateListener)).
 
-Just like with [`SERVICE_TIMEOUT`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#SERVICE_TIMEOUT)
+Just like with [`SERVICE_TIMEOUT`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#SERVICE_TIMEOUT)
 , use simple retries or exponential backoff, depending on which action triggered
 the error.
 
-### [SERVICE_UNAVAILABLE](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#SERVICE_UNAVAILABLE) (Error Code 2)
+### [SERVICE_UNAVAILABLE](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#SERVICE_UNAVAILABLE) (Error Code 2)
 
 #### Important Note:
 
@@ -357,11 +359,11 @@ This is usually a transient issue. Retry the request using either either a
 simple or exponential backoff strategy, depending on which action returned the
 error.
 
-Unlike [`SERVICE_DISCONNECTED`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#SERVICE_DISCONNECTED)
+Unlike [`SERVICE_DISCONNECTED`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#SERVICE_DISCONNECTED)
 , the connection to the Google Play Billing service is not severed, and you need
 to retry whatever operation is being attempted.
 
-### [BILLING_UNAVAILABLE](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#BILLING_UNAVAILABLE) (Error Code 3)
+### [BILLING_UNAVAILABLE](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#BILLING_UNAVAILABLE) (Error Code 3)
 
 #### Problem
 
@@ -384,14 +386,14 @@ Examples of when this can occur include:
 
 - If this error occurs when the user is not in session, retrying might not make
   sense.
-  When you receive a [`BILLING_UNAVAILABLE`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#BILLING_UNAVAILABLE)
+  When you receive a [`BILLING_UNAVAILABLE`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#BILLING_UNAVAILABLE)
   error as a result of the purchase flow, it's very likely the user received
   feedback from Google Play during the purchase process and might be aware of what
   went wrong. In this case, you could show an error message specifying something
   went wrong and offer a **Try again** button to give the user the option of a
   manual retry after they address the issue.
 
-### [ERROR](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#ERROR) (Error Code 6)
+### [ERROR](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#ERROR) (Error Code 6)
 
 #### Problem
 
@@ -400,11 +402,11 @@ itself.
 
 #### Possible resolution
 
-Sometimes internal Google Play problems that lead to [`ERROR`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#ERROR)
+Sometimes internal Google Play problems that lead to [`ERROR`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#ERROR)
 are transient, and a retry with an exponential backoff can be implemented for
 mitigation. When users are in session, a simple retry is preferable.
 
-### [ITEM_ALREADY_OWNED](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#ITEM_ALREADY_OWNED)
+### [ITEM_ALREADY_OWNED](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#ITEM_ALREADY_OWNED)
 
 #### Problem
 
@@ -422,12 +424,12 @@ filter what the user can purchase accordingly.
 When the client app receives this error due to a cache issue, the error triggers
 Google Play's cache to get updated with the latest data from Play's backend.
 Retrying after the error should resolve this specific transient instance in this
-case. Call [`BillingClient.queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener))
-after getting an [`ITEM_ALREADY_OWNED`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#ITEM_ALREADY_OWNED)
+case. Call [`BillingClient.queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener))
+after getting an [`ITEM_ALREADY_OWNED`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#ITEM_ALREADY_OWNED)
 to check if the user has acquired the product, and if it's not the case
 implement a simple retry logic to reattempt the purchase.
 
-### [ITEM_NOT_OWNED](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#ITEM_NOT_OWNED)
+### [ITEM_NOT_OWNED](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#ITEM_NOT_OWNED)
 
 #### Problem
 
@@ -442,7 +444,7 @@ Play's cache getting into a stale state.
 When the error is received because of a cache issue, the error triggers Google
 Play's cache to get updated with the latest data from Play's backend. Retrying
 with a simple retry strategy after the error should resolve this specific
-transient instance. Call [`BillingClient.queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#ITEM_ALREADY_OWNED) after getting an [`ITEM_NOT_OWNED`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#ITEM_NOT_OWNED) to check if the user has
+transient instance. Call [`BillingClient.queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#ITEM_ALREADY_OWNED) after getting an [`ITEM_NOT_OWNED`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#ITEM_NOT_OWNED) to check if the user has
 acquired the product. If they have not, use simple retry logic to reattempt the
 purchase.
 
@@ -450,7 +452,7 @@ purchase.
 
 You can't recover from these errors using retry logic.
 
-### [FEATURE_NOT_SUPPORTED](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#FEATURE_NOT_SUPPORTED)
+### [FEATURE_NOT_SUPPORTED](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#FEATURE_NOT_SUPPORTED)
 
 #### Problem
 
@@ -461,7 +463,7 @@ For example, perhaps some of your users' devices don't support in-app messaging.
 
 #### Possible mitigation
 
-Use [`BillingClient.isFeatureSupported()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#isFeatureSupported(java.lang.String)) to check feature support before making the call to the Play Billing
+Use [`BillingClient.isFeatureSupported()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#isFeatureSupported(java.lang.String)) to check feature support before making the call to the Play Billing
 Library.
 
 
@@ -479,7 +481,7 @@ when {
 
 <br />
 
-### [USER_CANCELED](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#USER_CANCELED)
+### [USER_CANCELED](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#USER_CANCELED)
 
 #### Problem
 
@@ -489,7 +491,7 @@ The user has clicked out of the billing flow UI.
 
 This is informational only and can fail gracefully.
 
-### [ITEM_UNAVAILABLE](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#ITEM_UNAVAILABLE)
+### [ITEM_UNAVAILABLE](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#ITEM_UNAVAILABLE)
 
 #### Problem
 
@@ -498,11 +500,11 @@ available for purchase for this user.
 
 #### Possible mitigation
 
-Make sure your app refreshes the product details via [`queryProductDetailsAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,%20com.android.billingclient.api.ProductDetailsResponseListener)) as recommended. Take into account how often
+Make sure your app refreshes the product details via [`queryProductDetailsAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,%20com.android.billingclient.api.ProductDetailsResponseListener)) as recommended. Take into account how often
 your product catalog changes on the Play Console configuration to implement
 extra refreshes if needed.
 Only attempt to sell products on Google Play Billing that return the right
-information via [`queryProductDetailsAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,%20com.android.billingclient.api.ProductDetailsResponseListener)).
+information via [`queryProductDetailsAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,%20com.android.billingclient.api.ProductDetailsResponseListener)).
 Check the product eligibility configuration for any inconsistencies.
 For example, you might be querying for a product that is only available for a
 region other than the one the user is trying to purchase.
@@ -514,12 +516,12 @@ configuration, but users still see this error. This might be due to a
 propagation delay of the product details across Google's servers. Try again
 later.
 
-### [DEVELOPER_ERROR](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#DEVELOPER_ERROR)
+### [DEVELOPER_ERROR](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode.md.txt#DEVELOPER_ERROR)
 
 #### Problem
 
 This is a fatal error that indicates you're improperly using an API.
-For example, supplying incorrect parameters to [`BillingClient.launchBillingFlow`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#launchBillingFlow(android.app.Activity,%20com.android.billingclient.api.BillingFlowParams)) can
+For example, supplying incorrect parameters to [`BillingClient.launchBillingFlow`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#launchBillingFlow(android.app.Activity,%20com.android.billingclient.api.BillingFlowParams)) can
 cause this error.
 
 #### Possible resolution

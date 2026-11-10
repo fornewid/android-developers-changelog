@@ -18,9 +18,9 @@ snack are shared from the listing page, to the detail page.
 In Compose, there are a few high-level APIs that help you create shared
 elements:
 
-- [`SharedTransitionLayout`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionLayout.composable#SharedTransitionLayout(androidx.compose.ui.Modifier,kotlin.Function1)): The outermost layout required to implement shared element transitions. It provides a `SharedTransitionScope`. Composables need to be in a `SharedTransitionScope` to use the shared element modifiers.
-- [`Modifier.sharedElement()`](https://developer.android.com/develop/ui/compose/animation/shared-elements#basic-usage): The modifier that flags to the `SharedTransitionScope` the composable that should be matched with another composable.
-- [`Modifier.sharedBounds()`](https://developer.android.com/develop/ui/compose/animation/shared-elements#shared-bounds): The modifier that flags to the `SharedTransitionScope` that this composable's bounds should be used as the container bounds for where the transition should take place. In contrast to `sharedElement()`, `sharedBounds()` is designed for visually different content.
+- [`SharedTransitionLayout`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionLayout.composable.md.txt#SharedTransitionLayout(androidx.compose.ui.Modifier,kotlin.Function1)): The outermost layout required to implement shared element transitions. It provides a `SharedTransitionScope`. Composables need to be in a `SharedTransitionScope` to use the shared element modifiers.
+- [`Modifier.sharedElement()`](https://developer.android.com/develop/ui/compose/animation/shared-elements.md.txt#basic-usage): The modifier that flags to the `SharedTransitionScope` the composable that should be matched with another composable.
+- [`Modifier.sharedBounds()`](https://developer.android.com/develop/ui/compose/animation/shared-elements.md.txt#shared-bounds): The modifier that flags to the `SharedTransitionScope` that this composable's bounds should be used as the container bounds for where the transition should take place. In contrast to `sharedElement()`, `sharedBounds()` is designed for visually different content.
 
 An important concept when creating shared elements in Compose is how they work
 with overlays and clipping. See [the clipping and
@@ -34,7 +34,7 @@ smaller "list" item, to the larger detailed item:
 ![Basic shared element transition between two composables in Jetsnack](https://developer.android.com/static/develop/ui/compose/images/animations/shared-element/basic_shared_element_jetsnack.gif) **Figure 2.** Basic example of a shared element transition between two composables.
 
 The best way to use `Modifier.sharedElement()` is in conjunction with
-`AnimatedContent`, [`AnimatedVisibility`](https://developer.android.com/develop/ui/compose/animation/shared-elements#animated-visibility), or [`NavHost`](https://developer.android.com/develop/ui/compose/animation/shared-elements/navigation), as this manages
+`AnimatedContent`, [`AnimatedVisibility`](https://developer.android.com/develop/ui/compose/animation/shared-elements.md.txt#animated-visibility), or [`NavHost`](https://developer.android.com/develop/ui/compose/animation/shared-elements/navigation.md.txt), as this manages
 the transition between composables automatically for you.
 
 The starting point is an existing basic `AnimatedContent` that has a
@@ -45,7 +45,7 @@ The starting point is an existing basic `AnimatedContent` that has a
 
 1. To make the shared elements animate between the two layouts,
    surround the `AnimatedContent` composable with `SharedTransitionLayout`. The
-   scopes from [`SharedTransitionLayout`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionLayout.composable#SharedTransitionLayout(androidx.compose.ui.Modifier,kotlin.Function1)) and `AnimatedContent` are passed
+   scopes from [`SharedTransitionLayout`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionLayout.composable.md.txt#SharedTransitionLayout(androidx.compose.ui.Modifier,kotlin.Function1)) and `AnimatedContent` are passed
    to the `MainContent` and `DetailsContent`:
 
 
@@ -81,9 +81,9 @@ The starting point is an existing basic `AnimatedContent` that has a
 
    <br />
 
-2. Add [`Modifier.sharedElement()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).sharedElement(androidx.compose.animation.SharedTransitionScope.SharedContentState,androidx.compose.animation.AnimatedVisibilityScope,androidx.compose.animation.BoundsTransform,androidx.compose.animation.SharedTransitionScope.PlaceholderSize,kotlin.Boolean,kotlin.Float,androidx.compose.animation.SharedTransitionScope.OverlayClip)) to your composable modifier chain on the
+2. Add [`Modifier.sharedElement()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope.md.txt#(androidx.compose.ui.Modifier).sharedElement(androidx.compose.animation.SharedTransitionScope.SharedContentState,androidx.compose.animation.AnimatedVisibilityScope,androidx.compose.animation.BoundsTransform,androidx.compose.animation.SharedTransitionScope.PlaceholderSize,kotlin.Boolean,kotlin.Float,androidx.compose.animation.SharedTransitionScope.OverlayClip)) to your composable modifier chain on the
    two composables that match. Create a `SharedContentState` object and
-   remember it with [`rememberSharedContentState()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#rememberSharedContentState(kotlin.Any)). The
+   remember it with [`rememberSharedContentState()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope.md.txt#rememberSharedContentState(kotlin.Any)). The
    `SharedContentState` object is storing the unique key which determines the
    elements that are shared. Provide a unique key to identify the content, and
    use `rememberSharedContentState()` for the item to be remembered. The
@@ -155,7 +155,7 @@ To get information on if a shared element match has occurred, extract
 `rememberSharedContentState()` into a variable, and query `isMatchFound`.
 
 > [!IMPORTANT]
-> **Important:** The [order of where this modifier](https://developer.android.com/develop/ui/compose/animation/shared-elements#modifier-ordering) is placed in the modifier chain is important. Put anything **you don't want to
+> **Important:** The [order of where this modifier](https://developer.android.com/develop/ui/compose/animation/shared-elements.md.txt#modifier-ordering) is placed in the modifier chain is important. Put anything **you don't want to
 > be shared before** the **`sharedElement()`** in the modifier chain.
 
 This results in the following automatic animation:
@@ -166,7 +166,7 @@ uses the default `AnimatedContent` settings.
 
 ## Shared bounds versus shared element
 
-[`Modifier.sharedBounds()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).sharedBounds(androidx.compose.animation.SharedTransitionScope.SharedContentState,androidx.compose.animation.AnimatedVisibilityScope,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,androidx.compose.animation.BoundsTransform,androidx.compose.animation.SharedTransitionScope.ResizeMode,androidx.compose.animation.SharedTransitionScope.PlaceholderSize,kotlin.Boolean,kotlin.Float,androidx.compose.animation.SharedTransitionScope.OverlayClip)) is similar to `Modifier.sharedElement()`.
+[`Modifier.sharedBounds()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope.md.txt#(androidx.compose.ui.Modifier).sharedBounds(androidx.compose.animation.SharedTransitionScope.SharedContentState,androidx.compose.animation.AnimatedVisibilityScope,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,androidx.compose.animation.BoundsTransform,androidx.compose.animation.SharedTransitionScope.ResizeMode,androidx.compose.animation.SharedTransitionScope.PlaceholderSize,kotlin.Boolean,kotlin.Float,androidx.compose.animation.SharedTransitionScope.OverlayClip)) is similar to `Modifier.sharedElement()`.
 However, the modifiers are different in the following ways:
 
 - `sharedBounds()` is for content that is visually different but should share the same area between states, whereas `sharedElement()` expects the content to be the same.
@@ -248,10 +248,10 @@ in your UI hierarchy that contains the elements you want to share.
 Generally, the composables should also be placed inside an
 `AnimatedVisibilityScope`. This is typically provided by using `AnimatedContent`
 to switch between composables or when using `AnimatedVisibility` directly, or by
-the [`NavHost`](https://developer.android.com/develop/ui/compose/animation/shared-elements/navigation) composable function, unless you [manage the visibility
+the [`NavHost`](https://developer.android.com/develop/ui/compose/animation/shared-elements/navigation.md.txt) composable function, unless you [manage the visibility
 manually](https://developer.android.com/develop/ui/compose/animation/shared-elements#managing-visibility). In order
 to use multiple scopes, save your required scopes in a
-[`CompositionLocal`](https://developer.android.com/develop/ui/compose/compositionlocal), use [context parameters in Kotlin](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0367-context-parameters.md), or pass the
+[`CompositionLocal`](https://developer.android.com/develop/ui/compose/compositionlocal.md.txt), use [context parameters in Kotlin](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0367-context-parameters.md), or pass the
 scopes as parameters to your functions.
 
 Use `CompositionLocals` in the scenario where you have multiple scopes to keep

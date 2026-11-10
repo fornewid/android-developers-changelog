@@ -95,13 +95,13 @@ fun onClick(view: View) {
                 val userResponseToken = response.tokenResult
                 if (response.tokenResult?.isNotEmpty() == true) {
                     // Validate the user response token using the
-                    // https://developers.google.com/recaptcha/docs/verify.
+                    // reCAPTCHA siteverify API.
                 }
             })
             .addOnFailureListener(this as Executor, OnFailureListener { e ->
                 if (e is ApiException) {
                     // An error occurred when communicating with the
-                    // reCAPTCHA service. https://developers.google.com/android/reference/com/google/android/gms/safetynet/SafetyNetStatusCodes to
+                    // reCAPTCHA service. Refer to the status code to
                     // handle the error appropriately.
                     Log.d(TAG, "Error: ${CommonStatusCodes.getStatusCodeString(e.statusCode)}")
                 } else {
@@ -126,7 +126,7 @@ public void onClick(View v) {
                     String userResponseToken = response.getTokenResult();
                     if (!userResponseToken.isEmpty()) {
                         // Validate the user response token using the
-                        // https://developers.google.com/recaptcha/docs/verify.
+                        // reCAPTCHA siteverify API.
                     }
                 }
         })
@@ -135,7 +135,7 @@ public void onClick(View v) {
                 public void onFailure(@NonNull Exception e) {
                     if (e instanceof ApiException) {
                         // An error occurred when communicating with the
-                        // reCAPTCHA service. https://developers.google.com/android/reference/com/google/android/gms/safetynet/SafetyNetStatusCodes to
+                        // reCAPTCHA service. Refer to the status code to
                         // handle the error appropriately.
                         ApiException apiException = (ApiException) e;
                         int statusCode = apiException.getStatusCode();

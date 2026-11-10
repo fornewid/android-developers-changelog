@@ -5,20 +5,20 @@ source: md.txt
 ---
 
 > [!IMPORTANT]
-> **Important:** If you implemented a custom splash screen in Android 11 or lower, migrate your app to the [`SplashScreen`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen) compat library to ensure it displays correctly in Android 12 and higher. For instructions, see [Migrate
+> **Important:** If you implemented a custom splash screen in Android 11 or lower, migrate your app to the [`SplashScreen`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen.md.txt) compat library to ensure it displays correctly in Android 12 and higher. For instructions, see [Migrate
 > your existing splash screen implementation to Android 12](https://developer.android.com/develop/ui/views/launch/splash-screen/migrate).
 
 Starting in Android 12, apps launch with a system splash screen that includes
 an into-app motion at launch, a splash screen showing your app icon, and a
-transition to your app itself. The splash screen is a [`Window`](https://developer.android.com/reference/android/view/Window) and
-therefore covers an [`Activity`](https://developer.android.com/reference/android/app/Activity).
+transition to your app itself. The splash screen is a [`Window`](https://developer.android.com/reference/android/view/Window.md.txt) and
+therefore covers an [`Activity`](https://developer.android.com/reference/android/app/Activity.md.txt).
 **Figure 1.** A splash screen.
 
 The splash screen experience brings standard design elements to every app
 launch, but it's also customizable so your app can maintain its unique branding.
 
 To customize the splash screen from your app, use the Jetpack
-[`SplashScreen`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen) compat library. It wraps the platform [`SplashScreen`](https://developer.android.com/reference/android/window/SplashScreen)
+[`SplashScreen`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen.md.txt) compat library. It wraps the platform [`SplashScreen`](https://developer.android.com/reference/android/window/SplashScreen.md.txt)
 API and works with any `ComponentActivity`, including activities that set
 their UI with Compose using `setContent`.
 
@@ -26,7 +26,7 @@ their UI with Compose using `setContent`.
 
 When a user launches an app while the app's process isn't running (a [cold
 start](https://developer.android.com/topic/performance/issues/launch-time#cold)) or the `Activity` isn't
-created (a [warm start](https://developer.android.com/topic/performance/issues/launch-time#warm)), the
+created (a [warm start](https://developer.android.com/topic/performance/issues/launch-time.md.txt#warm)), the
 following events occur:
 
 1. The system shows the splash screen using themes and any animations that you
@@ -34,7 +34,7 @@ following events occur:
 
 2. When the app is ready, the splash screen is dismissed and the app displays.
 
-The splash screen never shows during a [hot start](https://developer.android.com/topic/performance/issues/launch-time#hot).
+The splash screen never shows during a [hot start](https://developer.android.com/topic/performance/issues/launch-time.md.txt#hot).
 
 ## Elements and mechanics of the splash screen
 
@@ -53,7 +53,7 @@ we recommend not exceeding 1,000 milliseconds. The launcher icon is the default.
 
 2 The **icon background** is optional and useful if
 you need more contrast between the icon and the window background. If you use an
-[adaptive icon](https://developer.android.com/develop/ui/compose/system/icon_design_adaptive), its
+[adaptive icon](https://developer.android.com/develop/ui/compose/system/icon_design_adaptive.md.txt), its
 background is displayed if there is enough contrast with the window background.
 
 3 As with adaptive icons, one-third of the
@@ -65,7 +65,7 @@ by default if the attribute isn't set.
 
 ### Splash screen dimensions
 
-The splash screen icon uses the same specifications as [adaptive icons](https://developer.android.com/develop/ui/compose/system/icon_design_adaptive),
+The splash screen icon uses the same specifications as [adaptive icons](https://developer.android.com/develop/ui/compose/system/icon_design_adaptive.md.txt),
 as follows:
 
 - Branded image: this must be 200×80 dp.
@@ -93,12 +93,12 @@ shown in figure 4.
 
 2. Splash screen (shown during the "wait" portion of the sequence): the splash
    screen can be customized, letting you supply your own logo animation and
-   branding. It must meet the [requirements](https://developer.android.com/develop/ui/views/launch/splash-screen#splash-screen-animate-reqs)
+   branding. It must meet the [requirements](https://developer.android.com/develop/ui/views/launch/splash-screen.md.txt#splash-screen-animate-reqs)
    described in this page to work properly.
 
 3. Exit animation: this consists of the animation that hides the splash screen.
-   If you want to [customize it](https://developer.android.com/develop/ui/views/launch/splash-screen#customize-animation), use the
-   [`SplashScreenViewProvider`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreenViewProvider) view and its
+   If you want to [customize it](https://developer.android.com/develop/ui/views/launch/splash-screen.md.txt#customize-animation), use the
+   [`SplashScreenViewProvider`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreenViewProvider.md.txt) view and its
    icon. You can run any animation on them, with settings for transform,
    opacity, and color. In this case, manually remove the splash screen when the
    animation is done.
@@ -117,11 +117,11 @@ Your splash screen must adhere to the following specifications:
 
 - Set a single window background color with no transparency. Day and Night
   mode are supported with the
-  [`SplashScreen` compat library](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen).
+  [`SplashScreen` compat library](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen.md.txt).
 
 - Make sure the animated icon meets the following specifications:
 
-  - **Format:** the icon must be an [AnimatedVectorDrawable (AVD)](https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable) XML.
+  - **Format:** the icon must be an [AnimatedVectorDrawable (AVD)](https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable.md.txt) XML.
   - **Dimensions:** an AVD icon must be four times the size of an adaptive icon, as follows:
     - The icon area must be 432 dp---in other words, four times the 108 dp area of an unmasked adaptive icon.
     - The inner two-thirds of the image is visible on the launcher icon, and must be 288 dp---in other words, four times the 72 dp that makes up the inner masked area of an adaptive icon.
@@ -129,7 +129,7 @@ Your splash screen must adhere to the following specifications:
 - Establish an appropriate time to dismiss the splash screen, which happens as
   your app draws its first frame. You can further customize this as described
   in the section about
-  [keeping the splash screen on-screen for longer periods](https://developer.android.com/develop/ui/views/launch/splash-screen#suspend-drawing).
+  [keeping the splash screen on-screen for longer periods](https://developer.android.com/develop/ui/views/launch/splash-screen.md.txt#suspend-drawing).
 
 ### Splash screen resources
 
@@ -201,70 +201,77 @@ implementation that uses attributes like `android:windowBackground`, consider
 providing an alternate resource file for Android 12 and higher.
 
 1. Use
-   [`windowSplashScreenBackground`](https://developer.android.com/reference/android/R.attr#windowSplashScreenBackground)
+   [`windowSplashScreenBackground`](https://developer.android.com/reference/android/R.attr.md.txt#windowSplashScreenBackground)
    to fill the background with a specific single color:
 
-       <item name="android:windowSplashScreenBackground">@color/...</item>
-
+   ```xml
+   <item name="android:windowSplashScreenBackground">@color/...</item>
+   ```
 2. Use
-   [`windowSplashScreenAnimatedIcon`](https://developer.android.com/reference/android/R.attr#windowSplashScreenAnimatedIcon)
+   [`windowSplashScreenAnimatedIcon`](https://developer.android.com/reference/android/R.attr.md.txt#windowSplashScreenAnimatedIcon)
    to replace the icon in the center of the starting window.
 
    For apps targeting Android 12 (API level 32) only, do the following:
 
    If the object is animatable and drawable through
-   [`AnimationDrawable`](https://developer.android.com/reference/android/graphics/drawable/AnimationDrawable)
+   [`AnimationDrawable`](https://developer.android.com/reference/android/graphics/drawable/AnimationDrawable.md.txt)
    and `AnimatedVectorDrawable`, set `windowSplashScreenAnimationDuration` to
    play the animation while showing the starting window. This isn't required
    for Android 13, because the duration is directly inferred from the
    `AnimatedVectorDrawable`.
 
-       <item name="android:windowSplashScreenAnimatedIcon">@drawable/...</item>
-
+   ```xml
+   <item name="android:windowSplashScreenAnimatedIcon">@drawable/...</item>
+   ```
 3. Use
-   [`windowSplashScreenAnimationDuration`](https://developer.android.com/reference/android/R.attr#windowSplashScreenAnimationDuration)
+   [`windowSplashScreenAnimationDuration`](https://developer.android.com/reference/android/R.attr.md.txt#windowSplashScreenAnimationDuration)
    to indicate the duration of the splash screen icon animation. Setting this
    doesn't have any effect on the actual time during which the splash screen is
    shown, but you can retrieve it when customizing the splash screen exit
    animation using
-   [`SplashScreenViewProvider.iconAnimationDurationMillis`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreenViewProvider#iconAnimationDurationMillis()).
+   [`SplashScreenViewProvider.iconAnimationDurationMillis`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreenViewProvider.md.txt#iconAnimationDurationMillis()).
    See the following section about
-   [keeping the splash screen on-screen for longer periods](https://developer.android.com/develop/ui/views/launch/splash-screen#suspend-drawing)
+   [keeping the splash screen on-screen for longer periods](https://developer.android.com/develop/ui/views/launch/splash-screen.md.txt#suspend-drawing)
    for more details.
 
-       <item name="android:windowSplashScreenAnimationDuration">1000</item>
-
-4. Use [`windowSplashScreenIconBackgroundColor`](https://developer.android.com/reference/android/R.attr#windowSplashScreenIconBackgroundColor)
+   ```xml
+   <item name="android:windowSplashScreenAnimationDuration">1000</item>
+   ```
+4. Use [`windowSplashScreenIconBackgroundColor`](https://developer.android.com/reference/android/R.attr.md.txt#windowSplashScreenIconBackgroundColor)
    to set a background behind the splash screen icon. This is useful if there
    isn't enough contrast between the window background and the icon.
 
-       <item name="android:windowSplashScreenIconBackgroundColor">@color/...</item>
-
+   ```xml
+   <item name="android:windowSplashScreenIconBackgroundColor">@color/...</item>
+   ```
 5. You can use
-   [`windowSplashScreenBrandingImage`](https://developer.android.com/reference/android/R.attr#windowSplashScreenBrandingImage)
+   [`windowSplashScreenBrandingImage`](https://developer.android.com/reference/android/R.attr.md.txt#windowSplashScreenBrandingImage)
    to set an image to be shown at the bottom of the splash screen. However, the
    design guidelines recommend against using a branding image.
 
-       <item name="android:windowSplashScreenBrandingImage">@drawable/...</item>
-
+   ```xml
+   <item name="android:windowSplashScreenBrandingImage">@drawable/...</item>
+   ```
 6. You can use
-   [`windowSplashScreenBehavior`](https://developer.android.com/reference/android/R.attr#windowSplashScreenBehavior)
+   [`windowSplashScreenBehavior`](https://developer.android.com/reference/android/R.attr.md.txt#windowSplashScreenBehavior)
    to specify whether your app always displays the icon on the splash screen in
    Android 13 and higher. The default value is 0, which displays the icon on
    the splash screen if the launching activity sets the `splashScreenStyle` to
-   [`SPLASH_SCREEN_STYLE_ICON`](https://developer.android.com/reference/android/window/SplashScreen#SPLASH_SCREEN_STYLE_ICON),
+   [`SPLASH_SCREEN_STYLE_ICON`](https://developer.android.com/reference/android/window/SplashScreen.md.txt#SPLASH_SCREEN_STYLE_ICON),
    or follows the system behavior if the launching activity doesn't specify a
    style. If you prefer to never display an empty splash screen and always want
    the animated icon to be displayed, set this to the value `icon_preferred`.
 
-       <item name="android:windowSplashScreenBehavior">icon_preferred</item>
+   ```xml
+   <item name="android:windowSplashScreenBehavior">icon_preferred</item>
+   ```
 
 ### Keep the splash screen on-screen for longer periods
 
 The splash screen is dismissed as soon as your app draws its first frame. If you
 need to load a small amount of data, such as loading in-app settings from a
 local disk asynchronously, use
-[`setKeepOnScreenCondition`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen#setKeepOnScreenCondition(androidx.core.splashscreen.SplashScreen.KeepOnScreenCondition)) to keep the splash screen on-screen until the
+[`setKeepOnScreenCondition`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen.md.txt#setKeepOnScreenCondition(androidx.core.splashscreen.SplashScreen.KeepOnScreenCondition)) to keep the splash screen on-screen until the
 data is ready. The condition is evaluated before each frame is drawn, so keep it
 fast to avoid blocking the UI.
 
@@ -294,8 +301,8 @@ override fun onCreate(savedInstanceState: Bundle?) {
 ### Customize the animation for dismissing the splash screen
 
 You can further customize the animation of the splash screen with
-[`setOnExitAnimationListener`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen#setOnExitAnimationListener(androidx.core.splashscreen.SplashScreen.OnExitAnimationListener)). The listener receives a
-[`SplashScreenViewProvider`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreenViewProvider) that gives you the splash screen view to
+[`setOnExitAnimationListener`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen.md.txt#setOnExitAnimationListener(androidx.core.splashscreen.SplashScreen.OnExitAnimationListener)). The listener receives a
+[`SplashScreenViewProvider`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreenViewProvider.md.txt) that gives you the splash screen view to
 animate. Call `remove()` on it when your animation ends.
 
 
@@ -335,10 +342,10 @@ override fun onCreate(savedInstanceState: Bundle?) {
 <br />
 
 By the start of this callback, the
-[animated vector drawable](https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable)
+[animated vector drawable](https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable.md.txt)
 on the splash screen starts. Depending on the duration of the app launch, the
 drawable might be in the middle of its animation. Use
-[`SplashScreenViewProvider.iconAnimationStartMillis`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreenViewProvider#iconAnimationStartMillis())
+[`SplashScreenViewProvider.iconAnimationStartMillis`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreenViewProvider.md.txt#iconAnimationStartMillis())
 to know when the animation started. You can calculate the remaining duration of
 the icon animation as follows:
 

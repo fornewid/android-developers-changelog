@@ -17,7 +17,7 @@ notes](https://developer.android.com/google/play/billing/release-notes#9-0-0).
 
 ### Upgrade Play Billing Library
 
-Use the Play Billing Library [Android skill](https://developer.android.com/tools/agents/android-skills) to automate your upgrade to the latest version. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the Play Billing Library [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to automate your upgrade to the latest version. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add play-billing-library-version-upgrade
 
@@ -35,7 +35,7 @@ previously deprecated APIs. This version of the library also introduces richer e
 ## Backward-compatibility for PBL upgrade
 
 To migrate to PBL 9, you need to update or remove some of your existing API
-references from your app, as described in the [release notes](https://developer.android.com/google/play/billing/release-notes) and later
+references from your app, as described in the [release notes](https://developer.android.com/google/play/billing/release-notes.md.txt) and later
 in this migration guide.
 
 ## Upgrade from PBL 7 or 8 to PBL 9
@@ -45,10 +45,12 @@ To upgrade from PBL 7 or 8 to PBL 9, do the following steps:
 1. Update the Play Billing Library dependency version in your app's
    `build.gradle` file.
 
-       dependencies {
-         def billing_version = "9.1.0"
-         implementation "com.android.billingclient:billing:$billing_version"
-       }
+   ```groovy
+   dependencies {
+     def billing_version = "9.1.0"
+     implementation "com.android.billingclient:billing:$billing_version"
+   }
+   ```
 
    If you're using Kotlin, the Google Play Billing Library KTX module contains
    Kotlin extensions and coroutines support that enable you to write idiomatic
@@ -56,19 +58,20 @@ To upgrade from PBL 7 or 8 to PBL 9, do the following steps:
    extensions in your project, add the following dependency to your app's
    `build.gradle` file as shown:
 
-       dependencies {
-         val billing_version = "9.1.0"
-         implementation("com.android.billingclient:billing-ktx:$billing_version")
-       }
-
+   ```kotlin
+   dependencies {
+     val billing_version = "9.1.0"
+     implementation("com.android.billingclient:billing-ktx:$billing_version")
+   }
+   ```
 2. (Applicable only for upgrade from PBL 7 to PBL 9). Update the
-   implementation of the [`queryProductDetailsAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync) method.
+   implementation of the [`queryProductDetailsAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryProductDetailsAsync) method.
 
    There is a change in the signature of the
-   [`ProductDetailsResponseListener.onProductDetailsResponse`](https://developer.android.com/reference/com/android/billingclient/api/QueryProductDetailsResult) method, which
-   requires changes in your app for the [`queryProductDetailsAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync)
+   [`ProductDetailsResponseListener.onProductDetailsResponse`](https://developer.android.com/reference/com/android/billingclient/api/QueryProductDetailsResult.md.txt) method, which
+   requires changes in your app for the [`queryProductDetailsAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryProductDetailsAsync)
    implementation. For more information, see
-   [Show products available to buy](https://developer.android.com/google/play/billing/integrate#show-products).
+   [Show products available to buy](https://developer.android.com/google/play/billing/integrate.md.txt#show-products).
 3. Handle the removed APIs.
 
    > [!TIP]
@@ -86,16 +89,16 @@ To upgrade from PBL 7 or 8 to PBL 9, do the following steps:
 
    | Previously deprecated API removed | Alternate API to use |
    |---|---|
-   | queryPurchaseHistoryAsync APIs | See [Query Purchase History](https://developer.android.com/google/play/billing/query-purchase-history). If you were using queryPurchaseHistoryAsync to determine eligibility for free trials, you should now use [ProductDetails.getSubscriptionOfferDetails()](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails#getSubscriptionOfferDetails()) to determine which offers a user is eligible for. |
-   | BillingClient.SkuType | [BillingClient.ProductType](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.ProductType). The INAPP and SUBS product type constants remain functionally similar to the deprecated SKU type constants. |
-   | SkuDetails | [ProductDetails](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails). This is the new data model that supports the one-time products. |
-   | SkuDetailsParams | Use [QueryProductDetailsParams](https://developer.android.com/reference/com/android/billingclient/api/QueryProductDetailsParams) with [queryProductDetailsAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,com.android.billingclient.api.ProductDetailsResponseListener)). |
-   | SkuDetailsResponseListener | Use [ProductDetailsResponseListener](https://developer.android.com/reference/com/android/billingclient/api/ProductDetailsResponseListener) with [queryProductDetailsAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,com.android.billingclient.api.ProductDetailsResponseListener)). |
-   | QueryPurchaseHistoryParams | - Use [queryPurchasesAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,com.android.billingclient.api.PurchasesResponseListener)) for active or pending purchases. - Track consumed purchases on your backend servers. - Use the server-side [Voided Purchases API](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.voidedpurchases) for canceled or voided purchases. |
-   | getSkuDetailsList and setSkuDetailsList | Use [BillingFlowParams.Builder.setProductDetailsParamsList](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setProductDetailsParamsList(java.util.List%3Ccom.android.billingclient.api.BillingFlowParams.ProductDetailsParams%3E)) |
-   | querySkuDetailsAsync | [queryProductDetailsAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,com.android.billingclient.api.ProductDetailsResponseListener)) |
-   | enablePendingPurchases() (API without parameters) | [enablePendingPurchases(PendingPurchasesParams params)](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.Builder#enablePendingPurchases(com.android.billingclient.api.PendingPurchasesParams)) Note that the deprecated enablePendingPurchases() is functionally equivalent to `enablePendingPurchases(PendingPurchasesParams.newBuilder().enableOneTimeProducts().build())`. |
-   | queryPurchasesAsync(String skuType, PurchasesResponseListener listener) | [queryPurchasesAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,com.android.billingclient.api.PurchasesResponseListener)) |
+   | queryPurchaseHistoryAsync APIs | See [Query Purchase History](https://developer.android.com/google/play/billing/query-purchase-history.md.txt). If you were using queryPurchaseHistoryAsync to determine eligibility for free trials, you should now use [ProductDetails.getSubscriptionOfferDetails()](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails.md.txt#getSubscriptionOfferDetails()) to determine which offers a user is eligible for. |
+   | BillingClient.SkuType | [BillingClient.ProductType](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.ProductType.md.txt). The INAPP and SUBS product type constants remain functionally similar to the deprecated SKU type constants. |
+   | SkuDetails | [ProductDetails](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails.md.txt). This is the new data model that supports the one-time products. |
+   | SkuDetailsParams | Use [QueryProductDetailsParams](https://developer.android.com/reference/com/android/billingclient/api/QueryProductDetailsParams.md.txt) with [queryProductDetailsAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,com.android.billingclient.api.ProductDetailsResponseListener)). |
+   | SkuDetailsResponseListener | Use [ProductDetailsResponseListener](https://developer.android.com/reference/com/android/billingclient/api/ProductDetailsResponseListener.md.txt) with [queryProductDetailsAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,com.android.billingclient.api.ProductDetailsResponseListener)). |
+   | QueryPurchaseHistoryParams | - Use [queryPurchasesAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,com.android.billingclient.api.PurchasesResponseListener)) for active or pending purchases. - Track consumed purchases on your backend servers. - Use the server-side [Voided Purchases API](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.voidedpurchases) for canceled or voided purchases. |
+   | getSkuDetailsList and setSkuDetailsList | Use [BillingFlowParams.Builder.setProductDetailsParamsList](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder.md.txt#setProductDetailsParamsList(java.util.List%3Ccom.android.billingclient.api.BillingFlowParams.ProductDetailsParams%3E)) |
+   | querySkuDetailsAsync | [queryProductDetailsAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,com.android.billingclient.api.ProductDetailsResponseListener)) |
+   | enablePendingPurchases() (API without parameters) | [enablePendingPurchases(PendingPurchasesParams params)](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.Builder.md.txt#enablePendingPurchases(com.android.billingclient.api.PendingPurchasesParams)) Note that the deprecated enablePendingPurchases() is functionally equivalent to `enablePendingPurchases(PendingPurchasesParams.newBuilder().enableOneTimeProducts().build())`. |
+   | queryPurchasesAsync(String skuType, PurchasesResponseListener listener) | [queryPurchasesAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,com.android.billingclient.api.PurchasesResponseListener)) |
 
    <br />
 
@@ -107,12 +110,12 @@ To upgrade from PBL 7 or 8 to PBL 9, do the following steps:
 
    | Previously deprecated API removed | Alternate API to use |
    |---|---|
-   | BillingClient.SkuType | [BillingClient.ProductType](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.ProductType). The INAPP and SUBS product type constants remain functionally similar to the deprecated SKU type constants. |
-   | SkuDetails | [ProductDetails](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails). This is the new data model that supports the one-time products. |
-   | SkuDetailsParams | Use [QueryProductDetailsParams](https://developer.android.com/reference/com/android/billingclient/api/QueryProductDetailsParams) with [queryProductDetailsAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,com.android.billingclient.api.ProductDetailsResponseListener)). |
-   | SkuDetailsResponseListener | Use [ProductDetailsResponseListener](https://developer.android.com/reference/com/android/billingclient/api/ProductDetailsResponseListener) with [queryProductDetailsAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,com.android.billingclient.api.ProductDetailsResponseListener)). |
-   | QueryPurchaseHistoryParams | - Use [queryProductDetailsAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,com.android.billingclient.api.ProductDetailsResponseListener)) for active or pending purchases. - Track consumed purchases on your backend servers. - Use the server-side [Voided Purchases API](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.voidedpurchases) for canceled or voided purchases. |
-   | getSkuDetailsList and setSkuDetailsList | Use [BillingFlowParams.Builder.setProductDetailsParamsList](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setProductDetailsParamsList(java.util.List%3Ccom.android.billingclient.api.BillingFlowParams.ProductDetailsParams%3E)) |
+   | BillingClient.SkuType | [BillingClient.ProductType](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.ProductType.md.txt). The INAPP and SUBS product type constants remain functionally similar to the deprecated SKU type constants. |
+   | SkuDetails | [ProductDetails](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails.md.txt). This is the new data model that supports the one-time products. |
+   | SkuDetailsParams | Use [QueryProductDetailsParams](https://developer.android.com/reference/com/android/billingclient/api/QueryProductDetailsParams.md.txt) with [queryProductDetailsAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,com.android.billingclient.api.ProductDetailsResponseListener)). |
+   | SkuDetailsResponseListener | Use [ProductDetailsResponseListener](https://developer.android.com/reference/com/android/billingclient/api/ProductDetailsResponseListener.md.txt) with [queryProductDetailsAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,com.android.billingclient.api.ProductDetailsResponseListener)). |
+   | QueryPurchaseHistoryParams | - Use [queryProductDetailsAsync](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,com.android.billingclient.api.ProductDetailsResponseListener)) for active or pending purchases. - Track consumed purchases on your backend servers. - Use the server-side [Voided Purchases API](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.voidedpurchases) for canceled or voided purchases. |
+   | getSkuDetailsList and setSkuDetailsList | Use [BillingFlowParams.Builder.setProductDetailsParamsList](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder.md.txt#setProductDetailsParamsList(java.util.List%3Ccom.android.billingclient.api.BillingFlowParams.ProductDetailsParams%3E)) |
 
    <br />
 
@@ -121,10 +124,10 @@ To upgrade from PBL 7 or 8 to PBL 9, do the following steps:
    The Play Billing Library can attempt to automatically re-establish the
    service connection if an API call is made while the service is
    disconnected. For more information,
-   see [Enable automatic service reconnection](https://developer.android.com/google/play/billing/integrate#automatic-service-reconnection).
+   see [Enable automatic service reconnection](https://developer.android.com/google/play/billing/integrate.md.txt#automatic-service-reconnection).
 5. Handle new sub-response codes.
 
-   The [BillingResult](https://developer.android.com/reference/com/android/billingclient/api/BillingResult) returned from [`launchBillingFlow()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#launchBillingFlow(android.app.Activity,com.android.billingclient.api.BillingFlowParams)) will now
+   The [BillingResult](https://developer.android.com/reference/com/android/billingclient/api/BillingResult.md.txt) returned from [`launchBillingFlow()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#launchBillingFlow(android.app.Activity,com.android.billingclient.api.BillingFlowParams)) will now
    include a sub-response code field. This field will only be populated in some
    cases to provide a more specific reason for the failure. The sub-response
    field can have the following values:
@@ -145,16 +148,16 @@ To upgrade from PBL 7 or 8 to PBL 9, do the following steps:
    specific scenarios.
 
    > [!NOTE]
-   > **Note:** For this feature to work, you need [AndroidX.core library](https://developer.android.com/jetpack/androidx/releases/core#core_and_core-ktx_version_190_2) version 1.9 or later.
+   > **Note:** For this feature to work, you need [AndroidX.core library](https://developer.android.com/jetpack/androidx/releases/core.md.txt#core_and_core-ktx_version_190_2) version 1.9 or later.
 
-7. Handle [`DeveloperProvidedBillingDetails.getLinkUri()`](https://developer.android.com/reference/com/android/billingclient/api/DeveloperProvidedBillingDetails#getLinkUri()) nullability.
+7. Handle [`DeveloperProvidedBillingDetails.getLinkUri()`](https://developer.android.com/reference/com/android/billingclient/api/DeveloperProvidedBillingDetails.md.txt#getLinkUri()) nullability.
 
    If you use `DeveloperProvidedBillingDetails` as part of an external payments
    integration, `getLinkUri()` is now `@Nullable`.
 
    **Migration step** : To handle this change safely, ensure your
    integration code handles both `null` and empty string (`""`) values from the
-   [`DeveloperProvidedBillingDetails.getLinkUri()`](https://developer.android.com/reference/com/android/billingclient/api/DeveloperProvidedBillingDetails#getLinkUri()) method before parsing
+   [`DeveloperProvidedBillingDetails.getLinkUri()`](https://developer.android.com/reference/com/android/billingclient/api/DeveloperProvidedBillingDetails.md.txt#getLinkUri()) method before parsing
    or launching browser intents. For example:
 
    ### Kotlin
@@ -172,16 +175,17 @@ To upgrade from PBL 7 or 8 to PBL 9, do the following steps:
 
    ### Java
 
-       String linkUri = details.getLinkUri();
-       if (!android.text.TextUtils.isEmpty(linkUri)) {
-         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(linkUri));
-         context.startActivity(intent);
-       }
-
+   ```java
+   String linkUri = details.getLinkUri();
+   if (!android.text.TextUtils.isEmpty(linkUri)) {
+     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(linkUri));
+     context.startActivity(intent);
+   }
+   ```
 8. Optional changes.
 
    - Support pending purchases for prepaid plans. For more information, see
-     [Handle Subscriptions and Pending Transactions](https://developer.android.com/google/play/billing/subscriptions#pending).
+     [Handle Subscriptions and Pending Transactions](https://developer.android.com/google/play/billing/subscriptions.md.txt#pending).
 
    - Virtual installment subscriptions. For more information, see
-     [Installment Subscriptions Integration](https://developer.android.com/google/play/billing/subscriptions#installments).
+     [Installment Subscriptions Integration](https://developer.android.com/google/play/billing/subscriptions.md.txt#installments).

@@ -8,7 +8,7 @@ source: md.txt
 
 <br />
 
-> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12) or later.
+> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect.md.txt#1.1.0-alpha12) or later.
 
 <br />
 
@@ -56,13 +56,15 @@ Connect app.
 
 Add the Health Connect SDK dependency in your module-level `build.gradle` file:
 
-    dependencies {
-      ...
-      implementation "androidx.health.connect:connect-client:1.2.0-alpha06"
-      ...
-    }
+```kotlin
+dependencies {
+  ...
+  implementation "androidx.health.connect:connect-client:1.2.0-alpha06"
+  ...
+}
+```
 
-Refer to the [Health Connect releases](https://developer.android.com/jetpack/androidx/releases/health-connect) for the latest version.
+Refer to the [Health Connect releases](https://developer.android.com/jetpack/androidx/releases/health-connect.md.txt) for the latest version.
 
 Version `1.1.0` and later of `connect-client` require `compileSdk = 36` and
 Android Gradle plugin (AGP) version `8.9.1` or higher. Update the `compileSdk`
@@ -140,16 +142,18 @@ Health Connect uses the standard Android permission declaration format.
 Assign permissions with the `<uses-permission>` tags. Nest them within the
 `<manifest>` tags.
 
-    <manifest>
-      <uses-permission android:name="android.permission.health.READ_HEART_RATE"/>
-      <uses-permission android:name="android.permission.health.WRITE_HEART_RATE"/>
-      <uses-permission android:name="android.permission.health.READ_STEPS"/>
-      <uses-permission android:name="android.permission.health.WRITE_STEPS"/>
+```xml
+<manifest>
+  <uses-permission android:name="android.permission.health.READ_HEART_RATE"/>
+  <uses-permission android:name="android.permission.health.WRITE_HEART_RATE"/>
+  <uses-permission android:name="android.permission.health.READ_STEPS"/>
+  <uses-permission android:name="android.permission.health.WRITE_STEPS"/>
 
-      <application>
-      ...
-      </application>
-    </manifest>
+  <application>
+  ...
+  </application>
+</manifest>
+```
 
 For the full list of permissions and their corresponding data types, see
 [List of data types](https://developer.android.com/guide/health-and-fitness/health-connect/plan/data-types#alpha10).
@@ -164,41 +168,43 @@ Declare this activity to handle the `ACTION_SHOW_PERMISSIONS_RATIONALE`
 intent where it is sent to the app when the user clicks on the
 **privacy policy** link in the Health Connect permissions screen.
 
-    ...
-    <application>
-      ...
-      <!-- For supported versions through Android 13, create an activity to show the rationale
-           of Health Connect permissions once users click the privacy policy link. -->
-      <activity
-          android:name=".PermissionsRationaleActivity"
-          android:exported="true">
-        <intent-filter>
-          <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
-        </intent-filter>
-      </activity>
+```xml
+...
+<application>
+  ...
+  <!-- For supported versions through Android 13, create an activity to show the rationale
+       of Health Connect permissions once users click the privacy policy link. -->
+  <activity
+      android:name=".PermissionsRationaleActivity"
+      android:exported="true">
+    <intent-filter>
+      <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
+    </intent-filter>
+  </activity>
 
-      <!-- For versions starting Android 14, create an activity alias to show the rationale
-           of Health Connect permissions once users click the privacy policy link. -->
-      <activity-alias
-          android:name="ViewPermissionUsageActivity"
-          android:exported="true"
-          android:targetActivity=".PermissionsRationaleActivity"
-          android:permission="android.permission.START_VIEW_PERMISSION_USAGE">
-        <intent-filter>
-          <action android:name="android.intent.action.VIEW_PERMISSION_USAGE" />
-          <category android:name="android.intent.category.HEALTH_PERMISSIONS" />
-        </intent-filter>
-      </activity-alias>
-      ...
-    </application>
-    ...
+  <!-- For versions starting Android 14, create an activity alias to show the rationale
+       of Health Connect permissions once users click the privacy policy link. -->
+  <activity-alias
+      android:name="ViewPermissionUsageActivity"
+      android:exported="true"
+      android:targetActivity=".PermissionsRationaleActivity"
+      android:permission="android.permission.START_VIEW_PERMISSION_USAGE">
+    <intent-filter>
+      <action android:name="android.intent.action.VIEW_PERMISSION_USAGE" />
+      <category android:name="android.intent.category.HEALTH_PERMISSIONS" />
+    </intent-filter>
+  </activity-alias>
+  ...
+</application>
+...
+```
 
 > [!NOTE]
 > **Note:** The activity must display the same privacy policy you provide for your app in the [Google Play Console](https://support.google.com/googleplay/android-developer/answer/9859455).
 
 ### Get a Health Connect client
 
-[`HealthConnectClient`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient) is an entry point to the Health Connect API.
+[`HealthConnectClient`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient.md.txt) is an entry point to the Health Connect API.
 It allows the app to use the datastore in the Health Connect app. It
 automatically manages its connection to the underlying storage layer and handles
 all IPC and serialization of outgoing requests and incoming responses.
@@ -206,15 +212,17 @@ all IPC and serialization of outgoing requests and incoming responses.
 To get a client instance, declare the Health Connect package name in your
 Android manifest first.
 
-    <application> ... </application>
-    ...
-    <!-- Check if Health Connect is installed -->
-    <queries>
-        <package android:name="com.google.android.apps.healthdata" />
-    </queries>
+```xml
+<application> ... </application>
+...
+<!-- Check if Health Connect is installed -->
+<queries>
+    <package android:name="com.google.android.apps.healthdata" />
+</queries>
+```
 
 Then in your Activity, check if Health Connect is installed
-using [`getSdkStatus`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)). If it is, obtain a
+using [`getSdkStatus`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient.md.txt#getSdkStatus(android.content.Context,kotlin.String)). If it is, obtain a
 `HealthConnectClient` instance.
 
 
@@ -261,7 +269,7 @@ val permissions =
         HealthPermission.getWritePermission(StepsRecord::class)
     )
 ```
-Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
+Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController.md.txt#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController.md.txt#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
 
 ```kotlin
 val permissions = setOf(
@@ -291,25 +299,27 @@ Many apps have a custom onboarding flow such as feature education or asking user
 consent. To enable Health Connect to launch your onboarding flow, add the
 following to your manifest:
 
-    <!-- Required to support pre-Android 14 devices with APK Health Connect -->
-    <activity
-      android:name=".OnboardingActivity"
-      android:exported="true"
-      android:permission="com.google.android.apps.healthdata.permission.START_ONBOARDING">
-      <intent-filter>
-        <action android:name="androidx.health.ACTION_SHOW_ONBOARDING"/>
-      </intent-filter>
-    </activity>
-    <!-- Required to support Android 14+ devices with platform Health Connect -->
-    <activity-alias
-      android:name="UAndAboveOnboardingActivity"
-      android:exported="true"
-      android:targetActivity=".OnboardingActivity"
-      android:permission="android.permission.health.START_ONBOARDING">
-      <intent-filter>
-        <action android:name="android.health.connect.action.SHOW_ONBOARDING" />
-      </intent-filter>
-    </activity-alias>
+```xml
+<!-- Required to support pre-Android 14 devices with APK Health Connect -->
+<activity
+  android:name=".OnboardingActivity"
+  android:exported="true"
+  android:permission="com.google.android.apps.healthdata.permission.START_ONBOARDING">
+  <intent-filter>
+    <action android:name="androidx.health.ACTION_SHOW_ONBOARDING"/>
+  </intent-filter>
+</activity>
+<!-- Required to support Android 14+ devices with platform Health Connect -->
+<activity-alias
+  android:name="UAndAboveOnboardingActivity"
+  android:exported="true"
+  android:targetActivity=".OnboardingActivity"
+  android:permission="android.permission.health.START_ONBOARDING">
+  <intent-filter>
+    <action android:name="android.health.connect.action.SHOW_ONBOARDING" />
+  </intent-filter>
+</activity-alias>
+```
 
 Users may initiate the connection to your app directly from the Health
 Connect app, rather than from within your app. If your app requires any
@@ -325,7 +335,7 @@ Now that everything is set, perform read and write operations in your app.
 
 Your users might use other apps that sync data with Health Connect for your app
 to access. If the user has not set up these apps to write to Health Connect
-yet, you can use the [Matchmaking API](https://developer.android.com/health-and-fitness/health-connect/ui/matchmaking) to seamlessly connect
+yet, you can use the [Matchmaking API](https://developer.android.com/health-and-fitness/health-connect/ui/matchmaking.md.txt) to seamlessly connect
 these apps for your users.
 
 ### Write data
@@ -351,7 +361,7 @@ healthConnectClient.insertRecords(listOf(stepsRecord))
 
 <br />
 
-Then write your record using [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#insertRecords(kotlin.collections.List)).
+Then write your record using [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient.md.txt#insertRecords(kotlin.collections.List)).
 
 
 ```kotlin
@@ -373,7 +383,7 @@ healthConnectClient.insertRecords(listOf(stepsRecord))
 
 ### Read data
 
-You can read your data individually using [`readRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#readRecords(androidx.health.connect.client.request.ReadRecordsRequest)).
+You can read your data individually using [`readRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient.md.txt#readRecords(androidx.health.connect.client.request.ReadRecordsRequest)).
 
 > [!NOTE]
 > **Note:** For cumulative types like `StepsRecord`, use `aggregate()` instead of `readRecords()` to avoid double counting from multiple sources and improve accuracy. See [Read aggregated
@@ -395,7 +405,7 @@ response.records.forEach { record ->
 <br />
 
 You can also read your data in an aggregated manner using
-[`aggregate`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary).
+[`aggregate`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary.md.txt).
 
 
 ```kotlin
@@ -429,8 +439,8 @@ as best practice guidelines for achieving a smooth integration:
 Check out the following resources that help with
 development later on.
 
-- **Health Connect SDK (available on Jetpack):** Include this [SDK](https://developer.android.com/jetpack/androidx/releases/health-connect) in your application to use the Health Connect API.
-- **API reference:** Take a look at the [Jetpack reference](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/package-summary) for the Health Connect API.
+- **Health Connect SDK (available on Jetpack):** Include this [SDK](https://developer.android.com/jetpack/androidx/releases/health-connect.md.txt) in your application to use the Health Connect API.
+- **API reference:** Take a look at the [Jetpack reference](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/package-summary.md.txt) for the Health Connect API.
 - **Declare use of data types:** In the Play Console, [declare access to the Health Connect data types](https://developer.android.com/health-and-fitness/guides/health-connect/publish/declare-access) that your app reads from and writes to.
 - **Optional GitHub code sample and codelab:** See the GitHub code sample [repository](https://github.com/android/health-samples/tree/main/health-connect/HealthConnectSample) and the [codelab](https://developer.android.com/codelabs/health-connect) exercise to help you get started.
 

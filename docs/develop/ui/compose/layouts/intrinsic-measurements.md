@@ -144,7 +144,7 @@ to override these defaults.
 
 To specify the intrinsics measurements of your custom `Layout`, override the
 `minIntrinsicWidth`, `minIntrinsicHeight`, `maxIntrinsicWidth`, and
-`maxIntrinsicHeight` of the [`MeasurePolicy`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/MeasurePolicy) interface when creating it.
+`maxIntrinsicHeight` of the [`MeasurePolicy`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/MeasurePolicy.md.txt) interface when creating it.
 Your override needs to match what `measure` does. For example, in a custom
 column that stacks its children vertically and gives each child the full column
 width, the minimum intrinsic height for a given `width` is the sum of its
@@ -203,7 +203,7 @@ fun MyCustomComposable(
 <br />
 
 When creating your custom `layout` modifier, override the related methods
-in the [`LayoutModifier`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/LayoutModifier) interface. The intrinsic calculation needs to match
+in the [`LayoutModifier`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/LayoutModifier.md.txt) interface. The intrinsic calculation needs to match
 `measure`. For example, for a given `height`, a modifier that adds fixed padding
 on all sides subtracts the vertical padding before querying the child's
 `minIntrinsicWidth`, and adds the horizontal padding to the result:
@@ -254,6 +254,6 @@ fun Modifier.myCustomModifier(padding: Dp = 8.dp) =
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Custom layouts {:#custom-layouts}](https://developer.android.com/develop/ui/compose/layouts/custom)
-- [Alignment lines in Jetpack Compose](https://developer.android.com/develop/ui/compose/layouts/alignment-lines)
-- [Jetpack Compose Phases](https://developer.android.com/develop/ui/compose/phases)
+- [Custom layouts {:#custom-layouts}](https://developer.android.com/develop/ui/compose/layouts/custom.md.txt)
+- [Alignment lines in Jetpack Compose](https://developer.android.com/develop/ui/compose/layouts/alignment-lines.md.txt)
+- [Jetpack Compose Phases](https://developer.android.com/develop/ui/compose/phases.md.txt)

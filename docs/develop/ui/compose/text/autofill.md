@@ -34,7 +34,7 @@ Users can save credentials through Autofill in the following ways:
 
 You can use Autofill in your app to streamline the retrieval of saved data for
 users. Autofill supports text components through
-[`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable#BasicTextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.input.TextFieldDecorator,androidx.compose.foundation.ScrollState)) and all Material text fields that build on that component.
+[`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable.md.txt#BasicTextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.input.TextFieldDecorator,androidx.compose.foundation.ScrollState)) and all Material text fields that build on that component.
 
 ## Set up Autofill
 
@@ -75,7 +75,7 @@ a username. You can add multiple content types to your `TextField` with the `+`
 operator.
 
 For all the types of data available to save with Autofill, see the
-[`ContentType` reference](https://developer.android.com/reference/kotlin/androidx/compose/ui/autofill/ContentType#summary).
+[`ContentType` reference](https://developer.android.com/reference/kotlin/androidx/compose/ui/autofill/ContentType.md.txt#summary).
 
 
 ```kotlin
@@ -209,7 +209,7 @@ In a typical Autofill user journey, when an Autofill-enabled component has been
 populated with credentials, it changes color and becomes highlighted to signal
 to the user that Autofill has successfully completed.
 
-To customize this highlight color, use [`CompositionLocal`](https://developer.android.com/develop/ui/compose/compositionlocal) and provide
+To customize this highlight color, use [`CompositionLocal`](https://developer.android.com/develop/ui/compose/compositionlocal.md.txt) and provide
 whichever color you'd like. The default Autofill highlight color is defined as
 `Color(0x4dffeb3b)`.
 

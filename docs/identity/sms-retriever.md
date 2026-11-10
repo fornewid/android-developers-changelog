@@ -29,27 +29,31 @@ In your project-level `build.gradle` file, include
 [Google's Maven repository](https://maven.google.com/web/index.html) and [Maven central repository](https://search.maven.org/artifact) in both your
 `buildscript` and `allprojects` sections:
 
-    buildscript {
-        repositories {
-            google()
-            mavenCentral()
-        }
+```groovy
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
     }
+}
 
-    allprojects {
-        repositories {
-            google()
-            mavenCentral()
-        }
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
     }
+}
+```
 
 Add the [Google Play services](http://developer.google.com/android) dependency for the SMS Retriever API to your
 [module's Gradle build file](https://developer.android.com/studio/build#module-level), which is commonly `app/build.gradle`:
 
-    dependencies {
-      implementation 'com.google.android.gms:play-services-auth:22.0.0'
-      implementation 'com.google.android.gms:play-services-auth-api-phone:18.3.1'
-    }
+```groovy
+dependencies {
+  implementation 'com.google.android.gms:play-services-auth:22.0.0'
+  implementation 'com.google.android.gms:play-services-auth-api-phone:18.3.1'
+}
+```
 
 ## Obtain the user's phone number
 
@@ -58,29 +62,31 @@ app. Often, it is the best user experience to use the hint picker to prompt the
 user to choose from the phone numbers stored on the device and thereby avoid
 having to manually type a phone number. To use the hint picker:
 
-    // Construct a request for phone numbers and show the picker
-    private void requestHint() {
-        HintRequest hintRequest = new HintRequest.Builder()
-                .setPhoneNumberIdentifierSupported(true)
-                .build();
+```java
+// Construct a request for phone numbers and show the picker
+private void requestHint() {
+    HintRequest hintRequest = new HintRequest.Builder()
+            .setPhoneNumberIdentifierSupported(true)
+            .build();
 
-        PendingIntent intent = Auth.CredentialsApi.getHintPickerIntent(
-                apiClient, hintRequest);
-        startIntentSenderForResult(intent.getIntentSender(),
-                RESOLVE_HINT, null, 0, 0, 0);
-    }
+    PendingIntent intent = Auth.CredentialsApi.getHintPickerIntent(
+            apiClient, hintRequest);
+    startIntentSenderForResult(intent.getIntentSender(),
+            RESOLVE_HINT, null, 0, 0, 0);
+}
 
-    // Obtain the phone number from the result
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-      super.onActivityResult(requestCode, resultCode, data);
-      if (requestCode == RESOLVE_HINT) {
-          if (resultCode == RESULT_OK) {
-              Credential credential = data.getParcelableExtra(Credential.EXTRA_KEY);
-              // credential.getId();  <-- will need to process phone number string
-          }
+// Obtain the phone number from the result
+@Override
+public void onActivityResult(int requestCode, int resultCode, Intent data) {
+  super.onActivityResult(requestCode, resultCode, data);
+  if (requestCode == RESOLVE_HINT) {
+      if (resultCode == RESULT_OK) {
+          Credential credential = data.getParcelableExtra(Credential.EXTRA_KEY);
+          // credential.getId();  <-- will need to process phone number string
       }
-    }
+  }
+}
+```
 
 ## Start the SMS retriever
 
@@ -88,32 +94,34 @@ When you are ready to verify the user's phone number, get an instance of the
 `SmsRetrieverClient` object, call `startSmsRetriever`, and attach success and
 failure listeners to the SMS retrieval task:
 
-    // Get an instance of SmsRetrieverClient, used to start listening for a matching
-    // SMS message.
-    SmsRetrieverClient client = SmsRetriever.getClient(this /* context */);
+```java
+// Get an instance of SmsRetrieverClient, used to start listening for a matching
+// SMS message.
+SmsRetrieverClient client = SmsRetriever.getClient(this /* context */);
 
-    // Starts SmsRetriever, which waits for ONE matching SMS message until timeout
-    // (5 minutes). The matching SMS message will be sent using a Broadcast Intent
-    // with action SmsRetriever#SMS_RETRIEVED_ACTION.
-    Task<Void> task = client.startSmsRetriever();
+// Starts SmsRetriever, which waits for ONE matching SMS message until timeout
+// (5 minutes). The matching SMS message will be sent using a Broadcast Intent
+// with action SmsRetriever#SMS_RETRIEVED_ACTION.
+Task<Void> task = client.startSmsRetriever();
 
-    // Listen for success/failure of the start Task. If in a background thread, this
-    // can be made blocking using Tasks.await(task, [timeout]);
-    task.addOnSuccessListener(new OnSuccessListener<Void>() {
-      @Override
-      public void onSuccess(Void aVoid) {
-        // Successfully started retriever, expect broadcast intent
-        // ...
-      }
-    });
+// Listen for success/failure of the start Task. If in a background thread, this
+// can be made blocking using Tasks.await(task, [timeout]);
+task.addOnSuccessListener(new OnSuccessListener<Void>() {
+  @Override
+  public void onSuccess(Void aVoid) {
+    // Successfully started retriever, expect broadcast intent
+    // ...
+  }
+});
 
-    task.addOnFailureListener(new OnFailureListener() {
-      @Override
-      public void onFailure(@NonNull Exception e) {
-        // Failed to start retriever, inspect Exception for more details
-        // ...
-      }
-    });
+task.addOnFailureListener(new OnFailureListener() {
+  @Override
+  public void onFailure(@NonNull Exception e) {
+    // Failed to start retriever, inspect Exception for more details
+    // ...
+  }
+});
+```
 
 The SMS retrieval task listens for up to five minutes for an SMS message that
 contains a unique string that identifies your app.
@@ -138,37 +146,39 @@ In the `BroadcastReceiver`'s `onReceive` handler, get the text of the
 verification message (and optionally the sender address) from the Intent's
 extras:
 
-    /**
-      *   BroadcastReceiver to wait for SMS messages. This can be registered either
-      *   in the AndroidManifest or at runtime. Filters Intents on
-      *   SmsRetriever.SMS_RETRIEVED_ACTION.
-      */
-    public class MySMSBroadcastReceiver extends BroadcastReceiver {
+```java
+/**
+  *   BroadcastReceiver to wait for SMS messages. This can be registered either
+  *   in the AndroidManifest or at runtime. Filters Intents on
+  *   SmsRetriever.SMS_RETRIEVED_ACTION.
+  */
+public class MySMSBroadcastReceiver extends BroadcastReceiver {
 
-      @Override
-      public void onReceive(Context context, Intent intent) {
-        if (SmsRetriever.SMS_RETRIEVED_ACTION.equals(intent.getAction())) {
-          Bundle extras = intent.getExtras();
-          Status status = (Status) extras.get(SmsRetriever.EXTRA_STATUS);
+  @Override
+  public void onReceive(Context context, Intent intent) {
+    if (SmsRetriever.SMS_RETRIEVED_ACTION.equals(intent.getAction())) {
+      Bundle extras = intent.getExtras();
+      Status status = (Status) extras.get(SmsRetriever.EXTRA_STATUS);
 
-          switch(status.getStatusCode()) {
-            case CommonStatusCodes.SUCCESS:
-              // (Optional) Get SMS Sender address - only available in
-              // GMS version 24.20 onwards, else it will return null
-              String senderAddress = extras.getString(SmsRetriever.EXTRA_SMS_ORIGINATING_ADDRESS);
-              // Get SMS message contents
-              String message = extras.getString(SmsRetriever.EXTRA_SMS_MESSAGE);
-              // Extract one-time code from the message and complete verification
-              // by sending the code back to your server.
-              break;
-            case CommonStatusCodes.TIMEOUT:
-              // Waiting for SMS timed out (5 minutes)
-              // Handle the error ...
-              break;
-          }
-        }
+      switch(status.getStatusCode()) {
+        case CommonStatusCodes.SUCCESS:
+          // (Optional) Get SMS Sender address - only available in
+          // GMS version 24.20 onwards, else it will return null
+          String senderAddress = extras.getString(SmsRetriever.EXTRA_SMS_ORIGINATING_ADDRESS);
+          // Get SMS message contents
+          String message = extras.getString(SmsRetriever.EXTRA_SMS_MESSAGE);
+          // Extract one-time code from the message and complete verification
+          // by sending the code back to your server.
+          break;
+        case CommonStatusCodes.TIMEOUT:
+          // Waiting for SMS timed out (5 minutes)
+          // Handle the error ...
+          break;
       }
     }
+  }
+}
+```
 
 To register this `BroadcastReceiver`, use the following:
 
@@ -178,12 +188,14 @@ To register this `BroadcastReceiver`, use the following:
 You can register the receiver in your app's `AndroidManifest.xml` file, as in
 the following example, or dynamically using `Context.registerReceiver`.
 
-    <receiver android:name=".MySMSBroadcastReceiver" android:exported="true"
-              android:permission="com.google.android.gms.auth.api.phone.permission.SEND">
-        <intent-filter>
-            <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>
-        </intent-filter>
-    </receiver>
+```xml
+<receiver android:name=".MySMSBroadcastReceiver" android:exported="true"
+          android:permission="com.google.android.gms.auth.api.phone.permission.SEND">
+    <intent-filter>
+        <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>
+    </intent-filter>
+</receiver>
+```
 
 > [!IMPORTANT]
 > **Important:** You can detect that the broadcast intent is from SMS Retriever API by adding the `com.google.android.gms.auth.api.phone.permission.SEND` permission to your receiver. This permission setting is available in Google Play services version 19.8.31 or higher.

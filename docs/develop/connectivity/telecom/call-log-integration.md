@@ -7,9 +7,9 @@ source: md.txt
 VoIP applications can integrate their calls into the system call log. This
 lets users see their VoIP call history centrally in the system dialer app
 and return calls directly from the dialer app. This guide describes the
-required changes to [VoIP calling apps](https://developer.android.com/develop/connectivity/telecom/call-log-integration#changes-calling-app),
-[system dialer apps](https://developer.android.com/develop/connectivity/telecom/call-log-integration#changes-dialer-app), and
-[managing unified call history settings](https://developer.android.com/develop/connectivity/telecom/call-log-integration#manage-unified-call-history-settings).
+required changes to [VoIP calling apps](https://developer.android.com/develop/connectivity/telecom/call-log-integration.md.txt#changes-calling-app),
+[system dialer apps](https://developer.android.com/develop/connectivity/telecom/call-log-integration.md.txt#changes-dialer-app), and
+[managing unified call history settings](https://developer.android.com/develop/connectivity/telecom/call-log-integration.md.txt#manage-unified-call-history-settings).
 
 > [!NOTE]
 > **Note:** The features described on this page require [Jetpack Telecom library
@@ -21,10 +21,10 @@ To integrate your VoIP app with the system call log, follow these steps.
 
 ### Register callback intent filter
 
-Register the system-protected intent [`TelecomManager.ACTION_CALL_BACK`](https://developer.android.com/reference/android/telecom/TelecomManager#ACTION_CALL_BACK).
+Register the system-protected intent [`TelecomManager.ACTION_CALL_BACK`](https://developer.android.com/reference/android/telecom/TelecomManager.md.txt#ACTION_CALL_BACK).
 
 Once this intent filter is properly registered, any calls your app adds using
-[`CallsManager.addCall`](https://developer.android.com/reference/androidx/core/telecom/CallsManager#addCall(androidx.core.telecom.CallAttributesCompat,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction0,kotlin.coroutines.SuspendFunction0,kotlin.Function1)) or other related Telecom APIs will be automatically
+[`CallsManager.addCall`](https://developer.android.com/reference/androidx/core/telecom/CallsManager.md.txt#addCall(androidx.core.telecom.CallAttributesCompat,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction0,kotlin.coroutines.SuspendFunction0,kotlin.Function1)) or other related Telecom APIs will be automatically
 logged by the system. The system uses this registered intent to later send a
 callback to your app when a user selects a VoIP call log entry in the dialer
 to return the call.
@@ -48,8 +48,8 @@ to return the call.
 ### Exclude call logging
 
 Once the callback is registered, all calls are logged to the system
-dialer. To exclude calls on a per-call basis, set the [`isLogExcluded`](https://developer.android.com/reference/androidx/core/telecom/CallAttributesCompat#isLogExcluded())
-boolean to `true` within [`CallAttributesCompat`](https://developer.android.com/reference/androidx/core/telecom/CallAttributesCompat).
+dialer. To exclude calls on a per-call basis, set the [`isLogExcluded`](https://developer.android.com/reference/androidx/core/telecom/CallAttributesCompat.md.txt#isLogExcluded())
+boolean to `true` within [`CallAttributesCompat`](https://developer.android.com/reference/androidx/core/telecom/CallAttributesCompat.md.txt).
 
 
 ```kotlin
@@ -75,11 +75,11 @@ CallAttributesCompat(
 
 ### Handle callbacks
 
-Calls added through [`CallsManager.addCall`](https://developer.android.com/reference/androidx/core/telecom/CallsManager#addCall(androidx.core.telecom.CallAttributesCompat,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction0,kotlin.coroutines.SuspendFunction0,kotlin.Function1)) get a unique `UUID` through
-[`CallControlScope.getCallId`](https://developer.android.com/reference/androidx/core/telecom/CallControlScope#getCallId()).
+Calls added through [`CallsManager.addCall`](https://developer.android.com/reference/androidx/core/telecom/CallsManager.md.txt#addCall(androidx.core.telecom.CallAttributesCompat,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction0,kotlin.coroutines.SuspendFunction0,kotlin.Function1)) get a unique `UUID` through
+[`CallControlScope.getCallId`](https://developer.android.com/reference/androidx/core/telecom/CallControlScope.md.txt#getCallId()).
 
 > [!IMPORTANT]
-> **Important:** The calling VoIP app must map the call details to this unique `UUID` and store them. When a user selects a VoIP call log entry in the dialer, the system dialer initiates a callback with the intent action [`TelecomManager.ACTION_CALL_BACK`](https://developer.android.com/reference/android/telecom/TelecomManager#ACTION_CALL_BACK) and an intent extra [`TelecomManager.EXTRA_UUID`](https://developer.android.com/reference/android/telecom/TelecomManager#EXTRA_UUID). The VoIP app uses the stored `UUID` to retrieve the correct call details and handle the return call.
+> **Important:** The calling VoIP app must map the call details to this unique `UUID` and store them. When a user selects a VoIP call log entry in the dialer, the system dialer initiates a callback with the intent action [`TelecomManager.ACTION_CALL_BACK`](https://developer.android.com/reference/android/telecom/TelecomManager.md.txt#ACTION_CALL_BACK) and an intent extra [`TelecomManager.EXTRA_UUID`](https://developer.android.com/reference/android/telecom/TelecomManager.md.txt#EXTRA_UUID). The VoIP app uses the stored `UUID` to retrieve the correct call details and handle the return call.
 
 
 ```kotlin
@@ -107,7 +107,7 @@ safely remove the mapping from its local storage. This practice helps
 optimize storage.
 
 To get the current list of `UUID`s attributed to the app within the system
-log, use [`CallLog.Calls.CONTENT_VOIP_URI`](https://developer.android.com/reference/android/provider/CallLog.Calls#CONTENT_VOIP_URI).
+log, use [`CallLog.Calls.CONTENT_VOIP_URI`](https://developer.android.com/reference/android/provider/CallLog.Calls.md.txt#CONTENT_VOIP_URI).
 
 ## Changes for the dialer app
 
@@ -135,17 +135,17 @@ the integrated call logs in the dialer app, do the following:
 - On Android 17 (API level 37) and higher, use the following formalized
   content provider and parameter key:
 
-  - [`CallLog.Calls.CONTENT_URI_WITH_VOIP_CALLS`](https://developer.android.com/reference/android/provider/CallLog.Calls#CONTENT_URI_WITH_VOIP_CALLS)
-  - [`CallLog.Calls.INCLUDE_VOIP_CALLS_PARAM_KEY`](https://developer.android.com/reference/android/provider/CallLog.Calls#INCLUDE_VOIP_CALLS_PARAM_KEY)
+  - [`CallLog.Calls.CONTENT_URI_WITH_VOIP_CALLS`](https://developer.android.com/reference/android/provider/CallLog.Calls.md.txt#CONTENT_URI_WITH_VOIP_CALLS)
+  - [`CallLog.Calls.INCLUDE_VOIP_CALLS_PARAM_KEY`](https://developer.android.com/reference/android/provider/CallLog.Calls.md.txt#INCLUDE_VOIP_CALLS_PARAM_KEY)
 
 ### Initiate callbacks from dialer app
 
-To initiate a callback from a dialer, use [`TelecomManager.placeCall`](https://developer.android.com/reference/android/telecom/TelecomManager#placeCall(android.net.Uri,%20android.os.Bundle)). The
+To initiate a callback from a dialer, use [`TelecomManager.placeCall`](https://developer.android.com/reference/android/telecom/TelecomManager.md.txt#placeCall(android.net.Uri,%20android.os.Bundle)). The
 platform uses the unique `CallLog.Calls._ID` of the call log entry to launch
 the correct VoIP app. This launch includes a
-[`TelecomManager.ACTION_CALL_BACK`](https://developer.android.com/reference/android/telecom/TelecomManager#ACTION_CALL_BACK) intent, which is a system-defined action
+[`TelecomManager.ACTION_CALL_BACK`](https://developer.android.com/reference/android/telecom/TelecomManager.md.txt#ACTION_CALL_BACK) intent, which is a system-defined action
 for initiating a return call. This intent contains the call's `UUID` in
-intent extra [`TelecomManager.EXTRA_UUID`](https://developer.android.com/reference/android/telecom/TelecomManager#EXTRA_UUID), allowing the VoIP app to identify
+intent extra [`TelecomManager.EXTRA_UUID`](https://developer.android.com/reference/android/telecom/TelecomManager.md.txt#EXTRA_UUID), allowing the VoIP app to identify
 which specific call is being called back.
 
 
@@ -172,7 +172,7 @@ these settings.
 ### Navigate users to settings
 
 To open unified call history settings, start an activity with the
-[`TelecomManager.ACTION_CONFIGURE_CALL_LOG_INTEGRATION`](https://developer.android.com/reference/android/telecom/TelecomManager#ACTION_CONFIGURE_CALL_LOG_INTEGRATION) intent action:
+[`TelecomManager.ACTION_CONFIGURE_CALL_LOG_INTEGRATION`](https://developer.android.com/reference/android/telecom/TelecomManager.md.txt#ACTION_CONFIGURE_CALL_LOG_INTEGRATION) intent action:
 
 
 ```kotlin
@@ -191,7 +191,7 @@ initiated by or received for that app won't be recorded in the system dialer.
 
 To stay synchronized when a user enables or disables unified call history for
 your calling app in system settings or the dialer, register a broadcast receiver
-for the [`TelecomManager.ACTION_VOIP_CALL_LOG_PREFERENCE`](https://developer.android.com/reference/android/telecom/TelecomManager#ACTION_VOIP_CALL_LOG_PREFERENCE)
+for the [`TelecomManager.ACTION_VOIP_CALL_LOG_PREFERENCE`](https://developer.android.com/reference/android/telecom/TelecomManager.md.txt#ACTION_VOIP_CALL_LOG_PREFERENCE)
 (`android.telecom.action.VOIP_CALL_LOG_PREFERENCE`) broadcast intent:
 
 
@@ -213,7 +213,7 @@ val receiver = object : BroadcastReceiver() {
 
 When the user flips the toggle, the platform broadcasts this intent to your
 app containing the updated boolean state in the
-[`TelecomManager.EXTRA_VOIP_CALL_LOG_PREFERENCE_STATUS`](https://developer.android.com/reference/android/telecom/TelecomManager#EXTRA_VOIP_CALL_LOG_PREFERENCE_STATUS) extra. Instead of
+[`TelecomManager.EXTRA_VOIP_CALL_LOG_PREFERENCE_STATUS`](https://developer.android.com/reference/android/telecom/TelecomManager.md.txt#EXTRA_VOIP_CALL_LOG_PREFERENCE_STATUS) extra. Instead of
 waiting for periodic verification against `CallLog.Calls`, your app can listen
 to this broadcast. When unified call history is disabled (in other words, set to
 `false`), your app can update its internal state or perform cleanup such as

@@ -15,7 +15,7 @@ This implementation requires that your project `compileSdk` be set to API level
 
 Your app is not required to verify whether AppFunctions are supported; this is
 automatically handled within the AppFunctions Jetpack library.
-[`AppFunctionManager`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager) returns an instance if the feature is supported, and
+[`AppFunctionManager`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager.md.txt) returns an instance if the feature is supported, and
 returns null if not.
 
 ### Dependencies
@@ -24,12 +24,14 @@ Add the required library dependencies to your module's `build.gradle.kts` (or
 build.gradle) file, and configure the KSP plugin in your top-level app module as
 shown:
 
-    dependencies {
-      implementation("androidx.appfunctions:appfunctions:1.0.0-beta01")
-      // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
-      // See Add the KSP plugin to your project
-      ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-beta01")
-    }
+```kotlin
+dependencies {
+  implementation("androidx.appfunctions:appfunctions:1.0.0-beta01")
+  // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
+  // See Add the KSP plugin to your project
+  ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-beta01")
+}
+```
 
 ## Implement AppFunctions logic
 
@@ -216,10 +218,12 @@ see details of the AppFunctions your app provides.
 You can also execute an AppFunction directly from the command line using its
 explicit identifier (`"$enclosingClassName#$methodName"`):
 
-    adb shell "cmd app_function execute-app-function \
-      --package com.example.android.appfunctions \
-      --function 'com.example.android.appfunctions.BaseTaskAppFunctionService#createTask' \
-      --parameters '{\"createTaskParams\": {\"title\": \"Buy milk\", \"content\": \"From grocery store\"}}'"
+```bash
+adb shell "cmd app_function execute-app-function \
+  --package com.example.android.appfunctions \
+  --function 'com.example.android.appfunctions.BaseTaskAppFunctionService#createTask' \
+  --parameters '{\"createTaskParams\": {\"title\": \"Buy milk\", \"content\": \"From grocery store\"}}'"
+```
 
 To experience Android MCP in action and verify end-to-end workflows without
 needing any prompts, install and run the [AppFunctions testing
@@ -259,7 +263,7 @@ apply the 1.0.0-beta01 renames.
 
 ### Implement AppFunctions
 
-Use the AppFunctions [Android skill](https://developer.android.com/tools/agents/android-skills) to expose key user workflows to the Android system, allowing AI agents to discover and execute them on-device. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the AppFunctions [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to expose key user workflows to the Android system, allowing AI agents to discover and execute them on-device. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add appfunctions
 

@@ -61,9 +61,9 @@ fun AnnotatedStringWithLinkSample() {
 
 ### Key points about the code
 
-- Uses the [`buildAnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/package-summary#buildAnnotatedString(kotlin.Function1)) function to create an annotated string of text.
-- Specifies the link and text styling by passing them as arguments of the [`LinkAnnotation.Url()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/LinkAnnotation.Url) function (itself passed as an argument of the [`withLink()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.Builder#(androidx.compose.ui.text.AnnotatedString.Builder).withLink(androidx.compose.ui.text.LinkAnnotation,kotlin.Function1)) function). A click listener is built into `LinkAnnotation.Url()`.
-- Adds text using [`append()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.Builder#append(kotlin.CharSequence,kotlin.Int,kotlin.Int)) in the body of the `withLink` function.
+- Uses the [`buildAnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/package-summary.md.txt#buildAnnotatedString(kotlin.Function1)) function to create an annotated string of text.
+- Specifies the link and text styling by passing them as arguments of the [`LinkAnnotation.Url()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/LinkAnnotation.Url.md.txt) function (itself passed as an argument of the [`withLink()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.Builder.md.txt#(androidx.compose.ui.text.AnnotatedString.Builder).withLink(androidx.compose.ui.text.LinkAnnotation,kotlin.Function1)) function). A click listener is built into `LinkAnnotation.Url()`.
+- Adds text using [`append()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.Builder.md.txt#append(kotlin.CharSequence,kotlin.Int,kotlin.Int)) in the body of the `withLink` function.
 - Repeats this process to add another linked text segment.
 
 ## Collections that contain this guide
@@ -78,4 +78,4 @@ Text is a central piece of any UI. Find out different ways you can present text 
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

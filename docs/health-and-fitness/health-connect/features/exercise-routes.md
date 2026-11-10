@@ -6,7 +6,7 @@ source: md.txt
 
 <br />
 
-> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12) or later.
+> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect.md.txt#1.1.0-alpha12) or later.
 
 <br />
 
@@ -17,7 +17,7 @@ activities and share maps of their workouts with other apps.
 
 Before attempting to use Health Connect, your app should verify that Health Connect is available
 on the user's device. Health Connect might not be pre-installed on all devices or could be disabled.
-You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)`
+You can check for availability using the `HealthConnectClient.getSdkStatus()`
 method.
 
 #### How to check for Health Connect availability
@@ -79,17 +79,18 @@ To determine whether a user's device supports planned exercise on Health Connect
 
 <br />
 
-    if (healthConnectClient
-         .features
-         .getFeatureStatus(
-           HealthConnectFeatures.FEATURE_PLANNED_EXERCISE
-         ) == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
+```kotlin
+if (healthConnectClient
+     .features
+     .getFeatureStatus(
+       HealthConnectFeatures.FEATURE_PLANNED_EXERCISE
+     ) == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
 
-      // Feature is available
-    } else {
-      // Feature isn't available
-    }
-
+  // Feature is available
+} else {
+  // Feature isn't available
+}
+```
 See [Check for feature availability](https://developer.android.com/health-and-fitness/guides/health-connect/develop/feature-availability) to learn more.
 
 ## Required permissions
@@ -107,19 +108,23 @@ permissions for the `ExerciseSession` data type.
 Here's the permission you need to declare to be able to write
 exercise route:
 
-    <application>
-      <uses-permission
-    android:name="android.permission.health.WRITE_EXERCISE_ROUTE" />
-    ...
-    </application>
+```xml
+<application>
+  <uses-permission
+android:name="android.permission.health.WRITE_EXERCISE_ROUTE" />
+...
+</application>
+```
 
 To read exercise route, you need to request the following permissions:
 
-    <application>
-      <uses-permission
-    android:name="android.permission.health.READ_EXERCISE_ROUTES" />
-    ...
-    </application>
+```xml
+<application>
+  <uses-permission
+android:name="android.permission.health.READ_EXERCISE_ROUTES" />
+...
+</application>
+```
 
 You also have to declare an exercise permission, as each route is associated
 with an exercise session (one session = one workout).
@@ -153,7 +158,7 @@ val permissions =
         HealthPermission.getWritePermission(ExerciseSessionRecord::class)
     )
 ```
-Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
+Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController.md.txt#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController.md.txt#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
 
 ```kotlin
 val permissions = setOf(
@@ -194,7 +199,7 @@ Each exercise session record contains the following information:
 The following aggregate values are available for
 `ExerciseSessionRecord`:
 
-- [`EXERCISE_DURATION_TOTAL`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/ExerciseSessionRecord#EXERCISE_DURATION_TOTAL())
+- [`EXERCISE_DURATION_TOTAL`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/ExerciseSessionRecord.md.txt#EXERCISE_DURATION_TOTAL())
 
 <br />
 
@@ -357,57 +362,61 @@ Exercise sessions can include anything from running to badminton.
 
 This is how to build an insertion request that includes a session:
 
-    suspend fun writeExerciseSession(healthConnectClient: HealthConnectClient) {
-        healthConnectClient.insertRecords(
-            listOf(
-                ExerciseSessionRecord(
-                    startTime = START_TIME,
-                    startZoneOffset = START_ZONE_OFFSET,
-                    endTime = END_TIME,
-                    endZoneOffset = END_ZONE_OFFSET,
-                    exerciseType = ExerciseSessionRecord.ExerciseType.RUNNING,
-                    title = "My Run",
-                    metadata = Metadata.manualEntry()
-                ),
-                // ... other records
-            )
+```kotlin
+suspend fun writeExerciseSession(healthConnectClient: HealthConnectClient) {
+    healthConnectClient.insertRecords(
+        listOf(
+            ExerciseSessionRecord(
+                startTime = START_TIME,
+                startZoneOffset = START_ZONE_OFFSET,
+                endTime = END_TIME,
+                endZoneOffset = END_ZONE_OFFSET,
+                exerciseType = ExerciseSessionRecord.ExerciseType.RUNNING,
+                title = "My Run",
+                metadata = Metadata.manualEntry()
+            ),
+            // ... other records
         )
-    }
+    )
+}
+```
 
 ### Read an exercise session
 
 Here's an example of how to read an exercise session:
 
-    suspend fun readExerciseSessions(
-        healthConnectClient: HealthConnectClient,
-        startTime: Instant,
-        endTime: Instant
-    ) {
-        val response =
-            healthConnectClient.readRecords(
-                ReadRecordsRequest(
-                    ExerciseSessionRecord::class,
-                    timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
-                )
+```kotlin
+suspend fun readExerciseSessions(
+    healthConnectClient: HealthConnectClient,
+    startTime: Instant,
+    endTime: Instant
+) {
+    val response =
+        healthConnectClient.readRecords(
+            ReadRecordsRequest(
+                ExerciseSessionRecord::class,
+                timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
             )
-        for (exerciseRecord in response.records) {
-            // Process each exercise record
-            // Optionally pull in with other data sources of the same time range.
-            val distanceRecord =
-                healthConnectClient
-                    .readRecords(
-                        ReadRecordsRequest(
-                            DistanceRecord::class,
-                            timeRangeFilter =
-                                TimeRangeFilter.between(
-                                    exerciseRecord.startTime,
-                                    exerciseRecord.endTime
-                                )
-                        )
+        )
+    for (exerciseRecord in response.records) {
+        // Process each exercise record
+        // Optionally pull in with other data sources of the same time range.
+        val distanceRecord =
+            healthConnectClient
+                .readRecords(
+                    ReadRecordsRequest(
+                        DistanceRecord::class,
+                        timeRangeFilter =
+                            TimeRangeFilter.between(
+                                exerciseRecord.startTime,
+                                exerciseRecord.endTime
+                            )
                     )
-                    .records
-        }
+                )
+                .records
     }
+}
+```
 
 ### Write subtype data
 
@@ -417,34 +426,36 @@ session with additional information.
 For example, exercise sessions can include the `ExerciseSegment`, `ExerciseLap`
 and `ExerciseRoute` classes:
 
-    val segments = listOf(
-      ExerciseSegment(
-        startTime = Instant.parse("2022-01-02T10:10:10Z"),
-        endTime = Instant.parse("2022-01-02T10:10:13Z"),
-        segmentType = ActivitySegmentType.BENCH_PRESS,
-        repetitions = 373
-      )
-    )
+```kotlin
+val segments = listOf(
+  ExerciseSegment(
+    startTime = Instant.parse("2022-01-02T10:10:10Z"),
+    endTime = Instant.parse("2022-01-02T10:10:13Z"),
+    segmentType = ActivitySegmentType.BENCH_PRESS,
+    repetitions = 373
+  )
+)
 
-    val laps = listOf(
-      ExerciseLap(
-        startTime = Instant.parse("2022-01-02T10:10:10Z"),
-        endTime = Instant.parse("2022-01-02T10:10:13Z"),
-        length = 0.meters
-      )
-    )
+val laps = listOf(
+  ExerciseLap(
+    startTime = Instant.parse("2022-01-02T10:10:10Z"),
+    endTime = Instant.parse("2022-01-02T10:10:13Z"),
+    length = 0.meters
+  )
+)
 
-    ExerciseSessionRecord(
-      exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_CALISTHENICS,
-        startTime = Instant.parse("2022-01-02T10:10:10Z"),
-        endTime = Instant.parse("2022-01-02T10:10:13Z"),
-      startZoneOffset = ZoneOffset.UTC,
-      endZoneOffset = ZoneOffset.UTC,
-      segments = segments,
-      laps = laps,
-      route = route,
-      metadata = Metadata.manualEntry()
-    )
+ExerciseSessionRecord(
+  exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_CALISTHENICS,
+    startTime = Instant.parse("2022-01-02T10:10:10Z"),
+    endTime = Instant.parse("2022-01-02T10:10:13Z"),
+  startZoneOffset = ZoneOffset.UTC,
+  endZoneOffset = ZoneOffset.UTC,
+  segments = segments,
+  laps = laps,
+  route = route,
+  metadata = Metadata.manualEntry()
+)
+```
 
 ### Delete an exercise session
 

@@ -10,7 +10,7 @@ Format.
 Allowing the user to select photos for inclusion on the watch face can help
 bring a personal touch to your watch face experience.
 
-The [working with images](https://developer.android.com/training/wearables/wff/images) section already covers how to display images in
+The [working with images](https://developer.android.com/training/wearables/wff/images.md.txt) section already covers how to display images in
 your watch face. If you want to allow the user to choose from a range of
 predefined images, then use a `ListConfiguration` as shown in the [define user
 configurations](https://developer.android.com/training/wearables/wff/personalization/user-configurations) section.

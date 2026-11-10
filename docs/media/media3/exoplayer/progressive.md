@@ -6,9 +6,9 @@ source: md.txt
 
 Streams in the following container formats can be played directly by ExoPlayer.
 The contained audio and video sample formats must also be supported (see the
-[Sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats#sample-formats) section for details).
+[Sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats.md.txt#sample-formats) section for details).
 For image container and format support, see
-[Images](https://developer.android.com/media/media3/exoplayer/images).
+[Images](https://developer.android.com/media/media3/exoplayer/images.md.txt).
 
 | Container format | Supported | Comments |
 |---|---|---|
@@ -36,7 +36,7 @@ enabling approximate seeking using a constant bitrate assumption. This
 functionality is not enabled by default. The simplest way to enable this
 functionality for all extractors that support it is to use
 `DefaultExtractorsFactory.setConstantBitrateSeekingEnabled`, as described
-[here](https://developer.android.com/media/media3/exoplayer/customization#enabling-constant-bitrate-seeking).
+[here](https://developer.android.com/media/media3/exoplayer/customization.md.txt#enabling-constant-bitrate-seeking).
 
 \*\*\* The [FLAC library](https://github.com/androidx/media/tree/release/libraries/decoder_flac) extractor outputs raw audio, which can be handled
 by the framework on all API levels. The [ExoPlayer library](https://github.com/androidx/media/tree/release/libraries/exoplayer) FLAC extractor outputs

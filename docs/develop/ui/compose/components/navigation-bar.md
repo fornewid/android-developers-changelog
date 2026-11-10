@@ -18,7 +18,7 @@ screens and basic navigation.
 
 ## API surface
 
-Use the [`NavigationBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationBar.composable#NavigationBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) and [`NavigationBarItem`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationBarItem.composable#(androidx.compose.foundation.layout.RowScope).NavigationBarItem(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.NavigationBarItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) composables to
+Use the [`NavigationBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationBar.composable.md.txt#NavigationBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) and [`NavigationBarItem`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationBarItem.composable.md.txt#(androidx.compose.foundation.layout.RowScope).NavigationBarItem(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.NavigationBarItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) composables to
 implement destination switching logic. Each `NavigationBarItem` represents a
 singular destination.
 
@@ -78,7 +78,7 @@ fun NavigationBarExample(modifier: Modifier = Modifier) {
 ### Key points
 
 - `NavigationBar` displays a collection of items, with each item corresponding to a `Destination`.
-- `val navController = rememberNavController()` creates and remembers an instance of [`NavHostController`](https://developer.android.com/reference/androidx/navigation/NavHostController), which manages the navigation within a [`NavHost`](https://developer.android.com/reference/androidx/navigation/NavHost).
+- `val navController = rememberNavController()` creates and remembers an instance of [`NavHostController`](https://developer.android.com/reference/androidx/navigation/NavHostController.md.txt), which manages the navigation within a [`NavHost`](https://developer.android.com/reference/androidx/navigation/NavHost.md.txt).
 - `var selectedDestination by rememberSaveable {
   mutableIntStateOf(startDestination.ordinal) }` manages the state of the selected item.
   - `startDestination.ordinal` gets the numerical index (position) of the `Destination.SONGS` enum entry.
@@ -95,4 +95,4 @@ snippet:
 ## Additional resources
 
 - [Material 3 - Navigation Bar](https://m3.material.io/components/navigation-bar/overview)
-- [Navigation with Compose](https://developer.android.com/guide/navigation#framework-options)
+- [Navigation with Compose](https://developer.android.com/guide/navigation.md.txt#framework-options)

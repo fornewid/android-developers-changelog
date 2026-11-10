@@ -6,13 +6,13 @@ source: md.txt
 
 The Media3 Transformer library provides a suite of tools for editing and
 manipulating media. A core component for multi-asset editing is the
-[`Composition`](https://developer.android.com/reference/androidx/media3/transformer/Composition) API. This API lets you arrange multiple input media items,
+[`Composition`](https://developer.android.com/reference/androidx/media3/transformer/Composition.md.txt) API. This API lets you arrange multiple input media items,
 such as video clips, images, and audio tracks, into a single, coherent structure
 that can then be processed, previewed, or exported. A `Composition` can be
 thought of as a timeline that holds one or more sequences of media. Each
-sequence (defined by an [`EditedMediaItemSequence`](https://developer.android.com/reference/kotlin/androidx/media3/transformer/EditedMediaItemSequence)) contains individual
-media items (defined as [`EditedMediaItem`](https://developer.android.com/reference/kotlin/androidx/media3/transformer/EditedMediaItem) instances).
-[Transformations and effects](https://developer.android.com/media/media3/transformer/transformations) can be applied to an individual
+sequence (defined by an [`EditedMediaItemSequence`](https://developer.android.com/reference/kotlin/androidx/media3/transformer/EditedMediaItemSequence.md.txt)) contains individual
+media items (defined as [`EditedMediaItem`](https://developer.android.com/reference/kotlin/androidx/media3/transformer/EditedMediaItem.md.txt) instances).
+[Transformations and effects](https://developer.android.com/media/media3/transformer/transformations.md.txt) can be applied to an individual
 `EditedMediaItem`, or to an entire `Composition`.
 ![The structure of a Composition object](https://developer.android.com/static/guide/topics/media/transformer/images/composition-structure.png) The structure of a Composition object
 
@@ -36,14 +36,14 @@ classes involved in constructing a media composition:
 
 `Effects`:
 
-- **Purpose:** An [`Effects`](https://developer.android.com/reference/androidx/media3/transformer/Effects) object is a collection of [audio processors](https://developer.android.com/reference/androidx/media3/common/audio/AudioProcessor) and [video effects](https://developer.android.com/reference/androidx/media3/common/Effect).
-- **How it's used:** In the context of a `Composition`, an `Effects` can be set on individual `EditedMediaItem` instances to modify specific clips, or to the `Composition` as a whole (typically for [`Presentation`](https://developer.android.com/reference/androidx/media3/effect/Presentation) effects that affect the final output, like adjusting the display resolution or frame rate).
-- **Why it's important:** `Effects` is the mechanism for applying transformations, filters, and other processing to your media at both the individual item level and the overall composition level. For more information, see [`Transformations`](https://developer.android.com/media/media3/transformer/transformations).
+- **Purpose:** An [`Effects`](https://developer.android.com/reference/androidx/media3/transformer/Effects.md.txt) object is a collection of [audio processors](https://developer.android.com/reference/androidx/media3/common/audio/AudioProcessor.md.txt) and [video effects](https://developer.android.com/reference/androidx/media3/common/Effect.md.txt).
+- **How it's used:** In the context of a `Composition`, an `Effects` can be set on individual `EditedMediaItem` instances to modify specific clips, or to the `Composition` as a whole (typically for [`Presentation`](https://developer.android.com/reference/androidx/media3/effect/Presentation.md.txt) effects that affect the final output, like adjusting the display resolution or frame rate).
+- **Why it's important:** `Effects` is the mechanism for applying transformations, filters, and other processing to your media at both the individual item level and the overall composition level. For more information, see [`Transformations`](https://developer.android.com/media/media3/transformer/transformations.md.txt).
 
 `EditedMediaItem`:
 
 - **Purpose:** This class represents a single piece of media (like a video, image, or audio file) and the edits to be applied to it.
-- **How it's used:** An `EditedMediaItem` groups a [`MediaItem`](https://developer.android.com/media/media3/exoplayer/media-items) (which points to the actual media content) with an `Effects` object.
+- **How it's used:** An `EditedMediaItem` groups a [`MediaItem`](https://developer.android.com/media/media3/exoplayer/media-items.md.txt) (which points to the actual media content) with an `Effects` object.
 - **Why it's important:** This is the fundamental building block of your composition. It lets you define precisely which media to include and how each individual piece should look and sound before it's combined with others in a sequence.
 
 `EditedMediaItemSequence`:
@@ -56,7 +56,7 @@ classes involved in constructing a media composition:
 
 - **Purpose:** This is the top-level object that represents the entire timeline of media to be processed. It acts as a container for all the media sequences and any global settings or effects that apply to the whole output.
 - **How it's used:** A `Composition` consists of one or more `EditedMediaItemSequence` objects. You can also apply composition-wide effects and set global configurations such as HDR mode directly on the `Composition`. If a `Composition` contains multiple `EditedMediaItemSequence` objects, these sequences can be arranged to play sequentially or can overlap in time, allowing for overlaid layouts like picture-in-picture or transitions from one sequence to another.
-- **Why it's important:** A `Composition` defines the overall structure of the input media to be processed, and is a common object that you can use both for [previewing edits](https://developer.android.com/media/media3/transformer/compositionplayer) with a `CompositionPlayer` and [exporting](https://developer.android.com/reference/androidx/media3/transformer/Transformer#start(androidx.media3.transformer.Composition,java.lang.String)) an output video with edits applied using `Transformer`.
+- **Why it's important:** A `Composition` defines the overall structure of the input media to be processed, and is a common object that you can use both for [previewing edits](https://developer.android.com/media/media3/transformer/compositionplayer.md.txt) with a `CompositionPlayer` and [exporting](https://developer.android.com/reference/androidx/media3/transformer/Transformer.md.txt#start(androidx.media3.transformer.Composition,java.lang.String)) an output video with edits applied using `Transformer`.
 
 ## Create and export a `Composition`
 
@@ -126,7 +126,7 @@ supports with `Composition`:
 ## Current limitations
 
 Sequences within a Composition must meet the conditions outlined in
-[`Transformer.start()`](https://developer.android.com/reference/androidx/media3/transformer/Transformer#start(androidx.media3.transformer.Composition,java.lang.String)).
+[`Transformer.start()`](https://developer.android.com/reference/androidx/media3/transformer/Transformer.md.txt#start(androidx.media3.transformer.Composition,java.lang.String)).
 Furthermore, the following operations are not yet supported when working with
 Compositions:
 

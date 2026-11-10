@@ -28,39 +28,39 @@ higher level components. Each layer builds on public APIs of the lower layers
 to verify the module boundaries and enable you to replace any layer should you
 need to. Let's examine these layers from the bottom up.
 
-[Runtime](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary)
+[Runtime](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary.md.txt)
 :   This module provides the fundamentals of the Compose runtime such as
-    [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable#remember(kotlin.Function0)),
-    [`mutableStateOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#mutableStateOf(kotlin.Any,androidx.compose.runtime.SnapshotMutationPolicy)),
+    [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable.md.txt#remember(kotlin.Function0)),
+    [`mutableStateOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary.md.txt#mutableStateOf(kotlin.Any,androidx.compose.runtime.SnapshotMutationPolicy)),
     the
-    [`@Composable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable)
+    [`@Composable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.md.txt)
     annotation and
-    [`SideEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/SideEffect.composable#SideEffect(kotlin.Function0)).
+    [`SideEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/SideEffect.composable.md.txt#SideEffect(kotlin.Function0)).
     You might consider building directly upon this layer if you only need
     Compose's tree management abilities, not its UI.
 
-[UI](https://developer.android.com/reference/kotlin/androidx/compose/ui/package-summary)
+[UI](https://developer.android.com/reference/kotlin/androidx/compose/ui/package-summary.md.txt)
 :   The UI layer is made up of multiple modules (
-    [`ui-text`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/package-summary),
-    [`ui-graphics`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/package-summary),
-    [`ui-tooling`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/package-summary),
+    [`ui-text`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/package-summary.md.txt),
+    [`ui-graphics`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/package-summary.md.txt),
+    [`ui-tooling`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/package-summary.md.txt),
     etc.). These modules implement the fundamentals of the UI toolkit, such as
     `LayoutNode`,
-    [`Modifier`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier), input handlers,
+    [`Modifier`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt), input handlers,
     custom layouts, and drawing. You might consider building upon this layer if
     you only need fundamental concepts of a UI toolkit.
 
-[Foundation](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary)
+[Foundation](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary.md.txt)
 :   This module provides design system agnostic building blocks for Compose UI,
     like
-    [`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1))
+    [`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable.md.txt#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1))
     and
-    [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)),
-    [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable),
+    [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable.md.txt#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)),
+    [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt),
     recognition of particular gestures, etc. You might consider building upon the
     foundation layer to create your own design system.
 
-[Material](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary)
+[Material](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary.md.txt)
 :   This module provides an implementation of the Material Design system for
     Compose UI, providing a theming system, styled components, ripple
     indications, icons. Build upon this layer when using Material Design in your
@@ -79,7 +79,7 @@ control that you have. If you need more control, you can "drop down" to use a
 lower level component.
 
 For example, if you want to animate the color of a component you might use the
-[`animateColorAsState`](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#animateColorAsState(androidx.compose.ui.graphics.Color,androidx.compose.animation.core.AnimationSpec,kotlin.Function1))
+[`animateColorAsState`](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary.md.txt#animateColorAsState(androidx.compose.ui.graphics.Color,androidx.compose.animation.core.AnimationSpec,kotlin.Function1))
 API:
 
 
@@ -91,7 +91,7 @@ val color = animateColorAsState(if (condition) Color.Green else Color.Red)
 
 However, if you needed the component to always start out grey, you cannot
 do it with this API. Instead, you can drop down to use the lower level
-[`Animatable`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Animatable)
+[`Animatable`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Animatable.md.txt)
 API:
 
 
@@ -114,7 +114,7 @@ Assembling higher level components from smaller building blocks makes it far
 easier to customize components should you need to. For example, consider the
 [implementation](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/material/material/src/commonMain/kotlin/androidx/compose/material/Button.kt)
 of
-[`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.material.ButtonElevation,androidx.compose.ui.graphics.Shape,androidx.compose.foundation.BorderStroke,androidx.compose.material.ButtonColors,androidx.compose.foundation.layout.PaddingValues,kotlin.Function1))
+[`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material/Button.composable.md.txt#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.material.ButtonElevation,androidx.compose.ui.graphics.Shape,androidx.compose.foundation.BorderStroke,androidx.compose.material.ButtonColors,androidx.compose.foundation.layout.PaddingValues,kotlin.Function1))
 provided by the Material layer:
 
 
@@ -142,15 +142,15 @@ fun Button(
 A `Button` is assembled from 4 components:
 
 1. A material
-   [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material/Surface.composable)
+   [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material/Surface.composable.md.txt)
    providing the background, shape, click handling, etc.
 
 2. A
-   [`CompositionLocalProvider`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocalProvider.composable#CompositionLocalProvider(kotlin.Array,kotlin.Function0))
+   [`CompositionLocalProvider`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocalProvider.composable.md.txt#CompositionLocalProvider(kotlin.Array,kotlin.Function0))
    which changes the content's alpha when the button is enabled or disabled
 
 3. A
-   [`ProvideTextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/material/ProvideTextStyle.composable#ProvideTextStyle(androidx.compose.ui.text.TextStyle,kotlin.Function0))
+   [`ProvideTextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/material/ProvideTextStyle.composable.md.txt#ProvideTextStyle(androidx.compose.ui.text.TextStyle,kotlin.Function0))
    sets the default text style to use
 
 4. A `Row` provides the default layout policy for the button's content
@@ -201,7 +201,7 @@ fun GradientButton(
 
 The above implementation continues to use components from the Material layer,
 such as Material's concepts of
-[current content alpha](https://developer.android.com/develop/ui/compose/designsystems/material3#emphasis)
+[current content alpha](https://developer.android.com/develop/ui/compose/designsystems/material3.md.txt#emphasis)
 and the current text style. However, it replaces the material `Surface` with a
 `Row` and styles it to achieve the desired appearance.
 
@@ -236,9 +236,9 @@ fun BespokeButton(
 <br />
 
 Jetpack Compose reserves the simplest names for the highest level components. For example,
-[`androidx.compose.material.Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/Text.composable)
+[`androidx.compose.material.Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/Text.composable.md.txt)
 is built upon
-[`androidx.compose.foundation.text.BasicText`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicText.composable).
+[`androidx.compose.foundation.text.BasicText`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicText.composable.md.txt).
 This makes it possible to provide your own implementation with the most
 discoverable name if you wish to replace higher levels.
 
@@ -254,11 +254,11 @@ such as supporting accessibility.
 
 For example, if you wanted to add gesture support to your custom component, you
 could build this from scratch using
-[`Modifier.pointerInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/package-summary#(androidx.compose.ui.Modifier).pointerInput(kotlin.Any,kotlin.coroutines.SuspendFunction1))
+[`Modifier.pointerInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/package-summary.md.txt#(androidx.compose.ui.Modifier).pointerInput(kotlin.Any,kotlin.coroutines.SuspendFunction1))
 but there are other, higher level components built on top of this which may
 offer a better starting point, for example
 [`Modifier.draggable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/draggable.modifier#(androidx.compose.ui.Modifier).draggable(androidx.compose.foundation.gestures.DraggableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.coroutines.SuspendFunction2,kotlin.coroutines.SuspendFunction2,kotlin.Boolean)),
-[`Modifier.scrollable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/scrollable.modifier#(androidx.compose.ui.Modifier).scrollable(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource))
+[`Modifier.scrollable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/scrollable.modifier.md.txt#(androidx.compose.ui.Modifier).scrollable(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource))
 or [`Modifier.swipeable`](https://developer.android.com/reference/kotlin/androidx/compose/material/swipeable.modifier#(androidx.compose.ui.Modifier).swipeable(androidx.compose.material.SwipeableState,kotlin.collections.Map,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function2,androidx.compose.material.ResistanceConfig,androidx.compose.ui.unit.Dp)).
 
 As a rule, prefer building on the *highest-level* component which offers the
@@ -274,6 +274,6 @@ for an example of building a custom design system.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin)
-- [Lists and grids](https://developer.android.com/develop/ui/compose/lists)
-- [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects)
+- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin.md.txt)
+- [Lists and grids](https://developer.android.com/develop/ui/compose/lists.md.txt)
+- [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects.md.txt)

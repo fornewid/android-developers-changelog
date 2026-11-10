@@ -6,7 +6,7 @@ source: md.txt
 
 <br />
 
-> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12) or later.
+> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect.md.txt#1.1.0-alpha12) or later.
 
 <br />
 
@@ -77,7 +77,7 @@ To feed data into Health Connect, carry out the following steps:
    <br />
 
 4. [Upsert](https://developer.android.com/guide/health-and-fitness/health-connect/develop/write-data#upsert-through-client-id) data to Health Connect using
-   [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#insertRecords(kotlin.collections.List)). Upserting data means that any existing
+   [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient.md.txt#insertRecords(kotlin.collections.List)). Upserting data means that any existing
    data in Health Connect gets overwritten as long as the `clientRecordId`
    values exist in the Health Connect datastore, and the `clientRecordVersion`
    is higher than the existing value. Otherwise, the upserted data is written
@@ -99,8 +99,8 @@ If your app also reads data from Health Connect, store the Health Connect `id`
 for records after you upsert them. You need this `id` to process deletions when
 you pull data changes from Health Connect.
 
-The [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#insertRecords(kotlin.collections.List)) function returns a
-[`InsertRecordsResponse`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/response/InsertRecordsResponse) that contains the list of `id` values.
+The [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient.md.txt#insertRecords(kotlin.collections.List)) function returns a
+[`InsertRecordsResponse`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/response/InsertRecordsResponse.md.txt) that contains the list of `id` values.
 Use the response to get the Record IDs and store them.
 
 
@@ -129,7 +129,7 @@ track of *Changes* tokens. You can use them when requesting *Changes* to
 return both a list of data changes, and a new *Changes* token to be used next
 time.
 
-To obtain a *Changes* token, call [`getChangesToken`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getChangesToken(androidx.health.connect.client.request.ChangesTokenRequest)) and
+To obtain a *Changes* token, call [`getChangesToken`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient.md.txt#getChangesToken(androidx.health.connect.client.request.ChangesTokenRequest)) and
 supply the required data types.
 
 
@@ -150,8 +150,8 @@ Now that you've obtained a *Changes* token, use it to get all *Changes* .
 We recommend creating a loop to get through all the *Changes* where it checks
 if there are available data changes. Here are the following steps:
 
-1. Call [`getChanges`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getChanges(kotlin.String)) using the token to obtain a list of *Changes*.
-2. Check each change whether its type of change is an [`UpsertionChange`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/changes/UpsertionChange) or a [`DeletionChange`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/changes/DeletionChange), and perform the necessary operations.
+1. Call [`getChanges`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient.md.txt#getChanges(kotlin.String)) using the token to obtain a list of *Changes*.
+2. Check each change whether its type of change is an [`UpsertionChange`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/changes/UpsertionChange.md.txt) or a [`DeletionChange`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/changes/DeletionChange.md.txt), and perform the necessary operations.
    - For `UpsertionChange`, only take changes that didn't come from the calling app to make sure you're not re-importing data.
 3. Assign the next *Changes* token as your new token.
 4. Repeat Steps 1-3 until there are no *Changes* left.
@@ -190,55 +190,57 @@ Reflect the changes to your app's datastore. For `UpsertionChange`, use the `id`
 and the `lastModifiedTime` from its `metadata` to [upsert](https://developer.android.com/guide/health-and-fitness/health-connect/develop/write-data#upsert-through-client-id) the record.
 For `DeletionChange`, use the `id` provided to [delete](https://developer.android.com/guide/health-and-fitness/health-connect/develop/delete-data) the record.
 This requires that you have stored the record `id` as mentioned in
-[Store Health Connect IDs](https://developer.android.com/health-and-fitness/health-connect/sync-data#store-ids).
+[Store Health Connect IDs](https://developer.android.com/health-and-fitness/health-connect/sync-data.md.txt#store-ids).
 
 > [!NOTE]
-> **Note:** [`DeletionChange`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/changes/DeletionChange) only contains the `id` of the deleted record, and not the record type, due to privacy. With that, you can either specify only 1 data type for each call of `getChanges`, or make sure that you've stored this information separately beforehand.
+> **Note:** [`DeletionChange`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/changes/DeletionChange.md.txt) only contains the `id` of the deleted record, and not the record type, due to privacy. With that, you can either specify only 1 data type for each call of `getChanges`, or make sure that you've stored this information separately beforehand.
 
 ## Delete data from Health Connect
 
 When a user deletes their own data from your app, make sure that the data is
-also [removed](https://developer.android.com/guide/health-and-fitness/health-connect/develop/delete-data) from Health Connect. Use [`deleteRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#deleteRecords(kotlin.reflect.KClass,kotlin.collections.List,kotlin.collections.List))
+also [removed](https://developer.android.com/guide/health-and-fitness/health-connect/develop/delete-data) from Health Connect. Use [`deleteRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient.md.txt#deleteRecords(kotlin.reflect.KClass,kotlin.collections.List,kotlin.collections.List))
 to do this. This takes a record type and list of `id` and `clientRecordId`
 values, which makes it convenient to batch multiple data for deletion. An
-alternative [`deleteRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#deleteRecords(kotlin.reflect.KClass,androidx.health.connect.client.time.TimeRangeFilter)) that takes in a `timeRangeFilter`
+alternative [`deleteRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient.md.txt#deleteRecords(kotlin.reflect.KClass,androidx.health.connect.client.time.TimeRangeFilter)) that takes in a `timeRangeFilter`
 is also available.
 
 ## Low-latency synchronization from wearables
 
 To sync data from a wearable fitness device to Health Connect with low latency,
-use [`CompanionDeviceService`](https://developer.android.com/reference/android/companion/CompanionDeviceService). This approach works for
+use [`CompanionDeviceService`](https://developer.android.com/reference/android/companion/CompanionDeviceService.md.txt). This approach works for
 devices that support BLE GATT Notifications or Indications and
 target Android 8.0 (API level 26) or higher. `CompanionDeviceService` allows
 your app to receive data from wearables and write it to Health Connect, even
 when the app isn't already running. For more details on BLE best practices, see
-[Bluetooth Low Energy overview](https://developer.android.com/develop/connectivity/bluetooth/ble/background#stay-connected).
+[Bluetooth Low Energy overview](https://developer.android.com/develop/connectivity/bluetooth/ble/background.md.txt#stay-connected).
 
 ### Associate the device
 
 First, your app must guide the user through a one-time process to associate
 the wearable with your app using
-[`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager). This grants your app the
+[`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.md.txt). This grants your app the
 necessary permissions to interact with the device. For more information,
-see [Companion device pairing](https://developer.android.com/develop/connectivity/bluetooth/companion-device-pairing).
+see [Companion device pairing](https://developer.android.com/develop/connectivity/bluetooth/companion-device-pairing.md.txt).
 
 ### Declare the service in the Manifest
 
 Next, declare `CompanionDeviceService` in your app's manifest file. Add the
 following to your `AndroidManifest.xml`:
 
-    <manifest ...>
-       <application ...>
-           <service
-               android:name=".MyWearableService"
-               android:exported="true"
-               android:permission="android.permission.BIND_COMPANION_DEVICE_SERVICE">
-               <intent-filter>
-                   <action android:name="android.companion.CompanionDeviceService" />
-               </intent-filter>
-           </service>
-       </application>
-    </manifest>
+```xml
+<manifest ...>
+   <application ...>
+       <service
+           android:name=".MyWearableService"
+           android:exported="true"
+           android:permission="android.permission.BIND_COMPANION_DEVICE_SERVICE">
+           <intent-filter>
+               <action android:name="android.companion.CompanionDeviceService" />
+           </intent-filter>
+       </service>
+   </application>
+</manifest>
+```
 
 ### Create CompanionDeviceService
 

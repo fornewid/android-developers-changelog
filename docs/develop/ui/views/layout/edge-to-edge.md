@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/views/layout/edge-to-edge
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with edge-to-edge in Compose. [Edge-to-edge in Compose →](https://developer.android.com/develop/ui/compose/system/insets) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with edge-to-edge in Compose. [Edge-to-edge in Compose →](https://developer.android.com/develop/ui/compose/system/insets.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -26,14 +26,14 @@ When implementing an edge-to-edge layout in your app, keep the following in
 mind:
 
 1. Enable an edge-to-edge display
-2. Implement [adaptive layouts](https://developer.android.com/develop/ui/views/layout/responsive-adaptive-design-with-views) to optimize the user experience on different form factors
+2. Implement [adaptive layouts](https://developer.android.com/develop/ui/views/layout/responsive-adaptive-design-with-views.md.txt) to optimize the user experience on different form factors
 3. Handle any visual overlaps
 4. Consider showing scrims behind the system bars
 
 ![an example of imagery behind the status bar](https://developer.android.com/static/images/guide/navigation/e2e-imagery-behind-status-bar.png) **Figure 2.** Example of imagery behind the status bar.
 
 > [!IMPORTANT]
-> **Important:** [Edge-to-edge is enforced](https://developer.android.com/about/versions/15/behavior-changes-15#edge-to-edge) on Android 15 (API level 35) and higher once your app targets SDK 35. If your app is not already edge-to-edge, portions of your app may be obscured and you must handle insets. Depending on the app, this work may or may not be significant.
+> **Important:** [Edge-to-edge is enforced](https://developer.android.com/about/versions/15/behavior-changes-15.md.txt#edge-to-edge) on Android 15 (API level 35) and higher once your app targets SDK 35. If your app is not already edge-to-edge, portions of your app may be obscured and you must handle insets. Depending on the app, this work may or may not be significant.
 
 ## Enable edge-to-edge display
 
@@ -41,24 +41,28 @@ If your app targets SDK 35 or later, edge-to-edge is automatically enabled for
 Android 15 devices or later.
 
 To enable edge-to-edge on previous Android versions, manually call
-[`enableEdgeToEdge`](https://developer.android.com/reference/androidx/core/view/WindowCompat#enableEdgeToEdge(android.view.Window)) in `onCreate` of your `Activity`.
+[`enableEdgeToEdge`](https://developer.android.com/reference/androidx/core/view/WindowCompat.md.txt#enableEdgeToEdge(android.view.Window)) in `onCreate` of your `Activity`.
 
 ### Kotlin
 
-     override fun onCreate(savedInstanceState: Bundle?) {
-             super.onCreate(savedInstanceState)
-             WindowCompat.enableEdgeToEdge(window)
-            ...
-          }
+```kotlin
+ override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         WindowCompat.enableEdgeToEdge(window)
+        ...
+      }
+```
 
 ### Java
 
-     @Override
-          protected void onCreate(@Nullable Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            WindowCompat.enableEdgeToEdge(getWindow());
-            ...
-          }
+```java
+ @Override
+      protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        WindowCompat.enableEdgeToEdge(getWindow());
+        ...
+      }
+```
 
 By default, `enableEdgeToEdge()` makes the system bars transparent, except on
 3-button navigation mode where the navigation bar gets a translucent scrim. The
@@ -67,7 +71,7 @@ light or dark theme.
 
 To enable edge-to-edge display in your app without using the
 `enableEdgeToEdge()` function, see
-[Manually set up the edge-to-edge display](https://developer.android.com/develop/ui/views/layout/edge-to-edge-manually).
+[Manually set up the edge-to-edge display](https://developer.android.com/develop/ui/views/layout/edge-to-edge-manually.md.txt).
 
 ## Handle overlaps using insets
 
@@ -104,9 +108,9 @@ obscured by the navigation bar:
 
 To avoid this kind of visual overlap in either gesture mode or button mode, you
 can increase the view's margins using
-[`getInsets(int)`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat#getInsets(int))
+[`getInsets(int)`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat.md.txt#getInsets(int))
 with
-[`WindowInsetsCompat.Type.systemBars()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat.Type#systemBars()).
+[`WindowInsetsCompat.Type.systemBars()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat.Type.md.txt#systemBars()).
 
 The following code example shows how to implement system bar insets:
 
@@ -160,7 +164,7 @@ The same applies to gesture navigation mode, as shown in figure 5:
 ![edge-to-edge with gesture navigation](https://developer.android.com/static/images/guide/navigation/e2e-system-bars-bottom.png) **Figure 5.** Resolving visual overlap in gesture navigation mode.
 
 > [!NOTE]
-> **Note:** In [desktop windowing mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-desktop-windowing), the system-drawn caption bar is always visible at the top of the window, even for game apps in immersive mode. If your app targets games or other full-screen experiences, you must use either `WindowInsetsCompat.Type.systemBars()` (which includes the caption bar) or `WindowInsetsCompat.Type.captionBar()` to avoid your UI being obscured by the window controls.
+> **Note:** In [desktop windowing mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-desktop-windowing.md.txt), the system-drawn caption bar is always visible at the top of the window, even for game apps in immersive mode. If your app targets games or other full-screen experiences, you must use either `WindowInsetsCompat.Type.systemBars()` (which includes the caption bar) or `WindowInsetsCompat.Type.captionBar()` to avoid your UI being obscured by the window controls.
 
 ### Display cutout insets
 
@@ -226,14 +230,14 @@ take priority over your app. These areas are shown in orange in figure 6:
 
 Like the system bar insets, you can avoid overlapping the system gesture insets
 using
-[`getInsets(int)`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat#getInsets(int))
+[`getInsets(int)`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat.md.txt#getInsets(int))
 with
-[`WindowInsetsCompat.Type.systemGestures()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat.Type#systemGestures()).
+[`WindowInsetsCompat.Type.systemGestures()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat.Type.md.txt#systemGestures()).
 
 Use these insets to move or pad swipeable views away from the edges. Common use
 cases include [bottom sheets](https://m2.material.io/components/sheets-bottom),
 swiping in games, and carousels implemented using
-[`ViewPager2`](https://developer.android.com/reference/androidx/viewpager2/widget/ViewPager2).
+[`ViewPager2`](https://developer.android.com/reference/androidx/viewpager2/widget/ViewPager2.md.txt).
 
 On Android 10 or later, system gesture insets contain a bottom inset for the
 home gesture, and a left and right inset for the back gestures:
@@ -278,14 +282,14 @@ ViewCompat.setOnApplyWindowInsetsListener(view, (v, windowInsets) -> {
 Many views-based
 [Android Material Components](https://github.com/material-components/material-components-android)
 (com.google.android.material) automatically handle insets, including
-[`BottomAppBar`](https://developer.android.com/reference/com/google/android/material/bottomappbar/BottomAppBar),
-[`BottomNavigationView`](https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView),
-[`NavigationRailView`](https://developer.android.com/reference/com/google/android/material/navigationrail/NavigationRailView)
-and [`NavigationView`](https://developer.android.com/reference/com/google/android/material/navigation/NavigationView)
+[`BottomAppBar`](https://developer.android.com/reference/com/google/android/material/bottomappbar/BottomAppBar.md.txt),
+[`BottomNavigationView`](https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView.md.txt),
+[`NavigationRailView`](https://developer.android.com/reference/com/google/android/material/navigationrail/NavigationRailView.md.txt)
+and [`NavigationView`](https://developer.android.com/reference/com/google/android/material/navigation/NavigationView.md.txt)
 
-However, [`AppBarLayout`](https://developer.android.com/reference/com/google/android/material/appbar/AppBarLayout)
+However, [`AppBarLayout`](https://developer.android.com/reference/com/google/android/material/appbar/AppBarLayout.md.txt)
 doesn't automatically handle insets. Add
-[`android:fitsSystemWindows="true"`](https://developer.android.com/reference/android/view/View#attr_android:fitsSystemWindows)
+[`android:fitsSystemWindows="true"`](https://developer.android.com/reference/android/view/View.md.txt#attr_android:fitsSystemWindows)
 to handle top insets.
 
 Read how to handle insets with
@@ -295,7 +299,7 @@ Read how to handle insets with
 
 To stop insets dispatching to children views and avoid over-padding, you can
 consume insets using the
-[`WindowInsetsCompat.CONSUMED`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat#CONSUMED())
+[`WindowInsetsCompat.CONSUMED`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat.md.txt#CONSUMED())
 constant. However, on devices that run Android 10 (API level 29 and earlier),
 insets aren't dispatched to siblings after calling
 `WindowInsetsCompat.CONSUMED`, which can cause unintended visual overlap.
@@ -304,7 +308,7 @@ insets aren't dispatched to siblings after calling
 To confirm that insets are dispatched to siblings for all supported Android
 versions, use `ViewGroupCompat#installCompatInsetsDispatch` before consuming
 insets, available on
-[AndroidX Core and Core-ktx 1.16.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core#1.16.0-alpha01)
+[AndroidX Core and Core-ktx 1.16.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core.md.txt#1.16.0-alpha01)
 and higher.
 
 ### Kotlin
@@ -330,9 +334,9 @@ ViewGroupCompat.installCompatInsetsDispatch(rootView);
 
 Some content is best experienced in full screen, giving the user a more
 immersive experience. You can hide the system bars an for immersive mode using
-the [`WindowInsetsController`](https://developer.android.com/reference/android/view/WindowInsetsController)
+the [`WindowInsetsController`](https://developer.android.com/reference/android/view/WindowInsetsController.md.txt)
 and
-[`WindowInsetsControllerCompat`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat)
+[`WindowInsetsControllerCompat`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat.md.txt)
 libraries:
 
 ### Kotlin
@@ -392,13 +396,13 @@ WindowCompat.getInsetsController(window, window.getDecorView())
 
 ## System bar protection
 
-Once your app targets SDK 35 or higher, [edge-to-edge is enforced](https://developer.android.com/about/versions/15/behavior-changes-15#edge-to-edge).
+Once your app targets SDK 35 or higher, [edge-to-edge is enforced](https://developer.android.com/about/versions/15/behavior-changes-15.md.txt#edge-to-edge).
 The system status bar and gesture navigation bars are transparent, but the
 three-button navigation bar is translucent. Call `enableEdgeToEdge` to make this
 backward compatible.
 
 However, the system defaults might not work for all use cases. Consult the
-[Android system bars design guidance](https://developer.android.com/develop/ui/views/layout/responsive-adaptive-design-with-views) and [Edge-to-edge design](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge) to
+[Android system bars design guidance](https://developer.android.com/develop/ui/views/layout/responsive-adaptive-design-with-views.md.txt) and [Edge-to-edge design](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge.md.txt) to
 determine whether to use transparent or translucent system bars.
 
 ### Create transparent system bars
@@ -408,16 +412,16 @@ calling `enableEdgeToEdge()` with default arguments for earlier versions.
 
 Create a transparent gesture navigation bar by targeting Android 15 or higher or
 by calling `enableEdgeToEdge()` with default arguments for earlier versions. For
-three-button navigation bar, set [`Window.setNavigationBarContrastEnforced`](https://developer.android.com/reference/android/view/Window#setNavigationBarContrastEnforced(boolean))
+three-button navigation bar, set [`Window.setNavigationBarContrastEnforced`](https://developer.android.com/reference/android/view/Window.md.txt#setNavigationBarContrastEnforced(boolean))
 to `false` otherwise there will be a translucent scrim applied.
 
 ### Create translucent system bars
 
 To create a translucent status bar, do the following:
 
-1. Update your `androidx-core` dependency to [1.16.0-beta01](https://developer.android.com/jetpack/androidx/releases/core#1.16.0-beta01) or higher
+1. Update your `androidx-core` dependency to [1.16.0-beta01](https://developer.android.com/jetpack/androidx/releases/core.md.txt#1.16.0-beta01) or higher
 2. Wrap your XML layout in `androidx.core.view.insets.ProtectionLayout` and assign an ID.
-3. Programmatically access the `ProtectionLayout` to set protections, specifying the side and a [`GradientProtection`](https://developer.android.com/reference/kotlin/androidx/core/view/insets/GradientProtection) for the status bar.
+3. Programmatically access the `ProtectionLayout` to set protections, specifying the side and a [`GradientProtection`](https://developer.android.com/reference/kotlin/androidx/core/view/insets/GradientProtection.md.txt) for the status bar.
 
 
 ```xml
@@ -486,39 +490,43 @@ The following video shows a `RecyclerView` with edge-to-edge display disabled
 Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/develop/ui/views/images/edge-to-edge/recycler-view-e2e.mp4) and watch it with a video player.
 
 See the code snippets in the
-[Create dynamic lists with RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview#enable-edge-to-edge-display)
+[Create dynamic lists with RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview.md.txt#enable-edge-to-edge-display)
 section for a code sample.
 
 ### Make full-screen dialogs edge-to-edge
 
-To make full-screen dialog's edge-to-edge, call [`enableEdgeToEdge`](https://developer.android.com/reference/androidx/core/view/WindowCompat#enableEdgeToEdge(android.view.Window)) on the Dialog.
+To make full-screen dialog's edge-to-edge, call [`enableEdgeToEdge`](https://developer.android.com/reference/androidx/core/view/WindowCompat.md.txt#enableEdgeToEdge(android.view.Window)) on the Dialog.
 
 ### Kotlin
 
-    class MyAlertDialogFragment : DialogFragment() {
-        override fun onStart(){
-            super.onStart()
-            dialog?.window?.let { WindowCompat.enableEdgeToEdge(it) }
-        }
-        ...
+```kotlin
+class MyAlertDialogFragment : DialogFragment() {
+    override fun onStart(){
+        super.onStart()
+        dialog?.window?.let { WindowCompat.enableEdgeToEdge(it) }
     }
+    ...
+}
+```
 
 ### Java
 
-    public class MyAlertDialogFragment extends DialogFragment {
-        @Override
-        public void onStart() {
-            super.onStart();
-            Dialog dialog = getDialog();
-            if (dialog != null) {
-                Window window = dialog.getWindow();
-                if (window != null) {
-                    WindowCompat.enableEdgeToEdge(window);
-                }
+```java
+public class MyAlertDialogFragment extends DialogFragment {
+    @Override
+    public void onStart() {
+        super.onStart();
+        Dialog dialog = getDialog();
+        if (dialog != null) {
+            Window window = dialog.getWindow();
+            if (window != null) {
+                WindowCompat.enableEdgeToEdge(window);
             }
         }
-        ...
     }
+    ...
+}
+```
 
 ## Additional resources
 
@@ -531,8 +539,8 @@ See the following references for more information on going edge-to-edge.
 
 **Design**
 
-- [Android system bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars)
-- [Edge-to-edge design](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge)
+- [Android system bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars.md.txt)
+- [Edge-to-edge design](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge.md.txt)
 
 **Other documentation**
 

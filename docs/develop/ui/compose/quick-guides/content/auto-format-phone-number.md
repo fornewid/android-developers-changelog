@@ -28,7 +28,7 @@ higher.
 
 ## Create the text field
 
-First, configure the [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable#TextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors)). This example shows a phone number
+First, configure the [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable.md.txt#TextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors)). This example shows a phone number
 formatted per the North American Numbering Plan
 (NANP).`NanpVisualTransformation` formats a raw string of numbers to NANP, eg.
 1234567890 to (123) 456-7890.
@@ -62,7 +62,7 @@ fun PhoneNumber() {
 ### Key points about the code
 
 - A `TextField` composable where the `onValueChange` uses a regular expression to remove all non-numeric characters and limits the length to a maximum of 10 characters before updating the `phoneNumber` state.
-- The `TextField` has a custom [`VisualTransformation`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/input/VisualTransformation) instance set on the `visualTransformation` attribute. `NanpVisualTransformation`, the custom class instantiated here, is defined in the following section.
+- The `TextField` has a custom [`VisualTransformation`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/input/VisualTransformation.md.txt) instance set on the `visualTransformation` attribute. `NanpVisualTransformation`, the custom class instantiated here, is defined in the following section.
 
 ## Auto-format a number in the text field
 
@@ -137,4 +137,4 @@ Learn how to implement ways for users to interact with your app by entering text
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

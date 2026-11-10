@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/views/layout/use-window-size-class
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use window size classes in Compose. [Window size classes in Compose →](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use window size classes in Compose. [Window size classes in Compose →](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -70,9 +70,9 @@ such as deciding whether to use a specific canonical layout to take advantage of
 additional screen space.
 
 You can compute the current
-[`WindowSizeClass`](https://developer.android.com/reference/androidx/window/core/layout/WindowSizeClass)
+[`WindowSizeClass`](https://developer.android.com/reference/androidx/window/core/layout/WindowSizeClass.md.txt)
 using the
-[`WindowSizeClass#compute()`](https://developer.android.com/reference/androidx/window/core/layout/WindowSizeClass#compute(kotlin.Float,kotlin.Float))
+[`WindowSizeClass#compute()`](https://developer.android.com/reference/androidx/window/core/layout/WindowSizeClass.md.txt#compute(kotlin.Float,kotlin.Float))
 function provided by the [Jetpack
 WindowManager](https://developer.android.com/jetpack/androidx/releases/window) library. The following example
 shows how to calculate the window size class and receive updates whenever the
@@ -191,9 +191,9 @@ the medium width size class; consider adding a specialized layout.
 To learn more about how to use window size classes to create responsive/adaptive
 layouts, see the following:
 
-- For Compose-based layouts: [Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes)
+- For Compose-based layouts: [Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes.md.txt)
 
-- For view-based layouts: [Responsive/adaptive design with views](https://developer.android.com/develop/ui/views/layout/responsive-adaptive-design-with-views)
+- For view-based layouts: [Responsive/adaptive design with views](https://developer.android.com/develop/ui/views/layout/responsive-adaptive-design-with-views.md.txt)
 
 To learn more about what makes an app great on all devices and screen sizes,
 see:

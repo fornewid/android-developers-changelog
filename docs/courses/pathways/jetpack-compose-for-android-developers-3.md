@@ -24,7 +24,7 @@ Learn how Jetpack Compose transforms data into UI.
 
 This guide focuses on how to implement the unidirectional data flow pattern in Compose, how to implement events and state holders, and how to work with ViewModels in Compose.
 
-[Read article](https://developer.android.com/develop/ui/compose/architecture)
+[Read article](https://developer.android.com/develop/ui/compose/architecture.md.txt)
 
 ## A Compose state of mind
 

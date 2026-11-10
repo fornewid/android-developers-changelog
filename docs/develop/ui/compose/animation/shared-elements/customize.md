@@ -14,7 +14,7 @@ specify a different `boundsTransform` parameter on `Modifier.sharedElement()`.
 This provides the initial `Rect` position and target `Rect` position.
 
 For example, to make the text in the preceding example to move with an arc
-motion, specify the `boundsTransform` parameter to use a [`keyframes`](https://developer.android.com/develop/ui/compose/animation/customize#animationspec) spec:
+motion, specify the `boundsTransform` parameter to use a [`keyframes`](https://developer.android.com/develop/ui/compose/animation/customize.md.txt#animationspec) spec:
 
 
 ```kotlin
@@ -198,7 +198,7 @@ path from the parent `sharedBounds()`.
 
 To support keeping specific UI elements, such as a bottom bar or floating action
 button, always on top during a shared element transition, use
-[`Modifier.renderInSharedTransitionScopeOverlay()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).renderInSharedTransitionScopeOverlay(kotlin.Float,kotlin.Function0)). By default, this
+[`Modifier.renderInSharedTransitionScopeOverlay()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope.md.txt#(androidx.compose.ui.Modifier).renderInSharedTransitionScopeOverlay(kotlin.Float,kotlin.Function0)). By default, this
 modifier keeps the content in the overlay during the time when the shared
 transition is active.
 

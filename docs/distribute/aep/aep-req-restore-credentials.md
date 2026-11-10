@@ -58,3 +58,4 @@ don't contain additional program requirements.
 - [Automated backup and restore testing](https://developer.android.com/studio/preview/backup-restore-testing)
 - [Restore Credentials Android skill](https://developer.android.com/agents/skills/identity/restore-credentials/skill)
 - [Overview of Block Store](https://developer.android.com/identity/block-store)
+- [Play Console Technical Quality Requirements](https://support.google.com/googleplay/android-developer/answer/17492799)

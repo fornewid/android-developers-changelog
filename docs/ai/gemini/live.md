@@ -27,15 +27,17 @@ Add the Firebase AI Logic library and App Check dependencies to your app-level
 `build.gradle.kts` or `build.gradle` file. Use the
 [Firebase Android BoM](https://firebase.google.com/docs/android/learn-more#bom) to manage library versions.
 
-    dependencies {
-      // Import the Firebase BoM
-      implementation(platform("com.google.firebase:firebase-bom:35.1.0"))
+```groovy
+dependencies {
+  // Import the Firebase BoM
+  implementation(platform("com.google.firebase:firebase-bom:35.1.0"))
 
-      // Add the dependencies for the Firebase AI Logic and App Check libraries
-      // When using the BoM, you don't specify versions in Firebase library dependencies
-      implementation("com.google.firebase:firebase-ai")
-      implementation("com.google.firebase:firebase-appcheck-debug")
-    }
+  // Add the dependencies for the Firebase AI Logic and App Check libraries
+  // When using the BoM, you don't specify versions in Firebase library dependencies
+  implementation("com.google.firebase:firebase-ai")
+  implementation("com.google.firebase:firebase-appcheck-debug")
+}
+```
 
 After adding the dependencies, sync your Android project with Gradle.
 
@@ -52,18 +54,21 @@ enforcement of App Check.
 
    ### Kotlin
 
-       Firebase.initialize(context = this)
-       Firebase.appCheck.installAppCheckProviderFactory(
-           DebugAppCheckProviderFactory.getInstance(),
-       )
+   ```kotlin
+   Firebase.initialize(context = this)
+   Firebase.appCheck.installAppCheckProviderFactory(
+       DebugAppCheckProviderFactory.getInstance(),
+   )
+   ```
 
    ### Java
 
-       FirebaseApp.initializeApp(/*context=*/ this);
-       FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
-       firebaseAppCheck.installAppCheckProviderFactory(
-               DebugAppCheckProviderFactory.getInstance());
-
+   ```java
+   FirebaseApp.initializeApp(/*context=*/ this);
+   FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
+   firebaseAppCheck.installAppCheckProviderFactory(
+           DebugAppCheckProviderFactory.getInstance());
+   ```
 2. Obtain your debug token:
 
    1. Run your app in the emulator or on your test device.
@@ -102,7 +107,9 @@ check out the [official App Check docs](https://firebase.google.com/docs/app-che
 Add the `RECORD_AUDIO` permission to the `AndroidManifest.xml` file of your
 application:
 
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+```xml
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+```
 
 Initialize the Gemini Developer API backend service and access the `LiveModel`.
 Use a model that supports the Live API, like
@@ -131,18 +138,20 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).liveModel(
 
 ### Java
 
-    // Initialize the `LiveModel`
-    LiveGenerativeModel model = FirebaseAI
-           .getInstance(GenerativeBackend.googleAI())
-           .liveModel(
-                  "gemini-2.5-flash-native-audio-preview-12-2025",
-                  new LiveGenerationConfig.Builder()
-                         .setResponseModality(ResponseModality.AUDIO)
-                         .setSpeechConfig(new SpeechConfig(new Voice("FENRIR"))
-                  ).build(),
-            null,
-            null
-    );
+```java
+// Initialize the `LiveModel`
+LiveGenerativeModel model = FirebaseAI
+       .getInstance(GenerativeBackend.googleAI())
+       .liveModel(
+              "gemini-2.5-flash-native-audio-preview-12-2025",
+              new LiveGenerationConfig.Builder()
+                     .setResponseModality(ResponseModality.AUDIO)
+                     .setSpeechConfig(new SpeechConfig(new Voice("FENRIR"))
+              ).build(),
+        null,
+        null
+);
+```
 
 You can optionally define a persona or role the model plays by setting a system
 instruction:
@@ -169,21 +178,23 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).liveModel(
 
 ### Java
 
-    Content systemInstruction = new Content.Builder()
-           .addText("You are a helpful assistant, you main role is [...]")
-           .build();
+```java
+Content systemInstruction = new Content.Builder()
+       .addText("You are a helpful assistant, you main role is [...]")
+       .build();
 
-    LiveGenerativeModel model = FirebaseAI
-           .getInstance(GenerativeBackend.googleAI())
-           .liveModel(
-                  "gemini-2.5-flash-native-audio-preview-12-2025",
-                  new LiveGenerationConfig.Builder()
-                         .setResponseModality(ResponseModality.AUDIO)
-                         .setSpeechConfig(new SpeechConfig(new Voice("FENRIR"))
-                  ).build(),
-            tools, // null if you don't want to use function calling
-            systemInstruction
-    );
+LiveGenerativeModel model = FirebaseAI
+       .getInstance(GenerativeBackend.googleAI())
+       .liveModel(
+              "gemini-2.5-flash-native-audio-preview-12-2025",
+              new LiveGenerationConfig.Builder()
+                     .setResponseModality(ResponseModality.AUDIO)
+                     .setSpeechConfig(new SpeechConfig(new Voice("FENRIR"))
+              ).build(),
+        tools, // null if you don't want to use function calling
+        systemInstruction
+);
+```
 
 You can further specialize the conversation with the model by using system
 instructions to provide context specific to your app (for example, user in-app
@@ -211,20 +222,22 @@ session.startAudioConversation()
 
 ### Java
 
-    LiveModelFutures model = LiveModelFutures.from(liveModel);
-    ListenableFuture<LiveSession> sessionFuture = model.connect();
+```java
+LiveModelFutures model = LiveModelFutures.from(liveModel);
+ListenableFuture<LiveSession> sessionFuture = model.connect();
 
-    Futures.addCallback(sessionFuture, new FutureCallback<LiveSession>() {
-        @Override
-        public void onSuccess(LiveSession ses) {
-            LiveSessionFutures session = LiveSessionFutures.from(ses);
-            session.startAudioConversation();
-        }
-        @Override
-        public void onFailure(Throwable t) {
-            // Handle exceptions
-        }
-    }, executor);
+Futures.addCallback(sessionFuture, new FutureCallback<LiveSession>() {
+    @Override
+    public void onSuccess(LiveSession ses) {
+        LiveSessionFutures session = LiveSessionFutures.from(ses);
+        session.startAudioConversation();
+    }
+    @Override
+    public void onFailure(Throwable t) {
+        // Handle exceptions
+    }
+}, executor);
+```
 
 In your conversations with the model, note that it doesn't handle interruptions.
 Also, the Live API is *bidirectional* so you use the same connection to send
@@ -280,16 +293,18 @@ val addListFunctionDeclaration = FunctionDeclaration(
 
 ### Java
 
-    HashMap<String, Schema> addListParams = new HashMap<String, Schema>(1);
+```java
+HashMap<String, Schema> addListParams = new HashMap<String, Schema>(1);
 
-    addListParams.put("item", Schema.str("A short string describing the item to add to the list"));
+addListParams.put("item", Schema.str("A short string describing the item to add to the list"));
 
-    FunctionDeclaration addListFunctionDeclaration = new FunctionDeclaration(
-        "addList",
-        "Function adding an item the list",
-        addListParams,
-        Collections.emptyList()
-    );
+FunctionDeclaration addListFunctionDeclaration = new FunctionDeclaration(
+    "addList",
+    "Function adding an item the list",
+    addListParams,
+    Collections.emptyList()
+);
+```
 
 Then, pass this `FunctionDeclaration` as a `Tool` to the model when you
 instantiate it:
@@ -315,17 +330,19 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).liveModel(
 
 ### Java
 
-    LiveGenerativeModel model = FirebaseAI.getInstance(
-        GenerativeBackend.googleAI()).liveModel(
-            "gemini-2.5-flash-native-audio-preview-12-2025",
-      new LiveGenerationConfig.Builder()
-            .setResponseModality(ResponseModality.AUDIO)
-            .setSpeechConfig(new SpeechConfig(new Voice("FENRIR")))
-            .build(),
-      List.of(Tool.functionDeclarations(List.of(addListFunctionDeclaration))),
-                   null,
-                   systemInstruction
-            );
+```java
+LiveGenerativeModel model = FirebaseAI.getInstance(
+    GenerativeBackend.googleAI()).liveModel(
+        "gemini-2.5-flash-native-audio-preview-12-2025",
+  new LiveGenerationConfig.Builder()
+        .setResponseModality(ResponseModality.AUDIO)
+        .setSpeechConfig(new SpeechConfig(new Voice("FENRIR")))
+        .build(),
+  List.of(Tool.functionDeclarations(List.of(addListFunctionDeclaration))),
+               null,
+               systemInstruction
+        );
+```
 
 Finally, implement a handler function to handle the tool call the model makes
 and pass it back the response. This handler function provided to the
@@ -372,36 +389,38 @@ fun functionCallHandler(functionCall: FunctionCallPart): FunctionResponsePart {
 
 ### Java
 
-    Futures.addCallback(sessionFuture, new FutureCallback<LiveSessionFutures>() {
+```java
+Futures.addCallback(sessionFuture, new FutureCallback<LiveSessionFutures>() {
 
-        @RequiresPermission(Manifest.permission.RECORD_AUDIO)
-        @Override
-        @OptIn(markerClass = PublicPreviewAPI.class)
-        public void onSuccess(LiveSessionFutures ses) {
-            ses.startAudioConversation(::handleFunctionCallFuture);
+    @RequiresPermission(Manifest.permission.RECORD_AUDIO)
+    @Override
+    @OptIn(markerClass = PublicPreviewAPI.class)
+    public void onSuccess(LiveSessionFutures ses) {
+        ses.startAudioConversation(::handleFunctionCallFuture);
+    }
+
+    @Override
+    public void onFailure(Throwable t) {
+        // Handle exceptions
+    }
+}, executor);
+
+// ...
+
+ListenableFuture<JsonObject> handleFunctionCallFuture = Futures.transform(response, result -> {
+    for (FunctionCallPart functionCall : result.getFunctionCalls()) {
+        if (functionCall.getName().equals("addList")) {
+            Map<String, JsonElement> args = functionCall.getArgs();
+            String item =
+                    JsonElementKt.getContentOrNull(
+                            JsonElementKt.getJsonPrimitive(
+                                    locationJsonObject.get("item")));
+            return addList(item);
         }
-
-        @Override
-        public void onFailure(Throwable t) {
-            // Handle exceptions
-        }
-    }, executor);
-
-    // ...
-
-    ListenableFuture<JsonObject> handleFunctionCallFuture = Futures.transform(response, result -> {
-        for (FunctionCallPart functionCall : result.getFunctionCalls()) {
-            if (functionCall.getName().equals("addList")) {
-                Map<String, JsonElement> args = functionCall.getArgs();
-                String item =
-                        JsonElementKt.getContentOrNull(
-                                JsonElementKt.getJsonPrimitive(
-                                        locationJsonObject.get("item")));
-                return addList(item);
-            }
-        }
-        return null;
-    }, Executors.newSingleThreadExecutor());
+    }
+    return null;
+}, Executors.newSingleThreadExecutor());
+```
 
 ## Next steps
 

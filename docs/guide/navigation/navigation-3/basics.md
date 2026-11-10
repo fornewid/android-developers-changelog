@@ -27,13 +27,13 @@ are usually simple, serializable data classes. Using references rather than
 content has the following benefits:
 
 - It is simple to navigate by pushing keys onto the back stack.
-- As long as the keys are serializable, the back stack can be saved to persistent storage, allowing it to survive configuration changes and process death. This is important because users expect to leave your app, come back to it later, and pick up where they left off with the same content being displayed. See [Save your back stack](https://developer.android.com/guide/navigation/navigation-3/save-state#save-back) for more information.
+- As long as the keys are serializable, the back stack can be saved to persistent storage, allowing it to survive configuration changes and process death. This is important because users expect to leave your app, come back to it later, and pick up where they left off with the same content being displayed. See [Save your back stack](https://developer.android.com/guide/navigation/navigation-3/save-state.md.txt#save-back) for more information.
 
 A key concept in the Navigation 3 API is that you own the back stack. The
 library:
 
 - Expects that your back stack will be a snapshot-state backed `List<T>`, where `T` is the type of your back stack `keys`. You can use `Any` or you can provide your own, more strongly-typed keys. When you see the terms "push" or "pop", the underlying implementation is to add or remove items from the end of a list.
-- Observes your back stack and reflects its state in the UI using a [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.composable).
+- Observes your back stack and reflects its state in the UI using a [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.composable.md.txt).
 
 The following example shows how to create keys and a back stack, and modify the
 back stack in response to user navigation events:
@@ -65,7 +65,7 @@ fun MyApp() {
 
 ## Resolve keys to content
 
-Content is modeled in Navigation 3 using [`NavEntry`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavEntry), which is a class
+Content is modeled in Navigation 3 using [`NavEntry`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavEntry.md.txt), which is a class
 containing a composable function. It represents a *destination* - a single piece
 of content that the user can navigate *forward to* and *back from*.
 
@@ -81,7 +81,7 @@ function that accepts a `key` and returns a `NavEntry` for that `key`. It is
 usually defined as a lambda parameter when creating a `NavDisplay`.
 
 There are two ways to create an Entry Provider, either by creating a lambda
-function directly, or by using the [`entryProvider`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary#entryProvider(kotlin.Function1,kotlin.Function1)) DSL.
+function directly, or by using the [`entryProvider`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary.md.txt#entryProvider(kotlin.Function1,kotlin.Function1)) DSL.
 
 ### Create an Entry Provider function directly
 
@@ -189,8 +189,8 @@ destinations.](https://developer.android.com/static/images/topic/libraries/archi
 
 ## Destination lifecycle
 
-`NavDisplay` uses [custom `LifecycleOwner`s](https://developer.android.com/topic/libraries/architecture/lifecycle#create-custom-lifecycle-owner) to cap the lifecycle state of a
-`NavEntry` based on both [Scene](https://developer.android.com/guide/navigation/navigation-3/scenes)-level constraints and Entry-level
+`NavDisplay` uses [custom `LifecycleOwner`s](https://developer.android.com/topic/libraries/architecture/lifecycle.md.txt#create-custom-lifecycle-owner) to cap the lifecycle state of a
+`NavEntry` based on both [Scene](https://developer.android.com/guide/navigation/navigation-3/scenes.md.txt)-level constraints and Entry-level
 constraints.
 
 For more information about lifecycles in Compose, see [Lifecycle in Jetpack
@@ -203,10 +203,10 @@ determined as follows:
 
 For non-overlay scenes:
 
-- **[`RESUMED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#RESUMED)**: Allowed only when the scene transition has settled and there are no active overlay scenes displaying on top of it.
-- **[`STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#STARTED)** : Capped at `STARTED` while the scene transitions, such as when navigating forward or back, or when it's covered by an overlay.
+- **[`RESUMED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State.md.txt#RESUMED)**: Allowed only when the scene transition has settled and there are no active overlay scenes displaying on top of it.
+- **[`STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State.md.txt#STARTED)** : Capped at `STARTED` while the scene transitions, such as when navigating forward or back, or when it's covered by an overlay.
 
-For [overlay scenes](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/OverlayScene), such as dialogs or bottom sheets:
+For [overlay scenes](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/OverlayScene.md.txt), such as dialogs or bottom sheets:
 
 - **`RESUMED`**: Allowed only for the topmost, currently active overlay scene.
 - **`STARTED`** : Capped at `STARTED` for any underlying overlay scenes that are covered by a newer overlay.
@@ -217,7 +217,7 @@ The library manages the maximum lifecycle state of each individual `NavEntry`
 based on its presence in the back stack:
 
 - **`RESUMED`** : If the entry is present in the current back stack, its lifecycle is allowed to go up to `RESUMED` (subject to the scene-level cap).
-- **[`CREATED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#CREATED)** : If the entry's **no longer in the back stack** , such as when it was popped but is still being rendered on screen while animating out, the library strictly caps its lifecycle at `CREATED`. This limit ensures that background or exiting entries stop executing active work such as collecting flows or launching coroutines bound to `RESUMED` or `STARTED` states while they finish their exit transitions.
+- **[`CREATED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State.md.txt#CREATED)** : If the entry's **no longer in the back stack** , such as when it was popped but is still being rendered on screen while animating out, the library strictly caps its lifecycle at `CREATED`. This limit ensures that background or exiting entries stop executing active work such as collecting flows or launching coroutines bound to `RESUMED` or `STARTED` states while they finish their exit transitions.
 
 ### How they combine
 

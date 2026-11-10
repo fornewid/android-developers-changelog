@@ -6,7 +6,7 @@ source: md.txt
 
 This guide explains how to make your app always-on, how to react to power state
 transitions, and how to manage application behavior to provide a good user
-experience while [conserving battery](https://developer.android.com/training/wearables/apps/power).
+experience while [conserving battery](https://developer.android.com/training/wearables/apps/power.md.txt).
 
 Making an app constantly visible significantly impacts battery life, so consider
 the power impact when adding this feature.
@@ -39,7 +39,7 @@ Immediately after the system passes through the first transition into the
 *Ambient* state, the default behavior depends on the Wear OS version and your
 app's configuration:
 
-- **On Wear OS 5 and lower** , the system displays a blurred screenshot of your paused application, with the time overlaid on top. This state is represented by the "AOD Lite" node in [the following flowchart](https://developer.android.com/training/wearables/always-on#flowchart).
+- **On Wear OS 5 and lower** , the system displays a blurred screenshot of your paused application, with the time overlaid on top. This state is represented by the "AOD Lite" node in [the following flowchart](https://developer.android.com/training/wearables/always-on.md.txt#flowchart).
 - **On Wear OS 6 and higher** , if an app targets SDK 36 or newer, it is considered always-on. The display is dimmed, but the application continues running and remains visible. (Updates may be as infrequent as once per minute.) This state is represented by the "Global AOD" node in [the
   following flowchart](https://developer.android.com/training/wearables/always-on#flowchart).
 
@@ -49,7 +49,7 @@ Regardless of the default system behavior, on all Wear OS versions you can
 customize your app's appearance or behavior while in the *Ambient* state by
 using [`LocalAmbientModeManager`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/rememberAmbientModeManager.composable) to observe state transitions in
 Jetpack Compose on Wear OS. This state is represented by the "Ambiactive Mode"
-node in [the following flowchart](https://developer.android.com/training/wearables/always-on#flowchart).
+node in [the following flowchart](https://developer.android.com/training/wearables/always-on.md.txt#flowchart).
 
 ### Observe ambient state
 
@@ -118,12 +118,12 @@ an app might need to remain visible for longer.
 
 On Wear OS 5 and higher, you can prevent this by implementing an **Ongoing
 Activity** . If your app is displaying information about an ongoing user task,
-such as a workout session, you can use the [Ongoing Activity API](https://developer.android.com/training/wearables/notifications/ongoing-activity) to keep
+such as a workout session, you can use the [Ongoing Activity API](https://developer.android.com/training/wearables/notifications/ongoing-activity.md.txt) to keep
 your app visible until the task ends. If a user manually returns to the
 watchface, the ongoing activity indicator provides a one-tap way for them to
 return to your app.
 
-Alternatively, on Wear OS 7 and higher, you can use a [Live Update](https://developer.android.com/training/wearables/notifications/live-updates) in
+Alternatively, on Wear OS 7 and higher, you can use a [Live Update](https://developer.android.com/training/wearables/notifications/live-updates.md.txt) in
 place of an Ongoing Activity. For backward compatibility, continue to support
 Ongoing Activity on devices that run Wear OS 6 or lower.
 
@@ -174,7 +174,7 @@ val notification = notificationBuilder.build()
 
 In rare cases, you might need to completely prevent the device from entering the
 *Ambient* state. That is, to avoid Timeout #1. To do this, you can use the
-[`keepScreenOn`](https://developer.android.com/reference/kotlin/androidx/compose/ui/keepScreenOn.modifier) modifier. This functions as a wake lock, keeping
+[`keepScreenOn`](https://developer.android.com/reference/kotlin/androidx/compose/ui/keepScreenOn.modifier.md.txt) modifier. This functions as a wake lock, keeping
 the device in the *Interactive* state. Use this with extreme caution as it
 severely impacts battery life.
 
@@ -196,25 +196,27 @@ while simultaneously optimizing display power.
   - Pause or remove all animations in ambient mode, including animated progress indicators and scrolling marquee text.
 - **Maintain a consistent layout**
   - Keep elements in the same position across *Interactive* and *Ambient* modes to create a smooth transition. Interactive UI elements such as buttons can remain visible because modern Wear OS devices support touch input during ambient sessions.
-  - Always show the current time. In Jetpack Compose for Wear OS, [`TimeText`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/TimeText.composable) (included by default in [`ScreenScaffold`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/ScreenScaffold.composable)) is ambient-aware and automatically updates once per minute in ambient mode.
+  - Always show the current time. In Jetpack Compose for Wear OS, [`TimeText`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/TimeText.composable.md.txt) (included by default in [`ScreenScaffold`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/ScreenScaffold.composable.md.txt)) is ambient-aware and automatically updates once per minute in ambient mode.
 - **Be context aware**
   - If the user was on a settings or configuration screen when the device enters ambient mode, consider showing a more relevant screen from your app instead of the settings view.
 - **Handle device-specific requirements**
-  - When `currentAmbientMode` returns [`AmbientMode.Ambient`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/AmbientMode.Ambient):
+  - When `currentAmbientMode` returns [`AmbientMode.Ambient`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/AmbientMode.Ambient.md.txt):
     - If `isLowBitAmbientSupported` is `true`, the display supports fewer bits per color in ambient mode. Disable anti-aliasing (for example, in custom `Canvas` or `Paint` drawing operations) and avoid color gradients where possible.
-    - If `isBurnInProtectionRequired` is `true`, the system periodically shifts the display content to prevent pixel burn-in. Don't manually shift UI elements in your app. Instead, avoid solid white areas and place critical UI elements at least 10 pixels away from the edge of the screen so they aren't clipped when the system shifts the display. (Standard Wear Compose layouts such as [`ScreenScaffold`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/ScreenScaffold.composable) already provide sufficient edge padding.)
+    - If `isBurnInProtectionRequired` is `true`, the system periodically shifts the display content to prevent pixel burn-in. Don't manually shift UI elements in your app. Instead, avoid solid white areas and place critical UI elements at least 10 pixels away from the edge of the screen so they aren't clipped when the system shifts the display. (Standard Wear Compose layouts such as [`ScreenScaffold`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/ScreenScaffold.composable.md.txt) already provide sufficient edge padding.)
 
 ## Debugging and testing
 
-These [`adb`](https://developer.android.com/tools/adb) commands may be useful when developing or testing how your app
+These [`adb`](https://developer.android.com/tools/adb.md.txt) commands may be useful when developing or testing how your app
 behaves when the device is in ambient mode:
 
-    # put device in ambient mode if the always on display is enabled in settings
-    # (and not disabled by other settings, such as theatre mode)
-    $ adb shell input keyevent KEYCODE_SLEEP
+```bash
+# put device in ambient mode if the always on display is enabled in settings
+# (and not disabled by other settings, such as theatre mode)
+$ adb shell input keyevent KEYCODE_SLEEP
 
-    # put device in interactive mode
-    $ adb shell input keyevent KEYCODE_WAKEUP
+# put device in interactive mode
+$ adb shell input keyevent KEYCODE_WAKEUP
+```
 
 ## Example: Workout app
 
@@ -225,8 +227,8 @@ duration of their exercise session. The app must remain visible through
 To achieve this, the developer should do the following:
 
 1. Use `LocalAmbientModeManager` to handle UI changes between *Interactive* and *Ambient* states, such as dimming the screen and removing non-essential data.
-2. Create [a new low-powered layout](https://developer.android.com/training/wearables/always-on#ambient-appearance) for the *Ambient* state that follows the best practices.
-3. Use the [Ongoing Activity API](https://developer.android.com/training/wearables/notifications/ongoing-activity) (or [Live Updates](https://developer.android.com/training/wearables/notifications/live-updates) on Wear OS 7 and higher) for the duration of the workout to prevent the system from returning to the watch face.
+2. Create [a new low-powered layout](https://developer.android.com/training/wearables/always-on.md.txt#ambient-appearance) for the *Ambient* state that follows the best practices.
+3. Use the [Ongoing Activity API](https://developer.android.com/training/wearables/notifications/ongoing-activity.md.txt) (or [Live Updates](https://developer.android.com/training/wearables/notifications/live-updates.md.txt) on Wear OS 7 and higher) for the duration of the workout to prevent the system from returning to the watch face.
 
 For a complete implementation, see the compose-based [Exercise sample](https://github.com/android/health-samples/tree/main/health-services/ExerciseSampleCompose) on
 GitHub. This sample also demonstrates the use of the

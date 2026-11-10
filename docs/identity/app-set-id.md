@@ -58,9 +58,11 @@ Your app must use the SDK to retrieve the ID value every time it's needed.
 The following snippet shows an example `build.gradle` file that uses the app set
 ID library:
 
-    dependencies {
-        implementation 'com.google.android.gms:play-services-appset:16.1.0'
-    }
+```groovy
+dependencies {
+    implementation 'com.google.android.gms:play-services-appset:16.1.0'
+}
+```
 
 The following sample snippet demonstrates how you can retrieve the app set ID
 asynchronously using the [Tasks API](https://developers.google.com/android/guides/tasks) in Google Play
@@ -68,35 +70,39 @@ services:
 
 ### Kotlin
 
-    val client = AppSet.getClient(applicationContext) as AppSetIdClient
-    val task: Task<AppSetIdInfo> = client.appSetIdInfo as Task<AppSetIdInfo>
+```kotlin
+val client = AppSet.getClient(applicationContext) as AppSetIdClient
+val task: Task<AppSetIdInfo> = client.appSetIdInfo as Task<AppSetIdInfo>
 
-    task.addOnSuccessListener({
-        // Determine current scope of app set ID.
-        val scope: Int = it.scope
+task.addOnSuccessListener({
+    // Determine current scope of app set ID.
+    val scope: Int = it.scope
 
-        // Read app set ID value, which uses version 4 of the
-        // universally unique identifier (UUID) format.
-        val id: String = it.id
-    })
+    // Read app set ID value, which uses version 4 of the
+    // universally unique identifier (UUID) format.
+    val id: String = it.id
+})
+```
 
 ### Java
 
-    Context context = getApplicationContext();
-    AppSetIdClient client = AppSet.getClient(context);
-    Task<AppSetIdInfo> task = client.getAppSetIdInfo();
+```java
+Context context = getApplicationContext();
+AppSetIdClient client = AppSet.getClient(context);
+Task<AppSetIdInfo> task = client.getAppSetIdInfo();
 
-    task.addOnSuccessListener(new OnSuccessListener<AppSetIdInfo>() {
-        @Override
-        public void onSuccess(AppSetIdInfo info) {
-            // Determine current scope of app set ID.
-            int scope = info.getScope();
+task.addOnSuccessListener(new OnSuccessListener<AppSetIdInfo>() {
+    @Override
+    public void onSuccess(AppSetIdInfo info) {
+        // Determine current scope of app set ID.
+        int scope = info.getScope();
 
-          // Read app set ID value, which uses version 4 of the
-          // universally unique identifier (UUID) format.
-            String id = info.getId();
-        }
-    });
+      // Read app set ID value, which uses version 4 of the
+      // universally unique identifier (UUID) format.
+        String id = info.getId();
+    }
+});
+```
 
 For more information about the UUID format, see [Universally unique
 identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier).

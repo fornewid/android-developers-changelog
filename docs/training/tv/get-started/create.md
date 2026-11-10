@@ -29,9 +29,9 @@ supported by Android TV:
 
 - [Supported media formats](https://developer.android.com/guide/appendix/media-formats)
 - [DRM](https://source.android.com/devices/drm.html)
-- `https://developer.android.com/reference/android/drm/package-summary`
+- `android.drm`
 - [ExoPlayer](https://developer.android.com/guide/topics/media/exoplayer)
-- `https://developer.android.com/reference/android/media/MediaPlayer`
+- `android.media.MediaPlayer`
 
 ## Set up a TV project
 
@@ -42,29 +42,29 @@ a new TV app. If you have an existing Android app, adding Android TV support let
 a user interface for TV while re-using your existing app architecture.
 
 > [!NOTE]
-> **Note:** We recommend that you have a single app that supports both mobile devices and TV devices. If you need separate apps for mobile devices and TV devices, you can publish multiple apps under the same listing on Google Play by using multiple APK support. For more information, see [Multiple APK support](https://developer.android.com/google/play/publishing/multiple-apks).
+> **Note:** We recommend that you have a single app that supports both mobile devices and TV devices. If you need separate apps for mobile devices and TV devices, you can publish multiple apps under the same listing on Google Play by using multiple APK support. For more information, see [Multiple APK support](https://developer.android.com/google/play/publishing/multiple-apks.md.txt).
 
 
 There are two main components you use when creating an app that runs on TV devices:
 
 - **Activity for TV:** In your application manifest, declare an activity that is intended to run on TV devices.
-- **TV libraries:** Optionally, include one or more of the [androidx libraries](https://developer.android.com/training/tv/get-started/libraries) available for TV devices, which are listed in another section of this guide. These libraries provide widgets for building user interfaces.
+- **TV libraries:** Optionally, include one or more of the [androidx libraries](https://developer.android.com/training/tv/get-started/libraries.md.txt) available for TV devices, which are listed in another section of this guide. These libraries provide widgets for building user interfaces.
 
 ### Prerequisites
 
 Before you begin building an app for TV, you must take the following steps:
 
-- **[Update your SDK tools](https://developer.android.com/studio/intro/update#GetTools) to version 24.0.0 or higher.**   
+- **[Update your SDK tools](https://developer.android.com/studio/intro/update.md.txt#GetTools) to version 24.0.0 or higher.**   
   The updated SDK tools let you build and test apps for TV.
 - **Update your SDK with Android 5.0 (API 21) or higher.**   
   The updated platform version provides new APIs for TV apps.
-- **[Create](https://developer.android.com/studio/projects/create-project) or update your app project.**   
+- **[Create](https://developer.android.com/studio/projects/create-project.md.txt) or update your app project.**   
   To access new APIs for TV devices, create a project or modify an existing project that targets Android 5.0 (API level 21) or higher.
 
 ### Declare a TV activity
 
 An application intended to run on TV devices must declare a launcher activity for TV
-in its manifest. It uses a `https://developer.android.com/reference/android/content/Intent#CATEGORY_LEANBACK_LAUNCHER` intent
+in its manifest. It uses a `CATEGORY_LEANBACK_LAUNCHER` intent
 filter to do this. This filter identifies your app as being enabled for TV and lets
 Google Play identify it as a TV app. When a user selects your app on their TV home screen,
 this intent identifies which activity to launch.
@@ -185,10 +185,10 @@ guidelines](https://developer.android.com/design/ui/tv/guides/system/tv-app-icon
 #### Home screen banner
 
 
-Use the [`android:banner`](https://developer.android.com/guide/topics/manifest/application-element#banner)
-attribute with the [`<application>`](https://developer.android.com/guide/topics/manifest/application-element)
+Use the [`android:banner`](https://developer.android.com/guide/topics/manifest/application-element.md.txt#banner)
+attribute with the [`<application>`](https://developer.android.com/guide/topics/manifest/application-element.md.txt)
 tag, to supply a default banner for all application activities, or with the
-[`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element)
+[`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt)
 tag to supply a banner for a specific activity.
 
 For the banner, use an xhdpi resource with a size of 320 x 180 px. Text must be included in the
@@ -223,7 +223,7 @@ For more information about working with themes and styles, see
 ## Build an app for Android TV OS
 
 
-Jetpack includes [androidx](https://developer.android.com/jetpack/androidx) package libraries for use with TV apps.
+Jetpack includes [androidx](https://developer.android.com/jetpack/androidx.md.txt) package libraries for use with TV apps.
 
 ### Compose for TV
 
@@ -232,33 +232,33 @@ Compose is the recommended way to build apps for Android TV OS. Alongside the co
 libraries, the Compose for TV libraries provide dedicated components designed specially for the
 big screen:
 
-- `https://developer.android.com/reference/kotlin/androidx/tv/foundation/package-summary`
-- `https://developer.android.com/reference/kotlin/androidx/tv/material3/package-summary`
+- `androidx.tv.foundation`
+- `androidx.tv.material`
 
 <br />
 
 
-Discover how to build a TV app using Compose for TV in [Use Jetpack Compose on Android TV](https://developer.android.com/training/tv/playback/compose).
+Discover how to build a TV app using Compose for TV in [Use Jetpack Compose on Android TV](https://developer.android.com/training/tv/playback/compose.md.txt).
 
 ### Leanback UI toolkit
 
 
 The Leanback UI toolkit provides APIs and user interface widgets for TV devices:
 
-- `https://developer.android.com/reference/androidx/leanback/app/package-summary`
-- `https://developer.android.com/reference/androidx/leanback/database/package-summary`
-- `https://developer.android.com/reference/androidx/leanback/graphics/package-summary`
-- `https://developer.android.com/reference/androidx/leanback/media/package-summary`
-- `https://developer.android.com/reference/androidx/leanback/preference/package-summary`
-- `https://developer.android.com/reference/androidx/leanback/system/package-summary`
-- `https://developer.android.com/reference/androidx/leanback/widget/package-summary`
-- `https://developer.android.com/reference/androidx/leanback/widget/picker/package-summary`
+- `androidx.leanback.app`
+- `androidx.leanback.database`
+- `androidx.leanback.graphics`
+- `androidx.leanback.media`
+- `androidx.leanback.preference`
+- `androidx.leanback.system`
+- `androidx.leanback.widget`
+- `androidx.leanback.widget.picker`
 
 <br />
 
 
 Discover how to build a TV app using the Leanback UI toolkit in
-[Build TV playback apps](https://developer.android.com/training/tv/playback).
+[Build TV playback apps](https://developer.android.com/training/tv/playback.md.txt).
 
 ## Run TV apps
 
@@ -311,16 +311,16 @@ To test your application on the virtual TV device:
 
 
 For more information about using emulators, see [Run apps on the Android Emulator](https://developer.android.com/tools/devices/emulator). For more information on deploying apps from Android Studio to virtual
-devices, see [Debug your app](https://developer.android.com/studio/debug).
+devices, see [Debug your app](https://developer.android.com/studio/debug.md.txt).
 
 ## Enable your TV app to run as an instant experience
 
-[Instant experiences](https://developer.android.com/topic/google-play-instant/overview) let users
+[Instant experiences](https://developer.android.com/topic/google-play-instant/overview.md.txt) let users
 try out your TV app without installing it and can help increase adoption.
 
 To set up your TV app to run as an instant app on an Android TV device or emulator,
 first follow the instructions to
-[create an instant-enabled app bundle](https://developer.android.com/topic/google-play-instant/getting-started/instant-enabled-app-bundle).
+[create an instant-enabled app bundle](https://developer.android.com/topic/google-play-instant/getting-started/instant-enabled-app-bundle.md.txt).
 
 Next, in the `intent-filter` for your TV app's
 `MainActivity`, be sure that both `LAUNCHER` and
@@ -345,5 +345,5 @@ Your TV app is now configured to run as an instant experience.
 ## Prepare your TV app for publication
 
 
-Review the [TV Apps checklist](https://developer.android.com/training/tv/publishing/checklist) for the next steps
+Review the [TV Apps checklist](https://developer.android.com/training/tv/publishing/checklist.md.txt) for the next steps
 to prepare your TV app for publication and distribution.

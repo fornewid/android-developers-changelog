@@ -26,7 +26,7 @@ fun LongText() {
 
 ## Indicate text overflow
 
-When limiting a long text, you may want to indicate a [`TextOverflow`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/TextOverflow),
+When limiting a long text, you may want to indicate a [`TextOverflow`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/TextOverflow.md.txt),
 which is only shown if the displayed text is truncated. To do so, set the
 `textOverflow` parameter:
 
@@ -45,6 +45,6 @@ fun OverflowedText() {
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Graphics in Compose](https://developer.android.com/develop/ui/compose/graphics/draw/overview)
-- [Style paragraph](https://developer.android.com/develop/ui/compose/text/style-paragraph)
-- [Work with fonts](https://developer.android.com/develop/ui/compose/text/fonts)
+- [Graphics in Compose](https://developer.android.com/develop/ui/compose/graphics/draw/overview.md.txt)
+- [Style paragraph](https://developer.android.com/develop/ui/compose/text/style-paragraph.md.txt)
+- [Work with fonts](https://developer.android.com/develop/ui/compose/text/fonts.md.txt)

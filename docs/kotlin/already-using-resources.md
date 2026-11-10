@@ -14,13 +14,12 @@ do even more with Kotlin.
 
 ## Samples
 
-- [Sunflower](https://github.com/android/sunflower): Sunflower is a gardening app that illustrates Android development best practices with Android Jetpack.
 - [Google I/O Android app](https://github.com/google/iosched): iosched is the official Android app for Google I/O
-- [Plaid](https://github.com/android/plaid): Plaid is an Android app that provides design news and inspiration while also illustrating material design best practices.
+- [Plaid](https://github.com/android/plaid): Plaid is an Android app that provides design news and inspiration while also illustrating Material Design best practices.
 
 ## Pathways
 
-- [Learn Kotlin coroutines](https://developer.android.com/kotlin/coroutines/coroutines-pathway): This pathway contains a series of codelabs and articles that teach you all about Kotlin coroutines.
+- [Learn Kotlin coroutines](https://developer.android.com/kotlin/coroutines/coroutines-pathway.md.txt): This pathway contains a series of codelabs and articles that teach you all about Kotlin coroutines.
 
 ## Codelabs
 
@@ -42,9 +41,9 @@ do even more with Kotlin.
 
 ## Articles and blog posts
 
-- [Lessons learnt using Coroutines Flow in the Android Dev Summit 2019 app](https://medium.com/androiddevelopers/lessons-learnt-using-coroutines-flow-4a6b285c0d06): This article highlights best practices and other lessons learned when adding Flow support to the Android Dev Summit 2019 app.
-- [Dagger in Kotlin](https://medium.com/androiddevelopers/dagger-in-kotlin-gotchas-and-optimizations-7446d8dfd7dc): This article describes best practices and things to watch for when using Dagger in a Kotlin app.
-- [Easy coroutines in Android: viewModelScope](https://medium.com/androiddevelopers/easy-coroutines-in-android-viewmodelscope-25bffb605471): This article describes viewModelScope, an extension property that adds coroutines support to the `ViewModel` class.
+- [Lessons learnt using Coroutines Flow in the Android Dev Summit 2019 app](https://medium.com/androiddevelopers/lessons-learnt-using-coroutines-flow-4a6b285c0d06): This document highlights best practices and other lessons learned when adding Flow support to the Android Dev Summit 2019 app.
+- [Dagger in Kotlin](https://medium.com/androiddevelopers/dagger-in-kotlin-gotchas-and-optimizations-7446d8dfd7dc): This document describes best practices and things to watch for when using Dagger in a Kotlin app.
+- [Easy coroutines in Android: viewModelScope](https://medium.com/androiddevelopers/easy-coroutines-in-android-viewmodelscope-25bffb605471): This document describes viewModelScope, an extension property that adds coroutines support to the `ViewModel` class.
 - [Coroutines in Android (series - 1st article linked)](https://medium.com/androiddevelopers/coroutines-on-android-part-i-getting-the-background-3e0e54d20bb): This post is the first in a series that teaches you about Kotlin coroutines.
 - [Kotlin Vocabulary: typealias](https://medium.com/androiddevelopers/alter-type-with-typealias-4c03302fbe43?source=collection_home---4---2---): This post discusses typealias, a Kotlin keyword that lets you provide an alternate name for an existing type without introducing a new type.
 - [Kotlin Vocabulary: inline classes](https://medium.com/androiddevelopers/zero-cost-abstractions-in-kotlin-19b953f3a936): This post introduces inline classes, a way to ensure type-safety without performance cost.

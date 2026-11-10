@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/compose/touch-input/focus/focus-gr
 source: md.txt
 ---
 
-You can group multiple focus targets together using the [`focusGroup`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).focusGroup()) modifier.
+You can group multiple focus targets together using the [`focusGroup`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).focusGroup()) modifier.
 Grouping lets you manage focus hierarchies, isolate logical UI regions (such as
 toolbars, dialog actions, or card lists), and intercept when focus enters or
 exits a region.
@@ -54,8 +54,8 @@ Other common use cases include:
 To redirect focus upon entering a focus group:
 
 1. Apply the `focusGroup` modifier to the parent container enclosing the related focus targets.
-2. Apply the [`focusProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusProperties)modifier to the container, and configure the [`onEnter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusProperties#onEnter()) callback.
-3. In the `onEnter` callback (scoped to [`FocusEnterExitScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusEnterExitScope)), call [`requestFocus()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester#requestFocus()) on a [`FocusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester) associated with the preferred default child using [`focusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).focusRequester(androidx.compose.ui.focus.FocusRequester)).
+2. Apply the [`focusProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusProperties.md.txt)modifier to the container, and configure the [`onEnter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusProperties.md.txt#onEnter()) callback.
+3. In the `onEnter` callback (scoped to [`FocusEnterExitScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusEnterExitScope.md.txt)), call [`requestFocus()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester.md.txt#requestFocus()) on a [`FocusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester.md.txt) associated with the preferred default child using [`focusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).focusRequester(androidx.compose.ui.focus.FocusRequester)).
 
 
 ```kotlin
@@ -85,24 +85,24 @@ Row(
 
 <br />
 
-Inside `onEnter` and [`onExit`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusProperties#onExit()), you can also call [`cancelFocusChange()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusEnterExitScope#cancelFocusChange()) to
+Inside `onEnter` and [`onExit`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusProperties.md.txt#onExit()), you can also call [`cancelFocusChange()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusEnterExitScope.md.txt#cancelFocusChange()) to
 completely block focus transitions across the boundary, or inspect
 `requestedFocusDirection` to customize routing based on whether the user
 navigated using <kbd>Tab</kbd>, <kbd>Down</kbd>, or <kbd>Left</kbd>.
 
 ## Scrollable containers are focus groups by default
 
-In Jetpack Compose, scrollable containers such as [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#LazyRow(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)), [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)),
-and [`LazyVerticalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/package-summary#LazyVerticalGrid(androidx.compose.foundation.lazy.grid.GridCells,androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.grid.LazyGridState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) automatically act as focus groups.
+In Jetpack Compose, scrollable containers such as [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary.md.txt#LazyRow(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)), [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary.md.txt#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)),
+and [`LazyVerticalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/package-summary.md.txt#LazyVerticalGrid(androidx.compose.foundation.lazy.grid.GridCells,androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.grid.LazyGridState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) automatically act as focus groups.
 You don't need to explicitly apply the `focusGroup` modifier
 to them to set `onEnter` or `onExit` callbacks.
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-target)
-- [Focus traversal order](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-traversal)
-- [Focus in text fields](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-in-text-fields)
-- [Restore focus](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-restoration)
-- [Programmatically request focus](https://developer.android.com/develop/ui/compose/touch-input/focus/request-focus)
-- [Test focus navigation](https://developer.android.com/develop/ui/compose/touch-input/focus/testing-focus)
+- [Focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-target.md.txt)
+- [Focus traversal order](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-traversal.md.txt)
+- [Focus in text fields](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-in-text-fields.md.txt)
+- [Restore focus](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-restoration.md.txt)
+- [Programmatically request focus](https://developer.android.com/develop/ui/compose/touch-input/focus/request-focus.md.txt)
+- [Test focus navigation](https://developer.android.com/develop/ui/compose/touch-input/focus/testing-focus.md.txt)

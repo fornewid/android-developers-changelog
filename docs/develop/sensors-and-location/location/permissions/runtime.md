@@ -7,7 +7,7 @@ source: md.txt
 Before you request location access at runtime, review the [options and best
 practices for location access](https://developer.android.com/develop/sensors-and-location/location/permissions) and the [guide on minimizing your permission
 requests](https://developer.android.com/privacy-and-security/minimize-permission-requests). These resources help you decide which permission to request, and
-whether the [location button](https://developer.android.com/guide/topics/permissions/private-alternatives/location-button) is a better alternative for your use case.
+whether the [location button](https://developer.android.com/guide/topics/permissions/private-alternatives/location-button.md.txt) is a better alternative for your use case.
 
 ## Guidelines for accessing location permissions
 
@@ -19,7 +19,7 @@ in your app.
 When a feature in your app requires location access, you must wait until the
 user interacts with the feature before making the permission request. This
 follows the best practice of asking for runtime permissions in-context, as
-described in the guide that explains how to [request app permissions](https://developer.android.com/training/permissions/requesting).
+described in the guide that explains how to [request app permissions](https://developer.android.com/training/permissions/requesting.md.txt).
 
 Figure 1 demonstrates how to perform this process. The app contains a
 "share location" feature that requires foreground location access. The app
@@ -32,11 +32,11 @@ system's location permission dialog appears](https://developer.android.com/stati
 
 On Android 12 (API level 31) or higher, users can request that your app retrieve
 only approximate location information, even when your app requests the
-[`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) runtime permission.
+[`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission.md.txt#ACCESS_FINE_LOCATION) runtime permission.
 
 To handle this potential user behavior, don't request the `ACCESS_FINE_LOCATION`
 permission by itself. Instead, request both the `ACCESS_FINE_LOCATION`
-permission and the [`ACCESS_COARSE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION) permission in a single runtime
+permission and the [`ACCESS_COARSE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission.md.txt#ACCESS_COARSE_LOCATION) permission in a single runtime
 request. If you try to request only `ACCESS_FINE_LOCATION`, the system ignores
 the request on some releases of Android 12. If your app targets
 Android 12 or higher, the system logs the following error message
@@ -45,7 +45,7 @@ in [Logcat](https://developer.android.com/studio/command-line/logcat):
     ACCESS_FINE_LOCATION must be requested with ACCESS_COARSE_LOCATION.
 
 > [!NOTE]
-> **Note:** To better respect user privacy, it's recommended that you only request `ACCESS_COARSE_LOCATION`. You can fulfill most use cases even when you have access to only approximate location information. [Figure 2](https://developer.android.com/develop/sensors-and-location/location/permissions/runtime#fig-approximate-only) shows the user-facing dialog that appears when your app targets Android 12 and requests only `ACCESS_COARSE_LOCATION`.
+> **Note:** To better respect user privacy, it's recommended that you only request `ACCESS_COARSE_LOCATION`. You can fulfill most use cases even when you have access to only approximate location information. [Figure 2](https://developer.android.com/develop/sensors-and-location/location/permissions/runtime.md.txt#fig-approximate-only) shows the user-facing dialog that appears when your app targets Android 12 and requests only `ACCESS_COARSE_LOCATION`.
 
 <br />
 
@@ -55,7 +55,7 @@ the system permissions dialog includes the following options for the user:
 - **Precise**: Allows your app to get precise location information.
 - **Approximate**: Allows your app to get only approximate location information.
 
-[Figure 3](https://developer.android.com/develop/sensors-and-location/location/permissions/runtime#fig-approximate-full-prompt) shows that the dialog contains a visual cue for both options, to
+[Figure 3](https://developer.android.com/develop/sensors-and-location/location/permissions/runtime.md.txt#fig-approximate-full-prompt) shows that the dialog contains a visual cue for both options, to
 help the user choose. After the user decides on a location accuracy, they tap
 one of three buttons to select the duration of the permission grant.
 
@@ -66,7 +66,7 @@ running Android 11 or lower, and then the user upgrades the
 device to Android 12 or higher.
 
 > [!CAUTION]
-> **Caution:** If the user downgrades your app's location access from precise to approximate, either from the permission dialog or in system settings, the system restarts your app's process. For these reasons, it's especially important that you follow best practices for [requesting runtime permissions](https://developer.android.com/training/permissions/requesting).
+> **Caution:** If the user downgrades your app's location access from precise to approximate, either from the permission dialog or in system settings, the system restarts your app's process. For these reasons, it's especially important that you follow best practices for [requesting runtime permissions](https://developer.android.com/training/permissions/requesting.md.txt).
 
 ![The dialog refers only to approximate location and
 contains 3 buttons, one above the other](https://developer.android.com/static/images/training/location/approximate-only.svg) **Figure 2.** System permissions dialog that appears when your app requests `ACCESS_COARSE_LOCATION` only. ![The dialog has 2 sets of options, one above the other](https://developer.android.com/static/images/training/location/approximate-full-prompt.svg) **Figure 3.** System permissions dialog that appears when your app requests both `ACCESS_FINE_LOCATION` and `ACCESS_COARSE_LOCATION` in a single runtime request.
@@ -89,7 +89,7 @@ on the options that the user chooses in the permissions runtime dialog:
 To determine which permissions the system has granted to your app, check the
 return value of your permissions request. You can use Jetpack libraries in code
 that's similar to the following, or you can use platform libraries, where you
-[manage the permission request code yourself](https://developer.android.com/training/permissions/requesting#manage-request-code-yourself).
+[manage the permission request code yourself](https://developer.android.com/training/permissions/requesting.md.txt#manage-request-code-yourself).
 
 
 ### Kotlin
@@ -182,7 +182,7 @@ permission.
 To request that the user upgrade your app's location access from approximate to
 precise, do the following:
 
-1. If necessary, [explain why your app needs the permission](https://developer.android.com/training/permissions/requesting#explain).
+1. If necessary, [explain why your app needs the permission](https://developer.android.com/training/permissions/requesting.md.txt#explain).
 2. Request the `ACCESS_FINE_LOCATION` and `ACCESS_COARSE_LOCATION` permissions together again. Because the user has already allowed the system to grant approximate location to your app, the system dialog is different this time, as shown in figure 4 and figure 5:
 
 ![The dialog contains the options 'Change to precise
@@ -221,7 +221,7 @@ The process for performing incremental requests is as follows:
    It's recommended that you disable user access to features that require
    background location access until your app has foreground location access.
 2. At a later time, when the user explores features that require background
-   location access, you can [request background location](https://developer.android.com/develop/sensors-and-location/location/permissions/background) access.
+   location access, you can [request background location](https://developer.android.com/develop/sensors-and-location/location/permissions/background.md.txt) access.
 
 ## Additional resources
 

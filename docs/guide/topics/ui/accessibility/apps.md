@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 > [!NOTE]
-> **Note:** Documentation across [developer.android.com](https://developer.android.com/) is being refactored to show how to accomplish tasks with Compose. We recommend using Compose for your app, but you can still access the Views-specific information for the concepts on this page at [Make apps more accessible (Views)](https://developer.android.com/guide/topics/ui/accessibility/views/apps-views).
+> **Note:** Documentation across [developer.android.com](https://developer.android.com/) is being refactored to show how to accomplish tasks with Compose. We recommend using Compose for your app, but you can still access the Views-specific information for the concepts on this page at [Make apps more accessible (Views)](https://developer.android.com/guide/topics/ui/accessibility/views/apps-views.md.txt).
 
 Try to make your Android app usable for everyone, including people with
 accessibility needs.
@@ -47,7 +47,7 @@ touch interfaces, we recommend that each interactive UI element have a focusable
 area, or *touch target size*, of at least 48dpx48dp. Larger is even better.
 
 > [!NOTE]
-> **Note:** For precise input (mouses and trackpads), the touch target can be smaller. See [Pointer interactions](https://developer.android.com/design/ui/desktop/guides/interaction/pointer-interactions) for more information.
+> **Note:** For precise input (mouses and trackpads), the touch target can be smaller. See [Pointer interactions](https://developer.android.com/design/ui/desktop/guides/interaction/pointer-interactions.md.txt) for more information.
 
 In Jetpack Compose, many built-in Material components like `Button`,
 `IconButton`, and `ListItem` already enforce this minimum size. However, when
@@ -80,7 +80,7 @@ private fun LargeBox() {
 <br />
 
 For more information about touch target sizes, see
-[Minimum touch target sizes](https://developer.android.com/develop/ui/compose/accessibility/api-defaults#minimum-target-sizes).
+[Minimum touch target sizes](https://developer.android.com/develop/ui/compose/accessibility/api-defaults.md.txt#minimum-target-sizes).
 
 ## Describe each UI element
 
@@ -131,10 +131,10 @@ practices in mind:
   that accessibility services can ignore them. If a UI element has a
   `contentDescription` parameter but is purely decorative (such as an `Icon`
   that is part of another UI element), pass `null` to avoid redundant labeling.
-  For more elaborate use cases, see [Merging and clearing](https://developer.android.com/develop/ui/compose/accessibility/merging-clearing).
+  For more elaborate use cases, see [Merging and clearing](https://developer.android.com/develop/ui/compose/accessibility/merging-clearing.md.txt).
 
 - Test your code to make sure the content description is delivered as expected.
-  Android Lint, Compose testing, and [manual and automated test tools](https://developer.android.com/develop/ui/compose/accessibility/testing)
+  Android Lint, Compose testing, and [manual and automated test tools](https://developer.android.com/develop/ui/compose/accessibility/testing.md.txt)
   can flag common issues and expose problems in your implementation.
 
 ## Additional resources
@@ -152,4 +152,4 @@ additional resources:
 
 ### Views content
 
-- [Make apps more accessible (Views)](https://developer.android.com/guide/topics/ui/accessibility/views/apps-views)
+- [Make apps more accessible (Views)](https://developer.android.com/guide/topics/ui/accessibility/views/apps-views.md.txt)

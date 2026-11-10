@@ -25,7 +25,7 @@ Android. Noteworthy features include the following:
 - **Lightweight** : You can run many coroutines on a single thread due to support for [*suspension*](https://kotlinlang.org/docs/reference/coroutines/basics.html), which doesn't block the thread where the coroutine is running. Suspending saves memory over blocking while supporting many concurrent operations.
 - **Fewer memory leaks** : Use [*structured concurrency*](https://kotlinlang.org/docs/reference/coroutines/basics.html#structured-concurrency) to run operations within a scope.
 - **Built-in cancellation support** : [Cancellation](https://kotlinlang.org/docs/reference/coroutines/cancellation-and-timeouts.html) is propagated automatically through the running coroutine hierarchy.
-- **Jetpack integration** : Many Jetpack libraries include [extensions](https://developer.android.com/kotlin/ktx) that provide full coroutines support. Some libraries also provide their own [coroutine scope](https://developer.android.com/topic/libraries/architecture/coroutines) that you can use for structured concurrency.
+- **Jetpack integration** : Many Jetpack libraries include [extensions](https://developer.android.com/kotlin/ktx.md.txt) that provide full coroutines support. Some libraries also provide their own [coroutine scope](https://developer.android.com/topic/libraries/architecture/coroutines.md.txt) that you can use for structured concurrency.
 
 ## Examples overview
 
@@ -33,14 +33,14 @@ Based on the [Guide to app architecture](https://developer.android.com/jetpack/d
 in this topic make a network request and return the result to the main
 thread, where the app can then display the result to the user.
 
-Specifically, the [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel)
+Specifically, the [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt)
 Architecture component calls the repository layer on the main thread to
 trigger the network request. This guide iterates through various solutions
 that use coroutines to keep the main thread unblocked.
 
 `ViewModel` includes a set of KTX extensions that work directly with
 coroutines. These extension are
-[`lifecycle-viewmodel-ktx` library](https://developer.android.com/kotlin/ktx#viewmodel) and are used
+[`lifecycle-viewmodel-ktx` library](https://developer.android.com/kotlin/ktx.md.txt#viewmodel) and are used
 in this guide.
 
 ## Dependency info
@@ -296,7 +296,7 @@ call is handled as an error in the UI.
 ## Additional coroutines resources
 
 For a more detailed look at coroutines on Android, see
-[Improve app performance with Kotlin coroutines](https://developer.android.com/kotlin/coroutines/coroutines-adv).
+[Improve app performance with Kotlin coroutines](https://developer.android.com/kotlin/coroutines/coroutines-adv.md.txt).
 
 For more coroutines resources, see the following links:
 

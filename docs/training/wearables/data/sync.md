@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 This document describes how to synchronize data between a Wear OS device and a
-phone. See the [overview guidance](https://developer.android.com/training/wearables/data/overview) for when to use the Data Layer
+phone. See the [overview guidance](https://developer.android.com/training/wearables/data/overview.md.txt) for when to use the Data Layer
 API and when to use your infrastructure.
 
 ## Send and sync data directly from the network
@@ -20,7 +20,7 @@ A `DataClient` exposes an API for components to read or write to a `DataItem` or
 `Asset`.
 
 > [!NOTE]
-> **Note:** The class is meant to synchronize data and not serve as a storage mechanism. Create your own copy of the data that your app can access, such as in a [Room database](https://developer.android.com/training/data-storage/room).
+> **Note:** The class is meant to synchronize data and not serve as a storage mechanism. Create your own copy of the data that your app can access, such as in a [Room database](https://developer.android.com/training/data-storage/room.md.txt).
 
 It's possible to set data items and assets while not connected to any devices.
 They're synchronized when the devices establish a network connection. This data
@@ -137,7 +137,7 @@ private fun Context.sendImagePutDataMapRequest(): Task<DataItem> {
 <br />
 
 > [!CAUTION]
-> **Caution:** Before using the Wearable Data Layer API, check that it's available; otherwise, an exception occurs. Use the [`GoogleApiAvailability`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability) class, as shown in the [overview](https://developer.android.com/training/wearables/data/overview#client).
+> **Caution:** Before using the Wearable Data Layer API, check that it's available; otherwise, an exception occurs. Use the [`GoogleApiAvailability`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability) class, as shown in the [overview](https://developer.android.com/training/wearables/data/overview.md.txt#client).
 
 ### Receive assets
 

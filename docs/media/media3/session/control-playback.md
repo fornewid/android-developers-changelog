@@ -78,7 +78,7 @@ MediaSession mediaSession = new MediaSession.Builder(context, player).build();
 <br />
 
 > [!TIP]
-> **Tip:** You can [implement casting](https://developer.android.com/media/media3/cast/create-castplayer#add-castplayer) capability in your media app by setting the `ExoPlayer` as the local player instance for `CastPlayer` before creating a `MediaSession` with it.
+> **Tip:** You can [implement casting](https://developer.android.com/media/media3/cast/create-castplayer.md.txt#add-castplayer) capability in your media app by setting the `ExoPlayer` as the local player instance for `CastPlayer` before creating a `MediaSession` with it.
 
 ### Automatic state handling
 
@@ -88,7 +88,7 @@ player to session.
 
 This is different from the platform media session where you needed to create and
 maintain a `PlaybackState` independently from the player itself, for example to
-indicate any [errors](https://developer.android.com/media/media3/session/control-playback#error-handling).
+indicate any [errors](https://developer.android.com/media/media3/session/control-playback.md.txt#error-handling).
 
 ### Unique session ID
 
@@ -125,11 +125,11 @@ session receives these commands and delegates them to the media player.
 > playback with a `MediaSessionService`](https://developer.android.com/media/media3/session/background-playback).
 
 When a controller is about to connect to your media session, the session calls
-[`onConnectAsync()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onConnectAsync(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo)). You can use the provided
-[`ControllerInfo`](https://developer.android.com/reference/androidx/media3/session/MediaSession.ControllerInfo) to decide whether to
-[accept](https://developer.android.com/reference/androidx/media3/session/MediaSession.ConnectionResult#accept(androidx.media3.session.SessionCommands,androidx.media3.common.Player.Commands)) or [reject](https://developer.android.com/reference/androidx/media3/session/MediaSession.ConnectionResult#reject()) the request. For an
+[`onConnectAsync()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback.md.txt#onConnectAsync(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo)). You can use the provided
+[`ControllerInfo`](https://developer.android.com/reference/androidx/media3/session/MediaSession.ControllerInfo.md.txt) to decide whether to
+[accept](https://developer.android.com/reference/androidx/media3/session/MediaSession.ConnectionResult.md.txt#accept(androidx.media3.session.SessionCommands,androidx.media3.common.Player.Commands)) or [reject](https://developer.android.com/reference/androidx/media3/session/MediaSession.ConnectionResult.md.txt#reject()) the request. For an
 example of accepting a connection request, see
-[Declare and handle custom commands](https://developer.android.com/media/media3/session/control-playback#available-commands).
+[Declare and handle custom commands](https://developer.android.com/media/media3/session/control-playback.md.txt#available-commands).
 
 After connecting, a controller can send playback commands to the session. The
 session then delegates those commands down to the player. Playback and playlist
@@ -137,25 +137,25 @@ commands defined in the `Player` interface are automatically handled by the
 session.
 
 Other callback methods allow you to handle, for example, requests for [custom
-commands](https://developer.android.com/media/media3/session/control-playback#available-commands) and [modifying the playlist](https://developer.android.com/media/media3/session/control-playback#modify-playlist). These
+commands](https://developer.android.com/media/media3/session/control-playback#available-commands) and [modifying the playlist](https://developer.android.com/media/media3/session/control-playback.md.txt#modify-playlist). These
 callbacks similarly include a `ControllerInfo` object so you can modify how you
 respond to each request on a per-controller basis.
 
 ## Modify the playlist
 
 A media session can directly modify the playlist of its player as explained in
-the [ExoPlayer guide for playlists](https://developer.android.com/media/media3/exoplayer/playlists#modifying-playlist).
+the [ExoPlayer guide for playlists](https://developer.android.com/media/media3/exoplayer/playlists.md.txt#modifying-playlist).
 Controllers are also able to modify the playlist if either
 `COMMAND_SET_MEDIA_ITEM` or `COMMAND_CHANGE_MEDIA_ITEMS` is available to the
 controller.
 
 When adding new items to the playlist, the player typically requires `MediaItem`
-instances with a [defined URI](https://developer.android.com/reference/androidx/media3/common/MediaItem.Builder#setUri(java.lang.String)) to make them playable. By
+instances with a [defined URI](https://developer.android.com/reference/androidx/media3/common/MediaItem.Builder.md.txt#setUri(java.lang.String)) to make them playable. By
 default, newly added items are automatically forwarded to player methods like
 `player.addMediaItem` if they have a URI defined.
 
 If you want to customize the `MediaItem` instances added to the player, you can
-override [`onAddMediaItems()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onAddMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E)). This step is needed when you
+override [`onAddMediaItems()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback.md.txt#onAddMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E)). This step is needed when you
 want to support controllers that request media without a defined URI. Instead,
 the `MediaItem` typically has one or more of the following fields set to
 describe the requested media:
@@ -166,7 +166,7 @@ describe the requested media:
 - `MediaItem.mediaMetadata`: Structured metadata like 'title' or 'artist'.
 
 For more customization options for completely new playlists, you can
-additionally override [`onSetMediaItems()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onSetMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E,int,long)), which lets you
+additionally override [`onSetMediaItems()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback.md.txt#onSetMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E,int,long)), which lets you
 define the start item and position in the playlist. For example, you can expand
 a single requested item to an entire playlist and instruct the player to start
 at the index of the originally requested item. For a
@@ -188,15 +188,15 @@ podcast episodes, and audiobook chapters.
 ### Declare playlist ID and playlist metadata
 
 In Media3, playlist identification and playlist descriptive metadata are split
-across two [`MediaMetadata`](https://developer.android.com/reference/androidx/media3/common/MediaMetadata) scopes:
+across two [`MediaMetadata`](https://developer.android.com/reference/androidx/media3/common/MediaMetadata.md.txt) scopes:
 
 - **Item-level playlist ID (`MediaItem.mediaMetadata.playlistId`)** :
-  - Mark a playing `MediaItem` as part of a playlist by calling [`MediaMetadata.Builder.setPlaylistId`](https://developer.android.com/reference/androidx/media3/common/MediaMetadata.Builder#setPlaylistId(java.lang.String)) on the item's `MediaMetadata`, while `MediaItem.mediaId` uniquely identifies the individual track.
+  - Mark a playing `MediaItem` as part of a playlist by calling [`MediaMetadata.Builder.setPlaylistId`](https://developer.android.com/reference/androidx/media3/common/MediaMetadata.Builder.md.txt#setPlaylistId(java.lang.String)) on the item's `MediaMetadata`, while `MediaItem.mediaId` uniquely identifies the individual track.
   - The `playlistId` is an opaque, app-defined string that uniquely identifies the playlist across sessions for as long as the playlist can be resumed (for example, `37i9dQZF1DX76Wlfdnj7AP`), and shouldn't be reused for a different playlist. Connected controllers don't interpret this ID; they store it and send it back to your app to resume the playlist.
   - Every track that belongs to the playlist carries the same `playlistId`. Leave `playlistId` unset (`null`) for tracks that aren't played from a playlist context, such as a single standalone track.
 - **Player-level playlist metadata (`Player.getPlaylistMetadata`)** :
-  - Populate a dedicated `MediaMetadata` instance with the playlist's descriptive attributes (`setTitle`, `setArtworkUri`, and `setMediaType`) and set it on the player using [`Player.setPlaylistMetadata`](https://developer.android.com/reference/androidx/media3/common/Player#setPlaylistMetadata(androidx.media3.common.MediaMetadata)).
-  - When a connected controller detects a non-null `currentMediaItem.mediaMetadata.playlistId`, it inspects [`MediaController.getPlaylistMetadata`](https://developer.android.com/reference/androidx/media3/session/MediaController#getPlaylistMetadata()) to retrieve the playlist's title and artwork URI.
+  - Populate a dedicated `MediaMetadata` instance with the playlist's descriptive attributes (`setTitle`, `setArtworkUri`, and `setMediaType`) and set it on the player using [`Player.setPlaylistMetadata`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#setPlaylistMetadata(androidx.media3.common.MediaMetadata)).
+  - When a connected controller detects a non-null `currentMediaItem.mediaMetadata.playlistId`, it inspects [`MediaController.getPlaylistMetadata`](https://developer.android.com/reference/androidx/media3/session/MediaController.md.txt#getPlaylistMetadata()) to retrieve the playlist's title and artwork URI.
   - Update the playlist metadata whenever the active playlist changes (for example, when the user starts a different playlist) so that `getPlaylistMetadata` always describes the playlist referenced by the current item's `playlistId`.
 
 The following example shows how to publish playlist metadata on the `Player`
@@ -305,8 +305,8 @@ controller.play();
 <br />
 
 Your app expands the playlist `MediaItem` into its playable tracks inside
-[`MediaSession.Callback.onSetMediaItems`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onSetMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E,int,long)) (or
-[`onAddMediaItems`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onAddMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E))), and publishes `playlistId` and
+[`MediaSession.Callback.onSetMediaItems`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback.md.txt#onSetMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E,int,long)) (or
+[`onAddMediaItems`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback.md.txt#onAddMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E))), and publishes `playlistId` and
 `playlistMetadata` again as shown in the preceding section.
 
 > [!NOTE]
@@ -354,7 +354,7 @@ CommandButton button =
 <br />
 
 > [!NOTE]
-> **Note:** Some commands like `COMMAND_SET_REPEAT_MODE` need additional parameters to be fully functional. You can specify these parameters as a second argument in `setPlayerCommand`. Refer to the documentation of [`CommandButton.executeAction`](https://developer.android.com/reference/androidx/media3/session/CommandButton#executeAction(androidx.media3.session.MediaController)) for a complete list of supported commands.
+> **Note:** Some commands like `COMMAND_SET_REPEAT_MODE` need additional parameters to be fully functional. You can specify these parameters as a second argument in `setPlayerCommand`. Refer to the documentation of [`CommandButton.executeAction`](https://developer.android.com/reference/androidx/media3/session/CommandButton.md.txt#executeAction(androidx.media3.session.MediaController)) for a complete list of supported commands.
 
 When media button preferences are resolved, the following algorithm is applied:
 
@@ -428,7 +428,7 @@ default behavior.
 ### Declare and handle custom commands
 
 Media applications can define custom commands that for instance can be used in
-the [media button preferences](https://developer.android.com/media/media3/session/control-playback#command-buttons). For example, you may
+the [media button preferences](https://developer.android.com/media/media3/session/control-playback.md.txt#command-buttons). For example, you may
 want to implement buttons that allow the user to save a media item to a list of
 favorite items. The `MediaController` sends custom commands and the
 `MediaSession.Callback` receives them.
@@ -576,7 +576,7 @@ MediaSession mediaSession = new MediaSession.Builder(context, forwardingPlayer).
 <br />
 
 For more information about `ForwardingSimpleBasePlayer`, see the ExoPlayer guide
-on [Customization](https://developer.android.com/media/media3/exoplayer/customization#player-operations).
+on [Customization](https://developer.android.com/media/media3/exoplayer/customization.md.txt#player-operations).
 
 ### Identify the requesting controller of a player command
 
@@ -633,12 +633,12 @@ private static final class CallerAwarePlayer extends ForwardingSimpleBasePlayer 
 Media buttons are hardware buttons found on Android devices and other peripheral
 devices, such as the play/pause button on a Bluetooth headset. Media3 handles
 media button events for you when they arrive at the session and calls the
-appropriate `Player` method on the [session player](https://developer.android.com/reference/androidx/media3/session/MediaSession#getPlayer()).
+appropriate `Player` method on the [session player](https://developer.android.com/reference/androidx/media3/session/MediaSession.md.txt#getPlayer()).
 
 It is recommended to handle all incoming media button events in the
 corresponding `Player` method. For more advanced use cases, the media button
 events can be intercepted in
-[`MediaSession.Callback.onMediaButtonEvent()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onMediaButtonEvent(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,android.content.Intent)).
+[`MediaSession.Callback.onMediaButtonEvent()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback.md.txt#onMediaButtonEvent(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,android.content.Intent)).
 
 ## Error handling and reporting
 

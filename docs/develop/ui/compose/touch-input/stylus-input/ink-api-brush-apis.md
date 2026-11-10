@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/compose/touch-input/stylus-input/i
 source: md.txt
 ---
 
-The [`Brush`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush) APIs provide you with the tools to
+The [`Brush`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush.md.txt) APIs provide you with the tools to
 define the visual style of your strokes. You can create brushes with different
 colors, sizes, and families to achieve a variety of looks.
 
@@ -15,7 +15,7 @@ colors, sizes, and families to achieve a variety of looks.
 
 ### Create custom Ink brushes
 
-Use the `ink-custom-brush-builder` [Android skill](https://developer.android.com/tools/agents/android-skills) to design custom BrushFamily styles in Jetpack Compose with custom tips, dynamic behaviors, textures, and coats. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the `ink-custom-brush-builder` [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to design custom BrushFamily styles in Jetpack Compose with custom tips, dynamic behaviors, textures, and coats. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add ink-custom-brush-builder
 
@@ -23,13 +23,13 @@ Use the `ink-custom-brush-builder` [Android skill](https://developer.android.com
 
 ## Create a brush
 
-To create a brush, use the Compose [`Brush`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush)
+To create a brush, use the Compose [`Brush`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush.md.txt)
 companion methods with named arguments such as
-[`Brush.Companion.createWithComposeColor`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush.Companion#(androidx.ink.brush.Brush.Companion).createWithComposeColor(androidx.ink.brush.BrushFamily,androidx.compose.ui.graphics.Color,kotlin.Float,kotlin.Float)).
+[`Brush.Companion.createWithComposeColor`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush.Companion.md.txt#(androidx.ink.brush.Brush.Companion).createWithComposeColor(androidx.ink.brush.BrushFamily,androidx.compose.ui.graphics.Color,kotlin.Float,kotlin.Float)).
 This class lets you set the following properties:
 
-- `family`: The style of the brush, analogous to a typeface or font in text. See [`StockBrushes`](https://developer.android.com/reference/kotlin/androidx/ink/brush/StockBrushes) for available [`BrushFamily`](https://developer.android.com/reference/kotlin/androidx/ink/brush/BrushFamily) values.
-- `color`: The color of the brush. You can set the color using a [`ColorLong`](https://developer.android.com/reference/kotlin/androidx/annotation/ColorLong).
+- `family`: The style of the brush, analogous to a typeface or font in text. See [`StockBrushes`](https://developer.android.com/reference/kotlin/androidx/ink/brush/StockBrushes.md.txt) for available [`BrushFamily`](https://developer.android.com/reference/kotlin/androidx/ink/brush/BrushFamily.md.txt) values.
+- `color`: The color of the brush. You can set the color using a [`ColorLong`](https://developer.android.com/reference/kotlin/androidx/annotation/ColorLong.md.txt).
 - `size`: The overall thickness of strokes created with the brush.
 - `epsilon`: The smallest distance for which two points should be considered visually distinct for stroke generation geometry purposes. The ratio of epsilon and stroke points controls how much a stroke can be zoomed in on without artifacts, at the cost of memory. A good starting point for stroke units is 1 px, and a good starting point for epsilon is 0.1. Higher epsilon values use less memory but allow for less zoom before triangle artifacts appear. Experiment to find the right value for your use case.
 
@@ -48,7 +48,7 @@ val brush = Brush.createWithComposeColor(
 ## Modify brush properties
 
 You can create a copy of an existing brush using the
-[`copyWithComposeColor()`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush#(androidx.ink.brush.Brush).copyWithComposeColor(androidx.compose.ui.graphics.Color,androidx.ink.brush.BrushFamily,kotlin.Float,kotlin.Float)) method, which lets you
+[`copyWithComposeColor()`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush.md.txt#(androidx.ink.brush.Brush).copyWithComposeColor(androidx.compose.ui.graphics.Color,androidx.ink.brush.BrushFamily,kotlin.Float,kotlin.Float)) method, which lets you
 change any of the brush's properties.
 
 
@@ -67,7 +67,7 @@ val blueBrush = redBrush.copyWithComposeColor(color = Color.Blue)
 
 ## Custom Brushes
 
-While [`StockBrushes`](https://developer.android.com/reference/kotlin/androidx/ink/brush/StockBrushes) provides a versatile set of
+While [`StockBrushes`](https://developer.android.com/reference/kotlin/androidx/ink/brush/StockBrushes.md.txt) provides a versatile set of
 common brushes, Ink API also offers an advanced path for creating entirely new
 brush behaviors for unique artistic effects or to replicate specific existing
 brushes for backward compatibility.

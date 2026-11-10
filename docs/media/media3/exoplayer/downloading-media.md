@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 > [!NOTE]
-> **Note:** ExoPlayer also supports on-the-fly caching for streamed media, see [Caching media](https://developer.android.com/media/media3/exoplayer/network-stacks#caching).
+> **Note:** ExoPlayer also supports on-the-fly caching for streamed media, see [Caching media](https://developer.android.com/media/media3/exoplayer/network-stacks.md.txt#caching).
 
 ExoPlayer provides functionality to download media for offline playback. In most
 use cases, it's desirable for downloads to continue even when your app is in the
@@ -26,25 +26,27 @@ abstract methods:
 
 - `getDownloadManager()`: Returns the `DownloadManager` to be used.
 - `getScheduler()`: Returns an optional `Scheduler`, which can restart the service when requirements needed for pending downloads to progress are met. ExoPlayer provides these implementations:
-  - `PlatformScheduler`, which uses [`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler) (Minimum API is 21). See the [`PlatformScheduler`](https://developer.android.com/reference/androidx/media3/exoplayer/scheduler/PlatformScheduler) javadocs for app permission requirements.
-  - `WorkManagerScheduler`, which uses [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent).
+  - `PlatformScheduler`, which uses [`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler.md.txt) (Minimum API is 21). See the [`PlatformScheduler`](https://developer.android.com/reference/androidx/media3/exoplayer/scheduler/PlatformScheduler.md.txt) javadocs for app permission requirements.
+  - `WorkManagerScheduler`, which uses [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent.md.txt).
 - `getForegroundNotification()`: Returns a notification to be displayed when the service is running in the foreground. You can use `DownloadNotificationHelper.buildProgressNotification` to create a notification in default style.
 
 Finally, define the service in your `AndroidManifest.xml` file:
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
-    <application>
-      <service android:name="com.myapp.MyDownloadService"
-          android:exported="false"
-          android:foregroundServiceType="dataSync">
-        <!-- This is needed for Scheduler -->
-        <intent-filter>
-          <action android:name="androidx.media3.exoplayer.downloadService.action.RESTART"/>
-          <category android:name="android.intent.category.DEFAULT"/>
-        </intent-filter>
-      </service>
-    </application>
+```xml
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+<application>
+  <service android:name="com.myapp.MyDownloadService"
+      android:exported="false"
+      android:foregroundServiceType="dataSync">
+    <!-- This is needed for Scheduler -->
+    <intent-filter>
+      <action android:name="androidx.media3.exoplayer.downloadService.action.RESTART"/>
+      <category android:name="android.intent.category.DEFAULT"/>
+    </intent-filter>
+  </service>
+</application>
+```
 
 See [`DemoDownloadService`](https://github.com/androidx/media/tree/release/demos/main/src/main/java/androidx/media3/demo/main/DemoDownloadService.java) and [`AndroidManifest.xml`](https://github.com/androidx/media/tree/release/demos/main/src/main/AndroidManifest.xml) in the ExoPlayer
 demo app for a concrete example.
@@ -312,15 +314,15 @@ DownloadService.sendResumeDownloads(context, MyDownloadService.class, /* foregro
 <br />
 
 When downloads are paused, they will be in the `Download.STATE_QUEUED` state.
-Unlike [setting stop reasons](https://developer.android.com/media/media3/exoplayer/downloading-media#setting-and-clearing-download-stop-reasons), this approach does not persist any state
+Unlike [setting stop reasons](https://developer.android.com/media/media3/exoplayer/downloading-media.md.txt#setting-and-clearing-download-stop-reasons), this approach does not persist any state
 changes. It only affects the runtime state of the `DownloadManager`.
 
 #### Setting the requirements for downloads to progress
 
-[`Requirements`](https://developer.android.com/reference/androidx/media3/exoplayer/scheduler/Requirements) can be used to specify constraints that must be met for
+[`Requirements`](https://developer.android.com/reference/androidx/media3/exoplayer/scheduler/Requirements.md.txt) can be used to specify constraints that must be met for
 downloads to proceed. The requirements can be set by calling
 `DownloadManager.setRequirements()` when creating the `DownloadManager`, as in
-the example [above](https://developer.android.com/media/media3/exoplayer/downloading-media#creating-downloadmanager). They can also be changed dynamically by sending a command
+the example [above](https://developer.android.com/media/media3/exoplayer/downloading-media.md.txt#creating-downloadmanager). They can also be changed dynamically by sending a command
 to the `DownloadService`:
 
 
@@ -354,7 +356,7 @@ requirements with `DownloadManager.getNotMetRequirements()`.
 
 The maximum number of parallel downloads can be set by calling
 `DownloadManager.setMaxParallelDownloads()`. This would normally be done when
-creating the `DownloadManager`, as in the example [above](https://developer.android.com/media/media3/exoplayer/downloading-media#creating-downloadmanager).
+creating the `DownloadManager`, as in the example [above](https://developer.android.com/media/media3/exoplayer/downloading-media.md.txt#creating-downloadmanager).
 
 When a download cannot proceed because the maximum number of parallel downloads
 are already in progress, it will be in the `Download.STATE_QUEUED` state.

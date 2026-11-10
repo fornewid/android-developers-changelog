@@ -39,7 +39,7 @@ Based on the resulting bounding box, the size is computed as follows:
 To compute memory usage for interactive mode, the system sums the following
 values:
 
-1. The unprocessed size of any [vector fonts](https://developer.android.com/guide/topics/resources/font-resource)
+1. The unprocessed size of any [vector fonts](https://developer.android.com/guide/topics/resources/font-resource.md.txt)
 2. The estimated usage of the system's default font
 3. The total size of the images and bitmap fonts after cropping, resizing, and reformatting is applied
 

@@ -6,7 +6,7 @@ source: md.txt
 
 [Video](https://www.youtube.com/watch?v=QaMjBZCXHiI)
 
-[`FlowRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowRow.composable) and [`FlowColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowColumn.composable)
+[`FlowRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowRow.composable.md.txt) and [`FlowColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowColumn.composable.md.txt)
 are composables that are similar to `Row` and `Column`, but differ in that items
 flow into the next line when the container runs out of space. This creates
 multiple rows or columns. The number of items in a line can also be controlled
@@ -60,12 +60,12 @@ for `FlowRow`:
 
 |---|---|
 | Horizontal arrangement set on `FlowRow` | Result |
-| [`Arrangement.Start`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement#Start()) (`Default`) | ![Items arranged with start](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_arrangement_start_default.png) |
-| [`Arrangement.SpaceBetween`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement#SpaceBetween()) | ![Items arrangement with space in between](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_arrangement_space_between.png) |
-| [`Arrangement.Center`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement#Center()) | ![Items arranged in the center](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_arrangement_space_center.png) |
-| [`Arrangement.End`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement#End()) | ![Items arranged at the end](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_arrangement_end.png) |
-| [`Arrangement.SpaceAround`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement#SpaceAround()) | ![Items arranged with space around them](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_arrangement_space_around.png) |
-| [`Arrangement.spacedBy(8.dp)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement#spacedBy(androidx.compose.ui.unit.Dp)) | ![Items spaced by a certain dp](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_arrangement_spaced_by.png) |
+| [`Arrangement.Start`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement.md.txt#Start()) (`Default`) | ![Items arranged with start](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_arrangement_start_default.png) |
+| [`Arrangement.SpaceBetween`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement.md.txt#SpaceBetween()) | ![Items arrangement with space in between](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_arrangement_space_between.png) |
+| [`Arrangement.Center`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement.md.txt#Center()) | ![Items arranged in the center](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_arrangement_space_center.png) |
+| [`Arrangement.End`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement.md.txt#End()) | ![Items arranged at the end](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_arrangement_end.png) |
+| [`Arrangement.SpaceAround`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement.md.txt#SpaceAround()) | ![Items arranged with space around them](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_arrangement_space_around.png) |
+| [`Arrangement.spacedBy(8.dp)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement.md.txt#spacedBy(androidx.compose.ui.unit.Dp)) | ![Items spaced by a certain dp](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_arrangement_spaced_by.png) |
 
 For `FlowColumn`, similar options are available with `verticalArrangement`, with
 the default of `Arrangement.Top`.
@@ -83,9 +83,9 @@ For `FlowRow`, the following table shows examples of setting different
 
 |---|---|
 | **Vertical arrangement set on `FlowRow`** | **Result** |
-| [`Arrangement.Top`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement#Top()) (`Default`) | ![Container top arrangement](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_container_arrangement_top.png) |
-| [`Arrangement.Bottom`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement#Bottom()) | ![Container bottom arrangement](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_container_arrangement_bottom.png) |
-| [`Arrangement.Center`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement#Center()) | ![Container center arrangement](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_container_arrangement_center.png) |
+| [`Arrangement.Top`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement.md.txt#Top()) (`Default`) | ![Container top arrangement](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_container_arrangement_top.png) |
+| [`Arrangement.Bottom`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement.md.txt#Bottom()) | ![Container bottom arrangement](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_container_arrangement_bottom.png) |
+| [`Arrangement.Center`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement.md.txt#Center()) | ![Container center arrangement](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_container_arrangement_center.png) |
 
 For `FlowColumn`, similar options are available with `horizontalArrangement`.
 The default cross axis arrangement is `Arrangement.Start`.
@@ -103,9 +103,9 @@ items:
 
 |---|---|
 | **Vertical alignment set on `FlowRow`** | **Result** |
-| [`Alignment.Top`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Alignment#Top()) (`Default`) | ![Items aligned to the top](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_item_alignment_top.png) |
-| [`Alignment.Bottom`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Alignment#Bottom()) | ![Items aligned to the bottom](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_item_alignment_bottom.png) |
-| [`Alignment.CenterVertically`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Alignment#CenterVertically()) | ![Items aligned to the center](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_item_alignment_center.png) |
+| [`Alignment.Top`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Alignment.md.txt#Top()) (`Default`) | ![Items aligned to the top](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_item_alignment_top.png) |
+| [`Alignment.Bottom`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Alignment.md.txt#Bottom()) | ![Items aligned to the bottom](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_item_alignment_bottom.png) |
+| [`Alignment.CenterVertically`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Alignment.md.txt#CenterVertically()) | ![Items aligned to the center](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_item_alignment_center.png) |
 
 For `FlowColumn`, similar options are available. The default alignment is
 `Alignment.Start`.
@@ -264,8 +264,8 @@ FlowRow(
 
 ### `fillMaxColumnWidth()` and `fillMaxRowHeight()`
 
-Applying either [`Modifier.fillMaxColumnWidth()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowColumnScope#(androidx.compose.ui.Modifier).fillMaxColumnWidth(kotlin.Float)) or
-[`Modifier.fillMaxRowHeight()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowRowScope#(androidx.compose.ui.Modifier).fillMaxRowHeight(kotlin.Float)) to an item inside a `FlowColumn` or `FlowRow`
+Applying either [`Modifier.fillMaxColumnWidth()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowColumnScope.md.txt#(androidx.compose.ui.Modifier).fillMaxColumnWidth(kotlin.Float)) or
+[`Modifier.fillMaxRowHeight()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowRowScope.md.txt#(androidx.compose.ui.Modifier).fillMaxRowHeight(kotlin.Float)) to an item inside a `FlowColumn` or `FlowRow`
 ensures that items in the same column or row take up the same width or height as
 the biggest item in the column/row.
 

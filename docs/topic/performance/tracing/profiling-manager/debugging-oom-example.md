@@ -6,11 +6,11 @@ source: md.txt
 
 Out of Memory (`OutOfMemoryError`) crashes occur when your app exhausts its
 allocated Java heap and can't fulfill a new memory allocation. Stack traces from
-[`OutOfMemoryError`](https://developer.android.com/reference/java/lang/OutOfMemoryError) crash reports rarely reveal the root cause because they
+[`OutOfMemoryError`](https://developer.android.com/reference/java/lang/OutOfMemoryError.md.txt) crash reports rarely reveal the root cause because they
 only show the allocation call that failed when memory ran out, not the objects
 retaining the rest of the heap.
 
-[`ProfilingManager`](https://developer.android.com/reference/android/os/ProfilingManager) lets you capture Java heap dumps from devices in the
+[`ProfilingManager`](https://developer.android.com/reference/android/os/ProfilingManager.md.txt) lets you capture Java heap dumps from devices in the
 field and locally so you can inspect the object retention graph in the [Perfetto
 UI](https://ui.perfetto.dev/) and pinpoint what is holding onto memory.
 
@@ -19,24 +19,24 @@ UI](https://ui.perfetto.dev/) and pinpoint what is holding onto memory.
 Suppose your crash reporting tool flags a growing cluster of `OutOfMemoryError`
 crashes in production when users interact with `OomSampleActivity`.
 
-To investigate, you register a [`TRIGGER_TYPE_OOM`](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_OOM) trigger with
+To investigate, you register a [`TRIGGER_TYPE_OOM`](https://developer.android.com/reference/android/os/ProfilingTrigger.md.txt#TRIGGER_TYPE_OOM) trigger with
 `ProfilingManager` so the system automatically captures a Java heap dump when an
 `OutOfMemoryError` occurs.
 
 ## Capture the heap dump
 
 On Android 17 (API level 37) and higher, to capture a heap dump when an
-`OutOfMemoryError` crash occurs, configure [trigger-based profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture) with
-[`ProfilingTrigger.TRIGGER_TYPE_OOM`](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_OOM). When your app throws an unhandled
+`OutOfMemoryError` crash occurs, configure [trigger-based profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture.md.txt) with
+[`ProfilingTrigger.TRIGGER_TYPE_OOM`](https://developer.android.com/reference/android/os/ProfilingTrigger.md.txt#TRIGGER_TYPE_OOM). When your app throws an unhandled
 `OutOfMemoryError`, the system automatically starts a new
-[`PROFILING_TYPE_JAVA_HEAP_DUMP`](https://developer.android.com/reference/android/os/ProfilingManager#PROFILING_TYPE_JAVA_HEAP_DUMP) capture.
+[`PROFILING_TYPE_JAVA_HEAP_DUMP`](https://developer.android.com/reference/android/os/ProfilingManager.md.txt#PROFILING_TYPE_JAVA_HEAP_DUMP) capture.
 
 Because the app process terminates when the crash occurs, the system finishes
 saving the heap dump in the background and queues the result (see [Trigger
 lifecycle](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture#trigger-lifecycle)). Register a global result listener on a background `Executor`
 after app startup completes (so you don't slow down app start) using
-[`registerForAllProfilingResults`](https://developer.android.com/reference/android/os/ProfilingManager#registerForAllProfilingResults(java.util.concurrent.Executor,%20java.util.function.Consumer%3Candroid.os.ProfilingResult%3E)) so your app receives the queued
-[`ProfilingResult`](https://developer.android.com/reference/android/os/ProfilingResult) the next time the user launches it. Unlike
+[`registerForAllProfilingResults`](https://developer.android.com/reference/android/os/ProfilingManager.md.txt#registerForAllProfilingResults(java.util.concurrent.Executor,%20java.util.function.Consumer%3Candroid.os.ProfilingResult%3E)) so your app receives the queued
+[`ProfilingResult`](https://developer.android.com/reference/android/os/ProfilingResult.md.txt) the next time the user launches it. Unlike
 `addProfilingTriggers` (which persists across app restarts and only needs to be
 called once or when updating triggers), `registerForAllProfilingResults` must be
 called on every app startup:
@@ -99,13 +99,13 @@ public static void registerOomTrigger(Context context) {
 <br />
 
 > [!NOTE]
-> **Note:** `TRIGGER_TYPE_OOM` relies on the [default uncaught exception handler](https://developer.android.com/reference/java/lang/Thread#getDefaultUncaughtExceptionHandler()) to notify the system of the Java crash and wait for the heap dump capture before terminating the app. If you use a custom [`Thread.UncaughtExceptionHandler`](https://developer.android.com/reference/java/lang/Thread.UncaughtExceptionHandler), delegate to the default handler without exiting the process early. Otherwise, the exception isn't processed as an `OutOfMemoryError` and the system might eventually kill the app for another reason without capturing a heap dump.
+> **Note:** `TRIGGER_TYPE_OOM` relies on the [default uncaught exception handler](https://developer.android.com/reference/java/lang/Thread.md.txt#getDefaultUncaughtExceptionHandler()) to notify the system of the Java crash and wait for the heap dump capture before terminating the app. If you use a custom [`Thread.UncaughtExceptionHandler`](https://developer.android.com/reference/java/lang/Thread.UncaughtExceptionHandler.md.txt), delegate to the default handler without exiting the process early. Otherwise, the exception isn't processed as an `OutOfMemoryError` and the system might eventually kill the app for another reason without capturing a heap dump.
 
 ## Deobfuscate the profile
 
 After an `OutOfMemoryError` triggers a capture and your callback receives the
-[`ProfilingResult`](https://developer.android.com/reference/android/os/ProfilingResult) on the next app launch, upload the profile file to your
-server or [pull it to your development machine with `adb`](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode#retrieve-traces-adb). If you captured
+[`ProfilingResult`](https://developer.android.com/reference/android/os/ProfilingResult.md.txt) on the next app launch, upload the profile file to your
+server or [pull it to your development machine with `adb`](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode.md.txt#retrieve-traces-adb). If you captured
 the profile from a **release build** that uses [R8 code shrinking and
 obfuscation](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization), deobfuscate it offline on your workstation or server before
 analysis. Without deobfuscation, R8 obfuscates the Java and Kotlin class, field,
@@ -116,10 +116,12 @@ Use Perfetto's [`trace_processor bundle`](https://perfetto.dev/docs/learning-mor
 flag to package the captured profile together with the R8 `mapping.txt` file
 generated for that exact release build:
 
-    trace_processor bundle \
-      --proguard-map /path/to/mapping.txt \
-      profile_trigger-type-7_2026-05-06-14-12-40-748_uid-10316.perfetto-java-heap-dump \
-      deobfuscated_oom.tar
+```bash
+trace_processor bundle \
+  --proguard-map /path/to/mapping.txt \
+  profile_trigger-type-7_2026-05-06-14-12-40-748_uid-10316.perfetto-java-heap-dump \
+  deobfuscated_oom.tar
+```
 
 This command produces `deobfuscated_oom.tar`, an enriched archive that bundles
 the original profile with its deobfuscation mappings. When you open this archive
@@ -332,7 +334,7 @@ The code confirms why `StatsReporter` retains 8 instances of
 
 1. Each `OomSampleActivity` instance allocates a 30 MiB `byte[]` buffer (`heavyData` in Kotlin, `mHeavyData` in Java) and registers itself as a listener on the singleton `StatsReporter` in `onCreate`.
 2. `OomSampleActivity` never calls `unregisterListener` when the system destroys it. Because `StatsReporter` outlives the activity and holds a strong reference to every registered listener, the garbage collector can't reclaim destroyed instances or their 30 MiB `byte[]` arrays.
-3. Every time the system destroys and recreates `OomSampleActivity`, such as during a screen rotation in the [Android activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle#ondestroy), another 30 MiB instance leaks in `StatsReporter`. After 7 rotations (8 instances × 30 MiB ≈ 240 MiB), the heap fills up and the app crashes with an `OutOfMemoryError`.
+3. Every time the system destroys and recreates `OomSampleActivity`, such as during a screen rotation in the [Android activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle.md.txt#ondestroy), another 30 MiB instance leaks in `StatsReporter`. After 7 rotations (8 instances × 30 MiB ≈ 240 MiB), the heap fills up and the app crashes with an `OutOfMemoryError`.
 
 ## Fix the leak
 
@@ -428,83 +430,86 @@ without unregistering it, and generates a patch adding
 `unregisterListener(this)` in `onDestroy` (the following report was generated
 from a separate capture that had 7 retained instances at the time of the crash):
 
-    # Perfetto OOM Heap Dump Analysis Report
+```markdown
+# Perfetto OOM Heap Dump Analysis Report
 
-    ## 1. Orienting Context & First-Pass Triage
+## 1. Orienting Context & First-Pass Triage
 
-    | Property | Value |
-    | :--- | :--- |
-    | **Process Name** | `com.example.sampleapp` |
-    | **Sample Timestamp (`graph_sample_ts`)** | `3433221241585` |
-    | **Leaf Retained Class** | `byte[]` (7 instances) |
-    | **Leaf Self Size** | `220,201,044` bytes (~210 MiB) |
+| Property | Value |
+| :--- | :--- |
+| **Process Name** | `com.example.sampleapp` |
+| **Sample Timestamp (`graph_sample_ts`)** | `3433221241585` |
+| **Leaf Retained Class** | `byte[]` (7 instances) |
+| **Leaf Self Size** | `220,201,044` bytes (~210 MiB) |
 
-    ### Dominator Tree Retention Path
+### Dominator Tree Retention Path
 
-    Querying the `android.memory.heap_graph.dominator_tree` standard library module identifies the following largest dominated class path from GC root to leaf allocation:
+Querying the `android.memory.heap_graph.dominator_tree` standard library module identifies the following largest dominated class path from GC root to leaf allocation:
 
-        [ROOT_JAVA_FRAME] com.example.sampleapp.StatsReporter [1]
-          -> java.util.concurrent.CopyOnWriteArrayList [1]
-          -> java.lang.Object[] [1]
-          -> com.example.sampleapp.OomSampleActivity [7]
-          -> byte[] [7] (220,201,044 bytes)
-
+    [ROOT_JAVA_FRAME] com.example.sampleapp.StatsReporter [1]
+      -> java.util.concurrent.CopyOnWriteArrayList [1]
+      -> java.lang.Object[] [1]
+      -> com.example.sampleapp.OomSampleActivity [7]
+      -> byte[] [7] (220,201,044 bytes)
+```
 <button type="button" class="expand-control button button-white"> Show full agent report Hide full agent report </button>
 
-    ## 2. Root Cause Analysis
+````markdown
+## 2. Root Cause Analysis
 
-    > **Important:** The `OutOfMemoryError` is caused by an **Activity listener leak**: `OomSampleActivity` (`app/src/main/java/com/example/sampleapp/OomSampleActivity.java#L8-L27`) registers itself as a listener on the long-lived `StatsReporter` (`app/src/main/java/com/example/sampleapp/StatsReporter.java#L6-L61`) singleton in `onCreate()`, but never unregisters itself in `onDestroy()`.
+> **Important:** The `OutOfMemoryError` is caused by an **Activity listener leak**: `OomSampleActivity` (`app/src/main/java/com/example/sampleapp/OomSampleActivity.java#L8-L27`) registers itself as a listener on the long-lived `StatsReporter` (`app/src/main/java/com/example/sampleapp/StatsReporter.java#L6-L61`) singleton in `onCreate()`, but never unregisters itself in `onDestroy()`.
 
-    ### Step-by-Step Retention Mechanism
+### Step-by-Step Retention Mechanism
 
-    1. **Per-Activity 30 MiB Allocation:**
-       Each instance of `OomSampleActivity` (`OomSampleActivity.java#L11-L12`) allocates a 30 MiB byte array (`30 * 1024 * 1024 = 31,457,280` bytes):
-       ```java
-       // OomSampleActivity.java:12
-       private final byte[] mHeavyData = new byte[30 * 1024 * 1024];
-       ```
+1. **Per-Activity 30 MiB Allocation:**
+   Each instance of `OomSampleActivity` (`OomSampleActivity.java#L11-L12`) allocates a 30 MiB byte array (`30 * 1024 * 1024 = 31,457,280` bytes):
+   ```java
+   // OomSampleActivity.java:12
+   private final byte[] mHeavyData = new byte[30 * 1024 * 1024];
+   ```
 
-    2. **Strong Reference Registration in `onCreate()`:**
-       When created, `OomSampleActivity.onCreate()` (`OomSampleActivity.java#L15-L20`) registers `this` with `StatsReporter` (`StatsReporter.java#L29-L33`):
-       ```java
-       // OomSampleActivity.java:19
-       StatsReporter.getInstance().registerListener(this);
-       ```
+2. **Strong Reference Registration in `onCreate()`:**
+   When created, `OomSampleActivity.onCreate()` (`OomSampleActivity.java#L15-L20`) registers `this` with `StatsReporter` (`StatsReporter.java#L29-L33`):
+   ```java
+   // OomSampleActivity.java:19
+   StatsReporter.getInstance().registerListener(this);
+   ```
 
-    3. **GC Root Pinning via Background Thread & Singleton:**
-       `StatsReporter` (`StatsReporter.java#L11-L60`) is both a static singleton (`sInstance`) and the owner of an active background thread (`StatsReporterPollingThread`, which holds a `[ROOT_JAVA_FRAME]` GC root reference while sleeping/looping in `startReporting()`). It stores listeners in `mListeners` (`CopyOnWriteArrayList<StatsListener>`).
+3. **GC Root Pinning via Background Thread & Singleton:**
+   `StatsReporter` (`StatsReporter.java#L11-L60`) is both a static singleton (`sInstance`) and the owner of an active background thread (`StatsReporterPollingThread`, which holds a `[ROOT_JAVA_FRAME]` GC root reference while sleeping/looping in `startReporting()`). It stores listeners in `mListeners` (`CopyOnWriteArrayList<StatsListener>`).
 
-    4. **Leak Accumulation Across Activity Recreations:**
-       Because `OomSampleActivity` does not override `onDestroy()` to call `StatsReporter.unregisterListener(this)`, every destroyed instance of `OomSampleActivity` remains strongly reachable in `mListeners`. After 7 Activity creations (7 * 30 MiB = 220,200,960 bytes plus array headers = `220,201,044` bytes), the Java heap is exhausted.
+4. **Leak Accumulation Across Activity Recreations:**
+   Because `OomSampleActivity` does not override `onDestroy()` to call `StatsReporter.unregisterListener(this)`, every destroyed instance of `OomSampleActivity` remains strongly reachable in `mListeners`. After 7 Activity creations (7 * 30 MiB = 220,200,960 bytes plus array headers = `220,201,044` bytes), the Java heap is exhausted.
 
-    ---
+---
 
-    ## 3. Actionable Implementation Plan
+## 3. Actionable Implementation Plan
 
-    ### 1. Unregister the Listener in `OomSampleActivity.onDestroy()`
+### 1. Unregister the Listener in `OomSampleActivity.onDestroy()`
 
-    Update `OomSampleActivity.java` to unregister the listener when the `Activity` is destroyed (matching the fix in `OomSampleActivityFixed.java`):
+Update `OomSampleActivity.java` to unregister the listener when the `Activity` is destroyed (matching the fix in `OomSampleActivityFixed.java`):
 
-    ```diff
-    --- a/app/src/main/java/com/example/sampleapp/OomSampleActivity.java
-    +++ b/app/src/main/java/com/example/sampleapp/OomSampleActivity.java
-    @@ -19,4 +19,10 @@
-             StatsReporter.getInstance().registerListener(this);
-         }
+```diff
+--- a/app/src/main/java/com/example/sampleapp/OomSampleActivity.java
++++ b/app/src/main/java/com/example/sampleapp/OomSampleActivity.java
+@@ -19,4 +19,10 @@
+         StatsReporter.getInstance().registerListener(this);
+     }
 
-    +    @Override
-    +    protected void onDestroy() {
-    +        super.onDestroy();
-    +        StatsReporter.getInstance().unregisterListener(this);
-    +    }
-    +
-         @Override
-    ```
++    @Override
++    protected void onDestroy() {
++        super.onDestroy();
++        StatsReporter.getInstance().unregisterListener(this);
++    }
++
+     @Override
+```
 
-    ### 2. Optional Architectural Hardening in `StatsReporter`
+### 2. Optional Architectural Hardening in `StatsReporter`
 
-    * **Lifecycle-Aware Registration:** Have `StatsReporter.registerListener()` accept a `LifecycleOwner` and attach a `DefaultLifecycleObserver` that automatically invokes `unregisterListener()` on `ON_DESTROY`.
-    * **Weak References:** Store `WeakReference<StatsListener>` entries in `StatsReporter` and evict cleared references during iteration so forgotten `unregisterListener()` calls cannot retain entire `Activity` hierarchies.
+* **Lifecycle-Aware Registration:** Have `StatsReporter.registerListener()` accept a `LifecycleOwner` and attach a `DefaultLifecycleObserver` that automatically invokes `unregisterListener()` on `ON_DESTROY`.
+* **Weak References:** Store `WeakReference<StatsListener>` entries in `StatsReporter` and evict cleared references during iteration so forgotten `unregisterListener()` calls cannot retain entire `Activity` hierarchies.
+````
 
 ## Verify the fix
 
@@ -518,15 +523,16 @@ occurs, a successful fix prevents the trigger from firing. To inspect the heap
 and confirm the leak is gone, rotate the screen and then capture an on-demand
 Java heap dump from the command line:
 
-1. [Disable the rate limiter](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode#disable-rate-limiter) (`rate_limiter.disabled true`) and [retain
+1. [Disable the rate limiter](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode.md.txt#disable-rate-limiter) (`rate_limiter.disabled true`) and [retain
    temporary results](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode#enable-unredacted-traces) (`delete_temporary_results.disabled true`) so the system keeps the command-line capture in `/data/misc/perfetto-traces/profiling/`.
 2. Open `OomSampleActivityFixed` on your test device, rotate the screen 8 or more times to confirm the app no longer crashes, and keep it in the foreground.
 3. Trigger an on-demand Java heap dump (`profiling_type` `1`) using the [`cmd
    profiling_service request-profiling`](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode#request-on-demand-profile) shell command:
 
-       adb shell cmd profiling_service request-profiling 1 com.example.sampleapp
-
-4. [Pull the retained profile](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode#enable-unredacted-traces) from `/data/misc/perfetto-traces/profiling/`
+   ```bash
+   adb shell cmd profiling_service request-profiling 1 com.example.sampleapp
+   ```
+4. [Pull the retained profile](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode.md.txt#enable-unredacted-traces) from `/data/misc/perfetto-traces/profiling/`
    and open it in the Perfetto UI.
 
 ![Perfetto UI Heapdump Explorer flame graph after the fix, showing a single instance of OomSampleActivityFixed retaining 30.01 MiB.](https://developer.android.com/static/topic/performance/images/tracing/debugging-oom-example-fixed-activity.png) **Figure 2.** Heap dump flame graph after the fix showing a single instance of `OomSampleActivityFixed`.

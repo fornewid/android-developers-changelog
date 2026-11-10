@@ -49,7 +49,7 @@ fun BigText() {
 ### Make text italic
 
 Use the `fontStyle` parameter to italicize text (or set another
-[`FontStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontStyle)).
+[`FontStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontStyle.md.txt)).
 
 
 ```kotlin
@@ -65,7 +65,7 @@ fun ItalicText() {
 
 ### Make text bold
 
-Use the `fontWeight` parameter to bold text (or set another [`FontWeight`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontWeight)).
+Use the `fontWeight` parameter to bold text (or set another [`FontWeight`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontWeight.md.txt)).
 
 
 ```kotlin
@@ -81,9 +81,9 @@ fun BoldText() {
 
 ### Add shadow
 
-The `style` parameter lets you set an object of type [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle)
+The `style` parameter lets you set an object of type [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.md.txt)
 and configure multiple parameters, for example shadow.
-[`Shadow`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shadow) receives a color
+[`Shadow`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shadow.md.txt) receives a color
 for the shadow, the offset, or where it is located in respect of the `Text` and
 the blur radius which is how blurry it looks.
 
@@ -110,8 +110,8 @@ fun TextShadow() {
 
 ## Add multiple styles in text
 
-To set different styles within the same [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/Text.composable#Text(androidx.compose.ui.text.AnnotatedString,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.collections.Map,kotlin.Function1,androidx.compose.ui.text.TextStyle))
-composable, use an [`AnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString),
+To set different styles within the same [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/Text.composable.md.txt#Text(androidx.compose.ui.text.AnnotatedString,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.collections.Map,kotlin.Function1,androidx.compose.ui.text.TextStyle))
+composable, use an [`AnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.md.txt),
 a string that can be annotated with styles of arbitrary annotations.
 
 `AnnotatedString` is a data class containing:
@@ -120,15 +120,15 @@ a string that can be annotated with styles of arbitrary annotations.
 - A `List` of `SpanStyleRange`, equivalent to inline styling with position range within the text value
 - A `List` of `ParagraphStyleRange`, specifying text alignment, text direction, line height, and text indent styling
 
-[`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle) is for use
-in the `Text` composable, whereas [`SpanStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/SpanStyle)
-and [`ParagraphStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle)
+[`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.md.txt) is for use
+in the `Text` composable, whereas [`SpanStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/SpanStyle.md.txt)
+and [`ParagraphStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle.md.txt)
 is for use in `AnnotatedString`. For more information about multiple styles in
-a paragraph, see [Add multiple styles in a paragraph](https://developer.android.com/develop/ui/compose/text/style-paragraph#multiple-paragraph-styles).
+a paragraph, see [Add multiple styles in a paragraph](https://developer.android.com/develop/ui/compose/text/style-paragraph.md.txt#multiple-paragraph-styles).
 
 `AnnotatedString` has a [type-safe
 builder](https://kotlinlang.org/docs/reference/type-safe-builders.html)
-to make it easier to create: [`buildAnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/package-summary#buildAnnotatedString(kotlin.Function1)).
+to make it easier to create: [`buildAnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/package-summary.md.txt#buildAnnotatedString(kotlin.Function1)).
 
 
 ```kotlin
@@ -156,7 +156,7 @@ fun MultipleStylesInText() {
 
 ### Display HTML with links in text
 
-Use [`AnnotatedString.fromHtml()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.Companion#(androidx.compose.ui.text.AnnotatedString.Companion).fromHtml(kotlin.String,androidx.compose.ui.text.TextLinkStyles,androidx.compose.ui.text.LinkInteractionListener)) to display HTML-formatted text with
+Use [`AnnotatedString.fromHtml()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.Companion.md.txt#(androidx.compose.ui.text.AnnotatedString.Companion).fromHtml(kotlin.String,androidx.compose.ui.text.TextLinkStyles,androidx.compose.ui.text.LinkInteractionListener)) to display HTML-formatted text with
 clickable links in your Jetpack Compose application. This function converts a
 string with HTML tags into an `AnnotatedString`, allowing for styling and link
 handling.
@@ -199,12 +199,12 @@ fun AnnotatedHtmlStringWithLink(
 ##### Key points about the code
 
 - `AnnotatedString.fromHtml()` converts the `htmlText` string into an
-  [`AnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString). The `linkStyles` parameter customizes link appearance.
+  [`AnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.md.txt). The `linkStyles` parameter customizes link appearance.
 
 - `TextLinkStyles` defines the style for links within the HTML. `SpanStyle` sets
   text decoration, font style, and color for the links.
 
-- The [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/Text.composable#Text(androidx.compose.ui.text.AnnotatedString,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.collections.Map,kotlin.Function1,androidx.compose.ui.text.TextStyle)) composable displays the resulting `AnnotatedString`.
+- The [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/Text.composable.md.txt#Text(androidx.compose.ui.text.AnnotatedString,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.collections.Map,kotlin.Function1,androidx.compose.ui.text.TextStyle)) composable displays the resulting `AnnotatedString`.
 
 ##### Result
 
@@ -216,14 +216,14 @@ underline, and italics.](https://developer.android.com/static/develop/ui/compose
 
 ## Enable advanced styling with `Brush`
 
-To enable more advanced text styling, you can use the [`Brush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush) API with
-[`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle) and [`SpanStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/SpanStyle). In any place where you would typically
+To enable more advanced text styling, you can use the [`Brush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush.md.txt) API with
+[`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.md.txt) and [`SpanStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/SpanStyle.md.txt). In any place where you would typically
 use `TextStyle` or `SpanStyle`, you can now also use `Brush`.
 
 ### Use a brush for text styling
 
 Configure your text using a built-in brush within `TextStyle`. For example, you
-can configure a [`linearGradient`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush#linearGradient(kotlin.Array,androidx.compose.ui.geometry.Offset,androidx.compose.ui.geometry.Offset,androidx.compose.ui.graphics.TileMode)) brush to your text as follows:
+can configure a [`linearGradient`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush.md.txt#linearGradient(kotlin.Array,androidx.compose.ui.geometry.Offset,androidx.compose.ui.geometry.Offset,androidx.compose.ui.graphics.TileMode)) brush to your text as follows:
 
 
 ```kotlin
@@ -245,22 +245,22 @@ Text(
 
 You are not limited to this particular color scheme or style of coloring. While
 we have provided a simple example to highlight, use any of the built-in
-[brushes](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush) or even just a [`SolidColor`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/SolidColor) to enhance your text.
+[brushes](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush.md.txt) or even just a [`SolidColor`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/SolidColor.md.txt) to enhance your text.
 
 ### Integrations
 
 Since you can use `Brush` alongside both `TextStyle` and `SpanStyle`,
-integration with [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable#TextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors)) and [`buildAnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/package-summary#buildAnnotatedString(kotlin.Function1)) is seamless.
+integration with [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable.md.txt#TextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors)) and [`buildAnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/package-summary.md.txt#buildAnnotatedString(kotlin.Function1)) is seamless.
 
 For more information about using the brush API within a `TextField`, see
-[Style input with Brush API](https://developer.android.com/develop/ui/compose/text/user-input#style-input).
+[Style input with Brush API](https://developer.android.com/develop/ui/compose/text/user-input.md.txt#style-input).
 
 #### Additional styling using `SpanStyle`
 
 ##### Apply a brush to a span of text
 
 If you only want to apply a brush to parts of your text, use
-[`buildAnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/package-summary#buildAnnotatedString(kotlin.Function1)) and the [`SpanStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/SpanStyle) API, along with your brush
+[`buildAnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/package-summary.md.txt#buildAnnotatedString(kotlin.Function1)) and the [`SpanStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/SpanStyle.md.txt) API, along with your brush
 and gradient of choice.
 
 
@@ -288,7 +288,7 @@ Text(
 
 ##### Opacity in a span of text
 
-To adjust the opacity of a particular span of text, use [`SpanStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/SpanStyle)'s
+To adjust the opacity of a particular span of text, use [`SpanStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/SpanStyle.md.txt)'s
 optional `alpha` parameter. Use the same brush for
 both parts of a text, and change the alpha parameter in the corresponding span.
 In the code sample, the first span of text displays at half opacity
@@ -322,7 +322,7 @@ buildAnnotatedString {
 
 ## Apply marquee effect to text
 
-You can apply the [`basicMarquee`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).basicMarquee(kotlin.Int,androidx.compose.foundation.MarqueeAnimationMode,kotlin.Int,kotlin.Int,androidx.compose.foundation.MarqueeSpacing,androidx.compose.ui.unit.Dp)) modifier to any composable to
+You can apply the [`basicMarquee`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).basicMarquee(kotlin.Int,androidx.compose.foundation.MarqueeAnimationMode,kotlin.Int,kotlin.Int,androidx.compose.foundation.MarqueeSpacing,androidx.compose.ui.unit.Dp)) modifier to any composable to
 produce an animated scrolling effect. The marquee effect occurs if the content
 is too wide to fit in the available constraints. By default, `basicMarquee` has
 certain configurations (such as velocity and initial delay) set, but you can
@@ -353,11 +353,11 @@ fun BasicMarqueeSample() {
 
 - [Brushing Up on Compose Text Coloring](https://medium.com/androiddevelopers/brushing-up-on-compose-text-coloring-84d7d70dd8fa)
 - [Animating brush Text coloring in Compose](https://medium.com/androiddevelopers/animating-brush-text-coloring-in-compose-%EF%B8%8F-26ae99d9b402)
-- [Support multiple links in a single string of text](https://developer.android.com/develop/ui/compose/quick-guides/content/support-multiple-links)
+- [Support multiple links in a single string of text](https://developer.android.com/develop/ui/compose/quick-guides/content/support-multiple-links.md.txt)
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Style paragraph](https://developer.android.com/develop/ui/compose/text/style-paragraph)
-- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material)
-- [Graphics Modifiers](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers)
+- [Style paragraph](https://developer.android.com/develop/ui/compose/text/style-paragraph.md.txt)
+- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material.md.txt)
+- [Graphics Modifiers](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers.md.txt)

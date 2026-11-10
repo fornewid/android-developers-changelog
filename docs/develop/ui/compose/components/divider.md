@@ -8,8 +8,8 @@ source: md.txt
 containers. You can implement dividers in your app using the `HorizontalDivider`
 and `VerticalDivider` composables.
 
-- [`HorizontalDivider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/HorizontalDivider.composable#HorizontalDivider(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color)): Separate items in a column.
-- [`VerticalDivider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/VerticalDivider.composable#VerticalDivider(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color)): Separate items in a row.
+- [`HorizontalDivider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/HorizontalDivider.composable.md.txt#HorizontalDivider(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color)): Separate items in a column.
+- [`VerticalDivider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/VerticalDivider.composable.md.txt#VerticalDivider(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color)): Separate items in a row.
 
 ## API surface
 
@@ -76,6 +76,6 @@ This implementation renders a thin vertical line between two text components:
 
 ## Additional resources
 
-- [`HorizontalDivider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/HorizontalDivider.composable#HorizontalDivider(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color))
-- [`VerticalDivider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/VerticalDivider.composable#VerticalDivider(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color))
+- [`HorizontalDivider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/HorizontalDivider.composable.md.txt#HorizontalDivider(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color))
+- [`VerticalDivider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/VerticalDivider.composable.md.txt#VerticalDivider(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color))
 - [Material Design - Dividers](https://m3.material.io/components/divider)

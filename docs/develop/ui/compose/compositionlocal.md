@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/compose/compositionlocal
 source: md.txt
 ---
 
-[`CompositionLocal`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal) is a tool for
+[`CompositionLocal`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal.md.txt) is a tool for
 passing data down through the Composition implicitly. In this page, you'll
 learn what a `CompositionLocal` is in more detail, how to create your own
 `CompositionLocal`, and know if a `CompositionLocal` is a good solution for
@@ -12,7 +12,7 @@ your use case.
 
 ## Introduction to `CompositionLocal`
 
-Usually in Compose, [data flows down](https://developer.android.com/develop/ui/compose/architecture) through
+Usually in Compose, [data flows down](https://developer.android.com/develop/ui/compose/architecture.md.txt) through
 the UI tree as parameters to each composable function. This makes a composable's
 dependencies explicit. However, this can be cumbersome for data that is very
 frequently and widely used, such as colors or type styles. See the following
@@ -39,7 +39,7 @@ fun SomeTextLabel(labelText: String) {
 <br />
 
 To support not needing to pass the colors as an explicit parameter dependency to
-most composables, **Compose offers [`CompositionLocal`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal), which allows you
+most composables, **Compose offers [`CompositionLocal`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal.md.txt), which allows you
 to create tree-scoped named objects that can be used as an implicit way to have
 data flow through the UI tree.**
 
@@ -55,7 +55,7 @@ interchangeably in other guides, they have different meanings:
 - The **UI tree** or **UI hierarchy** is the tree of [`LayoutNode`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/LayoutNode.kt) constructed, updated, and maintained by the composition process.
 
 `CompositionLocal` is what the Material theme uses under the hood.
-[`MaterialTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MaterialTheme) is
+[`MaterialTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MaterialTheme.md.txt) is
 an object that provides three `CompositionLocal` instances: `colorScheme`,
 `typography` and `shapes`, allowing you to retrieve them later in any descendant
 part of the Composition.
@@ -91,20 +91,20 @@ fun SomeTextLabel(labelText: String) {
 <br />
 
 A **`CompositionLocal` instance is scoped to a part of the Composition** so you
-can provide different values at different levels of the tree. The [`current`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal#current()) value
+can provide different values at different levels of the tree. The [`current`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal.md.txt#current()) value
 of a `CompositionLocal` corresponds to the closest value provided by an
 ancestor in that part of the Composition.
 
 **To provide a new value to a `CompositionLocal`, use the
-[`CompositionLocalProvider`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocalProvider.composable#CompositionLocalProvider(kotlin.Array,kotlin.Function0))**
-and its [`provides`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/ProvidableCompositionLocal#provides(kotlin.Any))
+[`CompositionLocalProvider`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocalProvider.composable.md.txt#CompositionLocalProvider(kotlin.Array,kotlin.Function0))**
+and its [`provides`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/ProvidableCompositionLocal.md.txt#provides(kotlin.Any))
 infix function that associates a `CompositionLocal` key to a `value`. The
 `content` lambda of the `CompositionLocalProvider` will get the provided
 value when accessing the `current` property of the `CompositionLocal`. When a
 new value is provided, Compose recomposes parts of the Composition that read
 the `CompositionLocal`.
 
-As an example of this, the [`LocalContentColor`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#LocalContentColor()) `CompositionLocal` contains
+As an example of this, the [`LocalContentColor`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#LocalContentColor()) `CompositionLocal` contains
 the preferred content color used for text and
 iconography to ensure it contrasts against the current background color. In the
 following example, `CompositionLocalProvider` is used to provide different
@@ -146,9 +146,9 @@ fun DescendantExample() {
 
 In the last example, the `CompositionLocal` instances were internally used
 by Material composables. To access the current value of a `CompositionLocal`,
-use its [`current`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal#current())
-property. In the following example, the current [`Context`](https://developer.android.com/reference/android/content/Context) value of the
-[`LocalContext`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalContext()) `CompositionLocal` that is commonly used in Android apps is
+use its [`current`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal.md.txt#current())
+property. In the following example, the current [`Context`](https://developer.android.com/reference/android/content/Context.md.txt) value of the
+[`LocalContext`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary.md.txt#LocalContext()) `CompositionLocal` that is commonly used in Android apps is
 used to format the text:
 
 
@@ -194,7 +194,7 @@ Furthermore, there might be no clear source of truth for this dependency as it
 can mutate in any part of the Composition. Thus, **debugging the app when a
 problem occurs can be more challenging** as you need to navigate up the
 Composition to see where the `current` value was provided. Tools such as *Find
-usages* in the IDE or the [Compose layout inspector](https://developer.android.com/develop/ui/compose/tooling#layout-inspector) provide enough
+usages* in the IDE or the [Compose layout inspector](https://developer.android.com/develop/ui/compose/tooling.md.txt#layout-inspector) provide enough
 information to mitigate this issue.
 
 > [!NOTE]
@@ -217,7 +217,7 @@ sub-hierarchy scoped*** . A `CompositionLocal` makes sense when it can be
 potentially used by any descendant, not by a few of them.
 
 If your use case doesn't meet these requirements, check out the
-[Alternatives to consider](https://developer.android.com/develop/ui/compose/compositionlocal#alternatives) section before creating a
+[Alternatives to consider](https://developer.android.com/develop/ui/compose/compositionlocal.md.txt#alternatives) section before creating a
 `CompositionLocal`.
 
 An example of a bad practice is creating a `CompositionLocal` that holds the
@@ -226,19 +226,19 @@ get a reference to the `ViewModel` to perform some logic. This is a bad practice
 because not all composables below a particular UI tree need to know about a
 `ViewModel`. The good practice is to pass to composables only the information
 that they need following the pattern that
-[state flows down and events flow up](https://developer.android.com/develop/ui/compose/architecture).
+[state flows down and events flow up](https://developer.android.com/develop/ui/compose/architecture.md.txt).
 This approach will make your composables more reusable and easier to test.
 
 ### Create a `CompositionLocal`
 
 There are two APIs to create a `CompositionLocal`:
 
-- [`compositionLocalOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#compositionLocalOf(androidx.compose.runtime.SnapshotMutationPolicy,kotlin.Function0)):
+- [`compositionLocalOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary.md.txt#compositionLocalOf(androidx.compose.runtime.SnapshotMutationPolicy,kotlin.Function0)):
   Changing the value provided during recomposition invalidates *only*
   the content that reads its
-  [`current`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal#current()) value.
+  [`current`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal.md.txt#current()) value.
 
-- [`staticCompositionLocalOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#staticCompositionLocalOf(kotlin.Function0)):
+- [`staticCompositionLocalOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary.md.txt#staticCompositionLocalOf(kotlin.Function0)):
   Unlike `compositionLocalOf`, reads of a `staticCompositionLocalOf` are not
   tracked by Compose. Changing the value causes the entirety of the `content`
   lambda where the `CompositionLocal` is provided to be recomposed, instead of
@@ -268,10 +268,10 @@ val LocalElevations = compositionLocalOf { Elevations() }
 
 ### Provide values to a `CompositionLocal`
 
-**The [`CompositionLocalProvider`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocalProvider.composable#CompositionLocalProvider(kotlin.Array,kotlin.Function0))
+**The [`CompositionLocalProvider`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocalProvider.composable.md.txt#CompositionLocalProvider(kotlin.Array,kotlin.Function0))
 composable binds values to `CompositionLocal` instances for the given
 hierarchy** . To provide a new value to a `CompositionLocal`, use the
-[`provides`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/ProvidableCompositionLocal#provides(kotlin.Any))
+[`provides`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/ProvidableCompositionLocal.md.txt#provides(kotlin.Any))
 infix function that associates a `CompositionLocal` key to a `value` as follows:
 
 
@@ -305,7 +305,7 @@ class MyActivity : ComponentActivity() {
 
 ### Consuming the `CompositionLocal`
 
-[`CompositionLocal.current`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/ProvidableCompositionLocal#current()) returns the value provided by the nearest
+[`CompositionLocal.current`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/ProvidableCompositionLocal.md.txt#current()) returns the value provided by the nearest
 `CompositionLocalProvider` that provides a value to that `CompositionLocal`:
 
 
@@ -453,6 +453,6 @@ fun ReusablePartOfTheScreen(content: @Composable () -> Unit) {
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Anatomy of a theme in Compose](https://developer.android.com/develop/ui/compose/designsystems/anatomy)
-- [Using Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose)
-- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin)
+- [Anatomy of a theme in Compose](https://developer.android.com/develop/ui/compose/designsystems/anatomy.md.txt)
+- [Using Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose.md.txt)
+- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin.md.txt)

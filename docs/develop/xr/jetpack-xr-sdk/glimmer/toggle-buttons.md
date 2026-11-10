@@ -7,11 +7,11 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
-In Jetpack Compose Glimmer, a [`ToggleButton`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ToggleButton.composable) is an interactive component
+In Jetpack Compose Glimmer, a [`ToggleButton`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ToggleButton.composable.md.txt) is an interactive component
 that changes its appearance based on a checked state. Toggle buttons are
 optimized for display glasses to provide clear visual transitions in shape and
 color. These transitions indicate when an action or setting is active.
@@ -31,7 +31,7 @@ with optional icons.
 | Part | Description |
 |---|---|
 | Container | Animates between a circular shape (unchecked) and a rounded rectangle (checked). |
-| Label | Typically a [`Text`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Text.composable) composable. |
+| Label | Typically a [`Text`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Text.composable.md.txt) composable. |
 | Icons (optional) | Leading or trailing slots that can vary based on state. |
 
 ## Sizes
@@ -48,14 +48,14 @@ Like [standard buttons](https://developer.android.com/develop/xr/jetpack-xr-sdk/
 By default, toggle buttons use `ToggleButtonDefaults.animateShape`. This creates
 a smooth transition between the following states:
 
-- **Unchecked** : [`GlimmerTheme.shapes.large`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Shapes#large()) (typically a [`CircleShape`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/shape/package-summary#CircleShape())).
-- **Checked** : `ToggleButtonDefaults.CheckedShape` (a [`RoundedCornerShape`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/shape/package-summary#RoundedCornerShape(androidx.compose.ui.unit.Dp)) with `20.dp` corners).
+- **Unchecked** : [`GlimmerTheme.shapes.large`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Shapes.md.txt#large()) (typically a [`CircleShape`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/shape/package-summary.md.txt#CircleShape())).
+- **Checked** : `ToggleButtonDefaults.CheckedShape` (a [`RoundedCornerShape`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/shape/package-summary.md.txt#RoundedCornerShape(androidx.compose.ui.unit.Dp)) with `20.dp` corners).
 
 The `ToggleButtonColors` class manages color resolution for the following
 states:
 
-- **Unchecked** : Defaults to [`GlimmerTheme.colors.surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors#surface()).
-- **Checked** : Defaults to [`GlimmerTheme.colors.surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors#outline()).
+- **Unchecked** : Defaults to [`GlimmerTheme.colors.surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors.md.txt#surface()).
+- **Checked** : Defaults to [`GlimmerTheme.colors.surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors.md.txt#outline()).
 
 ### Animation
 
@@ -64,7 +64,7 @@ Toggle buttons use the following defaults for animation:
 - `animateShape`: Provides a `Shape` that interpolates corner sizes using a spring animation spec (`stiffness = 600f`).
 - `colors`: A factory function to customize the background and content colors for both states.
 - `CheckedShape`: A static `RoundedCornerShape(20.dp)` used for the checked state.
-- `contentPadding`: Inherits from [`ButtonDefaults.contentPadding`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ButtonDefaults#contentPadding(androidx.xr.glimmer.ButtonSize)).
+- `contentPadding`: Inherits from [`ButtonDefaults.contentPadding`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ButtonDefaults.md.txt#contentPadding(androidx.xr.glimmer.ButtonSize)).
 
 ## Example: Toggle button
 

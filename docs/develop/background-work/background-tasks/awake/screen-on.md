@@ -13,7 +13,7 @@ you can use a Compose modifier or set a flag to manually keep the screen on.
 
 ## Keep the screen on in Compose
 
-If your app uses Jetpack Compose, apply the [`keepScreenOn`](https://developer.android.com/reference/kotlin/androidx/compose/ui/keepScreenOn.modifier) modifier to a
+If your app uses Jetpack Compose, apply the [`keepScreenOn`](https://developer.android.com/reference/kotlin/androidx/compose/ui/keepScreenOn.modifier.md.txt) modifier to a
 composable. The modifier is available in Compose UI 1.9.0 and higher. The screen
 stays on as long as the modifier is part of the composition. When no composable
 uses the modifier, Compose stops keeping the screen on automatically.
@@ -37,14 +37,14 @@ fun VideoPlayer(isPlaying: Boolean, modifier: Modifier = Modifier) {
 
 <br />
 
-The modifier sets the same view property as the [`android:keepScreenOn`](https://developer.android.com/reference/android/R.attr#keepScreenOn)
+The modifier sets the same view property as the [`android:keepScreenOn`](https://developer.android.com/reference/android/R.attr.md.txt#keepScreenOn)
 attribute described in the next section, so it keeps the screen on only while
-your app's window is visible. It doesn't clear a [`FLAG_KEEP_SCREEN_ON`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_KEEP_SCREEN_ON)
+your app's window is visible. It doesn't clear a [`FLAG_KEEP_SCREEN_ON`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.md.txt#FLAG_KEEP_SCREEN_ON)
 flag that your app sets on the window.
 
 ## Manually keep the screen on
 
-To keep the device's screen on, set the [`FLAG_KEEP_SCREEN_ON`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_KEEP_SCREEN_ON) flag in your
+To keep the device's screen on, set the [`FLAG_KEEP_SCREEN_ON`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.md.txt#FLAG_KEEP_SCREEN_ON) flag in your
 activity. This flag may only be set in an activity, never in a service or other
 app component. For example:
 
@@ -63,7 +63,7 @@ class MainActivity : Activity() {
 <br />
 
 Another way to keep the screen on is by setting the
-the [`android:keepScreenOn`](https://developer.android.com/reference/android/R.attr#keepScreenOn) attribute
+the [`android:keepScreenOn`](https://developer.android.com/reference/android/R.attr.md.txt#keepScreenOn) attribute
 in your application's layout XML file:
 
 ```xml
@@ -76,7 +76,7 @@ in your application's layout XML file:
 ```
 
 Using `android:keepScreenOn="true"` is equivalent to using
-[`FLAG_KEEP_SCREEN_ON`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_KEEP_SCREEN_ON).
+[`FLAG_KEEP_SCREEN_ON`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.md.txt#FLAG_KEEP_SCREEN_ON).
 You can use whichever approach is best for your app. The advantage of setting
 the flag programmatically in your activity is that it gives you the option of
 programmatically clearing the flag later and thereby allowing the screen to turn
@@ -86,16 +86,16 @@ If an app with the `FLAG_KEEP_SCREEN_ON` flag goes into the background, the
 system allows the screen to turn off normally. You don't need to explicitly
 clear the flag in this case. If your app no longer needs to keep the screen on,
 you should clear the flag. by calling
-[`clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)`](https://developer.android.com/reference/android/view/Window#clearFlags(int)).
+[`clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)`](https://developer.android.com/reference/android/view/Window.md.txt#clearFlags(int)).
 
 ### Ambient Mode for TV
 
-On TV devices, use [`FLAG_KEEP_SCREEN_ON`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_KEEP_SCREEN_ON) to prevent the device from going
-into [Ambient Mode](https://developer.android.com/training/tv/playback/ambient-mode) during active video playback. If the foreground activity
+On TV devices, use [`FLAG_KEEP_SCREEN_ON`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.md.txt#FLAG_KEEP_SCREEN_ON) to prevent the device from going
+into [Ambient Mode](https://developer.android.com/training/tv/playback/ambient-mode.md.txt) during active video playback. If the foreground activity
 does not set `FLAG_KEEP_SCREEN_ON`, the device automatically enters Ambient Mode
 after a period of inactivity.
 
 ## See also
 
-- [Keep the device awake](https://developer.android.com/develop/background-work/background-tasks/awake)
-- [Use wake locks](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock)
+- [Keep the device awake](https://developer.android.com/develop/background-work/background-tasks/awake.md.txt)
+- [Use wake locks](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock.md.txt)

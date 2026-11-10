@@ -7,7 +7,7 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices.md.txt#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
@@ -17,46 +17,46 @@ rendered only when spatialization is enabled. In Home Space or on non-XR
 devices, any code within that subspace is ignored.
 
 For more information about spatial layouts and the components you can use within
-a subspace, see [spatialized components](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/components).
+a subspace, see [spatialized components](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/components.md.txt).
 
 ## About subspace hierarchies
 
-The top-level [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1)) is the outermost subspace invoked by your app.
+The top-level [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable.md.txt#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1)) is the outermost subspace invoked by your app.
 Each call to a `Subspace` method creates a new, independent Spatial UI
 hierarchy. It doesn't inherit the spatial position, orientation, or scale of any
 parent `Subspace` it is nested within.
 
 To create an embedded or nested `Subspace` within a `SpatialPanel`, `Orbiter`,
-`SpatialPopup`, or other component, use [`PlanarEmbeddedSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/PlanarEmbeddedSubspace.composable#PlanarEmbeddedSubspace(kotlin.Function1)).
+`SpatialPopup`, or other component, use [`PlanarEmbeddedSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/PlanarEmbeddedSubspace.composable.md.txt#PlanarEmbeddedSubspace(kotlin.Function1)).
 
-[`PlanarEmbeddedSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/PlanarEmbeddedSubspace.composable#PlanarEmbeddedSubspace(kotlin.Function1)) has two key differences from [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1)):
+[`PlanarEmbeddedSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/PlanarEmbeddedSubspace.composable.md.txt#PlanarEmbeddedSubspace(kotlin.Function1)) has two key differences from [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable.md.txt#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1)):
 
 - They participate in the 2D layout in which they are invoked. This means that the height and width of the subspace will be constrained by the height and width of its 2D parent layout.
-- They behave as children of the entity they're invoked in. This means that, if you call a subspace composable nested inside of a [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,androidx.xr.compose.subspace.layout.InteractionPolicy,kotlin.Function0)), that subspace is a child of the [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,androidx.xr.compose.subspace.layout.InteractionPolicy,kotlin.Function0)) it's called in.
+- They behave as children of the entity they're invoked in. This means that, if you call a subspace composable nested inside of a [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable.md.txt#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,androidx.xr.compose.subspace.layout.InteractionPolicy,kotlin.Function0)), that subspace is a child of the [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable.md.txt#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,androidx.xr.compose.subspace.layout.InteractionPolicy,kotlin.Function0)) it's called in.
 
-These behaviors of [`PlanarEmbeddedSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/PlanarEmbeddedSubspace.composable#PlanarEmbeddedSubspace(kotlin.Function1)) enable capabilities such as:
+These behaviors of [`PlanarEmbeddedSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/PlanarEmbeddedSubspace.composable.md.txt#PlanarEmbeddedSubspace(kotlin.Function1)) enable capabilities such as:
 
 - Moving the child with the parent entity
-- Offsetting the location of the child using the offset [`SubspaceModifier`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier)
+- Offsetting the location of the child using the offset [`SubspaceModifier`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier.md.txt)
 - Presenting a 3D object that hovers above your 2D UI and matches the height and width of the appropriate space in the 2D layout
 
 ## Adapt layouts for a subspace
 
 On Android XR, your app's layout is bound to the `VolumeConstraints` of
-[`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1)) in Full Space Mode by default. Because of this, you should
+[`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable.md.txt#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1)) in Full Space Mode by default. Because of this, you should
 consider the amount of visible space available to the user and adjust your
-layout accordingly. The [`recommendedContentBoxInFullSpace`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ActivitySpace#recommendedContentBoxInFullSpace()) provides the
-specific dimensions for the bounding box inside the [`ActivitySpace`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ActivitySpace) so that
+layout accordingly. The [`recommendedContentBoxInFullSpace`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ActivitySpace.md.txt#recommendedContentBoxInFullSpace()) provides the
+specific dimensions for the bounding box inside the [`ActivitySpace`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ActivitySpace.md.txt) so that
 content can be placed within the user's field of view.
 
 Your app's primary content should fit within this box. If you have content that
 must exceed the recommended bounds, consider a layout that encourages users to
 explore the space by moving their head. The default constraint of the
-[`recommendedContentBoxInFullSpace`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ActivitySpace#recommendedContentBoxInFullSpace()) can be overridden by applying a custom
+[`recommendedContentBoxInFullSpace`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ActivitySpace.md.txt#recommendedContentBoxInFullSpace()) can be overridden by applying a custom
 size-based modifier such as `SubspaceModifier.requiredSizeIn`. For unbounded
 behavior, set `allowUnboundedSubspace = true`.
 
-Call [`recommendedContentBoxInFullSpace`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ActivitySpace#recommendedContentBoxInFullSpace()) using the current [Session](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session) to
+Call [`recommendedContentBoxInFullSpace`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ActivitySpace.md.txt#recommendedContentBoxInFullSpace()) using the current [Session](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session.md.txt) to
 get these specific dimensions as needed. See the following example:
 
 
@@ -69,8 +69,8 @@ session?.scene?.activitySpace?.recommendedContentBoxInFullSpace
 
 ## Add a subspace to your app
 
-The following code example shows how to add [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1)) and
-[`PlanarEmbeddedSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/PlanarEmbeddedSubspace.composable#PlanarEmbeddedSubspace(kotlin.Function1)) to your app:
+The following code example shows how to add [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable.md.txt#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1)) and
+[`PlanarEmbeddedSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/PlanarEmbeddedSubspace.composable.md.txt#PlanarEmbeddedSubspace(kotlin.Function1)) to your app:
 
 
 ```kotlin
@@ -108,5 +108,5 @@ private fun PrimaryPane() {
 
 <br />
 
-See the full reference documentation on [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1)) and
-[`PlanarEmbeddedSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/PlanarEmbeddedSubspace.composable#PlanarEmbeddedSubspace(kotlin.Function1)) for more details.
+See the full reference documentation on [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable.md.txt#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1)) and
+[`PlanarEmbeddedSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/PlanarEmbeddedSubspace.composable.md.txt#PlanarEmbeddedSubspace(kotlin.Function1)) for more details.

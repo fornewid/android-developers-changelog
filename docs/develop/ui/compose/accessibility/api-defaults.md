@@ -26,8 +26,8 @@ large enough for reliable interaction. When sizing these elements, make sure to
 set the minimum size to 48dp to correctly follow the [Material Design
 accessibility guidelines](https://m3.material.io/foundations/accessible-design/overview).
 
-Material components---like [`Checkbox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Checkbox.composable#Checkbox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource)), [`RadioButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/RadioButton.composable#RadioButton(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.RadioButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource)), [`Switch`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Switch.composable#Switch(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.SwitchColors,androidx.compose.foundation.interaction.MutableInteractionSource)),
-[`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable#Slider(kotlin.Float,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.ranges.ClosedFloatingPointRange,kotlin.Int,kotlin.Function0,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource)), and [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Surface.composable#Surface(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.BorderStroke,kotlin.Function0))---set this minimum size internally, but only
+Material components---like [`Checkbox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Checkbox.composable.md.txt#Checkbox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource)), [`RadioButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/RadioButton.composable.md.txt#RadioButton(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.RadioButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource)), [`Switch`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Switch.composable.md.txt#Switch(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.SwitchColors,androidx.compose.foundation.interaction.MutableInteractionSource)),
+[`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable.md.txt#Slider(kotlin.Float,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.ranges.ClosedFloatingPointRange,kotlin.Int,kotlin.Function0,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource)), and [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Surface.composable.md.txt#Surface(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.BorderStroke,kotlin.Function0))---set this minimum size internally, but only
 when the component can receive user actions. For example, when a `Checkbox` has
 its `onCheckedChange` parameter set to a non-null value, the checkbox includes
 padding to have a width and height of at least 48 dp.
@@ -154,7 +154,7 @@ private fun LargeBox() {
 ![The very small box from the previous example is increased in size to create a larger touch target.](https://developer.android.com/static/develop/ui/compose/images/a11y-larger-inner-box.png) **Figure 5.** A larger box touch target.
 
 If the element must keep a smaller visible size, use the
-[`minimumInteractiveComponentSize`](https://developer.android.com/reference/kotlin/androidx/compose/material3/minimumInteractiveComponentSize.modifier#(androidx.compose.ui.Modifier).minimumInteractiveComponentSize()) modifier from Material 3 instead. It
+[`minimumInteractiveComponentSize`](https://developer.android.com/reference/kotlin/androidx/compose/material3/minimumInteractiveComponentSize.modifier.md.txt#(androidx.compose.ui.Modifier).minimumInteractiveComponentSize()) modifier from Material 3 instead. It
 reserves at least 48 dp of layout space in each dimension and centers the
 element in that space, so the element keeps its drawn size and the elements
 around it move to make room. The modifier doesn't expand the touch target
@@ -185,7 +185,7 @@ private fun MinimumInteractiveBox() {
 
 ## Graphic elements
 
-When you define an [`Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Image.composable#Image(androidx.compose.ui.graphics.ImageBitmap,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale,kotlin.Float,androidx.compose.ui.graphics.ColorFilter,androidx.compose.ui.graphics.FilterQuality)) or [`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Icon.composable#Icon(androidx.compose.ui.graphics.ImageBitmap,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color)) composable, there is no
+When you define an [`Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Image.composable.md.txt#Image(androidx.compose.ui.graphics.ImageBitmap,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale,kotlin.Float,androidx.compose.ui.graphics.ColorFilter,androidx.compose.ui.graphics.FilterQuality)) or [`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Icon.composable.md.txt#Icon(androidx.compose.ui.graphics.ImageBitmap,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color)) composable, there is no
 automatic way for the Android framework to understand what the app is
 displaying. You need to pass a textual description of the graphic element.
 
@@ -239,7 +239,7 @@ private fun PostImage(post: Post, modifier: Modifier = Modifier) {
 
 <br />
 
-[`contentDescription`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).contentDescription()) is mainly meant to be used for graphic elements,
+[`contentDescription`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).contentDescription()) is mainly meant to be used for graphic elements,
 such as images. Material components, like `Button` or `Text`, and actionable
 behaviors, like `clickable` or `toggleable`, come with other predefined
 semantics that describe their intrinsic behavior, and can be changed through
@@ -248,7 +248,7 @@ other Compose APIs.
 ## Interactive elements
 
 Material and Foundation Compose APIs make UI elements that users can interact
-with through the [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/clickable.modifier#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) and [`toggleable`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).toggleable(kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) modifier APIs. Because
+with through the [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/clickable.modifier.md.txt#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) and [`toggleable`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).toggleable(kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) modifier APIs. Because
 interactable components might consist of multiple elements, `clickable` and
 `toggleable` merge their children's semantics by default, so that the component
 is treated as one logical entity.
@@ -259,7 +259,7 @@ text. Instead of treating the children as individuals, a Material
 services can group them accordingly:
 ![Buttons with unmerged versus merged children semantics.](https://developer.android.com/static/develop/ui/compose/images/buttons_unmerged_merged.png) **Figure 7.** Buttons with unmerged versus merged children semantics.
 
-Similarly, using the [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/clickable.modifier#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) modifier also causes a composable to
+Similarly, using the [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/clickable.modifier.md.txt#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) modifier also causes a composable to
 merge its descendants' semantics into a single entity, which is sent to
 accessibility services with a corresponding action representation:
 
@@ -327,7 +327,7 @@ Row(
 In some cases, you may not have direct access to the `clickable` modifier (for
 example, when it's set somewhere in a lower nested layer),but still want to
 change the announcement label from the default. To do this, split setting the
-`clickable` from modifying the announcement by using the [`semantics`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/semantics.modifier#(androidx.compose.ui.Modifier).semantics(kotlin.Boolean,kotlin.Function1))
+`clickable` from modifying the announcement by using the [`semantics`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/semantics.modifier.md.txt#(androidx.compose.ui.Modifier).semantics(kotlin.Boolean,kotlin.Function1))
 modifier and setting the click label there, to modify the action representation:
 
 
@@ -363,7 +363,7 @@ the click label is taken from the second semantics modifier
 `onClick(label = "Open this document")` because it wasn't present in the first.
 
 You might run into scenarios where you expect children semantics to be merged
-into a parent one, but that doesn't happen. See [Merging and clearing](https://developer.android.com/develop/ui/compose/accessibility/merging-clearing)
+into a parent one, but that doesn't happen. See [Merging and clearing](https://developer.android.com/develop/ui/compose/accessibility/merging-clearing.md.txt)
 for more in-depth information.
 
 ## Custom components
@@ -371,9 +371,9 @@ for more in-depth information.
 When building a custom component, review the implementation of a
 similar component in the Material library or other Compose libraries. Then,
 mimic or modify its accessibility behavior as appropriate. For example, if you
-replace the Material [`Checkbox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Checkbox.composable#Checkbox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource)) with your own implementation, looking at
+replace the Material [`Checkbox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Checkbox.composable.md.txt#Checkbox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource)) with your own implementation, looking at
 the existing `Checkbox` implementation will remind you to add the
-[`triStateToggleable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/selection/triStateToggleable.modifier#(androidx.compose.ui.Modifier).triStateToggleable(androidx.compose.ui.state.ToggleableState,kotlin.Boolean,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) modifier, which
+[`triStateToggleable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/selection/triStateToggleable.modifier.md.txt#(androidx.compose.ui.Modifier).triStateToggleable(androidx.compose.ui.state.ToggleableState,kotlin.Boolean,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) modifier, which
 handles the accessibility
 properties for the component. Additionally, make heavy use of Foundation
 modifiers, as these include built-in accessibility considerations and existing
@@ -386,5 +386,5 @@ accessibility in custom components in the [API guidelines](https://github.com/an
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Accessibility in Compose](https://developer.android.com/reference/kotlin/androidx/compose/material3/Checkbox.composable#Checkbox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource))
-- [Testing your Compose layout](https://developer.android.com/reference/kotlin/androidx/compose/material3/RadioButton.composable#RadioButton(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.RadioButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource))
+- [Accessibility in Compose](https://developer.android.com/reference/kotlin/androidx/compose/material3/Checkbox.composable.md.txt#Checkbox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource))
+- [Testing your Compose layout](https://developer.android.com/reference/kotlin/androidx/compose/material3/RadioButton.composable.md.txt#RadioButton(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.RadioButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource))

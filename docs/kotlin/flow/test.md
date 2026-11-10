@@ -4,14 +4,14 @@ url: https://developer.android.com/kotlin/flow/test
 source: md.txt
 ---
 
-The way you test units or modules that communicate with [flow](https://developer.android.com/kotlin/flow)
+The way you test units or modules that communicate with [flow](https://developer.android.com/kotlin/flow.md.txt)
 depends on whether the subject under test uses the flow as input or output.
 
 - If the subject under test observes a flow, you can generate flows within fake dependencies that you can control from tests.
 - If the unit or module exposes a flow, you can read and verify one or multiple items emitted by a flow in the test.
 
 > [!NOTE]
-> **Note:** The [Testing Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines/test) page describes the basics of working with the coroutine testing APIs.
+> **Note:** The [Testing Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines/test.md.txt) page describes the basics of working with the coroutine testing APIs.
 
 ## Creating a fake producer
 
@@ -68,7 +68,7 @@ Now that you have control over the outputs of the subject under test, you can
 verify that it works correctly by checking its outputs.
 
 > [!NOTE]
-> **Note:** You can use a similar fake repository for bigger tests such as UI tests. Replacing modules for testing depends on how you inject dependencies. See the [Hilt testing guide](https://developer.android.com/training/dependency-injection/hilt-testing) to learn how to replace modules in tests using Hilt.
+> **Note:** You can use a similar fake repository for bigger tests such as UI tests. Replacing modules for testing depends on how you inject dependencies. See the [Hilt testing guide](https://developer.android.com/training/dependency-injection/hilt-testing.md.txt) to learn how to replace modules in tests using Hilt.
 
 ## Asserting flow emissions in a test
 
@@ -218,7 +218,7 @@ ensures that the coroutine gets cancelled before the end of the test. Otherwise,
 responding and eventually fail.
 
 Notice how
-[`UnconfinedTestDispatcher`](https://developer.android.com/kotlin/coroutines/test#unconfinedtestdispatcher)
+[`UnconfinedTestDispatcher`](https://developer.android.com/kotlin/coroutines/test.md.txt#unconfinedtestdispatcher)
 is used for the collecting coroutine here. This ensures that the collecting
 coroutine is launched eagerly and is ready to receive values after `launch`
 returns.
@@ -258,7 +258,7 @@ more details.
 
 ## Testing StateFlows
 
-[`StateFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow#stateflow) is an observable
+[`StateFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow.md.txt#stateflow) is an observable
 data holder, which can be collected to observe the values it holds over time as
 a stream. Note that this stream of values is conflated, which means that if
 values are set in a `StateFlow` rapidly, collectors of that `StateFlow` are not
@@ -295,7 +295,7 @@ class MyViewModel(private val myRepository: MyRepository) : ViewModel() {
 <br />
 
 > [!NOTE]
-> **Note:** This `ViewModel` implementation uses a `MutableStateFlow` directly. To test `StateFlow` instances created with `stateIn`, see [the next section](https://developer.android.com/kotlin/flow/test#statein).
+> **Note:** This `ViewModel` implementation uses a `MutableStateFlow` directly. To test `StateFlow` instances created with `stateIn`, see [the next section](https://developer.android.com/kotlin/flow/test.md.txt#statein).
 
 A fake implementation for this `Repository` might look like this:
 
@@ -399,7 +399,7 @@ fun testLazilySharingViewModel() = runTest {
 
 ## Additional resources
 
-- [Testing Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines/test)
-- [Kotlin flows on Android](https://developer.android.com/kotlin/flow)
-- [`StateFlow` and `SharedFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow)
+- [Testing Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines/test.md.txt)
+- [Kotlin flows on Android](https://developer.android.com/kotlin/flow.md.txt)
+- [`StateFlow` and `SharedFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow.md.txt)
 - [Testing coroutines](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/)

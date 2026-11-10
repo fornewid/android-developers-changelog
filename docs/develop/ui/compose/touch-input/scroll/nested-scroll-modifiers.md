@@ -29,15 +29,15 @@ parent element.
 
 Automatic nested scrolling is supported and provided out of the box by some of
 Compose's components and modifiers:
-[`verticalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)),
-[`horizontalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/horizontalScroll.modifier#(androidx.compose.ui.Modifier).horizontalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)),
-[`scrollable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/scrollable.modifier#(androidx.compose.ui.Modifier).scrollable(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource)),
+[`verticalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier.md.txt#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)),
+[`horizontalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/horizontalScroll.modifier.md.txt#(androidx.compose.ui.Modifier).horizontalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)),
+[`scrollable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/scrollable.modifier.md.txt#(androidx.compose.ui.Modifier).scrollable(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource)),
 `Lazy` APIs and `TextField`. This means that when the user scrolls an inner
 child of nested components, the previous modifiers propagate the scrolling
 deltas to the parents that have nested scrolling support.
 
 The following example shows elements with a
-[`verticalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean))
+[`verticalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier.md.txt#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean))
 modifier applied to them inside a container that also has a `verticalScroll`
 modifier applied to it.
 
@@ -82,7 +82,7 @@ private fun AutomaticNestedScroll() {
 
 If you need to create an advanced coordinated scroll between multiple elements,
 the
-[`nestedScroll`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/nestedScroll.modifier#(androidx.compose.ui.Modifier).nestedScroll(androidx.compose.ui.input.nestedscroll.NestedScrollConnection,androidx.compose.ui.input.nestedscroll.NestedScrollDispatcher))
+[`nestedScroll`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/nestedScroll.modifier.md.txt#(androidx.compose.ui.Modifier).nestedScroll(androidx.compose.ui.input.nestedscroll.NestedScrollConnection,androidx.compose.ui.input.nestedscroll.NestedScrollDispatcher))
 modifier gives you more flexibility by defining a nested scrolling hierarchy. As
 mentioned in the previous section, some components have built-in nested scroll
 support. However, for composables that aren't scrollable automatically, such as
@@ -157,7 +157,7 @@ with it, for example when you need to do something with the scroll deltas before
 a scrollable component even starts scrolling.
 
 If the nested scroll cycle is a system acting on a chain of nodes, the
-[`nestedScroll`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/nestedScroll.modifier#(androidx.compose.ui.Modifier).nestedScroll(androidx.compose.ui.input.nestedscroll.NestedScrollConnection,androidx.compose.ui.input.nestedscroll.NestedScrollDispatcher))
+[`nestedScroll`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/nestedScroll.modifier.md.txt#(androidx.compose.ui.Modifier).nestedScroll(androidx.compose.ui.input.nestedscroll.NestedScrollConnection,androidx.compose.ui.input.nestedscroll.NestedScrollDispatcher))
 modifier is a way of intercepting and inserting into these changes, and
 influencing the data (scroll deltas) that are propagated in the chain. This
 modifier can be placed anywhere in the hierarchy, and it communicates with
@@ -165,7 +165,7 @@ nested scroll modifier instances up the tree so it can share information through
 this channel. The building blocks of this modifier are `NestedScrollConnection`
 and `NestedScrollDispatcher`.
 
-[`NestedScrollConnection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollConnection)
+[`NestedScrollConnection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollConnection.md.txt)
 provides a way to respond to the phases of the nested scroll cycle and influence
 the nested scroll system. It's composed of four callback methods, each
 representing one of the consumption phases: pre/post-scroll and pre/post-fling:
@@ -218,10 +218,10 @@ val disabledNestedScrollConnection = remember {
 <br />
 
 All callbacks provide information on the
-[`NestedScrollSource`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollSource)
+[`NestedScrollSource`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollSource.md.txt)
 type.
 
-[`NestedScrollDispatcher`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollDispatcher)
+[`NestedScrollDispatcher`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollDispatcher.md.txt)
 initializes the nested scroll cycle. Using a dispatcher and calling its methods
 triggers the cycle. Scrollable containers have a built-in dispatcher that sends
 deltas captured during gestures into the system. For this reason, most use cases
@@ -238,7 +238,7 @@ changes size based on the scroll position.
 
 ### Resize an image based on scroll position
 
-This snippet demonstrates resizing an image within a [`LazyColumn`](https://developer.android.com/develop/ui/compose/lists) based on
+This snippet demonstrates resizing an image within a [`LazyColumn`](https://developer.android.com/develop/ui/compose/lists.md.txt) based on
 vertical scroll position. The image shrinks as the user scrolls down, and grows
 as they scroll up, remaining within the defined minimum and maximum size bounds:
 
@@ -313,11 +313,11 @@ fun ImageResizeOnScrollExample(
 
 ### Key points about the code
 
-- This code uses a [`NestedScrollConnection`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)) to intercept scroll events.
-- [`onPreScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/horizontalScroll.modifier#(androidx.compose.ui.Modifier).horizontalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)) calculates the change in image size based on the scroll delta.
+- This code uses a [`NestedScrollConnection`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier.md.txt#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)) to intercept scroll events.
+- [`onPreScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/horizontalScroll.modifier.md.txt#(androidx.compose.ui.Modifier).horizontalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)) calculates the change in image size based on the scroll delta.
 - The `currentImageSize` state variable stores the current size of the image, constrained between `minImageSize` and `maxImageSize. imageScale` derives from the `currentImageSize`.
-- The [`LazyColumn`](https://developer.android.com/develop/ui/compose/lists) offsets based on the `currentImageSize`.
-- The [`Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/ScrollState) uses a [`graphicsLayer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/rememberScrollState.composable#rememberScrollState(kotlin.Int)) modifier to apply the calculated scale.
+- The [`LazyColumn`](https://developer.android.com/develop/ui/compose/lists.md.txt) offsets based on the `currentImageSize`.
+- The [`Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/ScrollState.md.txt) uses a [`graphicsLayer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/rememberScrollState.composable.md.txt#rememberScrollState(kotlin.Int)) modifier to apply the calculated scale.
 - The `translationY` within the `graphicsLayer` ensures the image remains centered vertically as it scales.
 
 ### Result
@@ -337,14 +337,14 @@ This issue is a result of the expectations built in scrollable composables.
 Scrollable composables have a "nested-scroll-by-default" rule, which means that
 any scrollable container must participate in the nested scroll chain, both as a
 parent via
-[`NestedScrollConnection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollConnection),
+[`NestedScrollConnection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollConnection.md.txt),
 and as a child via
-[`NestedScrollDispatcher`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollDispatcher).
+[`NestedScrollDispatcher`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollDispatcher.md.txt).
 The child would then drive a nested scroll for the parent when the child is at
 the bound. As an example, this rule allows Compose `Pager` and Compose `LazyRow`
 to work well together. However, when interoperability scrolling is being done
 with `ViewPager2` or `RecyclerView`, since these don't implement
-[`NestedScrollingParent3`](https://developer.android.com/reference/kotlin/androidx/core/view/NestedScrollingParent3),
+[`NestedScrollingParent3`](https://developer.android.com/reference/kotlin/androidx/core/view/NestedScrollingParent3.md.txt),
 the continuous scrolling from child to parent is not possible.
 
 To enable nested scrolling interop API between scrollable `View` elements and
@@ -354,26 +354,26 @@ scrolling interop API to mitigate these issues, in the following scenarios.
 ### A cooperating parent `View` containing a child `ComposeView`
 
 A cooperating parent `View` is one that already implements
-[`NestedScrollingParent3`](https://developer.android.com/reference/kotlin/androidx/core/view/NestedScrollingParent3)
+[`NestedScrollingParent3`](https://developer.android.com/reference/kotlin/androidx/core/view/NestedScrollingParent3.md.txt)
 and therefore is able to receive scrolling deltas from a cooperating nested
 child composable. `ComposeView` would act as a child in this case and would
 need to (indirectly) implement
-[`NestedScrollingChild3`](https://developer.android.com/reference/kotlin/androidx/core/view/NestedScrollingChild3).
+[`NestedScrollingChild3`](https://developer.android.com/reference/kotlin/androidx/core/view/NestedScrollingChild3.md.txt).
 One example of a cooperating parent is
 `androidx.coordinatorlayout.widget.CoordinatorLayout`.
 
 If you need nested scrolling interoperability between scrollable `View` parent
 containers and nested scrollable child composables, you can use
-[`rememberNestedScrollInteropConnection()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#rememberNestedScrollInteropConnection()).
+[`rememberNestedScrollInteropConnection()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary.md.txt#rememberNestedScrollInteropConnection()).
 
-[`rememberNestedScrollInteropConnection()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#rememberNestedScrollInteropConnection())
+[`rememberNestedScrollInteropConnection()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary.md.txt#rememberNestedScrollInteropConnection())
 allows and remembers the
-[`NestedScrollConnection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollConnection)
+[`NestedScrollConnection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollConnection.md.txt)
 that enables nested scroll interoperability between a `View` parent that
 implements
-[`NestedScrollingParent3`](https://developer.android.com/reference/kotlin/androidx/core/view/NestedScrollingParent3)
+[`NestedScrollingParent3`](https://developer.android.com/reference/kotlin/androidx/core/view/NestedScrollingParent3.md.txt)
 and a Compose child. This should be used in conjunction with a
-[`nestedScroll`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/nestedScroll.modifier#(androidx.compose.ui.Modifier).nestedScroll(androidx.compose.ui.input.nestedscroll.NestedScrollConnection,androidx.compose.ui.input.nestedscroll.NestedScrollDispatcher))
+[`nestedScroll`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/nestedScroll.modifier.md.txt#(androidx.compose.ui.Modifier).nestedScroll(androidx.compose.ui.input.nestedscroll.NestedScrollConnection,androidx.compose.ui.input.nestedscroll.NestedScrollDispatcher))
 modifier. Since nested scrolling is enabled by default on the Compose side, you
 can use this connection to enable both nested scroll on the `View` side and add
 the necessary glue logic between `Views` and composables.
@@ -418,7 +418,7 @@ a child composable, shown in this example:
 
 In your Activity or Fragment, you need to set up your child composable and the
 required
-[`NestedScrollConnection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollConnection):
+[`NestedScrollConnection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollConnection.md.txt):
 
 
 ```kotlin
@@ -458,9 +458,9 @@ open class MainActivity : ComponentActivity() {
 This scenario covers the implementation of nested scrolling interop API on the
 Compose side - when you have a parent composable containing a child
 `AndroidView`. The `AndroidView` implements
-[`NestedScrollDispatcher`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollDispatcher),
+[`NestedScrollDispatcher`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollDispatcher.md.txt),
 since it acts as a child to a Compose scrolling parent, as well as
-[`NestedScrollingParent3`](https://developer.android.com/reference/kotlin/androidx/core/view/NestedScrollingParent3)
+[`NestedScrollingParent3`](https://developer.android.com/reference/kotlin/androidx/core/view/NestedScrollingParent3.md.txt)
 , since it acts as a parent to a `View` scrolling child. Compose parent will
 then be able to receive nested scroll deltas from a nested scrollable child
 `View`.
@@ -586,7 +586,7 @@ fun ViewInComposeNestedScrollInteropExample() {
 <br />
 
 And finally, this example shows how nested scrolling interop API is used with
-[`BottomSheetDialogFragment`](https://developer.android.com/reference/com/google/android/material/bottomsheet/BottomSheetDialogFragment)
+[`BottomSheetDialogFragment`](https://developer.android.com/reference/com/google/android/material/bottomsheet/BottomSheetDialogFragment.md.txt)
 to achieve a successful drag and dismiss behaviour:
 
 
@@ -628,9 +628,9 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 <br />
 
 Note that
-[`rememberNestedScrollInteropConnection()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#rememberNestedScrollInteropConnection())
+[`rememberNestedScrollInteropConnection()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary.md.txt#rememberNestedScrollInteropConnection())
 will install a
-[`NestedScrollConnection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollConnection)
+[`NestedScrollConnection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/NestedScrollConnection.md.txt)
 in the element you attach it to. `NestedScrollConnection` is responsible for
 transmitting the deltas from the Compose level to the `View` level. This enables
 the element to participate in nested scrolling, but it doesn't enable
@@ -653,12 +653,12 @@ box. Non-cooperating `Views` are `RecyclerView` and `ViewPager2`.
 
 ## Additional resources
 
-- [Create a button to enable snap scrolling](https://developer.android.com/develop/ui/compose/quick-guides/content/enable-snap-scrolling)
-- [Create a parallax scrolling effect](https://developer.android.com/develop/ui/compose/quick-guides/content/parallax-scrolling)
+- [Create a button to enable snap scrolling](https://developer.android.com/develop/ui/compose/quick-guides/content/enable-snap-scrolling.md.txt)
+- [Create a parallax scrolling effect](https://developer.android.com/develop/ui/compose/quick-guides/content/parallax-scrolling.md.txt)
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures)
-- [Migrate `CoordinatorLayout` to Compose](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/coordinator-layout)
-- [Using Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose)
+- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures.md.txt)
+- [Migrate `CoordinatorLayout` to Compose](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/coordinator-layout.md.txt)
+- [Using Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose.md.txt)

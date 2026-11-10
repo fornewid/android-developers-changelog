@@ -7,7 +7,7 @@ source: md.txt
 On devices running Android 8.0 (API level 26) and higher, companion device
 pairing performs a Bluetooth or Wi-Fi scan of nearby devices on behalf of your
 app without requiring the
-[`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
+[`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission.md.txt#ACCESS_FINE_LOCATION)
 permission. This helps maximize user privacy protections. Use this method to
 perform the initial configuration of the companion device, such as a BLE-capable
 smart watch. In addition, companion device pairing requires Location Services to
@@ -18,55 +18,57 @@ continuous scanning. Apps can use Bluetooth or Wi-Fi connectivity APIs to
 establish connections.
 
 After the device is paired, the device can use the
-[`REQUEST_COMPANION_RUN_IN_BACKGROUND`](https://developer.android.com/reference/android/Manifest.permission#REQUEST_COMPANION_RUN_IN_BACKGROUND)
+[`REQUEST_COMPANION_RUN_IN_BACKGROUND`](https://developer.android.com/reference/android/Manifest.permission.md.txt#REQUEST_COMPANION_RUN_IN_BACKGROUND)
 and
-[`REQUEST_COMPANION_USE_DATA_IN_BACKGROUND`](https://developer.android.com/reference/android/Manifest.permission#REQUEST_COMPANION_USE_DATA_IN_BACKGROUND)
+[`REQUEST_COMPANION_USE_DATA_IN_BACKGROUND`](https://developer.android.com/reference/android/Manifest.permission.md.txt#REQUEST_COMPANION_USE_DATA_IN_BACKGROUND)
 permissions to start the app from background. Apps can also use
-[`REQUEST_COMPANION_START_FOREGROUND_SERVICES_FROM_BACKGROUND`](https://developer.android.com/reference/android/Manifest.permission#REQUEST_COMPANION_START_FOREGROUND_SERVICES_FROM_BACKGROUND)
+[`REQUEST_COMPANION_START_FOREGROUND_SERVICES_FROM_BACKGROUND`](https://developer.android.com/reference/android/Manifest.permission.md.txt#REQUEST_COMPANION_START_FOREGROUND_SERVICES_FROM_BACKGROUND)
 permission to start a foreground service from background.
 
 A user can select a device from a list and grant the app permissions to access
 the device. These permissions are revoked if you uninstall the app or call
-[`disassociate()`](https://developer.android.com/reference/android/companion/CompanionDeviceManager#disassociate(java.lang.String)).
+[`disassociate()`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.md.txt#disassociate(java.lang.String)).
 The companion app is responsible for clearing its own associations if the user
 no longer needs them, such as when they log out or remove bound devices.
 
 ## Implement companion device pairing
 
-This section explains how use the [`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager) to pair your
+This section explains how use the [`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.md.txt) to pair your
 app with companion devices over Bluetooth, BLE, and Wi-Fi.
 
 ### Specify companion devices
 
 The following code sample shows how to add the
-[`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element) flag to a
+[`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt) flag to a
 manifest file. This tells the system that your app intends to set up companion
 devices.
 
-    <uses-feature android:name="android.software.companion_device_setup"/>
+```xml
+<uses-feature android:name="android.software.companion_device_setup"/>
+```
 
-### List devices by [`DeviceFilter`](https://developer.android.com/reference/android/companion/DeviceFilter)
+### List devices by [`DeviceFilter`](https://developer.android.com/reference/android/companion/DeviceFilter.md.txt)
 
 You can display all in-range companion devices that match the
-[`DeviceFilter`](https://developer.android.com/reference/android/companion/DeviceFilter)
+[`DeviceFilter`](https://developer.android.com/reference/android/companion/DeviceFilter.md.txt)
 you provide (shown in figure 1). If you want to limit the scanning to only one
 device, you can
-[`setSingleDevice()`](https://developer.android.com/reference/android/companion/AssociationRequest.Builder#setSingleDevice(boolean))
+[`setSingleDevice()`](https://developer.android.com/reference/android/companion/AssociationRequest.Builder.md.txt#setSingleDevice(boolean))
 to `true` (shown in figure 2).
 ![Companion devices pairing](https://developer.android.com/static/images/develop/connectivity/companion-device-pairing-1.png) **Figure 1.** Companion devices pairing ![Single device pairing](https://developer.android.com/static/images/develop/connectivity/companion-device-pairing-2.png) **Figure 2.** Single device pairing
 
 <br />
 
-The following are the subclasses of [`DeviceFilter`](https://developer.android.com/reference/android/companion/DeviceFilter) that
-can be specified in [`AssociationRequest`](https://developer.android.com/reference/android/companion/AssociationRequest):
+The following are the subclasses of [`DeviceFilter`](https://developer.android.com/reference/android/companion/DeviceFilter.md.txt) that
+can be specified in [`AssociationRequest`](https://developer.android.com/reference/android/companion/AssociationRequest.md.txt):
 
-- [`BluetoothDeviceFilter`](https://developer.android.com/reference/android/companion/BluetoothDeviceFilter)
-- [`BluetoothLeDeviceFilter`](https://developer.android.com/reference/android/companion/BluetoothLeDeviceFilter)
-- [`WifiDeviceFilter`](https://developer.android.com/reference/android/companion/WifiDeviceFilter)
+- [`BluetoothDeviceFilter`](https://developer.android.com/reference/android/companion/BluetoothDeviceFilter.md.txt)
+- [`BluetoothLeDeviceFilter`](https://developer.android.com/reference/android/companion/BluetoothLeDeviceFilter.md.txt)
+- [`WifiDeviceFilter`](https://developer.android.com/reference/android/companion/WifiDeviceFilter.md.txt)
 
 All three subclasses have builders that streamline the configuration of filters.
 In the following example, a device scans for a Bluetooth device with a
-[`BluetoothDeviceFilter`](https://developer.android.com/reference/android/companion/BluetoothDeviceFilter).
+[`BluetoothDeviceFilter`](https://developer.android.com/reference/android/companion/BluetoothDeviceFilter.md.txt).
 
 ### Kotlin
 
@@ -90,8 +92,8 @@ BluetoothDeviceFilter deviceFilter = new BluetoothDeviceFilter.Builder()
         .build();
 ```
 
-Set a [`DeviceFilter`](https://developer.android.com/reference/android/companion/DeviceFilter) to an [`AssociationRequest`](https://developer.android.com/reference/android/companion/AssociationRequest) so
-[`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager) can determine what type of devices to seek.
+Set a [`DeviceFilter`](https://developer.android.com/reference/android/companion/DeviceFilter.md.txt) to an [`AssociationRequest`](https://developer.android.com/reference/android/companion/AssociationRequest.md.txt) so
+[`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.md.txt) can determine what type of devices to seek.
 
 ### Kotlin
 
@@ -115,18 +117,18 @@ AssociationRequest pairingRequest = new AssociationRequest.Builder()
         .build();
 ```
 
-After your app initializes an [`AssociationRequest`](https://developer.android.com/reference/android/companion/AssociationRequest), run the
-[`associate()`](https://developer.android.com/reference/android/companion/CompanionDeviceManager#associate(android.companion.AssociationRequest,%20java.util.concurrent.Executor,%20android.companion.CompanionDeviceManager.Callback))
-function on the [`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager). The [`associate()`](https://developer.android.com/reference/android/companion/CompanionDeviceManager#associate(android.companion.AssociationRequest,%20java.util.concurrent.Executor,%20android.companion.CompanionDeviceManager.Callback)) function
-takes in an [`AssociationRequest`](https://developer.android.com/reference/android/companion/AssociationRequest) and a [`Callback`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.Callback).
+After your app initializes an [`AssociationRequest`](https://developer.android.com/reference/android/companion/AssociationRequest.md.txt), run the
+[`associate()`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.md.txt#associate(android.companion.AssociationRequest,%20java.util.concurrent.Executor,%20android.companion.CompanionDeviceManager.Callback))
+function on the [`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.md.txt). The [`associate()`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.md.txt#associate(android.companion.AssociationRequest,%20java.util.concurrent.Executor,%20android.companion.CompanionDeviceManager.Callback)) function
+takes in an [`AssociationRequest`](https://developer.android.com/reference/android/companion/AssociationRequest.md.txt) and a [`Callback`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.Callback.md.txt).
 
-The [`Callback`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.Callback) returns an
-[`IntentSender`](https://developer.android.com/reference/android/content/IntentSender) in the
-[`onAssociationPending`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.Callback#onAssociationPending(android.content.IntentSender)) when [`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager) locates a device
+The [`Callback`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.Callback.md.txt) returns an
+[`IntentSender`](https://developer.android.com/reference/android/content/IntentSender.md.txt) in the
+[`onAssociationPending`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.Callback.md.txt#onAssociationPending(android.content.IntentSender)) when [`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.md.txt) locates a device
 and it's ready to launch a user consent dialog.
-After the user confirms the device, an [`AssociationInfo`](https://developer.android.com/reference/android/companion/AssociationInfo)
-of the device is returned in [`onAssociationCreated`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.Callback#onAssociationCreated(android.companion.AssociationInfo)).
-If your app doesn't find any devices, the callback returns [`onFailure`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.Callback#onFailure(java.lang.CharSequence))
+After the user confirms the device, an [`AssociationInfo`](https://developer.android.com/reference/android/companion/AssociationInfo.md.txt)
+of the device is returned in [`onAssociationCreated`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.Callback.md.txt#onAssociationCreated(android.companion.AssociationInfo)).
+If your app doesn't find any devices, the callback returns [`onFailure`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.Callback.md.txt#onFailure(java.lang.CharSequence))
 with an error message.
 
 On devices running Android 13 (API level 33) and higher:
@@ -248,15 +250,15 @@ deviceManager.associate(pairingRequest, new CompanionDeviceManager.Callback() {
 ```
 
 The result of user selection is sent back to the fragment in the
-[`onActivityResult()`](https://developer.android.com/reference/android/app/Activity#onActivityResult(int,%20int,%20android.content.Intent))
+[`onActivityResult()`](https://developer.android.com/reference/android/app/Activity.md.txt#onActivityResult(int,%20int,%20android.content.Intent))
 of your activity. You can then access the selected device.
 
 When the user selects a Bluetooth device, expect a
-[`BluetoothDevice`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice).
+[`BluetoothDevice`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt).
 When the user selects a Bluetooth LE device, expect a
-[`android.bluetooth.le.ScanResult`](https://developer.android.com/reference/android/bluetooth/le/ScanResult).
+[`android.bluetooth.le.ScanResult`](https://developer.android.com/reference/android/bluetooth/le/ScanResult.md.txt).
 When the user selects a Wi-Fi device, expect a
-[`android.net.wifi.ScanResult`](https://developer.android.com/reference/android/net/wifi/ScanResult).
+[`android.net.wifi.ScanResult`](https://developer.android.com/reference/android/net/wifi/ScanResult.md.txt).
 
 ### Kotlin
 
@@ -632,20 +634,18 @@ granting necessary permissions when pairing. For more information, see
 
 Starting with Android 16 (API level 36),
 
-[`CompanionDeviceManager.startObservingDevicePresence(String)`](https://developer.android.com/reference/android/companion/CompanionDeviceManager#startObservingDevicePresence(java.lang.String))
+[`CompanionDeviceManager.startObservingDevicePresence(String)`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.md.txt#startObservingDevicePresence(java.lang.String))
 and
-[`CompanionDeviceService.onDeviceAppeared()`](https://developer.android.com/reference/android/companion/CompanionDeviceService#onDeviceAppeared(java.lang.String))
+[`CompanionDeviceService.onDeviceAppeared()`](https://developer.android.com/reference/android/companion/CompanionDeviceService.md.txt#onDeviceAppeared(java.lang.String))
 are deprecated.
 
 - You should use
   [`CompanionDeviceManager.startObservingDevicePresence
   (ObservingDevicePresenceRequest)`](https://developer.android.com/reference/android/companion/CompanionDeviceManager#startObservingDevicePresence(android.companion.ObservingDevicePresenceRequest)) to automatically
-  manage the binding of your implemented [`CompanionDeviceService`](https://developer.android.com/reference/android/companion/CompanionDeviceService).
+  manage the binding of your implemented [`CompanionDeviceService`](https://developer.android.com/reference/android/companion/CompanionDeviceService.md.txt).
 
-  - The binding state of your [`CompanionDeviceService`](https://developer.android.com/reference/android/companion/CompanionDeviceService) is automatically managed based on the presence status of its associated companion device:
+  - The binding state of your [`CompanionDeviceService`](https://developer.android.com/reference/android/companion/CompanionDeviceService.md.txt) is automatically managed based on the presence status of its associated companion device:
     1. The service is bound when the companion device is within BLE range or connected using Bluetooth.
     2. The service becomes unbound when the companion device moves out of BLE range or its Bluetooth connection is terminated.
-- App will receives callback based on various of [`DevicePresenceEvent`](https://developer.android.com/reference/android/companion/CompanionDeviceService#onDevicePresenceEvent(android.companion.DevicePresenceEvent)).
-
-  For details, see
-  [`CompanionDeviceService.onDeviceEvent()`](https://developer.android.com/reference/android/companion/DevicePresenceEvent).
+- Your app receives callbacks for [`DevicePresenceEvent`](https://developer.android.com/reference/android/companion/DevicePresenceEvent.md.txt) updates. For
+  details, see [`CompanionDeviceService.onDevicePresenceEvent()`](https://developer.android.com/reference/android/companion/CompanionDeviceService.md.txt#onDevicePresenceEvent(android.companion.DevicePresenceEvent)).

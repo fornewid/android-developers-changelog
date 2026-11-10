@@ -7,14 +7,14 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
 On audio glasses, the system routes physical input (such as touchpad gestures or
 button presses) based on user awareness rather than visual display focus.
 Because users can't see a user interface, the system routes physical input to
-the [projected activity](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types#activity-lifecycle) of whichever app experience the user is sensing or
+the [projected activity](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types.md.txt#activity-lifecycle) of whichever app experience the user is sensing or
 actively interacting with.
 
 ## How the system determines user awareness
@@ -37,7 +37,7 @@ indefinite data stream, it temporarily gains user awareness.
 
 Users often run multiple app experiences simultaneously on audio glasses. For
 example, a user might listen to music while following turn-by-turn navigation.
-In these cases, the system assigns a [concurrency state](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/input-routing-audio#how-focus-shifts) and shifts input
+In these cases, the system assigns a [concurrency state](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/input-routing-audio.md.txt#how-focus-shifts) and shifts input
 focus to match audio focus by doing the following things:
 
 - Resuming or stopping your app's projected activity.
@@ -53,9 +53,9 @@ physical input to it.
 
 To ensure the system can relaunch your activity:
 
-1. [**Create a pending intent**](https://developer.android.com/privacy-and-security/risks/pending-intent): Build an explicit [`Intent`](https://developer.android.com/reference/kotlin/android/content/Intent) pointing
-   to your target projected activity. Wrap the intent in a [`PendingIntent`](https://developer.android.com/reference/kotlin/android/app/PendingIntent)
-   and set [`FLAG_UPDATE_CURRENT`](https://developer.android.com/reference/kotlin/android/app/PendingIntent#flag_update_current) or [`FLAG_IMMUTABLE`](https://developer.android.com/reference/kotlin/android/app/PendingIntent#flag_mutable) to maintain
+1. [**Create a pending intent**](https://developer.android.com/privacy-and-security/risks/pending-intent.md.txt): Build an explicit [`Intent`](https://developer.android.com/reference/kotlin/android/content/Intent.md.txt) pointing
+   to your target projected activity. Wrap the intent in a [`PendingIntent`](https://developer.android.com/reference/kotlin/android/app/PendingIntent.md.txt)
+   and set [`FLAG_UPDATE_CURRENT`](https://developer.android.com/reference/kotlin/android/app/PendingIntent.md.txt#flag_update_current) or [`FLAG_IMMUTABLE`](https://developer.android.com/reference/kotlin/android/app/PendingIntent.md.txt#flag_mutable) to maintain
    secure and predictable launch behavior:
 
 
@@ -77,9 +77,9 @@ To ensure the system can relaunch your activity:
    <br />
 
 2. **Register the input receiver** : Obtain an instance of
-   [`ProjectedActivityCompat`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedActivityCompat) and register your `PendingIntent` as the
+   [`ProjectedActivityCompat`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedActivityCompat.md.txt) and register your `PendingIntent` as the
    designated input receiver by passing it into
-   [`setActivityAsInputReceiver`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedActivityCompat#setActivityAsInputReceiver(android.app.PendingIntent)).
+   [`setActivityAsInputReceiver`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedActivityCompat.md.txt#setActivityAsInputReceiver(android.app.PendingIntent)).
 
 
    ```kotlin

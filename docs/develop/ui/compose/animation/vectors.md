@@ -15,7 +15,7 @@ any of the following:
 
 ![Hourglass animating its contents and rotating](https://developer.android.com/static/develop/ui/compose/images/animations/avd_example_compose.gif) **Figure 1.** Animated vector drawable in Compose
 
-To use an [`AnimatedVectorDrawable`](https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable) resource, load
+To use an [`AnimatedVectorDrawable`](https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable.md.txt) resource, load
 up the drawable file using `animatedVectorResource` and pass in a `boolean` to
 switch between the start and end state of your drawable, performing the
 animation.
@@ -45,4 +45,4 @@ For more information about the format of your drawable file, see
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Loading images](https://developer.android.com/develop/ui/compose/graphics/images/loading)
+- [Loading images](https://developer.android.com/develop/ui/compose/graphics/images/loading.md.txt)

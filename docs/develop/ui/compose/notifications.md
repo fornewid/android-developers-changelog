@@ -17,22 +17,22 @@ features.
 The following guides show you how to implement various notification features in
 your app:
 
-- [Create a notification](https://developer.android.com/develop/ui/compose/notifications/create-notification): learn how to build and issue a basic notification.
-- [Notification permission](https://developer.android.com/develop/ui/compose/notifications/notification-permission): learn how to handle the `POST_NOTIFICATIONS` runtime permission.
-- [Notification channels](https://developer.android.com/develop/ui/compose/notifications/channels): let users control notification behaviors.
-- [Expandable notifications](https://developer.android.com/develop/ui/compose/notifications/expanded): show more content using styles like `BigTextStyle` or `MessagingStyle`.
-- [Bubbles](https://developer.android.com/develop/ui/compose/notifications/bubbles): use floating, expandable overlays for conversations.
-- [Progress-centric notifications](https://developer.android.com/develop/ui/compose/notifications/progress-centric): track user-initiated journeys like rideshare and deliveries.
-- [Call-style notifications](https://developer.android.com/develop/ui/compose/notifications/call-style): distinguish incoming and ongoing calls from other notification types.
-- [Live update notifications](https://developer.android.com/develop/ui/compose/notifications/live-update): track progress for ongoing activities.
-- [View-specific notification guides](https://developer.android.com/develop/ui/views/notifications): guides for implementing notifications in View-based apps.
+- [Create a notification](https://developer.android.com/develop/ui/compose/notifications/create-notification.md.txt): learn how to build and issue a basic notification.
+- [Notification permission](https://developer.android.com/develop/ui/compose/notifications/notification-permission.md.txt): learn how to handle the `POST_NOTIFICATIONS` runtime permission.
+- [Notification channels](https://developer.android.com/develop/ui/compose/notifications/channels.md.txt): let users control notification behaviors.
+- [Expandable notifications](https://developer.android.com/develop/ui/compose/notifications/expanded.md.txt): show more content using styles like `BigTextStyle` or `MessagingStyle`.
+- [Bubbles](https://developer.android.com/develop/ui/compose/notifications/bubbles.md.txt): use floating, expandable overlays for conversations.
+- [Progress-centric notifications](https://developer.android.com/develop/ui/compose/notifications/progress-centric.md.txt): track user-initiated journeys like rideshare and deliveries.
+- [Call-style notifications](https://developer.android.com/develop/ui/compose/notifications/call-style.md.txt): distinguish incoming and ongoing calls from other notification types.
+- [Live update notifications](https://developer.android.com/develop/ui/compose/notifications/live-update.md.txt): track progress for ongoing activities.
+- [View-specific notification guides](https://developer.android.com/develop/ui/views/notifications.md.txt): guides for implementing notifications in View-based apps.
 
 For more information about notification design and interaction patterns, see the
 [Notifications design
 guide](https://developer.android.com/design/ui/mobile/guides/home-screen/notifications).
 
 > [!NOTE]
-> **Note:** To trigger notifications remotely from a server, you can use a push-delivery service such as [Firebase Cloud Messaging (FCM)](https://firebase.google.com/docs/cloud-messaging). FCM maintains a battery-efficient connection that can deliver time-sensitive messages even when the device is in Doze or App Standby mode. For more information, see [Use FCM to interact with your app while the device is idle](https://developer.android.com/training/monitoring-device-state/doze-standby#using_fcm).
+> **Note:** To trigger notifications remotely from a server, you can use a push-delivery service such as [Firebase Cloud Messaging (FCM)](https://firebase.google.com/docs/cloud-messaging). FCM maintains a battery-efficient connection that can deliver time-sensitive messages even when the device is in Doze or App Standby mode. For more information, see [Use FCM to interact with your app while the device is idle](https://developer.android.com/training/monitoring-device-state/doze-standby.md.txt#using_fcm).
 
 ## Appearances on a device
 
@@ -44,9 +44,9 @@ the notification drawer, and a badge on the app's icon.
 
 Notifications also appear on paired wearables by default. In scenarios where the
 notification content is only relevant to the source device, use
-[`setLocalOnly()`](https://developer.android.com/reference/android/app/Notification.Builder#setLocalOnly(boolean)). An example is a notification confirming that a media
+[`setLocalOnly()`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setLocalOnly(boolean)). An example is a notification confirming that a media
 download has completed. For more guidance specific to Wear OS notifications, see
-[Wear OS notifications](https://developer.android.com/training/wearables/notifications) guidance.
+[Wear OS notifications](https://developer.android.com/training/wearables/notifications.md.txt) guidance.
 
 ### Status bar and notification drawer
 
@@ -81,12 +81,12 @@ usual.
 Conditions that might trigger heads-up notifications include the following:
 
 - The user's activity is in fullscreen mode, such as when the app uses
-  [`fullScreenIntent`](https://developer.android.com/reference/android/app/Notification#fullScreenIntent).
+  [`fullScreenIntent`](https://developer.android.com/reference/android/app/Notification.md.txt#fullScreenIntent).
 
 - The notification has high priority and uses ringtones or vibrations on
   devices running Android 7.1 (API level 25) and lower.
 
-- The [notification channel](https://developer.android.com/develop/ui/compose/notifications#ManageChannels) has high importance on devices
+- The [notification channel](https://developer.android.com/develop/ui/compose/notifications.md.txt#ManageChannels) has high importance on devices
   running Android 8.0 (API level 26) and higher.
 
 ### Lock screen
@@ -127,7 +127,7 @@ automatically, including expandable detail and action buttons.
 You can enhance the experience by customizing the appearance of your
 notifications on wearables and by providing different actions, including
 suggested replies and voice input replies. For more information, see how to
-[add wearable-specific features to your notification](https://developer.android.com/training/wearables/notifications#add-wearable-features).
+[add wearable-specific features to your notification](https://developer.android.com/training/wearables/notifications.md.txt#add-wearable-features).
 ![](https://developer.android.com/static/images/ui/notifications/wear_2x.png) Figure 6. Notifications automatically appear on a paired Wear OS device.
 
 ## Notification anatomy
@@ -138,19 +138,19 @@ notification appear only in the expanded view.
 ![](https://developer.android.com/static/images/ui/notifications/notification-callouts_2x.png) Figure 7. A notification with basic details.
 
 The most common parts of a notification are indicated in figure 7, as follows:
-1. Small icon: required; set using `https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setSmallIcon(int)`.
+1. Small icon: required; set using `setSmallIcon()`.
 2. App name: provided by the system.
-3. Timestamp: provided by the system, but you can override it using `https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setWhen(long)` or hide it using `https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setShowWhen(boolean)`.
-4. Large icon: optional; usually used only for contact photos. Don't use it for your app icon. Set using `https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setLargeIcon(android.graphics.Bitmap)`.
-5. Title: optional; set using `https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setContentTitle(java.lang.CharSequence)`.
-6. Text: optional; set using `https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setContentText(java.lang.CharSequence)`.
+3. Timestamp: provided by the system, but you can override it using `setWhen()` or hide it using `setShowWhen(false)`.
+4. Large icon: optional; usually used only for contact photos. Don't use it for your app icon. Set using `setLargeIcon()`.
+5. Title: optional; set using `setContentTitle()`.
+6. Text: optional; set using `setContentText()`.
 
 We strongly recommend using system templates for proper design compatibility on
 all devices. If necessary, you can [create a custom notification
 layout](https://developer.android.com/develop/ui/views/notifications/custom-notification).
 
 For more information about how to create a notification with these features and
-more, read [Create a notification](https://developer.android.com/develop/ui/compose/notifications/create-notification).
+more, read [Create a notification](https://developer.android.com/develop/ui/compose/notifications/create-notification.md.txt).
 
 ### Notification actions
 
@@ -182,7 +182,7 @@ matter what workflow the action launches. This option adds an extra layer of
 security to notifications on locked devices.
 
 To require a device to be unlocked before your app invokes a given notification
-action, pass `true` into [`setAuthenticationRequired()`](https://developer.android.com/reference/android/app/Notification.Action.Builder#setAuthenticationRequired(boolean)) when creating your
+action, pass `true` into [`setAuthenticationRequired()`](https://developer.android.com/reference/android/app/Notification.Action.Builder.md.txt#setAuthenticationRequired(boolean)) when creating your
 notification action, as shown in the following code snippet:
 
 
@@ -212,13 +212,13 @@ that's expandable by applying an additional template, as shown in figure 9.
 
 You can also create an expandable notification with an image, in inbox style,
 with a chat conversation, or with media playback controls. For more information,
-read [Create an expandable notification](https://developer.android.com/develop/ui/compose/notifications/expanded).
+read [Create an expandable notification](https://developer.android.com/develop/ui/compose/notifications/expanded.md.txt).
 
 ## Notification updates and groups
 
 To avoid flooding your users with multiple or redundant notifications when you
-have additional updates, [update an existing notification](https://developer.android.com/develop/ui/compose/notifications/create-notification#Updating) rather than
-issuing a new one or use the [inbox-style notification](https://developer.android.com/develop/ui/compose/notifications/expanded#inbox-style) to show
+have additional updates, [update an existing notification](https://developer.android.com/develop/ui/compose/notifications/create-notification.md.txt#Updating) rather than
+issuing a new one or use the [inbox-style notification](https://developer.android.com/develop/ui/compose/notifications/expanded.md.txt#inbox-style) to show
 conversation updates.
 
 However, if it's necessary to deliver multiple notifications, consider grouping
@@ -274,10 +274,10 @@ of a notification, the more interruptive the notification is.
 
 On Android
 7.1 (API level 25) and lower, the importance of a notification is determined by
-the notification's [`priority`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setPriority(int)).
+the notification's [`priority`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setPriority(int)).
 
 On Android 8.0 (API level 26) and higher, the importance of a notification is
-determined by the [`importance`](https://developer.android.com/reference/android/app/NotificationChannel#setImportance(int)) of the channel the notification is posted
+determined by the [`importance`](https://developer.android.com/reference/android/app/NotificationChannel.md.txt#setImportance(int)) of the channel the notification is posted
 to. Users can change the importance of a notification channel in the system
 settings, as shown in figure 12.
 ![](https://developer.android.com/static/images/ui/notifications/channel-alert-levels_2x.png) Figure 12. Users can change the importance of each channel on Android 8.0 and higher.
@@ -327,12 +327,12 @@ notifications through on an app-by-app basis, rather than on a
 channel-by-channel basis.
 
 To configure your notifications for these user settings, you must
-[set a system-wide category](https://developer.android.com/develop/ui/compose/notifications/create-notification#metadata).
+[set a system-wide category](https://developer.android.com/develop/ui/compose/notifications/create-notification.md.txt#metadata).
 
 ## Notifications for foreground services
 
 A notification is required when your app is running a *foreground
-service* ---a [`Service`](https://developer.android.com/reference/android/app/Service) running in the
+service* ---a [`Service`](https://developer.android.com/reference/android/app/Service.md.txt) running in the
 background that's long-living and noticeable to the user, such as a media
 player. This notification can't be dismissed like other notifications. To remove
 the notification, the service must be stopped or removed from the foreground
@@ -340,7 +340,7 @@ state.
 
 For more information, read [Foreground
 services](https://developer.android.com/guide/components/foreground-services). If you are building a media
-player, also read [Playing media in the background](https://developer.android.com/media/implement/playback-app#playing_media_in_the_background).
+player, also read [Playing media in the background](https://developer.android.com/media/implement/playback-app.md.txt#playing_media_in_the_background).
 
 ## Notification behaviors
 

@@ -4,16 +4,16 @@ url: https://developer.android.com/topic/performance/tracing/profiling-manager/u
 source: md.txt
 ---
 
-Whether you capture an [app-driven profile](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture) or a [trigger-based profile](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture),
+Whether you capture an [app-driven profile](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture.md.txt) or a [trigger-based profile](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture.md.txt),
 `ProfilingManager` saves the completed file on the device and delivers a
 `ProfilingResult` to your registered callback. Call
-[`ProfilingResult.getResultFilePath`](https://developer.android.com/reference/android/os/ProfilingResult#getResultFilePath()) to get the path of the saved profile:
+[`ProfilingResult.getResultFilePath`](https://developer.android.com/reference/android/os/ProfilingResult.md.txt#getResultFilePath()) to get the path of the saved profile:
 
-- **During local testing** : [Pull the file to your computer using `adb`](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode#retrieve-traces-adb).
-- **In production** : Pass the path to a [`WorkManager`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started) job that compresses and uploads the profile to your server.
+- **During local testing** : [Pull the file to your computer using `adb`](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode.md.txt#retrieve-traces-adb).
+- **In production** : Pass the path to a [`WorkManager`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started.md.txt) job that compresses and uploads the profile to your server.
 
 > [!IMPORTANT]
-> **Key Point:** Always use `ProfilingResult.getResultFilePath` to locate the file in code and other `ProfilingResult` APIs such as [`ProfilingResult.getTriggerType`](https://developer.android.com/reference/android/os/ProfilingResult#getTriggerType()) or [`ProfilingResult.getTag`](https://developer.android.com/reference/android/os/ProfilingResult#getTag()) to inspect profile metadata, rather than parsing filenames, because the underlying directory structure and filename format can change.
+> **Key Point:** Always use `ProfilingResult.getResultFilePath` to locate the file in code and other `ProfilingResult` APIs such as [`ProfilingResult.getTriggerType`](https://developer.android.com/reference/android/os/ProfilingResult.md.txt#getTriggerType()) or [`ProfilingResult.getTag`](https://developer.android.com/reference/android/os/ProfilingResult.md.txt#getTag()) to inspect profile metadata, rather than parsing filenames, because the underlying directory structure and filename format can change.
 
 ## Retrieve profiles from a device
 
@@ -39,8 +39,8 @@ depends on how the profile was captured:
 Where:
 
 - `<app>` is your app's package name.
-- `<tag>` is up to the first 20 alphanumeric characters (and hyphens) of the caller-supplied tag configured with [`setTag`](https://developer.android.com/reference/kotlin/androidx/core/os/ProfilingRequestBuilder#setTag(kotlin.String)) or passed to `requestProfiling`, converted to lowercase with any characters outside `a-z`, `0-9`, and `-` removed.
-- `<trigger_type>` is the integer constant code for the trigger from [`ProfilingTrigger`](https://developer.android.com/reference/android/os/ProfilingTrigger). Always call [`ProfilingResult.getTriggerType`](https://developer.android.com/reference/android/os/ProfilingResult#getTriggerType()) in code instead of parsing the filename.
+- `<tag>` is up to the first 20 alphanumeric characters (and hyphens) of the caller-supplied tag configured with [`setTag`](https://developer.android.com/reference/kotlin/androidx/core/os/ProfilingRequestBuilder.md.txt#setTag(kotlin.String)) or passed to `requestProfiling`, converted to lowercase with any characters outside `a-z`, `0-9`, and `-` removed.
+- `<trigger_type>` is the integer constant code for the trigger from [`ProfilingTrigger`](https://developer.android.com/reference/android/os/ProfilingTrigger.md.txt). Always call [`ProfilingResult.getTriggerType`](https://developer.android.com/reference/android/os/ProfilingResult.md.txt#getTriggerType()) in code instead of parsing the filename.
 - `<datetime>` is the date and time the profile was recorded (`yyyy-MM-dd-HH-mm-ss-SSS`).
 - `<uid>` is your app's Linux user ID (included on recent `Profiling` module versions).
 - `<profile-type-ext>` is the file extension for the captured profile type:
@@ -61,7 +61,7 @@ app-specific storage directory that are older than 5 days when new results are
 delivered.
 
 > [!NOTE]
-> **Note:** To pull profiles from a test device using `adb` during local testing, see [Pull profiles using ADB](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode#retrieve-traces-adb) in [Debug commands for local profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode).
+> **Note:** To pull profiles from a test device using `adb` during local testing, see [Pull profiles using ADB](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode.md.txt#retrieve-traces-adb) in [Debug commands for local profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode.md.txt).
 
 ## Upload profiles in production with WorkManager
 
@@ -77,7 +77,7 @@ storage costs.
 ### Add WorkManager dependencies
 
 `ProfilingManager` is cloud-agnostic, so you can schedule the upload of profiles
-to any backend using [`WorkManager`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started). Add the `WorkManager` library to your
+to any backend using [`WorkManager`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started.md.txt). Add the `WorkManager` library to your
 `build.gradle.kts` file:
 
 ### Kotlin
@@ -102,7 +102,7 @@ to any backend using [`WorkManager`](https://developer.android.com/develop/backg
 
 When your app receives a `ProfilingResult`, schedule the upload job. The
 following example omits the initial profiling request; for a complete request
-example, see [Record a system trace](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture#record-system-trace).
+example, see [Record a system trace](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture.md.txt#record-system-trace).
 
 > [!NOTE]
 > **Note:** The actual network upload call is omitted because `ProfilingManager` works with any cloud platform. Use this setup as a starting point, then add compression and the upload logic for your backend service.
@@ -195,7 +195,7 @@ The preceding example performs the following steps:
 
 ## Next steps
 
-After retrieving or uploading profiles, [visualize them in the Perfetto UI](https://developer.android.com/topic/performance/tracing/profiling-manager/retrieve-and-analyze),
-[query individual profiles with PerfettoSQL](https://developer.android.com/topic/performance/tracing/profiling-manager/querying-profiles), [analyze traces in bulk](https://developer.android.com/topic/performance/tracing/profiling-manager/bulk-trace-analysis),
-or [analyze profiles with AI](https://developer.android.com/topic/performance/tracing/profiling-manager/analyze-profiles-with-ai). For guidance on setting up a scalable
+After retrieving or uploading profiles, [visualize them in the Perfetto UI](https://developer.android.com/topic/performance/tracing/profiling-manager/retrieve-and-analyze.md.txt),
+[query individual profiles with PerfettoSQL](https://developer.android.com/topic/performance/tracing/profiling-manager/querying-profiles.md.txt), [analyze traces in bulk](https://developer.android.com/topic/performance/tracing/profiling-manager/bulk-trace-analysis.md.txt),
+or [analyze profiles with AI](https://developer.android.com/topic/performance/tracing/profiling-manager/analyze-profiles-with-ai.md.txt). For guidance on setting up a scalable
 server-side analysis pipeline, see [Deploying Bigtrace on Kubernetes](https://perfetto.dev/docs/deployment/deploying-bigtrace-on-kubernetes).

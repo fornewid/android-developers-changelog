@@ -19,14 +19,14 @@ cross-activity and back-to-home using the Android Settings app.
 3. The user continues to swipe right, showing an animation of the window shrinking down to the icon on the home screen.
 4. The user has now fully returned to the home screen.
 
-Learn more about how to [Add support for predictive back gestures](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture).
+Learn more about how to [Add support for predictive back gestures](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture.md.txt).
 
 ## Add custom in-app transitions and animations
 
 You can create custom in-app property animations and transitions, custom
 cross-activity animations, and custom cross-fragment animations with predictive
 back gestures using Compose or Views. To learn how to create transitions using
-Views, see [Add support for predictive back animations in Views](https://developer.android.com/guide/navigation/custom-back/support-animations-views).
+Views, see [Add support for predictive back animations in Views](https://developer.android.com/guide/navigation/custom-back/support-animations-views.md.txt).
 
 ### Add custom transitions in Jetpack Compose
 

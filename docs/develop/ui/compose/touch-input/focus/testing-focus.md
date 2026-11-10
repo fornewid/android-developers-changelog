@@ -25,13 +25,13 @@ class FocusNavigationTest {
 <br />
 
 > [!NOTE]
-> **Note:** By default, Compose testing environments initialize in touch mode. To configure whether your test environment starts in touch mode or keyboard mode, see the [default input mode configuration](https://developer.android.com/develop/ui/compose/testing/migrate-v2#default-input-mode).
+> **Note:** By default, Compose testing environments initialize in touch mode. To configure whether your test environment starts in touch mode or keyboard mode, see the [default input mode configuration](https://developer.android.com/develop/ui/compose/testing/migrate-v2.md.txt#default-input-mode).
 
 ## Verify focus targets
 
 You can verify whether a UI element can receive focus by performing a click or
-requesting focus, and then asserting its state using [`assertIsFocused()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/package-summary#(androidx.compose.ui.test.SemanticsNodeInteraction).assertIsFocused()) and
-[`assertIsNotFocused()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/package-summary#(androidx.compose.ui.test.SemanticsNodeInteraction).assertIsNotFocused()).
+requesting focus, and then asserting its state using [`assertIsFocused()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/package-summary.md.txt#(androidx.compose.ui.test.SemanticsNodeInteraction).assertIsFocused()) and
+[`assertIsNotFocused()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/package-summary.md.txt#(androidx.compose.ui.test.SemanticsNodeInteraction).assertIsNotFocused()).
 
 
 ```kotlin
@@ -58,7 +58,7 @@ fun interactiveElement_isFocusTarget() {
 ## Test one-dimensional focus traversal
 
 Simulate <kbd>Tab</kbd> and <kbd>Shift+Tab</kbd> key presses
-using [`performKeyInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/package-summary#(androidx.compose.ui.test.SemanticsNodeInteraction).performKeyInput(kotlin.Function1)) to verify that focus advances through the UI
+using [`performKeyInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/package-summary.md.txt#(androidx.compose.ui.test.SemanticsNodeInteraction).performKeyInput(kotlin.Function1)) to verify that focus advances through the UI
 in appearance order. As a best practice,
 verify both forward navigation (`Key.Tab`) and reverse navigation
 (`Key.Tab` with `Key.ShiftLeft` held down) to ensure two-way traversal
@@ -108,8 +108,8 @@ fun tabKey_navigatesInAppearanceOrder() {
 
 ## Test two-dimensional directional traversal
 
-Simulate arrow keys or D-pad directional keys using [`Key.DirectionDown`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/Key#DirectionDown()),
-[`Key.DirectionUp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/Key#DirectionUp()), [`Key.DirectionRight`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/Key#DirectionRight()), and [`Key.DirectionLeft`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/Key#DirectionLeft()).
+Simulate arrow keys or D-pad directional keys using [`Key.DirectionDown`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/Key.md.txt#DirectionDown()),
+[`Key.DirectionUp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/Key.md.txt#DirectionUp()), [`Key.DirectionRight`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/Key.md.txt#DirectionRight()), and [`Key.DirectionLeft`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/Key.md.txt#DirectionLeft()).
 
 
 ```kotlin
@@ -186,7 +186,7 @@ fun textField_handlesTabAccordingToLineLimits() {
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-target)
-- [Focus traversal order](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-traversal)
-- [Focus in text fields](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-in-text-fields)
-- [Group focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-group)
+- [Focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-target.md.txt)
+- [Focus traversal order](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-traversal.md.txt)
+- [Focus in text fields](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-in-text-fields.md.txt)
+- [Group focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-group.md.txt)

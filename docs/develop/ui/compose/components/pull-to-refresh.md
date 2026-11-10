@@ -9,7 +9,7 @@ an app's content to refresh the data.
 
 ## API surface
 
-Use the [`PullToRefreshBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/pulltorefresh/PullToRefreshBox.composable) composable to implement pull-to-refresh, which
+Use the [`PullToRefreshBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/pulltorefresh/PullToRefreshBox.composable.md.txt) composable to implement pull-to-refresh, which
 acts as a container for your scrollable content. The following key parameters
 control the refresh behavior and appearance:
 
@@ -48,7 +48,7 @@ fun PullToRefreshBasicSample(
 
 ### Key points about the code
 
-- `PullToRefreshBox` wraps a [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)), which displays a list of strings.
+- `PullToRefreshBox` wraps a [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)), which displays a list of strings.
 - `PullToRefreshBox` requires `isRefreshing` and `onRefresh` parameters.
 - The content within the `PullToRefreshBox` block represents the scrollable content.
 
@@ -100,7 +100,7 @@ fun PullToRefreshCustomStyleSample(
 ### Key points about the code
 
 - The indicator color is customized through the `containerColor` and `color` properties in the `indicator` parameter.
-- [`rememberPullToRefreshState()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/pulltorefresh/PullToRefreshState) manages the state of the refresh action. You use this state in conjunction with the `indicator` parameter.
+- [`rememberPullToRefreshState()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/pulltorefresh/PullToRefreshState.md.txt) manages the state of the refresh action. You use this state in conjunction with the `indicator` parameter.
 
 > [!NOTE]
 > **Note:** In the basic example, `state` was not passed to `PullToRefreshBox` because it was using the default parameter value. However, in this example, you need to define the state, and pass that state to both the box and indicator to coordinate their behavior.
@@ -201,7 +201,7 @@ fun MyCustomIndicator(
 - The previous snippet used the `Indicator` provided by the library. This snippet creates a custom indicator composable called `MyCustomIndicator`. In this composable, the `pullToRefreshIndicator` modifier handles positioning and triggering a refresh.
 - As in the previous snippet, the example extracts the `PullToRefreshState` instance, so you can pass the same instance to both the `PullToRefreshBox` and the `pullToRefreshModifier`.
 - The example uses the container color and the position threshold from the `PullToRefreshDefaults` class. This way, you can reuse the default behavior and styling from the Material library, while customizing only the elements you're interested in.
-- `MyCustomIndicator` uses [`Crossfade`](https://developer.android.com/reference/kotlin/androidx/compose/animation/Crossfade.composable#Crossfade(kotlin.Any,androidx.compose.ui.Modifier,androidx.compose.animation.core.FiniteAnimationSpec,kotlin.String,kotlin.Function1)) to transition between a cloud icon and a `CircularProgressIndicator`. The cloud icon scales up as the user pulls, and transitions to a `CircularProgressIndicator` when the refresh action begins.
+- `MyCustomIndicator` uses [`Crossfade`](https://developer.android.com/reference/kotlin/androidx/compose/animation/Crossfade.composable.md.txt#Crossfade(kotlin.Any,androidx.compose.ui.Modifier,androidx.compose.animation.core.FiniteAnimationSpec,kotlin.String,kotlin.Function1)) to transition between a cloud icon and a `CircularProgressIndicator`. The cloud icon scales up as the user pulls, and transitions to a `CircularProgressIndicator` when the refresh action begins.
   - `targetState` uses `isRefreshing` to determine which state to display (the cloud icon or the circular progress indicator).
   - `animationSpec` defines a `tween` animation for the transition, with a specified duration of `CROSSFADE_DURATION_MILLIS`.
   - `state.distanceFraction` represents how far the user has pulled down, ranging from `0f` (no pull) to `1f` (fully pulled).
@@ -214,4 +214,4 @@ This video shows the custom indicator from the preceding code:
 
 ## Additional resources
 
-- [`PullToRefreshState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/pulltorefresh/PullToRefreshState)
+- [`PullToRefreshState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/pulltorefresh/PullToRefreshState.md.txt)
