@@ -1,0 +1,49 @@
+diff --git a/docs/kotlin/multiplatform/viewmodel.md b/docs/kotlin/multiplatform/viewmodel.md
+index 6ec42121..779b578e 100644
+--- a/docs/kotlin/multiplatform/viewmodel.md
++++ b/docs/kotlin/multiplatform/viewmodel.md
+@@ -24,11 +24,13 @@ documentation for ViewModel](https://developer.android.com/topic/libraries/archi
+ To set up the KMP ViewModel in your project, define the dependency in the
+ `libs.versions.toml` file:
+ 
+-    [versions]
+-    androidx-viewmodel = 2.11.0
++```toml
++[versions]
++androidx-viewmodel = 2.11.0
+ 
+-    [libraries]
+-    androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-viewmodel" }
++[libraries]
++androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-viewmodel" }
++```
+ 
+ And then add the artifact to the `build.gradle.kts` file for your KMP module
+ and declare the dependency as `api`, because this dependency will be exported to
+@@ -139,7 +141,7 @@ fun MainScreen(
+ <br />
+ 
+ > [!TIP]
+-> **Tip:** Instead of passing a factory every time you retrieve a ViewModel, you can inject ViewModels with a dependency injection (DI) framework. The framework also provides each ViewModel's dependencies, so you don't wire them by hand. Hilt isn't available in `commonMain`; see [Integration with Hilt](https://developer.android.com/kotlin/multiplatform/viewmodel#integration-hilt) for DI frameworks that support Kotlin Multiplatform, such as Koin.
++> **Tip:** Instead of passing a factory every time you retrieve a ViewModel, you can inject ViewModels with a dependency injection (DI) framework. The framework also provides each ViewModel's dependencies, so you don't wire them by hand. Hilt isn't available in `commonMain`; see [Integration with Hilt](https://developer.android.com/kotlin/multiplatform/viewmodel.md.txt#integration-hilt) for DI frameworks that support Kotlin Multiplatform, such as Koin.
+ 
+ ## Use ViewModel from SwiftUI
+ 
+@@ -272,7 +274,7 @@ struct ContentView: View {
+ <br />
+ 
+ > [!TIP]
+-> **Tip:** If you use a DI framework, SwiftUI and Android can get ViewModels and their dependencies from the same definitions in shared code, instead of wiring dependencies by hand in each factory. See [Integration with Hilt](https://developer.android.com/kotlin/multiplatform/viewmodel#integration-hilt) for DI frameworks that support Kotlin Multiplatform.
++> **Tip:** If you use a DI framework, SwiftUI and Android can get ViewModels and their dependencies from the same definitions in shared code, instead of wiring dependencies by hand in each factory. See [Integration with Hilt](https://developer.android.com/kotlin/multiplatform/viewmodel.md.txt#integration-hilt) for DI frameworks that support Kotlin Multiplatform.
+ 
+ ## Not Available in Kotlin Multiplatform
+ 
+@@ -281,7 +283,7 @@ Multiplatform.
+ 
+ ### Integration with Hilt
+ 
+-Because [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) is not available for Kotlin Multiplatform projects,
++Because [Hilt](https://developer.android.com/training/dependency-injection/hilt-android.md.txt) is not available for Kotlin Multiplatform projects,
+ you can't directly use ViewModels with `@HiltViewModel` annotation in
+ `commonMain` sourceSet. In that case you need to use some alternative DI
+ framework, for example, [Koin](https://insert-koin.io/),

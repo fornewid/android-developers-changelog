@@ -1,0 +1,406 @@
+diff --git a/docs/develop/ui/views/layout/webapps/native-api-access-jsbridge.md b/docs/develop/ui/views/layout/webapps/native-api-access-jsbridge.md
+index 83e0d001..26365eff 100644
+--- a/docs/develop/ui/views/layout/webapps/native-api-access-jsbridge.md
++++ b/docs/develop/ui/views/layout/webapps/native-api-access-jsbridge.md
+@@ -6,7 +6,7 @@ source: md.txt
+ 
+ This page discusses the various methods and best practices for establishing a
+ native bridge, also known as JavaScript bridge, to facilitate communication
+-between web content in a [`WebView`](https://developer.android.com/reference/android/webkit/WebView) and a host Android application.
++between web content in a [`WebView`](https://developer.android.com/reference/android/webkit/WebView.md.txt) and a host Android application.
+ 
+ This enables web developers to use JavaScript to access native platform
+ features---such as the camera, file system, or advanced hardware sensors---that
+@@ -18,7 +18,7 @@ A JavaScript bridge implementation enables various integration scenarios where
+ web content requires deeper access to the Android operating system. The
+ following are some examples:
+ 
+-- **Platform integration** : Triggering native Android UI components (for example, Biometric prompts, [`BottomSheetDialog`](https://developer.android.com/reference/com/google/android/material/bottomsheet/BottomSheetDialog)) from a web page.
++- **Platform integration** : Triggering native Android UI components (for example, Biometric prompts, [`BottomSheetDialog`](https://developer.android.com/reference/com/google/android/material/bottomsheet/BottomSheetDialog.md.txt)) from a web page.
+ - **Performance**: Offloading heavy computational tasks to native Java or Kotlin code.
+ - **Data persistence**: Accessing local encrypted databases or shared preferences.
+ - **Large data transfers**: Passing media files or complex data structures between the app and the web renderer.
+@@ -31,7 +31,7 @@ usability, and performance.
+ 
+ ### Use `addWebMessageListener` (Recommended)
+ 
+-[`addWebMessageListener`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#addWebMessageListener(android.webkit.WebView,java.lang.String,java.util.Set%3Cjava.lang.String%3E,androidx.webkit.WebViewCompat.WebMessageListener)) is the most modern and recommended approach for
++[`addWebMessageListener`](https://developer.android.com/reference/androidx/webkit/WebViewCompat.md.txt#addWebMessageListener(android.webkit.WebView,java.lang.String,java.util.Set%3Cjava.lang.String%3E,androidx.webkit.WebViewCompat.WebMessageListener)) is the most modern and recommended approach for
+ communication between the web content and native app code. It combines the ease
+ of use of the JavaScript interface with the security of the messaging system.
+ 
+@@ -42,7 +42,7 @@ begins to load.
+ 
+ **Initialization** : To ensure the WebView injects the JavaScript object before
+ any script runs, you must call `addWebMessageListener` before navigating to the
+-page (such as calling [`WebViewCompat.navigate`](https://developer.android.com/develop/ui/views/layout/webapps/navigate) or [`loadUrl`](https://developer.android.com/reference/android/webkit/WebView#loadUrl(java.lang.String))).
++page (such as calling [`WebViewCompat.navigate`](https://developer.android.com/develop/ui/views/layout/webapps/navigate.md.txt) or [`loadUrl`](https://developer.android.com/reference/android/webkit/WebView.md.txt#loadUrl(java.lang.String))).
+ 
+ **Key features**:
+ 
+@@ -78,7 +78,7 @@ page (such as calling [`WebViewCompat.navigate`](https://developer.android.com/d
+   (ANR) error.
+ 
+ - **Bidirectional** : When the web page sends a message, the app receives a
+-  [`JavaScriptReplyProxy`](https://developer.android.com/reference/androidx/webkit/JavaScriptReplyProxy) that it can use to send messages back to that
++  [`JavaScriptReplyProxy`](https://developer.android.com/reference/androidx/webkit/JavaScriptReplyProxy.md.txt) that it can use to send messages back to that
+   specific frame. You can retain this `replyProxy` object and use it at any
+   time to send any number of messages to the page, not just to reply to each
+   individual message the page sends. If the originating frame navigates away
+@@ -88,8 +88,8 @@ page (such as calling [`WebViewCompat.navigate`](https://developer.android.com/d
+ - **App-side initiation** : Although the web page must always initiate the
+   communication channel with the app, the native app can unilaterally prompt
+   the web page to begin this process. The native app can communicate to the
+-  web page with [`addDocumentStartJavaScript()`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#addDocumentStartJavaScript(android.webkit.WebView,java.lang.String,java.util.Set%3Cjava.lang.String%3E)) (to evaluate JavaScript
+-  before the page loads) or [`evaluateJavaScript()`](https://developer.android.com/reference/android/webkit/WebView#evaluateJavascript(java.lang.String,android.webkit.ValueCallback%3Cjava.lang.String%3E)) (to evaluate
++  web page with [`addDocumentStartJavaScript()`](https://developer.android.com/reference/androidx/webkit/WebViewCompat.md.txt#addDocumentStartJavaScript(android.webkit.WebView,java.lang.String,java.util.Set%3Cjava.lang.String%3E)) (to evaluate JavaScript
++  before the page loads) or [`evaluateJavaScript()`](https://developer.android.com/reference/android/webkit/WebView.md.txt#evaluateJavascript(java.lang.String,android.webkit.ValueCallback%3Cjava.lang.String%3E)) (to evaluate
+   JavaScript after the page has loaded).
+ 
+ **Limitation** : This API sends data as either strings or `byte[]` arrays. For
+@@ -102,7 +102,7 @@ the data structure.
+ To understand the full sequence of a bidirectional message exchange, the events
+ proceed in this order:
+ 
+-1. **Initiation (app)** : The native app registers the listener with `addWebMessageListener` and initiates page navigation (such as with [`WebViewCompat.navigate`](https://developer.android.com/develop/ui/views/layout/webapps/navigate) or `loadUrl`).
++1. **Initiation (app)** : The native app registers the listener with `addWebMessageListener` and initiates page navigation (such as with [`WebViewCompat.navigate`](https://developer.android.com/develop/ui/views/layout/webapps/navigate.md.txt) or `loadUrl`).
+ 2. **Message send (web)** : The web page's JavaScript calls `myObject.postMessage(message)` to initiate the communication.
+ 3. **Message receive and reply (app)** : The app receives the message in the listener callback and replies using the provided `replyProxy.postMessage()`.
+ 4. **Reply receive (web)** : The web page receives the asynchronous reply in the `myObject.onmessage()` callback function.
+@@ -127,34 +127,38 @@ if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
+ 
+ ### Java
+ 
+-    WebMessageListener myListener = (view, message, sourceOrigin, isMainFrame, replyProxy) -> {
+-        // Handle the message from JS
+-        replyProxy.postMessage("Acknowledged!");
+-    };
++```java
++WebMessageListener myListener = (view, message, sourceOrigin, isMainFrame, replyProxy) -> {
++    // Handle the message from JS
++    replyProxy.postMessage("Acknowledged!");
++};
+ 
+-    // Check whether the WebView version supports the feature.
+-    if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
+-        Set<String> allowedOrigins = Set.of("https://www.example.com");
+-        WebViewCompat.addWebMessageListener(webView, "myObject", allowedOrigins, myListener);
+-    }
++// Check whether the WebView version supports the feature.
++if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
++    Set<String> allowedOrigins = Set.of("https://www.example.com");
++    WebViewCompat.addWebMessageListener(webView, "myObject", allowedOrigins, myListener);
++}
++```
+ 
+ The following JavaScript demonstrates the client-side implementation of
+ `addWebMessageListener`, allowing the web content to receive messages from the
+ native app and send its own messages through the `myObject` proxy.
+ 
+-    myObject.onmessage = function(event) {
+-        console.log("App says: " + event.data);
+-    };
+-    myObject.postMessage("Hello world!");
++```javascript
++myObject.onmessage = function(event) {
++    console.log("App says: " + event.data);
++};
++myObject.postMessage("Hello world!");
++```
+ 
+ ### Use `postWebMessage` (Alternative)
+ 
+ Android introduced this to provide an asynchronous, messaging-based alternative
+ similar to the web's `window.postMessage`.
+ 
+-**How it works** : The app uses [`WebViewCompat.postWebMessage`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#postWebMessage(android.webkit.WebView,androidx.webkit.WebMessageCompat,android.net.Uri)) to send a payload
++**How it works** : The app uses [`WebViewCompat.postWebMessage`](https://developer.android.com/reference/androidx/webkit/WebViewCompat.md.txt#postWebMessage(android.webkit.WebView,androidx.webkit.WebMessageCompat,android.net.Uri)) to send a payload
+ to the web page's main frame. To establish a bidirectional communication
+-channel, you can create a [`WebMessageChannel`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#createWebMessageChannel(android.webkit.WebView)) and pass one of its
++channel, you can create a [`WebMessageChannel`](https://developer.android.com/reference/androidx/webkit/WebViewCompat.md.txt#createWebMessageChannel(android.webkit.WebView)) and pass one of its
+ ports with the message to the web content.
+ 
+ **Characteristics**:
+@@ -177,14 +181,14 @@ The oldest method involves injecting a native object instance directly into the
+ WebView.
+ 
+ **How it works** : You define a Kotlin or Java class, annotate the allowed
+-methods with [`@JavascriptInterface`](https://developer.android.com/reference/android/webkit/JavascriptInterface), and add an instance of the class to the
+-WebView using [`addJavascriptInterface(Object, String)`](https://developer.android.com/reference/android/webkit/WebView#addJavascriptInterface(java.lang.Object,java.lang.String)).
++methods with [`@JavascriptInterface`](https://developer.android.com/reference/android/webkit/JavascriptInterface.md.txt), and add an instance of the class to the
++WebView using [`addJavascriptInterface(Object, String)`](https://developer.android.com/reference/android/webkit/WebView.md.txt#addJavascriptInterface(java.lang.Object,java.lang.String)).
+ 
+ **Characteristics**:
+ 
+ - **Synchronous**: The JavaScript execution environment blocks until the method in your Android code returns.
+ - **Thread safety**: The system calls methods on a background thread, requiring careful synchronization on the Kotlin or Java side.
+-- **Security risk** : By default, `addJavascriptInterface` is available to every frame within the WebView, including iframes. It lacks origin-based access control. Due to the asynchronous behavior of WebView, it isn't possible to safely determine the URL of the frame that is calling your interface. You must not rely on methods like [`WebView.getUrl()`](https://developer.android.com/reference/android/webkit/WebView#getUrl()) for security verification, as they aren't guaranteed to be accurate and don't indicate which specific frame made the request.
++- **Security risk** : By default, `addJavascriptInterface` is available to every frame within the WebView, including iframes. It lacks origin-based access control. Due to the asynchronous behavior of WebView, it isn't possible to safely determine the URL of the frame that is calling your interface. You must not rely on methods like [`WebView.getUrl()`](https://developer.android.com/reference/android/webkit/WebView.md.txt#getUrl()) for security verification, as they aren't guaranteed to be accurate and don't indicate which specific frame made the request.
+ 
+ > [!CAUTION]
+ > **Caution:** We don't recommend using this method for modern applications unless you are targeting very old Android versions.
+@@ -282,7 +286,7 @@ data between the host application and web content.
+ 
+ ### Transfer binary data with byte arrays
+ 
+-With the [`WebMessageCompat`](https://developer.android.com/reference/androidx/webkit/WebMessageCompat) class, you can send `byte[]` arrays directly
++With the [`WebMessageCompat`](https://developer.android.com/reference/androidx/webkit/WebMessageCompat.md.txt) class, you can send `byte[]` arrays directly
+ instead of serializing binary data into Base64 strings. Since Base64 adds
+ roughly 33% overhead to the data size, this is significantly more
+ memory-efficient and faster.
+@@ -333,71 +337,75 @@ fun setupWebView(webView: WebView) {
+ 
+ ### Java
+ 
+-    public void setupWebView(WebView webView) {
+-      if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
+-          WebViewCompat.WebMessageListener listener = (view, message, sourceOrigin, isMainFrame, replyProxy) -> {
+-
+-              // Check if the received message is an ArrayBuffer
+-              if (message.getType() == WebMessageCompat.TYPE_ARRAY_BUFFER) {
+-                  byte[] binaryData = message.getArrayBuffer();
+-                  // Process your binary data (image, audio, etc.)
+-                  System.out.println("Received bytes: " + binaryData.length);
+-
+-                  // Optional: Send a binary reply back to JavaScript.
+-                  // This example sends a 3-byte array for simplicity.
+-                  if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_ARRAY_BUFFER)) {
+-                      byte[] replyBytes = new byte[]{0x01, 0x02, 0x03};
+-                      replyProxy.postMessage(replyBytes);
+-                  }
++```java
++public void setupWebView(WebView webView) {
++  if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
++      WebViewCompat.WebMessageListener listener = (view, message, sourceOrigin, isMainFrame, replyProxy) -> {
++
++          // Check if the received message is an ArrayBuffer
++          if (message.getType() == WebMessageCompat.TYPE_ARRAY_BUFFER) {
++              byte[] binaryData = message.getArrayBuffer();
++              // Process your binary data (image, audio, etc.)
++              System.out.println("Received bytes: " + binaryData.length);
++
++              // Optional: Send a binary reply back to JavaScript.
++              // This example sends a 3-byte array for simplicity.
++              if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_ARRAY_BUFFER)) {
++                  byte[] replyBytes = new byte[]{0x01, 0x02, 0x03};
++                  replyProxy.postMessage(replyBytes);
+               }
+-          };
+-
+-          // "myBridge" matches the window.myBridge in JavaScript
+-          WebViewCompat.addWebMessageListener(
+-              webView,
+-              "myBridge",
+-              Set.of("https://example.com"), // Security: restrict origins
+-              listener
+-          );
+-      }
+-    }
++          }
++      };
++
++      // "myBridge" matches the window.myBridge in JavaScript
++      WebViewCompat.addWebMessageListener(
++          webView,
++          "myBridge",
++          Set.of("https://example.com"), // Security: restrict origins
++          listener
++      );
++  }
++}
++```
+ 
+ The following JavaScript code demonstrates the client-side implementation of
+ `addWebMessageListener`, enabling the web content to send and receive binary
+ data (`ArrayBuffer`) to and from the native app using the `window.myBridge`
+ proxy injected in the previous example.
+ 
+-    // Function to send an image or binary buffer to the app
+-    async function sendBinaryToApp() {
+-        const response = await fetch('image.jpg');
+-        const buffer = await response.arrayBuffer();
++```javascript
++// Function to send an image or binary buffer to the app
++async function sendBinaryToApp() {
++    const response = await fetch('image.jpg');
++    const buffer = await response.arrayBuffer();
+ 
+-        // Check if the injected bridge object exists
+-        if (window.myBridge) {
+-            // You can send the ArrayBuffer directly
+-            window.myBridge.postMessage(buffer);
+-        }
+-    }
+-
+-    // Receiving binary data from the app
++    // Check if the injected bridge object exists
+     if (window.myBridge) {
+-        window.myBridge.onmessage = function(event) {
+-            if (event.data instanceof ArrayBuffer) {
+-                console.log('Received binary data from App, length:', event.data.byteLength);
+-                // Process the binary data (for example, as a Uint8Array)
+-                const bytes = new Uint8Array(event.data);
+-                console.log('First byte:', bytes[0]);
+-            }
+-        };
++        // You can send the ArrayBuffer directly
++        window.myBridge.postMessage(buffer);
+     }
++}
++
++// Receiving binary data from the app
++if (window.myBridge) {
++    window.myBridge.onmessage = function(event) {
++        if (event.data instanceof ArrayBuffer) {
++            console.log('Received binary data from App, length:', event.data.byteLength);
++            // Process the binary data (for example, as a Uint8Array)
++            const bytes = new Uint8Array(event.data);
++            console.log('First byte:', bytes[0]);
++        }
++    };
++}
++```
+ 
+ ### Efficient large-scale data loading
+ 
+-For very large files (\>10 MB), use the [`shouldInterceptRequest`](https://developer.android.com/reference/android/webkit/WebViewClient#shouldInterceptRequest(android.webkit.WebView,android.webkit.WebResourceRequest)) method to
++For very large files (\>10 MB), use the [`shouldInterceptRequest`](https://developer.android.com/reference/android/webkit/WebViewClient.md.txt#shouldInterceptRequest(android.webkit.WebView,android.webkit.WebResourceRequest)) method to
+ stream data:
+ 
+ 1. The web page initiates a `fetch()` call to a custom, placeholder URL. For example, `https://app.local/large-file`.
+-2. The Android app intercepts this request in [`WebViewClient`](https://developer.android.com/reference/android/webkit/WebViewClient).shouldInterceptRequest.
++2. The Android app intercepts this request in [`WebViewClient`](https://developer.android.com/reference/android/webkit/WebViewClient.md.txt).shouldInterceptRequest.
+ 3. The app returns the data as an `InputStream`.
+ 
+ This enables streaming data in chunks rather than loading the entire payload
+@@ -407,29 +415,31 @@ The following JavaScript function demonstrates the client-side code for
+ efficiently loading a large binary file from the native application using a
+ standard `fetch()` call to a custom, placeholder URL.
+ 
+-    async function fetchBinaryFromApp() {
+-        try {
+-            // This URL doesn't need to exist on the internet
+-            const response = await fetch('https://app.local/data/large-file.bin');
++```javascript
++async function fetchBinaryFromApp() {
++    try {
++        // This URL doesn't need to exist on the internet
++        const response = await fetch('https://app.local/data/large-file.bin');
+ 
+-            if (!response.ok) throw new Error('Network response was not okay');
++        if (!response.ok) throw new Error('Network response was not okay');
+ 
+-            // For raw binary data:
+-            const arrayBuffer = await response.arrayBuffer();
+-            console.log('Received binary data, size:', arrayBuffer.byteLength);
+-            // Process buffer (for example, new Uint8Array(arrayBuffer))
++        // For raw binary data:
++        const arrayBuffer = await response.arrayBuffer();
++        console.log('Received binary data, size:', arrayBuffer.byteLength);
++        // Process buffer (for example, new Uint8Array(arrayBuffer))
+ 
+-            /*
+-            // OR for an image:
+-            const blob = await response.blob();
+-            const imageUrl = URL.createObjectURL(blob);
+-            document.getElementById('myImage').src = imageUrl;
+-            */
++        /*
++        // OR for an image:
++        const blob = await response.blob();
++        const imageUrl = URL.createObjectURL(blob);
++        document.getElementById('myImage').src = imageUrl;
++        */
+ 
+-        } catch (error) {
+-            console.error('Fetch error:', error);
+-        }
++    } catch (error) {
++        console.error('Fetch error:', error);
+     }
++}
++```
+ 
+ The following code examples demonstrate the native app side, using the
+ `WebViewClient.shouldInterceptRequest` method in both Kotlin and Java, to stream
+@@ -480,39 +490,41 @@ webView.webViewClient = object : WebViewClient() {
+ 
+ ### Java
+ 
+-    webView.setWebViewClient(new WebViewClient() {
+-      @Override
+-      public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+-          String urlPath = request.getUrl().getPath();
+-          String host = request.getUrl().getHost();
+-
+-          // Check if this is our custom placeholder URL
+-          if ("app.local".equals(host) && "/data/large-file.bin".equals(urlPath)) {
+-              try {
+-                  // 1. Get your data as an InputStream
+-                  // (from Assets, Files, or a generated byte stream)
+-                  InputStream inputStream = getContext().getAssets().open("my_data.pb");
+-
+-                  // 2. Define Response Headers (Crucial for CORS/Fetch)
+-                  Map<String, String> headers = new HashMap<>();
+-                  headers.put("Access-Control-Allow-Origin", "*"); // Allow fetch from any origin
+-
+-                  // 3. Return the response
+-                  return new WebResourceResponse(
+-                      "application/octet-stream", // MIME type (for example, image/jpeg)
+-                      "UTF-8",                   // Encoding
+-                      200,                       // Status Code
+-                      "OK",                      // Reason Phrase
+-                      headers,                   // Custom Headers
+-                      inputStream                // The actual data stream
+-                  );
+-              } catch (Exception e) {
+-                  // Handle exception
+-              }
++```java
++webView.setWebViewClient(new WebViewClient() {
++  @Override
++  public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
++      String urlPath = request.getUrl().getPath();
++      String host = request.getUrl().getHost();
++
++      // Check if this is our custom placeholder URL
++      if ("app.local".equals(host) && "/data/large-file.bin".equals(urlPath)) {
++          try {
++              // 1. Get your data as an InputStream
++              // (from Assets, Files, or a generated byte stream)
++              InputStream inputStream = getContext().getAssets().open("my_data.pb");
++
++              // 2. Define Response Headers (Crucial for CORS/Fetch)
++              Map<String, String> headers = new HashMap<>();
++              headers.put("Access-Control-Allow-Origin", "*"); // Allow fetch from any origin
++
++              // 3. Return the response
++              return new WebResourceResponse(
++                  "application/octet-stream", // MIME type (for example, image/jpeg)
++                  "UTF-8",                   // Encoding
++                  200,                       // Status Code
++                  "OK",                      // Reason Phrase
++                  headers,                   // Custom Headers
++                  inputStream                // The actual data stream
++              );
++          } catch (Exception e) {
++              // Handle exception
+           }
+-          return super.shouldInterceptRequest(view, request);
+       }
+-    });
++      return super.shouldInterceptRequest(view, request);
++  }
++});
++```
+ 
+ ## Follow security recommendations
+ 
+@@ -543,5 +555,5 @@ implementing a bridge:
+ 
+ - **Check features at runtime** : Recent bridge APIs, including
+   `addWebMessageListener`, are part of the Jetpack Webkit library. So, always
+-  check for support using [`WebViewFeature.isFeatureSupported()`](https://developer.android.com/reference/androidx/webkit/WebViewFeature#isFeatureSupported(java.lang.String)) before
++  check for support using [`WebViewFeature.isFeatureSupported()`](https://developer.android.com/reference/androidx/webkit/WebViewFeature.md.txt#isFeatureSupported(java.lang.String)) before
+   calling them.
+\ No newline at end of file

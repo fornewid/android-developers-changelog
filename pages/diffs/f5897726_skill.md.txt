@@ -1,0 +1,130 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/skill.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/skill.md
+index e22e8308..6a4a9880 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/skill.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/skill.md
+@@ -42,7 +42,7 @@ source: md.txt
+ 
+ - **Set up projected activity** : When creating a projected activity, follow
+   [Create your first activity for intelligent eyewear](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity) and
+-  [projectedcontext-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/projectedcontext-source). Set `android:requiredDisplayCategory` to
++  [projectedcontext-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/projectedcontext-source.md.txt). Set `android:requiredDisplayCategory` to
+   `android.hardware.display.category.XR_PROJECTED` in `AndroidManifest.xml`:
+ 
+ 
+@@ -82,7 +82,7 @@ source: md.txt
+ - **UI library and font** : When declaring the Glimmer, Google Fonts, and
+   Projected artifacts in `app/build.gradle.kts`, follow [Declaring Jetpack
+   Compose Glimmer Dependencies](https://developer.android.com/jetpack/androidx/releases/xr-glimmer), and follow
+-  [glimmersansflextypography-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmersansflextypography-source) when configuring Google Sans Flex
++  [glimmersansflextypography-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmersansflextypography-source.md.txt) when configuring Google Sans Flex
+   using `createGoogleSansFlexTypography`.
+ 
+ - **Theming, initial focus, and black background** : On additive displays, pure
+@@ -151,14 +151,14 @@ source: md.txt
+ - **Hardware capabilities, permissions, and access** : When checking hardware
+   capabilities, requesting permissions, or accessing glasses hardware, follow
+   [Check device capabilities at runtime](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/check-capabilities), [Request hardware
+-  permissions](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions), and [Use a projected context to access hardware](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context).
++  permissions](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions), and [Use a projected context to access hardware](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md.txt).
+ 
+ ## 2. Minimize and translate the UI
+ 
+ - Build UI with Jetpack Compose Glimmer components and use depth for priority.
+ - Design from the bottom up and always bottom-align UI (`Alignment.BottomCenter`).
+ - **One thing at a time** : Show one primary piece of information at a time (for example, using `VerticalStack`) and avoid multiple simultaneous cards.
+-- **Color contrast** : When choosing colors, follow [material-hct-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/material-hct-source) to maintain at least a 70% tone difference between foreground and background in HCT.
++- **Color contrast** : When choosing colors, follow [material-hct-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/material-hct-source.md.txt) to maintain at least a 70% tone difference between foreground and background in HCT.
+ 
+ ## 3. Map input controls
+ 
+@@ -172,7 +172,7 @@ source: md.txt
+ ### Implementing Glimmer styles
+ 
+ When accessing theme tokens using `GlimmerTheme`, follow
+-[glimmertheme-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmertheme-source).
++[glimmertheme-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmertheme-source.md.txt).
+ 
+ | Category | Token | Value / Role |
+ |---|---|---|
+@@ -194,7 +194,7 @@ Use Google Sans Flex with variable axes `ROND` = `100f`, `wdth` = `100f`, `opsz`
+ | **Caption** | 18.sp / 28.sp | 650 |
+ 
+ When simulating depth with `DepthEffect` and `DepthEffectLevels`, follow
+-[deptheffect-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/deptheffect-source) and [deptheffectlevels-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/deptheffectlevels-source): use `level1`
++[deptheffect-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/deptheffect-source.md.txt) and [deptheffectlevels-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/deptheffectlevels-source.md.txt): use `level1`
+ for resting cards and background UI, and `level2` for focused or pressed
+ interactive UI.
+ 
+@@ -204,8 +204,8 @@ interactive UI.
+ 
+ Cards (`androidx.xr.glimmer.Card`) group related content into a single focal
+ point. Never embed a `Card` within a `ListItem`. When implementing cards, follow
+-the instructions in [Jetpack Compose Glimmer: Cards](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/cards), [card-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/card-source),
+-and [card-samples-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/card-samples-source).
++the instructions in [Jetpack Compose Glimmer: Cards](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/cards), [card-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/card-source.md.txt),
++and [card-samples-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/card-samples-source.md.txt).
+ 
+ - **Clickable versus non-clickable card** : Pass `onClick = { ... }` if the entire `Card` acts as a trigger; omit `onClick` if informational. Control focus on non-clickable cards with `focusable: Boolean = true` (such as `Card(focusable = false)`).
+ - **Single primary action (`ActionCard`)** : When a card has a single primary
+@@ -255,8 +255,8 @@ and [card-samples-source.md](https://developer.android.com/agents/skills/xr/disp
+ #### Buttons and ToggleButtons
+ 
+ When implementing buttons or toggle buttons, follow the instructions in [Jetpack
+-Compose Glimmer: Buttons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/buttons), [button-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-source), and
+-[button-samples-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source).
++Compose Glimmer: Buttons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/buttons), [button-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-source.md.txt), and
++[button-samples-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md.txt).
+ 
+ - **Standard and icon buttons** : Use `Button` for text actions (with optional `leadingIcon`/`trailingIcon`) and `IconButton` for icon-only triggers (such as media next-track or previous-track buttons).
+ - **Toggle buttons (`ToggleButton` and `IconToggleButton`)** : Use
+@@ -291,7 +291,7 @@ Compose Glimmer: Buttons](https://developer.android.com/develop/xr/jetpack-xr-sd
+ `TitleChip` (`androidx.xr.glimmer.TitleChip`) is a non-interactive pill header
+ (three words or fewer, single line). When implementing title chips, follow the
+ instructions in [Jetpack Compose Glimmer: Title Chips](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/title-chips),
+-[titlechip-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/titlechip-source), and [titlechip-samples-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/titlechip-samples-source).
++[titlechip-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/titlechip-source.md.txt), and [titlechip-samples-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/titlechip-samples-source.md.txt).
+ 
+ - **Spatial spacing** : When placing a standalone `TitleChip` above a `Card` or
+   `ActionCard`, center the `TitleChip` horizontally and separate it from the
+@@ -323,8 +323,8 @@ instructions in [Jetpack Compose Glimmer: Title Chips](https://developer.android
+ #### Icons
+ 
+ When adding icons or icon buttons, follow the instructions in [Jetpack Compose
+-Glimmer: Icons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/icons), [icon-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/icon-source), [iconbutton-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/iconbutton-source), and
+-[iconsizes-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/iconsizes-source).
++Glimmer: Icons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/icons), [icon-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/icon-source.md.txt), [iconbutton-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/iconbutton-source.md.txt), and
++[iconsizes-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/iconsizes-source.md.txt).
+ 
+ - **Sizing and interactivity** : Size icons with `GlimmerTheme.iconSizes` (`small`, `medium`, `large`). Use `IconButton` or `IconToggleButton` for triggers and `Icon` for status indicators.
+ - **Contrast and library** : **Never** use pure black (`Color.Black`) for icon tints; black renders as transparent. Use [Material Symbols](https://fonts.google.com/icons?icon.style=Rounded) (600 weight, Rounded, Unfilled). If `androidx.compose.material:material-icons-*` isn't in `app/build.gradle.kts`, build vectors with `ImageVector.Builder` or `painterResource` instead of importing `androidx.compose.material.icons.*`.
+@@ -333,8 +333,8 @@ Glimmer: Icons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-
+ 
+ Use `GlimmerLazyColumn` (`androidx.xr.glimmer.list.GlimmerLazyColumn`) for
+ homogeneous scrollable items. When building scrollable lists and list items,
+-follow the API definitions in [list-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/list-source), [listitem-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/listitem-source),
+-and [liststate-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/liststate-source).
++follow the API definitions in [list-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/list-source.md.txt), [listitem-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/listitem-source.md.txt),
++and [liststate-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/liststate-source.md.txt).
+ 
+ - **Always use `GlimmerLazyColumn`** : Never use foundation `LazyColumn`. Import `GlimmerLazyColumn`, `rememberGlimmerLazyListState`, and `items` from `androidx.xr.glimmer.list` (`item` is a scope member, not imported). For programmatic scrolling to the first item, hoist `val listState =
+   rememberGlimmerLazyListState()` and call `listState.scrollToItem(0)` or `listState.animateScrollToItem(0)`.
+@@ -365,8 +365,8 @@ and [liststate-source.md](https://developer.android.com/agents/skills/xr/display
+ Use `VerticalStack` (`androidx.xr.glimmer.stack.VerticalStack`) to display
+ heterogeneous cards one at a time (such as calendar, transit, and weather
+ cards). **Never** use a `TitleChip` with `VerticalStack`. When implementing a
+-`VerticalStack`, follow the API definitions in [stack-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stack-source),
+-[stackstate-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stackstate-source), and [stackitemscope-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stackitemscope-source).
++`VerticalStack`, follow the API definitions in [stack-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stack-source.md.txt),
++[stackstate-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stackstate-source.md.txt), and [stackitemscope-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stackitemscope-source.md.txt).
+ 
+ - **Bottom alignment, height (+66.dp), and `itemDecoration`** : Align
+   `VerticalStack` to `Alignment.BottomCenter`, set its height to **`66.dp`
+@@ -432,7 +432,7 @@ walkthroughs (never foundation `HorizontalPager`).
+ 
+ `Modifier.surface` (`androidx.xr.glimmer.surface`) builds custom interactive
+ components (such as status badges without `Card` or `Button`). When creating
+-custom surfaces, follow the API definitions in [surface-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/surface-source).
++custom surfaces, follow the API definitions in [surface-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/surface-source.md.txt).
+ 
+ - **Shared `MutableInteractionSource` and order** : Create a single `remember {
+   MutableInteractionSource() }` and pass it to both

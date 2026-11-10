@@ -1,0 +1,508 @@
+diff --git a/docs/identity/authorization.md b/docs/identity/authorization.md
+index 292eb063..4d82c7bc 100644
+--- a/docs/identity/authorization.md
++++ b/docs/identity/authorization.md
+@@ -29,7 +29,7 @@ By separating authorization from authentication, you can avoid overwhelming new
+ users, or confusing users as to why they are being asked for certain
+ permissions.
+ 
+-For authentication, we recommend using the [Credential Manager API](https://developer.android.com/identity/sign-in/credential-manager-siwg). For
++For authentication, we recommend using the [Credential Manager API](https://developer.android.com/identity/sign-in/credential-manager-siwg.md.txt). For
+ authorizing actions that need access to user data stored by Google, we recommend
+ using [AuthorizationClient](https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/AuthorizationClient).
+ 
+@@ -45,11 +45,11 @@ using [AuthorizationClient](https://developers.google.com/android/reference/com/
+    2. Click **Create client**.
+    3. Select the **Android** application type.
+    4. Enter a name for the OAuth client. This name is displayed on your project's [Clients page](https://console.developers.google.com/auth/clients) to identify the client.
+-   5. Enter the package name of your Android app. This value is defined in the [`package` attribute of the `<manifest>` element](https://developer.android.com/guide/topics/manifest/manifest-element#package) in your `AndroidManifest.xml` file.
++   5. Enter the package name of your Android app. This value is defined in the [`package` attribute of the `<manifest>` element](https://developer.android.com/guide/topics/manifest/manifest-element.md.txt#package) in your `AndroidManifest.xml` file.
+    6. Enter the SHA-1 signing certificate fingerprint of the app distribution.
+    7. If your app uses [app signing by Google Play](https://support.google.com/googleplay/android-developer/answer/7384423), copy the SHA-1 fingerprint from the app signing page of the Play Console.
+    8. If you manage your own keystore and signing keys, use the <kbd>keytool</kbd> utility included with Java to print certificate information in a human-readable format. Copy the `SHA-1` value in the `Certificate fingerprints` section of the <kbd>keytool</kbd> output. See [Authenticating Your Client](https://developers.google.com/android/guides/client-auth) in the Google APIs for Android documentation for more information.
+-   9. (Optional) [Verify ownership](https://developer.android.com/identity/authorization#verify-app-ownership) of your Android application.
++   9. (Optional) [Verify ownership](https://developer.android.com/identity/authorization.md.txt#verify-app-ownership) of your Android application.
+ 4. In the [Clients page](https://console.developers.google.com/auth/clients), create a new "Web application" client ID if you haven't already. You can ignore the "Authorized JavaScript Origins" and "Authorized redirect URIs" fields for now. This client ID will be used to identify your backend server when it communicates with Google's authentication services.
+    1. Go to the [Clients page](https://console.developers.google.com/auth/clients).
+    2. Click **Create client**.
+@@ -102,48 +102,52 @@ that requires access to their Drive app storage, do the following:
+ 
+ ### Kotlin
+ 
+-    val requestedScopes: List<Scope> = listOf(DriveScopes.DRIVE_FILE)
+-    val authorizationRequest = AuthorizationRequest.builder()
+-        .setRequestedScopes(requestedScopes)
+-        .build()
+-
+-    Identity.getAuthorizationClient(activity)
+-        .authorize(authorizationRequestBuilder.build())
+-        .addOnSuccessListener { authorizationResult ->
+-            if (authorizationResult.hasResolution()) {
+-                val pendingIntent = authorizationResult.pendingIntent
+-                // Access needs to be granted by the user
+-                startAuthorizationIntent.launch(IntentSenderRequest.Builder(pendingIntent!!.intentSender).build())
+-            } else {
+-                // Access was previously granted, continue with user action
+-                saveToDriveAppFolder(authorizationResult);
+-            }
++```kotlin
++val requestedScopes: List<Scope> = listOf(DriveScopes.DRIVE_FILE)
++val authorizationRequest = AuthorizationRequest.builder()
++    .setRequestedScopes(requestedScopes)
++    .build()
++
++Identity.getAuthorizationClient(activity)
++    .authorize(authorizationRequestBuilder.build())
++    .addOnSuccessListener { authorizationResult ->
++        if (authorizationResult.hasResolution()) {
++            val pendingIntent = authorizationResult.pendingIntent
++            // Access needs to be granted by the user
++            startAuthorizationIntent.launch(IntentSenderRequest.Builder(pendingIntent!!.intentSender).build())
++        } else {
++            // Access was previously granted, continue with user action
++            saveToDriveAppFolder(authorizationResult);
+         }
+-        .addOnFailureListener { e -> Log.e(TAG, "Failed to authorize", e) }
++    }
++    .addOnFailureListener { e -> Log.e(TAG, "Failed to authorize", e) }
++```
+ 
+ ### Java
+ 
+-    List<Scope> requestedScopes = Arrays.asList(DriveScopes.DRIVE_FILE);
+-    AuthorizationRequest authorizationRequest = AuthorizationRequest.builder()
+-        .setRequestedScopes(requestedScopes)
+-        .build();
+-
+-    Identity.getAuthorizationClient(activity)
+-        .authorize(authorizationRequest)
+-        .addOnSuccessListener(authorizationResult -> {
+-            if (authorizationResult.hasResolution()) {
+-                // Access needs to be granted by the user
+-                startAuthorizationIntent.launch(
+-                    new IntentSenderRequest.Builder(
+-                        authorizationResult.getPendingIntent().getIntentSender()
+-                    ).build()
+-                );
+-            } else {
+-                // Access was previously granted, continue with user action
+-                saveToDriveAppFolder(authorizationResult);
+-            }
+-        })
+-        .addOnFailureListener(e -> Log.e(TAG, "Failed to authorize", e));
++```java
++List<Scope> requestedScopes = Arrays.asList(DriveScopes.DRIVE_FILE);
++AuthorizationRequest authorizationRequest = AuthorizationRequest.builder()
++    .setRequestedScopes(requestedScopes)
++    .build();
++
++Identity.getAuthorizationClient(activity)
++    .authorize(authorizationRequest)
++    .addOnSuccessListener(authorizationResult -> {
++        if (authorizationResult.hasResolution()) {
++            // Access needs to be granted by the user
++            startAuthorizationIntent.launch(
++                new IntentSenderRequest.Builder(
++                    authorizationResult.getPendingIntent().getIntentSender()
++                ).build()
++            );
++        } else {
++            // Access was previously granted, continue with user action
++            saveToDriveAppFolder(authorizationResult);
++        }
++    })
++    .addOnFailureListener(e -> Log.e(TAG, "Failed to authorize", e));
++```
+ 
+ When defining `ActivityResultLauncher`, handle the response as shown in the
+ following snippet, where we assume it is done in a fragment. The code checks
+@@ -152,58 +156,62 @@ the user action.
+ 
+ ### Kotlin
+ 
+-    private lateinit var startAuthorizationIntent: ActivityResultLauncher<IntentSenderRequest>
+-
+-    override fun onCreateView(
+-        inflater: LayoutInflater,
+-        container: ViewGroup?,
+-        savedInstanceState: Bundle?,
+-    ): View? {
+-        // ...
+-        startAuthorizationIntent =
+-            registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) { activityResult ->
+-                try {
+-                    // extract the result
+-                    val authorizationResult = Identity.getAuthorizationClient(requireContext())
+-                        .getAuthorizationResultFromIntent(activityResult.data)
+-                    // continue with user action
+-                    saveToDriveAppFolder(authorizationResult);
+-                } catch (e: ApiException) {
+-                    // log exception
+-                }
+-            }
+-    }
+-
+-### Java
+-
+-    private ActivityResultLauncher<IntentSenderRequest> startAuthorizationIntent;
++```kotlin
++private lateinit var startAuthorizationIntent: ActivityResultLauncher<IntentSenderRequest>
+ 
+-    @Override
+-    public View onCreateView(
+-        @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
++override fun onCreateView(
++    inflater: LayoutInflater,
++    container: ViewGroup?,
++    savedInstanceState: Bundle?,
++): View? {
+     // ...
+     startAuthorizationIntent =
+-        registerForActivityResult(
+-            new ActivityResultContracts.StartIntentSenderForResult(),
+-            activityResult -> {
+-                try {
++        registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) { activityResult ->
++            try {
+                 // extract the result
+-                AuthorizationResult authorizationResult =
+-                    Identity.getAuthorizationClient(requireActivity())
+-                        .getAuthorizationResultFromIntent(activityResult.getData());
++                val authorizationResult = Identity.getAuthorizationClient(requireContext())
++                    .getAuthorizationResultFromIntent(activityResult.data)
+                 // continue with user action
+                 saveToDriveAppFolder(authorizationResult);
+-                } catch (ApiException e) {
++            } catch (e: ApiException) {
+                 // log exception
+-                }
+-            });
+-    }
++            }
++        }
++}
++```
++
++### Java
++
++```java
++private ActivityResultLauncher<IntentSenderRequest> startAuthorizationIntent;
++
++@Override
++public View onCreateView(
++    @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
++// ...
++startAuthorizationIntent =
++    registerForActivityResult(
++        new ActivityResultContracts.StartIntentSenderForResult(),
++        activityResult -> {
++            try {
++            // extract the result
++            AuthorizationResult authorizationResult =
++                Identity.getAuthorizationClient(requireActivity())
++                    .getAuthorizationResultFromIntent(activityResult.getData());
++            // continue with user action
++            saveToDriveAppFolder(authorizationResult);
++            } catch (ApiException e) {
++            // log exception
++            }
++        });
++}
++```
+ 
+ If you are accessing Google APIs on the server side, call the
+ [`getServerAuthCode()`](https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/AuthorizationResult#public-string-getserverauthcode) method from [`AuthorizationResult`](https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/AuthorizationResult) to get an
+ authorization code which you send to your backend to exchange for an access and
+ refresh token. To learn more, see
+-[Maintain ongoing access to the user's data](https://developer.android.com/identity/authorization#maintain-access).
++[Maintain ongoing access to the user's data](https://developer.android.com/identity/authorization.md.txt#maintain-access).
+ 
+ ## Revoke permissions to user data or resources
+ 
+@@ -214,29 +222,33 @@ their account from your app, and your app was previously granted access to
+ 
+ ### Kotlin
+ 
+-    val requestedScopes: MutableList<Scope> = mutableListOf(DriveScopes.DRIVE_FILE)
+-    RevokeAccessRequest revokeAccessRequest = RevokeAccessRequest.builder()
+-        .setAccount(account)
+-        .setScopes(requestedScopes)
+-        .build()
++```kotlin
++val requestedScopes: MutableList<Scope> = mutableListOf(DriveScopes.DRIVE_FILE)
++RevokeAccessRequest revokeAccessRequest = RevokeAccessRequest.builder()
++    .setAccount(account)
++    .setScopes(requestedScopes)
++    .build()
+ 
+-    Identity.getAuthorizationClient(activity)
+-        .revokeAccess(revokeAccessRequest)
+-        .addOnSuccessListener { Log.i(TAG, "Successfully revoked access") }
+-        .addOnFailureListener { e -> Log.e(TAG, "Failed to revoke access", e) }
++Identity.getAuthorizationClient(activity)
++    .revokeAccess(revokeAccessRequest)
++    .addOnSuccessListener { Log.i(TAG, "Successfully revoked access") }
++    .addOnFailureListener { e -> Log.e(TAG, "Failed to revoke access", e) }
++```
+ 
+ ### Java
+ 
+-    List<Scope> requestedScopes = Arrays.asList(DriveScopes.DRIVE_FILE);
+-    RevokeAccessRequest revokeAccessRequest = RevokeAccessRequest.builder()
+-        .setAccount(account)
+-        .setScopes(requestedScopes)
+-        .build();
++```java
++List<Scope> requestedScopes = Arrays.asList(DriveScopes.DRIVE_FILE);
++RevokeAccessRequest revokeAccessRequest = RevokeAccessRequest.builder()
++    .setAccount(account)
++    .setScopes(requestedScopes)
++    .build();
+ 
+-    Identity.getAuthorizationClient(activity)
+-        .revokeAccess(revokeAccessRequest)
+-        .addOnSuccessListener(unused -> Log.i(TAG, "Successfully revoked access"))
+-        .addOnFailureListener(e -> Log.e(TAG, "Failed to revoke access", e));
++Identity.getAuthorizationClient(activity)
++    .revokeAccess(revokeAccessRequest)
++    .addOnSuccessListener(unused -> Log.i(TAG, "Successfully revoked access"))
++    .addOnFailureListener(e -> Log.e(TAG, "Failed to revoke access", e));
++```
+ 
+ > [!IMPORTANT]
+ > **Important:** Calling `revokeAccess()` revokes all scopes previously granted to the user for your application, not just those specified in the request. It also clears any locally cached tokens for that user. To regain access, the user must go through the authorization flow again.
+@@ -253,17 +265,21 @@ the local cache:
+ 
+ ### Kotlin
+ 
+-    Identity.getAuthorizationClient(activity)
+-        .clearToken(ClearTokenRequest.builder().setToken(invalidAccessToken).build())
+-        .addOnSuccessListener { Log.i(TAG, "Successfully removed the token from the cache") }
+-        .addOnFailureListener{ e -> Log.e(TAG, "Failed to clear token", e) }
++```kotlin
++Identity.getAuthorizationClient(activity)
++    .clearToken(ClearTokenRequest.builder().setToken(invalidAccessToken).build())
++    .addOnSuccessListener { Log.i(TAG, "Successfully removed the token from the cache") }
++    .addOnFailureListener{ e -> Log.e(TAG, "Failed to clear token", e) }
++```
+ 
+ ### Java
+ 
+-    Identity.getAuthorizationClient(activity)
+-        .clearToken(ClearTokenRequest.builder().setToken(invalidAccessToken).build())
+-        .addOnSuccessListener(unused -> Log.i(TAG, "Successfully removed the token from the cache"))
+-        .addOnFailureListener(e -> Log.e(TAG, "Failed to clear the token cache", e));
++```java
++Identity.getAuthorizationClient(activity)
++    .clearToken(ClearTokenRequest.builder().setToken(invalidAccessToken).build())
++    .addOnSuccessListener(unused -> Log.i(TAG, "Successfully removed the token from the cache"))
++    .addOnFailureListener(e -> Log.e(TAG, "Failed to clear the token cache", e));
++```
+ 
+ ## Get user information during authorization
+ 
+@@ -283,7 +299,7 @@ following options:
+   subsequent authorization request uses the account as the default and skips
+   the account selection step in the authorization flow. To use a different
+   account for authorization, see
+-  [Authorization from a non-default account](https://developer.android.com/identity/authorization#auth-non-default).
++  [Authorization from a non-default account](https://developer.android.com/identity/authorization.md.txt#auth-non-default).
+ 
+ - In your authorization request, in addition to the scopes that you want (for
+   example, the `Drive scope`), ask for the `userinfo`, `profile`, and `openid`
+@@ -293,7 +309,9 @@ following options:
+   library and including the access token that you had received in the header,
+   equivalent to the following `curl` command:
+ 
+-      curl -X GET \ "https://www.googleapis.com/oauth2/v1/userinfo?alt=json" \ -H "Authorization: Bearer $TOKEN"
++  ```bash
++  curl -X GET \ "https://www.googleapis.com/oauth2/v1/userinfo?alt=json" \ -H "Authorization: Bearer $TOKEN"
++  ```
+ 
+   The response is the [`UserInfo`](https://cloud.google.com/identity-platform/docs/reference/rest/v1/UserInfo), limited to the scopes that were
+   requested, formatted in JSON.
+@@ -304,7 +322,7 @@ If you use Credential Manager to authenticate, and run
+ [`AuthorizationClient.authorize()`](https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/AuthorizationClient#public-abstract-taskauthorizationresult-authorize-authorizationrequest-request), your app's default account is set to
+ the one selected by your user. This means that any subsequent calls for
+ authorization use this default account. To force showing the account selector,
+-sign out the user from the app using the [`clearCredentialState()`](https://developer.android.com/reference/androidx/credentials/CredentialManager#clearCredentialState(androidx.credentials.ClearCredentialStateRequest)) API from
++sign out the user from the app using the [`clearCredentialState()`](https://developer.android.com/reference/androidx/credentials/CredentialManager.md.txt#clearCredentialState(androidx.credentials.ClearCredentialStateRequest)) API from
+ Credential Manager.
+ 
+ ## Maintain ongoing access to the user's data
+@@ -341,91 +359,99 @@ should only happen in the backend of your app.
+ 
+ ### Kotlin
+ 
+-    // Ask for offline access during the first authorization request
+-    val authorizationRequest = AuthorizationRequest.builder()
+-        .setRequestedScopes(requestedScopes)
+-        .requestOfflineAccess(serverClientId)
+-        .build()
+-
+-    Identity.getAuthorizationClient(activity)
+-        .authorize(authorizationRequest)
+-        .addOnSuccessListener { authorizationResult ->
+-            startAuthorizationIntent.launch(IntentSenderRequest.Builder(
+-                pendingIntent!!.intentSender
+-            ).build())
+-        }
+-        .addOnFailureListener { e -> Log.e(TAG, "Failed to authorize", e) }
++```kotlin
++// Ask for offline access during the first authorization request
++val authorizationRequest = AuthorizationRequest.builder()
++    .setRequestedScopes(requestedScopes)
++    .requestOfflineAccess(serverClientId)
++    .build()
++
++Identity.getAuthorizationClient(activity)
++    .authorize(authorizationRequest)
++    .addOnSuccessListener { authorizationResult ->
++        startAuthorizationIntent.launch(IntentSenderRequest.Builder(
++            pendingIntent!!.intentSender
++        ).build())
++    }
++    .addOnFailureListener { e -> Log.e(TAG, "Failed to authorize", e) }
++```
+ 
+ ### Java
+ 
+-    // Ask for offline access during the first authorization request
+-    AuthorizationRequest authorizationRequest = AuthorizationRequest.builder()
+-        .setRequestedScopes(requestedScopes)
+-        .requestOfflineAccess(serverClientId)
+-        .build();
+-
+-    Identity.getAuthorizationClient(getContext())
+-        .authorize(authorizationRequest)
+-        .addOnSuccessListener(authorizationResult -> {
+-            startAuthorizationIntent.launch(
+-                new IntentSenderRequest.Builder(
+-                    authorizationResult.getPendingIntent().getIntentSender()
+-                ).build()
+-            );
+-        })
+-        .addOnFailureListener(e -> Log.e(TAG, "Failed to authorize"));
++```java
++// Ask for offline access during the first authorization request
++AuthorizationRequest authorizationRequest = AuthorizationRequest.builder()
++    .setRequestedScopes(requestedScopes)
++    .requestOfflineAccess(serverClientId)
++    .build();
++
++Identity.getAuthorizationClient(getContext())
++    .authorize(authorizationRequest)
++    .addOnSuccessListener(authorizationResult -> {
++        startAuthorizationIntent.launch(
++            new IntentSenderRequest.Builder(
++                authorizationResult.getPendingIntent().getIntentSender()
++            ).build()
++        );
++    })
++    .addOnFailureListener(e -> Log.e(TAG, "Failed to authorize"));
++```
+ 
+ The following snippet assumes that the authorization is started from a fragment.
+ 
+ ### Kotlin
+ 
+-    private lateinit var startAuthorizationIntent: ActivityResultLauncher<IntentSenderRequest>
++```kotlin
++private lateinit var startAuthorizationIntent: ActivityResultLauncher<IntentSenderRequest>
++
++override fun onCreateView(
++    inflater: LayoutInflater,
++    container: ViewGroup?,
++    savedInstanceState: Bundle?,
++): View? {
++    // ...
++    startAuthorizationIntent =
++        registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) { activityResult ->
++            try {
++                val authorizationResult = Identity.getAuthorizationClient(requireContext())
++                    .getAuthorizationResultFromIntent(activityResult.data)
++                // short-lived access token
++                accessToken = authorizationResult.accessToken
++                // store the authorization code used for getting a refresh token safely to your app's backend server
++                val authCode: String = authorizationResult.serverAuthCode
++                storeAuthCodeSafely(authCode)
++            } catch (e: ApiException) {
++                // log exception
++            }
++        }
++}
++```
+ 
+-    override fun onCreateView(
+-        inflater: LayoutInflater,
+-        container: ViewGroup?,
+-        savedInstanceState: Bundle?,
+-    ): View? {
+-        // ...
+-        startAuthorizationIntent =
+-            registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) { activityResult ->
++### Java
++
++```java
++private ActivityResultLauncher<IntentSenderRequest> startAuthorizationIntent;
++
++@Override
++public View onCreateView(
++    @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
++    // ...
++    startAuthorizationIntent =
++        registerForActivityResult(
++            new ActivityResultContracts.StartIntentSenderForResult(),
++            activityResult -> {
+                 try {
+-                    val authorizationResult = Identity.getAuthorizationClient(requireContext())
+-                        .getAuthorizationResultFromIntent(activityResult.data)
++                    AuthorizationResult authorizationResult =
++                        Identity.getAuthorizationClient(requireActivity())
++                            .getAuthorizationResultFromIntent(activityResult.getData());
+                     // short-lived access token
+-                    accessToken = authorizationResult.accessToken
++                    accessToken = authorizationResult.getAccessToken();
+                     // store the authorization code used for getting a refresh token safely to your app's backend server
+-                    val authCode: String = authorizationResult.serverAuthCode
+-                    storeAuthCodeSafely(authCode)
+-                } catch (e: ApiException) {
++                    String authCode = authorizationResult.getServerAuthCode()
++                    storeAuthCodeSafely(authCode);
++                } catch (ApiException e) {
+                     // log exception
+                 }
+-            }
+-    }
+-
+-### Java
+-
+-    private ActivityResultLauncher<IntentSenderRequest> startAuthorizationIntent;
+-
+-    @Override
+-    public View onCreateView(
+-        @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+-        // ...
+-        startAuthorizationIntent =
+-            registerForActivityResult(
+-                new ActivityResultContracts.StartIntentSenderForResult(),
+-                activityResult -> {
+-                    try {
+-                        AuthorizationResult authorizationResult =
+-                            Identity.getAuthorizationClient(requireActivity())
+-                                .getAuthorizationResultFromIntent(activityResult.getData());
+-                        // short-lived access token
+-                        accessToken = authorizationResult.getAccessToken();
+-                        // store the authorization code used for getting a refresh token safely to your app's backend server
+-                        String authCode = authorizationResult.getServerAuthCode()
+-                        storeAuthCodeSafely(authCode);
+-                    } catch (ApiException e) {
+-                        // log exception
+-                    }
+-                });
+-    }
+\ No newline at end of file
++            });
++}
++```
+\ No newline at end of file

@@ -1,0 +1,21 @@
+diff --git a/docs/training/wearables/data/overview.md b/docs/training/wearables/data/overview.md
+index 52369b83..9ac743a0 100644
+--- a/docs/training/wearables/data/overview.md
++++ b/docs/training/wearables/data/overview.md
+@@ -82,10 +82,12 @@ The Wearable Data Layer API has the following dependencies:
+ 
+ Include the following dependency in the build.gradle file of your Wear module:
+ 
+-    dependencies {
+-        ...
+-        implementation("com.google.android.gms:play-services-wearable:20.0.1")
+-    }
++```kotlin
++dependencies {
++    ...
++    implementation("com.google.android.gms:play-services-wearable:20.0.1")
++}
++```
+ 
+ ### Facilitate the initial pairing process
+ 

@@ -1,0 +1,14 @@
+diff --git a/docs/agents/skills/wear/wear-compose-m3/references/material3/TimePickerSample.kt.md b/docs/agents/skills/wear/wear-compose-m3/references/material3/TimePickerSample.kt.md
+index 38c6824c..ad471f9d 100644
+--- a/docs/agents/skills/wear/wear-compose-m3/references/material3/TimePickerSample.kt.md
++++ b/docs/agents/skills/wear/wear-compose-m3/references/material3/TimePickerSample.kt.md
+@@ -76,7 +76,9 @@ fun TimePickerSample() {
+ 
+ @Sampled
+ @Composable
++@Suppress("DEPRECATION")
+ fun TimePickerWithMinutesAndSecondsSample() {
++    // TimePicker with TimePickerType.MinutesSeconds is deprecated, use DurationPicker instead.
+     var showTimePicker by remember { mutableStateOf(true) }
+     var timePickerTime by remember { mutableStateOf(LocalTime.now()) }
+     if (showTimePicker) {

@@ -1,0 +1,166 @@
+diff --git a/docs/games/pgs/play-games-sidekick.md b/docs/games/pgs/play-games-sidekick.md
+index a28ac22a..a61db883 100644
+--- a/docs/games/pgs/play-games-sidekick.md
++++ b/docs/games/pgs/play-games-sidekick.md
+@@ -21,7 +21,7 @@ your Google Play Games Services integration status and Play Points enrollment. P
+ expect the following features:
+ 
+ - **Gaming utilities:** Screenshot, screen record, YouTube Livestream, and Do Not Disturb.
+-- **Achievements:** Requires implementation of [achievements](https://developer.android.com/games/pgs/achievements).
++- **Achievements:** Requires implementation of [achievements](https://developer.android.com/games/pgs/achievements.md.txt).
+ - **Gaming streaks:** [Gaming streaks](https://support.google.com/googleplay/answer/16562031).
+ - **Play Points credit exchange.**
+ - **Play Points boosters and coupons:** Available to enrolled Play Points developers.
+@@ -122,16 +122,94 @@ Store app.](https://developer.android.com/static/images/games/pgs/playstoresidek
+ ### Configure default Sidekick entry point
+ 
+ By default, the Sidekick entry point is anchored to the logical
+-End edge (the MIDDLE_RIGHT side of the screen) and is vertically centered (with
++end edge (the MIDDLE_RIGHT side of the screen) and is vertically centered (with
+ a slight default offset) in both portrait and landscape orientations. In the
+ case of 3-button navigation, the entry point moves to the side opposite to the
+ navigation bar.
+ 
+ You can override the default entry point position by specifying a preferred
+-position in the `AndroidManifest.xml` file.
++position in an XML resource file referenced in the
++`AndroidManifest.xml` file using the following options:
+ 
+-To configure the default Sidekick entry point position for your
+-game, follow these steps:
++- **Exact position**: Specify the exact entry point position as a percentage in the XML resource file.
++- **Edge-aligned position**: Specify the edge-aligned entry point position in the XML resource file.
++
++If a player manually drags and repositions the entry point during gameplay,
++their chosen position persists across game sessions and takes precedence over
++the custom default XML configuration.
++
++#### Configure the exact entry point position
++
++To configure the exact Sidekick entry point position for
++your game, follow these steps:
++
++1. In the `AndroidManifest.xml` file, add the following `<meta-data>` element
++   to the `<application>` element:
++
++   ```xml
++   <manifest>
++     <application>
++      <meta-data
++      android:name="com.google.android.finsky.deku.OVERLAY_CONFIG"
++      android:resource="@xml/XML_RESOURCE_FILE"/>
++     </application>
++   </manifest>
++   ```
++2. Specify the entry point location in the <var translate="no">XML_RESOURCE_FILE</var>.
++
++   Sample file (res/xml/<var translate="no">XML_RESOURCE_FILE</var>.xml):
++
++   ```xml
++   <?xml version="1.0" encoding="utf-8"?>
++   <deku-config>
++      <!-- Entrypoint default position overrides -->
++      <!-- Anchored to RIGHT edge, 25% down from top -->
++      <default-entrypoint-position orientation="portrait" horizontal-position="RIGHT" vertical-position-percent="25" />
++
++      <!-- Anchored to LEFT edge, vertically centered at 50% -->
++      <default-entrypoint-position orientation="landscape" horizontal-position="LEFT" vertical-position-percent="50" />
++
++      <!-- Extensible: Add new configuration fields here as needed -->
++   </deku-config>
++   ```
++
++The `<default-entrypoint-position>` tag supports the following attributes:
++
++- `orientation`: The screen orientation to configure. Supported values:
++  - `landscape`
++  - `portrait`
++- `horizontal-position`: The horizontal edge of the screen to anchor the entry point. Supported values:
++  - `LEFT`
++  - `RIGHT`
++- `vertical-position-percent`: A numeric value in the range `0` to `100` (for
++  example, `"25"` or `"50"`) that specifies the vertical placement as a
++  percentage of the game window height from the top. For example, `"25"`
++  places the entry point 25% down from the top edge, and `"50"` centers it
++  vertically. Values not in the range 0--100 are set to the nearest limit.
++
++  The entry point always keeps a small margin from the top and bottom
++  screen edges, and it is automatically shifted to avoid overlapping a camera
++  cutout or display notch. As a result, `0` places the entry point near the
++  top edge and `100` places it near the bottom edge.
++
++These values represent physical positions on the screen. For example, `LEFT`
++anchors the entry point to the left edge of the screen, even when the device
++is set to a Right-to-Left (RTL) layout.
++
++##### Fallback and precedence rules
++
++To configure an exact position, specify the `orientation`,
++`horizontal-position`, and `vertical-position-percent` attributes on the
++`<default-entrypoint-position>` tag:
++
++- If `horizontal-position` and `vertical-position-percent` are both valid, they take precedence over the [`value` attribute](https://developer.android.com/games/pgs/achievements.md.txt) on the same tag.
++- If `horizontal-position` or `vertical-position-percent` attributes are missing or invalid, the entry point uses the `value` attribute if present.
++- If the `value` attribute is also missing or invalid, the entry point falls back to the default position.
++
++#### Configure the edge-aligned entry point position
++
++To configure the edge-aligned Sidekick entry point position for
++your game, follow these steps:
+ 
+ 1. In the `AndroidManifest.xml` file, add the following `<meta-data>` element
+    to the `<application>` element:
+@@ -161,15 +239,15 @@ game, follow these steps:
+    </deku-config>
+    ```
+ 
+-The supported values for entry point orientation:
++The supported values for entry point `orientation`:
+ 
+ - landscape
+ - portrait
+ 
+-These values represent the physical positions on the screen. For example,
+-MIDDLE_LEFT will always anchor the entry point to the left edge of the screen,
+-even when the device is set to a Right-to-Left (RTL). The supported values for
+-edge-aligned positions are as follows.
++The `value` attribute represents the physical positions on the screen.
++For example, `MIDDLE_LEFT` will always anchor the entry point to the left edge
++of the screen, even when the device is set to a Right-to-Left (RTL) layout.
++The supported values for edge-aligned entry point positions are as follows:
+ 
+ - MIDDLE_LEFT
+ - MIDDLE_RIGHT
+@@ -178,10 +256,6 @@ edge-aligned positions are as follows.
+ - BOTTOM_LEFT
+ - BOTTOM_RIGHT
+ 
+-If a player manually drags and repositions the entry point during gameplay,
+-their chosen position persists across game sessions and takes precedence over
+-the custom default XML configuration.
+-
+ ### Configure entry point snooze duration during FTUE
+ 
+ By default, the Play Games Sidekick entry point displays immediately. You can
+@@ -271,10 +345,10 @@ added to your Android App Bundle.
+ #### My game does not use Android App Bundles (AAB), what should I do?
+ 
+ Sidekick is added to games when you upload a new
+-[Android App Bundle](https://developer.android.com/guide/app-bundle).
++[Android App Bundle](https://developer.android.com/guide/app-bundle.md.txt).
+ 
+ If you are using APKs, add the
+-[Sidekick SDK](https://developer.android.com/games/pgs/play-games-sidekick-sdk) as a dependency.
++[Sidekick SDK](https://developer.android.com/games/pgs/play-games-sidekick-sdk.md.txt) as a dependency.
+ 
+ #### My game uses an anti-tampering product. Is Sidekick compatible with my solution?
+ 
+@@ -282,7 +356,7 @@ We have been working with leading companies to ensure Sidekick
+ compatibility.
+ 
+ If you are using an incompatible anti-tampering product, add the
+-[Sidekick SDK](https://developer.android.com/games/pgs/play-games-sidekick-sdk) as a dependency to your
++[Sidekick SDK](https://developer.android.com/games/pgs/play-games-sidekick-sdk.md.txt) as a dependency to your
+ APK.
+ If you have other questions,
+ [request support](https://docs.google.com/forms/d/1NPmZ04tyT97tb8q-NbElU_HJ3YuPWOkXvhwJB3mTmB8/viewform).

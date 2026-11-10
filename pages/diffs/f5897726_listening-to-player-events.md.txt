@@ -1,0 +1,100 @@
+diff --git a/docs/media/media3/exoplayer/listening-to-player-events.md b/docs/media/media3/exoplayer/listening-to-player-events.md
+index 99671414..2c76213f 100644
+--- a/docs/media/media3/exoplayer/listening-to-player-events.md
++++ b/docs/media/media3/exoplayer/listening-to-player-events.md
+@@ -5,13 +5,13 @@ source: md.txt
+ ---
+ 
+ Changes to the Player's state (such as playback starting, buffering, or errors)
+-trigger events that are sent to registered [`Player.Listener`](https://developer.android.com/reference/androidx/media3/common/Player.Listener) instances. These
+-events are represented by integer constants and are defined by [`Player.Event`](https://developer.android.com/reference/androidx/media3/common/Player.Event)
+-and [`Player.Events`](https://developer.android.com/reference/androidx/media3/common/Player.Events).
++trigger events that are sent to registered [`Player.Listener`](https://developer.android.com/reference/androidx/media3/common/Player.Listener.md.txt) instances. These
++events are represented by integer constants and are defined by [`Player.Event`](https://developer.android.com/reference/androidx/media3/common/Player.Event.md.txt)
++and [`Player.Events`](https://developer.android.com/reference/androidx/media3/common/Player.Events.md.txt).
+ 
+ ## Register a Player.Listener
+ 
+-Player events are reported to registered [`Player.Listener`](https://developer.android.com/reference/androidx/media3/common/Player.Listener) instances. To
++Player events are reported to registered [`Player.Listener`](https://developer.android.com/reference/androidx/media3/common/Player.Listener.md.txt) instances. To
+ register a listener to receive such events:
+ 
+ 
+@@ -39,13 +39,13 @@ explicitly.
+ ## Listen to playback events using Player.Listener
+ 
+ `Player.Listener` has empty default methods, so you only need to implement the
+-methods you're interested in. See the [Javadoc](https://developer.android.com/reference/androidx/media3/common/Player.Listener) for a full description of the
++methods you're interested in. See the [Javadoc](https://developer.android.com/reference/androidx/media3/common/Player.Listener.md.txt) for a full description of the
+ methods and when they're called. Some of the most important methods are
+ described in more detail later.
+ 
+ Listeners have the choice between implementing individual event callbacks or a
+ generic `onEvents` callback that's called after one or more events occur
+-together. See [`Individual callbacks vs onEvents`](https://developer.android.com/media/media3/exoplayer/listening-to-player-events#individual-callbacks) for an explanation of which
++together. See [`Individual callbacks vs onEvents`](https://developer.android.com/media/media3/exoplayer/listening-to-player-events.md.txt#individual-callbacks) for an explanation of which
+ should be preferred for different use cases.
+ 
+ ### Playback state changes
+@@ -123,9 +123,9 @@ a failure occurs, this method will be called immediately before the playback
+ state transitions to `Player.STATE_IDLE`. Failed or stopped playbacks can be
+ retried by calling `ExoPlayer.prepare`.
+ 
+-Note that some [`Player`](https://developer.android.com/reference/androidx/media3/common/Player) implementations pass instances of subclasses of
++Note that some [`Player`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt) implementations pass instances of subclasses of
+ `PlaybackException` to provide additional information about the failure. For
+-example, [`ExoPlayer`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer) passes [`ExoPlaybackException`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlaybackException), which has `type`,
++example, [`ExoPlayer`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer.md.txt) passes [`ExoPlaybackException`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlaybackException.md.txt), which has `type`,
+ `rendererIndex`, and other ExoPlayer-specific fields.
+ 
+ The following example shows how to detect when a playback has failed due to an
+@@ -210,6 +210,14 @@ Calling `Player.seekTo` methods results in a series of callbacks to registered
+ 1. `onPositionDiscontinuity` with `reason=DISCONTINUITY_REASON_SEEK`. This is the direct result of calling `Player.seekTo`. The callback has `PositionInfo` fields for the position before and after the seek.
+ 2. `onPlaybackStateChanged` with any immediate state change related to the seek. Note that there might not be such a change.
+ 
++If you enable [scrubbing mode](https://developer.android.com/media/media3/exoplayer/scrubbing.md.txt) with
++`ExoPlayer.setScrubbingModeEnabled` for interactive seek bar dragging, ExoPlayer
++suppresses playback and calls `onPlaybackSuppressionReasonChanged` with
++`Player.PLAYBACK_SUPPRESSION_REASON_SCRUBBING`. Each `Player.seekTo` call still
++triggers `onPositionDiscontinuity`, even when ExoPlayer drops superseded
++intermediate seeks and reports them to
++`AnalyticsListener.onDroppedSeeksWhileScrubbing`.
++
+ ### Individual callbacks versus `onEvents`
+ 
+ Listeners can choose between implementing individual callbacks like
+@@ -269,12 +277,12 @@ together in `onEvents`.
+ 
+ ## Listen to playback events using coroutines
+ 
+-Alternatively, you can launch a Kotlin coroutine using [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)) and
+-specify the relevant [`Player.Event`](https://developer.android.com/reference/androidx/media3/common/Player.Event):
++Alternatively, you can launch a Kotlin coroutine using [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)) and
++specify the relevant [`Player.Event`](https://developer.android.com/reference/androidx/media3/common/Player.Event.md.txt):
+ 
+-Note that [`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listen(kotlin.Function2)) and [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)) can be called from any
++Note that [`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt#(androidx.media3.common.Player).listen(kotlin.Function2)) and [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)) can be called from any
+ thread, while the callback lambda is always invoked on the thread associated
+-with [`Player.getApplicationLooper`](https://developer.android.com/reference/androidx/media3/common/Player#getApplicationLooper()). Therefore, it is safe to access `Player`
++with [`Player.getApplicationLooper`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#getApplicationLooper()). Therefore, it is safe to access `Player`
+ methods and state properties inside the callback lambda even if the coroutine
+ was launched on a different thread.
+ 
+@@ -323,7 +331,7 @@ coroutineScope.launch {
+ When listening to player events inside a coroutine, you will always be providing
+ the implementation for the `onEvents` callback, as opposed to an [individual
+ callback](https://developer.android.com/media/media3/exoplayer/listening-to-player-events#individual-callbacks). You may choose between
+-[`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listen(kotlin.Function2)) and [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)), depending on which events should
++[`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt#(androidx.media3.common.Player).listen(kotlin.Function2)) and [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)), depending on which events should
+ trigger an invocation of your lambda. But the functions are otherwise
+ equivalent:
+ 
+@@ -372,7 +380,7 @@ coroutineScope.launch {
+ <br />
+ 
+ If you are interested in multiple event types, you can pass a list of events to
+-[`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)). Your lambda will be invoked whenever any of those events
++[`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)). Your lambda will be invoked whenever any of those events
+ occur, and you can inspect the `Events` parameter to check which events actually
+ fired:
+ 

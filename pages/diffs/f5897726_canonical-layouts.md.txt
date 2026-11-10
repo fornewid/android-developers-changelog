@@ -1,0 +1,42 @@
+diff --git a/docs/develop/ui/views/layout/canonical-layouts.md b/docs/develop/ui/views/layout/canonical-layouts.md
+index 02ddbb96..ab1ee689 100644
+--- a/docs/develop/ui/views/layout/canonical-layouts.md
++++ b/docs/develop/ui/views/layout/canonical-layouts.md
+@@ -81,7 +81,7 @@ accommodate both, the list and detail appear side by side. In a window that
+ lacks sufficient space, either the list or detail is displayed depending on the
+ user's interaction with the app.
+ 
+-For an example implementation, see the [List-detail with sliding pane](https://github.com/android/user-interface-samples/tree/main/CanonicalLayouts/list-detail-sliding-pane)
++For an example implementation, see the [List-detail with sliding pane](https://github.com/android/adaptive-apps-samples/tree/main/CanonicalLayouts/list-detail-sliding-pane)
+ sample.
+ 
+ #### Activity embedding
+@@ -110,7 +110,7 @@ the entire app window based on user interaction with the app.
+ For more information, see [Activity embedding](https://developer.android.com/develop/ui/views/layout/activity-embedding).
+ 
+ For an example implementation, see the [List-detail with activity
+-embedding](https://github.com/android/user-interface-samples/tree/main/CanonicalLayouts/list-detail-activity-embedding) sample.
++embedding](https://github.com/android/adaptive-apps-samples/tree/main/CanonicalLayouts/list-detail-activity-embedding) sample.
+ 
+ ## Feed
+ 
+@@ -150,7 +150,7 @@ emphasize some items over others.
+ On compact-width displays that have enough space for only one column, use
+ [`LinearLayoutManager`](https://developer.android.com/reference/androidx/recyclerview/widget/LinearLayoutManager) instead of `GridLayoutManager`.
+ 
+-For an example implementation, see the [Feed with views](https://github.com/android/user-interface-samples/tree/main/CanonicalLayouts/feed-view)
++For an example implementation, see the [Feed with views](https://github.com/android/adaptive-apps-samples/tree/main/CanonicalLayouts/feed-view)
+ sample.
+ 
+ <br />
+@@ -210,8 +210,8 @@ supporting pane whether using views, fragments, or a combination.
+ 
+ For implementation examples, see the following samples:
+ 
+-- [Supporting pane with views](https://github.com/android/user-interface-samples/tree/main/CanonicalLayouts/supporting-pane-views)
+-- [Supporting pane with fragments](https://github.com/android/user-interface-samples/tree/main/CanonicalLayouts/supporting-pane-fragments)
++- [Supporting pane with views](https://github.com/android/adaptive-apps-samples/tree/main/CanonicalLayouts/supporting-pane-views)
++- [Supporting pane with fragments](https://github.com/android/adaptive-apps-samples/tree/main/CanonicalLayouts/supporting-pane-fragments)
+ 
+ ## Applicability
+ 

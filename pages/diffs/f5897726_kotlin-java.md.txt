@@ -1,0 +1,55 @@
+diff --git a/docs/guide/playcore/install-prompt/kotlin-java.md b/docs/guide/playcore/install-prompt/kotlin-java.md
+index a85b8ef7..d50d3456 100644
+--- a/docs/guide/playcore/install-prompt/kotlin-java.md
++++ b/docs/guide/playcore/install-prompt/kotlin-java.md
+@@ -13,12 +13,14 @@ The Play In-App Install Prompts Library is part of the [Google Play Core
+ libraries](https://developer.android.com/guide/playcore). To use the library, include the following Gradle
+ dependency:
+ 
+-    // In your app's build.gradle.kts file:
++```kotlin
++// In your app's build.gradle.kts file:
++...
++dependencies {
++    implementation("com.google.android.play:crossdeviceprompt:0.0.1")
+     ...
+-    dependencies {
+-        implementation("com.google.android.play:crossdeviceprompt:0.0.1")
+-        ...
+-    }
++}
++```
+ 
+ ## Show the cross device install prompt
+ 
+@@ -33,17 +35,19 @@ TV). When your app reaches one of these points, perform the following steps:
+ If an error occurs either in obtaining the `CrossDevicePromptInfo` or showing
+ the prompt, an exception is thrown.
+ 
+-    val crossDevicePromptManager = CrossDevicePromptManagerFactory.create(activity)
+-    val request = CrossDevicePromptInstallationRequest.create()
++```kotlin
++val crossDevicePromptManager = CrossDevicePromptManagerFactory.create(activity)
++val request = CrossDevicePromptInstallationRequest.create()
+ 
+-    try {
+-        val info = crossDevicePromptManager.requestInstallationPromptFlow(request).await()
+-        crossDevicePromptManager.launchPromptFlow(activity, info).await()
+-    } catch (e: CrossDevicePromptException) {
+-        Log.e(TAG, "Cross-device prompt failed with error: ${e.errorCode}", e)
+-    }
++try {
++    val info = crossDevicePromptManager.requestInstallationPromptFlow(request).await()
++    crossDevicePromptManager.launchPromptFlow(activity, info).await()
++} catch (e: CrossDevicePromptException) {
++    Log.e(TAG, "Cross-device prompt failed with error: ${e.errorCode}", e)
++}
++```
+ 
+ > [!IMPORTANT]
+ > **Important:** If an error occurs during the in-app install prompt flow, don't inform the user or change your app's normal flow. Continue your app's normal flow.
+ 
+-To verify your implementation, see [Test in-app install prompts](https://developer.android.com/guide/playcore/install-prompt/test).
+\ No newline at end of file
++To verify your implementation, see [Test in-app install prompts](https://developer.android.com/guide/playcore/install-prompt/test.md.txt).
+\ No newline at end of file

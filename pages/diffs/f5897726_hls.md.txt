@@ -1,0 +1,73 @@
+diff --git a/docs/media/media3/exoplayer/hls.md b/docs/media/media3/exoplayer/hls.md
+index 15d34580..9eee9e89 100644
+--- a/docs/media/media3/exoplayer/hls.md
++++ b/docs/media/media3/exoplayer/hls.md
+@@ -5,7 +5,7 @@ source: md.txt
+ ---
+ 
+ ExoPlayer supports HLS with multiple container formats. The contained audio and
+-video sample formats must also be supported (see the [sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats#sample-formats)
++video sample formats must also be supported (see the [sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats.md.txt#sample-formats)
+ section for details). We strongly encourage HLS content producers to generate
+ high quality HLS streams, as described [in this blog post](https://medium.com/google-exoplayer/hls-playback-in-exoplayer-a33959a47be7).
+ 
+@@ -34,12 +34,12 @@ high quality HLS streams, as described [in this blog post](https://medium.com/go
+ | Blocking load of preload hints | YES | Except for byteranges with undefined lengths |
+ | **Ad insertion** |   |   |
+ | Server-guided ad insertion (Interstitials) | Partially | Only VOD with `X-ASSET-URI`. Live streams and `X-ASSET-LIST` will be added later. |
+-| IMA server-side and client-side ads | YES | [Ad insertion guide](https://developer.android.com/media/media3/exoplayer/ad-insertion) |
++| IMA server-side and client-side ads | YES | [Ad insertion guide](https://developer.android.com/media/media3/exoplayer/ad-insertion.md.txt) |
+ | **Live playback** |   |   |
+ | Regular live playback | YES |   |
+ | Low-latency HLS (Apple) | YES |   |
+ | Low-latency HLS (Community) | NO |   |
+-| **Common Media Client Data** **CMCD** | YES | [CMCD integration guide](https://developer.android.com/media/media3/exoplayer/cmcd) |
++| **Common Media Client Data** **CMCD** | YES | [CMCD integration guide](https://developer.android.com/media/media3/exoplayer/cmcd.md.txt) |
+ 
+ ## Using MediaItem
+ 
+@@ -47,11 +47,15 @@ To play an HLS stream, you need to depend on the HLS module.
+ 
+ ### Kotlin
+ 
+-    implementation("androidx.media3:media3-exoplayer-hls:1.11.1")
++```kotlin
++implementation("androidx.media3:media3-exoplayer-hls:1.11.1")
++```
+ 
+ ### Groovy
+ 
+-    implementation "androidx.media3:media3-exoplayer-hls:1.11.1"
++```groovy
++implementation "androidx.media3:media3-exoplayer-hls:1.11.1"
++```
+ 
+ You can then create a `MediaItem` for an HLS playlist URI and pass it to the
+ player.
+@@ -190,7 +194,7 @@ stream URI, so we can add support for your stream.
+ 
+ The most convenient way to play HLS streams with interstitials is building an
+ ExoPlayer instance with a `HlsInterstitialsAdsLoader.AdsMediaSourceFactory`.
+-This allows to use the `MediaItem` based [playlist API](https://developer.android.com/media/media3/exoplayer/playlists) of the `Player`
++This allows to use the `MediaItem` based [playlist API](https://developer.android.com/media/media3/exoplayer/playlists.md.txt) of the `Player`
+ interface to play HLS interstitials.
+ 
+ The `MediaSource.Factory` of `ExoPlayer` can be injected into the builder when
+@@ -365,7 +369,7 @@ emitted by ad media sources can be received for fine-grained ad playback
+ verification or to track ad playback progress.
+ 
+ > [!NOTE]
+-> **Note:** A conventional `Player.Listener` can be used to track (ad) playback in more detail (see [Listening to player events](https://developer.android.com/media/media3/exoplayer/listening-to-player-events)).
++> **Note:** A conventional `Player.Listener` can be used to track (ad) playback in more detail (see [Listening to player events](https://developer.android.com/media/media3/exoplayer/listening-to-player-events.md.txt)).
+ 
+ 
+ ### Kotlin
+@@ -443,7 +447,7 @@ private static class AdsLoaderListener implements HlsInterstitialsAdsLoader.List
+ 
+ <br />
+ 
+-See the [JavaDoc of `HlsInterstitialsAdsLoader.Listener`](https://developer.android.com/reference/androidx/media3/exoplayer/hls/HlsInterstitialsAdsLoader.Listener) for the detailed
++See the [JavaDoc of `HlsInterstitialsAdsLoader.Listener`](https://developer.android.com/reference/androidx/media3/exoplayer/hls/HlsInterstitialsAdsLoader.Listener.md.txt) for the detailed
+ documentation of all available callbacks.
+ 
+ The listener can then be added to the ads loader:
