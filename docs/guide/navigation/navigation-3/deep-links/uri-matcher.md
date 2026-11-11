@@ -5,10 +5,10 @@ source: md.txt
 ---
 
 For matching hierarchical URIs against patterns and extracting arguments, use
-[`UriDeepLinkMatcher`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/UriDeepLinkMatcher). It relies on `kotlinx.serialization` to deserialize
+[`UriDeepLinkMatcher`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/UriDeepLinkMatcher.md.txt). It relies on `kotlinx.serialization` to deserialize
 matched arguments into your key classes.
 
-To create a `UriDeepLinkMatcher`, provide a pattern [`DeepLinkUri`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkUri) and the
+To create a `UriDeepLinkMatcher`, provide a pattern [`DeepLinkUri`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkUri.md.txt) and the
 serializer for the corresponding key:
 
 
@@ -27,7 +27,7 @@ val key = matchResult?.key // UserProfileKey(id = "123")
 <br />
 
 For non-hierarchical URIs or custom schemes (such as `tel:`), see
-[Create custom deep link matchers](https://developer.android.com/guide/navigation/navigation-3/deep-links/custom-matchers).
+[Create custom deep link matchers](https://developer.android.com/guide/navigation/navigation-3/deep-links/custom-matchers.md.txt).
 
 ## Supported matching patterns
 
@@ -69,7 +69,7 @@ in the authority, and no arguments are extracted:
 | `example.com:8080` | `https://example.com` | ❌ |
 
 > [!NOTE]
-> **Note:** `UriDeepLinkMatcher` treats `example.com` and `www.example.com` as distinct authorities. To match both apex domains and subdomains, define separate `UriDeepLinkMatcher` instances for each authority or normalize incoming URIs by [subclassing `UriDeepLinkMatcher`](https://developer.android.com/guide/navigation/navigation-3/deep-links/uri-matcher#customize-matcher).
+> **Note:** `UriDeepLinkMatcher` treats `example.com` and `www.example.com` as distinct authorities. To match both apex domains and subdomains, define separate `UriDeepLinkMatcher` instances for each authority or normalize incoming URIs by [subclassing `UriDeepLinkMatcher`](https://developer.android.com/guide/navigation/navigation-3/deep-links/uri-matcher.md.txt#customize-matcher).
 
 ### Path matching
 
@@ -126,7 +126,7 @@ categories:
   - Enums
   - `Set`, `List`, or `Array` of primitives, strings, or enums
   - Nested `@Serializable` classes (whose properties are flattened into individual URI placeholders)
-- **Custom serialization with [`DeepLinkSerializer`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkSerializer)** : Converts between a single `String` and custom objects, external types (such as `java.time.LocalDate`), or custom-delimited collections.
+- **Custom serialization with [`DeepLinkSerializer`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkSerializer.md.txt)** : Converts between a single `String` and custom objects, external types (such as `java.time.LocalDate`), or custom-delimited collections.
 
 ### Standard serialization
 
@@ -241,16 +241,18 @@ val key = matcher.match(request)?.key
 
 To deserialize custom objects (such as `Filter(key = "brand", value =
 "pixel")`), external types (such as `java.time.LocalDate`), or custom delimited
-strings (such as comma-separated values), extend [`DeepLinkSerializer<T>`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkSerializer).
+strings (such as comma-separated values), extend [`DeepLinkSerializer<T>`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkSerializer.md.txt).
 
 `DeepLinkSerializer<T>` is an abstract [`KSerializer<T>`](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-k-serializer/index.html) that converts
 between a `String` and `T`:
 
-    abstract class DeepLinkSerializer<T : Any> : KSerializer<T> {
-        abstract val serialName: String
-        abstract fun deserialize(value: String): T
-        abstract fun serialize(value: T): String
-    }
+```kotlin
+abstract class DeepLinkSerializer<T : Any> : KSerializer<T> {
+    abstract val serialName: String
+    abstract fun deserialize(value: String): T
+    abstract fun serialize(value: T): String
+}
+```
 
 For example, consider the `Filter` and `FilterSerializer` definitions that are
 used in the following snippets:
@@ -422,9 +424,9 @@ The following table demonstrates matching outcomes for various request URIs:
 If your key class contains unsupported data types, `UriDeepLinkMatcher` throws
 an exception during matching instead of returning `null`.
 
-- **Maps and multi-dimensional collections** : `UriDeepLinkMatcher` only supports single-dimensional collections of primitives, strings, enums, or custom types annotated with a [`DeepLinkSerializer`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkSerializer). `Map` types throw an `IllegalArgumentException`, while nested collections (such as `List<List<String>>`) throw a `SerializationException`.
-- **Unannotated custom object collections** : Collections of custom types (such as `List<Filter>`) throw a `SerializationException` unless the element type is annotated with a [`DeepLinkSerializer`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkSerializer).
-- **Unflattened nested classes** : Nested `@Serializable` classes can't be mapped to a single placeholder (such as `?user={user}`) without a [`DeepLinkSerializer`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkSerializer).
+- **Maps and multi-dimensional collections** : `UriDeepLinkMatcher` only supports single-dimensional collections of primitives, strings, enums, or custom types annotated with a [`DeepLinkSerializer`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkSerializer.md.txt). `Map` types throw an `IllegalArgumentException`, while nested collections (such as `List<List<String>>`) throw a `SerializationException`.
+- **Unannotated custom object collections** : Collections of custom types (such as `List<Filter>`) throw a `SerializationException` unless the element type is annotated with a [`DeepLinkSerializer`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkSerializer.md.txt).
+- **Unflattened nested classes** : Nested `@Serializable` classes can't be mapped to a single placeholder (such as `?user={user}`) without a [`DeepLinkSerializer`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkSerializer.md.txt).
 
 
 ```kotlin
@@ -440,7 +442,7 @@ data class InvalidKey(val filters: List<Filter>) : NavKey
 
 ## `UriMatchResult` comparison
 
-[`UriMatchResult`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/UriMatchResult) instances are ranked using the following criteria in
+[`UriMatchResult`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/UriMatchResult.md.txt) instances are ranked using the following criteria in
 order:
 
 1. **MatchResult type** : `UriMatchResult` ranks higher than other `MatchResult` types.
@@ -454,9 +456,9 @@ order:
 `UriDeepLinkMatcher` is an `open` class that you can subclass to customize URI
 matching and argument extraction behavior:
 
-- [`matchRequest`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/UriDeepLinkMatcher#matchRequest(androidx.navigation3.runtime.deeplink.DeepLinkRequest)): Top-level matching entry point for an incoming [`DeepLinkRequest`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkRequest). Override this to inspect request extras or apply custom preconditions before URI matching.
-- [`matchUri`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/UriDeepLinkMatcher#matchUri(androidx.navigation3.runtime.deeplink.DeepLinkUri)): Matches the [`DeepLinkUri`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkUri) against the configured pattern. Override this to intercept and normalize incoming URIs (for example, rewriting dynamic subdomains or legacy path formats) before calling `super.matchUri`.
-- [`matchArguments`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/UriDeepLinkMatcher#matchArguments(kotlin.collections.Map,kotlin.collections.Map,kotlin.collections.Map)): Deserializes the extracted path, query, and fragment argument maps into a navigation key instance using the provided `serializer`. Override this to inject dynamic values or transform arguments before key instantiation.
+- [`matchRequest`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/UriDeepLinkMatcher.md.txt#matchRequest(androidx.navigation3.runtime.deeplink.DeepLinkRequest)): Top-level matching entry point for an incoming [`DeepLinkRequest`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkRequest.md.txt). Override this to inspect request extras or apply custom preconditions before URI matching.
+- [`matchUri`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/UriDeepLinkMatcher.md.txt#matchUri(androidx.navigation3.runtime.deeplink.DeepLinkUri)): Matches the [`DeepLinkUri`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkUri.md.txt) against the configured pattern. Override this to intercept and normalize incoming URIs (for example, rewriting dynamic subdomains or legacy path formats) before calling `super.matchUri`.
+- [`matchArguments`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/UriDeepLinkMatcher.md.txt#matchArguments(kotlin.collections.Map,kotlin.collections.Map,kotlin.collections.Map)): Deserializes the extracted path, query, and fragment argument maps into a navigation key instance using the provided `serializer`. Override this to inject dynamic values or transform arguments before key instantiation.
 
 The following example demonstrates subclassing `UriDeepLinkMatcher` to normalize
 legacy URL path prefixes before matching:

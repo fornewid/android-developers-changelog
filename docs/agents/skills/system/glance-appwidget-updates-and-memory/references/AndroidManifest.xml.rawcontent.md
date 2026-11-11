@@ -4,35 +4,37 @@ url: https://developer.android.com/agents/skills/system/glance-appwidget-updates
 source: md.txt
 ---
 
-    <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <queries>
-            <intent>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.HOME" />
-            </intent>
-        </queries>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.HOME" />
+        </intent>
+    </queries>
 
-        <application>
-            <receiver
-                android:name=".SampleGlanceWidgetReceiver"
-                android:exported="true">
-                <intent-filter>
-                    <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                </intent-filter>
-                <meta-data
-                    android:name="android.appwidget.provider"
-                    android:resource="@xml/sample_widget_info" />
-            </receiver>
+    <application>
+        <receiver
+            android:name=".SampleGlanceWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/sample_widget_info" />
+        </receiver>
 
-            <provider
-                android:name="androidx.core.content.FileProvider"
-                android:authorities="${applicationId}.fileprovider"
-                android:exported="false"
-                android:grantUriPermissions="true">
-                <meta-data
-                    android:name="android.support.FILE_PROVIDER_PATHS"
-                    android:resource="@xml/file_paths" />
-            </provider>
-        </application>
-    </manifest>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+</manifest>
+```

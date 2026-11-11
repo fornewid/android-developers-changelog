@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 On Android 12.0 (API level 31) and later, the system provides the
-[`CallStyle`](https://developer.android.com/reference/android/app/Notification.CallStyle) notification template to distinguish call notifications from
+[`CallStyle`](https://developer.android.com/reference/android/app/Notification.CallStyle.md.txt) notification template to distinguish call notifications from
 other types of notifications. Use this template to create incoming or
 ongoing call notifications. The template supports large-format notifications
 that include caller information and required actions such as answering or
@@ -24,7 +24,7 @@ The `CallStyle` notification template includes the following required actions:
 Actions in this style appear as buttons, with the system automatically adding
 appropriate icons and text. Manual labeling of the buttons is not supported.
 For more information about notification design principles, see
-[Notifications](https://developer.android.com/design/ui/mobile/guides/home-screen/notifications).
+[Notifications](https://developer.android.com/design/ui/mobile/guides/home-screen/notifications.md.txt).
 ![Call style notifications with labelled buttons](https://developer.android.com/static/images/ui/notifications/CallStyle.png) **Figure 1.** CallStyle template for incoming and ongoing calls.
 
 The required actions are passed as intents, such as `hangupIntent` and
@@ -37,12 +37,12 @@ running. When you give another app a `PendingIntent`, you are granting
 it the permission to perform the operation specified, such as decline or answer.
 This permission is granted even if the app that created the intent is not
 running. For more information, see the reference documentation for
-[`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent).
+[`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent.md.txt).
 
 Starting in Android 14 (API level 34), you can configure call notifications
 to be non-dismissible. To do so, use `CallStyle` notifications with the
-[`Notification.FLAG_ONGOING_EVENT`](https://developer.android.com/reference/android/app/Notification#FLAG_ONGOING_EVENT) through
-[`Notification.Builder#setOngoing(true)`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean)).
+[`Notification.FLAG_ONGOING_EVENT`](https://developer.android.com/reference/android/app/Notification.md.txt#FLAG_ONGOING_EVENT) through
+[`Notification.Builder#setOngoing(true)`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setOngoing(boolean)).
 
 The following are examples of using various methods with the `CallStyle`
 notification.
@@ -125,7 +125,7 @@ Associate `CallStyle` notifications on API versions 30 or earlier with a
 foreground service in order to assign them the high rank they are given in API
 level 31 or later. Additionally, `CallStyle` notifications on API version 30
 or earlier can achieve a similar ranking by marking the notification as
-colorized, using the [`setColorized()`](https://developer.android.com/reference/android/app/Notification.Builder#setColorized(boolean)) method.
+colorized, using the [`setColorized()`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setColorized(boolean)) method.
 
 Use the Telecom APIs with `CallStyle` notifications. For more information, see
 [Telecom framework overview](https://developer.android.com/guide/topics/connectivity/telecom).

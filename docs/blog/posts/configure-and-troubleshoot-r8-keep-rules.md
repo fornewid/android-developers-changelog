@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Configure and troubleshoot R8 Keep Rules
 
-7 min read ![](https://developer.android.com/static/blog/assets/performance_Week7_0b86aba329_Z1h1s1q.webp) 18 Nov 2025 [![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp)](https://developer.android.com/blog/authors/ajesh-pai)[![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai) \& [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) In modern Android development, shipping a small, fast, and secure application is a fundamental user expectation. The Android build system's primary tool for achieving this is the **R8**optimizer, the compiler that handles dead code and resource removal for shrinking, code renaming or minification, and app optimization.
+7 min read ![](https://developer.android.com/static/blog/assets/performance_Week7_0b86aba329_Z1h1s1q.webp) 18 Nov 2025 [![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp)](https://developer.android.com/blog/authors/ajesh-pai.md.txt)[![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss.md.txt) [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt) \& [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt) In modern Android development, shipping a small, fast, and secure application is a fundamental user expectation. The Android build system's primary tool for achieving this is the **R8**optimizer, the compiler that handles dead code and resource removal for shrinking, code renaming or minification, and app optimization.
 
 Enabling R8 is a critical step in preparing an app for release, but it requires developers to provide guidance in the form of "Keep Rules."
 
@@ -24,7 +24,7 @@ R8 builds a graph of *used* code by analyzing direct calls. When code is accesse
 
 A **keep rule** is an explicit instruction to the R8 compiler, stating: "This specific class, method, or field is an entry point that will be accessed dynamically at runtime. You must keep it, even if you cannot find a direct reference to it."
 
-See the official guide for more details on [Keep Rules](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview).
+See the official guide for more details on [Keep Rules](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview.md.txt).
 
 ## **Where to write Keep Rules**
 
@@ -63,7 +63,7 @@ A keep rule consists of three main parts:
 2. **Optional modifiers** like `allowshrinking`
 3. **A class specification** that defines the code to match
 
-For the complete syntax and examples, refer to the guidance to [add Keep Rules](https://developer.android.com/topic/performance/app-optimization/add-keep-rules).
+For the complete syntax and examples, refer to the guidance to [add Keep Rules](https://developer.android.com/topic/performance/app-optimization/add-keep-rules.md.txt).
 
 ## **Keep Rule anti-patterns**
 
@@ -155,7 +155,7 @@ The Keep Option is the most critical part of the rule. Choosing the wrong one ca
 | `-keepclassmembers` | Prevents the *specified members* from being removed or renamed, but allows the class itself to be removed but only on classes which are not otherwise removed. |
 | `-keepclasseswithmembers` | A combination: Keeps the class *and* its members, *only if* all the specified members are present. |
 
-You can find more about the keep option in our [documentation for Keep Options.](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#choose-keep)
+You can find more about the keep option in our [documentation for Keep Options.](https://developer.android.com/topic/performance/app-optimization/add-keep-rules.md.txt#choose-keep)
 
 ## Allow optimization with Modifiers
 
@@ -225,7 +225,7 @@ release {
 
 The ultimate R8 configuration strategy is to **remove the need to write Keep Rules** altogether. For many apps can be achieved by choosing modern libraries that favor **code generation** over reflection. With code generation, the optimizer can more easily determine what code is actually used at runtime and what code can be removed. Also not using any dynamic reflection means no "hidden" entry points, and therefore, **no Keep Rules are needed.**When choosing a new library, always prefer a solution that uses code generation over reflection.
 
-For more information about how to choose libraries, check [choose library wisely](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely#tips).
+For more information about how to choose libraries, check [choose library wisely](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely.md.txt#tips).
 
 ## **Debugging and troubleshooting your R8 configuration**
 
@@ -271,7 +271,7 @@ It's time to see the benefits for yourself.
 
 We challenge you to enable R8 full mode for your app *today*.
 
-1. Follow our developer guides to get started: [Enable app optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization).
+1. Follow our developer guides to get started: [Enable app optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt).
 2. Check if you still use `proguard-android.txt` and replace it with `proguard-android-optimize.txt`.
 3. Then, **measure the impact** . Don't just *feel* the difference, *verify* it. Measure your performance gains by adapting the code from our[**Macrobenchmark sample app on GitHub**](https://github.com/android/performance-samples/blob/main/MacrobenchmarkSample/macrobenchmark/src/main/kotlin/com/example/macrobenchmark/benchmark/startup/FullyDrawnStartupBenchmark.kt) to measure your startup times before and after.
 
@@ -284,7 +284,7 @@ Written by:
 
 -
 
-  ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai)
+  ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -292,38 +292,37 @@ Written by:
   View profile](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp)
 -
 
-  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss)
+  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)
 Continue reading
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 3 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 4 min read
+  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp.md.txt)
+  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano.md.txt)
+  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
   - +2 ↩
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
 

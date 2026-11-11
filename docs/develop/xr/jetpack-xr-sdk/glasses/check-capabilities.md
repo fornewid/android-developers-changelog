@@ -7,8 +7,8 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
-Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
@@ -35,36 +35,40 @@ isVisualUiSupported = projectedDeviceController.capabilities.contains(CAPABILITY
 
 On display glasses, the display can time out or the user can turn off the
 display. To design activities that run whether the display is on or off, use
-[`addPresentationModeChangedListener`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDisplayController#addPresentationModeChangedListener(java.util.concurrent.Executor,java.util.function.Consumer)) to be notified when the display state
+[`addPresentationModeChangedListener`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDisplayController.md.txt#addPresentationModeChangedListener(java.util.concurrent.Executor,java.util.function.Consumer)) to be notified when the display state
 changes. You can tune your activity for the appropriate amount of audio
 information depending on display state.
 
-    ProjectedDisplayController.create(activity).addPresentationModeChangedListener {
-        presentationModeFlags ->
+```kotlin
+ProjectedDisplayController.create(activity).addPresentationModeChangedListener {
+    presentationModeFlags ->
 
-        val areVisualsOff = !presentationModeFlags.hasPresentationMode(VISUALS_ON)
-    }
+    val areVisualsOff = !presentationModeFlags.hasPresentationMode(VISUALS_ON)
+}
+```
 
 > [!NOTE]
-> **Note:** Monitor display state changes for the display glasses directly within the [projected activity](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types#activity-lifecycle).
+> **Note:** Monitor display state changes for the display glasses directly within the [projected activity](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types.md.txt#activity-lifecycle).
 
 ## Keep the display on
 
 On display glasses, you can request that the system keep the screen on and
-prevent the screen from timing out using [`addLayoutParamsFlags`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDisplayController#addLayoutParamsFlags(kotlin.Int)).
+prevent the screen from timing out using [`addLayoutParamsFlags`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDisplayController.md.txt#addLayoutParamsFlags(kotlin.Int)).
 
 > [!NOTE]
 > **Note:** Keeping the device's screen on can drain the battery quickly. Ordinarily, you should let the device turn the screen off if the user isn't interacting with it. If you do need to keep the screen on, do so for as short a time as possible.
 
-    var projectedDisplayController = ProjectedDisplayController.create(activity)
+```kotlin
+var projectedDisplayController = ProjectedDisplayController.create(activity)
 
-    projectedDisplayController.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+projectedDisplayController.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+```
 
 ## Monitor battery state changes
 
 To track the real-time battery status of connected audio or display glasses, use
-the [`addBatteryStateChangedListener`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDeviceController#addBatteryStateChangedListener(kotlin.coroutines.CoroutineContext,kotlin.Function1)) method provided by the
-[`ProjectedDeviceController`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDeviceController). This listener notifies your app whenever the
+the [`addBatteryStateChangedListener`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDeviceController.md.txt#addBatteryStateChangedListener(kotlin.coroutines.CoroutineContext,kotlin.Function1)) method provided by the
+[`ProjectedDeviceController`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDeviceController.md.txt). This listener notifies your app whenever the
 battery level or charging state changes, allowing you to optimize app
 performance, enable power-savings modes, or update your user interface.
 
@@ -123,7 +127,7 @@ override fun onDestroy() {
 <br />
 
 You can also unregister a listener explicitly before the scope ends by using
-[`removeBatteryStateChangedListener`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDeviceController#removeBatteryStateChangedListener(kotlin.Function1)).
+[`removeBatteryStateChangedListener`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDeviceController.md.txt#removeBatteryStateChangedListener(kotlin.Function1)).
 
 
 ```kotlin

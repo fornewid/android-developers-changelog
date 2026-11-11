@@ -4,7 +4,7 @@ url: https://developer.android.com/media/camera/camera2/camera-enumeration
 source: md.txt
 ---
 
-**Note:** This page refers to the [Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
+**Note:** This page refers to the [Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary.md.txt) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
 
 <br />
 
@@ -77,18 +77,18 @@ try {
 The variable `cameraLensFacing` describes the direction that the camera faces
 relative to the device screen, and has one of the following values:
 
-- [`CameraMetadata.LENS_FACING_FRONT`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#LENS_FACING_FRONT)
-- [`CameraMetadata.LENS_FACING_BACK`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#LENS_FACING_BACK)
-- [`CameraMetadata.LENS_FACING_EXTERNAL`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#LENS_FACING_EXTERNAL)
+- [`CameraMetadata.LENS_FACING_FRONT`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata.md.txt#LENS_FACING_FRONT)
+- [`CameraMetadata.LENS_FACING_BACK`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata.md.txt#LENS_FACING_BACK)
+- [`CameraMetadata.LENS_FACING_EXTERNAL`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata.md.txt#LENS_FACING_EXTERNAL)
 
 For more information about the lens-facing configuration, see
-[`CameraCharacteristics.LENS_FACING`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#LENS_FACING).
+[`CameraCharacteristics.LENS_FACING`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics.md.txt#LENS_FACING).
 
 The variable `cameraCapabilities` from the preceding code sample contains
 information about miscellaneous capabilities, including whether the camera is
 able to produce standard frames as an output (as opposed to, for example, only
 depth sensor data). You can look for whether
-[`CameraMetadata.REQUEST_AVAILABLE_CAPABILITIES_BACKWARD_COMPATIBLE`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#REQUEST_AVAILABLE_CAPABILITIES_BACKWARD_COMPATIBLE)
+[`CameraMetadata.REQUEST_AVAILABLE_CAPABILITIES_BACKWARD_COMPATIBLE`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata.md.txt#REQUEST_AVAILABLE_CAPABILITIES_BACKWARD_COMPATIBLE)
 is one of the camera's listed capabilities, which is stored as a flag in
 `isBackwardCompatible`.
 
@@ -305,25 +305,25 @@ public String getNextCameraId(CameraManager cameraManager, @Nullable String curr
 ```
 
 This code works for a large set of devices with many different
-configurations. For more information on accounting for edge cases, see [`CameraMetadata.REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA).
+configurations. For more information on accounting for edge cases, see [`CameraMetadata.REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata.md.txt#REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA).
 
 ## Create compatible apps
 
 For apps still using the deprecated Camera API, the number of cameras
 that
-[`Camera.getNumberOfCameras()`](https://developer.android.com/reference/android/hardware/Camera#getNumberOfCameras%28%29)
+[`Camera.getNumberOfCameras()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#getNumberOfCameras%28%29)
 returns depends on OEM implementation. If there is a logical multi-camera in the
 system, to maintain app backward compatibility, this method will only expose one
 camera for every logical camera and underlying physical cameras group.
 Use the Camera2 API to see all cameras.
 
 For more background information on camera orientations, see
-[`Camera.CameraInfo.orientation`](https://developer.android.com/reference/android/hardware/Camera.CameraInfo#orientation).
+[`Camera.CameraInfo.orientation`](https://developer.android.com/reference/android/hardware/Camera.CameraInfo.md.txt#orientation).
 
 In general, use the
-[`Camera.getCameraInfo()`](https://developer.android.com/reference/android/hardware/Camera#getCameraInfo%28int,%20android.hardware.Camera.CameraInfo%29)
+[`Camera.getCameraInfo()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#getCameraInfo%28int,%20android.hardware.Camera.CameraInfo%29)
 API to query all camera
-[`orientation`](https://developer.android.com/reference/android/hardware/Camera.CameraInfo#orientation)s,
+[`orientation`](https://developer.android.com/reference/android/hardware/Camera.CameraInfo.md.txt#orientation)s,
 and expose only one camera for each available orientation to users that are
 switching between cameras.
 

@@ -44,7 +44,7 @@ AndroidRemoteViews(
 <br />
 
 In this case, a layout that contains the "container" is passed with the defined
-ID. This container must be a [`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup), since it is used to place the
+ID. This container must be a [`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup.md.txt), since it is used to place the
 defined content.
 
 > [!NOTE]

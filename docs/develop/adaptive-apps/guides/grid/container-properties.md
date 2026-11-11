@@ -8,19 +8,19 @@ You can define a Grid container configuration to create flexible layouts
 that respond to different screen sizes and content types.
 This page describes how to do the following:
 
-- [Define a grid](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties#grid-definition): Set up the basic structure of rows and columns.
-- [Place items in a grid](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties#item-placement): Understand how items are placed into grid cells and how to change flow direction.
-- [Manage track sizing](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties#grid-track-size): Use fixed, percentage, flexible, and intrinsic sizing to set track sizes.
-- [Set gaps](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties#grid-gap): Manage the "gutters" between rows and columns.
+- [Define a grid](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties.md.txt#grid-definition): Set up the basic structure of rows and columns.
+- [Place items in a grid](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties.md.txt#item-placement): Understand how items are placed into grid cells and how to change flow direction.
+- [Manage track sizing](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties.md.txt#grid-track-size): Use fixed, percentage, flexible, and intrinsic sizing to set track sizes.
+- [Set gaps](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties.md.txt#grid-gap): Manage the "gutters" between rows and columns.
 
 ## Define a grid
 
 A grid consists of columns and rows.
-The [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable#Grid(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) composable has a `config` parameter
+The [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable.md.txt#Grid(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) composable has a `config` parameter
 that accepts a lambda to define the columns and rows
-within [`GridConfigurationScope`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope).
+within [`GridConfigurationScope`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope.md.txt).
 The following example defines a grid that has three rows and two columns,
-each with a fixed size specified in [`Dp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/Dp):
+each with a fixed size specified in [`Dp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/Dp.md.txt):
 
 
 ```kotlin
@@ -81,7 +81,7 @@ Grid(
 ![Six cards are placed in a grid that has three rows and two columns.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/placement.png) **Figure 1**. Six cards are placed in a grid that has three rows and two columns.
 
 To change this default behavior to filling by column,
-set the [`flow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope#flow()) property to [`GridFlow.Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridFlow#Column()).
+set the [`flow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope.md.txt#flow()) property to [`GridFlow.Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridFlow.md.txt#Column()).
 
 
 ```kotlin
@@ -112,13 +112,13 @@ Grid(
 
 ## Manage track sizing
 
-Rows and columns are collectively referred to as a [grid track](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid#grid-track).
+Rows and columns are collectively referred to as a [grid track](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid.md.txt#grid-track).
 You can specify the size of a grid track using one of the following methods:
 
 - **Fixed** (`Dp`): Allocates a specific size (e.g., `column(180.dp)`).
 - **Percentage** (`Float`): Allocates a percentage of the total available space from `0.0f` to `1.0f` (e.g., `row(0.5f)` for 50%).
-- **Flexible** ([`Fr`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Fr)): Distributes remaining space proportionally after fixed and percentage tracks are calculated. For example, if two rows are set to `1.fr` and `3.fr`, the latter receives 75% of the remaining height.
-- **Intrinsic** : Sizes the track based on the content inside it. For more information, see [Determine grid track size intrinsically](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties#intrisic-grid-track-size).
+- **Flexible** ([`Fr`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Fr.md.txt)): Distributes remaining space proportionally after fixed and percentage tracks are calculated. For example, if two rows are set to `1.fr` and `3.fr`, the latter receives 75% of the remaining height.
+- **Intrinsic** : Sizes the track based on the content inside it. For more information, see [Determine grid track size intrinsically](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties.md.txt#intrisic-grid-track-size).
 
 The following example uses the different track sizing options
 to define the row heights:
@@ -153,7 +153,7 @@ Grid(
 When a grid container has no remaining space,
 a standard flexible track can shrink to `0.dp`.
 To prevent this and ensure content isn't crushed,
-use [`GridTrackSize.MinMax`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize#MinMax(androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.Fr))
+use [`GridTrackSize.MinMax`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize.md.txt#MinMax(androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.Fr))
 to enforce an explicit minimum size while keeping the track flexible.
 
 The following example allocates at least `100.dp` to the first row:
@@ -188,11 +188,11 @@ Grid(
 Standard flexible tracks automatically query the intrinsic sizes of
 their children to establish a base size.
 However, Jetpack Compose prohibits querying the intrinsic sizes of
-[`SubcomposeLayout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/SubcomposeLayout.composable#SubcomposeLayout(androidx.compose.ui.Modifier,kotlin.Function2)), which backs components,
-such as [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable) and [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable).
+[`SubcomposeLayout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/SubcomposeLayout.composable.md.txt#SubcomposeLayout(androidx.compose.ui.Modifier,kotlin.Function2)), which backs components,
+such as [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt) and [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable.md.txt).
 
 Placing a lazy list inside a standard flexible track causes
-an [`IllegalStateException`](https://developer.android.com/reference/java/lang/IllegalStateException) crash.
+an [`IllegalStateException`](https://developer.android.com/reference/java/lang/IllegalStateException.md.txt) crash.
 To safely place lazy lists inside a flexible grid track,
 use `MinMax` with an explicit minimum size (such as `0.dp`)
 to bypass the intrinsic measurement pass.
@@ -227,14 +227,14 @@ Grid(
 
 ### Determine grid track size intrinsically
 
-You can use [intrinsic sizing](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements) for a `Grid`
+You can use [intrinsic sizing](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements.md.txt) for a `Grid`
 when you want the layout to adapt to the content,
 rather than forcing it into a fixed container.
 The grid track size is determined with the following values:
 
-- [`GridTrackSize.MaxContent`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize#MaxContent()): Use the content's maximum intrinsic size (e.g., the width is determined by the full length of the text in a text block with no wrapping).
-- [`GridTrackSize.MinContent`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize#MinContent()): Use the content's minimum intrinsic size (e.g., the width is determined by the longest single word in a text block).
-- [`GridTrackSize.Auto`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize#Auto()): Use a flexible size for a track that adapts based on available space. It behaves like `MaxContent` by default, but shrinks and wraps its content to fit within the parent container.
+- [`GridTrackSize.MaxContent`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize.md.txt#MaxContent()): Use the content's maximum intrinsic size (e.g., the width is determined by the full length of the text in a text block with no wrapping).
+- [`GridTrackSize.MinContent`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize.md.txt#MinContent()): Use the content's minimum intrinsic size (e.g., the width is determined by the longest single word in a text block).
+- [`GridTrackSize.Auto`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize.md.txt#Auto()): Use a flexible size for a track that adapts based on available space. It behaves like `MaxContent` by default, but shrinks and wraps its content to fit within the parent container.
 
 The following example places two texts side by side.
 The column size for the first text is determined
@@ -263,9 +263,9 @@ Grid(
 ## Set gaps between rows and columns
 
 Once your grid tracks are sized,
-you can modify the [grid gap](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid#grid-gap) to refine the spacing between the tracks.
-You can specify the column gap with the [`columnGap`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope#columnGap(androidx.compose.ui.unit.Dp)) function,
-and the row gap with [`rowGap`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope#rowGap(androidx.compose.ui.unit.Dp)). In the following example,
+you can modify the [grid gap](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid.md.txt#grid-gap) to refine the spacing between the tracks.
+You can specify the column gap with the [`columnGap`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope.md.txt#columnGap(androidx.compose.ui.unit.Dp)) function,
+and the row gap with [`rowGap`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope.md.txt#rowGap(androidx.compose.ui.unit.Dp)). In the following example,
 there is a `16dp` gap between each row,
 and an `8dp` gap between each column (Figure 5).
 
@@ -296,7 +296,7 @@ Grid(
 
 ![Gaps between rows and columns.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/gaps.png) **Figure 6**. Gaps between rows and columns.
 
-You can also use the convenience function [`gap`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope#gap(androidx.compose.ui.unit.Dp))
+You can also use the convenience function [`gap`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope.md.txt#gap(androidx.compose.ui.unit.Dp))
 to define gaps of the same column and row size,
 and to define column and gap sizes separately using a single function.
 The following code adds `8dp` gaps to the grid:
@@ -328,8 +328,8 @@ Grid(
 ## Define grid areas with named areas
 
 Named areas allow you to attach names to groups of grid cells,
-which are called [grid areas](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid#grid-area).
-You can use these names instead of [coordinate indexes](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/item-properties#position)
+which are called [grid areas](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid.md.txt#grid-area).
+You can use these names instead of [coordinate indexes](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/item-properties.md.txt#position)
 when placing UI elements in the grid.
 
 Using named areas has two main benefits to code readability:
@@ -340,10 +340,10 @@ Using named areas has two main benefits to code readability:
 To organize complex layouts clearly, you can decouple your physical grid
 structure from child placement by defining semantic grid areas.
 
-Inside the `config` lambda, use the [`area`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope#area(kotlin.Any,kotlin.Int,kotlin.Int,kotlin.Int,kotlin.Int)) function in
+Inside the `config` lambda, use the [`area`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope.md.txt#area(kotlin.Any,kotlin.Int,kotlin.Int,kotlin.Int,kotlin.Int)) function in
 `GridConfigurationScope` to register named areas in the grid.
 You can then assign child composables to these areas
-using the [`gridItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridScope#(androidx.compose.ui.Modifier).gridItem(kotlin.Any,androidx.compose.ui.Alignment)) modifier
+using the [`gridItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridScope.md.txt#(androidx.compose.ui.Modifier).gridItem(kotlin.Any,androidx.compose.ui.Alignment)) modifier
 with the corresponding area identifier. The `area` function maps
 a semantic identifier (such as an `enum` class value or a string key) to
 a set of physical grid coordinates. Grid lines and indexes are **1-based**

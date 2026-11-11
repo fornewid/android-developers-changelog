@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/optimize-your-app-battery-using-an
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Optimize your app battery using Android vitals wake lock metric
 
-7 min read ![](https://developer.android.com/static/blog/assets/6m_Evk_L_Olno_HD_56e1732bf5_lySLS.webp) 02 Oct 2025 [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan) [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) Developer Relations Engineer, Android Battery life is a crucial aspect of user experience and wake locks play a major role. Are you using them excessively? In this blog post we'll explore what wake locks are, what are some best practices for using them and how you can better understand your own app's behavior with the Play Console metric.
+7 min read ![](https://developer.android.com/static/blog/assets/6m_Evk_L_Olno_HD_56e1732bf5_lySLS.webp) 02 Oct 2025 [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan.md.txt) [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt) Developer Relations Engineer, Android Battery life is a crucial aspect of user experience and wake locks play a major role. Are you using them excessively? In this blog post we'll explore what wake locks are, what are some best practices for using them and how you can better understand your own app's behavior with the Play Console metric.
 
 ## Excessive partial wake lock usage in Android Vitals
 
@@ -24,7 +24,7 @@ For mobile devices, the Android vitals metric applies to non-exempted wake locks
 - Wake locks are held for at least two hours within a 24-hour period.
 - It affects more than 5% of your app's sessions, averaged over 28 days.
 
-Wake locks created by [audio](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls#media), [location](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls#location), and [JobScheduler](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls#jobs) user initiated APIs are exempted from the wake lock calculation.
+Wake locks created by [audio](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls.md.txt#media), [location](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls.md.txt#location), and [JobScheduler](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls.md.txt#jobs) user initiated APIs are exempted from the wake lock calculation.
 
 ## Understanding wake locks
 
@@ -34,7 +34,7 @@ A partial wake lock keeps the CPU running even if the screen is off, preventing 
 
 There are 2 methods partial wake locks are acquired:
 
-- The app manually acquires and releases the wake lock using [PowerManager](https://developer.android.com/reference/android/os/PowerManager) APIs for a specific use case, often this is acquired in conjunction with a [Foreground Service](https://developer.android.com/develop/background-work/services/fgs) - a platform lifecycle API intended for user-perceptible operation.
+- The app manually acquires and releases the wake lock using [PowerManager](https://developer.android.com/reference/android/os/PowerManager.md.txt) APIs for a specific use case, often this is acquired in conjunction with a [Foreground Service](https://developer.android.com/develop/background-work/services/fgs.md.txt) - a platform lifecycle API intended for user-perceptible operation.
 - Alternatively, the wake lock is acquired by another API, and attributed to the app due to usage of the API, more on this in the best practices section.
 
 While wake locks are necessary for tasks like completing a user-initiated download of a large file, their **excessive or improper use can lead to significant battery drain**. We've seen cases where apps hold wake locks for hours or fail to release them properly, leading to user complaints about significant battery drain even when they're not interacting with the app.
@@ -55,14 +55,14 @@ Before considering acquiring a manual partial wake lock, follow this decision-ma
 *Flowchart to decide when to manually acquire a wake lock*
 
 1. Does the screen need to stay on?
-   - Yes: Reference the [Keep Screen On](https://developer.android.com/develop/background-work/background-tasks/awake/screen-on) documentation instead
+   - Yes: Reference the [Keep Screen On](https://developer.android.com/develop/background-work/background-tasks/awake/screen-on.md.txt) documentation instead
 2. Is the application running a foreground service?
    - No: You don't need to manually acquire a wake lock.
 3. Is it detrimental to the user experience if the device suspends?
    - No: For instance, updating a notification after the device wakes up doesn't require a wake lock.
    - Yes: If it's critical to prevent the device from suspending, like ongoing communication with an external device, proceed.
 4. Is there already an API keeping the device awake on your behalf?
-   - You can leverage the documentation [Identify wake locks created by other APIs](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls) to identify scenarios where wake locks created by other APIs to identify scenarios where wake locks are created by other APIs such as LocationManager.
+   - You can leverage the documentation [Identify wake locks created by other APIs](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls.md.txt) to identify scenarios where wake locks created by other APIs to identify scenarios where wake locks are created by other APIs such as LocationManager.
    - If no APIs exist, proceed to the final question.
 5. If you've answered all these questions and determined no alternative exists, you should proceed with manually acquiring a wake lock.
 
@@ -99,14 +99,14 @@ fun processingWork() {
 
 For periodic data requests, reducing how often your app wakes up the device is key to battery optimization. Some examples of reducing wake-up frequency include:
 
-- **WorkManager:** Increase the periodic interval in [PeriodicWorkRequest](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest)s.
-- **SensorManager:** Leverage batching by specifying [maxReportLatencyMs](https://developer.android.com/reference/android/hardware/SensorManager#registerListener(android.hardware.SensorEventListener,%20android.hardware.Sensor,%20int,%20int)) when registering the listener.
+- **WorkManager:** Increase the periodic interval in [PeriodicWorkRequest](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest.md.txt)s.
+- **SensorManager:** Leverage batching by specifying [maxReportLatencyMs](https://developer.android.com/reference/android/hardware/SensorManager.md.txt#registerListener(android.hardware.SensorEventListener,%20android.hardware.Sensor,%20int,%20int)) when registering the listener.
 - **Fused Location Provider:**
   - Reduce location retrieval frequency by using [getLastLocation](https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#public-abstract-tasklocation-getlastlocation) for the most recent cached location.
   - Use [setPriority(PRIORITY_PASSIVE](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#public-locationrequest.builder-setpriority-int-priority)) for a less battery-intensive update method.
   - Also, you can leverage the location batching mechanism by setting a minimum update interval with [setMinUpdateIntervalMillis](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#public-locationrequest.builder-setminupdateintervalmillis-long-minupdateintervalmillis).
 
-You can view more details in the [wake lock best practices documentation](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/best-practices).
+You can view more details in the [wake lock best practices documentation](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/best-practices.md.txt).
 
 ## Debugging excessive wake lock usage
 
@@ -114,7 +114,7 @@ Even with the best intentions, excessive wake lock usage can occur. If your app 
 
 **Initial identification with Play Console**
 
-The Android vitals excessive partial wake lock dashboard provides breakdowns of non-exempted wake lock names associated with your app, showing affected sessions and durations. Reminder to use the [documentation](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls) to help you identify if the wake lock name is app-held or held by another API.
+The Android vitals excessive partial wake lock dashboard provides breakdowns of non-exempted wake lock names associated with your app, showing affected sessions and durations. Reminder to use the [documentation](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls.md.txt) to help you identify if the wake lock name is app-held or held by another API.
 ![breakdowns2.png](https://developer.android.com/static/blog/assets/breakdowns2_987ee7d6f2_Z1KWTje.webp)
 
 *The Android vitals excessive partial wake lock dashboard scrolled down to the breakdowns section to view excessive wake lock tags.*
@@ -125,7 +125,7 @@ You can identify worker-held wake locks with this wake lock name:
 
 `*job*/<package_name>/androidx.work.impl.background.systemjob.SystemJobService`
 
-The full list of variations of worker-held wake lock names is available in [documentation](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls#wake_lock_names_6). To debug these wake locks, you can use Background Task Inspector to debug locally, or leverage getStopReason to debug issues in the field.
+The full list of variations of worker-held wake lock names is available in [documentation](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls.md.txt#wake_lock_names_6). To debug these wake locks, you can use Background Task Inspector to debug locally, or leverage getStopReason to debug issues in the field.
 
 **Android Studio Background Task Inspector**
 ![taskinspector.png](https://developer.android.com/static/blog/assets/taskinspector_60a38ee510_4Hhda.webp)
@@ -138,11 +138,11 @@ For local debugging of `WorkManager` issues, use this tool on an emulator or con
 
 For instance, it can reveal if a worker is frequently failing or retrying due to hitting system limitations.
 
-See [Background Task Inspector documentation](https://developer.android.com/studio/inspect/task) for more details.
+See [Background Task Inspector documentation](https://developer.android.com/studio/inspect/task.md.txt) for more details.
 
 **WorkManager getStopReason**
 
-For in-field debugging of workers with excessive wake locks, use [`WorkInfo.getStopReason()`](https://developer.android.com/reference/androidx/work/WorkInfo#getStopReason()) on WorkManager 2.9.0+ or for JobScheduler, [`JobParameters.getStopReason()`](https://developer.android.com/reference/android/app/job/JobParameters#getStopReason()) available on SDK 31+.
+For in-field debugging of workers with excessive wake locks, use [`WorkInfo.getStopReason()`](https://developer.android.com/reference/androidx/work/WorkInfo.md.txt#getStopReason()) on WorkManager 2.9.0+ or for JobScheduler, [`JobParameters.getStopReason()`](https://developer.android.com/reference/android/app/job/JobParameters.md.txt#getStopReason()) available on SDK 31+.
 
 This API helps log the reason why a worker stopped (e.g., `STOP_REASON_TIMEOUT`, `STOP_REASON_QUOTA`), pinpointing issues like frequent timeouts due to exhausting runtime duration.
 
@@ -156,7 +156,7 @@ backgroundScope.launch {
 }
 ```
 
-See [Optimize battery use for task scheduling APIs for more details](https://developer.android.com/develop/background-work/background-tasks/optimize-battery#why-stopped).
+See [Optimize battery use for task scheduling APIs for more details](https://developer.android.com/develop/background-work/background-tasks/optimize-battery.md.txt#why-stopped).
 
 ## Debugging other types of excessive wake locks
 
@@ -168,10 +168,10 @@ For more complex scenarios involving manually held wake locks or APIs holding th
 
 You can capture a system trace using several methods:
 
-- Utilizing the [system trace command line tool](https://developer.android.com/topic/performance/tracing/command-line)
-- Using the [Android Studio CPU Profiler](https://developer.android.com/studio/profile)
+- Utilizing the [system trace command line tool](https://developer.android.com/topic/performance/tracing/command-line.md.txt)
+- Using the [Android Studio CPU Profiler](https://developer.android.com/studio/profile.md.txt)
 - Using the [Perfetto UI](https://perfetto.dev/docs/getting-started/system-tracing)
-- Recording a trace manually on the device [directly from the developer options](https://developer.android.com/topic/performance/tracing/on-device).
+- Recording a trace manually on the device [directly from the developer options](https://developer.android.com/topic/performance/tracing/on-device.md.txt).
 
 ![powermgmt.png](https://developer.android.com/static/blog/assets/powermgmt_72d69d505f_Z22H7Y3.webp)
 
@@ -206,7 +206,7 @@ ORDER BY total_dur_ms DESC
 
 For hard-to-reproduce issues, `ProfilingManager` (added in SDK 35) is a programmatic API that allows developers to collect system traces in the field with start and end triggers. It offers more control over the start and end trigger points for profile collection and enforces system-level rate limiting to prevent device performance impact.
 
-Check out the [ProfilingManager documentation](https://developer.android.com/topic/performance/tracing/profiling-manager/overview) for further steps on how to implement in field system trace collection which include how to programmatically [capture a trace](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture), [analyze profiling data](https://developer.android.com/topic/performance/tracing/profiling-manager/retrieve-and-analyze), and use [local debug commands](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode).
+Check out the [ProfilingManager documentation](https://developer.android.com/topic/performance/tracing/profiling-manager/overview.md.txt) for further steps on how to implement in field system trace collection which include how to programmatically [capture a trace](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture.md.txt), [analyze profiling data](https://developer.android.com/topic/performance/tracing/profiling-manager/retrieve-and-analyze.md.txt), and use [local debug commands](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode.md.txt).
 
 The system traces collected using ProfilingManager will look similar to the ones collected manually, but system processes and other app processes are redacted from the trace.
 
@@ -219,38 +219,37 @@ Written by:
 
 -
 
-  ## [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan)
+  ## [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)
 Continue reading
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 3 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 4 min read
+  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp.md.txt)
+  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano.md.txt)
+  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
   - +2 ↩
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
 

@@ -35,11 +35,11 @@ text, like "Choose data to share."
 
 Here are a few ways you can promote Health Connect in your app:
 
-- As part of your [app's setup flow](https://developer.android.com/health-and-fitness/health-connect/ui/promote#app-setup-flow).
-- With a [card](https://developer.android.com/health-and-fitness/health-connect/ui/promote#card) in your app's home screen.
-- Through an entrypoint within a [Settings](https://developer.android.com/health-and-fitness/health-connect/ui/promote#settings) screen.
-- With an [Android 13 APK download](https://developer.android.com/health-and-fitness/health-connect/ui/promote#android-13-download) button for Android 13 versions and lower.
-- When promoting [new data types](https://developer.android.com/health-and-fitness/health-connect/ui/promote#new-data-types).
+- As part of your [app's setup flow](https://developer.android.com/health-and-fitness/health-connect/ui/promote.md.txt#app-setup-flow).
+- With a [card](https://developer.android.com/health-and-fitness/health-connect/ui/promote.md.txt#card) in your app's home screen.
+- Through an entrypoint within a [Settings](https://developer.android.com/health-and-fitness/health-connect/ui/promote.md.txt#settings) screen.
+- With an [Android 13 APK download](https://developer.android.com/health-and-fitness/health-connect/ui/promote.md.txt#android-13-download) button for Android 13 versions and lower.
+- When promoting [new data types](https://developer.android.com/health-and-fitness/health-connect/ui/promote.md.txt#new-data-types).
 - With a modal or dialog when updating the app, similar to the app's setup flow.
 
 ### App setup and requesting permissions flow
@@ -68,9 +68,9 @@ to avoid confusing users.
 
 The following are a few examples of how to promote new data types(s):
 
-- [Reuse existing conventions](https://developer.android.com/health-and-fitness/health-connect/ui/promote#reuse)
-- [Emphasize the value proposition](https://developer.android.com/health-and-fitness/health-connect/ui/promote#value)
-- [Contextualize permissions](https://developer.android.com/health-and-fitness/health-connect/ui/promote#contextualize)
+- [Reuse existing conventions](https://developer.android.com/health-and-fitness/health-connect/ui/promote.md.txt#reuse)
+- [Emphasize the value proposition](https://developer.android.com/health-and-fitness/health-connect/ui/promote.md.txt#value)
+- [Contextualize permissions](https://developer.android.com/health-and-fitness/health-connect/ui/promote.md.txt#contextualize)
 
 ### Reuse existing conventions
 

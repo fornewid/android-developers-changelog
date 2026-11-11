@@ -8,7 +8,7 @@ source: md.txt
 
 Android SDK Platform-Tools is a component for the Android SDK.
 It includes tools that interface with the Android platform, primarily
-[`adb`](https://developer.android.com/tools/adb) and
+[`adb`](https://developer.android.com/tools/adb.md.txt) and
 [`fastboot`](https://android.googlesource.com/platform/system/core/+/master/fastboot/#fastboot).
 Although `adb` is required for Android app development, app developers will
 normally just use the copy Studio installs. This download is useful if you want
@@ -27,7 +27,7 @@ exceptions.
 ## Downloads
 
 If you're an Android developer, you should get the latest
-SDK Platform-Tools from Android Studio's [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) or from the
+SDK Platform-Tools from Android Studio's [SDK Manager](https://developer.android.com/studio/intro/update.md.txt#sdk-manager) or from the
 [`sdkmanager`](https://developer.android.com/studio/command-line/sdkmanager)
 command-line tool. This ensures the tools are saved to the right place with
 the rest of your Android SDK tools and easily updated.
@@ -43,7 +43,7 @@ of the tools.
 
 ## Revisions
 
-#### 37.0.2
+#### 37.0.3
 
 **Canary: November 2026**
 
@@ -51,7 +51,8 @@ of the tools.
 
 - Reduce debug log spam. Demote high-frequency data-plane logs (such as reads and writes) to verbose level (for example: `usb:v, transport:v`) to prevent large log files.
 - Add support for syncing the `system_dlkm`, `vendor_dlkm`, and `odm_dlkm` partitions in the `adb sync` command.
-- Deprecate the `adb install --fastdeploy` option in favor of the [`android install`](https://developer.android.com/tools/agents/android-cli/commands/install) command. Fast Deploy remains temporarily available using the `--deprecated-fastdeploy` flag and will be removed in 37.0.3.
+- Deprecate the `adb install --fastdeploy` option in favor of the [`android install`](https://developer.android.com/tools/agents/android-cli/commands/install.md.txt) command. Fast Deploy remains temporarily available using the `--deprecated-fastdeploy` flag and will be removed in later releases.
+- Add support for wireless pairing using a QR code in the terminal (the `adb pair --qr` command).
 - **Linux:**
 
   - Introduce the `libadbusb` library to replace the legacy USB backend (`ADB_USB_LEGACY=1`). The `libadbusb` library uses periodic USB bus polling (`1000ms` default, configurable using the `ADB_USB_LINUX_POLL_INTERVAL_MS` environment variable) instead of netlink hotplug to avoid missing devices after in-place USB resets or concurrent `start-server` command races.
@@ -61,6 +62,11 @@ of the tools.
   - Introduce the `libadbusb` library to replace the legacy USB backend. The `libadbusb` library can be disabled by setting the `ADB_USB_LEGACY` environment variable to `1`.
   - Fix an `adb` server crash (abort in `_Unwind_Backtrace`) on Apple Silicon M6 (macOS 27) caused by capturing backtraces on ignored non-ADB mDNS records.
   - Fix an `adb` server crash (`KERN_INVALID_NAME` Mach port exception) on USB device attach when AMFI is disabled.
+
+#### 37.0.2
+
+Never released past Canary due to
+[issue #582407438](https://issuetracker.google.com/582407438).
 
 #### 37.0.1 (July 2026)
 
@@ -290,8 +296,8 @@ Never released past Canary due to [issue #439152273](https://issuetracker.google
 #### 30.0.0 (April 2020)
 
 - **adb**
-  - Add initial support for [wireless pairing](https://developer.android.com/about/versions/11/features#wireless-adb).
-  - Add support for [incremental APK installation](https://developer.android.com/about/versions/11/features#incremental).
+  - Add initial support for [wireless pairing](https://developer.android.com/about/versions/11/features.md.txt#wireless-adb).
+  - Add support for [incremental APK installation](https://developer.android.com/about/versions/11/features.md.txt#incremental).
   - Implement client-side support for compression of `adb {push, pull, sync}` when used with an Android 11 device.
   - Improve performance of `adb push` on high-latency connections.
   - Improve push/pull performance on Windows.

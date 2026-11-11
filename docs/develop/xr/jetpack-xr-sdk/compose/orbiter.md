@@ -7,13 +7,13 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices.md.txt#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
-An [`Orbiter`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Orbiter.composable) is a [spatialized component](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/components) that you can attach to a
+An [`Orbiter`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Orbiter.composable.md.txt) is a [spatialized component](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/components.md.txt) that you can attach to a
 corresponding spatial panel or spatial layout component like a
-[`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialColumn.composable), [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialRow.composable), or [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable). An orbiter
+[`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialColumn.composable.md.txt), [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialRow.composable.md.txt), or [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable.md.txt). An orbiter
 typically contains navigation and contextual action items related to the entity
 it's anchored to. For example, if you've created a spatial panel to display
 video content, you could add video playback controls inside an orbiter.
@@ -22,7 +22,7 @@ video content, you could add video playback controls inside an orbiter.
 ## Create an orbiter
 
 As shown in the following example, call an orbiter inside the 2D layout in a
-[`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable) to wrap user controls like navigation. Doing so extracts
+[`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable.md.txt) to wrap user controls like navigation. Doing so extracts
 them from your 2D layout and attaches them to the spatial panel according to
 your configuration.
 
@@ -79,20 +79,20 @@ fun OrbiterExample() {
 ### Key points about the code
 
 - Because orbiters are spatial UI components, the code can be reused in 2D or 3D layouts. In a 2D layout, your app renders only the content inside the orbiter and ignores the orbiter itself.
-- Check out our [design guidance](https://developer.android.com/design/ui/xr/guides/spatial-ui#orbiters) for more information on how to use and design orbiters.
+- Check out our [design guidance](https://developer.android.com/design/ui/xr/guides/spatial-ui.md.txt#orbiters) for more information on how to use and design orbiters.
 
 ## Anchor orbiters to spatial panels and layouts
 
-You can anchor an orbiter to a [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable) and spatial layout components
+You can anchor an orbiter to a [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable.md.txt) and spatial layout components
 declared in Compose. This involves declaring an orbiter in a spatial layout of
-UI elements such as [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialRow.composable), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialColumn.composable), or
-[`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable). The orbiter anchors to the parent that is nearest to where
+UI elements such as [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialRow.composable.md.txt), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialColumn.composable.md.txt), or
+[`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable.md.txt). The orbiter anchors to the parent that is nearest to where
 you've declared it.
 
 The orbiter's behavior is determined by where you declare it:
 
-- In a 2D layout wrapped in a `SpatialPanel` (as shown in a [preceding code](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/orbiter#2dlayout-code-snippet) snippet), the orbiter anchors to that `SpatialPanel`.
-- In a [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable), the orbiter anchors to the nearest parent entity, which is the spatial layout the orbiter is declared in.
+- In a 2D layout wrapped in a `SpatialPanel` (as shown in a [preceding code](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/orbiter.md.txt#2dlayout-code-snippet) snippet), the orbiter anchors to that `SpatialPanel`.
+- In a [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable.md.txt), the orbiter anchors to the nearest parent entity, which is the spatial layout the orbiter is declared in.
 
 The following example shows how to anchor an orbiter to a spatial row:
 

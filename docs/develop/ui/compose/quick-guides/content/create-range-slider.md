@@ -6,7 +6,7 @@ source: md.txt
 
 <br />
 
-The [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) composable lets users make selections from a range of
+The [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable.md.txt#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) composable lets users make selections from a range of
 values. You might use a slider to let the user do the following:
 
 - Adjust settings that use a range of values, such as volume, and brightness.
@@ -21,9 +21,9 @@ The slider contains a track, thumb, value label, and tick marks:
 
 This topic shows the following slider implementations:
 
-- [Basic](https://developer.android.com/develop/ui/compose/quick-guides/content/create-range-slider#basic-implementation)
-- [Advanced](https://developer.android.com/develop/ui/compose/quick-guides/content/create-range-slider#advanced-implementation)
-- [Range](https://developer.android.com/develop/ui/compose/quick-guides/content/create-range-slider#range-slider)
+- [Basic](https://developer.android.com/develop/ui/compose/quick-guides/content/create-range-slider.md.txt#basic-implementation)
+- [Advanced](https://developer.android.com/develop/ui/compose/quick-guides/content/create-range-slider.md.txt#advanced-implementation)
+- [Range](https://developer.android.com/develop/ui/compose/quick-guides/content/create-range-slider.md.txt#range-slider)
 
 ## Version compatibility
 
@@ -39,7 +39,7 @@ higher.
 The following example is a straightforward slider. That allows the user to
 select a value from `0.0` to `1.0`. Because the user can select any value in
 that range, the slider is *continuous*.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_e83395f239f669ed182c9485d85ac4611931c32eb26b7c036d88a7386238d06c.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_bd1fd402db649411f755050f324b0c8d100402c08f8453e024f20d26800afcfa.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -50,7 +50,7 @@ that range, the slider is *continuous*.
 The following snippet implements a slider that has three steps, with a range
 from `0.0` to `50.0`. Because the thumb snaps to each step, this slider is
 *discrete*.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_c4b68ab063933b68245fb73ad34f0af72ec87925dea47b60ffc165c7a9d4fd41.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_89284717f2425a94269b013fe7142851f8b3bc2189c2d9d6544b87bd24f41314.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -61,13 +61,13 @@ from `0.0` to `50.0`. Because the thumb snaps to each step, this slider is
 
 ## Range slider
 
-You can also use the dedicated [`RangeSlider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/RangeSlider.composable#RangeSlider(kotlin.ranges.ClosedFloatingPointRange,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.ranges.ClosedFloatingPointRange,kotlin.Int,kotlin.Function0,androidx.compose.material3.SliderColors)) composable. This allows the user to
+You can also use the dedicated [`RangeSlider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/RangeSlider.composable.md.txt#RangeSlider(kotlin.ranges.ClosedFloatingPointRange,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.ranges.ClosedFloatingPointRange,kotlin.Int,kotlin.Function0,androidx.compose.material3.SliderColors)) composable. This allows the user to
 select two values. This can be useful in cases such as when the user wishes to
 select a minimum and maximum price.
 
 The following example is a relatively straightforward example of a continuous
 range slider:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_51ccd469b8fc0da33b4acfc6422e842c4b0e8ef10c8f8159ca1b1c96297d5ecd.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_060390ad2f8b4a8e8bbe7b7be7719dc6f72af9143caefb50091d1ceeabd49a74.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -75,7 +75,7 @@ range slider:
 
 ## Key points
 
-See the [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) reference for a full API definition. Some of the key
+See the [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable.md.txt#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) reference for a full API definition. Some of the key
 parameters for the `Slider` composable are the following:
 
 - **`value`**: The current value of the slider.
@@ -104,4 +104,4 @@ Learn how composable functions can enable you to easily create beautiful UI comp
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

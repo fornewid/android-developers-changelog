@@ -7,7 +7,7 @@ source: md.txt
 ![four star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/shared/four-star-rating.png)
 
 The TV app design guidelines define a card variant
-called the [Wide classic card](https://developer.android.com/design/ui/tv/guides/components/cards#wide-classic-card),
+called the [Wide classic card](https://developer.android.com/design/ui/tv/guides/components/cards.md.txt#wide-classic-card),
 which displays an image and its descriptive content block side by side.
 When building complex two-dimensional layouts for TV screens,
 using traditional coordinate-based positioning
@@ -34,13 +34,13 @@ to organize complex side-by-side card components clearly and robustly.
 
 ## Ingredients
 
-- [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable): A 2D container layout in Jetpack Compose that arranges child composables into rows and columns based on a configuration lambda
-- [`gridItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridScope): A `Modifier` extension that associates a child UI element with a specific named `areaId` inside a `Grid` layout
-- [`area`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope): A configuration DSL function within [`GridConfigurationScope`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope) that maps a semantic `areaId` to specific row and column spans or ranges
-- [`Card`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable): A Material Design container composable that groups related UI elements and styling
-- [`GridTrackSize.MinMax`](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties): A track sizing property that defines flexible bounds (`min` and `max`) for row or column dimensions
-- [`GridTrackSize.Auto`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize#Auto()): A track sizing property that sizes the row or column track automatically to fit its content (`column(GridTrackSize.Auto)`)
-- [`gap`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope#gap(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)): A configuration function that specifies the vertical (`row`) and horizontal (`column`) spacing between grid tracks
+- [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable.md.txt): A 2D container layout in Jetpack Compose that arranges child composables into rows and columns based on a configuration lambda
+- [`gridItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridScope.md.txt): A `Modifier` extension that associates a child UI element with a specific named `areaId` inside a `Grid` layout
+- [`area`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope.md.txt): A configuration DSL function within [`GridConfigurationScope`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope.md.txt) that maps a semantic `areaId` to specific row and column spans or ranges
+- [`Card`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable.md.txt): A Material Design container composable that groups related UI elements and styling
+- [`GridTrackSize.MinMax`](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties.md.txt): A track sizing property that defines flexible bounds (`min` and `max`) for row or column dimensions
+- [`GridTrackSize.Auto`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize.md.txt#Auto()): A track sizing property that sizes the row or column track automatically to fit its content (`column(GridTrackSize.Auto)`)
+- [`gap`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope.md.txt#gap(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)): A configuration function that specifies the vertical (`row`) and horizontal (`column`) spacing between grid tracks
 
 ## Steps
 
@@ -198,5 +198,5 @@ for side-by-side thumbnail and description components.
 
 ## Additional resources
 
-- [TV design guidelines: Cards](https://developer.android.com/design/ui/tv/guides/components/cards#wide-classic-card)
-- [Adaptive apps guide: Grid container properties](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties)
+- [TV design guidelines: Cards](https://developer.android.com/design/ui/tv/guides/components/cards.md.txt#wide-classic-card)
+- [Adaptive apps guide: Grid container properties](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties.md.txt)

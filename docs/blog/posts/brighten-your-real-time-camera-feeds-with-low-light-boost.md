@@ -4,13 +4,13 @@ url: https://developer.android.com/blog/posts/brighten-your-real-time-camera-fee
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Brighten Your Real-Time Camera Feeds with Low Light Boost
 
-7 min read ![](https://developer.android.com/static/blog/assets/Brighten_Real_Time_0d4c07ef35_ZnMjzn.webp) 17 Dec 2025 [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)](https://developer.android.com/blog/authors/donovan-mcmurray) [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray) Developer Relations Engineer We recently shared[how Instagram enabled users to take stunning low light photos](https://android-developers.googleblog.com/2024/12/instagram-on-android-low-light-photos.html) using Night Mode. That feature is perfect for still images, where there's time to combine multiple exposures to create a high-quality static shot. But what about the moments that happen *between* the photos? Users need to interact with the camera more than just the moment the shutter button is pressed. They also use the preview to compose their scene or scan QR codes.
+7 min read ![](https://developer.android.com/static/blog/assets/Brighten_Real_Time_0d4c07ef35_ZnMjzn.webp) 17 Dec 2025 [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) Developer Relations Engineer We recently shared[how Instagram enabled users to take stunning low light photos](https://android-developers.googleblog.com/2024/12/instagram-on-android-low-light-photos.html) using Night Mode. That feature is perfect for still images, where there's time to combine multiple exposures to create a high-quality static shot. But what about the moments that happen *between* the photos? Users need to interact with the camera more than just the moment the shutter button is pressed. They also use the preview to compose their scene or scan QR codes.
 
-Today, we're diving into [Low Light Boost (LLB)](https://developer.android.com/media/camera/lowlight), a powerful feature designed to brighten real-time camera streams. Unlike Night Mode, which requires a hold-still capture duration, Low Light Boost works instantaneously on your live preview and video recordings. LLB automatically adjusts how much brightening is needed based on available light, so it's optimized for every environment.
+Today, we're diving into [Low Light Boost (LLB)](https://developer.android.com/media/camera/lowlight.md.txt), a powerful feature designed to brighten real-time camera streams. Unlike Night Mode, which requires a hold-still capture duration, Low Light Boost works instantaneously on your live preview and video recordings. LLB automatically adjusts how much brightening is needed based on available light, so it's optimized for every environment.
 
 With a recent update, LLB allows Instagram users to line up the perfect shot, and then their existing Night Mode implementation results in the same high quality low-light photos their users have been enjoying for over a year.
 
@@ -42,7 +42,7 @@ There are two ways to implement Low Light Boost to provide the best experience a
 ### Low Light Boost AE Mode (Hardware)
 
 **Mechanism:**   
-This mode is supported on devices running Android 15 and newer and requires the OEM to have implemented the support in HAL (currently available on Pixel 10 devices). It integrates directly with the camera's Image Signal Processor (ISP). If you set [CaptureRequest.CONTROL_AE_MODE](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#CONTROL_AE_MODE) to [CameraMetadata.CONTROL_AE_MODE_ON_LOW_LIGHT_BOOST_BRIGHTNESS_PRIORITY](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#CONTROL_AE_MODE_ON_LOW_LIGHT_BOOST_BRIGHTNESS_PRIORITY), the camera system takes control.
+This mode is supported on devices running Android 15 and newer and requires the OEM to have implemented the support in HAL (currently available on Pixel 10 devices). It integrates directly with the camera's Image Signal Processor (ISP). If you set [CaptureRequest.CONTROL_AE_MODE](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.md.txt#CONTROL_AE_MODE) to [CameraMetadata.CONTROL_AE_MODE_ON_LOW_LIGHT_BOOST_BRIGHTNESS_PRIORITY](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata.md.txt#CONTROL_AE_MODE_ON_LOW_LIGHT_BOOST_BRIGHTNESS_PRIORITY), the camera system takes control.
 
 **Behavior:**   
 The HAL/ISP analyzes the scene and adjusts sensor and processing parameters, often including increasing exposure time, to brighten the image. This can yield frames with a significantly improved signal-to-noise ratio (SNR) because the extended exposure time, rather than an increase in digital sensor gain (ISO), allows the sensor to capture more light information.
@@ -122,7 +122,7 @@ if (isLlbSupported) {
 
 #### 3. Monitor the State
 
-Just because you requested the mode doesn't mean it's currently "boosting." The system only activates the boost when the scene is actually dark. You can set up an [Observer](https://developer.android.com/reference/androidx/lifecycle/Observer) to update your UI (like showing a moon icon) or convert to a Flow using the extension function asFlow().
+Just because you requested the mode doesn't mean it's currently "boosting." The system only activates the boost when the scene is actually dark. You can set up an [Observer](https://developer.android.com/reference/androidx/lifecycle/Observer.md.txt) to update your UI (like showing a moon icon) or convert to a Flow using the extension function asFlow().
 
 ```
 if (isLlbSupported) {
@@ -133,7 +133,7 @@ if (isLlbSupported) {
 }
 ```
 
-You can read the full guide on[Low Light Boost AE Mode here](https://developer.android.com/media/camera/lowlight/low-light-boost-ae).
+You can read the full guide on[Low Light Boost AE Mode here](https://developer.android.com/media/camera/lowlight/low-light-boost-ae.md.txt).
 
 ### Step 2: Google Low Light Boost
 
@@ -168,7 +168,7 @@ if (isSupported && !isInstalled) {
 
 #### 3. Create a LLB Session
 
-Google LLB processes each frame, so you must give your display Surface to the `LowLightBoostSession`, and it gives you back a Surface that has the brightening applied. For Camera2 apps, you can add the resulting Surface with [CaptureRequest.Builder.addTarget()](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.Builder#addTarget(android.view.Surface)). For CameraX, this processing pipeline aligns best with the [CameraEffect](https://developer.android.com/reference/androidx/camera/core/CameraEffect#CameraEffect(int,java.util.concurrent.Executor,androidx.camera.core.SurfaceProcessor,androidx.core.util.Consumer%3Cjava.lang.Throwable%3E)) class, where you can apply the effect with a [SurfaceProcessor](https://developer.android.com/reference/androidx/camera/core/SurfaceProcessor) and provide it back to your Preview with a [SurfaceProvider](https://developer.android.com/reference/androidx/camera/core/Preview.SurfaceProvider), as seen in this code.
+Google LLB processes each frame, so you must give your display Surface to the `LowLightBoostSession`, and it gives you back a Surface that has the brightening applied. For Camera2 apps, you can add the resulting Surface with [CaptureRequest.Builder.addTarget()](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.Builder.md.txt#addTarget(android.view.Surface)). For CameraX, this processing pipeline aligns best with the [CameraEffect](https://developer.android.com/reference/androidx/camera/core/CameraEffect.md.txt#CameraEffect(int,java.util.concurrent.Executor,androidx.camera.core.SurfaceProcessor,androidx.core.util.Consumer%3Cjava.lang.Throwable%3E)) class, where you can apply the effect with a [SurfaceProcessor](https://developer.android.com/reference/androidx/camera/core/SurfaceProcessor.md.txt) and provide it back to your Preview with a [SurfaceProvider](https://developer.android.com/reference/androidx/camera/core/Preview.SurfaceProvider.md.txt), as seen in this code.
 
 ```
 // With a SurfaceOutput from SurfaceProcessor.onSurfaceOutput() and a
@@ -208,7 +208,7 @@ suspend fun createLlbSession(surfaceRequest: SurfaceRequest, outputSurfaceForLlb
 
 #### 4. Pass in the Metadata
 
-For the algorithm to work, it needs to analyze the camera's auto-exposure state. You must pass capture results back to the LLB session. In CameraX, this can be done by extending your Preview.Builder with [Camera2Interop.Extender.setSessionCaptureCallback()](https://developer.android.com/reference/androidx/camera/camera2/interop/Camera2Interop.Extender#setSessionCaptureCallback(android.hardware.camera2.CameraCaptureSession.CaptureCallback)).
+For the algorithm to work, it needs to analyze the camera's auto-exposure state. You must pass capture results back to the LLB session. In CameraX, this can be done by extending your Preview.Builder with [Camera2Interop.Extender.setSessionCaptureCallback()](https://developer.android.com/reference/androidx/camera/camera2/interop/Camera2Interop.Extender.md.txt#setSessionCaptureCallback(android.hardware.camera2.CameraCaptureSession.CaptureCallback)).
 
 ```
 Camera2Interop.Extender(previewBuilder).setSessionCaptureCallback(
@@ -225,7 +225,7 @@ Camera2Interop.Extender(previewBuilder).setSessionCaptureCallback(
 )
 ```
 
-Detailed implementation steps for the client and session can be found in the[Google Low Light Boost guide](https://developer.android.com/media/camera/lowlight/low-light-boost-gp).
+Detailed implementation steps for the client and session can be found in the[Google Low Light Boost guide](https://developer.android.com/media/camera/lowlight/low-light-boost-gp.md.txt).
 
 ## Next Steps
 
@@ -236,38 +236,37 @@ Written by:
 
 -
 
-  ## [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray)
+  ## [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/donovan-mcmurray) ![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp) ![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)
 Continue reading
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 3 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 4 min read
+  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp.md.txt)
+  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano.md.txt)
+  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
   - +2 ↩
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
 

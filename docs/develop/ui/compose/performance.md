@@ -15,7 +15,7 @@ application's performance.
 
 ### Jetpack Compose performance
 
-Use the Jetpack Compose performance [Android skill](https://developer.android.com/tools/agents/android-skills) to diagnose and optimize Jetpack Compose UI performance in your Android project. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the Jetpack Compose performance [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to diagnose and optimize Jetpack Compose UI performance in your Android project. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add jetpack-compose-performance
 
@@ -31,7 +31,22 @@ benchmarks using the open-source Pokedex app, comparing its [Views](https://gith
 
 These benchmarks show that Compose matches Views performance for jank while
 scrolling since Compose 1.9.0 (achieving 0% jank on Pixel 6).
-![Since Compose 1.9.0, Compose matches Views scroll jank](https://developer.android.com/static/develop/ui/compose/performance/images/jank.svg) Since Compose 1.9.0, Compose matches Views scroll jank.
+
+| Compose version | Device | Excess jank over Views (pp) |
+| 1.3.3 | Pixel 3a | +0.35 |
+| 1.4.3 | Pixel 3a | +0.41 |
+| 1.5.4 | Pixel 3a | +0.42 |
+| 1.6.8 | Pixel 3a | +0.21 |
+| 1.7.8 | Pixel 3a | +0.36 |
+| 1.8.0 | Pixel 3a | +0.38 |
+| 1.9.0 | Pixel 3a | 0 |
+| 1.10.0 | Pixel 3a | 0 |
+| 1.11 | Pixel 6 | 0 |
+| 1.12 | Pixel 6 | 0 |
+|---|---|---|
+[Compose excess jank over Views in percentage points, by Compose version (lower is better)]
+
+**Figure 1.** Since Compose 1.9.0, Compose matches Views scroll jank.
 
 For additional metrics and to learn about our methodologies, see [Hero
 benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark).
@@ -40,9 +55,9 @@ benchmarks](https://developer.android.com/develop/ui/compose/performance/heroben
 
 These are some of the key concepts for performance in Compose:
 
-- **[Phases](https://developer.android.com/develop/ui/compose/performance/phases):** Understanding the composition, layout, and drawing phases is crucial for optimizing how Compose updates your UI.
-- **[Baseline Profiles](https://developer.android.com/develop/ui/compose/performance/baseline-profiles):** These profiles precompile essential code, leading to faster app launches and smoother interactions.
-- **[Stability](https://developer.android.com/develop/ui/compose/performance/stability):** Understand how Compose compares parameters during recomposition so you can skip unnecessary work without introducing expensive equality checks.
+- **[Phases](https://developer.android.com/develop/ui/compose/performance/phases.md.txt):** Understanding the composition, layout, and drawing phases is crucial for optimizing how Compose updates your UI.
+- **[Baseline Profiles](https://developer.android.com/develop/ui/compose/performance/baseline-profiles.md.txt):** These profiles precompile essential code, leading to faster app launches and smoother interactions.
+- **[Stability](https://developer.android.com/develop/ui/compose/performance/stability.md.txt):** Understand how Compose compares parameters during recomposition so you can skip unnecessary work without introducing expensive equality checks.
 
 ## Properly configure your app
 
@@ -56,21 +71,21 @@ first step is to check the following configuration options:
 
 ## Tools
 
-Familiarize yourself with the suite of [tools](https://developer.android.com/develop/ui/compose/performance/tooling) available to help you measure
+Familiarize yourself with the suite of [tools](https://developer.android.com/develop/ui/compose/performance/tooling.md.txt) available to help you measure
 and analyze your Compose app's performance.
 
 ## Best Practices
 
 When developing your app with Compose, keep these best practices in mind:
 
-- **[Avoid expensive calculations](https://developer.android.com/develop/ui/compose/performance/bestpractices#use-remember):** Use `remember` to cache the results of expensive calculations.
-- **[Help lazy layouts](https://developer.android.com/develop/ui/compose/performance/bestpractices#use-lazylist-keys):** Provide stable `key` and `contentType` parameters to lazy layouts to minimize unnecessary recompositions and enable slot reuse.
-- **[Limit unnecessary recompositions](https://developer.android.com/develop/ui/compose/performance/bestpractices#use-derivedstateof):** Use `computedStateOf` (in Compose 1.13 and higher) or `derivedStateOf` to limit recompositions when reading rapidly changing state.
-- **[Defer state reads](https://developer.android.com/develop/ui/compose/performance/bestpractices#defer-reads):** Defer state reads as long as possible by wrapping them in lambda functions.
-- **[Use lambda modifiers for changing state](https://developer.android.com/develop/ui/compose/performance/bestpractices#defer-reads):** Use lambda-based modifiers like `Modifier.offset { ... }` for frequently changing state variables.
-- **[Avoid backwards writes](https://developer.android.com/develop/ui/compose/performance/backwards-write):** Never write to state that has already been read in a composable.
+- **[Avoid expensive calculations](https://developer.android.com/develop/ui/compose/performance/bestpractices.md.txt#use-remember):** Use `remember` to cache the results of expensive calculations.
+- **[Help lazy layouts](https://developer.android.com/develop/ui/compose/performance/bestpractices.md.txt#use-lazylist-keys):** Provide stable `key` and `contentType` parameters to lazy layouts to minimize unnecessary recompositions and enable slot reuse.
+- **[Limit unnecessary recompositions](https://developer.android.com/develop/ui/compose/performance/bestpractices.md.txt#use-derivedstateof):** Use `computedStateOf` (in Compose 1.13 and higher) or `derivedStateOf` to limit recompositions when reading rapidly changing state.
+- **[Defer state reads](https://developer.android.com/develop/ui/compose/performance/bestpractices.md.txt#defer-reads):** Defer state reads as long as possible by wrapping them in lambda functions.
+- **[Use lambda modifiers for changing state](https://developer.android.com/develop/ui/compose/performance/bestpractices.md.txt#defer-reads):** Use lambda-based modifiers like `Modifier.offset { ... }` for frequently changing state variables.
+- **[Avoid backwards writes](https://developer.android.com/develop/ui/compose/performance/backwards-write.md.txt):** Never write to state that has already been read in a composable.
 
-For more details, see the [best practices](https://developer.android.com/develop/ui/compose/performance/bestpractices) guide.
+For more details, see the [best practices](https://developer.android.com/develop/ui/compose/performance/bestpractices.md.txt) guide.
 
 ## Views
 
@@ -80,7 +95,7 @@ layout performance](https://developer.android.com/develop/ui/views/layout/improv
 ## Additional resources
 
 - **[App performance guide](https://developer.android.com/topic/performance/overview):** Discover best practices, libraries, and tools to improve performance on Android.
-- **[Inspect Performance](https://developer.android.com/topic/performance/inspecting-overview):** Inspect app performance.
-- **[Benchmarking](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview):** Benchmark app performance.
-- **[App startup](https://developer.android.com/topic/performance/appstartup/analysis-optimization):** Optimize app startup.
+- **[Inspect Performance](https://developer.android.com/topic/performance/inspecting-overview.md.txt):** Inspect app performance.
+- **[Benchmarking](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview.md.txt):** Benchmark app performance.
+- **[App startup](https://developer.android.com/topic/performance/appstartup/analysis-optimization.md.txt):** Optimize app startup.
 - **[Baseline profiles](https://developer.android.com/baseline-profiles):** Understand baseline profiles.

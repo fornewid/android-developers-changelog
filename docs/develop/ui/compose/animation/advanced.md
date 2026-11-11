@@ -11,7 +11,7 @@ when touch events begin as user interaction should have the highest priority.
 
 In the following example, we use an `Animatable` to represent the offset
 position of a circle component. Touch events are processed with the
-[`pointerInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/package-summary#(androidx.compose.ui.Modifier).pointerInput(kotlin.Any,%20kotlin.coroutines.SuspendFunction1)) modifier. When we detect a new tap event, we
+[`pointerInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/package-summary.md.txt#(androidx.compose.ui.Modifier).pointerInput(kotlin.Any,%20kotlin.coroutines.SuspendFunction1)) modifier. When we detect a new tap event, we
 call `animateTo` to animate the
 offset value to the tap position. A tap event can happen during the animation
 too, and in that case, `animateTo` interrupts the ongoing animation and starts
@@ -54,7 +54,7 @@ private fun Offset.toIntOffset() = IntOffset(x.roundToInt(), y.roundToInt())
 Another frequent pattern is we need to synchronize animation values with values
 coming from touch events, such as drag. In the following example, we see "swipe
 to dismiss" implemented as a `Modifier` (rather than using the
-[`SwipeToDismiss`](https://developer.android.com/reference/kotlin/androidx/compose/material/SwipeToDismiss.composable) composable). The horizontal offset of the
+[`SwipeToDismiss`](https://developer.android.com/reference/kotlin/androidx/compose/material/SwipeToDismiss.composable.md.txt) composable). The horizontal offset of the
 element is represented as an `Animatable`. This API has a characteristic useful
 in gesture animation. Its value can be changed by touch events as well as the
 animation. When we receive a touch down event, we stop the `Animatable` by the
@@ -135,6 +135,6 @@ fun Modifier.swipeToDismiss(
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Value-based animations](https://developer.android.com/develop/ui/compose/animation/value-based)
+- [Value-based animations](https://developer.android.com/develop/ui/compose/animation/value-based.md.txt)
 - [Drag, swipe, and fling](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-swipe-fling)
-- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures)
+- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures.md.txt)

@@ -7,11 +7,11 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
-In Jetpack Compose Glimmer, the [`VerticalStack`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/stack/VerticalStack.composable) is a lazy, vertically
+In Jetpack Compose Glimmer, the [`VerticalStack`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/stack/VerticalStack.composable.md.txt) is a lazy, vertically
 scrollable layout that arranges items in a visually overlapping,
 three-dimensional sequence. The primary item is prominently displayed in the
 foreground, while subsequent items are positioned behind it.

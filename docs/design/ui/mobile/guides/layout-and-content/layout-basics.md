@@ -12,8 +12,8 @@ starting points, and techniques to display and position content.
 
 ## Get Started
 
-Start designing Android layouts by learning [app anatomy](https://developer.android.com/design/ui/mobile/guides/layout-and-content/app-anatomy) then how to
-[structure your app's content](https://developer.android.com/design/ui/mobile/guides/layout-and-content/content-structure).
+Start designing Android layouts by learning [app anatomy](https://developer.android.com/design/ui/mobile/guides/layout-and-content/app-anatomy.md.txt) then how to
+[structure your app's content](https://developer.android.com/design/ui/mobile/guides/layout-and-content/content-structure.md.txt).
 
 ## Takeaways
 
@@ -26,9 +26,9 @@ experience on both landscape and portrait orientation as well as different
 screen sizes and form factors.
 
 For more information, see the guidance on
-[adapting your layout](https://developer.android.com/design/ui/mobile/guides/layout-and-content/adapt-layout)
+[adapting your layout](https://developer.android.com/design/ui/mobile/guides/layout-and-content/adapt-layout.md.txt)
 and
-[canonical layouts](https://developer.android.com/design/ui/mobile/guides/layout-and-content/common-layouts).
+[canonical layouts](https://developer.android.com/design/ui/mobile/guides/layout-and-content/common-layouts.md.txt).
 ![](https://developer.android.com/static/images/design/ui/mobile/layout-basics-orientation.webp) **Device safe areas**
 
 

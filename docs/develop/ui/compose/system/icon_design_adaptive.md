@@ -6,13 +6,13 @@ source: md.txt
 
 ![Adaptive icons header](https://developer.android.com/static/develop/ui/compose/images/article_icons_header.png)
 
-An adaptive icon, or [`AdaptiveIconDrawable`](https://developer.android.com/reference/android/graphics/drawable/AdaptiveIconDrawable), can display differently
+An adaptive icon, or [`AdaptiveIconDrawable`](https://developer.android.com/reference/android/graphics/drawable/AdaptiveIconDrawable.md.txt), can display differently
 depending on individual device capabilities and user theming. Adaptive icons are
 primarily used by the launcher on the home screen, but they can also be used in
 shortcuts, the Settings app, sharing dialogs, and the overview screen. Adaptive
 icons are used across all Android form factors.
 
-In contrast to [bitmap images](https://developer.android.com/guide/topics/resources/drawable-resource#Bitmap), adaptive icons can adapt to different use
+In contrast to [bitmap images](https://developer.android.com/guide/topics/resources/drawable-resource.md.txt#Bitmap), adaptive icons can adapt to different use
 cases:
 
 - **Different shapes:** an adaptive icon can display a variety of shapes
@@ -175,7 +175,7 @@ If you want to apply the same mask and visual effect to your shortcuts as
 regular adaptive icons, use one of the following techniques:
 
 - For static shortcuts, use the `<adaptive-icon>` element.
-- For dynamic shortcuts, call the [`createWithAdaptiveBitmap()`](https://developer.android.com/reference/android/graphics/drawable/Icon#createWithAdaptiveBitmap(android.graphics.Bitmap)) method when you create them.
+- For dynamic shortcuts, call the [`createWithAdaptiveBitmap()`](https://developer.android.com/reference/android/graphics/drawable/Icon.md.txt#createWithAdaptiveBitmap(android.graphics.Bitmap)) method when you create them.
 
 For more information about implementing adaptive icons, see [Implementing
 Adaptive
@@ -194,5 +194,5 @@ implementing adaptive icons.
 - [Understanding Android Adaptive Icons](https://medium.com/google-design/understanding-android-adaptive-icons-cee8a9de93e2)
 - [Designing Adaptive Icons](https://medium.com/google-design/designing-adaptive-icons-515af294c783)
 - [Implementing Adaptive Icons](https://medium.com/google-developers/implementing-adaptive-icons-1e4d1795470e)
-- [Create app icons in Android Studio](https://developer.android.com/studio/write/create-app-icons#create-adaptive)
+- [Create app icons in Android Studio](https://developer.android.com/studio/write/create-app-icons.md.txt#create-adaptive)
 - [Google Play icon design specifications](https://developer.android.com/google-play/resources/icon-design-specifications)

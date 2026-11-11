@@ -7,7 +7,7 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices.md.txt#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
@@ -21,16 +21,16 @@ Your browser doesn't support HTML video. Here is a
 ## Create an ARCore for Jetpack XR session
 
 Obtain depth information through an ARCore for Jetpack XR
-[`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session). If you're enhancing [spatial UI](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose) using Jetpack Compose
-for XR, [access a session from Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#localsession). If you're working
-with [spatialized entities](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-entities) from the Jetpack SceneCore library, [access a
+[`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session.md.txt). If you're enhancing [spatial UI](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose.md.txt) using Jetpack Compose
+for XR, [access a session from Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session.md.txt#localsession). If you're working
+with [spatialized entities](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-entities.md.txt) from the Jetpack SceneCore library, [access a
 session from Jetpack XR Runtime](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#access-session).
 
 ## Configure the session
 
 Depth map retrieval is not enabled by default on XR sessions. To enable depth
 map retrieval, configure the session and set a
-[`DepthEstimationMode`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DepthEstimationMode):
+[`DepthEstimationMode`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DepthEstimationMode.md.txt):
 
 
 ```kotlin
@@ -60,7 +60,7 @@ per-pixel depth data might be less accurate due to smoothing and interpolation
 of depth estimates.
 
 > [!NOTE]
-> **Note:** Enabling any depth estimation mode requires the `android.permission.SCENE_UNDERSTANDING_FINE` [runtime permission](https://developer.android.com/training/permissions/requesting) to be granted to your app.
+> **Note:** Enabling any depth estimation mode requires the `android.permission.SCENE_UNDERSTANDING_FINE` [runtime permission](https://developer.android.com/training/permissions/requesting.md.txt) to be granted to your app.
 
 ## Check for depth map capabilities
 
@@ -83,7 +83,7 @@ val hasStereoDepth = xrDevice.isRenderingModeSupported(RenderingMode.STEREO)
 
 ## Retrieve depth data
 
-To obtain depth data for a given camera, use [`Depth`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Depth):
+To obtain depth data for a given camera, use [`Depth`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Depth.md.txt):
 
 
 ```kotlin

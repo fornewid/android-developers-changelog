@@ -9,13 +9,13 @@ source: md.txt
 Support for detachable keyboards helps maximize user productivity on large
 screen devices. Android triggers a configuration change every time a keyboard is
 attached to or detached from a device, which can cause a loss of UI state. Your
-app can either [save and restore its state](https://developer.android.com/topic/libraries/architecture/saving-states), letting
+app can either [save and restore its state](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt), letting
 the system handle activity recreation, or
-[restrict activity recreation](https://developer.android.com/guide/topics/resources/runtime-changes#restrict-activity) for keyboard
+[restrict activity recreation](https://developer.android.com/guide/topics/resources/runtime-changes.md.txt#restrict-activity) for keyboard
 configuration changes.
 
-In all cases all data related to the keyboard is stored in a [`Configuration`](https://developer.android.com/reference/kotlin/android/content/res/Configuration)
-object. The [`keyboard`](https://developer.android.com/reference/android/content/res/Configuration#keyboard) and [`keyboardHidden`](https://developer.android.com/reference/android/content/res/Configuration#hardKeyboardHidden) fields of the configuration
+In all cases all data related to the keyboard is stored in a [`Configuration`](https://developer.android.com/reference/kotlin/android/content/res/Configuration.md.txt)
+object. The [`keyboard`](https://developer.android.com/reference/android/content/res/Configuration.md.txt#keyboard) and [`keyboardHidden`](https://developer.android.com/reference/android/content/res/Configuration.md.txt#hardKeyboardHidden) fields of the configuration
 object contain information about the type of keyboard and its availability.
 
 ## Best practices
@@ -47,9 +47,9 @@ In Jetpack Compose, you can react to keyboard configuration changes in two ways:
 
 ## Ingredients
 
-- [`android:configChanges`](https://developer.android.com/guide/topics/manifest/activity-element#config): Attribute of the app manifest's `<activity>` element. Informs the system about configuration changes the app manages.
-- [`LocalConfiguration`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalConfiguration()): Composable local provider that exposes the current device `Configuration`.
-- [`DisposableEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#DisposableEffect(kotlin.Any,kotlin.Function1)): Compose side-effect API that runs a block of code when a Composable enters the composition, and cleans up when it leaves.
+- [`android:configChanges`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#config): Attribute of the app manifest's `<activity>` element. Informs the system about configuration changes the app manages.
+- [`LocalConfiguration`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary.md.txt#LocalConfiguration()): Composable local provider that exposes the current device `Configuration`.
+- [`DisposableEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary.md.txt#DisposableEffect(kotlin.Any,kotlin.Function1)): Compose side-effect API that runs a block of code when a Composable enters the composition, and cleans up when it leaves.
 
 ## Steps
 
@@ -64,9 +64,11 @@ Update the `<activity>` element in the app manifest by adding the
 `keyboard|keyboardHidden` values to the list of already managed configuration
 changes:
 
-    <activity
-          ...
-          android:configChanges="...|keyboard|keyboardHidden">
+```xml
+<activity
+      ...
+      android:configChanges="...|keyboard|keyboardHidden">
+```
 
 ### 2. Respond to keyboard configuration changes
 
@@ -127,4 +129,4 @@ without recreating the running activity.
 ## Additional resources
 
 To learn how to save your app's UI state during configuration changes like
-keyboard attachment or detachment, see [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states).
+keyboard attachment or detachment, see [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt).

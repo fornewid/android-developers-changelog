@@ -13,8 +13,8 @@ the tables.
 
 Suppose that in the music streaming app example, you want to query all the
 users, all the playlists for each user, and all the songs in each playlist for
-each user. Users have a [one-to-many relationship](https://developer.android.com/training/data-storage/room/relationships/one-to-many) with playlists, and
-playlists have a [many-to-many relationship](https://developer.android.com/training/data-storage/room/relationships/many-to-many) with songs. The following code
+each user. Users have a [one-to-many relationship](https://developer.android.com/training/data-storage/room/relationships/one-to-many.md.txt) with playlists, and
+playlists have a [many-to-many relationship](https://developer.android.com/training/data-storage/room/relationships/many-to-many.md.txt) with songs. The following code
 example shows the classes that represent these entities as well as the
 cross-reference table for the many-to-many relationship between playlists and
 songs:
@@ -52,7 +52,7 @@ data class PlaylistSongCrossRef(
 <br />
 
 First, model the relationship between two of the tables in your set as you
-normally do, using a data class and the [`@Relation`](https://developer.android.com/reference/kotlin/androidx/room3/Relation) annotation. The
+normally do, using a data class and the [`@Relation`](https://developer.android.com/reference/kotlin/androidx/room3/Relation.md.txt) annotation. The
 following example shows a `PlaylistWithSongs` class that models a many-to-many
 relationship between the `Playlist` entity class and the `Song` entity class:
 
@@ -106,7 +106,7 @@ a chain of nested relationships among all tables you want to query.
 
 Finally, add a function to the data access object (DAO) class to expose the
 query function that your app needs. This function requires Room to run
-multiple queries, so add the [`@Transaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transaction) annotation so that the whole
+multiple queries, so add the [`@Transaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transaction.md.txt) annotation so that the whole
 operation runs atomically:
 
 

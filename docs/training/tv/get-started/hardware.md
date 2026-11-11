@@ -8,7 +8,7 @@ TV hardware is substantially different from other Android devices. TVs don't
 include some of the hardware features found on other Android devices, such as touchscreens,
 cameras, and GPS receivers. TVs are also completely dependent on secondary hardware devices:
 for users to interact with TV apps, they must use a remote control or game pad. (To learn about
-various input methods, see [Manage TV controllers](https://developer.android.com/training/tv/get-started/controllers).)
+various input methods, see [Manage TV controllers](https://developer.android.com/training/tv/get-started/controllers.md.txt).)
 
 
 When you build an app for TV, carefully consider the hardware limitations and requirements of
@@ -20,12 +20,12 @@ hardware features.
 
 If you are building an app that operates on both TV devices and other devices, you might need to
 check what kind of device your app is running on and adjust the operation of your app. For
-example, if you have an app that can be started through an `https://developer.android.com/reference/android/content/Intent`,
+example, if you have an app that can be started through an `Intent`,
 check the device properties to determine whether to start a TV-oriented
 activity or a phone activity.
 
 
-The recommended way to determine whether your app is running on a TV device is to use the `https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String)` method to check
+The recommended way to determine whether your app is running on a TV device is to use the `PackageManager.hasSystemFeature` method to check
 whether the device is running in television mode. The following example code shows you how to check whether
 your app is running on a TV device:
 
@@ -88,7 +88,7 @@ not the same as the microphone hardware feature described here. The controller m
 supported.
 
 
-See the [Features reference](https://developer.android.com/guide/topics/manifest/uses-feature-element#features-reference) for a complete list of features, subfeatures, and their descriptors.
+See the [Features reference](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt#features-reference) for a complete list of features, subfeatures, and their descriptors.
 
 ### Declare hardware requirements for TV
 
@@ -128,7 +128,7 @@ on TV devices but uses those features on non-TV devices:
 ```
 
 **Note:** Some features have subfeatures, like `android.hardware.camera.front`,
-as described in the [Feature reference](https://developer.android.com/guide/topics/manifest/uses-feature-element#features-reference). Be sure to mark any subfeatures also used in your app as `required="false"`.
+as described in the [Feature reference](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt#features-reference). Be sure to mark any subfeatures also used in your app as `required="false"`.
 
 
 All apps intended for use on TV devices must declare that the touchscreen feature is not required,
@@ -144,7 +144,7 @@ devices or appearing in the Android TV home screen launcher.
 ### Be aware of permissions that imply hardware features
 
 
-Some [`uses-permission`](https://developer.android.com/guide/topics/manifest/uses-permission-element)
+Some [`uses-permission`](https://developer.android.com/guide/topics/manifest/uses-permission-element.md.txt)
 manifest declarations *imply hardware features*. This behavior means that requesting some
 permissions in your app manifest can exclude your app from from being installed and used on TV
 devices. The following commonly requested permissions create an implicit hardware feature
@@ -152,17 +152,17 @@ requirement:
 
 | Permission | Implied hardware feature |
 |---|---|
-| `https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO` | `android.hardware.microphone` |
-| `https://developer.android.com/reference/android/Manifest.permission#CAMERA` | `android.hardware.camera` *and* `android.hardware.camera.autofocus` |
-| `https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION` | `android.hardware.location` `android.hardware.location.network` (target API level 20 or lower only) |
-| `https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION` | `android.hardware.location` `android.hardware.location.gps` (target API level 20 or lower only) |
-| `https://developer.android.com/reference/android/Manifest.permission#ACCESS_WIFI_STATE` `https://developer.android.com/reference/android/Manifest.permission#CHANGE_WIFI_STATE` | `android.hardware.wifi` Some TV devices have an ethernet connection only. |
+| `RECORD_AUDIO` | `android.hardware.microphone` |
+| `CAMERA` | `android.hardware.camera` *and* `android.hardware.camera.autofocus` |
+| `ACCESS_COARSE_LOCATION` | `android.hardware.location` `android.hardware.location.network` (target API level 20 or lower only) |
+| `ACCESS_FINE_LOCATION` | `android.hardware.location` `android.hardware.location.gps` (target API level 20 or lower only) |
+| `ACCESS_WIFI_STATE` `CHANGE_WIFI_STATE` | `android.hardware.wifi` Some TV devices have an ethernet connection only. |
 
 
 For a complete list of permission requests that imply a hardware feature requirement, see the
-[`uses-feature`](https://developer.android.com/guide/topics/manifest/uses-feature-element#permissions-features)
+[`uses-feature`](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt#permissions-features)
 guide. If your app requests one of the features previously listed, include a
-[`uses-feature`](https://developer.android.com/guide/topics/manifest/uses-feature-element)
+[`uses-feature`](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt)
 declaration in your manifest for the implied hardware feature that indicates it is not
 required. `android:required="false"`.
 
@@ -181,14 +181,14 @@ behavior of your app.
 
 
 For more information on filtering and declaring features in the manifest, see the
-[`uses-feature`](https://developer.android.com/guide/topics/manifest/uses-feature-element)
+[`uses-feature`](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt)
 guide.
 
 ### Check for hardware features
 
 
 The Android framework can tell you if hardware features are not available on the device where
-your app is running. Use the `https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String)`
+your app is running. Use the `hasSystemFeature(String)`
 method to check for specific features at runtime. This method takes a single string argument that
 specifies the feature you want to check.
 
@@ -232,7 +232,7 @@ control.
 
 
 For more information on properly supporting navigation using TV-friendly controls, see
-[TV navigation](https://developer.android.com/training/tv/get-started/navigation).
+[TV navigation](https://developer.android.com/training/tv/get-started/navigation.md.txt).
 
 ##### Declare touch support
 
@@ -244,7 +244,7 @@ that support them.
 
 If your app allows for touch mode, you can declare touch support for the entire app or for
 individual activities by adding the `android.software.leanback.supports_touch`
-[`<property>`](https://developer.android.com/guide/topics/manifest/property-element) element set to
+[`<property>`](https://developer.android.com/guide/topics/manifest/property-element.md.txt) element set to
 `true` inside the `<application>` or `<activity>`
 element in your `AndroidManifest.xml`:
 
@@ -367,7 +367,7 @@ stop any currently playing content when the device is in low-power mode.
 
 
 To avoid playback during low-power mode, override
-`https://developer.android.com/reference/android/app/Activity#onStop()`
+`onStop`
 and stop any currently playing content:
 
 ### Kotlin
@@ -392,7 +392,7 @@ public void onStop() {
 ```
 
 
-When the user switches the power back on, `https://developer.android.com/reference/android/app/Activity#onStart()` is called
+When the user switches the power back on, `onStart` is called
 if your app is the active foreground app. For more information on starting and stopping
 an activity, see
-[The activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
+[The activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle.md.txt).

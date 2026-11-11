@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/views/search/adding-custom-suggest
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Search bar →](https://developer.android.com/develop/ui/compose/components/search-bar) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Search bar →](https://developer.android.com/develop/ui/compose/components/search-bar.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 When using the Android search dialog or search widget, you can provide
 custom search suggestions that are created from data in your app. For example,
@@ -32,11 +32,11 @@ providers](https://developer.android.com/guide/topics/providers/content-provider
 custom search suggestions.
 
 When the user selects a custom suggestion, the system sends an
-`https://developer.android.com/reference/android/content/Intent` to your
+`Intent` to your
 searchable activity. Unlike a normal search query that sends an intent with the
-`https://developer.android.com/reference/android/content/Intent#ACTION_SEARCH`
+`ACTION_SEARCH`
 action, you can instead define your custom suggestions to use
-`https://developer.android.com/reference/android/content/Intent#ACTION_VIEW`---or
+`ACTION_VIEW`---or
 any other intent action---and also include data that's relevant to the
 selected suggestion. In the dictionary example, when the user selects a
 suggestion, the app can immediately open the definition for that word, instead
@@ -44,9 +44,9 @@ of searching the dictionary for matches.
 
 To provide custom suggestions, perform the following steps:
 
-- Implement a basic searchable activity, as described in [Create a search interface](https://developer.android.com/develop/ui/views/search/search-dialog).
+- Implement a basic searchable activity, as described in [Create a search interface](https://developer.android.com/develop/ui/views/search/search-dialog.md.txt).
 - Modify the searchable configuration with information about the content provider that provides custom suggestions.
-- Build a table, such as in a `https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase`, for your suggestions and format the table with required columns.
+- Build a table, such as in a `SQLiteDatabase`, for your suggestions and format the table with required columns.
 - Create a [content
   provider](https://developer.android.com/guide/topics/providers/content-providers) that has access to your suggestions table and declare the provider in your manifest.
 - Declare the type of `Intent` to be sent when the user selects a suggestion, including a custom action and custom data.
@@ -54,7 +54,7 @@ To provide custom suggestions, perform the following steps:
 Just as the Android system displays the search dialog, it also displays your
 search suggestions. You need a content provider from which the system can
 retrieve your suggestions. Read
-[Content providers](https://developer.android.com/guide/topics/providers/content-providers)
+[Content providers](https://developer.android.com/guide/topics/providers/content-providers.md.txt)
 to learn how to create a content provider.
 
 When the system identifies that your activity is searchable and provides
@@ -62,7 +62,7 @@ search suggestions, the following procedure takes place when the user enters a
 query:
 
 1. The system takes the search query text---meaning, whatever is entered so far---and performs a query to your content provider that manages your suggestions.
-2. Your content provider returns a `https://developer.android.com/reference/android/database/Cursor` that points to all suggestions that are relevant to the search query text.
+2. Your content provider returns a `Cursor` that points to all suggestions that are relevant to the search query text.
 3. The system displays the list of suggestions provided by the `Cursor`.
 
 Once the custom suggestions are displayed, the following might happen:
@@ -95,7 +95,7 @@ sections.
 ## Create a content provider
 
 To create a content provider for custom suggestions, first see
-[Content providers](https://developer.android.com/guide/topics/providers/content-providers)
+[Content providers](https://developer.android.com/guide/topics/providers/content-providers.md.txt)
 to learn how to create a content provider. A content provider for custom
 suggestions is similar to any other content provider. However, for each
 suggestion you provide, the respective row in the `Cursor` must
@@ -104,7 +104,7 @@ suggestions.
 
 When the user enters text in the search dialog or search widget, the system
 queries your content provider for suggestions by calling
-`https://developer.android.com/reference/android/content/ContentProvider#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)`
+`query()`
 each time a letter is entered. In your implementation of `query()`,
 your content provider must search your suggestion data and return a
 `Cursor` that points to the rows that it determines are good
@@ -113,11 +113,11 @@ suggestions.
 Details about creating a content provider for custom suggestions are
 discussed in the following two sections:
 
-[Handle the suggestion query](https://developer.android.com/develop/ui/views/search/adding-custom-suggestions#HandleSuggestionQuery)
+[Handle the suggestion query](https://developer.android.com/develop/ui/views/search/adding-custom-suggestions.md.txt#HandleSuggestionQuery)
 :   How the system sends requests to your content provider and how to handle
     them.
 
-[Build a suggestion table](https://developer.android.com/develop/ui/views/search/adding-custom-suggestions#SuggestionTable)
+[Build a suggestion table](https://developer.android.com/develop/ui/views/search/adding-custom-suggestions.md.txt#SuggestionTable)
 :   How to define the columns that the system expects in the
     `Cursor` returned with each query.
 
@@ -144,7 +144,7 @@ next.
 By default, the query is appended as the last segment of the `uri`
 parameter---a `Uri` object. To retrieve the query text in this
 case, use
-`https://developer.android.com/reference/android/net/Uri#getLastPathSegment()`,
+`getLastPathSegment()`,
 as shown in the following example:
 
 ### Kotlin
@@ -194,7 +194,7 @@ With this configuration, your `query()` method delivers the
 `selection` parameter as `"word MATCH ?"` and the
 `selectionArgs` parameter as the search query. When you pass these to
 a SQLite
-`https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#query(java.lang.String, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String, java.lang.String, java.lang.String)`
+`query()`
 method, as their respective arguments, they are synthesized
 together---meaning, the question mark is replaced with the query text. If
 you receive suggestion queries this way and need to add wildcards to the query
@@ -219,40 +219,40 @@ server, or another format on the device or web, format the suggestions as rows
 in a table and present them with a `Cursor`.
 
 > [!NOTE]
-> **Note:** If your search suggestions aren't stored in a table format---such as a SQLite table---using the columns required by the system, then you can search your suggestion data for matches and then format them into the necessary table on each request. To do so, create a `https://developer.android.com/reference/android/database/MatrixCursor` using the required column names and then add a row for each suggestion using `https://developer.android.com/reference/android/database/MatrixCursor#addRow(java.lang.Object[])`. Return the final product from your content provider's `query()` method.
+> **Note:** If your search suggestions aren't stored in a table format---such as a SQLite table---using the columns required by the system, then you can search your suggestion data for matches and then format them into the necessary table on each request. To do so, create a `MatrixCursor` using the required column names and then add a row for each suggestion using `addRow(Object[])`. Return the final product from your content provider's `query()` method.
 
 The system understands several columns, but only two of them are required:
 
-`https://developer.android.com/reference/android/provider/BaseColumns#_ID`
+`_ID`
 :   A unique integer row ID for each suggestion. The system requires this to
     present suggestions in a
-    `https://developer.android.com/reference/android/widget/ListView`.
+    `ListView`.
 
-`https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_TEXT_1`
+`SUGGEST_COLUMN_TEXT_1`
 :   The string that is presented as a suggestion.
 
 The following columns are all optional. Most are discussed further in the
 following sections.
 
-`https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_TEXT_2`
+`SUGGEST_COLUMN_TEXT_2`
 :   A string. If your `Cursor` includes this column, then all
     suggestions are provided in a two-line format. The string in this column is
     displayed as a second, smaller line of text below the primary suggestion
     text. It can be null or empty to indicate no secondary text.
 
-`https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_ICON_1`
+`SUGGEST_COLUMN_ICON_1`
 :   A drawable resource, content, or file URI string. If your
     `Cursor` includes this column, then all suggestions are provided
     in an icon-plus-text format with the drawable icon on the left side. This
     can be null or zero to indicate no icon in this row.
 
-`https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_ICON_2`
+`SUGGEST_COLUMN_ICON_2`
 :   A drawable resource, content, or file URI string. If your
     `Cursor` includes this column, then all suggestions are provided
     in an icon-plus-text format with the icon on the right side. This can be
     null or zero to indicate no icon in this row.
 
-`https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_INTENT_ACTION`
+`SUGGEST_COLUMN_INTENT_ACTION`
 :   An intent action string. If this column exists and contains a value at the
     given row, the action defined here is used when forming the suggestion's
     intent. If the element isn't provided, the action is taken from the
@@ -261,7 +261,7 @@ following sections.
     efficient to specify the action using
     `android:searchSuggestIntentAction` and omit this column.
 
-`https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_INTENT_DATA`
+`SUGGEST_COLUMN_INTENT_DATA`
 :   A data URI string. If this column exists and contains a value at the given
     row, this data is used when forming the suggestion's intent. If the element
     isn't provided, the data is taken from the
@@ -272,42 +272,42 @@ following sections.
     using `android:searchSuggestIntentData` and omit this
     column.
 
-`https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_INTENT_DATA_ID`
+`SUGGEST_COLUMN_INTENT_DATA_ID`
 :   A URI path string. If this column exists and contains a value at the given
     row, then "/" and this value is appended to the data field in the intent.
     Only use this if the data field specified by the
     `android:searchSuggestIntentData` attribute in the searchable
     configuration is already set to an appropriate base string.
 
-`https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_INTENT_EXTRA_DATA`
+`SUGGEST_COLUMN_INTENT_EXTRA_DATA`
 :   Arbitrary data. If this column exists and contains a value at a given row,
     this is the *extra* data used when forming the suggestion's intent.
     If not provided, the intent's extra data field is null. This column lets
     suggestions provide additional data that is included as an extra in the
     intent's
-    `https://developer.android.com/reference/android/app/SearchManager#EXTRA_DATA_KEY`
+    `EXTRA_DATA_KEY`
     key.
 
-`https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_QUERY`
+`SUGGEST_COLUMN_QUERY`
 :   If this column exists and this element exists at the given row, this is
     the data that is used when forming the suggestion's query, included as an
     extra in the intent's
-    `https://developer.android.com/reference/android/app/SearchManager#QUERY`
+    `QUERY`
     key. It's required if the suggestion's action is `ACTION_SEARCH`,
     but optional otherwise.
 
-`https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_SHORTCUT_ID`
+`SUGGEST_COLUMN_SHORTCUT_ID`
 :   Only used when providing suggestions for Quick Search Box. This column
     indicates whether a search suggestion must be stored as a shortcut and
     whether it must be validated. Shortcuts are usually formed when the user
     taps a suggestion from Quick Search Box. If missing, the result is stored as
     a shortcut and never refreshed. If set to
-    `https://developer.android.com/reference/android/app/SearchManager#SUGGEST_NEVER_MAKE_SHORTCUT`,
+    `SUGGEST_NEVER_MAKE_SHORTCUT`,
     the result isn't stored as a shortcut. Otherwise, the shortcut ID is used to
     check back for an up-to-date suggestion using
-    `https://developer.android.com/reference/android/app/SearchManager#SUGGEST_URI_PATH_SHORTCUT`.
+    `SUGGEST_URI_PATH_SHORTCUT`.
 
-`https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_SPINNER_WHILE_REFRESHING`
+`SUGGEST_COLUMN_SPINNER_WHILE_REFRESHING`
 :   Only used when providing suggestions for Quick Search Box. This column
     specifies that a spinner must be shown instead of an icon from
     `SUGGEST_COLUMN_ICON_2` while the shortcut of this suggestion is
@@ -365,9 +365,9 @@ section---but the intent must also carry data for your activity to identify
 which suggestion is selected. Specifically, the data must be something unique
 for each suggestion, such as the row ID for the suggestion in your SQLite table.
 When the intent is received, you can retrieve the attached data with
-`https://developer.android.com/reference/android/content/Intent#getData()`
+`getData()`
 or
-`https://developer.android.com/reference/android/content/Intent#getDataString()`.
+`getDataString()`.
 
 You can define the data included with the intent in two ways:
 
@@ -425,7 +425,7 @@ your searchable activity to handle these intents when the user selects a
 suggestion. This is in addition to handling the `ACTION_SEARCH`
 intent, which your searchable activity already does. Here's an example of how
 you can handle the intents during your activity's
-`https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)`
+`onCreate()`
 callback:
 
 ### Kotlin

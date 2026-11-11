@@ -6,7 +6,7 @@ source: md.txt
 
 ## Common guidelines
 
-- **For architecture concepts** : To understand the foundational architecture, continuous gesture event lifecycles, or class definitions of the Navigation Event library, read [Navigation Event overview](https://developer.android.com/guide/navigation/navigation-event).
+- **For architecture concepts** : To understand the foundational architecture, continuous gesture event lifecycles, or class definitions of the Navigation Event library, read [Navigation Event overview](https://developer.android.com/guide/navigation/navigation-event.md.txt).
 - **For Android target** : If compile SDK is lower than 36, set it to `36` or higher in `build.gradle.kts`.
 - **For Compose Android target**: The project must use Jetpack Compose for Compose-specific APIs. This skill is scoped exclusively to Compose Android (Android Views and non-Compose implementations are excluded).
 - **For activity dispatchers** : `ComponentActivity` automatically implements `NavigationEventDispatcherOwner` out-of-the-box. You must use the built-in `navigationEventDispatcher` without creating anonymous delegate owners or overriding member properties.
@@ -28,20 +28,20 @@ To complete this step, you **MUST** ensure the following:
 
 To complete this step, you **MUST** ensure the following:
 
-- For setting up compile SDKs, declaring catalog versions, and adding dependencies, follow [setup guide](https://developer.android.com/guide/navigation/navigation-event/setup).
+- For setting up compile SDKs, declaring catalog versions, and adding dependencies, follow [setup guide](https://developer.android.com/guide/navigation/navigation-event/setup.md.txt).
 
 ## Step 3: Configure dispatcher and inputs
 
 To complete this step, you **MUST** ensure the following:
 
 - To configure your dispatcher, leverage automatic `ComponentActivity` or `ComponentDialog` owner resolution.
-- Link parent-child dispatchers in Compose following [dispatcher guide](https://developer.android.com/guide/navigation/navigation-event/dispatcher).
+- Link parent-child dispatchers in Compose following [dispatcher guide](https://developer.android.com/guide/navigation/navigation-event/dispatcher.md.txt).
 
 ## Step 4: Handle back navigation and UI transitions
 
 To complete this step, you **MUST** ensure the following:
 
-- To create navigation event handlers, integrate back gesture interception in Compose, animate UI components during swipes, and migrate from legacy back handlers, follow [handle back guide](https://developer.android.com/guide/navigation/navigation-event/handle-back).
+- To create navigation event handlers, integrate back gesture interception in Compose, animate UI components during swipes, and migrate from legacy back handlers, follow [handle back guide](https://developer.android.com/guide/navigation/navigation-event/handle-back.md.txt).
 
 ## Step 5: Clean up resources
 

@@ -16,10 +16,10 @@ added to the home screen directly from the app, as shown in the following video.
 In your app, you can create a request for the system to pin a widget onto a
 supported launcher by completing the following steps:
 
-1. Make sure you [declare a widget in your app's manifest file](https://developer.android.com/develop/ui/views/appwidgets#Manifest).
+1. Make sure you [declare a widget in your app's manifest file](https://developer.android.com/develop/ui/views/appwidgets.md.txt#Manifest).
 
 2. Call the
-   [`requestPinAppWidget()`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#requestPinAppWidget(android.content.ComponentName,%20android.os.Bundle,%20android.app.PendingIntent))
+   [`requestPinAppWidget()`](https://developer.android.com/reference/android/appwidget/AppWidgetManager.md.txt#requestPinAppWidget(android.content.ComponentName,%20android.os.Bundle,%20android.app.PendingIntent))
    method, as shown in the following code snippet:
 
 
@@ -54,4 +54,4 @@ if (appWidgetManager.isRequestPinAppWidgetSupported) {
 
 Users discover and add your widget through the widget picker or from within your
 app when the widget's functionality is most relevant. For more information, see
-[Discovery and promotion](https://developer.android.com/design/ui/mobile/guides/widgets/discovery-promotion).
+[Discovery and promotion](https://developer.android.com/design/ui/mobile/guides/widgets/discovery-promotion.md.txt).

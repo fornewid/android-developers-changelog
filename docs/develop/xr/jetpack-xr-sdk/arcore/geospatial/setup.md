@@ -7,8 +7,8 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
-Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
@@ -66,7 +66,7 @@ client IDs.
 4. Press **Create**.
 
 > [!IMPORTANT]
-> **Important:** It is common to sign your application with different signing keys. You must create a Client ID for each signing key you plan to use. Commonly, this is a [debug signing key](https://developer.android.com/studio/publish/app-signing#debug-mode) and release signing key(s). See the [troubleshooting guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/troubleshooting) if the authorization fails.
+> **Important:** It is common to sign your application with different signing keys. You must create a Client ID for each signing key you plan to use. Commonly, this is a [debug signing key](https://developer.android.com/studio/publish/app-signing.md.txt#debug-mode) and release signing key(s). See the [troubleshooting guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/troubleshooting.md.txt) if the authorization fails.
 
 ### API Key
 
@@ -84,30 +84,32 @@ Create an API key from the Google Cloud Console by following these steps:
    your newly created key.
 
 In Android Studio, add the new API key to your project. Include the API key
-in a [`<meta-data>`](https://developer.android.com/guide/topics/manifest/meta-data-element) element in the
-[`<application>`](https://developer.android.com/guide/topics/manifest/application-element) element in your app's
+in a [`<meta-data>`](https://developer.android.com/guide/topics/manifest/meta-data-element.md.txt) element in the
+[`<application>`](https://developer.android.com/guide/topics/manifest/application-element.md.txt) element in your app's
 `AndroidManifest.xml`:
 
-    <meta-data
-      android:name="com.google.android.ar.API_KEY"
-      android:value="API_KEY"/>
+```xml
+<meta-data
+  android:name="com.google.android.ar.API_KEY"
+  android:value="API_KEY"/>
+```
 
 ## Request required permissions
 
 To use the Geospatial API in ARCore with Jetpack XR, your app needs to request
 the following runtime permissions:
 
-- [`ACCESS_FINE_LOCATION`](https://developer.android.com/training/location/permissions): Required to determine a user's [precise location](https://developer.android.com/develop/sensors-and-location/location/permissions#accuracy).
+- [`ACCESS_FINE_LOCATION`](https://developer.android.com/training/location/permissions): Required to determine a user's [precise location](https://developer.android.com/develop/sensors-and-location/location/permissions.md.txt#accuracy).
 
 On mobile devices, the Geospatial API also requires the following permissions:
 
-- [`android.permission.CAMERA`](https://developer.android.com/reference/kotlin/android/Manifest.permission#CAMERA): Required to access the device's camera.
+- [`android.permission.CAMERA`](https://developer.android.com/reference/kotlin/android/Manifest.permission.md.txt#CAMERA): Required to access the device's camera.
 - [`android.permission.INTERNET`](https://developer.android.com/training/basics/network-ops/connecting): Required to communicate with Google Cloud services.
 
 ## Access a session
 
-Access Geospatial information through a Jetpack XR Runtime [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session),
-which your [app must create](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore#access-session-runtime).
+Access Geospatial information through a Jetpack XR Runtime [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session.md.txt),
+which your [app must create](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore.md.txt#access-session-runtime).
 
 ## Configure the session
 
@@ -115,18 +117,18 @@ The Geospatial API is not enabled by default on XR sessions. Your app must
 explicitly enable it by configuring a `GeospatialMode` on the `Session`. The
 following modes are available:
 
-- [`GeospatialMode.SPATIAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode#SPATIAL()): The Geospatial API is enabled. The Geospatial API uses **Visual Positioning System (VPS)** , **Global Positioning System (GPS)** data, and the [device's motion
+- [`GeospatialMode.SPATIAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode.md.txt#SPATIAL()): The Geospatial API is enabled. The Geospatial API uses **Visual Positioning System (VPS)** , **Global Positioning System (GPS)** data, and the [device's motion
   sensors](https://developer.android.com/develop/sensors-and-location/sensors/sensors_overview) to determine the device's geospatial pose.
-- [`GeospatialMode.INERTIAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode#INERTIAL()): The Geospatial API is enabled in low-power mode. The Geospatial API only uses GPS and the [device's motion sensors](https://developer.android.com/develop/sensors-and-location/sensors/sensors_overview) to determine the device's geospatial pose. This mode is only available on Intelligent Eyewear devices.
-- [`GeospatialMode.DISABLED`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode#DISABLED()): Geospatial API is disabled; when transitioning from another mode to this mode, the Geospatial API releases all acquired resources and stop tracking.
+- [`GeospatialMode.INERTIAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode.md.txt#INERTIAL()): The Geospatial API is enabled in low-power mode. The Geospatial API only uses GPS and the [device's motion sensors](https://developer.android.com/develop/sensors-and-location/sensors/sensors_overview.md.txt) to determine the device's geospatial pose. This mode is only available on Intelligent Eyewear devices.
+- [`GeospatialMode.DISABLED`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode.md.txt#DISABLED()): Geospatial API is disabled; when transitioning from another mode to this mode, the Geospatial API releases all acquired resources and stop tracking.
 
 Not all devices support all Geospatial modes. See
-[`GeospatialMode`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode) for more information. Use
-[`XrDevice.isGeospatialSupported`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/XrDevice#isGeospatialModeSupported(androidx.xr.runtime.GeospatialMode)) to whether a
+[`GeospatialMode`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode.md.txt) for more information. Use
+[`XrDevice.isGeospatialSupported`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/XrDevice.md.txt#isGeospatialModeSupported(androidx.xr.runtime.GeospatialMode)) to whether a
 given `GeospatialMode` is supported.
 
 The following code sample demonstrates how to set a `GeospatialMode` using
-[`Session.configure`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session#configure(androidx.xr.runtime.Config)).
+[`Session.configure`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session.md.txt#configure(androidx.xr.runtime.Config)).
 
 
 ```kotlin
@@ -161,13 +163,13 @@ information.
 
 ## Use the Geospatial object
 
-Once the session is configured, obtain the [`Geospatial`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial) object
-using [`Geospatial.getInstance`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial#getInstance(androidx.xr.runtime.Session)). Only use the
+Once the session is configured, obtain the [`Geospatial`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.md.txt) object
+using [`Geospatial.getInstance`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.md.txt#getInstance(androidx.xr.runtime.Session)). Only use the
 `Geospatial` object when its state is
-[`GeospatialTrackingState.RUNNING`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.GeospatialTrackingState#RUNNING()).
+[`GeospatialTrackingState.RUNNING`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.GeospatialTrackingState.md.txt#RUNNING()).
 
 The following code samples demonstrate how to monitor the Geospatial state using
-[`Geospatial.state`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial#state()).
+[`Geospatial.state`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.md.txt#state()).
 
 ### Compose XR
 
@@ -199,7 +201,7 @@ lifecycleScope.launch {
 <br />
 
 > [!NOTE]
-> **Note:** If the `GeospatialTrackingState` object never becomes `GeospatialTrackingState.RUNNING`, see the [troubleshooting guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/troubleshooting) for possible solutions.
+> **Note:** If the `GeospatialTrackingState` object never becomes `GeospatialTrackingState.RUNNING`, see the [troubleshooting guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/troubleshooting.md.txt) for possible solutions.
 
 ## Understand accuracy values
 
@@ -211,9 +213,9 @@ confidence level. In other words, there is a 68% probability that the true value
 is within the given radius of the estimated value.
 
 Use
-[`Geospatial.State.horizontalAccuracy`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.State#horizontalAccuracy()),
-[`verticalAccuracy`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.State#verticalAccuracy()), and
-[`orientationYawAccuracy`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.State#orientationYawAccuracy()) to get the
+[`Geospatial.State.horizontalAccuracy`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.State.md.txt#horizontalAccuracy()),
+[`verticalAccuracy`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.State.md.txt#verticalAccuracy()), and
+[`orientationYawAccuracy`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.State.md.txt#orientationYawAccuracy()) to get the
 current accuracy values.
 
 Your app might require a specific level of precision to function correctly. For
@@ -222,7 +224,7 @@ meters before rendering virtual content. To increase the likelihood of obtaining
 higher accuracy data, your app should instruct users to look around their
 surroundings, preferably at buildings or other features with high visual detail
 that are present in Google Street View. Use
-[`Geospatial.checkVpsAvailability`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial#checkVpsAvailability(kotlin.Double,kotlin.Double)) to
+[`Geospatial.checkVpsAvailability`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.md.txt#checkVpsAvailability(kotlin.Double,kotlin.Double)) to
 determine whether VPS is available at the given location.
 
 ## What's next
@@ -230,5 +232,5 @@ determine whether VPS is available at the given location.
 When the Geospatial API is correctly set up in your app, your app can do the
 following:
 
-- [Convert between device-local poses and Geospatial poses](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/positioning),
-- [Render content at Geospatial poses](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/anchors)
+- [Convert between device-local poses and Geospatial poses](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/positioning.md.txt),
+- [Render content at Geospatial poses](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/anchors.md.txt)

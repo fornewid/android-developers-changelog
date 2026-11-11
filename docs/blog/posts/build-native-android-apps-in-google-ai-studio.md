@@ -4,15 +4,15 @@ url: https://developer.android.com/blog/posts/build-native-android-apps-in-googl
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Build native Android apps in Google AI Studio
 
-4 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo2_Strapi_2000x1000_6de0464afd_iDINx.webp) 19 May 2026 [![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_1dyAk8.webp)](https://developer.android.com/blog/authors/emma-louise-leavey)[![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_1jsDhn.webp)](https://developer.android.com/blog/authors/mike-taylor-cai) [Emma-Louise Leavey](https://developer.android.com/blog/authors/emma-louise-leavey) \& [Mike Taylor-Cai](https://developer.android.com/blog/authors/mike-taylor-cai) Starting today [Google AI Studio](https://ai.dev/apps?features=build_android_app) can build entire Android apps for you in minutes from just a prompt. You don't need to install any software or configure any libraries, which significantly lowers the barrier to development. Whether you're a seasoned developer looking to prototype at lightning speed or a creator building your first-ever mobile experience, you can now go from a single prompt to a high-quality, Kotlin-based Android app in AI Studio. You can easily install the app on your device, share it with others for testing, or send it to Android Studio for any further development.
+4 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo2_Strapi_2000x1000_6de0464afd_iDINx.webp) 19 May 2026 [![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_1dyAk8.webp)](https://developer.android.com/blog/authors/emma-louise-leavey.md.txt)[![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_1jsDhn.webp)](https://developer.android.com/blog/authors/mike-taylor-cai.md.txt) [Emma-Louise Leavey](https://developer.android.com/blog/authors/emma-louise-leavey.md.txt) \& [Mike Taylor-Cai](https://developer.android.com/blog/authors/mike-taylor-cai.md.txt) Starting today [Google AI Studio](https://ai.dev/apps?features=build_android_app) can build entire Android apps for you in minutes from just a prompt. You don't need to install any software or configure any libraries, which significantly lowers the barrier to development. Whether you're a seasoned developer looking to prototype at lightning speed or a creator building your first-ever mobile experience, you can now go from a single prompt to a high-quality, Kotlin-based Android app in AI Studio. You can easily install the app on your device, share it with others for testing, or send it to Android Studio for any further development.
 
 #### The power of native Android
 
-While AI has made it easy to generate web-based apps, people want more on their mobile devices. They expect the beautiful and usable modern app design and capabilities that come with native Android user experiences, built with the Kotlin programming language using Jetpack Compose, the official and recommended toolkit for Android development. Native Android apps bring the reliability of offline support, continuous background services, and the deep integration of hardware sensors like GPS, Bluetooth, and NFC. We've brought the technology that enables you to [quickly create new projects with Gemini in Android Studio](https://developer.android.com/studio/gemini/create-a-new-project-with-ai) directly into the web-based AI Studio. Now, you get the best of both worlds: the ease of a prompt-based interface paired with the power of the Android SDK, all in your browser, no installation required.
+While AI has made it easy to generate web-based apps, people want more on their mobile devices. They expect the beautiful and usable modern app design and capabilities that come with native Android user experiences, built with the Kotlin programming language using Jetpack Compose, the official and recommended toolkit for Android development. Native Android apps bring the reliability of offline support, continuous background services, and the deep integration of hardware sensors like GPS, Bluetooth, and NFC. We've brought the technology that enables you to [quickly create new projects with Gemini in Android Studio](https://developer.android.com/studio/gemini/create-a-new-project-with-ai.md.txt) directly into the web-based AI Studio. Now, you get the best of both worlds: the ease of a prompt-based interface paired with the power of the Android SDK, all in your browser, no installation required.
 
 ## **A seamless, end-to-end workflow**
 
@@ -33,7 +33,7 @@ We have streamlined the entire development lifecycle so you can focus on your id
 As you iterate on your app in AI Studio, you may find you need more advanced Android tools or support for a wider variety of Android device types. To move beyond the browser, you can seamlessly hand off your project to [Android Studio](https://developer.android.com/studio) by downloading a ZIP file or exporting it directly to GitHub.
 ![AI_Studio_Download.png](https://developer.android.com/static/blog/assets/AI_Studio_Download_6346ff1740_Z1BCx80.webp)
 
-When transitioning to a team environment or local development, you can leverage any IDE or agent you prefer. For a specialized experience, we recommend [Gemini in Android Studio](https://developer.android.com/gemini-in-android), which features models designed with Android in mind, or Antigravity, which integrates [Android CLI](https://developer.android.com/tools/agents/android-cli) commands into Google's agentic development platform. This workflow makes building high-quality apps more accessible while giving you total flexibility in how you use AI to scale your project.
+When transitioning to a team environment or local development, you can leverage any IDE or agent you prefer. For a specialized experience, we recommend [Gemini in Android Studio](https://developer.android.com/gemini-in-android), which features models designed with Android in mind, or Antigravity, which integrates [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt) commands into Google's agentic development platform. This workflow makes building high-quality apps more accessible while giving you total flexibility in how you use AI to scale your project.
 
 #### Start building today
 
@@ -74,7 +74,7 @@ Written by:
 
 -
 
-  ## [Emma-Louise Leavey](https://developer.android.com/blog/authors/emma-louise-leavey)
+  ## [Emma-Louise Leavey](https://developer.android.com/blog/authors/emma-louise-leavey.md.txt)
 
   ###### Group Product Manager
 
@@ -82,38 +82,37 @@ Written by:
   View profile](https://developer.android.com/blog/authors/emma-louise-leavey) ![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_1dyAk8.webp) ![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_1dyAk8.webp)
 -
 
-  ## [Mike Taylor-Cai](https://developer.android.com/blog/authors/mike-taylor-cai)
+  ## [Mike Taylor-Cai](https://developer.android.com/blog/authors/mike-taylor-cai.md.txt)
 
   ###### Product Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/mike-taylor-cai) ![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_1jsDhn.webp) ![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_1jsDhn.webp)
 Continue reading
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 3 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 4 min read
+  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp.md.txt)
+  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano.md.txt)
+  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
   - +2 ↩
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
 

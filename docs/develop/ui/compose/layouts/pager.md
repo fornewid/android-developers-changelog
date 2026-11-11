@@ -7,8 +7,8 @@ source: md.txt
 [Video](https://www.youtube.com/watch?v=V2Ke-JJDnrU)
 
 To flip through content horizontally or vertically, you can use the
-[`HorizontalPager`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/HorizontalPager.composable) and [`VerticalPager`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/VerticalPager.composable) composables. These have
-similar functions to [`ViewPager`](https://developer.android.com/reference/kotlin/androidx/viewpager/widget/ViewPager) in the view system. By default,
+[`HorizontalPager`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/HorizontalPager.composable.md.txt) and [`VerticalPager`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/VerticalPager.composable.md.txt) composables. These have
+similar functions to [`ViewPager`](https://developer.android.com/reference/kotlin/androidx/viewpager/widget/ViewPager.md.txt) in the view system. By default,
 `HorizontalPager` takes up the full screen width and `VerticalPager` takes up
 the full height. The pagers also only fling one page at a time. All of these
 defaults are configurable.
@@ -62,7 +62,7 @@ VerticalPager(state = pagerState) { page ->
 
 ## Lazy creation
 
-Pages in both `HorizontalPager` and `VerticalPager` are [lazily composed](https://developer.android.com/develop/ui/compose/lists#lazy)
+Pages in both `HorizontalPager` and `VerticalPager` are [lazily composed](https://developer.android.com/develop/ui/compose/lists.md.txt#lazy)
 and laid-out when required. As the user scrolls through pages, the composable
 removes any pages which are no longer required.
 
@@ -73,9 +73,9 @@ offscreen, set `beyondBoundsPageCount` to a value higher than zero.
 
 ## Scroll to an item in the pager
 
-To scroll to a certain page in the pager, create a [`PagerState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState) object
-using [`rememberPagerState()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/package-summary#rememberPagerState(kotlin.Int,kotlin.Float)) and pass it as the `state` parameter to the
-pager. You can call [`PagerState#scrollToPage()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState#scrollToPage(kotlin.Int,kotlin.Float)) on this state, inside a
+To scroll to a certain page in the pager, create a [`PagerState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState.md.txt) object
+using [`rememberPagerState()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/package-summary.md.txt#rememberPagerState(kotlin.Int,kotlin.Float)) and pass it as the `state` parameter to the
+pager. You can call [`PagerState#scrollToPage()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState.md.txt#scrollToPage(kotlin.Int,kotlin.Float)) on this state, inside a
 `CoroutineScope`:
 
 
@@ -108,7 +108,7 @@ Button(onClick = {
 <br />
 
 If you want to animate to the page, use the
-[`PagerState#animateScrollToPage()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState#animateScrollToPage(kotlin.Int,kotlin.Float,androidx.compose.animation.core.AnimationSpec)) function:
+[`PagerState#animateScrollToPage()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState.md.txt#animateScrollToPage(kotlin.Int,kotlin.Float,androidx.compose.animation.core.AnimationSpec)) function:
 
 
 ```kotlin
@@ -142,8 +142,8 @@ Button(onClick = {
 
 ## Get notified about page state changes
 
-[`PagerState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState) has three properties with information about pages:
-[`currentPage`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState#currentPage()), [`settledPage`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState#settledPage()), and [`targetPage`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState#targetPage()).
+[`PagerState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState.md.txt) has three properties with information about pages:
+[`currentPage`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState.md.txt#currentPage()), [`settledPage`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState.md.txt#settledPage()), and [`targetPage`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState.md.txt#targetPage()).
 
 - `currentPage`: The closest page to the snap position. By default, the snap position is at the start of the layout.
 - `settledPage`: The page number when no animation or scrolling is running. This is different from the `currentPage` property in that the `currentPage` immediately updates if the page is close enough to the snap position, but `settledPage` remains the same until all the animations are finished running.
@@ -230,12 +230,12 @@ Row(
 
 A common use case is to use the scroll position to apply effects to your pager
 items. To find out how far a page is from the selected page, you can use
-[`PagerState.currentPageOffsetFraction`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState#currentPageOffsetFraction()). You can then apply transformation
+[`PagerState.currentPageOffsetFraction`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState.md.txt#currentPageOffsetFraction()). You can then apply transformation
 effects to your content based on the distance from the selected page.
 **Figure 4**. Applying transformations to Pager content
 
 For example, to adjust the opacity of items based on how far they are from the
-center, change the `alpha` using [`Modifier.graphicsLayer`](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers#graphicsLayer) on an item
+center, change the `alpha` using [`Modifier.graphicsLayer`](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers.md.txt#graphicsLayer) on an item
 inside the pager:
 
 
@@ -275,7 +275,7 @@ HorizontalPager(state = pagerState) { page ->
 
 By default, `HorizontalPager` and `VerticalPager` take up the full width or
 full height, respectively. You can set the `pageSize` variable to either have a
-[`Fixed`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PageSize.Fixed), [`Fill`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PageSize.Fill) (default), or a custom size calculation.
+[`Fixed`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PageSize.Fixed.md.txt), [`Fill`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PageSize.Fill.md.txt) (default), or a custom size calculation.
 
 For example, to set a fixed width page of `100.dp`:
 
@@ -295,7 +295,7 @@ HorizontalPager(
 <br />
 
 To size the pages based on the viewport size, use a custom page size
-calculation. Create a custom [`PageSize`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PageSize) object and divide the
+calculation. Create a custom [`PageSize`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PageSize.md.txt) object and divide the
 `availableSpace` by three, taking into account the spacing between the items:
 
 
@@ -386,7 +386,7 @@ the defaults such as the `pagerSnapDistance` or the `flingBehavior`.
 
 By default, `HorizontalPager` and `VerticalPager` set the maximum number of
 pages that a fling gesture can scroll past to one page at a time. To change
-this, set [`pagerSnapDistance`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerSnapDistance) on the `flingBehavior`:
+this, set [`pagerSnapDistance`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerSnapDistance.md.txt) on the `flingBehavior`:
 
 
 ```kotlin
@@ -477,10 +477,10 @@ fun AutoAdvancePager(pageItems: List<Color>, modifier: Modifier = Modifier) {
 #### Key points about the code
 
 - The `AutoAdvancePager` function creates a horizontally paging view with automatic advancement. It takes a list of `Color` objects as input, which are used as background colors for each page.
-- `pagerState` is created using [`rememberPagerState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/rememberPagerState.composable#rememberPagerState(kotlin.Int,kotlin.Float,kotlin.Function0)), which holds the state of the pager.
+- `pagerState` is created using [`rememberPagerState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/rememberPagerState.composable.md.txt#rememberPagerState(kotlin.Int,kotlin.Float,kotlin.Function0)), which holds the state of the pager.
 - `pagerIsDragged` and `pageIsPressed` track user interaction.
-- The [`LaunchedEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/LaunchedEffect.composable#LaunchedEffect(kotlin.Any,kotlin.coroutines.SuspendFunction1)) auto-advances the pager every two seconds unless the user drags the pager or presses one of the pages.
-- [`HorizontalPager`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/HorizontalPager.composable#HorizontalPager(androidx.compose.foundation.pager.PagerState,androidx.compose.ui.Modifier,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.pager.PageSize,kotlin.Int,androidx.compose.ui.unit.Dp,androidx.compose.ui.Alignment.Vertical,androidx.compose.foundation.gestures.TargetedFlingBehavior,kotlin.Boolean,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.input.nestedscroll.NestedScrollConnection,androidx.compose.foundation.gestures.snapping.SnapPosition,androidx.compose.foundation.OverscrollEffect,kotlin.Function2)) displays a list of pages, each with a `Text` composable displaying the page number. The modifier fills the page, sets the background color from `pageItems`, and makes the page clickable.
+- The [`LaunchedEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/LaunchedEffect.composable.md.txt#LaunchedEffect(kotlin.Any,kotlin.coroutines.SuspendFunction1)) auto-advances the pager every two seconds unless the user drags the pager or presses one of the pages.
+- [`HorizontalPager`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/HorizontalPager.composable.md.txt#HorizontalPager(androidx.compose.foundation.pager.PagerState,androidx.compose.ui.Modifier,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.pager.PageSize,kotlin.Int,androidx.compose.ui.unit.Dp,androidx.compose.ui.Alignment.Vertical,androidx.compose.foundation.gestures.TargetedFlingBehavior,kotlin.Boolean,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.input.nestedscroll.NestedScrollConnection,androidx.compose.foundation.gestures.snapping.SnapPosition,androidx.compose.foundation.OverscrollEffect,kotlin.Function2)) displays a list of pages, each with a `Text` composable displaying the page number. The modifier fills the page, sets the background color from `pageItems`, and makes the page clickable.
 
 
 ```kotlin
@@ -514,7 +514,7 @@ fun PagerIndicator(pageCount: Int, currentPageIndex: Int, modifier: Modifier = M
 
 #### Key points about the code
 
-- A [`Box`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Box.composable#Box(androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,kotlin.Boolean,kotlin.Function1)) composable acts as the root element and contains a [`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)) to arrange the page indicators horizontally.
+- A [`Box`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Box.composable#Box(androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,kotlin.Boolean,kotlin.Function1)) composable acts as the root element and contains a [`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable.md.txt#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)) to arrange the page indicators horizontally.
 - A custom page indicator is displayed as a row of circles, where each `Box` clipped to a `CircleShape` represents a page.
 - The current page's circle is colored as a `DarkGray`, while the other circles are `LightGray`. The `currentPageIndex` parameter determines which circle renders in dark gray.
 
@@ -531,4 +531,4 @@ snippets:
 
 ## Additional resources
 
-- [Display a paging list](https://developer.android.com/develop/ui/compose/quick-guides/content/display-paging-list?hl=en)
+- [Display a paging list](https://developer.android.com/develop/ui/compose/quick-guides/content/display-paging-list.md.txt?hl=en)

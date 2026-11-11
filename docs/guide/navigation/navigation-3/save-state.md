@@ -14,7 +14,7 @@ including configuration changes and process death, is crucial for a good user
 experience. In Navigation 3, you own your back stack, so there aren't strict
 guidelines on how you should create or save it. However, Navigation 3 does offer
 a convenience method that provides you with a saveable back stack:
-[`rememberNavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/rememberNavBackStack.composable).
+[`rememberNavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/rememberNavBackStack.composable.md.txt).
 
 ### Use `rememberNavBackStack`
 
@@ -24,7 +24,7 @@ stack that persists across configuration changes and process death.
 For `rememberNavBackStack` to function correctly, each key in your back stack
 must adhere to specific requirements:
 
-- **Implement `NavKey` interface** : Every key in the back stack must implement the [`NavKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavKey) interface. This acts as a marker interface that signals to the library that the key can be saved.
+- **Implement `NavKey` interface** : Every key in the back stack must implement the [`NavKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavKey.md.txt) interface. This acts as a marker interface that signals to the library that the key can be saved.
 - **Have the `@Serializable` annotation** : In addition to implementing `NavKey`, your key classes and objects must be marked with the [`@Serializable`](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serializable/) annotation.
 
 The following snippet shows a correct implementation of `rememberNavBackStack`:
@@ -103,19 +103,19 @@ that particular `NavEntry` is part of the back stack, and is cleared when the
 `NavEntry` is popped.
 
 The `androidx.lifecycle:lifecycle-viewmodel-navigation3` add-on library provides
-a [`NavEntryDecorator`](https://developer.android.com/guide/navigation/navigation-3/naventrydecorators) that facilitates this. This decorator provides a
+a [`NavEntryDecorator`](https://developer.android.com/guide/navigation/navigation-3/naventrydecorators.md.txt) that facilitates this. This decorator provides a
 `ViewModelStoreOwner` for each `NavEntry`. When you create a `ViewModel` inside a
 `NavEntry`'s content (e.g., using `viewModel()` in Compose), it is automatically
 scoped to that specific `NavEntry`'s key on the back stack. This means the
 `ViewModel` is created when the `NavEntry` is added to the back stack, and
 cleared when it's removed.
 
-To use [`NavEntryDecorator`](https://developer.android.com/guide/navigation/navigation-3/naventrydecorators#apply-decorators) for scoping `ViewModel`s to `NavEntry`s, follow
+To use [`NavEntryDecorator`](https://developer.android.com/guide/navigation/navigation-3/naventrydecorators.md.txt#apply-decorators) for scoping `ViewModel`s to `NavEntry`s, follow
 these steps:
 
 1. Add the `androidx.lifecycle:lifecycle-viewmodel-navigation3` dependency to your `app/build.gradle.kts` file.
-2. Add the default [`rememberSaveableStateHolderNavEntryDecorator()`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/rememberSaveableStateHolderNavEntryDecorator.composable) to the list of `entryDecorators` when constructing a `NavDisplay`.
-3. Add [`rememberViewModelStoreNavEntryDecorator()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/navigation3/rememberViewModelStoreNavEntryDecorator.composable) to the list of `entryDecorators`.
+2. Add the default [`rememberSaveableStateHolderNavEntryDecorator()`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/rememberSaveableStateHolderNavEntryDecorator.composable.md.txt) to the list of `entryDecorators` when constructing a `NavDisplay`.
+3. Add [`rememberViewModelStoreNavEntryDecorator()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/navigation3/rememberViewModelStoreNavEntryDecorator.composable.md.txt) to the list of `entryDecorators`.
 
 
 ```kotlin

@@ -19,7 +19,7 @@ and align with these margins.
 
 You can also ensure inset safe zones or insets at this step. System bar insets
 prevent crucial actions from falling under system bars. You should
-[draw your content behind the system bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars#draw-content).
+[draw your content behind the system bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars.md.txt#draw-content).
 ![](https://developer.android.com/static/images/design/ui/mobile/content-structure_safe-areas.webp) Margins (1) and system bar inset (2)
 
 Use *columns* to build a flexible grid structure for consistent alignment, and
@@ -43,7 +43,7 @@ when you need greater flexibility.
 Regardless of which type, the layout grid should also adapt across sizes and
 form factors.
 
-This example uses a column [grid](https://developer.android.com/design/ui/mobile/guides/layout-and-content/grids-and-units) to align content with an underlying grid
+This example uses a column [grid](https://developer.android.com/design/ui/mobile/guides/layout-and-content/grids-and-units.md.txt) to align content with an underlying grid
 while retaining flexible sizing. To accommodate different form factors, the
 column grid changes the column size and the number of columns based on the
 screen size, which also lets the content scale. Avoid being too granular with
@@ -114,7 +114,7 @@ two-dimensional grid layout.
 ![authentication layout that could use grid](https://developer.android.com/static/images/design/ui/mobile/layout-basics-28-authentication.webp)
 
 UI elements can also flex and flow in one dimension, like filters or content
-tags. Learn more about [flexbox](https://developer.android.com/develop/adaptive-apps/guides/flexbox).
+tags. Learn more about [flexbox](https://developer.android.com/develop/adaptive-apps/guides/flexbox.md.txt).
 
 Layouts can also use a combination of layout types. For example, you might pair
 a carousel or horizontal scroll with vertical cards. Or, you could present a
@@ -128,9 +128,9 @@ columns.
 ### Alignment
 
 Similar to auto layout flow and alignment, you can specify UI elements
-[arrangement](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement) and [alignment](https://developer.android.com/reference/kotlin/androidx/compose/ui/Alignment#summary).
+[arrangement](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement.md.txt) and [alignment](https://developer.android.com/reference/kotlin/androidx/compose/ui/Alignment.md.txt#summary).
 
-Use [`AlignmentLine`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/AlignmentLine) to create custom alignment lines, which parent layouts
+Use [`AlignmentLine`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/AlignmentLine.md.txt) to create custom alignment lines, which parent layouts
 can use to align and position their children.
 ![](https://developer.android.com/static/images/design/ui/mobile/content-structure_alignment_do.webp)
 
@@ -203,6 +203,6 @@ keyboard and sole focus is given.
 interaction and content.
 
 Compose provides convenient layouts for combining Material Components into
-common screen patterns. Composables such as [Scaffold](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#scaffold) provide slots for
+common screen patterns. Composables such as [Scaffold](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#scaffold) provide slots for
 various components and other screen elements. Read more about
 [Material Components and Layout](https://developer.android.com/jetpack/compose/layouts/material#scaffold).

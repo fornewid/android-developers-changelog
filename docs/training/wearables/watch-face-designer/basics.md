@@ -6,7 +6,7 @@ source: md.txt
 
 This guide explains how to create a watch face, add time-based elements, and
 include support for user-selected photos, including a multi-photo gallery. For
-additional features, see the [advanced](https://developer.android.com/training/wearables/watch-face-designer/advanced) guide.
+additional features, see the [advanced](https://developer.android.com/training/wearables/watch-face-designer/advanced.md.txt) guide.
 
 ## Create a watch face
 
@@ -56,7 +56,7 @@ Notice how the hand begins to move once each second, simulating a clock tick.
 You can adjust how it rotates if you want, and you can create a minute hand and
 hour hand similarly to how you made this one.
 
-For advice on subdials, see the [advanced usage](https://developer.android.com/training/wearables/watch-face-designer/advanced) guide.
+For advice on subdials, see the [advanced usage](https://developer.android.com/training/wearables/watch-face-designer/advanced.md.txt) guide.
 
 ### Digital time
 
@@ -116,10 +116,10 @@ photos for this slot, and the [watch cycles through them at different
 points](https://developer.android.com/training/wearables/wff/images), depending on what you select under "Change photo:"
 
 - When "On tap" is selected, the photo changes when the user taps on your layer.
-- When "On wrist raise" is selected, the changes every third time the user raises their wrist. At the moment, this cannot be adjusted using Watch Face Designer. Learn more about how Watch Face Format provides more advanced support using the [`changeAfterEvery`](https://developer.android.com/reference/wear-os/wff/group/part/image/photos) attribute.
+- When "On wrist raise" is selected, the changes every third time the user raises their wrist. At the moment, this cannot be adjusted using Watch Face Designer. Learn more about how Watch Face Format provides more advanced support using the [`changeAfterEvery`](https://developer.android.com/reference/wear-os/wff/group/part/image/photos.md.txt) attribute.
 
 ## Learn more
 
-To preview your watch face on a physical device, see the [exports](https://developer.android.com/training/wearables/watch-face-designer/export) guide.
+To preview your watch face on a physical device, see the [exports](https://developer.android.com/training/wearables/watch-face-designer/export.md.txt) guide.
 
-For more options and features, see the [advanced usage](https://developer.android.com/training/wearables/watch-face-designer/advanced) guide.
+For more options and features, see the [advanced usage](https://developer.android.com/training/wearables/watch-face-designer/advanced.md.txt) guide.

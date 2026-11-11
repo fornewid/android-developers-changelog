@@ -7,19 +7,19 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices.md.txt#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
-A [`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialExternalSurface.composable) is a [subspace composable](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/components#subspace-composables) that creates and
-manages the [`Surface`](https://developer.android.com/reference/kotlin/android/view/Surface) into which your app can draw content, such as an
-image or [video](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-video). [`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialExternalSurface.composable) supports either stereoscopic
+A [`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialExternalSurface.composable.md.txt) is a [subspace composable](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/components.md.txt#subspace-composables) that creates and
+manages the [`Surface`](https://developer.android.com/reference/kotlin/android/view/Surface.md.txt) into which your app can draw content, such as an
+image or [video](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-video.md.txt). [`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialExternalSurface.composable.md.txt) supports either stereoscopic
 or monoscopic content.
 
 ## Add a surface for image or video content
 
 This example demonstrates how to load side-by-side stereoscopic video using
-[Media3 Exoplayer](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models) and [`SpatialExternalSurface`](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design):
+[Media3 Exoplayer](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models.md.txt) and [`SpatialExternalSurface`](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design.md.txt):
 
 
 ```kotlin
@@ -66,26 +66,26 @@ fun SpatialExternalSurfaceContent() {
 
 ### Key points about the code
 
-- Set [`StereoMode`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/StereoMode) to `Mono`, `SideBySide`, or `TopBottom` depending upon which type of content you are rendering:
+- Set [`StereoMode`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/StereoMode.md.txt) to `Mono`, `SideBySide`, or `TopBottom` depending upon which type of content you are rendering:
   - `Mono`: The image or video frame consists of a single, identical image shown to both eyes.
   - `SideBySide`: The image or video frame contains a pair of images or video frames arranged side-by-side, where the image or frame on the left represents the left eye view, and the image or frame on the right represents the right eye view.
   - `TopBottom`: The image or video frame contains a pair of images or video frames stacked vertically, where the image or frame on the top represents the left eye view, and the image or frame on the bottom represents the right eye view.
-- [`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialExternalSurface.composable) only supports rectangular surfaces.
-- This [`Surface`](https://developer.android.com/reference/kotlin/android/view/Surface) doesn't capture input events.
-- It's not possible to synchronize [`StereoMode`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/StereoMode) changes with application rendering or video decoding.
+- [`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialExternalSurface.composable.md.txt) only supports rectangular surfaces.
+- This [`Surface`](https://developer.android.com/reference/kotlin/android/view/Surface.md.txt) doesn't capture input events.
+- It's not possible to synchronize [`StereoMode`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/StereoMode.md.txt) changes with application rendering or video decoding.
 - This composable can't render in front of other panels, so you shouldn't use a `MovePolicy` if there are other panels in the layout.
 
 ## Add a surface for DRM protected video content
 
-[`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialExternalSurface.composable) also supports playback of DRM-protected video
+[`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialExternalSurface.composable.md.txt) also supports playback of DRM-protected video
 streams. To enable this, you must create a secure surface that renders to
 protected graphics buffers. This prevents the content from being screen-recorded
 or accessed by non-secure system components.
 
 To create a secure surface, set the `SpatialExternalSurfaceProtection` parameter
 to `SpatialExternalSurfaceProtection.Protected` on the
-[`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialExternalSurface.composable) composable. Additionally, you must configure
-[Media3 Exoplayer](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models) with the appropriate DRM information to handle the license
+[`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialExternalSurface.composable.md.txt) composable. Additionally, you must configure
+[Media3 Exoplayer](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models.md.txt) with the appropriate DRM information to handle the license
 acquisition from a license server.
 
 The following example demonstrates how to configure `SpatialExternalSurface` and

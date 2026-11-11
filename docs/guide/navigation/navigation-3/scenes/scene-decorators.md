@@ -6,7 +6,7 @@ source: md.txt
 
 Scene decorators let you modify the scene calculated by your app's [scene
 strategy](https://developer.android.com/guide/navigation/navigation-3/scenes#understand-scene). In effect, they are used for a second phase of constructing the
-content that's displayed by a [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/package-summary#top-level-functions-summary).
+content that's displayed by a [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/package-summary.md.txt#top-level-functions-summary).
 
 This approach lets you encapsulate specific functionality, such as displaying
 common UI components, into individual scene decorators.
@@ -20,13 +20,13 @@ navigation bar or rail to navigate between the routes.
 ## Create a scene decorator strategy
 
 Scene decorators follow a similar pattern as scene strategies. To define a scene
-decorator, implement the [`SceneDecoratorStrategy`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/SceneDecoratorStrategy) interface. This interface
-has a method, [`decorateScene`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/SceneDecoratorStrategy#(androidx.navigation3.scene.SceneDecoratorStrategyScope).decorateScene(androidx.navigation3.scene.Scene)), which is analogous to the
-[`calculateScene`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/SceneStrategy#(androidx.navigation3.scene.SceneStrategyScope).calculateScene(kotlin.collections.List)) method of the [`SceneStrategy`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/SceneStrategy) interface.
+decorator, implement the [`SceneDecoratorStrategy`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/SceneDecoratorStrategy.md.txt) interface. This interface
+has a method, [`decorateScene`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/SceneDecoratorStrategy.md.txt#(androidx.navigation3.scene.SceneDecoratorStrategyScope).decorateScene(androidx.navigation3.scene.Scene)), which is analogous to the
+[`calculateScene`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/SceneStrategy.md.txt#(androidx.navigation3.scene.SceneStrategyScope).calculateScene(kotlin.collections.List)) method of the [`SceneStrategy`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/SceneStrategy.md.txt) interface.
 `decorateScene` determines whether it can decorate the scene:
 
 - If your scene decorator strategy **shouldn't** decorate the input scene, it returns the input scene as-is.
-- If it **should** decorate the input scene, it returns a new `Scene`. In general, the returned scene takes the input scene as a parameter and calls the input scene's [`content`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/Scene#content()) method within its own [`content`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/Scene#content()) method.
+- If it **should** decorate the input scene, it returns a new `Scene`. In general, the returned scene takes the input scene as a parameter and calls the input scene's [`content`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/Scene.md.txt#content()) method within its own [`content`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/Scene.md.txt#content()) method.
 
 To determine if and how the input scene should be decorated, your scene
 decorator strategy can consider the metadata of both the input `Scene` and
@@ -64,7 +64,7 @@ data class MyDecoratingScene<T : Any>(
 <br />
 
 > [!WARNING]
-> **Warning:** `NavDisplay` doesn't decorate `Scene` instances that implement [`OverlayScene`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/OverlayScene). This is because the content of an `OverlayScene` is expected to be rendered in a separate window, so any wrapping content would never be rendered.
+> **Warning:** `NavDisplay` doesn't decorate `Scene` instances that implement [`OverlayScene`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/OverlayScene.md.txt). This is because the content of an `OverlayScene` is expected to be rendered in a separate window, so any wrapping content would never be rendered.
 
 ## Use scene decorator strategies
 
@@ -93,7 +93,7 @@ aware of:
 In many cases, the scene returned by decorating a scene should contain the same
 entries and have the same previous entries as the scene it's decorating.
 Additionally, it should likely inherit (or modify) the metadata of the scene
-it's decorating, rather than use the [default behavior](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/Scene#metadata()). The following code
+it's decorating, rather than use the [default behavior](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/Scene.md.txt#metadata()). The following code
 demonstrates an example of how to do this:
 
 
@@ -117,13 +117,13 @@ data class CopyingScene<T : Any>(
 
 ### Maintain animations
 
-As detailed in [Animate between destinations](https://developer.android.com/guide/navigation/navigation-3/animate-destinations), `NavDisplay` automatically
+As detailed in [Animate between destinations](https://developer.android.com/guide/navigation/navigation-3/animate-destinations.md.txt), `NavDisplay` automatically
 animates transitions between scenes when a key derived from the class of the
 current scene and its `key` property changes.
 
 When introducing scene decorators to your app, the class of the scene returned
 after scene decoration can remain the same, even when the class of the scene
-returned during [scene calculation](https://developer.android.com/guide/navigation/navigation-3/scenes#understand-scene) changes. When this happens and
+returned during [scene calculation](https://developer.android.com/guide/navigation/navigation-3/scenes.md.txt#understand-scene) changes. When this happens and
 decorating scenes directly copy the `key` of the scene they're decorating, the
 built-in animations no longer happen because the derived key doesn't change.
 

@@ -69,7 +69,7 @@ tabletop).
 > [!NOTE]
 > **Note:** Postures shown might not be available across all foldable devices.
 
-Read more on how to [support foldable devices displays](https://developer.android.com/develop/adaptive-apps/guides/foldables/support-foldable-display-modes).
+Read more on how to [support foldable devices displays](https://developer.android.com/develop/adaptive-apps/guides/foldables/support-foldable-display-modes.md.txt).
 
 ![Layout changes and component change](https://developer.android.com/static/images/design/ui/mobile/postures_all.webp)
 

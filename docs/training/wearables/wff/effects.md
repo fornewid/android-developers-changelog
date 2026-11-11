@@ -77,7 +77,7 @@ mode*](https://en.wikipedia.org/wiki/Blend_modes) when composing `Part*` element
 
 Unlike `renderMode`, which introduces a special mechanism for constructing the
 source and mask respectively, `blendMode` provides general access to all
-[Android Graphics blend mode effects](https://developer.android.com/reference/android/graphics/BlendMode), and applies effects in the order that
+[Android Graphics blend mode effects](https://developer.android.com/reference/android/graphics/BlendMode.md.txt), and applies effects in the order that
 elements appear in the scene graph.
 
 In normal operation, when a two `Part*` elements are placed in the scene, the
@@ -101,7 +101,7 @@ top-most obscures or partially obscures the lower element because the default
 
 <br />
 
-As a demonstration of using blend modes, choosing [`SRC_ATOP`](https://developer.android.com/reference/android/graphics/BlendMode#SRC_ATOP), discards
+As a demonstration of using blend modes, choosing [`SRC_ATOP`](https://developer.android.com/reference/android/graphics/BlendMode.md.txt#SRC_ATOP), discards
 *the source pixels that do not cover destination pixels* . Namely, the
 `PartText` is the source, and the destination is the `PartDraw`.
 
@@ -125,11 +125,11 @@ watch face:
 
 <br />
 
-More complex effects can be applied, such as using [`COLOR_DODGE`](https://developer.android.com/reference/android/graphics/BlendMode#COLOR_DODGE) instead of
+More complex effects can be applied, such as using [`COLOR_DODGE`](https://developer.android.com/reference/android/graphics/BlendMode.md.txt#COLOR_DODGE) instead of
 `SRC_ATOP`, which *makes destination brighter to reflect source*.
 
-An example of combining multiple `Part*` elements using [`HUE`](https://developer.android.com/reference/android/graphics/BlendMode#HUE) and
-[`COLOR_BURN`](https://developer.android.com/reference/android/graphics/BlendMode#COLOR_BURN) blend modes:
+An example of combining multiple `Part*` elements using [`HUE`](https://developer.android.com/reference/android/graphics/BlendMode.md.txt#HUE) and
+[`COLOR_BURN`](https://developer.android.com/reference/android/graphics/BlendMode.md.txt#COLOR_BURN) blend modes:
 
 <br />
 

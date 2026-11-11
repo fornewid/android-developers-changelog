@@ -18,8 +18,8 @@ state as Compose `State` across your app.
 By creating an application-scoped `StateStore`, you can share state between
 application components within the same process:
 
-- **Multiple activities** : If your app displays multiple activities simultaneously (such as an inbox activity and an editor activity in an email client) or has an activity that supports [multi-instance](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode#multi-instance) (such as a document viewer activity), you can use `StateStore` to share information between them.
-- **Activity and service** : Synchronize state between an activity and a background [`CarAppService`](https://developer.android.com/training/cars/apps/library) or [AppFunction](https://developer.android.com/ai/appfunctions).
+- **Multiple activities** : If your app displays multiple activities simultaneously (such as an inbox activity and an editor activity in an email client) or has an activity that supports [multi-instance](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode.md.txt#multi-instance) (such as a document viewer activity), you can use `StateStore` to share information between them.
+- **Activity and service** : Synchronize state between an activity and a background [`CarAppService`](https://developer.android.com/training/cars/apps/library.md.txt) or [AppFunction](https://developer.android.com/ai/appfunctions.md.txt).
 - **Activity and content provider or widget**: Share state between an activity and a home screen widget.
 
 If a singleton only needs in-memory `State<T>` without keyed lookup or
@@ -29,36 +29,38 @@ across your app, see [Choose the right state API across your
 architecture](https://developer.android.com/topic/libraries/architecture/appstate/state-beyond-ui#choose-state-api).
 
 > [!CAUTION]
-> **Caution:** Because `StateStore` lives in memory, you can only access it from the same process in which it's instantiated. If you need to share state across processes, use [interprocess communication (IPC) methods](https://developer.android.com/guide/components/processes-and-threads#IPC).
+> **Caution:** Because `StateStore` lives in memory, you can only access it from the same process in which it's instantiated. If you need to share state across processes, use [interprocess communication (IPC) methods](https://developer.android.com/guide/components/processes-and-threads.md.txt#IPC).
 
 ## API overview
 
 The `androidx.appstate.statestore` package provides the `StateStore` and
 `StateStoreKey` classes:
 
-    package androidx.appstate.statestore
+```kotlin
+package androidx.appstate.statestore
 
-    import androidx.compose.runtime.State
-    import kotlinx.serialization.Serializable
+import androidx.compose.runtime.State
+import kotlinx.serialization.Serializable
 
-    public class StateStore {
-        public val keys: Set<StateStoreKey<*>>
-        public fun <T> getState(
-            stateKey: StateStoreKey<T>,
-            defaultValue: T = stateKey.defaultValue,
-        ): State<T>
-        public fun <T> setState(stateKey: StateStoreKey<T>, value: T)
-        public inline fun <T> updateState(
-            stateKey: StateStoreKey<T>,
-            defaultValue: T = stateKey.defaultValue,
-            update: (T) -> T,
-        )
-    }
-
-    @Serializable
-    public open class StateStoreKey<T>(
-        public val defaultValue: T,
+public class StateStore {
+    public val keys: Set<StateStoreKey<*>>
+    public fun <T> getState(
+        stateKey: StateStoreKey<T>,
+        defaultValue: T = stateKey.defaultValue,
+    ): State<T>
+    public fun <T> setState(stateKey: StateStoreKey<T>, value: T)
+    public inline fun <T> updateState(
+        stateKey: StateStoreKey<T>,
+        defaultValue: T = stateKey.defaultValue,
+        update: (T) -> T,
     )
+}
+
+@Serializable
+public open class StateStoreKey<T>(
+    public val defaultValue: T,
+)
+```
 
 ### Define your state
 
@@ -122,12 +124,12 @@ read-only `State<T>` properties and mutation functions to callers.
 
 #### Read state
 
-Use `getState(stateKey, defaultValue)` to retrieve a [`State<T>`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State)
+Use `getState(stateKey, defaultValue)` to retrieve a [`State<T>`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State.md.txt)
 object. If the key isn't initialized yet, `StateStore` populates it with the
 `defaultValue` parameter, which defaults to `stateKey.defaultValue` (or you can
 pass a custom `defaultValue` when initializing an unpopulated key). Because
 `getState` returns a `State<T>`, ViewModels, UI composables, widgets, and
-[`transform`](https://developer.android.com/topic/libraries/architecture/appstate/transform) blocks can read the manager's property
+[`transform`](https://developer.android.com/topic/libraries/architecture/appstate/transform.md.txt) blocks can read the manager's property
 reactively:
 
 
@@ -233,7 +235,7 @@ class FocusSessionManager(
 
 ## Integrations
 
-`StateStore` integrates with Jetpack [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) to persist and
+`StateStore` integrates with Jetpack [DataStore](https://developer.android.com/topic/libraries/architecture/datastore.md.txt) to persist and
 restore state across process death and app restarts.
 
 ### DataStore
@@ -245,22 +247,24 @@ DataStore.
 
 The `androidx.appstate.datastore` package provides the following APIs:
 
-    package androidx.appstate.datastore
+```kotlin
+package androidx.appstate.datastore
 
-    import androidx.appstate.statestore.StateStore
-    import androidx.datastore.core.DataStore
-    import kotlinx.coroutines.CoroutineScope
+import androidx.appstate.statestore.StateStore
+import androidx.datastore.core.DataStore
+import kotlinx.coroutines.CoroutineScope
 
-    public interface PersistToDataStore
+public interface PersistToDataStore
 
-    public suspend fun StateStore.syncToDataStore(
-        path: String,
-        coroutineScope: CoroutineScope,
-    )
+public suspend fun StateStore.syncToDataStore(
+    path: String,
+    coroutineScope: CoroutineScope,
+)
 
-    public suspend fun StateStore.syncToDataStore(
-        dataStore: DataStore<StateStorePreferences>,
-    )
+public suspend fun StateStore.syncToDataStore(
+    dataStore: DataStore<StateStorePreferences>,
+)
+```
 
 1. **Implement `PersistToDataStore`** : Mark any `StateStoreKey` that should be persisted by implementing the `PersistToDataStore` interface:
 
@@ -306,4 +310,4 @@ what and when to persist:
 
 - **Save start or end timestamps instead of every timer tick** : For timers or playback progress, persist a stable reference value (such as `endTimeMillis` or `startedAtMillis`) rather than updating a `PersistToDataStore` key every second or frame, and compute the live elapsed or remaining display in the UI.
 - **Debounce rapid user input before updating a persisted key** : For text drafts, search queries, or sliders, hold the immediate input in an in-memory `MutableState` (or a `StateStoreKey` that doesn't implement `PersistToDataStore`) and only call `setState` on the persisted `StateStoreKey` after the input settles.
-- **Keep persisted keys lightweight** : All `PersistToDataStore` keys in a `StateStore` are serialized together into a single file on each update. Persist compact session state---such as active IDs, filter selections, or in-progress form drafts---and keep large collections or queryable datasets in [Room](https://developer.android.com/training/data-storage/room).
+- **Keep persisted keys lightweight** : All `PersistToDataStore` keys in a `StateStore` are serialized together into a single file on each update. Persist compact session state---such as active IDs, filter selections, or in-progress form drafts---and keep large collections or queryable datasets in [Room](https://developer.android.com/training/data-storage/room.md.txt).

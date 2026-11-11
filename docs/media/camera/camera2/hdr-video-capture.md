@@ -4,11 +4,11 @@ url: https://developer.android.com/media/camera/camera2/hdr-video-capture
 source: md.txt
 ---
 
-**Note:** This page refers to the [Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
+**Note:** This page refers to the [Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary.md.txt) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
 
 <br />
 
-The [Camera2 APIs](https://developer.android.com/reference/android/hardware/camera2/package-summary) support High Dynamic Range (HDR) video capture,
+The [Camera2 APIs](https://developer.android.com/reference/android/hardware/camera2/package-summary.md.txt) support High Dynamic Range (HDR) video capture,
 which lets you preview and record HDR video content using your camera. Compared
 to Standard Dynamic Range (SDR), HDR offers a wider range of colors and
 increases the dynamic range of the luminance component (from the current 100
@@ -19,7 +19,7 @@ See how HDR video captures a sunset in more vibrant detail.
 ![A sunset captured in SDR video quality](https://developer.android.com/static/images/training/camera/camera2/sdr_comparison.png) ![A sunset captured in HDR video quality](https://developer.android.com/static/images/training/camera/camera2/hdr_comparison.png) **Figure 1.** SDR (top) versus HDR (bottom) video quality comparison.
 
 > [!NOTE]
-> **Note:** Starting in Android 13, camera devices with 10-bit camera output must support the HLG10 format for HDR capture and playback. For more information, see [HDR formats](https://developer.android.com/media/camera/camera2/hdr-video-capture#hdr-formats).
+> **Note:** Starting in Android 13, camera devices with 10-bit camera output must support the HLG10 format for HDR capture and playback. For more information, see [HDR formats](https://developer.android.com/media/camera/camera2/hdr-video-capture.md.txt#hdr-formats).
 
 ## Device prerequisites
 
@@ -27,7 +27,7 @@ Not all Android devices support HDR video capture. Before capturing HDR video in
 your app, determine if your device meets the following prerequisites:
 
 - Targets Android 13 (API level 33).
-- Has a 10-bit or higher capable camera sensor. For more information about HDR Support, see [Check for HDR support](https://developer.android.com/media/camera/camera2/hdr-video-capture#check-for-hdr-support).
+- Has a 10-bit or higher capable camera sensor. For more information about HDR Support, see [Check for HDR support](https://developer.android.com/media/camera/camera2/hdr-video-capture.md.txt#check-for-hdr-support).
 
 Because not all devices meet the prerequisites, you can add a separate code path
 when setting up HDR video capture in your app. This lets your app fall back to
@@ -43,20 +43,20 @@ When a camera device captures a frame in HDR, the Camera2 framework allocates a
 buffer that stores the processed camera sensor output. It also attaches the
 respective HDR metadata if required by the HDR profile. The Camera2 framework
 then queues the populated buffer for the output surface referenced in the
-[`CaptureRequest`](https://developer.android.com/media/camera/camera2/capture-sessions-requests#repeat-capture-requests), such as a display or video
+[`CaptureRequest`](https://developer.android.com/media/camera/camera2/capture-sessions-requests.md.txt#repeat-capture-requests), such as a display or video
 encoder, as shown in the diagram.
 
 > [!NOTE]
-> **Note:** Camera apps don't have access to HDR metadata through the Camera2 APIs or any [Media APIs](https://developer.android.com/reference/android/media/package-summary) in Android 13.
+> **Note:** Camera apps don't have access to HDR metadata through the Camera2 APIs or any [Media APIs](https://developer.android.com/reference/android/media/package-summary.md.txt) in Android 13.
 
 ## Check for HDR support
 
 Before capturing HDR video in your app, determine if the device supports your
 chosen HDR profile.
 
-Use the [`CameraManager`](https://developer.android.com/reference/android/hardware/camera2/CameraManager)
-[`getCameraCharacteristics()`](https://developer.android.com/reference/android/hardware/camera2/CameraManager#getCameraCharacteristics(java.lang.String)) method to obtain a
-[`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics) instance, which you can query
+Use the [`CameraManager`](https://developer.android.com/reference/android/hardware/camera2/CameraManager.md.txt)
+[`getCameraCharacteristics()`](https://developer.android.com/reference/android/hardware/camera2/CameraManager.md.txt#getCameraCharacteristics(java.lang.String)) method to obtain a
+[`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics.md.txt) instance, which you can query
 for your device's HDR capabilities.
 
 The following steps check if a device supports HLG10. HLG10 is the baseline HDR
@@ -65,163 +65,174 @@ standard that device makers must support on cameras with 10-bit output.
 1. First, check if the device supports 10-bit profiles (the bit-depth for
    HLG10):
 
-       private fun isTenBitProfileSupported(cameraId: String): Boolean {
-           val cameraCharacteristics = cameraManager.getCameraCharacteristics(cameraId)
-           val availableCapabilities = cameraCharacteristics.get(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES)
-           for (capability in availableCapabilities!!) {
-               if (capability == CameraMetadata.REQUEST_AVAILABLE_CAPABILITIES_DYNAMIC_RANGE_TEN_BIT) {
-                   return true
-               }
+   ```kotlin
+   private fun isTenBitProfileSupported(cameraId: String): Boolean {
+       val cameraCharacteristics = cameraManager.getCameraCharacteristics(cameraId)
+       val availableCapabilities = cameraCharacteristics.get(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES)
+       for (capability in availableCapabilities!!) {
+           if (capability == CameraMetadata.REQUEST_AVAILABLE_CAPABILITIES_DYNAMIC_RANGE_TEN_BIT) {
+               return true
            }
-           return false
        }
-
+       return false
+   }
+   ```
 2. Next, check if the device supports HLG10 (or [another supported
    profile](https://developer.android.com/reference/android/hardware/camera2/params/DynamicRangeProfiles)):
 
-       @RequiresApi(api = 33)
-       private fun isHLGSupported(cameraId: String): Boolean {
-         if (isTenBitProfileSupported(cameraId)) {
-           Val cameraCharacteristics = cameraManager.getCameraCharacteristics(cameraId)
-           val availableProfiles = cameraCharacteristics
-           .get(CameraCharacteristics.REQUEST_AVAILABLE_DYNAMIC_RANGE_PROFILES)!!
-           .getSupportedProfiles()
+   ```kotlin
+   @RequiresApi(api = 33)
+   private fun isHLGSupported(cameraId: String): Boolean {
+     if (isTenBitProfileSupported(cameraId)) {
+       Val cameraCharacteristics = cameraManager.getCameraCharacteristics(cameraId)
+       val availableProfiles = cameraCharacteristics
+       .get(CameraCharacteristics.REQUEST_AVAILABLE_DYNAMIC_RANGE_PROFILES)!!
+       .getSupportedProfiles()
 
-           // Checks for the chosen profile, in this case HLG10
-           return availableProfiles.contains(DynamicRangeProfiles.HLG10)
-         }
-         return false;
-       }
+       // Checks for the chosen profile, in this case HLG10
+       return availableProfiles.contains(DynamicRangeProfiles.HLG10)
+     }
+     return false;
+   }
+   ```
 
 If the device supports HDR, `isHLGSupported()` always return `true`. For more
-information, see the [`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics) reference
+information, see the [`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics.md.txt) reference
 documentation.
 
 ## Set up HDR capture
 
 After ensuring that your device supports HDR, set up your app to capture a raw
 HDR video stream from the camera. Use
-[`setDynamicRangeProfile()`](https://developer.android.com/reference/android/hardware/camera2/params/OutputConfiguration#setDynamicRangeProfile(long)) to provide the stream's
-[`OutputConfiguration`](https://developer.android.com/reference/android/hardware/camera2/params/OutputConfiguration) with a device-supported HDR
+[`setDynamicRangeProfile()`](https://developer.android.com/reference/android/hardware/camera2/params/OutputConfiguration.md.txt#setDynamicRangeProfile(long)) to provide the stream's
+[`OutputConfiguration`](https://developer.android.com/reference/android/hardware/camera2/params/OutputConfiguration.md.txt) with a device-supported HDR
 profile, which is then passed to the
-[`CameraCaptureSession`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession) upon creation. See the
-[list](https://developer.android.com/reference/android/hardware/camera2/params/DynamicRangeProfiles#constants_1) of supported HDR profiles.
+[`CameraCaptureSession`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession.md.txt) upon creation. See the
+[list](https://developer.android.com/reference/android/hardware/camera2/params/DynamicRangeProfiles.md.txt#constants_1) of supported HDR profiles.
 
 In the following code sample, `setupSessionDynamicRangeProfile()` first checks
 that the device is running Android 13. Then, it sets up the
 `CameraCaptureSession` with the device-supported HDR profile as an
 `OutputConfiguration`:
 
-      /**
-       * Creates a [CameraCaptureSession] with a dynamic range profile.
-       */
-      private fun setupSessionWithDynamicRangeProfile(
-          dynamicRange: Long,
-          device: CameraDevice,
-          targets: List<Surface>,
-          handler: Handler? = null,
-          stateCallback: CameraCaptureSession.StateCallback
-      ): Boolean {
-          if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
-              val outputConfigs = mutableListOf<OutputConfiguration>()
-              for (target in targets) {
-                  val outputConfig = OutputConfiguration(target)
-                  //sets the dynamic range profile, for example DynamicRangeProfiles.HLG10
-                  outputConfig.setDynamicRangeProfile(dynamicRange)
-                  outputConfigs.add(outputConfig)
-              }
-              device.createCaptureSessionByOutputConfigurations(
-                  outputConfigs, stateCallback, handler
-              )
-              return true
-          } else {
-              device.createCaptureSession(targets, stateCallback, handler)
-              return false
+```kotlin
+  /**
+   * Creates a [CameraCaptureSession] with a dynamic range profile.
+   */
+  private fun setupSessionWithDynamicRangeProfile(
+      dynamicRange: Long,
+      device: CameraDevice,
+      targets: List<Surface>,
+      handler: Handler? = null,
+      stateCallback: CameraCaptureSession.StateCallback
+  ): Boolean {
+      if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+          val outputConfigs = mutableListOf<OutputConfiguration>()
+          for (target in targets) {
+              val outputConfig = OutputConfiguration(target)
+              //sets the dynamic range profile, for example DynamicRangeProfiles.HLG10
+              outputConfig.setDynamicRangeProfile(dynamicRange)
+              outputConfigs.add(outputConfig)
           }
+          device.createCaptureSessionByOutputConfigurations(
+              outputConfigs, stateCallback, handler
+          )
+          return true
+      } else {
+          device.createCaptureSession(targets, stateCallback, handler)
+          return false
       }
+  }
+```
 
 When your camera app initializes the camera, it sends a repeating
-[`CaptureRequest`](https://developer.android.com/media/camera/camera2/capture-sessions-requests#repeat-capture-requests) to preview the recording:
+[`CaptureRequest`](https://developer.android.com/media/camera/camera2/capture-sessions-requests.md.txt#repeat-capture-requests) to preview the recording:
 
-    session.setRepeatingRequest(previewRequest, null, cameraHandler)
+```kotlin
+session.setRepeatingRequest(previewRequest, null, cameraHandler)
+```
 
 And also to start the video recording:
 
-    // Start recording repeating requests, which stops the ongoing preview
-    //  repeating requests without having to explicitly call
-    //  `session.stopRepeating`
-    session.setRepeatingRequest(recordRequest,
-            object : CameraCaptureSession.CaptureCallback() {
-        override fun onCaptureCompleted(session: CameraCaptureSession,
-                request: CaptureRequest, result: TotalCaptureResult) {
-            if (currentlyRecording) {
-                encoder.frameAvailable()
-            }
+```kotlin
+// Start recording repeating requests, which stops the ongoing preview
+//  repeating requests without having to explicitly call
+//  `session.stopRepeating`
+session.setRepeatingRequest(recordRequest,
+        object : CameraCaptureSession.CaptureCallback() {
+    override fun onCaptureCompleted(session: CameraCaptureSession,
+            request: CaptureRequest, result: TotalCaptureResult) {
+        if (currentlyRecording) {
+            encoder.frameAvailable()
         }
-    }, cameraHandler)
+    }
+}, cameraHandler)
+```
 
 ## Encode the HDR camera stream
 
 To encode the HDR camera stream and write the file to disk, use
-[`MediaCodec`](https://developer.android.com/reference/android/media/MediaCodec#createPersistentInputSurface()).
+[`MediaCodec`](https://developer.android.com/reference/android/media/MediaCodec.md.txt#createPersistentInputSurface()).
 
-First, get the output [`Surface`](https://developer.android.com/reference/android/view/Surface), which maps to a buffer that stores
+First, get the output [`Surface`](https://developer.android.com/reference/android/view/Surface.md.txt), which maps to a buffer that stores
 raw video data. For `MediaCodec`, use
-[`createInputSurface()`](https://developer.android.com/reference/android/media/MediaCodec#createInputSurface()).
+[`createInputSurface()`](https://developer.android.com/reference/android/media/MediaCodec.md.txt#createInputSurface()).
 
-To initialize `MediaCodec`, an app must create a [`MediaFormat`](https://developer.android.com/reference/android/media/MediaFormat)
+To initialize `MediaCodec`, an app must create a [`MediaFormat`](https://developer.android.com/reference/android/media/MediaFormat.md.txt)
 with a specified codec profile, color space, color range, and transfer
 function:
 
-    val mimeType = when {
-        dynamicRange == DynamicRangeProfiles.STANDARD -> MediaFormat.MIMETYPE_VIDEO_AVC
-        dynamicRange < DynamicRangeProfiles.PUBLIC_MAX ->
-                MediaFormat.MIMETYPE_VIDEO_HEVC
-        else -> throw IllegalArgumentException("Unknown dynamic range format")
-    }
+```kotlin
+val mimeType = when {
+    dynamicRange == DynamicRangeProfiles.STANDARD -> MediaFormat.MIMETYPE_VIDEO_AVC
+    dynamicRange < DynamicRangeProfiles.PUBLIC_MAX ->
+            MediaFormat.MIMETYPE_VIDEO_HEVC
+    else -> throw IllegalArgumentException("Unknown dynamic range format")
+}
 
-    val codecProfile = when {
-        dynamicRange == DynamicRangeProfiles.HLG10 ->
-                MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10
-        dynamicRange == DynamicRangeProfiles.HDR10 ->
-                MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10
-        dynamicRange == DynamicRangeProfiles.HDR10_PLUS ->
-                MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10Plus
-        else -> -1
-    }
-    // Failing to correctly set color transfer causes quality issues
-    // for example, washout and color clipping
-    val transferFunction = when (codecProfile) {
-        MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10 ->
-                MediaFormat.COLOR_TRANSFER_HLG
-        MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10 ->
-                MediaFormat.COLOR_TRANSFER_ST2084
-        MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10Plus ->
-                MediaFormat.COLOR_TRANSFER_ST2084
-        else -> MediaFormat.COLOR_TRANSFER_SDR_VIDEO
-    }
+val codecProfile = when {
+    dynamicRange == DynamicRangeProfiles.HLG10 ->
+            MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10
+    dynamicRange == DynamicRangeProfiles.HDR10 ->
+            MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10
+    dynamicRange == DynamicRangeProfiles.HDR10_PLUS ->
+            MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10Plus
+    else -> -1
+}
+// Failing to correctly set color transfer causes quality issues
+// for example, washout and color clipping
+val transferFunction = when (codecProfile) {
+    MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10 ->
+            MediaFormat.COLOR_TRANSFER_HLG
+    MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10 ->
+            MediaFormat.COLOR_TRANSFER_ST2084
+    MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10Plus ->
+            MediaFormat.COLOR_TRANSFER_ST2084
+    else -> MediaFormat.COLOR_TRANSFER_SDR_VIDEO
+}
 
-    val format = MediaFormat.createVideoFormat(mimeType, width, height)
+val format = MediaFormat.createVideoFormat(mimeType, width, height)
 
-    // Set some properties.  Failing to specify some of these can cause the MediaCodec
-    // configure() call to throw an exception.
-    format.setInteger(MediaFormat.KEY_COLOR_FORMAT,
-            MediaCodecInfo.CodecCapabilities.COLOR_FormatSurface)
-    format.setInteger(MediaFormat.KEY_BIT_RATE, bitRate)
-    format.setInteger(MediaFormat.KEY_FRAME_RATE, frameRate)
-    format.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, IFRAME_INTERVAL)
+// Set some properties.  Failing to specify some of these can cause the MediaCodec
+// configure() call to throw an exception.
+format.setInteger(MediaFormat.KEY_COLOR_FORMAT,
+        MediaCodecInfo.CodecCapabilities.COLOR_FormatSurface)
+format.setInteger(MediaFormat.KEY_BIT_RATE, bitRate)
+format.setInteger(MediaFormat.KEY_FRAME_RATE, frameRate)
+format.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, IFRAME_INTERVAL)
 
-    if (codecProfile != -1) {
-        format.setInteger(MediaFormat.KEY_PROFILE, codecProfile)
-        format.setInteger(MediaFormat.KEY_COLOR_STANDARD,
-                MediaFormat.COLOR_STANDARD_BT2020)
-        format.setInteger(MediaFormat.KEY_COLOR_RANGE, MediaFormat.COLOR_RANGE_LIMITED)
-        format.setInteger(MediaFormat.KEY_COLOR_TRANSFER, transferFunction)
-        format.setFeatureEnabled(MediaCodecInfo.CodecCapabilities.FEATURE_HdrEditing,
-                true)
-    }
+if (codecProfile != -1) {
+    format.setInteger(MediaFormat.KEY_PROFILE, codecProfile)
+    format.setInteger(MediaFormat.KEY_COLOR_STANDARD,
+            MediaFormat.COLOR_STANDARD_BT2020)
+    format.setInteger(MediaFormat.KEY_COLOR_RANGE, MediaFormat.COLOR_RANGE_LIMITED)
+    format.setInteger(MediaFormat.KEY_COLOR_TRANSFER, transferFunction)
+    format.setFeatureEnabled(MediaCodecInfo.CodecCapabilities.FEATURE_HdrEditing,
+            true)
+}
 
-    mediaCodec.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE)
+mediaCodec.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE)
+```
 
 For more details about implementation, see the Camera2Video sample app's
 [`EncoderWrapper.kt`](https://github.com/android/camera-samples/blob/main/Camera2Video/app/src/main/java/com/example/android/camera2/video/EncoderWrapper.kt).

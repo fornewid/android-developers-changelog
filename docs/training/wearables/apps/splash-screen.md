@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 If your app implements a custom splash screen or uses a launcher theme, migrate
-your app to the [`SplashScreen`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen) library, available in Jetpack, to ensure it
+your app to the [`SplashScreen`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen.md.txt) library, available in Jetpack, to ensure it
 displays correctly on all Wear OS versions.
 
 See step by step implementation instructions on this page to learn how to add a
@@ -177,12 +177,12 @@ class SplashScreenActivity : ComponentActivity() {
 
 ## Additional resources
 
-[Learn more about splash screens](https://developer.android.com/develop/ui/views/launch/splash-screen) in general and how you can use them
+[Learn more about splash screens](https://developer.android.com/develop/ui/views/launch/splash-screen.md.txt) in general and how you can use them
 in your app.
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Migrate your splash screen implementation to Android 12 and later](https://developer.android.com/develop/ui/views/launch/splash-screen/migrate)
-- [Splash screens](https://developer.android.com/develop/ui/views/launch/splash-screen)
-- [Integrate App Actions with Android widgets](https://developer.android.com/develop/devices/assistant/widgets)
+- [Migrate your splash screen implementation to Android 12 and later](https://developer.android.com/develop/ui/views/launch/splash-screen/migrate.md.txt)
+- [Splash screens](https://developer.android.com/develop/ui/views/launch/splash-screen.md.txt)
+- [Integrate App Actions with Android widgets](https://developer.android.com/develop/devices/assistant/widgets.md.txt)

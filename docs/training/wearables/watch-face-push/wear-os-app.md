@@ -7,7 +7,7 @@ source: md.txt
 > [!NOTE]
 > **Note:** The Watch Face Push library is meant for watch face developers who prefer to publish to their own marketplace stores.  
 >
-> If you publish your watch faces to Google Play, use a tool that supports a less complex publishing process, such as [Watch Face Designer](https://developer.android.com/training/wearables/watch-face-designer/publish) or [Watch Face Studio](https://developer.samsung.com/watch-face-studio/user-guide/build.html).
+> If you publish your watch faces to Google Play, use a tool that supports a less complex publishing process, such as [Watch Face Designer](https://developer.android.com/training/wearables/watch-face-designer/publish.md.txt) or [Watch Face Studio](https://developer.samsung.com/watch-face-studio/user-guide/build.html).
 
 Watch Face Push lets your app manage watch faces on a Wear OS device.
 This includes adding, updating, and removing watch faces, as well as setting
@@ -16,7 +16,7 @@ use the Watch Face Push API.
 
 ## Setup
 
-Include the [`androidx.wear.watchfacepush:watchfacepush`](https://developer.android.com/jetpack/androidx/releases/wear-watchfacepush#declaring_dependencies) dependency in your
+Include the [`androidx.wear.watchfacepush:watchfacepush`](https://developer.android.com/jetpack/androidx/releases/wear-watchfacepush.md.txt#declaring_dependencies) dependency in your
 `build.gradle.kts` file.
 
 Add the following to your `AndroidManifest.xml`:
@@ -264,7 +264,7 @@ of the watch face that should be active.
 > [!NOTE]
 > **Note:** The active watch face can be set by this means *only once*. Should the user move to a watch face from another developer, calling this API to set the active watch face back to your watch face throws an exception.
 
-Once this means has been used, your [phone app](https://developer.android.com/training/wearables/watch-face-push/phone-app) should instead offer
+Once this means has been used, your [phone app](https://developer.android.com/training/wearables/watch-face-push/phone-app.md.txt) should instead offer
 guidance on how to manually set the active watch face.
 
 ## Read additional metadata from your watch face APK
@@ -337,7 +337,7 @@ the Wear OS component of your marketplace app:
 4. **Do not schedule jobs to check the active watch face** :
    1. Periodically checking whether your marketplace still has the active watch face and which watch face it is places a drain on the battery. Avoid this approach.
 5. **Do not use notifications on the watch** :
-   1. If your app uses notifications, focus these on the phone, where the user action opens the phone app to continue the journey. Configure notifications not to bridge across to the watch app using [`setLocalOnly`](https://developer.android.com/reference/android/app/Notification.Builder#setLocalOnly(boolean))().
+   1. If your app uses notifications, focus these on the phone, where the user action opens the phone app to continue the journey. Configure notifications not to bridge across to the watch app using [`setLocalOnly`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setLocalOnly(boolean))().
 
 ### Caching
 
@@ -346,7 +346,7 @@ to the watch. This connection is typically a Bluetooth connection, which can be
 quite slow.
 
 To both provide a better user experience, and conserve retransmission power,
-consider implementing a [small cache](https://developer.android.com/training/data-storage/app-specific#internal-create-cache) in the Wear OS device to store a
+consider implementing a [small cache](https://developer.android.com/training/data-storage/app-specific.md.txt#internal-create-cache) in the Wear OS device to store a
 handful of APKs.
 
 In the case where the user tries another watch face but then decides to revert
@@ -365,7 +365,7 @@ when your marketplace app is installed, the watch face isn't updated should a
 newer version be bundled with any update to your marketplace app.
 
 To handle this situation, your marketplace app should listen for the
-[`MY_PACKAGE_REPLACED`](https://developer.android.com/reference/android/content/Intent#ACTION_MY_PACKAGE_REPLACED) broadcast action and check for the need
+[`MY_PACKAGE_REPLACED`](https://developer.android.com/reference/android/content/Intent.md.txt#ACTION_MY_PACKAGE_REPLACED) broadcast action and check for the need
 to update any bundled watch face from package assets.
 
 ### Representative default watch face
@@ -386,4 +386,4 @@ Some considerations when working with default watch faces:
 
      `<Launch target="com.myapp/com.myapp.LaunchOnPhoneActivity" />`
   2. In `LaunchOnPhoneActivity`, launch the phone app using
-     [`RemoteActivityHelper`](https://developer.android.com/reference/androidx/wear/remote/interactions/RemoteActivityHelper).
+     [`RemoteActivityHelper`](https://developer.android.com/reference/androidx/wear/remote/interactions/RemoteActivityHelper.md.txt).

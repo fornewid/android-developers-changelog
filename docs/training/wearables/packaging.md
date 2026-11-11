@@ -23,7 +23,7 @@ in your Play Console.
 
 Here is an example scheme:
 
-- First 2 numbers: [`targetSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target):
+- First 2 numbers: [`targetSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-sdk-element.md.txt#target):
   - `36[xxx][yy][zz]`
 - Next numbers: product version:
   - `36152[yy][zz]`
@@ -34,8 +34,8 @@ Here is an example scheme:
 
 If you have a phone APK in addition to a watch APK, you must use the [Multi-APK
 delivery method](https://developer.android.com/training/wearables) to manage both. To learn more about versioning for multiple
-APKs, see [Rules for Multiple APKs](https://developer.android.com/google/play/publishing/multiple-apks#Rules), and to verify that your gradle
-configuration sets versions correctly, see [Set app version information](https://developer.android.com/studio/publish/versioning#appversioning).
+APKs, see [Rules for Multiple APKs](https://developer.android.com/google/play/publishing/multiple-apks.md.txt#Rules), and to verify that your gradle
+configuration sets versions correctly, see [Set app version information](https://developer.android.com/studio/publish/versioning.md.txt#appversioning).
 
 ### Set up targeting for a watch
 
@@ -57,7 +57,7 @@ set to `android.hardware.type.watch`:
 
 In addition to declaring the `android.hardware.type.watch` feature in your
 manifest, you can also filter by criteria like SDK version, screen resolution,
-and CPU architecture. See [Filters on Google Play](https://developer.android.com/google/play/filters) for details.
+and CPU architecture. See [Filters on Google Play](https://developer.android.com/google/play/filters.md.txt) for details.
 
 ### Specify the standalone setting
 
@@ -82,13 +82,13 @@ false.
 If the value of `com.google.android.wearable.standalone` is `false`, the app
 is still downloadable from the Play Store, but it requires its
 companion mobile app for it to be usable. To learn more about standalone Wear
-development, see [Standalone versus Non-Standalone Wear OS Apps](https://developer.android.com/training/wearables/apps/standalone-apps).
+development, see [Standalone versus Non-Standalone Wear OS Apps](https://developer.android.com/training/wearables/apps/standalone-apps.md.txt).
 
 ## Development validation
 
 To prepare for a successful launch on Wear OS, review the [Wear OS development
 resources](https://developer.android.com/training/wearables) and the [Wear OS design](https://developer.android.com/design/ui/wear) guidance, and verify that your app
-adheres to the [Wear OS quality standards](https://developer.android.com/docs/quality-guidelines/wear-app-quality).
+adheres to the [Wear OS quality standards](https://developer.android.com/docs/quality-guidelines/wear-app-quality.md.txt).
 
 ### Valid packaging
 
@@ -111,7 +111,7 @@ OEMs.
 
 ### Quality standards validation
 
-Verify that your app adheres to all [Wear OS Quality Standards](https://developer.android.com/docs/quality-guidelines/wear-app-quality), and perform
+Verify that your app adheres to all [Wear OS Quality Standards](https://developer.android.com/docs/quality-guidelines/wear-app-quality.md.txt), and perform
 user QA testing to verify ease of use and general quality.
 
 If these standards are not met, your app will be rejected during the [Play Store
@@ -130,14 +130,14 @@ games. To publish a kid-friendly experience for your app or watch face on the
 Play Store, it must meet the following additional requirements:
 
 - **Age and content rating:** Apps and watch faces that are designed for kids must meet the [age and content requirements](https://support.google.com/googleplay/android-developer/answer/9867159#declare_target_age_group) that are appropriate to their functionality.
-- **Standalone functionality:** Apps must set `com.google.android.wearable.standalone` to `true`, as described in the section about [specifying an app's standalone setting](https://developer.android.com/training/wearables/packaging#specifying-app-as-standalone). They must also meet all [associated requirements for standalone apps](https://developer.android.com/training/wearables/apps/standalone-apps#identify), which take effect when the watch is set up with a [child account](https://support.google.com/families/answer/7103338).
-- **Watch Face Format:** If you are developing a watch face for kids, it must be created using [Watch Face Format](https://developer.android.com/training/wearables/wff).
+- **Standalone functionality:** Apps must set `com.google.android.wearable.standalone` to `true`, as described in the section about [specifying an app's standalone setting](https://developer.android.com/training/wearables/packaging.md.txt#specifying-app-as-standalone). They must also meet all [associated requirements for standalone apps](https://developer.android.com/training/wearables/apps/standalone-apps.md.txt#identify), which take effect when the watch is set up with a [child account](https://support.google.com/families/answer/7103338).
+- **Watch Face Format:** If you are developing a watch face for kids, it must be created using [Watch Face Format](https://developer.android.com/training/wearables/wff.md.txt).
 
 For more information about creating kid-friendly experiences, see the
-[development guidelines](https://developer.android.com/training/wearables/kids/develop).
+[development guidelines](https://developer.android.com/training/wearables/kids/develop.md.txt).
 
 > [!CAUTION]
-> **Caution:** If you implement an authentication solution in a kid-friendly experience, you cannot use [Google Sign-in](https://developer.android.com/training/wearables/apps/auth-wear#Google-Sign-in) because it's not compatible with child accounts.
+> **Caution:** If you implement an authentication solution in a kid-friendly experience, you cannot use [Google Sign-in](https://developer.android.com/training/wearables/apps/auth-wear.md.txt#Google-Sign-in) because it's not compatible with child accounts.
 
 ## Distribution
 
@@ -213,6 +213,6 @@ The following table contains the most common reasons for Play Store rejections.
 |---|---|
 | **Doesn't mention "Wear OS" in the Play Store listing** | You must mention "Wear OS" in your app's store listing. |
 | **Basic functionality is broken** | The app doesn't function as advertised, or the screenshots are inaccurate and don't reflect the actual app. Thoroughly test your app with an emulator and a physical device. |
-| **No Wear screenshot** | You must upload at least one screenshot that shows the app running on a Wear OS device. This can be done [from Android Studio](https://developer.android.com/studio/debug/am-screenshot). |
-| **Not formatted for round displays** | The app's layout renders incorrectly on a round display, and the Play Store listing doesn't specify this limitation. Use the [Open the Layout Inspector](https://developer.android.com/studio/debug/layout-inspector) in Android Studio to make sure that layouts render correctly |
-| **Missing functionality requirements** | Commonly missed functionality requirements, such as malformatted Wear OS notifications or missing [`RemoteInput`](https://developer.android.com/reference/androidx/core/app/RemoteInput) for [messaging apps](https://developer.android.com/training/wearables/notifications#wearable-only-actions) replies. |
+| **No Wear screenshot** | You must upload at least one screenshot that shows the app running on a Wear OS device. This can be done [from Android Studio](https://developer.android.com/studio/debug/am-screenshot.md.txt). |
+| **Not formatted for round displays** | The app's layout renders incorrectly on a round display, and the Play Store listing doesn't specify this limitation. Use the [Open the Layout Inspector](https://developer.android.com/studio/debug/layout-inspector.md.txt) in Android Studio to make sure that layouts render correctly |
+| **Missing functionality requirements** | Commonly missed functionality requirements, such as malformatted Wear OS notifications or missing [`RemoteInput`](https://developer.android.com/reference/androidx/core/app/RemoteInput.md.txt) for [messaging apps](https://developer.android.com/training/wearables/notifications.md.txt#wearable-only-actions) replies. |

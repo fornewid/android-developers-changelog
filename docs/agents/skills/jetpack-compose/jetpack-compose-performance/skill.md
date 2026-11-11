@@ -18,10 +18,10 @@ place:
 1. **Exhaustive Scan** : Scan the target code against all 7 core categories in the following sections. Evaluate every `@Composable` function, modifier chain, and lazy-layout data model against all checklist rules rather than stopping after the first issue found.
 2. **Mandatory Reference Read Before Flagging or Editing** : Whenever a file matches a rule in Categories 1--7, you **MUST** open and read the corresponding `references/*.md` file for the approved fix pattern and full scope guards **before** reporting a finding or editing code. Never rely on the summary bullets alone to write fixes.
 
-## 1. State, snapshots, and stability ([references/state-and-stability.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability))
+## 1. State, snapshots, and stability ([references/state-and-stability.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability.md.txt))
 
 **MANDATORY** : Before flagging or fixing any issue in this category, you
-**MUST** read [references/state-and-stability.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability).
+**MUST** read [references/state-and-stability.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability.md.txt).
 
 - **Phase Deferral (Lambdas)** : Wrap frequently changing state reads in lambdas (such as `Modifier.offset` or `Modifier.graphicsLayer`) so reads occur in Layout or Draw phase rather than Composition.
 - **Prohibit Backwards Writes (Verify Read-Before-Write Order)** : Never modify state in a later phase or after it has already been read in the same composition pass (`Read -> Write`, or `Composition Read -> Layout or Draw
@@ -38,7 +38,7 @@ place:
 - **Snapshot Collections** : Use `SnapshotStateList.toList()` for repeated queries or iterations to avoid per-element read observation overhead.
 - **Repeated State Reads** : Extract repeated Compose `State` property reads into a local variable at the top of the block.
 - **State in Setters** : Avoid reading Compose `State` inside custom property setters; use a raw backing field when triggering change side-effects and batch multi-property updates.
-- **Stability \& Skipping Trade-Offs (Skipping Isn't Free)** : Do not fixate on stability or treat `@Immutable`, `@Stable`, or `ImmutableList` as default solutions. Skipping a composable is not free: each parameter is stored in the slot table as if remembered, and all inputs must be compared on recomposition. [Strong Skipping Mode](https://developer.android.com/develop/ui/compose/performance/stability/strongskipping) already skips composables with unstable parameters (including standard `kotlin.collections.List`) when instance equality (`===`) matches. Annotating models or using `ImmutableList` forces structural equality (`.equals()`), which can be significantly more expensive than recomposition itself for large collections or complex classes.
+- **Stability \& Skipping Trade-Offs (Skipping Isn't Free)** : Do not fixate on stability or treat `@Immutable`, `@Stable`, or `ImmutableList` as default solutions. Skipping a composable is not free: each parameter is stored in the slot table as if remembered, and all inputs must be compared on recomposition. [Strong Skipping Mode](https://developer.android.com/develop/ui/compose/performance/stability/strongskipping.md.txt) already skips composables with unstable parameters (including standard `kotlin.collections.List`) when instance equality (`===`) matches. Annotating models or using `ImmutableList` forces structural equality (`.equals()`), which can be significantly more expensive than recomposition itself for large collections or complex classes.
 - **Never Add `@Stable`, `@Immutable`, or `ImmutableList` to Collection
   Models** : When writing or optimizing code, never add `@Immutable` or `@Stable` to models containing collections (`List`, `Set`, `Map`), and **never** recommend replacing `kotlin.collections.List<T>` with `ImmutableList<T>` (or adding `ImmutableList` to `stability_config.txt`). Calling `O(N)` `.equals()` on collections on every recomposition pass is more expensive than `O(1)` instance equality (`===`) under Strong Skipping Mode.
 - **Scope Guard for Removing Existing `@Stable` / `@Immutable` Annotations
@@ -50,10 +50,10 @@ place:
 - **When to Add `@Stable` / `@Immutable` Under Strong Skipping Mode** : Flat `data class`es with `val` primitive/`String` properties in Compose modules are **already inferred as stable** by the compiler and use `.equals()` automatically---do not add redundant `@Immutable` annotations to them. Only add `@Stable` or `@Immutable` when the compiler cannot infer stability (e.g. classes from non-Compose modules or interfaces) **and** a data source (such as Room or MVI reducers) allocates new object instances for unchanged items on every emission, **provided** the class is small, flat, has no collections (`List`, `Set`, `Map`), and its `.equals()` check is trivial `O(1)`.
 - **Make Composables Cheaper Instead of Forcing Skipping**: Do not overindex on recomposition counts. Skipping one composable during an active recomposition pass saves little time once composition is scheduled (scheduling and starting the recomposition pass is the bulk of the cost). Focus on making composables cheap to execute, deferring state reads to Layout/Draw, and verifying with benchmarks rather than assuming skipping improves performance.
 
-## 2. Layouts and measurement optimization ([references/layouts.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/layouts))
+## 2. Layouts and measurement optimization ([references/layouts.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/layouts.md.txt))
 
 **MANDATORY** : Before flagging or fixing any issue in this category, you
-**MUST** read [references/layouts.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/layouts).
+**MUST** read [references/layouts.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/layouts.md.txt).
 
 - **Coordinates \& Placement** : Avoid `onGloballyPositioned`; use `Modifier.onVisibilityChanged` for viewport tracking, `Modifier.onPlaced` or `Modifier.onLayoutRectChanged` for local bounds, and query `requireLayoutCoordinates()` on demand inside `Modifier.Node` event handlers.
 - **Anchor Floating Content via Custom `Layout`** : When attaching floating labels or tooltips to a component, use a custom `Layout` measuring and placing both children relative to each other. Never track `onGloballyPositioned` coordinates in `MutableState` to position floating content with `offset`, which causes a 1-frame lag and schedules a second composition pass.
@@ -62,10 +62,10 @@ place:
 - **Subcomposition Overhead** : Avoid `BoxWithConstraints` / `SubcomposeLayout` inside hot paths and lazy items; prefer standard modifiers, `Modifier.layout`, or `LayoutModifierNode`.
 - **Intrinsic Measurements**: Use intrinsic measurements judiciously and avoid deeply nested intrinsic chains.
 
-## 3. Lazy layouts optimization ([references/lazy-layouts.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/lazy-layouts))
+## 3. Lazy layouts optimization ([references/lazy-layouts.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/lazy-layouts.md.txt))
 
 **MANDATORY** : Before flagging or fixing any issue in this category, you
-**MUST** read [references/lazy-layouts.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/lazy-layouts).
+**MUST** read [references/lazy-layouts.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/lazy-layouts.md.txt).
 
 - **Lazy Layout Scope Guard** : Directives for `key` and `contentType` apply **strictly** to Lazy containers (`LazyColumn`, `LazyRow`, `LazyGrid`). Never flag standard non-lazy containers (`Column`, `Row`, `Box`) iterating over collections.
 - **Mandatory `contentType` and Primitive `key`** : Always specify both primitive `key`s (`Int`, `Long`, `String`) **and** `contentType`s for all items in lazy layouts (`LazyColumn`, `LazyRow`, `LazyGrid`). When using `items` or `itemsIndexed`, never omit `contentType`: `contentType = { _, item -> item.type }`. Omitting `contentType` prevents Compose from reusing composition slots during scrolling.
@@ -78,10 +78,10 @@ place:
 - **Hoist Shared Flows** : Collect shared `Flow`s once in the parent container preceding lazy layouts; never call `collectAsStateWithLifecycle()` per visible item.
 - **Avoid Side Effects in Pre-Fetched Items** : Never trigger analytics in `LaunchedEffect(Unit)` inside lazy items; use `Modifier.onVisibilityChanged` with dwell thresholds instead.
 
-## 4. Animation and shared transitions ([references/animation.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/animation))
+## 4. Animation and shared transitions ([references/animation.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/animation.md.txt))
 
 **MANDATORY** : Before flagging or fixing any issue in this category, you
-**MUST** read [references/animation.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/animation).
+**MUST** read [references/animation.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/animation.md.txt).
 
 - **Phase Deferral for Animated Properties** : Wrap fast-changing animated state reads (alpha, scale, rotation, color) in `Modifier.graphicsLayer { ...
   }` to bypass Composition and evaluate directly in the Draw phase.
@@ -90,10 +90,10 @@ place:
 - **Lambda Providers** : Pass lambda providers (`() -> Float`) instead of raw animated values to child composables to keep state reads deferred to Draw or Layout.
 - **Persistent `Animatable` in Nodes** : Store `Animatable` as a persistent member property on `Modifier.Node` and launch in `onAttach()` using `coroutineScope.launch`.
 
-## 5. Effects, lifecycle, and threading ([effects-and-threading.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/effects-and-threading))
+## 5. Effects, lifecycle, and threading ([effects-and-threading.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/effects-and-threading.md.txt))
 
 **MANDATORY** : Before flagging or fixing any issue in this category, you
-**MUST** read [references/effects-and-threading.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/effects-and-threading).
+**MUST** read [references/effects-and-threading.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/effects-and-threading.md.txt).
 
 - **Prohibit Direct Side-Effects in Body** : Never perform side-effects directly in the Composable body during composition; wrap them in `SideEffect`, `LaunchedEffect`, or user event callbacks.
 - **Prohibit Non-Suspending `LaunchedEffect` \& Empty `DisposableEffect`** : Never use `LaunchedEffect` for synchronous operations (e.g. logging views or updating objects). Never use `DisposableEffect` with an empty `onDispose {}` block as a workaround. Use `SideEffect` instead (in Compose 1.12+, `SideEffect(keys) { ... }` supports keys directly; on Compose `<
@@ -109,10 +109,10 @@ place:
 - **Prevent Stale Captures** : Use `rememberUpdatedState` when long-running or looping coroutines in `LaunchedEffect` reference callbacks or parameters.
 - **Replace Legacy Timers** : Replace `Handler.postDelayed` or `TimerTask` with `LaunchedEffect` and `delay()`.
 
-## 6. Graphics and custom drawing ([references/graphics-performance.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/graphics-performance))
+## 6. Graphics and custom drawing ([references/graphics-performance.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/graphics-performance.md.txt))
 
 **MANDATORY** : Before flagging or fixing any issue in this category, you
-**MUST** read [references/graphics-performance.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/graphics-performance).
+**MUST** read [references/graphics-performance.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/graphics-performance.md.txt).
 
 - **Cache Drawing Allocations** : Replace decorative `Canvas` nodes with `Modifier.drawWithCache` to cache `Path`, `Paint`, and `Brush` allocations.
 - **Prefer AsyncImage instead of Image** : Use Coil's `AsyncImage` for loading images from the internet and `painterResource` for drawables. `Image` is not optimized for caching and loading images and may cause performance issues.
@@ -120,7 +120,7 @@ place:
 - **Graphics Path Object Reuse** : Prefer `Path.rewind()` over `reset()` in hot draw loops to retain allocated buffers without reallocation.
 - **Value Classes \& Primitive Collections** : Avoid generic tuples (`Pair`, `Triple`) and generic sets (`HashSet<Long>`); use `androidx.collection.MutableLongSet` and `androidx.compose.ui.util.packInts`.
 
-## 7. Custom modifiers: `Modifier.Node` ([Custom modifiers guide](https://developer.android.com/develop/ui/compose/custom-modifiers))
+## 7. Custom modifiers: `Modifier.Node` ([Custom modifiers guide](https://developer.android.com/develop/ui/compose/custom-modifiers.md.txt))
 
 - **Modifier.Node Migration** : Migrate legacy `Modifier.composed` to
   `ModifierNodeElement` + `Modifier.Node` (or `DelegatingNode` when delegating
@@ -128,7 +128,7 @@ place:
   interfaces (`DrawModifierNode`, `LayoutModifierNode`,
   `SemanticsModifierNode`, `CompositionLocalConsumerModifierNode` using
   `currentValueOf(...)`) to eliminate per-node subcomposition overhead and
-  enable node reuse (see [Create custom modifiers with Modifier.Node](https://developer.android.com/develop/ui/compose/custom-modifiers)):
+  enable node reuse (see [Create custom modifiers with Modifier.Node](https://developer.android.com/develop/ui/compose/custom-modifiers.md.txt)):
 
 
   ```kotlin
@@ -163,4 +163,4 @@ place:
   `GlobalPositionAwareModifierNode.onGloballyPositioned`.
 
 **IMPORTANT** : For more examples on how to migrate common modifiers to
-Modifier.Node, you must read [Create custom modifiers with Modifier.Node](https://developer.android.com/develop/ui/compose/custom-modifiers).
+Modifier.Node, you must read [Create custom modifiers with Modifier.Node](https://developer.android.com/develop/ui/compose/custom-modifiers.md.txt).

@@ -10,7 +10,7 @@ Scrollable lists can help manage datasets, create responsive designs, and
 facilitate navigation. You can display smaller sets of items in your app
 by using a finite scrolling list. To avoid performance issues with larger
 datasets or a list of unknown length, see
-[Lazily load data with lists and Paging](https://developer.android.com/develop/ui/compose/quick-guides/content/lazily-load-list).
+[Lazily load data with lists and Paging](https://developer.android.com/develop/ui/compose/quick-guides/content/lazily-load-list.md.txt).
 
 ## Results
 
@@ -55,8 +55,8 @@ private fun ScrollBoxes() {
 
 ### Key points about the code
 
-- Sets the [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) scrolling behavior with the [`verticalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)) modifier and the [`rememberScrollState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/rememberScrollState.composable#rememberScrollState(kotlin.Int)) function.
-- To create a horizontal scrolling list, create a [`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)) with a [`horizontalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/horizontalScroll.modifier#(androidx.compose.ui.Modifier).horizontalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)) modifier.
+- Sets the [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable.md.txt#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) scrolling behavior with the [`verticalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier.md.txt#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)) modifier and the [`rememberScrollState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/rememberScrollState.composable.md.txt#rememberScrollState(kotlin.Int)) function.
+- To create a horizontal scrolling list, create a [`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable.md.txt#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)) with a [`horizontalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/horizontalScroll.modifier.md.txt#(androidx.compose.ui.Modifier).horizontalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)) modifier.
 
 ## Collections that contain this guide
 
@@ -78,4 +78,4 @@ This series of videos introduces various Compose APIs, quickly showing you what'
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

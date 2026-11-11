@@ -49,7 +49,7 @@ Image(
 
 #### Key points about the code
 
-- A defined Compose [`Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Image.composable) object with a `painter` attribute set to a [`painterResource()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/res/package-summary#painterresource) that loads an image from app resources.
+- A defined Compose [`Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Image.composable.md.txt) object with a `painter` attribute set to a [`painterResource()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/res/package-summary.md.txt#painterresource) that loads an image from app resources.
 - A `contentDescription` that `TalkBack` can read to make your app more accessible.
 - A `stringResource()` to load translated content description from the `strings.xml` file.
 
@@ -122,4 +122,4 @@ Discover techniques for using bright, engaging visuals to give your Android app 
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

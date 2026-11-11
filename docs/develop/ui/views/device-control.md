@@ -40,7 +40,7 @@ use the default icon and color if the default set matches the device.
 ## Create the service
 
 This section shows how to create the
-[`ControlsProviderService`](https://developer.android.com/reference/android/service/controls/ControlsProviderService). This service tells the
+[`ControlsProviderService`](https://developer.android.com/reference/android/service/controls/ControlsProviderService.md.txt). This service tells the
 Android system UI that your app contains device controls that must be displayed
 in the **Device controls** area of the Android UI.
 
@@ -65,16 +65,18 @@ You also need a `label` that is displayed in the controls in the system UI.
 
 The following example shows how to declare a service:
 
-    <service
-        android:name="MyCustomControlService"
-        android:label="My Custom Controls"
-        android:permission="android.permission.BIND_CONTROLS"
-        android:exported="true"
-        >
-        <intent-filter>
-          <action android:name="android.service.controls.ControlsProviderService" />
-        </intent-filter>
-    </service>
+```xml
+<service
+    android:name="MyCustomControlService"
+    android:label="My Custom Controls"
+    android:permission="android.permission.BIND_CONTROLS"
+    android:exported="true"
+    >
+    <intent-filter>
+      <action android:name="android.service.controls.ControlsProviderService" />
+    </intent-filter>
+</service>
+```
 
 Next, create a new Kotlin file named `MyCustomControlService.kt` and make it
 extend `ControlsProviderService`:
@@ -94,23 +96,23 @@ The API provides builder methods to create the controls. To populate the
 builder, determine the device you want to control and how the user interacts
 with it. Perform the following steps:
 
-1. Pick the type of device the control represents. The [`DeviceTypes`](https://developer.android.com/reference/android/service/controls/DeviceTypes) class is an enumeration of all supported devices. The type is used to determine the icons and colors for the device in the UI.
+1. Pick the type of device the control represents. The [`DeviceTypes`](https://developer.android.com/reference/android/service/controls/DeviceTypes.md.txt) class is an enumeration of all supported devices. The type is used to determine the icons and colors for the device in the UI.
 2. Determine the user-facing name, device location---for example, kitchen---and other UI textual elements associated with the control.
-3. Pick the best template to support user interaction. Controls are assigned a [`ControlTemplate`](https://developer.android.com/reference/android/service/controls/templates/ControlTemplate) from the application. This template directly shows the control state to the user as well as the available input methods---that is, the [`ControlAction`](https://developer.android.com/reference/android/service/controls/actions/ControlAction). The following table outlines some of the available templates and the actions they support:
+3. Pick the best template to support user interaction. Controls are assigned a [`ControlTemplate`](https://developer.android.com/reference/android/service/controls/templates/ControlTemplate.md.txt) from the application. This template directly shows the control state to the user as well as the available input methods---that is, the [`ControlAction`](https://developer.android.com/reference/android/service/controls/actions/ControlAction.md.txt). The following table outlines some of the available templates and the actions they support:
 
 |---|---|---|
 | **Template** | **Action** | **Description** |
-| `https://developer.android.com/reference/android/service/controls/templates/ControlTemplate#getNoTemplateObject()` | `None` | The application might use this to convey information about the control, but the user can't interact with it. |
-| `https://developer.android.com/reference/android/service/controls/templates/ToggleTemplate` | `https://developer.android.com/reference/android/service/controls/actions/BooleanAction` | Represents a control that can be switched between enabled and disabled states. The `BooleanAction` object contains a field that changes to represent the requested new state when the user taps the control. |
-| `https://developer.android.com/reference/android/service/controls/templates/RangeTemplate` | `https://developer.android.com/reference/android/service/controls/actions/FloatAction` | Represents a slider widget with specified min, max, and step values. When the user interacts with the slider, send a new `FloatAction` object back to the application with the updated value. |
-| `https://developer.android.com/reference/android/service/controls/templates/ToggleRangeTemplate` | `https://developer.android.com/reference/android/service/controls/actions/BooleanAction, https://developer.android.com/reference/android/service/controls/actions/FloatAction` | This template is a combination of the `ToggleTemplate` and `RangeTemplate`. It supports touch events as well as a slider, such as to control dimmable lights. |
-| `https://developer.android.com/reference/android/service/controls/templates/TemperatureControlTemplate` | `https://developer.android.com/reference/android/service/controls/actions/ModeAction, https://developer.android.com/reference/android/service/controls/actions/BooleanAction, https://developer.android.com/reference/android/service/controls/actions/FloatAction` | In addition to encapsulating the preceding actions, this template lets the user set a mode, such as heat, cool, heat/cool, eco, or off. |
-| `https://developer.android.com/reference/android/service/controls/templates/StatelessTemplate` | `https://developer.android.com/reference/android/service/controls/actions/CommandAction` | Used to indicate a control that provides touch capability but whose state can't be determined, such as an IR television remote. You can use this template to define a routine or macro, which is an aggregation of control and state changes. |
+| `ControlTemplate.getNoTemplateObject()` | `None` | The application might use this to convey information about the control, but the user can't interact with it. |
+| `ToggleTemplate` | `BooleanAction` | Represents a control that can be switched between enabled and disabled states. The `BooleanAction` object contains a field that changes to represent the requested new state when the user taps the control. |
+| `RangeTemplate` | `FloatAction` | Represents a slider widget with specified min, max, and step values. When the user interacts with the slider, send a new `FloatAction` object back to the application with the updated value. |
+| `ToggleRangeTemplate` | `BooleanAction, FloatAction` | This template is a combination of the `ToggleTemplate` and `RangeTemplate`. It supports touch events as well as a slider, such as to control dimmable lights. |
+| `TemperatureControlTemplate` | `ModeAction, BooleanAction, FloatAction` | In addition to encapsulating the preceding actions, this template lets the user set a mode, such as heat, cool, heat/cool, eco, or off. |
+| `StatelessTemplate` | `CommandAction` | Used to indicate a control that provides touch capability but whose state can't be determined, such as an IR television remote. You can use this template to define a routine or macro, which is an aggregation of control and state changes. |
 
 With this information, you can create the control:
 
-- Use the [`Control.StatelessBuilder`](https://developer.android.com/reference/android/service/controls/Control.StatelessBuilder) builder class when the state of the control is unknown.
-- Use the [`Control.StatefulBuilder`](https://developer.android.com/reference/android/service/controls/Control.StatefulBuilder) builder class when the state of the control is known.
+- Use the [`Control.StatelessBuilder`](https://developer.android.com/reference/android/service/controls/Control.StatelessBuilder.md.txt) builder class when the state of the control is unknown.
+- Use the [`Control.StatefulBuilder`](https://developer.android.com/reference/android/service/controls/Control.StatefulBuilder.md.txt) builder class when the state of the control is known.
 
 For example, to control a smart light bulb and a thermostat, add the following
 constants to your `MyCustomControlService`:
@@ -145,7 +147,7 @@ has two publisher methods that you must override in your application code:
 When your app first publishes controls to the system UI, the app doesn't know
 the state of each control. Getting the state can be a time-consuming operation
 involving many hops in the device-provider's network. Use the
-[`createPublisherForAllAvailable`](https://developer.android.com/reference/android/service/controls/ControlsProviderService#createPublisherForAllAvailable()) method to
+[`createPublisherForAllAvailable`](https://developer.android.com/reference/android/service/controls/ControlsProviderService.md.txt#createPublisherForAllAvailable()) method to
 advertise the available controls to the system. This method uses the
 `Control.StatelessBuilder` builder class, because the state of each control is
 unknown.

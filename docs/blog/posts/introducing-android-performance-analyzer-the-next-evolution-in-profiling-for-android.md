@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/introducing-android-performance-an
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Introducing Android Performance Analyzer - The Next Evolution in Profiling for Android
 
-5 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) 19 May 2026 [![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_2v5Cdi.webp)](https://developer.android.com/blog/authors/blog-author)[![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_1EPpUS.webp)](https://developer.android.com/blog/authors/simon-cooke) [Mayank Jain](https://developer.android.com/blog/authors/blog-author) \& [Simon Cooke](https://developer.android.com/blog/authors/simon-cooke)
+5 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) 19 May 2026 [![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_2v5Cdi.webp)](https://developer.android.com/blog/authors/blog-author.md.txt)[![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_1EPpUS.webp)](https://developer.android.com/blog/authors/simon-cooke.md.txt) [Mayank Jain](https://developer.android.com/blog/authors/blog-author.md.txt) \& [Simon Cooke](https://developer.android.com/blog/authors/simon-cooke.md.txt)
 
 ### What is Android Performance Analyzer?
 
@@ -98,7 +98,7 @@ We've worked with our early access partners to create detailed case studies show
 
 [The Forge](https://theforge.dev/) used Android Performance Analyzer to identify the need to batch calls to vkCmdBindDescriptorSets, which reduced CPU setup costs by \~50%. This, in turn, slowed heat production on their device by 2-3x, leading to longer session times. They also used APA to identify opportunities to move font and UI rendering work over to the GPU, improving scalability.
 
-You can read the full [case study from The Forge here](https://developer.android.com/android-performance-analyzer/case-study/the-forge).
+You can read the full [case study from The Forge here](https://developer.android.com/android-performance-analyzer/case-study/the-forge.md.txt).
 
 **Note:** This case study demonstrates how to use custom SQL queries in the profiler to generate a total rendering cost metric.
 ![09-apa-the-forge.png](https://developer.android.com/static/blog/assets/09_apa_the_forge_fe64ec5d23_2uRtRu.webp)
@@ -109,7 +109,7 @@ You can read the full [case study from The Forge here](https://developer.android
 
 This allowed them to reduce the GPU cost of rendering some scenes by up to 90%.
 
-Read the full [NetMarble case study here](https://developer.android.com/android-performance-analyzer/case-study/netmarble-perf-analyzer).
+Read the full [NetMarble case study here](https://developer.android.com/android-performance-analyzer/case-study/netmarble-perf-analyzer.md.txt).
 ![10-apa-netmarble.png](https://developer.android.com/static/blog/assets/10_apa_netmarble_00c3912087_Z1oOFI2.webp)
 
 ## Profiling model complexity in Google's Filament engine
@@ -118,7 +118,7 @@ Google has been improving the [Filament](https://github.com/google/filament) glT
 
 We spent some time digging into the viewer with a variety of scenes, and showed how to use Android Performance Analyzer to identify scenes that are too complex for the GPU, and how to trim them down to hit a target 60FPS, by improving texture compression and optimizing geometry. Memory consumption was also reduced in this process.
 
-You can read [our exploration of Filament here](https://developer.android.com/android-performance-analyzer/case-study/filament).
+You can read [our exploration of Filament here](https://developer.android.com/android-performance-analyzer/case-study/filament.md.txt).
 ![11-apa-filament-02.png](https://developer.android.com/static/blog/assets/11_apa_filament_02_2c8ffaff8c_1Nulxw.webp)
 
 ### Try out the Android Performance Analyzer Beta today!
@@ -137,7 +137,7 @@ Written by:
 
 -
 
-  ## [Mayank Jain](https://developer.android.com/blog/authors/blog-author)
+  ## [Mayank Jain](https://developer.android.com/blog/authors/blog-author.md.txt)
 
   ###### Product Manager
 
@@ -145,38 +145,37 @@ Written by:
   View profile](https://developer.android.com/blog/authors/blog-author) ![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_2v5Cdi.webp) ![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_2v5Cdi.webp)
 -
 
-  ## [Simon Cooke](https://developer.android.com/blog/authors/simon-cooke)
+  ## [Simon Cooke](https://developer.android.com/blog/authors/simon-cooke.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/simon-cooke) ![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_1EPpUS.webp) ![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_1EPpUS.webp)
 Continue reading
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 3 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 4 min read
+  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp.md.txt)
+  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano.md.txt)
+  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
   - +2 ↩
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
 

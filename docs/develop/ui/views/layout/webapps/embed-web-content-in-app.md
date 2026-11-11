@@ -10,7 +10,7 @@ content.
 
 ## Embedding content using `WebView`
 
-The [`WebView`](https://developer.android.com/reference/android/webkit/WebView) API gives you access to the capabilities of a mini-browser
+The [`WebView`](https://developer.android.com/reference/android/webkit/WebView.md.txt) API gives you access to the capabilities of a mini-browser
 for displaying web content within your app. This lets you provide web-powered
 experiences as a core or supporting part within your app, as seen in **Figure
 1**.
@@ -85,7 +85,7 @@ Custom Tabs, see the following documents:
 - [Debug web apps](https://developer.android.com/guide/webapps/debugging)
 - [Best practices for web apps](https://developer.android.com/guide/webapps/best-practices)
 - [Opt-in to `WebView` Beta](https://play.google.com/apps/testing/com.google.android.webview)
-- [In-app browsing using embedded web](https://developer.android.com/develop/ui/views/layout/webapps/in-app-browsing-embedded-web)
-- [Overview of Android Custom Tabs](https://developer.android.com/develop/ui/views/layout/webapps/overview-of-android-custom-tabs)
-- [Speculative loading in WebView](https://developer.android.com/develop/ui/views/layout/webapps/speculative-loading)
-- [Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state)
+- [In-app browsing using embedded web](https://developer.android.com/develop/ui/views/layout/webapps/in-app-browsing-embedded-web.md.txt)
+- [Overview of Android Custom Tabs](https://developer.android.com/develop/ui/views/layout/webapps/overview-of-android-custom-tabs.md.txt)
+- [Speculative loading in WebView](https://developer.android.com/develop/ui/views/layout/webapps/speculative-loading.md.txt)
+- [Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state.md.txt)

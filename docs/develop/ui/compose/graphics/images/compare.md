@@ -61,7 +61,7 @@ all images can be represented as vectors (for example, the photos you take with
 your camera cannot be transformed into a vector).
 
 You can create a custom `ImageVector` either by importing an existing vector
-drawable XML file (imported into Android Studio using the [import tool](https://developer.android.com/studio/write/vector-asset-studio#running)) or
+drawable XML file (imported into Android Studio using the [import tool](https://developer.android.com/studio/write/vector-asset-studio.md.txt#running)) or
 implementing the class and issuing path commands manually.
 
 For basic use cases, `painterResource()` works for `ImageVectors` in the same
@@ -93,6 +93,6 @@ val imageVector = ImageVector.vectorResource(id = R.drawable.baseline_shopping_c
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Custom painter {:#custom-painter}](https://developer.android.com/develop/ui/compose/graphics/images/custompainter)
-- [Resources in Compose](https://developer.android.com/develop/ui/compose/resources)
-- [Loading images {:#loading-images}](https://developer.android.com/develop/ui/compose/graphics/images/loading)
+- [Custom painter {:#custom-painter}](https://developer.android.com/develop/ui/compose/graphics/images/custompainter.md.txt)
+- [Resources in Compose](https://developer.android.com/develop/ui/compose/resources.md.txt)
+- [Loading images {:#loading-images}](https://developer.android.com/develop/ui/compose/graphics/images/loading.md.txt)

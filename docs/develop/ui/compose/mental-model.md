@@ -18,7 +18,7 @@ Historically, an Android view hierarchy has been representable as a tree of UI
 widgets. As the state of the app changes because of things like user
 interactions, the UI hierarchy needs to be updated to display the current data.
 The most common way of updating the UI is to walk the tree using functions like
-[`findViewById()`](https://developer.android.com/reference/android/view/View#findViewById(int)), and change
+[`findViewById()`](https://developer.android.com/reference/android/view/View.md.txt#findViewById(int)), and change
 nodes by calling methods like `button.setText(String)`,
 `container.addChild(View)`, or `img.setImageBitmap(Bitmap)`. These methods
 change the internal state of the widget.
@@ -42,7 +42,7 @@ One challenge with regenerating the entire screen is that it is potentially
 expensive, in terms of time, computing power, and battery usage. To mitigate
 this cost, Compose intelligently chooses which parts of the UI need to be
 redrawn at any given time. This does have some implications for how you design
-your UI components, as discussed in [Recomposition](https://developer.android.com/develop/ui/compose/mental-model#recomposition).
+your UI components, as discussed in [Recomposition](https://developer.android.com/develop/ui/compose/mental-model.md.txt#recomposition).
 
 ## An example composable function
 
@@ -66,7 +66,7 @@ A few noteworthy things about this function:
   - The function describes the UI without any side-effects, such as modifying properties or global variables.
 
   In general, all composable functions must be written with these
-  properties, for reasons discussed in [Recomposition](https://developer.android.com/develop/ui/compose/mental-model#recomposition).
+  properties, for reasons discussed in [Recomposition](https://developer.android.com/develop/ui/compose/mental-model.md.txt#recomposition).
 
 ## The declarative paradigm shift
 
@@ -79,7 +79,7 @@ In Compose's declarative approach, widgets are relatively stateless and don't
 expose setter or getter functions. In fact, widgets are not exposed as objects.
 You update the UI by calling the same composable function with different
 arguments. This simplifies providing state to architectural patterns such as
-a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel), as described in the
+a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel.md.txt), as described in the
 [Guide to app architecture](https://developer.android.com/jetpack/guide). Then, your composables are
 responsible for transforming the current application state into a UI every time
 the observable data updates.
@@ -413,6 +413,6 @@ the following additional resources.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin)
-- [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state)
-- [Jetpack Compose architectural layering](https://developer.android.com/develop/ui/compose/layering)
+- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin.md.txt)
+- [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state.md.txt)
+- [Jetpack Compose architectural layering](https://developer.android.com/develop/ui/compose/layering.md.txt)

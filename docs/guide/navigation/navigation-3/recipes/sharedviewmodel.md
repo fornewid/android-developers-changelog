@@ -22,43 +22,52 @@ The core of this recipe is the `SharedViewModelStoreNavEntryDecorator`. This dec
 
 In `SharedViewModelActivity.kt`, the `NavDisplay` is configured with this decorator:
 
-    entryDecorators = listOf(
-        rememberSaveableStateHolderNavEntryDecorator(),
-        rememberSharedViewModelStoreNavEntryDecorator(),
-    )
+```kotlin
+entryDecorators = listOf(
+    rememberSaveableStateHolderNavEntryDecorator(),
+    rememberSharedViewModelStoreNavEntryDecorator(),
+)
+```
 
 ### Sharing the ViewModel
 
 To enable sharing, the `ChildScreen` entry explicitly defines its parent using metadata:
 
-    entry<ChildScreen>(
-        metadata = SharedViewModelStoreNavEntryDecorator.parent(
-            ParentScreen.toContentKey()
-        )
-    ) {
-        // ...
-    }
+```kotlin
+entry<ChildScreen>(
+    metadata = SharedViewModelStoreNavEntryDecorator.parent(
+        ParentScreen.toContentKey()
+    )
+) {
+    // ...
+}
+```
 
 The `toContentKey()` extension function is used to standardize how the parent `NavEntry`'s `contentKey` is specified, both when defining the parent and when referenced in metadata by the child.
 
 When `ChildScreen` requests a parent `CounterViewModel`:
 
-    val parentViewModel = viewModel<CounterViewModel>(
-        viewModelStoreOwner = LocalSharedViewModelStoreOwner.current
-    )
+```kotlin
+val parentViewModel = viewModel<CounterViewModel>(
+    viewModelStoreOwner = LocalSharedViewModelStoreOwner.current
+)
+```
 
 The decorator ensures it receives the **same instance** that `ParentScreen` is using, because it's using the `ParentScreen`'s `ViewModelStore`.
 
 The `ChildScreen` can still request its own `CounterViewModel` from the default `LocalViewModelStoreOwner`:
 
-    val standaloneViewModel = viewModel<CounterViewModel>()
+```kotlin
+val standaloneViewModel = viewModel<CounterViewModel>()
+```
 
 In contrast, `StandaloneScreen` does not define a parent, so it only gets its own fresh `ViewModelStore` and a new instance of `CounterViewModel`.
 
 Import the following `get` operator function in order to read from metadata with a NavMetadataKey
 
-    import androidx.navigation3.runtime.get
-
+```kotlin
+import androidx.navigation3.runtime.get
+```
 [![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/sharedviewmodel)
 
 ```

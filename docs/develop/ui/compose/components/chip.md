@@ -29,7 +29,7 @@ However, they share the following parameters:
 
 ## Assist chip
 
-The [`AssistChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AssistChip.composable) composable provides a straightforward way to create an
+The [`AssistChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AssistChip.composable.md.txt) composable provides a straightforward way to create an
 assist chip that nudges the user in a particular direction. One distinguishing
 feature is its `leadingIcon` parameter that lets you display an icon on the left
 side of the chip. The following example demonstrates how you can implement it:
@@ -55,11 +55,11 @@ fun AssistChipExample() {
 <br />
 
 This implementation appears as follows.
-![A simple assist chip displaying a leading icon and text label.](https://developer.android.com/static/develop/ui/compose/images/components/chip-assist.png) **Figure 2.** Assist chip.
+![An assist chip with a settings icon and the label 'Assist chip'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_assistchip.png) **Figure 2.** Assist chip.
 
 ## Filter chip
 
-The [`FilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilterChip.composable) composable requires you to track whether or not the chip
+The [`FilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilterChip.composable.md.txt) composable requires you to track whether or not the chip
 is selected. The following example demonstrates how you can show a leading
 checked icon only when the user has selected the chip:
 
@@ -92,15 +92,12 @@ fun FilterChipExample() {
 
 <br />
 
-This implementation appears as follows when unselected:
-![An unselected filter chip, with no check and a plain background.](https://developer.android.com/static/develop/ui/compose/images/components/chip-filter.png) **Figure 3.** Unselected filter chip.
-
-And appears as follows when selected:
-![Selected filter chip, with a check and a colored background.](https://developer.android.com/static/develop/ui/compose/images/components/chip-filter-active.png) **Figure 4.** Selected filter chip.
+This implementation appears as follows when selected:
+![A selected filter chip labeled 'Filter chip' with a leading check mark.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_filterchip.png) **Figure 3.** Selected filter chip.
 
 ## Input chip
 
-You can use the [`InputChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/InputChip.composable) composable to create chips that result from
+You can use the [`InputChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/InputChip.composable.md.txt) composable to create chips that result from
 user interaction. For example, in an email client, when the user is writing an
 email, an input chip might represent a contact the user has added to the "To:"
 field.
@@ -149,11 +146,11 @@ fun InputChipExample(
 <br />
 
 This implementation appears as follows.
-![An input chip with an avatar and a trailing icon.](https://developer.android.com/static/develop/ui/compose/images/components/chip-input.png) **Figure 5.** Input chip.
+![An input chip with a person icon, the label 'Input Chip' and a close icon.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_inputchip.png) **Figure 4.** Input chip.
 
 ## Suggestion chip
 
-The [`SuggestionChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SuggestionChip.composable) composable is the most basic of the composables listed
+The [`SuggestionChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SuggestionChip.composable.md.txt) composable is the most basic of the composables listed
 on this page, both in its API definition and its common use cases. Suggestion
 chips present dynamically generated hints. For example, in an AI chat app, you
 might use suggestion chips to present possible responses to the most recent
@@ -175,7 +172,7 @@ fun SuggestionChipExample() {
 <br />
 
 This implementation appears as follows:
-![A simple suggestion chip.](https://developer.android.com/static/develop/ui/compose/images/components/chip-suggestion.png) **Figure 6.** Suggestion chip.
+![A suggestion chip labeled 'Suggestion chip'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_suggestionchip.png) **Figure 5.** Suggestion chip.
 
 > [!NOTE]
 > **Note:** Although the suggestion chip component is intended for informational purposes, it does still take an `onClick` lambda that you can use to create interactivity.
@@ -186,9 +183,9 @@ All the examples in this document use the base composables that take a flat
 appearance. If you want a chip that has an elevated appearance, use one of the
 three following composables:
 
-- [`ElevatedAssistChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedAssistChip.composable)
-- [`ElevatedFilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedFilterChip.composable)
-- [`ElevatedSuggestionChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedSuggestionChip.composable)
+- [`ElevatedAssistChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedAssistChip.composable.md.txt)
+- [`ElevatedFilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedFilterChip.composable.md.txt)
+- [`ElevatedSuggestionChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedSuggestionChip.composable.md.txt)
 
 ## Additional resources
 

@@ -8,7 +8,7 @@ source: md.txt
 
 Create a bottom app bar to help users navigate and access functions in your app.
 Follow this guidance to add a bottom app bar to your app by using the
-[`BottomAppBar`](https://developer.android.com/reference/com/google/android/material/bottomappbar/BottomAppBar) composable.
+[`BottomAppBar`](https://developer.android.com/reference/com/google/android/material/bottomappbar/BottomAppBar.md.txt) composable.
 
 ## Results
 
@@ -82,14 +82,14 @@ fun BottomAppBarExample() {
 
 ### Key points about the code
 
-- An outer [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable#Scaffold(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) that has a `bottomBar` set.
+- An outer [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable.md.txt#Scaffold(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) that has a `bottomBar` set.
 - A `bottomBar` implementation that contains a list of actions.
-- Actions that are implementations of [`IconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material/IconButton.composable#IconButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) that contain [`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Icon.composable#Icon(androidx.compose.ui.graphics.ImageBitmap,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color)) for image and content description text, each with an `onClick` lambda to perform these actions.
+- Actions that are implementations of [`IconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material/IconButton.composable.md.txt#IconButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) that contain [`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Icon.composable.md.txt#Icon(androidx.compose.ui.graphics.ImageBitmap,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color)) for image and content description text, each with an `onClick` lambda to perform these actions.
 
 You can pass composables for the following key parameters:
 
 - `actions`: a series of icons that appear on the left side of the bar. These are commonly either key actions for the given screen, or navigation items.
-- [`floatingActionButton`](https://developer.android.com/reference/com/google/android/material/floatingactionbutton/FloatingActionButton): the floating action button that appears on the right side of the bar.
+- [`floatingActionButton`](https://developer.android.com/reference/com/google/android/material/floatingactionbutton/FloatingActionButton.md.txt): the floating action button that appears on the right side of the bar.
 
 > [!NOTE]
 > **Note:** After you add the bottom app bar, you can customize it with content as you do with other containers by filling the `BottomAppBar` composable with other content. You can also use `BottomAppBar` without passing a value for `actions` or `floatingActionButton`.
@@ -110,4 +110,4 @@ Learn how composable functions can enable you to easily create beautiful UI comp
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

@@ -6,9 +6,9 @@ source: md.txt
 
 Tiles support a few different animation approaches, including the following:
 
-- [Sweep transitions](https://developer.android.com/training/wearables/tiles/animations#sweep-transition) using tween animations.
-- [Smooth fade and slide](https://developer.android.com/training/wearables/tiles/animations#smooth-fade-slide) animations into and out of a tile.
-- [Lottie animations](https://developer.android.com/training/wearables/tiles/animations#lottie).
+- [Sweep transitions](https://developer.android.com/training/wearables/tiles/animations.md.txt#sweep-transition) using tween animations.
+- [Smooth fade and slide](https://developer.android.com/training/wearables/tiles/animations.md.txt#smooth-fade-slide) animations into and out of a tile.
+- [Lottie animations](https://developer.android.com/training/wearables/tiles/animations.md.txt#lottie).
 
 ## Show a sweep transition
 
@@ -108,9 +108,9 @@ animation.
 ### Fade transitions
 
 The following code snippet demonstrates how to perform fade-in and fade-out
-transitions using the helper methods from [`DefaultContentTransitions`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.DefaultContentTransitions). To
+transitions using the helper methods from [`DefaultContentTransitions`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.DefaultContentTransitions.md.txt). To
 define custom `FadeInTransition` and `FadeOutTransition` objects, call
-[`setFadeIn()`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.EnterTransition.Builder#setFadeIn(androidx.wear.protolayout.ModifiersBuilders.FadeInTransition)) and [`setFadeOut()`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.ExitTransition.Builder#setFadeOut(androidx.wear.protolayout.ModifiersBuilders.FadeOutTransition)), respectively, in the transition
+[`setFadeIn()`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.EnterTransition.Builder.md.txt#setFadeIn(androidx.wear.protolayout.ModifiersBuilders.FadeInTransition)) and [`setFadeOut()`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.ExitTransition.Builder.md.txt#setFadeOut(androidx.wear.protolayout.ModifiersBuilders.FadeOutTransition)), respectively, in the transition
 setter methods.
 
 ```kotlin
@@ -147,9 +147,9 @@ public override fun onTileRequest(
 ### Slide transitions
 
 This other code snippet demonstrates how to perform slide-in and slide-out
-transitions using the helper methods from [`DefaultContentTransitions`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.DefaultContentTransitions). You
+transitions using the helper methods from [`DefaultContentTransitions`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.DefaultContentTransitions.md.txt). You
 can also define custom `SlideInTransition` and `SlideOutTransition` objects by
-calling [`setSlideIn()`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.EnterTransition.Builder#setSlideIn(androidx.wear.protolayout.ModifiersBuilders.SlideInTransition)) and [`setSlideOut()`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.ExitTransition.Builder#setSlideOut(androidx.wear.protolayout.ModifiersBuilders.SlideOutTransition)), respectively, in the
+calling [`setSlideIn()`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.EnterTransition.Builder.md.txt#setSlideIn(androidx.wear.protolayout.ModifiersBuilders.SlideInTransition)) and [`setSlideOut()`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.ExitTransition.Builder.md.txt#setSlideOut(androidx.wear.protolayout.ModifiersBuilders.SlideOutTransition)), respectively, in the
 transition setter methods.
 
 ```kotlin
@@ -353,7 +353,7 @@ A few points to note:
 - Only a subset of Lottie files are supported. Check compatibility using one of the following validators:
   - An online validator: <https://skottie.skia.org/>. In the "Compatibility Report" section, the file needs to pass the "Specification Errors", "Specification Warnings" (with Common Properties ignored) and "Low Power Profile Errors" tests.
   - A Rust validation library: <https://github.com/google/lottie-tools>.
-- Lottie playback is supported by tile renderers with a major version of at least `1` and a minor version of at least `500`. If a given animation isn't supported, the animation doesn't appear, but the rest of the tile renders as expected. If needed, you can [provide a fallback option](https://developer.android.com/training/wearables/tiles/versioning#fallbacks), such as a static image.
+- Lottie playback is supported by tile renderers with a major version of at least `1` and a minor version of at least `500`. If a given animation isn't supported, the animation doesn't appear, but the rest of the tile renders as expected. If needed, you can [provide a fallback option](https://developer.android.com/training/wearables/tiles/versioning.md.txt#fallbacks), such as a static image.
 
 ## Don't show important information in the middle of an animation
 

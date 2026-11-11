@@ -5,8 +5,8 @@ source: md.txt
 ---
 
 This page explains more advanced use cases for Watch Face Designer, including
-how to add support for subdials, [complications](https://developer.android.com/training/wearables/complications), and color themes. To learn
-more about getting started, view the [basics](https://developer.android.com/training/wearables/watch-face-designer/basics) guide.
+how to add support for subdials, [complications](https://developer.android.com/training/wearables/complications.md.txt), and color themes. To learn
+more about getting started, view the [basics](https://developer.android.com/training/wearables/watch-face-designer/basics.md.txt) guide.
 
 ## Subdials
 
@@ -83,13 +83,13 @@ the [text case feature](https://help.figma.com/hc/articles/360039956634-Explore-
 !['Case' appears near the middle. 'Uppercase' is the second
 option from left](https://developer.android.com/static/wear/images/design/watch-face-designer/capital.png) **Figure 8** : The **Typography** panel in Figma, shown with "Uppercase" selected
 
-Note that, unlike with [digital time](https://developer.android.com/training/wearables/watch-face-designer/basics#digital-time), there is no arbitrary font export for
+Note that, unlike with [digital time](https://developer.android.com/training/wearables/watch-face-designer/basics.md.txt#digital-time), there is no arbitrary font export for
 complication text. Complications are always drawn using the Wear OS device's
 system font, which can vary but is typically Roboto.
 
 To add support for additional types of complications, or customize related
 settings like **Default app** or whether the slot appears when the watch is in
-[ambient mode](https://developer.android.com/training/wearables/always-on), select the complication slot within your watch face:
+[ambient mode](https://developer.android.com/training/wearables/always-on.md.txt), select the complication slot within your watch face:
 !['Default app' and 'Always on' both appear near the bottom-left corner](https://developer.android.com/static/wear/images/design/watch-face-designer/default-app.png) **Figure 9** : Watch Face Designer supports additional customization for complication slots, including setting a **Default app** and toggling whether the complication should appear in **Always-on** (system ambient) mode
 
 ## Color themes

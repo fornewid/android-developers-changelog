@@ -9,8 +9,8 @@ use cases, such as logging analytics, managing UI state, and optimizing
 resources by automatically playing or pausing video content. Compose offers
 several modifiers for tracking UI element visibility such as:
 
-- [`onVisibilityChanged`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/onVisibilityChanged.modifier#(androidx.compose.ui.Modifier).onVisibilityChanged(kotlin.Long,kotlin.Float,androidx.compose.ui.layout.LayoutBoundsHolder,kotlin.Function1)) - This modifier notifies you when the visibility of a composable changes. It's ideal for triggering an action or side effect every time the composable becomes visible.
-- [`onLayoutRectChanged`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).onLayoutRectChanged(kotlin.Long,kotlin.Long,kotlin.Function1)) - This modifier provides information about a composable's bounds relative to the root, window, and screen. It offers low-level control and is the foundation API for `onVisibilityChanged`. The modifier is similar to [`onGloballyPositioned`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/OnGloballyPositionedModifier#onGloballyPositioned(androidx.compose.ui.layout.LayoutCoordinates)), but offers better performance and increased flexibility.
+- [`onVisibilityChanged`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/onVisibilityChanged.modifier.md.txt#(androidx.compose.ui.Modifier).onVisibilityChanged(kotlin.Long,kotlin.Float,androidx.compose.ui.layout.LayoutBoundsHolder,kotlin.Function1)) - This modifier notifies you when the visibility of a composable changes. It's ideal for triggering an action or side effect every time the composable becomes visible.
+- [`onLayoutRectChanged`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).onLayoutRectChanged(kotlin.Long,kotlin.Long,kotlin.Function1)) - This modifier provides information about a composable's bounds relative to the root, window, and screen. It offers low-level control and is the foundation API for `onVisibilityChanged`. The modifier is similar to [`onGloballyPositioned`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/OnGloballyPositionedModifier.md.txt#onGloballyPositioned(androidx.compose.ui.layout.LayoutCoordinates)), but offers better performance and increased flexibility.
 
 You can use these APIs with any composable as part of the modifier chain.
 
@@ -160,8 +160,8 @@ set, and the third bot loads before it is completely visible on screen.
 ## Hide a composable and keep its space
 
 To hide a composable without changing the layout around it, use the
-[`visible`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/visible.modifier#(androidx.compose.ui.Modifier).visible(kotlin.Boolean)) modifier. When you pass `false`, the composable is still measured
-but isn't placed or drawn. Unlike setting [`alpha`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/alpha.modifier#(androidx.compose.ui.Modifier).alpha(kotlin.Float)) to `0f`, `visible(false)`
+[`visible`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/visible.modifier.md.txt#(androidx.compose.ui.Modifier).visible(kotlin.Boolean)) modifier. When you pass `false`, the composable is still measured
+but isn't placed or drawn. Unlike setting [`alpha`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/alpha.modifier.md.txt#(androidx.compose.ui.Modifier).alpha(kotlin.Float)) to `0f`, `visible(false)`
 also removes the element from the accessibility tree and disables touch
 interactions while preserving its layout space.
 
@@ -186,7 +186,7 @@ Row(modifier, verticalAlignment = Alignment.CenterVertically) {
 
 Use `visible` when the layout around the composable must not move as the
 composable appears and disappears. To remove the composable and its space,
-don't call it, or use [`AnimatedVisibility`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedvisibility) to animate it in and out.
+don't call it, or use [`AnimatedVisibility`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt#animatedvisibility) to animate it in and out.
 
 > [!NOTE]
-> **Note:** Don't use `visible` on a composable in a [shared element transition](https://developer.android.com/develop/ui/compose/animation/shared-elements), because it prevents placement.
+> **Note:** Don't use `visible` on a composable in a [shared element transition](https://developer.android.com/develop/ui/compose/animation/shared-elements.md.txt), because it prevents placement.

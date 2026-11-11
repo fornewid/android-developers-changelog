@@ -46,7 +46,7 @@ the trade-offs and choose the best strategy for your content.
 ## Detect scaling gestures in Jetpack Compose
 
 To support user-scalable content, you must first detect multi-touch gestures. In
-Jetpack Compose, you can do this using the [`Modifier.transformable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/transformable.modifier#(androidx.compose.ui.Modifier).transformable(androidx.compose.foundation.gestures.TransformableState,kotlin.Boolean,kotlin.Boolean)).
+Jetpack Compose, you can do this using the [`Modifier.transformable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/transformable.modifier.md.txt#(androidx.compose.ui.Modifier).transformable(androidx.compose.foundation.gestures.TransformableState,kotlin.Boolean,kotlin.Boolean)).
 
 > [!IMPORTANT]
 > **Important:** It's critical to understand that this modifier is **purely a
@@ -63,7 +63,7 @@ The following examples show how to implement the density scaling and font
 scaling strategies.
 
 > [!TIP]
-> **Tip:** To further enhance the user experience and accommodate the user's preference, consider keeping the chosen scale factor. When the user returns to the screen or relaunches the app, their preferred scale is already applied. For a modern, Jetpack-recommended solution for storing preferences, see [Jetpack DataStore](https://developer.android.com/topic/libraries/architecture/datastore).
+> **Tip:** To further enhance the user experience and accommodate the user's preference, consider keeping the chosen scale factor. When the user returns to the screen or relaunches the app, their preferred scale is already applied. For a modern, Jetpack-recommended solution for storing preferences, see [Jetpack DataStore](https://developer.android.com/topic/libraries/architecture/datastore.md.txt).
 
 ### Density scaling
 

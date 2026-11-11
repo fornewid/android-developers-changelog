@@ -90,7 +90,7 @@ fun NavigationBarExample(modifier: Modifier = Modifier) {
 
 The following image shows the navigation bar resulting from the previous
 snippet:
-![An app screen with 3 destinations listed horizontally in a bottom navigation bar: Songs, Album, and Playlist. Each destination has a relevant icon paired with it (e.g., a music note for "Songs").](https://developer.android.com/static/develop/ui/compose/images/NavigationBar.png) **Figure 2.** A navigation bar that contains 3 destinations with associated icons: Songs, Album, and Playlist.
+![A screen that reads 'Songs Screen' above a navigation bar with Songs, Album and Playlist destinations; Songs is selected.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_navigationbarexample.png) **Figure 2.** A navigation bar that contains 3 destinations with associated icons: Songs, Album, and Playlist.
 
 ## Additional resources
 

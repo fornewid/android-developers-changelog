@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/compose/state-hoisting
 source: md.txt
 ---
 
-In a Compose application, where you hoist [UI state](https://developer.android.com/topic/architecture/ui-layer#define-ui-state) depends on whether UI
+In a Compose application, where you hoist [UI state](https://developer.android.com/topic/architecture/ui-layer.md.txt#define-ui-state) depends on whether UI
 logic or business logic requires it. This document lays out these two main
 scenarios.
 
@@ -29,11 +29,11 @@ throughout this document.
 
 ### UI state
 
-[UI state](https://developer.android.com/topic/architecture/ui-layer#define-ui-state) is the property that
+[UI state](https://developer.android.com/topic/architecture/ui-layer.md.txt#define-ui-state) is the property that
 describes the UI. There are two types of UI state:
 
 - **Screen UI state** is *what* you need to display on the screen. For example, a `NewsUiState` class can contain the news articles and other information needed to render the UI. This state is usually connected with other layers of the hierarchy because it contains app data.
-- **UI element state** refers to properties intrinsic to UI elements that influence how they are rendered. A UI element may be shown or hidden and may have a certain font, font size, or font color. In Jetpack Compose, the state is external to the composable, and you can even hoist it out of the immediate vicinity of the composable into the calling composable function or a state holder. An example of this is [`ScaffoldState`](https://developer.android.com/reference/kotlin/androidx/compose/material/ScaffoldState) for the [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable#Scaffold(androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) composable.
+- **UI element state** refers to properties intrinsic to UI elements that influence how they are rendered. A UI element may be shown or hidden and may have a certain font, font size, or font color. In Jetpack Compose, the state is external to the composable, and you can even hoist it out of the immediate vicinity of the composable into the calling composable function or a state holder. An example of this is [`ScaffoldState`](https://developer.android.com/reference/kotlin/androidx/compose/material/ScaffoldState.md.txt) for the [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable.md.txt#Scaffold(androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) composable.
 
 ### Logic
 
@@ -44,8 +44,8 @@ Logic in an application can be either business logic or UI logic:
 
 ## UI logic
 
-When [UI logic](https://developer.android.com/topic/architecture/ui-layer#logic-types) needs to read or write state, you should scope the state to the UI, following its lifecycle. To achieve this, you should hoist the state at the correct level in a composable function. Alternatively, you can
-do so in a [plain state holder class](https://developer.android.com/topic/architecture/ui-layer/stateholders#ui-logic), also scoped to the UI lifecycle.
+When [UI logic](https://developer.android.com/topic/architecture/ui-layer.md.txt#logic-types) needs to read or write state, you should scope the state to the UI, following its lifecycle. To achieve this, you should hoist the state at the correct level in a composable function. Alternatively, you can
+do so in a [plain state holder class](https://developer.android.com/topic/architecture/ui-layer/stateholders.md.txt#ui-logic), also scoped to the UI lifecycle.
 
 Below is a description of both solutions and explanation of when to use which.
 
@@ -109,7 +109,7 @@ The following example is a chat app that implements two pieces of functionality:
 The composable hierarchy is as follows:
 ![Chat composable tree](https://developer.android.com/static/develop/ui/compose/images/state-hoisting-initial-tree.png) **Figure 2.** Chat composable tree
 
-The [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable) state is hoisted to the conversation screen so the app can
+The [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt) state is hoisted to the conversation screen so the app can
 perform UI logic and read the state from all composables that require it:
 ![Hoisting LazyColumn state from the LazyColumn to the ConversationScreen](https://developer.android.com/static/develop/ui/compose/images/state-hoisting-animated.gif) **Figure 3.** Hoisting `LazyColumn` state from the `LazyColumn` to the `ConversationScreen`
 
@@ -193,12 +193,12 @@ Plain state holder classes provide convenient functions to callers of your
 composable function, so they don't have to write this logic themselves.
 
 These plain classes are created and remembered in the Composition. Because they
-follow the [composable's lifecycle](https://developer.android.com/develop/ui/compose/lifecycle), they can take types provided by the
-Compose library such as [`rememberNavController()`](https://developer.android.com/reference/kotlin/androidx/navigation/compose/rememberNavController.composable#rememberNavController(kotlin.Array)) or [`rememberLazyListState()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/rememberLazyListState.composable#rememberLazyListState(kotlin.Int,kotlin.Int)).
+follow the [composable's lifecycle](https://developer.android.com/develop/ui/compose/lifecycle.md.txt), they can take types provided by the
+Compose library such as [`rememberNavController()`](https://developer.android.com/reference/kotlin/androidx/navigation/compose/rememberNavController.composable.md.txt#rememberNavController(kotlin.Array)) or [`rememberLazyListState()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/rememberLazyListState.composable.md.txt#rememberLazyListState(kotlin.Int,kotlin.Int)).
 
 An example of this is the [`LazyListState`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/foundation/foundation/src/commonMain/kotlin/androidx/compose/foundation/lazy/LazyListState.kt;l=82?q=LazyListState.kt&ss=androidx/platform/frameworks/support) plain state holder
-class, implemented in Compose to control the UI complexity of [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable)
-or [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#lazyrow).
+class, implemented in Compose to control the UI complexity of [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt)
+or [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary.md.txt#lazyrow).
 
 
 ```kotlin
@@ -226,12 +226,12 @@ class LazyListState constructor(
 
 <br />
 
-`LazyListState` encapsulates the state of the [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable) storing the
+`LazyListState` encapsulates the state of the [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt) storing the
 `scrollPosition` for this UI element. It also exposes methods to modify the
 scroll position by for instance scrolling to a given item.
 
 > [!NOTE]
-> **Note:** This class is annotated as [`Stable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/Stable). For more information on stability in Compose, see this [blog post](https://medium.com/androiddevelopers/jetpack-compose-stability-explained-79c10db270c8).
+> **Note:** This class is annotated as [`Stable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/Stable.md.txt). For more information on stability in Compose, see this [blog post](https://medium.com/androiddevelopers/jetpack-compose-stability-explained-79c10db270c8).
 
 As you can see, **incrementing a composable's responsibilities increases the
 need for a state holder**. The responsibilities could be in UI logic, or just in
@@ -243,7 +243,7 @@ the amount of state to keep track of.
 Another common pattern is using a plain state holder class to handle the
 complexity of root composable functions in the app. You can use such a class to
 encapsulate app-level state like navigation state and screen sizing. A complete
-description of this can be found in the [UI logic and its state holder page](https://developer.android.com/topic/architecture/ui-layer/stateholders#ui-logic).
+description of this can be found in the [UI logic and its state holder page](https://developer.android.com/topic/architecture/ui-layer/stateholders.md.txt#ui-logic).
 
 ## Business logic
 
@@ -251,12 +251,12 @@ If composables and plain state holder classes are in charge of the UI logic and
 UI element state, a screen level state holder is in charge of the following
 tasks:
 
-- Providing access to the [business logic](https://developer.android.com/topic/architecture/ui-layer#logic-types) of the application that is usually placed in other layers of the hierarchy such as the business and data layers.
+- Providing access to the [business logic](https://developer.android.com/topic/architecture/ui-layer.md.txt#logic-types) of the application that is usually placed in other layers of the hierarchy such as the business and data layers.
 - Preparing the application data for presentation in a particular screen, which becomes the screen UI state.
 
 ### ViewModels as state owner
 
-The [benefits](https://developer.android.com/topic/libraries/architecture/viewmodel#best-practices) of AAC ViewModels in Android development make them suitable
+The [benefits](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt#best-practices) of AAC ViewModels in Android development make them suitable
 for providing access to the business logic and preparing the application data
 for presentation on the screen.
 
@@ -268,9 +268,9 @@ Composition.
 ![State hoisted to the ViewModel is stored outside of the Composition.](https://developer.android.com/static/develop/ui/compose/images/state-hoisting-vm.png) **Figure 6.** State hoisted to the `ViewModel` is stored outside of the Composition.
 
 ViewModels aren't stored as part of the Composition. They're provided by the
-framework and they're scoped to a [`ViewModelStoreOwner`](https://developer.android.com/reference/androidx/lifecycle/ViewModelStoreOwner) which can be an
+framework and they're scoped to a [`ViewModelStoreOwner`](https://developer.android.com/reference/androidx/lifecycle/ViewModelStoreOwner.md.txt) which can be an
 Activity, Fragment, navigation graph, or destination of a navigation graph. For
-more information on [`ViewModel` scopes](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-apis) you can review the documentation.
+more information on [`ViewModel` scopes](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-apis.md.txt) you can review the documentation.
 
 Then, the `ViewModel` is the source of truth and **lowest common ancestor** for
 UI state.
@@ -279,7 +279,7 @@ UI state.
 
 As per the definitions above, screen UI state is produced by applying business
 rules. Given that the screen level state holder is responsible for it, this
-means the [screen UI state](https://developer.android.com/topic/architecture/ui-layer/stateholders#ui-state) is typically hoisted in the screen level state
+means the [screen UI state](https://developer.android.com/topic/architecture/ui-layer/stateholders.md.txt#ui-state) is typically hoisted in the screen level state
 holder, in this case a `ViewModel`.
 
 Consider the `ConversationViewModel` of a chat app and how it exposes the screen
@@ -312,7 +312,7 @@ inject the `ViewModel` instance in your screen-level composables to provide
 access to business logic.
 
 > [!NOTE]
-> **Note:** You shouldn't pass `ViewModel` instances down to other composables. For more information, see the [Architecture state holders documentation](https://developer.android.com/topic/architecture/ui-layer/stateholders#business-logic).
+> **Note:** You shouldn't pass `ViewModel` instances down to other composables. For more information, see the [Architecture state holders documentation](https://developer.android.com/topic/architecture/ui-layer/stateholders.md.txt#business-logic).
 
 The following is an example of a `ViewModel` used in a screen-level composable.
 Here, the composable `ConversationScreen()` consumes the screen UI state hoisted
@@ -347,10 +347,10 @@ private fun ConversationScreen(
 <br />
 
 > [!NOTE]
-> **Note:** To use the `viewModel()` function, add the [`androidx.lifecycle:lifecycle-viewmodel-compose`](https://developer.android.com/jetpack/androidx/releases/lifecycle) dependency to your `build.gradle` file. Learn more about this function in our documentation for [working with other libraries](https://developer.android.com/develop/ui/compose/libraries#viewmodel) in Compose.
+> **Note:** To use the `viewModel()` function, add the [`androidx.lifecycle:lifecycle-viewmodel-compose`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt) dependency to your `build.gradle` file. Learn more about this function in our documentation for [working with other libraries](https://developer.android.com/develop/ui/compose/libraries.md.txt#viewmodel) in Compose.
 
 > [!NOTE]
-> **Note:** If ViewModels contain state that you want to preserve after system-initiated process recreation, use [`SavedStateHandle`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle) to persist it. For more information, see the Saving [UI states page](https://developer.android.com/topic/libraries/architecture/saving-states).
+> **Note:** If ViewModels contain state that you want to preserve after system-initiated process recreation, use [`SavedStateHandle`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle.md.txt) to persist it. For more information, see the Saving [UI states page](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt).
 
 #### Property drilling
 
@@ -373,10 +373,10 @@ likely to pass composables only the parameters they need, which is a [best
 practice](https://developer.android.com/develop/ui/compose/architecture#composable-parameters).
 
 The same best practice applies if these events are navigation events, you can
-learn more about that in the [navigation docs](https://developer.android.com/guide/navigation/use-graph/navigate#events).
+learn more about that in the [navigation docs](https://developer.android.com/guide/navigation/use-graph/navigate.md.txt#events).
 
 If you have identified a performance issue, you may also choose to defer reading
-of state. You can check the [performance docs](https://developer.android.com/develop/ui/compose/performance/bestpractices#defer-reads) to learn more.
+of state. You can check the [performance docs](https://developer.android.com/develop/ui/compose/performance/bestpractices.md.txt#defer-reads) to learn more.
 
 ### UI element state
 
@@ -418,7 +418,7 @@ class ConversationViewModel(/*...*/) : ViewModel() {
 
 <br />
 
-`inputMessage` is a variable storing the [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable) state. Every time the
+`inputMessage` is a variable storing the [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable.md.txt) state. Every time the
 user types in new input, the app calls business logic to produce `suggestions`.
 
 > [!NOTE]
@@ -444,10 +444,10 @@ it from the data layer after it's closed. You should hoist the drawer state to
 the `ViewModel` so you can call both the UI and business logic on this element
 from the state owner.
 
-However, calling [`DrawerState`](https://developer.android.com/reference/kotlin/androidx/compose/material/DrawerState)'s [`close()`](https://developer.android.com/reference/kotlin/androidx/compose/material/DrawerState#close()) method using the
-[`viewModelScope`](https://developer.android.com/topic/libraries/architecture/coroutines#viewmodelscope) from Compose UI causes a runtime exception of type
+However, calling [`DrawerState`](https://developer.android.com/reference/kotlin/androidx/compose/material/DrawerState.md.txt)'s [`close()`](https://developer.android.com/reference/kotlin/androidx/compose/material/DrawerState.md.txt#close()) method using the
+[`viewModelScope`](https://developer.android.com/topic/libraries/architecture/coroutines.md.txt#viewmodelscope) from Compose UI causes a runtime exception of type
 [`IllegalStateException`](https://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html) with a message reading "a
-[`MonotonicFrameClock`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/MonotonicFrameClock) is not available in this
+[`MonotonicFrameClock`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/MonotonicFrameClock.md.txt) is not available in this
 [`CoroutineContext"`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-coroutine-context/).
 
 To fix this, use a `CoroutineScope` scoped to the Composition. It provides a
@@ -455,7 +455,7 @@ To fix this, use a `CoroutineScope` scoped to the Composition. It provides a
 suspend functions to work.
 
 > [!WARNING]
-> **Warning:** Calling some suspend functions exposed from Compose UI element state that trigger animations throws exceptions if called from a `CoroutineScope` that's not scoped to the Composition. For example, [`LazyListState.animateScrollTo()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState#animateScrollToItem(kotlin.Int,kotlin.Int)) and [`DrawerState.close()`](https://developer.android.com/reference/kotlin/androidx/compose/material/DrawerState#close()).
+> **Warning:** Calling some suspend functions exposed from Compose UI element state that trigger animations throws exceptions if called from a `CoroutineScope` that's not scoped to the Composition. For example, [`LazyListState.animateScrollTo()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState.md.txt#animateScrollToItem(kotlin.Int,kotlin.Int)) and [`DrawerState.close()`](https://developer.android.com/reference/kotlin/androidx/compose/material/DrawerState.md.txt#close()).
 
 To fix this crash, switch the `CoroutineContext` of the coroutine in the
 `ViewModel` to one that is scoped to the Composition. It could look like this:
@@ -512,6 +512,6 @@ additional resources.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving)
-- [Lists and grids](https://developer.android.com/develop/ui/compose/lists)
-- [Architecting your Compose UI](https://developer.android.com/develop/ui/compose/architecture)
+- [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving.md.txt)
+- [Lists and grids](https://developer.android.com/develop/ui/compose/lists.md.txt)
+- [Architecting your Compose UI](https://developer.android.com/develop/ui/compose/architecture.md.txt)

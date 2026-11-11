@@ -26,25 +26,30 @@ The standard `rememberSerializable` function has a generic upper-bound constrain
 
 To support nullable types (such as `Person?`), `conflateAsSerializableState` circumvents this restriction by internally wrapping the value in a generic `@Serializable` class, `NullableWrapper`:
 
-    @Serializable
-    private data class NullableWrapper<T>(val value: T)
+```kotlin
+@Serializable
+private data class NullableWrapper<T>(val value: T)
+```
 
 ### Serialization of Custom Types
 
 Because this approach uses `rememberSerializable` from the `androidx.compose.runtime.saveable` package, any custom class used as a result (like `Person`) must be marked with Kotlin Serialization's `@Serializable` annotation:
 
-    @Serializable
-    data class Person(val name: String, val favoriteColor: String)
+```kotlin
+@Serializable
+data class Person(val name: String, val favoriteColor: String)
+```
 
 The `conflateAsSerializableState` extension function automatically retrieves the appropriate `KSerializer` via the `serializer<T>()` helper when using the reified version:
 
-    @Composable
-    inline fun <reified T> ResultEventBus.conflateAsSerializableState(
-        defaultValue: T,
-        vararg inputs: Any?,
-        configuration: SavedStateConfiguration = SavedStateConfiguration.DEFAULT,
-    ): State<T>
-
+```kotlin
+@Composable
+inline fun <reified T> ResultEventBus.conflateAsSerializableState(
+    defaultValue: T,
+    vararg inputs: Any?,
+    configuration: SavedStateConfiguration = SavedStateConfiguration.DEFAULT,
+): State<T>
+```
 [![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/results/serializable)
 
 ```

@@ -14,17 +14,17 @@ Tabletop posture lets you place your app's main content (like a video player or 
 
 ## Best practices
 
-To add tabletop support to your app, use the [`Grid`](https://developer.android.com/develop/adaptive-apps/guides/grid) API to define a layout with two rows and one column, and apply the tabletop window posture media query.
+To add tabletop support to your app, use the [`Grid`](https://developer.android.com/develop/adaptive-apps/guides/grid.md.txt) API to define a layout with two rows and one column, and apply the tabletop window posture media query.
 
-- **Detect tabletop posture reactively:** Use the [`mediaQuery`](https://developer.android.com/develop/adaptive-apps/guides/mediaquery) composable to observe the device state. When the device is folded into tabletop posture (`windowPosture == Posture.Tabletop`), dynamically shift your layout without requiring activity restarts or complex lifecycle handling.
+- **Detect tabletop posture reactively:** Use the [`mediaQuery`](https://developer.android.com/develop/adaptive-apps/guides/mediaquery.md.txt) composable to observe the device state. When the device is folded into tabletop posture (`windowPosture == Posture.Tabletop`), dynamically shift your layout without requiring activity restarts or complex lifecycle handling.
 - **Structure layouts with `Grid`:** When in tabletop posture, use the `Grid` API (`2 rows`, `1 column`) to cleanly separate primary visual content into the top row above the fold and interactive controls into the bottom row below the fold.
 - **Leverage implicit z-indexing for overlays:** In standard (non-tabletop) postures, assign multiple area IDs to the same cell to overlay controls over the player. `Grid` automatically renders items back-to-front in their declaration order.
 - **Provide smooth transitions:** Ensure state and scroll positions are preserved when transitioning between standard full-screen layouts and tabletop posture.
 
 ## Ingredients
 
-- [`Grid`](https://developer.android.com/develop/adaptive-apps/guides/grid): An adaptive layout container that lets you position items in configurable rows and columns, ideal for splitting content across distinct screen regions.
-- [`mediaQuery`](https://developer.android.com/develop/adaptive-apps/guides/mediaquery): A Jetpack Compose API used to query the app's current window posture, size classes, and hardware characteristics directly within your composables.
+- [`Grid`](https://developer.android.com/develop/adaptive-apps/guides/grid.md.txt): An adaptive layout container that lets you position items in configurable rows and columns, ideal for splitting content across distinct screen regions.
+- [`mediaQuery`](https://developer.android.com/develop/adaptive-apps/guides/mediaquery.md.txt): A Jetpack Compose API used to query the app's current window posture, size classes, and hardware characteristics directly within your composables.
 
 ## Steps
 
@@ -34,7 +34,7 @@ Query the device posture using `mediaQuery()`. When the device is in tabletop po
 
 Inside a composable function, define layout area IDs using an enum and set up `GridConfigurationScope` blocks for default and tabletop postures.
 
-In `defaultConfig`, both areas are assigned to the same cell (`row = 1, column = 1`). `Grid` uses implicit z-indexing where composables declared later in the layout are rendered on top of earlier ones, allowing the controller to overlay the player without extra container nesting (see [UI element overlays with Grid](https://developer.android.com/develop/adaptive-apps/cookbook/grid-ui-overlay) for more details).
+In `defaultConfig`, both areas are assigned to the same cell (`row = 1, column = 1`). `Grid` uses implicit z-indexing where composables declared later in the layout are rendered on top of earlier ones, allowing the controller to overlay the player without extra container nesting (see [UI element overlays with Grid](https://developer.android.com/develop/adaptive-apps/cookbook/grid-ui-overlay.md.txt) for more details).
 
 
 ```kotlin
@@ -100,6 +100,6 @@ By combining `mediaQuery` and `Grid`, your app dynamically detects when a foldab
 
 ## Additional resources
 
-- [Get started with adaptive apps](https://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps)
-- [Support foldable display modes](https://developer.android.com/develop/adaptive-apps/guides/foldables/support-foldable-display-modes)
-- [UI element overlays with Grid](https://developer.android.com/develop/adaptive-apps/cookbook/grid-ui-overlay)
+- [Get started with adaptive apps](https://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps.md.txt)
+- [Support foldable display modes](https://developer.android.com/develop/adaptive-apps/guides/foldables/support-foldable-display-modes.md.txt)
+- [UI element overlays with Grid](https://developer.android.com/develop/adaptive-apps/cookbook/grid-ui-overlay.md.txt)

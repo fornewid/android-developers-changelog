@@ -11,16 +11,16 @@ the same manner.
 
 There are several approaches you might take:
 
-- [Extend `MaterialTheme`](https://developer.android.com/develop/ui/compose/designsystems/custom#extending-material) with additional theming values.
-- [Replace one or more Material systems](https://developer.android.com/develop/ui/compose/designsystems/custom#replacing-systems) --- `ColorScheme`, `Typography`, or `Shapes` --- with custom implementations while keeping the others.
-- [Implement a fully custom design system](https://developer.android.com/develop/ui/compose/designsystems/custom#implementing-fully-custom) to replace `MaterialTheme`.
+- [Extend `MaterialTheme`](https://developer.android.com/develop/ui/compose/designsystems/custom.md.txt#extending-material) with additional theming values.
+- [Replace one or more Material systems](https://developer.android.com/develop/ui/compose/designsystems/custom.md.txt#replacing-systems) --- `ColorScheme`, `Typography`, or `Shapes` --- with custom implementations while keeping the others.
+- [Implement a fully custom design system](https://developer.android.com/develop/ui/compose/designsystems/custom.md.txt#implementing-fully-custom) to replace `MaterialTheme`.
 
 You may also want to continue using Material components with a custom design
 system. It's possible to do this but there are things to keep in mind to suit
 the approach you've taken.
 
 To learn more about the lower-level constructs and APIs used by `MaterialTheme`
-and custom design systems, check out the [Anatomy of a theme in Compose](https://developer.android.com/develop/ui/compose/designsystems/anatomy) guide.
+and custom design systems, check out the [Anatomy of a theme in Compose](https://developer.android.com/develop/ui/compose/designsystems/anatomy.md.txt) guide.
 
 ## Extend Material Theming
 
@@ -50,7 +50,7 @@ val Shapes.card: Shape
 
 This provides consistency with `MaterialTheme` usage APIs. An example of this
 defined by Compose itself is
-[`surfaceColorAtElevation`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#(androidx.compose.material3.ColorScheme).surfaceColorAtElevation(androidx.compose.ui.unit.Dp)),
+[`surfaceColorAtElevation`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#(androidx.compose.material3.ColorScheme).surfaceColorAtElevation(androidx.compose.ui.unit.Dp)),
 which determines the surface color that should be used depending on the
 elevation.
 
@@ -449,7 +449,7 @@ val ButtonShape = RoundedCornerShape(percent = 50)
 <br />
 
 > [!NOTE]
-> **Note:** `Button` uses `ripple` internally, through `Surface`, as its `Indication`. To change the ripple color or alpha, provide `LocalRippleConfiguration`. Starting with `material3` 1.5.0-beta01, you can also provide `LocalRippleThemeConfiguration` to configure the ripple theme for all Material components, such as using an inset focus ring. All of these are in `androidx.compose.material3`. For more information, see [Migrate to `Indication` and `Ripple` APIs](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/migrate-indication-ripple). It's a good idea to check the source code when implementing other custom components that wrap existing components.
+> **Note:** `Button` uses `ripple` internally, through `Surface`, as its `Indication`. To change the ripple color or alpha, provide `LocalRippleConfiguration`. Starting with `material3` 1.5.0-beta01, you can also provide `LocalRippleThemeConfiguration` to configure the ripple theme for all Material components, such as using an inset focus ring. All of these are in `androidx.compose.material3`. For more information, see [Migrate to `Indication` and `Ripple` APIs](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/migrate-indication-ripple.md.txt). It's a good idea to check the source code when implementing other custom components that wrap existing components.
 
 If you've introduced new class types --- such as `List<Color>` to represent
 gradients --- then it may be better to implement components from scratch instead
@@ -460,6 +460,6 @@ from the Jetsnack sample.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Material Design 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material3)
-- [Migrate from Material 2 to Material 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material2-material3)
-- [Anatomy of a theme in Compose](https://developer.android.com/develop/ui/compose/designsystems/anatomy)
+- [Material Design 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material3.md.txt)
+- [Migrate from Material 2 to Material 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material2-material3.md.txt)
+- [Anatomy of a theme in Compose](https://developer.android.com/develop/ui/compose/designsystems/anatomy.md.txt)

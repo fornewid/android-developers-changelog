@@ -67,14 +67,16 @@ This example uses a back arrow for the icon. As such, the argument for
 `navigateBack()` should take the user to the previous destination.
 
 To do so, pass `TopBarNavigationExample` a call to
-[`NavController.popBackStack()`](https://developer.android.com/guide/navigation/backstack). You do this where you [build your
+[`NavController.popBackStack()`](https://developer.android.com/guide/navigation/backstack.md.txt). You do this where you [build your
 navigation](https://developer.android.com/guide/navigation/design#compose) graph. For example:
 
-    NavHost(navController, startDestination = "home") {
-        composable("topBarNavigationExample") {
-            TopBarNavigationExample{ navController.popBackStack() }
-        }
-        // Other destinations...
+```kotlin
+NavHost(navController, startDestination = "home") {
+    composable("topBarNavigationExample") {
+        TopBarNavigationExample{ navController.popBackStack() }
+    }
+    // Other destinations...
+```
 
 > [!NOTE]
 > **Note:** Using the same approach, you could implement a different action for the navigation icon. For example, you could use a house icon and pass a call to `navController.navigate("home")`.
@@ -84,7 +86,7 @@ navigation](https://developer.android.com/guide/navigation/design#compose) graph
 For more information on how to implement navigation in your app, see the
 following series of guides:
 
-- [Navigation with Compose](https://developer.android.com/guide/navigation#framework-options)
-- [Create a NavController](https://developer.android.com/guide/navigation/navcontroller)
-- [Design your navigation graph](https://developer.android.com/guide/navigation/design#compose)
-- [Navigate to a composable](https://developer.android.com/guide/navigation/use-graph/navigate#composable)
+- [Navigation with Compose](https://developer.android.com/guide/navigation.md.txt#framework-options)
+- [Create a NavController](https://developer.android.com/guide/navigation/navcontroller.md.txt)
+- [Design your navigation graph](https://developer.android.com/guide/navigation/design.md.txt#compose)
+- [Navigate to a composable](https://developer.android.com/guide/navigation/use-graph/navigate.md.txt#composable)

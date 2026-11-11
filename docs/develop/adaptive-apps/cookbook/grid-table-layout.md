@@ -6,7 +6,7 @@ source: md.txt
 
 ![Four star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/shared/four-star-rating.png)
 
-This recipe shows how the [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable#Grid(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) API improves code readability compared to traditional nested structures. By configuring auto-sized tracks, you can create a grid that dynamically adapts to cell width and height based on the intrinsic size of your text composables.
+This recipe shows how the [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable.md.txt#Grid(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) API improves code readability compared to traditional nested structures. By configuring auto-sized tracks, you can create a grid that dynamically adapts to cell width and height based on the intrinsic size of your text composables.
 
 In this recipe, you build a table using the `Grid` API.
 
@@ -21,13 +21,13 @@ In this recipe, you build a table using the `Grid` API.
 
 ## Best practices
 
-Use the [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable#Grid(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) composable to improve table readability and maintainability. `Grid` gives you precise control over column dimensions and alignment across all rows without manually synchronizing widths.
+Use the [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable.md.txt#Grid(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) composable to improve table readability and maintainability. `Grid` gives you precise control over column dimensions and alignment across all rows without manually synchronizing widths.
 
 ## Ingredients
 
-- [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable#Grid(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)): A composable layout that places items in a two-dimensional grid. The layout configuration is specified inside the `config` lambda parameter, while UI content items are declared inside the `content` lambda parameter.
-- [`GridTrackSize.Auto`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize#Auto()): Specifies automatic track sizing within the grid configuration based on content intrinsic size, for example, `column(GridTrackSize.Auto)` and `row(GridTrackSize.Auto)`.
-- [`gap()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope#gap(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)): Configures row and column spacing within `GridConfigurationScope`, such as `gap(row = 8.dp, column = 16.dp)`.
+- [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable.md.txt#Grid(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)): A composable layout that places items in a two-dimensional grid. The layout configuration is specified inside the `config` lambda parameter, while UI content items are declared inside the `content` lambda parameter.
+- [`GridTrackSize.Auto`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize.md.txt#Auto()): Specifies automatic track sizing within the grid configuration based on content intrinsic size, for example, `column(GridTrackSize.Auto)` and `row(GridTrackSize.Auto)`.
+- [`gap()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope.md.txt#gap(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)): Configures row and column spacing within `GridConfigurationScope`, such as `gap(row = 8.dp, column = 16.dp)`.
 
 ## Steps
 
@@ -102,5 +102,5 @@ You've now built a clean, two-dimensional comparison table with automatic column
 
 ## Additional resources
 
-- [Grid in Compose](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid)
-- [Set container properties](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties)
+- [Grid in Compose](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid.md.txt)
+- [Set container properties](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties.md.txt)

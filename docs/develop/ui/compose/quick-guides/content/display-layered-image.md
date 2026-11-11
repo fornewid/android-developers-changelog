@@ -90,7 +90,7 @@ class OverlayImagePainter constructor(
 
 ### Key points about the code
 
-- Uses `OverlayImagePainter`, which is a custom [`Painter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/painter/Painter) implementation that you can use to overlay images over the source image. The blend mode controls how the images are combined. The first image is not overwriting anything else, so no blend mode is needed. The `Overlay` blend mode of the second image overwrites the areas of the first image that are covered by the second image.
+- Uses `OverlayImagePainter`, which is a custom [`Painter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/painter/Painter.md.txt) implementation that you can use to overlay images over the source image. The blend mode controls how the images are combined. The first image is not overwriting anything else, so no blend mode is needed. The `Overlay` blend mode of the second image overwrites the areas of the first image that are covered by the second image.
 - `DrawScope.onDraw()` is overridden and the two images are overlaid in this function.
 - `intrinsicSize` is overridden to correctly report the intrinsic size of the combined image.
 
@@ -118,8 +118,8 @@ Image(
 
 ### Key points about the code
 
-- The images to be combined are each loaded as [`ImageBitmap`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ImageBitmap) instances before being combined using `OverlayImagePainter`.
-- The combined images are rendered by an [`Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Image.composable#Image(androidx.compose.ui.graphics.ImageBitmap,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale,kotlin.Float,androidx.compose.ui.graphics.ColorFilter,androidx.compose.ui.graphics.FilterQuality)) composable that uses the custom painter to combine the source images when rendering.
+- The images to be combined are each loaded as [`ImageBitmap`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ImageBitmap.md.txt) instances before being combined using `OverlayImagePainter`.
+- The combined images are rendered by an [`Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Image.composable.md.txt#Image(androidx.compose.ui.graphics.ImageBitmap,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale,kotlin.Float,androidx.compose.ui.graphics.ColorFilter,androidx.compose.ui.graphics.FilterQuality)) composable that uses the custom painter to combine the source images when rendering.
 
 ## Collections that contain this guide
 
@@ -133,4 +133,4 @@ Discover techniques for using bright, engaging visuals to give your Android app 
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

@@ -4,7 +4,7 @@ url: https://developer.android.com/media/camera/camera2/foldable-devices
 source: md.txt
 ---
 
-**Note:** This page refers to the [Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
+**Note:** This page refers to the [Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary.md.txt) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
 
 <br />
 
@@ -19,7 +19,7 @@ matching the display. However, this may not be true for certain foldable states.
 An unfolded screen might have one sensor with portrait orientation and another
 sensor with landscape orientation.
 
-If your camera application uses a [`SurfaceTexture`](https://developer.android.com/reference/android/graphics/SurfaceTexture) or a
+If your camera application uses a [`SurfaceTexture`](https://developer.android.com/reference/android/graphics/SurfaceTexture.md.txt) or a
 custom rendering pipeline, be aware of the camera sensor orientation.
 
 This ensures that rendered content is always physically upright and pixels
@@ -62,24 +62,24 @@ the camera preview renders with regard to the active physical camera.
 
 The logical camera device interface provides the necessary APIs to handle
 physical camera switches. Developers must monitor the value of the
-[active physical id](https://developer.android.com/reference/kotlin/android/hardware/camera2/CaptureResult#logical_multi_camera_active_physical_id).
+[active physical id](https://developer.android.com/reference/kotlin/android/hardware/camera2/CaptureResult.md.txt#logical_multi_camera_active_physical_id).
 
 On foldable devices the active physical ID capture result can change in response
 to different foldable state switches like folding and unfolding.
 
 In such events, developers must use the current active physical ID and check the
-corresponding [camera characteristics](https://developer.android.com/reference/kotlin/android/hardware/camera2/CameraCharacteristics).
+corresponding [camera characteristics](https://developer.android.com/reference/kotlin/android/hardware/camera2/CameraCharacteristics.md.txt).
 
 The two most important camera characteristics that can potentially change
-and affect preview rendering are the [sensor orientation](https://developer.android.com/reference/kotlin/android/hardware/camera2/CameraCharacteristics#sensor_orientation)
-and the [lens facing](https://developer.android.com/reference/kotlin/android/hardware/camera2/CameraCharacteristics#lens_facing).
+and affect preview rendering are the [sensor orientation](https://developer.android.com/reference/kotlin/android/hardware/camera2/CameraCharacteristics.md.txt#sensor_orientation)
+and the [lens facing](https://developer.android.com/reference/kotlin/android/hardware/camera2/CameraCharacteristics.md.txt#lens_facing).
 
 If your application's preview rendering pipeline depends on static camera
 parameters to calculate its final transformation matrix, ensure that you pass
 the current values and update the graphics transformations.
 
 For a deeper understanding of camera preview pipelines and how transformations
-are calculated, consult the [camera preview guide](https://developer.android.com/media/camera/camera2/camera-preview).
+are calculated, consult the [camera preview guide](https://developer.android.com/media/camera/camera2/camera-preview.md.txt).
 
 ## Additional invalid assumptions
 

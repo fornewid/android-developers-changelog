@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 > [!NOTE]
-> **Note:** This tutorial assumes you are building a new widget and don't have an existing tile. If you're updating an app that already has an existing tile, read the [Migrate from tiles to widgets](https://developer.android.com/training/wearables/widgets/migration) guide to configure your services.
+> **Note:** This tutorial assumes you are building a new widget and don't have an existing tile. If you're updating an app that already has an existing tile, read the [Migrate from tiles to widgets](https://developer.android.com/training/wearables/widgets/migration.md.txt) guide to configure your services.
 
 
 ## Android skills
@@ -14,7 +14,7 @@ source: md.txt
 
 ### Wear OS Widgets
 
-Use an Android skill to help you build Wear OS widgets with Glance, RemoteViews, and ProtoLayout. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use an Android skill to help you build Wear OS widgets with Glance, RemoteViews, and ProtoLayout. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add wear-widgets
 
@@ -38,9 +38,11 @@ Get a compatible version of the renderer in one of the following ways:
 To check what version you have installed on your device, use the following
 command:
 
-    adb shell dumpsys package com.google.android.wearable.protolayout.renderer | \
-      grep -m 1 versionName | \
-      awk -F= '{print $2}'
+```bash
+adb shell dumpsys package com.google.android.wearable.protolayout.renderer | \
+  grep -m 1 versionName | \
+  awk -F= '{print $2}'
+```
 
 ### Gradle Configuration
 
@@ -50,14 +52,16 @@ Wear Widget libraries are available on **Google Maven**.
 
 Ensure your `compileSdk` and `targetSdk` are set to **37** or higher.
 
-    android {
-        compileSdk = 37
+```kotlin
+android {
+    compileSdk = 37
+    // ...
+    defaultConfig {
+        targetSdk = 37
         // ...
-        defaultConfig {
-            targetSdk = 37
-            // ...
-        }
     }
+}
+```
 
 **2. Add Dependencies**
 
@@ -104,8 +108,8 @@ dependencies {
 ## Build a Hello World Widget
 
 A Wear Widget consists of a service extending
-[`GlanceWearWidgetService`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidgetService) and a widget class
-extending [`GlanceWearWidget`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidget). You define the UI using
+[`GlanceWearWidgetService`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidgetService.md.txt) and a widget class
+extending [`GlanceWearWidget`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidget.md.txt). You define the UI using
 `@RemoteComposable` functions.
 
 ### Define the Service
@@ -114,9 +118,9 @@ The service is the entry point that the system binds to.
 
 To define your widget, create a service that extends `GlanceWearWidgetService`
 and annotate it with
-[`@AssociateWithGlanceWearWidget`](https://developer.android.com/reference/kotlin/androidx/glance/wear/AssociateWithGlanceWearWidget),
+[`@AssociateWithGlanceWearWidget`](https://developer.android.com/reference/kotlin/androidx/glance/wear/AssociateWithGlanceWearWidget.md.txt),
 to associate the service with the appropriate
-[`GlanceWearWidget`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidget) class.
+[`GlanceWearWidget`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidget.md.txt) class.
 
 <br />
 
@@ -186,7 +190,7 @@ fun HelloWidgetContent() {
 
 You can preview your widget layouts directly in Android Studio's **Design**
 panel using
-[`androidx.glance.wear:wear-tooling-preview`](https://developer.android.com/jetpack/androidx/releases/wear#wear-tooling-preview_2).
+[`androidx.glance.wear:wear-tooling-preview`](https://developer.android.com/jetpack/androidx/releases/wear.md.txt#wear-tooling-preview_2).
 
 #### Predefined preview suites
 
@@ -196,7 +200,7 @@ container shapes and device configurations:
 
 - **Squircle Suite (`SquircleAllWidgetPreviewParams`):** Rounded rectangle containers.
 - **Round Suite (`RoundAllWidgetPreviewParams`):** Pill-shaped containers.
-- **Rectangular Suite (`RectangularAllWidgetPreviewParams`):** Uncropped rectangular containers with safe padding. Images generated with this preview configuration are suitable for use as the APK-embedded preview images used by the widget picker (see [Generate preview image assets](https://developer.android.com/training/wearables/widgets/get_started#generate-preview-assets)).
+- **Rectangular Suite (`RectangularAllWidgetPreviewParams`):** Uncropped rectangular containers with safe padding. Images generated with this preview configuration are suitable for use as the APK-embedded preview images used by the widget picker (see [Generate preview image assets](https://developer.android.com/training/wearables/widgets/get_started.md.txt#generate-preview-assets)).
 
 To preview your widget in Android Studio, use `@WearWidgetPreview`:
 
@@ -218,14 +222,14 @@ fun HelloWidgetPreview(
 <br />
 
 > [!TIP]
-> **Tip:** You can also preview `@RemoteComposable` layouts directly without instantiating the widget class by passing a content lambda and background brush to [`WearWidgetPreview`](https://developer.android.com/reference/kotlin/androidx/glance/wear/tooling/preview/WearWidgetPreview.composable).
+> **Tip:** You can also preview `@RemoteComposable` layouts directly without instantiating the widget class by passing a content lambda and background brush to [`WearWidgetPreview`](https://developer.android.com/reference/kotlin/androidx/glance/wear/tooling/preview/WearWidgetPreview.composable.md.txt).
 
 ### Create the Widget Configuration XML
 
 Create a new file `res/xml/hello_widget_info.xml` to define the widget's
 properties and supported sizes. For a complete reference of the supported XML
 attributes in the `<wearwidget-provider>` tag, see the
-[`WearWidgetProviderInfo`](https://developer.android.com/reference/kotlin/androidx/glance/wear/core/WearWidgetProviderInfo) documentation.
+[`WearWidgetProviderInfo`](https://developer.android.com/reference/kotlin/androidx/glance/wear/core/WearWidgetProviderInfo.md.txt) documentation.
 
 <br />
 
@@ -324,7 +328,9 @@ to a device or emulator.
 Build the project and install the debug APK onto your connected device or
 emulator:
 
-    ./gradlew :app:installDebug
+```bash
+./gradlew :app:installDebug
+```
 
 ### Add and preview your widget
 
@@ -333,24 +339,28 @@ carousel and display it on the screen.
 
 **Note:** Wear Widgets use the underlying tile infrastructure for debugging
 purposes. As a result, the `adb` commands require the
-[`add-tile`](https://developer.android.com/training/wearables/tiles/debug#adb) and [`show-tile`](https://developer.android.com/training/wearables/tiles/debug#adb) operations.
+[`add-tile`](https://developer.android.com/training/wearables/tiles/debug.md.txt#adb) and [`show-tile`](https://developer.android.com/training/wearables/tiles/debug.md.txt#adb) operations.
 
 **1. Add the widget to the carousel:**
 
-    adb shell am broadcast \
-      -a com.google.android.wearable.app.DEBUG_SURFACE \
-      --es operation add-tile \
-      --ecn component <your_package_name>/.HelloWidgetService
+```bash
+adb shell am broadcast \
+  -a com.google.android.wearable.app.DEBUG_SURFACE \
+  --es operation add-tile \
+  --ecn component <your_package_name>/.HelloWidgetService
+```
 
 > [!NOTE]
 > **Note:** The preceding command adds a FULLSCREEN tile by default. You can also specify LARGE and SMALL sizes by passing `--ei type [0|1|2]` to the command (where type 0 is FULLSCREEN). Depending on the device state, app-triggered content updates using `triggerUpdate()` might fail for non-fullscreen types when using Wear Widget library versions up to `1.0.0-alpha10` (this is fixed starting in `1.0.0-alpha11`).
 
 **2. Show the widget:**
 
-    adb shell am broadcast \
-      -a com.google.android.wearable.app.DEBUG_SYSUI \
-      --es operation show-tile \
-      --ei index 0
+```bash
+adb shell am broadcast \
+  -a com.google.android.wearable.app.DEBUG_SYSUI \
+  --es operation show-tile \
+  --ei index 0
+```
 
 ### Update widget content programmatically
 
@@ -359,10 +369,12 @@ notification, or user action), notify the system to refresh the widget
 content.
 
 To request an update for all active instances of your widget, call
-[`triggerUpdateAll`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidget#triggerUpdateAll(android.content.Context)) on your widget class:
+[`triggerUpdateAll`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidget.md.txt#triggerUpdateAll(android.content.Context)) on your widget class:
 
-    // Request a content update for all active HelloWidget instances
-    HelloWidget().triggerUpdateAll(context)
+```kotlin
+// Request a content update for all active HelloWidget instances
+HelloWidget().triggerUpdateAll(context)
+```
 
 To update a specific widget instance without refreshing all active instances,
-call [`triggerUpdate`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidget#triggerUpdate(android.content.Context,androidx.glance.wear.core.WidgetInstanceId)) with the target instance ID.
+call [`triggerUpdate`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidget.md.txt#triggerUpdate(android.content.Context,androidx.glance.wear.core.WidgetInstanceId)) with the target instance ID.

@@ -21,14 +21,14 @@ insets in Compose, and pad the `AndroidView` composables accordingly.
 
 By default, each `ComposeView` consumes all insets at the
 `WindowInsetsCompat` level of consumption. To change this default behavior, set
-[`AbstractComposeView.consumeWindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/AbstractComposeView#(androidx.compose.ui.platform.AbstractComposeView).consumeWindowInsets())
+[`AbstractComposeView.consumeWindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/AbstractComposeView.md.txt#(androidx.compose.ui.platform.AbstractComposeView).consumeWindowInsets())
 to `false`.
 
 ## Backward compatible inset dispatching for views
 
 If your app contains Views code, you may need to confirm that insets are
 dispatched to sibling views on devices that run Android 10 (API level 29) or
-lower. See the [edge-to-edge Views guide](https://developer.android.com/develop/ui/views/layout/edge-to-edge#backward-compatible-dispatching) for more information.
+lower. See the [edge-to-edge Views guide](https://developer.android.com/develop/ui/views/layout/edge-to-edge.md.txt#backward-compatible-dispatching) for more information.
 
 ## System bar icons
 

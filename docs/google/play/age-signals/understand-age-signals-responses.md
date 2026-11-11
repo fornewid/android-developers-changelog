@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 > [!TIP]
-> **Tip:** Use the [Play Integrity API](https://developer.android.com/google/play/integrity/overview) when calling the Play Age Signals API to verify that the call is coming from an untampered version of your app on a certified Android-powered device, protecting the response from potential spoofing or abuse.
+> **Tip:** Use the [Play Integrity API](https://developer.android.com/google/play/integrity/overview.md.txt) when calling the Play Age Signals API to verify that the call is coming from an untampered version of your app on a certified Android-powered device, protecting the response from potential spoofing or abuse.
 
 This document explains the age signal responses returned by the Play Age Signals
 API.
@@ -47,34 +47,60 @@ these signals.
 
 | Response field | Type | Values | Description |
 |---|---|---|---|
-| ageRangeSource | Enum | - TIER_A - TIER_B - TIER_C - TIER_D - null | - **TIER_A**: User has self declared their age. - **TIER_B**: User's age is managed by a parent or a guardian. - **TIER_C**: User's age is assessed by using credit card, email address, selfie assessment, Government ID, or Tax ID. - **TIER_D**: User's age is checked by using a combination of Government ID and selfie assessment, or Digital ID. - **null** : Returned when **ageSignalsStatus** is **NOT_SHARED** or **VERIFICATION_REQUIRED**. |
+| ageRangeSource | Enum | - TIER_A - TIER_B - TIER_C - TIER_D - null | - **TIER_A**: User has provided their age information to Google. Google may or may not have confirmed this information. - **TIER_B**: User's age is managed by a parent or a guardian. - **TIER_C** ^\*^: User's age is assessed by using credit card, email address, selfie assessment, Government ID, or Tax ID. - **TIER_D** ^\*^: User's age is checked by using a combination of Government ID and selfie assessment, or Digital ID. - **null** : Returned when **ageSignalsStatus** is **NOT_SHARED** or **VERIFICATION_REQUIRED**. ^\*^ Returned only in the regulated regions where age verification is mandatory (for example, US-TX). |
 | ageLower | Integer | - 0 to 18 - null | The inclusive lower bound of the user's age range. Combine it with **ageUpper** to determine the band. Returns **null** if **ageSignalsStatus** is **NOT_SHARED** or **VERIFICATION_REQUIRED**. |
 | ageUpper | Integer | - 2 to 18 - null | The inclusive upper bound of the user's age range. Returns **null** for the highest band (for example, 18+) or if **ageSignalsStatus** is **NOT_SHARED** or **VERIFICATION_REQUIRED**. |
 | significantChangeStatus | Enum | - APPROVED - PENDING - DECLINED - null | This only returns a non-null value in jurisdictions where significant changes are applicable. - **APPROVED**: The most recent significant change (and all prior changes) has been approved. - **PENDING**: Parent hasn't yet approved one or more pending significant changes. - **DECLINED**: Parents denied approval for one or more significant changes. - **null** : Returned for: - All unsupervised accounts - Supervised accounts that don't have any significant changes recorded yet. |
 | significantChangeApprovalDate | Date | - DateStamp - null | The effective date of the most recently approved significant change. All changes with effective dates prior to this date are also approved. Returns **null** if no changes exist. Combine it with \`significantChangeStatus\` to get the approval status for this significant change |
-| installId | String | - Alphanumeric - null | An ID assigned to supervised user installs by Google Play, used for the purposes of notifying you of revoked app approval. Review the documentation for [revoked app approvals](https://developer.android.com/google/play/age-signals/revoked-app-approval). |
+| installId | String | - Alphanumeric - null | An ID assigned to supervised user installs by Google Play, used for the purposes of notifying you of revoked app approval. Review the documentation for [revoked app approvals](https://developer.android.com/google/play/age-signals/revoked-app-approval.md.txt). |
 
 ## Example 1
 
-For a user who verified their age by using Digital ID and shares
-it with apps, you receive the following:
+For an adult user who verified their age by using Digital ID,
+you receive the following:
 
-- `ageRangeSource` is `AgeRangeSource.TIER_D`.
-- `ageLower` is a number (for example, 18).
-- `ageUpper` is `null`.
-- Other response fields are `null`.
+- In a regulated region where age verification is mandatory:
 
-## Example 2
+  - `ageRangeSource` is `AgeRangeSource.TIER_D`.
+  - `ageLower` is a number (for example, 18).
+  - `ageUpper` is `null`.
+  - Other response fields are `null`.
+- Everywhere else:
 
-For an adult user who declared their age (self-declared) and shares it
-with apps, you receive the following:
+  - `ageRangeSource` is `AgeRangeSource.TIER_A`.
+  - `ageLower` is a number (for example, 18).
+  - `ageUpper` is `null`.
+  - Other response fields are `null`.
+
+### Example 2
+
+For an adult user who verified their age by using age estimation methods
+(such as selfie assessment, credit card, or Tax ID), you receive the following:
+
+- In a regulated region where age verification is mandatory:
+
+  - `ageRangeSource` is `AgeRangeSource.TIER_C`.
+  - `ageLower` is a number (for example, 18).
+  - `ageUpper` is `null`.
+  - Other response fields are `null`
+- Everywhere else:
+
+  - `ageRangeSource` is `AgeRangeSource.TIER_A`.
+  - `ageLower` is a number (for example, 18).
+  - `ageUpper` is `null`.
+  - Other response fields are `null`.
+
+## Example 3
+
+For a user who is located in a region where age verification is not
+mandatory and shares it with apps, you receive the following:
 
 - `ageRangeSource` is `AgeRangeSource.TIER_A`.
 - `ageLower` is a number (for example, 18).
 - `ageUpper` is `null`.
-- Other response fields is `null`.
+- Other response fields are `null`.
 
-## Example 3
+## Example 4
 
 For a supervised minor user whose age is managed by a guardian who
 has shared it with apps, you receive the following:
@@ -82,28 +108,17 @@ has shared it with apps, you receive the following:
 - `ageRangeSource` is `AgeRangeSource.TIER_B`.
 - `ageLower` is a number (for example, 13).
 - `ageUpper` is a number (for example, 15).
-- Other response fields is `null`.
+- Other response fields are `null`.
 
-## Example 4
+## Example 5
 
-For a user who has not agreed (or whose parent has not agreed) to age sharing,
-you receive the following:
+For a user who has not agreed (or whose parent has not agreed) to age sharing
+in a region where age verification is not mandatory, you receive the following:
 
 - `ageRangeSource` is `null`.
 - `ageLower` is `null`.
 - `ageUpper` is `null`.
-- Other response fields is `null`.
-
-## Example 5
-
-For an adult user with an assessed age verified by using age estimation methods
-(such as selfie assessment, credit card, or Tax ID) who shares it with apps,
-you receive the following:
-
-- `ageRangeSource` is `AgeRangeSource.TIER_C`.
-- `ageLower` is a number (for example, 18).
-- `ageUpper` is `null`.
-- Other response fields is `null`.
+- Other response fields are `null`.
 
 ## Example 6
 

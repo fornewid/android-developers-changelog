@@ -1,14 +1,8 @@
 ---
-title: Verify the model on the device  |  Android Developers
+title: https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/references/verify
 url: https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/references/verify
-source: html-scrape
+source: md.txt
 ---
-
-# Verify the model on the device Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 ## Reference first
 
@@ -26,31 +20,20 @@ Run the fixed input with `Accelerator.CPU` first and compare with the reference;
 a difference here is in the model file or preprocessing, not in the device.
 Next, run `Accelerator.GPU` and compare in two ways:
 
-1. **Numbers**: Compute maximum absolute difference and Pearson correlation
-   against the reference dump.
-2. **Task result**: Check task-level agreement (top-1 argmax, segmentation mask,
-   or output text). Because the GPU computes in FP16, the least significant
-   digits move slightly, whereas the task result shouldn't change.
+1. **Numbers**: Compute maximum absolute difference and Pearson correlation against the reference dump.
+2. **Task result**: Check task-level agreement (top-1 argmax, segmentation mask, or output text). Because the GPU computes in FP16, the least significant digits move slightly, whereas the task result shouldn't change.
 
 ## Diagnostic indicators
 
-* **First inference slow**: GPU shader compilation runs during the first
-  execution. The helper constructor's warm-up call absorbs this cost; never
-  include the first run in timing metrics.
-* **Timing GPU execution**: On the GPU, measure `model.run` and `readFloat`
-  together, because the output buffer readback is where the app waits for the
-  GPU to finish.
+- **First inference slow**: GPU shader compilation runs during the first execution. The helper constructor's warm-up call absorbs this cost; never include the first run in timing metrics.
+- **Timing GPU execution** : On the GPU, measure `model.run` and `readFloat` together, because the output buffer readback is where the app waits for the GPU to finish.
 
 ## Device-only failures
 
-* **`CompiledModel.create` with `Accelerator.GPU` throws `Failed to compile
-  model`**: Caused by an operator the GPU doesn't support (Logcat logs
-  `Following operations are not supported by GPU delegate`). Run the model on
-  `Accelerator.CPU`, or re-export the model without that operator.
-* **`NaN` or corrupted values appear only on `Accelerator.GPU`**: Caused by an
-  FP16 range overflow in the model. Run the model on `Accelerator.CPU`, or
-  re-export it with an FP16-safe graph rewrite.
-* **Process terminates while loading an unquantized FP32 model exceeding 100
+- **`CompiledModel.create` with `Accelerator.GPU` throws `Failed to compile
+  model`** : Caused by an operator the GPU doesn't support (Logcat logs `Following operations are not supported by GPU delegate`). Run the model on `Accelerator.CPU`, or re-export the model without that operator.
+- **`NaN` or corrupted values appear only on `Accelerator.GPU`** : Caused by an FP16 range overflow in the model. Run the model on `Accelerator.CPU`, or re-export it with an FP16-safe graph rewrite.
+- **Process terminates while loading an unquantized FP32 model exceeding 100
   MB**: Insufficient device RAM. Quantize or split the model before loading.
 
 ## Record

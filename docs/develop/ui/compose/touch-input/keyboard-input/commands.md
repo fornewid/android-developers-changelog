@@ -10,7 +10,7 @@ all input is handled by the system.
 You can provide keyboard shortcuts by handling key events.
 
 > [!NOTE]
-> **Note:** Key events can be handled by implementing the [`KeyEvent.Callback`](https://developer.android.com/reference/android/view/KeyEvent.Callback) interface on an `Activity` class. Refer to [Handle keyboard actions](https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/commands) in views for details.
+> **Note:** Key events can be handled by implementing the [`KeyEvent.Callback`](https://developer.android.com/reference/android/view/KeyEvent.Callback.md.txt) interface on an `Activity` class. Refer to [Handle keyboard actions](https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/commands.md.txt) in views for details.
 
 ## Default keyboard shortcuts
 
@@ -33,10 +33,10 @@ The following keyboard shortcuts are available out of the box.
 ## Key events
 
 In Compose, you can handle an individual keystroke with
-the [`onKeyEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/package-summary#(androidx.compose.ui.Modifier).onKeyEvent(kotlin.Function1)) modifier.
+the [`onKeyEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/package-summary.md.txt#(androidx.compose.ui.Modifier).onKeyEvent(kotlin.Function1)) modifier.
 The modifier accepts a lambda that's called
 when the modified component receives a key event.
-A key event is described as a [`KeyEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent) object.
+A key event is described as a [`KeyEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent.md.txt) object.
 You can get the information of each key event by referring to the object
 in the lambda passed to the `onKeyEvent` modifier.
 
@@ -44,7 +44,7 @@ A keystroke sends two key events.
 One is triggered when the user presses the key;
 the other is triggered when the key is released.
 You can distinguish the two key events
-by referring to the [`type`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent#(androidx.compose.ui.input.key.KeyEvent).type()) attribute of the `KeyEvent` object.
+by referring to the [`type`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent.md.txt#(androidx.compose.ui.input.key.KeyEvent).type()) attribute of the `KeyEvent` object.
 
 The return value of the `onKeyEvent` lambda indicates
 whether the key event is handled or not.
@@ -82,10 +82,10 @@ Box(
 A `KeyEvent` object has the following attributes which indicate
 whether modifier keys are pressed or not:
 
-- [`isAltPressed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent#(androidx.compose.ui.input.key.KeyEvent).isAltPressed())
-- [`isCtrlPressed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent#(androidx.compose.ui.input.key.KeyEvent).isCtrlPressed())
-- [`isMetaPressed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent#(androidx.compose.ui.input.key.KeyEvent).isMetaPressed())
-- [`isShiftPressed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent#(androidx.compose.ui.input.key.KeyEvent).isShiftPressed())
+- [`isAltPressed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent.md.txt#(androidx.compose.ui.input.key.KeyEvent).isAltPressed())
+- [`isCtrlPressed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent.md.txt#(androidx.compose.ui.input.key.KeyEvent).isCtrlPressed())
+- [`isMetaPressed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent.md.txt#(androidx.compose.ui.input.key.KeyEvent).isMetaPressed())
+- [`isShiftPressed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent.md.txt#(androidx.compose.ui.input.key.KeyEvent).isShiftPressed())
 
 Be specific in describing the key events your app handles.
 The following snippet calls a `doSomething()` function
@@ -134,7 +134,7 @@ MediaPlayer(modifier = Modifier.clickable { togglePausePlay() })
 
 <br />
 
-The [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0)) modifier intercepts key events
+The [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary.md.txt#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0)) modifier intercepts key events
 and calls the `onClick()` callback when the <kbd>Spacebar</kbd> or
 <kbd>Enter</kbd> key is pressed.
 That's why the `togglePausePlay()` function is called
@@ -226,7 +226,7 @@ even if the key event is handled with the `onKeyEvent` modifier.
 To move the keyboard focus without adding any tab characters,
 handle the key event
 before triggering the actions associated with the key event, as in the snippet.
-The [`onKeyPreviewEvent()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/package-summary#(androidx.compose.ui.Modifier).onPreviewKeyEvent(kotlin.Function1)) lambda intercepts the key event
+The [`onKeyPreviewEvent()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/package-summary.md.txt#(androidx.compose.ui.Modifier).onPreviewKeyEvent(kotlin.Function1)) lambda intercepts the key event
 by returning `true`.
 
 The parent component can intercept the key event happening on its children.
@@ -273,4 +273,4 @@ You can implement screen-wide keyboard shortcuts by utilizing this behavior.
 
 ## Additional resources
 
-- [Keyboard Shortcuts Helper](https://developer.android.com/develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper): System screen that enables users to search for the keyboard shortcuts your app offers.
+- [Keyboard Shortcuts Helper](https://developer.android.com/develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper.md.txt): System screen that enables users to search for the keyboard shortcuts your app offers.

@@ -20,7 +20,7 @@ Copying and pasting works both within an application and between applications
 that implement the framework.
 
 Because part of the framework uses content providers,
-this document assumes some familiarity with the [Android Content Provider API](https://developer.android.com/guide/topics/providers/content-providers).
+this document assumes some familiarity with the [Android Content Provider API](https://developer.android.com/guide/topics/providers/content-providers.md.txt).
 
 ## Work with text
 
@@ -57,12 +57,12 @@ Column {
 You can paste the text with the following keyboard shortcut:
 <kbd>Ctrl</kbd>+<kbd>V</kbd> .
 The keyboard shortcut is also available by default.
-Refer to [Handle keyboard actions](https://developer.android.com/develop/ui/compose/touch-input/keyboard-input/commands) for details.
+Refer to [Handle keyboard actions](https://developer.android.com/develop/ui/compose/touch-input/keyboard-input/commands.md.txt) for details.
 
 ### Copy with `ClipboardManager`
 
-You can copy texts to the clipboard with [`ClipboardManager`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ClipboardManager).
-Its [setText()](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ClipboardManager#setText(androidx.compose.ui.text.AnnotatedString)) method copies
+You can copy texts to the clipboard with [`ClipboardManager`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ClipboardManager.md.txt).
+Its [setText()](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ClipboardManager.md.txt#setText(androidx.compose.ui.text.AnnotatedString)) method copies
 the passed `AnnotatedString` object to the clipboard.
 The following snippet copies "Hello, clipboard"
 to the clipboard when the user clicks the button.
@@ -85,13 +85,13 @@ Button(
 <br />
 
 The following snippet does the same thing, but gives you more granular control.
-A common use case is [copying sensitive content](https://developer.android.com/develop/ui/compose/touch-input/copy-and-paste#sensitive_content),
-such as password. [`ClipEntry`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ClipEntry) describes an item on the clipboard.
-It contains a [`ClipData`](https://developer.android.com/reference/android/content/ClipData) object that describes data on the clipboard.
-[`ClipData.newPlainText()`](https://developer.android.com/reference/android/content/ClipData#newPlainText(java.lang.CharSequence,%20java.lang.CharSequence)) method is a convenience method to
+A common use case is [copying sensitive content](https://developer.android.com/develop/ui/compose/touch-input/copy-and-paste.md.txt#sensitive_content),
+such as password. [`ClipEntry`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ClipEntry.md.txt) describes an item on the clipboard.
+It contains a [`ClipData`](https://developer.android.com/reference/android/content/ClipData.md.txt) object that describes data on the clipboard.
+[`ClipData.newPlainText()`](https://developer.android.com/reference/android/content/ClipData.md.txt#newPlainText(java.lang.CharSequence,%20java.lang.CharSequence)) method is a convenience method to
 create a `ClipData` object from a String object.
 You can set the created `ClipEntry` object to clipboard
-by calling the [setClip()](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ClipboardManager#setClip(androidx.compose.ui.platform.ClipEntry)) method
+by calling the [setClip()](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ClipboardManager.md.txt#setClip(androidx.compose.ui.platform.ClipEntry)) method
 over the `ClipboardManager` object.
 
 
@@ -118,7 +118,7 @@ Button(
 ### Paste with ClipboardManager
 
 You can access the text copied to the clipboard
-by calling [`getText()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ClipboardManager#getText()) method
+by calling [`getText()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ClipboardManager.md.txt#getText()) method
 over the `ClipboardManager`.
 Its `getText()` method returns an `AnnotatedString` object
 when a text is copied in the clipboard.
@@ -156,15 +156,15 @@ Column {
 Users love images, videos, and other expressive content.
 Your app can enable the user to copy rich content with
 `ClipboardManager` and `ClipEntry`.
-The [`contentReceiver`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).contentReceiver(androidx.compose.foundation.content.ReceiveContentListener)) modifier helps you to implement pasting rich content.
+The [`contentReceiver`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).contentReceiver(androidx.compose.foundation.content.ReceiveContentListener)) modifier helps you to implement pasting rich content.
 
 ### Copy rich content
 
 Your app can't copy rich content directly to the clipboard.
 Instead, your app passes a `URI` object to the clipboard
-and provides access to the content with a [`ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider).
+and provides access to the content with a [`ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider.md.txt).
 The following code snippet shows how to copy a JPEG image to clipboard.
-Refer to [Copy data streams](https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#Streams) for details.
+Refer to [Copy data streams](https://developer.android.com/develop/ui/views/touch-and-input/copy-paste.md.txt#Streams) for details.
 
 
 ```kotlin
@@ -192,10 +192,10 @@ Button(
 
 ## Paste a rich content
 
-With the [`contentReceiver`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).contentReceiver(androidx.compose.foundation.content.ReceiveContentListener)) modifier, you can handle pasting rich content
-to [`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable) in the modified component.
+With the [`contentReceiver`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).contentReceiver(androidx.compose.foundation.content.ReceiveContentListener)) modifier, you can handle pasting rich content
+to [`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable.md.txt) in the modified component.
 The following code snippet adds the pasted URI of an image data
-to a list of [`Uri`](https://developer.android.com/reference/android/net/Uri) objects.
+to a list of [`Uri`](https://developer.android.com/reference/android/net/Uri.md.txt) objects.
 
 
 ```kotlin
@@ -239,17 +239,17 @@ BasicTextField(
 
 <br />
 
-The `contentReceiver` modifier takes a [`ReceiveContentListener`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/content/ReceiveContentListener) object
-as its argument and calls [`onReceive`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/content/ReceiveContentListener#onReceive(androidx.compose.foundation.content.TransferableContent))
+The `contentReceiver` modifier takes a [`ReceiveContentListener`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/content/ReceiveContentListener.md.txt) object
+as its argument and calls [`onReceive`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/content/ReceiveContentListener.md.txt#onReceive(androidx.compose.foundation.content.TransferableContent))
 method of the passed object when the user pastes data
 to the `BasicTextField` inside the modified component.
 
-A [`TransferableContent`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/content/TransferableContent) object is passed to the onReceive method,
+A [`TransferableContent`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/content/TransferableContent.md.txt) object is passed to the onReceive method,
 which describes the data that can be transferred between apps
 by pasting in this case.
 You can access the `ClipEntry` object by referring to the `clipEntry` attribute.
 
-A `ClipEntry` object can have several [`ClipData.Item`](https://developer.android.com/reference/android/content/ClipData.Item) objects
+A `ClipEntry` object can have several [`ClipData.Item`](https://developer.android.com/reference/android/content/ClipData.Item.md.txt) objects
 when the user selects several images and copies them to the clipboard
 for example.
 You should mark consumed or ignored for each `ClipData.Item` object,
@@ -257,7 +257,7 @@ and return a `TransferableContent` containing
 the ignored `ClipData.Item` objects
 so that the closest ancestor `contentReceiver` modifier can receive it.
 
-The [`TransferableContent.hasMediaType()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/content/TransferableContent#(androidx.compose.foundation.content.TransferableContent).hasMediaType(androidx.compose.foundation.content.MediaType)) method can help you determine
+The [`TransferableContent.hasMediaType()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/content/TransferableContent.md.txt#(androidx.compose.foundation.content.TransferableContent).hasMediaType(androidx.compose.foundation.content.MediaType)) method can help you determine
 whether the `TransferableContent` object can provide an item
 with the media type.
 For example, the following method call returns `true`
@@ -274,13 +274,13 @@ transferableContent.hasMediaType(MediaType.Image)
 
 You can copy complex data to the clipboard
 in the same manner you do for the rich content.
-Refer to [Use content providers to copy complex data](https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#Provider) for details.
+Refer to [Use content providers to copy complex data](https://developer.android.com/develop/ui/views/touch-and-input/copy-paste.md.txt#Provider) for details.
 
 You can also handle the pastes of complex data
 in the same manner for the rich content.
 You can receive a URI of the pasted data.
-The actual data can be retrieved from a [`ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider).
-Refer to [Retrieve data from the provider](https://developer.android.com/guide/topics/providers/content-provider-basics#SimpleQuery) for more information.
+The actual data can be retrieved from a [`ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider.md.txt).
+Refer to [Retrieve data from the provider](https://developer.android.com/guide/topics/providers/content-provider-basics.md.txt#SimpleQuery) for more information.
 
 ## Feedback to copying content
 
@@ -288,12 +288,12 @@ Users expect feedback when they copy content to the clipboard,
 so in addition to the framework that powers copy and paste,
 Android shows a default UI to users when they copy in Android 13 (API level 33)
 and higher. Due to this feature, there is a risk of duplicate notification.
-You can learn more about this edge case in [Avoid duplicate notifications](https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#duplicate-notifications).
+You can learn more about this edge case in [Avoid duplicate notifications](https://developer.android.com/develop/ui/views/touch-and-input/copy-paste.md.txt#duplicate-notifications).
 ![An animation showing Android 13 clipboard notification](https://developer.android.com/static/images/about/versions/13/new-copy-paste-UI.gif) **Figure 1.** UI shown when content enters the clipboard in Android 13 and up.
 
 Manually provide feedback to users
 when copying in Android 12L (API level 32) and lower.
-See the [recommendation](https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#Feedback).
+See the [recommendation](https://developer.android.com/develop/ui/views/touch-and-input/copy-paste.md.txt#Feedback).
 
 ### Sensitive content
 
@@ -303,7 +303,7 @@ so that the system can avoid displaying the copied sensitive content
 in the UI (figure 2).
 ![Copied text preview flagging sensitive content.](https://developer.android.com/static/images/about/versions/13/sensitive-content-after.png) **Figure 2.** Copied text preview with a sensitive content flag.
 
-You must add a flag to [`ClipDescription`](https://developer.android.com/reference/android/content/ClipDescription) in `ClipData`
+You must add a flag to [`ClipDescription`](https://developer.android.com/reference/android/content/ClipDescription.md.txt) in `ClipData`
 before calling `setClip()` method over the `ClipboardManager` object:
 
 

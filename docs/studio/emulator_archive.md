@@ -8,7 +8,7 @@ This page provides an archive of Emulator releases. Please review the
 [license file](https://cs.android.com/android/platform/superproject/+/master:prebuilts/android-emulator/NOTICE)
 in the emulator package for licensing information.
 
-For the best experience, please review the [Emulator system requirements](https://developer.android.com/studio/run/emulator#requirements).
+For the best experience, please review the [Emulator system requirements](https://developer.android.com/studio/run/emulator.md.txt#requirements).
 
 ## How to manually install a select version of emulator
 
@@ -50,4 +50,4 @@ specified in the `package.xml` file. Specifically, follow these steps:
 
    This is where you should specify the emulator version you downloaded and want to install.
 
-<iframe src="https://android.devsite.google/frame/studio/emulator_archive_dc2a06e5ec8c49135fa1f3c768b9e1ee6aafd202351ad935ea134f20bbad3e1f.frame" class="framebox inherit-locale scroll" allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/studio/emulator_archive_1b0e28a5256ca1bb6c7045a7049c8c40bbfcbab265dedaf2625ae90cccab90f2.frame" class="framebox inherit-locale scroll" allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>

@@ -57,7 +57,7 @@ Boolean options can then be used in a two ways:
 
    Note that configuration options cannot be nested in their use.
 2. Alternatively, the configuration option can be used in
-   [expressions](https://developer.android.com/training/wearables/wff/expressions):
+   [expressions](https://developer.android.com/training/wearables/wff/expressions.md.txt):
 
    <br />
 

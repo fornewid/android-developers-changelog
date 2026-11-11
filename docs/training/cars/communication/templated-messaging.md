@@ -33,38 +33,42 @@ following:
 
 Your app needs to declare the `androidx.car.app.category.MESSAGING` [car app
 category](https://developer.android.com/training/cars/apps#supported-app-categories) in the intent filter of its
-[`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService).
+[`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService.md.txt).
 
-    <application>
-        ...
-       <service
-           ...
-            android:name=".MyCarAppService"
-            android:exported="true">
-          <intent-filter>
-            <action android:name="androidx.car.app.CarAppService" />
-            <category android:name="androidx.car.app.category.MESSAGING"/>
-          </intent-filter>
-        </service>
-        ...
-    <application>
+```xml
+<application>
+    ...
+   <service
+       ...
+        android:name=".MyCarAppService"
+        android:exported="true">
+      <intent-filter>
+        <action android:name="androidx.car.app.CarAppService" />
+        <category android:name="androidx.car.app.category.MESSAGING"/>
+      </intent-filter>
+    </service>
+    ...
+<application>
+```
 
 > [!NOTE]
-> **Note:** If your app supports both messaging and [calling](https://developer.android.com/training/cars/communication/calling), include both `androidx.car.app.category.CALLING` and `androidx.car.app.category.MESSAGING` `<category>` elements in the same intent filter.
+> **Note:** If your app supports both messaging and [calling](https://developer.android.com/training/cars/communication/calling.md.txt), include both `androidx.car.app.category.CALLING` and `androidx.car.app.category.MESSAGING` `<category>` elements in the same intent filter.
 
 #### Set the minimum car app API level
 
-Because the [`ConversationItem`](https://developer.android.com/reference/androidx/car/app/messaging/model/ConversationItem) API is only supported on
+Because the [`ConversationItem`](https://developer.android.com/reference/androidx/car/app/messaging/model/ConversationItem.md.txt) API is only supported on
 Car API 7 or higher, you should also set the `minCarApiLevel` metadata to that
 value. See [Car App API Level](https://developer.android.com/training/cars/apps#api-level) for more information.
 
-    <application ...>
-        ...
-        <meta-data
-            android:name="androidx.car.app.minCarApiLevel"
-            android:value="7"/>
-        ...
-    </application>
+```xml
+<application ...>
+    ...
+    <meta-data
+        android:name="androidx.car.app.minCarApiLevel"
+        android:value="7"/>
+    ...
+</application>
+```
 
 #### Declare Android Auto support
 
@@ -72,27 +76,31 @@ In the `automotive_app_desc.xml` file that you use to [declare Android Auto
 support](https://developer.android.com/training/cars/apps/auto#declare-android-auto-support), verify that both the `notification` and
 `template` capabilities are declared:
 
-    <automotiveApp>
-        <uses name="notification" />
-        <uses name="template" />
-    </automotiveApp>
+```xml
+<automotiveApp>
+    <uses name="notification" />
+    <uses name="template" />
+</automotiveApp>
+```
 
-If your app can be set as the [default SMS handler](https://developer.android.com/reference/android/provider/Telephony#creating-an-sms-app),
+If your app can be set as the [default SMS handler](https://developer.android.com/reference/android/provider/Telephony.md.txt#creating-an-sms-app),
 make sure to include the following `<uses>` element. If you don't, a default
 handler built-in to Android Auto will be used to handle incoming SMS/MMS
 messages, which can lead to duplicate notifications.
 
-    <automotiveApp>
-        ...
-        <uses name="sms" />
-    </automotiveApp>
+```xml
+<automotiveApp>
+    ...
+    <uses name="sms" />
+</automotiveApp>
+```
 
 ### Display conversations
 
 To display an overview of a user's conversations, you can display a list of
-[`ConversationItem`](https://developer.android.com/reference/androidx/car/app/messaging/model/ConversationItem) objects in a
-[`ListTemplate`](https://developer.android.com/reference/androidx/car/app/model/ListTemplate) or
-[`SectionedItemTemplate`](https://developer.android.com/reference/androidx/car/app/model/SectionedItemTemplate).
+[`ConversationItem`](https://developer.android.com/reference/androidx/car/app/messaging/model/ConversationItem.md.txt) objects in a
+[`ListTemplate`](https://developer.android.com/reference/androidx/car/app/model/ListTemplate.md.txt) or
+[`SectionedItemTemplate`](https://developer.android.com/reference/androidx/car/app/model/SectionedItemTemplate.md.txt).
 
 For a good user experience, we recommend providing at most the 5-10 most
 recent or most important conversations, with no more than the 5 most recent
@@ -151,20 +159,20 @@ class MyMessagingScreen(carContext: CarContext) : Screen(carContext) {
 
 Each `ConversationItem` automatically displays actions for playing a message
 and marking it as read as and for replying. Those actions are handled by the
-[`ConversationCallbackDelegate`](https://developer.android.com/reference/androidx/car/app/messaging/model/ConversationCallbackDelegate) you supply when
+[`ConversationCallbackDelegate`](https://developer.android.com/reference/androidx/car/app/messaging/model/ConversationCallbackDelegate.md.txt) you supply when
 building the `ConversationItem`.
 
 > [!TIP]
 > **Tip:** You can re-use the logic for marking messages as read and replying that enables your app's notification-powered experience.
 
-If your app provides [conversation shortcuts](https://developer.android.com/develop/ui/views/notifications/conversations#api-shortcuts), verify
+If your app provides [conversation shortcuts](https://developer.android.com/develop/ui/views/notifications/conversations.md.txt#api-shortcuts), verify
 that the ID provided when building the `ConversationItem` is the same as the
 ID for that conversation's shortcut.
 
 #### Update conversations
 
 As users send and receive messages, you should refresh your app's screens to
-include the new messages by calling [`invalidate()`](https://developer.android.com/reference/androidx/car/app/Screen#invalidate()). See [Refresh
+include the new messages by calling [`invalidate()`](https://developer.android.com/reference/androidx/car/app/Screen.md.txt#invalidate()). See [Refresh
 the contents of a template](https://developer.android.com/training/cars/apps#refresh-template).
 
 For the best user experience, we recommend keeping refresh times to 500
@@ -181,7 +189,7 @@ You can track if a conversation is visible by observing the lifecycle of the
 `Screen` that displays it. See [The lifecycle of a screen](https://developer.android.com/training/cars/apps#screen-lifecycle).
 
 To prevent a notification from appearing as a HUN, set the priority to
-[`IMPORTANCE_DEFAULT`](https://developer.android.com/reference/androidx/core/app/NotificationManagerCompat#IMPORTANCE_DEFAULT) or lower.
+[`IMPORTANCE_DEFAULT`](https://developer.android.com/reference/androidx/core/app/NotificationManagerCompat.md.txt#IMPORTANCE_DEFAULT) or lower.
 
 ## Distribute templated messaging apps
 

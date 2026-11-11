@@ -128,7 +128,7 @@ If sizes or coordinates are needed for custom drawing or placement, read them
 directly in the Draw or Layout phase using `Modifier.drawWithCache` or
 `Modifier.layout` instead of passing them back to Composition. For more
 information on phase flow and eliminating recomposition loops, see the
-[Backwards Write documentation](https://developer.android.com/develop/ui/compose/performance/backwards-write).
+[Backwards Write documentation](https://developer.android.com/develop/ui/compose/performance/backwards-write.md.txt).
 
 ## 2. Phase deferral for layout offsets and constraints
 

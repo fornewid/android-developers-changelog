@@ -18,11 +18,11 @@ The decorator implemented in this sample will keep retained values for as long a
 If an item is popped and then re-added, it will get new retained values.
 
 For more information on retain, see the documentation for
-[`retain`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/package-summary?hl=en#retain(kotlin.Function0)),
-[`RetainedValuesStore`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/RetainedValuesStore?hl=en),
-and [`RetainedValuesStoreRegistry`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/RetainedValuesStoreRegistry?hl=en).
+[`retain`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/package-summary.md.txt?hl=en#retain(kotlin.Function0)),
+[`RetainedValuesStore`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/RetainedValuesStore.md.txt?hl=en),
+and [`RetainedValuesStoreRegistry`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/RetainedValuesStoreRegistry.md.txt?hl=en).
 
-For information on NavEntryDecorator, see [the official documentation](https://developer.android.com/guide/navigation/navigation-3/naventrydecorators).
+For information on NavEntryDecorator, see [the official documentation](https://developer.android.com/guide/navigation/navigation-3/naventrydecorators.md.txt).
 [![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/retain)
 
 ```

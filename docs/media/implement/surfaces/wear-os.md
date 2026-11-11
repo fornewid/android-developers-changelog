@@ -10,14 +10,14 @@ by Google](https://developer.android.com/wear) lets you write apps for a variety
 content, that help users stay connected, stay healthy, and express themselves.
 
 If you have developed for Android, then features such as apps and
-[notifications](https://developer.android.com/develop/ui/views/notifications) might be familiar to you. You can use your knowledge of
+[notifications](https://developer.android.com/develop/ui/views/notifications.md.txt) might be familiar to you. You can use your knowledge of
 [Modern Android development](https://developer.android.com/modern-android-development) when you develop for Wear OS.
 
 ## Principles of Wear OS development
 
 Wear OS is based on Android, so many of the best practices for Android also
 apply to Wear OS. To optimize your development time, review these
-[principles](https://developer.android.com/training/wearables/principles) before you start building your Wear OS app.
+[principles](https://developer.android.com/training/wearables/principles.md.txt) before you start building your Wear OS app.
 
 ### Create and run an app on Wear OS
 
@@ -26,14 +26,14 @@ your first app for Wear OS using a template from Android Studio. The app
 showcases the different ways to view information at a glance on Wear OS devices,
 and introduces some best practices for developing apps on the platform.
 
-For a step-by-step guide, see [Create and run an app on Wear OS](https://developer.android.com/training/wearables/get-started/creating).
+For a step-by-step guide, see [Create and run an app on Wear OS](https://developer.android.com/training/wearables/get-started/creating.md.txt).
 
 ### Wear OS versus mobile development
 
 There are some differences between how you design a mobile app and how you
 design a Wear OS app. To find out how a specific feature, API, or best practice
 is different in Wear OS app development compared to Android mobile development,
-review the [feature table](https://developer.android.com/training/wearables/wear-v-mobile).
+review the [feature table](https://developer.android.com/training/wearables/wear-v-mobile.md.txt).
 
 ## Common use cases for media apps on Wear OS
 
@@ -47,7 +47,7 @@ Users can listen to content when they are working out without needing a network
 connection. Although a Wear OS device generally supports Bluetooth and Wi-Fi, it
 might not support LTE. Design for spotty connections and offline use cases, such
 as exercising and commuting, when a user may leave their mobile device at home.
-For more information, see [Working with downloaded content](https://developer.android.com/training/wearables/principles#downloaded-content).
+For more information, see [Working with downloaded content](https://developer.android.com/training/wearables/principles.md.txt#downloaded-content).
 
 ### Stream on any available network
 
@@ -65,7 +65,7 @@ downloads as shown in the following images.
 
 ## Build with Compose for Wear OS
 
-[Compose for Wear OS](https://developer.android.com/training/wearables/compose) is part of Android Jetpack, and like the other Wear
+[Compose for Wear OS](https://developer.android.com/training/wearables/compose.md.txt) is part of Android Jetpack, and like the other Wear
 Jetpack libraries you use, it helps you write better code faster. This is
 Google's recommended approach for [building user interfaces for Wear OS
 apps](https://developer.android.com/training/wearables/user-interfaces#apps).
@@ -91,7 +91,7 @@ is part of the [Horologist](https://github.com/google/horologist) project. Horol
 additional library that helps accelerate your app development.
 
 The toolkit uses the best-in-class libraries for media use cases, from a UI
-implemented with [Compose for Wear OS](https://developer.android.com/training/wearables/compose), to playback capabilities implemented
+implemented with [Compose for Wear OS](https://developer.android.com/training/wearables/compose.md.txt), to playback capabilities implemented
 using [Media3](https://developer.android.com/guide/topics/media/media3). If your app has specific requirements, you can adopt the UI
 implementation from the toolkit while still relying on your existing player.
 
@@ -132,7 +132,7 @@ For your media app to perform well on a watch, you need make choices about the
 following streaming considerations and network conditions:
 
 - Optimize the content by choosing a low bitrate for streaming, such as 48 kbps and codecs such as [AAC and MP3](https://developer.android.com/guide/topics/media/platform/supported-formats#audio-formats).
-- Optimize the [prefetch strategy](https://developer.android.com/develop/connectivity/network-ops/network-access-optimization#prefetch-data) for images and tracks to allow for continuing playback when you lose a connection temporarily.
+- Optimize the [prefetch strategy](https://developer.android.com/develop/connectivity/network-ops/network-access-optimization.md.txt#prefetch-data) for images and tracks to allow for continuing playback when you lose a connection temporarily.
 - Test your app in all network configurations: Wi-Fi, LTE, and watch connected to the phone using Bluetooth. Also test what happens when the watch switches between networks.
 
 The Wear OS media toolkit helps to build the foundation of a performant app,
@@ -147,7 +147,7 @@ from the CPU to a dedicated signal processor. The Media Toolkit provides support
 with the [`AudioOffloadManager`](https://github.com/google/horologist/blob/main/media/sample/src/main/java/com/google/android/horologist/mediasample/data/service/offload/AudioOffloadManager.kt)
 
 If you are not sure if audio offload is supported for a given audio format, use
-the [`AudioManager.isOffloadedPlaybackSupported()`](https://developer.android.com/reference/android/media/AudioManager#isOffloadedPlaybackSupported(android.media.AudioFormat,%20android.media.AudioAttributes)) method. For more
+the [`AudioManager.isOffloadedPlaybackSupported()`](https://developer.android.com/reference/android/media/AudioManager.md.txt#isOffloadedPlaybackSupported(android.media.AudioFormat,%20android.media.AudioAttributes)) method. For more
 information, see the [Exoplayer documentation](https://exoplayer.dev/battery-consumption.html#audio-playback).
 
 ### Avoid network connections unless absolutely necessary
@@ -168,10 +168,10 @@ operations with network type.
 ### Keep users aware of ongoing media playback
 
 On Wear OS 3 and higher, an ongoing notification can appear on multiple surfaces
-within the Wear OS user interface. When the [ongoing activity](https://developer.android.com/training/wearables/notifications/ongoing-activity#ongoing-not) notification
+within the Wear OS user interface. When the [ongoing activity](https://developer.android.com/training/wearables/notifications/ongoing-activity.md.txt#ongoing-not) notification
 is tapped, the app opens the player screen.
 
 With Media3, Wear OS automatically takes care of creating
-[ongoing activities](https://developer.android.com/training/wearables/notifications/ongoing-activity) for media apps with an intent for opening the app. This
+[ongoing activities](https://developer.android.com/training/wearables/notifications/ongoing-activity.md.txt) for media apps with an intent for opening the app. This
 lets users stay more engaged with long-running activities, such as media
 playback.

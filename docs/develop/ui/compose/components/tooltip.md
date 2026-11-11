@@ -72,7 +72,7 @@ fun PlainTooltipExample(
 ### Result
 
 This example produces a plain tooltip on top of an icon:
-![Single-line tooltip containing the text 'Add to favorites' displayed above a heart icon. The tooltip appears on hover or long-press.](https://developer.android.com/static/develop/ui/compose/images/PlainTooltipExample.png) **Figure 2.**A plain tooltip that appears when a user hovers over or long-presses the heart icon.
+![A plain tooltip that reads 'Add to favorites' above a heart icon button.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_plaintooltipexample.png) **Figure 2.**A plain tooltip that appears when a user hovers over or long-presses the heart icon.
 
 ## Display a rich tooltip
 
@@ -122,7 +122,7 @@ fun RichTooltipExample(
 
 This example produces a rich tooltip with a title attached to an information
 icon:
-![A multiple-line tooltip with the title 'Rich Tooltip' and a line of text above an information icon.](https://developer.android.com/static/develop/ui/compose/images/RichTooltipExample.png) **Figure 3.**A rich tooltip with a title and an information icon.
+![A rich tooltip with the title 'Rich Tooltip' and the text 'Rich tooltips support multiple lines of informational text.' above an information icon button.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_richtooltipexample.png) **Figure 3.**A rich tooltip with a title and an information icon.
 
 ## Customize a rich tooltip
 
@@ -192,7 +192,7 @@ fun AdvancedRichTooltipExample(
 ### Result
 
 This example produces the following:
-![Multi-line tooltip with the title 'Custom Rich Tooltip' and a dismiss button. The tooltip is anchored to a camera icon.](https://developer.android.com/static/develop/ui/compose/images/AdvancedRichTooltipExample.png) **Figure 4.** A custom rich tooltip with a dismiss action anchored to a camera icon.
+![A rich tooltip with the title 'Custom Rich Tooltip', the text 'Rich tooltips support multiple lines of informational text.' and a 'Dismiss' action, below a camera icon button.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_advancedrichtooltipexample.png) **Figure 4.** A custom rich tooltip with a dismiss action anchored to a camera icon.
 
 ## Additional resources
 

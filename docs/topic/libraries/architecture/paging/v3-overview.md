@@ -18,10 +18,11 @@ architecture](https://developer.android.com/jetpack/docs/guide), integrate clean
 
 The Paging library includes the following features:
 
-- In-memory caching for your paged data. This helps ensure that your app uses system resources efficiently while working with paged data.
-- Built-in request deduplication, which helps ensure that your app uses network bandwidth and system resources efficiently.
-- First-class support for Kotlin coroutines and flows.
+- In-memory caching for your paged data. This helps make sure that your app uses system resources efficiently while working with paged data.
+- Built-in request deduplication, which helps make sure that your app uses network bandwidth and system resources efficiently.
+- Built-in support for Kotlin coroutines, flows, and Jetpack Compose.
 - Built-in support for error handling, including refresh and retry capabilities.
+- Dedicated testing utilities, such as `TestPager` and `asSnapshot`, to verify paging sources and data transformations.
 
 ## Setup
 
@@ -32,12 +33,17 @@ dependencies to your app's `build.gradle` file:
 
 ```kotlin
 dependencies {
-  val paging_version = "3.4.2"
+  val paging_version = "3.5.3"
 
-  implementation("androidx.paging:paging-common:$paging_version")
+  // Needed for Android Views and LiveData. Optional if only using
+  // paging-compose
+  implementation("androidx.paging:paging-runtime:$paging_version")
 
-  // Jetpack Compose integration
+  // Needed to collect PagingData flows in Jetpack Compose
   implementation("androidx.paging:paging-compose:$paging_version")
+
+  // Needed to test PagingSource and PagingData transformations in isolation
+  testImplementation("androidx.paging:paging-testing:$paging_version")
 }
 ```
 
@@ -45,12 +51,17 @@ dependencies {
 
 ```groovy
 dependencies {
-  def paging_version = "3.4.2"
+  def paging_version = "3.5.3"
 
-  implementation "androidx.paging:paging-common:$paging_version"
+  // Needed for Android Views and LiveData. Optional if only using
+  // paging-compose
+  implementation "androidx.paging:paging-runtime:$paging_version"
 
-  // Jetpack Compose integration
+  // Needed to collect PagingData flows in Jetpack Compose
   implementation "androidx.paging:paging-compose:$paging_version"
+
+  // Needed to test PagingSource and PagingData transformations in isolation
+  testImplementation "androidx.paging:paging-testing:$paging_version"
 }
 ```
 
@@ -73,29 +84,24 @@ and how they work together to load and display paged data.
 ### Repository layer
 
 The primary Paging library component in the repository layer is
-[`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource). Each
+[`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource.md.txt). Each
 `PagingSource` object defines a source of data and how to retrieve data from
 that source. A `PagingSource` object can load data from any single source,
 including network sources and local databases.
 
-Another Paging library component that you might use is
-[`RemoteMediator`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator). A
+Another Paging library component that you might use is [`RemoteMediator`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator.md.txt). A
 `RemoteMediator` object handles paging from a layered data source, such as a
 network data source with a local database cache.
 
 ### ViewModel layer
 
-The [`Pager`](https://developer.android.com/reference/kotlin/androidx/paging/Pager) component provides a
-public API for constructing instances of `PagingData` that are exposed in
-reactive streams, based on a `PagingSource` object and a
-[`PagingConfig`](https://developer.android.com/reference/kotlin/androidx/paging/PagingConfig) configuration
-object.
+The [`Pager`](https://developer.android.com/reference/kotlin/androidx/paging/Pager.md.txt) component provides a public API for constructing instances of
+`PagingData` that are exposed in reactive streams, based on a `PagingSource`
+object and a [`PagingConfig`](https://developer.android.com/reference/kotlin/androidx/paging/PagingConfig.md.txt) configuration object.
 
 The component that connects the `ViewModel` layer to the UI is
-[`PagingData`](https://developer.android.com/reference/kotlin/androidx/paging/PagingData). A `PagingData`
-object is a container for a snapshot of paginated data. It queries a
-[`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource) object and
-stores the result.
+[`PagingData`](https://developer.android.com/reference/kotlin/androidx/paging/PagingData.md.txt). A `PagingData` object is a container for a snapshot of
+paginated data. It queries a [`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource.md.txt) object and stores the result.
 
 ### UI layer
 
@@ -107,7 +113,7 @@ Add the `androidx.paging:paging-compose` library to use Compose-compatible APIs
 that let the UI automatically react to data loads, updates, and errors without
 the need for adapters or diffing logic. Use the
 [`collectAsLazyPagingItems()`](https://developer.android.com/reference/kotlin/androidx/paging/compose/collectAsLazyPagingItems.composable) extension function on a `Flow<PagingData>`
-to pass in the returned [`LazyPagingItems`](https://developer.android.com/reference/kotlin/androidx/paging/compose/LazyPagingItems) to `items()` in a `LazyColumn`.
+to pass in the returned [`LazyPagingItems`](https://developer.android.com/reference/kotlin/androidx/paging/compose/LazyPagingItems.md.txt) to `items()` in a `LazyColumn`.
 
 
 ```kotlin
@@ -133,11 +139,11 @@ fun MessageList(pager: Pager<Int, Message>) {
 
 <br />
 
-For more information, see [Large data-sets (paging)](https://developer.android.com/develop/ui/compose/lists#large-datasets).
+For more information, see [Large data-sets (paging)](https://developer.android.com/develop/ui/compose/lists.md.txt#large-datasets).
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data)
-- [Migrate to Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-migration)
-- [Page from network and database](https://developer.android.com/topic/libraries/architecture/paging/v3-network-db)
+- [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data.md.txt)
+- [Migrate to Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-migration.md.txt)
+- [Page from network and database](https://developer.android.com/topic/libraries/architecture/paging/v3-network-db.md.txt)

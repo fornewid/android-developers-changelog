@@ -8,19 +8,14 @@ In this lesson, we discuss how to control the camera hardware directly using
 the framework APIs.
 
 
-**Note:** This page refers to the
-[Camera](https://developer.android.com/reference/android/hardware/Camera) class, which is deprecated. We
-recommend using [CameraX](https://developer.android.com/media/camera/camerax) or, for specific use cases,
-[Camera2](https://developer.android.com/media/camera/camera2). Both CameraX and Camera2 support Android 5.0
-(API level 21) and higher.
+This page refers to the [Camera](https://developer.android.com/reference/android/hardware/Camera.md.txt) class, which
+is deprecated. We recommend using [CameraX](https://developer.android.com/media/camera/camerax.md.txt) or, for specific use
+cases, [Camera2](https://developer.android.com/media/camera/camera2.md.txt). Both CameraX and Camera2 support Android 5.0
+(API level 21) and higher.   
 
-<br />
-
-
-To learn how to migrate from Camera1 to CameraX, see
-[Migrate Camera1 to CameraX](https://developer.android.com/media/camera/camerax/camera1-to-camerax).
-Alternatively, you can use the
-[agentic skill for Camera1 to CameraX migration](https://github.com/android/skills/blob/main/camera/camerax/SKILL.md).
+To learn how to migrate from Camera1 to CameraX, see [Migrate Camera1 to CameraX](https://developer.android.com/media/camera/camerax/camera1-to-camerax.md.txt). Alternatively, you
+can use the [agentic
+skill for Camera1 to CameraX migration](https://github.com/android/skills/blob/main/camera/camerax/SKILL.md).
 
 Directly controlling a device camera requires a lot more code than requesting pictures or videos
 from existing camera applications. However, if you want to build a specialized camera application
@@ -32,15 +27,15 @@ Refer to the following related resources:
 
 ## Open the Camera Object
 
-Getting an instance of the `https://developer.android.com/reference/android/hardware/Camera` object is the first step in the
+Getting an instance of the `Camera` object is the first step in the
 process of directly controlling the camera. As Android's own Camera application does, the
-recommended way to access the camera is to open `https://developer.android.com/reference/android/hardware/Camera` on a separate thread
-that's launched from `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)`. This approach is a good idea
+recommended way to access the camera is to open `Camera` on a separate thread
+that's launched from `onCreate()`. This approach is a good idea
 since it can take a while and might bog down the UI thread. In a more basic implementation,
-opening the camera can be deferred to the `https://developer.android.com/reference/android/app/Activity#onResume()` method to facilitate code reuse and keep the flow of
+opening the camera can be deferred to the `onResume()` method to facilitate code reuse and keep the flow of
 control straightforward.
 
-Calling `https://developer.android.com/reference/android/hardware/Camera#open()` throws an
+Calling `Camera.open()` throws an
 exception if the camera is already in use by another application, so we wrap it
 in a `try` block.
 
@@ -96,13 +91,13 @@ private void releaseCameraAndPreview() {
 ```
 
 Since API level 9, the camera framework supports multiple cameras. If you use the
-legacy API and call `https://developer.android.com/reference/android/hardware/Camera#open()` without an
+legacy API and call `open()` without an
 argument, you get the first rear-facing camera.
 
 ## Create the Camera Preview
 
 Taking a picture usually requires that your users see a preview of their subject before clicking
-the shutter. To do so, you can use a `https://developer.android.com/reference/android/view/SurfaceView` to draw previews of what the
+the shutter. To do so, you can use a `SurfaceView` to draw previews of what the
 camera sensor is picking up.
 
 ### Preview Class
@@ -151,14 +146,14 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback {
 }
 ```
 
-The preview class must be passed to the `https://developer.android.com/reference/android/hardware/Camera` object before the live
+The preview class must be passed to the `Camera` object before the live
 image preview can be started, as shown in the next section.
 
 ### Set and Start the Preview
 
 A camera instance and its related preview must be created in a specific
 order, with the camera object being first. In the following snippet, the
-process of initializing the camera is encapsulated so that `https://developer.android.com/reference/android/hardware/Camera#startPreview()` is called by the
+process of initializing the camera is encapsulated so that `Camera.startPreview()` is called by the
 `setCamera()` method, whenever the user does something to change the
 camera. The preview must also be restarted in the preview class `surfaceChanged()` callback method.
 
@@ -267,18 +262,18 @@ public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
 
 Most camera applications lock the display into landscape mode because that is the natural
 orientation of the camera sensor. This setting does not prevent you from taking portrait-mode
-photos, because the orientation of the device is recorded in the EXIF header. The `https://developer.android.com/reference/android/hardware/Camera#setDisplayOrientation(int)` method lets you change
+photos, because the orientation of the device is recorded in the EXIF header. The `setCameraDisplayOrientation()` method lets you change
 how the preview is displayed without affecting how the image is recorded. However, in Android prior
 to API level 14, you must stop your preview before changing the orientation and then restart it.
 
 ## Take a Picture
 
-Use the `https://developer.android.com/reference/android/hardware/Camera#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)`
-method to take a picture once the preview is started. You can create `https://developer.android.com/reference/android/hardware/Camera.PictureCallback` and `https://developer.android.com/reference/android/hardware/Camera.ShutterCallback` objects and pass them into `https://developer.android.com/reference/android/hardware/Camera#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)`.
+Use the `Camera.takePicture()`
+method to take a picture once the preview is started. You can create `Camera.PictureCallback` and `Camera.ShutterCallback` objects and pass them into `Camera.takePicture()`.
 
-If you want to grab images continuously, you can create a `https://developer.android.com/reference/android/hardware/Camera.PreviewCallback` that implements `https://developer.android.com/reference/android/hardware/Camera.PreviewCallback#onPreviewFrame(byte[], android.hardware.Camera)`. For
+If you want to grab images continuously, you can create a `Camera.PreviewCallback` that implements `onPreviewFrame()`. For
 something in between, you can capture only selected preview frames, or set up a
-delayed action to call `https://developer.android.com/reference/android/hardware/Camera#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)`.
+delayed action to call `takePicture()`.
 
 ## Restart the Preview
 
@@ -323,7 +318,7 @@ public void onClick(View v) {
 ## Stop the Preview and Release the Camera
 
 Once your application is done using the camera, it's time to clean up. In
-particular, you must release the `https://developer.android.com/reference/android/hardware/Camera` object, or you risk crashing other
+particular, you must release the `Camera` object, or you risk crashing other
 applications, including new instances of your own application.
 
 When should you stop the preview and release the camera? Well, having your

@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/how-automated-prompt-optimization-
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API
 
-3 min read ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_Zxdllo.webp) 28 Jan 2026 4 Authors [Chetan Tekur,](https://developer.android.com/blog/authors/chetan-tekur) [Chao Zhao,](https://developer.android.com/blog/authors/chao-zhao) [Paul Zhou,](https://developer.android.com/blog/authors/paul-zhou) [Caren Chang](https://developer.android.com/blog/authors/caren-chang)
+3 min read ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_Zxdllo.webp) 28 Jan 2026 4 Authors [Chetan Tekur,](https://developer.android.com/blog/authors/chetan-tekur.md.txt) [Chao Zhao,](https://developer.android.com/blog/authors/chao-zhao.md.txt) [Paul Zhou,](https://developer.android.com/blog/authors/paul-zhou.md.txt) [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt)
 
 ## **Automated Prompt Optimization (APO)**
 
@@ -66,7 +66,7 @@ Written by:
 
 -
 
-  ## [Chetan Tekur](https://developer.android.com/blog/authors/chetan-tekur)
+  ## [Chetan Tekur](https://developer.android.com/blog/authors/chetan-tekur.md.txt)
 
   ###### Product Manager
 
@@ -74,7 +74,7 @@ Written by:
   View profile](https://developer.android.com/blog/authors/chetan-tekur) ![View Chetan Tekur's profile](https://developer.android.com/static/blog/assets/Chetan_Tekur_ef2e731d60_2rKjbD.webp) ![View Chetan Tekur's profile](https://developer.android.com/static/blog/assets/Chetan_Tekur_ef2e731d60_2rKjbD.webp)
 -
 
-  ## [Chao Zhao](https://developer.android.com/blog/authors/chao-zhao)
+  ## [Chao Zhao](https://developer.android.com/blog/authors/chao-zhao.md.txt)
 
   ###### Software Engineer
 
@@ -82,7 +82,7 @@ Written by:
   View profile](https://developer.android.com/blog/authors/chao-zhao) ![View Chao Zhao's profile](https://developer.android.com/static/blog/assets/chao_zhao_f14947a7e2_dXNQz.webp) ![View Chao Zhao's profile](https://developer.android.com/static/blog/assets/chao_zhao_f14947a7e2_dXNQz.webp)
 -
 
-  ## [Paul Zhou](https://developer.android.com/blog/authors/paul-zhou)
+  ## [Paul Zhou](https://developer.android.com/blog/authors/paul-zhou.md.txt)
 
   ###### Senior Staff Software Engineer
 
@@ -90,32 +90,31 @@ Written by:
   View profile](https://developer.android.com/blog/authors/paul-zhou) ![View Paul Zhou's profile](https://developer.android.com/static/blog/assets/Paul_Zhou_821eb8ffb9_ZXwhWC.webp) ![View Paul Zhou's profile](https://developer.android.com/static/blog/assets/Paul_Zhou_821eb8ffb9_ZXwhWC.webp)
 -
 
-  ## [Caren Chang](https://developer.android.com/blog/authors/caren-chang)
+  ## [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)
 Continue reading
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang)[![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_ZVseX2.webp)](https://developer.android.com/blog/authors/david-chou) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z2rWEol.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang.md.txt)[![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_ZVseX2.webp)](https://developer.android.com/blog/authors/david-chou.md.txt) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z2rWEol.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Announcing Gemma 4 in the AICore Developer Preview](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
+  ## [Announcing Gemma 4 in the AICore Developer Preview](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview) At Google, we're committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we're thrilled to announce the release of our latest state-of-the-art open model: Gemma 4.
-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [David Chou](https://developer.android.com/blog/authors/david-chou) • 3 min read
-- 3 Authors 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/kakao_8769e675f9_Pq2bf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview.md.txt) At Google, we're committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we're thrilled to announce the release of our latest state-of-the-art open model: Gemma 4.
+  [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt), [David Chou](https://developer.android.com/blog/authors/david-chou.md.txt) • 3 min read
+- 3 Authors 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/kakao_8769e675f9_Pq2bf.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [ML Kit's Prompt API: Unlock Custom On-Device Gemini Nano Experiences](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences)
+  ## [ML Kit's Prompt API: Unlock Custom On-Device Gemini Nano Experiences](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences) AI is making it easier to create personalized app experiences that transform content into the right format for users. We previously enabled developers to integrate with Gemini Nano through ML Kit GenAI APIs tailored for specific use cases like summarization and image description.
-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [Chengji Yan](https://developer.android.com/blog/authors/chengji-yan), [Penny Li](https://developer.android.com/blog/authors/penny-li) • 2 min read
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md.txt) AI is making it easier to create personalized app experiences that transform content into the right format for users. We previously enabled developers to integrate with Gemini Nano through ML Kit GenAI APIs tailored for specific use cases like summarization and image description.
+  [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt), [Chengji Yan](https://developer.android.com/blog/authors/chengji-yan.md.txt), [Penny Li](https://developer.android.com/blog/authors/penny-li.md.txt) • 2 min read
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
 Stay in the loop
 
 

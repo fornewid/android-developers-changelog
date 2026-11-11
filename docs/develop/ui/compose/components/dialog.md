@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/compose/components/dialog
 source: md.txt
 ---
 
-The [`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) component displays dialog messages or requests user input on a
+The [`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable.md.txt#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) component displays dialog messages or requests user input on a
 layer above the main app content. It creates an interruptive UI experience to
 capture user attention.
 
@@ -18,7 +18,7 @@ Among the use cases for a dialog are the following:
 
 ## Alert dialog
 
-The [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AlertDialog.composable#AlertDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.window.DialogProperties)) composable provides a convenient API for creating a
+The [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AlertDialog.composable.md.txt#AlertDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.window.DialogProperties)) composable provides a convenient API for creating a
 Material Design themed dialog. `AlertDialog` has specific parameters for
 handling particular elements of the dialog. Among them are the following:
 
@@ -112,7 +112,7 @@ fun DialogExamples() {
 <br />
 
 This implementation appears as follows:
-![An open alert dialog that has both a dismiss and confirm button.](https://developer.android.com/static/develop/ui/compose/images/components/dialog-alert.png) **Figure 2.** An alert dialog with buttons.
+![An alert dialog with an info icon, the title 'Alert dialog example', the text 'This is an example of an alert dialog with buttons.', and 'Dismiss' and 'Confirm' buttons.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_alertdialog.png) **Figure 2.** An alert dialog with buttons.
 
 > [!NOTE]
 > **Note:** When the user clicks either of the buttons, the dialog closes. When the user clicks confirm, it calls a function that also handles the confirmation. In this example, those functions are `onDismissRequest()` and `onConfirmRequest()`.
@@ -122,13 +122,13 @@ This implementation appears as follows:
 
 ## Dialog composable
 
-[`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) is a basic composable that doesn't provide any styling or
+[`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable.md.txt#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) is a basic composable that doesn't provide any styling or
 predefined slots for content. It is a relatively straightforward container that
 you should populate with a container such as `Card`. The following are some of
 the key parameters of a dialog:
 
 - **`onDismissRequest`**: The lambda called when the user closes the dialog.
-- **`properties`** : An instance of [`DialogProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/DialogProperties) that provides some additional scope for customization.
+- **`properties`** : An instance of [`DialogProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/DialogProperties.md.txt) that provides some additional scope for customization.
 
 > [!CAUTION]
 > **Caution:** Unlike the example of `AlertDialog` in the preceding section, you need to manually specify the size and shape of `Dialog`. You also need to provide an inner container.
@@ -167,7 +167,7 @@ fun MinimalDialog(onDismissRequest: () -> Unit) {
 
 This implementation appears as follows. Note that when the dialog is open, the
 main app content beneath it appears darkened and grayed out:
-![A dialog that contains nothing other than a label.](https://developer.android.com/static/develop/ui/compose/images/components/dialog-minimal.png) **Figure 3.** Minimal dialog.
+![A dialog card that contains only the text 'This is a minimal dialog'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_minimaldialog.png) **Figure 3.** Minimal dialog.
 
 ### Advanced example
 
@@ -188,46 +188,43 @@ fun DialogWithImage(
     imageDescription: String,
 ) {
     Dialog(onDismissRequest = { onDismissRequest() }) {
-        // Draw a rectangle shape with rounded corners inside the dialog
+        // Use the Material dialog shape and color. The Card clips the image to its rounded corners.
         Card(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(375.dp)
                 .padding(16.dp),
-            shape = RoundedCornerShape(16.dp),
+            shape = MaterialTheme.shapes.extraLarge,
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+            ),
         ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
+            Column {
+                // The image fills the full width of the dialog.
                 Image(
                     painter = painter,
                     contentDescription = imageDescription,
-                    contentScale = ContentScale.Fit,
+                    contentScale = ContentScale.Crop,
                     modifier = Modifier
+                        .fillMaxWidth()
                         .height(160.dp)
                 )
                 Text(
                     text = "This is a dialog with buttons and an image.",
-                    modifier = Modifier.padding(16.dp),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(start = 24.dp, top = 24.dp, end = 24.dp),
                 )
+                // Material dialogs align their actions to the end, 8.dp apart.
                 Row(
                     modifier = Modifier
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center,
+                        .fillMaxWidth()
+                        .padding(24.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.End),
                 ) {
-                    TextButton(
-                        onClick = { onDismissRequest() },
-                        modifier = Modifier.padding(8.dp),
-                    ) {
+                    TextButton(onClick = { onDismissRequest() }) {
                         Text("Dismiss")
                     }
-                    TextButton(
-                        onClick = { onConfirmation() },
-                        modifier = Modifier.padding(8.dp),
-                    ) {
+                    TextButton(onClick = { onConfirmation() }) {
                         Text("Confirm")
                     }
                 }
@@ -240,7 +237,7 @@ fun DialogWithImage(
 <br />
 
 This implementation appears as follows:
-![A dialog displaying Mount Feathertop, Victoria, with a dismiss button and a confirm button.](https://developer.android.com/static/develop/ui/compose/images/components/dialog-image.png) **Figure 4.** A dialog that includes an image.
+![A dialog with a photo of a mountain across its full width, the text 'This is a dialog with buttons and an image.', and 'Dismiss' and 'Confirm' buttons aligned to the end.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_dialogwithimage.png) **Figure 4.** A dialog that includes an image.
 
 ## Additional resources
 

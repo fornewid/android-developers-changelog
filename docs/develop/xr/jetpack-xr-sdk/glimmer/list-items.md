@@ -7,11 +7,11 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
-In Jetpack Compose Glimmer, the [`ListItem`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ListItem.composable) is the standard component for
+In Jetpack Compose Glimmer, the [`ListItem`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ListItem.composable.md.txt) is the standard component for
 displaying a single row of content. List items are designed for the focus-based
 interaction of display glasses, so they provide a built-in visual response upon
 gaining focus.
@@ -24,7 +24,7 @@ does not require a click action.
 ## Usage within lists
 
 List items are the primary choice for rows within a [list](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/lists), however lists can
-also host other components, such as a [`Card`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Card.composable) or [`TitleChip`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/TitleChip.composable), to
+also host other components, such as a [`Card`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Card.composable.md.txt) or [`TitleChip`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/TitleChip.composable.md.txt), to
 provide different visual emphasis.
 
 List items use `headlineContent` slot for their primary text to align with

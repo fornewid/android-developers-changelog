@@ -6,7 +6,7 @@ source: md.txt
 
 ![](https://developer.android.com/static/images/design/ui/mobile/immersive-content-hero.png)
 
-You can use [immersive mode](https://developer.android.com/develop/ui/views/layout/immersive) to hide the system bars for a full-screen
+You can use [immersive mode](https://developer.android.com/develop/ui/views/layout/immersive.md.txt) to hide the system bars for a full-screen
 experience. This is useful for enabling users to enjoy a fully immersive
 experience for video, games, images, and books, and to avoid accidental exits
 during a game.
@@ -19,7 +19,7 @@ during a game.
 - Never permanently hide system bars on personal devices. You cannot permanently
   hide system bars in your app unless for an [Android Enterprise](https://www.android.com/enterprise/management/)
   deployment, so your designs should account for them to provide the optimal
-  experience. Read more about [designing for system bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars).
+  experience. Read more about [designing for system bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars.md.txt).
 
 - Provide an overlay or scrim for overlaying text and controls.
 
@@ -45,7 +45,7 @@ uninterrupted view to enjoy videos or books.
 
 To implement immersive mode, you can use `WindowInsetsControllerCompat` to hide
 both the status bar and the navigation bar--or just one of them. For details,
-refer to the [Hide system bars developer guide](https://developer.android.com/develop/ui/views/layout/immersive).
+refer to the [Hide system bars developer guide](https://developer.android.com/develop/ui/views/layout/immersive.md.txt).
 
 The following sections describe examples of immersive mode use cases.
 Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/images/design/ui/mobile/immersive-mode-tap-to-reveal.mp4) and watch it with a video player. **Video 1:** Video playback - tapping to reveal relevant video player UI
@@ -68,7 +68,7 @@ Alas, your browser doesn't support HTML5 video. That's OK! You can still [downlo
 
 <br />
 
-![](https://developer.android.com/static/images/design/ui/mobile/immersive-content-5-wayfinding.png) **Figure 5:** Wayfinding directory kiosk on a non-personal device ([DPC](https://developer.android.com/work/dpc/build-dpc) or enterprise deployment app)
+![](https://developer.android.com/static/images/design/ui/mobile/immersive-content-5-wayfinding.png) **Figure 5:** Wayfinding directory kiosk on a non-personal device ([DPC](https://developer.android.com/work/dpc/build-dpc.md.txt) or enterprise deployment app)
 
 ## Related services \& Technologies
 
@@ -76,5 +76,5 @@ Android has several features that work well to enhance your user's content
 experience. For more check out:
 
 - [Exoplayer](https://developer.android.com/guide/topics/media/exoplayer)
-- [Picture in picture](https://developer.android.com/design/ui/mobile/guides/home-screen/picture-in-picture)
+- [Picture in picture](https://developer.android.com/design/ui/mobile/guides/home-screen/picture-in-picture.md.txt)
 - [Chromecast](https://developers.google.com/cast/docs/ux_guidelines)

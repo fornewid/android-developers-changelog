@@ -26,13 +26,15 @@ category.
 Media, messaging, and templated apps declare support for Android Auto by
 including the following `<meta-data>` element in their manifest:
 
-    <application>
-        ...
-        <meta-data
-            android:name="com.google.android.gms.car.application"
-            android:resource="@xml/automotive_app_desc"/>
-        ...
-    </application>
+```xml
+<application>
+    ...
+    <meta-data
+        android:name="com.google.android.gms.car.application"
+        android:resource="@xml/automotive_app_desc"/>
+    ...
+</application>
+```
 
 The contents of the resource file vary depending on your app's category:
 
@@ -74,28 +76,30 @@ apps for Android Auto](https://developer.android.com/training/cars/messaging#man
 ```
 
 
-See [Add support for Android Auto to your templated app](https://developer.android.com/training/cars/apps/auto#declare-android-auto-support) for more details.
+See [Add support for Android Auto to your templated app](https://developer.android.com/training/cars/apps/auto.md.txt#declare-android-auto-support) for more details.
 
 ### Parked apps
 
 Parked apps declare support for Android Auto by including the following
 `<category>` element in the intent-filter of an activity in your app's manifest:
 
-    <activity ...>
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            ...
-            <category android:name="android.intent.category.CAR_LAUNCHER" />
-        </intent-filter>
-    </activity>
+```xml
+<activity ...>
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        ...
+        <category android:name="android.intent.category.CAR_LAUNCHER" />
+    </intent-filter>
+</activity>
+```
 
-See [Add support for Android Auto to your parked app](https://developer.android.com/training/cars/parked/auto) for more details.
+See [Add support for Android Auto to your parked app](https://developer.android.com/training/cars/parked/auto.md.txt) for more details.
 
 ## Parked apps
 
 On devices running Android 15 or higher, Android Auto supports running
 activities directly on the head unit while parked. This capability is limited to
-apps in the [supported parked app categories](https://developer.android.com/training/cars#parked). For safety purposes, Android
+apps in the [supported parked app categories](https://developer.android.com/training/cars.md.txt#parked). For safety purposes, Android
 Auto automatically exits an app when vehicle motion is detected.
 
 ### User interface
@@ -129,7 +133,7 @@ phone screen.
 
 ## Trusted stores
 
-As described in [Test in real vehicles](https://developer.android.com/training/cars/testing#real-vehicles),
+As described in [Test in real vehicles](https://developer.android.com/training/cars/testing.md.txt#real-vehicles),
 apps must be installed from a trusted source to run on a real vehicle. Trusted
 sources include the following:
 
@@ -142,10 +146,10 @@ sources include the following:
 
 To detect whether Android Auto is running on a device, you can use the
 `CarConnection` API that is part of the Android for Cars App Library. See
-[Connection API](https://developer.android.com/training/cars/apps/library/connection-api) for more details.
+[Connection API](https://developer.android.com/training/cars/apps/library/connection-api.md.txt) for more details.
 
 > [!CAUTION]
-> **Caution:** On devices running Android 12 or higher, Android Auto doesn't change the [UI mode](https://developer.android.com/reference/android/content/res/Configuration#uiMode) of the device when running, so don't rely on it.
+> **Caution:** On devices running Android 12 or higher, Android Auto doesn't change the [UI mode](https://developer.android.com/reference/android/content/res/Configuration.md.txt#uiMode) of the device when running, so don't rely on it.
 
 ### In which vehicles is Android Auto available?
 

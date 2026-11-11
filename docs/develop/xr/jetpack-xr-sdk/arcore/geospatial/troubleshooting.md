@@ -7,8 +7,8 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
-Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
@@ -23,14 +23,15 @@ If API Key authorization is not working, follow these steps:
 
 - Ensure that you have [enabled the ARCore API](https://console.cloud.google.com/apis/library/arcore) for the correct project in Google Cloud.
 - If you have any API Key restrictions enabled, temporarily disable them.
-- Use [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer) to verify that the API Key is included in
+- Use [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer.md.txt) to verify that the API Key is included in
   your app's build. It must be in a `<meta-data>` element in the
   `<application>` element in your app's `AndroidManifest.xml`:
 
-      <meta-data
-        android:name="com.google.android.ar.API_KEY"
-        android:value="API_KEY"/>
-
+  ```xml
+  <meta-data
+    android:name="com.google.android.ar.API_KEY"
+    android:value="API_KEY"/>
+  ```
 - Ensure that the API Key listed in [your project's
   credentials](https://console.cloud.google.com/apis/credentials) exactly matches the API Key used by your app,
   with no spaces or any other characters.

@@ -12,14 +12,14 @@ There are two ways to connect to a Media app:
 ## `MediaController`
 
 A media controller interacts with a media session to query and control a media
-app's playback. In Media3, the [`MediaController`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController) API implements the `Player`
+app's playback. In Media3, the [`MediaController`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController.md.txt) API implements the `Player`
 interface. Examples of client apps that use a media controller include:
 
-- [Android system media controls](https://developer.android.com/media/implement/surfaces/mobile)
+- [Android system media controls](https://developer.android.com/media/implement/surfaces/mobile.md.txt)
 - Android Wear OS companion app
-- [Android Auto and Automotive OS](https://developer.android.com/training/cars/media)
-- Voice assistants, like [Google Assistant](https://developer.android.com/media/implement/assistant)
-- The [Media Controller Test app](https://developer.android.com/media/optimize/mct)
+- [Android Auto and Automotive OS](https://developer.android.com/training/cars/media.md.txt)
+- Voice assistants, like [Google Assistant](https://developer.android.com/media/implement/assistant.md.txt)
+- The [Media Controller Test app](https://developer.android.com/media/optimize/mct.md.txt)
 
 A media controller can also be useful within a media app, for example if the
 player and media session live in a `Service` separate from the `Activity` or
@@ -82,7 +82,7 @@ controllerFuture.addListener(
 > **Note:** Use `ContextCompat.getMainExecutor()` instead of `MoreExecutors.directExecutor()` in case you run your service in another process than the UI.
 
 > [!NOTE]
-> **Note:** Apps targeting SDK level 30 or higher must include a `<queries>` element in their manifest to connect to a different app's `MediaSessionService` (or similar component). Refer to the [package visibility](https://developer.android.com/training/package-visibility) guide for further details.
+> **Note:** Apps targeting SDK level 30 or higher must include a `<queries>` element in their manifest to connect to a different app's `MediaSessionService` (or similar component). Refer to the [package visibility](https://developer.android.com/training/package-visibility.md.txt) guide for further details.
 
 ### Use a `MediaController`
 
@@ -96,14 +96,14 @@ command to its underlying `Player`.
 > **Tip:** A media controller implements the `Player` interface, and as such you can use it within your UI as a `Player`.
 
 You can add a `Player.Listener` to the controller to listen for changes in the
-`Player` state. Refer to the [Player events](https://developer.android.com/media/media3/exoplayer/listening-to-player-events#listening-to-player-events) guide for more details on using a
+`Player` state. Refer to the [Player events](https://developer.android.com/media/media3/exoplayer/listening-to-player-events.md.txt#listening-to-player-events) guide for more details on using a
 `Player.Listener`.
 
 The `MediaController.Listener` interface defines additional callbacks for events
 and custom commands from the connected `MediaSession`. Examples are
-[`onCustomCommand()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController.Listener#onCustomCommand(androidx.media3.session.MediaController,androidx.media3.session.SessionCommand,android.os.Bundle)) when the session sends a custom command,
-[`onAvailableSessionCommandsChanged()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController.Listener#onAvailableSessionCommandsChanged(androidx.media3.session.MediaController,androidx.media3.session.SessionCommands)) when the session changes the available
-session commands or [`onDisconnected()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController.Listener#onDisconnected(androidx.media3.session.MediaController)) when the controller is disconnected
+[`onCustomCommand()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController.Listener.md.txt#onCustomCommand(androidx.media3.session.MediaController,androidx.media3.session.SessionCommand,android.os.Bundle)) when the session sends a custom command,
+[`onAvailableSessionCommandsChanged()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController.Listener.md.txt#onAvailableSessionCommandsChanged(androidx.media3.session.MediaController,androidx.media3.session.SessionCommands)) when the session changes the available
+session commands or [`onDisconnected()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController.Listener.md.txt#onDisconnected(androidx.media3.session.MediaController)) when the controller is disconnected
 from the session.
 
 A `MediaController.Listener` can be set when building the controller with a
@@ -287,12 +287,12 @@ childrenFuture.addListener(
 ## Display playback controls for another media app
 
 When displaying UI controls with buttons for another media app, it's important
-to follow the declared [media button preferences](https://developer.android.com/media/media3/session/control-playback#commands) of that
+to follow the declared [media button preferences](https://developer.android.com/media/media3/session/control-playback.md.txt#commands) of that
 app.
 
 To resolve the app's preferences with the constraints and requirements of your
 UI, use `CommandButton.DisplayConstraints`. You can define the limits and
-restrictions of your UI can do, and the [`resolve()`](https://developer.android.com/reference/kotlin/androidx/media3/session/CommandButton.DisplayConstraints#resolve(java.util.List%3Candroidx.media3.session.CommandButton%3E,androidx.media3.common.Player)) method
+restrictions of your UI can do, and the [`resolve()`](https://developer.android.com/reference/kotlin/androidx/media3/session/CommandButton.DisplayConstraints.md.txt#resolve(java.util.List%3Candroidx.media3.session.CommandButton%3E,androidx.media3.common.Player)) method
 provides a definite list of buttons to display with their icon, position and
 intended action. If a user clicks one of these buttons, you can use
 `CommandButton.executeAction` to trigger the associated action in the media

@@ -7,8 +7,8 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
-Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices.md.txt#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
@@ -35,8 +35,8 @@ your use case.
 After you've determined the model that fits your use case, consider these other
 ways to enhance your app:
 
-- **Provide a voice interface** : Android XR uses natural inputs like hands, gaze, and voice to navigate the system. To let your users navigate your app using their voice, use the [Gemini live API](https://developer.android.com/ai/gemini/live) along with [function calling](https://developer.android.com/ai/gemini/live#function).
-- **Generate images with multimodal support** : generate images using Gemini models with the [Gemini Developer API](https://developer.android.com/ai/gemini/developer-api).
+- **Provide a voice interface** : Android XR uses natural inputs like hands, gaze, and voice to navigate the system. To let your users navigate your app using their voice, use the [Gemini live API](https://developer.android.com/ai/gemini/live.md.txt) along with [function calling](https://developer.android.com/ai/gemini/live.md.txt#function).
+- **Generate images with multimodal support** : generate images using Gemini models with the [Gemini Developer API](https://developer.android.com/ai/gemini/developer-api.md.txt).
 - **Enrich game interactions in Unity apps** : Generate [structured
-  output](https://firebase.google.com/docs/ai-logic/generate-structured-output?api=dev#generate-json-basic) using the [Gemini Developer API](https://developer.android.com/ai/gemini/developer-api) or [Vertex AI
+  output](https://firebase.google.com/docs/ai-logic/generate-structured-output?api=dev#generate-json-basic) using the [Gemini Developer API](https://developer.android.com/ai/gemini/developer-api.md.txt) or [Vertex AI
   Gemini API](https://developer.android.com/ai/vertex-ai-firebase).

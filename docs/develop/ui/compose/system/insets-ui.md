@@ -31,7 +31,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 <br />
 
-This snippet applies the [`safeDrawing`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).safeDrawing()) window insets as padding around the
+This snippet applies the [`safeDrawing`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).safeDrawing()) window insets as padding around the
 entire content of the app. While this ensures that interactable elements don't
 overlap with the system UI, it also means that none of the app will draw behind
 the system UI to achieve an edge-to-edge effect. To make full use of the entire
@@ -44,38 +44,38 @@ also automatically animated as the inset values change.
 
 There are three ways to handle insets to adjust your Composable layouts:
 
-- [rulers](https://developer.android.com/develop/ui/compose/system/evaluate-rulers)
-- [padding modifiers](https://developer.android.com/develop/ui/compose/system/insets-ui#padding-modifiers)
-- [inset size modifiers](https://developer.android.com/develop/ui/compose/system/insets-ui#inset-size)
+- [rulers](https://developer.android.com/develop/ui/compose/system/evaluate-rulers.md.txt)
+- [padding modifiers](https://developer.android.com/develop/ui/compose/system/insets-ui.md.txt#padding-modifiers)
+- [inset size modifiers](https://developer.android.com/develop/ui/compose/system/insets-ui.md.txt#inset-size)
 
 ### Padding modifiers
 
-[`Modifier.windowInsetsPadding(windowInsets: WindowInsets)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/windowInsetsPadding.modifier#(androidx.compose.ui.Modifier).windowInsetsPadding(androidx.compose.foundation.layout.WindowInsets)) applies the
-given window insets as padding, acting just like [`Modifier.padding`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).padding(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) would.
+[`Modifier.windowInsetsPadding(windowInsets: WindowInsets)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/windowInsetsPadding.modifier.md.txt#(androidx.compose.ui.Modifier).windowInsetsPadding(androidx.compose.foundation.layout.WindowInsets)) applies the
+given window insets as padding, acting just like [`Modifier.padding`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).padding(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) would.
 For example, `Modifier.windowInsetsPadding(WindowInsets.safeDrawing)` applies
 the safe drawing insets as padding on all 4 sides.
 
 There are also several built-in utility methods for the most common inset types.
 [`Modifier.safeDrawingPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/safeDrawingPadding.modifier#(androidx.compose.ui.Modifier).safeDrawingPadding()) is one such method, equivalent to
 `Modifier.windowInsetsPadding(WindowInsets.safeDrawing)`. The following table
-lists the built-in padding modifiers and the [`WindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/WindowInsets) type that each
+lists the built-in padding modifiers and the [`WindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/WindowInsets.md.txt) type that each
 one applies:
 
 |---|---|
-| [`Modifier.safeDrawingPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/safeDrawingPadding.modifier#(androidx.compose.ui.Modifier).safeDrawingPadding()) | [`WindowInsets.safeDrawing`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).safeDrawing()) |
-| [`Modifier.safeGesturesPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/safeGesturesPadding.modifier#(androidx.compose.ui.Modifier).safeGesturesPadding()) | [`WindowInsets.safeGestures`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).safeGestures()) |
-| [`Modifier.safeContentPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/safeContentPadding.modifier#(androidx.compose.ui.Modifier).safeContentPadding()) | [`WindowInsets.safeContent`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).safeContent()) |
-| [`Modifier.statusBarsPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/statusBarsPadding.modifier#(androidx.compose.ui.Modifier).statusBarsPadding()) | [`WindowInsets.statusBars`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).statusBars()) |
-| [`Modifier.navigationBarsPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/navigationBarsPadding.modifier#(androidx.compose.ui.Modifier).navigationBarsPadding()) | [`WindowInsets.navigationBars`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).navigationBars()) |
-| [`Modifier.captionBarPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/captionBarPadding.modifier#(androidx.compose.ui.Modifier).captionBarPadding()) | [`WindowInsets.captionBar`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).captionBar()) |
-| [`Modifier.systemBarsPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/systemBarsPadding.modifier#(androidx.compose.ui.Modifier).systemBarsPadding()) | [`WindowInsets.systemBars`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).systemBars()) |
-| [`Modifier.imePadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/imePadding.modifier#(androidx.compose.ui.Modifier).imePadding()) | [`WindowInsets.ime`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).ime()) |
-| [`Modifier.systemGesturesPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/systemGesturesPadding.modifier#(androidx.compose.ui.Modifier).systemGesturesPadding()) | [`WindowInsets.systemGestures`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).systemGestures()) |
-| [`Modifier.mandatorySystemGesturesPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/mandatorySystemGesturesPadding.modifier#(androidx.compose.ui.Modifier).mandatorySystemGesturesPadding()) | [`WindowInsets.mandatorySystemGestures`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).mandatorySystemGestures()) |
-| [`Modifier.displayCutoutPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/displayCutoutPadding.modifier#(androidx.compose.ui.Modifier).displayCutoutPadding()) | [`WindowInsets.displayCutout`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).displayCutout()) |
-| [`Modifier.waterfallPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/waterfallPadding.modifier#(androidx.compose.ui.Modifier).waterfallPadding()) | [`WindowInsets.waterfall`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).waterfall()) |
+| [`Modifier.safeDrawingPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/safeDrawingPadding.modifier#(androidx.compose.ui.Modifier).safeDrawingPadding()) | [`WindowInsets.safeDrawing`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).safeDrawing()) |
+| [`Modifier.safeGesturesPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/safeGesturesPadding.modifier.md.txt#(androidx.compose.ui.Modifier).safeGesturesPadding()) | [`WindowInsets.safeGestures`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).safeGestures()) |
+| [`Modifier.safeContentPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/safeContentPadding.modifier#(androidx.compose.ui.Modifier).safeContentPadding()) | [`WindowInsets.safeContent`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).safeContent()) |
+| [`Modifier.statusBarsPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/statusBarsPadding.modifier#(androidx.compose.ui.Modifier).statusBarsPadding()) | [`WindowInsets.statusBars`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).statusBars()) |
+| [`Modifier.navigationBarsPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/navigationBarsPadding.modifier#(androidx.compose.ui.Modifier).navigationBarsPadding()) | [`WindowInsets.navigationBars`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).navigationBars()) |
+| [`Modifier.captionBarPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/captionBarPadding.modifier.md.txt#(androidx.compose.ui.Modifier).captionBarPadding()) | [`WindowInsets.captionBar`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).captionBar()) |
+| [`Modifier.systemBarsPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/systemBarsPadding.modifier.md.txt#(androidx.compose.ui.Modifier).systemBarsPadding()) | [`WindowInsets.systemBars`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).systemBars()) |
+| [`Modifier.imePadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/imePadding.modifier.md.txt#(androidx.compose.ui.Modifier).imePadding()) | [`WindowInsets.ime`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).ime()) |
+| [`Modifier.systemGesturesPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/systemGesturesPadding.modifier#(androidx.compose.ui.Modifier).systemGesturesPadding()) | [`WindowInsets.systemGestures`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).systemGestures()) |
+| [`Modifier.mandatorySystemGesturesPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/mandatorySystemGesturesPadding.modifier.md.txt#(androidx.compose.ui.Modifier).mandatorySystemGesturesPadding()) | [`WindowInsets.mandatorySystemGestures`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).mandatorySystemGestures()) |
+| [`Modifier.displayCutoutPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/displayCutoutPadding.modifier#(androidx.compose.ui.Modifier).displayCutoutPadding()) | [`WindowInsets.displayCutout`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).displayCutout()) |
+| [`Modifier.waterfallPadding()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/waterfallPadding.modifier#(androidx.compose.ui.Modifier).waterfallPadding()) | [`WindowInsets.waterfall`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).waterfall()) |
 
-For what each inset type covers, see [About window insets](https://developer.android.com/develop/ui/compose/system/insets#inset-fundamentals).
+For what each inset type covers, see [About window insets](https://developer.android.com/develop/ui/compose/system/insets.md.txt#inset-fundamentals).
 
 ### Inset size modifiers
 
@@ -83,10 +83,10 @@ The following modifiers apply an amount of window insets by setting the size of
 the component to be the size of the insets:
 
 |---|---|
-| [`Modifier.windowInsetsStartWidth(windowInsets: WindowInsets)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/windowInsetsStartWidth.modifier#(androidx.compose.ui.Modifier).windowInsetsStartWidth(androidx.compose.foundation.layout.WindowInsets)) | Applies the start side of windowInsets as the width (like `Modifier.width`) |
+| [`Modifier.windowInsetsStartWidth(windowInsets: WindowInsets)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/windowInsetsStartWidth.modifier.md.txt#(androidx.compose.ui.Modifier).windowInsetsStartWidth(androidx.compose.foundation.layout.WindowInsets)) | Applies the start side of windowInsets as the width (like `Modifier.width`) |
 | [`Modifier.windowInsetsEndWidth(windowInsets: WindowInsets)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/windowInsetsEndWidth.modifier#(androidx.compose.ui.Modifier).windowInsetsEndWidth(androidx.compose.foundation.layout.WindowInsets)) | Applies the end side of windowInsets as the width (like `Modifier.width`) |
-| [`Modifier.windowInsetsTopHeight(windowInsets: WindowInsets)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/windowInsetsTopHeight.modifier#(androidx.compose.ui.Modifier).windowInsetsTopHeight(androidx.compose.foundation.layout.WindowInsets)) | Applies the top side of windowInsets as the height (like `Modifier.height`) |
-| [`Modifier.windowInsetsBottomHeight(windowInsets: WindowInsets)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/windowInsetsBottomHeight.modifier#(androidx.compose.ui.Modifier).windowInsetsBottomHeight(androidx.compose.foundation.layout.WindowInsets)) | Applies the bottom side of windowInsets as the height (like `Modifier.height`) |
+| [`Modifier.windowInsetsTopHeight(windowInsets: WindowInsets)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/windowInsetsTopHeight.modifier.md.txt#(androidx.compose.ui.Modifier).windowInsetsTopHeight(androidx.compose.foundation.layout.WindowInsets)) | Applies the top side of windowInsets as the height (like `Modifier.height`) |
+| [`Modifier.windowInsetsBottomHeight(windowInsets: WindowInsets)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/windowInsetsBottomHeight.modifier.md.txt#(androidx.compose.ui.Modifier).windowInsetsBottomHeight(androidx.compose.foundation.layout.WindowInsets)) | Applies the bottom side of windowInsets as the height (like `Modifier.height`) |
 
 These modifiers are especially useful for sizing a `Spacer` that takes up the
 space of insets:
@@ -174,7 +174,7 @@ This behavior is accomplished through communication between all
 ways.
 
 [`Modifier.consumeWindowInsets(insets: WindowInsets)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/consumeWindowInsets.modifier#(androidx.compose.ui.Modifier).consumeWindowInsets(androidx.compose.foundation.layout.WindowInsets)) also consumes insets
-in the same way as [`Modifier.windowInsetsPadding`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/windowInsetsPadding.modifier#(androidx.compose.ui.Modifier).windowInsetsPadding(androidx.compose.foundation.layout.WindowInsets)), but it doesn't apply
+in the same way as [`Modifier.windowInsetsPadding`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/windowInsetsPadding.modifier.md.txt#(androidx.compose.ui.Modifier).windowInsetsPadding(androidx.compose.foundation.layout.WindowInsets)), but it doesn't apply
 the consumed insets as padding. This is useful in combination with the inset
 size modifiers, to indicate to siblings that a certain amount of insets have
 already been consumed:
@@ -200,8 +200,8 @@ Column(Modifier.verticalScroll(rememberScrollState())) {
 <br />
 
 [`Modifier.consumeWindowInsets(paddingValues: PaddingValues)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/consumeWindowInsets.modifier#(androidx.compose.ui.Modifier).consumeWindowInsets(androidx.compose.foundation.layout.PaddingValues)) behaves very
-similarly to the version with a [`WindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/WindowInsets) argument, but takes an
-arbitrary [`PaddingValues`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/PaddingValues) to consume. This is useful for informing
+similarly to the version with a [`WindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/WindowInsets.md.txt) argument, but takes an
+arbitrary [`PaddingValues`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/PaddingValues.md.txt) to consume. This is useful for informing
 children when padding or spacing is provided by some other mechanism than the
 inset padding modifiers, such as an ordinary `Modifier.padding` or fixed height
 spacers:
@@ -217,7 +217,7 @@ Column(Modifier.padding(16.dp).consumeWindowInsets(PaddingValues(16.dp))) {
 <br />
 
 In cases where the raw window insets are needed without consumption, use the
-`WindowInsets` values directly, or use [`WindowInsets.asPaddingValues()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/WindowInsets#(androidx.compose.foundation.layout.WindowInsets).asPaddingValues()) to
+`WindowInsets` values directly, or use [`WindowInsets.asPaddingValues()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/WindowInsets.md.txt#(androidx.compose.foundation.layout.WindowInsets).asPaddingValues()) to
 return a `PaddingValues` of the insets that are unaffected by consumption.
 However, due to the following caveats, prefer to use the window insets padding
 modifiers and window insets size modifiers wherever possible.

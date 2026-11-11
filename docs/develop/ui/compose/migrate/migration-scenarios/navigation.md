@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 The [Navigation Compose API](https://developer.android.com/develop/ui/compose/navigation) lets you navigate between composables in a
-Compose app, while taking advantage of the [Jetpack Navigation's](https://developer.android.com/guide/navigation) component,
+Compose app, while taking advantage of the [Jetpack Navigation's](https://developer.android.com/guide/navigation.md.txt) component,
 infrastructure, and features.
 
 This page describes how to migrate from a Fragment-based Jetpack Navigation to
@@ -19,26 +19,26 @@ Compose.
 
 You can migrate to Navigation Compose once you're able to *replace all of your
 Fragments with corresponding screen composables* . Screen composables can contain
-a [mix of Compose and View content](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose), but *all navigation destinations must be
+a [mix of Compose and View content](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose.md.txt), but *all navigation destinations must be
 composables* to enable Navigation Compose migration. Until then, you should
 continue using [Fragment-based Navigation component](https://developer.android.com/guide/navigation/navigation-getting-started) in your interop View and
 Compose codebase. See the [navigation interop documentation](https://developer.android.com/develop/ui/compose/navigation#interoperability) for more
 information.
 
 > [!NOTE]
-> **Note:** Using Navigation Compose in a Compose-only app is not a prerequisite. You can *continue using* [*Fragment-based Navigation component*](https://developer.android.com/guide/navigation/navigation-getting-started), as long as you keep Fragments for [hosting your composable content](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/compose-in-views). The recommended end goal for a Compose-first architecture is to replace Fragments entirely with screen-level composables managed by Navigation Compose.
+> **Note:** Using Navigation Compose in a Compose-only app is not a prerequisite. You can *continue using* [*Fragment-based Navigation component*](https://developer.android.com/guide/navigation/navigation-getting-started), as long as you keep Fragments for [hosting your composable content](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/compose-in-views.md.txt). The recommended end goal for a Compose-first architecture is to replace Fragments entirely with screen-level composables managed by Navigation Compose.
 
 > [!NOTE]
 > **Note:** Currently, it's not possible to use any single form of the Navigation component to navigate between a mix of Fragment and composable destinations. All destinations must be uniformly either Fragments (using Jetpack Navigation) or composables (using Navigation Compose).
 
 ## Migration steps
 
-Whether you are following our [recommended migration strategy](https://developer.android.com/develop/ui/compose/migrate/strategy) or taking
+Whether you are following our [recommended migration strategy](https://developer.android.com/develop/ui/compose/migrate/strategy.md.txt) or taking
 another approach, you'll reach a point where all navigation destinations are
 screen composables, with Fragments acting only as composable containers. At this
 stage, you can migrate to Navigation Compose.
 
-If your app is already following a [UDF design pattern](https://developer.android.com/develop/ui/compose/architecture#udf) and our [guide to
+If your app is already following a [UDF design pattern](https://developer.android.com/develop/ui/compose/architecture.md.txt#udf) and our [guide to
 architecture](https://developer.android.com/topic/architecture), migrating to Jetpack Compose and Navigation Compose shouldn't
 require major refactors of other layers of your app, apart from the UI layer.
 
@@ -79,7 +79,7 @@ To migrate to Navigation Compose, follow these steps:
 
 4. Set up the [`NavController`](https://developer.android.com/develop/ui/compose/navigation#getting-started) in a place where all composables that need
    to reference it have access to it (this is usually inside your `App`
-   composable). This approach follows the [principles of state hoisting](https://developer.android.com/develop/ui/compose/state#state-hoisting)
+   composable). This approach follows the [principles of state hoisting](https://developer.android.com/develop/ui/compose/state.md.txt#state-hoisting)
    and lets you use the `NavController` as the source of truth for navigating
    between composable screens and maintaining the back stack:
 
@@ -158,11 +158,11 @@ To migrate to Navigation Compose, follow these steps:
 
    <br />
 
-7. If you followed the guidance on [architecting your Compose UI](https://developer.android.com/develop/ui/compose/architecture),
+7. If you followed the guidance on [architecting your Compose UI](https://developer.android.com/develop/ui/compose/architecture.md.txt),
    specifically how `ViewModel`s and navigation events should be passed to
    composables, the next step is to change how you provide the `ViewModel` to
    each screen composable. You can often use Hilt injection and its integration
-   point with Compose and Navigation via [`hiltViewModel`](https://developer.android.com/develop/ui/compose/libraries#hilt-navigation):
+   point with Compose and Navigation via [`hiltViewModel`](https://developer.android.com/develop/ui/compose/libraries.md.txt#hilt-navigation):
 
 
    ```kotlin
@@ -187,7 +187,7 @@ To migrate to Navigation Compose, follow these steps:
    Data can be passed to a destination by creating an instance of the route
    class defined for that destination. It can then be obtained either directly
    from the back stack entry at the destination or from a `ViewModel` using
-   [`SavedStateHandle.toRoute()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle#(androidx.lifecycle.SavedStateHandle).toRoute(kotlin.collections.Map)).
+   [`SavedStateHandle.toRoute()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle.md.txt#(androidx.lifecycle.SavedStateHandle).toRoute(kotlin.collections.Map)).
 
 
    ```kotlin
@@ -271,9 +271,9 @@ Issue Tracker](https://issuetracker.google.com/issues/265480755).
 
 ### Transition animations
 
-Starting with [Navigation 2.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation#2.7.0-alpha01), support for setting custom
+Starting with [Navigation 2.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.7.0-alpha01), support for setting custom
 transitions, previously from [`AnimatedNavHost`](https://google.github.io/accompanist/navigation-animation/), is now
-directly supported in [`NavHost`](https://developer.android.com/reference/androidx/navigation/NavHost). Read through the [release notes](https://developer.android.com/jetpack/androidx/releases/navigation#2.7.0-alpha01) for
+directly supported in [`NavHost`](https://developer.android.com/reference/androidx/navigation/NavHost.md.txt). Read through the [release notes](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.7.0-alpha01) for
 more information.
 
 ## Learn more
@@ -290,5 +290,5 @@ resources:
 
 - Note: link text is displayed when JavaScript is off
 - [Navigating with Compose](https://developer.android.com/develop/ui/compose/navigation)
-- [Compose and other libraries](https://developer.android.com/develop/ui/compose/libraries)
-- [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations)
+- [Compose and other libraries](https://developer.android.com/develop/ui/compose/libraries.md.txt)
+- [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations.md.txt)

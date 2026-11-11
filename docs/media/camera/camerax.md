@@ -14,7 +14,7 @@ Part of [Android Jetpack](https://developer.android.com/jetpack).
 
 ### CameraX
 
-Use the CameraX [Android skill](https://developer.android.com/tools/agents/android-skills) to implement camera features, manage video recording lifecycles, add low-level controls with Camera2 interop, and integrate ML Kit or Media3 effects. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the CameraX [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to implement camera features, manage video recording lifecycles, add low-level controls with Camera2 interop, and integrate ML Kit or Media3 effects. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add camerax
 
@@ -37,7 +37,7 @@ CameraX improves the developer experience in several key ways.
 ### Broad device compatibility
 
 CameraX supports devices running
-[Android 5.0 (API level 21)](https://developer.android.com/about/versions/lollipop) and higher,
+[Android 5.0 (API level 21)](https://developer.android.com/about/versions/lollipop.md.txt) and higher,
 representing over 98% of existing Android devices.
 
 ### Ease of use
@@ -86,7 +86,7 @@ night mode, and face retouching, all of which require device support.
 ### Case study
 
 To see how CameraX has simplified development for Monzo,
-see [their case study](https://developer.android.com/stories/apps/monzo-camerax).
+see [their case study](https://developer.android.com/stories/apps/monzo-camerax.md.txt).
 
 ## Documentation
 

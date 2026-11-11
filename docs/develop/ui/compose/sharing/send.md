@@ -26,18 +26,18 @@ that is only available to the system.
 The Android Sharesheet also has many handy features for developers. For example, you can
 do the following:
 
-- [Find out when your users complete a share and to where](https://developer.android.com/develop/ui/compose/sharing/send#share-interaction-data)
-- [Add custom targets and app targets](https://developer.android.com/develop/ui/compose/sharing/send#adding-custom-targets)
-- [Provide rich text content previews, starting in Android 10 (API level 29)](https://developer.android.com/develop/ui/compose/sharing/send#adding-rich-content-previews)
-- [Exclude targets matching specific component names](https://developer.android.com/develop/ui/compose/sharing/send#excluding-specific-targets-by-component)
+- [Find out when your users complete a share and to where](https://developer.android.com/develop/ui/compose/sharing/send.md.txt#share-interaction-data)
+- [Add custom targets and app targets](https://developer.android.com/develop/ui/compose/sharing/send.md.txt#adding-custom-targets)
+- [Provide rich text content previews, starting in Android 10 (API level 29)](https://developer.android.com/develop/ui/compose/sharing/send.md.txt#adding-rich-content-previews)
+- [Exclude targets matching specific component names](https://developer.android.com/develop/ui/compose/sharing/send.md.txt#excluding-specific-targets-by-component)
 
 ## Use the Android Sharesheet
 
 For all types of sharing, create an intent and set its action to
-`https://developer.android.com/reference/android/content/Intent#ACTION_SEND`.
+`Intent.ACTION_SEND`.
 To display the Android Sharesheet, call
-`https://developer.android.com/reference/android/content/Intent#createChooser(android.content.Intent, java.lang.CharSequence)`,
-passing it your `https://developer.android.com/reference/android/content/Intent` object.
+`Intent.createChooser()`,
+passing it your `Intent` object.
 It returns a version of your intent that always displays the Android Sharesheet.
 
 ### Send text content
@@ -63,28 +63,28 @@ fun shareText(context: Context) {
 ```
 
 Optionally, you can add extras to include more information, such as email recipients
-(`https://developer.android.com/reference/android/content/Intent#EXTRA_EMAIL`,
-`https://developer.android.com/reference/android/content/Intent#EXTRA_CC`,
-`https://developer.android.com/reference/android/content/Intent#EXTRA_BCC`),
+(`EXTRA_EMAIL`,
+`EXTRA_CC`,
+`EXTRA_BCC`),
 or the email subject
-(`https://developer.android.com/reference/android/content/Intent#EXTRA_SUBJECT`).
+(`EXTRA_SUBJECT`).
 
 **Note:** Some email apps, such as Gmail, expect a
-`https://developer.android.com/reference/java/lang/String` for extras like
+`String[]` for extras like
 `EXTRA_EMAIL` and `EXTRA_CC`. Use
-`https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String, java.lang.String[])`
+`putExtra(String, String[])`
 to add these to your intent.
 
 ### Send binary content
 
-Share binary data using the `https://developer.android.com/reference/android/content/Intent#ACTION_SEND` action.
+Share binary data using the `ACTION_SEND` action.
 Set the appropriate MIME type and place a URI to the data in the extra
-`https://developer.android.com/reference/android/content/Intent#EXTRA_STREAM`, as
+`EXTRA_STREAM`, as
 shown in the following example.
 This is commonly used to share an image but can be used to share any type of binary content.
 
 > [!NOTE]
-> **Note:** If your goal is to let users select or import photos or videos from their media library into your app, use the [Photo Picker](https://developer.android.com/training/data-storage/shared/photo-picker) instead of `ACTION_SEND`.
+> **Note:** If your goal is to let users select or import photos or videos from their media library into your app, use the [Photo Picker](https://developer.android.com/training/data-storage/shared/photo-picker.md.txt) instead of `ACTION_SEND`.
 
 ```kotlin
 fun shareBinaryContent(context: Context) {
@@ -100,11 +100,11 @@ fun shareBinaryContent(context: Context) {
 }
 ```
 
-The receiving application needs permission to access the data the `https://developer.android.com/reference/android/net/Uri`
+The receiving application needs permission to access the data the `Uri`
 points to. There are two recommended ways to do this:
 
-- Store the data in your own `https://developer.android.com/reference/android/content/ContentProvider`, making sure that other apps have the correct permission to access your provider. The preferred mechanism for providing access is to use [per-URI permissions](https://developer.android.com/training/permissions/restrict-interactions#uri), which are temporary and only grant access to the receiving application. To create a `ContentProvider` like this, use the `https://developer.android.com/reference/androidx/core/content/FileProvider` helper class.
-- Use the system `https://developer.android.com/reference/android/provider/MediaStore`. The `MediaStore` is primarily for video, audio, and image MIME types. However, beginning with Android 3.0 (API level 11), it can also store non-media types. For more information, see `https://developer.android.com/reference/android/provider/MediaStore.Files`. Files can be inserted into the `MediaStore` using `https://developer.android.com/reference/android/media/MediaScannerConnection#scanFile(android.content.Context, java.lang.String[], java.lang.String[], android.media.MediaScannerConnection.OnScanCompletedListener)`, after which a `content://`-style `https://developer.android.com/reference/android/net/Uri` suitable for sharing is passed to the provided `https://developer.android.com/reference/android/media/MediaScannerConnection.OnScanCompletedListener#onScanCompleted(java.lang.String, android.net.Uri)` callback. Note that once added to the system `MediaStore`, the content is accessible to any app on the device.
+- Store the data in your own `ContentProvider`, making sure that other apps have the correct permission to access your provider. The preferred mechanism for providing access is to use [per-URI permissions](https://developer.android.com/training/permissions/restrict-interactions.md.txt#uri), which are temporary and only grant access to the receiving application. To create a `ContentProvider` like this, use the `FileProvider` helper class.
+- Use the system `MediaStore`. The `MediaStore` is primarily for video, audio, and image MIME types. However, beginning with Android 3.0 (API level 11), it can also store non-media types. For more information, see `MediaStore.Files`. Files can be inserted into the `MediaStore` using `scanFile()`, after which a `content://`-style `Uri` suitable for sharing is passed to the provided `onScanCompleted()` callback. Note that once added to the system `MediaStore`, the content is accessible to any app on the device.
 
 ### Use the right MIME type
 
@@ -124,9 +124,9 @@ common MIME types when sending data in Android:
 
 To determine the MIME type dynamically at runtime instead of hardcoding it, use the following methods:
 
-- For `content://` URIs (such as those provided by `FileProvider` or `MediaStore`), call `https://developer.android.com/reference/android/content/ContentResolver#getType(android.net.Uri)`.
-- For file extensions, call `https://developer.android.com/reference/android/webkit/MimeTypeMap#getMimeTypeFromExtension(java.lang.String)`.
-- If you use the Storage Access Framework, you can also query `https://developer.android.com/reference/androidx/documentfile/provider/DocumentFile#getType()`.
+- For `content://` URIs (such as those provided by `FileProvider` or `MediaStore`), call `ContentResolver.getType()`.
+- For file extensions, call `MimeTypeMap.getSingleton().getMimeTypeFromExtension()`.
+- If you use the Storage Access Framework, you can also query `DocumentFile.getType()`.
 
 If you can't determine a specific MIME type, use `application/octet-stream` for generic binary data, or `*/*` as a last resort.
 
@@ -139,7 +139,7 @@ preview features are only available for specific types.
 
 ### Share multiple pieces of content
 
-To share multiple pieces of content, use the `https://developer.android.com/reference/android/content/Intent#ACTION_SEND_MULTIPLE`
+To share multiple pieces of content, use the `ACTION_SEND_MULTIPLE`
 action together with a list of URIs pointing to the content. The MIME type varies according to the
 mix of content you're sharing. For example, if you share three JPEG images, you use the type
 `"image/jpg"`. For a mixture of image types, use `"image/*"` to match an
@@ -165,7 +165,7 @@ fun shareMultiple(context: Context) {
 }
 ```
 
-Be sure the provided `https://developer.android.com/reference/android/net/Uri` objects point
+Be sure the provided `Uri` objects point
 to data that a receiving application can access.
 
 ### Add rich content to text previews
@@ -181,9 +181,9 @@ relevant thumbnail using `ClipData`.
 
 **Note:** The image content URI is provided from a
 `FileProvider`, usually from a configured `<cache-path>`.
-For more information, see [Sharing files](https://developer.android.com/training/secure-file-sharing). Be sure to give
+For more information, see [Sharing files](https://developer.android.com/training/secure-file-sharing.md.txt). Be sure to give
 Sharesheet the right permissions to read any image you want to use as a thumbnail. For more information,
-see `https://developer.android.com/reference/android/content/Intent#FLAG_GRANT_READ_URI_PERMISSION`.
+see `Intent.FLAG_GRANT_READ_URI_PERMISSION`.
 
 Here's an example:
 
@@ -220,9 +220,9 @@ The custom actions are shown as small action icons at the top of the Android Sha
 can specify any `Intent` as the action invoked when the icon is clicked.
 
 To add custom actions on the Android Sharesheet, first create a
-`https://developer.android.com/reference/android/service/chooser/ChooserAction` with `https://developer.android.com/reference/android/service/chooser/ChooserAction.Builder`.
+`ChooserAction` with `ChooserAction.Builder`.
 You can specify a `PendingIntent` as the action invoked when the icon is clicked. Create an array containing all of your custom actions and specify it as
-`https://developer.android.com/reference/android/content/Intent#EXTRA_CHOOSER_CUSTOM_ACTIONS`
+`EXTRA_CHOOSER_CUSTOM_ACTIONS`
 of the share `Intent`.
 
 ```kotlin
@@ -251,18 +251,18 @@ fun sharesheetCustomActions(context: Context, previewText: String) {
 ### Add custom targets
 
 > [!CAUTION]
-> **Deprecated:** `https://developer.android.com/reference/android/service/chooser/ChooserTarget` and `https://developer.android.com/reference/android/service/chooser/ChooserTargetService` are deprecated starting in Android 11 (API level 30). For Direct Share targets, use `https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat` (or `https://developer.android.com/reference/android/content/pm/ShortcutManager`) with the Sharing Shortcuts API instead. For more information, see [Provide Direct Share targets](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets). To provide custom actions on Android 14 (API level 34) and higher, use [custom actions](https://developer.android.com/develop/ui/compose/sharing/send#custom-actions) instead.
+> **Deprecated:** `ChooserTarget` and `ChooserTargetService` are deprecated starting in Android 11 (API level 30). For Direct Share targets, use `ShortcutManagerCompat` (or `ShortcutManager`) with the Sharing Shortcuts API instead. For more information, see [Provide Direct Share targets](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets.md.txt). To provide custom actions on Android 14 (API level 34) and higher, use [custom actions](https://developer.android.com/develop/ui/compose/sharing/send.md.txt#custom-actions) instead.
 
 The Android Sharesheet lets you specify up to two custom activity intents
-that are listed before the app suggestions using `https://developer.android.com/reference/android/content/Intent#EXTRA_INITIAL_INTENTS`.
+that are listed before the app suggestions using `Intent.EXTRA_INITIAL_INTENTS`.
 For Direct Share targets (such as conversations or contacts), publish dynamic shortcuts using
-`https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat` instead
-(see [Provide Direct Share targets](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets)):
+`ShortcutManagerCompat` instead
+(see [Provide Direct Share targets](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets.md.txt)):
 ![](https://developer.android.com/static/images/training/sharing/customshare.png) **Figure 4.** Custom targets on the Android Sharesheet.
 
 Add `Intent.EXTRA_INITIAL_INTENTS` to
 your share Intent *after* calling
-`https://developer.android.com/reference/android/content/Intent#createChooser(android.content.Intent,%20java.lang.CharSequence)`:
+`Intent.createChooser()`:
 
 ```kotlin
 val sendIntent = Intent(ACTION_SEND).apply {
@@ -357,16 +357,16 @@ For more information, see the [platform share sample](https://github.com/android
 
 ## Use the Android intent resolver
 
-![](https://developer.android.com/static/images/training/sharing/send_intent.png) **Figure 5.** The `https://developer.android.com/reference/android/content/Intent#ACTION_SEND` intent resolver.
+![](https://developer.android.com/static/images/training/sharing/send_intent.png) **Figure 5.** The `ACTION_SEND` intent resolver.
 
 The Android intent resolver is best used when sending data to another app as part of a well-defined task flow.
 
 To use the Android intent resolver, create an intent and add extras as you would to call
 the Android Sharesheet. However, *don't* call
-`https://developer.android.com/reference/android/content/Intent#createChooser(android.content.Intent, java.lang.CharSequence)`.
+`Intent.createChooser()`.
 
 If there are multiple installed applications with filters that match
-`https://developer.android.com/reference/android/content/Intent#ACTION_SEND`
+`ACTION_SEND`
 and the MIME type, the system displays a disambiguation dialog called the *intent resolver*
 that lets the user choose a target to share to. If a single application
 matches, it runs.
@@ -387,4 +387,4 @@ fun intentResolver(context: Context) {
 ## Learn more
 
 For more information about sending data, see
-[Intents and Intent Filters](https://developer.android.com/guide/components/intents-filters).
+[Intents and Intent Filters](https://developer.android.com/guide/components/intents-filters.md.txt).

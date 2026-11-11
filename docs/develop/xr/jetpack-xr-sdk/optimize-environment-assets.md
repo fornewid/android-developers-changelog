@@ -7,7 +7,7 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices.md.txt#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
@@ -30,7 +30,7 @@ This updated asset structure provides these advantages:
 - **Optimized lighting:** Using a lower resolution skybox resource specifically for the lighting map is beneficial for performance without significantly impacting the visual results of the lighting on objects.
 
 To learn more about adding a spatial Environment in your app, see our guide on
-[adding environments to your app](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments).
+[adding environments to your app](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments.md.txt).
 
 > [!NOTE]
 > **Note:** It's important to provide an IBL asset if your app sets a custom environment, especially if your app has any 3D objects. This is because, if your app provides a glb/glTF but no IBL ZIP file, the 3D objects in the user's environment appear with incorrect lighting (for example, too bright or dim, reflecting objects that the user can't otherwise see).
@@ -83,26 +83,28 @@ The following shows an example of using cmgen to create the ZIP file for IBL.
 The example uses input files named `my_360_skybox_1024_x_512.exr` and
 `black_skybox.png` to create a ZIP file named `my_ibl.zip`.
 
-    # Produce black cubemaps for the texture of the IBL asset.
-    ./cmgen --format=rgb32f --size=128 --extract=./skybox_ibl ./black_skybox.png
+```bash
+# Produce black cubemaps for the texture of the IBL asset.
+./cmgen --format=rgb32f --size=128 --extract=./skybox_ibl ./black_skybox.png
 
-    # Produce lighting cubemaps and a Spherical Harmonics from EXR
-    ./cmgen --format=rgb32f --size=128 --deploy=./skybox_ibl --ibl-ld=. --ibl-samples=1024 --extract-blur=0.0 --sh-irradiance --sh-shader --sh-output=./skybox_ibl/sh.txt ./my_360_skybox_1024_x_512.exr
+# Produce lighting cubemaps and a Spherical Harmonics from EXR
+./cmgen --format=rgb32f --size=128 --deploy=./skybox_ibl --ibl-ld=. --ibl-samples=1024 --extract-blur=0.0 --sh-irradiance --sh-shader --sh-output=./skybox_ibl/sh.txt ./my_360_skybox_1024_x_512.exr
 
-    # Copy all of the black cubemaps into the other folder.
-    cp -rf ./skybox_ibl/black_skybox/* ./skybox_ibl/my_360_skybox_1024_x_512
+# Copy all of the black cubemaps into the other folder.
+cp -rf ./skybox_ibl/black_skybox/* ./skybox_ibl/my_360_skybox_1024_x_512
 
-    # Rename the directory to reflect that these are old assets.
-    mv ./skybox_ibl/black_skybox ./skybox_ibl/black_skybox_old
+# Rename the directory to reflect that these are old assets.
+mv ./skybox_ibl/black_skybox ./skybox_ibl/black_skybox_old
 
-    # Rename the directory to reflect that these are your cubemap assets.
-    mv ./skybox_ibl/my_360_skybox_1024_x_512 ./skybox_ibl/black_skybox
+# Rename the directory to reflect that these are your cubemap assets.
+mv ./skybox_ibl/my_360_skybox_1024_x_512 ./skybox_ibl/black_skybox
 
-    # Change into the child directory.
-    cd ./skybox_ibl
+# Change into the child directory.
+cd ./skybox_ibl
 
-    # Zip all of the cubemap and the Spherical Harmonics assets together.
-    zip -q my_ibl.zip black_skybox/*
+# Zip all of the cubemap and the Spherical Harmonics assets together.
+zip -q my_ibl.zip black_skybox/*
 
-    # Return to the directory you started in.
-    cd ..
+# Return to the directory you started in.
+cd ..
+```

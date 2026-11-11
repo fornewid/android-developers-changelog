@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 [Time pickers](https://m3.material.io/components/time-pickers/overview) provide a way for users to select a time. You can
-use the [`TimePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePicker.composable#TimePicker(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors,androidx.compose.material3.TimePickerLayoutType)) and [`TimeInput`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimeInput.composable#TimeInput(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors)) composables to implement a time
+use the [`TimePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePicker.composable.md.txt#TimePicker(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors,androidx.compose.material3.TimePickerLayoutType)) and [`TimeInput`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimeInput.composable.md.txt#TimeInput(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors)) composables to implement a time
 picker in your app.
 
 ## Types
@@ -24,8 +24,8 @@ an input time picker on the right:
 To implement a time picker, use either the `TimePicker` or `TimeInput`
 composable:
 
-- [`TimePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePicker.composable#TimePicker(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors,androidx.compose.material3.TimePickerLayoutType)): Implements a dial time picker.
-- [`TimeInput`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimeInput.composable#TimeInput(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors)): Implements an input time picker.
+- [`TimePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePicker.composable.md.txt#TimePicker(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors,androidx.compose.material3.TimePickerLayoutType)): Implements a dial time picker.
+- [`TimeInput`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimeInput.composable.md.txt#TimeInput(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors)): Implements an input time picker.
 
 > [!NOTE]
 > **Note:** While they display different components, `TimePicker` and `TimeInput` are very similar composables in terms of their parameters. They are therefore largely interchangeable.
@@ -33,14 +33,14 @@ composable:
 ### State
 
 For both `TimePicker` and `TimeInput`, you must also pass a
-[`TimePickerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePickerState). This lets you set the default selected time that appears
+[`TimePickerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePickerState.md.txt). This lets you set the default selected time that appears
 on the picker. It also captures the time that the user has selected using the
 picker.
 
 ### Dialog
 
 Time pickers appear in dialogs. The examples in this guide don't use dialogs.
-For examples that do use dialogs, see the [Dialogs for time pickers](https://developer.android.com/develop/ui/compose/components/time-pickers-dialogs) guide.
+For examples that do use dialogs, see the [Dialogs for time pickers](https://developer.android.com/develop/ui/compose/components/time-pickers-dialogs.md.txt) guide.
 
 ## Dial time picker
 
@@ -173,37 +173,39 @@ fun DialUseStateExample(
 
 You could then call the composable like this:
 
-    var selectedTime: TimePickerState? by remember { mutableStateOf(null) }
+```kotlin
+var selectedTime: TimePickerState? by remember { mutableStateOf(null) }
 
-    // ...
+// ...
 
-    DialUseStateExample(
-        onDismiss = {
-            showDialExample = false
-        },
-        onConfirm = {
-                time ->
-            selectedTime = time
-            showDialExample = false
-        },
-    )
+DialUseStateExample(
+    onDismiss = {
+        showDialExample = false
+    },
+    onConfirm = {
+            time ->
+        selectedTime = time
+        showDialExample = false
+    },
+)
 
-    // ...
+// ...
 
-    if (selectedTime != null) {
-        val cal = Calendar.getInstance()
-        cal.set(Calendar.HOUR_OF_DAY, selectedTime!!.hour)
-        cal.set(Calendar.MINUTE, selectedTime!!.minute)
-        cal.isLenient = false
-        Text("Selected time = ${formatter.format(cal.time)}")
-    } else {
-        Text("No time selected.")
-    }
+if (selectedTime != null) {
+    val cal = Calendar.getInstance()
+    cal.set(Calendar.HOUR_OF_DAY, selectedTime!!.hour)
+    cal.set(Calendar.MINUTE, selectedTime!!.minute)
+    cal.isLenient = false
+    Text("Selected time = ${formatter.format(cal.time)}")
+} else {
+    Text("No time selected.")
+}
+```
 
 For more detail, see the [full implementation in the snippets
 app](https://github.com/android/snippets/blob/main/compose/snippets/src/main/java/com/example/compose/snippets/components/TimePickers.kt).
 
 ## Additional resources
 
-- [`TimePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePicker.composable#TimePicker(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors,androidx.compose.material3.TimePickerLayoutType))
+- [`TimePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePicker.composable.md.txt#TimePicker(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors,androidx.compose.material3.TimePickerLayoutType))
 - [Material Design - Time Pickers](https://m3.material.io/components/time-pickers/overview)

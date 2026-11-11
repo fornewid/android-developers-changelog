@@ -21,13 +21,15 @@ to improve code reuse.
 The dependencies required to use the unit test library are shown in the
 following examples:
 
-    // Other Glance and Compose runtime dependencies.
-    ...
-    testImplementation 'androidx.glance:glance-testing:1.1.1'
-    testImplementation 'androidx.glance:glance-appwidget-testing:1.1.1'
-    ...
-    // You may include additional dependencies, such as Robolectric, if your test
-    // needs to set a LocalContext.
+```groovy
+// Other Glance and Compose runtime dependencies.
+...
+testImplementation 'androidx.glance:glance-testing:1.1.1'
+testImplementation 'androidx.glance:glance-appwidget-testing:1.1.1'
+...
+// You may include additional dependencies, such as Robolectric, if your test
+// needs to set a LocalContext.
+```
 
 ## Test structure
 
@@ -86,7 +88,7 @@ for the test before providing a composable in the test. The default size is
 in portrait mode.
 
 - If your AppWidget uses `sizeMode == Single`, you can set this to the `minWidth` and `minHeight` in your widget's `info.xml` file.
-- If your AppWidget uses `sizeMode == Exact`, you can identify the sizes to test in a similar way to how you [determine a size for your widget](https://developer.android.com/develop/ui/views/appwidgets/layouts#anatomy_determining_size) and identify landscape and portrait sizes that your widget may appear on and test for them.
+- If your AppWidget uses `sizeMode == Exact`, you can identify the sizes to test in a similar way to how you [determine a size for your widget](https://developer.android.com/develop/ui/views/appwidgets/layouts.md.txt#anatomy_determining_size) and identify landscape and portrait sizes that your widget may appear on and test for them.
 - If your AppWidget uses `sizeMode == Responsive`, you can set this to one of the sizes from the list that you provide when specifying the `sizeMode`.
 
 The default duration for a test timeout is 1 second, but you can pass a custom
@@ -94,4 +96,4 @@ duration as an argument to the `runGlanceAppWidgetUnitTest` method if your test
 infrastructure enforces a different timeout.
 
 For more information and code samples, see the reference documentation for
-[`runGlanceAppWidgetUnitTest`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/testing/unit/package-summary#runGlanceAppWidgetUnitTest(kotlin.time.Duration,kotlin.Function1)).
+[`runGlanceAppWidgetUnitTest`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/testing/unit/package-summary.md.txt#runGlanceAppWidgetUnitTest(kotlin.time.Duration,kotlin.Function1)).

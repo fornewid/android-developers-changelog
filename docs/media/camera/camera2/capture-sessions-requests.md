@@ -4,12 +4,12 @@ url: https://developer.android.com/media/camera/camera2/capture-sessions-request
 source: md.txt
 ---
 
-**Note:** This page refers to the [Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
+**Note:** This page refers to the [Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary.md.txt) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
 
 <br />
 
 A single Android-powered device can have multiple cameras. Each camera is a
-[`CameraDevice`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice),
+[`CameraDevice`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice.md.txt),
 and a `CameraDevice` can output more than one stream simultaneously.
 
 One reason to do this is so that one stream, sequential camera frames coming
@@ -25,13 +25,13 @@ pipeline can't keep up with the incoming frames, it starts dropping them.
 
 Each pipeline has its own output format. The raw data coming in is
 automatically transformed into the appropriate
-[output format](https://developer.android.com/reference/android/graphics/PixelFormat) by implicit logic
+[output format](https://developer.android.com/reference/android/graphics/PixelFormat.md.txt) by implicit logic
 associated with each pipeline. The `CameraDevice` used throughout this page's
 code samples is non-specific, so you first [enumerate](https://developer.android.com/training/camera2/camera-enumeration)
 all available cameras before proceeding.
 
 You can use the `CameraDevice` to create a
-[`CameraCaptureSession`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession),
+[`CameraCaptureSession`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession.md.txt),
 which is specific to that `CameraDevice`. A `CameraDevice` must receive a
 frame configuration for each raw frame using the `CameraCaptureSession`. The
 configuration specifies camera attributes such as autofocus, aperture, effects,
@@ -47,7 +47,7 @@ video calls.
 A `CameraCaptureSession` describes all the possible pipelines bound to the
 `CameraDevice`. When a session is created, you cannot add or remove pipelines.
 The `CameraCaptureSession` maintains a queue of
-[`CaptureRequest`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest)s,
+[`CaptureRequest`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.md.txt)s,
 which become the active configuration.
 
 A `CaptureRequest` adds a configuration to the queue and selects one, more than
@@ -65,7 +65,7 @@ which provides a better camera experience for your specific task.
 This
 allows the camera device to optimize camera hardware and software pipelines
 based on user scenarios for each stream. For more information about Stream Use
-Cases, see [`setStreamUseCase`](https://developer.android.com/reference/android/hardware/camera2/params/OutputConfiguration#setStreamUseCase(long)).
+Cases, see [`setStreamUseCase`](https://developer.android.com/reference/android/hardware/camera2/params/OutputConfiguration.md.txt#setStreamUseCase(long)).
 
 Stream Use Cases let you specify how a particular camera stream is used in
 greater detail, in addition to setting a template in
@@ -106,8 +106,8 @@ to the needed output targets.
 
 The following code snippet shows how you can prepare a camera session with two
 output buffers, one belonging to a
-[`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView) and another to an
-[`ImageReader`](https://developer.android.com/reference/android/media/ImageReader). Adding [`PREVIEW`](https://developer.android.com/training/camerax/preview#scale-type) Stream Use Case to `previewSurface` and
+[`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView.md.txt) and another to an
+[`ImageReader`](https://developer.android.com/reference/android/media/ImageReader.md.txt). Adding [`PREVIEW`](https://developer.android.com/training/camerax/preview#scale-type) Stream Use Case to `previewSurface` and
 [`STILL_CAPTURE`](https://developer.android.com/training/camerax/take-photo#set-up-image-capture) Stream Use
 Case to `imReaderSurface` lets the device hardware optimize these streams even
 further.
@@ -191,7 +191,7 @@ requests to do that.
 
 The transformation applied to inputs as they are written to their buffer is
 determined by the type of each target, which must be a
-[`Surface`](https://developer.android.com/reference/android/view/Surface). The Android framework knows how to
+[`Surface`](https://developer.android.com/reference/android/view/Surface.md.txt). The Android framework knows how to
 convert a raw image in the active configuration into a format appropriate for
 each target. The conversion is controlled by the pixel format and size of the
 particular `Surface`.
@@ -201,7 +201,7 @@ configuration combinations might not work, causing issues such as the session
 not being created, throwing a runtime error when you dispatch a request, or
 performance degradation. The framework provides guarantees for specific
 combinations of device, surface, and request parameters. The documentation for
-[`createCaptureSession()`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice#createCaptureSession(android.hardware.camera2.params.SessionConfiguration))
+[`createCaptureSession()`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice.md.txt#createCaptureSession(android.hardware.camera2.params.SessionConfiguration))
 provides more information.
 
 ## Single CaptureRequests
@@ -209,30 +209,30 @@ provides more information.
 The configuration used for each frame is encoded in a `CaptureRequest`, which is
 sent to the camera. To create a capture request, you can use one of the
 predefined
-[templates](https://developer.android.com/reference/android/hardware/camera2/CameraDevice#constants_1),
+[templates](https://developer.android.com/reference/android/hardware/camera2/CameraDevice.md.txt#constants_1),
 or you can use `TEMPLATE_MANUAL` for full control. When you choose a
 template, you need to provide one or more output buffers to be used with
 the request. You can only use buffers that were already defined on the capture
 session you intend to use.
 
 Capture requests use a
-[builder pattern](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.Builder)
+[builder pattern](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.Builder.md.txt)
 and give developers the opportunity to set [many different
 options](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#fields_1) including
-[auto-exposure](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#CONTROL_AE_MODE),
-[auto-focus](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#CONTROL_AF_MODE),
+[auto-exposure](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.md.txt#CONTROL_AE_MODE),
+[auto-focus](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.md.txt#CONTROL_AF_MODE),
 and
-[lens aperture](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#LENS_APERTURE).
+[lens aperture](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.md.txt#LENS_APERTURE).
 Before setting a field, make sure that the specific option is available for the
 device by calling
-[`CameraCharacteristics.getAvailableCaptureRequestKeys()`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#getAvailableCaptureRequestKeys())
+[`CameraCharacteristics.getAvailableCaptureRequestKeys()`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics.md.txt#getAvailableCaptureRequestKeys())
 and that the desired value is supported by checking the appropriate camera
 characteristic, such as the [available auto-exposure
 modes](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#CONTROL_AE_AVAILABLE_MODES).
 
 To create a capture request for a `SurfaceView` using the template
 designed for preview without any modifications, use
-[`CameraDevice.TEMPLATE_PREVIEW`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice#TEMPLATE_PREVIEW):
+[`CameraDevice.TEMPLATE_PREVIEW`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice.md.txt#TEMPLATE_PREVIEW):
 
 ### Kotlin
 
@@ -251,7 +251,7 @@ CaptureRequest.Builder captureRequest =
 captureRequest.addTarget(previewSurface);
 ```
 
-With a capture request defined, you can now [dispatch](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession#capture%28android.hardware.camera2.CaptureRequest,%20android.hardware.camera2.CameraCaptureSession.CaptureCallback,%20android.os.Handler%29)
+With a capture request defined, you can now [dispatch](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession.md.txt#capture%28android.hardware.camera2.CaptureRequest,%20android.hardware.camera2.CameraCaptureSession.CaptureCallback,%20android.os.Handler%29)
 it to the camera session:
 
 ### Kotlin
@@ -286,7 +286,7 @@ session.capture(captureRequest.build(), null, null);
 When an output frame is put into the specific buffer, a [capture
 callback](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession.CaptureCallback)
 is triggered. In many cases additional callbacks, such as
-[`ImageReader.OnImageAvailableListener`](https://developer.android.com/reference/android/media/ImageReader.OnImageAvailableListener),
+[`ImageReader.OnImageAvailableListener`](https://developer.android.com/reference/android/media/ImageReader.OnImageAvailableListener.md.txt),
 is triggered when the frame it contains is processed. It is at
 this point that you can retrieve image data out of the specified buffer.
 
@@ -296,7 +296,7 @@ Single camera requests are straightforward to do, but for displaying a live
 preview, or video, they aren't very useful. In that case, you need to receive a
 continuous stream of frames, not just a single one. The following code snippet
 shows how to add a
-[repeating request](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession#setRepeatingRequest%28android.hardware.camera2.CaptureRequest,%20android.hardware.camera2.CameraCaptureSession.CaptureCallback,%20android.os.Handler%29)
+[repeating request](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession.md.txt#setRepeatingRequest%28android.hardware.camera2.CaptureRequest,%20android.hardware.camera2.CameraCaptureSession.CaptureCallback,%20android.os.Handler%29)
 to the session:
 
 ### Kotlin

@@ -10,11 +10,11 @@ screens too. This guide provides recommendations for achieving this user
 experience.
 
 To learn more about the design principles for adaptive layouts, read the
-[design guidance](https://developer.android.com/design/ui/wear/guides/foundations/adaptive-design).
+[design guidance](https://developer.android.com/design/ui/wear/guides/foundations/adaptive-design.md.txt).
 
 ## Provide differentiated experiences through breakpoints
 
-Layouts from the [ProtoLayout Material](https://developer.android.com/reference/androidx/wear/protolayout/material/layouts/package-summary) library are responsive and take care
+Layouts from the [ProtoLayout Material](https://developer.android.com/reference/androidx/wear/protolayout/material/layouts/package-summary.md.txt) library are responsive and take care
 of correct element placement and visibility. However, in some cases you might
 want to vary the number of visible elements for best results. For example, you
 might want 3 buttons on a smaller display, and 5 on a larger display.
@@ -42,13 +42,13 @@ materialScope(this, requestParams.deviceConfiguration) {
 }
 ```
 
-The [design guidance](https://developer.android.com/design/ui/wear/guides/foundations/adaptive-design) illustrates additional opportunities.
+The [design guidance](https://developer.android.com/design/ui/wear/guides/foundations/adaptive-design.md.txt) illustrates additional opportunities.
 
 ## Test tiles on different screen sizes using Previews
 
 It is important to test your layouts on different screen sizes. Use the
-Tile Preview annotations, along with the [`TilePreviewHelper`](https://developer.android.com/reference/androidx/wear/tiles/tooling/preview/TilePreviewHelper) and
-[`TilePreviewData`](https://developer.android.com/reference/androidx/wear/tiles/tooling/preview/TilePreviewData) classes:
+Tile Preview annotations, along with the [`TilePreviewHelper`](https://developer.android.com/reference/androidx/wear/tiles/tooling/preview/TilePreviewHelper.md.txt) and
+[`TilePreviewData`](https://developer.android.com/reference/androidx/wear/tiles/tooling/preview/TilePreviewData.md.txt) classes:
 
 ```kotlin
 @Preview(device = WearDevices.LARGE_ROUND)

@@ -11,8 +11,8 @@ Like most other UI toolkits, Compose renders a frame through several distinct
 layout, and drawing. Compose is very similar but has an important additional
 phase called *composition* at the start.
 
-The Compose documentation describes composition in [Thinking in Compose](https://developer.android.com/develop/ui/compose/mental-model) and
-[State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state).
+The Compose documentation describes composition in [Thinking in Compose](https://developer.android.com/develop/ui/compose/mental-model.md.txt) and
+[State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state.md.txt).
 
 ## The three phases of a frame
 
@@ -26,13 +26,13 @@ Compose has three main phases:
 
 The order of these phases is generally the same, allowing data to flow in one
 direction from composition to layout to drawing to produce a frame (also known
-as [unidirectional data flow](https://developer.android.com/develop/ui/compose/architecture#udf)). [`BoxWithConstraints`](https://developer.android.com/develop/ui/compose/layouts/basics#constraints), [`LazyColumn`](https://developer.android.com/develop/ui/compose/lists#lazy),
-and [`LazyRow`](https://developer.android.com/develop/ui/compose/lists#lazy) are notable exceptions, where the composition of its children
+as [unidirectional data flow](https://developer.android.com/develop/ui/compose/architecture.md.txt#udf)). [`BoxWithConstraints`](https://developer.android.com/develop/ui/compose/layouts/basics.md.txt#constraints), [`LazyColumn`](https://developer.android.com/develop/ui/compose/lists.md.txt#lazy),
+and [`LazyRow`](https://developer.android.com/develop/ui/compose/lists.md.txt#lazy) are notable exceptions, where the composition of its children
 depends on the parent's layout phase.
 
 Conceptually, each of these phases happens for every frame; however to optimize
 performance, Compose avoids repeating work that would compute the same results
-from the same inputs in all of these phases. Compose [skips](https://developer.android.com/develop/ui/compose/mental-model#skips) running a
+from the same inputs in all of these phases. Compose [skips](https://developer.android.com/develop/ui/compose/mental-model.md.txt#skips) running a
 composable function if it can reuse a former result, and Compose UI doesn't
 re-layout or re-draw the entire tree if it doesn't have to. Compose performs
 only the minimum amount of work required to update the UI. This optimization is
@@ -120,7 +120,7 @@ Using the previous example, the tree content is drawn in the following way:
 
 ## State reads
 
-When you read the `value` of a [`snapshot state`](https://developer.android.com/develop/ui/compose/state) during one of the phases
+When you read the `value` of a [`snapshot state`](https://developer.android.com/develop/ui/compose/state.md.txt) during one of the phases
 listed previously, Compose automatically tracks what it was doing when it read
 the `value`. This tracking allows Compose to re-execute the reader when the
 state's `value` changes, and is the basis of state observability in Compose.
@@ -292,7 +292,7 @@ Box {
 
 This code works, but results in suboptimal performance. As written, the code
 reads the `value` of the `firstVisibleItemScrollOffset` state and passes it to
-the [`Modifier.offset(offset: Dp)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/offset.modifier#(androidx.compose.ui.Modifier).offset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) function. As the user scrolls, the
+the [`Modifier.offset(offset: Dp)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/offset.modifier.md.txt#(androidx.compose.ui.Modifier).offset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) function. As the user scrolls, the
 `firstVisibleItemScrollOffset`'s `value` will change. As you've learned, Compose
 tracks any state reads so that it can restart (re-invoke) the reading code,
 which in this example is the content of the `Box`.
@@ -310,7 +310,7 @@ only re-trigger the layout phase.
 ### Offset with lambda
 
 There is another version of the offset modifier available:
-[`Modifier.offset(offset: Density.() -> IntOffset)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/offset.modifier#(androidx.compose.ui.Modifier).offset(kotlin.Function1)).
+[`Modifier.offset(offset: Density.() -> IntOffset)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/offset.modifier.md.txt#(androidx.compose.ui.Modifier).offset(kotlin.Function1)).
 
 This version takes a lambda parameter, where the resulting offset is returned by
 the lambda block. Update the code to use it:
@@ -430,7 +430,7 @@ This example may seem contrived, but be careful of this general pattern:
 The fix for the preceding sample is to use the proper layout primitives. The
 preceding example can be implemented with a `Column()`, but you may have a more
 complex example which requires something custom, which will require writing a
-custom layout. See the [Custom layouts](https://developer.android.com/develop/ui/compose/layouts/custom) guide for more information.
+custom layout. See the [Custom layouts](https://developer.android.com/develop/ui/compose/layouts/custom.md.txt) guide for more information.
 
 The general principle here is to have a single source of truth for multiple UI
 elements that should be measured and placed with regards to one another. Using
@@ -439,11 +439,11 @@ shared parent serves as the source of truth that can coordinate the relation
 between multiple elements. Introducing a dynamic state breaks this principle.
 
 For more information about recomposition loops and how to avoid writing to
-state across phases, see [Backwards writes in Compose](https://developer.android.com/develop/ui/compose/performance/backwards-write).
+state across phases, see [Backwards writes in Compose](https://developer.android.com/develop/ui/compose/performance/backwards-write.md.txt).
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state)
-- [Lists and grids](https://developer.android.com/develop/ui/compose/lists)
-- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin)
+- [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state.md.txt)
+- [Lists and grids](https://developer.android.com/develop/ui/compose/lists.md.txt)
+- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin.md.txt)

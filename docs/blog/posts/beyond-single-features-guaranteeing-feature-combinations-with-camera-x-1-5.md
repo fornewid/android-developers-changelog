@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/beyond-single-features-guaranteein
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Beyond Single Features: Guaranteeing Feature Combinations With CameraX 1.5
 
-6 min read ![](https://developer.android.com/static/blog/assets/25_Android_Camera_X_Feature_blog_1_856fb165e3_1ivmP1.webp) 15 Oct 2025 [![View Tahsin Masrur's profile](https://developer.android.com/static/blog/assets/Tahsin_a6df1d8c3c_Z1XuFni.webp)](https://developer.android.com/blog/authors/tahsin-masrur) [Tahsin Masrur](https://developer.android.com/blog/authors/tahsin-masrur) Software Engineer Modern camera apps are defined by powerful, overlapping features. Users expect to record video with stunning HDR, capture fluid motion at 60 FPS, and get buttery-smooth footage with Preview Stabilization---often all at the same time.
+6 min read ![](https://developer.android.com/static/blog/assets/25_Android_Camera_X_Feature_blog_1_856fb165e3_1ivmP1.webp) 15 Oct 2025 [![View Tahsin Masrur's profile](https://developer.android.com/static/blog/assets/Tahsin_a6df1d8c3c_Z1XuFni.webp)](https://developer.android.com/blog/authors/tahsin-masrur.md.txt) [Tahsin Masrur](https://developer.android.com/blog/authors/tahsin-masrur.md.txt) Software Engineer Modern camera apps are defined by powerful, overlapping features. Users expect to record video with stunning HDR, capture fluid motion at 60 FPS, and get buttery-smooth footage with Preview Stabilization---often all at the same time.
 
 As developers, we know the reality is more complicated. How can you guarantee that a specific device actually supports a given combination? Until now, enabling multiple features was often a gamble. You could check for individual feature support, but combining them could lead to undefined behavior or, worse, a failed camera session. This uncertainty forces developers to be conservative, which prevents users on capable devices from accessing the best possible experience.
 
@@ -18,7 +18,7 @@ To address this, we're introducing **Feature Group in CameraX** - a new API desi
 
 ## For Those New to CameraX
 
-Before we dive into the new Feature Group API, let's quickly recap what CameraX is. CameraX is a Jetpack support library, built to help you make camera app development easier. It provides a consistent and easy-to-use API surface that works across most Android devices, with backward-compatibility to Android 6.0 (API level 23). If you are new to CameraX, we recommend checking out the [official documentation](https://developer.android.com/media/camera/camerax) and trying the [codelab](https://developer.android.com/codelabs/camerax-getting-started#0) to get started.
+Before we dive into the new Feature Group API, let's quickly recap what CameraX is. CameraX is a Jetpack support library, built to help you make camera app development easier. It provides a consistent and easy-to-use API surface that works across most Android devices, with backward-compatibility to Android 6.0 (API level 23). If you are new to CameraX, we recommend checking out the [official documentation](https://developer.android.com/media/camera/camerax.md.txt) and trying the [codelab](https://developer.android.com/codelabs/camerax-getting-started#0) to get started.
 
 ## What You Can Build with the Feature Group API
 
@@ -36,13 +36,13 @@ With the Feature Group API, you can:
 
 ## How It Works: The Core Components
 
-The new API is centered around key additions to [SessionConfig](https://developer.android.com/reference/androidx/camera/core/SessionConfig) and [CameraInfo](https://developer.android.com/reference/androidx/camera/core/CameraInfo).
+The new API is centered around key additions to [SessionConfig](https://developer.android.com/reference/androidx/camera/core/SessionConfig.md.txt) and [CameraInfo](https://developer.android.com/reference/androidx/camera/core/CameraInfo.md.txt).
 
-1. [**GroupableFeature**](https://developer.android.com/reference/androidx/camera/core/featuregroup/GroupableFeature): This API introduces a set of predefined groupable features, such as [HDR_HLG10](https://developer.android.com/reference/androidx/camera/core/featuregroup/GroupableFeature#HDR_HLG10()), [FPS_60](https://developer.android.com/reference/androidx/camera/core/featuregroup/GroupableFeature#FPS_60()), [PREVIEW_STABILIZATION](https://developer.android.com/reference/androidx/camera/core/featuregroup/GroupableFeature#PREVIEW_STABILIZATION()), and [IMAGE_ULTRA_HDR](https://developer.android.com/reference/androidx/camera/core/featuregroup/GroupableFeature#IMAGE_ULTRA_HDR()). Due to computational limitations, only a specific set of features can be grouped with the high degree of reliability this API provides. We are actively working to expand this list and will introduce support for more features in future releases.  
-2. **New** [**SessionConfig**](https://developer.android.com/reference/androidx/camera/core/SessionConfig)**Parameters:** This class, used for starting a camera session, now accepts two new parameters:
+1. [**GroupableFeature**](https://developer.android.com/reference/androidx/camera/core/featuregroup/GroupableFeature.md.txt): This API introduces a set of predefined groupable features, such as [HDR_HLG10](https://developer.android.com/reference/androidx/camera/core/featuregroup/GroupableFeature.md.txt#HDR_HLG10()), [FPS_60](https://developer.android.com/reference/androidx/camera/core/featuregroup/GroupableFeature.md.txt#FPS_60()), [PREVIEW_STABILIZATION](https://developer.android.com/reference/androidx/camera/core/featuregroup/GroupableFeature.md.txt#PREVIEW_STABILIZATION()), and [IMAGE_ULTRA_HDR](https://developer.android.com/reference/androidx/camera/core/featuregroup/GroupableFeature.md.txt#IMAGE_ULTRA_HDR()). Due to computational limitations, only a specific set of features can be grouped with the high degree of reliability this API provides. We are actively working to expand this list and will introduce support for more features in future releases.  
+2. **New** [**SessionConfig**](https://developer.android.com/reference/androidx/camera/core/SessionConfig.md.txt)**Parameters:** This class, used for starting a camera session, now accepts two new parameters:
    - `requiredFeatureGroup`: Use this for features that **must** be supported for the configuration to succeed - ideal for features that a user explicitly enables, such as toggling an 'HDR' switch. To ensure a deterministic and consistent experience, the `bindToLifecycle` call will throw an `IllegalArgumentException` if the requested combination is not supported, rather than silently ignoring a feature request. The `CameraInfo#isFeatureGroupSupported` API (details below) should be used to query this result beforehand.
    - `preferredFeatureGroup`: Use this for features that are desirable but optional, for example when you want to implement a default "High-Quality" mode. You provide a list of your desired features **ordered according to your priorities**, and CameraX automatically enables the highest-priority combination that the device supports.
-3. [**CameraInfo#isFeatureGroupSupported()**](https://developer.android.com/reference/androidx/camera/core/CameraInfo#isFeatureGroupSupported(androidx.camera.core.SessionConfig)): This is the core query method for explicitly checking if a feature group is supported, well-suited for providing only supported feature options to users in your app UI. You pass it a `SessionConfig`, and it returns a boolean indicating whether the combination is supported. If you intend to bind a `SessionConfig` with required features, you should use this API first to ensure it is supported.
+3. [**CameraInfo#isFeatureGroupSupported()**](https://developer.android.com/reference/androidx/camera/core/CameraInfo.md.txt#isFeatureGroupSupported(androidx.camera.core.SessionConfig)): This is the core query method for explicitly checking if a feature group is supported, well-suited for providing only supported feature options to users in your app UI. You pass it a `SessionConfig`, and it returns a boolean indicating whether the combination is supported. If you intend to bind a `SessionConfig` with required features, you should use this API first to ensure it is supported.
 
 ## Implementation in Practice
 
@@ -231,38 +231,37 @@ Written by:
 
 -
 
-  ## [Tahsin Masrur](https://developer.android.com/blog/authors/tahsin-masrur)
+  ## [Tahsin Masrur](https://developer.android.com/blog/authors/tahsin-masrur.md.txt)
 
   ###### Software Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/tahsin-masrur) ![View Tahsin Masrur's profile](https://developer.android.com/static/blog/assets/Tahsin_a6df1d8c3c_Z1XuFni.webp) ![View Tahsin Masrur's profile](https://developer.android.com/static/blog/assets/Tahsin_a6df1d8c3c_Z1XuFni.webp)
 Continue reading
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 3 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 4 min read
+  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp.md.txt)
+  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano.md.txt)
+  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
   - +2 ↩
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
 

@@ -4,13 +4,13 @@ url: https://developer.android.com/develop/ui/views/appwidgets/layouts
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance/build-ui#define-sizemode) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance/build-ui.md.txt#define-sizemode) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
 This page describes refinements for widget sizing and greater flexibility
 introduced in Android 12 (API level 31). It also details how to
-[determine a size for your widget](https://developer.android.com/develop/ui/views/appwidgets/layouts#anatomy_determining_size).
+[determine a size for your widget](https://developer.android.com/develop/ui/views/appwidgets/layouts.md.txt#anatomy_determining_size).
 
 ## Use improved APIs for widget sizes and layouts
 
@@ -18,37 +18,37 @@ Starting with Android 12 (API level 31), you can provide more refined size
 attributes and flexible layouts by doing the following, as described in the
 sections that follow:
 
-1. [Specify additional widget sizing constraints.](https://developer.android.com/develop/ui/views/appwidgets/layouts#specify-widget-size-constraints)
+1. [Specify additional widget sizing constraints.](https://developer.android.com/develop/ui/views/appwidgets/layouts.md.txt#specify-widget-size-constraints)
 
-2. Providing [responsive layouts](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-responsive-layouts) or [exact layouts.](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-exact-layouts)
+2. Providing [responsive layouts](https://developer.android.com/develop/ui/views/appwidgets/layouts.md.txt#provide-responsive-layouts) or [exact layouts.](https://developer.android.com/develop/ui/views/appwidgets/layouts.md.txt#provide-exact-layouts)
 
 In previous versions of Android, it is possible to get the size ranges of a
 widget using the
-[`OPTION_APPWIDGET_MIN_WIDTH`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#OPTION_APPWIDGET_MIN_WIDTH),
-[`OPTION_APPWIDGET_MIN_HEIGHT`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#OPTION_APPWIDGET_MIN_HEIGHT),
-[`OPTION_APPWIDGET_MAX_WIDTH`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#OPTION_APPWIDGET_MAX_WIDTH),
-and [`OPTION_APPWIDGET_MAX_HEIGHT`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#OPTION_APPWIDGET_MAX_HEIGHT)
+[`OPTION_APPWIDGET_MIN_WIDTH`](https://developer.android.com/reference/android/appwidget/AppWidgetManager.md.txt#OPTION_APPWIDGET_MIN_WIDTH),
+[`OPTION_APPWIDGET_MIN_HEIGHT`](https://developer.android.com/reference/android/appwidget/AppWidgetManager.md.txt#OPTION_APPWIDGET_MIN_HEIGHT),
+[`OPTION_APPWIDGET_MAX_WIDTH`](https://developer.android.com/reference/android/appwidget/AppWidgetManager.md.txt#OPTION_APPWIDGET_MAX_WIDTH),
+and [`OPTION_APPWIDGET_MAX_HEIGHT`](https://developer.android.com/reference/android/appwidget/AppWidgetManager.md.txt#OPTION_APPWIDGET_MAX_HEIGHT)
 extras and then estimate the widget's size, but that logic doesn't work in all
 situations. For widgets targeting Android 12 or higher,
-we recommend providing [responsive](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-responsive-layouts) or [exact layouts](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-exact-layouts).
+we recommend providing [responsive](https://developer.android.com/develop/ui/views/appwidgets/layouts.md.txt#provide-responsive-layouts) or [exact layouts](https://developer.android.com/develop/ui/views/appwidgets/layouts.md.txt#provide-exact-layouts).
 
 ### Specify additional widget sizing constraints
 
 Android 12 adds APIs letting you ensure your widget is
 sized more reliably across different devices with varying screen sizes.
 
-In addition to the existing [`minWidth`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#minWidth),
-[`minHeight`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#minHeight),
-[`minResizeWidth`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#minResizeWidth),
-and [`minResizeHeight`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#minResizeHeight)
+In addition to the existing [`minWidth`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#minWidth),
+[`minHeight`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#minHeight),
+[`minResizeWidth`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#minResizeWidth),
+and [`minResizeHeight`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#minResizeHeight)
 attributes, use the following new `appwidget-provider` attributes:
 
-- [`targetCellWidth`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#targetCellWidth)
-  and [`targetCellHeight`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#targetCellHeight):
+- [`targetCellWidth`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#targetCellWidth)
+  and [`targetCellHeight`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#targetCellHeight):
   define the target size of the widget in terms of launcher grid cells. If
   defined, these attributes are used instead of `minWidth` or `minHeight`.
 
-- [`maxResizeWidth`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#maxResizeWidth) and [`maxResizeHeight`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#maxResizeHeight):
+- [`maxResizeWidth`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#maxResizeWidth) and [`maxResizeHeight`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#maxResizeHeight):
   define the maximum size that the launcher allows
   the user to resize the widget to.
 
@@ -71,7 +71,7 @@ The following XML shows how to use the sizing attributes.
 If the layout needs to change depending on the size of the widget, we recommend
 creating a small set of layouts, each valid for a range of sizes. If this
 isn't possible, another option is to provide layouts based on the
-[exact widget size at runtime](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-exact-layouts), as described in this page.
+[exact widget size at runtime](https://developer.android.com/develop/ui/views/appwidgets/layouts.md.txt#provide-exact-layouts), as described in this page.
 
 This feature allows for smoother scaling and overall better system
 health, because the system doesn't have to wake up the app every time
@@ -146,13 +146,13 @@ foldables.
 
 To implement this solution, your app needs to perform the following steps:
 
-1. Overload [`AppWidgetProvider.onAppWidgetOptionsChanged()`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider#onAppWidgetOptionsChanged(android.content.Context,%20android.appwidget.AppWidgetManager,%20int,%20android.os.Bundle)),
+1. Overload [`AppWidgetProvider.onAppWidgetOptionsChanged()`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider.md.txt#onAppWidgetOptionsChanged(android.content.Context,%20android.appwidget.AppWidgetManager,%20int,%20android.os.Bundle)),
    which is called when the set of sizes changes.
 
-2. Call [`AppWidgetManager.getAppWidgetOptions()`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#getAppWidgetOptions(int)),
-   which returns a [`Bundle`](https://developer.android.com/reference/android/os/Bundle) containing the sizes.
+2. Call [`AppWidgetManager.getAppWidgetOptions()`](https://developer.android.com/reference/android/appwidget/AppWidgetManager.md.txt#getAppWidgetOptions(int)),
+   which returns a [`Bundle`](https://developer.android.com/reference/android/os/Bundle.md.txt) containing the sizes.
 
-3. Access the [`AppWidgetManager.OPTION_APPWIDGET_SIZES`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#OPTION_APPWIDGET_SIZES) key from the `Bundle`.
+3. Access the [`AppWidgetManager.OPTION_APPWIDGET_SIZES`](https://developer.android.com/reference/android/appwidget/AppWidgetManager.md.txt#OPTION_APPWIDGET_SIZES) key from the `Bundle`.
 
 > [!NOTE]
 > **Note:** Providing the list of sizes is the launcher's responsibility. If the device has a launcher that doesn't support that field, the list of sizes might be empty or null.

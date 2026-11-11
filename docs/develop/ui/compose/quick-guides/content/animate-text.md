@@ -73,9 +73,9 @@ private fun AnimatedText() {
 
 ### Key points about the code
 
-- [`BreakIterator`](https://developer.android.com/reference/android/icu/text/BreakIterator) correctly iterates over characters regardless of how they are stored. For example, animated emojis are made up of multiple characters; `BreakIterator` ensures that they're handled as a single character, so that the animation isn't broken.
-- [`LaunchedEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/LaunchedEffect.composable#LaunchedEffect(kotlin.Any,kotlin.coroutines.SuspendFunction1)) starts a coroutine to introduce the delay between the characters. You can replace the code block with a click listener--or any other event--to trigger animation.
-- The [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/Text.composable#Text(kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.Function1,androidx.compose.ui.text.TextStyle)) composable re-renders every time the value of `substringText` is updated.
+- [`BreakIterator`](https://developer.android.com/reference/android/icu/text/BreakIterator.md.txt) correctly iterates over characters regardless of how they are stored. For example, animated emojis are made up of multiple characters; `BreakIterator` ensures that they're handled as a single character, so that the animation isn't broken.
+- [`LaunchedEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/LaunchedEffect.composable.md.txt#LaunchedEffect(kotlin.Any,kotlin.coroutines.SuspendFunction1)) starts a coroutine to introduce the delay between the characters. You can replace the code block with a click listener--or any other event--to trigger animation.
+- The [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/Text.composable.md.txt#Text(kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.Function1,androidx.compose.ui.text.TextStyle)) composable re-renders every time the value of `substringText` is updated.
 
 ## Collections that contain this guide
 
@@ -93,4 +93,4 @@ This series of videos introduces various Compose APIs, quickly showing you what'
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

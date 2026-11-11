@@ -13,9 +13,9 @@ For more details, see the [Material 3 supporting pane guidelines](https://m3.mat
 
 ## Implement a supporting pane with a scaffold
 
-[`NavigableSupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/NavigableSupportingPaneScaffold.composable#NavigableSupportingPaneScaffold(androidx.compose.material3.adaptive.navigation.ThreePaneScaffoldNavigator,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.material3.adaptive.navigation.BackNavigationBehavior,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState)) is a composable that simplifies
+[`NavigableSupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/NavigableSupportingPaneScaffold.composable.md.txt#NavigableSupportingPaneScaffold(androidx.compose.material3.adaptive.navigation.ThreePaneScaffoldNavigator,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.material3.adaptive.navigation.BackNavigationBehavior,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState)) is a composable that simplifies
 implementing a supporting pane layout in Jetpack Compose. It wraps
-[`SupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/SupportingPaneScaffold.composable#SupportingPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldValue,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState)) and adds built-in navigation and predictive back
+[`SupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/SupportingPaneScaffold.composable.md.txt#SupportingPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldValue,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState)) and adds built-in navigation and predictive back
 handling.
 
 A supporting pane scaffold supports up to three panes:
@@ -42,20 +42,24 @@ app or module:
 
 ### Kotlin
 
-    implementation("androidx.compose.material3.adaptive:adaptive")
-    implementation("androidx.compose.material3.adaptive:adaptive-layout")
-    implementation("androidx.compose.material3.adaptive:adaptive-navigation")
+```kotlin
+implementation("androidx.compose.material3.adaptive:adaptive")
+implementation("androidx.compose.material3.adaptive:adaptive-layout")
+implementation("androidx.compose.material3.adaptive:adaptive-navigation")
+```
 
 ### Groovy
 
-    implementation 'androidx.compose.material3.adaptive:adaptive'
-    implementation 'androidx.compose.material3.adaptive:adaptive-layout'
-    implementation 'androidx.compose.material3.adaptive:adaptive-navigation'
+```groovy
+implementation 'androidx.compose.material3.adaptive:adaptive'
+implementation 'androidx.compose.material3.adaptive:adaptive-layout'
+implementation 'androidx.compose.material3.adaptive:adaptive-navigation'
+```
 
-- **adaptive** : Low-level building blocks such as [`HingeInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/HingeInfo) and
-  [`Posture`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/Posture)
+- **adaptive** : Low-level building blocks such as [`HingeInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/HingeInfo.md.txt) and
+  [`Posture`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/Posture.md.txt)
 
-- **adaptive-layout** : Adaptive layouts such as [`ListDetailPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ListDetailPaneScaffold.composable#ListDetailPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldState,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState))
+- **adaptive-layout** : Adaptive layouts such as [`ListDetailPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ListDetailPaneScaffold.composable.md.txt#ListDetailPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldState,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState))
   and `SupportingPaneScaffold`
 
 - **adaptive-navigation** : Composables for navigating within and between
@@ -63,14 +67,14 @@ app or module:
   as `NavigableListDetailPaneScaffold` and `NavigableSupportingPaneScaffold`
 
 Verify that your project includes
-[compose-material3-adaptive version 1.1.0-beta1](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.1.0-beta01) or higher.
+[compose-material3-adaptive version 1.1.0-beta1](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive.md.txt#1.1.0-beta01) or higher.
 
 ## Opt-in to the predictive back gesture
 
 To enable predictive back animations in Android 15 or lower, you must opt-in to
 support the predictive back gesture. To opt-in, add
-`android:enableOnBackInvokedCallback="true"` to the [`<application>`](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#opt-predictive) tag or
-individual [`<activity>`](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#opt-activity-level) tags within your `AndroidManifest.xml` file.
+`android:enableOnBackInvokedCallback="true"` to the [`<application>`](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture.md.txt#opt-predictive) tag or
+individual [`<activity>`](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture.md.txt#opt-activity-level) tags within your `AndroidManifest.xml` file.
 
 Once your app targets Android 16 (API level 36) or higher, predictive back is
 enabled by default.
@@ -78,8 +82,8 @@ enabled by default.
 ## Create a navigator
 
 In small windows, only one pane displays at a time, so use a
-[`ThreePaneScaffoldNavigator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/ThreePaneScaffoldNavigator) to move to and from panes. Create an instance
-of the navigator with [`rememberSupportingPaneScaffoldNavigator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/rememberSupportingPaneScaffoldNavigator.composable#rememberSupportingPaneScaffoldNavigator(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldAdaptStrategies,kotlin.Boolean)).
+[`ThreePaneScaffoldNavigator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/ThreePaneScaffoldNavigator.md.txt) to move to and from panes. Create an instance
+of the navigator with [`rememberSupportingPaneScaffoldNavigator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/rememberSupportingPaneScaffoldNavigator.composable.md.txt#rememberSupportingPaneScaffoldNavigator(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldAdaptStrategies,kotlin.Boolean)).
 
 
 ```kotlin
@@ -92,8 +96,8 @@ val scope = rememberCoroutineScope()
 ## Pass the navigator to the scaffold
 
 The scaffold requires a `ThreePaneScaffoldNavigator` which is an interface
-representing the state of the scaffold, the [`ThreePaneScaffoldValue`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ThreePaneScaffoldValue) and a
-[`PaneScaffoldDirective`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/PaneScaffoldDirective).
+representing the state of the scaffold, the [`ThreePaneScaffoldValue`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ThreePaneScaffoldValue.md.txt) and a
+[`PaneScaffoldDirective`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/PaneScaffoldDirective.md.txt).
 
 
 ```kotlin
@@ -110,15 +114,15 @@ The main pane and supporting pane are composables containing your content. Use
 [`AnimatedPane`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/AnimatedPaneOverride#(androidx.compose.material3.adaptive.layout.AnimatedPaneOverrideScope).AnimatedPane()) to apply the default pane animations during navigation. Use
 the scaffold value to check whether the supporting pane is hidden; if so,
 display a button that calls
-[`navigateTo(SupportingPaneScaffoldRole.Supporting)`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/ThreePaneScaffoldNavigator#navigateTo(androidx.compose.material3.adaptive.layout.ThreePaneScaffoldRole,kotlin.Any)) to display the
+[`navigateTo(SupportingPaneScaffoldRole.Supporting)`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/ThreePaneScaffoldNavigator.md.txt#navigateTo(androidx.compose.material3.adaptive.layout.ThreePaneScaffoldRole,kotlin.Any)) to display the
 supporting pane.
 
-For large screens, use the [`ThreePaneScaffoldNavigator.navigateBack()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/ThreePaneScaffoldNavigator#navigateBack(androidx.compose.material3.adaptive.navigation.BackNavigationBehavior))
+For large screens, use the [`ThreePaneScaffoldNavigator.navigateBack()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/ThreePaneScaffoldNavigator.md.txt#navigateBack(androidx.compose.material3.adaptive.navigation.BackNavigationBehavior))
 method to dismiss the supporting pane, passing in the
-[`BackNavigationBehavior.PopUntilScaffoldValueChange`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/BackNavigationBehavior#PopUntilScaffoldValueChange()) constant. Calling this
-method forces a [recomposition](https://developer.android.com/develop/ui/compose/mental-model#recomposition) of the `NavigableSupportingPaneScaffold`.
+[`BackNavigationBehavior.PopUntilScaffoldValueChange`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/BackNavigationBehavior.md.txt#PopUntilScaffoldValueChange()) constant. Calling this
+method forces a [recomposition](https://developer.android.com/develop/ui/compose/mental-model.md.txt#recomposition) of the `NavigableSupportingPaneScaffold`.
 During recomposition, check the
-[`ThreePaneScaffoldNavigator.currentDestination`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/ThreePaneScaffoldNavigator#currentDestination()) property to determine
+[`ThreePaneScaffoldNavigator.currentDestination`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/ThreePaneScaffoldNavigator.md.txt#currentDestination()) property to determine
 whether to show the supporting pane.
 
 Here's a complete implementation of the scaffold:
@@ -184,12 +188,12 @@ NavigableSupportingPaneScaffold(
 <br />
 
 > [!NOTE]
-> **Note:** By default, `NavigableSupportingPaneScaffold` uses `PopUntilScaffoldValueChange` for `defaultBackBehavior`. If your app requires a different back navigation pattern, you can override this behavior by specifying another [`BackNavigationBehavior`](https://developer.android.com/develop/ui/compose/layouts/adaptive/list-detail#backnavigationbehavior_options) option.
+> **Note:** By default, `NavigableSupportingPaneScaffold` uses `PopUntilScaffoldValueChange` for `defaultBackBehavior`. If your app requires a different back navigation pattern, you can override this behavior by specifying another [`BackNavigationBehavior`](https://developer.android.com/develop/ui/compose/layouts/adaptive/list-detail.md.txt#backnavigationbehavior_options) option.
 
 ## Extract pane composables
 
 Extract the individual panes of a `SupportingPaneScaffold` into their own
-composables to make them reusable and testable. Use [`ThreePaneScaffoldScope`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ThreePaneScaffoldScope)
+composables to make them reusable and testable. Use [`ThreePaneScaffoldScope`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ThreePaneScaffoldScope.md.txt)
 to access `AnimatedPane` if you want the default animations:
 
 
@@ -279,8 +283,8 @@ NavigableSupportingPaneScaffold(
 
 If you need more control over specific aspects of the scaffold, consider using
 `SupportingPaneScaffold` instead of `NavigableSupportingPaneScaffold`. This
-accepts a [`PaneScaffoldDirective`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/PaneScaffoldDirective) and [`ThreePaneScaffoldValue`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ThreePaneScaffoldValue) or
-[`ThreePaneScaffoldState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ThreePaneScaffoldState) separately. This flexibility lets you implement
+accepts a [`PaneScaffoldDirective`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/PaneScaffoldDirective.md.txt) and [`ThreePaneScaffoldValue`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ThreePaneScaffoldValue.md.txt) or
+[`ThreePaneScaffoldState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ThreePaneScaffoldState.md.txt) separately. This flexibility lets you implement
 custom logic for pane spacing and determine how many panes should be displayed
 simultaneously. You can also enable predictive back support by adding
 `ThreePaneScaffoldPredictiveBackHandler`.

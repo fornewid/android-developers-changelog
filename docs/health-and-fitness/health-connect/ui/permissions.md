@@ -15,7 +15,7 @@ This toggle provides a way for users to pause or resume data
 synchronization between your app and Health Connect.
 
 - **When toggled on:** Your app actively reads and writes to Health Connect, as per the permissions granted by the user.
-- **When toggled off:** Your app should stop all data synchronization with Health Connect. If you programmatically revoke permissions using [`revokeAllPermissions()`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#revokeAllPermissions()), explain to the user that the changes aren't immediately reflected in Health Connect without an app restart. To avoid a confusing user experience, give users the option to go to Health Connect settings to revoke permissions there.
+- **When toggled off:** Your app should stop all data synchronization with Health Connect. If you programmatically revoke permissions using [`revokeAllPermissions()`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController.md.txt#revokeAllPermissions()), explain to the user that the changes aren't immediately reflected in Health Connect without an app restart. To avoid a confusing user experience, give users the option to go to Health Connect settings to revoke permissions there.
 
 ## Manage access
 

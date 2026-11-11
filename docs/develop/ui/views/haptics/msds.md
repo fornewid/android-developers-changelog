@@ -37,9 +37,9 @@ the app, and falls into two categories:
 
 ## How do you use MSDS?
 
-The [`MultisensoryManager`](https://developer.android.com/reference/android/os/multisensory/MultisensoryManager) API is the entry point for
+The [`MultisensoryManager`](https://developer.android.com/reference/android/os/multisensory/MultisensoryManager.md.txt) API is the entry point for
 delivering MSDS feedback. You can play tokenized feedback by using the
-[`playToken()`](https://developer.android.com/reference/android/os/multisensory/MultisensoryManager#playToken(int)) method.
+[`playToken()`](https://developer.android.com/reference/android/os/multisensory/MultisensoryManager.md.txt#playToken(int)) method.
 
 To see available tokens, read the public integer constants of
 `MultisensoryManager`. To use the manager in your app, query it as a system
@@ -83,7 +83,7 @@ possible.
 
 Depending on your app structure, this recommendation can result in playback
 calls inside UI composable callbacks (like the earlier `Switch` example),
-changes to UI [`State`](https://developer.android.com/develop/ui/compose/state) or [`StateFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow#stateflow), animation frames,
+changes to UI [`State`](https://developer.android.com/develop/ui/compose/state.md.txt) or [`StateFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow.md.txt#stateflow), animation frames,
 or UI responses to direct user input.
 
 In all cases, the general recommendation is to deliver feedback once the user

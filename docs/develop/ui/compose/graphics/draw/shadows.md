@@ -10,23 +10,23 @@ Shadows visually elevate your UI, indicate interactivity to users, and provide
 immediate feedback on user actions. Compose provides several ways to incorporate
 shadows into your app:
 
-- [`Modifier.shadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).shadow(androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Shape,kotlin.Boolean,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)): Creates an elevation-based shadow behind a composable that conforms to Material Design guidelines.
-- [`Modifier.dropShadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#%28androidx.compose.ui.Modifier%29.dropShadow%28androidx.compose.ui.graphics.Shape,kotlin.Function1%29): Creates a customizable shadow that appears behind a composable, making it appear elevated.
-- [`Modifier.innerShadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#%28androidx.compose.ui.Modifier%29.innerShadow%28androidx.compose.ui.graphics.Shape,kotlin.Function1%29): Creates a shadow inside the borders of a composable, making it appear pressed into the surface behind it.
+- [`Modifier.shadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).shadow(androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Shape,kotlin.Boolean,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)): Creates an elevation-based shadow behind a composable that conforms to Material Design guidelines.
+- [`Modifier.dropShadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#%28androidx.compose.ui.Modifier%29.dropShadow%28androidx.compose.ui.graphics.Shape,kotlin.Function1%29): Creates a customizable shadow that appears behind a composable, making it appear elevated.
+- [`Modifier.innerShadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#%28androidx.compose.ui.Modifier%29.innerShadow%28androidx.compose.ui.graphics.Shape,kotlin.Function1%29): Creates a shadow inside the borders of a composable, making it appear pressed into the surface behind it.
 
 `Modifier.shadow()` is suitable for creating basic shadows, while the
 `dropShadow()` and `innerShadow()` modifiers offer more fine-grained control and
 precision over shadow rendering.
 
 This page describes how to implement each of these modifiers, including how to
-[animate shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows#animate-shadows) upon user interaction and how to chain the
+[animate shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows.md.txt#animate-shadows) upon user interaction and how to chain the
 `innerShadow()` and `dropShadow()` modifiers to
-create [gradient shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows#create-gradient),
-[neumorphic shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows#create-neumorphic), and more.
+create [gradient shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows.md.txt#create-gradient),
+[neumorphic shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows.md.txt#create-neumorphic), and more.
 
 ## Create basic shadows
 
-[`Modifier.shadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).shadow(androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Shape,kotlin.Boolean,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)) creates a basic shadow following [Material Design
+[`Modifier.shadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).shadow(androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Shape,kotlin.Boolean,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)) creates a basic shadow following [Material Design
 guidelines](https://m3.material.io/styles/elevation/applying-elevation#93fa8972-65fe-4073-9f03-7de12d47db8d) that simulates an overhead light source. The shadow
 depth is based on an `elevation` value, and the cast shadow is clipped to the
 shape of the composable.
@@ -54,11 +54,11 @@ fun ElevationBasedShadow() {
 ![A gray shadow cast around a white rectangular shape.](https://developer.android.com/static/develop/ui/compose/images/graphics/shadows/simple-shadow.png) **Figure 1.** An elevation-based shadow created with `Modifier.shadow()`.
 
 > [!NOTE]
-> **Note:** You can only use elevation with `Modifier.shadow()`, and cannot customize properties like shadow spread or radius. For more granular control of the shadow rendering, use [drop shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows#implement-drop) or [inner shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows#implement-inner) instead.
+> **Note:** You can only use elevation with `Modifier.shadow()`, and cannot customize properties like shadow spread or radius. For more granular control of the shadow rendering, use [drop shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows.md.txt#implement-drop) or [inner shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows.md.txt#implement-inner) instead.
 
 ## Implement drop shadows
 
-Use the [`dropShadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#%28androidx.compose.ui.Modifier%29.dropShadow%28androidx.compose.ui.graphics.Shape,kotlin.Function1%29) modifier to draw an accurate shadow behind your
+Use the [`dropShadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#%28androidx.compose.ui.Modifier%29.dropShadow%28androidx.compose.ui.graphics.Shape,kotlin.Function1%29) modifier to draw an accurate shadow behind your
 content, which makes the element appear elevated.
 
 You can control the following key aspects through its `Shadow` parameter:
@@ -131,7 +131,7 @@ fun SimpleDropShadowUsage() {
 ## Implement inner shadows
 
 To create an inverse effect to `dropShadow()`, use
-[`Modifier.innerShadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#%28androidx.compose.ui.Modifier%29.innerShadow%28androidx.compose.ui.graphics.Shape,kotlin.Function1%29), which creates the illusion that an element is
+[`Modifier.innerShadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#%28androidx.compose.ui.Modifier%29.innerShadow%28androidx.compose.ui.graphics.Shape,kotlin.Function1%29), which creates the illusion that an element is
 recessed or pressed into the underlying surface.
 
 Order is significant when creating inner shadows. The `innerShadow()` modifier
@@ -305,10 +305,10 @@ fun AnimatedColoredShadows() {
 ### Key points about the code
 
 - Declares the start and end states for the parameters to animate upon press with `transition.animateColor` and `transition.animateFloat`.
-- Uses [`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/updateTransition.composable#updateTransition(kotlin.Any,kotlin.String)) and provides it with the chosen `targetState (targetState = isPressed)` to verify all animations are synchronized. Whenever `isPressed` changes, the transition object automatically manages the animation of all child properties from their current values to the new target values.
-- Defines the `buttonPressAnimation` specification, which controls the timing and easing of the transition. It specifies a [`tween`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#tween(kotlin.Int,kotlin.Int,androidx.compose.animation.core.Easing)) (short for in-between) with a duration of 400 milliseconds and an `EaseInOut` curve, which means the animation starts slow, speeds up in the middle, and slows down at the end.
+- Uses [`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/updateTransition.composable.md.txt#updateTransition(kotlin.Any,kotlin.String)) and provides it with the chosen `targetState (targetState = isPressed)` to verify all animations are synchronized. Whenever `isPressed` changes, the transition object automatically manages the animation of all child properties from their current values to the new target values.
+- Defines the `buttonPressAnimation` specification, which controls the timing and easing of the transition. It specifies a [`tween`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary.md.txt#tween(kotlin.Int,kotlin.Int,androidx.compose.animation.core.Easing)) (short for in-between) with a duration of 400 milliseconds and an `EaseInOut` curve, which means the animation starts slow, speeds up in the middle, and slows down at the end.
 - Defines a `Box` with a chain of modifier functions that apply all the animated properties to create the visual element, including the following:
-  - [.`clickable()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)): A modifier that makes the `Box` interactive.
+  - [.`clickable()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)): A modifier that makes the `Box` interactive.
   - `.dropShadow()`: Two outer drop shadows are applied first. Their color and alpha properties are linked to the animated values (`blueDropShadow`, etc) and create the initial raised appearance.
   - `.innerShadow()`: Two inner shadows are drawn on top of the background. Their properties are linked to the other set of animated values (`innerShadowColor1`, etc) and create the indented appearance.
 

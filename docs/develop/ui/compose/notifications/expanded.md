@@ -10,14 +10,14 @@ expandable notifications by applying one of several notification templates as
 described in this document.
 
 To start, build a notification with all the basic content as described in
-[Create a notification](https://developer.android.com/develop/ui/compose/notifications/create-notification). Then, call [`setStyle()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setStyle(androidx.core.app.NotificationCompat.Style)) with a style object and
+[Create a notification](https://developer.android.com/develop/ui/compose/notifications/create-notification.md.txt). Then, call [`setStyle()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setStyle(androidx.core.app.NotificationCompat.Style)) with a style object and
 supply information corresponding to each template, as shown in the following
 examples.
 
 ## Add a large image
 
 To add an image in your notification, pass an instance of
-[`NotificationCompat.BigPictureStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.BigPictureStyle) to `setStyle()`.
+[`NotificationCompat.BigPictureStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.BigPictureStyle.md.txt) to `setStyle()`.
 
 
 ```kotlin
@@ -37,9 +37,9 @@ var notification =
 
 To make the image appear as a thumbnail only while the notification is
 collapsed, as shown in the following figure, call
-[`setLargeIcon()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setLargeIcon(android.graphics.Bitmap))
+[`setLargeIcon()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setLargeIcon(android.graphics.Bitmap))
 and pass it the image. Then, call
-[`BigPictureStyle.bigLargeIcon()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.BigPictureStyle#bigLargeIcon(android.graphics.Bitmap))
+[`BigPictureStyle.bigLargeIcon()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.BigPictureStyle.md.txt#bigLargeIcon(android.graphics.Bitmap))
 and pass it `null` so the large icon goes away when the notification is
 expanded:
 
@@ -64,7 +64,7 @@ notification = NotificationCompat.Builder(context, CHANNEL_ID)
 
 ## Add a large block of text
 
-Apply [`NotificationCompat.BigTextStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.BigTextStyle) to display text in the expanded
+Apply [`NotificationCompat.BigTextStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.BigTextStyle.md.txt) to display text in the expanded
 content area of the notification:
 
 
@@ -91,18 +91,18 @@ notification = NotificationCompat.Builder(context, CHANNEL_ID)
 
 ## Create an inbox-style notification
 
-Apply [`NotificationCompat.InboxStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.InboxStyle) to a notification if you want to add
+Apply [`NotificationCompat.InboxStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.InboxStyle.md.txt) to a notification if you want to add
 multiple short summary lines, such as snippets from incoming emails. This lets
 you add multiple pieces of content text that are each truncated to one line,
 instead of the one continuous line of text provided by
 `NotificationCompat.BigTextStyle`.
 
-To add a new line, call [`addLine()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.InboxStyle#addLine(java.lang.CharSequence)) up to six times, as shown in the
+To add a new line, call [`addLine()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.InboxStyle.md.txt#addLine(java.lang.CharSequence)) up to six times, as shown in the
 following example. If you add more than six lines, only the first six are
 visible.
 
 > [!TIP]
-> **Tip:** You can distinguish the message's subject and message in each line by [adding styling with HTML markup](https://developer.android.com/guide/topics/resources/string-resource#StylingWithHTML), such as bolding the subject.
+> **Tip:** You can distinguish the message's subject and message in each line by [adding styling with HTML markup](https://developer.android.com/guide/topics/resources/string-resource.md.txt#StylingWithHTML), such as bolding the subject.
 
 
 ```kotlin
@@ -126,18 +126,18 @@ The result looks like the following figure:
 ![An expanded inbox-style notification](https://developer.android.com/static/images/ui/notifications/expanded_inbox_style_2.png) Figure 3. An expanded inbox-style notification.
 
 > [!NOTE]
-> **Note:** For more information about how to group multiple notifications, see [Group notifications](https://developer.android.com/develop/ui/compose/notifications#bundle).
+> **Note:** For more information about how to group multiple notifications, see [Group notifications](https://developer.android.com/develop/ui/compose/notifications.md.txt#bundle).
 
 ## Show a conversation in a notification
 
-Apply [`NotificationCompat.MessagingStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle) to display sequential messages
+Apply [`NotificationCompat.MessagingStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle.md.txt) to display sequential messages
 between any number of people. This is ideal for messaging apps, because it
 provides a consistent layout for each message by handling the sender name and
 message text separately, and each message can be multiple lines long.
 
-To add a new message, call [`addMessage()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle#addMessage(androidx.core.app.NotificationCompat.MessagingStyle.Message)), passing the message text, the
+To add a new message, call [`addMessage()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle.md.txt#addMessage(androidx.core.app.NotificationCompat.MessagingStyle.Message)), passing the message text, the
 time received, and the sender's name. You can also pass this information as a
-[`NotificationCompat.MessagingStyle.Message`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle.Message) object, as shown in the
+[`NotificationCompat.MessagingStyle.Message`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle.Message.md.txt) object, as shown in the
 following example:
 
 
@@ -167,16 +167,16 @@ notification = NotificationCompat.Builder(context, CHANNEL_ID)
 ![A notification in messaging style](https://developer.android.com/static/images/ui/notifications/template-messaging_2x.png) Figure 4. A notification using `NotificationCompat.MessagingStyle`.
 
 When using `NotificationCompat.MessagingStyle`, any values given to
-[`setContentTitle()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setContentTitle(java.lang.CharSequence)) and [`setContentText()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setContentText(java.lang.CharSequence)) are ignored.
+[`setContentTitle()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setContentTitle(java.lang.CharSequence)) and [`setContentText()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setContentText(java.lang.CharSequence)) are ignored.
 
-You can call [`setConversationTitle()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle#setConversationTitle(java.lang.CharSequence)) to add a title that appears above
+You can call [`setConversationTitle()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle.md.txt#setConversationTitle(java.lang.CharSequence)) to add a title that appears above
 the conversation. This might be the user-created name of the group or, if it
 doesn't have a specific name, a list of the participants in the conversation.
 Don't set a conversation title for one-on-one chats, because the system uses the
 existence of this field as a hint that the conversation is a group.
 
 This style applies only on devices running Android 7.0 (API level 24) and later.
-When using the compatibility library ([`NotificationCompat`](https://developer.android.com/reference/androidx/core/app/NotificationCompat)), as
+When using the compatibility library ([`NotificationCompat`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.md.txt)), as
 demonstrated earlier, notifications with `MessagingStyle` fall back
 automatically to a supported expanded notification style.
 
@@ -186,21 +186,21 @@ reply action](https://developer.android.com/develop/ui/compose/notifications/cre
 ## Create a notification with media controls
 
 > [!NOTE]
-> **Note:** When using AndroidX Media3, the [media notification is created automatically](https://developer.android.com/media/implement/playback-app#publishing_a_notification).
+> **Note:** When using AndroidX Media3, the [media notification is created automatically](https://developer.android.com/media/implement/playback-app.md.txt#publishing_a_notification).
 
-Apply [`MediaStyleNotificationHelper.MediaStyle`](https://developer.android.com/reference/androidx/media3/session/MediaStyleNotificationHelper.MediaStyle) to display media playback
+Apply [`MediaStyleNotificationHelper.MediaStyle`](https://developer.android.com/reference/androidx/media3/session/MediaStyleNotificationHelper.MediaStyle.md.txt) to display media playback
 controls and track information.
 
-Specify your associated [`MediaSession`](https://developer.android.com/reference/androidx/media3/session/MediaSession) in the constructor. This allows
+Specify your associated [`MediaSession`](https://developer.android.com/reference/androidx/media3/session/MediaSession.md.txt) in the constructor. This allows
 Android to display the right information about your media.
 
-Call [`addAction()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#addAction(androidx.core.app.NotificationCompat.Action)) up to five times to display up to five icon buttons.
+Call [`addAction()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#addAction(androidx.core.app.NotificationCompat.Action)) up to five times to display up to five icon buttons.
 Call `setLargeIcon()` to set the album artwork.
 
 Unlike the other notification styles, `MediaStyle` also lets you modify the
 collapsed-size content view by specifying three action buttons that also appear
 in the collapsed view. To do so, provide the action button indexes to
-[`setShowActionsInCompactView()`](https://developer.android.com/reference/androidx/media3/session/MediaStyleNotificationHelper.MediaStyle#setShowActionsInCompactView(int...)).
+[`setShowActionsInCompactView()`](https://developer.android.com/reference/androidx/media3/session/MediaStyleNotificationHelper.MediaStyle.md.txt#setShowActionsInCompactView(int...)).
 
 The following example shows how to create a notification with media controls:
 
@@ -228,12 +228,12 @@ notification = NotificationCompat.Builder(context, CHANNEL_ID)
 ![A notification with media style](https://developer.android.com/static/images/ui/notifications/template-media_2x.png) Figure 5. A notification using `MediaStyleNotificationHelper.MediaStyle`.
 
 > [!NOTE]
-> **Note:** Notifications created with `MediaStyleNotificationHelper.MediaStyle` have their category set to [`CATEGORY_TRANSPORT`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#CATEGORY_TRANSPORT()) unless you set a different category using [`setCategory()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setCategory(java.lang.String)).
+> **Note:** Notifications created with `MediaStyleNotificationHelper.MediaStyle` have their category set to [`CATEGORY_TRANSPORT`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.md.txt#CATEGORY_TRANSPORT()) unless you set a different category using [`setCategory()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setCategory(java.lang.String)).
 
 ## Additional resources
 
 See the following references for more information about `MediaStyle` and
 expandable notifications.
 
-- [Using MediaStyle notifications with a foreground service](https://developer.android.com/media/implement/playback-app#implementing_a_mediasessionservice)
+- [Using MediaStyle notifications with a foreground service](https://developer.android.com/media/implement/playback-app.md.txt#implementing_a_mediasessionservice)
 - [SociaLite sample app](https://github.com/android/socialite)

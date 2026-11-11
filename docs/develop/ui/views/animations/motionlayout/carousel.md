@@ -4,16 +4,16 @@ url: https://developer.android.com/develop/ui/views/animations/motionlayout/caro
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add a carousel in Compose. [Carousel →](https://developer.android.com/develop/ui/compose/components/carousel) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add a carousel in Compose. [Carousel →](https://developer.android.com/develop/ui/compose/components/carousel.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
-[`Carousel`](https://developer.android.com/reference/androidx/constraintlayout/helper/widget/Carousel) is a
+[`Carousel`](https://developer.android.com/reference/androidx/constraintlayout/helper/widget/Carousel.md.txt) is a
 motion helper object to build custom carousel views that show a list of elements
 that the user can skim through. Compared to other ways to implement such
 views, this helper lets you quickly create complex motion and dimension changes
 for your `Carousel` by taking advantage of
-[`MotionLayout`](https://developer.android.com/reference/androidx/constraintlayout/motion/widget/MotionLayout).
+[`MotionLayout`](https://developer.android.com/reference/androidx/constraintlayout/motion/widget/MotionLayout.md.txt).
 **Figure 1.** Example of a `Carousel` showing landscape pictures.
 
 The `Carousel` widget supports lists with a start and end as well as circular
@@ -62,28 +62,30 @@ attention to the "item #" values):
 With these three constraint sets defined in your motion scene file, create two
 transitions---forward and backward---between the **start** and **next**
 states and the **start** and **previous** states. Add an
-[`OnSwipe`](https://developer.android.com/training/constraint-layout/motionlayout/ref/onswipe) handler to
+[`OnSwipe`](https://developer.android.com/training/constraint-layout/motionlayout/ref/onswipe.md.txt) handler to
 trigger the transitions in response to a gesture, as shown in the following
 example:
 
-        <Transition
-            motion:constraintSetStart="@id/start"
-            motion:constraintSetEnd="@+id/next"
-            motion:duration="1000"
-            android:id="@+id/forward">
-            <OnSwipe
-                motion:dragDirection="dragLeft"
-                motion:touchAnchorSide="left" />
-        </Transition>
+```xml
+    <Transition
+        motion:constraintSetStart="@id/start"
+        motion:constraintSetEnd="@+id/next"
+        motion:duration="1000"
+        android:id="@+id/forward">
+        <OnSwipe
+            motion:dragDirection="dragLeft"
+            motion:touchAnchorSide="left" />
+    </Transition>
 
-        <Transition
-            motion:constraintSetStart="@+id/start"
-            motion:constraintSetEnd="@+id/previous"
-            android:id="@+id/backward">
-            <OnSwipe
-                motion:dragDirection="dragRight"
-                motion:touchAnchorSide="right" />
-        </Transition>
+    <Transition
+        motion:constraintSetStart="@+id/start"
+        motion:constraintSetEnd="@+id/previous"
+        android:id="@+id/backward">
+        <OnSwipe
+            motion:dragDirection="dragRight"
+            motion:touchAnchorSide="right" />
+    </Transition>
+```
 
 ### Add the Carousel
 
@@ -96,32 +98,34 @@ Set the following attributes for the `Carousel` helper:
 - `app:carousel_firstView`: the view that represents the first element of the `Carousel`---in this example, C.
 - `app:carousel_previousState`: the `ConstraintSet` ID of the **previous** state.
 - `app:carousel_nextState`: the `ConstraintSet` ID of the **next** state.
-- `app:carousel_backwardTransition`: the [`Transition`](https://developer.android.com/reference/androidx/constraintlayout/motion/widget/MotionLayout#transition) ID applied between the **start** and **previous** states.
+- `app:carousel_backwardTransition`: the [`Transition`](https://developer.android.com/reference/androidx/constraintlayout/motion/widget/MotionLayout.md.txt#transition) ID applied between the **start** and **previous** states.
 - `app:carousel_forwardTransition`: the `Transition` ID applied between the **start** and **next** states.
 
 For example, you have something like this in your layout XML file:
 
-        <androidx.constraintlayout.motion.widget.MotionLayout ... >
+```xml
+    <androidx.constraintlayout.motion.widget.MotionLayout ... >
 
-            <ImageView  android:id="@+id/imageView0" .. />
-            <ImageView  android:id="@+id/imageView1" .. />
-            <ImageView  android:id="@+id/imageView2" .. />
-            <ImageView  android:id="@+id/imageView3" .. />
-            <ImageView  android:id="@+id/imageView4" .. />
+        <ImageView  android:id="@+id/imageView0" .. />
+        <ImageView  android:id="@+id/imageView1" .. />
+        <ImageView  android:id="@+id/imageView2" .. />
+        <ImageView  android:id="@+id/imageView3" .. />
+        <ImageView  android:id="@+id/imageView4" .. />
 
-            <androidx.constraintlayout.helper.widget.Carousel
-                android:id="@+id/carousel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:carousel_forwardTransition="@+id/forward"
-                app:carousel_backwardTransition="@+id/backward"
-                app:carousel_previousState="@+id/previous"
-                app:carousel_nextState="@+id/next"
-                app:carousel_infinite="true"
-                app:carousel_firstView="@+id/imageView2"
-                app:constraint_referenced_ids="imageView0,imageView1,imageView2,imageView3,imageView4" />
+        <androidx.constraintlayout.helper.widget.Carousel
+            android:id="@+id/carousel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:carousel_forwardTransition="@+id/forward"
+            app:carousel_backwardTransition="@+id/backward"
+            app:carousel_previousState="@+id/previous"
+            app:carousel_nextState="@+id/next"
+            app:carousel_infinite="true"
+            app:carousel_firstView="@+id/imageView2"
+            app:constraint_referenced_ids="imageView0,imageView1,imageView2,imageView3,imageView4" />
 
-        </androidx.constraintlayout.motion.widget.MotionLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+```
 
 Set up a `Carousel` adapter in code:
 

@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/views/search
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Search bar →](https://developer.android.com/develop/ui/compose/components/search-bar) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Search bar →](https://developer.android.com/develop/ui/compose/components/search-bar.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 Search is a core user feature on Android. Users must be able
 to search any data that is available to them, whether the content is located on the device or
@@ -16,7 +16,7 @@ search framework that helps you implement search for your application.
 search suggestions.
 
 The search framework offers two modes of search input: a search dialog at the top of the
-screen or a search widget (`https://developer.android.com/reference/android/widget/SearchView`) that you can embed in your activity
+screen or a search widget (`SearchView`) that you can embed in your activity
 layout. In either case, the Android system assists your search implementation by
 delivering search queries to a specific activity that performs searches. You can also enable
 the search dialog or widget to provide search suggestions as the user types. Figure 1 shows an
@@ -31,7 +31,7 @@ Once you set up either the search dialog or the search widget, you can do the fo
 
 **Note** : The search framework does *not* provide APIs to
 search your data. To perform a search, you need to use APIs appropriate for your data. For example,
-if your data is stored in an SQLite database, use the `https://developer.android.com/reference/android/database/sqlite/package-summary`
+if your data is stored in an SQLite database, use the `android.database.sqlite`
 APIs to perform searches.
 
 <br />
@@ -45,18 +45,18 @@ dialog](https://developer.android.com/develop/ui/views/search/search-dialog#Invo
 
 The following pages show you how to use Android's framework to implement search:
 
-**[Create a search interface](https://developer.android.com/develop/ui/views/search/search-dialog)**
+**[Create a search interface](https://developer.android.com/develop/ui/views/search/search-dialog.md.txt)**
 :   How to set up your application to use the search dialog or search widget.
 
 **[Add recent query
 suggestions](https://developer.android.com/develop/ui/views/search/adding-recent-query-suggestions)**
 :   How to provide suggestions based on queries previously used.
 
-**[Add custom suggestions](https://developer.android.com/develop/ui/views/search/adding-custom-suggestions)**
+**[Add custom suggestions](https://developer.android.com/develop/ui/views/search/adding-custom-suggestions.md.txt)**
 :   How to provide suggestions based on custom data from your application and offer them
     in the system-wide Quick Search Box.
 
-**[Searchable configuration](https://developer.android.com/develop/ui/views/search/searchable-config)**
+**[Searchable configuration](https://developer.android.com/develop/ui/views/search/searchable-config.md.txt)**
 :   A reference document for the searchable configuration file. The other
     documents also discuss the configuration file in terms of specific behaviors.
 
@@ -85,8 +85,8 @@ principles:
   session. A user might not want previous searches to be revealed to other device users. If your
   application provides suggestions that
   can reveal previous search activities, implement a way for the user to clear their
-  search history. If you are using `https://developer.android.com/reference/android/provider/SearchRecentSuggestions`,
+  search history. If you are using `SearchRecentSuggestions`,
   you can call the
-  `https://developer.android.com/reference/android/provider/SearchRecentSuggestions#clearHistory()`
+  `clearHistory()`
   method. If you are implementing custom suggestions, you need to provide a similar "clear history"
   method in your content provider that the user can execute.

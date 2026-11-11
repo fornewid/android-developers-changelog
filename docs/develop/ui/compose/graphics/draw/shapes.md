@@ -9,10 +9,12 @@ you can make the following kinds of shapes:
 ![Blue hexagon in the center of the drawing area](https://developer.android.com/static/develop/ui/compose/images/graphics/shapes/shape_examples_compose.png) **Figure 1**. Examples of different shapes you can make with graphics-shapes library
 
 To create a custom rounded polygon in Compose, add the
-[`graphics-shapes`](https://developer.android.com/jetpack/androidx/releases/graphics) dependency to your
+[`graphics-shapes`](https://developer.android.com/jetpack/androidx/releases/graphics.md.txt) dependency to your
 `app/build.gradle`:
 
-    implementation "androidx.graphics:graphics-shapes:1.0.1"
+```groovy
+implementation "androidx.graphics:graphics-shapes:1.0.1"
+```
 
 This library lets you create shapes that are made from polygons. While polygonal
 shapes have only straight edges and sharp corners, these shapes allow for
@@ -22,10 +24,10 @@ design-time problem. But this library makes it simple by morphing between these
 shapes with similar polygonal structures.
 
 > [!NOTE]
-> **Note:** The [`graphics-shapes`](https://developer.android.com/jetpack/androidx/releases/graphics) library is a separate set of [Shapes](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shape) from the built-in Compose shapes (like [`RoundedCornerShape`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/shape/RoundedCornerShape)). `graphics-shapes` are designed for use with the Compose or View system. Shapes from `graphics-shapes` can be converted into Compose shapes by converting resulting shapes to `Path` objects, as shown in some of the code examples below.
+> **Note:** The [`graphics-shapes`](https://developer.android.com/jetpack/androidx/releases/graphics.md.txt) library is a separate set of [Shapes](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shape.md.txt) from the built-in Compose shapes (like [`RoundedCornerShape`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/shape/RoundedCornerShape.md.txt)). `graphics-shapes` are designed for use with the Compose or View system. Shapes from `graphics-shapes` can be converted into Compose shapes by converting resulting shapes to `Path` objects, as shown in some of the code examples below.
 
 > [!CAUTION]
-> **Caution:** This library is not for morphing between arbitrary paths (for example, a play icon to a pause icon), but rather only between these polygon shapes. When you have an arbitrary path that needs to morph between them, use [`AnimatedVectorDrawables`](https://developer.android.com/develop/ui/compose/animation/vectors) instead, and a third-party tool like [shapeshifter.design](https://shapeshifter.design/) to align the path points correctly.
+> **Caution:** This library is not for morphing between arbitrary paths (for example, a play icon to a pause icon), but rather only between these polygon shapes. When you have an arbitrary path that needs to morph between them, use [`AnimatedVectorDrawables`](https://developer.android.com/develop/ui/compose/animation/vectors.md.txt) instead, and a third-party tool like [shapeshifter.design](https://shapeshifter.design/) to align the path points correctly.
 
 ## Create polygons
 
@@ -131,7 +133,7 @@ center than the vertices being rounded. To size a polygon, adjust the `radius`
 value. To adjust the position, change the `centerX` or `centerY` of the polygon.
 Alternatively, transform the object to change its size, position, and rotation
 using standard `DrawScope` transformation functions such as
-[`DrawScope#translate()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope#(androidx.compose.ui.graphics.drawscope.DrawScope).translate(kotlin.Float,kotlin.Float,kotlin.Function1)).
+[`DrawScope#translate()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope.md.txt#(androidx.compose.ui.graphics.drawscope.DrawScope).translate(kotlin.Float,kotlin.Float,kotlin.Function1)).
 
 ## Morph shapes
 
@@ -239,7 +241,7 @@ Box(
 ## Use polygon as clip
 
 It's common to use the
-[`clip`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).clip(androidx.compose.ui.graphics.Shape))
+[`clip`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).clip(androidx.compose.ui.graphics.Shape))
 modifier in Compose to change how a composable is rendered, and to take
 advantage of shadows that draw around the clipping area:
 
@@ -432,7 +434,7 @@ This results in the following animation when the box is tapped:
 ## Animate shape morphing infinitely
 
 To endlessly animate a morph shape, use
-[`rememberInfiniteTransition`](https://developer.android.com/develop/ui/compose/animation/value-based#rememberinfinitetransition).
+[`rememberInfiniteTransition`](https://developer.android.com/develop/ui/compose/animation/value-based.md.txt#rememberinfinitetransition).
 Below is an example of a profile picture that changes shape (and rotates)
 infinitely over time. This approach uses a small adjustment to the
 `MorphPolygonShape` shown above:
@@ -645,7 +647,7 @@ This results in the pink heart:
 If the preceding shapes don't cover your use case, consider using the `Path`
 class to [draw a custom
 shape](https://developer.android.com/develop/ui/compose/graphics/draw/overview#draw-path), or loading up an
-[`ImageVector`](https://developer.android.com/develop/ui/compose/graphics/images/compare#image-vector) file from
+[`ImageVector`](https://developer.android.com/develop/ui/compose/graphics/images/compare.md.txt#image-vector) file from
 disk. The `graphics-shapes` library is not intended for use for arbitrary
 shapes, but is specifically meant to simplify creation of rounded polygons and
 morph animations between them.

@@ -13,7 +13,7 @@ coherent look and feel.
 
 ## Example
 
-The [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Scaffold.composable#Scaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.material3.FabPosition,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable provides a straightforward API you can use to
+The [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Scaffold.composable.md.txt#Scaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.material3.FabPosition,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable provides a straightforward API you can use to
 quickly assemble your app's structure according to Material Design guidelines.
 `Scaffold` accepts several composables as parameters. Among these are the
 following:
@@ -93,8 +93,8 @@ fun ScaffoldExample() {
 <br />
 
 This implementation appears as follows:
-![An implementation of scaffold that contains simple top and bottom app bars, as well as a floating action button that iterates a counter. The inner content of the scaffold is simple text that explains the component.](https://developer.android.com/static/develop/ui/compose/images/components/scaffold.png) **Figure 1.** An implementation of scaffold.
+![A scaffold with a top app bar that reads 'Top app bar', three paragraphs of body text ending with 'You have pressed the floating action button 0 times.', a floating action button with an 'add' icon, and a bottom app bar that reads 'Bottom app bar'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_scaffold.png) **Figure 1.** An implementation of scaffold.
 
 ## Additional resources
 
-- [App bars](https://developer.android.com/develop/ui/compose/components/app-bars)
+- [App bars](https://developer.android.com/develop/ui/compose/components/app-bars.md.txt)

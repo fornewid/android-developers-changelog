@@ -8,20 +8,23 @@ This page describes how to implement basic `FlexBox` layouts.
 
 ## Set up project
 
-1. Add the [`androidx.compose.foundation.layout`](https://developer.android.com/jetpack/androidx/versions) library to your project's
+1. Add the [`androidx.compose.foundation.layout`](https://developer.android.com/jetpack/androidx/versions.md.txt) library to your project's
    `lib.versions.toml`.
 
-       [versions]
-       compose = "1.13.0-rc01"
+   ```kotlin
+   [versions]
+   compose = "1.13.0-rc01"
 
-       [libraries]
-       androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "compose" }
-
+   [libraries]
+   androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "compose" }
+   ```
 2. Add the library dependency to your app's `build.gradle.kts`.
 
-       dependencies {
-           implementation(libs.androidx.compose.foundation.layout)
-       }
+   ```kotlin
+   dependencies {
+       implementation(libs.androidx.compose.foundation.layout)
+   }
+   ```
 
 ## Create basic FlexBox layouts
 
@@ -71,5 +74,5 @@ FlexBox(
 
 ![Two rows of colored items, with three unequally sized items distributed across the top row and two unequally sized items across the bottom row.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/basic-flexbox-2.png)
 
-To learn more about `FlexBox` behavior, see [Set container behavior](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/container-behavior) and [Set
+To learn more about `FlexBox` behavior, see [Set container behavior](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/container-behavior.md.txt) and [Set
 item behavior](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/item-behavior).

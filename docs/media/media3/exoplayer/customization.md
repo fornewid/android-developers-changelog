@@ -38,7 +38,7 @@ We have a page about [customizing the network stack used by ExoPlayer](https://d
 
 ### Caching data loaded from the network
 
-See the guides for [temporary on-the-fly caching](https://developer.android.com/media/media3/exoplayer/network-stacks#caching) and [downloading media](https://developer.android.com/media/media3/exoplayer/downloading-media).
+See the guides for [temporary on-the-fly caching](https://developer.android.com/media/media3/exoplayer/network-stacks.md.txt#caching) and [downloading media](https://developer.android.com/media/media3/exoplayer/downloading-media.md.txt).
 
 ### Customizing server interactions
 
@@ -147,7 +147,7 @@ DataSource.Factory dataSourceFactory =
 
 ### Customizing error handling
 
-Implementing a custom [`LoadErrorHandlingPolicy`](https://developer.android.com/reference/androidx/media3/exoplayer/upstream/LoadErrorHandlingPolicy) allows apps to customize the
+Implementing a custom [`LoadErrorHandlingPolicy`](https://developer.android.com/reference/androidx/media3/exoplayer/upstream/LoadErrorHandlingPolicy.md.txt) allows apps to customize the
 way ExoPlayer reacts to load errors. For example, an app may want to fail fast
 instead of retrying many times, or may want to customize the back-off logic that
 controls how long the player waits between each retry. The following snippet
@@ -263,7 +263,7 @@ as described for customizing extractor flags earlier.
 ### Enabling asynchronous buffer queueing
 
 Asynchronous buffer queueing is an enhancement in ExoPlayer's rendering
-pipeline, which operates `MediaCodec` instances in [asynchronous mode](https://developer.android.com/reference/android/media/MediaCodec#asynchronous-processing-using-buffers) and
+pipeline, which operates `MediaCodec` instances in [asynchronous mode](https://developer.android.com/reference/android/media/MediaCodec.md.txt#asynchronous-processing-using-buffers) and
 uses additional threads to schedule decoding and rendering of data. Enabling it
 can reduce dropped frames and audio underruns.
 

@@ -37,7 +37,7 @@ Among the key parameters you should keep in mind are the following:
 ## Floating action button
 
 To create a general floating action button, use the basic
-[`FloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FloatingActionButton.composable#FloatingActionButton(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.material3.FloatingActionButtonElevation,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) composable. The following example demonstrates a
+[`FloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FloatingActionButton.composable.md.txt#FloatingActionButton(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.material3.FloatingActionButtonElevation,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) composable. The following example demonstrates a
 basic implementation of a FAB:
 
 
@@ -55,12 +55,12 @@ fun Example(onClick: () -> Unit) {
 <br />
 
 This implementation appears as follows:
-![A standard floating action button with rounded corners, a shadow, and an 'add' icon.](https://developer.android.com/static/develop/ui/compose/images/components/fab.png) **Figure 2.** A floating action button.
+![A floating action button with an 'add' icon.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_fab.png) **Figure 2.** A floating action button.
 
 ## Small button
 
 To create a small floating action button, use the
-[`SmallFloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SmallFloatingActionButton.composable#SmallFloatingActionButton(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.material3.FloatingActionButtonElevation,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) composable. The following example demonstrates
+[`SmallFloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SmallFloatingActionButton.composable.md.txt#SmallFloatingActionButton(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.material3.FloatingActionButtonElevation,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) composable. The following example demonstrates
 how to do so, with the addition of custom colors.
 
 
@@ -83,12 +83,12 @@ fun SmallExample(onClick: () -> Unit) {
 > **Note:** Because the various FAB composables share many parameters, you can use the approach in this example to customize colors with other composables.
 
 This implementation appears as follows:
-![An implementation of SmallFloatingActionButton that contains an 'add' icon.](https://developer.android.com/static/develop/ui/compose/images/components/fab-small.png) **Figure 3.** A small floating action button.
+![A small floating action button with an 'add' icon.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_smallfab.png) **Figure 3.** A small floating action button.
 
 ## Large button
 
 To create a large floating action button, use the
-[`LargeFloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LargeFloatingActionButton.composable#LargeFloatingActionButton(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.material3.FloatingActionButtonElevation,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) composable. This composable is not
+[`LargeFloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LargeFloatingActionButton.composable.md.txt#LargeFloatingActionButton(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.material3.FloatingActionButtonElevation,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) composable. This composable is not
 significantly different from the other examples aside from the fact that it
 results in a bigger button.
 
@@ -113,13 +113,13 @@ fun LargeExample(onClick: () -> Unit) {
 <br />
 
 This implementation appears as follows:
-![An implementation of LargeFloatingActionButton that contains an 'add' icon.](https://developer.android.com/static/develop/ui/compose/images/components/fab-large.png) **Figure 4.** A large floating action button.
+![A large floating action button with an 'add' icon.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_largefab.png) **Figure 4.** A large floating action button.
 
 ## Extended button
 
 You can create more complex floating action buttons with the
-[`ExtendedFloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ExtendedFloatingActionButton.composable#ExtendedFloatingActionButton(kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.material3.FloatingActionButtonElevation,androidx.compose.foundation.interaction.MutableInteractionSource)) composable. The key difference between it
-and [`FloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FloatingActionButton.composable#FloatingActionButton(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.material3.FloatingActionButtonElevation,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) is that it has dedicated `icon` and `text`
+[`ExtendedFloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ExtendedFloatingActionButton.composable.md.txt#ExtendedFloatingActionButton(kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.material3.FloatingActionButtonElevation,androidx.compose.foundation.interaction.MutableInteractionSource)) composable. The key difference between it
+and [`FloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FloatingActionButton.composable.md.txt#FloatingActionButton(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.material3.FloatingActionButtonElevation,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) is that it has dedicated `icon` and `text`
 parameters. They let you create a button with more complex content that scales
 to fit its content appropriately.
 
@@ -142,9 +142,9 @@ fun ExtendedExample(onClick: () -> Unit) {
 <br />
 
 This implementation appears as follows:
-![An implementation of ExtendedFloatingActionButton that displays text that says 'extended button' and an edit icon.](https://developer.android.com/static/develop/ui/compose/images/components/fab-extended.png) **Figure 5.** A floating action button with both text and an icon.
+![An extended floating action button with an edit icon and the text 'Extended FAB'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_extendedfab.png) **Figure 5.** A floating action button with both text and an icon.
 
 ## Additional resources
 
-- [Common buttons](https://developer.android.com/develop/ui/compose/components/button)
+- [Common buttons](https://developer.android.com/develop/ui/compose/components/button.md.txt)
 - [Material UI docs](https://m3.material.io/components/floating-action-button/overview)

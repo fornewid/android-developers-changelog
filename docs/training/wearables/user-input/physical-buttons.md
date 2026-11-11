@@ -7,7 +7,7 @@ source: md.txt
 A wearable device typically contains multiple physical buttons, also known as
 *stems* . Wear OS devices always have, at minimum, one button: the power button.
 Beyond that, zero or more multifunction buttons might be present.
-Some devices also provide a [physical rotating side button](https://developer.android.com/training/wearables/compose/rotary-input).
+Some devices also provide a [physical rotating side button](https://developer.android.com/training/wearables/compose/rotary-input.md.txt).
 
 In your app, you can assign multifunction buttons to actions for when your app
 is in foreground. For example, a fitness app might start or pause a workout
@@ -24,17 +24,19 @@ buttons on a device and how to process button presses.
 ## Button metadata
 
 To get extra information about the buttons on a device, use the API defined in
-the [Wear Input](https://developer.android.com/reference/androidx/wear/input/package-summary) AndroidX
+the [Wear Input](https://developer.android.com/reference/androidx/wear/input/package-summary.md.txt) AndroidX
 library. Add the following dependency in your app module's `build.gradle` file:
 
-    dependencies {
-    implementation "androidx.wear:wear-input:1.2.0"
-    }
+```groovy
+dependencies {
+implementation "androidx.wear:wear-input:1.2.0"
+}
+```
 
 ### Number of buttons
 
 Determine how many buttons are available on the device, use the
-[`WearableButtons.getButtonCount()`](https://developer.android.com/reference/androidx/wear/input/WearableButtons#getButtonCount(android.content.Context))
+[`WearableButtons.getButtonCount()`](https://developer.android.com/reference/androidx/wear/input/WearableButtons.md.txt#getButtonCount(android.content.Context))
 method. This method includes the power button, so if the method returns a value
 greater than one, then there are multifunction buttons available for use. To get
 an accurate count of assignable multifunction buttons, subtract one from the
@@ -43,7 +45,7 @@ count, since the first button is always the power button.
 ### Keycodes for button presses
 
 Each button is mapped to an `int` constant from the
-[`KeyEvent`](https://developer.android.com/reference/android/view/KeyEvent)
+[`KeyEvent`](https://developer.android.com/reference/android/view/KeyEvent.md.txt)
 class, as shown in the following table:
 
 | Button | KeyEvent |
@@ -86,7 +88,7 @@ Your app can receive these key codes and convert them to specific in-app
 actions.
 
 To handle a button press, implement the
-[`onKeyDown()`](https://developer.android.com/reference/android/app/Activity#onKeyDown(int,%20android.view.KeyEvent))
+[`onKeyDown()`](https://developer.android.com/reference/android/app/Activity.md.txt#onKeyDown(int,%20android.view.KeyEvent))
 method.
 
 For example, this implementation responds to button presses to control actions
@@ -119,10 +121,10 @@ override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
 The AndroidX Library provides two methods that describe the location of a
 button:
 
-- [`WearableButtons.getButtonLabel()`](https://developer.android.com/reference/androidx/wear/input/WearableButtons#getButtonLabel(android.content.Context,int)) returns a localized string describing the general placement of the button on the device.
-- [`WearableButtons.getButtonIcon()`](https://developer.android.com/reference/androidx/wear/input/WearableButtons#getButtonIcon(android.content.Context,int)) returns an icon representing the general placement of the button on the device.
+- [`WearableButtons.getButtonLabel()`](https://developer.android.com/reference/androidx/wear/input/WearableButtons.md.txt#getButtonLabel(android.content.Context,int)) returns a localized string describing the general placement of the button on the device.
+- [`WearableButtons.getButtonIcon()`](https://developer.android.com/reference/androidx/wear/input/WearableButtons.md.txt#getButtonIcon(android.content.Context,int)) returns an icon representing the general placement of the button on the device.
 
 If these APIs don't suit your app's needs, you can also use the
 `WearableButtons.getButtonInfo()` API to get the location of the button on the
 screen and handle it in a more customized way. For more information on the APIs,
-see the [Wear API reference](https://developer.android.com/reference/kotlin/androidx/wear/input/package-summary).
+see the [Wear API reference](https://developer.android.com/reference/kotlin/androidx/wear/input/package-summary.md.txt).

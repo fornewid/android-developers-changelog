@@ -99,7 +99,7 @@ fun SmallTopAppBarExample() {
 <br />
 
 This implementation appears as follows:
-![An example of a small top app bar.](https://developer.android.com/static/develop/ui/compose/images/components/appbar-small.png) **Figure 2.** A small top app bar.
+![A small top app bar with the title 'Small Top App Bar' above a list of items.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_smalltopappbar.png) **Figure 2.** A small top app bar.
 
 #### Center aligned
 
@@ -161,7 +161,7 @@ fun CenterAlignedTopAppBarExample() {
 <br />
 
 This implementation appears as follows:
-![An example of a center-aligned top app bar.](https://developer.android.com/static/develop/ui/compose/images/components/appbar-centered.png) **Figure 3.** A center-aligned top app bar.
+![A top app bar with a back arrow, the centered title 'Centered Top App Bar' and a menu icon, above a list of items.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_centeralignedtopappbar.png) **Figure 3.** A center-aligned top app bar.
 
 #### Medium
 
@@ -216,6 +216,7 @@ fun MediumTopAppBarExample() {
     }
 }
 ```
+![A medium top app bar with a back arrow and a menu icon, and the title 'Medium Top App Bar' below them, above a list of items.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_mediumtopappbar.png)
 
 <br />
 
@@ -284,7 +285,7 @@ fun LargeTopAppBarExample() {
 <br />
 
 This implementation appears as follows:
-![A screen in an app with a bottom app bar that holds four action icons on the left side, and a floating action button on the right.](https://developer.android.com/static/develop/ui/compose/images/components/appbar-large.png) **Figure 5.** An example implementation of a large top app bar.
+![A large top app bar with a back arrow and a menu icon, and the title 'Large Top App Bar' below them, above a list of items.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_largetopappbar.png) **Figure 5.** An example implementation of a large top app bar.
 
 ## Bottom app bar
 
@@ -349,7 +350,7 @@ fun BottomAppBarExample() {
 <br />
 
 This implementation appears as follows:
-![A screen in an app with a bottom app bar that holds four action icons on the left side, and a floating action button on the right.](https://developer.android.com/static/develop/ui/compose/images/components/appbar-bottom.png) **Figure 6.** An example implementation of a bottom app bar.
+![A scaffold with the text 'Example of a scaffold with a bottom app bar.' and a bottom app bar with check, edit, microphone and image icon buttons and a floating action button with an 'add' icon.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_bottomappbar.png) **Figure 6.** An example implementation of a bottom app bar.
 
 > [!NOTE]
 > **Note:** You can also use `BottomAppBar` without passing a value for `actions` and `floatingActionButton`. In that case, you can create a custom bottom app bar by filling `BottomAppBar` with content as you would other containers.

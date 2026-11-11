@@ -4,12 +4,12 @@ url: https://developer.android.com/develop/ui/compose/migrate/migration-scenario
 source: md.txt
 ---
 
-[`RecyclerView`](https://developer.android.com/develop/ui/views/layout/recyclerview) is a View component that makes it easy to efficiently display
+[`RecyclerView`](https://developer.android.com/develop/ui/views/layout/recyclerview.md.txt) is a View component that makes it easy to efficiently display
 large sets of data. Instead of creating views for each item in the data set,
 `RecyclerView` improves the performance of your app by keeping a small pool of
 views and recycling through them as you scroll through those items.
 
-In Compose, you can use [Lazy lists](https://developer.android.com/develop/ui/compose/lists#lazy) to accomplish the same thing. This page
+In Compose, you can use [Lazy lists](https://developer.android.com/develop/ui/compose/lists.md.txt#lazy) to accomplish the same thing. This page
 describes how you can migrate your `RecyclerView` implementation to use Lazy lists
 in Compose.
 
@@ -21,22 +21,23 @@ To migrate your `RecyclerView` implementation to Compose, follow these steps:
    `ComposeView` to replace it if none is present in the hierarchy yet. This
    is the container for the Lazy list that you'll add:
 
-             <FrameLayout
+   ```xml
+         <FrameLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+     <!--    <androidx.recyclerview.widget.RecyclerView-->
+     <!--            android:id="@+id/recycler_view"-->
+     <!--            android:layout_width="match_parent"-->
+     <!--            android:layout_height="match_parent />"-->
+
+             <androidx.compose.ui.platform.ComposeView
+                 android:id="@+id/compose_view"
                  android:layout_width="match_parent"
-                 android:layout_height="match_parent">
+                 android:layout_height="match_parent" />
 
-         <!--    <androidx.recyclerview.widget.RecyclerView-->
-         <!--            android:id="@+id/recycler_view"-->
-         <!--            android:layout_width="match_parent"-->
-         <!--            android:layout_height="match_parent />"-->
-
-                 <androidx.compose.ui.platform.ComposeView
-                     android:id="@+id/compose_view"
-                     android:layout_width="match_parent"
-                     android:layout_height="match_parent" />
-
-             </FrameLayout>
-
+         </FrameLayout>
+   ```
 2. Determine what type of Lazy list composable you need based on your
    `RecyclerView`'s layout manager (see table below). The composable you select
    will be the top-level composable of the `ComposeView` you added in the
@@ -145,23 +146,23 @@ LazyColumn(Modifier.fillMaxSize()) {
 
 An `ItemAnimator` can be set on a `RecyclerView` to animate the appearance of
 items as changes are made to the adapter. By default, `RecyclerView` uses
-[`DefaultItemAnimator`](https://developer.android.com/reference/androidx/recyclerview/widget/DefaultItemAnimator) which provides basic animations on remove, add, and
+[`DefaultItemAnimator`](https://developer.android.com/reference/androidx/recyclerview/widget/DefaultItemAnimator.md.txt) which provides basic animations on remove, add, and
 move events.
 
 Lazy lists have a similar concept through the `animateItemPlacement` modifier.
-See [Item animations](https://developer.android.com/develop/ui/compose/lists#item-animations) to learn more.
+See [Item animations](https://developer.android.com/develop/ui/compose/lists.md.txt#item-animations) to learn more.
 
 ## Additional resources
 
 For more information about migrating a `RecyclerView` to Compose, see the
 following resources:
 
-- [Lists and Grids](https://developer.android.com/develop/ui/compose/lists#item-animations): Documentation for how to implement lists and grids in Compose.
+- [Lists and Grids](https://developer.android.com/develop/ui/compose/lists.md.txt#item-animations): Documentation for how to implement lists and grids in Compose.
 - [Jetpack Compose Interop: Using Compose in a RecyclerView](https://medium.com/androiddevelopers/jetpack-compose-interop-using-compose-in-a-recyclerview-569c7ec7a583): Blog post for efficiently using Compose within a `RecyclerView`.
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Lists and grids](https://developer.android.com/develop/ui/compose/lists)
-- [Migrate `CoordinatorLayout` to Compose](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/coordinator-layout)
-- [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations)
+- [Lists and grids](https://developer.android.com/develop/ui/compose/lists.md.txt)
+- [Migrate `CoordinatorLayout` to Compose](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/coordinator-layout.md.txt)
+- [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations.md.txt)

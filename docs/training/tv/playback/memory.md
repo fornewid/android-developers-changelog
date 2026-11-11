@@ -15,9 +15,9 @@ including:
 
 - **The app itself** can become slow or laggy, or in the worst case, get killed.
 - **User-visible system services** (Volume Control, Picture Settings dashboard, Voice Assistant, etc.) become very laggy or may not work at all.
-- **The [low memory killer (LMK) daemon process](https://developer.android.com/topic/performance/memory-management#low-memory_killer)** may react to high memory pressure by killing the least essential processes; then these components may restart shortly after, triggering spikes of further resource contention which can directly impact the foreground app.
+- **The [low memory killer (LMK) daemon process](https://developer.android.com/topic/performance/memory-management.md.txt#low-memory_killer)** may react to high memory pressure by killing the least essential processes; then these components may restart shortly after, triggering spikes of further resource contention which can directly impact the foreground app.
 - **Transition to the Launcher** can be significantly delayed, and leave the foreground app appearing unresponsive until the transition finishes.
-- **The system may begin using [direct reclaim](https://developer.android.com/training/tv/playback/memory#direct-reclaim)**, temporarily pausing a thread's execution while waiting for memory allocation. This can happen to any thread, such as the main thread or codec-related threads, potentially causing audio and video frame drops and UI glitches.
+- **The system may begin using [direct reclaim](https://developer.android.com/training/tv/playback/memory.md.txt#direct-reclaim)**, temporarily pausing a thread's execution while waiting for memory allocation. This can happen to any thread, such as the main thread or codec-related threads, potentially causing audio and video frame drops and UI glitches.
 
 ## Memory considerations on TV Devices
 
@@ -55,12 +55,12 @@ by them.
 | ≥2 GB | 2160p | 1080p | No\* |
 
 > [!NOTE]
-> **Note:** Additional situations may let OEMs define [`ActivityManager.isLowRamDevice()`](https://developer.android.com/reference/android/app/ActivityManager#isLowRamDevice()) if the device is memory-constrained. Always use the `isLowRamDevice` method to check this situation, rather than manually checking memory or device resolution.
+> **Note:** Additional situations may let OEMs define [`ActivityManager.isLowRamDevice()`](https://developer.android.com/reference/android/app/ActivityManager.md.txt#isLowRamDevice()) if the device is memory-constrained. Always use the `isLowRamDevice` method to check this situation, rather than manually checking memory or device resolution.
 
 ### Low-RAM TV devices
 
 These devices are in a **memory constrained situation** and will report
-[`ActivityManager.isLowRamDevice()`](https://developer.android.com/reference/android/app/ActivityManager#isLowRamDevice())
+[`ActivityManager.isLowRamDevice()`](https://developer.android.com/reference/android/app/ActivityManager.md.txt#isLowRamDevice())
 to true. Applications which are running on low-RAM TV devices need to implement
 **additional memory control measures**.
 
@@ -69,7 +69,7 @@ category:
 
 - **1 GB devices**: 1 GB of RAM, 720p/HD (1280x720) UI resolution, 1080p/FullHD (1920x1080) Video resolution
 - **1.5 GB devices**: 1.5 GB of RAM, 1080p/FullHD (1920x1080) UI resolution, 2160p/UltraHD/4K (3840x2160) Video resolution
-- Other situations in which the OEM defined the [`ActivityManager.isLowRamDevice()`](https://developer.android.com/reference/android/app/ActivityManager#isLowRamDevice()) flag due to additional memory constraints.
+- Other situations in which the OEM defined the [`ActivityManager.isLowRamDevice()`](https://developer.android.com/reference/android/app/ActivityManager.md.txt#isLowRamDevice()) flag due to additional memory constraints.
 
 > [!NOTE]
 > **Note:** We will use **720p, 1080p and 2160p** in this document to refer to resolutions of the UI and video layers.
@@ -130,7 +130,7 @@ It is **strongly recommended** not to exceed:
 - **200 MB** of memory usage on (**Anon+Swap + Graphics**).
 
 > [!NOTE]
-> **Note:** These values for peak memory usage assumes the app has no active bindings (except to processes which were already present and classified as **Perceptible** , **Foreground** , **Persistent** or **System** in the [low memory killer](https://developer.android.com/topic/performance/memory-management#low-memory_killer) categorization). They also assume a single video stream. Decoding multiple streams can increase system memory usage, which will decrease the acceptable memory usage for the app.
+> **Note:** These values for peak memory usage assumes the app has no active bindings (except to processes which were already present and classified as **Perceptible** , **Foreground** , **Persistent** or **System** in the [low memory killer](https://developer.android.com/topic/performance/memory-management.md.txt#low-memory_killer) categorization). They also assume a single video stream. Decoding multiple streams can increase system memory usage, which will decrease the acceptable memory usage for the app.
 
 #### File memory
 
@@ -163,17 +163,17 @@ Use appropriate image formats and resolutions.
 - **Avoid intermediate renders** and re-renders
   - These can be identified with [Android GPU Inspector](https://developer.android.com/agi):
   - Look on the "Textures" section for images that are steps towards the final render rather than being only the elements forming them, this is commonly a so called *"intermediate render".*
-  - For Android SDK applications you can often remove these by using the layout flag [`forceHasOverlappedRendering:false`](https://developer.android.com/reference/android/view/View#attr_android:forceHasOverlappingRendering) to disable intermediate renders for this layout.
+  - For Android SDK applications you can often remove these by using the layout flag [`forceHasOverlappedRendering:false`](https://developer.android.com/reference/android/view/View.md.txt#attr_android:forceHasOverlappingRendering) to disable intermediate renders for this layout.
   - See [Avoid Overlapping Renders](https://www.youtube.com/watch?v=wIy8g8yNhNk) on overlapping renders as a great resource.
-- **Avoid loading placeholder images** when possible, use [`@android:color/`](https://developer.android.com/reference/android/graphics/Color) or [`@color`](https://developer.android.com/reference/android/graphics/Color) for placeholder textures.
+- **Avoid loading placeholder images** when possible, use [`@android:color/`](https://developer.android.com/reference/android/graphics/Color.md.txt) or [`@color`](https://developer.android.com/reference/android/graphics/Color.md.txt) for placeholder textures.
 - **Avoid compositing multiple images** on the device when the composition could be performed offline. Prefer to load standalone images rather than doing image composition from downloaded images
-- Follow the [Handling bitmaps](https://developer.android.com/develop/ui/views/graphics) guide to better deal with Bitmaps.
+- Follow the [Handling bitmaps](https://developer.android.com/develop/ui/views/graphics.md.txt) guide to better deal with Bitmaps.
 
 ### Anon+Swap memory
 
 **Anon+Swap** is composed of Native + Java + Stack allocations in Android Studio
 memory profiler. Use
-[`ActivityManager.isLowMemoryDevice()`](https://developer.android.com/reference/android/app/ActivityManager#isLowRamDevice())
+[`ActivityManager.isLowMemoryDevice()`](https://developer.android.com/reference/android/app/ActivityManager.md.txt#isLowRamDevice())
 to check if the device is memory constrained, and adapt to this situation
 following these guidelines.
 
@@ -184,25 +184,25 @@ following these guidelines.
     3. **80-100 MB** for 1.5 GB / 2160p
     4. **100-120 MB** for 2 GB / 2160p
   - **Free media memory allocations when changing an episode** to prevent increases in the total amount of Anonymous memory.
-  - **Release and stop media resources immediately** when your app gets stopped: Use the activity [lifecycle callbacks](https://developer.android.com/guide/components/activities/activity-lifecycle) to handle audio and video resources. If your app isn't an audio app, **stop your playback** when [`onStop`](https://developer.android.com/guide/components/activities/activity-lifecycle#onstop) happens on your activities, save all the work you're performing, and release your resources. To schedule work you need later, see the [Jobs and Alarms](https://developer.android.com/training/tv/playback/memory#jobs-and-alarms) section.
-    - You can use [lifecycle aware components](https://developer.android.com/topic/libraries/architecture/lifecycle) like [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata) and [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner) to help you deal with Activity lifecycle calls.
-    - To make your work Lifecycle aware, you can also use [Kotlin coroutines](https://developer.android.com/topic/libraries/architecture/coroutines) and [Kotlin flows](https://developer.android.com/kotlin/flow).
+  - **Release and stop media resources immediately** when your app gets stopped: Use the activity [lifecycle callbacks](https://developer.android.com/guide/components/activities/activity-lifecycle.md.txt) to handle audio and video resources. If your app isn't an audio app, **stop your playback** when [`onStop`](https://developer.android.com/guide/components/activities/activity-lifecycle.md.txt#onstop) happens on your activities, save all the work you're performing, and release your resources. To schedule work you need later, see the [Jobs and Alarms](https://developer.android.com/training/tv/playback/memory.md.txt#jobs-and-alarms) section.
+    - You can use [lifecycle aware components](https://developer.android.com/topic/libraries/architecture/lifecycle.md.txt) like [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata.md.txt) and [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner.md.txt) to help you deal with Activity lifecycle calls.
+    - To make your work Lifecycle aware, you can also use [Kotlin coroutines](https://developer.android.com/topic/libraries/architecture/coroutines.md.txt) and [Kotlin flows](https://developer.android.com/kotlin/flow.md.txt).
   - **Pay attention to the buffer's memory when video seeking** : Developers often allocate additional 15-60s of future content when seeking to have video ready for the user, but this creates additional memory overhead. In general, don't take more than 5s of future buffer until the user has selected the new video position. If you strictly need to pre-buffer additional time while seeking, make sure to:
     - Allocate the seeking buffer ahead of time and reuse it.
     - The buffer size should be no bigger than **15-25 MB** (depending on the device memory).
 - **Allocations:**
-  - Use the [graphics memory guidance](https://developer.android.com/training/tv/playback/memory#graphics-memory) to ensure you **don't duplicate images in Anonymous memory**
+  - Use the [graphics memory guidance](https://developer.android.com/training/tv/playback/memory.md.txt#graphics-memory) to ensure you **don't duplicate images in Anonymous memory**
     - Images are often the biggest user of memory so duplication of them can put a lot of pressure on the device. This is especially true during heavy navigation of image gridviews.
   - **Release allocations by dropping their references when moving
     screens**: Ensure there are no references to bitmaps and objects left behind.
 - **Libraries:**
-  - **Profile memory allocations from libraries** when adding new ones, as they may load additional libraries as well, which may also make allocations and create [Bindings](https://developer.android.com/training/tv/playback/memory#bindings).
+  - **Profile memory allocations from libraries** when adding new ones, as they may load additional libraries as well, which may also make allocations and create [Bindings](https://developer.android.com/training/tv/playback/memory.md.txt#bindings).
 - **Networking:**
   - **Don't perform blocking network calls during app startup.** They slow down the app startup time and create additional memory overhead at launch, where memory is particularly constrained by the app load. Show a loading or splash screen first and perform network requests after the UI is in place.
 
 ### Bindings
 
-[Bindings](https://developer.android.com/develop/background-work/services/bound-services) **introduce
+[Bindings](https://developer.android.com/develop/background-work/services/bound-services.md.txt) **introduce
 additional memory overhead** as they **bring other applications into memory** or
 **increase the memory consumption of the bound app** (if it is in memory
 already) to facilitate the API call. This, as a result, **reduces the available
@@ -214,20 +214,20 @@ as it's not needed.
 
 - [Play integrity API](https://developer.android.com/google/play/integrity): Used to check for device integrity
   - Check for device integrity after the loading screen and before media playback
-  - Release references to PlayIntegrity [`StandardIntegrityManager`](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/StandardIntegrityManager) before playing content.
+  - Release references to PlayIntegrity [`StandardIntegrityManager`](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/StandardIntegrityManager.md.txt) before playing content.
 - [Play Billing Library](https://developer.android.com/distribute/play-billing): Used for managing subscriptions and purchases using Google Play
   - Initialize the library after the loading screen, and handle all the billing work before playing any media.
-  - Use [`BillingClient.endConnection()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#endConnection()) when done using the library and always before playing video or media.
-  - Use [`BillingClient.isReady()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#isReady()) and [`BillingClient.getConnectionState()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#getConnectionState()) to check if the service was disconnected in case any billing work needs to be done again, and then do [`BillingClient.endConnection()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#endConnection()) again after finishing.
-- [GMS FontsProvider](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts)
+  - Use [`BillingClient.endConnection()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#endConnection()) when done using the library and always before playing video or media.
+  - Use [`BillingClient.isReady()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#isReady()) and [`BillingClient.getConnectionState()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#getConnectionState()) to check if the service was disconnected in case any billing work needs to be done again, and then do [`BillingClient.endConnection()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#endConnection()) again after finishing.
+- [GMS FontsProvider](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts.md.txt)
   - Prefer to use standalone fonts on low-RAM devices rather than using fonts provider, as downloading the fonts is costly and FontsProvider will bind services to do it.
-- [Google Assistant](https://developer.android.com/develop/devices/assistant/overview) library: Sometimes used for search and in-app search, if possible, replace this library.
-  - **For leanback apps** : Use Gboard text to speech or [androidx.leanback](https://developer.android.com/training/tv/get-started/create#tv-libraries) library.
-    - Follow [Search guidelines](https://developer.android.com/training/tv/discovery/searchable) for implementing search.
+- [Google Assistant](https://developer.android.com/develop/devices/assistant/overview.md.txt) library: Sometimes used for search and in-app search, if possible, replace this library.
+  - **For leanback apps** : Use Gboard text to speech or [androidx.leanback](https://developer.android.com/training/tv/get-started/create.md.txt#tv-libraries) library.
+    - Follow [Search guidelines](https://developer.android.com/training/tv/discovery/searchable.md.txt) for implementing search.
     - Note: **leanback is deprecated** and apps should move to TV Compose.
   - **For Compose apps** :
     - Use Gboard text to speech to implement voice search.
-  - Implement [Watch Next](https://developer.android.com/training/tv/discovery/watch-next-add-programs) to make media content in your app discoverable.
+  - Implement [Watch Next](https://developer.android.com/training/tv/discovery/watch-next-add-programs.md.txt) to make media content in your app discoverable.
 
 ### Foreground Services
 
@@ -244,21 +244,21 @@ keep running once the user leaves the app:
 
 - **For [audio apps](https://developer.android.com/develop/background-work/services/fg-service-types#media):** Foreground Services are **only allowed** to keep running once the user leaves the app to keep playing the audio track. The service must be stopped immediately after audio playback ends.
 - **For any other app:** **[all Foreground Services must be stopped](https://developer.android.com/develop/background-work/services/foreground-services#remove-from-foreground)** . **once the user leaves your app**, as there is no notification to notify the user that the app is still running and consuming resources.
-- **For background jobs** such as updating recommendations or [Watch Next](https://developer.android.com/training/tv/discovery/watch-next-add-programs), use [`WorkManager`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started).
+- **For background jobs** such as updating recommendations or [Watch Next](https://developer.android.com/training/tv/discovery/watch-next-add-programs.md.txt), use [`WorkManager`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started.md.txt).
 
 ### Jobs and Alarms
 
-[`WorkManager`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started)
+[`WorkManager`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started.md.txt)
 is the state-of-the-art Android API for scheduling background recurring jobs.
 WorkManager will use the new
-[`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler) when available (SDK
-23+) and the old [`AlarmManager`](https://developer.android.com/reference/android/app/AlarmManager) when it's
+[`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler.md.txt) when available (SDK
+23+) and the old [`AlarmManager`](https://developer.android.com/reference/android/app/AlarmManager.md.txt) when it's
 not. For best practices performing scheduled jobs on TV follow these
 recommendations:
 
-- **Avoid** using the [`AlarmManager`](https://developer.android.com/reference/android/app/AlarmManager) APIs, on SDK 23+, especially [`AlarmManager.set()`](https://developer.android.com/reference/android/app/AlarmManager#set(int,%20long,%20android.app.PendingIntent)), [`AlarmManager.setExact()`](https://developer.android.com/reference/android/app/AlarmManager#setExact(int,%20long,%20android.app.PendingIntent)) and similar methods, as they don't allow the system to decide the proper time to run the jobs (as an example, when the device is idling).
-- On low-RAM devices, avoid running jobs unless strictly necessary. If needed, use WorkManager [`WorkRequest`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work) **only for updating recommendations after playback**, and try to do so while the app is still open.
-- Define WorkManager [`Constraints`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work#work-constraints)
+- **Avoid** using the [`AlarmManager`](https://developer.android.com/reference/android/app/AlarmManager.md.txt) APIs, on SDK 23+, especially [`AlarmManager.set()`](https://developer.android.com/reference/android/app/AlarmManager.md.txt#set(int,%20long,%20android.app.PendingIntent)), [`AlarmManager.setExact()`](https://developer.android.com/reference/android/app/AlarmManager.md.txt#setExact(int,%20long,%20android.app.PendingIntent)) and similar methods, as they don't allow the system to decide the proper time to run the jobs (as an example, when the device is idling).
+- On low-RAM devices, avoid running jobs unless strictly necessary. If needed, use WorkManager [`WorkRequest`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work.md.txt) **only for updating recommendations after playback**, and try to do so while the app is still open.
+- Define WorkManager [`Constraints`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work.md.txt#work-constraints)
   to let the system run your jobs when the time is appropriate:
 
 ### Kotlin
@@ -276,16 +276,18 @@ Constraints.Builder()
 
 ### Java
 
-    Constraints.Builder()
-        .setRequiredNetworkType(NetworkType.CONNECTED)
-        .setRequiresStorageNotLow(true)
-        .setRequiresDeviceIdle(true)
-        .build()
+```java
+Constraints.Builder()
+    .setRequiredNetworkType(NetworkType.CONNECTED)
+    .setRequiresStorageNotLow(true)
+    .setRequiresDeviceIdle(true)
+    .build()
+```
 
 > [!NOTE]
 > **Note:** It's particularly important to call `setRequiresDeviceIdle(true)` for low-RAM devices.
 
-- If you must run jobs regularly (for example, to update [Watch Next](https://developer.android.com/training/tv/discovery/watch-next-add-programs) based on a user's content watching activity in your app on another device), then keep memory use down keeping the job's memory consumption **below 30 MB**.
+- If you must run jobs regularly (for example, to update [Watch Next](https://developer.android.com/training/tv/discovery/watch-next-add-programs.md.txt) based on a user's content watching activity in your app on another device), then keep memory use down keeping the job's memory consumption **below 30 MB**.
 
 ## General memory considerations
 
@@ -293,13 +295,13 @@ Following guidelines provide general information on Android App development:
 
 - Minimize object allocations, optimize object re-use and de-allocate any unused objects promptly.
   - **Do not hold references** to objects, especially bitmaps.
-  - Avoid using [`System.gc()`](https://developer.android.com/reference/java/lang/System#gc()) and direct release memory calls as they interfere with the system's memory handling process: As an example, in devices using zRAM, a forced call to `gc()` can temporarily increase memory usage due to the compression and decompression of the memory.
-  - Use [`LazyList`](https://developer.android.com/develop/ui/compose/lists#lazy) such as demonstrated in a [catalog browser](https://developer.android.com/training/tv/playback/compose/browse) in Compose or [`RecyclerView`](https://developer.android.com/develop/ui/views/layout/recyclerview) in the now deprecated Leanback UI toolkit to reutilize views and not re-create list elements.
+  - Avoid using [`System.gc()`](https://developer.android.com/reference/java/lang/System.md.txt#gc()) and direct release memory calls as they interfere with the system's memory handling process: As an example, in devices using zRAM, a forced call to `gc()` can temporarily increase memory usage due to the compression and decompression of the memory.
+  - Use [`LazyList`](https://developer.android.com/develop/ui/compose/lists.md.txt#lazy) such as demonstrated in a [catalog browser](https://developer.android.com/training/tv/playback/compose/browse.md.txt) in Compose or [`RecyclerView`](https://developer.android.com/develop/ui/views/layout/recyclerview.md.txt) in the now deprecated Leanback UI toolkit to reutilize views and not re-create list elements.
   - Cache locally elements read from external content providers which are unlikely to change and define updating intervals that prevent allocating additional external memory.
 - Check for possible memory leaks.
   - **Watch out** for typical **memory leak** cases such as references inside anonymous threads, reallocation of video buffers which never get released, and other similar situations.
   - Use [heap dump](https://developer.android.com/studio/profile/memory-profiler#capture-heap-dump) to debug memory leaks.
-- Generate [baseline profiles](https://developer.android.com/topic/performance/baselineprofiles/overview) to minimize the amount of just-in-time compilation is needed when executing your app on a cold start.
+- Generate [baseline profiles](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt) to minimize the amount of just-in-time compilation is needed when executing your app on a cold start.
 
 ## Understanding direct memory reclaim
 

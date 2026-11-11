@@ -5,9 +5,9 @@ source: md.txt
 ---
 
 > [!WARNING]
-> **Experimental:** AppFunctions is in an experimental preview as we refine the API surface, and is subject to change. Read our [FAQs](https://developer.android.com/ai/appfunctions#faqs) for more information.
+> **Experimental:** AppFunctions is in an experimental preview as we refine the API surface, and is subject to change. Read our [FAQs](https://developer.android.com/ai/appfunctions.md.txt#faqs) for more information.
 
-AppFunctions is an [Android platform API](https://developer.android.com/reference/android/app/appfunctions/package-summary) with an accompanying [Jetpack
+AppFunctions is an [Android platform API](https://developer.android.com/reference/android/app/appfunctions/package-summary.md.txt) with an accompanying [Jetpack
 library](https://developer.android.com/jetpack/androidx/releases/appfunctions) to simplify Android MCP integration. It empowers your apps to behave
 like on device MCP servers, contributing functions that act as tools for use by
 proactive features along with agents and assistants, like Google Gemini. As of
@@ -24,7 +24,7 @@ Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro). Whi
 connect to server-side tools, AppFunctions provide the same mechanism for
 Android apps. This lets you expose your app's capabilities as orchestratable
 "tools" that authorized apps (callers) can discover and execute to fulfill user
-intents. Callers must have the [`EXECUTE_APP_FUNCTIONS`](https://developer.android.com/reference/android/Manifest.permission#EXECUTE_APP_FUNCTIONS) permission to
+intents. Callers must have the [`EXECUTE_APP_FUNCTIONS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#EXECUTE_APP_FUNCTIONS) permission to
 discover and execute AppFunctions, and can include agents, apps, and AI
 assistants like Gemini.
 
@@ -166,19 +166,19 @@ follows:
 The AppFunctions Jetpack library simplifies exposing your app's functionality.
 With the annotation processor, you annotate the functions you want to make
 available to agents. Callers can then discover and invoke these indexed
-functions using [`AppFunctionManager`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager).
+functions using [`AppFunctionManager`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager.md.txt).
 
 Before invoking a function, callers should verify that the device supports the
 AppFunctions feature by attempting to retrieve an instance of
 `AppFunctionManager`. Once supported, callers can verify whether a specific
 function is enabled within a target app using
-[`isAppFunctionEnabled(packageName,functionId)`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager#isAppFunctionEnabled(kotlin.String)). Querying the status of
+[`isAppFunctionEnabled(packageName,functionId)`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager.md.txt#isAppFunctionEnabled(kotlin.String)). Querying the status of
 functions in other packages requires the
-[`android.permission.EXECUTE_APP_FUNCTIONS`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager#isAppFunctionEnabled(kotlin.String,kotlin.String)) permission.
+[`android.permission.EXECUTE_APP_FUNCTIONS`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager.md.txt#isAppFunctionEnabled(kotlin.String,kotlin.String)) permission.
 
 Your app is not required to verify whether the AppFunction feature is supported;
 this is automatically handled within the Jetpack library. For example,
-[`AppFunctionManager`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager) can verify whether or not the feature is supported.
+[`AppFunctionManager`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager.md.txt) can verify whether or not the feature is supported.
 
 Here's an example of AppFunctions for a note-taking app with capabilities to
 create, edit, and list notes:

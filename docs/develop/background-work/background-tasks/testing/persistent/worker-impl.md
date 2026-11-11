@@ -82,7 +82,9 @@ class SleepWorker(context: Context, parameters: WorkerParameters) :
     }
 
     companion object {
-        const val SLEEP_DURATION = "SLEEP_DURATION&quokerImpl.kt
+        const val SLEEP_DURATION = "SLEEP_DURATION"
+    }
+}
 ```
 
 <br />
@@ -114,7 +116,9 @@ class SleepWorkerTest {
         ).build()
 
         val result = worker.doWork()
-        assertThat(result, `is`(Result.success()kerImpl.kt
+        assertThat(result, `is`(Result.success()))
+    }
+}
 ```
 
 <br />

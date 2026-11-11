@@ -57,8 +57,8 @@ fun MessageList(modifier: Modifier = Modifier) {
 
 ### Key points about the code
 
-- Uses the [`listState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState) object to remember the scroll state of [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable) to the selected position.
-- Launches a coroutine to call [`listState.animateScrollToItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState#animateScrollToItem(kotlin.Int,kotlin.Int)), which scrolls to the indexed item while animating the scrolling action.
+- Uses the [`listState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState.md.txt) object to remember the scroll state of [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt) to the selected position.
+- Launches a coroutine to call [`listState.animateScrollToItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState.md.txt#animateScrollToItem(kotlin.Int,kotlin.Int)), which scrolls to the indexed item while animating the scrolling action.
 
 ## Collections that contain this guide
 
@@ -80,4 +80,4 @@ This series of videos introduces various Compose APIs, quickly showing you what'
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

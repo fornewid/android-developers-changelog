@@ -77,7 +77,7 @@ If your plural strings don't include string formatting, you don't need to pass
 the third parameter to `pluralStringResource`.
 
 For more information on plurals, check out the
-[quantity string documentation](https://developer.android.com/guide/topics/resources/string-resource#Plurals).
+[quantity string documentation](https://developer.android.com/guide/topics/resources/string-resource.md.txt#Plurals).
 
 ## Dimensions
 
@@ -147,7 +147,7 @@ Icon(
 thread.
 
 > [!NOTE]
-> **Note:** Unlike [`Context.getDrawable`](https://developer.android.com/reference/android/content/Context#getDrawable(int)), `painterResource` can only load [`BitmapDrawable`](https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable) and [`VectorDrawable`](https://developer.android.com/reference/android/graphics/drawable/VectorDrawable) platform [`Drawable`](https://developer.android.com/reference/android/graphics/drawable/Drawable) types.
+> **Note:** Unlike [`Context.getDrawable`](https://developer.android.com/reference/android/content/Context.md.txt#getDrawable(int)), `painterResource` can only load [`BitmapDrawable`](https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable.md.txt) and [`VectorDrawable`](https://developer.android.com/reference/android/graphics/drawable/VectorDrawable.md.txt) platform [`Drawable`](https://developer.android.com/reference/android/graphics/drawable/Drawable.md.txt) types.
 
 ## Animated Vector Drawables
 
@@ -182,16 +182,16 @@ Icon(
 Jetpack Compose comes with the `Icons` object that is the entry point for using
 [Material Icons](https://material.io/resources/icons/?style=baseline) in
 Compose. There are five distinct icon themes:
-[Filled](https://developer.android.com/reference/kotlin/androidx/compose/material/icons/Icons.Filled),
-[Outlined](https://developer.android.com/reference/kotlin/androidx/compose/material/icons/Icons.Outlined),
-[Rounded](https://developer.android.com/reference/kotlin/androidx/compose/material/icons/Icons.Rounded),
-[TwoTone](https://developer.android.com/reference/kotlin/androidx/compose/material/icons/Icons.TwoTone), and
-[Sharp](https://developer.android.com/reference/kotlin/androidx/compose/material/icons/Icons.Sharp). Each
+[Filled](https://developer.android.com/reference/kotlin/androidx/compose/material/icons/Icons.Filled.md.txt),
+[Outlined](https://developer.android.com/reference/kotlin/androidx/compose/material/icons/Icons.Outlined.md.txt),
+[Rounded](https://developer.android.com/reference/kotlin/androidx/compose/material/icons/Icons.Rounded.md.txt),
+[TwoTone](https://developer.android.com/reference/kotlin/androidx/compose/material/icons/Icons.TwoTone.md.txt), and
+[Sharp](https://developer.android.com/reference/kotlin/androidx/compose/material/icons/Icons.Sharp.md.txt). Each
 theme contains the same icons, but with a distinct visual style. You should
 typically choose one theme and use it across your application for consistency.
 
 To draw an icon, you can use the
-[`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material/Icon.composable#Icon(androidx.compose.ui.graphics.vector.ImageVector,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color))
+[`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material/Icon.composable.md.txt#Icon(androidx.compose.ui.graphics.vector.ImageVector,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color))
 composable which applies tint and provides layout size matching the icon.
 
 
@@ -205,12 +205,14 @@ Some of the most commonly used icons are available as part of the
 `androidx.compose.material` dependency. To use any of the other Material icons,
 add the `material-icons-extended` dependency to the `build.gradle` file.
 
-    dependencies {
-      def composeBom = platform('androidx.compose:compose-bom:2026.09.00')
-      implementation composeBom
+```groovy
+dependencies {
+  def composeBom = platform('androidx.compose:compose-bom:2026.09.00')
+  implementation composeBom
 
-      implementation 'androidx.compose.material:material-icons-extended'
-    }
+  implementation 'androidx.compose.material:material-icons-extended'
+}
+```
 
 > [!NOTE]
 > **Note:** Icons maintain the same names defined by Material, but with their snake_case name converted to PascalCase. For example, add_alarm becomes `AddAlarm`. Icons that start with a number, such as 360, are prefixed with `_`, becoming `_360`.
@@ -226,12 +228,12 @@ To use fonts in Compose, download and bundle the font files directly in your
 APKs by placing them in the `res/font` folder.
 
 Load each font using the
-[`Font`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/Font) API and create a
-[`FontFamily`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontFamily) with
+[`Font`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/Font.md.txt) API and create a
+[`FontFamily`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontFamily.md.txt) with
 them that you can use in
-[`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle) instances to
+[`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.md.txt) instances to
 create your own
-[`Typography`](https://developer.android.com/reference/kotlin/androidx/compose/material/Typography). The
+[`Typography`](https://developer.android.com/reference/kotlin/androidx/compose/material/Typography.md.txt). The
 following is code taken from the
 [Crane](https://github.com/android/compose-samples/tree/main/Crane)
 compose sample and its
@@ -269,7 +271,7 @@ fun CraneTheme(content: @Composable () -> Unit) {
 <br />
 
 For using downloadable fonts in Compose, see the
-[Downloadable fonts](https://developer.android.com/develop/ui/compose/text#downloadable-fonts) page.
+[Downloadable fonts](https://developer.android.com/develop/ui/compose/text.md.txt#downloadable-fonts) page.
 
 Learn more about typography in the [Theming in Compose
 documentation](https://developer.android.com/develop/ui/compose/designsystems/material3#typography)
@@ -277,6 +279,6 @@ documentation](https://developer.android.com/develop/ui/compose/designsystems/ma
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Loading images {:#loading-images}](https://developer.android.com/develop/ui/compose/graphics/images/loading)
-- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material)
-- [Custom design systems in Compose](https://developer.android.com/develop/ui/compose/designsystems/custom)
+- [Loading images {:#loading-images}](https://developer.android.com/develop/ui/compose/graphics/images/loading.md.txt)
+- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material.md.txt)
+- [Custom design systems in Compose](https://developer.android.com/develop/ui/compose/designsystems/custom.md.txt)

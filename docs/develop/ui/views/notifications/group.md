@@ -10,12 +10,12 @@ all notifications for new email messages in the same group so they collapse
 together.
 
 To support lower versions, add a summary notification that appears alone to
-summarize all the separate notifications. An [inbox-style notification](https://developer.android.com/develop/ui/compose/notifications/expanded#inbox-style) is
+summarize all the separate notifications. An [inbox-style notification](https://developer.android.com/develop/ui/compose/notifications/expanded.md.txt#inbox-style) is
 the usual way to do that.
 ![A collapsed and expanded notification group](https://developer.android.com/static/images/ui/notifications/notification-group_2x.png) **Figure 1.** A collapsed (top) and expanded (bottom) notification group.
 
 > [!NOTE]
-> **Note:** Notification groups aren't the same as [notification channel groups](https://developer.android.com/develop/ui/compose/notifications/channels#CreateChannelGroup).
+> **Note:** Notification groups aren't the same as [notification channel groups](https://developer.android.com/develop/ui/compose/notifications/channels.md.txt#CreateChannelGroup).
 
 If all of the following conditions are true for your use case, use notification
 groups:
@@ -31,17 +31,17 @@ groups:
   - There is more information in each notification for the user to see.
 
 If your notifications don't meet the preceding criteria, instead consider
-[updating an existing notification](https://developer.android.com/develop/ui/compose/notifications/create-notification#Updating) with new information or creating a
-[message-style notification](https://developer.android.com/develop/ui/compose/notifications/expanded#message-style) to show multiple updates in the same
+[updating an existing notification](https://developer.android.com/develop/ui/compose/notifications/create-notification.md.txt#Updating) with new information or creating a
+[message-style notification](https://developer.android.com/develop/ui/compose/notifications/expanded.md.txt#message-style) to show multiple updates in the same
 conversation.
 
 > [!NOTE]
-> **Note:** If your app sends four or more notifications and doesn't specify a group, the system [automatically groups](https://developer.android.com/develop/ui/views/notifications/group#automatic-grouping) them on Android 7.0 and higher.
+> **Note:** If your app sends four or more notifications and doesn't specify a group, the system [automatically groups](https://developer.android.com/develop/ui/views/notifications/group.md.txt#automatic-grouping) them on Android 7.0 and higher.
 
 ## Create a group and add a notification to it
 
 To create a notification group, define a unique identifier string for the group.
-Then, for each notification you want in the group, call [`setGroup`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setGroup(java.lang.String)),
+Then, for each notification you want in the group, call [`setGroup`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setGroup(java.lang.String)),
 passing the group name. For example:
 
 
@@ -60,13 +60,13 @@ val newMessageNotification = NotificationCompat.Builder(this@MainActivity, CHANN
 <br />
 
 By default, notifications are sorted according to when they're posted, but you
-can change the order by calling [`setSortKey`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setSortKey(java.lang.String)).
+can change the order by calling [`setSortKey`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setSortKey(java.lang.String)).
 
 If alerts for a notification's group must be handled by a different
-notification, call [`setGroupAlertBehavior`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setGroupAlertBehavior(int)). For example, if you want only
+notification, call [`setGroupAlertBehavior`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setGroupAlertBehavior(int)). For example, if you want only
 the summary of your group to make noise, all children in the group must have the
-group alert behavior [`GROUP_ALERT_SUMMARY`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#GROUP_ALERT_SUMMARY). The other options are
-[`GROUP_ALERT_ALL`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#GROUP_ALERT_ALL) and [`GROUP_ALERT_CHILDREN`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#GROUP_ALERT_CHILDREN).
+group alert behavior [`GROUP_ALERT_SUMMARY`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.md.txt#GROUP_ALERT_SUMMARY). The other options are
+[`GROUP_ALERT_ALL`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.md.txt#GROUP_ALERT_ALL) and [`GROUP_ALERT_CHILDREN`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.md.txt#GROUP_ALERT_CHILDREN).
 
 ## Set a group summary
 
@@ -96,12 +96,12 @@ provide the best experience on all devices and versions.
 To add a group summary, proceed as follows:
 
 1. Create a new notification with a description of the group---often best
-   done with the [inbox-style notification](https://developer.android.com/develop/ui/compose/notifications/expanded#inbox-style).
+   done with the [inbox-style notification](https://developer.android.com/develop/ui/compose/notifications/expanded.md.txt#inbox-style).
 
 2. Add the summary notification to the group by calling `setGroup`.
 
 3. Specify that it must be used as the group summary by calling
-   [`setGroupSummary(true)`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setGroupSummary(boolean)).
+   [`setGroupSummary(true)`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setGroupSummary(boolean)).
 
 The following code shows an example of creating a group summary:
 

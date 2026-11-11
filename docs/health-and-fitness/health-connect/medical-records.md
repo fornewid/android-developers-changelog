@@ -53,7 +53,7 @@ an improved developer experience for the following reasons:
   Availability API](https://developer.android.com/health-and-fitness/guides/health-connect/develop/feature-availability))
 
 Medical Records APIs are made available through Health Connect version
-[1.1.0-beta02](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-beta02) in Jetpack. Updating your Jetpack dependency to
+[1.1.0-beta02](https://developer.android.com/jetpack/androidx/releases/health-connect.md.txt#1.1.0-beta02) in Jetpack. Updating your Jetpack dependency to
 this version requires that apps be compiled against the [Android 16
 SDK](https://developer.android.com/about/versions/16/setup-sdk).
 

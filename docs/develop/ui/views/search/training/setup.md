@@ -4,10 +4,10 @@ url: https://developer.android.com/develop/ui/views/search/training/setup
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Filter a list →](https://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing) ![](https://developer.android.com/static/images/android-compose-ui-logo.png) [Video](https://www.youtube.com/watch?v=9OWmnYPX1uc)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Filter a list →](https://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png) [Video](https://www.youtube.com/watch?v=9OWmnYPX1uc)
 
 We recommend using the
-`https://developer.android.com/reference/android/widget/SearchView`
+`SearchView`
 widget as an item in the app bar to provide search functionality in your app. As
 with all items in the app bar, you can define the `SearchView` to
 show at all times or only when there is room. You can also define it as a
@@ -59,7 +59,7 @@ include the following code in it:
 
 To display the `SearchView` in the app bar, inflate the XML menu
 resource `res/menu/options_menu.xml` in the
-`https://developer.android.com/reference/android/app/Activity#onCreateOptionsMenu(android.view.Menu)`
+`onCreateOptionsMenu()`
 method of your activity:
 
 ### Kotlin
@@ -89,8 +89,8 @@ configuration](https://developer.android.com/guide/topics/search/searchable-conf
 defined in a `res/xml/searchable.xml` file. A search configuration
 must contain, at minimum, an `android:label` attribute that has the
 same value as the `android:label` attribute of the
-[\<application\>](https://developer.android.com/guide/topics/manifest/application-element)
-or [\<activity\>](https://developer.android.com/guide/topics/manifest/activity-element)
+[\<application\>](https://developer.android.com/guide/topics/manifest/application-element.md.txt)
+or [\<activity\>](https://developer.android.com/guide/topics/manifest/activity-element.md.txt)
 element in your Android manifest. However, we also recommend adding an
 `android:hint` attribute to give the user an idea of what to enter
 into the search box.
@@ -104,7 +104,7 @@ into the search box.
 ```
 
 In your app's manifest file, declare a
-[`<meta-data>`](https://developer.android.com/guide/topics/manifest/meta-data-element)
+[`<meta-data>`](https://developer.android.com/guide/topics/manifest/meta-data-element.md.txt)
 element that points to the `res/xml/searchable.xml` file. Declare the
 element in an `<activity>` in which you want to display the
 `SearchView`.
@@ -127,7 +127,7 @@ android:theme="@style/Theme.AppCompat.Light">
 
 In the `onCreateOptionsMenu()` method that you create, associate
 the search configuration with the `SearchView` by calling
-`https://developer.android.com/reference/android/widget/SearchView#setSearchableInfo(android.app.SearchableInfo)`:
+`setSearchableInfo(SearchableInfo)`:
 
 ### Kotlin
 
@@ -145,13 +145,13 @@ override fun onCreateOptionsMenu(menu: Menu): Boolean {
 ```
 
 The call to
-`https://developer.android.com/reference/android/app/SearchManager#getSearchableInfo(android.content.ComponentName)`
+`getSearchableInfo()`
 obtains a
-`https://developer.android.com/reference/android/app/SearchableInfo`
+`SearchableInfo`
 object that is created from the search configuration XML file. When the search
 configuration is correctly associated with your `SearchView` and the
 user submits a query, the `SearchView` starts an activity with the
-`https://developer.android.com/reference/android/content/Intent#ACTION_SEARCH`
+`ACTION_SEARCH`
 intent. You then need an activity that can filter for this intent and handle the
 search query.
 
@@ -174,11 +174,11 @@ intent:
 
 In your searchable activity, handle the `ACTION_SEARCH` intent by
 checking for it in your
-`https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)`
+`onCreate()`
 method.
 
 > [!NOTE]
-> **Note:** If your searchable activity launches in single top mode---`android:launchMode="singleTop"`---also handle the `ACTION_SEARCH` intent in the `https://developer.android.com/reference/android/app/Activity#onNewIntent(android.content.Intent)` method. In single top mode, only one instance of your activity is created. Subsequent calls to start your activity don't create a new activity on the stack. This launch helps users perform searches from the same activity without creating a new activity instance every time.
+> **Note:** If your searchable activity launches in single top mode---`android:launchMode="singleTop"`---also handle the `ACTION_SEARCH` intent in the `onNewIntent()` method. In single top mode, only one instance of your activity is created. Subsequent calls to start your activity don't create a new activity on the stack. This launch helps users perform searches from the same activity without creating a new activity instance every time.
 
 ### Kotlin
 

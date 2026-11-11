@@ -7,8 +7,8 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
-Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
@@ -21,7 +21,7 @@ following sections in this guide.
 
 Whenever a user presses a device's camera button, the system delivers an input
 event to your app's projected activity as a
-[`ProjectedInputEvent.ProjectedInputAction.TOGGLE_APP_CAMERA`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedInputEvent.ProjectedInputAction#TOGGLE_APP_CAMERA()) action. Your
+[`ProjectedInputEvent.ProjectedInputAction.TOGGLE_APP_CAMERA`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedInputEvent.ProjectedInputAction.md.txt#TOGGLE_APP_CAMERA()) action. Your
 app can observe this action using a dedicated dispatcher:
 
 
@@ -77,15 +77,15 @@ class CameraActionInputSnippetActivity : ComponentActivity() {
 
 ## Inspect generic motion events
 
-Use [`dispatchGenericMotionEvent`](https://developer.android.com/reference/kotlin/android/app/Activity#dispatchgenericmotionevent) to inspect generic motion events delivered
+Use [`dispatchGenericMotionEvent`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#dispatchgenericmotionevent) to inspect generic motion events delivered
 to your app's projected activity. Generic motion events are delivered at the
 activity boundary and don't require a focused Jetpack Compose Glimmer component.
 
 A `MotionEvent` can include:
 
-- A masked action, such as [`ACTION_DOWN`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#action_down), [`ACTION_MOVE`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#action_move), or [`ACTION_UP`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#action_up).
-- Pointer coordinates, such as [`AXIS_X`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#axis_x), [`AXIS_Y`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#axis_y), or [`AXIS_Z`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#axis_z).
-- Device and source information, such as the [device ID](https://developer.android.com/reference/kotlin/android/view/MotionEvent#getdeviceid) and [source](https://developer.android.com/reference/kotlin/android/view/MotionEvent#getsource).
+- A masked action, such as [`ACTION_DOWN`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt#action_down), [`ACTION_MOVE`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt#action_move), or [`ACTION_UP`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt#action_up).
+- Pointer coordinates, such as [`AXIS_X`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt#axis_x), [`AXIS_Y`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt#axis_y), or [`AXIS_Z`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt#axis_z).
+- Device and source information, such as the [device ID](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt#getdeviceid) and [source](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt#getsource).
 
 Not every value is meaningful for every action. Inspect the action and source
 before treating a raw event as a completed gesture.
@@ -123,7 +123,7 @@ continue through normal dispatch.
 
 When a screen needs custom back behavior, your app should handle the glasses
 Back gesture using the same Android APIs that you use for other activities, such
-as [`OnBackPressedDispatcher`](https://developer.android.com/guide/navigation/navigation-custom-back) and [`OnBackPressedCallback`](https://developer.android.com/reference/kotlin/androidx/activity/OnBackPressedCallback).
+as [`OnBackPressedDispatcher`](https://developer.android.com/guide/navigation/navigation-custom-back.md.txt) and [`OnBackPressedCallback`](https://developer.android.com/reference/kotlin/androidx/activity/OnBackPressedCallback.md.txt).
 
 The user gesture depends on the glasses type:
 
@@ -169,6 +169,6 @@ handling other types of input events in the following topics:
 
 - For more information about UI input, see [Focus in Jetpack Compose
   Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/focus) and [Handle indirect pointer inputs](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/indirect-pointer).
-- For projected input events, see [`ProjectedActivityCompat`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedActivityCompat), [`ProjectedInputEvent`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedInputEvent), and [`ProjectedInputEvent.ProjectedInputAction`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedInputEvent.ProjectedInputAction).
-- For platform input and navigation, see [`MotionEvent`](https://developer.android.com/reference/kotlin/android/view/MotionEvent) and [Provide
+- For projected input events, see [`ProjectedActivityCompat`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedActivityCompat.md.txt), [`ProjectedInputEvent`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedInputEvent.md.txt), and [`ProjectedInputEvent.ProjectedInputAction`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedInputEvent.ProjectedInputAction.md.txt).
+- For platform input and navigation, see [`MotionEvent`](https://developer.android.com/reference/kotlin/android/view/MotionEvent.md.txt) and [Provide
   custom back navigation](https://developer.android.com/guide/navigation/navigation-custom-back).

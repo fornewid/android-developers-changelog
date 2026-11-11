@@ -4,41 +4,45 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input
 source: md.txt
 ---
 
-The [Ink `Brush` APIs](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush) provide a way to create and
+The [Ink `Brush` APIs](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush.md.txt) provide a way to create and
 customize brushes for drawing on a canvas.
 
 ## Create a brush
 
-To create a brush, use the [`Brush`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush) factory
+To create a brush, use the [`Brush`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush.md.txt) factory
 methods with named arguments such as `Brush.createWithColorLong()`. This class
 lets you set the following properties:
 
-- `family`: The style of the brush, analogous to a typeface or font in text. See [`StockBrushes`](https://developer.android.com/reference/kotlin/androidx/ink/brush/StockBrushes) for available [`BrushFamily`](https://developer.android.com/reference/kotlin/androidx/ink/brush/BrushFamily) values.
-- `color`: The color of the brush. You can set the color using a [`ColorLong`](https://developer.android.com/reference/kotlin/androidx/annotation/ColorLong).
+- `family`: The style of the brush, analogous to a typeface or font in text. See [`StockBrushes`](https://developer.android.com/reference/kotlin/androidx/ink/brush/StockBrushes.md.txt) for available [`BrushFamily`](https://developer.android.com/reference/kotlin/androidx/ink/brush/BrushFamily.md.txt) values.
+- `color`: The color of the brush. You can set the color using a [`ColorLong`](https://developer.android.com/reference/kotlin/androidx/annotation/ColorLong.md.txt).
 - `size`: The base thickness of strokes created with the brush.
 - `epsilon`: The smallest distance at which two points in the stroke must be considered distinct, which controls the level of detail or fidelity of the stroke's geometry.
   - Higher values simplify the stroke more, which uses less memory and renders faster, but may result in visible artifacts like jagged edges when zoomed in.
   - Lower values preserve more detail for high-quality zooming, but increase memory usage.
   - For prototyping with a 1 px unit scale, 0.1 is a good starting point. For production apps supporting various screen densities, use density independent units (like dp) and adjust epsilon accordingly.
 
-    val redBrush = Brush.createWithColorLong(
-      family = StockBrushes.pressurePen(),
-      colorLong = Color.RED.pack(),
-      size = 5F,
-      epsilon = 0.1F
-    )
+```kotlin
+val redBrush = Brush.createWithColorLong(
+  family = StockBrushes.pressurePen(),
+  colorLong = Color.RED.pack(),
+  size = 5F,
+  epsilon = 0.1F
+)
+```
 
 ## Modify brush properties
 
 You can create a copy of an existing brush using the
-[`copy()`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush#copy(androidx.ink.brush.BrushFamily,kotlin.Float,kotlin.Float)) method. This method lets you change any
+[`copy()`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush.md.txt#copy(androidx.ink.brush.BrushFamily,kotlin.Float,kotlin.Float)) method. This method lets you change any
 of the brush's properties.
 
-    val blueBrush = redBrush.copy(colorLong = Color.BLUE.pack())
+```kotlin
+val blueBrush = redBrush.copy(colorLong = Color.BLUE.pack())
+```
 
 ## Custom brushes
 
-While [`StockBrushes`](https://developer.android.com/reference/kotlin/androidx/ink/brush/StockBrushes) provides a versatile set of
+While [`StockBrushes`](https://developer.android.com/reference/kotlin/androidx/ink/brush/StockBrushes.md.txt) provides a versatile set of
 common brushes, Ink API also offers an advanced path for creating entirely new
 brush behaviors for unique artistic effects or to replicate specific existing
 brushes for backward compatibility.

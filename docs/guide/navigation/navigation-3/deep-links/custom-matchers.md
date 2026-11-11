@@ -4,8 +4,8 @@ url: https://developer.android.com/guide/navigation/navigation-3/deep-links/cust
 source: md.txt
 ---
 
-If the [provided matchers](https://developer.android.com/guide/navigation/navigation-3/deep-links/create-matchers#use-provided-matchers) aren't sufficient for your use cases, you can
-create your own by extending the [`DeepLinkMatcher`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkMatcher) class.
+If the [provided matchers](https://developer.android.com/guide/navigation/navigation-3/deep-links/create-matchers.md.txt#use-provided-matchers) aren't sufficient for your use cases, you can
+create your own by extending the [`DeepLinkMatcher`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkMatcher.md.txt) class.
 
 When extending `DeepLinkMatcher<T, R>`, you must specify two type arguments: the
 destination navigation key type (`T : Any`) and the match result type
@@ -36,8 +36,8 @@ class TelDeepLinkMatcher : DeepLinkMatcher<DialerKey, DeepLinkMatcher.MatchResul
 ## Rank custom `MatchResult` classes
 
 If there's a meaningful way to compare match results from your custom matcher,
-you should extend [`DeepLinkMatcher.MatchResult`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkMatcher.MatchResult) and override the
-[`compareTo`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkMatcher.MatchResult#compareTo-androidx.navigation3.runtime.deeplink.DeepLinkMatcher.MatchResult-) method to rank results.
+you should extend [`DeepLinkMatcher.MatchResult`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkMatcher.MatchResult.md.txt) and override the
+[`compareTo`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/DeepLinkMatcher.MatchResult.md.txt#compareTo-androidx.navigation3.runtime.deeplink.DeepLinkMatcher.MatchResult-) method to rank results.
 
 When you create a custom `MatchResult` subclass, update your matcher's class
 declaration to specify that subclass as its second type parameter `R` (such as
@@ -47,8 +47,8 @@ downcasting.
 
 For example, to support wildcard pattern matching in `TelDeepLinkMatcher`, you
 can implement a `TelMatchResult` to ensure exact matches rank higher than
-wildcard matches. If the matcher is wrapped in [`withBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/package-summary#(androidx.navigation3.runtime.deeplink.DeepLinkMatcher).withBackStack(kotlin.Function1)), unwrap
-[`WrappedMatchResult`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/WrappedMatchResult) before comparing so that precedence is evaluated
+wildcard matches. If the matcher is wrapped in [`withBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/package-summary.md.txt#(androidx.navigation3.runtime.deeplink.DeepLinkMatcher).withBackStack(kotlin.Function1)), unwrap
+[`WrappedMatchResult`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/deeplink/WrappedMatchResult.md.txt) before comparing so that precedence is evaluated
 against the underlying match result:
 
 

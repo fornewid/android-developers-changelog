@@ -7,16 +7,16 @@ source: md.txt
 # Saved State module for ViewModel
 Part of [Android Jetpack](https://developer.android.com/jetpack).
 
-As mentioned in [Saving UI States](https://developer.android.com/topic/libraries/architecture/saving-states#use_onsaveinstancestate_as_backup_to_handle_system-initiated_process_death), [`ViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel) objects can handle
+As mentioned in [Saving UI States](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt#use_onsaveinstancestate_as_backup_to_handle_system-initiated_process_death), [`ViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel.md.txt) objects can handle
 configuration changes, so you don't need to worry about state in rotations
 or other cases. However, if you need to handle system-initiated process
 death, you might want to use the `SavedStateHandle` API as backup.
 
 UI state is usually stored or referenced in `ViewModel` objects, so using
 `rememberSaveable` in Compose requires some boilerplate that the
-[saved state module](https://developer.android.com/jetpack/androidx/releases/savedstate) can handle for you.
+[saved state module](https://developer.android.com/jetpack/androidx/releases/savedstate.md.txt) can handle for you.
 
-When using this module, `ViewModel` objects receive a [`SavedStateHandle`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle)
+When using this module, `ViewModel` objects receive a [`SavedStateHandle`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle.md.txt)
 object through its constructor. This object is a key-value map that lets you
 write and retrieve objects to and from the saved state. These values
 persist after the process is killed by the system and remain available
@@ -26,17 +26,17 @@ Saved state is tied to your task stack. If your task stack goes away, your saved
 state also goes away. This can occur when force stopping an app, removing the
 app from the recents menu, or rebooting the device. In such cases, the task
 stack disappears and you can't restore the information in saved state. In
-[User-initiated UI state dismissal](https://developer.android.com/topic/libraries/architecture/saving-states#ui-dismissal-system) scenarios, saved state isn't restored. In
-[system-initiated](https://developer.android.com/topic/libraries/architecture/saving-states#ui-dismissal-system) scenarios, it is.
+[User-initiated UI state dismissal](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt#ui-dismissal-system) scenarios, saved state isn't restored. In
+[system-initiated](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt#ui-dismissal-system) scenarios, it is.
 
 > [!IMPORTANT]
 > **Key Point:** Usually, data stored in saved instance state is transient state that depends on user input or navigation. Examples of this can be the scroll position of a list, the ID of the item the user wants more detail about, the in-progress selection of user preferences, or input in text fields.
 
 > [!IMPORTANT]
-> **Important:** the API to use depends on where the state is held and the logic that it requires. For state that is used in [business logic](https://developer.android.com/topic/architecture/ui-layer/stateholders#logic), hold it in a ViewModel and save it using `SavedStateHandle`. For state that is used in [UI logic](https://developer.android.com/topic/architecture/ui-layer/stateholders#logic), use `rememberSaveable` in Compose.
+> **Important:** the API to use depends on where the state is held and the logic that it requires. For state that is used in [business logic](https://developer.android.com/topic/architecture/ui-layer/stateholders.md.txt#logic), hold it in a ViewModel and save it using `SavedStateHandle`. For state that is used in [UI logic](https://developer.android.com/topic/architecture/ui-layer/stateholders.md.txt#logic), use `rememberSaveable` in Compose.
 
 > [!NOTE]
-> **Note:** State must be simple and lightweight. For complex or large data, you should use [local persistence](https://developer.android.com/topic/libraries/architecture/saving-states#local).
+> **Note:** State must be simple and lightweight. For complex or large data, you should use [local persistence](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt#local).
 
 ## Setup
 
@@ -66,15 +66,15 @@ fun MyScreen(
 
 <br />
 
-When providing a custom [`ViewModelProvider.Factory`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModelProvider.Factory) instance, you can
-enable usage of `SavedStateHandle` by using [`CreationExtras`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/CreationExtras) and the
-[`viewModelFactory`](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-factories) DSL.
+When providing a custom [`ViewModelProvider.Factory`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModelProvider.Factory.md.txt) instance, you can
+enable usage of `SavedStateHandle` by using [`CreationExtras`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/CreationExtras.md.txt) and the
+[`viewModelFactory`](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-factories.md.txt) DSL.
 
 ## Working with SavedStateHandle
 
 The `SavedStateHandle` class is a key-value map that lets you write and
-retrieve data to and from the saved state through the [`set()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle#set(kotlin.String,kotlin.Any)) and
-[`get()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle#get(kotlin.String)) methods.
+retrieve data to and from the saved state through the [`set()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle.md.txt#set(kotlin.String,kotlin.Any)) and
+[`get()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle.md.txt#get(kotlin.String)) methods.
 
 By using `SavedStateHandle`, the query value is retained across process death,
 ensuring that the user sees the same set of filtered data before and after
@@ -87,18 +87,18 @@ and forward that value back to the `ViewModel`.
 `SavedStateHandle` also has other methods you might expect when interacting
 with a key-value map:
 
-- [`contains(String key)`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle#contains(kotlin.String)) - Checks if there is a value for the given key.
-- [`remove(String key)`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle#remove(kotlin.String)) - Removes the value for the given key.
-- [`keys()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle#keys()) - Returns all keys contained within the `SavedStateHandle`.
+- [`contains(String key)`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle.md.txt#contains(kotlin.String)) - Checks if there is a value for the given key.
+- [`remove(String key)`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle.md.txt#remove(kotlin.String)) - Removes the value for the given key.
+- [`keys()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle.md.txt#keys()) - Returns all keys contained within the `SavedStateHandle`.
 
 Additionally, you can retrieve values from `SavedStateHandle` using an
 observable data holder. The list of supported types includes the following:
 
-- [`StateFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow).
+- [`StateFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow.md.txt).
 - [Compose's State APIs](https://developer.android.com/jetpack/compose/state).
 
 > [!WARNING]
-> **Warning:** These integrations with observable data holders make it more convenient to display UI with state persisted by [saved instance state](https://developer.android.com/topic/libraries/architecture/saving-states#onsaveinstancestate). However, these integrations are also saved and restored using the same mechanisms as the basic `get()` and `set()` methods. In Compose, state is captured only when the application transitions to the background. This means that while you can continue to update observable data holders from a `SavedStateHandle` while the app is in the background, all state updates might be lost if the app process is killed before becoming foregrounded again.
+> **Warning:** These integrations with observable data holders make it more convenient to display UI with state persisted by [saved instance state](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt#onsaveinstancestate). However, these integrations are also saved and restored using the same mechanisms as the basic `get()` and `set()` methods. In Compose, state is captured only when the application transitions to the background. This means that while you can continue to update observable data holders from a `SavedStateHandle` while the app is in the background, all state updates might be lost if the app process is killed before becoming foregrounded again.
 
 ### StateFlow
 
@@ -187,7 +187,7 @@ class FilterViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
 If your state relies on Compose's [`Saver`](https://developer.android.com/jetpack/compose/state#restore-ui-state) APIs instead of on KotlinX
 Serialization, the `lifecycle-viewmodel-compose` artifact provides the
-[`saveable`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/compose/package-summary#(androidx.lifecycle.SavedStateHandle).saveable(kotlin.String,androidx.compose.runtime.saveable.Saver,kotlin.Function0)) delegate. This allows interoperability between
+[`saveable`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/compose/package-summary.md.txt#(androidx.lifecycle.SavedStateHandle).saveable(kotlin.String,androidx.compose.runtime.saveable.Saver,kotlin.Function0)) delegate. This allows interoperability between
 `SavedStateHandle` and Compose's [`Saver`](https://developer.android.com/jetpack/compose/state#restore-ui-state) so that any `State` that you can
 save via [`rememberSaveable`](https://developer.android.com/jetpack/compose/state#restore-ui-state) with a custom `Saver` can also be saved with
 `SavedStateHandle`.
@@ -209,8 +209,8 @@ class SavedStateViewModel(private val savedStateHandle: SavedStateHandle) : View
 
 ## Supported types
 
-Data kept within a `SavedStateHandle` is saved and restored as a [`Bundle`](https://developer.android.com/reference/kotlin/android/os/Bundle),
-along with the rest of the [`savedInstanceState`](https://developer.android.com/topic/libraries/architecture/saving-states) for your app.
+Data kept within a `SavedStateHandle` is saved and restored as a [`Bundle`](https://developer.android.com/reference/kotlin/android/os/Bundle.md.txt),
+along with the rest of the [`savedInstanceState`](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt) for your app.
 
 ### Directly supported types
 
@@ -238,8 +238,8 @@ same data types as a `Bundle`, as shown below:
 | `SizeF (only in API 21+)` |   |
 
 If the class does not extend one of those in the above list, consider making the
-class parcelable by adding the [`@Parcelize`](https://developer.android.com/kotlin/parcelize) Kotlin annotation or
-implementing [`Parcelable`](https://developer.android.com/reference/kotlin/android/os/Parcelable) directly.
+class parcelable by adding the [`@Parcelize`](https://developer.android.com/kotlin/parcelize.md.txt) Kotlin annotation or
+implementing [`Parcelable`](https://developer.android.com/reference/kotlin/android/os/Parcelable.md.txt) directly.
 
 ### Saving non-parcelable classes
 
@@ -247,17 +247,17 @@ If a class does not implement `Parcelable` or `Serializable` and cannot be
 modified to implement one of those interfaces, then it is not possible to
 directly save an instance of that class into a `SavedStateHandle`.
 
-Beginning with [Lifecycle 2.3.0-alpha03](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.3.0-alpha03), `SavedStateHandle` lets you save
+Beginning with [Lifecycle 2.3.0-alpha03](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.3.0-alpha03), `SavedStateHandle` lets you save
 any object by providing your own logic for saving and restoring your object as
-a [`Bundle`](https://developer.android.com/reference/kotlin/android/os/Bundle) using the [`setSavedStateProvider()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle#setSavedStateProvider(kotlin.String,androidx.savedstate.SavedStateRegistry.SavedStateProvider)) method.
-[`SavedStateRegistry.SavedStateProvider`](https://developer.android.com/reference/kotlin/androidx/savedstate/SavedStateRegistry.SavedStateProvider) is an interface that defines a
-single [`saveState()`](https://developer.android.com/reference/kotlin/androidx/savedstate/SavedStateRegistry.SavedStateProvider#saveState()) method that returns a `Bundle` containing the state
+a [`Bundle`](https://developer.android.com/reference/kotlin/android/os/Bundle.md.txt) using the [`setSavedStateProvider()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle.md.txt#setSavedStateProvider(kotlin.String,androidx.savedstate.SavedStateRegistry.SavedStateProvider)) method.
+[`SavedStateRegistry.SavedStateProvider`](https://developer.android.com/reference/kotlin/androidx/savedstate/SavedStateRegistry.SavedStateProvider.md.txt) is an interface that defines a
+single [`saveState()`](https://developer.android.com/reference/kotlin/androidx/savedstate/SavedStateRegistry.SavedStateProvider.md.txt#saveState()) method that returns a `Bundle` containing the state
 you want to save. When `SavedStateHandle` is ready to save its state, it calls
 `saveState()` to retrieve the `Bundle` from the `SavedStateProvider` and saves
 the `Bundle` for the associated key.
 
 Consider an example of an app that requests an image from the camera app via
-the [`ACTION_IMAGE_CAPTURE`](https://developer.android.com/reference/kotlin/android/provider/MediaStore#action_image_capture) intent, passing in a temporary file for where
+the [`ACTION_IMAGE_CAPTURE`](https://developer.android.com/reference/kotlin/android/provider/MediaStore.md.txt#action_image_capture) intent, passing in a temporary file for where
 the camera should store the image. The `TempFileViewModel` encapsulates the
 logic for creating that temporary file.
 
@@ -370,11 +370,11 @@ following resources.
 
 ### Views content
 
-- [Saved State module for ViewModel (Views)](https://developer.android.com/topic/libraries/architecture/views/viewmodel/viewmodel-savedstate-views)
+- [Saved State module for ViewModel (Views)](https://developer.android.com/topic/libraries/architecture/views/viewmodel/viewmodel-savedstate-views.md.txt)
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states)
-- [Work with observable data objects](https://developer.android.com/topic/libraries/data-binding/observability)
-- [Create ViewModels with dependencies](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-factories)
+- [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt)
+- [Work with observable data objects](https://developer.android.com/topic/libraries/data-binding/observability.md.txt)
+- [Create ViewModels with dependencies](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-factories.md.txt)

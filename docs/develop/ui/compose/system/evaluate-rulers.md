@@ -4,11 +4,11 @@ url: https://developer.android.com/develop/ui/compose/system/evaluate-rulers
 source: md.txt
 ---
 
-[`WindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/WindowInsets) is the standard API in Jetpack Compose for handling
+[`WindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/WindowInsets.md.txt) is the standard API in Jetpack Compose for handling
 areas of the screen that are partially or fully obscured by the system UI. These
 areas include the status bar, navigation bar, and on-screen keyboard. You can
-alternatively pass predefined [`WindowInsetsRulers`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers) like
-[`SafeDrawing`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers#SafeDrawing()) to [`Modifier.fitInside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).fitInside(androidx.compose.ui.layout.RectRulers)) or [`Modifier.fitOutside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).fitOutside(androidx.compose.ui.layout.RectRulers))
+alternatively pass predefined [`WindowInsetsRulers`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers.md.txt) like
+[`SafeDrawing`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers.md.txt#SafeDrawing()) to [`Modifier.fitInside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).fitInside(androidx.compose.ui.layout.RectRulers)) or [`Modifier.fitOutside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).fitOutside(androidx.compose.ui.layout.RectRulers))
 to align your content with the system bars and the display cutout or create
 custom `WindowInsetsRulers`.
 
@@ -24,9 +24,9 @@ custom `WindowInsetsRulers`.
 
 ## Align your content with Modifier methods
 
-[`Modifier.fitInside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).fitInside(androidx.compose.ui.layout.RectRulers)) allows apps to align content to system bars and
+[`Modifier.fitInside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).fitInside(androidx.compose.ui.layout.RectRulers)) allows apps to align content to system bars and
 display cutouts. It can be used instead of `WindowInsets`.
-[`Modifier.fitOutside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).fitOutside(androidx.compose.ui.layout.RectRulers)) is usually the inverse of `Modifier.fitInside`.
+[`Modifier.fitOutside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).fitOutside(androidx.compose.ui.layout.RectRulers)) is usually the inverse of `Modifier.fitInside`.
 
 For example, to verify that app content avoids the system bars and display
 cutout, you can use `fitInside(WindowInsetsRulers.safeDrawing.current)`.
@@ -49,13 +49,13 @@ fun FitInsideDemo(modifier: Modifier) {
 The following table shows what your app content would look like with predefined
 rulers with either `Modifier.fitInside` or `Modifier.fitOutside`.
 
-| Predefined ruler type | [`Modifier.fitInside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).fitInside(androidx.compose.ui.layout.RectRulers)) | [`Modifier.fitOutside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).fitOutside(androidx.compose.ui.layout.RectRulers)) |
+| Predefined ruler type | [`Modifier.fitInside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).fitInside(androidx.compose.ui.layout.RectRulers)) | [`Modifier.fitOutside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).fitOutside(androidx.compose.ui.layout.RectRulers)) |
 |---|---|---|
-| [`DisplayCutout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers#DisplayCutout()) | ![](https://developer.android.com/static/develop/ui/compose/images/system/inside_display_cutout.png) | ![](https://developer.android.com/static/develop/ui/compose/images/system/outside_display_cutout.png) |
-| [`Ime`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers#Ime()) | ![](https://developer.android.com/static/develop/ui/compose/images/system/inside_ime.png) | N/A |
-| [`NavigationBars`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers#NavigationBars()) | ![](https://developer.android.com/static/develop/ui/compose/images/system/inside_navigation_bars.png) | ![](https://developer.android.com/static/develop/ui/compose/images/system/outside_navigation_bars.png) |
-| [`SafeDrawing`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers#SafeDrawing()) | ![](https://developer.android.com/static/develop/ui/compose/images/system/inside_safe_drawing.png) | N/A (use `StatusBar`, `CaptionBar`, `NavigationBar` instead) |
-| [`StatusBar`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers#StatusBars()) | ![](https://developer.android.com/static/develop/ui/compose/images/system/inside_status_bar.png) | ![](https://developer.android.com/static/develop/ui/compose/images/system/outside_status_bar.png) |
+| [`DisplayCutout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers.md.txt#DisplayCutout()) | ![](https://developer.android.com/static/develop/ui/compose/images/system/inside_display_cutout.png) | ![](https://developer.android.com/static/develop/ui/compose/images/system/outside_display_cutout.png) |
+| [`Ime`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers.md.txt#Ime()) | ![](https://developer.android.com/static/develop/ui/compose/images/system/inside_ime.png) | N/A |
+| [`NavigationBars`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers.md.txt#NavigationBars()) | ![](https://developer.android.com/static/develop/ui/compose/images/system/inside_navigation_bars.png) | ![](https://developer.android.com/static/develop/ui/compose/images/system/outside_navigation_bars.png) |
+| [`SafeDrawing`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers.md.txt#SafeDrawing()) | ![](https://developer.android.com/static/develop/ui/compose/images/system/inside_safe_drawing.png) | N/A (use `StatusBar`, `CaptionBar`, `NavigationBar` instead) |
+| [`StatusBar`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers.md.txt#StatusBars()) | ![](https://developer.android.com/static/develop/ui/compose/images/system/inside_status_bar.png) | ![](https://developer.android.com/static/develop/ui/compose/images/system/outside_status_bar.png) |
 
 Using `Modifier.fitInside` and `Modifier.fitOutside` requires that the
 composables are constrained. This means you must define modifiers like

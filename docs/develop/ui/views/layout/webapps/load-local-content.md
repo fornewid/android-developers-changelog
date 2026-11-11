@@ -20,9 +20,9 @@ users have outdated app versions.
 
 ## WebViewAssetLoader
 
-[`WebViewAssetLoader`](https://developer.android.com/reference/androidx/webkit/WebViewAssetLoader) is a
+[`WebViewAssetLoader`](https://developer.android.com/reference/androidx/webkit/WebViewAssetLoader.md.txt) is a
 flexible and performant way to load in-app content in a
-[`WebView`](https://developer.android.com/reference/android/webkit/WebView) object. This class supports the
+[`WebView`](https://developer.android.com/reference/android/webkit/WebView.md.txt) object. This class supports the
 following:
 
 - Loading content with an HTTP(S) URL for compatibility with the [same-origin
@@ -87,13 +87,13 @@ next section has an example.
 ### Create in-app assets and resources
 
 `WebViewAssetLoader` relies on
-[`PathHandler`](https://developer.android.com/reference/androidx/webkit/WebViewAssetLoader.PathHandler)
+[`PathHandler`](https://developer.android.com/reference/androidx/webkit/WebViewAssetLoader.PathHandler.md.txt)
 instances to load resources corresponding to a given resource path. Although you
 can implement this interface to retrieve resources as needed by your app, the
 Webkit library bundles
-[`AssetsPathHandler`](https://developer.android.com/reference/kotlin/androidx/webkit/WebViewAssetLoader.AssetsPathHandler)
+[`AssetsPathHandler`](https://developer.android.com/reference/kotlin/androidx/webkit/WebViewAssetLoader.AssetsPathHandler.md.txt)
 and
-[`ResourcesPathHandler`](https://developer.android.com/reference/kotlin/androidx/webkit/WebViewAssetLoader.ResourcesPathHandler)
+[`ResourcesPathHandler`](https://developer.android.com/reference/kotlin/androidx/webkit/WebViewAssetLoader.ResourcesPathHandler.md.txt)
 for loading Android assets and resources, respectively.
 
 To get started, create assets and resources for your app. Generally, the
@@ -249,7 +249,7 @@ for an example of an in-app HTML page fetching web-hosted JSON data.
 
 When your app only needs to load an HTML page and doesn't need to intercept
 subresources, consider using
-[`loadDataWithBaseURL()`](https://developer.android.com/reference/android/webkit/WebView#loadDataWithBaseURL(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)),
+[`loadDataWithBaseURL()`](https://developer.android.com/reference/android/webkit/WebView.md.txt#loadDataWithBaseURL(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)),
 which doesn't require app assets. You can use it as shown in the following code
 sample:
 
@@ -283,7 +283,7 @@ We strongly recommend using an HTTP(S) URL as the `baseUrl`, as this helps
 ensure your app complies with the same-origin policy.
 
 If you can't find a suitable `baseUrl` for your content and prefer to use
-[`loadData()`](https://developer.android.com/reference/android/webkit/WebView#loadData(java.lang.String,%20java.lang.String,%20java.lang.String)),
+[`loadData()`](https://developer.android.com/reference/android/webkit/WebView.md.txt#loadData(java.lang.String,%20java.lang.String,%20java.lang.String)),
 you **must encode the content** with
 [percent-encoding](https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding)
 or
@@ -317,6 +317,6 @@ There are several other ways to load in-app content, but we strongly recommend
 against them:
 
 - `file://` URLs and `data:` URLs are considered to be *opaque origins* , meaning they can't take advantage of powerful web APIs such as [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) or [`XMLHttpRequest`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest). `loadData()` internally uses `data:` URLs, so we encourage using `WebViewAssetLoader` or `loadDataWithBaseURL()` instead.
-- Although [`WebSettings.setAllowFileAccessFromFileURLs()`](https://developer.android.com/reference/android/webkit/WebSettings#setAllowFileAccessFromFileURLs(boolean)) and [`WebSettings.setAllowUniversalAccessFromFileURLs()`](https://developer.android.com/reference/android/webkit/WebSettings#setAllowUniversalAccessFromFileURLs(boolean)) can work around the issues with `file://` URLs, we recommend against setting these to `true` because doing so leaves your app vulnerable to file-based exploits. We recommend explicitly setting these to `false` on all API levels for the strongest security.
+- Although [`WebSettings.setAllowFileAccessFromFileURLs()`](https://developer.android.com/reference/android/webkit/WebSettings.md.txt#setAllowFileAccessFromFileURLs(boolean)) and [`WebSettings.setAllowUniversalAccessFromFileURLs()`](https://developer.android.com/reference/android/webkit/WebSettings.md.txt#setAllowUniversalAccessFromFileURLs(boolean)) can work around the issues with `file://` URLs, we recommend against setting these to `true` because doing so leaves your app vulnerable to file-based exploits. We recommend explicitly setting these to `false` on all API levels for the strongest security.
 - For the same reasons, we recommend against `file://android_assets/` and `file://android_res/` URLs. The `AssetsHandler` and `ResourcesHandler` classes are meant to be drop-in replacements.
-- Avoid using [`MIXED_CONTENT_ALWAYS_ALLOW`](https://developer.android.com/reference/android/webkit/WebSettings#MIXED_CONTENT_ALWAYS_ALLOW). This setting generally isn't necessary and weakens the security of your app. We recommend loading your in-app content over the same scheme---HTTP or HTTPS---as your website's resources and using [`MIXED_CONTENT_COMPATIBILITY_MODE`](https://developer.android.com/reference/android/webkit/WebSettings#MIXED_CONTENT_COMPATIBILITY_MODE) or [`MIXED_CONTENT_NEVER_ALLOW`](https://developer.android.com/reference/android/webkit/WebSettings#MIXED_CONTENT_NEVER_ALLOW), as appropriate.
+- Avoid using [`MIXED_CONTENT_ALWAYS_ALLOW`](https://developer.android.com/reference/android/webkit/WebSettings.md.txt#MIXED_CONTENT_ALWAYS_ALLOW). This setting generally isn't necessary and weakens the security of your app. We recommend loading your in-app content over the same scheme---HTTP or HTTPS---as your website's resources and using [`MIXED_CONTENT_COMPATIBILITY_MODE`](https://developer.android.com/reference/android/webkit/WebSettings.md.txt#MIXED_CONTENT_COMPATIBILITY_MODE) or [`MIXED_CONTENT_NEVER_ALLOW`](https://developer.android.com/reference/android/webkit/WebSettings.md.txt#MIXED_CONTENT_NEVER_ALLOW), as appropriate.

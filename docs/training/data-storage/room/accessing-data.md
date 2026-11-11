@@ -12,13 +12,13 @@ time, Room automatically generates implementations of the DAOs that you define.
 By using DAOs to access your app's database instead of query builders or direct
 queries, you can preserve [separation of concerns](https://developer.android.com/jetpack/guide#separation-of-concerns), a critical architectural
 principle. DAOs also let you mock database access when you
-[test your app](https://developer.android.com/training/data-storage/room/testing-db).
+[test your app](https://developer.android.com/training/data-storage/room/testing-db.md.txt).
 
 ## Anatomy of a DAO
 
 You can define each DAO as either an interface or an abstract class. For basic
 use cases, you usually use an interface. In either case, you must always
-annotate your DAOs with [`@Dao`](https://developer.android.com/reference/kotlin/androidx/room3/Dao). DAOs don't have properties, but they do
+annotate your DAOs with [`@Dao`](https://developer.android.com/reference/kotlin/androidx/room3/Dao.md.txt). DAOs don't have properties, but they do
 define one or more functions for interacting with the data in your app's
 database.
 
@@ -57,11 +57,11 @@ insertions, updates, and deletions without requiring you to write a SQL
 statement.
 
 If you need to define more complex insertions, updates, or deletions, or if you
-need to query the data in the database, use a [query function](https://developer.android.com/training/data-storage/room/accessing-data#query) instead.
+need to query the data in the database, use a [query function](https://developer.android.com/training/data-storage/room/accessing-data.md.txt#query) instead.
 
 ### Insert
 
-The [`@Insert`](https://developer.android.com/reference/kotlin/androidx/room3/Insert) annotation lets you define functions that insert their
+The [`@Insert`](https://developer.android.com/reference/kotlin/androidx/room3/Insert.md.txt) annotation lets you define functions that insert their
 parameters into the appropriate table in the database. The following code shows
 examples of valid `@Insert` functions that insert one or more `User` objects
 into the database:
@@ -93,12 +93,12 @@ value, which is the new `rowId` for the inserted item. If the parameter is an
 array or a collection, then it should return an array or a collection of `Long`
 values instead, with each value as the `rowId` for one of the inserted items.
 To learn more about returning `rowId` values, see the reference
-documentation for the [`@Insert`](https://developer.android.com/reference/kotlin/androidx/room3/Insert) annotation and the [SQLite documentation
+documentation for the [`@Insert`](https://developer.android.com/reference/kotlin/androidx/room3/Insert.md.txt) annotation and the [SQLite documentation
 for rowid tables](https://www.sqlite.org/rowidtable.html).
 
 ### Update
 
-The [`@Update`](https://developer.android.com/reference/kotlin/androidx/room3/Update) annotation lets you define functions that update specific
+The [`@Update`](https://developer.android.com/reference/kotlin/androidx/room3/Update.md.txt) annotation lets you define functions that update specific
 rows in a database table. Like `@Insert` functions, `@Update` functions accept
 data entity instances as parameters. The following code shows an example of an
 `@Update` function that attempts to update one or more `User` objects in the
@@ -115,7 +115,7 @@ interface UserDao {
 
 <br />
 
-Room uses the [primary key](https://developer.android.com/training/data-storage/room/defining-data#primary-key) to match entity instances in arguments to rows in
+Room uses the [primary key](https://developer.android.com/training/data-storage/room/defining-data.md.txt#primary-key) to match entity instances in arguments to rows in
 the database. If there's no row with the same primary key, Room makes no
 changes.
 
@@ -124,7 +124,7 @@ of rows that were updated successfully.
 
 ### Delete
 
-The [`@Delete`](https://developer.android.com/reference/kotlin/androidx/room3/Delete) annotation lets you
+The [`@Delete`](https://developer.android.com/reference/kotlin/androidx/room3/Delete.md.txt) annotation lets you
 define functions that delete specific rows from a database table. Like
 `@Insert` functions, `@Delete` functions accept data entity instances as
 parameters. The following code shows an example of a `@Delete` function that
@@ -141,7 +141,7 @@ interface UserDao {
 
 <br />
 
-Room uses the [primary key](https://developer.android.com/training/data-storage/room/defining-data#primary-key) to match entity instances in arguments to rows in
+Room uses the [primary key](https://developer.android.com/training/data-storage/room/defining-data.md.txt#primary-key) to match entity instances in arguments to rows in
 the database. If there's no row with the same primary key, Room makes no
 changes.
 
@@ -150,7 +150,7 @@ of rows that were deleted successfully.
 
 ### Upsert
 
-The [`@Upsert`](https://developer.android.com/reference/kotlin/androidx/room3/Upsert) annotation lets you
+The [`@Upsert`](https://developer.android.com/reference/kotlin/androidx/room3/Upsert.md.txt) annotation lets you
 define functions that insert entity instances when there's no matching row, or
 update them if a row already exists with the same primary key.
 
@@ -177,7 +177,7 @@ a collection of `Long` values instead.
 
 ## Query functions
 
-The [`@Query`](https://developer.android.com/reference/kotlin/androidx/room3/Query) annotation lets you
+The [`@Query`](https://developer.android.com/reference/kotlin/androidx/room3/Query.md.txt) annotation lets you
 write SQL statements and expose them as DAO functions. Use these query functions
 to query data from your app's database or when you need to perform more complex
 insertions, updates, and deletions.
@@ -324,7 +324,7 @@ suspend fun findBooksBorrowedByName(userName: String): List<Book>
 
 You can also define data objects to return a subset of columns from multiple
 joined tables. For more information, see
-[Return a subset of a table's columns](https://developer.android.com/training/data-storage/room/accessing-data#return-subset).
+[Return a subset of a table's columns](https://developer.android.com/training/data-storage/room/accessing-data.md.txt#return-subset).
 The following code defines a DAO with a function that returns the
 names of users and the names of the books that they've borrowed:
 
@@ -352,7 +352,7 @@ For joining operations, you can also query columns from multiple tables without
 defining an additional data class by writing query functions that return a
 [multimap](https://en.wikipedia.org/wiki/Multimap).
 
-Consider the example from [Query multiple tables](https://developer.android.com/training/data-storage/room/accessing-data#multiple-tables). Instead of returning a
+Consider the example from [Query multiple tables](https://developer.android.com/training/data-storage/room/accessing-data.md.txt#multiple-tables). Instead of returning a
 list of instances of a custom data class that holds pairings of `User` and
 `Book` instances, you can return a mapping of `User` and `Book` directly from
 your query function:
@@ -391,7 +391,7 @@ suspend fun loadUserAndBookNamesGrouped(): Map<User, List<Book>>
 <br />
 
 If you don't need to map entire objects, you can also return mappings between
-specific columns in your query by using the [`@MapColumn`](https://developer.android.com/reference/kotlin/androidx/room3/MapColumn) annotation on the
+specific columns in your query by using the [`@MapColumn`](https://developer.android.com/reference/kotlin/androidx/room3/MapColumn.md.txt) annotation on the
 return type's generic parameters.
 
 
@@ -416,19 +416,19 @@ Room provides some special return types for integration with other API
 libraries.
 
 > [!NOTE]
-> **Note:** These special return types, such as RxJava, LiveData, and Guava, are supported in Room using **DAO Return Type Converters** and require registering the respective converter class. For more information, see the [Write asynchronous DAO queries](https://developer.android.com/training/data-storage/room/async-queries) guide.
+> **Note:** These special return types, such as RxJava, LiveData, and Guava, are supported in Room using **DAO Return Type Converters** and require registering the respective converter class. For more information, see the [Write asynchronous DAO queries](https://developer.android.com/training/data-storage/room/async-queries.md.txt) guide.
 
 ### Paginated queries with the Paging library
 
 Room supports paginated queries through integration with the
-[Paging library](https://developer.android.com/topic/libraries/architecture/paging/v3-overview). To use Paging 3 return types, you must register the Paging
+[Paging library](https://developer.android.com/topic/libraries/architecture/paging/v3-overview.md.txt). To use Paging 3 return types, you must register the Paging
 return type converters in your database or DAO:
 
 1. Include the `androidx.room3:room3-paging` artifact in your build configuration.
 2. Annotate your `@Database` or `@Dao` declaration with `@DaoReturnTypeConverters(PagingSourceDaoReturnTypeConverter::class)`.
 
-Once registered, your DAOs can return [`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource) objects for use with
-[Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview):
+Once registered, your DAOs can return [`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource.md.txt) objects for use with
+[Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview.md.txt):
 
 
 ```kotlin
@@ -443,18 +443,18 @@ interface UserDao {
 <br />
 
 For more information about choosing type parameters for a `PagingSource`, see
-[Select key and value types](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#key-value).
+[Select key and value types](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data.md.txt#key-value).
 
 ### Direct database connection access
 
 If your app's logic requires direct, low-level access to the database
 connection, you can use Room's connection APIs instead. You can obtain a
 connection using
-[`useReaderConnection`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase#(androidx.room3.RoomDatabase).useReaderConnection(kotlin.coroutines.SuspendFunction1))
+[`useReaderConnection`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.md.txt#(androidx.room3.RoomDatabase).useReaderConnection(kotlin.coroutines.SuspendFunction1))
 for read-only operations or
-[`useWriterConnection`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase#(androidx.room3.RoomDatabase).useWriterConnection(kotlin.coroutines.SuspendFunction1))
+[`useWriterConnection`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.md.txt#(androidx.room3.RoomDatabase).useWriterConnection(kotlin.coroutines.SuspendFunction1))
 for write operations on your `RoomDatabase` instance, and use
-[`usePrepared`](https://developer.android.com/reference/kotlin/androidx/room3/PooledConnection#usePrepared(kotlin.String,kotlin.coroutines.SuspendFunction1))
+[`usePrepared`](https://developer.android.com/reference/kotlin/androidx/room3/PooledConnection.md.txt#usePrepared(kotlin.String,kotlin.coroutines.SuspendFunction1))
 to execute statements:
 
 
@@ -479,9 +479,9 @@ val result: List<Pair<Long, String>> =
 <br />
 
 If you need to perform low-level database transactions directly on the
-connection, you can use the [`immediateTransaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transactor#(androidx.room3.Transactor).immediateTransaction(kotlin.coroutines.SuspendFunction1)),
-[`deferredTransaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transactor#(androidx.room3.Transactor).deferredTransaction(kotlin.coroutines.SuspendFunction1)), or [`exclusiveTransaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transactor#(androidx.room3.Transactor).exclusiveTransaction(kotlin.coroutines.SuspendFunction1)) helper functions on
-a [`Transactor`](https://developer.android.com/reference/kotlin/androidx/room3/Transactor) instance inside a `useWriterConnection` block:
+connection, you can use the [`immediateTransaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transactor.md.txt#(androidx.room3.Transactor).immediateTransaction(kotlin.coroutines.SuspendFunction1)),
+[`deferredTransaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transactor.md.txt#(androidx.room3.Transactor).deferredTransaction(kotlin.coroutines.SuspendFunction1)), or [`exclusiveTransaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transactor.md.txt#(androidx.room3.Transactor).exclusiveTransaction(kotlin.coroutines.SuspendFunction1)) helper functions on
+a [`Transactor`](https://developer.android.com/reference/kotlin/androidx/room3/Transactor.md.txt) instance inside a `useWriterConnection` block:
 
 
 ```kotlin
@@ -495,7 +495,7 @@ roomDatabase.useWriterConnection { transactor ->
 <br />
 
 Alternatively, if you only need to execute high-level DAO operations in a
-transaction, use the [`withReadTransaction`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase#(androidx.room3.RoomDatabase).withReadTransaction(kotlin.coroutines.SuspendFunction1)) or [`withWriteTransaction`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase#(androidx.room3.RoomDatabase).withWriteTransaction(kotlin.coroutines.SuspendFunction1))
+transaction, use the [`withReadTransaction`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.md.txt#(androidx.room3.RoomDatabase).withReadTransaction(kotlin.coroutines.SuspendFunction1)) or [`withWriteTransaction`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.md.txt#(androidx.room3.RoomDatabase).withWriteTransaction(kotlin.coroutines.SuspendFunction1))
 helper extension functions on your `RoomDatabase` instance:
 
 

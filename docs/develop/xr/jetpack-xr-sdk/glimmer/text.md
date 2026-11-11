@@ -7,11 +7,11 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
-In Jetpack Compose Glimmer, the [`Text`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Text.composable) component lets you set various text
+In Jetpack Compose Glimmer, the [`Text`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Text.composable.md.txt) component lets you set various text
 properties like color, font size, font style, font weight, font family, letter
 spacing, and text alignment.
 
@@ -66,10 +66,12 @@ displayed on display glasses.
 To use Google Sans Flex, [add the `glimmer-google-fonts` library to your app's
 dependencies](https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk#augmented), then apply the font globally to the `GlimmerTheme`:
 
-    @Composable
-    fun GoogleSansFlexTypographySample() {
-        val typography = createGoogleSansFlexTypography()
-        GlimmerTheme(typography = typography) {
-            Text("Hello World", style = GlimmerTheme.typography.titleLarge)
-        }
+```kotlin
+@Composable
+fun GoogleSansFlexTypographySample() {
+    val typography = createGoogleSansFlexTypography()
+    GlimmerTheme(typography = typography) {
+        Text("Hello World", style = GlimmerTheme.typography.titleLarge)
     }
+}
+```

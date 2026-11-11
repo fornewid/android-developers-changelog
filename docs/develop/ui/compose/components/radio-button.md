@@ -80,7 +80,7 @@ fun RadioButtonSingleSelection(modifier: Modifier = Modifier) {
 
 ### Result
 
-![A list of three radio buttons labeled Calls, Missed, and Friends. The Friends radio button is selected.](https://developer.android.com/static/develop/ui/compose/images/components/radiobutton2.png) **Figure 2.** Three radio buttons with the "Friends" option selected.
+![Three radio buttons labeled 'Calls', 'Missed' and 'Friends', with 'Calls' selected.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_radiobuttonsingleselection.png) **Figure 2.** Three radio buttons with the "Calls" option selected.
 
 ## Additional resources
 

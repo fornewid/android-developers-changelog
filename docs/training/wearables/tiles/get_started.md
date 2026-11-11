@@ -60,31 +60,31 @@ dependencies {
 ```
 
 > [!IMPORTANT]
-> **Important:** When building Material 3 tiles, always extend [`Material3TileService`](https://developer.android.com/reference/kotlin/androidx/wear/tiles/Material3TileService) instead of the base [`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService) class or Horologist's `SuspendingTileService`. `Material3TileService` provides an opinionated, Kotlin-first API with built-in coroutine support, automatic `MaterialScope` theming, and single-call resource handling.
+> **Important:** When building Material 3 tiles, always extend [`Material3TileService`](https://developer.android.com/reference/kotlin/androidx/wear/tiles/Material3TileService.md.txt) instead of the base [`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt) class or Horologist's `SuspendingTileService`. `Material3TileService` provides an opinionated, Kotlin-first API with built-in coroutine support, automatic `MaterialScope` theming, and single-call resource handling.
 
 ## Key concepts
 
 Tiles aren't built in the same way as Android apps, and make use of different
 concepts:
 
-- **Layout templates:** Define the overall arrangement of visual elements on the display. This is accomplished by the [`primaryLayout()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).primaryLayout(kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.material3.PrimaryLayoutMargins)) function.
-- **Layout elements:** Represent an individual graphical element, such a [button](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).button(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,kotlin.Function1,androidx.wear.protolayout.material3.ButtonStyle,kotlin.Int,androidx.wear.protolayout.ModifiersBuilders.Padding)) or [card](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).card(androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,kotlin.Function1,androidx.wear.protolayout.ModifiersBuilders.Padding,kotlin.Function1)), or several such elements grouped together using a [column](https://developer.android.com/reference/androidx/wear/tiles/LayoutElementBuilders.Column), [buttonGroup](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).buttonGroup(androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,kotlin.Float,kotlin.Function1)) or similar. These are embedded within a *layout template*.
+- **Layout templates:** Define the overall arrangement of visual elements on the display. This is accomplished by the [`primaryLayout()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).primaryLayout(kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.material3.PrimaryLayoutMargins)) function.
+- **Layout elements:** Represent an individual graphical element, such a [button](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).button(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,kotlin.Function1,androidx.wear.protolayout.material3.ButtonStyle,kotlin.Int,androidx.wear.protolayout.ModifiersBuilders.Padding)) or [card](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).card(androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,kotlin.Function1,androidx.wear.protolayout.ModifiersBuilders.Padding,kotlin.Function1)), or several such elements grouped together using a [column](https://developer.android.com/reference/androidx/wear/tiles/LayoutElementBuilders.Column.md.txt), [buttonGroup](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).buttonGroup(androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,kotlin.Float,kotlin.Function1)) or similar. These are embedded within a *layout template*.
 
 <!-- -->
 
-- **Resources:** [`ResourceBuilders.Resources`](https://developer.android.com/reference/androidx/wear/protolayout/ResourceBuilders.Resources) objects consist of a *map* of key-value pairs of the Android resources (images) that are required to render a layout, and a *version*.
-- **Timeline:** A [`TimelineBuilders.Timeline`](https://developer.android.com/reference/androidx/wear/protolayout/TimelineBuilders.Timeline) object is a list of one or more instances of a *layout object*. You can provide various mechanisms and expressions to indicate when the renderer should switch from one layout object to another, such as to stop showing a layout at a specific time.
-- **State:** A data structure of type [`StateBuilders.State`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/StateBuilders.State) that is passed between tile and app, to enable the two components to communicate with each other. For example, if a button is tapped on the tile, the state holds the ID of the button. You can also exchange data types using a map.
-- **Tile:** A [`TileBuilders.Tile`](https://developer.android.com/reference/androidx/wear/tiles/TileBuilders.Tile) object representing a tile, consisting of a *timeline* , a *resources version ID* , *freshness interval* , and *state*.
-- **Protolayout:** This term appears in the name of various tiles-related classes and refers to the [Wear OS Protolayout library](https://developer.android.com/jetpack/androidx/releases/wear-protolayout), a graphics library that's used across various Wear OS surfaces.
+- **Resources:** [`ResourceBuilders.Resources`](https://developer.android.com/reference/androidx/wear/protolayout/ResourceBuilders.Resources.md.txt) objects consist of a *map* of key-value pairs of the Android resources (images) that are required to render a layout, and a *version*.
+- **Timeline:** A [`TimelineBuilders.Timeline`](https://developer.android.com/reference/androidx/wear/protolayout/TimelineBuilders.Timeline.md.txt) object is a list of one or more instances of a *layout object*. You can provide various mechanisms and expressions to indicate when the renderer should switch from one layout object to another, such as to stop showing a layout at a specific time.
+- **State:** A data structure of type [`StateBuilders.State`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/StateBuilders.State.md.txt) that is passed between tile and app, to enable the two components to communicate with each other. For example, if a button is tapped on the tile, the state holds the ID of the button. You can also exchange data types using a map.
+- **Tile:** A [`TileBuilders.Tile`](https://developer.android.com/reference/androidx/wear/tiles/TileBuilders.Tile.md.txt) object representing a tile, consisting of a *timeline* , a *resources version ID* , *freshness interval* , and *state*.
+- **Protolayout:** This term appears in the name of various tiles-related classes and refers to the [Wear OS Protolayout library](https://developer.android.com/jetpack/androidx/releases/wear-protolayout.md.txt), a graphics library that's used across various Wear OS surfaces.
 
 ## Create a tile
 
 ### Use `Material3TileService` (recommended)
 
 When building Material 3 tiles (`androidx.wear.tiles:tiles:1.6.0` and higher),
-always extend [`Material3TileService`](https://developer.android.com/reference/kotlin/androidx/wear/tiles/Material3TileService) instead of the lower-level
-[`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService) class. `Material3TileService` provides an opinionated,
+always extend [`Material3TileService`](https://developer.android.com/reference/kotlin/androidx/wear/tiles/Material3TileService.md.txt) instead of the lower-level
+[`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt) class. `Material3TileService` provides an opinionated,
 Kotlin-first architecture that simplifies tile development:
 
 - **Built-in Kotlin coroutines:** Implement a single suspending `MaterialScope.tileResponse(requestParams: TileRequest): Tile` function instead of using `ListenableFuture` and overriding `onTileRequest()`.
@@ -110,13 +110,13 @@ class MyTileService : Material3TileService() {
 
 ### Underlying `TileService` architecture
 
-`Material3TileService` builds on top of the base [`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService) class,
+`Material3TileService` builds on top of the base [`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt) class,
 which the remaining examples in this guide use to illustrate low-level concepts.
 
-To provide a tile from your app, implement a service of type [`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService)
+To provide a tile from your app, implement a service of type [`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt)
 and register it in your manifest. From this, the system requests the necessary
-*tiles* during calls to [`onTileRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService#onTileRequest(androidx.wear.tiles.RequestBuilders.TileRequest)) and *resources* during calls to
-[`onTileResourcesRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService#onTileResourcesRequest(androidx.wear.tiles.RequestBuilders.ResourcesRequest)).
+*tiles* during calls to [`onTileRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt#onTileRequest(androidx.wear.tiles.RequestBuilders.TileRequest)) and *resources* during calls to
+[`onTileResourcesRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt#onTileResourcesRequest(androidx.wear.tiles.RequestBuilders.ResourcesRequest)).
 
 ```kotlin
 class MyTileService : TileService() {
@@ -145,7 +145,7 @@ class MyTileService : TileService() {
 ```
 
 > [!IMPORTANT]
-> **Important:** [`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService) is a [bound service](https://developer.android.com/develop/background-work/services/bound-services). If you override any of the [bound-service lifecycle methods](https://developer.android.com/develop/background-work/services/bound-services#Lifecycle), take care to avoid unintended interactions with the `TileService`-specific lifecycle methods, which are called in a separate asynchronous thread.
+> **Important:** [`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt) is a [bound service](https://developer.android.com/develop/background-work/services/bound-services.md.txt). If you override any of the [bound-service lifecycle methods](https://developer.android.com/develop/background-work/services/bound-services.md.txt#Lifecycle), take care to avoid unintended interactions with the `TileService`-specific lifecycle methods, which are called in a separate asynchronous thread.
 
 Next, add a service inside the `<application>` tag of your `AndroidManifest.xml`
 file.
@@ -171,9 +171,9 @@ The permission and intent filter register this service as a tile provider.
 
 The icon, label, description, and preview resource is shown to the user when
 they configure tiles on their phone or watch. Note that the preview resource
-supports all of Android's [standard resource qualifiers](https://developer.android.com/guide/topics/resources/providing-resources), so it's possible
+supports all of Android's [standard resource qualifiers](https://developer.android.com/guide/topics/resources/providing-resources.md.txt), so it's possible
 to vary the preview according to factors like screen size and device language.
-See the [preview checklist](https://developer.android.com/training/wearables/tiles/get_started#preview-checklist) for additional recommendations.
+See the [preview checklist](https://developer.android.com/training/wearables/tiles/get_started.md.txt#preview-checklist) for additional recommendations.
 
 Deploy your app, and [add the Tile to the Tiles Carousel](https://support.google.com/wearos/answer/9314375) (there are
 [a more developer-friendly way to preview a Tile](https://developer.android.com/codelabs/wear-tiles#3) too, but for now just do
@@ -194,22 +194,22 @@ powered by Kotlin's [type-safe builder pattern](https://kotlinlang.org/docs/type
 ### Layout
 
 For guidance on the design principles behind creating effective and responsive
-tile layouts, see [Common layouts for tiles](https://developer.android.com/design/ui/wear/guides/foundations/common-layouts/tiles).
+tile layouts, see [Common layouts for tiles](https://developer.android.com/design/ui/wear/guides/foundations/common-layouts/tiles.md.txt).
 
 To create your layout, do the following:
 
-1. **Initiate a Material Design scope:** Call the [`materialScope()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#materialScope(android.content.Context,androidx.wear.protolayout.DeviceParametersBuilders.DeviceParameters,kotlin.Boolean,androidx.wear.protolayout.material3.ColorScheme,kotlin.Function1))
+1. **Initiate a Material Design scope:** Call the [`materialScope()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#materialScope(android.content.Context,androidx.wear.protolayout.DeviceParametersBuilders.DeviceParameters,kotlin.Boolean,androidx.wear.protolayout.material3.ColorScheme,kotlin.Function1))
    function, providing the required `context` and `deviceConfiguration`. You
    can include optional parameters, such as `allowDynamicTheme` and
    `defaultColorScheme`. The `allowDynamicTheme` is `true` by default, and the
-   `defaultColorScheme` represents the [`ColorScheme`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/ColorScheme) used when dynamic
+   `defaultColorScheme` represents the [`ColorScheme`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/ColorScheme.md.txt) used when dynamic
    colors are
    not available---such as when the user has turned the feature off---or
    when it's not supported by the device, or `allowDynamicTheme` is `false`).
 
 2. **Build your UI within the scope:** All UI components for a given Tile
    layout must be defined within the lambda of a single top-level
-   [materialScope()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#materialScope(android.content.Context,androidx.wear.protolayout.DeviceParametersBuilders.DeviceParameters,kotlin.Boolean,androidx.wear.protolayout.material3.ColorScheme,kotlin.Function1))
+   [materialScope()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#materialScope(android.content.Context,androidx.wear.protolayout.DeviceParametersBuilders.DeviceParameters,kotlin.Boolean,androidx.wear.protolayout.material3.ColorScheme,kotlin.Function1))
    call. These component functions, such as `primaryLayout()` and
    `textEdgeButton()`, are extension functions on `MaterialScope` and are only
    available when called on this receiver scope.
@@ -251,8 +251,8 @@ three distinct *slots*. Running from top to bottom, they are:
 
 The contents of each slot are as follows:
 
-- *`titleSlot` (optional):* Typically a few words generated by [`text()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).text(androidx.wear.protolayout.types.LayoutString,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Int,androidx.wear.protolayout.types.LayoutColor,kotlin.Boolean,kotlin.Boolean,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.Int,kotlin.collections.List)).
-- *`mainSlot` (mandatory):* Components organized into structures like [rows](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/LayoutElementBuilders.Row), [columns](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/LayoutElementBuilders.Column) and [button groups](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).buttonGroup(androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,kotlin.Float,kotlin.Function1)). These components can also be recursively embedded inside each other; for example, a column can contain rows.
+- *`titleSlot` (optional):* Typically a few words generated by [`text()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).text(androidx.wear.protolayout.types.LayoutString,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Int,androidx.wear.protolayout.types.LayoutColor,kotlin.Boolean,kotlin.Boolean,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.Int,kotlin.collections.List)).
+- *`mainSlot` (mandatory):* Components organized into structures like [rows](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/LayoutElementBuilders.Row.md.txt), [columns](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/LayoutElementBuilders.Column.md.txt) and [button groups](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).buttonGroup(androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,kotlin.Float,kotlin.Function1)). These components can also be recursively embedded inside each other; for example, a column can contain rows.
 - *`bottomSlot` (optional):* Typically filled with either an [edge-hugging
   button](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).textEdgeButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.material3.ButtonColors,kotlin.Function1)) or a text label.
 
@@ -262,7 +262,7 @@ font size increases or text becomes longer due to translation.
 
 ### UI components
 
-The [`protolayout-material3`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary) library provides a large number of components
+The [`protolayout-material3`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt) library provides a large number of components
 designed according to the Material 3 Expressive specifications and user
 interface recommendations.
 
@@ -272,12 +272,12 @@ Buttons are primarily **action-oriented**. They serve to trigger specific
 actions. The content of each button, such as an icon or short text, identifies
 the action.
 
-- [textButton()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).textButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,androidx.wear.protolayout.material3.TextButtonStyle,androidx.wear.protolayout.ModifiersBuilders.Padding)): button with a single slot for (short) text content
-- [iconButton()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).iconButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,androidx.wear.protolayout.material3.IconButtonStyle,androidx.wear.protolayout.ModifiersBuilders.Padding)): button with a single slot to represent an icon
-- [avatarButton()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).avatarButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,androidx.wear.protolayout.material3.AvatarButtonStyle,kotlin.Int,androidx.wear.protolayout.ModifiersBuilders.Padding)): pill-shaped avatar button that offers up to three slots to take content representing vertically stacked label and secondary label, and an image (avatar) next to it
-- [imageButton()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).imageButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension)): clickable image button that doesn't offer additional slots, only image (for example [`backgroundImage`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).backgroundImage(kotlin.String,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.types.LayoutColor,kotlin.Int)) as a background)
-- [compactButton()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).compactButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,kotlin.Int,androidx.wear.protolayout.ModifiersBuilders.Padding)): compact button that offers up to two slots to take horizontally stacked content representing an icon and text next to it
-- [button()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).button(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,kotlin.Function1,androidx.wear.protolayout.material3.ButtonStyle,kotlin.Int,androidx.wear.protolayout.ModifiersBuilders.Padding)): pill shape button that offers up to three slots to take content representing vertically stacked label and secondary label, and an icon next to it
+- [textButton()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).textButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,androidx.wear.protolayout.material3.TextButtonStyle,androidx.wear.protolayout.ModifiersBuilders.Padding)): button with a single slot for (short) text content
+- [iconButton()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).iconButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,androidx.wear.protolayout.material3.IconButtonStyle,androidx.wear.protolayout.ModifiersBuilders.Padding)): button with a single slot to represent an icon
+- [avatarButton()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).avatarButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,androidx.wear.protolayout.material3.AvatarButtonStyle,kotlin.Int,androidx.wear.protolayout.ModifiersBuilders.Padding)): pill-shaped avatar button that offers up to three slots to take content representing vertically stacked label and secondary label, and an image (avatar) next to it
+- [imageButton()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).imageButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension)): clickable image button that doesn't offer additional slots, only image (for example [`backgroundImage`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).backgroundImage(kotlin.String,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.types.LayoutColor,kotlin.Int)) as a background)
+- [compactButton()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).compactButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,kotlin.Int,androidx.wear.protolayout.ModifiersBuilders.Padding)): compact button that offers up to two slots to take horizontally stacked content representing an icon and text next to it
+- [button()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).button(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,kotlin.Function1,androidx.wear.protolayout.material3.ButtonStyle,kotlin.Int,androidx.wear.protolayout.ModifiersBuilders.Padding)): pill shape button that offers up to three slots to take content representing vertically stacked label and secondary label, and an icon next to it
 
 #### Edge Buttons
 
@@ -285,8 +285,8 @@ An **edge button** is a specialized, full-width button anchored to the bottom of
 a watch's round screen, representing the most important action to take from the
 current tile screen.
 
-- [iconEdgeButton()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).iconEdgeButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.material3.ButtonColors,kotlin.Function1)): edge button that offers a single slot to take an icon or similarly round, small content
-- [textEdgeButton()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).textEdgeButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.material3.ButtonColors,kotlin.Function1)): edge button that offers a single slot to take a text or similarly long and wide content
+- [iconEdgeButton()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).iconEdgeButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.material3.ButtonColors,kotlin.Function1)): edge button that offers a single slot to take an icon or similarly round, small content
+- [textEdgeButton()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).textEdgeButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.material3.ButtonColors,kotlin.Function1)): edge button that offers a single slot to take a text or similarly long and wide content
 
 #### Cards
 
@@ -295,21 +295,21 @@ related, structured data. While you can create interactive cards, they usually
 show a summary of information, which the user can then tap to see more details
 or perform a related action.
 
-- [titleCard()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).titleCard(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.CardColors,kotlin.Function1,androidx.wear.protolayout.material3.TitleCardStyle,androidx.wear.protolayout.ModifiersBuilders.Padding,kotlin.Int)): title card that offers one to three slots, usually text based
-- [appCard()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).appCard(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.CardColors,kotlin.Function1,androidx.wear.protolayout.material3.AppCardStyle,androidx.wear.protolayout.ModifiersBuilders.Padding)): app card that offers up to five slots, usually text based
-- [textDataCard()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).textDataCard(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.CardColors,kotlin.Function1,androidx.wear.protolayout.material3.DataCardStyle,androidx.wear.protolayout.ModifiersBuilders.Padding)): data card that offers up to three vertically stacked slots, usually text or numeral based
-- [iconDataCard()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).iconDataCard(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.CardColors,kotlin.Function1,androidx.wear.protolayout.material3.DataCardStyle,androidx.wear.protolayout.material3.TitleContentPlacementInDataCard,androidx.wear.protolayout.ModifiersBuilders.Padding)): data card that offers up to three vertically stacked slots, usually text or numeral based, with an icon
-- [graphicDataCard()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).graphicDataCard(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.CardColors,androidx.wear.protolayout.material3.GraphicDataCardStyle,kotlin.Int,androidx.wear.protolayout.ModifiersBuilders.Padding)): graphic data card that offers a slot for graphic data, such as progress indicator, and up to two vertically stacked slots, usually for text descriptions
+- [titleCard()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).titleCard(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.CardColors,kotlin.Function1,androidx.wear.protolayout.material3.TitleCardStyle,androidx.wear.protolayout.ModifiersBuilders.Padding,kotlin.Int)): title card that offers one to three slots, usually text based
+- [appCard()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).appCard(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.CardColors,kotlin.Function1,androidx.wear.protolayout.material3.AppCardStyle,androidx.wear.protolayout.ModifiersBuilders.Padding)): app card that offers up to five slots, usually text based
+- [textDataCard()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).textDataCard(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.CardColors,kotlin.Function1,androidx.wear.protolayout.material3.DataCardStyle,androidx.wear.protolayout.ModifiersBuilders.Padding)): data card that offers up to three vertically stacked slots, usually text or numeral based
+- [iconDataCard()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).iconDataCard(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.CardColors,kotlin.Function1,androidx.wear.protolayout.material3.DataCardStyle,androidx.wear.protolayout.material3.TitleContentPlacementInDataCard,androidx.wear.protolayout.ModifiersBuilders.Padding)): data card that offers up to three vertically stacked slots, usually text or numeral based, with an icon
+- [graphicDataCard()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).graphicDataCard(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.CardColors,androidx.wear.protolayout.material3.GraphicDataCardStyle,kotlin.Int,androidx.wear.protolayout.ModifiersBuilders.Padding)): graphic data card that offers a slot for graphic data, such as progress indicator, and up to two vertically stacked slots, usually for text descriptions
 
 #### Progress Indicators
 
-- [circularProgressIndicator()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).circularProgressIndicator(kotlin.Float,androidx.wear.protolayout.expression.DynamicBuilders.DynamicFloat,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,androidx.wear.protolayout.material3.ProgressIndicatorColors,androidx.wear.protolayout.DimensionBuilders.ContainerDimension)): indicates progress toward a goal using a radial element
-- [segmentedCircularProgressIndicator()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).segmentedCircularProgressIndicator(kotlin.Int,kotlin.Float,androidx.wear.protolayout.expression.DynamicBuilders.DynamicFloat,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,androidx.wear.protolayout.material3.ProgressIndicatorColors,androidx.wear.protolayout.DimensionBuilders.ContainerDimension)): indicates progress toward a goal using a radial element with distinct stages
+- [circularProgressIndicator()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).circularProgressIndicator(kotlin.Float,androidx.wear.protolayout.expression.DynamicBuilders.DynamicFloat,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,androidx.wear.protolayout.material3.ProgressIndicatorColors,androidx.wear.protolayout.DimensionBuilders.ContainerDimension)): indicates progress toward a goal using a radial element
+- [segmentedCircularProgressIndicator()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).segmentedCircularProgressIndicator(kotlin.Int,kotlin.Float,androidx.wear.protolayout.expression.DynamicBuilders.DynamicFloat,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,androidx.wear.protolayout.material3.ProgressIndicatorColors,androidx.wear.protolayout.DimensionBuilders.ContainerDimension)): indicates progress toward a goal using a radial element with distinct stages
 
 #### Group layout elements
 
-- [buttonGroup()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).buttonGroup(androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,kotlin.Float,kotlin.Function1)): component-layout that places its children in a horizontal sequence
-- [primaryLayout()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).primaryLayout(kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.material3.PrimaryLayoutMargins)): full screen layout that represents a suggested M3 layout style that is responsive and takes care of the elements' placement, together with the recommended margins and padding applied
+- [buttonGroup()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).buttonGroup(androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,kotlin.Float,kotlin.Function1)): component-layout that places its children in a horizontal sequence
+- [primaryLayout()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).primaryLayout(kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.material3.PrimaryLayoutMargins)): full screen layout that represents a suggested M3 layout style that is responsive and takes care of the elements' placement, together with the recommended margins and padding applied
 
 ### Apply a theme
 
@@ -318,7 +318,7 @@ roles, organized into six groups: primary, secondary, tertiary, error, surface,
 and outline.
 ![The Material 3 Expressive Color System, showing color roles organized into groups like primary, secondary, tertiary, error, surface, and outline.](https://developer.android.com/static/wear/images/tiles/m3-color-system.png) **Figure 3.** The Material 3 Expressive Color System.
 
-A [`ColorScheme`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/ColorScheme) maps each of these 29 roles to a corresponding color, and
+A [`ColorScheme`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/ColorScheme.md.txt) maps each of these 29 roles to a corresponding color, and
 since it's part of the `MaterialScope` and components must be created within it,
 they automatically take colors from the scheme. This approach lets all UI
 elements automatically adhere to the Material Design standards.
@@ -375,7 +375,7 @@ Each individual component uses a subset of the 29 color roles defined by a
 `ColorScheme`. For example, buttons use up to four colors, which by default are
 taken from the "primary" group of the active `ColorScheme`:
 
-| [`ButtonColors`](https://developer.android.com/reference/androidx/wear/protolayout/material3/ButtonColors) component token | [`ColorScheme`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/ColorScheme) role |
+| [`ButtonColors`](https://developer.android.com/reference/androidx/wear/protolayout/material3/ButtonColors.md.txt) component token | [`ColorScheme`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/ColorScheme.md.txt) role |
 |---|---|
 | containerColor | primary |
 | iconColor | onPrimary |
@@ -393,9 +393,9 @@ stand out and give better contrast.
 You can customize component colors in several ways:
 
 1. **Use a helper function for predefined colors.** Use helper functions like
-   [`filledTonalButtonColors()`](https://developer.android.com/reference/androidx/wear/protolayout/material3/ButtonDefaults#(androidx.wear.protolayout.material3.MaterialScope).filledTonalButtonColors()) to apply the standard button styles for
+   [`filledTonalButtonColors()`](https://developer.android.com/reference/androidx/wear/protolayout/material3/ButtonDefaults.md.txt#(androidx.wear.protolayout.material3.MaterialScope).filledTonalButtonColors()) to apply the standard button styles for
    Material 3 Expressive. These functions create pre-configured
-   [`ButtonColors`](https://developer.android.com/reference/androidx/wear/protolayout/material3/ButtonColors) instances
+   [`ButtonColors`](https://developer.android.com/reference/androidx/wear/protolayout/material3/ButtonColors.md.txt) instances
    that map common styles like filled, tonal, or outlined to the appropriate
    roles from the active `ColorScheme` within the `MaterialScope`. This
    lets you apply consistent styles without manually defining each color
@@ -413,11 +413,11 @@ You can customize component colors in several ways:
 
    <br />
 
-   For cards, use the equivalent [`filledCardColors()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/CardDefaults#(androidx.wear.protolayout.material3.MaterialScope).filledCardColors()) family of
+   For cards, use the equivalent [`filledCardColors()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/CardDefaults.md.txt#(androidx.wear.protolayout.material3.MaterialScope).filledCardColors()) family of
    functions.
 
    You can also modify the `ButtonColors` object returned by helper functions
-   using their [`copy()`](https://developer.android.com/reference/androidx/wear/protolayout/material3/ButtonColors#copy(androidx.wear.protolayout.types.LayoutColor,androidx.wear.protolayout.types.LayoutColor,androidx.wear.protolayout.types.LayoutColor,androidx.wear.protolayout.types.LayoutColor)) method if you only need to change one or two
+   using their [`copy()`](https://developer.android.com/reference/androidx/wear/protolayout/material3/ButtonColors.md.txt#copy(androidx.wear.protolayout.types.LayoutColor,androidx.wear.protolayout.types.LayoutColor,androidx.wear.protolayout.types.LayoutColor,androidx.wear.protolayout.types.LayoutColor)) method if you only need to change one or two
    tokens:
 
 
@@ -436,8 +436,8 @@ You can customize component colors in several ways:
    <br />
 
 2. **Explicitly provide replacement color roles.** Create your own
-   [`ButtonColors`](https://developer.android.com/reference/androidx/wear/protolayout/material3/ButtonColors) object, and pass it to the component. For cards, use
-   the equivalent [`CardColors`](https://developer.android.com/reference/androidx/wear/protolayout/material3/CardColors) object.
+   [`ButtonColors`](https://developer.android.com/reference/androidx/wear/protolayout/material3/ButtonColors.md.txt) object, and pass it to the component. For cards, use
+   the equivalent [`CardColors`](https://developer.android.com/reference/androidx/wear/protolayout/material3/CardColors.md.txt) object.
 
 
    ```kotlin
@@ -478,7 +478,7 @@ You can customize component colors in several ways:
 ### Typography
 
 For more information on using typography effectively in your designs, see the
-[typography design guide](https://developer.android.com/design/ui/wear/guides/styles/typography).
+[typography design guide](https://developer.android.com/design/ui/wear/guides/styles/typography.md.txt).
 
 To create visual consistency across the Wear OS platform and to optimize
 performance, all text on tiles is rendered using a system-provided font. That
@@ -486,12 +486,12 @@ is, tiles don't support custom typefaces. On Wear OS 6 and higher, this is
 an OEM-specific font. In most cases it will be a *variable* font, offering a
 more expressive experience and more granular control.
 
-To create a text style, you usually use the [`text()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).text(androidx.wear.protolayout.types.LayoutString,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Int,androidx.wear.protolayout.types.LayoutColor,kotlin.Boolean,kotlin.Boolean,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.Int,kotlin.collections.List)) method
+To create a text style, you usually use the [`text()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).text(androidx.wear.protolayout.types.LayoutString,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Int,androidx.wear.protolayout.types.LayoutColor,kotlin.Boolean,kotlin.Boolean,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.Int,kotlin.collections.List)) method
 combined with typographic constants. This component lets you make use of
 predefined typography roles in Material 3 Expressive, which helps your tile
 adhere to established typographic best practices for readability and hierarchy.
-The library offers a set of [18 semantic typography constants](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/Typography), such as
-[`BODY_MEDIUM`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/Typography#BODY_MEDIUM()). These constants also affect font axes other than size.
+The library offers a set of [18 semantic typography constants](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/Typography.md.txt), such as
+[`BODY_MEDIUM`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/Typography.md.txt#BODY_MEDIUM()). These constants also affect font axes other than size.
 
 
 ```kotlin
@@ -527,8 +527,8 @@ text(
 <br />
 
 Finally, if you need to control *size* or *letter spacing* (not recommended),
-use [basicText()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/layout/package-summary#basicText(androidx.wear.protolayout.types.LayoutString,androidx.wear.protolayout.LayoutElementBuilders.FontStyle,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Int,kotlin.Int,kotlin.Int,kotlin.Float)) instead of [text()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).text(androidx.wear.protolayout.types.LayoutString,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Int,androidx.wear.protolayout.types.LayoutColor,kotlin.Boolean,kotlin.Boolean,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.Int,kotlin.collections.List)), and construct a value for the
-`fontStyle` property using [fontStyle()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/layout/package-summary#fontStyle(kotlin.Float,kotlin.Boolean,kotlin.Boolean,androidx.wear.protolayout.types.LayoutColor,kotlin.Int,kotlin.Float,kotlin.collections.List,kotlin.collections.List,kotlin.collections.List)).)).
+use [basicText()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/layout/package-summary.md.txt#basicText(androidx.wear.protolayout.types.LayoutString,androidx.wear.protolayout.LayoutElementBuilders.FontStyle,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Int,kotlin.Int,kotlin.Int,kotlin.Float)) instead of [text()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).text(androidx.wear.protolayout.types.LayoutString,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Int,androidx.wear.protolayout.types.LayoutColor,kotlin.Boolean,kotlin.Boolean,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.Int,kotlin.collections.List)), and construct a value for the
+`fontStyle` property using [fontStyle()](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/layout/package-summary.md.txt#fontStyle(kotlin.Float,kotlin.Boolean,kotlin.Boolean,androidx.wear.protolayout.types.LayoutColor,kotlin.Int,kotlin.Float,kotlin.collections.List,kotlin.collections.List,kotlin.collections.List)).)).
 
 ### Shape and margins
 
@@ -550,7 +550,7 @@ textButton(
 
 After you alter the shape of a component, if you think that it leaves too much
 or too little space around the edge of the display, adjust the margins using the
-`margin` parameter of [`primaryLayout()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).primaryLayout(kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.material3.PrimaryLayoutMargins)):
+`margin` parameter of [`primaryLayout()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).primaryLayout(kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.material3.PrimaryLayoutMargins)):
 
 
 ```kotlin
@@ -569,20 +569,20 @@ primaryLayout(
 <br />
 
 > [!NOTE]
-> **Note:** Tiles don't support the shape morphing between button shapes that's available to apps that use Compose for Wear OS. For example, there's no tiles equivalent of [`IconToggleButtonShapes`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/IconToggleButtonShapes).
+> **Note:** Tiles don't support the shape morphing between button shapes that's available to apps that use Compose for Wear OS. For example, there's no tiles equivalent of [`IconToggleButtonShapes`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/IconToggleButtonShapes.md.txt).
 
 ### Arcs
 
 The following `Arc` container children are supported:
 
-- [`ArcLine`](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.ArcLine): renders a curved line around the Arc.
-- [`ArcText`](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.ArcText): renders curved text in the Arc.
-- [`ArcAdapter`](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.ArcAdapter): renders a basic layout element in the arc, drawn at a tangent to the arc.
+- [`ArcLine`](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.ArcLine.md.txt): renders a curved line around the Arc.
+- [`ArcText`](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.ArcText.md.txt): renders curved text in the Arc.
+- [`ArcAdapter`](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.ArcAdapter.md.txt): renders a basic layout element in the arc, drawn at a tangent to the arc.
 
 > [!NOTE]
 > **Note:** While an `ArcText` draws curved text around the Arc, using a `Text` in an `ArcAdapter` draws linear text at a tangent to the arc.
 
-For more information, see the [reference documentation](https://developer.android.com/reference/androidx/wear/protolayout/package-summary) for each of the
+For more information, see the [reference documentation](https://developer.android.com/reference/androidx/wear/protolayout/package-summary.md.txt) for each of the
 element types.
 
 ### Modifiers
@@ -592,9 +592,9 @@ these modifiers for the following purposes:
 
 - Change the visual appearance of the layout. For example, add a background, border, or padding to your layout element.
 - Add metadata about the layout. For example, add a semantics modifier to your layout element for use with screen readers.
-- Add functionality. For example, add a clickable modifier to your layout element to make your tile interactive. For more information, see [Interact with tiles](https://developer.android.com/training/wearables/tiles/interactions).
+- Add functionality. For example, add a clickable modifier to your layout element to make your tile interactive. For more information, see [Interact with tiles](https://developer.android.com/training/wearables/tiles/interactions.md.txt).
 
-For example, we can customize the default look and metadata of an [`Image`](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.Image),
+For example, we can customize the default look and metadata of an [`Image`](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.Image.md.txt),
 as shown in the following code sample:
 
 
@@ -623,13 +623,13 @@ text. This is useful when you want to apply a different style to only one
 substring in a larger block of text, something that isn't possible with the
 `Text` element.
 
-A `Spannable` container is filled with [`Span`](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.Span) children. Other children, or
+A `Spannable` container is filled with [`Span`](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.Span.md.txt) children. Other children, or
 nested `Spannable` instances, aren't allowed.
 
 There are two types of `Span` children:
 
-- [`SpanText`](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.SpanText): renders text with a specific style.
-- [`SpanImage`](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.SpanImage): renders an image inline with text.
+- [`SpanText`](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.SpanText.md.txt): renders text with a specific style.
+- [`SpanImage`](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.SpanImage.md.txt): renders an image inline with text.
 
 For example, you could italicize "world" in a "Hello world" tile and insert an
 image between the words, as shown in the following code sample:
@@ -654,18 +654,18 @@ private fun mySpannable(): LayoutElement =
 ## Work with resources
 
 > [!IMPORTANT]
-> **Important:** When using [`Material3TileService`](https://developer.android.com/reference/kotlin/androidx/wear/tiles/Material3TileService), resources are registered automatically through its built-in `ProtoLayoutScope` when you pass an `ImageResource` (such as `imageResource(androidImageResource(R.drawable.icon))`) directly to Material 3 components like `icon()` or `backgroundImage()`. Don't override `onTileResourcesRequest()` in `Material3TileService`.
+> **Important:** When using [`Material3TileService`](https://developer.android.com/reference/kotlin/androidx/wear/tiles/Material3TileService.md.txt), resources are registered automatically through its built-in `ProtoLayoutScope` when you pass an `ImageResource` (such as `imageResource(androidImageResource(R.drawable.icon))`) directly to Material 3 components like `icon()` or `backgroundImage()`. Don't override `onTileResourcesRequest()` in `Material3TileService`.
 
 Tiles don't have access to any of your app's resources. This means that you
 can't pass an Android image ID to an `Image` layout element and expect it to
-resolve. Instead, override the [`onTileResourcesRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService#onTileResourcesRequest(androidx.wear.protolayout.RequestBuilders.ResourcesRequest)) method and
+resolve. Instead, override the [`onTileResourcesRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt#onTileResourcesRequest(androidx.wear.protolayout.RequestBuilders.ResourcesRequest)) method and
 provide any resources manually.
 
 There are two ways to provide images within the `onTileResourcesRequest()`
 method:
 
-- Provide a drawable resource using [`setAndroidResourceByResId()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/ResourceBuilders.ImageResource.Builder#setAndroidResourceByResId%28androidx.wear.protolayout.ResourceBuilders.AndroidImageResourceByResId%29).
-- Provide a dynamic image as a `ByteArray` using [`setInlineResource()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/ResourceBuilders.ImageResource.Builder#setInlineResource(androidx.wear.protolayout.ResourceBuilders.InlineImageResource)).
+- Provide a drawable resource using [`setAndroidResourceByResId()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/ResourceBuilders.ImageResource.Builder.md.txt#setAndroidResourceByResId%28androidx.wear.protolayout.ResourceBuilders.AndroidImageResourceByResId%29).
+- Provide a dynamic image as a `ByteArray` using [`setInlineResource()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/ResourceBuilders.ImageResource.Builder.md.txt#setInlineResource(androidx.wear.protolayout.ResourceBuilders.InlineImageResource)).
 
 
 ```kotlin
@@ -714,4 +714,4 @@ details about your tile:
 - **Uses a static color theme**. Use the tile's static color theme, not a dynamic one.
 - **Includes app icon**. Confirm that your app's icon appears at the top of the preview image.
 - **Shows loaded/logged-in state**. The preview should display a fully functional "loaded" or "logged-in" state, avoiding any empty or placeholder content.
-- **Leverage resource resolution rules for customization (optional).** Consider using Android's [resource resolution rules](https://developer.android.com/guide/topics/resources/providing-resources) to provide previews that match the device's display size, language, or locale settings. This is particularly useful if your tile's appearance varies across devices.
+- **Leverage resource resolution rules for customization (optional).** Consider using Android's [resource resolution rules](https://developer.android.com/guide/topics/resources/providing-resources.md.txt) to provide previews that match the device's display size, language, or locale settings. This is particularly useful if your tile's appearance varies across devices.

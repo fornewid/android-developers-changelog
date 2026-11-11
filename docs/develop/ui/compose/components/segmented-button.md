@@ -8,15 +8,15 @@ Use a segmented button to let users choose from a set of options, side-by-side.
 There are two types of segmented buttons:
 
 - **Single-select button**: Lets users choose one option.
-- **Multi-select button** : Lets users choose between two and five items. For more complex choices, or more than five items, use [chips](https://developer.android.com/develop/ui/compose/components/chip).
+- **Multi-select button** : Lets users choose between two and five items. For more complex choices, or more than five items, use [chips](https://developer.android.com/develop/ui/compose/components/chip.md.txt).
 
 ![A segmented button component is shown. The first button allows a single selection, while the second button allows multiple selections.](https://developer.android.com/static/develop/ui/compose/images/components/segmentedbutton.png) **Figure 1.** A single-select button (1) and a multi-select button (2).
 
 ## API surface
 
-Use the [`SingleChoiceSegmentedButtonRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SingleChoiceSegmentedButtonRow.composable#SingleChoiceSegmentedButtonRow(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,kotlin.Function1)) and
-[`MultiChoiceSegmentedButtonRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MultiChoiceSegmentedButtonRow.composable#MultiChoiceSegmentedButtonRow(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,kotlin.Function1)) layouts to create segmented buttons. These
-layouts position and size [`SegmentedButton`s](https://developer.android.com/reference/kotlin/androidx/compose/material3/SegmentedButton.composable#(androidx.compose.material3.MultiChoiceSegmentedButtonRowScope).SegmentedButton(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.graphics.Shape,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SegmentedButtonColors,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0,kotlin.Function0)) correctly,
+Use the [`SingleChoiceSegmentedButtonRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SingleChoiceSegmentedButtonRow.composable.md.txt#SingleChoiceSegmentedButtonRow(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,kotlin.Function1)) and
+[`MultiChoiceSegmentedButtonRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MultiChoiceSegmentedButtonRow.composable.md.txt#MultiChoiceSegmentedButtonRow(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,kotlin.Function1)) layouts to create segmented buttons. These
+layouts position and size [`SegmentedButton`s](https://developer.android.com/reference/kotlin/androidx/compose/material3/SegmentedButton.composable.md.txt#(androidx.compose.material3.MultiChoiceSegmentedButtonRowScope).SegmentedButton(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.graphics.Shape,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SegmentedButtonColors,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0,kotlin.Function0)) correctly,
 and share the following key parameters:
 
 - `space`: Adjusts the overlap between the buttons.
@@ -64,7 +64,7 @@ fun SingleChoiceSegmentedButton(modifier: Modifier = Modifier) {
 
 ### Result
 
-![A segmented button component with the options Day, Month, and Week is displayed. The Day option is currently selected.](https://developer.android.com/static/develop/ui/compose/images/components/SingleChoiceSegmentedButton.png) **Figure 2.** A single-select button with one option picked.
+![A single-select segmented button with the options 'Day', 'Month' and 'Week'; 'Day' is selected and shows a check mark.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_singlechoicesegmentedbutton.png) **Figure 2.** A single-select button with one option picked.
 
 ## Create a multi-select segmented button
 
@@ -129,7 +129,7 @@ fun MultiChoiceSegmentedButton(modifier: Modifier = Modifier) {
 
 ### Result
 
-![A segmented button component with the options Walk, Ride, and Drive is shown. The Walk and Ride options are currently selected.](https://developer.android.com/static/develop/ui/compose/images/components/Multi-Choice-Segmented-Button.png) **Figure 3.** A multi-select segmented button with two options picked.
+![A multi-select segmented button with walking, bus and car icons; walking and bus are selected and show check marks.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_multichoicesegmentedbutton.png) **Figure 3.** A multi-select segmented button. Users can select any number of options, including none.
 
 ## Additional resources
 

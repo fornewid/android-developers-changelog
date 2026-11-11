@@ -34,9 +34,9 @@ val template = MessageTemplate.Builder("Hello world!")
 
 <br />
 
-The [`Action.BACK`](https://developer.android.com/reference/androidx/car/app/model/Action#BACK()) object is a standard [`Action`](https://developer.android.com/reference/androidx/car/app/model/Action) that automatically
-invokes [`ScreenManager.pop`](https://developer.android.com/reference/androidx/car/app/ScreenManager#pop()). This behavior can be overridden by using the
-[`OnBackPressedDispatcher`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher) instance available from the `CarContext`.
+The [`Action.BACK`](https://developer.android.com/reference/androidx/car/app/model/Action.md.txt#BACK()) object is a standard [`Action`](https://developer.android.com/reference/androidx/car/app/model/Action.md.txt) that automatically
+invokes [`ScreenManager.pop`](https://developer.android.com/reference/androidx/car/app/ScreenManager.md.txt#pop()). This behavior can be overridden by using the
+[`OnBackPressedDispatcher`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher.md.txt) instance available from the `CarContext`.
 
 To promote safe driving, the screen stack can consist of no more than five
-screens. To learn more, see [Template restrictions](https://developer.android.com/training/cars/apps/library/template-restrictions).
+screens. To learn more, see [Template restrictions](https://developer.android.com/training/cars/apps/library/template-restrictions.md.txt).

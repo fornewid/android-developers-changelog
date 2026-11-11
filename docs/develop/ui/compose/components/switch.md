@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/compose/components/switch
 source: md.txt
 ---
 
-The [`Switch`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Switch.composable#Switch(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.SwitchColors,androidx.compose.foundation.interaction.MutableInteractionSource)) component allows users to toggle between two states: checked
+The [`Switch`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Switch.composable.md.txt#Switch(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.SwitchColors,androidx.compose.foundation.interaction.MutableInteractionSource)) component allows users to toggle between two states: checked
 and unchecked. In your app you may use a switch to let the user do one of the
 following:
 
@@ -20,7 +20,7 @@ switch to check and clear it.
 
 ## Basic implementation
 
-See the [`Switch`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Switch.composable#Switch(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.SwitchColors,androidx.compose.foundation.interaction.MutableInteractionSource)) reference for a full API definition. The following are
+See the [`Switch`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Switch.composable.md.txt#Switch(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.SwitchColors,androidx.compose.foundation.interaction.MutableInteractionSource)) reference for a full API definition. The following are
 some of the key parameters you might need to use:
 
 - **`checked`**: The initial state of the switch.
@@ -47,11 +47,8 @@ fun SwitchMinimalExample() {
 
 <br />
 
-This implementation appears as follows when unchecked:
-![A basic switch that is unchecked.](https://developer.android.com/static/develop/ui/compose/images/components/switch-deactivated.png) **Figure 2.** An unchecked switch.
-
-This is the appearance when checked:
-![A basic Switch that is checked.](https://developer.android.com/static/develop/ui/compose/images/components/switch.png) **Figure 3.** A checked switch.
+This implementation appears as follows:
+![A switch in the checked state.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_switchminimal.png) **Figure 2.** A checked switch.
 
 ## Advanced implementation
 
@@ -98,7 +95,7 @@ fun SwitchWithIconExample() {
 In this implementation, the unchecked appearance is the same as the example in
 the preceding section. However, when checked, this implementation appears as
 follows:
-![A switch that uses the thumbContent parameter to display a custom icon when checked.](https://developer.android.com/static/develop/ui/compose/images/components/switch-icon.png) **Figure 4.** A switch with a custom checked icon.
+![A checked switch that shows a check mark icon in its thumb.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_switchwithicon.png) **Figure 3.** A switch with a custom checked icon.
 
 ### Custom colors
 
@@ -130,7 +127,7 @@ fun SwitchWithCustomColors() {
 <br />
 
 This implementation appears as follows:
-![A switch that uses the colors parameter to display a switch with custom colors for both the thumb and track.](https://developer.android.com/static/develop/ui/compose/images/components/switch-colors.png) **Figure 5.** A switch with custom colors.
+![A checked switch with a custom dark thumb on a light track.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_switchwithcustomcolors.png) **Figure 4.** A switch with custom colors.
 
 ## Additional resources
 

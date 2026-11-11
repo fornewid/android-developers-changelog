@@ -16,10 +16,10 @@ There are two types of icon buttons:
 
 ## API surface
 
-Use the [`IconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/IconButton.composable) composable to implement standard icon buttons. To
+Use the [`IconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/IconButton.composable.md.txt) composable to implement standard icon buttons. To
 create different visual styles like filled, filled tonal, or outlined, use
-[`FilledIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledIconButton.composable#FilledIconButton(kotlin.Function0,androidx.compose.material3.IconButtonShapes,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), [`FilledTonalIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledTonalIconButton.composable#FilledTonalIconButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), and
-[`OutlinedIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedIconButton.composable#OutlinedIconButton(kotlin.Function0,androidx.compose.material3.IconButtonShapes,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), respectively.
+[`FilledIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledIconButton.composable.md.txt#FilledIconButton(kotlin.Function0,androidx.compose.material3.IconButtonShapes,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), [`FilledTonalIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledTonalIconButton.composable.md.txt#FilledTonalIconButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), and
+[`OutlinedIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedIconButton.composable.md.txt#OutlinedIconButton(kotlin.Function0,androidx.compose.material3.IconButtonShapes,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), respectively.
 
 The key parameters for `IconButton` include:
 
@@ -59,7 +59,7 @@ fun ToggleIconButtonExample() {
   - `mutableStateOf(false)` creates a `MutableState` object that holds a boolean value, initially `false`. This makes `isToggled` a state holder, meaning Compose recomposes the UI whenever its value changes.
   - `rememberSaveable` ensures the `isToggled` state persists across configuration changes, like screen rotation.
 - The `onClick` lambda of the `IconButton` defines the button's behavior when clicked, toggling the state between `true` and `false`.
-- The [`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Icon.composable#Icon(androidx.compose.ui.graphics.painter.Painter,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color)) composable's `painter` parameter conditionally loads a different `painterResource` based on the `isToggled` state. This changes the visual appearance of the icon.
+- The [`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Icon.composable.md.txt#Icon(androidx.compose.ui.graphics.painter.Painter,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color)) composable's `painter` parameter conditionally loads a different `painterResource` based on the `isToggled` state. This changes the visual appearance of the icon.
   - If `isToggled` is `true`, it loads the filled heart drawable.
   - If `isToggled` is `false`, it loads the outlined heart drawable.
 - The `contentDescription` of the `Icon` also updates based on the `isToggled` state to provide appropriate accessibility information.
@@ -67,8 +67,8 @@ fun ToggleIconButtonExample() {
 ### Result
 
 The following image shows the toggle icon button from the preceding snippet in
-its unselected state:
-![A favorite toggle icon button (a heart) in its unselected state (unfilled).](https://developer.android.com/static/develop/ui/compose/images/components/icon-button-basic.png) **Figure 2.** A "favorite" toggle icon button in its unselected state.
+its selected state:
+![A filled heart icon button in its selected state.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_togglebuttonexample.png) **Figure 2.** A "favorite" toggle icon button in its selected state.
 
 ## Advanced example: Repeated actions on press
 
@@ -159,6 +159,7 @@ fun MomentaryIconButtonExample() {
     }
 }
 ```
+![Rewind and fast-forward icon buttons on either side of the text 'advanced by 5 frames'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_momentaryiconbuttons.png)
 
 <br />
 

@@ -13,15 +13,15 @@ and take steps to ensure that the user has the phone app available.
 ## Plan your app
 
 
-You can use [Android App Bundle](https://developer.android.com/guide/app-bundle)
+You can use [Android App Bundle](https://developer.android.com/guide/app-bundle.md.txt)
 to automatically generate optimized Android Package Kits (APKs) for each user's device configuration under the same
 application listing. This lets users download only the code and resources they need to
 run your app.
 
 
 For information about setting up your app for distribution through
-the Google Play Store, see [Package and distribute Wear OS Apps](https://developer.android.com/training/wearables/packaging) and the guide to getting started with
-[Android App Bundles](https://developer.android.com/guide/app-bundle#get_started).
+the Google Play Store, see [Package and distribute Wear OS Apps](https://developer.android.com/training/wearables/packaging.md.txt) and the guide to getting started with
+[Android App Bundles](https://developer.android.com/guide/app-bundle.md.txt#get_started).
 
 
 For new apps, the target API level must be 34 or higher. For more information, see
@@ -36,7 +36,8 @@ see [Network access and sync on Wear OS](https://developer.android.com/training/
 ### Define an app as a Wear OS app
 
 
-You must define the `https://developer.android.com/guide/topics/manifest/uses-feature-element` tag in your app's Android manifest file.
+You must define the `
+<uses-feature>` tag in your app's Android manifest file.
 To indicate that it is a watch app, add an entry like the following:
 
 ```xml
@@ -65,7 +66,8 @@ devices.
 
 
 In your Wear OS app, set the value of `
-https://developer.android.com/guide/topics/manifest/meta-data-element` element `com.google.android.wearable.standalone`
+
+meta-data` element `com.google.android.wearable.standalone`
 in the Android manifest file to declare whether your app is standalone or non-standalone.
 
 
@@ -91,7 +93,7 @@ Even if the value of `com.google.android.wearable.standalone` is
 `false`, the watch
 app can be installed before the phone app is installed.
 Therefore, if your watch app
-[detects](https://developer.android.com/training/wearables/apps/standalone-apps#detecting-your-app) that a companion phone
+[detects](https://developer.android.com/training/wearables/apps/standalone-apps.md.txt#detecting-your-app) that a companion phone
 lacks the necessary phone app, as described on this page,
 prompt the user to install the phone app.
 
@@ -108,9 +110,9 @@ that is specific to a form factor can be in a separate module.
 
 You can use standard Android storage APIs to store data locally, as you
 would on a phone. You can use the
-[DataStore](https://developer.android.com/topic/libraries/architecture/datastore) to store
+[DataStore](https://developer.android.com/topic/libraries/architecture/datastore.md.txt) to store
 key-value pairs and typed objects, or you can use the
-[Room](https://developer.android.com/training/data-storage/room)
+[Room](https://developer.android.com/training/data-storage/room.md.txt)
 persistence library.
 
 ## Detect your app on another device
@@ -156,8 +158,8 @@ For more information
 about the classes described in the following section, see the
 [Wear OS API reference](https://developer.android.com/reference/packages-wearable-support).
 That reference also includes information about the
-[`PhoneTypeHelper`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper) class, which contains a
-[`getPhoneDeviceType()`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper#getPhoneDeviceType(android.content.Context)) method that lets your
+[`PhoneTypeHelper`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper.md.txt) class, which contains a
+[`getPhoneDeviceType()`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper.md.txt#getPhoneDeviceType(android.content.Context)) method that lets your
 Wear OS app check whether a companion phone is an Android or iOS device.
 
 ### Specify capability names for detecting your apps
@@ -203,10 +205,10 @@ Your watch app can detect whether a user's companion phone has your
 phone app. Follow these steps:
 
 1. Use the `CapabilityClient` to check whether your phone app is installed on the paired phone. For more information, see the [Datalayer helpers sample](https://github.com/google/horologist/tree/v0.6.10/datalayer/sample) on GitHub.
-2. If your phone app isn't installed on the phone, use the [`PhoneDeviceType.getPhoneDeviceType()`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper#getPhoneDeviceType(android.content.Context)) method to check the type of the phone. See the following section for details.
-3. If [`PhoneDeviceType.DEVICE_TYPE_ANDROID`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper#DEVICE_TYPE_ANDROID()) is returned, the phone is an Android phone. Call [`RemoteActivityHelper.startRemoteActivity()`](https://developer.android.com/reference/kotlin/androidx/wear/remote/interactions/RemoteActivityHelper#startRemoteActivity(android.content.Intent,kotlin.String)) on the Wear OS device to open the Play Store on the phone. Use the market URI for your phone app, which might be different from your Wear app's URI. For example, use a market URI such as: `market://details?id=com.example.android.wearable.wear.finddevices`.
+2. If your phone app isn't installed on the phone, use the [`PhoneDeviceType.getPhoneDeviceType()`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper.md.txt#getPhoneDeviceType(android.content.Context)) method to check the type of the phone. See the following section for details.
+3. If [`PhoneDeviceType.DEVICE_TYPE_ANDROID`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper.md.txt#DEVICE_TYPE_ANDROID()) is returned, the phone is an Android phone. Call [`RemoteActivityHelper.startRemoteActivity()`](https://developer.android.com/reference/kotlin/androidx/wear/remote/interactions/RemoteActivityHelper.md.txt#startRemoteActivity(android.content.Intent,kotlin.String)) on the Wear OS device to open the Play Store on the phone. Use the market URI for your phone app, which might be different from your Wear app's URI. For example, use a market URI such as: `market://details?id=com.example.android.wearable.wear.finddevices`.
 4. If
-   [`PhoneDeviceType.DEVICE_TYPE_IOS`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper#DEVICE_TYPE_IOS())
+   [`PhoneDeviceType.DEVICE_TYPE_IOS`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper.md.txt#DEVICE_TYPE_IOS())
    is returned, the phone is an iOS phone with no Play
    Store available. Open the App Store on the iPhone
    by calling `RemoteActivityHelper.startRemoteActivity()` on the Wear
@@ -239,10 +241,10 @@ method is one of the following:
 
 | **Return value** | **Description** |
 |---|---|
-| [`DEVICE_TYPE_ANDROID`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper#DEVICE_TYPE_ANDROID()) | The companion phone is an Android-powered device. |
-| [`DEVICE_TYPE_IOS`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper#DEVICE_TYPE_IOS()) | The companion phone is an iOS device. |
-| [`DEVICE_TYPE_UNKNOWN`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper#DEVICE_TYPE_UNKNOWN()) | The companion phone is an unknown device. |
-| [`DEVICE_TYPE_ERROR`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper#DEVICE_TYPE_ERROR()) | An error occurred in determining the type of the paired phone; another check should be made later. |
+| [`DEVICE_TYPE_ANDROID`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper.md.txt#DEVICE_TYPE_ANDROID()) | The companion phone is an Android-powered device. |
+| [`DEVICE_TYPE_IOS`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper.md.txt#DEVICE_TYPE_IOS()) | The companion phone is an iOS device. |
+| [`DEVICE_TYPE_UNKNOWN`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper.md.txt#DEVICE_TYPE_UNKNOWN()) | The companion phone is an unknown device. |
+| [`DEVICE_TYPE_ERROR`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper.md.txt#DEVICE_TYPE_ERROR()) | An error occurred in determining the type of the paired phone; another check should be made later. |
 
 ### App detection starting from an Android phone
 

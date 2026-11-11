@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/aaos-sdv-secure-by-design
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # AAOS SDV - Secure by Design
 
-5 min read ![](https://developer.android.com/static/blog/assets/Android_1_Strapi_6f49d09922_1I8TFC.webp) 24 Aug 2026 3 Authors [Markus Vill,](https://developer.android.com/blog/authors/markus-vill) [Sean Keys,](https://developer.android.com/blog/authors/sean-keys) [István Nádor](https://developer.android.com/blog/authors/istvan-nador) At Google, we believe our products should be secure by design, which is why we built the Android Automotive Operating System for Software Defined Vehicle (AAOS SDV) on existing, [market-proven platforms](https://source.android.com/docs/automotive/sdv/workstreams/hardware/sdv-on-qnx), leveraging virtualization technologies like [Cuttlefish](https://source.android.com/docs/devices/cuttlefish). While our [release announcements](https://blog.google/products-and-platforms/platforms/android/android-automotive-os/) focused on the features, this blog post outlines some of the security concepts.
+5 min read ![](https://developer.android.com/static/blog/assets/Android_1_Strapi_6f49d09922_1I8TFC.webp) 24 Aug 2026 3 Authors [Markus Vill,](https://developer.android.com/blog/authors/markus-vill.md.txt) [Sean Keys,](https://developer.android.com/blog/authors/sean-keys.md.txt) [István Nádor](https://developer.android.com/blog/authors/istvan-nador.md.txt) At Google, we believe our products should be secure by design, which is why we built the Android Automotive Operating System for Software Defined Vehicle (AAOS SDV) on existing, [market-proven platforms](https://source.android.com/docs/automotive/sdv/workstreams/hardware/sdv-on-qnx), leveraging virtualization technologies like [Cuttlefish](https://source.android.com/docs/devices/cuttlefish). While our [release announcements](https://blog.google/products-and-platforms/platforms/android/android-automotive-os/) focused on the features, this blog post outlines some of the security concepts.
 
 ## Foundation: Domain Isolation
 
@@ -115,13 +115,13 @@ Conversely, permissions for security-sensitive signals must be hard-coded into e
 AAOS SDV extends Android's security architecture to address specific automotive requirements through a secure-by-design approach. By leveraging virtualization for domain isolation and enforcing "deny-by-default" access policies, the platform establishes a resilient environment for software-defined vehicles. Cryptographic integrity is maintained via hardware-enforced, on-the-fly verification of executed code.
 
 The platform integrates continuous security lifecycles, ranging from proactive vulnerability management to hardware-rooted identity verification via DICE. These multi-layered defenses allow OEMs to balance advanced feature updatability with the robust security necessary for modern automotive environments. Technical specifications and implementation details are available on the [AAOS SDV Overview page](https://source.android.com/docs/automotive/sdv).
-- [#Android Auto](https://developer.android.com/blog/topics/android-auto)
-- [#Security](https://developer.android.com/blog/topics/security)
+- [#Android Auto](https://developer.android.com/blog/topics/android-auto.md.txt)
+- [#Security](https://developer.android.com/blog/topics/security.md.txt)
 Written by:
 
 -
 
-  ## [Markus Vill](https://developer.android.com/blog/authors/markus-vill)
+  ## [Markus Vill](https://developer.android.com/blog/authors/markus-vill.md.txt)
 
   ###### Software Engineer
 
@@ -129,7 +129,7 @@ Written by:
   View profile](https://developer.android.com/blog/authors/markus-vill) ![View Markus Vill's profile](https://developer.android.com/static/blog/assets/unnamed_19_3405162c1c_ZhcqoU.webp) ![View Markus Vill's profile](https://developer.android.com/static/blog/assets/unnamed_19_3405162c1c_ZhcqoU.webp)
 -
 
-  ## [Sean Keys](https://developer.android.com/blog/authors/sean-keys)
+  ## [Sean Keys](https://developer.android.com/blog/authors/sean-keys.md.txt)
 
   ###### Security Engineer
 
@@ -137,41 +137,36 @@ Written by:
   View profile](https://developer.android.com/blog/authors/sean-keys) ![View Sean Keys's profile](https://developer.android.com/static/blog/assets/unnamed_20_bdf4e82cc6_2wjKGS.webp) ![View Sean Keys's profile](https://developer.android.com/static/blog/assets/unnamed_20_bdf4e82cc6_2wjKGS.webp)
 -
 
-  ## [István Nádor](https://developer.android.com/blog/authors/istvan-nador)
+  ## [István Nádor](https://developer.android.com/blog/authors/istvan-nador.md.txt)
 
   ###### Software Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/istvan-nador) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 Continue reading
-- [![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)](https://developer.android.com/blog/authors/jan-kleinert) 21 Sep 2026 21 Sep 2026 ![](https://developer.android.com/static/blog/assets/Games_for_car_Strapi_1_c55588726e_Z2cIhWx.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)](https://developer.android.com/blog/authors/jan-kleinert.md.txt) 21 Sep 2026 21 Sep 2026 ![](https://developer.android.com/static/blog/assets/Games_for_car_Strapi_1_c55588726e_Z2cIhWx.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Bring your Android game to the car screen today](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today)
+  ## [Bring your Android game to the car screen today](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today) Today, the games category for Android Auto and cars powered by Android Automotive OS with Google built-in is officially graduating from beta to general availability.
-  [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert) • 3 min read
-  - [#Android Automotive OS](https://developer.android.com/blog/topics/android-automotive-os)
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-  - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
+  [arrow_forward](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today.md.txt) Today, the games category for Android Auto and cars powered by Android Automotive OS with Google built-in is officially graduating from beta to general availability.
+  [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert.md.txt) • 3 min read
+  - [#Android Automotive OS](https://developer.android.com/blog/topics/android-automotive-os.md.txt)
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+  - [#Android Auto](https://developer.android.com/blog/topics/android-auto.md.txt)
   - +1 ↩
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
-  - +2 ↩
+  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 3 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
 Stay in the loop
 
 

@@ -68,7 +68,7 @@ Invokes either Google Assistant or voice input.
 <br />
 
 > [!NOTE]
-> **Note:** The remote control shown in figure 1 is for reference only. There are many layouts and styles of remotes and controllers, though all of them have the basic functionality described here. For more information, see [Manage TV controllers](https://developer.android.com/training/tv/get-started/controllers).
+> **Note:** The remote control shown in figure 1 is for reference only. There are many layouts and styles of remotes and controllers, though all of them have the basic functionality described here. For more information, see [Manage TV controllers](https://developer.android.com/training/tv/get-started/controllers.md.txt).
 
 ## D-pad navigation
 
@@ -103,17 +103,19 @@ way, you can set up explicit directional navigation for your controls.
 The following code sample shows how to define the next control to receive focus
 for a `TextView` layout object:
 
-    <TextView android:id="@+id/Category1" android:nextFocusDown="@+id/Category2" />
+```xml
+<TextView android:id="@+id/Category1" android:nextFocusDown="@+id/Category2" />
+```
 
 The following table lists all of the available navigation attributes for Android
 user interface widgets:
 
 | Attribute | Function |
 |---|---|
-| [`nextFocusDown`](https://developer.android.com/reference/android/R.attr#nextFocusDown) | Defines the next view to receive focus when the user navigates down. |
-| [`nextFocusLeft`](https://developer.android.com/reference/android/R.attr#nextFocusLeft) | Defines the next view to receive focus when the user navigates left. |
-| [`nextFocusRight`](https://developer.android.com/reference/android/R.attr#nextFocusRight) | Defines the next view to receive focus when the user navigates right. |
-| [`nextFocusUp`](https://developer.android.com/reference/android/R.attr#nextFocusUp) | Defines the next view to receive focus when the user navigates up. |
+| [`nextFocusDown`](https://developer.android.com/reference/android/R.attr.md.txt#nextFocusDown) | Defines the next view to receive focus when the user navigates down. |
+| [`nextFocusLeft`](https://developer.android.com/reference/android/R.attr.md.txt#nextFocusLeft) | Defines the next view to receive focus when the user navigates left. |
+| [`nextFocusRight`](https://developer.android.com/reference/android/R.attr.md.txt#nextFocusRight) | Defines the next view to receive focus when the user navigates right. |
+| [`nextFocusUp`](https://developer.android.com/reference/android/R.attr.md.txt#nextFocusUp) | Defines the next view to receive focus when the user navigates up. |
 
 To use one of these explicit navigation attributes, set the value to the
 `android:id` of another widget in the layout. Be sure to set up the
@@ -135,7 +137,7 @@ combination of these attributes to help users determine what actions they
 can take next. Use a uniform scheme for indicating focus across your
 application.
 
-Android provides [Drawable state list resources](https://developer.android.com/guide/topics/resources/drawable-resource#StateList)
+Android provides [Drawable state list resources](https://developer.android.com/guide/topics/resources/drawable-resource.md.txt#StateList)
 to implement highlights for focused and selected controls. The following code
 example demonstrates how to enable visual behavior for a button to indicate that
 a user has navigated to the control and then selected it:
@@ -159,10 +161,12 @@ a user has navigated to the control and then selected it:
 The following layout XML sample code applies the previous state list drawable to
 a `Button`:
 
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:background="@drawable/button" />
+```xml
+<Button
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:background="@drawable/button" />
+```
 
 Make sure to provide sufficient padding within the focusable and selectable
 controls so that the highlights around them are clearly visible.
@@ -231,19 +235,19 @@ Do.
 
 The Android framework generally handles back
 navigation well, as it does for the D-pad. If you use the
-[Navigation component](https://developer.android.com/guide/navigation), you can support a variety of navigation graphs.
+[Navigation component](https://developer.android.com/guide/navigation.md.txt), you can support a variety of navigation graphs.
 Occasionally, you might need to implement some custom behavior, such as having
 the back button reset the focus to the beginning of a long list.
 
-[`ComponentActivity`](https://developer.android.com/reference/androidx/activity/ComponentActivity),
-the base class for [`FragmentActivity`](https://developer.android.com/reference/androidx/fragment/app/FragmentActivity)
-and [`AppCompatActivity`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity),
+[`ComponentActivity`](https://developer.android.com/reference/androidx/activity/ComponentActivity.md.txt),
+the base class for [`FragmentActivity`](https://developer.android.com/reference/androidx/fragment/app/FragmentActivity.md.txt)
+and [`AppCompatActivity`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity.md.txt),
 lets you control the behavior of the back button by using its
-[`OnBackPressedDispatcher`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher),
+[`OnBackPressedDispatcher`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher.md.txt),
 which you can retrieve by calling `getOnBackPressedDispatcher()`.
 
 For more
-information, see [Provide custom back navigation](https://developer.android.com/guide/navigation/navigation-custom-back).
+information, see [Provide custom back navigation](https://developer.android.com/guide/navigation/navigation-custom-back.md.txt).
 
 ## Playback controls on TV
 
@@ -254,7 +258,7 @@ controls guidelines for TV](https://developer.android.com/training/tv/playback/c
 ### Live tab navigation
 
 In addition to complying with the
-[TV app quality requirements](https://developer.android.com/docs/quality-guidelines/tv-app-quality), apps
+[TV app quality requirements](https://developer.android.com/docs/quality-guidelines/tv-app-quality.md.txt), apps
 with a live TV feed integrated on the Live tab must also meet frictionless
 playback and direct-back requirements, as described in the following sections.
 
@@ -337,7 +341,7 @@ the Moviestar app.
 <br />
 
 > [!NOTE]
-> **Note:** This does not apply when launching from the Live Tab for direct playback. See the [Live Tab navigation](https://developer.android.com/training/tv/get-started/navigation#live-tab-navigation) section for details.
+> **Note:** This does not apply when launching from the Live Tab for direct playback. See the [Live Tab navigation](https://developer.android.com/training/tv/get-started/navigation.md.txt#live-tab-navigation) section for details.
 
 ### Clear path to all focusable elements
 

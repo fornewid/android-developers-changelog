@@ -21,15 +21,15 @@ Promoted notification cards have the following appearance characteristics:
 Your notification must meet the following requirements to qualify as a live
 update:
 
-- Must be Standard Style, [`BigTextStyle`](https://developer.android.com/reference/android/app/Notification.BigTextStyle), [`CallStyle`](https://developer.android.com/reference/android/app/Notification.CallStyle), [`ProgressStyle`](https://developer.android.com/reference/android/app/Notification.ProgressStyle), or [`MetricStyle`](https://developer.android.com/reference/android/app/Notification.MetricStyle).
-- Must request the following non-runtime permission in the android manifest [`android.permission.POST_PROMOTED_NOTIFICATIONS`](https://developer.android.com/reference/android/Manifest.permission#POST_PROMOTED_NOTIFICATIONS).
-- Must request promotion using [`EXTRA_REQUEST_PROMOTED_ONGOING`](https://developer.android.com/reference/android/app/Notification#EXTRA_REQUEST_PROMOTED_ONGOING) or [`NotificationCompat.Builder#setRequestPromotedOngoing`](https://developer.android.com/reference/android/app/Notification.Builder#setRequestPromotedOngoing(boolean)).
-- Must be [`ongoing`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean)) (set [`FLAG_ONGOING_EVENT`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean)))).
+- Must be Standard Style, [`BigTextStyle`](https://developer.android.com/reference/android/app/Notification.BigTextStyle.md.txt), [`CallStyle`](https://developer.android.com/reference/android/app/Notification.CallStyle.md.txt), [`ProgressStyle`](https://developer.android.com/reference/android/app/Notification.ProgressStyle.md.txt), or [`MetricStyle`](https://developer.android.com/reference/android/app/Notification.MetricStyle.md.txt).
+- Must request the following non-runtime permission in the android manifest [`android.permission.POST_PROMOTED_NOTIFICATIONS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#POST_PROMOTED_NOTIFICATIONS).
+- Must request promotion using [`EXTRA_REQUEST_PROMOTED_ONGOING`](https://developer.android.com/reference/android/app/Notification.md.txt#EXTRA_REQUEST_PROMOTED_ONGOING) or [`NotificationCompat.Builder#setRequestPromotedOngoing`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setRequestPromotedOngoing(boolean)).
+- Must be [`ongoing`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setOngoing(boolean)) (set [`FLAG_ONGOING_EVENT`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setOngoing(boolean)))).
 - Must have a `contentTitle` set.
-- Must **NOT** have any [`customContentView`](https://developer.android.com/reference/android/app/Notification.Builder#setCustomContentView(android.widget.RemoteViews)) set (no `RemoteViews`).
-- Must **NOT** be the summary of a group using [`setGroupSummary`](https://developer.android.com/reference/android/app/Notification.Builder#setGroupSummary(boolean)).
-- Must **NOT** [`setColorized`](https://developer.android.com/reference/android/app/Notification.Builder#setColorized(boolean)) to `TRUE`.
-- The notification channel must **NOT** have [`IMPORTANCE_MIN`](https://developer.android.com/reference/android/app/NotificationManager#IMPORTANCE_MIN).
+- Must **NOT** have any [`customContentView`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setCustomContentView(android.widget.RemoteViews)) set (no `RemoteViews`).
+- Must **NOT** be the summary of a group using [`setGroupSummary`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setGroupSummary(boolean)).
+- Must **NOT** [`setColorized`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setColorized(boolean)) to `TRUE`.
+- The notification channel must **NOT** have [`IMPORTANCE_MIN`](https://developer.android.com/reference/android/app/NotificationManager.md.txt#IMPORTANCE_MIN).
 
 ## Promotion characteristics
 
@@ -47,7 +47,7 @@ notification:
 ## Usage criteria
 
 Use Live Updates for activities that are ongoing, user-initiated, and
-[time-sensitive](https://developer.android.com/develop/ui/views/notifications/time-sensitive).
+[time-sensitive](https://developer.android.com/develop/ui/views/notifications/time-sensitive.md.txt).
 **Figure 2.** A live update on your home and lock screen, and as a chip.
 
 ### Ongoing
@@ -112,7 +112,7 @@ indicate the system is working, as shown in the example.
 ## Status Chips
 
 Status chips allow users to keep track of Live Updates when the notification is
-not in view. Use [`setShortCriticalText`](https://developer.android.com/reference/android/app/Notification.Builder#setShortCriticalText(java.lang.String)) or [`setWhen`](https://developer.android.com/reference/android/app/Notification.Builder#setWhen(long)) to convey
+not in view. Use [`setShortCriticalText`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setShortCriticalText(java.lang.String)) or [`setWhen`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setWhen(long)) to convey
 important state information regarding your progress centric notification.
 ![status chip with icon](https://developer.android.com/static/images/ui/notifications/status-chip-1.png) **Figure 5.** Indeterminate state displays the small icon, `Notification.Builder#setSmallIcon`. ![status chip with time](https://developer.android.com/static/images/ui/notifications/status-chip-2.png) **Figure 6.** Use `Notification.Builder#setShortCriticalText` to show absolute time. ![status chip with info](https://developer.android.com/static/images/ui/notifications/status-chip-3.png) **Figure 7.** Use `Notification.Builder#setShortCriticalText` to convey critical information.
 
@@ -124,8 +124,8 @@ when time works in various situations:
 
 - The when time is at least 2 minutes in the future: If the current time is 10:05 am and the when time is set to 10:10 am, then the chip says **5min**.
 - The when time is in the past: The text isn't shown.
-- A timer in the chip can be shown when using Chronometer for when time. See [`setUsesChronometer`](https://developer.android.com/reference/android/app/Notification.Builder#setUsesChronometer(boolean)) and [`setChronometerCountdown`](https://developer.android.com/reference/android/app/Notification.Builder#setChronometerCountDown(boolean)). The Chronometer timer is shown in the chip as long as it is positive.
-- You don't want the when time to show on your notification: Use [`setShowWhen`](https://developer.android.com/reference/android/app/Notification.Builder#setShowWhen(boolean)) to `FALSE`.
+- A timer in the chip can be shown when using Chronometer for when time. See [`setUsesChronometer`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setUsesChronometer(boolean)) and [`setChronometerCountdown`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setChronometerCountDown(boolean)). The Chronometer timer is shown in the chip as long as it is positive.
+- You don't want the when time to show on your notification: Use [`setShowWhen`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setShowWhen(boolean)) to `FALSE`.
 
 ### Status chip appearance
 
@@ -141,7 +141,7 @@ in the chip. The text displays depending on the following criteria:
 
 Live Updates are bridged to some connected Wear OS devices. For guidance on this
 bridging behavior, as well as guidance on how to create local Live Updates for
-Wear OS, see the [Wear OS Live Update guide](https://developer.android.com/training/wearables/notifications/live-updates).
+Wear OS, see the [Wear OS Live Update guide](https://developer.android.com/training/wearables/notifications/live-updates.md.txt).
 
 ## Dismissal
 

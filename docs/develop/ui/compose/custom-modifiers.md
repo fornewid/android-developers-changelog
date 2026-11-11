@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/compose/custom-modifiers
 source: md.txt
 ---
 
-Compose provides many [modifiers](https://developer.android.com/develop/ui/compose/modifiers) for common behaviors right out of the box,
+Compose provides many [modifiers](https://developer.android.com/develop/ui/compose/modifiers.md.txt) for common behaviors right out of the box,
 but you can also create your own custom modifiers.
 
 Modifiers have multiple parts:
@@ -24,7 +24,7 @@ flexibility.
 ## Chain existing modifiers together
 
 It is often possible to create custom modifiers by using existing modifiers. For
-example, [`Modifier.clip()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).clip(androidx.compose.ui.graphics.Shape)) is implemented using the `graphicsLayer`
+example, [`Modifier.clip()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).clip(androidx.compose.ui.graphics.Shape)) is implemented using the `graphicsLayer`
 modifier. This strategy uses existing modifier elements, and you provide your
 own custom modifier factory.
 
@@ -56,10 +56,10 @@ You can also create a custom modifier using a composable function to pass values
 to an existing modifier. This is known as a composable modifier factory.
 
 > [!NOTE]
-> **Note:** `composed {}` is no longer recommended due to performance concerns. See [Migrate from `Modifier.composed` to `Modifier.Node`](https://developer.android.com/develop/ui/compose/custom-modifiers-node) for details on how to migrate away from this modifier.
+> **Note:** `composed {}` is no longer recommended due to performance concerns. See [Migrate from `Modifier.composed` to `Modifier.Node`](https://developer.android.com/develop/ui/compose/custom-modifiers-node.md.txt) for details on how to migrate away from this modifier.
 
 Using a composable modifier factory to create a modifier also lets you use
-higher level compose APIs, such as [`animate*AsState`](https://developer.android.com/develop/ui/compose/animation/value-based#animate-as-state) and other [Compose
+higher level compose APIs, such as [`animate*AsState`](https://developer.android.com/develop/ui/compose/animation/value-based.md.txt#animate-as-state) and other [Compose
 state backed animation APIs](https://developer.android.com/develop/ui/compose/animation/choose-api). For example, the following snippet shows a
 modifier that animates an alpha change when enabled/disabled:
 
@@ -129,12 +129,12 @@ fun MyScreen() {
 <br />
 
 If this is not how you expect your modifier to work, use a custom
-[`Modifier.Node`](https://developer.android.com/develop/ui/compose/custom-modifiers#implement-custom) instead, as composition locals will be
+[`Modifier.Node`](https://developer.android.com/develop/ui/compose/custom-modifiers.md.txt#implement-custom) instead, as composition locals will be
 correctly resolved at the usage site and can be safely hoisted.
 
 #### Composable function modifiers are never skipped
 
-Composable factory modifiers are never [skipped](https://developer.android.com/develop/ui/compose/mental-model#skips) because composable functions
+Composable factory modifiers are never [skipped](https://developer.android.com/develop/ui/compose/mental-model.md.txt#skips) because composable functions
 that have return values cannot be skipped. This means your modifier function
 will be called on every recomposition, which may be expensive if it recomposes
 frequently.
@@ -167,12 +167,12 @@ fun MyComposable() {
 
 ## Implement custom modifier behavior using `Modifier.Node`
 
-[`Modifier.Node`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.Node) is a lower level API for creating modifiers in Compose. It
+[`Modifier.Node`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.Node.md.txt) is a lower level API for creating modifiers in Compose. It
 is the same API that Compose implements its own modifiers in and is the most
 performant way to create custom modifiers.
 
 > [!NOTE]
-> **Note:** There is another API for creating custom modifiers, [`composed {}`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).composed(kotlin.Function1,kotlin.Function1)). This API is no longer recommended due to the performance issues it created. `Modifier.Node` was designed from the ground up to be far more performant than composed modifiers. For more details on the problems with composed modifiers, see the Android Dev Summit talk [Compose Modifiers Deep Dive](https://www.youtube.com/watch?v=BjGX2RftXsU).
+> **Note:** There is another API for creating custom modifiers, [`composed {}`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).composed(kotlin.Function1,kotlin.Function1)). This API is no longer recommended due to the performance issues it created. `Modifier.Node` was designed from the ground up to be far more performant than composed modifiers. For more details on the problems with composed modifiers, see the Android Dev Summit talk [Compose Modifiers Deep Dive](https://www.youtube.com/watch?v=BjGX2RftXsU).
 
 ### Implement a custom modifier using `Modifier.Node`
 
@@ -234,7 +234,7 @@ Nodes are automatically invalidated when update is called on their corresponding
 element. Because our example is a `DrawModifierNode`, any time update is called
 on the element, the node triggers a redraw and its color correctly updates. It
 is possible to opt out of auto-invalidation, as detailed in the
-[Opt out of node auto-invalidation](https://developer.android.com/develop/ui/compose/custom-modifiers#autoinvalidation) section.
+[Opt out of node auto-invalidation](https://developer.android.com/develop/ui/compose/custom-modifiers.md.txt#autoinvalidation) section.
 
 #### `ModifierNodeElement`
 
@@ -367,7 +367,7 @@ class FixedPaddingNode : LayoutModifierNode, Modifier.Node() {
 objects, like `CompositionLocal`. The advantage `Modifier.Node` modifiers have
 over modifiers that are just created with a composable factory is that they can
 read the value of the composition local from where the modifier is used in your
-UI tree, not where the modifier is allocated, using [`currentValueOf`](https://developer.android.com/reference/kotlin/androidx/compose/ui/node/CompositionLocalConsumerModifierNode#(androidx.compose.ui.node.CompositionLocalConsumerModifierNode).currentValueOf(androidx.compose.runtime.CompositionLocal)).
+UI tree, not where the modifier is allocated, using [`currentValueOf`](https://developer.android.com/reference/kotlin/androidx/compose/ui/node/CompositionLocalConsumerModifierNode.md.txt#(androidx.compose.ui.node.CompositionLocalConsumerModifierNode).currentValueOf(androidx.compose.runtime.CompositionLocal)).
 
 However, modifier node instances don't automatically observe state changes. To
 automatically react to a composition local changing, you can read its current
@@ -436,11 +436,11 @@ class ScrollableNode :
 ### Animate a modifier
 
 `Modifier.Node` implementations have access to a `coroutineScope`. This allows
-for use of the [Compose Animatable APIs](https://developer.android.com/develop/ui/compose/animation/value-based#animatable). For example, this snippet modifies
+for use of the [Compose Animatable APIs](https://developer.android.com/develop/ui/compose/animation/value-based.md.txt#animatable). For example, this snippet modifies
 the `CircleNode` shown previously to fade in and out repeatedly:
 
 > [!NOTE]
-> **Note:** `Modifier.Node` can be reused in a composable. You can set the new state either by setting it in [`onAttach`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.Node#onAttach()), or by resetting in [`onReset`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.Node#onReset()).
+> **Note:** `Modifier.Node` can be reused in a composable. You can set the new state either by setting it in [`onAttach`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.Node.md.txt#onAttach()), or by resetting in [`onReset`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.Node.md.txt#onReset()).
 
 
 ```kotlin

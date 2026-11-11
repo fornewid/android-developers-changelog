@@ -4,13 +4,13 @@ url: https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-a
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # What's new in the Jetpack Compose April '26 release
 
-6 min read ![](https://developer.android.com/static/blog/assets/0420_Compose_1_11_Strapi_9c17b19a5e_cAfHS.webp) 22 Apr 2026 [![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z2r6wan.webp)](https://developer.android.com/blog/authors/meghan-mehta) [Meghan Mehta](https://developer.android.com/blog/authors/meghan-mehta) Developer Advocate, Android Today, the Jetpack Compose April '26 release is stable. This release contains version 1.11 of core Compose modules (see the full [BOM mapping](https://developer.android.com/develop/ui/compose/bom/bom-mapping)), shared element debug tools, trackpad events, and more. We also have a few experimental APIs that we'd love you to try out and give us feedback on.
+6 min read ![](https://developer.android.com/static/blog/assets/0420_Compose_1_11_Strapi_9c17b19a5e_cAfHS.webp) 22 Apr 2026 [![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z2r6wan.webp)](https://developer.android.com/blog/authors/meghan-mehta.md.txt) [Meghan Mehta](https://developer.android.com/blog/authors/meghan-mehta.md.txt) Developer Advocate, Android Today, the Jetpack Compose April '26 release is stable. This release contains version 1.11 of core Compose modules (see the full [BOM mapping](https://developer.android.com/develop/ui/compose/bom/bom-mapping.md.txt)), shared element debug tools, trackpad events, and more. We also have a few experimental APIs that we'd love you to try out and give us feedback on.
 
-To use today's release, upgrade your [Compose BOM](https://developer.android.com/develop/ui/compose/bom) version to:
+To use today's release, upgrade your [Compose BOM](https://developer.android.com/develop/ui/compose/bom.md.txt) version to:
 
 ```kotlin
 implementation(platform("androidx.compose:compose-bom:2026.04.01"))
@@ -20,15 +20,15 @@ implementation(platform("androidx.compose:compose-bom:2026.04.01"))
 
 ### **Coroutine execution in tests**
 
-We're introducing a major update to how Compose handles test timing. Following the opt-in period announced in Compose 1.10, the v2 testing APIs are now the default, and the v1 APIs have been deprecated. The key change is a shift in the default test dispatcher. While the v1 APIs relied on the [`UnconfinedTestDispatcher`](https://developer.android.com/kotlin/coroutines/test#unconfinedtestdispatcher), which executed coroutines immediately, the v2 APIs use the [`StandardTestDispatcher`](https://developer.android.com/kotlin/coroutines/test#standardtestdispatcher). This means that when a coroutine is launched in your tests, it is now queued and does not execute until the virtual clock is advanced.
+We're introducing a major update to how Compose handles test timing. Following the opt-in period announced in Compose 1.10, the v2 testing APIs are now the default, and the v1 APIs have been deprecated. The key change is a shift in the default test dispatcher. While the v1 APIs relied on the [`UnconfinedTestDispatcher`](https://developer.android.com/kotlin/coroutines/test.md.txt#unconfinedtestdispatcher), which executed coroutines immediately, the v2 APIs use the [`StandardTestDispatcher`](https://developer.android.com/kotlin/coroutines/test.md.txt#standardtestdispatcher). This means that when a coroutine is launched in your tests, it is now queued and does not execute until the virtual clock is advanced.
 
 This better mimics production conditions, effectively flushing out race conditions and making your test suite significantly more robust and less flaky.
 
-To ensure your tests align with standard coroutine behavior and to avoid future compatibility issues, we strongly recommend migrating your test suite. Check out our comprehensive [migration guide](https://developer.android.com/develop/ui/compose/testing/migrate-v2) for API mappings and common fixes.
+To ensure your tests align with standard coroutine behavior and to avoid future compatibility issues, we strongly recommend migrating your test suite. Check out our comprehensive [migration guide](https://developer.android.com/develop/ui/compose/testing/migrate-v2.md.txt) for API mappings and common fixes.
 
 ### **Shared element improvements and animation tooling**
 
-We've also added some handy visual debugging tools for shared elements and `Modifier.animatedBounds`. You can now see exactly what's happening under the hood---like target bounds, animation trajectories, and how many matches are found---making it much easier to spot why a transition might not be behaving as expected. To use the new tooling, simply surround your SharedTransitionLayout with the [`LookaheadAnimationVisualDebugging`](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#LookaheadAnimationVisualDebugging(kotlin.Boolean,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Boolean,kotlin.Function0)) composable.
+We've also added some handy visual debugging tools for shared elements and `Modifier.animatedBounds`. You can now see exactly what's happening under the hood---like target bounds, animation trajectories, and how many matches are found---making it much easier to spot why a transition might not be behaving as expected. To use the new tooling, simply surround your SharedTransitionLayout with the [`LookaheadAnimationVisualDebugging`](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary.md.txt#LookaheadAnimationVisualDebugging(kotlin.Boolean,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Boolean,kotlin.Function0)) composable.
 
 ```kotlin
 LookaheadAnimationVisualDebugging(
@@ -52,16 +52,16 @@ LookaheadAnimationVisualDebugging(
 
 We've revamped Compose support for trackpads, like built-in laptop trackpads, attachable trackpads for tablets, or external/virtual trackpads. Basic trackpad events will now generally be considered PointerType.Mouse events, aligning mouse and trackpad behavior to better match user expectations. Previously, these trackpad events were interpreted as fake touchscreen fingers of `PointerType.Touch`, which led to confusing user experiences. For example, clicking and dragging with a trackpad would scroll instead of selecting. By changing the pointer type these events have in the latest release of Compose, clicking and dragging with a trackpad will no longer scroll.
 
-We also added support for more complicated trackpad gestures as recognized by the platform since API 34, including [two finger swipes](https://developer.android.com/reference/android/view/MotionEvent#CLASSIFICATION_TWO_FINGER_SWIPE) and [pinches](https://developer.android.com/reference/android/view/MotionEvent#CLASSIFICATION_PINCH). These gestures are automatically recognized by components like `Modifier.scrollable` and `Modifier.transformable` to have better behavior with trackpads.
+We also added support for more complicated trackpad gestures as recognized by the platform since API 34, including [two finger swipes](https://developer.android.com/reference/android/view/MotionEvent.md.txt#CLASSIFICATION_TWO_FINGER_SWIPE) and [pinches](https://developer.android.com/reference/android/view/MotionEvent.md.txt#CLASSIFICATION_PINCH). These gestures are automatically recognized by components like `Modifier.scrollable` and `Modifier.transformable` to have better behavior with trackpads.
 
 These changes improve behavior for trackpads across built-in components, with redundant touch slop removed, a more intuitive drag-and-drop starting gesture, double-click and triple-click selection in text fields, and desktop-styled context menus in text fields.
 
-To test trackpad behavior, there are new testing APIs with [`performTrackpadInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsNodeInteraction#(androidx.compose.ui.test.SemanticsNodeInteraction).performTrackpadInput(kotlin.Function1))`,` which allow validating the behavior of your apps when being used with a trackpad. If you have custom gesture detectors, validate behavior across input types, including touchscreens, mice, trackpads, and styluses, and ensure support for mouse scroll wheels and trackpad gestures.
+To test trackpad behavior, there are new testing APIs with [`performTrackpadInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsNodeInteraction.md.txt#(androidx.compose.ui.test.SemanticsNodeInteraction).performTrackpadInput(kotlin.Function1))`,` which allow validating the behavior of your apps when being used with a trackpad. If you have custom gesture detectors, validate behavior across input types, including touchscreens, mice, trackpads, and styluses, and ensure support for mouse scroll wheels and trackpad gestures.
 ![beforeAndAfter.webp](https://developer.android.com/static/blog/assets/before_And_After_9a75e8a0d1_285ypC.webp)
 
 **Composition host defaults (Compose runtime)**
 
-We introduced [`HostDefaultProvider`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/HostDefaultProvider), `LocalHostDefaultProvider`, `HostDefaultKey`, and `ViewTreeHostDefaultKey` to supply host-level services directly through compose-runtime. This removes the need for libraries to depend on `compose-ui` for lookups, better supporting Kotlin Multiplatform. To link these values to the composition tree, library authors can use `compositionLocalWithHostDefaultOf` to create a `CompositionLocal` that resolves defaults from the host.
+We introduced [`HostDefaultProvider`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/HostDefaultProvider.md.txt), `LocalHostDefaultProvider`, `HostDefaultKey`, and `ViewTreeHostDefaultKey` to supply host-level services directly through compose-runtime. This removes the need for libraries to depend on `compose-ui` for lookups, better supporting Kotlin Multiplatform. To link these values to the composition tree, library authors can use `compositionLocalWithHostDefaultOf` to create a `CompositionLocal` that resolves defaults from the host.
 
 ### **Preview wrappers**
 
@@ -93,12 +93,12 @@ private fun ButtonPreview() {
 
 ## Deprecations and removals
 
-- As announced in the [Compose 1.10 blog post](https://android-developers.googleblog.com/2025/12/whats-new-in-jetpack-compose-december.html), we're deprecating `Modifier.onFirstVisible()`. Its name often led to misconceptions, particularly within lazy layouts, where it would trigger multiple times during scrolling. We recommend migrating to [`Modifier.onVisibilityChanged()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/package-summary#(androidx.compose.ui.Modifier).onVisibilityChanged(kotlin.Long,kotlin.Float,androidx.compose.ui.layout.LayoutBoundsHolder,kotlin.Function1)), which allows for more precise manual tracking of visibility states tailored to your specific use case requirements.
+- As announced in the [Compose 1.10 blog post](https://android-developers.googleblog.com/2025/12/whats-new-in-jetpack-compose-december.html), we're deprecating `Modifier.onFirstVisible()`. Its name often led to misconceptions, particularly within lazy layouts, where it would trigger multiple times during scrolling. We recommend migrating to [`Modifier.onVisibilityChanged()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/package-summary.md.txt#(androidx.compose.ui.Modifier).onVisibilityChanged(kotlin.Long,kotlin.Float,androidx.compose.ui.layout.LayoutBoundsHolder,kotlin.Function1)), which allows for more precise manual tracking of visibility states tailored to your specific use case requirements.
 - The `ComposeFoundationFlags.isTextFieldDpadNavigationEnabled` flag was removed because D-pad navigation for `TextFields` is now always enabled by default. The new behavior ensures that the D-pad events from a gamepad or a TV remote first move the cursor in the given direction. The focus can move to another element only when the cursor reaches the end of the text.
 
 ## Upcoming APIs
 
-In the upcoming Compose 1.12.0 release, the `compileSdk` will be upgraded to `compileSdk 37`, with AGP 9 and all apps and libraries that depend on Compose inheriting this requirement. We recommend keeping up to date with the latest released versions, as Compose aims to promptly adopt new `compileSdks` to provide access to the latest Android features. Be sure to check out the [documentation here](https://developer.android.com/build/releases/about-agp#api-level-support) for more information on which version of AGP is supported for different API levels.
+In the upcoming Compose 1.12.0 release, the `compileSdk` will be upgraded to `compileSdk 37`, with AGP 9 and all apps and libraries that depend on Compose inheriting this requirement. We recommend keeping up to date with the latest released versions, as Compose aims to promptly adopt new `compileSdks` to provide access to the latest Android features. Be sure to check out the [documentation here](https://developer.android.com/build/releases/about-agp.md.txt#api-level-support) for more information on which version of AGP is supported for different API levels.
 
 In Compose 1.11.0, the following APIs are introduced as `@Experimental`, and we look forward to hearing your feedback as you explore them in your apps. Note that `@Experimental APIs` are provided for early evaluation and feedback and may undergo significant changes or removal in future releases.
 
@@ -148,9 +148,9 @@ Check out the [documentation](https://developer.android.com/develop/ui/compose/s
 
 ### **MediaQuery (Experimental)**
 
-The new [mediaQuery](https://developer.android.com/develop/ui/compose/layouts/adaptive/mediaquery) API provides a declarative and performant way to adapt your UI to its environment. It abstracts complex information retrieval into simple conditions within a [`UiMediaScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope), ensuring recomposition only happens when needed.
+The new [mediaQuery](https://developer.android.com/develop/ui/compose/layouts/adaptive/mediaquery.md.txt) API provides a declarative and performant way to adapt your UI to its environment. It abstracts complex information retrieval into simple conditions within a [`UiMediaScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.md.txt), ensuring recomposition only happens when needed.
 
-With support for a wide range of environmental signals---from device capabilities like keyboard types and pointer precision, to contextual states like window size and posture---you can build deeply responsive experiences. Performance is baked in with [`derivedMediaQuery`](https://developer.android.com/reference/kotlin/androidx/compose/ui/package-summary#derivedMediaQuery(kotlin.Function1)) to handle high-frequency updates, while the ability to override scopes makes testing and previews seamless across hardware configurations. Previously, to get access to certain device properties --- like if a device was in [tabletop mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/make-your-app-fold-aware#features_of_foldable_displays) --- you'd need to write a lot of boilerplate to do so:
+With support for a wide range of environmental signals---from device capabilities like keyboard types and pointer precision, to contextual states like window size and posture---you can build deeply responsive experiences. Performance is baked in with [`derivedMediaQuery`](https://developer.android.com/reference/kotlin/androidx/compose/ui/package-summary.md.txt#derivedMediaQuery(kotlin.Function1)) to handle high-frequency updates, while the ability to override scopes makes testing and previews seamless across hardware configurations. Previously, to get access to certain device properties --- like if a device was in [tabletop mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/make-your-app-fold-aware.md.txt#features_of_foldable_displays) --- you'd need to write a lot of boilerplate to do so:
 
 ```kotlin
 @Composable
@@ -194,11 +194,11 @@ fun VideoPlayer() {
 }
 ```
 
-Check out the [documentation](https://developer.android.com/develop/ui/compose/layouts/adaptive/mediaquery) and file any bugs [here](https://issuetracker.google.com/issues?q=componentid:1876021).
+Check out the [documentation](https://developer.android.com/develop/ui/compose/layouts/adaptive/mediaquery.md.txt) and file any bugs [here](https://issuetracker.google.com/issues?q=componentid:1876021).
 
 ### **Grid (Experimental)**
 
-[`Grid`](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid) is a powerful new API for building complex, two-dimensional layouts in Jetpack Compose. While `Row` and `Column` are great for linear designs, `Grid` gives you the structural control needed for screen-level architecture and intricate components without the overhead of a scrollable list. `Grid` allows you to define your layout using tracks, gaps, and cells, offering familiar sizing options like `Dp`, percentages, intrinsic content sizes, and flexible "Fr" units.
+[`Grid`](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid.md.txt) is a powerful new API for building complex, two-dimensional layouts in Jetpack Compose. While `Row` and `Column` are great for linear designs, `Grid` gives you the structural control needed for screen-level architecture and intricate components without the overhead of a scrollable list. `Grid` allows you to define your layout using tracks, gaps, and cells, offering familiar sizing options like `Dp`, percentages, intrinsic content sizes, and flexible "Fr" units.
 
 ```kotlin
 @OptIn(ExperimentalGridApi::class)
@@ -222,11 +222,11 @@ fun GridExample() {
 You can place items automatically or explicitly span them across multiple rows and columns for precision. Best of all, it's highly adaptive---you can dynamically reconfigure your grid tracks and spans to respond to device states like tabletop mode or orientation changes, ensuring your UI looks great across form factors.
 ![Grid.gif](https://developer.android.com/static/blog/assets/Grid_eb3d39af12_Z23XoM7.webp)
 
-Check out the [documentation](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid) and file any bugs [here](https://issuetracker.google.com/issues/new?component=1876021&template=1424126).
+Check out the [documentation](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid.md.txt) and file any bugs [here](https://issuetracker.google.com/issues/new?component=1876021&template=1424126).
 
 ### **FlexBox (Experimental)**
 
-[FlexBox](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#FlexBox(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.FlexBoxConfig,kotlin.Function1)) is a layout container designed for high performance, adaptive UIs. It manages item sizing and space distribution based on available container dimensions. It handles complex tasks like wrapping (`wrap`) and multi-axis alignment of items (`justifyContent, alignItems, alignContent`). It allows items to grow (`grow`) or shrink (`shrink`) to fill the container.
+[FlexBox](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#FlexBox(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.FlexBoxConfig,kotlin.Function1)) is a layout container designed for high performance, adaptive UIs. It manages item sizing and space distribution based on available container dimensions. It handles complex tasks like wrapping (`wrap`) and multi-axis alignment of items (`justifyContent, alignItems, alignContent`). It allows items to grow (`grow`) or shrink (`shrink`) to fill the container.
 
 ```kotlin
 @OptIn(ExperimentalFlexBoxApi::class)
@@ -247,53 +247,52 @@ fun FlexBoxWrapping(){
 ```
 ![AnimationGif.gif](https://developer.android.com/static/blog/assets/Animation_Gif_9b060dce28_Z2oO8zX.webp)
 
-Check out the [documentation](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox) and file any bugs [here](https://b.corp.google.com/issues/new?component=1876021&title=%5BFlexBox%5D&pli=1&template=0).
+Check out the [documentation](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox.md.txt) and file any bugs [here](https://b.corp.google.com/issues/new?component=1876021&title=%5BFlexBox%5D&pli=1&template=0).
 
 ### **New SlotTable implementation (Experimental)**
 
 We've introduced a new implementation of the `SlotTable`, which is disabled by default in this release. `SlotTable` is the internal data structure that the Compose runtime uses to track the state of your composition hierarchy, track invalidations/recompositions, store remembered values, and track all metadata of the composition at runtime. This new implementation is designed to improve performance, primarily around random edits.
 
-To try the new `SlotTable`, enable [`ComposeRuntimeFlags.isLinkBufferComposerEnabled`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/ComposeRuntimeFlags#isLinkBufferComposerEnabled()).
+To try the new `SlotTable`, enable [`ComposeRuntimeFlags.isLinkBufferComposerEnabled`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/ComposeRuntimeFlags.md.txt#isLinkBufferComposerEnabled()).
 
 ## Start coding today!
 
-With so many exciting new APIs in Jetpack Compose, and many more coming up, it's never been a better time to [migrate to Jetpack Compose](https://developer.android.com/develop/ui/compose/migrate/migrate-xml-views-to-jetpack-compose). As always, we value your feedback and feature requests (especially on `@Experimental` features that are still baking) --- please file them [here](https://goo.gle/compose-feedback). Happy composing!
+With so many exciting new APIs in Jetpack Compose, and many more coming up, it's never been a better time to [migrate to Jetpack Compose](https://developer.android.com/develop/ui/compose/migrate/migrate-xml-views-to-jetpack-compose.md.txt). As always, we value your feedback and feature requests (especially on `@Experimental` features that are still baking) --- please file them [here](https://goo.gle/compose-feedback). Happy composing!
 Written by:
 
 -
 
-  ## [Meghan Mehta](https://developer.android.com/blog/authors/meghan-mehta)
+  ## [Meghan Mehta](https://developer.android.com/blog/authors/meghan-mehta.md.txt)
 
   ###### Developer Advocate, Android
 
   [read_more
   View profile](https://developer.android.com/blog/authors/meghan-mehta) ![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z2r6wan.webp) ![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z2r6wan.webp)
 Continue reading
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 3 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 4 min read
+  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp.md.txt)
+  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano.md.txt)
+  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
   - +2 ↩
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
 

@@ -25,7 +25,7 @@ color transitions between points:
 ## Draw with `MeshGradientPainter`
 
 In Jetpack Compose, use
-[`MeshGradientPainter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/MeshGradientPainter)
+[`MeshGradientPainter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/MeshGradientPainter.md.txt)
 to render a mesh gradient. `MeshGradientPainter` draws on the canvas.
 
 ### **Create a simple mesh gradient**

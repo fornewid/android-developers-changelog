@@ -35,8 +35,8 @@ The use of scopes defines *when* you can measure and place your children.
 Measuring a layout can only be done during the measurement and layout passes,
 and a child can only be placed during the layout passes (and only after it has
 been measured). Due to Compose scopes such as
-[`MeasureScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/MeasureScope),
-and [`PlacementScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Placeable.PlacementScope),
+[`MeasureScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/MeasureScope.md.txt),
+and [`PlacementScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Placeable.PlacementScope.md.txt),
 this is enforced at compile time.
 
 ## Use the layout modifier
@@ -95,7 +95,7 @@ Here's what's going on in that code:
 
 1. In the `measurable` lambda parameter, you measure the `Text` represented by the measurable parameter by calling `measurable.measure(constraints)`.
 2. You specify the size of the composable by calling the `layout(width, height)` method, which also gives a lambda used for placing the wrapped elements. In this case, the height is the height of the `Text` plus `placeableY`, which is `firstBaselineToTop` minus the first baseline of the `Text`.
-3. You position the wrapped elements on the screen by calling `placeable.placeRelative(x, y)`. If the wrapped elements aren't placed, they won't be visible. In a right-to-left layout, `placeRelative` mirrors the `x` position; see [Layout direction](https://developer.android.com/develop/ui/compose/layouts/custom#layout-direction). The `y` position is `firstBaselineToTop` minus the first baseline of the text, so that the first baseline is `firstBaselineToTop` from the top.
+3. You position the wrapped elements on the screen by calling `placeable.placeRelative(x, y)`. If the wrapped elements aren't placed, they won't be visible. In a right-to-left layout, `placeRelative` mirrors the `x` position; see [Layout direction](https://developer.android.com/develop/ui/compose/layouts/custom.md.txt#layout-direction). The `y` position is `firstBaselineToTop` minus the first baseline of the text, so that the first baseline is `firstBaselineToTop` from the top.
 
 To verify this works as expected, use this modifier on a `Text`:
 
@@ -125,7 +125,7 @@ fun TextWithNormalPaddingPreview() {
 ## Create custom layouts
 
 The `layout` modifier only changes the calling composable. To measure and layout
-multiple composables, use the [`Layout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Layout.composable#Layout(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.layout.MeasurePolicy)) composable instead. This composable
+multiple composables, use the [`Layout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Layout.composable.md.txt#Layout(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.layout.MeasurePolicy)) composable instead. This composable
 lets you measure and lay out children manually. All higher-level layouts
 like `Column` and `Row` are built with the `Layout` composable.
 
@@ -222,14 +222,14 @@ fun CallingComposable(modifier: Modifier = Modifier) {
 ## Layout direction
 
 Change the layout direction of a composable by changing the
-[`LocalLayoutDirection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalLayoutDirection()) composition local.
+[`LocalLayoutDirection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary.md.txt#LocalLayoutDirection()) composition local.
 
 If you're placing composables manually on the screen, the `LayoutDirection` is
-available from the [`layoutDirection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/IntrinsicMeasureScope#layoutDirection()) property of the `MeasureScope` in
+available from the [`layoutDirection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/IntrinsicMeasureScope.md.txt#layoutDirection()) property of the `MeasureScope` in
 the `layout` modifier or `Layout` composable.
 
-When using `layoutDirection`, place composables using [`place`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Placeable.PlacementScope#(androidx.compose.ui.layout.Placeable).place(kotlin.Int,kotlin.Int,kotlin.Float)). Unlike the
-[`placeRelative`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Placeable.PlacementScope#(androidx.compose.ui.layout.Placeable).placeRelative(kotlin.Int,kotlin.Int,kotlin.Float))
+When using `layoutDirection`, place composables using [`place`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Placeable.PlacementScope.md.txt#(androidx.compose.ui.layout.Placeable).place(kotlin.Int,kotlin.Int,kotlin.Float)). Unlike the
+[`placeRelative`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Placeable.PlacementScope.md.txt#(androidx.compose.ui.layout.Placeable).placeRelative(kotlin.Int,kotlin.Int,kotlin.Float))
 method, `place` doesn't change based on the layout direction
 (left-to-right versus right-to-left).
 
@@ -252,6 +252,6 @@ resources.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Intrinsic measurements in Compose layouts](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements)
-- [Graphics in Compose](https://developer.android.com/develop/ui/compose/graphics/draw/overview)
-- [Compose modifiers](https://developer.android.com/develop/ui/compose/modifiers)
+- [Intrinsic measurements in Compose layouts](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements.md.txt)
+- [Graphics in Compose](https://developer.android.com/develop/ui/compose/graphics/draw/overview.md.txt)
+- [Compose modifiers](https://developer.android.com/develop/ui/compose/modifiers.md.txt)

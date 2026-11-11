@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/boost-user-engagement-with-ai-imag
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Boost user engagement with AI Image Generation
 
-5 min read ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_2daQMX.webp) 13 Oct 2025 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_K6xYF.webp)](https://developer.android.com/blog/authors/mozart-louis) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) \& [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis) Adding custom images to your app can significantly improve and personalize user experience and boost user engagement. This post explores two new capabilities for image generation with Firebase AI Logic: the specialized Imagen editing features, currently in preview, and the general availability of Gemini 2.5 Flash Image (a.k.a "Nano Banana"), designed for contextual or conversational image generation.
+5 min read ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_2daQMX.webp) 13 Oct 2025 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan.md.txt)[![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_K6xYF.webp)](https://developer.android.com/blog/authors/mozart-louis.md.txt) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan.md.txt) \& [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis.md.txt) Adding custom images to your app can significantly improve and personalize user experience and boost user engagement. This post explores two new capabilities for image generation with Firebase AI Logic: the specialized Imagen editing features, currently in preview, and the general availability of Gemini 2.5 Flash Image (a.k.a "Nano Banana"), designed for contextual or conversational image generation.
 
 **Boost user engagement with images generated via Firebase AI Logic**
 
@@ -156,7 +156,7 @@ generatedImageAsBitmap = response
     .candidates.first().content.parts.filterIsInstance<ImagePart>().firstOrNull()?.image
 ```
 
-You can see it in action in the [Gemini Image Chat sample](https://github.com/android/ai-samples/tree/main/samples/gemini-image-chat) in the Android AI Sample catalog and read more about it in the [Android documentation](https://developer.android.com/ai/gemini/developer-api#generate-images).
+You can see it in action in the [Gemini Image Chat sample](https://github.com/android/ai-samples/tree/main/samples/gemini-image-chat) in the Android AI Sample catalog and read more about it in the [Android documentation](https://developer.android.com/ai/gemini/developer-api.md.txt#generate-images).
 
 **Conclusion**
 
@@ -165,7 +165,7 @@ Written by:
 
 -
 
-  ## [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan)
+  ## [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan.md.txt)
 
   ###### Senior Developer Relations Engineer
 
@@ -173,32 +173,31 @@ Written by:
   View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)
 -
 
-  ## [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis)
+  ## [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/mozart-louis) ![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_K6xYF.webp) ![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_K6xYF.webp)
 Continue reading
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Apr 2026 17 Apr 2026 ![](https://developer.android.com/static/blog/assets/Hybrid_inference_solution_for_Android_Blog_1_518db36e12_ZIVyDm.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan.md.txt) 17 Apr 2026 17 Apr 2026 ![](https://developer.android.com/static/blog/assets/Hybrid_inference_solution_for_Android_Blog_1_518db36e12_ZIVyDm.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Experimental hybrid inference and new Gemini models for Android](https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android)
+  ## [Experimental hybrid inference and new Gemini models for Android](https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android) If you are an Android developer looking to implement innovative AI features into your app, we recently launched powerful new updates.
-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) • 2 min read
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_2pRpOz.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android.md.txt) If you are an Android developer looking to implement innovative AI features into your app, we recently launched powerful new updates.
+  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan.md.txt) • 2 min read
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan.md.txt) 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_2pRpOz.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build smarter apps with Gemini 3 Flash](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash)
+  ## [Build smarter apps with Gemini 3 Flash](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash) Today, we're expanding the Gemini 3 model family with the release of Gemini 3 Flash, frontier intelligence built for speed at a fraction of the cost.
-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) • 2 min read
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash.md.txt) Today, we're expanding the Gemini 3 model family with the release of Gemini 3 Flash, frontier intelligence built for speed at a fraction of the cost.
+  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan.md.txt) • 2 min read
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
 Stay in the loop
 
 

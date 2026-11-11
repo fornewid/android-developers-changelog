@@ -7,11 +7,11 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
-In Jetpack Compose Glimmer, the [`surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/surface.composable) component is a fundamental
+In Jetpack Compose Glimmer, the [`surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/surface.composable.md.txt) component is a fundamental
 building block that represents a distinct visual area or a physical boundary for
 components such as buttons and cards.
 
@@ -29,12 +29,14 @@ A surface is responsible for the following visual and physical properties:
 The following code creates a surface with clipping, a background, and default
 borders:
 
-    @Composable
-    fun SurfaceSample() {
-        Box(Modifier.surface().padding(horizontal = 24.dp, vertical = 20.dp)) {
-            Text("This is a surface")
-        }
+```kotlin
+@Composable
+fun SurfaceSample() {
+    Box(Modifier.surface().padding(horizontal = 24.dp, vertical = 20.dp)) {
+        Text("This is a surface")
     }
+}
+```
 
 > [!NOTE]
 > **Note:** This example provides a non-focusable element. Use a surface like this only when you don't want the element to be interactable.
@@ -43,9 +45,9 @@ borders:
 
 Surfaces aren't focusable by default, so users can't interact with them. In most
 cases, surfaces should be interactive to let users consistently move focus and
-navigate between components. You can use the Compose [`focusable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/focusable.modifier) modifier
+navigate between components. You can use the Compose [`focusable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/focusable.modifier.md.txt) modifier
 for surfaces that are only intended to be focusable. Similarly, you can create a
-clickable surface using the Compose [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/clickable.modifier) modifier. You can also use
+clickable surface using the Compose [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/clickable.modifier.md.txt) modifier. You can also use
 other modifiers for surfaces that require actions.
 
 The following code shows examples of both focusable and clickable surfaces:
@@ -106,7 +108,7 @@ fun ClickableSurfaceSample() {
 
 ### SurfaceDepthEffect
 
-The [`SurfaceDepthEffect`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/SurfaceDepthEffect) class manages the transition of shadows between
+The [`SurfaceDepthEffect`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/SurfaceDepthEffect.md.txt) class manages the transition of shadows between
 interaction states:
 
 - `depthEffect`: The shadow effect used when the surface is in its default state.

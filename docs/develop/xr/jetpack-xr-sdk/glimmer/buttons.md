@@ -7,11 +7,11 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
-In Jetpack Compose Glimmer, a [`Button`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Button.composable) is an interactive component that's
+In Jetpack Compose Glimmer, a [`Button`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Button.composable.md.txt) is an interactive component that's
 optimized for display glasses input, offering clear visual feedback through its
 states to guide user actions.
 
@@ -58,7 +58,7 @@ Buttons in Jetpack Compose Glimmer change their appearance to communicate their
 state.
 
 - **Enabled**: The default state for an interactive button.
-- **Focused** : When focused, the button applies a [`GlimmerTheme.depthEffectLevels.level1`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/DepthEffectLevels#level1()) and a focused border highlight.
+- **Focused** : When focused, the button applies a [`GlimmerTheme.depthEffectLevels.level1`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/DepthEffectLevels.md.txt#level1()) and a focused border highlight.
 - **Pressed**: When activated, a semi-transparent white overlay is applied to the surface.
 - **Disabled**: The button doesn't respond to input and its visual appearance is adjusted.
 
@@ -66,11 +66,11 @@ state.
 
 The following defaults apply to standard buttons:
 
-- By default, buttons use [`GlimmerTheme.typography.bodySmall`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Typography#bodySmall()). Make sure that text within buttons is concise and clearly describes the action.
-- The default shape for a button is [`GlimmerTheme.shapes.large`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Shapes#large()). This consistent rounding helps users identify buttons across the display glasses interface.
+- By default, buttons use [`GlimmerTheme.typography.bodySmall`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Typography.md.txt#bodySmall()). Make sure that text within buttons is concise and clearly describes the action.
+- The default shape for a button is [`GlimmerTheme.shapes.large`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Shapes.md.txt#large()). This consistent rounding helps users identify buttons across the display glasses interface.
 
 > [!NOTE]
-> **Note:** Any modifier passed to the `Button` composable is applied to the outer layout. While [`ButtonSize`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ButtonSize) sets the default minimum height, you can also apply custom size modifiers to control the button's final layout, such as [`Modifier.fillMaxWidth`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/fillMaxWidth.modifier).
+> **Note:** Any modifier passed to the `Button` composable is applied to the outer layout. While [`ButtonSize`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ButtonSize.md.txt) sets the default minimum height, you can also apply custom size modifiers to control the button's final layout, such as [`Modifier.fillMaxWidth`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/fillMaxWidth.modifier).
 
 ## Example: Button with text and icons
 
@@ -95,7 +95,7 @@ Button(
 
 ## Button groups
 
-The [`ButtonGroup`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ButtonGroup.composable) composable lets you group buttons into a scrollable row
+The [`ButtonGroup`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ButtonGroup.composable.md.txt) composable lets you group buttons into a scrollable row
 that acts as a focus controller. As the user scrolls, focus automatically moves
 to highlight the button corresponding to the current scroll position.
 ![](https://developer.android.com/static/images/xr/button-group-scroll.gif) An example of a button group scrolling and focusing features.
@@ -124,7 +124,7 @@ Customize and control scrolling behavior using the `ButtonGroup` state:
 
 1. Declare the state with `rememberButtonGroupState`.
 2. Pass it to the `ButtonGroup` composable.
-3. Call [`animateScrollToItem`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ButtonGroupState#animateScrollToItem(kotlin.Int,androidx.compose.animation.core.FiniteAnimationSpec)) (or [`scrollToItem`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ButtonGroupState#scrollToItem(kotlin.Int)) for instant scrolling) to scroll to a specific item and automatically move focus to it.
+3. Call [`animateScrollToItem`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ButtonGroupState.md.txt#animateScrollToItem(kotlin.Int,androidx.compose.animation.core.FiniteAnimationSpec)) (or [`scrollToItem`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ButtonGroupState.md.txt#scrollToItem(kotlin.Int)) for instant scrolling) to scroll to a specific item and automatically move focus to it.
 
 The following code moves the focus from one button to another upon click:
 

@@ -25,8 +25,8 @@ Here are the benefits of on-device inference and cloud inference, respectively:
 
 You can implement hybrid inference using the following approaches:
 
-- [Firebase AI Logic Hybrid API](https://developer.android.com/ai/hybrid#firebase-hybrid)
-- [Custom routing](https://developer.android.com/ai/hybrid#custom-routing)
+- [Firebase AI Logic Hybrid API](https://developer.android.com/ai/hybrid.md.txt#firebase-hybrid)
+- [Custom routing](https://developer.android.com/ai/hybrid.md.txt#custom-routing)
 
 ### Firebase AI Logic Hybrid API
 
@@ -94,7 +94,7 @@ their own custom routing to deliver reliable AI experiences, including:
   Gboard uses custom hybrid inference to power the writing tools such as
   proofread and rewrite.
 
-- [Kakao Mobility](https://developer.android.com/blog/posts/kakao-mobility-uses-gemini-nano-on-device-to-reduce-costs-and-boost-call-conversion-by-45):
+- [Kakao Mobility](https://developer.android.com/blog/posts/kakao-mobility-uses-gemini-nano-on-device-to-reduce-costs-and-boost-call-conversion-by-45.md.txt):
   Kakao Mobility built an Entity Extraction tool using custom hybrid inference
   for their parcel delivery service that automatically extracts recipient names,
   addresses, and phone numbers from natural language messages to streamline

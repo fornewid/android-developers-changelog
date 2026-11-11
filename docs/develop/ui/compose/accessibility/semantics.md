@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 Aside from the primary information that a composable carries, like a text string
-of a [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Text.composable) composable, it can be helpful to have more supplemental
+of a [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Text.composable.md.txt) composable, it can be helpful to have more supplemental
 information about UI elements.
 
 Information about the meaning and role of a component in Compose is called
@@ -66,10 +66,10 @@ a lot of powerful possibilities:
   ```
 
 Composables and modifiers that are built on top of the Compose
-[foundation library](https://developer.android.com/jetpack/androidx/releases/compose-foundation) already set the relevant properties for you by default.
+[foundation library](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt) already set the relevant properties for you by default.
 Optionally, you can change these properties manually, to improve the
 accessibility support for specific use cases, or change your composables'
-[merging or clearing strategy](https://developer.android.com/develop/ui/compose/accessibility/merging-clearing).
+[merging or clearing strategy](https://developer.android.com/develop/ui/compose/accessibility/merging-clearing.md.txt).
 
 To signal the specific content type of your component to accessibility services,
 you can apply a variety of different semantics. These additions will support the
@@ -77,8 +77,8 @@ main semantic information in place and help accessibility services fine-tune
 how your component is represented, announced, or interacted with.
 
 For a full list of semantics properties, see the
-[`SemanticsProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/SemanticsProperties) object. For a full list of possible Accessibility
-Actions, see the [`SemanticsActions`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/SemanticsActions) object.
+[`SemanticsProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/SemanticsProperties.md.txt) object. For a full list of possible Accessibility
+Actions, see the [`SemanticsActions`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/SemanticsActions.md.txt) object.
 
 ### Headings
 
@@ -89,7 +89,7 @@ pages, which are usually divided into different subsections with headings:
 Users with accessibility needs can have difficulties navigating such a screen
 easily. To improve the navigation experience, some accessibility services allow
 for easier navigation directly between sections or headings. To enable this,
-indicate that your component is a [`heading`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).heading()) by defining its semantics
+indicate that your component is a [`heading`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).heading()) by defining its semantics
 property:
 
 
@@ -112,7 +112,7 @@ If your component is an alert or a pop up, like a `Snackbar`, you might want to
 signal to accessibility services that a new structure or updates to content
 can be conveyed to users.
 
-Alert-like components can be marked with the [`liveRegion`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).liveRegion()) semantics
+Alert-like components can be marked with the [`liveRegion`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).liveRegion()) semantics
 property. This allows accessibility services to automatically notify the user of
 changes to this component, or its children:
 
@@ -154,7 +154,7 @@ countdown timers, to avoid overwhelming users with constant feedback.
 
 Window-like custom components, similar to `ModalBottomSheet`, need additional
 signals to differentiate them from surrounding content. For this, you can use
-[`paneTitle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).paneTitle()) semantics, so that any relevant window or pane changes may be
+[`paneTitle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).paneTitle()) semantics, so that any relevant window or pane changes may be
 represented appropriately by the accessibility services, along with its main
 semantic information:
 
@@ -178,7 +178,7 @@ For reference, see [how Material 3 uses `paneTitle`](https://cs.android.com/andr
 For other content types, such as error-like components, you might want to
 expand on the main semantic information for users with accessibility needs.
 When defining error states, you can inform the accessibility services of its
-[`error`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).error(kotlin.String)) semantics, and provide expanded error messaging.
+[`error`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).error(kotlin.String)) semantics, and provide expanded error messaging.
 
 In this example, TalkBack reads the main error text information, followed
 by additional, expanded messaging:
@@ -200,7 +200,7 @@ Error(
 
 For custom components that track progress, you might want to notify users of
 their progress changes, including the current progress value, its range, and
-step size. You can do so with [`progressBarRangeInfo`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).progressBarRangeInfo()) semantics―this
+step size. You can do so with [`progressBarRangeInfo`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).progressBarRangeInfo()) semantics―this
 ensures that accessibility services are aware of progress changes, and can
 update users accordingly. Different assistive technologies may also have unique
 ways of hinting at increasing and decreasing progression.
@@ -227,7 +227,7 @@ In custom lists and grids with many items, it might be helpful for accessibility
 services to also receive more detailed information, like the total number of
 items and indices.
 
-By using [`collectionInfo`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).collectionInfo()) and [`collectionItemInfo`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).collectionItemInfo()) semantics on the
+By using [`collectionInfo`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).collectionInfo()) and [`collectionItemInfo`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).collectionItemInfo()) semantics on the
 list and items respectively, in this long list, accessibility services can
 inform users of what item index they are at out of the total collection, in
 addition to textual semantic information:
@@ -259,7 +259,7 @@ MilkyWayList(
 
 ### State description
 
-A composable can define a [`stateDescription`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).stateDescription()) for semantics which the
+A composable can define a [`stateDescription`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).stateDescription()) for semantics which the
 Android framework uses to read out the state that the composable is in. For
 example, a toggleable composable can be in either a "checked" or an "unchecked"
 state. In some cases, you might want to override the default state description
@@ -292,11 +292,11 @@ private fun TopicItem(itemTitle: String, selected: Boolean, onToggle: () -> Unit
 
 ### Custom actions
 
-[Custom actions](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).customActions()) can be used for more complex touchscreen gestures, like
+[Custom actions](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).customActions()) can be used for more complex touchscreen gestures, like
 swipe to dismiss or drag and drop, as these can be challenging for users with
 motor impairments or other disabilities to interact with.
 
-To make the [swipe to dismiss gesture](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable) more accessible, you can link it to a
+To make the [swipe to dismiss gesture](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable.md.txt) more accessible, you can link it to a
 custom action, passing the dismissal action and label there:
 
 
@@ -375,7 +375,7 @@ ArticleListItemRow(
 <br />
 
 In these cases, make sure to manually clear the original children's semantics
-with the [`clearAndSetSemantics`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/clearAndSetSemantics.modifier#(androidx.compose.ui.Modifier).clearAndSetSemantics(kotlin.Function1)) modifier, as you are moving them into
+with the [`clearAndSetSemantics`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/clearAndSetSemantics.modifier.md.txt#(androidx.compose.ui.Modifier).clearAndSetSemantics(kotlin.Function1)) modifier, as you are moving them into
 custom actions.
 
 Using Switch Access as an example, its menu opens upon selection of the
@@ -384,13 +384,13 @@ container and lists the available nested actions there:
 
 ## Semantics tree
 
-A composition [describes the UI](https://developer.android.com/develop/ui/compose/mental-model) of your app and is produced by running
+A composition [describes the UI](https://developer.android.com/develop/ui/compose/mental-model.md.txt) of your app and is produced by running
 composables. The composition is a tree-structure that consists of the
 composables that describe your UI.
 
 Next to the Composition, there exists a parallel tree, called the *semantics
 tree* . This tree describes your UI in an alternative manner that is
-understandable for [Accessibility](https://developer.android.com/develop/ui/compose/accessibility) services and for the [Testing](https://developer.android.com/develop/ui/compose/testing)
+understandable for [Accessibility](https://developer.android.com/develop/ui/compose/accessibility.md.txt) services and for the [Testing](https://developer.android.com/develop/ui/compose/testing.md.txt)
 framework. Accessibility services use the tree to describe the app to users with
 a specific need. The testing framework uses the tree to interact with your app
 and make assertions about it. The Semantics tree does not contain the
@@ -521,6 +521,6 @@ guide](https://developer.android.com/develop/ui/compose/testing).
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Accessibility in Compose](https://developer.android.com/develop/ui/compose/accessibility)
-- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material)
-- [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing)
+- [Accessibility in Compose](https://developer.android.com/develop/ui/compose/accessibility.md.txt)
+- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material.md.txt)
+- [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing.md.txt)

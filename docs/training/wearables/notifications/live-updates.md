@@ -4,7 +4,7 @@ url: https://developer.android.com/training/wearables/notifications/live-updates
 source: md.txt
 ---
 
-Starting with Wear OS 7, [Live Updates](https://developer.android.com/develop/ui/views/notifications/live-update) can be displayed on Wear OS devices
+Starting with Wear OS 7, [Live Updates](https://developer.android.com/develop/ui/views/notifications/live-update.md.txt) can be displayed on Wear OS devices
 either as locally generated notifications or as bridged notifications.
 
 The API for creating Live Updates is the same as for Live Updates on the phone.
@@ -12,7 +12,7 @@ This guide covers additional considerations when working with Live Updates and
 Wear OS.
 
 For full guidance on working with the Live Updates API see the existing
-[guidance](https://developer.android.com/develop/ui/views/notifications/live-update).
+[guidance](https://developer.android.com/develop/ui/views/notifications/live-update.md.txt).
 
 ## Bridged Live Updates
 
@@ -21,12 +21,12 @@ Live Updates may bridge from the phone, however note that:
 1. This is not guaranteed: OEMs can set their own configuration for bridging Live Updates.
 2. Frequent updates may cause data to be hidden in order to conserve battery.
 
-See the guidance on constructing Live Updates for [battery efficiency](https://developer.android.com/training/wearables/notifications/live-updates#battery-considerations).
+See the guidance on constructing Live Updates for [battery efficiency](https://developer.android.com/training/wearables/notifications/live-updates.md.txt#battery-considerations).
 
 ## Local Live Updates
 
 Create local Live Update notifications in exactly the same way shown in the
-Live Updates [API guidance](https://developer.android.com/develop/ui/views/notifications/live-update).
+Live Updates [API guidance](https://developer.android.com/develop/ui/views/notifications/live-update.md.txt).
 
 ## Battery considerations
 
@@ -35,9 +35,9 @@ Live Updates [API guidance](https://developer.android.com/develop/ui/views/notif
    usefulness of the data.
 
    Specifically, to show time counting up or down, or the countdown to a
-   specific time (e.g. ETA), use the [when guidance](https://developer.android.com/develop/ui/views/notifications/live-update#when-time) as opposed to
+   specific time (e.g. ETA), use the [when guidance](https://developer.android.com/develop/ui/views/notifications/live-update.md.txt#when-time) as opposed to
    regularly updating the Live Update from your app.
-2. [`MetricStyle`](https://developer.android.com/develop/ui/views/notifications/metric-style) is not supported on Wear. The notification will be shown
+2. [`MetricStyle`](https://developer.android.com/develop/ui/views/notifications/metric-style.md.txt) is not supported on Wear. The notification will be shown
    but without metrics.
 
 ## Appearance on Wear OS
@@ -48,7 +48,7 @@ the same Live Update on the phone.
 
 ### Status Chips
 
-In particular on Wear OS, note the value of [Status Chips](https://developer.android.com/develop/ui/views/notifications/live-update#status-chips). These may show
+In particular on Wear OS, note the value of [Status Chips](https://developer.android.com/develop/ui/views/notifications/live-update.md.txt#status-chips). These may show
 on the watch face or in the notification tray, depending on the device, and can
 convey critical information or real-time ETAs / timers.
 ![Status Chip shown for Live Update](https://developer.android.com/training/wearables/images/status_in_tray.png) **Figure 2.**: Status Chip in the notification tray

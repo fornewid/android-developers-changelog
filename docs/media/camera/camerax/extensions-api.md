@@ -25,15 +25,15 @@ Bokeh, or Face Retouch.
 ## Enable an extension for image capture and preview
 
 Before using the extensions API, retrieve an `ExtensionsManager` instance
-using the [ExtensionsManager#getInstanceAsync(Context, CameraProvider)](https://developer.android.com/reference/androidx/camera/extensions/ExtensionsManager#getInstanceAsync(android.content.Context,%20androidx.camera.core.CameraProvider))
+using the [ExtensionsManager#getInstanceAsync(Context, CameraProvider)](https://developer.android.com/reference/androidx/camera/extensions/ExtensionsManager.md.txt#getInstanceAsync(android.content.Context,%20androidx.camera.core.CameraProvider))
 method. This will allow you to query the extension availability
 information. Then retrieve an extension enabled `CameraSelector`. The
 extension mode will be applied on the image capture and preview use cases when
-calling the [bindToLifecycle()](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...))
+calling the [bindToLifecycle()](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider.md.txt#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...))
 method with the `CameraSelector` extension enabled.
 
 > [!NOTE]
-> **Note:** Enabling extensions on `ImageCapture` and `Preview` may limit the number of cameras that you can select when you use `ImageCapture` and `Preview` as parameters to [`bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...)). `ExtensionsManager#getExtensionEnabledCameraSelector()` will throw an exception if no cameras are found that support the extension.
+> **Note:** Enabling extensions on `ImageCapture` and `Preview` may limit the number of cameras that you can select when you use `ImageCapture` and `Preview` as parameters to [`bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider.md.txt#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...)). `ExtensionsManager#getExtensionEnabledCameraSelector()` will throw an exception if no cameras are found that support the extension.
 
 To implement the extension for the image capture and preview use cases,
 refer to the following code sample:
@@ -200,7 +200,7 @@ The extensions depend on the CameraX core modules (`core`, `camera2`,
 `lifecycle`).
 
 > [!NOTE]
-> **Note:** To ensure compatibility, you must use the version of the extensions library that is found in the same [release package](https://developer.android.com/jetpack/androidx/releases/camera) as the corresponding core camera modules. For example, to use `camera-extensions:1.0.0-alpha28`, you must also include version `1.1.0-alpha28` for the `camera-lifecycle`, `camera-core`, and `camera-camera2`, as these modules were all released together.
+> **Note:** To ensure compatibility, you must use the version of the extensions library that is found in the same [release package](https://developer.android.com/jetpack/androidx/releases/camera.md.txt) as the corresponding core camera modules. For example, to use `camera-extensions:1.0.0-alpha28`, you must also include version `1.1.0-alpha28` for the `camera-lifecycle`, `camera-core`, and `camera-camera2`, as these modules were all released together.
 
 ### Groovy
 
@@ -236,7 +236,7 @@ With the new Extensions API released in `1.0.0-alpha26`, the legacy
 Extensions API released in August 2019 is now deprecated. Starting with
 version `1.0.0-alpha28`, the legacy Extensions API has been removed from the
 library. Applications using the new Extensions API must now acquire an
-extension-enabled [`CameraSelector`](https://developer.android.com/reference/androidx/camera/core/CameraSelector)
+extension-enabled [`CameraSelector`](https://developer.android.com/reference/androidx/camera/core/CameraSelector.md.txt)
 and use it to bind the use cases.
 
 Applications using the legacy Extensions API should migrate to the new

@@ -7,12 +7,12 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
 In Jetpack Compose Glimmer, the color system is designed for additive displays
-and real environments. Unlike standard Android themes, the [`Colors`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors) in
+and real environments. Unlike standard Android themes, the [`Colors`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors.md.txt) in
 `GlimmerTheme` prioritize dark backgrounds with semi-transparency and vibrant
 accents to ensure content is legible against unpredictable real-world lighting.
 
@@ -26,7 +26,7 @@ Note that "On ..." colors such as *On Surface* aren't exposed through
 `GlimmerTheme`. These colors are automatically calculated by the system based on
 the background color.
 
-However, the other colors are exposed through [`GlimmerTheme.colors`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors), with
+However, the other colors are exposed through [`GlimmerTheme.colors`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors.md.txt), with
 values for each color role as described in the following table:
 
 | Color role | Defaults |
@@ -35,11 +35,11 @@ values for each color role as described in the following table:
 | secondary | #4C88E9 |
 | positive | #58FFA5 |
 | negative | #FF8981 |
-| background | [`Color.Black`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color#Black()) |
+| background | [`Color.Black`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.md.txt#Black()) |
 | surface | #303030 |
 | outline | #CBC9C8 |
 | outlineVariant | #42434A |
 
-Note that while [`background`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors#background()), [`surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors#surface()), [`outline`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors#outline()), and
-[`outlineVariant`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors#outlineVariant()) are marked as customizable, we strongly recommend that you
+Note that while [`background`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors.md.txt#background()), [`surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors.md.txt#surface()), [`outline`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors.md.txt#outline()), and
+[`outlineVariant`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors.md.txt#outlineVariant()) are marked as customizable, we strongly recommend that you
 don't customize these values.

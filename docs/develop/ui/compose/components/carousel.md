@@ -25,7 +25,7 @@ more information about the layout types.
 ## API surface
 
 To implement multi-browse and uncontained carousels, use the
-[`HorizontalMultiBrowseCarousel`](https://developer.android.com/reference/kotlin/androidx/compose/material3/carousel/HorizontalMultiBrowseCarousel.composable) and [`HorizontalUncontainedCarousel`](https://developer.android.com/reference/kotlin/androidx/compose/material3/carousel/HorizontalUncontainedCarousel.composable)
+[`HorizontalMultiBrowseCarousel`](https://developer.android.com/reference/kotlin/androidx/compose/material3/carousel/HorizontalMultiBrowseCarousel.composable.md.txt) and [`HorizontalUncontainedCarousel`](https://developer.android.com/reference/kotlin/androidx/compose/material3/carousel/HorizontalUncontainedCarousel.composable.md.txt)
 composables. These composables share the following key parameters:
 
 - `state`: A `CarouselState` instance that manages the current item index and scroll position. Create this state using `rememberCarouselState { itemCount }`, where `itemCount` is the total number of items in the carousel.
@@ -59,6 +59,16 @@ fun CarouselExample_MultiBrowse() {
             CarouselItem(2, R.drawable.eclair, "eclair"),
             CarouselItem(3, R.drawable.froyo, "froyo"),
             CarouselItem(4, R.drawable.gingerbread, "gingerbread"),
+            CarouselItem(5, R.drawable.honeycomb, "honeycomb"),
+            CarouselItem(6, R.drawable.dog, "dog"),
+            CarouselItem(7, R.drawable.cheese_1, "cheese"),
+            CarouselItem(8, R.drawable.sunset, "sunset"),
+            CarouselItem(9, R.drawable.feathertop, "mountain"),
+            CarouselItem(10, R.drawable.cupcake, "cupcake"),
+            CarouselItem(11, R.drawable.donut, "donut"),
+            CarouselItem(12, R.drawable.eclair, "eclair"),
+            CarouselItem(13, R.drawable.froyo, "froyo"),
+            CarouselItem(14, R.drawable.gingerbread, "gingerbread"),
         )
     }
 
@@ -102,7 +112,7 @@ fun CarouselExample_MultiBrowse() {
 ### Result
 
 The following image shows the result from the preceding snippet:
-![A multi-browse carousel with 3 images, two of which are fully shown and one which is partially offscreen.](https://developer.android.com/static/develop/ui/compose/images/components/carousel-multibrowse.png) **Figure 2.** A multi-browse carousel, with the last item clipped.
+![A multi-browse carousel of dessert photos: two large items, a medium item and a narrow item that is clipped at the end.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_carousel_multi_browse_basic.png) **Figure 2.** A multi-browse carousel, with the last item clipped.
 
 ## Example: Uncontained carousel
 
@@ -125,6 +135,16 @@ fun CarouselExample() {
             CarouselItem(2, R.drawable.eclair, "eclair"),
             CarouselItem(3, R.drawable.froyo, "froyo"),
             CarouselItem(4, R.drawable.gingerbread, "gingerbread"),
+            CarouselItem(5, R.drawable.honeycomb, "honeycomb"),
+            CarouselItem(6, R.drawable.dog, "dog"),
+            CarouselItem(7, R.drawable.cheese_1, "cheese"),
+            CarouselItem(8, R.drawable.sunset, "sunset"),
+            CarouselItem(9, R.drawable.feathertop, "mountain"),
+            CarouselItem(10, R.drawable.cupcake, "cupcake"),
+            CarouselItem(11, R.drawable.donut, "donut"),
+            CarouselItem(12, R.drawable.eclair, "eclair"),
+            CarouselItem(13, R.drawable.froyo, "froyo"),
+            CarouselItem(14, R.drawable.gingerbread, "gingerbread"),
         )
     }
 
@@ -161,4 +181,4 @@ fun CarouselExample() {
 ### Result
 
 The following image shows the result from the preceding snippet:
-![An uncontained carousel with 3 items. The last item is partially visible, but not clipped.](https://developer.android.com/static/develop/ui/compose/images/components/carousel-uncontained.png) **Figure 3.** An uncontained carousel, where the last item in the carousel is not clipped.
+![An uncontained carousel of dessert photos with items of the same width; the last item keeps its full width and runs past the edge.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_carousel_uncontained_basic.png) **Figure 3.** An uncontained carousel, where the last item in the carousel is not clipped.

@@ -11,7 +11,7 @@ media items is known as a media library.
 
 A `MediaLibraryService` provides a standardized API to serve and access your
 media library. This can be helpful, for example, when adding support for
-[Android Auto](https://developer.android.com/training/cars/media) to your media app, which provides its own driver-safe UI for
+[Android Auto](https://developer.android.com/training/cars/media.md.txt) to your media app, which provides its own driver-safe UI for
 your media library.
 
 ## Build a `MediaLibraryService`
@@ -94,18 +94,20 @@ Remember to declare your `Service` and required permissions in the manifest file
 
 <br />
 
-    <service
-        android:name=".PlaybackService"
-        android:foregroundServiceType="mediaPlayback"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="androidx.media3.session.MediaLibraryService"/>
-            <action android:name="android.media.browse.MediaBrowserService"/>
-        </intent-filter>
-    </service>
+```xml
+<service
+    android:name=".PlaybackService"
+    android:foregroundServiceType="mediaPlayback"
+    android:exported="true">
+    <intent-filter>
+        <action android:name="androidx.media3.session.MediaLibraryService"/>
+        <action android:name="android.media.browse.MediaBrowserService"/>
+    </intent-filter>
+</service>
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+```
 
 It's recommended to register your service as both, the platform and the Media3
 service interface:
@@ -128,17 +130,17 @@ with a `MediaBrowser` through either of these interfaces.
 
 The `MediaLibraryService` API expects your media library to be structured in a
 tree format, with a single root node and children nodes that may be
-[playable](https://developer.android.com/reference/kotlin/androidx/media3/common/MediaMetadata#isPlayable()) or further [browsable](https://developer.android.com/reference/kotlin/androidx/media3/common/MediaMetadata#isBrowsable()).
+[playable](https://developer.android.com/reference/kotlin/androidx/media3/common/MediaMetadata.md.txt#isPlayable()) or further [browsable](https://developer.android.com/reference/kotlin/androidx/media3/common/MediaMetadata.md.txt#isBrowsable()).
 
-A [`MediaLibrarySession`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession) extends the `MediaSession` API to add content
-browsing APIs. Compared to the [`MediaSession` callback](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback), the
-[`MediaLibrarySession` callback](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback) adds methods such as:
+A [`MediaLibrarySession`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.md.txt) extends the `MediaSession` API to add content
+browsing APIs. Compared to the [`MediaSession` callback](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback.md.txt), the
+[`MediaLibrarySession` callback](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback.md.txt) adds methods such as:
 
-- [`onGetLibraryRoot()`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback#onGetLibraryRoot(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,androidx.media3.session.MediaLibraryService.LibraryParams)) for when a client requests the root `MediaItem` of a content tree
-- [`onGetChildren()`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback#onGetChildren(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,java.lang.String,int,int,androidx.media3.session.MediaLibraryService.LibraryParams)) for when a client requests the children of a `MediaItem` in the content tree
-- [`onGetSearchResult()`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback#onGetSearchResult(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,java.lang.String,int,int,androidx.media3.session.MediaLibraryService.LibraryParams)) for when a client requests search results from the content tree for a given query
+- [`onGetLibraryRoot()`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback.md.txt#onGetLibraryRoot(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,androidx.media3.session.MediaLibraryService.LibraryParams)) for when a client requests the root `MediaItem` of a content tree
+- [`onGetChildren()`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback.md.txt#onGetChildren(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,java.lang.String,int,int,androidx.media3.session.MediaLibraryService.LibraryParams)) for when a client requests the children of a `MediaItem` in the content tree
+- [`onGetSearchResult()`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback.md.txt#onGetSearchResult(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,java.lang.String,int,int,androidx.media3.session.MediaLibraryService.LibraryParams)) for when a client requests search results from the content tree for a given query
 
-Relevant callback methods will include a [`LibraryParams`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.LibraryParams) object with
+Relevant callback methods will include a [`LibraryParams`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.LibraryParams.md.txt) object with
 additional signals about the type of content tree that a client app is
 interested in.
 
@@ -239,7 +241,7 @@ MediaItem mediaItem =
 <br />
 
 > [!NOTE]
-> **Note:** A controller only sees the command buttons for which the session has also made the corresponding [session command available to the controller](https://developer.android.com/media/media3/session/control-playback#available-commands).
+> **Note:** A controller only sees the command buttons for which the session has also made the corresponding [session command available to the controller](https://developer.android.com/media/media3/session/control-playback.md.txt#available-commands).
 
 When a controller or browser connects or calls another method of the session
 `Callback`, the session app can inspect the `ControllerInfo` passed to the
@@ -352,7 +354,7 @@ ListenableFuture<MediaBrowser> browserFuture =
 
 When connected to the session, the controller app can receive the command
 buttons that are supported by the media item and for which the controller has
-the [available command granted by the session app](https://developer.android.com/media/media3/session/control-playback#available-commands):
+the [available command granted by the session app](https://developer.android.com/media/media3/session/control-playback.md.txt#available-commands):
 
 
 ### Kotlin

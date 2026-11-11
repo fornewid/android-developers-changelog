@@ -4,7 +4,7 @@ url: https://developer.android.com/media/camera/camera2
 source: md.txt
 ---
 
-**Note:** This page refers to the [Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
+**Note:** This page refers to the [Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary.md.txt) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
 
 <br />
 
@@ -13,7 +13,7 @@ deprecated [Camera](https://developer.android.com/training/camera-deprecated) cl
 in-depth controls for complex use cases, but requires you to manage
 device-specific configurations.
 For more information, see the
-[Camera2 reference documentation](https://developer.android.com/reference/android/hardware/camera2/package-summary).
+[Camera2 reference documentation](https://developer.android.com/reference/android/hardware/camera2/package-summary.md.txt).
 
 For most developers, we recommend the [CameraX Jetpack library](https://developer.android.com/camerax).
 To help you decide which camera library to use,

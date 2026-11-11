@@ -7,12 +7,12 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
-Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
-A [`GeospatialPose`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/GeospatialPose) describes a position in space relative to
+A [`GeospatialPose`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/GeospatialPose.md.txt) describes a position in space relative to
 the Earth. It is composed of the following components:
 
 - Latitude and longitude, which is specified in degrees as defined by the [WGS84 specification](https://nsgreg.nga.mil/doc/view?i=4085).
@@ -26,7 +26,7 @@ conversions between Geospatial poses and [device-local poses](https://developer.
 
 In order to obtain and convert Geospatial poses, your app must be [set up to use
 the Geospatial API](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/setup). Geospatial poses can only be obtained
-when [the Geospatial API has a `RUNNING` state](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/setup#geospatial-instance).
+when [the Geospatial API has a `RUNNING` state](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/setup.md.txt#geospatial-instance).
 
 ## Convert a device-local pose to a Geospatial pose
 
@@ -40,7 +40,7 @@ you:
 
 The following code sample demonstrates how to convert a `Pose` to a
 `GeospatialPose` using
-[`Geospatial.createGeospatialPoseFromPose()`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial#createGeospatialPoseFromPose(androidx.xr.runtime.math.Pose)).
+[`Geospatial.createGeospatialPoseFromPose()`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.md.txt#createGeospatialPoseFromPose(androidx.xr.runtime.math.Pose)).
 
 
 ```kotlin
@@ -76,10 +76,10 @@ location of a landmark, a navigation path, or persistent AR content, and
 converts it into the precise visual space of the user's device.
 
 > [!NOTE]
-> **Note:** To anchor 3D content to a Geospatial pose, use a [Geospatial anchor](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/anchors) instead. Geospatial anchors automatically update their device-local pose as the quality of the Geospatial tracking increases.
+> **Note:** To anchor 3D content to a Geospatial pose, use a [Geospatial anchor](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/anchors.md.txt) instead. Geospatial anchors automatically update their device-local pose as the quality of the Geospatial tracking increases.
 
 The following code sample demonstrates how to use
-[`Geospatial.createPoseFromGeospatialPose()`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial#createPoseFromGeospatialPose(androidx.xr.runtime.math.GeospatialPose))
+[`Geospatial.createPoseFromGeospatialPose()`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.md.txt#createPoseFromGeospatialPose(androidx.xr.runtime.math.GeospatialPose))
 to convert a Geospatial pose to a device-local pose.
 
 

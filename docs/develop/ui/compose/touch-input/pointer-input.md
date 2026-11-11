@@ -9,28 +9,28 @@ generated from user interactions. The APIs cover a wide range of use cases:
 
 - Some of them are **high-level** and designed to cover the most commonly used
   gestures. For example, the
-  [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0))
+  [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary.md.txt#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0))
   modifier allows easy
   detection of a click, and it also provides accessibility features and
   displays visual indicators when tapped (such as ripples).
 
 - There are also less commonly used gesture detectors that offer more
   flexibility on a **lower level** , like
-  [`PointerInputScope.detectTapGestures`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/package-summary#(androidx.compose.ui.input.pointer.PointerInputScope).detectTapGestures(kotlin.Function1,kotlin.Function1,kotlin.coroutines.SuspendFunction2,kotlin.Function1)) or
-  [`PointerInputScope.detectDragGestures`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/package-summary#(androidx.compose.ui.input.pointer.PointerInputScope).detectDragGestures(kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function2))
+  [`PointerInputScope.detectTapGestures`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/package-summary.md.txt#(androidx.compose.ui.input.pointer.PointerInputScope).detectTapGestures(kotlin.Function1,kotlin.Function1,kotlin.coroutines.SuspendFunction2,kotlin.Function1)) or
+  [`PointerInputScope.detectDragGestures`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/package-summary.md.txt#(androidx.compose.ui.input.pointer.PointerInputScope).detectDragGestures(kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function2))
   but don't include the extra features.
 
 Learn more about pointer input on the following pages:
 
-- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures) gives an explanation of the core concepts playing a role when handling pointer input.
-- [Tap and press](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/tap-and-press) expands on single pointer, single position events.
+- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures.md.txt) gives an explanation of the core concepts playing a role when handling pointer input.
+- [Tap and press](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/tap-and-press.md.txt) expands on single pointer, single position events.
 - [Scroll](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/scroll) explains how to implement scrolling containers, and handles interoperability concerns.
-- [Drag composables](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-composables) explains how to move UI elements along a single axis, across two dimensions, or between predefined anchor points using modifiers like `draggable`, `draggable2D`, and `anchoredDraggable`.
-- [Multi-touch](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/multi-touch) dives into situations where more than one pointer is used.
+- [Drag composables](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-composables.md.txt) explains how to move UI elements along a single axis, across two dimensions, or between predefined anchor points using modifiers like `draggable`, `draggable2D`, and `anchoredDraggable`.
+- [Multi-touch](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/multi-touch.md.txt) dives into situations where more than one pointer is used.
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Enable user interactions](https://developer.android.com/develop/ui/compose/text/user-interactions)
+- [Enable user interactions](https://developer.android.com/develop/ui/compose/text/user-interactions.md.txt)
 - [Semantics in Compose](https://developer.android.com/develop/ui/compose/semantics)
-- [Compose modifiers](https://developer.android.com/develop/ui/compose/modifiers)
+- [Compose modifiers](https://developer.android.com/develop/ui/compose/modifiers.md.txt)

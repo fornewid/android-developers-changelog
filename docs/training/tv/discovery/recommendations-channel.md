@@ -62,7 +62,7 @@ channels and programs that your app creates. To access the provider's data, add
 the following permission to your app's manifest:
 
 ```xml
-<uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DA>TA" /
+<uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DATA" />
 ```
 
 > [!NOTE]
@@ -219,12 +219,12 @@ To create a channel, follow these steps:
    ```xml
    <receiver
      android:name=".RunOnInstallReceiver"
-     android:expor>ted=&<quot;true&quo>t;
-       <intent-filter
-         action android:name="android.media.tv.acti>on.INIT<IALIZE_PROGRAMS" /
-         category android:name=">;andr<oid.intent.cat>e<gory.DEFA>ULT" /
-       /intent-filter
-   /receiver
+     android:exported="true">
+       <intent-filter>
+         <action android:name="android.media.tv.action.INITIALIZE_PROGRAMS" />
+         <category android:name="android.intent.category.DEFAULT" />
+       </intent-filter>
+   </receiver>
    ```
 
    When sideloading your app during development, you can test this step by
@@ -458,11 +458,11 @@ sends for user interactions; for example:
 <receiver
    android:name=".WatchNextProgramRemoved"
    android:enabled="true"
-   and>roid<:exported=&qu>ot;true&<quot;
-   intent-filter
-       action android:name="android.media.tv.ACTION_WATCH>_NEX<T_PROGRAM_BROW>S<ABLE_DISA>BLED" /
-   /intent-filter
-/receiver
+   android:exported="true">
+   <intent-filter>
+       <action android:name="android.media.tv.ACTION_WATCH_NEXT_PROGRAM_BROWSABLE_DISABLED" />
+   </intent-filter>
+</receiver>
 ```
 
 ## Additional considerations

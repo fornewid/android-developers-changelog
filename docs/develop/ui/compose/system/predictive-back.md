@@ -13,10 +13,10 @@ this works in the [SociaLite](https://github.com/android/socialite) sample app.
 
 See our guides to do the following with predictive back:
 
-- [Set up predictive back](https://developer.android.com/develop/ui/compose/system/predictive-back-setup).
+- [Set up predictive back](https://developer.android.com/develop/ui/compose/system/predictive-back-setup.md.txt).
 - Enable default system animations.
 - Enable predictive back with Navigation Compose.
 - Integrate with shared element transitions.
 - Support predictive back with Material Compose components.
-- Access progress manually with [`PredictiveBackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/PredictiveBackHandler.composable#PredictiveBackHandler(kotlin.Boolean,kotlin.coroutines.SuspendFunction1)).
+- Access progress manually with [`PredictiveBackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/PredictiveBackHandler.composable.md.txt#PredictiveBackHandler(kotlin.Boolean,kotlin.coroutines.SuspendFunction1)).
 - Test the predictive back gesture animation.

@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improve
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # LLM flexibility, Agent Mode improvements, and new agentic experiences in Android Studio Otter 3 Feature Drop
 
-9 min read ![](https://developer.android.com/static/blog/assets/as_Otter3feb_2dc12a1b18_ZUOMxT.webp) 15 Jan 2026 [![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1PwJsP.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns) [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan) \& [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) We are excited to announce that Android Studio Otter 3 Feature Drop is now stable! This feature-packed release brings a huge update to your agentic workflows in Android Studio, and offers you more flexibility and control for how you use AI to help you build Android apps.
+9 min read ![](https://developer.android.com/static/blog/assets/as_Otter3feb_2dc12a1b18_ZUOMxT.webp) 15 Jan 2026 [![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1PwJsP.webp)](https://developer.android.com/blog/authors/sandhya-mohan.md.txt)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns.md.txt) [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan.md.txt) \& [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns.md.txt) We are excited to announce that Android Studio Otter 3 Feature Drop is now stable! This feature-packed release brings a huge update to your agentic workflows in Android Studio, and offers you more flexibility and control for how you use AI to help you build Android apps.
 
 - **Bring Your Own Model:**You can now use any LLM to power the AI functionality in Android Studio.
 - **Agent Mode Enhancements:** You can now more easily have Agent Mode interact with your app on devices, review and accept suggested changes, and have multiple conversations threads.
@@ -85,7 +85,7 @@ Your conversation history is saved to your account, so if you have to sign out o
 
 ### **Journeys for Android Studio**
 
-Running end-to-end UI tests can improve confidence that you're shipping a high-quality app to production, but writing and maintaining those tests can be difficult, brittle, and limited in what you're able to test. [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys) leverages the reasoning and vision capabilities of Gemini to enable you to write and maintain end-to-end UI tests using natural language instructions---and it's now available in the latest stable release of Android Studio when you enable it from Studio Labs in your Android Studio Settings.
+Running end-to-end UI tests can improve confidence that you're shipping a high-quality app to production, but writing and maintaining those tests can be difficult, brittle, and limited in what you're able to test. [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys.md.txt) leverages the reasoning and vision capabilities of Gemini to enable you to write and maintain end-to-end UI tests using natural language instructions---and it's now available in the latest stable release of Android Studio when you enable it from Studio Labs in your Android Studio Settings.
 ![7.png](https://developer.android.com/static/blog/assets/7_d6e86f478a_YgewQ.webp)
 
 *Journeys for Android Studio*
@@ -95,11 +95,11 @@ These natural language instructions are converted into interactions that Gemini 
 
 *Journeys for Android Studio*
 
-You can [write and run journeys](https://developer.android.com/studio/gemini/journeys)directly from Android Studio against any local or remote device. The IDE provides a new editor experience for crafting your test steps in an XML file, using either a code view or a dedicated design view. When you run a journey, Android Studio provides rich, detailed results that help you follow Gemini's execution. The test panel breaks down the entire journey into its discrete steps, showing you screenshots for each action, what action was taken, and Gemini's reasoning for why it took that action, making debugging and validation clearer than ever. And because journeys are run as Gradle tasks, you can run them from the command line after you authenticate with a Google Cloud Project.
+You can [write and run journeys](https://developer.android.com/studio/gemini/journeys.md.txt)directly from Android Studio against any local or remote device. The IDE provides a new editor experience for crafting your test steps in an XML file, using either a code view or a dedicated design view. When you run a journey, Android Studio provides rich, detailed results that help you follow Gemini's execution. The test panel breaks down the entire journey into its discrete steps, showing you screenshots for each action, what action was taken, and Gemini's reasoning for why it took that action, making debugging and validation clearer than ever. And because journeys are run as Gradle tasks, you can run them from the command line after you authenticate with a Google Cloud Project.
 
 ### **Support for remote MCP servers**
 
-Android Studio now lets you connect directly to remote Model Context Protocol (MCP) servers such as Figma, Notion, Canva, Linear, and more. This significantly reduces your context switching since it enables the AI agent in Android Studio to leverage external tools, helping you stay in your flow. For example, you can connect to Figma's remote MCP server to access files and provide this information to Agent Mode, generating more accurate code from your designs. To learn more about how to add an MCP server, see [Add an MCP server](https://developer.android.com/studio/gemini/add-mcp-server).
+Android Studio now lets you connect directly to remote Model Context Protocol (MCP) servers such as Figma, Notion, Canva, Linear, and more. This significantly reduces your context switching since it enables the AI agent in Android Studio to leverage external tools, helping you stay in your flow. For example, you can connect to Figma's remote MCP server to access files and provide this information to Agent Mode, generating more accurate code from your designs. To learn more about how to add an MCP server, see [Add an MCP server](https://developer.android.com/studio/gemini/add-mcp-server.md.txt).
 ![9.png](https://developer.android.com/static/blog/assets/9_e02698c210_Z1qELyP.webp)
 
 *Connect to the Figma remote MCP server in Android Studio Settings*
@@ -109,7 +109,7 @@ Android Studio now lets you connect directly to remote Model Context Protocol (M
 
 ### **Supercharge your UI development with Agent Mode**
 
-Gemini in Android Studio is now integrated into the UI development workflow directly from within the [Compose Preview](https://developer.android.com/develop/ui/compose/tooling/previews) panel, helping you go from design to a high-quality implementation faster. These new agentic capabilities are designed to assist you at every stage of development, from initial code generation to iteration, refinement, and debugging, with entry points in the context of your work.
+Gemini in Android Studio is now integrated into the UI development workflow directly from within the [Compose Preview](https://developer.android.com/develop/ui/compose/tooling/previews.md.txt) panel, helping you go from design to a high-quality implementation faster. These new agentic capabilities are designed to assist you at every stage of development, from initial code generation to iteration, refinement, and debugging, with entry points in the context of your work.
 
 #### **Create new UI from a design mock**
 
@@ -188,19 +188,19 @@ Starting with **Android Studio Otter 3** **Feature Drop** with **AGP versions 8.
 
 ### **Fused Library Plugin: Publish multiple Android libraries as one**
 
-The new Fused Library plugin bundled with Android Gradle Plugin 9.0 allows you to package multiple Android library modules into a single, publishable Android Library (AAR). **This was one of the most requested features** for Android Gradle Plugin, and we are making it available for you today. This plugin enables you to modularize your code and resources internally while simplifying the integration process for your users by exposing only a single dependency. In addition to streamlining project setup and version management, distributing a fused library can help reduce library size through improved code shrinking and offer better control over your internal implementation details. To learn more about the Fused Library plugin see [Publish multiple Android libraries as one with Fused Library](https://developer.android.com/build/publish-library/fused-library).
+The new Fused Library plugin bundled with Android Gradle Plugin 9.0 allows you to package multiple Android library modules into a single, publishable Android Library (AAR). **This was one of the most requested features** for Android Gradle Plugin, and we are making it available for you today. This plugin enables you to modularize your code and resources internally while simplifying the integration process for your users by exposing only a single dependency. In addition to streamlining project setup and version management, distributing a fused library can help reduce library size through improved code shrinking and offer better control over your internal implementation details. To learn more about the Fused Library plugin see [Publish multiple Android libraries as one with Fused Library](https://developer.android.com/build/publish-library/fused-library.md.txt).
 ![22.png](https://developer.android.com/static/blog/assets/22_e004353eb8_ZXvhNL.webp)
 
 ### **Get started**
 
 Ready to dive in and accelerate your development? [Download](https://developer.android.com/studio) Android Studio Otter 3 Feature Drop and start exploring these powerful new features today!
 
-As always, your feedback is crucial to us. [Check known issues](https://developer.android.com/studio/known-issues), [report bugs](https://developer.android.com/studio/report-bugs), and be part of our vibrant community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all), [Medium](https://medium.com/androiddevelopers), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), or [X](https://twitter.com/androidstudio). Let's build the future of Android apps together!
+As always, your feedback is crucial to us. [Check known issues](https://developer.android.com/studio/known-issues.md.txt), [report bugs](https://developer.android.com/studio/report-bugs.md.txt), and be part of our vibrant community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all), [Medium](https://medium.com/androiddevelopers), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), or [X](https://twitter.com/androidstudio). Let's build the future of Android apps together!
 Written by:
 
 -
 
-  ## [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan)
+  ## [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan.md.txt)
 
   ###### Product Manager
 
@@ -208,32 +208,31 @@ Written by:
   View profile](https://developer.android.com/blog/authors/sandhya-mohan) ![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1PwJsP.webp) ![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1PwJsP.webp)
 -
 
-  ## [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns)
+  ## [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns.md.txt)
 
   ###### Staff Developer Programs Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/trevor-johns) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 Continue reading
-- [![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1PwJsP.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns) 04 Dec 2025 04 Dec 2025 ![](https://developer.android.com/static/blog/assets/as_Otter2_96831eedef_hH9yT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1PwJsP.webp)](https://developer.android.com/blog/authors/sandhya-mohan.md.txt)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns.md.txt) 04 Dec 2025 04 Dec 2025 ![](https://developer.android.com/static/blog/assets/as_Otter2_96831eedef_hH9yT.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android Studio Otter 2 Feature Drop is stable!](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable)
+  ## [Android Studio Otter 2 Feature Drop is stable!](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable) The Android Studio Otter 2 Feature Drop is here to supercharge your productivity.
-  [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) • 3 min read
-- [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns) 02 Mar 2026 02 Mar 2026 ![](https://developer.android.com/static/blog/assets/supercharge_99f4219536_1MIVmw.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable.md.txt) The Android Studio Otter 2 Feature Drop is here to supercharge your productivity.
+  [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan.md.txt), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns.md.txt) • 3 min read
+- [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns.md.txt) 02 Mar 2026 02 Mar 2026 ![](https://developer.android.com/static/blog/assets/supercharge_99f4219536_1MIVmw.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Supercharge your Android development with 6 expert tips for Gemini in Android Studio](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio)
+  ## [Supercharge your Android development with 6 expert tips for Gemini in Android Studio](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio) In January we announced Android Studio Otter 3 Feature Drop in stable, including Agent Mode enhancements and many other updates to provide more control and flexibility over using AI to help you build high quality Android apps.
-  [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) • 4 min read
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio.md.txt) In January we announced Android Studio Otter 3 Feature Drop in stable, including Agent Mode enhancements and many other updates to provide more control and flexibility over using AI to help you build high quality Android apps.
+  [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns.md.txt) • 4 min read
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
 Stay in the loop
 
 

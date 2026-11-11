@@ -9,16 +9,16 @@ Compose. This guide explains how to implement Navigation 3 in Wear OS
 applications.
 
 > [!NOTE]
-> **Note:** Read this guide along with [the main Navigation 3 documentation](https://developer.android.com/guide/navigation/navigation-3). It focuses on the implementation for Wear OS apps, such as using the [`SwipeDismissableSceneStrategy`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation3/SwipeDismissableSceneStrategy).
+> **Note:** Read this guide along with [the main Navigation 3 documentation](https://developer.android.com/guide/navigation/navigation-3.md.txt). It focuses on the implementation for Wear OS apps, such as using the [`SwipeDismissableSceneStrategy`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation3/SwipeDismissableSceneStrategy.md.txt).
 
 ## Core Concepts
 
-- **[`NavKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavKey)**: A type-safe, serializable identifier for a destination (screen) in your app.
-- **[`NavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavBackStack)** : A mutable list of `NavKey` instances representing the navigation history. You push and pop items directly from this list.
-- **[`rememberNavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary#rememberNavBackStack)**: A composable that creates and persists the back stack across configuration changes and process death.
-- **[`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay)**: The core UI component that observes the back stack and renders the active screen.
-- **[`EntryProvider`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary#entryProvider)** : A mapping DSL that links a `NavKey` to its actual `@Composable` UI.
-- **[`SwipeDismissableSceneStrategy`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation3/SwipeDismissableSceneStrategy)**: The Wear-specific strategy that wraps your screens in a swipe-to-dismiss gesture and handles built-in back animations.
+- **[`NavKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavKey.md.txt)**: A type-safe, serializable identifier for a destination (screen) in your app.
+- **[`NavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavBackStack.md.txt)** : A mutable list of `NavKey` instances representing the navigation history. You push and pop items directly from this list.
+- **[`rememberNavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary.md.txt#rememberNavBackStack)**: A composable that creates and persists the back stack across configuration changes and process death.
+- **[`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.md.txt)**: The core UI component that observes the back stack and renders the active screen.
+- **[`EntryProvider`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary.md.txt#entryProvider)** : A mapping DSL that links a `NavKey` to its actual `@Composable` UI.
+- **[`SwipeDismissableSceneStrategy`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation3/SwipeDismissableSceneStrategy.md.txt)**: The Wear-specific strategy that wraps your screens in a swipe-to-dismiss gesture and handles built-in back animations.
 
 ## Step 1: Add dependencies
 
@@ -60,7 +60,7 @@ dependencies {
 ## Step 2: Define destinations (`NavKey`s)
 
 Screens are defined as strongly typed, serializable objects or data classes that
-implement the [`NavKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavKey) interface.
+implement the [`NavKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavKey.md.txt) interface.
 
 ```kotlin
 @Serializable
@@ -76,7 +76,7 @@ sealed interface Screen : NavKey {
 ## Step 3: Setup `NavDisplay` and the back stack
 
 At the root of your application, initialize the back stack and the Wear OS scene
-strategy, then plug them into [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay).
+strategy, then plug them into [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.md.txt).
 
 ```kotlin
 // 1. Create the persistent back stack starting at the Home screen
@@ -118,18 +118,19 @@ instance:
 
 ## Step 5: (Optional) Scope ViewModels to destinations
 
-By default, [`ViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel)s are scoped to the `Activity`. Navigation 3
-provides a specific artifact ([`lifecycle-viewmodel-navigation3`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/navigation3/package-summary)) to safely
-scope a `ViewModel` to a [`NavEntry`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavEntry) on the back stack. When the destination
+By default, [`ViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel.md.txt)s are scoped to the `Activity`. Navigation 3
+provides a specific artifact ([`lifecycle-viewmodel-navigation3`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/navigation3/package-summary.md.txt)) to safely
+scope a `ViewModel` to a [`NavEntry`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavEntry.md.txt) on the back stack. When the destination
 is popped off the back stack, the ViewModel is cleared.
 
 1. Add the dependency:
 
-       implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:...")
-
-2. Add the ViewModel store decorator to your [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay)'s
+   ```kotlin
+   implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:...")
+   ```
+2. Add the ViewModel store decorator to your [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.md.txt)'s
    `entryDecorators`. You must also explicitly include the
-   [`SaveableStateHolderNavEntryDecorator`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/SaveableStateHolderNavEntryDecorator) when providing custom
+   [`SaveableStateHolderNavEntryDecorator`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/SaveableStateHolderNavEntryDecorator.md.txt) when providing custom
    decorators to retain Compose `rememberSaveable` state:
 
    ```kotlin

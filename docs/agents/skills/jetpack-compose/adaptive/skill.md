@@ -4,8 +4,6 @@ url: https://developer.android.com/agents/skills/jetpack-compose/adaptive/skill
 source: md.txt
 ---
 
-keywords_public: android, ui, adaptive, Grid, FlexBox, MediaQuery, navigation, foldables, state, resizability, configuration-changes, keyboard shortcuts, tooltips, custom cursors
-
 ## Prerequisites
 
 The app must:
@@ -311,7 +309,7 @@ functions:
 
 ### Step 6.3. Preserve Navigation 3 state and multiple back stacks
 
-Check out the Navigation 3 guide to [Save and manage navigation state](https://developer.android.com/guide/navigation/navigation-3/save-state)
+Check out the Navigation 3 guide to [Save and manage navigation state](https://developer.android.com/guide/navigation/navigation-3/save-state.md.txt)
 for details.
 
 ### Step 6.4. Preserve media playback state (`ExoPlayer` / Media3)
@@ -407,9 +405,9 @@ desktop feature needs to be implemented.
 Based on the feature identified, you must read the corresponding reference file
 and follow its instructions:
 
-- **Keyboard Shortcuts** -\> read [`references/keyboard_shortcuts.md`](https://developer.android.com/agents/skills/jetpack-compose/adaptive/references/keyboard_shortcuts)
-- **Tooltips** -\> read [`references/tooltips.md`](https://developer.android.com/agents/skills/jetpack-compose/adaptive/references/tooltips)
-- **Custom Cursors** -\> read [`references/custom_cursors.md`](https://developer.android.com/agents/skills/jetpack-compose/adaptive/references/custom_cursors)
+- **Keyboard Shortcuts** -\> read [`references/keyboard_shortcuts.md`](https://developer.android.com/agents/skills/jetpack-compose/adaptive/references/keyboard_shortcuts.md.txt)
+- **Tooltips** -\> read [`references/tooltips.md`](https://developer.android.com/agents/skills/jetpack-compose/adaptive/references/tooltips.md.txt)
+- **Custom Cursors** -\> read [`references/custom_cursors.md`](https://developer.android.com/agents/skills/jetpack-compose/adaptive/references/custom_cursors.md.txt)
 
 Each reference starts by searching the whole app for the targets of that
 feature. Write that list down first, implement all of it (not only the first
@@ -433,7 +431,7 @@ To support foldable devices, identify any screens that provide the following:
 - Slide shows: Viewing presentation slides on the top screen with presenter notes or navigation on the bottom screen.
 
 To create layouts for foldables on these screens, you must read
-[tabletop posture](https://developer.android.com/agents/skills/jetpack-compose/adaptive/references/foldable-tabletop).
+[tabletop posture](https://developer.android.com/agents/skills/jetpack-compose/adaptive/references/foldable-tabletop.md.txt).
 
 ## Final step: Build and test
 
@@ -449,14 +447,14 @@ The following APIs are available from Compose 1.11.0.
 
 Check the FlexBox documentation:
 
-- [Overview](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox)
-- [Get started - setup](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/get-started)
-- [Set container behavior](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/container-behavior)
-- [Set item behavior](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/item-behavior)
+- [Overview](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox.md.txt)
+- [Get started - setup](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/get-started.md.txt)
+- [Set container behavior](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/container-behavior.md.txt)
+- [Set item behavior](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/item-behavior.md.txt)
 
 ## MediaQuery
 
-Check the [MediaQuery documentation](https://developer.android.com/develop/ui/compose/layouts/adaptive/mediaquery) when you need to query the device's
+Check the [MediaQuery documentation](https://developer.android.com/develop/ui/compose/layouts/adaptive/mediaquery.md.txt) when you need to query the device's
 screen size, pointer precision, keyboard type, whether it has cameras or
 microphones, and other device capabilities.
 
@@ -465,7 +463,7 @@ microphones, and other device capabilities.
 Check the Grid documentation when you need to display a fixed number of items in
 a grid layout:
 
-- [Overview](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid)
-- [Get started - setup](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/get-started)
-- [Set container properties](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties)
-- [Set item properties](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/item-properties)
+- [Overview](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid.md.txt)
+- [Get started - setup](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/get-started.md.txt)
+- [Set container properties](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties.md.txt)
+- [Set item properties](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/item-properties.md.txt)

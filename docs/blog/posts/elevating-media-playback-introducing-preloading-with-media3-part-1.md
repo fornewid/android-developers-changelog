@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/elevating-media-playback-introduci
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Elevating media playback: Introducing preloading with Media3 - Part 1
 
-8 min read ![](https://developer.android.com/static/blog/assets/elevating_Media_Playback_16bfc9b0d6_Z1RUWJn.webp) 05 Sep 2025 [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)](https://developer.android.com/blog/authors/mayuri-khabya) [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) Developer Relations Engineer In today's media-centric apps, delivering a smooth, uninterrupted playback experience is key to a delightful user experience. Users expect their videos to start instantly and play seamlessly without pauses.
+8 min read ![](https://developer.android.com/static/blog/assets/elevating_Media_Playback_16bfc9b0d6_Z1RUWJn.webp) 05 Sep 2025 [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)](https://developer.android.com/blog/authors/mayuri-khabya.md.txt) [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya.md.txt) Developer Relations Engineer In today's media-centric apps, delivering a smooth, uninterrupted playback experience is key to a delightful user experience. Users expect their videos to start instantly and play seamlessly without pauses.
 
 The core challenge is latency. Traditionally, a video player only starts its work---connecting, downloading, parsing, buffering---after the user has chosen an item for playback. This reactive approach is slow for today's short form video context. The solution is to be proactive. We need to anticipate what the user will watch next and get the content ready ahead of time. This is the essence of preloading.
 
@@ -36,7 +36,7 @@ In Media3 there are two primary APIs for preloading, each suited for different u
 
 ### 1. Preloading playlist items with PreloadConfiguration
 
-This is the simple approach, useful for linear, sequential media like playlists where the playback order is predictable (like a series of episodes). You give the player the full list of media items using ExoPlayer's [playlist](https://developer.android.com/media/media3/exoplayer/playlists) APIs and set the [PreloadConfiguration](https://developers.google.com/admob/android/reference/com/google/android/gms/ads/preload/PreloadConfiguration) for the player, then it automatically preloads the next items in the sequence as configured. This API attempts to optimize the join latency when a user skips to the next item before the playback buffer already overlaps into the next item.
+This is the simple approach, useful for linear, sequential media like playlists where the playback order is predictable (like a series of episodes). You give the player the full list of media items using ExoPlayer's [playlist](https://developer.android.com/media/media3/exoplayer/playlists.md.txt) APIs and set the [PreloadConfiguration](https://developers.google.com/admob/android/reference/com/google/android/gms/ads/preload/PreloadConfiguration) for the player, then it automatically preloads the next items in the sequence as configured. This API attempts to optimize the join latency when a user skips to the next item before the playback buffer already overlaps into the next item.
 
 Preloading is only started when no media is being loaded for the ongoing playback, which prevents it from competing for bandwidth with the primary playback.
 
@@ -47,7 +47,7 @@ player.preloadConfiguration =
     PreloadConfiguration(/* targetPreloadDurationUs= */ 5_000_000L)
 ```
 
-With the [PreloadConfiguration](https://developer.android.com/reference/kotlin/androidx/media3/exoplayer/ExoPlayer.PreloadConfiguration) above, the player tries to preload five seconds of media for the next item in the playlist.
+With the [PreloadConfiguration](https://developer.android.com/reference/kotlin/androidx/media3/exoplayer/ExoPlayer.PreloadConfiguration.md.txt) above, the player tries to preload five seconds of media for the next item in the playlist.
 
 Once opted-in, playlist preloading can be turned off again by using `PreloadConfiguration.DEFAULT` to disable playlist preloading:
 
@@ -61,9 +61,9 @@ For dynamic UIs like vertical feeds or carousels, where the "next" item is deter
 
 #### Setting Up Your PreloadManager
 
-The [DefaultPreloadManager](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/DefaultPreloadManager) is the canonical implementation for PreloadManager.
+The [DefaultPreloadManager](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/DefaultPreloadManager.md.txt) is the canonical implementation for PreloadManager.
 
-The builder of `DefaultPreloadManager` can build both the DefaultPreloadManager and any [ExoPlayer](https://developer.android.com/media/media3/exoplayer) instances that will play its preloaded content. To create a DefaultPreloadManager, you will need to pass a TargetPreloadStatusControl, which the preload manager can query to find out how much to load for an item. We will explain and define an example of TargetPreloadStatusControl in the section below.
+The builder of `DefaultPreloadManager` can build both the DefaultPreloadManager and any [ExoPlayer](https://developer.android.com/media/media3/exoplayer.md.txt) instances that will play its preloaded content. To create a DefaultPreloadManager, you will need to pass a TargetPreloadStatusControl, which the preload manager can query to find out how much to load for an item. We will explain and define an example of TargetPreloadStatusControl in the section below.
 
 ```
 val preloadManagerBuilder =
@@ -74,11 +74,11 @@ val preloadManager = val preloadManagerBuilder.build()
 val player = preloadManagerBuilder.buildExoPlayer()
 ```
 
-Using the same [builder](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/DefaultPreloadManager.Builder#build()) for both the ExoPlayer and `DefaultPreloadManager` is necessary, which ensures that the components under the hood of them are correctly shared.
+Using the same [builder](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/DefaultPreloadManager.Builder.md.txt#build()) for both the ExoPlayer and `DefaultPreloadManager` is necessary, which ensures that the components under the hood of them are correctly shared.
 
 And that's it! You now have a manager ready to receive instructions.
 
-#### Configuring Duration and Ranking with [TargetPreloadStatusControl](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/TargetPreloadStatusControl)
+#### Configuring Duration and Ranking with [TargetPreloadStatusControl](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/TargetPreloadStatusControl.md.txt)
 
 What if you want to preload, say, 10 seconds of video ? You can provide the position of your media items in the carousel, and the DefaultPreloadManager prioritizes loading the items based on how close it is to the item the user is currently playing.
 
@@ -146,7 +146,7 @@ With your manager created, you can start telling it what to work on. As your use
 
 **1. Add Media Items**
 
-As you populate your feed, you must inform the [manager](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/DefaultPreloadManager) of the media it needs to track. If you are starting, you could add the entire list you want to preload. Subsequently you can keep adding a single item to the list as and when required. You have full control over what items are in the preloading list which means you also have to manage what is added and removed from the manager.
+As you populate your feed, you must inform the [manager](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/DefaultPreloadManager.md.txt) of the media it needs to track. If you are starting, you could add the entire list you want to preload. Subsequently you can keep adding a single item to the list as and when required. You have full control over what items are in the preloading list which means you also have to manage what is added and removed from the manager.
 
 ```
 val initialMediaItems = pullMediaItemsFromService(/* count= */ 20)
@@ -238,37 +238,32 @@ Written by:
 
 -
 
-  ## [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya)
+  ## [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/mayuri-khabya) ![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp) ![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)
 Continue reading
-- [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)](https://developer.android.com/blog/authors/mayuri-khabya) 22 Sep 2025 22 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_5IIEj.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)](https://developer.android.com/blog/authors/mayuri-khabya.md.txt) 22 Sep 2025 22 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_5IIEj.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Elevating media playback: A deep dive into Media3's PreloadManager - Part 2](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2)
+  ## [Elevating media playback: A deep dive into Media3's PreloadManager - Part 2](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2) Welcome to the second installment of our three-part series on media preloading with Media3. This series is designed to guide you through the process of building highly responsive, low-latency media experiences in your Android apps.
-  [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) • 9 min read
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2.md.txt) Welcome to the second installment of our three-part series on media preloading with Media3. This series is designed to guide you through the process of building highly responsive, low-latency media experiences in your Android apps.
+  [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya.md.txt) • 9 min read
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
-  - +2 ↩
+  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 3 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
 Stay in the loop
 
 

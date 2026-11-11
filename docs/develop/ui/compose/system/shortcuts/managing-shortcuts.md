@@ -33,7 +33,7 @@ but the gesture might be different on other launcher apps. With Google
 Assistant, shortcuts can be displayed within Assistant or launched from a user
 voice command.
 
-The [`LauncherApps`](https://developer.android.com/reference/kotlin/android/content/pm/LauncherApps) class provides APIs for launcher apps to access
+The [`LauncherApps`](https://developer.android.com/reference/kotlin/android/content/pm/LauncherApps.md.txt) class provides APIs for launcher apps to access
 shortcuts.
 
 Because pinned shortcuts appear in the launcher itself, they're always visible.
@@ -45,7 +45,7 @@ A pinned shortcut is removed from the launcher only in the following situations:
   notifications** , selecting the app, then tapping **Storage \> Clear
   storage**.
 
-[Share targets](https://developer.android.com/develop/ui/compose/sharing/receive#providing-direct-share-targets) are a subset of dynamic shortcuts that appear in the direct
+[Share targets](https://developer.android.com/develop/ui/compose/sharing/receive.md.txt#providing-direct-share-targets) are a subset of dynamic shortcuts that appear in the direct
 share row of the Android share sheet.
 ![An Android Sharesheet](https://developer.android.com/static/images/guide/topics/ui/shortcuts/sharesheet.png) **Figure 1.** The Android Sharesheet. Direct share targets appear in the first row, followed by ranked apps and then the Apps lists.
 
@@ -54,26 +54,26 @@ share row of the Android share sheet.
 When the launcher displays an app's shortcuts, they must appear in the following
 order:
 
-1. **Static shortcuts** : shortcuts whose [`isDeclaredInManifest()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutInfoCompat#isDeclaredInManifest()) method returns `true`.
-2. **Dynamic shortcuts** : shortcuts whose [`ShortcutInfo.isDynamic()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutInfoCompat#isDynamic()) method returns `true`.
+1. **Static shortcuts** : shortcuts whose [`isDeclaredInManifest()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutInfoCompat.md.txt#isDeclaredInManifest()) method returns `true`.
+2. **Dynamic shortcuts** : shortcuts whose [`ShortcutInfo.isDynamic()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutInfoCompat.md.txt#isDynamic()) method returns `true`.
 
 Within each shortcut type---static and dynamic---shortcuts are sorted in order of
-increasing *rank* according to [`ShortcutInfo.getRank`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutInfoCompat#getRank()). Google Assistant
+increasing *rank* according to [`ShortcutInfo.getRank`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutInfoCompat.md.txt#getRank()). Google Assistant
 also considers shortcut rank when determining contextual shortcuts to display to
 users.
 
 Ranks are non-negative, sequential integers. Static shortcuts are ranked from
 first-to-last in the order they appear in your `shortcuts.xml` file. For dynamic
 shortcuts, you can update ranks of existing shortcuts when you call
-[`updateShortcuts(Context, List)`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#updateShortcuts(android.content.Context,%20java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E)), [`addDynamicShortcuts(Context,
+[`updateShortcuts(Context, List)`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#updateShortcuts(android.content.Context,%20java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E)), [`addDynamicShortcuts(Context,
 List)`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#addDynamicShortcuts(android.content.Context,%20java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E)), [`pushDynamicShortcut(Context, ShortcutInfoCompat)`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#pushDynamicShortcut(android.content.Context,androidx.core.content.pm.ShortcutInfoCompat)), or
-[`setDynamicShortcuts(Context, List)`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#setDynamicShortcuts(android.content.Context,%20java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E)).
+[`setDynamicShortcuts(Context, List)`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#setDynamicShortcuts(android.content.Context,%20java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E)).
 
 The order of share targets is based on various factors including past user
-history, recency, frequency, [rank hint](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutInfo.Builder#setRank(int)), app usage, and the priority set on
+history, recency, frequency, [rank hint](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutInfo.Builder.md.txt#setRank(int)), app usage, and the priority set on
 the conversation that is associated with a sharing shortcut. Share targets
-created using the [Sharing Shortcuts API](https://developer.android.com/develop/ui/compose/sharing/receive#sharing-shortcuts-api) are prioritized over the share
-targets produced by the [`ChooserTargetService`](https://developer.android.com/reference/kotlin/android/service/chooser/ChooserTargetService) which was deprecated in
+created using the [Sharing Shortcuts API](https://developer.android.com/develop/ui/compose/sharing/receive.md.txt#sharing-shortcuts-api) are prioritized over the share
+targets produced by the [`ChooserTargetService`](https://developer.android.com/reference/kotlin/android/service/chooser/ChooserTargetService.md.txt) which was deprecated in
 Android 11. In Android 12 and higher share targets generated by the deprecated
 `ChooserTargetService` will no longer appear in the share sheet.
 
@@ -97,12 +97,12 @@ another, or setting intent flags, depending on the shortcut's type.
 ### Start one activity from another
 
 Static shortcuts can't have custom intent flags. The first intent of a static
-shortcut always has [Intent.FLAG_ACTIVITY_NEW_TASK](https://developer.android.com/reference/kotlin/android/content/Intent#FLAG_ACTIVITY_NEW_TASK) and
-[Intent.FLAG_ACTIVITY_CLEAR_TASK](https://developer.android.com/reference/kotlin/android/content/Intent#FLAG_ACTIVITY_CLEAR_TASK) set. This means that when your app is
+shortcut always has [Intent.FLAG_ACTIVITY_NEW_TASK](https://developer.android.com/reference/kotlin/android/content/Intent.md.txt#FLAG_ACTIVITY_NEW_TASK) and
+[Intent.FLAG_ACTIVITY_CLEAR_TASK](https://developer.android.com/reference/kotlin/android/content/Intent.md.txt#FLAG_ACTIVITY_CLEAR_TASK) set. This means that when your app is
 running, all the existing activities in the app are destroyed when a static
 shortcut is launched. If you don't want this behavior, you can use a trampoline
 activity---an invisible activity that starts another activity---by calling finish
-inside a launch block or [`onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity#onCreate(android.os.Bundle)) before Compose content is set:
+inside a launch block or [`onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#onCreate(android.os.Bundle)) before Compose content is set:
 
 1. In the `AndroidManifest.xml file`, include the attribute assignment
    `android:taskAffinity=""` in the trampoline activity.
@@ -111,24 +111,24 @@ inside a launch block or [`onCreate`](https://developer.android.com/reference/ko
    intent within the static shortcut.
 
 For more information about trampoline activities, see
-[Starting one activity from another](https://developer.android.com/guide/components/activities/activity-lifecycle#soafa).
+[Starting one activity from another](https://developer.android.com/guide/components/activities/activity-lifecycle.md.txt#soafa).
 
 ### Set intent flags
 
-You can publish dynamic shortcuts with any set of [`Intent`](https://developer.android.com/reference/kotlin/android/content/Intent#addFlags(int)) flags.
+You can publish dynamic shortcuts with any set of [`Intent`](https://developer.android.com/reference/kotlin/android/content/Intent.md.txt#addFlags(int)) flags.
 Preferably, specify the combination of `Intent.FLAG_ACTIVITY_SINGLE_TOP` and
 `Intent.FLAG_ACTIVITY_CLEAR_TOP` in the shortcut's intent. This ensures that if
 your `ComponentActivity` is already active, it is brought to the foreground and
 reused without being destroyed, allowing your single-activity architecture to
 gracefully handle the shortcut event through `onNewIntent()`.
 
-To learn more about tasks and intent flags, see [Tasks and the back stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack).
+To learn more about tasks and intent flags, see [Tasks and the back stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack.md.txt).
 
 ## Update shortcuts
 
 Each app's launcher icon can contain, at most, a number of static and dynamic
 shortcuts combined that is equal to the value returned by
-[`getMaxShortcutCountPerActivity`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#getMaxShortcutCountPerActivity(android.content.Context)). There isn't a limit to the number of
+[`getMaxShortcutCountPerActivity`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#getMaxShortcutCountPerActivity(android.content.Context)). There isn't a limit to the number of
 pinned shortcuts that an app can create.
 
 When a dynamic shortcut is pinned, even when the publisher removes it as a
@@ -151,22 +151,22 @@ the publisher app. This is because the total includes the maximum number of
 shortcuts and the three pinned shortcuts.
 
 1. The app can use `updateShortcuts(Context, List)` to update any of the existing seven shortcuts. For example, you might update this set of shortcuts when the chat peers' icons change.
-2. You can use the [`addDynamicShortcuts(Context, List)`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#addDynamicShortcuts(android.content.Context,%20java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E)) and `setDynamicShortcuts(Context, List)` methods to update existing shortcuts with the same IDs. However, you can't use them for updating non-dynamic, pinned shortcuts, because these two methods try to convert the given lists of shortcuts to dynamic shortcuts.
+2. You can use the [`addDynamicShortcuts(Context, List)`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#addDynamicShortcuts(android.content.Context,%20java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E)) and `setDynamicShortcuts(Context, List)` methods to update existing shortcuts with the same IDs. However, you can't use them for updating non-dynamic, pinned shortcuts, because these two methods try to convert the given lists of shortcuts to dynamic shortcuts.
 
 There isn't a limit to the number of shortcuts that can be pushed for display on
-assistant apps such as Google Assistant. Use the [`pushDynamicShortcut`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#pushDynamicShortcut(android.content.Context,%20androidx.core.content.pm.ShortcutInfoCompat))
+assistant apps such as Google Assistant. Use the [`pushDynamicShortcut`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#pushDynamicShortcut(android.content.Context,%20androidx.core.content.pm.ShortcutInfoCompat))
 method of the `ShortcutManagerCompat` Jetpack library to create and update
 shortcuts for use on assistant apps. Also, add the [Google Shortcuts Integration
 library](https://developer.android.com/develop/ui/compose/system/shortcuts/creating-shortcuts#gsi-library) to your app to make dynamic links eligible to appear on Google
 Assistant.
 
 To learn more about guidelines for app shortcuts, including updating shortcuts,
-see [Best practices for shortcuts](https://developer.android.com/develop/ui/compose/system/shortcuts/best-practices).
+see [Best practices for shortcuts](https://developer.android.com/develop/ui/compose/system/shortcuts/best-practices.md.txt).
 
 ### Handle system locale changes
 
 Apps must update dynamic and pinned shortcuts when they receive the
-[`Intent.ACTION_LOCALE_CHANGED`](https://developer.android.com/reference/kotlin/android/content/Intent#ACTION_LOCALE_CHANGED) broadcast indicating a change to the system
+[`Intent.ACTION_LOCALE_CHANGED`](https://developer.android.com/reference/kotlin/android/content/Intent.md.txt#ACTION_LOCALE_CHANGED) broadcast indicating a change to the system
 locale.
 
 ### Track shortcut usage
@@ -174,7 +174,7 @@ locale.
 To determine the situations during which static and dynamic shortcuts appear,
 the launcher examines the activation history of shortcuts. For static shortcuts,
 you can keep track of when users complete specific actions within your app by
-calling the [`reportShortcutUsed`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#reportShortcutUsed(android.content.Context,%20java.lang.String)) method and passing it the ID of a
+calling the [`reportShortcutUsed`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#reportShortcutUsed(android.content.Context,%20java.lang.String)) method and passing it the ID of a
 shortcut when either of the following events occurs:
 
 - The user selects the shortcut with the given ID.
@@ -188,11 +188,11 @@ Google Assistant suggest relevant shortcuts to users. Because the
 `reportShortcutUsed` method for the same shortcuts.
 
 For conversation-related shortcuts, it is important to track usage for outgoing
-and incoming messages. For details, see the [best practices](https://developer.android.com/develop/ui/views/notifications/conversations#best-practices) for people and
+and incoming messages. For details, see the [best practices](https://developer.android.com/develop/ui/views/notifications/conversations.md.txt#best-practices) for people and
 conversations.
 
 > [!NOTE]
-> **Note:** The [Google Shortcuts Integration Library](https://developer.android.com/develop/ui/compose/system/shortcuts/creating-shortcuts#gsi-library) is required to enable the dynamic links your app pushes to be eligible to appear on Google surfaces such as Google Assistant. By adding this library to your app, you let Assistant take in your dynamic links and suggest them to users from the Assistant app.
+> **Note:** The [Google Shortcuts Integration Library](https://developer.android.com/develop/ui/compose/system/shortcuts/creating-shortcuts.md.txt#gsi-library) is required to enable the dynamic links your app pushes to be eligible to appear on Google surfaces such as Google Assistant. By adding this library to your app, you let Assistant take in your dynamic links and suggest them to users from the Assistant app.
 
 ## Disable shortcuts
 
@@ -200,10 +200,10 @@ Because your app and its users can pin shortcuts to the device's launcher, it's
 possible that these pinned shortcuts can direct users to actions within your app
 that are out of date or no longer exist. To manage this situation, you can
 disable the shortcuts that you don't want users to select by calling
-[`disableShortcuts`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#disableShortcuts(android.content.Context,%20java.util.List%3Cjava.lang.String%3E,%20java.lang.CharSequence)), which removes the specified shortcuts from the static
+[`disableShortcuts`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#disableShortcuts(android.content.Context,%20java.util.List%3Cjava.lang.String%3E,%20java.lang.CharSequence)), which removes the specified shortcuts from the static
 and dynamic shortcuts list and disables pinned copies of these shortcuts. You
 can also use an overloaded version of this method that accepts a
-[`CharSequence`](https://developer.android.com/reference/kotlin/java/lang/CharSequence) as a custom error message. That error message then appears
+[`CharSequence`](https://developer.android.com/reference/kotlin/java/lang/CharSequence.md.txt) as a custom error message. That error message then appears
 when users attempt to launch any disabled shortcut.
 
 > [!NOTE]
@@ -215,10 +215,10 @@ When using the `setDynamicShortcuts, addDynamicShortcuts`, or `updateShortcuts`
 methods, you might only be able to call these methods a specific number of times
 in a *background app* ---an app with no activities or services in the foreground.
 The limit on the specific number of times you can call these methods is called
-*rate limiting* . This feature prevents [`ShortcutManagerCompat`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat) from
+*rate limiting* . This feature prevents [`ShortcutManagerCompat`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt) from
 over-consuming device resources.
 
-When rate limiting is active, [`isRateLimitingActive`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#isRateLimitingActive) returns true.
+When rate limiting is active, [`isRateLimitingActive`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#isRateLimitingActive) returns true.
 However, rate limiting is reset during certain events, so even background apps
 can call `ShortcutManager` methods until the rate limit is reached again. These
 events include the following:
@@ -236,7 +236,7 @@ settings](https://developer.android.com/studio/debug/dev-options), or you can en
 ## Backup and restore
 
 You can let users perform backup and restore operations on your app when
-changing devices by including the [`android:allowBackup="true"`](https://developer.android.com/guide/topics/manifest/application-element#allowbackup) attribute
+changing devices by including the [`android:allowBackup="true"`](https://developer.android.com/guide/topics/manifest/application-element.md.txt#allowbackup) attribute
 assignment in your app's manifest file. If you support backup and restore, keep
 the following points about app shortcuts in mind:
 

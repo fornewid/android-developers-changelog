@@ -7,25 +7,25 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices.md.txt#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
-After the user [grants permission for face tracking](https://developer.android.com/training/permissions/requesting),
+After the user [grants permission for face tracking](https://developer.android.com/training/permissions/requesting.md.txt),
 your app can retrieve face shape information through ARCore for Jetpack XR. Face
 shape information can help your app display the user in the virtual world, for
 example, for a virtual glasses try-on.
 
 ## Create an ARCore for Jetpack XR session
 
-Obtain face information through a Jetpack XR Runtime [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session),
-which your [app can create](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#access-session).
+Obtain face information through a Jetpack XR Runtime [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session.md.txt),
+which your [app can create](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session.md.txt#access-session).
 
 ## Configure the session
 
 Face tracking is not enabled by default on XR sessions. To enable face tracking,
 configure the session and set the
-[`FaceTrackingMode.USER`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/FaceTrackingMode#USER()) mode:
+[`FaceTrackingMode.USER`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/FaceTrackingMode.md.txt#USER()) mode:
 
 
 ```kotlin
@@ -42,15 +42,15 @@ when (val result = session.configure(newConfig)) {
 <br />
 
 > [!NOTE]
-> **Note:** Enabling this mode requires the `android.permission.FACE_TRACKING` [runtime permission](https://developer.android.com/training/permissions/requesting) to be granted to your app.
+> **Note:** Enabling this mode requires the `android.permission.FACE_TRACKING` [runtime permission](https://developer.android.com/training/permissions/requesting.md.txt) to be granted to your app.
 
 ## Retrieve face data
 
-Use [`Face.getUserFace(session)`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Face#getUserFace(androidx.xr.runtime.Session)) to retrieve user face data, which
+Use [`Face.getUserFace(session)`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Face.md.txt#getUserFace(androidx.xr.runtime.Session)) to retrieve user face data, which
 contains the following:
 
-- **Face blendshape values** : A face's possible expressions are a combination of [68 blend shape values](https://developer.android.com/reference/kotlin/androidx/xr/arcore/FaceBlendShapeType). Each blend shape value represents a facial movement or deformation of the face, and the value indicates its intensity, ranging from `0.0` to `1.0`. For an explanation of each blend shape type, see [Understand face blendshape types](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/face#blendshape-table).
-- **Confidence values for regions** : The face has [three regions](https://developer.android.com/reference/kotlin/androidx/xr/arcore/FaceConfidenceRegion). Confidence values indicate the degree of certainty of accuracy for the given poses, ranging from `0.0` to `1.0`, where `1.0` indicates the highest confidence.
+- **Face blendshape values** : A face's possible expressions are a combination of [68 blend shape values](https://developer.android.com/reference/kotlin/androidx/xr/arcore/FaceBlendShapeType.md.txt). Each blend shape value represents a facial movement or deformation of the face, and the value indicates its intensity, ranging from `0.0` to `1.0`. For an explanation of each blend shape type, see [Understand face blendshape types](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/face.md.txt#blendshape-table).
+- **Confidence values for regions** : The face has [three regions](https://developer.android.com/reference/kotlin/androidx/xr/arcore/FaceConfidenceRegion.md.txt). Confidence values indicate the degree of certainty of accuracy for the given poses, ranging from `0.0` to `1.0`, where `1.0` indicates the highest confidence.
 
 
 ```kotlin
@@ -67,7 +67,7 @@ face.state.collect { state ->
 
 ## Understand face blendshape types
 
-The following tables list each [type of face blend shape](https://developer.android.com/reference/kotlin/androidx/xr/arcore/FaceBlendShapeType):
+The following tables list each [type of face blend shape](https://developer.android.com/reference/kotlin/androidx/xr/arcore/FaceBlendShapeType.md.txt):
 
 ### Upper region blendshapes
 

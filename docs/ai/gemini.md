@@ -12,7 +12,7 @@ audio, video, and text inputs in Android apps.
 - **Gemini Flash**: The Gemini Flash models deliver next-gen features and improved capabilities, including superior speed, built-in tool use, and a 1M token context window.
 
 > [!NOTE]
-> **Note:** This document covers the cloud-based Gemini AI models. For on-device inference, [check out the Gemini Nano documentation](https://developer.android.com/ai/gemini-nano).
+> **Note:** This document covers the cloud-based Gemini AI models. For on-device inference, [check out the Gemini Nano documentation](https://developer.android.com/ai/gemini-nano.md.txt).
 
 ## Firebase AI Logic
 
@@ -33,13 +33,13 @@ both leveraging Gemini Pro and Flash models.](https://developer.android.com/stat
 
 Here are the primary differences for each API provider:
 
-[**Gemini Developer API**](https://developer.android.com/ai/gemini/developer-api):
+[**Gemini Developer API**](https://developer.android.com/ai/gemini/developer-api.md.txt):
 
 - Get started at no-cost with a generous free tier without payment information required.
 - Optionally upgrade to the paid tier of the Gemini Developer API to scale as your user base grows.
 - Iterate and experiment with prompts and even get code snippets using [Google AI Studio](https://aistudio.google.com/).
 
-[**Agent Platform Gemini API**](https://developer.android.com/ai/gemini/agent-platform-api) (formerly Vertex AI):
+[**Agent Platform Gemini API**](https://developer.android.com/ai/gemini/agent-platform-api.md.txt) (formerly Vertex AI):
 
 - Granular control over [where you access the model](https://firebase.google.com/docs/ai-logic/locations?api=vertex).
 - Ideal for developers already embedded in the Google Cloud ecosystem.
@@ -99,7 +99,7 @@ Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
 
 In addition to the cloud-hosted Gemini models described in the previous section,
 the Firebase AI Logic SDK also lets you access on-device models to build your
-app's AI features. If you configure the SDK for [hybrid inference](https://developer.android.com/ai/hybrid), your
+app's AI features. If you configure the SDK for [hybrid inference](https://developer.android.com/ai/hybrid.md.txt), your
 app can use an on-device model when it's available, but fall back seamlessly to
 a cloud-hosted model when needed (and vice-versa).
 

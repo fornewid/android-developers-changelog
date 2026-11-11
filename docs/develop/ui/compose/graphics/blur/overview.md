@@ -6,15 +6,15 @@ source: md.txt
 
 Blur effects soften visual details, create photographic depth of field, and
 draw focus to foreground UI elements. In Jetpack Compose, use
-[`Modifier.blur`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/blur.modifier) to blur the content drawn inside a composable, including
+[`Modifier.blur`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/blur.modifier.md.txt) to blur the content drawn inside a composable, including
 images, shapes, text, and layout containers. Applying `Modifier.blur` renders
-the composable into a separate [graphics layer](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers#graphicsLayer).
+the composable into a separate [graphics layer](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers.md.txt#graphicsLayer).
 ![Left: the original image. Center: the image with a uniform blur applied across the whole surface. Right: the image with a progressive blur that is sharp at the top and increases toward the bottom.](https://developer.android.com/static/develop/ui/compose/images/graphics/blur/blur_hero.png) **Figure 1.** Left: the original image. Center: the image with a uniform blur applied across the whole surface. Right: the image with a progressive blur that is sharp at the top and increases toward the bottom.
 
 Depending on your design goals, you can vary the blur in two ways:
 
 - **Uniform blur** : Applies a constant blur radius across the entire composable, either equally on both axes or with independent horizontal and vertical radii (`radiusX`, `radiusY`).
-- **Progressive blur** : Varies the blur radius spatially across the composable using [`BlurRadiusSpec`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/blur/BlurRadiusSpec) gradients or a custom [`Shader`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shader).
+- **Progressive blur** : Varies the blur radius spatially across the composable using [`BlurRadiusSpec`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/blur/BlurRadiusSpec.md.txt) gradients or a custom [`Shader`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shader.md.txt).
 
 > [!NOTE]
 > **Note:** `Modifier.blur` blurs the content that a composable draws itself: its images, text, shapes, and child composables. This is sometimes called a surface or layer blur, as distinct from a backdrop blur, which blurs whatever is drawn behind a composable. This page covers surface blurs.
@@ -22,7 +22,7 @@ Depending on your design goals, you can vary the blur in two ways:
 ## Apply a uniform blur
 
 > [!NOTE]
-> **Note:** The examples in this section also pass an `edgeTreatment` that clips the blurred result to rounded corners. For more information, see [Control edge clipping with `BlurredEdgeTreatment`](https://developer.android.com/develop/ui/compose/graphics/blur/overview#edge-treatment).
+> **Note:** The examples in this section also pass an `edgeTreatment` that clips the blurred result to rounded corners. For more information, see [Control edge clipping with `BlurredEdgeTreatment`](https://developer.android.com/develop/ui/compose/graphics/blur/overview.md.txt#edge-treatment).
 
 To apply a constant blur across an entire composable, pass a `Dp` radius to
 `Modifier.blur`. Pass a single `radius` value to blur content equally along
@@ -81,12 +81,12 @@ fun DirectionalBlurExample() {
 ## Apply a progressive blur
 
 > [!NOTE]
-> **Note:** Progressive blur APIs ([`BlurRadiusSpec`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/blur/BlurRadiusSpec), [`BlurStop`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/blur/BlurStop), and the `Modifier.blur { }` configuration block) are available in `androidx.compose.ui:ui` 1.13.0-beta01 and higher.
+> **Note:** Progressive blur APIs ([`BlurRadiusSpec`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/blur/BlurRadiusSpec.md.txt), [`BlurStop`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/blur/BlurStop.md.txt), and the `Modifier.blur { }` configuration block) are available in `androidx.compose.ui:ui` 1.13.0-beta01 and higher.
 
 A progressive blur varies the blur radius across a composable, creating a
 smooth transition between sharp and blurred regions.
 
-Pass a [`BlurRadiusSpec`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/blur/BlurRadiusSpec) to `Modifier.blur`. For example, use
+Pass a [`BlurRadiusSpec`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/blur/BlurRadiusSpec.md.txt) to `Modifier.blur`. For example, use
 `BlurRadiusSpec.verticalGradient` with `startRadius = 0.dp` and
 `endRadius = 6.dp` to keep the top of an image sharp while progressively
 blurring it toward the bottom, as shown in the following example:
@@ -139,7 +139,7 @@ The following table lists the factory functions available on `BlurRadiusSpec`:
 Standard gradient blurs interpolate linearly between `0f` and `1f`. To
 customize the blur distribution across a surface, such as blurring multiple
 edges or keeping a middle section completely sharp, pass a `List<BlurStop>`
-containing 2 to 16 [`BlurStop`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/blur/BlurStop) entries to `verticalGradient`,
+containing 2 to 16 [`BlurStop`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/blur/BlurStop.md.txt) entries to `verticalGradient`,
 `horizontalGradient`, `linearGradient`, or `radialGradient`. Define the
 following for each `BlurStop` entry:
 
@@ -182,7 +182,7 @@ fun MultiStopBlurExample() {
 ### Configure layer properties with `BlurScope`
 
 Instead of passing `blurRadiusSpec` directly, you can pass a configuration
-block to `Modifier.blur { ... }`. This block runs inside [`BlurScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/BlurScope),
+block to `Modifier.blur { ... }`. This block runs inside [`BlurScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/BlurScope.md.txt),
 which gives you direct access to layout density and the following properties:
 
 - **`size: DpSize`** : The measured width and height of the blurred layer in `Dp`, which defines the coordinate space for gradient geometry.
@@ -201,7 +201,7 @@ triggering recomposition.
 
 Because blurring samples neighboring pixels within the blur radius, the blurred
 output extends beyond the original content bounds by the blur radius.
-[`BlurredEdgeTreatment`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/BlurredEdgeTreatment) determines how pixels outside the original bounds
+[`BlurredEdgeTreatment`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/BlurredEdgeTreatment.md.txt) determines how pixels outside the original bounds
 are sampled and whether the result is clipped to a shape.
 
 `BlurredEdgeTreatment` works with both uniform and progressive blurs:
@@ -214,4 +214,4 @@ are sampled and whether the result is clipped to a shape.
 
 To see how these APIs combine in complete UI patterns, such as fading the edges
 of scrolling content, spotlighting a focal point, or masking a blur with a
-custom shader, see [Common blur use cases](https://developer.android.com/develop/ui/compose/graphics/blur/examples).
+custom shader, see [Common blur use cases](https://developer.android.com/develop/ui/compose/graphics/blur/examples.md.txt).

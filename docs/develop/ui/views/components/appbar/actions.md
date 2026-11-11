@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/views/components/appbar/actions
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose. [Dynamic top app bar →](https://developer.android.com/develop/ui/compose/components/app-bars-dynamic) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose. [Dynamic top app bar →](https://developer.android.com/develop/ui/compose/components/app-bars-dynamic.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 The app bar lets you add buttons for user actions. This feature lets you put
 the most important *actions* for the current context at the top of the app.
@@ -22,12 +22,12 @@ instead of displaying on the app bar.
 
 All action buttons and other items available in the action overflow are
 defined in an XML
-[menu resource](https://developer.android.com/guide/topics/resources/menu-resource). To add
+[menu resource](https://developer.android.com/guide/topics/resources/menu-resource.md.txt). To add
 actions to the action bar, create a new XML file in your project's
 `res/menu/` directory.
 
 Add an
-[`<item>`](https://developer.android.com/guide/topics/resources/menu-resource#item-element)
+[`<item>`](https://developer.android.com/guide/topics/resources/menu-resource.md.txt#item-element)
 element for each item you want to include in the action bar, as shown in the
 following sample menu XML file:
 
@@ -67,12 +67,12 @@ in the app bar. You can find many useful icons in
 
 When the user selects one of the app bar items, the system calls your
 activity's
-`https://developer.android.com/reference/android/app/Activity#onOptionsItemSelected(android.view.MenuItem)`
+`onOptionsItemSelected()`
 callback method and passes a
-`https://developer.android.com/reference/android/view/MenuItem` object
+`MenuItem` object
 to indicate which item was tapped. In your implementation of
 `onOptionsItemSelected()`, call the
-`https://developer.android.com/reference/android/view/MenuItem#getItemId()`
+`MenuItem.getItemId()`
 method to determine which item was tapped. The ID returned matches the value you
 declare in the corresponding `<item>` element's
 `android:id` attribute.

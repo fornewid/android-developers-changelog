@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 Wear OS 3 and higher includes a service called
-[Health Services](https://developer.android.com/jetpack/androidx/releases/health).
+[Health Services](https://developer.android.com/jetpack/androidx/releases/health.md.txt).
 Health Services acts as an intermediary to the various sensors and related
 algorithms on the device to provide apps with high-quality data related to
 activity, exercise, and health.
@@ -20,7 +20,7 @@ Without Health Services, apps must connect to one or multiple sensors,
 configure each of them appropriately, receive raw sensor data, and use their
 own algorithms to derive meaningful information. For example, an app might
 register for updates of
-[`Sensor.TYPE_PRESSURE`](https://developer.android.com/reference/kotlin/android/hardware/Sensor#type_pressure)
+[`Sensor.TYPE_PRESSURE`](https://developer.android.com/reference/kotlin/android/hardware/Sensor.md.txt#type_pressure)
 to get the current air pressure, use it to compute the current altitude, and
 aggregate this data over time to show the elevation changes during a user's
 activity session.
@@ -54,7 +54,7 @@ from all the available sources on the device. The data falls into two
 broad categories: data sampled at a single point in time, such as
 `HEART_RATE_BPM`, and data taken over a time interval, such as `DISTANCE`.
 
-For more information, see the full list of [Data types](https://developer.android.com/reference/kotlin/androidx/health/services/client/data/DataType).
+For more information, see the full list of [Data types](https://developer.android.com/reference/kotlin/androidx/health/services/client/data/DataType.md.txt).
 
 ### Events
 
@@ -64,8 +64,8 @@ the app notifies the user when they have run a certain distance.
 Alternatively, use a passive goal for situations like the user hitting a
 certain step count or falling asleep.
 
-For more information, see [Exercise goals](https://developer.android.com/reference/kotlin/androidx/health/services/client/data/ExerciseGoal) and
-[Passive goals](https://developer.android.com/reference/kotlin/androidx/health/services/client/data/PassiveGoal).
+For more information, see [Exercise goals](https://developer.android.com/reference/kotlin/androidx/health/services/client/data/ExerciseGoal.md.txt) and
+[Passive goals](https://developer.android.com/reference/kotlin/androidx/health/services/client/data/PassiveGoal.md.txt).
 
 ### Exercise types
 
@@ -74,7 +74,7 @@ multitude of exercise types, such as running or skiing. While an exercise is in
 progress, Health Services can collect metrics on selected data types and report
 back to the app that manages the exercise.
 
-For more information, see the full list of [exercise types](https://developer.android.com/reference/kotlin/androidx/health/services/client/data/ExerciseType).
+For more information, see the full list of [exercise types](https://developer.android.com/reference/kotlin/androidx/health/services/client/data/ExerciseType.md.txt).
 
 ## Create apps using Health Services
 
@@ -84,7 +84,7 @@ sections.
 ### Passive experiences
 
 Using
-[`PassiveMonitoringClient`](https://developer.android.com/reference/kotlin/androidx/health/services/client/PassiveMonitoringClient),
+[`PassiveMonitoringClient`](https://developer.android.com/reference/kotlin/androidx/health/services/client/PassiveMonitoringClient.md.txt),
 your app implements a `PassiveListenerService` that receives updates about a
 data type or an event. This is suited for long-lived experiences where data
 updates are relatively infrequent.

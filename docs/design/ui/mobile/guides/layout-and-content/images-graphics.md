@@ -11,7 +11,7 @@ visual elements, such as a logo or illustration. Android has particular best
 practices for adding graphics to your app along with various libraries to create
 graphic effects or add motion.
 
-An Android asset is referred to as a [drawable](https://developer.android.com/reference/android/graphics/drawable/Drawable), a type of resource that is
+An Android asset is referred to as a [drawable](https://developer.android.com/reference/android/graphics/drawable/Drawable.md.txt), a type of resource that is
 drawn on the screen. This includes, but is not limited to, bitmaps, shapes, and
 vectors.
 
@@ -61,13 +61,13 @@ Android supports the following vector image formats: SVGs and Vector Drawables.
 
 Vector Drawables look similar to SVGs but are XML-based. They also support
 various attributes, like gradients. For more information on what is supported,
-see [`VectorDrawable`](https://developer.android.com/reference/android/graphics/drawable/VectorDrawable). You can convert SVGs to Vector Drawables through
-[Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio#running).
+see [`VectorDrawable`](https://developer.android.com/reference/android/graphics/drawable/VectorDrawable.md.txt). You can convert SVGs to Vector Drawables through
+[Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio.md.txt#running).
 
 #### Use cases
 
 Because of their small size, it's best to create icons using a vector format. An
-[Animated Vector Drawable](https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable) can be used to add motion to an icon.
+[Animated Vector Drawable](https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable.md.txt) can be used to add motion to an icon.
 
 - Illustrations are graphics that help direct users, explain concepts, or express ideas. They typically express the brand style.
 - Hero illustrations are high-emphasis amongst the rest of the content, used to set overall look and feel and explain primary information.
@@ -139,12 +139,12 @@ icons. To learn more about creating and previewing your app icon, check out
 
 ### Splash screens
 
-Starting with Android 12, your app can display an animated [splash screen](https://developer.android.com/develop/ui/views/launch/splash-screen)
+Starting with Android 12, your app can display an animated [splash screen](https://developer.android.com/develop/ui/views/launch/splash-screen.md.txt)
 that features the app icon while your app opens.
 
 ## Placement
 
-Note how images should [scale](https://developer.android.com/design/ui/mobile/guides/layout-and-content/layout-basics) and position on the screen. **Fit, Crop,
+Note how images should [scale](https://developer.android.com/design/ui/mobile/guides/layout-and-content/layout-basics.md.txt) and position on the screen. **Fit, Crop,
 FillHeight, FillWidth, FillBounds, Inside** , and **None** are available to [set
 the scaling](https://developer.android.com/develop/ui/compose/graphics/images/customize#content-scale) on an image.
 ![](https://developer.android.com/static/images/design/ui/mobile/graphics_1.png) **Figure 8.** Cropping examples.
@@ -182,9 +182,9 @@ Android includes various built-in image effects. Here are some common effects:
 
 ### Gradients
 
-In Compose, use a [Brush](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush) to draw something on the screen. Different brushes
+In Compose, use a [Brush](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush.md.txt) to draw something on the screen. Different brushes
 can be used to draw shapes of different colors or gradients. Use the built-in
-[gradient brushes](https://developer.android.com/develop/ui/compose/graphics/draw/brush#gradient-brushes) to achieve different gradient effects. These brushes
+[gradient brushes](https://developer.android.com/develop/ui/compose/graphics/draw/brush.md.txt#gradient-brushes) to achieve different gradient effects. These brushes
 allow you to specify the list of colors that you would like to create a gradient
 from.
 
@@ -199,13 +199,13 @@ images.
 Apply blurring effects to images by using the `Modifier.blur()` method and
 providing the blur ratios. Use blurs with caution because they can affect
 performance and are only available on devices running Android 12 and higher. For
-more information, see [Blur an image composable](https://developer.android.com/develop/ui/compose/graphics/images/customize#blur_an_image_composable).
+more information, see [Blur an image composable](https://developer.android.com/develop/ui/compose/graphics/images/customize.md.txt#blur_an_image_composable).
 
 ### Blend modes
 
 Android is capable of modifying images through similar boolean operations and
 blend modes you might find in design software, like union or multiply. For more
-information, see [BlendMode](https://developer.android.com/reference/android/graphics/BlendMode).
+information, see [BlendMode](https://developer.android.com/reference/android/graphics/BlendMode.md.txt).
 
 ### Tint
 
@@ -221,5 +221,5 @@ uploading motion files. This can allow for greater flexibility and smaller asset
 resources.
 
 Animated Vector Drawables lets you create small UI animations. Otherwise, learn
-more about animating with keyframes in [Compose](https://developer.android.com/develop/ui/compose/graphics). For more on image effects
-read [Customize an image](https://developer.android.com/develop/ui/compose/graphics/images/customize#border-image).
+more about animating with keyframes in [Compose](https://developer.android.com/develop/ui/compose/graphics.md.txt). For more on image effects
+read [Customize an image](https://developer.android.com/develop/ui/compose/graphics/images/customize.md.txt#border-image).

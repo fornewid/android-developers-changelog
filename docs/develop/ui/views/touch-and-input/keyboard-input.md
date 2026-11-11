@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/keyboard-inp
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn about touch and input in Compose. [Touch and input →](https://developer.android.com/develop/ui/compose/touch-input) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn about touch and input in Compose. [Touch and input →](https://developer.android.com/develop/ui/compose/touch-input.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 The Android system shows an on-screen keyboard---known as a
 *soft input method*---when a text field in your UI receives focus.
@@ -20,18 +20,18 @@ These topics and more are discussed in the following documentation.
 
 ## Lessons
 
-**[Specify the input method type](https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/style)**
+**[Specify the input method type](https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/style.md.txt)**
 :   Learn how to show certain soft input methods, such as those designed for phone numbers, web
     addresses, or other formats. Also, learn how to specify characteristics such
     as spelling suggestion behavior and action buttons such as **Done** or **Next**.
 
-**[Handle input method visibility](https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/visibility)**
+**[Handle input method visibility](https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/visibility.md.txt)**
 :   Learn how to specify when to show the soft input method and how
     your layout must adjust to the reduced screen space.
 
-**[Support keyboard navigation](https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/navigation)**
+**[Support keyboard navigation](https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/navigation.md.txt)**
 :   Learn how to verify that users can navigate your app using a keyboard
     and how to make any necessary changes to the navigation order.
 
-**[Handle keyboard actions](https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/commands)**
+**[Handle keyboard actions](https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/commands.md.txt)**
 :   Learn how to respond directly to keyboard input for user actions.

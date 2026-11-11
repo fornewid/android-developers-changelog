@@ -36,11 +36,11 @@ Mode when playback is stopped or paused.
 
 ## Audio playback
 
-For audio playback, apps [should not prevent Ambient Mode during playback](https://developer.android.com/docs/quality-guidelines/tv-app-quality#TV-BA)
+For audio playback, apps [should not prevent Ambient Mode during playback](https://developer.android.com/docs/quality-guidelines/tv-app-quality.md.txt#TV-BA)
 unless they implement their own screensaver with non-static imagery. Audio
 playback will continue while Ambient Mode is active.
 
-Audio playback on Android will implicitly hold a [partial wake lock](https://developer.android.com/reference/android/os/PowerManager#PARTIAL_WAKE_LOCK). This
+Audio playback on Android will implicitly hold a [partial wake lock](https://developer.android.com/reference/android/os/PowerManager.md.txt#PARTIAL_WAKE_LOCK). This
 will *not* prevent the device from entering Ambient Mode, but *will* prevent the
 subsequent transition to Energy Saver mode. Playback will therefore continue
 even after the device enters Ambient Mode, but the device will be prevented from
@@ -49,11 +49,11 @@ going to sleep to allow uninterrupted playback.
 ## Preventing Ambient Mode
 
 It is possible to prevent the OS from putting the device into Ambient Mode, but
-this must be used in accordance with [Ambient Mode requirements](https://developer.android.com/docs/quality-guidelines/tv-app-quality#ambient-mode). App
+this must be used in accordance with [Ambient Mode requirements](https://developer.android.com/docs/quality-guidelines/tv-app-quality.md.txt#ambient-mode). App
 developers cannot prevent the device from entering Energy Saver mode.
 
 Apps can prevent the screen from turning off by setting a flag on the
-[`Window`](https://developer.android.com/reference/android/view/Window):
+[`Window`](https://developer.android.com/reference/android/view/Window.md.txt):
 
 ### Kotlin
 
@@ -66,7 +66,9 @@ activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
 ### Java
 
-    requireActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+```java
+requireActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+```
 
 Ambient Mode will be disabled while this flag is set. To re-enable it you must
 clear the flag:
@@ -82,8 +84,10 @@ activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
 ### Java
 
-    requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+```java
+requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+```
 
 > [!NOTE]
 > **Note:** You must only prevent the device from entering Ambient Mode for user-initiated playback sessions. If your app is [automatically playing video or
-> animations](https://developer.android.com/docs/quality-guidelines/tv-app-quality#TV-BY), you must *not* set the [`FLAG_KEEP_SCREEN_ON`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_KEEP_SCREEN_ON) flag.
+> animations](https://developer.android.com/docs/quality-guidelines/tv-app-quality#TV-BY), you must *not* set the [`FLAG_KEEP_SCREEN_ON`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.md.txt#FLAG_KEEP_SCREEN_ON) flag.

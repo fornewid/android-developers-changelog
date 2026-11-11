@@ -20,7 +20,7 @@ The canonical layouts create engaging, productivity‑enhancing UIs that
 form the foundation of great apps.
 
 If you're already familiar with the adaptive app canonical layouts but aren't
-sure which Android APIs to use, jump to the [Applicability](https://developer.android.com/develop/ui/views/layout/canonical-layouts#applicability)
+sure which Android APIs to use, jump to the [Applicability](https://developer.android.com/develop/ui/views/layout/canonical-layouts.md.txt#applicability)
 section for help determining which layout is right for your app's use cases.
 
 ## List-detail
@@ -35,7 +35,7 @@ The layout divides the app window into two side-by-side panes: one for the list,
 one for the detail. Users select items from the list to display the item detail.
 Deep links in the detail reveal additional content in the detail pane.
 
-Expanded-width displays (see [Use window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes)) accommodate both the
+Expanded-width displays (see [Use window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes.md.txt)) accommodate both the
 list and detail at the same time. Selection of a list item updates the detail
 pane to show the related content for the selected item.
 
@@ -61,10 +61,10 @@ Your browser doesn't support the video tag. **Figure 1.** Messaging app showing 
 
 A list-detail layout can be created with a variety of technologies, including
 Compose, views, and activity embedding (for legacy apps). See the
-[Applicability](https://developer.android.com/develop/ui/views/layout/canonical-layouts#applicability) section for help deciding which technology is
+[Applicability](https://developer.android.com/develop/ui/views/layout/canonical-layouts.md.txt#applicability) section for help deciding which technology is
 most suitable for your app.
 
-The [`SlidingPaneLayout`](https://developer.android.com/reference/androidx/slidingpanelayout/widget/SlidingPaneLayout) library is designed for implementation of
+The [`SlidingPaneLayout`](https://developer.android.com/reference/androidx/slidingpanelayout/widget/SlidingPaneLayout.md.txt) library is designed for implementation of
 list‑detail layouts based on views or fragments.
 
 First, declare a `SlidingPaneLayout` as the root element of your XML layout.
@@ -72,7 +72,7 @@ Next, add the two child elements---either views or fragments---that
 represent the list and detail content.
 
 Implement a communication methodology to pass data between the list-detail views
-or fragments. [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) is recommended because of its ability to store
+or fragments. [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel.md.txt) is recommended because of its ability to store
 business logic and survive configuration changes.
 
 `SlidingPaneLayout` automatically determines whether to display the list and
@@ -107,7 +107,7 @@ manufacturers. When activity embedding is not available on a device, the
 fallback behavior results in the list activity or the detail activity occupying
 the entire app window based on user interaction with the app.
 
-For more information, see [Activity embedding](https://developer.android.com/develop/ui/views/layout/activity-embedding).
+For more information, see [Activity embedding](https://developer.android.com/develop/ui/views/layout/activity-embedding.md.txt).
 
 For an example implementation, see the [List-detail with activity
 embedding](https://github.com/android/adaptive-apps-samples/tree/main/CanonicalLayouts/list-detail-activity-embedding) sample.
@@ -136,19 +136,19 @@ Your browser doesn't support the video tag. **Figure 2.** Social media app showi
 
 ### Implementation
 
-A [`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView) efficiently renders a large number of items in a single
-column. A [`GridLayoutManager`](https://developer.android.com/reference/androidx/recyclerview/widget/GridLayoutManager) lays out items in a grid, allowing
+A [`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.md.txt) efficiently renders a large number of items in a single
+column. A [`GridLayoutManager`](https://developer.android.com/reference/androidx/recyclerview/widget/GridLayoutManager.md.txt) lays out items in a grid, allowing
 configuration of the item sizes and spans.
 
 Configure the grid columns based on the size of the available display area to
 set the minimum allowable width for items.
 
 The `GridLayoutManager` default spanning strategy, which is one span per item,
-can be overridden by creating a custom [`SpanSizeLookup`](https://developer.android.com/reference/androidx/recyclerview/widget/GridLayoutManager.SpanSizeLookup). Adjust the span to
+can be overridden by creating a custom [`SpanSizeLookup`](https://developer.android.com/reference/androidx/recyclerview/widget/GridLayoutManager.SpanSizeLookup.md.txt). Adjust the span to
 emphasize some items over others.
 
 On compact-width displays that have enough space for only one column, use
-[`LinearLayoutManager`](https://developer.android.com/reference/androidx/recyclerview/widget/LinearLayoutManager) instead of `GridLayoutManager`.
+[`LinearLayoutManager`](https://developer.android.com/reference/androidx/recyclerview/widget/LinearLayoutManager.md.txt) instead of `GridLayoutManager`.
 
 For an example implementation, see the [Feed with views](https://github.com/android/adaptive-apps-samples/tree/main/CanonicalLayouts/feed-view)
 sample.
@@ -194,7 +194,7 @@ Your browser doesn't support the video tag. **Figure 3.** Shopping app with prod
 ### Implementation
 
 A supporting pane layout is implemented using a helper layout such as
-[`LinearLayout`](https://developer.android.com/reference/android/widget/LinearLayout) or [`ConstraintLayout`](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout). Establish the window size classes
+[`LinearLayout`](https://developer.android.com/reference/android/widget/LinearLayout.md.txt) or [`ConstraintLayout`](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout.md.txt). Establish the window size classes
 that divide the amount of horizontal display space available for your app into
 three categories: compact (\< 600dp), medium (\>= 600dp), and expanded
 (\>= 840dp).
@@ -205,7 +205,7 @@ For each window size class, define layouts as follows:
 - **Medium:** In the `layout-w600dp` folder, provide supporting pane content that results in the main content and supporting pane rendering side by side, splitting the horizontal display space equally
 - **Expanded:** In the `layout-w840dp` folder, include supporting pane content that results in the main content and supporting pane rendering side by side; however, the supporting pane takes up only 30% of the horizontal space, leaving the remaining 70% for the main content
 
-Use a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) for communication between the main content and the
+Use a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel.md.txt) for communication between the main content and the
 supporting pane whether using views, fragments, or a combination.
 
 For implementation examples, see the following samples:

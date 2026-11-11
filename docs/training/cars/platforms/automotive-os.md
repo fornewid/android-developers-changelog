@@ -12,7 +12,7 @@ Android Automotive OS and come with Google apps and services including Google
 Play, Gemini, Google Assistant, and Google Maps.
 
 > [!NOTE]
-> **Note:** Android Automotive OS and [Android Auto](https://developer.android.com/training/cars/platforms/android-auto) are not exclusive. That is, a car can run Android Automotive OS and also support Android Auto.
+> **Note:** Android Automotive OS and [Android Auto](https://developer.android.com/training/cars/platforms/android-auto.md.txt) are not exclusive. That is, a car can run Android Automotive OS and also support Android Auto.
 
 ## Learn about Android Automotive OS hardware
 
@@ -29,13 +29,13 @@ supports.
 As with other Android form factors, display cutouts are supported by Android
 Automotive OS devices with non-rectangular displays. However, the size and shape
 of cutouts found in cars can be quite different than those found in other form
-factors. See [Work with window insets and display cutouts](https://developer.android.com/training/cars/parked/automotive-os#insets-and-cutouts) for detailed
+factors. See [Work with window insets and display cutouts](https://developer.android.com/training/cars/parked/automotive-os.md.txt#insets-and-cutouts) for detailed
 guidance.
 
 ### Audio
 
 Android Automotive OS devices are generally fixed-volume devices. To learn more
-about how this may affect your app, see [Working with fixed-volume devices](https://developer.android.com/media/platform/output#fixed-volume).
+about how this may affect your app, see [Working with fixed-volume devices](https://developer.android.com/media/platform/output.md.txt#fixed-volume).
 
 ## Understand Android Automotive OS software
 
@@ -49,19 +49,19 @@ There are some differences in how these system UI elements function in cars that
 you should be aware of.
 
 > [!TIP]
-> **Tip:** The [Android Automotive OS compatibility mode](https://developer.android.com/training/cars/platforms/automotive-os/compatibility-mode) present on some devices addresses many of the implications of these differences.
+> **Tip:** The [Android Automotive OS compatibility mode](https://developer.android.com/training/cars/platforms/automotive-os/compatibility-mode.md.txt) present on some devices addresses many of the implications of these differences.
 
 #### Navigation
 
 Unlike other form factors, there is no requirement for Android Automotive OS
 devices to have a hardware or software back affordance. When not run in
 compatibility mode, activities implemented by your app should include UI
-affordances to enable in-app navigation to meet the [`AN-1`](https://developer.android.com/docs/quality-guidelines/car-app-quality#AN-1) quality
+affordances to enable in-app navigation to meet the [`AN-1`](https://developer.android.com/docs/quality-guidelines/car-app-quality.md.txt#AN-1) quality
 guideline.
 
 #### System bar layout
 
-As with other form factors, Android Automotive OS includes [system bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars)
+As with other form factors, Android Automotive OS includes [system bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars.md.txt)
 such as status bars and navigation bars. In cars, these bars may be sized and
 positioned differently than on other form factors. For example, navigation bars
 may be positioned on the left, right, or bottom of the screen. Even in the case
@@ -72,7 +72,7 @@ much greater in cars.
 Additionally, while display cutouts on mobile devices are generally contained
 within the bounds of the system bars, this isn't the case in cars.
 
-See [Work with window insets and display cutouts](https://developer.android.com/training/cars/parked/automotive-os#insets-and-cutouts) for detailed
+See [Work with window insets and display cutouts](https://developer.android.com/training/cars/parked/automotive-os.md.txt#insets-and-cutouts) for detailed
 guidance.
 
 #### Immersive mode
@@ -111,9 +111,11 @@ active to limit driver distractions. To indicate to the system that an activity
 should continue running while the vehicle is motion, the following `<meta-data>`
 element can be added within the corresponding `<activity>` element.
 
-    <activity ...>
-      <meta-data android:name="distractionOptimized" android:value="true">
-    </activity>
+```xml
+<activity ...>
+  <meta-data android:name="distractionOptimized" android:value="true">
+</activity>
+```
 
 When developing apps for Android Automotive OS, the only time this metadata
 should be present in your manifest is when [declaring the `<activity>` manifest
@@ -124,11 +126,11 @@ app will be rejected when submitted to the Google Play Store.
 ### Accessibility
 
 Accessibility support for Android Automotive OS is not as expansive as on other
-form factors. [TalkBack](https://developer.android.com/guide/topics/ui/accessibility/testing#talkback), [Switch Access](https://developer.android.com/guide/topics/ui/accessibility/testing#switch-access), and [Voice Access](https://developer.android.com/guide/topics/ui/accessibility/testing#voice-access) are
+form factors. [TalkBack](https://developer.android.com/guide/topics/ui/accessibility/testing.md.txt#talkback), [Switch Access](https://developer.android.com/guide/topics/ui/accessibility/testing.md.txt#switch-access), and [Voice Access](https://developer.android.com/guide/topics/ui/accessibility/testing.md.txt#voice-access) are
 not available on Android Automotive OS devices.
 
 Captioning preferences are supported on Android Automotive OS devices. See
-[Adopt system caption settings](https://developer.android.com/training/tv/accessibility/system-caption-settings) for integration details.
+[Adopt system caption settings](https://developer.android.com/training/tv/accessibility/system-caption-settings.md.txt) for integration details.
 
 ### Network selection
 
@@ -136,17 +138,17 @@ Android Automotive OS supports [*Per-application network selection* (PANS)](http
 which allows OEMs to route mobile network traffic to different networks on an
 application-by-application basis.
 
-Most apps use only the [default network](https://developer.android.com/develop/connectivity/network-ops/reading-network-state#listening-events) assigned to them and only stand to
+Most apps use only the [default network](https://developer.android.com/develop/connectivity/network-ops/reading-network-state.md.txt#listening-events) assigned to them and only stand to
 benefit from this feature -- for example, the OEM may pay for network traffic
 from your app even if the user doesn't have their own data plan. If your app (or
 one of its dependencies) relies on networks other than the default, it may not
-benefit from preferences set by the OEM. See [Read network state](https://developer.android.com/develop/connectivity/network-ops/reading-network-state#additional-networks) for more
+benefit from preferences set by the OEM. See [Read network state](https://developer.android.com/develop/connectivity/network-ops/reading-network-state.md.txt#additional-networks) for more
 guidance on using networks other than the default.
 
 ## System features
 
 You can detect whether a given feature is available using
-[`PackageManager::hasSystemFeature`](https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String)) and adjust your app's behavior
+[`PackageManager::hasSystemFeature`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#hasSystemFeature(java.lang.String)) and adjust your app's behavior
 accordingly.
 
 > [!TIP]
@@ -170,9 +172,9 @@ features.
 
 Many Android Automotive OS devices don't implement the telephony stack used
 to provide network location and thus don't report the
-[`android.hardware.location.network`](https://developer.android.com/guide/topics/manifest/uses-feature-element#location-hw-features) system feature. Although network
+[`android.hardware.location.network`](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt#location-hw-features) system feature. Although network
 location may not be available, accessing coarse location is still supported --
-see [Coarse location on Android Automotive OS](https://developer.android.com/training/cars/platforms/automotive-os/coarse-location).
+see [Coarse location on Android Automotive OS](https://developer.android.com/training/cars/platforms/automotive-os/coarse-location.md.txt).
 
 ### Software features
 
@@ -180,43 +182,45 @@ Some software features that are commonly found on other form factors may not be
 supported on Android Automotive OS devices. For example, the following features
 are not available on many Android Automotive OS vehicles:
 
-- [App Widgets](https://developer.android.com/develop/ui/views/appwidgets/overview)
-  ([`FEATURE_APP_WIDGETS`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_APP_WIDGETS))
+- [App Widgets](https://developer.android.com/develop/ui/views/appwidgets/overview.md.txt)
+  ([`FEATURE_APP_WIDGETS`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#FEATURE_APP_WIDGETS))
 
-- [Picture-in-picture](https://developer.android.com/develop/ui/views/picture-in-picture)
-  ([`FEATURE_PICTURE_IN_PICTURE`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_PICTURE_IN_PICTURE))
+- [Picture-in-picture](https://developer.android.com/develop/ui/views/picture-in-picture.md.txt)
+  ([`FEATURE_PICTURE_IN_PICTURE`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#FEATURE_PICTURE_IN_PICTURE))
 
 ### Meet Google Play feature requirements
 
 To be distributed to cars through Google Play, apps built for Android Automotive
-OS must include a [`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element) element in the
-[`AndroidManifest.xml`](https://developer.android.com/guide/topics/manifest/manifest-intro) file for the `android.hardware.type.automotive`
+OS must include a [`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt) element in the
+[`AndroidManifest.xml`](https://developer.android.com/guide/topics/manifest/manifest-intro.md.txt) file for the `android.hardware.type.automotive`
 feature:
 
-    <manifest ...>
-      ...
-      <!--
-        See https://developer.android.com/training/cars/distribute#choose-track-aaos
-        for details on how to choose which value to use for the android:required attribute.
-      -->
-      <uses-feature
-          android:name="android.hardware.type.automotive"
-          android:required="[true|false]">
-      ...
-    </manifest>
+```xml
+<manifest ...>
+  ...
+  <!--
+    See Choose a track for Android Automotive OS
+    for details on how to choose which value to use for the android:required attribute.
+  -->
+  <uses-feature
+      android:name="android.hardware.type.automotive"
+      android:required="[true|false]">
+  ...
+</manifest>
+```
 
-Additionally, if your app has any [explicit feature declaration](https://developer.android.com/guide/topics/manifest/uses-feature-element#declared) with
-`android:required="true"` or [implicit feature requirement](https://developer.android.com/guide/topics/manifest/uses-feature-element#implicit) for any of the
+Additionally, if your app has any [explicit feature declaration](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt#declared) with
+`android:required="true"` or [implicit feature requirement](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt#implicit) for any of the
 following features, you must update or remove them so that your app's feature
 requirements don't prevent its distribution to otherwise compatible vehicles:
 
-- [`android.hardware.wifi`](https://developer.android.com/guide/topics/manifest/uses-feature-element#wi-fi-hw-features)
-- [`android.hardware.screen.portrait`](https://developer.android.com/guide/topics/manifest/uses-feature-element#screen-hw-features)
-- [`android.hardware.screen.landscape`](https://developer.android.com/guide/topics/manifest/uses-feature-element#screen-hw-features)
-- [`android.hardware.camera`](https://developer.android.com/guide/topics/manifest/uses-feature-element#camera-hw-features)
+- [`android.hardware.wifi`](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt#wi-fi-hw-features)
+- [`android.hardware.screen.portrait`](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt#screen-hw-features)
+- [`android.hardware.screen.landscape`](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt#screen-hw-features)
+- [`android.hardware.camera`](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt#camera-hw-features)
 
 > [!TIP]
-> **Tip:** Use the [Merged Manifest view](https://developer.android.com/build/manage-manifests#inspect_the_merged_manifest_and_find_conflicts) when validating your app's feature requirements as dependencies can introduce requirements you might not be aware of.
+> **Tip:** Use the [Merged Manifest view](https://developer.android.com/build/manage-manifests.md.txt#inspect_the_merged_manifest_and_find_conflicts) when validating your app's feature requirements as dependencies can introduce requirements you might not be aware of.
 
 For features explicitly declared with `android:required="true"`, you can do
 one of the following:

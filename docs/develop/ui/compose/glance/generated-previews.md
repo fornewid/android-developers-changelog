@@ -16,7 +16,7 @@ picker](https://developer.android.com/develop/ui/views/appwidgets/previews).
 
 To improve your app's widget picker experience for Glance widgets, provide a
 generated widget preview using `GlanceAppWidget.providePreview` on
-Android 15 and higher devices, and specify a [`previewImage`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#previewImage)
+Android 15 and higher devices, and specify a [`previewImage`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#previewImage)
 for lower versions, and as a fallback on Android 15+ if
 a generated preview isn't available.
 
@@ -60,12 +60,12 @@ A common issue is that after you generate a preview, images, icons, or other
 composables might be missing from the preview image, relative to the widget's
 drop size. This drop size is defined by the `targetCellWidth` and
 `targetCellHeight` if specified, or by the `minWidth` and `minHeight` in the
-[app widget provider info file](https://developer.android.com/develop/ui/compose/glance/create-app-widget#widget-sizing-attributes).
+[app widget provider info file](https://developer.android.com/develop/ui/compose/glance/create-app-widget.md.txt#widget-sizing-attributes).
 
 This occurs because Android, by default, renders only composables visible at the
 widget's minimum size. In other words, Android sets the `previewSizeMode` to
 `SizeMode.Single` by default. It uses `android:minHeight` and `android:minWidth`
-in the [app widget provider info XML](https://developer.android.com/develop/ui/compose/glance/create-app-widget#widget-sizing-attributes) to determine which composables to draw.
+in the [app widget provider info XML](https://developer.android.com/develop/ui/compose/glance/create-app-widget.md.txt#widget-sizing-attributes) to determine which composables to draw.
 
 To fix this, override `previewSizeMode` in your `GlanceAppWidget` and set it to
 `SizeMode.Responsive`, providing a set of `DpSize` values. This tells Android
@@ -74,17 +74,17 @@ elements display correctly.
 
 Optimize for specific form factors. Supply one or two sizes starting from the
 minimum and following your widget's breakpoints. Specify at least one
-`previewImage` [to support lower Android versions](https://developer.android.com/develop/ui/compose/glance/generated-previews#bc-previews). You can find the
+`previewImage` [to support lower Android versions](https://developer.android.com/develop/ui/compose/glance/generated-previews.md.txt#bc-previews). You can find the
 appropriate minimum DP values for different grid sizes in the
-[widget design guidance](https://developer.android.com/design/ui/mobile/guides/widgets/sizing).
+[widget design guidance](https://developer.android.com/design/ui/mobile/guides/widgets/sizing.md.txt).
 
 > [!NOTE]
-> **Note:** Prefer `SizeMode.Exact` over `SizeMode.Responsive` when sizing your widget (not the preview). See [the documentation](https://developer.android.com/develop/ui/compose/glance/build-ui#define-sizemode) for an overview of `SizeMode`.
+> **Note:** Prefer `SizeMode.Exact` over `SizeMode.Responsive` when sizing your widget (not the preview). See [the documentation](https://developer.android.com/develop/ui/compose/glance/build-ui.md.txt#define-sizemode) for an overview of `SizeMode`.
 
 ## Support lower Android versions
 
 To show widget previews on devices running Android 14 and lower,
 or when a generated preview isn't available on Android 15 and higher,
-specify the [`previewImage`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#previewImage) attribute.
+specify the [`previewImage`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#previewImage) attribute.
 
 If you change the widget's appearance, update the preview image.

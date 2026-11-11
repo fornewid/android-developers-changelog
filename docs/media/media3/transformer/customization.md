@@ -51,7 +51,7 @@ muxer at the application level, you can write a wrapper that implements the
 
 If your custom muxer supports writing negative timestamps in MP4 edit lists, you
 should ensure that
-[`Muxer.Factory#supportsWritingNegativeTimestampsInEditList`](https://developer.android.com/reference/androidx/media3/muxer/Muxer.Factory#supportsWritingNegativeTimestampsInEditList()) returns
+[`Muxer.Factory#supportsWritingNegativeTimestampsInEditList`](https://developer.android.com/reference/androidx/media3/muxer/Muxer.Factory.md.txt#supportsWritingNegativeTimestampsInEditList()) returns
 `true`. This enables Transformer to perform optimizations, such as trim-only
 edits using MP4 edit lists, without needing to re-encode the video. For the
 default `InAppMp4Muxer`, this is already supported.

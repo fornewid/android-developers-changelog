@@ -57,11 +57,11 @@ implementation 'androidx.compose.material3.adaptive:adaptive-layout'
 implementation 'androidx.compose.material3.adaptive:adaptive-navigation'
 ```
 
-- adaptive: Low-level building blocks such as [`HingeInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/HingeInfo) and [`Posture`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/Posture)
-- adaptive-layout: Adaptive layouts such as `ListDetailPaneScaffold` and [`SupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/SupportingPaneScaffold.composable)
+- adaptive: Low-level building blocks such as [`HingeInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/HingeInfo.md.txt) and [`Posture`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/Posture.md.txt)
+- adaptive-layout: Adaptive layouts such as `ListDetailPaneScaffold` and [`SupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/SupportingPaneScaffold.composable.md.txt)
 - adaptive-navigation: Composables for navigating within and between panes, as well as adaptive layouts that support navigation by default such as `NavigableListDetailPaneScaffold` and `NavigableSupportingPaneScaffold`
 
-Ensure your project includes [compose-material3-adaptive version 1.1.0-beta1](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.1.0-beta01)
+Ensure your project includes [compose-material3-adaptive version 1.1.0-beta1](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive.md.txt#1.1.0-beta01)
 or higher.
 
 ### Opt-in to the predictive back gesture
@@ -70,7 +70,7 @@ To enable predictive back animations in Android 15 or lower, you must opt-in
 to support the predictive back gesture. To opt-in, add
 `android:enableOnBackInvokedCallback="true"` to the `<application>` tag or
 individual `<activity>` tags within your `AndroidManifest.xml` file. For more
-information, see [Opt-in to the predictive back gesture](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#opt-predictive).
+information, see [Opt-in to the predictive back gesture](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture.md.txt#opt-predictive).
 
 Once your app targets Android 16 (API level 36) or higher, predictive back is
 enabled by default.
@@ -79,7 +79,7 @@ enabled by default.
 
 Implement `NavigableListDetailPaneScaffold` as follows:
 
-1. Use a class that represents the selected content. Use a [`Parcelable`](https://developer.android.com/reference/android/os/Parcelable) class to support saving and restoring the selected list item. Use the [kotlin-parcelize plugin](https://developer.android.com/kotlin/parcelize) to generate the code for you.
+1. Use a class that represents the selected content. Use a [`Parcelable`](https://developer.android.com/reference/android/os/Parcelable.md.txt) class to support saving and restoring the selected list item. Use the [kotlin-parcelize plugin](https://developer.android.com/kotlin/parcelize.md.txt) to generate the code for you.
 2. Create a `ThreePaneScaffoldNavigator` with `rememberListDetailPaneScaffoldNavigator`.
 
 This navigator is used to move between the list, detail, and extra panes. By
@@ -91,7 +91,7 @@ configuration changes.
 1. Pass the navigator to the `NavigableListDetailPaneScaffold` composable.
 
 2. Supply your list pane implementation to the
-   `NavigableListDetailPaneScaffold`. Use [`AnimatedPane`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ThreePaneScaffoldScope#(androidx.compose.material3.adaptive.layout.ThreePaneScaffoldScope).AnimatedPane(androidx.compose.ui.Modifier,kotlin.Function1)) to apply the
+   `NavigableListDetailPaneScaffold`. Use [`AnimatedPane`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ThreePaneScaffoldScope.md.txt#(androidx.compose.material3.adaptive.layout.ThreePaneScaffoldScope).AnimatedPane(androidx.compose.ui.Modifier,kotlin.Function1)) to apply the
    default pane animations during navigation. Then use `ThreePaneScaffoldNavigator`
    to navigate to the detail pane, `ListDetailPaneScaffoldRole.Detail`, and display
    the passed item.

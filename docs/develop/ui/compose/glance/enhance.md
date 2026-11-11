@@ -29,14 +29,16 @@ picker to display for your widget.
 Provide a description for your widget using the `description` attribute of the
 `&lt;appwidget-provider&gt;` element:
 
-    <appwidget-provider
-        android:description="@string/my_widget_description">
-    </appwidget-provider>
+```xml
+<appwidget-provider
+    android:description="@string/my_widget_description">
+</appwidget-provider>
+```
 
 > [!NOTE]
 > **Note:** Be concise. There is no character limit, but the representation and available space for the description might differ depending on the device.
 
 You can use the
-[`descriptionRes`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#descriptionRes)
+[`descriptionRes`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#descriptionRes)
 attribute on previous versions of Android, but it is ignored by the widget
 picker.

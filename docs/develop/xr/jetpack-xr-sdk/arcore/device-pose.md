@@ -7,7 +7,7 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices.md.txt#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
@@ -23,14 +23,14 @@ device pose to a geospatial pose to generate location-aware data.
 
 ## Access a session
 
-Access device pose information through a Jetpack XR Runtime [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session),
-which your [app must create](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore#access-session-runtime).
+Access device pose information through a Jetpack XR Runtime [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session.md.txt),
+which your [app must create](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore.md.txt#access-session-runtime).
 
 ## Configure the session
 
 Device pose information is not enabled by default on XR sessions. To enable your
 app to retrieve device pose information, configure the session and set the
-[`DeviceTrackingMode.SPATIAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode#SPATIAL()) mode:
+[`DeviceTrackingMode.SPATIAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode.md.txt#SPATIAL()) mode:
 
 
 ```kotlin
@@ -56,15 +56,15 @@ try {
 <br />
 
 Not all XR devices support the `DeviceTrackingMode.SPATIAL` mode. If
-[`Session.configure()`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session#configure(androidx.xr.runtime.Config)) succeeds, the device supports this mode.
+[`Session.configure()`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session.md.txt#configure(androidx.xr.runtime.Config)) succeeds, the device supports this mode.
 
 > [!NOTE]
-> **Note:** Enabling this mode on immersive devices requires the `android.permission.HEAD_TRACKING` [runtime permission](https://developer.android.com/guide/topics/permissions/overview#runtime) to be granted to your app.
+> **Note:** Enabling this mode on immersive devices requires the `android.permission.HEAD_TRACKING` [runtime permission](https://developer.android.com/guide/topics/permissions/overview.md.txt#runtime) to be granted to your app.
 
 ## Obtain the device pose
 
 After you've configured the session, you can obtain the device's pose within the
-AR coordinate system using the [`ArDevice`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/ArDevice) object:
+AR coordinate system using the [`ArDevice`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/ArDevice.md.txt) object:
 
 
 ```kotlin

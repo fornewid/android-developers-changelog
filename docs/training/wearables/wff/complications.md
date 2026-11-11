@@ -17,7 +17,7 @@ Typically complications come in a number of shapes:
 
 In Wear OS, the Complication system can be broken down into two parts:
 
-1. The Complication [**data source**](https://developer.android.com/training/wearables/complications#data-source)
+1. The Complication [**data source**](https://developer.android.com/training/wearables/complications.md.txt#data-source)
 2. The Complication **rendering**
 
 For example, a health and fitness app might implement a Daily Steps complication
@@ -33,7 +33,7 @@ For example, the health and fitness Daily Steps complication data source may
 produce the following data to indicate the user has taken 2400 of their target
 10000 steps today:
 
-- Type: [`GOAL_PROGRESS`](https://developer.android.com/reference/androidx/wear/watchface/complications/data/GoalProgressComplicationData.Builder)
+- Type: [`GOAL_PROGRESS`](https://developer.android.com/reference/androidx/wear/watchface/complications/data/GoalProgressComplicationData.Builder.md.txt)
 - Value: `2400`
 - TargetValue: `10000`
 

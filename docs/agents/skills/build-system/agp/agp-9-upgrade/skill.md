@@ -6,7 +6,7 @@ source: md.txt
 
 ## Migration guide
 
-See the [AGP 9 migration guide](https://developer.android.com/build/releases/agp-9-0-0-release-notes) for the major changes, many
+See the [AGP 9 migration guide](https://developer.android.com/build/releases/agp-9-0-0-release-notes.md.txt) for the major changes, many
 breaking, in AGP 9 compared to AGP 8.
 
 ## Requirements
@@ -17,7 +17,7 @@ Upgrade Assistant in Android Studio to update to the latest stable version of
 AGP, and confirm when done. The user may also request that this requirement be
 skipped; if this is the case, you should update the version of AGP to the latest
 stable version as part of the AGP 9 migration. See the
-[AGP 9 migration guide](https://developer.android.com/build/releases/agp-9-0-0-release-notes) for how to do this.
+[AGP 9 migration guide](https://developer.android.com/build/releases/agp-9-0-0-release-notes.md.txt) for how to do this.
 
 Each version of AGP has its own set of compatibilities with other tools, such as
 Gradle, JDK, and Kotlin. The release notes for each of these versions will
@@ -39,24 +39,24 @@ If Hilt is used in the project, ensure it is on version 2.59.2 or higher.
 
 ### Step 2: Migrate to built-in Kotlin
 
-See [the guide](https://developer.android.com/build/migrate-to-built-in-kotlin) for detailed information.
+See [the guide](https://developer.android.com/build/migrate-to-built-in-kotlin.md.txt) for detailed information.
 
 ### Step 3. Migrate to the new AGP DSL
 
-See [the guide](https://developer.android.com/build/releases/agp-9-0-0-release-notes) for detailed information.
+See [the guide](https://developer.android.com/build/releases/agp-9-0-0-release-notes.md.txt) for detailed information.
 
-See also [gradle-recipes](https://developer.android.com/agents/skills/build-system/agp/agp-9-upgrade/references/recipes) for examples on how to migrate old code to code
+See also [gradle-recipes](https://developer.android.com/agents/skills/build-system/agp/agp-9-upgrade/references/recipes.md.txt) for examples on how to migrate old code to code
 that is compatible with AGP 9 and the new DSL.
 
 ### Step 4. Migrate kapt to KSP or legacy-kapt
 
 If KSP (`com.google.devtools.ksp`) or kapt (`org.jetbrains.kotlin.kapt`) are
-used in the project, see [KSP, kapt, and legacy-kapt](https://developer.android.com/agents/skills/build-system/agp/agp-9-upgrade/references/ksp-kapt) for detailed migration
+used in the project, see [KSP, kapt, and legacy-kapt](https://developer.android.com/agents/skills/build-system/agp/agp-9-upgrade/references/ksp-kapt.md.txt) for detailed migration
 steps.
 
 ### Step 5. BuildConfig
 
-If any Android module contains custom BuildConfig fields, see [BuildConfig](https://developer.android.com/agents/skills/build-system/agp/agp-9-upgrade/references/buildconfig)
+If any Android module contains custom BuildConfig fields, see [BuildConfig](https://developer.android.com/agents/skills/build-system/agp/agp-9-upgrade/references/buildconfig.md.txt)
 for detailed information.
 
 ### Step 6. Update gradle.properties
@@ -88,4 +88,4 @@ After migration, verify the following:
 ## Troubleshooting
 
 Paparazzi v2.0.0-alpha04 and lower versions have issues with AGP 9. See
-[references/paparazzi-gradle-9.md](https://developer.android.com/agents/skills/build-system/agp/agp-9-upgrade/references/paparazzi-gradle-9) for details.
+[references/paparazzi-gradle-9.md](https://developer.android.com/agents/skills/build-system/agp/agp-9-upgrade/references/paparazzi-gradle-9.md.txt) for details.

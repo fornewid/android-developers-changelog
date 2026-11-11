@@ -49,7 +49,7 @@ property that indicates your use of the Watch Face Format.
 Some features of Watch Face Format are only available in later versions. Set
 this property to the lowest value that supports the features you need, to
 maximize device compatibility, and also set the `minSdkVersion` to match. Learn
-more about how to configure [versions](https://developer.android.com/build/configure-apk-splits) of your app.
+more about how to configure [versions](https://developer.android.com/build/configure-apk-splits.md.txt) of your app.
 
 The `<application>` element must also include the attribute
 `android:hasCode="false"`. Watch Face Format bundles are resource-only and
@@ -137,7 +137,7 @@ The structure of a basic WFF watch face document is as follows:
 
 The Android Studio template provides a basic document in
 `res/raw/watchface.xml`. To support different screen shapes and sizes,
-[declare support for multiple shapes and sizes](https://developer.android.com/training/wearables/wff/setup#declare-shape-support).
+[declare support for multiple shapes and sizes](https://developer.android.com/training/wearables/wff/setup.md.txt#declare-shape-support).
 
 The root element is always [`WatchFace`](https://developer.android.com/training/wearables/wff/watch-face). The `height` and `width` define the
 extent of the coordinate space for use in your watch face, and the watch face
@@ -158,7 +158,7 @@ Attributes are strongly typed and have guidelines around frequency and valid
 values to avoid most sources of errors when creating a watch face.
 
 > [!NOTE]
-> **Note:** As you configure your watch face, [optimize its memory usage](https://developer.android.com/training/wearables/wff/memory-usage).
+> **Note:** As you configure your watch face, [optimize its memory usage](https://developer.android.com/training/wearables/wff/memory-usage.md.txt).
 
 ### Declare support for watch face shapes (optional)
 
@@ -217,7 +217,7 @@ and is version-aware.
 You should also check that your watch face meets the memory usage requirements
 by running the [memory footprint](https://github.com/google/watchface) tool.
 
-- Learn more about [optimizing memory usage](https://developer.android.com/training/wearables/wff/memory-usage) and [checking memory usage](https://github.com/google/watchface/tree/main/play-validations) in preparation for publishing.
+- Learn more about [optimizing memory usage](https://developer.android.com/training/wearables/wff/memory-usage.md.txt) and [checking memory usage](https://github.com/google/watchface/tree/main/play-validations) in preparation for publishing.
 - Learn more about using the [XML validator](https://github.com/google/watchface/tree/main/third_party/wff) as part of your development cycle.
 
 ## Build your watch face app bundle
@@ -234,6 +234,6 @@ Further samples of Watch Face Format projects are [available on GitHub](https://
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [AAPT2](https://developer.android.com/tools/aapt2)
+- [AAPT2](https://developer.android.com/tools/aapt2.md.txt)
 - [Jetpack Compose basics](https://developer.android.com/codelabs/jetpack-compose-basics)
 - [Getting Started with CameraX](https://developer.android.com/codelabs/camerax-getting-started)

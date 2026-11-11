@@ -22,37 +22,42 @@ This recipe consists of two activities:
 1. **Infix `and` Operator**:
    Combines two filters using logical AND with short-circuiting:
 
-       infix fun Filter.and(other: Filter): Filter = Filter { request ->
-           filterRequest(request) && other.filterRequest(request)
-       }
-
+   ```kotlin
+   infix fun Filter.and(other: Filter): Filter = Filter { request ->
+       filterRequest(request) && other.filterRequest(request)
+   }
+   ```
 2. **Infix `or` Operator**:
    Combines two filters using logical OR with short-circuiting:
 
-       infix fun Filter.or(other: Filter): Filter = Filter { request ->
-           filterRequest(request) || other.filterRequest(request)
-       }
-
+   ```kotlin
+   infix fun Filter.or(other: Filter): Filter = Filter { request ->
+       filterRequest(request) || other.filterRequest(request)
+   }
+   ```
 3. **Operator `!` (NOT)**:
    Inverts the result of a filter using logical NOT:
 
-       operator fun Filter.not(): Filter = Filter { request ->
-           !filterRequest(request)
-       }
-
+   ```kotlin
+   operator fun Filter.not(): Filter = Filter { request ->
+       !filterRequest(request)
+   }
+   ```
 4. **Composite Filter Expressions**:
    Operators allow expressive and readable composition:
 
-       val imageMimeTypeFilter = DeepLinkMatcher.mimeTypeFilter("image/png") or
-           DeepLinkMatcher.mimeTypeFilter("image/jpeg")
-       val compositeFilter = DeepLinkMatcher.actionFilter(Intent.ACTION_VIEW) and
-           imageMimeTypeFilter and !DeepLinkMatcher.mimeTypeFilter("application/pdf")
+   ```kotlin
+   val imageMimeTypeFilter = DeepLinkMatcher.mimeTypeFilter("image/png") or
+       DeepLinkMatcher.mimeTypeFilter("image/jpeg")
+   val compositeFilter = DeepLinkMatcher.actionFilter(Intent.ACTION_VIEW) and
+       imageMimeTypeFilter and !DeepLinkMatcher.mimeTypeFilter("application/pdf")
 
-       val matcher = UriDeepLinkMatcher(
-           uriPattern = VIEWER_URI_PATTERN.toUri(),
-           serializer = serializer<ViewerKey>(),
-           filters = listOf(compositeFilter)
-       )
+   val matcher = UriDeepLinkMatcher(
+       uriPattern = VIEWER_URI_PATTERN.toUri(),
+       serializer = serializer<ViewerKey>(),
+       filters = listOf(compositeFilter)
+   )
+   ```
 
 [![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/deeplink/usecases/filter)
 

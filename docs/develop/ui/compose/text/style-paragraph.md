@@ -11,7 +11,7 @@ paragraph. To set paragraph-level styling, you can configure parameters like
 ## Set text alignment
 
 The `textAlign` parameter lets you set the horizontal
-[alignment](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/TextAlign) of the
+[alignment](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/TextAlign.md.txt) of the
 text within a `Text` composable surface area.
 
 By default, `Text` will select the natural text alignment depending on its
@@ -43,22 +43,22 @@ for Arabic text, but `TextAlign.Right` aligns to the right side no matter what
 alphabet is used.
 
 > [!NOTE]
-> **Note:** Text alignment is different from layout alignment, which is about positioning a Composable within a container such as a `Row` or `Column`. For more information, see [Compose layout basics](https://developer.android.com/develop/ui/compose/layouts/basics).
+> **Note:** Text alignment is different from layout alignment, which is about positioning a Composable within a container such as a `Row` or `Column`. For more information, see [Compose layout basics](https://developer.android.com/develop/ui/compose/layouts/basics.md.txt).
 
 ## Add multiple styles in a paragraph
 
-To add multiple styles in a paragraph, you can use [`ParagraphStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle) in an
-[`AnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString), which can be annotated with styles of arbitrary annotations.
+To add multiple styles in a paragraph, you can use [`ParagraphStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle.md.txt) in an
+[`AnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.md.txt), which can be annotated with styles of arbitrary annotations.
 Once a portion of your text is marked with a `ParagraphStyle`, that portion is
 separated from the remaining text as if it had line feeds at the beginning and
 end.
 
 For more information about adding multiple styles in a text, see
-[Add multiple styles in text](https://developer.android.com/develop/ui/compose/text/style-text#multiple-styles).
+[Add multiple styles in text](https://developer.android.com/develop/ui/compose/text/style-text.md.txt#multiple-styles).
 
 `AnnotatedString` has a [type-safe
 builder](https://kotlinlang.org/docs/reference/type-safe-builders.html)
-to make it easier to create: [`buildAnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/package-summary#buildAnnotatedString(kotlin.Function1)). The following snippet uses
+to make it easier to create: [`buildAnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/package-summary.md.txt#buildAnnotatedString(kotlin.Function1)). The following snippet uses
 `buildAnnotatedString` to set `ParagraphStyle`:
 
 
@@ -91,21 +91,21 @@ fun ParagraphStyle() {
 
 ## Adjust line height and padding
 
-[`includeFontPadding`](https://developer.android.com/reference/android/widget/TextView#attr_android:includeFontPadding) is a legacy property that adds extra padding based on
+[`includeFontPadding`](https://developer.android.com/reference/android/widget/TextView.md.txt#attr_android:includeFontPadding) is a legacy property that adds extra padding based on
 font metrics at the top of the first line and bottom of the last line of a text.
 Starting from Compose BOM version `2024.01.01`, `includeFontPadding` is set
 to `false` by default, which brings the default text layout more in line with
 common design tools.
 
-The ability to configure [`lineHeight`](https://developer.android.com/reference/android/widget/TextView#attr_android:lineHeight) is not new-- it has been available
+The ability to configure [`lineHeight`](https://developer.android.com/reference/android/widget/TextView.md.txt#attr_android:lineHeight) is not new-- it has been available
 since Android Q. You can configure `lineHeight` for `Text` using the
 `lineHeight` parameter, which distributes the line height in each line of
-text. You can then use the new [`LineHeightStyle API`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineHeightStyle) to further configure
+text. You can then use the new [`LineHeightStyle API`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineHeightStyle.md.txt) to further configure
 how this text is aligned within the space, and remove whitespace.
 
-You may want to adjust [`lineHeight`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle#lineHeight()) using the text unit "em" (relative font
+You may want to adjust [`lineHeight`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle.md.txt#lineHeight()) using the text unit "em" (relative font
 size) instead of "sp" (scaled pixels) for improved precision. For more information about
-selecting an appropriate text unit, see [`TextUnit`](https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/TextUnit).
+selecting an appropriate text unit, see [`TextUnit`](https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/TextUnit.md.txt).
 ![Image showing lineHeight as a measurement based on the lines directly above and below it.](https://developer.android.com/static/develop/ui/compose/images/text-lineheightv3.png) **Figure 1.** Use Alignment and Trim to adjust the text within the set `lineHeight`, and trim extra space if needed.
 
 
@@ -130,19 +130,19 @@ Text(
 <br />
 
 In addition to adjusting `lineHeight`, you can now further center and style text
-using configurations with the [`LineHeightStyle` API](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineHeightStyle): [`LineHeightStyle.Alignment`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineHeightStyle.Alignment)
-and [`LineHeightStyle.Trim`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineHeightStyle.Trim) (`includeFontPadding` must be set to `false` for
+using configurations with the [`LineHeightStyle` API](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineHeightStyle.md.txt): [`LineHeightStyle.Alignment`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineHeightStyle.Alignment.md.txt)
+and [`LineHeightStyle.Trim`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineHeightStyle.Trim.md.txt) (`includeFontPadding` must be set to `false` for
 Trim to work). Alignment and Trim use the measured space in between lines of
 text to more appropriately distribute it to all lines-- including a single line
 of text and the top line of a block of text.
 
-[`LineHeightStyle.Alignment`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineHeightStyle.Alignment) defines how to align the line in the space
+[`LineHeightStyle.Alignment`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineHeightStyle.Alignment.md.txt) defines how to align the line in the space
 provided by the line height. Within each line, you can align the text to the
 top, bottom, center, or proportionally. `LineHeightStyle.Trim` then allows you
 to leave or remove the extra space to the top of the first line and bottom of
 the last line of your text, generated from any `lineHeight` and Alignment
 adjustments. The following samples show how multi-line text looks with
-various [`LineHeightStyle.Trim`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineHeightStyle.Trim) configurations when alignment is centered
+various [`LineHeightStyle.Trim`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineHeightStyle.Trim.md.txt) configurations when alignment is centered
 (`LineHeightStyle.Alignment.Center`).
 
 |---|---|
@@ -156,12 +156,12 @@ various [`LineHeightStyle.Trim`](https://developer.android.com/reference/kotlin/
 
 See the [Fixing Font Padding in Compose Text](http://goo.gle/font-padding-compose) blog post to learn
 more about the context of this change, how `includeFontPadding` worked in the View
-system, and the changes made for Compose and the new [`LineHeightStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineHeightStyle)
+system, and the changes made for Compose and the new [`LineHeightStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineHeightStyle.md.txt)
 APIs.
 
 ## Insert line breaks
 
-The [`LineBreak`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineBreak) API defines the criteria by which text is split across
+The [`LineBreak`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineBreak.md.txt) API defines the criteria by which text is split across
 multiple lines. You can specify the type of line breaking you want in the
 `TextStyle` block of your `Text` composable. The preset line breaking types
 include the following:
@@ -224,7 +224,7 @@ parameter. The `Strategy` can be any of the following:
 - `Simple` --- basic, fast strategy. If enabled, hyphenation is done only for words that don't fit on an entire line by themselves. Useful for editing text to avoid changing positions while typing.
 
 > [!NOTE]
-> **Note:** You can also customize your line breaking behavior with the `Strictness` and `WordBreak` parameters. These parameters are designed for CJK languages, and you may not see the intended effect if using them for non-CJK languages. For more information, see [CJK considerations](https://developer.android.com/develop/ui/compose/text/style-paragraph#cjk-considerations).
+> **Note:** You can also customize your line breaking behavior with the `Strictness` and `WordBreak` parameters. These parameters are designed for CJK languages, and you may not see the intended effect if using them for non-CJK languages. For more information, see [CJK considerations](https://developer.android.com/develop/ui/compose/text/style-paragraph.md.txt#cjk-considerations).
 
 The following snippet shows the difference between a paragraph with default settings
 and a paragraph optimized for small screens with the `Balanced` line-breaking
@@ -270,8 +270,8 @@ strategy has more consistent line lengths than the default.](https://developer.a
 
 ### CJK considerations
 
-You can also customize `LineBreak` with the [`Strictness`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineBreak.Strictness) and
-[`WordBreak`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineBreak.WordBreak) APIs, which were **designed specifically for CJK languages**.
+You can also customize `LineBreak` with the [`Strictness`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineBreak.Strictness.md.txt) and
+[`WordBreak`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineBreak.WordBreak.md.txt) APIs, which were **designed specifically for CJK languages**.
 You may not always see the effects of these APIs in non-CJK languages. Overall,
 line-breaking rules are defined based on locale.
 
@@ -321,7 +321,7 @@ Text(
 
 ## Hyphenate text split across lines
 
-The [`Hyphens`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/Hyphens) API lets you add hyphenation support to your app.
+The [`Hyphens`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/Hyphens.md.txt) API lets you add hyphenation support to your app.
 *Hyphenation* refers to inserting a dash-like punctuation mark to indicate that a
 word is divided across lines of text. When enabled, hyphenation is added between
 the syllables of a word at appropriate hyphenation points.
@@ -376,6 +376,6 @@ When enabled, hyphenation only occurs under the following conditions:
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Style text](https://developer.android.com/develop/ui/compose/text/style-text)
-- [Compose layout basics](https://developer.android.com/develop/ui/compose/layouts/basics)
-- [Intrinsic measurements in Compose layouts](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements)
+- [Style text](https://developer.android.com/develop/ui/compose/text/style-text.md.txt)
+- [Compose layout basics](https://developer.android.com/develop/ui/compose/layouts/basics.md.txt)
+- [Intrinsic measurements in Compose layouts](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements.md.txt)

@@ -4,31 +4,31 @@ url: https://developer.android.com/blog/posts/whats-new-in-android-for-cars-unif
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # What's new in Android for Cars: Unifying platforms and unlocking premium experiences
 
-3 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) 19 May 2026 3 Authors [Jan Kleinert,](https://developer.android.com/blog/authors/jan-kleinert) [Noam Gefen,](https://developer.android.com/blog/authors/noam-gefen) [Thomas Weathers](https://developer.android.com/blog/authors/thomas-weathers) We're thrilled to see developers continuing to bring their apps and experiences to Android for Cars! Over the past year, we've continued to see strong growth and momentum in the app ecosystem on Android Auto and cars with Google built-in. This year at Google I/O, we're introducing [updates](https://blog.google/products-and-platforms/platforms/android/android-in-cars-updates/) that benefit both drivers and developers by enabling richer, more differentiated in-car experiences. With new features and templates that allow you to build once to reach users across different infotainment screens and car platforms, it's easier than ever to build for the road.
+3 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) 19 May 2026 3 Authors [Jan Kleinert,](https://developer.android.com/blog/authors/jan-kleinert.md.txt) [Noam Gefen,](https://developer.android.com/blog/authors/noam-gefen.md.txt) [Thomas Weathers](https://developer.android.com/blog/authors/thomas-weathers.md.txt) We're thrilled to see developers continuing to bring their apps and experiences to Android for Cars! Over the past year, we've continued to see strong growth and momentum in the app ecosystem on Android Auto and cars with Google built-in. This year at Google I/O, we're introducing [updates](https://blog.google/products-and-platforms/platforms/android/android-in-cars-updates/) that benefit both drivers and developers by enabling richer, more differentiated in-car experiences. With new features and templates that allow you to build once to reach users across different infotainment screens and car platforms, it's easier than ever to build for the road.
 
 ### What's new in the Car App Library
 
-We're bringing more flexibility, new components, and new template capabilities to the Car App Library. [Car App Library 1.8.0-beta01](https://developer.android.com/jetpack/androidx/releases/car-app#version_18_2) and Car App Library [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app#version_19_2) are now available.
+We're bringing more flexibility, new components, and new template capabilities to the Car App Library. [Car App Library 1.8.0-beta01](https://developer.android.com/jetpack/androidx/releases/car-app.md.txt#version_18_2) and Car App Library [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app.md.txt#version_19_2) are now available.
 
 ## Build templated media apps for both Android Auto and Android Automotive OS
 
-Developers can now build customized, distraction-optimized, media browsing and playback experiences for Android Automotive OS, making it easier to build once and deliver these [templated media apps](https://developer.android.com/training/cars/apps/media) to more users and more cars.
+Developers can now build customized, distraction-optimized, media browsing and playback experiences for Android Automotive OS, making it easier to build once and deliver these [templated media apps](https://developer.android.com/training/cars/apps/media.md.txt) to more users and more cars.
 
-To help you test the experiences on Android Automotive OS, we'll be launching updated system images for the [Android Automotive OS emulator](https://developer.android.com/training/cars/testing/emulator#generic-images). Beginning with revision 3, the API level 35-ext15 system images will support apps built using the Car App Library media templates.
+To help you test the experiences on Android Automotive OS, we'll be launching updated system images for the [Android Automotive OS emulator](https://developer.android.com/training/cars/testing/emulator.md.txt#generic-images). Beginning with revision 3, the API level 35-ext15 system images will support apps built using the Car App Library media templates.
 
 ## Unlocking developer creativity with Car App Library 1.9.0 alpha
 
-With the [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app#version_19_2) release of the Car App Library, we're bringing features to help you build more differentiated, expressive experiences across Android Auto and cars with Google built-in.
+With the [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app.md.txt#version_19_2) release of the Car App Library, we're bringing features to help you build more differentiated, expressive experiences across Android Auto and cars with Google built-in.
 ![MediaHero1.gif](https://developer.android.com/static/blog/assets/Media_Hero1_a40e272f55_ZnIfBd.webp)
 
 We're increasing the modularity of existing templates to give developers more flexibility and options for laying out content. These improvements include expanded headers for better visual emphasis, such as on detail pages, spotlight sections that can be placed in scrollable areas to highlight specific content, and grid item variations to support different content types and states.
 ![NewComponents.png](https://developer.android.com/static/blog/assets/New_Components_9ada36cd00_Z1y7poV.webp)
 
-We're introducing new [components](https://developer.android.com/design/ui/cars/guides/components/overview) and template capabilities to help developers build even more engaging experiences. For media apps, we're introducing an adaptive mini-player, so users can browse while still easily managing playback. Finally, we're adding more component types including [Chip](https://developer.android.com/reference/kotlin/androidx/car/app/model/Chip) and [CondensedItem](https://developer.android.com/reference/kotlin/androidx/car/app/model/CondensedItem) to increase the ways that content can be displayed and interacted with.
+We're introducing new [components](https://developer.android.com/design/ui/cars/guides/components/overview.md.txt) and template capabilities to help developers build even more engaging experiences. For media apps, we're introducing an adaptive mini-player, so users can browse while still easily managing playback. Finally, we're adding more component types including [Chip](https://developer.android.com/reference/kotlin/androidx/car/app/model/Chip.md.txt) and [CondensedItem](https://developer.android.com/reference/kotlin/androidx/car/app/model/CondensedItem.md.txt) to increase the ways that content can be displayed and interacted with.
 ![HomePage.png](https://developer.android.com/static/blog/assets/Home_Page_4a3eacd161_Zy07rq.webp)
 
 App developers, including those shown below, have already begun building upgraded media experiences using these new Car App Library features. You can join these developers and prepare to distribute your own media apps built with the Car App Library templates by applying to participate in our [early-access beta program](https://goo.gle/Media-Comms-EAP).
@@ -50,17 +50,17 @@ You can look forward to even more updates coming to cars later this year.
 - To deliver a more continuous user experience, we're making it possible for you to provide a templated experience while driving that can seamlessly transition to a native, adaptive app experience when the vehicle is parked.
 - New components and conversational templates will be coming to the Car App Library, so you can integrate agentic and voice-based flows more seamlessly in apps.
 - Improved app brand expression across all car surfaces allow experiences built with the Car App Library to feel easily recognizable by your users.
-- Google Maps SDK support is coming to cars with Google built-in. With this change, you'll be able to use the Google Maps SDK to [render map-based content](https://developer.android.com/training/cars/apps/library/draw-maps) with the [MapWithContentTemplate](https://developer.android.com/reference/androidx/car/app/navigation/model/MapWithContentTemplate) in point-of-interest (POI) and Weather apps on both Android Auto and cars with Google built-in.
+- Google Maps SDK support is coming to cars with Google built-in. With this change, you'll be able to use the Google Maps SDK to [render map-based content](https://developer.android.com/training/cars/apps/library/draw-maps.md.txt) with the [MapWithContentTemplate](https://developer.android.com/reference/androidx/car/app/navigation/model/MapWithContentTemplate.md.txt) in point-of-interest (POI) and Weather apps on both Android Auto and cars with Google built-in.
 
 Stay updated on these features and start building with the latest at [goo.gle/cars-whats-new](http://goo.gle/cars-whats-new).
 
 Explore this announcement and all Google I/O 2026 updates on [io.google](https://io.google/2026/?utm_source=blogpost&utm_medium=pr&utm_campaign=devblogs&utm_content).
-- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
 Written by:
 
 -
 
-  ## [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert)
+  ## [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -68,7 +68,7 @@ Written by:
   View profile](https://developer.android.com/blog/authors/jan-kleinert) ![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp) ![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)
 -
 
-  ## [Noam Gefen](https://developer.android.com/blog/authors/noam-gefen)
+  ## [Noam Gefen](https://developer.android.com/blog/authors/noam-gefen.md.txt)
 
   ###### Senior Product Manager
 
@@ -76,37 +76,36 @@ Written by:
   View profile](https://developer.android.com/blog/authors/noam-gefen) ![View Noam Gefen's profile](https://developer.android.com/static/blog/assets/PXL_20250405_073558833_2_6db88dff58_46HBa.webp) ![View Noam Gefen's profile](https://developer.android.com/static/blog/assets/PXL_20250405_073558833_2_6db88dff58_46HBa.webp)
 -
 
-  ## [Thomas Weathers](https://developer.android.com/blog/authors/thomas-weathers)
+  ## [Thomas Weathers](https://developer.android.com/blog/authors/thomas-weathers.md.txt)
 
   ###### Developer Relations Engineer, Android for Cars
 
   [read_more
   View profile](https://developer.android.com/blog/authors/thomas-weathers) ![View Thomas Weathers's profile](https://developer.android.com/static/blog/assets/DSC_0714_1_d2ffa1fb8f_Z1ktX8N.webp) ![View Thomas Weathers's profile](https://developer.android.com/static/blog/assets/DSC_0714_1_d2ffa1fb8f_Z1ktX8N.webp)
 Continue reading
-- [![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)](https://developer.android.com/blog/authors/jan-kleinert) 21 Sep 2026 21 Sep 2026 ![](https://developer.android.com/static/blog/assets/Games_for_car_Strapi_1_c55588726e_Z2cIhWx.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)](https://developer.android.com/blog/authors/jan-kleinert.md.txt) 21 Sep 2026 21 Sep 2026 ![](https://developer.android.com/static/blog/assets/Games_for_car_Strapi_1_c55588726e_Z2cIhWx.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Bring your Android game to the car screen today](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today)
+  ## [Bring your Android game to the car screen today](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today) Today, the games category for Android Auto and cars powered by Android Automotive OS with Google built-in is officially graduating from beta to general availability.
-  [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert) • 3 min read
-  - [#Android Automotive OS](https://developer.android.com/blog/topics/android-automotive-os)
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-  - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
+  [arrow_forward](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today.md.txt) Today, the games category for Android Auto and cars powered by Android Automotive OS with Google built-in is officially graduating from beta to general availability.
+  [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert.md.txt) • 3 min read
+  - [#Android Automotive OS](https://developer.android.com/blog/topics/android-automotive-os.md.txt)
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+  - [#Android Auto](https://developer.android.com/blog/topics/android-auto.md.txt)
   - +1 ↩
-- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_21k6io.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher.md.txt) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_21k6io.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android UI Development is Compose First](https://developer.android.com/blog/posts/android-ui-development-is-compose-first)
+  ## [Android UI Development is Compose First](https://developer.android.com/blog/posts/android-ui-development-is-compose-first.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-ui-development-is-compose-first) In the almost-5-years since Jetpack Compose launched, we've invested in bringing you all the features, performance and tools that you need to build amazing UIs across the variety of Android devices.
-  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 2 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/android-ui-development-is-compose-first.md.txt) In the almost-5-years since Jetpack Compose launched, we've invested in bringing you all the features, performance and tools that you need to build amazing UIs across the variety of Android devices.
+  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher.md.txt) • 2 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
 Stay in the loop
 
 

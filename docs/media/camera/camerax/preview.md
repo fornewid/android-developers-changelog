@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 When adding a preview to your app, use
-[`PreviewView`](https://developer.android.com/reference/kotlin/androidx/camera/view/PreviewView), which is a
+[`PreviewView`](https://developer.android.com/reference/kotlin/androidx/camera/view/PreviewView.md.txt), which is a
 `View` that can be cropped, scaled, and rotated for proper display.
 
 The image preview streams to a surface inside the `PreviewView` when the
@@ -16,16 +16,16 @@ camera becomes active.
 Implementing a preview for CameraX using `PreviewView` involves the following
 steps, which are covered in later sections:
 
-1. Optionally configure a [`CameraXConfig.Provider`](https://developer.android.com/reference/kotlin/androidx/camera/core/CameraXConfig.Provider).
+1. Optionally configure a [`CameraXConfig.Provider`](https://developer.android.com/reference/kotlin/androidx/camera/core/CameraXConfig.Provider.md.txt).
 2. Add a `PreviewView` to your layout.
-3. Request a [`ProcessCameraProvider`](https://developer.android.com/reference/kotlin/androidx/camera/lifecycle/ProcessCameraProvider).
+3. Request a [`ProcessCameraProvider`](https://developer.android.com/reference/kotlin/androidx/camera/lifecycle/ProcessCameraProvider.md.txt).
 4. On `View` creation, check for the `ProcessCameraProvider`.
 5. Select a camera and bind the lifecycle and use cases.
 
 Using `PreviewView` has some limitations. When using `PreviewView`, you can't
 do any of the following things:
 
-- Create a `SurfaceTexture` to set on `TextureView` and [`Preview.SurfaceProvider`](https://developer.android.com/reference/androidx/camera/core/Preview.SurfaceProvider).
+- Create a `SurfaceTexture` to set on `TextureView` and [`Preview.SurfaceProvider`](https://developer.android.com/reference/androidx/camera/core/Preview.SurfaceProvider.md.txt).
 - Retrieve the `SurfaceTexture` from `TextureView` and set it on `Preview.SurfaceProvider`.
 - Get the `Surface` from `SurfaceView` and set it on `Preview.SurfaceProvider`.
 
@@ -38,10 +38,10 @@ The following sample shows a `PreviewView` in a layout:
 
 ```xml
 <FrameLayout
-    android:id="@+id/container">
-        <androidx.camera.view.PreviewView
-            android:id="@+id/previewView" />
-</FrameLayout>
+    android:id="@+id/conta>iner"<;
+        androidx.camera.view.PreviewView
+            android:id="@+id>/<previewView&>quot; /
+/FrameLayout
 ```
 
 ### Request a CameraProvider
@@ -154,7 +154,7 @@ void bindPreview(@NonNull ProcessCameraProvider cameraProvider) {
 }
 ```
 
-Note that [`bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...)) returns a [`Camera`](https://developer.android.com/reference/androidx/camera/core/Camera)
+Note that [`bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider.md.txt#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...)) returns a [`Camera`](https://developer.android.com/reference/androidx/camera/core/Camera.md.txt)
 object. For more information about controlling camera output, such as zoom and
 exposure, see [Camera output](https://developer.android.com/training/camerax/configuration#camera-output).
 
@@ -166,32 +166,32 @@ that your preview appears in your app and functions as you intend it to.
 CameraX `PreviewView` provides some additional APIs to configure properties such
 as:
 
-- The [implementation mode](https://developer.android.com/reference/androidx/camera/view/PreviewView.ImplementationMode) for rendering preview streams.
-- The preview image [scale type](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType).
+- The [implementation mode](https://developer.android.com/reference/androidx/camera/view/PreviewView.ImplementationMode.md.txt) for rendering preview streams.
+- The preview image [scale type](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType.md.txt).
 
 ### Implementation mode
 
 `PreviewView` can use one of the following modes to render a preview stream onto
 the target `View`:
 
-- [`PERFORMANCE`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ImplementationMode#PERFORMANCE)
+- [`PERFORMANCE`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ImplementationMode.md.txt#PERFORMANCE)
   is the default mode. `PreviewView` uses a
-  [`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView) to display the video
-  stream, but falls back to a [`TextureView`](https://developer.android.com/reference/android/view/TextureView)
-  in [certain cases](https://developer.android.com/reference/androidx/camera/view/PreviewView.ImplementationMode#PERFORMANCE). `SurfaceView` has a dedicated drawing surface, which has a better chance of
+  [`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView.md.txt) to display the video
+  stream, but falls back to a [`TextureView`](https://developer.android.com/reference/android/view/TextureView.md.txt)
+  in [certain cases](https://developer.android.com/reference/androidx/camera/view/PreviewView.ImplementationMode.md.txt#PERFORMANCE). `SurfaceView` has a dedicated drawing surface, which has a better chance of
   being implemented with a hardware overlay by the [internal hardware compositor](https://source.android.com/devices/graphics/hwc), especially when there are no other UI elements
   (like buttons) on top of the preview video. By rendering with a hardware
   overlay, video frames avoid a GPU path, which can reduce platform power
   consumption and latency.
 
-- [`COMPATIBLE`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ImplementationMode#COMPATIBLE)
+- [`COMPATIBLE`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ImplementationMode.md.txt#COMPATIBLE)
   mode. In this mode, `PreviewView` uses a `TextureView` which, unlike
   `SurfaceView`, does not have a dedicated drawing surface. As a result, video
   renders with blending so that it can be displayed. During this extra step, the
   application can perform additional processing, such as scaling and rotating
   videos without restriction.
 
-Use [`PreviewView.setImplementationMode()`](https://developer.android.com/reference/androidx/camera/view/PreviewView#setImplementationMode(androidx.camera.view.PreviewView.ImplementationMode))
+Use [`PreviewView.setImplementationMode()`](https://developer.android.com/reference/androidx/camera/view/PreviewView.md.txt#setImplementationMode(androidx.camera.view.PreviewView.ImplementationMode))
 to select the implementation mode suitable for your application. If the default
 `PERFORMANCE` mode isn't suitable for your application, the following code
 sample shows how to set `COMPATIBLE` mode:
@@ -208,25 +208,25 @@ viewFinder.implementationMode = PreviewView.ImplementationMode.COMPATIBLE
 When the preview video resolution differs from the dimensions of your target
 `PreviewView`, video content needs to be fit to the view either by cropping or
 letterboxing (maintaining the original aspect ratio). `PreviewView` provides the
-following [`ScaleTypes`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType)
+following [`ScaleTypes`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType.md.txt)
 for this purpose:
 
-- [`FIT_CENTER`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType#FIT_CENTER),
-  [`FIT_START`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType#FIT_START),
-  and [`FIT_END`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType#FIT_END)
+- [`FIT_CENTER`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType.md.txt#FIT_CENTER),
+  [`FIT_START`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType.md.txt#FIT_START),
+  and [`FIT_END`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType.md.txt#FIT_END)
   for letterboxing. The full video content is scaled (either up or down) to the
   maximum possible size that can be displayed in the target `PreviewView`.
   However, although the full video frame is visible, some portion of the screen
   might be blank. Depending on which of these three scale types you choose, the
   video frame aligns to the center, start, or end of the target View.
 
-- [`FILL_CENTER`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType#FILL_CENTER),
-  [`FILL_START`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType#FILL_START),
-  [`FILL_END`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType#FILL_END) for
+- [`FILL_CENTER`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType.md.txt#FILL_CENTER),
+  [`FILL_START`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType.md.txt#FILL_START),
+  [`FILL_END`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType.md.txt#FILL_END) for
   cropping. If a video doesn't match the `PreviewView` aspect ratio, only a
   portion of the content is visible, but the video fills the entire `PreviewView`.
 
-The default scale type CameraX uses is `FILL_CENTER`. Use [`PreviewView.setScaleType()`](https://developer.android.com/reference/androidx/camera/view/PreviewView#setScaleType(androidx.camera.view.PreviewView.ScaleType))
+The default scale type CameraX uses is `FILL_CENTER`. Use [`PreviewView.setScaleType()`](https://developer.android.com/reference/androidx/camera/view/PreviewView.md.txt#setScaleType(androidx.camera.view.PreviewView.ScaleType))
 to set the scale type most appropriate for your application. The following code
 sample sets the `FIT_CENTER` scale type:
 

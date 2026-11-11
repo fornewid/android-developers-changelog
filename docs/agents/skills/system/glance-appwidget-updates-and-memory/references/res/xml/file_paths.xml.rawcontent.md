@@ -4,7 +4,9 @@ url: https://developer.android.com/agents/skills/system/glance-appwidget-updates
 source: md.txt
 ---
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <paths>
-        <cache-path name="widget_cache" path="widget_images/" />
-    </paths>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <cache-path name="widget_cache" path="widget_images/" />
+</paths>
+```

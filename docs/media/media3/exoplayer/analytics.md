@@ -79,13 +79,13 @@ metrics including:
 - Resource usage metrics, for example the number of bytes read over the network.
 
 You will find a complete list of the available counts and derived metrics in the
-[`PlaybackStats` Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/analytics/PlaybackStats).
+[`PlaybackStats` Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/analytics/PlaybackStats.md.txt).
 
 `PlaybackStatsListener` calculates separate `PlaybackStats` for each media item
 in the playlist, and also each client-side ad inserted within these items. You
 can provide a callback to `PlaybackStatsListener` to be informed about finished
 playbacks, and use the `EventTime` passed to the callback to identify which
-playback finished. It's possible to [aggregate the analytics data](https://developer.android.com/media/media3/exoplayer/analytics#aggregate-analytics-data) for
+playback finished. It's possible to [aggregate the analytics data](https://developer.android.com/media/media3/exoplayer/analytics.md.txt#aggregate-analytics-data) for
 multiple playbacks. It's also possible to query the `PlaybackStats` for the
 current playback session at any time using
 `PlaybackStatsListener.getPlaybackStats()`.
@@ -156,7 +156,7 @@ following event lists:
 
 This data is automatically collected if you use `PlaybackStatsListener`, even
 with `keepHistory=false`. The final values are the public fields that you can
-find in the [`PlaybackStats` Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/analytics/PlaybackStats) and the playback state durations
+find in the [`PlaybackStats` Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/analytics/PlaybackStats.md.txt) and the playback state durations
 returned by `getPlaybackStateDurationMs`. For convenience, you'll also find
 methods like `getTotalPlayTimeMs` and `getTotalWaitTimeMs` that return the
 duration of specific playback state combinations.
@@ -377,7 +377,7 @@ public static void useExtendedAnalyticsCollector(Context context) {
 
 When conducting A/B testing or evaluating the impact of new Media3
 optimizations, you can correlate playback analytics data with active
-[feature flags](https://developer.android.com/media/media3/exoplayer/flags) and Canary mode.
+[feature flags](https://developer.android.com/media/media3/exoplayer/flags.md.txt) and Canary mode.
 
 You can query `Flags.getLogString` or inspect specific flag overrides using
 `Flags.getEnabledOverrides` and `Flags.getDisabledOverrides` to include flag

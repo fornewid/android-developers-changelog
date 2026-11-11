@@ -18,9 +18,9 @@ The `androidx.wear.protolayout` and `androidx.wear.protolayout.material`
 namespaces contain many classes whose fields accept dynamic expressions. Several
 examples include the following:
 
-- Several length values, including the [length of an `Arc` object](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.ArcLine#getLength()) and the [length of a `CircularProgressIndicator`](https://developer.android.com/reference/androidx/wear/protolayout/material/CircularProgressIndicator#getProgress()) object.
-- Any color, such as the [content color of a `Button` object](https://developer.android.com/reference/androidx/wear/protolayout/material/ButtonColors#getContentColor()).
-- Many string values, including the [content of a `Text` object](https://developer.android.com/reference/androidx/wear/protolayout/material/Text#getText()), the [content of a `LayoutElementsBuilders.Text` object](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.Text#getText()), and the [content description of a `CircularProgressIndicator` object](https://developer.android.com/reference/androidx/wear/protolayout/material/CircularProgressIndicator#getContentDescription()).
+- Several length values, including the [length of an `Arc` object](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.ArcLine.md.txt#getLength()) and the [length of a `CircularProgressIndicator`](https://developer.android.com/reference/androidx/wear/protolayout/material/CircularProgressIndicator.md.txt#getProgress()) object.
+- Any color, such as the [content color of a `Button` object](https://developer.android.com/reference/androidx/wear/protolayout/material/ButtonColors.md.txt#getContentColor()).
+- Many string values, including the [content of a `Text` object](https://developer.android.com/reference/androidx/wear/protolayout/material/Text.md.txt#getText()), the [content of a `LayoutElementsBuilders.Text` object](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.Text.md.txt#getText()), and the [content description of a `CircularProgressIndicator` object](https://developer.android.com/reference/androidx/wear/protolayout/material/CircularProgressIndicator.md.txt#getContentDescription()).
 
 To use a dynamic expression as a possible value for an element in your tile, use
 the element's corresponding `*Prop` dynamic property type and pass in the data
@@ -29,11 +29,11 @@ method.
 
 Tiles support these dynamic property types:
 
-- For linear dimensions, measured in display-independent pixels, use [`DimensionBuilders.DpProp`](https://developer.android.com/reference/androidx/wear/tiles/DimensionBuilders.DpProp).
-- For angular dimensions, measured in degrees, use [`DimensionBuilders.DegreesProp`](https://developer.android.com/reference/androidx/wear/tiles/DimensionBuilders.DegreesProp).
-- For string values, use [`TypeBuilders.StringProp`](https://developer.android.com/reference/androidx/wear/protolayout/TypeBuilders.StringProp).
-- For color values, use [`ColorBuilders.ColorProp`](https://developer.android.com/reference/androidx/wear/protolayout/ColorBuilders.ColorProp).
-- For floating-point values, use [`TypeBuilders.FloatProp`](https://developer.android.com/reference/androidx/wear/protolayout/TypeBuilders.FloatProp).
+- For linear dimensions, measured in display-independent pixels, use [`DimensionBuilders.DpProp`](https://developer.android.com/reference/androidx/wear/tiles/DimensionBuilders.DpProp.md.txt).
+- For angular dimensions, measured in degrees, use [`DimensionBuilders.DegreesProp`](https://developer.android.com/reference/androidx/wear/tiles/DimensionBuilders.DegreesProp.md.txt).
+- For string values, use [`TypeBuilders.StringProp`](https://developer.android.com/reference/androidx/wear/protolayout/TypeBuilders.StringProp.md.txt).
+- For color values, use [`ColorBuilders.ColorProp`](https://developer.android.com/reference/androidx/wear/protolayout/ColorBuilders.ColorProp.md.txt).
+- For floating-point values, use [`TypeBuilders.FloatProp`](https://developer.android.com/reference/androidx/wear/protolayout/TypeBuilders.FloatProp.md.txt).
 
 When you use a dynamic expression that affects physical dimensions---any value in
 a tile except for color---you must also specify a set of related constraints, such
@@ -80,7 +80,7 @@ override fun onTileRequest(requestParams: RequestBuilders.TileRequest) =
 
 ## Use a small number of expressions within a single tile
 
-Wear OS [places a limit](https://developer.android.com/training/wearables/data/dynamic#use-limited-number-per-screen) on the number of expressions that a single tile can
+Wear OS [places a limit](https://developer.android.com/training/wearables/data/dynamic.md.txt#use-limited-number-per-screen) on the number of expressions that a single tile can
 have. If a tile contains too many total dynamic expressions, dynamic values are
 ignored, and the system falls back to the static values that you provide to the
 respective dynamic property types.
@@ -154,7 +154,7 @@ To use state information in your tiles, complete these steps:
    <br />
 
 4. When needed, you can also update the state with new values. This can be part
-   of a tile's [`LoadAction`](https://developer.android.com/reference/androidx/wear/protolayout/ActionBuilders.LoadAction).
+   of a tile's [`LoadAction`](https://developer.android.com/reference/androidx/wear/protolayout/ActionBuilders.LoadAction.md.txt).
 
    In this example, the water intake value is updated to `400`:
 
@@ -176,5 +176,5 @@ To use state information in your tiles, complete these steps:
 
 - Note: link text is displayed when JavaScript is off
 - [Migrate to ProtoLayout namespaces](https://developer.android.com/training/wearables/tiles/migrate-to-protolayout)
-- [Get started with tiles](https://developer.android.com/training/wearables/tiles/get_started)
-- [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations)
+- [Get started with tiles](https://developer.android.com/training/wearables/tiles/get_started.md.txt)
+- [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations.md.txt)

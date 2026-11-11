@@ -4,20 +4,20 @@ url: https://developer.android.com/blog/posts/top-3-updates-for-android-develope
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Top 3 updates for Android developer productivity
 
-2 min read ![](https://developer.android.com/static/blog/assets/MM_Dev_Productivity_Strapi_b7e79722e6_Z1dSchf.webp) 09 Jun 2026 [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic) [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) Developer Relations Engineer Every year, Google I/O brings new announcements and resources across ecosystems and products, including Android development. As development shifts toward AI and agent-assisted tooling, we've expanded our offerings to better support you, however you decide to build for Android.
+2 min read ![](https://developer.android.com/static/blog/assets/MM_Dev_Productivity_Strapi_b7e79722e6_Z1dSchf.webp) 09 Jun 2026 [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic.md.txt) [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic.md.txt) Developer Relations Engineer Every year, Google I/O brings new announcements and resources across ecosystems and products, including Android development. As development shifts toward AI and agent-assisted tooling, we've expanded our offerings to better support you, however you decide to build for Android.
 [Video](https://www.youtube.com/watch?v=7fQhKxQGy5A)
 
 To help you stay up to date, here is a summary of the **top 3 announcements for Android Developer Productivity at I/O.**
 
 ### **1. Android CLI is now stable**
 
-[Android CLI](https://developer.android.com/tools/agents/android-cli) is now**stable at version 1.0**, with more capabilities and integrations.
+[Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt) is now**stable at version 1.0**, with more capabilities and integrations.
 
-The latest version of Android CLI introduces many new features, like programmatic version lookup and support for Journeys, and bridging capability to allow agents to **integrate directly with Android Studio** , via the [studio command](https://developer.android.com/tools/agents/android-cli#studio-check).
+The latest version of Android CLI introduces many new features, like programmatic version lookup and support for Journeys, and bridging capability to allow agents to **integrate directly with Android Studio** , via the [studio command](https://developer.android.com/tools/agents/android-cli.md.txt#studio-check).
 
 Running Android Studio alongside the agent and Android CLI enables more efficient navigation in your project, more precise output, and access **Android Studio's unique tooling**, such as performance profilers, Compose Previews, and Android Device Streaming.
 ![1_agy-android-studio.png](https://developer.android.com/static/blog/assets/1_agy_android_studio_a46e984e8b_ZrkCtX.webp) Android CLI now integrates seamlessly with Android Studio
@@ -27,11 +27,11 @@ Additionally, Google Antigravity now officially supports Android development, wi
 You can either install the bundle during onboarding after installation, or later from the **Settings \> Customizations \> Build With Google Plugins** menu. This provides Antigravity with all the powerful tools and knowledge of Android CLI to enable it to perform core tasks---from creating projects to deploying your app on a new virtual device---much more easily and efficiently.
 ![1_agy-android-cli.png](https://developer.android.com/static/blog/assets/1_agy_android_cli_3aaba89633_2MUmn.webp) Google Antigravity now offers the Android resources bundle
 
-Android CLI is now available through more package managers: like npm and homebrew. For more information, check out the [Android CLI blog post](https://android-developers.googleblog.com/2026/05/android-cli-stable-1-0-agent-development.html) and [official documentation.](https://developer.android.com/tools/agents/android-cli)
+Android CLI is now available through more package managers: like npm and homebrew. For more information, check out the [Android CLI blog post](https://android-developers.googleblog.com/2026/05/android-cli-stable-1-0-agent-development.html) and [official documentation.](https://developer.android.com/tools/agents/android-cli.md.txt)
 
 ### **2. Android skills keep growing**
 
-To help models gain expertise for specific development patterns that follow our best practices, we are continuing to **expand our repository of Android skills** , available through [Android CLI](https://developer.android.com/tools/agents/android-cli#skills-add) and [GitHub](https://github.com/android/skills).
+To help models gain expertise for specific development patterns that follow our best practices, we are continuing to **expand our repository of Android skills** , available through [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt#skills-add) and [GitHub](https://github.com/android/skills).
 
 Android skills ground LLMs in **specialized workflows and domain knowledge,** for the most common and more complex user journeys they might struggle with. We've shipped a fresh **new batch of skills,**with now more than 17 skills for areas such as:
 
@@ -55,7 +55,7 @@ android skills list
 android skills add –skill=<skill-name>
 ```
 
-For more information, check out the [official documentation.](https://developer.android.com/tools/agents/android-skills)
+For more information, check out the [official documentation.](https://developer.android.com/tools/agents/android-skills.md.txt)
 
 ### **3. Android Bench adds new models**
 
@@ -77,34 +77,33 @@ Written by:
 
 -
 
-  ## [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic)
+  ## [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/simona-milanovic) ![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp) ![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)
 Continue reading
-- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic) 02 Oct 2026 02 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_135_Android_CLI_and_Android_skills_Strapi_d22702426a_ZIUXgH.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic.md.txt) 02 Oct 2026 02 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_135_Android_CLI_and_Android_skills_Strapi_d22702426a_ZIUXgH.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Device Streaming and Android skills - available in Android CLI](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills)
+  ## [Device Streaming and Android skills - available in Android CLI](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills) As Android developers, you have many choices when it comes to the agents, LLMs, tools, and command-line interfaces (CLI) you use for app development. Our goal is to help you build beautiful, high-quality Android apps, no matter how you choose to build.
-  [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) • 4 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic)[![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_Z1TO68U.webp)](https://developer.android.com/blog/authors/ben-trengrove) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_2hInNY.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills.md.txt) As Android developers, you have many choices when it comes to the agents, LLMs, tools, and command-line interfaces (CLI) you use for app development. Our goal is to help you build beautiful, high-quality Android apps, no matter how you choose to build.
+  [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic.md.txt) • 4 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic.md.txt)[![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_Z1TO68U.webp)](https://developer.android.com/blog/authors/ben-trengrove.md.txt) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_2hInNY.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android CLI Now Stable 1.0: Accelerate developing for Android using any agent](https://developer.android.com/blog/posts/android-cli-now-stable-1-accelerate-developing-for-android-using-any-agent)
+  ## [Android CLI Now Stable 1.0: Accelerate developing for Android using any agent](https://developer.android.com/blog/posts/android-cli-now-stable-1-accelerate-developing-for-android-using-any-agent.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-cli-now-stable-1-accelerate-developing-for-android-using-any-agent) As Android developers, you have many choices when it comes to the agents, tools, command-line interfaces (CLI), and LLMs you use for app development.
-  [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic), [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove) • 5 min read
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/android-cli-now-stable-1-accelerate-developing-for-android-using-any-agent.md.txt) As Android developers, you have many choices when it comes to the agents, tools, command-line interfaces (CLI), and LLMs you use for app development.
+  [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic.md.txt), [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove.md.txt) • 5 min read
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
 Stay in the loop
 
 

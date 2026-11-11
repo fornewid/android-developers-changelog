@@ -223,7 +223,7 @@ For more information about the filter types that Wear OS supports, see the API
 reference documentation for [`WearableListenerService`](https://developers.google.com/android/reference/com/google/android/gms/wearable/WearableListenerService).
 
 For more information on data filters and matching rules, see the API reference
-documentation for the [`<data>`](https://developer.android.com/guide/topics/manifest/data-element) manifest element.
+documentation for the [`<data>`](https://developer.android.com/guide/topics/manifest/data-element.md.txt) manifest element.
 
 When matching intent filters, remember two important rules:
 
@@ -238,7 +238,7 @@ such a case, you can listen for events in an activity.
 
 For a cleaner and safer approach, use a **lifecycle observer** . By using a
 lifecycle observer, you move the registration logic out of the activity's
-[`LifecycleResumeEvent`](https://developer.android.com/reference/android/app/Activity#onResume()) and into a separate, reusable class that
+[`LifecycleResumeEvent`](https://developer.android.com/reference/android/app/Activity.md.txt#onResume()) and into a separate, reusable class that
 implements `DefaultLifecycleObserver`.
 
 This approach keeps your Activity lean and prevents common bugs like forgetting
@@ -278,8 +278,8 @@ class WearDataLayerObserver(
 
 #### 2. Usage in your Activity
 
-Now, your activity doesn't need to use [`LifecycleResumeEvent`](https://developer.android.com/reference/android/app/Activity#onResume()) or
-[`onPause`](https://developer.android.com/reference/android/app/Activity#onPause()) for the Wear API. You register the observer once in
+Now, your activity doesn't need to use [`LifecycleResumeEvent`](https://developer.android.com/reference/android/app/Activity.md.txt#onResume()) or
+[`onPause`](https://developer.android.com/reference/android/app/Activity.md.txt#onPause()) for the Wear API. You register the observer once in
 `LaunchedEvent` (or `onCreate`).
 
 <br />
@@ -318,7 +318,7 @@ class DataLayerLifecycleActivity : ComponentActivity() {
 > **Tip:** If you are using a `ViewModel`, collect these events as a `Flow` using `callbackFlow` and then observe that `Flow` in the `Activity` using `repeatOnLifecycle`. This completely eliminates the need for the `Activity` to even know the `DataClient` exists.
 
 > [!CAUTION]
-> **Caution:** Before using the Wearable Data Layer API, check that it's available on a device; otherwise, an exception occurs. Use the [`GoogleApiAvailability`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability) class, as demonstrated in the [overview](https://developer.android.com/training/wearables/data/overview#client).
+> **Caution:** Before using the Wearable Data Layer API, check that it's available on a device; otherwise, an exception occurs. Use the [`GoogleApiAvailability`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability) class, as demonstrated in the [overview](https://developer.android.com/training/wearables/data/overview.md.txt#client).
 
 ### Use filters with live listeners
 

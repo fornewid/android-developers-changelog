@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/modernizing-the-room
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Room 3.0 - Modernizing the Room
 
-4 min read ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_5IIEj.webp) 13 Mar 2026 [![View Daniel Santiago Rivera's profile](https://developer.android.com/static/blog/assets/Daniel_Santiago_Rivera_157422eedb_VG66u.webp)](https://developer.android.com/blog/authors/daniel-santiago-rivera) [Daniel Santiago Rivera](https://developer.android.com/blog/authors/daniel-santiago-rivera) Software Engineer The first alpha of Room 3.0 has been released! Room 3.0 is a major breaking version of the library that focuses on Kotlin Multiplatform (KMP) and adds support for JavaScript and WebAssembly (WASM) on top of the existing Android, iOS and JVM desktop support.
+4 min read ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_5IIEj.webp) 13 Mar 2026 [![View Daniel Santiago Rivera's profile](https://developer.android.com/static/blog/assets/Daniel_Santiago_Rivera_157422eedb_VG66u.webp)](https://developer.android.com/blog/authors/daniel-santiago-rivera.md.txt) [Daniel Santiago Rivera](https://developer.android.com/blog/authors/daniel-santiago-rivera.md.txt) Software Engineer The first alpha of Room 3.0 has been released! Room 3.0 is a major breaking version of the library that focuses on Kotlin Multiplatform (KMP) and adds support for JavaScript and WebAssembly (WASM) on top of the existing Android, iOS and JVM desktop support.
 
 In this blog we outline the breaking changes, the reasoning behind Room 3.0, and the various things you can do to migrate from Room 2.0.
 
@@ -16,7 +16,7 @@ In this blog we outline the breaking changes, the reasoning behind Room 3.0, and
 
 Room 3.0 includes the following breaking API changes:
 
-- **Dropping SupportSQLite APIs:** Room 3.0 is fully backed by the [androidx.sqlite driver APIs](https://developer.android.com/kotlin/multiplatform/sqlite#sqlite-driver). The SQLiteDriver APIs are KMP-compatible and removing Room's dependency on Android's API simplifies the API surface for Android since it avoids having two possible backends.
+- **Dropping SupportSQLite APIs:** Room 3.0 is fully backed by the [androidx.sqlite driver APIs](https://developer.android.com/kotlin/multiplatform/sqlite.md.txt#sqlite-driver). The SQLiteDriver APIs are KMP-compatible and removing Room's dependency on Android's API simplifies the API surface for Android since it avoids having two possible backends.
 - **No more Java code generation:** Room 3.0 exclusively generates Kotlin code. This aligns with the evolving Kotlin-first paradigm but also simplifies the codebase and development process, enabling faster iterations.
 - **Focus on KSP:** We are also dropping support for Java Annotation Processing (AP) and KAPT. Room 3.0 is solely a KSP (Kotlin Symbol Processing) processor, allowing for better processing of Kotlin codebases without being limited by the Java language.
 - **Coroutines first:**Room 3.0 embraces Kotlin coroutines, making its APIs coroutine-first. Coroutines is the KMP-compatible asynchronous framework and making Room be asynchronous by nature is a critical requirement for supporting web platforms.
@@ -29,15 +29,15 @@ To prevent compatibility issues with existing Room 2.x implementations and for l
 
 With no more Java code generation, Room 3.0 also requires KSP and the Kotlin compiler even if the codebase interacting with Room is in Java. It is recommended to have a multi-module project where Room usage is concentrated and the Kotlin Gradle Plugin and KSP can be applied without affecting the rest of the codebase.
 
-Room 3.0 also requires Coroutines and more specifically DAO functions have to be suspending unless they are returning a reactive type, such as a Flow. Room 3.0 disallows blocking DAO functions. See the [Coroutines on Android documentation](https://developer.android.com/kotlin/coroutines) on getting started integrating Coroutines into your application.
+Room 3.0 also requires Coroutines and more specifically DAO functions have to be suspending unless they are returning a reactive type, such as a Flow. Room 3.0 disallows blocking DAO functions. See the [Coroutines on Android documentation](https://developer.android.com/kotlin/coroutines.md.txt) on getting started integrating Coroutines into your application.
 
 ## Migration to SQLiteDriver APIs
 
 With the shift away from SupportSQLite, apps will need to migrate to the SQLiteDriver APIs. This migration is essential to leveraging the full benefits of Room 3.0, including allowing the use of the bundled SQLite library via the `BundledSQLiteDriver`. You can start migrating to the driver APIs today with Room 2.7.0+. We strongly encourage you to avoid any further usage of SupportSQLite. If you migrate your Room integrations to SQLiteDriver APIs, then the transition to Room 3.0 is easier since the package change mostly involves updating symbol references (imports) and might require minimal changes to call-sites.
 
-For a brief overview of the SQLiteDriver APIs, check out the [SQLiteDriver APIs documentation](https://developer.android.com/kotlin/multiplatform/sqlite#sqlite-driver).
+For a brief overview of the SQLiteDriver APIs, check out the [SQLiteDriver APIs documentation](https://developer.android.com/kotlin/multiplatform/sqlite.md.txt#sqlite-driver).
 
-For more details on how to migrate Room to use SQLiteDriver APIs, check out the official [documentation to migrate from SupportSQLite](https://developer.android.com/kotlin/multiplatform/room#migrate-from-support-sqlite).
+For more details on how to migrate Room to use SQLiteDriver APIs, check out the official [documentation to migrate from SupportSQLite](https://developer.android.com/kotlin/multiplatform/room.md.txt#migrate-from-support-sqlite).
 
 ## Room SupportSQLite wrapper
 
@@ -45,13 +45,13 @@ We understand completely removing SupportSQLite might not be immediately feasibl
 
 For example, invocations of `roomDatabase.openHelper.writableDatabase` can be replaced by `roomDatabase.getSupportWrapper()` and a wrapper would be provided even if `setDriver()` is called on Room's builder.
 
-For more details check out the [room-sqlite-wrapper documentation](https://developer.android.com/kotlin/multiplatform/room#migrate-room-sqlite-wrapper).
+For more details check out the [room-sqlite-wrapper documentation](https://developer.android.com/kotlin/multiplatform/room.md.txt#migrate-room-sqlite-wrapper).
 
 ## Room and SQLite Web Support
 
 Support for the Kotlin Multiplatform targets JS and WasmJS and brings some of the most significant API changes. Specifically, many APIs in Room 3.0 are suspend functions since proper support for web storage is asynchronous. The SQLiteDriver APIs have also been updated to support the Web and a new web asynchronous driver is available in `androidx.sqlite:sqlite-web`. It is a [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) based driver that enables persisting the database in the Origin private file system (OPFS).
 
-For more details on how to set up Room for the Web check out the [Room 3.0 release notes](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha01).
+For more details on how to set up Room for the Web check out the [Room 3.0 release notes](https://developer.android.com/jetpack/androidx/releases/room3.md.txt#3.0.0-alpha01).
 
 ## Custom DAO Return Types
 
@@ -59,7 +59,7 @@ Room 3.0 introduces the ability to add custom integrations to Room similar to Rx
 
 For example, the Paging converter will be located in the `androidx.room3:room3-paging` artifact and it's called `PagingSourceDaoReturnTypeConverter`. Meanwhile for `LiveData` the converter is in `androidx.room3:room3-livedata` and is called `LiveDataDaoReturnTypeConverter`.
 
-For more details check out the DAO Return Type Converters section in the [Room 3.0 release notes](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha01).
+For more details check out the DAO Return Type Converters section in the [Room 3.0 release notes](https://developer.android.com/jetpack/androidx/releases/room3.md.txt#3.0.0-alpha01).
 
 ## Maintenance mode of Room 2.x
 
@@ -72,38 +72,37 @@ Written by:
 
 -
 
-  ## [Daniel Santiago Rivera](https://developer.android.com/blog/authors/daniel-santiago-rivera)
+  ## [Daniel Santiago Rivera](https://developer.android.com/blog/authors/daniel-santiago-rivera.md.txt)
 
   ###### Software Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/daniel-santiago-rivera) ![View Daniel Santiago Rivera's profile](https://developer.android.com/static/blog/assets/Daniel_Santiago_Rivera_157422eedb_VG66u.webp) ![View Daniel Santiago Rivera's profile](https://developer.android.com/static/blog/assets/Daniel_Santiago_Rivera_157422eedb_VG66u.webp)
 Continue reading
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 3 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 4 min read
+  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp.md.txt)
+  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano.md.txt)
+  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
   - +2 ↩
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
 

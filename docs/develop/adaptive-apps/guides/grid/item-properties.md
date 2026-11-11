@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 While the `Grid` config defines the overall structure,
-you use the [`gridItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridScope#(androidx.compose.ui.Modifier).gridItem(kotlin.Int,kotlin.Int,kotlin.Int,kotlin.Int,androidx.compose.ui.Alignment)) modifier to control the position, spanning,
+you use the [`gridItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridScope.md.txt#(androidx.compose.ui.Modifier).gridItem(kotlin.Int,kotlin.Int,kotlin.Int,kotlin.Int,androidx.compose.ui.Alignment)) modifier to control the position, spanning,
 and alignment of items within that structure.
 
 ## Set the item position
@@ -13,7 +13,7 @@ and alignment of items within that structure.
 Place an item into a specific track or cell
 with the `row` and `column` parameters.
 Coordinate indexes work best for straightforward grid layouts.
-For larger or more complex layouts, define [named areas](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties#named-area) instead.
+For larger or more complex layouts, define [named areas](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties.md.txt#named-area) instead.
 
 The `row` and `column` parameters specify the row and column track indexes
 that the item is placed in.
@@ -65,8 +65,8 @@ and Card #3 is placed in the first column in the third row.](https://developer.a
 
 Use the `rowSpan` and `columnSpan` parameters
 to span an item over multiple cells.
-You can place a UI element into a [grid area](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid#grid-area),
-which is the area consisting of several [grid cells](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid#grid-cell).
+You can place a UI element into a [grid area](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid.md.txt#grid-area),
+which is the area consisting of several [grid cells](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid.md.txt#grid-cell).
 The `gridItem` modifier lets you specify the grid area
 with the `rowSpan` and `columnSpan` parameters.
 In the following example,
@@ -101,7 +101,7 @@ Grid(
 ## Set the alignment in a grid area
 
 You can set the alignment of the UI element in a grid area
-by specifying it in the `alignment` parameter of the [`gridItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridScope#(androidx.compose.ui.Modifier).gridItem(kotlin.Int,kotlin.Int,kotlin.Int,kotlin.Int,androidx.compose.ui.Alignment)) modifier.
+by specifying it in the `alignment` parameter of the [`gridItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridScope.md.txt#(androidx.compose.ui.Modifier).gridItem(kotlin.Int,kotlin.Int,kotlin.Int,kotlin.Int,androidx.compose.ui.Alignment)) modifier.
 In the following example, **#1** is placed in the center of the grid area
 consisting of two columns and two rows.
 

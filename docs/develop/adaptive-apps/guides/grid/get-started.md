@@ -4,24 +4,27 @@ url: https://developer.android.com/develop/adaptive-apps/guides/grid/get-started
 source: md.txt
 ---
 
-This page describes how to implement basic [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable#Grid(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) layouts.
+This page describes how to implement basic [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable.md.txt#Grid(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) layouts.
 
 ## Set up project
 
-1. Add the [`androidx.compose.foundation.layout`](https://developer.android.com/jetpack/androidx/versions) library to your project's
+1. Add the [`androidx.compose.foundation.layout`](https://developer.android.com/jetpack/androidx/versions.md.txt) library to your project's
    `lib.versions.toml`.
 
-       [versions]
-       compose = "1.13.0-rc01"
+   ```kotlin
+   [versions]
+   compose = "1.13.0-rc01"
 
-       [libraries]
-       androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "compose" }
-
+   [libraries]
+   androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "compose" }
+   ```
 2. Add the library dependency to your app's `build.gradle.kts`.
 
-       dependencies {
-           implementation(libs.androidx.compose.foundation.layout)
-       }
+   ```kotlin
+   dependencies {
+       implementation(libs.androidx.compose.foundation.layout)
+   }
+   ```
 
 ## Create a basic grid
 
@@ -54,4 +57,4 @@ Grid(
 ![A basic grid consists of rows and columns with fixed size.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/six-cards-in-grid.png) **Figure 1**. A basic grid consists of rows and columns with fixed size.
 
 To learn how to implement more advanced grids,
-see [Set container properties](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties) and [Set item properties](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/item-properties).
+see [Set container properties](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties.md.txt) and [Set item properties](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/item-properties.md.txt).

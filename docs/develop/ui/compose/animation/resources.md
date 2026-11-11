@@ -29,4 +29,4 @@ format](https://storage.googleapis.com/android-stories/compose/Compose_Animation
 ## Videos
 
 - [Animation Reimagined](https://www.youtube.com/watch?v=Z_T1bVjhMLk)
-- [Five quick animations in Compose](https://developer.android.com/develop/ui/compose/quick-guides/content/video/five-animations-compose)
+- [Five quick animations in Compose](https://developer.android.com/develop/ui/compose/quick-guides/content/video/five-animations-compose.md.txt)

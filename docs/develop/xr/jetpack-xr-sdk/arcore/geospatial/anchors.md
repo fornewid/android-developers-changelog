@@ -7,11 +7,11 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
-Geospatial anchors are a type of [anchor](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/anchors) that allow you to place 3D
+Geospatial anchors are a type of [anchor](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/anchors.md.txt) that allow you to place 3D
 content with geographical coordinates using the [Geospatial
 API](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial).
 
@@ -52,7 +52,7 @@ Geospatial anchors require an altitude value, which is relative to the WGS84
 ellipsoid or relative to the terrain or rooftop.
 
 - For altitude values relative to the WGS84 ellipsoid, use
-  [`Geospatial.createAnchor`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial#createAnchor(kotlin.Double,kotlin.Double,kotlin.Double,androidx.xr.runtime.math.Quaternion)):
+  [`Geospatial.createAnchor`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.md.txt#createAnchor(kotlin.Double,kotlin.Double,kotlin.Double,androidx.xr.runtime.math.Quaternion)):
 
 
   ```kotlin
@@ -67,7 +67,7 @@ ellipsoid or relative to the terrain or rooftop.
   <br />
 
 - For altitude values relative to the terrain or a rooftop, use
-  [`Geospatial.createAnchorOnSurface`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial#createAnchorOnSurface(kotlin.Double,kotlin.Double,kotlin.Double,androidx.xr.runtime.math.Quaternion,androidx.xr.arcore.Geospatial.Surface)),
+  [`Geospatial.createAnchorOnSurface`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.md.txt#createAnchorOnSurface(kotlin.Double,kotlin.Double,kotlin.Double,androidx.xr.runtime.math.Quaternion,androidx.xr.arcore.Geospatial.Surface)),
   using `GeospatialSurface.TERRAIN` and `GeospatialSurface.ROOFTOP`
   respectively to specify how the final altitude should be interpreted:
 

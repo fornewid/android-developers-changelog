@@ -6,7 +6,7 @@ source: md.txt
 
 <br />
 
-> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12) or later.
+> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect.md.txt#1.1.0-alpha12) or later.
 
 <br />
 
@@ -18,7 +18,7 @@ sleep quality, reproductive health, and the potential onset of illness.
 
 Before attempting to use Health Connect, your app should verify that Health Connect is available
 on the user's device. Health Connect might not be pre-installed on all devices or could be disabled.
-You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)`
+You can check for availability using the `HealthConnectClient.getSdkStatus()`
 method.
 
 #### How to check for Health Connect availability
@@ -62,21 +62,22 @@ To determine whether a user's device supports skin temperature on Health Connect
 
 <br />
 
-    if (healthConnectClient
-         .features
-         .getFeatureStatus(
-           HealthConnectFeatures.FEATURE_SKIN_TEMPERATURE
-         ) == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
+```kotlin
+if (healthConnectClient
+     .features
+     .getFeatureStatus(
+       HealthConnectFeatures.FEATURE_SKIN_TEMPERATURE
+     ) == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
 
-      // Feature is available
-    } else {
-      // Feature isn't available
-    }
-
+  // Feature is available
+} else {
+  // Feature isn't available
+}
+```
 See [Check for feature availability](https://developer.android.com/health-and-fitness/guides/health-connect/develop/feature-availability) to learn more.
 
 > [!NOTE]
-> **Note:** The skin temperature data type isn't meant to measure core body temperature. If your app requires this measurement, use classes such as [`BodyTemperatureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BodyTemperatureRecord) and [`BasalBodyTemperatureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BasalBodyTemperatureRecord).
+> **Note:** The skin temperature data type isn't meant to measure core body temperature. If your app requires this measurement, use classes such as [`BodyTemperatureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BodyTemperatureRecord.md.txt) and [`BasalBodyTemperatureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BasalBodyTemperatureRecord.md.txt).
 
 ## Required permissions
 
@@ -91,19 +92,23 @@ permissions for the `SkinTemperature` data type.
 Here's the permission you need to declare to be able to write
 skin temperature:
 
-    <application>
-      <uses-permission
-    android:name="android.permission.health.WRITE_SKIN_TEMPERATURE" />
-    ...
-    </application>
+```xml
+<application>
+  <uses-permission
+android:name="android.permission.health.WRITE_SKIN_TEMPERATURE" />
+...
+</application>
+```
 
 To read skin temperature, you need to request the following permissions:
 
-    <application>
-      <uses-permission
-    android:name="android.permission.health.READ_SKIN_TEMPERATURE" />
-    ...
-    </application>
+```xml
+<application>
+  <uses-permission
+android:name="android.permission.health.READ_SKIN_TEMPERATURE" />
+...
+</application>
+```
 
 ### Request permissions from the user
 
@@ -122,7 +127,7 @@ val permissions =
         HealthPermission.getWritePermission(SkinTemperatureRecord::class)
     )
 ```
-Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
+Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController.md.txt#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController.md.txt#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
 
 ```kotlin
 val permissions = setOf(
@@ -162,9 +167,9 @@ of the following information:
 The following aggregate values are available for
 `SkinTemperatureRecord`:
 
-- [`TEMPERATURE_DELTA_AVG`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/SkinTemperatureRecord#TEMPERATURE_DELTA_AVG())
-- [`TEMPERATURE_DELTA_MAX`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/SkinTemperatureRecord#TEMPERATURE_DELTA_MAX())
-- [`TEMPERATURE_DELTA_MIN`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/SkinTemperatureRecord#TEMPERATURE_DELTA_MIN())
+- [`TEMPERATURE_DELTA_AVG`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/SkinTemperatureRecord.md.txt#TEMPERATURE_DELTA_AVG())
+- [`TEMPERATURE_DELTA_MAX`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/SkinTemperatureRecord.md.txt#TEMPERATURE_DELTA_MAX())
+- [`TEMPERATURE_DELTA_MIN`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/SkinTemperatureRecord.md.txt#TEMPERATURE_DELTA_MIN())
 
 <br />
 
@@ -178,62 +183,66 @@ measurements.
 The following code snippet demonstrates how to read a skin temperature
 measurements using the Jetpack library:
 
-    suspend fun readSkinTemperatures() {
-        // Error handling, permission check, and feature availability check
-        // aren't included.
+```kotlin
+suspend fun readSkinTemperatures() {
+    // Error handling, permission check, and feature availability check
+    // aren't included.
 
-        // Record includes measurements during the past hour.
-        val recordEndTime = Instant.now()
-        val recordStartTime = recordEndTime.minusSeconds(60 * 60)
+    // Record includes measurements during the past hour.
+    val recordEndTime = Instant.now()
+    val recordStartTime = recordEndTime.minusSeconds(60 * 60)
 
-        val response = healthConnectClient.readRecords(
-            ReadRecordsRequest<SkinTemperatureRecord>(
-                timeRangeFilter = TimeRangeFilter.between(
-                    recordStartTime, recordEndTime
-                )
+    val response = healthConnectClient.readRecords(
+        ReadRecordsRequest<SkinTemperatureRecord>(
+            timeRangeFilter = TimeRangeFilter.between(
+                recordStartTime, recordEndTime
             )
         )
+    )
 
-        for (skinTemperatureRecord in response.records) {
-            // Process each skin temperature record here.
-        }
+    for (skinTemperatureRecord in response.records) {
+        // Process each skin temperature record here.
     }
+}
+```
 
 ### Write a skin temperature record
 
 The following code snippet shows how to write skin temperature
 measurements using the Jetpack library:
 
+```kotlin
 
-    suspend fun writeSkinTemperatures(): InsertRecordsResponse {
-        // Error handling, permission check, and feature availability check
-        // aren't included.
+suspend fun writeSkinTemperatures(): InsertRecordsResponse {
+    // Error handling, permission check, and feature availability check
+    // aren't included.
 
-        // Record includes measurements during the past hour.
-        val recordEndTime: ZonedDateTime = now()
-        val recordStartTime: ZonedDateTime = recordEndTime.minusHours(1)
+    // Record includes measurements during the past hour.
+    val recordEndTime: ZonedDateTime = now()
+    val recordStartTime: ZonedDateTime = recordEndTime.minusHours(1)
 
-        healthConnectClient.insertRecords(
-            // For this example, there's only one skin temperature record.
-            listOf(
-                SkinTemperatureRecord(
-                    baseline = Temperature.celsius(37.0),
-                    startTime = recordStartTime.toInstant(),
-                    startZoneOffset = recordStartTime.offset,
-                    endTime = recordEndTime.toInstant(),
-                    endZoneOffset = recordEndTime.offset,
-                    deltas = listOf(
-                        SkinTemperatureRecord.Delta(
-                            recordEndTime.minusMinutes(50).toInstant(), celsius(0.5)
-                        ), SkinTemperatureRecord.Delta(
-                            recordEndTime.minusMinutes(30).toInstant(), celsius(-0.7)
-                        )
-                    ),
-                    measurementLocation = SkinTemperatureRecord.MEASUREMENT_LOCATION_FINGER,
-                    metadata = Metadata.autoRecorded(
-                        device = Device(type = Device.TYPE_RING)
-                    ),
-                )
+    healthConnectClient.insertRecords(
+        // For this example, there's only one skin temperature record.
+        listOf(
+            SkinTemperatureRecord(
+                baseline = Temperature.celsius(37.0),
+                startTime = recordStartTime.toInstant(),
+                startZoneOffset = recordStartTime.offset,
+                endTime = recordEndTime.toInstant(),
+                endZoneOffset = recordEndTime.offset,
+                deltas = listOf(
+                    SkinTemperatureRecord.Delta(
+                        recordEndTime.minusMinutes(50).toInstant(), celsius(0.5)
+                    ), SkinTemperatureRecord.Delta(
+                        recordEndTime.minusMinutes(30).toInstant(), celsius(-0.7)
+                    )
+                ),
+                measurementLocation = SkinTemperatureRecord.MEASUREMENT_LOCATION_FINGER,
+                metadata = Metadata.autoRecorded(
+                    device = Device(type = Device.TYPE_RING)
+                ),
             )
         )
-    }
+    )
+}
+```

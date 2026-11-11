@@ -6,8 +6,8 @@ source: md.txt
 
 The Browsers category is in beta At this time, anyone can publish browsers to internal testing tracks on the Play Store. Publishing to closed testing, open testing, and production tracks will be permitted at a later date. [Nominate yourself to be an early access partner →](https://forms.gle/VsXEdDEBidxw8q8u8) ![](https://developer.android.com/static/images/picto-icons/test-tube-2.svg)
 
-Beyond the requirements described in [Build parked apps for cars](https://developer.android.com/training/cars/parked) and
-[Add support for Android Automotive OS to your parked app](https://developer.android.com/training/cars/parked/automotive-os),
+Beyond the requirements described in [Build parked apps for cars](https://developer.android.com/training/cars/parked.md.txt) and
+[Add support for Android Automotive OS to your parked app](https://developer.android.com/training/cars/parked/automotive-os.md.txt),
 there are a few additional requirements specific to browsers that are detailed
 on this page.
 
@@ -18,7 +18,7 @@ on this page.
 
 ### Android for Cars parked apps
 
-Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to adapt existing Android video streaming apps, games, and web browsers to run as parked apps on cars. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use an [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to adapt existing Android video streaming apps, games, and web browsers to run as parked apps on cars. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add android-for-cars-parked-apps
 
@@ -33,18 +33,20 @@ Use an [Android skill](https://developer.android.com/tools/agents/android-skills
 To indicate that your app is a browser, it must include an intent filter such as
 the following within an exported `<activity>` element:
 
-    <activity ...
-        android:exported="true">
-      ...
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-       ...
-        <category android:name="android.intent.category.APP_BROWSER"/>
-      </intent-filter>
-    </activity>
+```xml
+<activity ...
+    android:exported="true">
+  ...
+  <intent-filter>
+    <action android:name="android.intent.action.MAIN"/>
+   ...
+    <category android:name="android.intent.category.APP_BROWSER"/>
+  </intent-filter>
+</activity>
+```
 
 For more information, see
-[`android.intent.category.APP_BROWSER`](https://developer.android.com/reference/android/content/Intent#CATEGORY_APP_BROWSER).
+[`android.intent.category.APP_BROWSER`](https://developer.android.com/reference/android/content/Intent.md.txt#CATEGORY_APP_BROWSER).
 
 ## Allow users to block access to sensitive data
 
@@ -61,7 +63,7 @@ Automotive OS [must prompt the user to authenticate and provide messaging to let
 the user know that their data is being synchronized to the car](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=browser#SD-2).
 If the user does not have any method of authentication set up, you can prompt
 them to set one up when they try to sync sensitive data, using either the
-[device credential](https://developer.android.com/training/cars/parked/browser#open-settings) or one specific to your app.
+[device credential](https://developer.android.com/training/cars/parked/browser.md.txt#open-settings) or one specific to your app.
 
 ## Use the device credential for authentication
 
@@ -72,7 +74,7 @@ prior.
 ### Check if there is a device credential set
 
 To determine if the user has secured their device with a PIN, pattern, or
-password, you can use the [`KeyguardManager::isDeviceSecure`](https://developer.android.com/reference/android/app/KeyguardManager#isDeviceSecure())
+password, you can use the [`KeyguardManager::isDeviceSecure`](https://developer.android.com/reference/android/app/KeyguardManager.md.txt#isDeviceSecure())
 method.
 
 
@@ -87,7 +89,7 @@ val isDeviceSecure = keyguardManager?.isDeviceSecure == true
 
 To reduce user friction in the case they need to set a device credential, you
 can open up the Security screen within the Settings app using the
-[`Settings.ACTION_SECURITY_SETTINGS`](https://developer.android.com/reference/android/provider/Settings#ACTION_SECURITY_SETTINGS)
+[`Settings.ACTION_SECURITY_SETTINGS`](https://developer.android.com/reference/android/provider/Settings.md.txt#ACTION_SECURITY_SETTINGS)
 intent action.
 
 
@@ -106,4 +108,4 @@ To prompt the user to authenticate, you can use the `BiometricPrompt` API as
 described in [Show a biometric authentication dialog](https://developer.android.com/training/sign-in/biometric-auth).
 
 > [!CAUTION]
-> **Caution:** Despite the name, you should only use the [`DEVICE_CREDENTIAL`](https://developer.android.com/reference/androidx/biometric/BiometricManager.Authenticators#DEVICE_CREDENTIAL) authenticator and not any of the biometric ones, as Android Automotive OS vehicles with Google built-in don't have biometric sensors.
+> **Caution:** Despite the name, you should only use the [`DEVICE_CREDENTIAL`](https://developer.android.com/reference/androidx/biometric/BiometricManager.Authenticators.md.txt#DEVICE_CREDENTIAL) authenticator and not any of the biometric ones, as Android Automotive OS vehicles with Google built-in don't have biometric sensors.

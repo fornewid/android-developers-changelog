@@ -4,9 +4,9 @@ url: https://developer.android.com/develop/ui/compose/graphics/blur/examples
 source: md.txt
 ---
 
-The following sections show how to combine [`Modifier.blur`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/blur.modifier),
-[`BlurRadiusSpec`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/blur/BlurRadiusSpec), [`BlurStop`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/blur/BlurStop), and [`BlurScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/BlurScope) for common UI
-patterns. For an introduction to these APIs, see [Blurring in Compose](https://developer.android.com/develop/ui/compose/graphics/blur/overview).
+The following sections show how to combine [`Modifier.blur`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/blur.modifier.md.txt),
+[`BlurRadiusSpec`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/blur/BlurRadiusSpec.md.txt), [`BlurStop`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/blur/BlurStop.md.txt), and [`BlurScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/BlurScope.md.txt) for common UI
+patterns. For an introduction to these APIs, see [Blurring in Compose](https://developer.android.com/develop/ui/compose/graphics/blur/overview.md.txt).
 
 ## Blur the edges of scrolling or draggable content
 
@@ -230,7 +230,7 @@ fun RadialSpotlightTextExample() {
 
 For complex spatial blur distributions beyond linear or radial gradients, such
 as repeating patterns, arbitrary shapes, or procedural noise, pass a custom
-[`Shader`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shader), such as an [AGSL `RuntimeShader`](https://developer.android.com/develop/ui/compose/graphics/draw/brush#agsl-runtimeshader), to
+[`Shader`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shader.md.txt), such as an [AGSL `RuntimeShader`](https://developer.android.com/develop/ui/compose/graphics/draw/brush.md.txt#agsl-runtimeshader), to
 `BlurRadiusSpec.shader`. The shader evaluates in layer pixel coordinates from
 the top-left origin, and its sampled alpha channel (`0..1`) scales `maxRadius`.
 

@@ -88,7 +88,7 @@ val value by animateFloatAsState(
 
 <br />
 
-See [Easing](https://developer.android.com/develop/ui/compose/animation/customize#easing) for more information.
+See [Easing](https://developer.android.com/develop/ui/compose/animation/customize.md.txt#easing) for more information.
 
 ### Animate to specific values at certain timings with `keyframes`
 
@@ -199,7 +199,7 @@ val value by animateFloatAsState(
 <br />
 
 In tests using
-[`ComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule),
+[`ComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule.md.txt),
 animations using `infiniteRepeatable` are not run. The component will be
 rendered using the initial value of each animated value.
 
@@ -264,7 +264,7 @@ information about what Easing to use depending on your scenario.
 - `FastOutLinearInEasing`
 - `LinearEasing`
 - `CubicBezierEasing`
-- [See more](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#Ease())
+- [See more](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary.md.txt#Ease())
 
 > [!NOTE]
 > **Note:** Easing objects work the same way as instances of `Interpolator` classes in the platform. Instead of the `getInterpolation()` method, it has the `transform()` method.
@@ -327,16 +327,16 @@ fun MyAnimation(targetSize: MySize) {
 
 The following list includes some built-in `VectorConverter`s:
 
-- [`Color.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.Companion#(androidx.compose.ui.graphics.Color.Companion).VectorConverter())
-- [`Dp.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#(androidx.compose.ui.unit.Dp.Companion).VectorConverter())
-- [`Offset.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#(androidx.compose.ui.geometry.Offset.Companion).VectorConverter())
-- [`Int.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#(kotlin.Int.Companion).VectorConverter())
-- [`Float.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#(kotlin.Float.Companion).VectorConverter())
-- [`IntSize.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#(androidx.compose.ui.unit.IntSize.Companion).VectorConverter())
+- [`Color.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.Companion.md.txt#(androidx.compose.ui.graphics.Color.Companion).VectorConverter())
+- [`Dp.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary.md.txt#(androidx.compose.ui.unit.Dp.Companion).VectorConverter())
+- [`Offset.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary.md.txt#(androidx.compose.ui.geometry.Offset.Companion).VectorConverter())
+- [`Int.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary.md.txt#(kotlin.Int.Companion).VectorConverter())
+- [`Float.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary.md.txt#(kotlin.Float.Companion).VectorConverter())
+- [`IntSize.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary.md.txt#(androidx.compose.ui.unit.IntSize.Companion).VectorConverter())
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Value-based animations](https://developer.android.com/develop/ui/compose/animation/value-based)
-- [Iterative code development](https://developer.android.com/develop/ui/compose/tooling/iterative-development)
+- [Value-based animations](https://developer.android.com/develop/ui/compose/animation/value-based.md.txt)
+- [Iterative code development](https://developer.android.com/develop/ui/compose/tooling/iterative-development.md.txt)
 - [Animations in Compose](https://developer.android.com/develop/ui/compose/animation/introduction)

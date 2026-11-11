@@ -60,7 +60,7 @@ table shows the behavior when the direction is `Row`.
 
 Use `alignItems` to align items along the cross axis within a single line. This
 behavior can be overridden by individual items using the
-[`alignSelf` modifier](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/item-behavior#item-alignment).
+[`alignSelf` modifier](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/item-behavior.md.txt#item-alignment).
 
 The following images show the behavior when the direction is `Row`:
 
@@ -86,7 +86,7 @@ using `wrap`.
 |---|---|
 | **`FlexWrap` value** | **Example using direction `Row`** |
 | `NoWrap` (default): Prevents items from wrapping. Items overflow if the main size is insufficient. | ![Items in a single line overflowing the container because wrapping is disabled.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/wrapitems-1.png) |
-| `Wrap`: When there is insufficient space for an item (plus any [gap](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/container-behavior#add-gaps)), a new line is created in the direction of the cross axis. For example, if the direction is `Row`, a new line is added **below**. | ![Items wrapping onto a new line below because wrapping is enabled.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/wrapitems-2.png) |
+| `Wrap`: When there is insufficient space for an item (plus any [gap](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/container-behavior.md.txt#add-gaps)), a new line is created in the direction of the cross axis. For example, if the direction is `Row`, a new line is added **below**. | ![Items wrapping onto a new line below because wrapping is enabled.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/wrapitems-2.png) |
 | `WrapReverse`: The same as `Wrap`, except the new line is added in the opposite direction to the cross axis. For example, if the direction is `Row`, a new line is added **above**. | ![Items wrapping onto a new line above because reverse wrapping is enabled.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/wrapitems-3.png) |
 
 The following example shows how the `FlexBox` wrapping algorithm works. The

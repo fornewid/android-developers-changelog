@@ -18,7 +18,7 @@ Go back
 
 Discover the key principles for designing successful Wear OS apps that are glanceable, efficient, and optimized for the wrist.
 
-[Read article](https://developer.android.com/training/wearables/principles)
+[Read article](https://developer.android.com/training/wearables/principles.md.txt)
 
 ## Wear OS user interfaces
 
@@ -26,7 +26,7 @@ Discover the key principles for designing successful Wear OS apps that are glanc
 
 Explore the different UI surfaces on Wear OS, from watch faces to app to tiles to notifications, and learn when to use each one.
 
-[Read article](https://developer.android.com/training/wearables/user-interfaces)
+[Read article](https://developer.android.com/training/wearables/user-interfaces.md.txt)
 
 ## Create and run your first Wear OS app
 
@@ -34,7 +34,7 @@ Explore the different UI surfaces on Wear OS, from watch faces to app to tiles t
 
 Learn how to create your first Wear OS app using Android Studio and run it on an emulator or physical device.
 
-[Read article](https://developer.android.com/training/wearables/get-started/creating)
+[Read article](https://developer.android.com/training/wearables/get-started/creating.md.txt)
 
 ## Apps
 
@@ -42,7 +42,7 @@ Learn how to create your first Wear OS app using Android Studio and run it on an
 
 Build rich, interactive experiences for tasks that go beyond what tiles and complications can offer. Learn how to create a full app on Wear OS.
 
-[Read article](https://developer.android.com/training/wearables/apps)
+[Read article](https://developer.android.com/training/wearables/apps.md.txt)
 
 ## Watch faces
 
@@ -50,7 +50,7 @@ Build rich, interactive experiences for tasks that go beyond what tiles and comp
 
 Learn the concepts behind the Watch Face Format, the declarative XML standard for creating power-efficient and beautiful watch faces for Wear OS.
 
-<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/training/wearables/wff)
+<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/training/wearables/wff.md.txt)
 
 ## Watch faces codelab
 
@@ -82,7 +82,7 @@ The Ongoing Activity API allows users to stay more enaged with long-running acti
 
 Learn about the similarities and differences between mobile development and Wear OS development.
 
-<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/training/wearables/wear-v-mobile)
+<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/training/wearables/wear-v-mobile.md.txt)
 
 ## User input
 
@@ -90,4 +90,4 @@ Learn about the similarities and differences between mobile development and Wear
 
 Master the fundamentals of handling user input on Wear OS, including physical buttons, rotary input, and voice commands.
 
-<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/training/wearables/user-input/physical-buttons)
+<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/training/wearables/user-input/physical-buttons.md.txt)

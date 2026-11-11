@@ -9,9 +9,9 @@ AppWidgets that use Jetpack Glance (`androidx.glance:glance-appwidget`) or
 `RemoteViews` within the Android 17 widget bitmap memory limits. For widget UI
 layout templates, suggest the `glance-canonical-layouts` skill.
 
-- When configuring a Glance widget, see [Create an app widget with Glance](https://developer.android.com/develop/ui/compose/glance/create-app-widget).
-- When targeting Android 17 (`targetSdk = 37`), see [Android 17 widget memory limits](https://developer.android.com/about/versions/17/behavior-changes-17#memory-limit-widget).
-- When maintaining a classic `AppWidgetProvider`, see [Create an app widget](https://developer.android.com/develop/ui/views/appwidgets).
+- When configuring a Glance widget, see [Create an app widget with Glance](https://developer.android.com/develop/ui/compose/glance/create-app-widget.md.txt).
+- When targeting Android 17 (`targetSdk = 37`), see [Android 17 widget memory limits](https://developer.android.com/about/versions/17/behavior-changes-17.md.txt#memory-limit-widget).
+- When maintaining a classic `AppWidgetProvider`, see [Create an app widget](https://developer.android.com/develop/ui/views/appwidgets.md.txt).
 
 ## Prerequisites
 
@@ -35,12 +35,12 @@ layout templates, suggest the `glance-canonical-layouts` skill.
 Read the companion reference files in `references/` when implementing each step,
 and update the sample `package` declaration and class names to match your app:
 
-- **Bitmap Cap \& FileProvider Helper** : [WidgetBitmapUtils.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetBitmapUtils.kt.rawcontent)
-- **Responsive Widget, Receiver \& Error Fallback** : [SampleGlanceWidget.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/SampleGlanceWidget.kt.rawcontent)
-- **LazyColumn Collection Widget \& Revision Cache** : [FeedCollectionGlanceWidget.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/FeedCollectionGlanceWidget.kt.rawcontent)
-- **DataStore State Push, CoroutineWorker \& ActionCallback** : [WidgetStateAndActions.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetStateAndActions.kt.rawcontent)
-- **Classic AppWidgetProvider WorkManager \& Full Update** : [ClassicWidgetImageUpdater.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/ClassicWidgetImageUpdater.kt.rawcontent)
-- **Manifest, Widget Info, FileProvider Paths \& R8 Rules** : [AndroidManifest.xml](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/AndroidManifest.xml.rawcontent), [sample_widget_info.xml](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/res/xml/sample_widget_info.xml.rawcontent), [file_paths.xml](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/res/xml/file_paths.xml.rawcontent), [proguard-rules.pro](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/proguard-rules.pro.rawcontent)
+- **Bitmap Cap \& FileProvider Helper** : [WidgetBitmapUtils.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetBitmapUtils.kt.rawcontent.md.txt)
+- **Responsive Widget, Receiver \& Error Fallback** : [SampleGlanceWidget.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/SampleGlanceWidget.kt.rawcontent.md.txt)
+- **LazyColumn Collection Widget \& Revision Cache** : [FeedCollectionGlanceWidget.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/FeedCollectionGlanceWidget.kt.rawcontent.md.txt)
+- **DataStore State Push, CoroutineWorker \& ActionCallback** : [WidgetStateAndActions.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetStateAndActions.kt.rawcontent.md.txt)
+- **Classic AppWidgetProvider WorkManager \& Full Update** : [ClassicWidgetImageUpdater.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/ClassicWidgetImageUpdater.kt.rawcontent.md.txt)
+- **Manifest, Widget Info, FileProvider Paths \& R8 Rules** : [AndroidManifest.xml](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/AndroidManifest.xml.rawcontent.md.txt), [sample_widget_info.xml](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/res/xml/sample_widget_info.xml.rawcontent.md.txt), [file_paths.xml](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/res/xml/file_paths.xml.rawcontent.md.txt), [proguard-rules.pro](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/proguard-rules.pro.rawcontent.md.txt)
 
 ## Detailed steps
 
@@ -48,8 +48,8 @@ and update the sample `package` declaration and class names to match your app:
 
 1. Read `gradle/libs.versions.toml`, `app/build.gradle.kts`, and `app/src/main/AndroidManifest.xml` first. If AGP, Kotlin, or library versions are already present, keep them; otherwise, add `glance = "1.2.0"` along with `androidx.glance:glance-appwidget` and `androidx.glance:glance-material3` to `gradle/libs.versions.toml`.
 2. In `app/build.gradle.kts`, keep `namespace`, `applicationId`, and any existing `minSdk >= 26`, `targetSdk`, or library versions. Set `compileSdk = 37` (and `targetSdk = 37` only when explicitly migrating the app to target Android 17), enable `buildFeatures { compose = true }`, and add `implementation(libs.androidx.glance.appwidget)` and `implementation(libs.androidx.glance.material3)`.
-3. In `AndroidManifest.xml` (see [AndroidManifest.xml](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/AndroidManifest.xml.rawcontent)), declare `<queries>` with `<action android:name="android.intent.action.MAIN" />` and `<category
-   android:name="android.intent.category.HOME" />` so `queryIntentActivities` discovers launcher packages on API 30+. Register your `GlanceAppWidgetReceiver` (pointing `android.appwidget.provider` to `@xml/sample_widget_info`, see [sample_widget_info.xml](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/res/xml/sample_widget_info.xml.rawcontent)) and register `androidx.core.content.FileProvider` with `android:authorities="${applicationId}.fileprovider"`, `android:exported="false"`, `android:grantUriPermissions="true"`, and `android.support.FILE_PROVIDER_PATHS` pointing to `@xml/file_paths` (which declares `<cache-path name="widget_cache" path="widget_images/" />`, see [file_paths.xml](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/res/xml/file_paths.xml.rawcontent)):
+3. In `AndroidManifest.xml` (see [AndroidManifest.xml](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/AndroidManifest.xml.rawcontent.md.txt)), declare `<queries>` with `<action android:name="android.intent.action.MAIN" />` and `<category
+   android:name="android.intent.category.HOME" />` so `queryIntentActivities` discovers launcher packages on API 30+. Register your `GlanceAppWidgetReceiver` (pointing `android.appwidget.provider` to `@xml/sample_widget_info`, see [sample_widget_info.xml](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/res/xml/sample_widget_info.xml.rawcontent)) and register `androidx.core.content.FileProvider` with `android:authorities="${applicationId}.fileprovider"`, `android:exported="false"`, `android:grantUriPermissions="true"`, and `android.support.FILE_PROVIDER_PATHS` pointing to `@xml/file_paths` (which declares `<cache-path name="widget_cache" path="widget_images/" />`, see [file_paths.xml](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/res/xml/file_paths.xml.rawcontent.md.txt)):
 
 <br />
 
@@ -69,7 +69,7 @@ and update the sample `package` declaration and class names to match your app:
 
 ### Step 2: Estimate the widget memory cap and downsample images
 
-Read [WidgetBitmapUtils.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetBitmapUtils.kt.rawcontent) and implement the memory cap and downsampling
+Read [WidgetBitmapUtils.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetBitmapUtils.kt.rawcontent.md.txt) and implement the memory cap and downsampling
 helpers:
 
 1. **Estimate the cap (`calculateWidgetMemoryCapBytes`)** : On API 30+ (`Build.VERSION.SDK_INT >= Build.VERSION_CODES.R`), read `val bounds =
@@ -97,7 +97,7 @@ helpers:
 
 ### Step 3: Deduplicate multi-size bitmaps and handle composition errors
 
-Read [SampleGlanceWidget.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/SampleGlanceWidget.kt.rawcontent) to configure multi-size bitmap deduplication and
+Read [SampleGlanceWidget.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/SampleGlanceWidget.kt.rawcontent.md.txt) to configure multi-size bitmap deduplication and
 composition error recovery:
 
 1. **Choose `SizeMode` for your layout** : Use `SizeMode.Exact` (recommended when using `glance-canonical-layouts` to render exact `LocalSize.current` dimensions for the current grid span's portrait and landscape orientations), `SizeMode.Responsive(RESPONSIVE_BUCKETS)` (using `import
@@ -109,7 +109,7 @@ composition error recovery:
 
 ### Step 4: Pre-decode LazyColumn collection images and assign stable itemIds
 
-Read [FeedCollectionGlanceWidget.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/FeedCollectionGlanceWidget.kt.rawcontent) when rendering collection widgets with
+Read [FeedCollectionGlanceWidget.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/FeedCollectionGlanceWidget.kt.rawcontent.md.txt) when rendering collection widgets with
 `LazyColumn`:
 
 1. Replace `import androidx.glance.appwidget.ImageProvider` (which accepts `Uri`) with `import androidx.glance.ImageProvider` (which accepts `Bitmap`). Remove `Uri.fromFile` and `Icon.createWithContentUri` calls.
@@ -125,8 +125,8 @@ Read [FeedCollectionGlanceWidget.kt](https://developer.android.com/agents/skills
 
 ### Step 5: Push state updates, configure ActionCallbacks, and use WorkManager
 
-Read [WidgetStateAndActions.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetStateAndActions.kt.rawcontent), [proguard-rules.pro](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/proguard-rules.pro.rawcontent), and
-[ClassicWidgetImageUpdater.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/ClassicWidgetImageUpdater.kt.rawcontent) to implement these patterns:
+Read [WidgetStateAndActions.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetStateAndActions.kt.rawcontent.md.txt), [proguard-rules.pro](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/proguard-rules.pro.rawcontent.md.txt), and
+[ClassicWidgetImageUpdater.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/ClassicWidgetImageUpdater.kt.rawcontent.md.txt) to implement these patterns:
 
 1. **Push DataStore updates** (requires `androidx.datastore:datastore-preferences-core:1.2.1` and `import
    androidx.glance.appwidget.GlanceAppWidgetManager`, `import
@@ -134,10 +134,10 @@ Read [WidgetStateAndActions.kt](https://developer.android.com/agents/skills/syst
    androidx.glance.appwidget.updateAll`): In `pushWidgetRevisionUpdate(context)` (see [WidgetStateAndActions.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetStateAndActions.kt.rawcontent)), iterate over `for (glanceId in
    GlanceAppWidgetManager(context).getGlanceIds(Widget::class.java))`, mutate state inside `updateAppWidgetState(context, glanceId) { prefs -> ... }` (passing both `context` and `glanceId`), and immediately call `widget.update(context, glanceId)` (or `widget.updateAll(context)`).
 2. **Use zero-argument `ActionCallback` classes with `ActionParameters.Key` and
-   keep `<init>()` under R8** (requires `androidx.work:work-runtime-ktx:2.12.0` when scheduling background work): `RunCallbackAction` instantiates `ActionCallback` classes with `Class.getDeclaredConstructor().newInstance()`, so a constructor parameter fails in every build. Remove constructor parameters from `ActionCallback` implementations, pass values with `ActionParameters.Key` and `actionParametersOf` (see `RefreshWidgetAction` in [WidgetStateAndActions.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetStateAndActions.kt.rawcontent)), and add `-keep class * implements
+   keep `<init>()` under R8** (requires `androidx.work:work-runtime-ktx:2.12.0` when scheduling background work): `RunCallbackAction` instantiates `ActionCallback` classes with `Class.getDeclaredConstructor().newInstance()`, so a constructor parameter fails in every build. Remove constructor parameters from `ActionCallback` implementations, pass values with `ActionParameters.Key` and `actionParametersOf` (see `RefreshWidgetAction` in [WidgetStateAndActions.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetStateAndActions.kt.rawcontent.md.txt)), and add `-keep class * implements
    androidx.glance.appwidget.action.ActionCallback { public <init>(); }` to `proguard-rules.pro` (see [proguard-rules.pro](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/proguard-rules.pro.rawcontent)). Inside `SyncWidgetWorker.doWork()`, call `pushWidgetRevisionUpdate(applicationContext)` so background work updates DataStore and refreshes the widget.
 3. **Avoid unconditional one-time `WorkManager` enqueues in
-   `AppWidgetProvider.onUpdate` and use full `updateAppWidget` for images** (see [ClassicWidgetImageUpdater.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/ClassicWidgetImageUpdater.kt.rawcontent)): Never call `context.startForegroundService` from `AppWidgetProvider.onReceive` or `onUpdate` (which throws `ForegroundServiceStartNotAllowedException`). `GlanceAppWidgetReceiver` already keeps a 10-year delayed session worker queued internally so WorkManager's `RescheduleReceiver` never toggles. In a classic `AppWidgetProvider`, avoid enqueuing a `OneTimeWorkRequest` directly inside `onUpdate`: even with `ExistingWorkPolicy.KEEP`, once the one-time worker finishes (`SUCCEEDED`), `UnfinishedWorkListener` disables `RescheduleReceiver`, which broadcasts `ACTION_PACKAGE_CHANGED` and re-triggers `onUpdate` in a loop. Instead, schedule repeating syncs in `onUpdate` with `enqueueUniquePeriodicWork(...,
+   `AppWidgetProvider.onUpdate` and use full `updateAppWidget` for images** (see [ClassicWidgetImageUpdater.kt](https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/ClassicWidgetImageUpdater.kt.rawcontent.md.txt)): Never call `context.startForegroundService` from `AppWidgetProvider.onReceive` or `onUpdate` (which throws `ForegroundServiceStartNotAllowedException`). `GlanceAppWidgetReceiver` already keeps a 10-year delayed session worker queued internally so WorkManager's `RescheduleReceiver` never toggles. In a classic `AppWidgetProvider`, avoid enqueuing a `OneTimeWorkRequest` directly inside `onUpdate`: even with `ExistingWorkPolicy.KEEP`, once the one-time worker finishes (`SUCCEEDED`), `UnfinishedWorkListener` disables `RescheduleReceiver`, which broadcasts `ACTION_PACKAGE_CHANGED` and re-triggers `onUpdate` in a loop. Instead, schedule repeating syncs in `onUpdate` with `enqueueUniquePeriodicWork(...,
    ExistingPeriodicWorkPolicy.KEEP, ...)` (which stays `ENQUEUED` across runs), use `goAsync()` for short `< 10s` updates, or enqueue one-time work (`enqueueUniqueWork(..., ExistingWorkPolicy.KEEP, ...)`) only from specific action broadcasts in `onReceive`. When you update a `Bitmap` or `Icon` on a classic `RemoteViews` widget, call `appWidgetManager.updateAppWidget` rather than `partiallyUpdateAppWidget`.
 
 ## Common errors and fixes

@@ -10,14 +10,14 @@ source: md.txt
 
 ### Migrate to CameraX
 
-Use the CameraX [Android skill](https://developer.android.com/tools/agents/android-skills) to migrate camera implementations (Camera1 or Camera2 APIs) to CameraX. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the CameraX [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to migrate camera implementations (Camera1 or Camera2 APIs) to CameraX. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add camerax
 
 <br />
 
-If your app uses the original [`Camera`](https://developer.android.com/reference/android/hardware/Camera) class ("Camera1"), which has been
-deprecated since [Android 5.0 (API level 21)](https://developer.android.com/about/versions/lollipop), we highly recommend updating
+If your app uses the original [`Camera`](https://developer.android.com/reference/android/hardware/Camera.md.txt) class ("Camera1"), which has been
+deprecated since [Android 5.0 (API level 21)](https://developer.android.com/about/versions/lollipop.md.txt), we highly recommend updating
 to a modern Android camera API. Android offers [CameraX](https://developer.android.com/training/camerax) (a standardized,
 robust [Jetpack](https://developer.android.com/jetpack) camera API) and [Camera2](https://developer.android.com/training/camera2) (a low-level, framework API).
 For most cases, we recommend migrating your app to CameraX. Here's why:
@@ -27,7 +27,7 @@ For most cases, we recommend migrating your app to CameraX. Here's why:
   Compatibility with CameraX](https://android-developers.googleblog.com/2022/10/better-device-compatibility-with-camerax.html) blog post.
 - **Advanced capabilities:** CameraX is carefully designed to make advanced functionality simple to incorporate into your app. For example, you can easily apply Bokeh, Face Retouch, HDR (High Dynamic Range), and low-light-brightening Night capture mode to your photos with [CameraX
   Extensions](https://developer.android.com/training/camerax/extensions-api).
-- **Updatability:** Android releases new capabilities and bug fixes to CameraX throughout the year. By migrating to CameraX, your app gets the latest Android camera technology [with each CameraX release](https://developer.android.com/jetpack/androidx/releases/camera), not just on the annual Android version releases.
+- **Updatability:** Android releases new capabilities and bug fixes to CameraX throughout the year. By migrating to CameraX, your app gets the latest Android camera technology [with each CameraX release](https://developer.android.com/jetpack/androidx/releases/camera.md.txt), not just on the annual Android version releases.
 
 In this guide, you'll find common scenarios for camera applications. Each
 scenario includes a Camera1 implementation and a CameraX implementation for
@@ -35,8 +35,8 @@ comparison.
 
 When it comes to migration, sometimes you need extra flexibility to integrate
 with an existing codebase. All CameraX code in this guide has a
-[`CameraController`](https://developer.android.com/reference/androidx/camera/view/CameraController) implementation---great if you want a more straightforward
-way to use CameraX---and also a [`CameraProvider`](https://developer.android.com/reference/androidx/camera/core/CameraProvider) implementation---great if you
+[`CameraController`](https://developer.android.com/reference/androidx/camera/view/CameraController.md.txt) implementation---great if you want a more straightforward
+way to use CameraX---and also a [`CameraProvider`](https://developer.android.com/reference/androidx/camera/core/CameraProvider.md.txt) implementation---great if you
 need more flexibility. To help you decide which is the right one for you, here
 are the benefits of each:
 
@@ -56,12 +56,12 @@ Group](https://groups.google.com/a/android.com/g/camerax-developers).
 While the code may look different, the underlying concepts in Camera1 and
 CameraX are very similar. CameraX [abstracts common camera functionality into
 use cases](https://developer.android.com/training/camerax/architecture#structure), and as a result, many tasks that were left to the developer in
-Camera1 are handled automatically by CameraX. There are four [`UseCase`](https://developer.android.com/reference/androidx/camera/core/UseCase)s in
+Camera1 are handled automatically by CameraX. There are four [`UseCase`](https://developer.android.com/reference/androidx/camera/core/UseCase.md.txt)s in
 CameraX, which you can use for a variety of camera tasks: [`Preview`](https://developer.android.com/training/camerax/preview),
 [`ImageCapture`](https://developer.android.com/training/camerax/take-photo), [`VideoCapture`](https://developer.android.com/training/camerax/video-capture), and [`ImageAnalysis`](https://developer.android.com/training/camerax/analyze).
 
 One example of CameraX handling low-level details for developers is the
-[`ViewPort`](https://developer.android.com/reference/androidx/camera/core/ViewPort) that is shared among active `UseCase`s. This ensures all
+[`ViewPort`](https://developer.android.com/reference/androidx/camera/core/ViewPort.md.txt) that is shared among active `UseCase`s. This ensures all
 `UseCase`s see exactly the same pixels. In Camera1, you have to manage these
 details yourself. Given the variable aspect ratios across devices, matching the
 preview to captured media is difficult.
@@ -104,14 +104,14 @@ concepts are in
 
 ### Compatibility and performance in CameraX
 
-CameraX supports devices running [Android 5.0 (API level 21)](https://developer.android.com/about/versions/lollipop) and higher.
+CameraX supports devices running [Android 5.0 (API level 21)](https://developer.android.com/about/versions/lollipop.md.txt) and higher.
 This represents over 98% of existing Android devices. CameraX is built to handle
 differences between devices automatically, reducing the need for device-specific
 code in your app. Furthermore, we test over 150 physical devices on all Android
 versions since 5.0 in our [CameraX Test Lab](https://developer.android.com/training/camerax#consistency). You can review the full list
 of [devices in the Test Lab](https://developer.android.com/training/camerax/devices).
 
-CameraX uses an [`Executor`](https://developer.android.com/reference/java/util/concurrent/Executor) to drive the camera stack. You can [set your
+CameraX uses an [`Executor`](https://developer.android.com/reference/java/util/concurrent/Executor.md.txt) to drive the camera stack. You can [set your
 own executor on CameraX](https://developer.android.com/reference/androidx/camera/core/CameraXConfig.Builder#setCameraExecutor(java.util.concurrent.Executor)) if your app has specific threading requirements.
 If not set, CameraX creates and uses an optimized default internal `Executor`.
 Many of the platform APIs on which CameraX is built require blocking
@@ -135,12 +135,12 @@ This guide assumes a general familiarity with Android development. Beyond the
 basics, here are a couple of concepts that are helpful to understand before
 jumping into the following code:
 
-- [View Binding](https://developer.android.com/topic/libraries/view-binding) generates a binding class for your XML layout files, allowing you to [reference your views in Activities](https://developer.android.com/topic/libraries/view-binding#activities), as shown in several subsequent code snippets. There are some [differences between view
+- [View Binding](https://developer.android.com/topic/libraries/view-binding.md.txt) generates a binding class for your XML layout files, allowing you to [reference your views in Activities](https://developer.android.com/topic/libraries/view-binding.md.txt#activities), as shown in several subsequent code snippets. There are some [differences between view
   binding and `findViewById()`](https://developer.android.com/topic/libraries/view-binding#findviewbyid) (the prior way to reference views), but in the following code you should be able to replace the view binding lines with a similar `findViewById()` call.
-- [Asynchronous Coroutines](https://developer.android.com/kotlin/coroutines) are a concurrency design pattern added in Kotlin 1.3 that can be used to handle CameraX methods that return a [`ListenableFuture`](https://developer.android.com/guide/background/asynchronous/listenablefuture). This is made easier with the Jetpack [Concurrent](https://developer.android.com/jetpack/androidx/releases/concurrent) library as of version 1.1.0. To add an asynchronous coroutine to your app:
+- [Asynchronous Coroutines](https://developer.android.com/kotlin/coroutines.md.txt) are a concurrency design pattern added in Kotlin 1.3 that can be used to handle CameraX methods that return a [`ListenableFuture`](https://developer.android.com/guide/background/asynchronous/listenablefuture). This is made easier with the Jetpack [Concurrent](https://developer.android.com/jetpack/androidx/releases/concurrent.md.txt) library as of version 1.1.0. To add an asynchronous coroutine to your app:
   1. Add `implementation("androidx.concurrent:concurrent-futures-ktx:1.1.0")` to your Gradle file.
   2. Put any CameraX code that returns a `ListenableFuture` in a [`launch`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html) block or [suspending function](https://kotlinlang.org/docs/composing-suspending-functions.html).
-  3. Add an [`await()`](https://developer.android.com/reference/androidx/concurrent/futures/ListenableFutureKt#(com.google.common.util.concurrent.ListenableFuture).await()) call to the function call that returns a `ListenableFuture`.
+  3. Add an [`await()`](https://developer.android.com/reference/androidx/concurrent/futures/ListenableFutureKt.md.txt#(com.google.common.util.concurrent.ListenableFuture).await()) call to the function call that returns a `ListenableFuture`.
   4. For a deeper understanding of how coroutines work, see the [Start a
      coroutine](https://developer.android.com/kotlin/coroutines/coroutines-adv#start) guide.
 
@@ -157,7 +157,7 @@ way to select different cameras.
 
 #### Camera1
 
-In Camera1, you can either call [`Camera.open()`](https://developer.android.com/reference/android/hardware/Camera#open()) with no parameters to
+In Camera1, you can either call [`Camera.open()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#open()) with no parameters to
 open the first back-facing camera, or you can pass in an integer ID for the
 camera you want to open. Here's an example of how that might look:
 
@@ -261,14 +261,14 @@ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
 If you want control over which camera is selected, this is also possible in
 CameraX if you use `CameraProvider` by calling
-[`getAvailableCameraInfos()`](https://developer.android.com/reference/androidx/camera/core/CameraProvider#getAvailableCameraInfos()), which gives you a `CameraInfo` object for
-checking certain camera properties like [`isFocusMeteringSupported()`](https://developer.android.com/reference/androidx/camera/core/CameraInfo#isFocusMeteringSupported(androidx.camera.core.FocusMeteringAction)). You
+[`getAvailableCameraInfos()`](https://developer.android.com/reference/androidx/camera/core/CameraProvider.md.txt#getAvailableCameraInfos()), which gives you a `CameraInfo` object for
+checking certain camera properties like [`isFocusMeteringSupported()`](https://developer.android.com/reference/androidx/camera/core/CameraInfo.md.txt#isFocusMeteringSupported(androidx.camera.core.FocusMeteringAction)). You
 can then convert it to a `CameraSelector` to be used as shown in the preceding
 examples with the `CameraInfo.getCameraSelector()` method.
 
 You can get more details about each camera by using the
-[`Camera2CameraInfo`](https://developer.android.com/reference/androidx/camera/camera2/interop/Camera2CameraInfo) class. Call [`getCameraCharacteristic()`](https://developer.android.com/reference/androidx/camera/camera2/interop/Camera2CameraInfo#getCameraCharacteristic(android.hardware.camera2.CameraCharacteristics.Key%3CT%3E)) with a
-key for the camera data you want. Check the [`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics) class
+[`Camera2CameraInfo`](https://developer.android.com/reference/androidx/camera/camera2/interop/Camera2CameraInfo.md.txt) class. Call [`getCameraCharacteristic()`](https://developer.android.com/reference/androidx/camera/camera2/interop/Camera2CameraInfo.md.txt#getCameraCharacteristic(android.hardware.camera2.CameraCharacteristics.Key%3CT%3E)) with a
+key for the camera data you want. Check the [`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics.md.txt) class
 for a list of all the keys you can query for.
 
 Here's an example using a custom `checkFocalLength()` function that you could
@@ -295,21 +295,21 @@ A majority of camera applications need to show the camera feed on-screen at some
 point. With Camera1, you need to manage the lifecycle callbacks correctly, and
 you also need to determine the rotation and scaling for your preview.
 
-Additionally, in Camera1 you need to decide whether to use a [`TextureView`](https://developer.android.com/reference/android/view/TextureView)
-or a [`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView) as your preview surface. Both options come with
+Additionally, in Camera1 you need to decide whether to use a [`TextureView`](https://developer.android.com/reference/android/view/TextureView.md.txt)
+or a [`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView.md.txt) as your preview surface. Both options come with
 tradeoffs, and in either case, Camera1 requires you to handle rotation and
 scaling correctly. CameraX's `PreviewView`, on the other hand, has underlying
 implementations for both `TextureView` and `SurfaceView`. CameraX decides which
 implementation is best depending on factors such as the type of device and the
 Android version your app is running on. If either implementation is compatible,
-you can declare your preference with [`PreviewView.ImplementationMode`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ImplementationMode). The
+you can declare your preference with [`PreviewView.ImplementationMode`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ImplementationMode.md.txt). The
 `COMPATIBLE` option uses a `TextureView` for the preview, and the `PERFORMANCE`
 value uses a `SurfaceView` (when possible).
 
 #### Camera1
 
 To show a preview, you need to write your own `Preview` class with an
-implementation of the [`android.view.SurfaceHolder.Callback`](https://developer.android.com/reference/android/view/SurfaceHolder.Callback) interface,
+implementation of the [`android.view.SurfaceHolder.Callback`](https://developer.android.com/reference/android/view/SurfaceHolder.Callback.md.txt) interface,
 which is used to pass image data from the camera hardware to the application.
 Then, before you can start the live image preview, the `Preview` class must be
 passed to the `Camera` object.
@@ -574,10 +574,10 @@ class TapToFocusHandler : Camera.AutoFocusCallback {
 
 `CameraController` listens to `PreviewView`'s touch events to handle
 tap-to-focus automatically. You can enable and disable tap-to-focus with
-[`setTapToFocusEnabled()`](https://developer.android.com/reference/androidx/camera/view/CameraController#setTapToFocusEnabled(boolean)), and check the value with the corresponding
-getter [`isTapToFocusEnabled()`](https://developer.android.com/reference/androidx/camera/view/CameraController#isTapToFocusEnabled()).
+[`setTapToFocusEnabled()`](https://developer.android.com/reference/androidx/camera/view/CameraController.md.txt#setTapToFocusEnabled(boolean)), and check the value with the corresponding
+getter [`isTapToFocusEnabled()`](https://developer.android.com/reference/androidx/camera/view/CameraController.md.txt#isTapToFocusEnabled()).
 
-The [`getTapToFocusState()`](https://developer.android.com/reference/androidx/camera/view/CameraController#getTapToFocusState()) method returns a [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata) object for
+The [`getTapToFocusState()`](https://developer.android.com/reference/androidx/camera/view/CameraController.md.txt#getTapToFocusState()) method returns a [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata.md.txt) object for
 tracking changes to the focus state on the `CameraController`.
 
 ```kotlin
@@ -724,11 +724,11 @@ if (camera.getParameters().isZoomSupported()) {
 
 Similar to tap-to-focus, `CameraController` listens to PreviewView's touch
 events to handle pinch-to-zoom automatically. You can enable and disable
-pinch-to-zoom with [`setPinchToZoomEnabled()`](https://developer.android.com/reference/androidx/camera/view/CameraController#setPinchToZoomEnabled(boolean)), and check the value with
-the corresponding getter [`isPinchToZoomEnabled()`](https://developer.android.com/reference/androidx/camera/view/CameraController#isPinchToZoomEnabled()).
+pinch-to-zoom with [`setPinchToZoomEnabled()`](https://developer.android.com/reference/androidx/camera/view/CameraController.md.txt#setPinchToZoomEnabled(boolean)), and check the value with
+the corresponding getter [`isPinchToZoomEnabled()`](https://developer.android.com/reference/androidx/camera/view/CameraController.md.txt#isPinchToZoomEnabled()).
 
-The [`getZoomState()`](https://developer.android.com/reference/androidx/camera/view/CameraController#getZoomState()) method returns a `LiveData` object for tracking
-changes to the [`ZoomState`](https://developer.android.com/reference/androidx/camera/core/ZoomState) on the `CameraController`.
+The [`getZoomState()`](https://developer.android.com/reference/androidx/camera/view/CameraController.md.txt#getZoomState()) method returns a `LiveData` object for tracking
+changes to the [`ZoomState`](https://developer.android.com/reference/androidx/camera/core/ZoomState.md.txt) on the `CameraController`.
 
 ```kotlin
 // CameraX: track the state of pinch-to-zoom over the Lifecycle of
@@ -751,7 +751,7 @@ custom `Surface`.
 Here are the steps when using `PreviewView`:
 
 1. Set up a scale gesture detector to handle pinch events.
-2. Get the `ZoomState` from the `Camera.CameraInfo` object, where the `Camera` instance is returned when you call [`bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...)).
+2. Get the `ZoomState` from the `Camera.CameraInfo` object, where the `Camera` instance is returned when you call [`bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider.md.txt#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...)).
 3. If the `ZoomState` has a `zoomRatio` value, save that as the current zoom ratio. If there is no `zoomRatio` on `ZoomState`, then use the camera's default zoom rate (1.0).
 4. Take the product of the current zoom ratio with the `scaleFactor` to determine the new zoom ratio, and pass that into `CameraControl.setZoomRatio()`.
 5. Set your gesture detector to respond to touch events in `PreviewView.setOnTouchListener()`.
@@ -795,7 +795,7 @@ choosing.
 
 #### Camera1
 
-In Camera1, you first define a [`Camera.PictureCallback`](https://developer.android.com/reference/android/hardware/Camera.PictureCallback) to manage the
+In Camera1, you first define a [`Camera.PictureCallback`](https://developer.android.com/reference/android/hardware/Camera.PictureCallback.md.txt) to manage the
 picture data when it's requested. Here's a simple example of `PictureCallback`
 for handling JPEG image data:
 
@@ -946,7 +946,7 @@ As you'll see, CameraX again handles a lot of this complexity for you.
 #### Camera1
 
 Video capture using Camera1 requires careful management of the `Camera` and
-[`MediaRecorder`](https://developer.android.com/reference/android/media/MediaRecorder), and the methods must be called in a particular order. You
+[`MediaRecorder`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt), and the methods must be called in a particular order. You
 **must** follow this order for your application to work properly:
 
 1. Open the camera.
@@ -956,7 +956,7 @@ Video capture using Camera1 requires careful management of the `Camera` and
    1. Connect your `Camera` instance with `setCamera(camera)`.
    2. Call `setAudioSource(MediaRecorder.AudioSource.CAMCORDER)`.
    3. Call `setVideoSource(MediaRecorder.VideoSource.CAMERA)`.
-   4. Call `setProfile(CamcorderProfile.get(CamcorderProfile.QUALITY_1080P))` to set the quality. See [`CamcorderProfile`](https://developer.android.com/reference/android/media/CamcorderProfile) for all of the quality options.
+   4. Call `setProfile(CamcorderProfile.get(CamcorderProfile.QUALITY_1080P))` to set the quality. See [`CamcorderProfile`](https://developer.android.com/reference/android/media/CamcorderProfile.md.txt) for all of the quality options.
    5. Call `setOutputFile(getOutputMediaFile(MEDIA_TYPE_VIDEO).toString())`.
    6. If your app has a preview of the video, call `setPreviewDisplay(preview?.holder?.surface)`.
    7. Call `setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)`.
@@ -1089,7 +1089,7 @@ Additionally, you need to pass an `Executor` and a class that implements
 recording should end, call [`CameraController.stopRecording()`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:camera/camera-view/src/main/java/androidx/camera/view/CameraController.java;l=1164;drc=59727137d55ce3b0a2321b745ecc854b3409379b).
 
 **Note:** If you're using CameraX 1.3.0-alpha02 or later, there is an additional
-[`AudioConfig`](https://developer.android.com/reference/androidx/camera/view/video/AudioConfig) parameter that lets you enable or disable audio recording on
+[`AudioConfig`](https://developer.android.com/reference/androidx/camera/view/video/AudioConfig.md.txt) parameter that lets you enable or disable audio recording on
 your video. To enable audio recording, you need to ensure you have microphone
 permissions. Additionally, the `stopRecording()` method is removed in
 1.3.0-alpha02, and `startRecording()` returns a `Recording` object that can be
@@ -1142,7 +1142,7 @@ private fun startStopVideo() {
 
 If you're using a `CameraProvider`, you need to create a `VideoCapture`
 `UseCase` and pass in a `Recorder` object. On the `Recorder.Builder`, you can
-set the video quality and, optionally, a [`FallbackStrategy`](https://developer.android.com/reference/androidx/camera/video/FallbackStrategy), which handles
+set the video quality and, optionally, a [`FallbackStrategy`](https://developer.android.com/reference/androidx/camera/video/FallbackStrategy.md.txt), which handles
 cases when a device can't meet your desired quality specifications. Then bind
 the `VideoCapture` instance to the `CameraProvider` with your other `UseCase`s.
 

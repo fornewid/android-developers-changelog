@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/media3-whats-new
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Media3 1.9.0 - What's new
 
-6 min read ![](https://developer.android.com/static/blog/assets/Android_Evergreen_Hero_Banner_AI_Weband_App_Option_B_627622b909_Z20tTTu.webp) 19 Dec 2025 [![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_Z2eUs8o.webp)](https://developer.android.com/blog/authors/kristina-simakova) [Kristina Simakova](https://developer.android.com/blog/authors/kristina-simakova) Engineering Manager Media3 1.9.0 is out! Besides the usual bug fixes and performance improvements, the latest release also contains **four** new or largely rewritten modules:
+6 min read ![](https://developer.android.com/static/blog/assets/Android_Evergreen_Hero_Banner_AI_Weband_App_Option_B_627622b909_Z20tTTu.webp) 19 Dec 2025 [![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_Z2eUs8o.webp)](https://developer.android.com/blog/authors/kristina-simakova.md.txt) [Kristina Simakova](https://developer.android.com/blog/authors/kristina-simakova.md.txt) Engineering Manager Media3 1.9.0 is out! Besides the usual bug fixes and performance improvements, the latest release also contains **four** new or largely rewritten modules:
 
 - `media3-inspector` - Extract metadata and frames outside of playback
 - `media3-ui-compose-material3` - Build a basic Material3 Compose Media UI in just a few steps
@@ -33,7 +33,7 @@ The new `media3-inspector` module combines all utilities to inspect media withou
 - `FrameExtractor` to get frames or thumbnails from an item.
 - `MediaExtractorCompat` as a direct replacement for the Android platform MediaExtractor class, to get detailed information about samples in the file.
 
-`MetadataRetriever` and `FrameExtractor` follow a simple `AutoCloseable` pattern. Have a look at our [new guide pages](https://developer.android.com/media/media3/inspector) for more details.
+`MetadataRetriever` and `FrameExtractor` follow a simple `AutoCloseable` pattern. Have a look at our [new guide pages](https://developer.android.com/media/media3/inspector.md.txt) for more details.
 
 ```
 suspend fun extractThumbnail(mediaItem: MediaItem) {
@@ -49,7 +49,7 @@ suspend fun extractThumbnail(mediaItem: MediaItem) {
 
 ## Build a basic Material3 Compose Media UI in just a few steps
 
-In previous releases we started providing connector code between Compose UI elements and your Player instance. With Media3 1.9.0, we added a new module media3-ui-compose-material3 with fully-styled Material3 buttons and content elements. They allow you to build a media UI in just a few steps, while providing all the flexibility to customize style. If you prefer to build your own UI style, you can use the building blocks that take care of all the update and connection logic, so you only need to concentrate on designing the UI element. Please check out our [extended guide pages](https://developer.android.com/media/media3/ui/compose) for the Compose UI modules.
+In previous releases we started providing connector code between Compose UI elements and your Player instance. With Media3 1.9.0, we added a new module media3-ui-compose-material3 with fully-styled Material3 buttons and content elements. They allow you to build a media UI in just a few steps, while providing all the flexibility to customize style. If you prefer to build your own UI style, you can use the building blocks that take care of all the update and connection logic, so you only need to concentrate on designing the UI element. Please check out our [extended guide pages](https://developer.android.com/media/media3/ui/compose.md.txt) for the Compose UI modules.
 
 We are also still working on even more Compose components, like a prebuilt seek bar, a complete out-of-the-box replacement for `PlayerView`, as well as subtitle and ad integration.
 
@@ -73,7 +73,7 @@ fun SimplePlayerUI(player: Player, modifier: Modifier = Modifier) {
 
 ## Automatically handle transitions between Cast and local playbacks
 
-The [CastPlayer](https://developer.android.com/media/media3/cast/create-castplayer) in the `media3-cast` module has been rewritten to automatically handle transitions between local playback (for example with `ExoPlayer`) and remote Cast playback.
+The [CastPlayer](https://developer.android.com/media/media3/cast/create-castplayer.md.txt) in the `media3-cast` module has been rewritten to automatically handle transitions between local playback (for example with `ExoPlayer`) and remote Cast playback.
 
 When you set up your `MediaSession`, simply build a `CastPlayer` around your `ExoPlayer` and add a `MediaRouteButton` to your UI and you're done!
 
@@ -124,7 +124,7 @@ As always, we added lots of incremental improvements to ExoPlayer as well. To na
 
 Until now, defining your preferences for which buttons should show up in the media notification drawer on Android Auto or WearOS required defining custom commands and buttons, even if you simply wanted to trigger a standard player method.
 
-Media3 1.9.0 has new functionality to make this a lot simpler -- you can now [define your media button preferences](https://developer.android.com/media/media3/session/control-playback#commands) with a standard player command, requiring no custom command handling at all.
+Media3 1.9.0 has new functionality to make this a lot simpler -- you can now [define your media button preferences](https://developer.android.com/media/media3/session/control-playback.md.txt#commands) with a standard player command, requiring no custom command handling at all.
 
 ```
 session.setMediaButtonPreferences(listOf(
@@ -144,13 +144,13 @@ The 1.9.0 release introduces CompositionPlayer under a new `@ExperimentalApi` an
 
 `CompositionPlayer` is a new component in the Media3 editing APIs designed for real-time preview of media edits. Built upon the familiar Media3 `Player` interface, `CompositionPlayer` allows users to see their changes in action before committing to the export process. It uses the same `Composition` object that you would pass to `Transformer` for exporting, streamlining the editing workflow by unifying the data model for preview and export.
 
-We encourage you to start using [CompositionPlayer](https://developer.android.com/reference/androidx/media3/transformer/CompositionPlayer) and share [your feedback](https://github.com/androidx/media/issues), and keep an eye out for forthcoming posts and updates to the documentation for more details.
+We encourage you to start using [CompositionPlayer](https://developer.android.com/reference/androidx/media3/transformer/CompositionPlayer.md.txt) and share [your feedback](https://github.com/androidx/media/issues), and keep an eye out for forthcoming posts and updates to the documentation for more details.
 
 ## InAppMuxer as a default muxer in Transformer
 
-Transformer now uses [`InAppMp4Muxer`](https://developer.android.com/reference/androidx/media3/transformer/InAppMp4Muxer) as the default muxer for writing media container files. Internally, `InAppMp4Muxer` depends on the Media3 [Muxer](https://developer.android.com/reference/androidx/media3/muxer/package-summary) module, providing consistent behaviour across all API versions.
+Transformer now uses [`InAppMp4Muxer`](https://developer.android.com/reference/androidx/media3/transformer/InAppMp4Muxer.md.txt) as the default muxer for writing media container files. Internally, `InAppMp4Muxer` depends on the Media3 [Muxer](https://developer.android.com/reference/androidx/media3/muxer/package-summary.md.txt) module, providing consistent behaviour across all API versions.
 
-Note that while Transformer no longer uses the Android platform's [MediaMuxer](https://developer.android.com/reference/android/media/MediaMuxer) by default, you can still provide `FrameworkMuxer.Factory` via [setMuxerFactory](https://developer.android.com/reference/androidx/media3/transformer/Transformer.Builder#setMuxerFactory(androidx.media3.muxer.Muxer.Factory)) if your use case requires it.
+Note that while Transformer no longer uses the Android platform's [MediaMuxer](https://developer.android.com/reference/android/media/MediaMuxer.md.txt) by default, you can still provide `FrameworkMuxer.Factory` via [setMuxerFactory](https://developer.android.com/reference/androidx/media3/transformer/Transformer.Builder.md.txt#setMuxerFactory(androidx.media3.muxer.Muxer.Factory)) if your use case requires it.
 
 ## New speed adjustment APIs
 
@@ -202,38 +202,37 @@ Written by:
 
 -
 
-  ## [Kristina Simakova](https://developer.android.com/blog/authors/kristina-simakova)
+  ## [Kristina Simakova](https://developer.android.com/blog/authors/kristina-simakova.md.txt)
 
   ###### Engineering Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/kristina-simakova) ![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_Z2eUs8o.webp) ![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_Z2eUs8o.webp)
 Continue reading
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 3 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 4 min read
+  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp.md.txt)
+  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano.md.txt)
+  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
   - +2 ↩
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
 

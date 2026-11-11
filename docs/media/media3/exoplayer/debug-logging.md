@@ -35,12 +35,14 @@ from `EventLogger` and the player itself.
 An alternative to using Android Studio's logcat tab is to use the console. For
 example:
 
-    adb logcat EventLogger:* ExoPlayerImpl:* *:s
+```bash
+adb logcat EventLogger:* ExoPlayerImpl:* *:s
+```
 
 ### Player information
 
 The `ExoPlayerImpl` class delivers two important lines about the player version,
-the device and OS the app is running on, active [feature flags](https://developer.android.com/media/media3/exoplayer/flags), and the
+the device and OS the app is running on, active [feature flags](https://developer.android.com/media/media3/exoplayer/flags.md.txt), and the
 modules of ExoPlayer that have been loaded:
 
     ExoPlayerImpl: Init 59a18ab [AndroidXMedia3/1.0.0-rc02] [flame, Pixel 4, Google, 33] [Canary:ON]

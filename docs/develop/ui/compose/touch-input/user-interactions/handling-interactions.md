@@ -15,7 +15,7 @@ releasing--otherwise, the button will activate.
 ![](https://developer.android.com/static/develop/ui/compose/images/touchinput/button-always-enabled.gif) **Figure 1.** Buttons that always appear enabled, with no press ripple. ![](https://developer.android.com/static/develop/ui/compose/images/touchinput/button-reflects-state.gif) **Figure 2.** Buttons with press ripples that reflect their enabled state accordingly.
 
 The Compose
-[Gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures)
+[Gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures.md.txt)
 documentation covers how
 Compose components handle low-level pointer event, such as pointer moves and
 clicks. Out of the box, Compose abstracts those low-level events into
@@ -38,7 +38,7 @@ or design your own.
 
 In many cases, you don't need to know just how your Compose component is
 interpreting user interactions. For example, `Button` relies on
-[`Modifier.clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0))
+[`Modifier.clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary.md.txt#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0))
 to figure out whether the user clicked the button. If you're adding a typical
 button to your app, you can define the button's `onClick` code, and
 `Modifier.clickable` runs that code when appropriate. That means you don't need
@@ -52,15 +52,15 @@ you some of that information.
 
 When a user interacts with a UI component, the system represents their behavior
 by generating a number of
-[`Interaction`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/interaction/Interaction)
+[`Interaction`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/interaction/Interaction.md.txt)
 events. For example, if a user touches a button, the button generates
-[`PressInteraction.Press`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/interaction/PressInteraction.Press).
+[`PressInteraction.Press`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/interaction/PressInteraction.Press.md.txt).
 If the user lifts their finger inside the button, it generates a
-[`PressInteraction.Release`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/interaction/PressInteraction.Release),
+[`PressInteraction.Release`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/interaction/PressInteraction.Release.md.txt),
 letting the button know that the click was finished. On the other hand, if the
 user drags their finger outside the button, then lifts their finger, the button
 generates
-[`PressInteraction.Cancel`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/interaction/PressInteraction.Cancel),
+[`PressInteraction.Cancel`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/interaction/PressInteraction.Cancel.md.txt),
 to indicate that the press on the button was canceled, not completed.
 
 These interactions are **unopinionated**. That is, these low-level interaction
@@ -71,9 +71,9 @@ other actions.
 These interactions generally come in pairs, with a start and an end. The second
 interaction contains a reference to the first one. For example, if a user
 touches a button then lifts their finger, the touch generates a
-[`PressInteraction.Press`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/interaction/PressInteraction.Press)
+[`PressInteraction.Press`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/interaction/PressInteraction.Press.md.txt)
 interaction, and the release generates a
-[`PressInteraction.Release`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/interaction/PressInteraction.Release);
+[`PressInteraction.Release`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/interaction/PressInteraction.Release.md.txt);
 the `Release` has a `press` property identifying the initial
 `PressInteraction.Press`.
 
@@ -91,7 +91,7 @@ change color when it's pressed. The simplest way to track the interactions is to
 observe the appropriate interaction *state* . `InteractionSource` offers a number
 of methods that reveal various interaction statuses as state. For example, if
 you want to see whether a particular button is pressed, you can call its
-[`InteractionSource.collectIsPressedAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/interaction/InteractionSource#(androidx.compose.foundation.interaction.InteractionSource).collectIsPressedAsState())
+[`InteractionSource.collectIsPressedAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/interaction/InteractionSource.md.txt#(androidx.compose.foundation.interaction.InteractionSource).collectIsPressedAsState())
 method:
 
 
@@ -124,7 +124,7 @@ and `collectIsDraggedAsState()`, Compose does a lot of duplicate work, and
 there's no guarantee you'll get all the interactions in the right order. For
 situations like this, you might want to work directly with the
 `InteractionSource`. For more information about tracking the interactions
-yourself with `InteractionSource`, see [Work with `InteractionSource`](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/handling-interactions#work-with-interactionsource).
+yourself with `InteractionSource`, see [Work with `InteractionSource`](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/handling-interactions.md.txt#work-with-interactionsource).
 
 The following section describes how to consume and emit interactions with
 `InteractionSource` and `MutableInteractionSource`, respectively.
@@ -159,7 +159,7 @@ can consume `Interaction`s, but cannot emit them.
 
 ### Producing modifier example
 
-For a modifier that handles hover events like [`Modifier.hoverable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/hoverable.modifier#(androidx.compose.ui.Modifier).hoverable(androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean)), you
+For a modifier that handles hover events like [`Modifier.hoverable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/hoverable.modifier.md.txt#(androidx.compose.ui.Modifier).hoverable(androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean)), you
 need to emit `Interactions`, and accept a `MutableInteractionSource` as a
 parameter instead:
 
@@ -209,7 +209,7 @@ fun Button(
 > [!NOTE]
 > **Note:** If null is provided, interactions will still happen internally---this just controls whether you are hoisting the interaction source out of the component. A `MutableInteractionSource` will still be created internally, if needed.
 
-This allows [hoisting](https://developer.android.com/develop/ui/compose/state#state-hoisting) the
+This allows [hoisting](https://developer.android.com/develop/ui/compose/state.md.txt#state-hoisting) the
 `MutableInteractionSource` out of the component and observing all the
 `Interaction`s produced by the component. You can use this to control the
 appearance of that component, or any other component in your UI.
@@ -220,11 +220,11 @@ following state hoisting best practices, this also makes it easy to read and
 control the visual state of a component in the same way that any other sort of
 state (such as enabled state) can be read and controlled.
 
-Compose follows a [layered architectural approach](https://developer.android.com/develop/ui/compose/layering),
+Compose follows a [layered architectural approach](https://developer.android.com/develop/ui/compose/layering.md.txt),
 so high-level Material components are built on top of foundational building
 blocks that produce the `Interaction`s they need to control ripples and other
 visual effects. The foundation library provides high-level interaction modifiers
-such as [`Modifier.hoverable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/hoverable.modifier#(androidx.compose.ui.Modifier).hoverable(androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean)), [`Modifier.focusable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/focusable.modifier#(androidx.compose.ui.Modifier).focusable(kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource)), and
+such as [`Modifier.hoverable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/hoverable.modifier.md.txt#(androidx.compose.ui.Modifier).hoverable(androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean)), [`Modifier.focusable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/focusable.modifier.md.txt#(androidx.compose.ui.Modifier).focusable(kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource)), and
 [`Modifier.draggable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/draggable.modifier#(androidx.compose.ui.Modifier).draggable(androidx.compose.foundation.gestures.DraggableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.coroutines.SuspendFunction2,kotlin.coroutines.SuspendFunction2,kotlin.Boolean)).
 
 To build a component that responds to hover events, you can simply use
@@ -273,7 +273,7 @@ Box(
 
 <br />
 
-[`Modifier.clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0)) is an even higher
+[`Modifier.clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary.md.txt#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0)) is an even higher
 level abstraction than `hoverable` and `focusable` --- for a component to be
 clickable, it is implicitly hoverable, and components that can be clicked should
 also be focusable. You can use `Modifier.clickable` to create a component that
@@ -306,7 +306,7 @@ Box(
 ## Work with `InteractionSource`
 
 If you need low-level information about interactions with a component, you can
-use standard [flow APIs](https://developer.android.com/kotlin/flow) for that component's `InteractionSource`.
+use standard [flow APIs](https://developer.android.com/kotlin/flow.md.txt) for that component's `InteractionSource`.
 For example, suppose you want to maintain a list of the press and drag
 interactions for an `InteractionSource`. This code does half the job, adding
 the new presses to the list as they come in:
@@ -401,7 +401,7 @@ difference in code when working with different types of user interactions --- th
 overall pattern is the same.
 
 Note that the previous examples in this section represent the `Flow` of
-interactions using [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State)
+interactions using [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State.md.txt)
 --- this makes it easy to observe updated values,
 as reading the state value will automatically cause recompositions. However,
 composition is *batched* pre-frame. This means that if the state changes, and
@@ -431,7 +431,7 @@ similar animation, you may want to show the effect for at least a minimum amount
 of time, instead of immediately stopping if the button is no longer pressed. To
 do this, you can directly start and stop animations from inside the collect
 lambda, instead of writing to a state. There is an example of this pattern in
-the [Build an advanced `Indication` with animated border](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/handling-interactions#build-advanced) section.
+the [Build an advanced `Indication` with animated border](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/handling-interactions.md.txt#build-advanced) section.
 
 ## Example: Build component with custom interaction handling
 
@@ -514,12 +514,12 @@ following reasons:
 - It may be difficult to combine the custom effect with other effects
 
 To avoid these issues and easily scale a custom component across your system,
-you can use [`Indication`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Indication).
+you can use [`Indication`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Indication.md.txt).
 `Indication` represents a reusable visual effect that can be applied across
 components in an application or design system. `Indication` is split into two
 parts:
 
-- `IndicationNodeFactory`: A factory that creates [`Modifier.Node`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.Node) instances that
+- `IndicationNodeFactory`: A factory that creates [`Modifier.Node`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.Node.md.txt) instances that
   render visual effects for a component. For simpler implementations that do not
   change across components, this can be a singleton (object) and reused across
   the entire application.
@@ -528,7 +528,7 @@ parts:
   component, they can retrieve values from a `CompositionLocal` to change how
   they appear or behave inside a particular component, as with any other
   `Modifier.Node`.
-- [`Modifier.indication`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/indication.modifier#(androidx.compose.ui.Modifier).indication(androidx.compose.foundation.interaction.InteractionSource,androidx.compose.foundation.Indication)):
+- [`Modifier.indication`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/indication.modifier.md.txt#(androidx.compose.ui.Modifier).indication(androidx.compose.foundation.interaction.InteractionSource,androidx.compose.foundation.Indication)):
   A modifier that draws `Indication` for a
   component. `Modifier.clickable` and other high level interaction modifiers
   accept an indication parameter directly, so they not only emit
@@ -564,12 +564,12 @@ Button(
 To convert the scale effect in the snippet above to an `Indication`, follow
 these steps:
 
-1. **Create the [`Modifier.Node`](https://developer.android.com/develop/ui/compose/custom-modifiers#modifiernode) responsible for applying the scale effect**.
+1. **Create the [`Modifier.Node`](https://developer.android.com/develop/ui/compose/custom-modifiers.md.txt#modifiernode) responsible for applying the scale effect**.
    When attached, the node observes the interaction source, similar to previous
    examples. The only difference here is that it directly launches animations
    instead of converting the incoming Interactions to state.
 
-   The node needs to implement [`DrawModifierNode`](https://developer.android.com/reference/kotlin/androidx/compose/ui/node/DrawModifierNode) so it can override
+   The node needs to implement [`DrawModifierNode`](https://developer.android.com/reference/kotlin/androidx/compose/ui/node/DrawModifierNode.md.txt) so it can override
    `ContentDrawScope#draw()`, and render a scale effect using the same drawing
    commands as with any other graphics API in Compose.
 
@@ -964,6 +964,6 @@ canceling existing animations and starting new ones.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures)
-- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin)
+- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures.md.txt)
+- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin.md.txt)
 - [Material Components and layouts](https://developer.android.com/develop/ui/compose/layouts/material)

@@ -12,9 +12,9 @@ tablet, a navigation rail alongside the app is usually a better choice since the
 navigation controls are easier to reach while holding the left and right sides
 of the device.
 
-[`NavigationSuiteScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScaffold.composable) simplifies switching
+[`NavigationSuiteScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScaffold.composable.md.txt) simplifies switching
 between navigation UIs by displaying the appropriate navigation UI composable
-based on [`WindowSizeClass`](https://developer.android.com/reference/kotlin/androidx/window/core/layout/WindowSizeClass). This includes dynamically
+based on [`WindowSizeClass`](https://developer.android.com/reference/kotlin/androidx/window/core/layout/WindowSizeClass.md.txt). This includes dynamically
 changing the UI during runtime window size changes. The default behavior is to
 show either of the following UI components:
 
@@ -26,17 +26,21 @@ show either of the following UI components:
 ## Add dependencies
 
 `NavigationSuiteScaffold` is part of the
-[Material3 adaptive navigation suite](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/package-summary)
+[Material3 adaptive navigation suite](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/package-summary.md.txt)
 library. Add a dependency for the library in the `build.gradle` file of your app
 or module:
 
 ### Kotlin
 
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite")
+```kotlin
+implementation("androidx.compose.material3:material3-adaptive-navigation-suite")
+```
 
 ### Groovy
 
-    implementation 'androidx.compose.material3:material3-adaptive-navigation-suite'
+```groovy
+implementation 'androidx.compose.material3:material3-adaptive-navigation-suite'
+```
 
 ## Create a scaffold
 
@@ -72,7 +76,7 @@ var currentDestination by rememberSaveable { mutableStateOf(AppDestinations.HOME
 <br />
 
 In the following example, the `navigationSuiteItems` parameter (type
-[`NavigationSuiteScope`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScope)) uses its [`item`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScope#item(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,kotlin.Function0,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) function
+[`NavigationSuiteScope`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScope.md.txt)) uses its [`item`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScope.md.txt#item(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,kotlin.Function0,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) function
 to define the navigation UI for an individual destination. The destination UI is
 used across navigation bars, rails, and drawers. To create navigation items, you
 loop over your `AppDestinations` (defined in the preceding snippet):
@@ -125,9 +129,9 @@ NavigationSuiteScaffold(
 
 ## Change colors
 
-`NavigationSuiteScaffold` creates a [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Surface.composable#Surface(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.BorderStroke,kotlin.Function0)) over the entire area
+`NavigationSuiteScaffold` creates a [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Surface.composable.md.txt#Surface(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.BorderStroke,kotlin.Function0)) over the entire area
 the scaffold occupies, typically the full window. On top of that, the scaffold
-draws the particular navigation UI, such as a [`NavigationBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationBar.composable#NavigationBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)).
+draws the particular navigation UI, such as a [`NavigationBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationBar.composable.md.txt#NavigationBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)).
 Both the surface and the navigation UI use the values specified in your app's
 theme, but you can override the theme values.
 
@@ -136,7 +140,7 @@ is the background color of your color scheme. The `contentColor` parameter
 specifies the color of content *on* that surface. The default is the "on" color
 of whatever is specified for `containerColor`. For example, if `containerColor`
 uses the `background` color, then `contentColor` uses the `onBackground` color.
-See [Material Design 3 theming in Compose](https://developer.android.com/develop/ui/compose/designsystems/material3)
+See [Material Design 3 theming in Compose](https://developer.android.com/develop/ui/compose/designsystems/material3.md.txt)
 for more details about how the color system works. When overriding these values,
 use values defined in your theme so your app supports dark and light display
 modes:
@@ -156,7 +160,7 @@ NavigationSuiteScaffold(
 
 The navigation UI is drawn in front of the `NavigationSuiteScaffold` surface.
 The default values for the UI colors are provided by
-[`NavigationSuiteDefaults.colors()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteDefaults#colors(androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)), but you
+[`NavigationSuiteDefaults.colors()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteDefaults.md.txt#colors(androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)), but you
 can override these values as well. For example, if you want the background of
 the navigation bar to be transparent but the other values to be the defaults,
 override `navigationBarContainerColor`:
@@ -176,8 +180,8 @@ NavigationSuiteScaffold(
 <br />
 
 Ultimately, you can customize each item in the navigation UI. When calling the
-[`item`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScope#item(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,kotlin.Function0,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) function, you can pass in an instance of
-[`NavigationSuiteItemColors`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteItemColors). The class specifies
+[`item`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScope.md.txt#item(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,kotlin.Function0,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) function, you can pass in an instance of
+[`NavigationSuiteItemColors`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteItemColors.md.txt). The class specifies
 the colors for items in a navigation bar, navigation rail, and navigation
 drawer. That means you can have identical colors across each navigation UI type,
 or you can vary the colors based on your needs. Define the colors at the
@@ -259,7 +263,7 @@ NavigationSuiteScaffold(
   - [Navigation drawer](https://m3.material.io/components/navigation-drawer/overview)
 - `androidx.compose.material3` library components:
 
-  - [`NavigationBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationBar.composable#NavigationBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1))
-  - [`NavigationRail`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationRail.composable#NavigationRail(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1))
-  - [`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0))
-  - [`PermanentNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/PermanentNavigationDrawer.composable#PermanentNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0))
+  - [`NavigationBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationBar.composable.md.txt#NavigationBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1))
+  - [`NavigationRail`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationRail.composable.md.txt#NavigationRail(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1))
+  - [`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable.md.txt#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0))
+  - [`PermanentNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/PermanentNavigationDrawer.composable.md.txt#PermanentNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0))

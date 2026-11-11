@@ -28,9 +28,9 @@ request and share fonts. The following figure illustrates the process.
 You can use the Downloadable Fonts feature in the following ways, which are discussed in detail'
 in later sections:
 
-- [Using Android Studio and Google Play Services](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts#via-android-studio)
-- [Programmatically](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts#programmatically)
-- [Using the AndroidX Core library](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts#via-support-lib)
+- [Using Android Studio and Google Play Services](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts.md.txt#via-android-studio)
+- [Programmatically](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts.md.txt#programmatically)
+- [Using the AndroidX Core library](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts.md.txt#via-support-lib)
 
 ### Use Downloadable Fonts with Android Studio and Google Play services
 
@@ -52,12 +52,12 @@ services.
 
 As of Android 8.0 (API level 26), AndroidX Core provides full support for Downloadable Fonts. For
 more information about using the AndroidX Core library, see the
-[Downloadable Fonts AndroidX Core library section](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts#via-support-lib) on this page.
+[Downloadable Fonts AndroidX Core library section](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts.md.txt#via-support-lib) on this page.
 
 To use the Downloadable Fonts feature programmatically, interact with two key classes:
 
-- **`https://developer.android.com/reference/kotlin/androidx/core/provider/FontRequest`**: this class lets you create a font request.
-- **`https://developer.android.com/reference/androidx/core/provider/FontsContractCompat`** : this class lets you create a new `https://developer.android.com/reference/android/graphics/Typeface` object based on the font request.
+- **`android.graphics.fonts.FontRequest`**: this class lets you create a font request.
+- **`FontsContractCompat`** : this class lets you create a new `Typeface` object based on the font request.
 
 Your app retrieves fonts from the font provider by using the `FontsContract` API. Each
 provider has its own set of restrictions on the Android versions and query language it supports. For
@@ -98,11 +98,11 @@ To download a font, complete the following steps:
    > [!NOTE]
    > **Note**: You can receive the parameter values from your font provider. Android Studio automatically populates these values for the providers it supports in its UI.
 
-2. Create an instance of the `https://developer.android.com/reference/android/provider/FontsContract.FontRequestCallback` class.
-3. Override the `https://developer.android.com/reference/android/provider/FontsContract.FontRequestCallback#onTypefaceRetrieved(android.graphics.Typeface)` method to indicate the font request is complete. Provide the retrieved font as the parameter. You can use this method to set the font as needed. For example, you can set the font on a `https://developer.android.com/reference/android/widget/TextView`.
-4. Override the `https://developer.android.com/reference/android/provider/FontsContract.FontRequestCallback#onTypefaceRequestFailed(int)` method to receive information about errors in the font request process. For more information about error codes, refer to the [error code constants](https://developer.android.com/reference/android/provider/FontsContract.FontRequestCallback#FAIL_REASON_FONT_LOAD_ERROR).
+2. Create an instance of the `FontsContract.FontRequestCallback` class.
+3. Override the `onTypefaceRetrieved()` method to indicate the font request is complete. Provide the retrieved font as the parameter. You can use this method to set the font as needed. For example, you can set the font on a `TextView`.
+4. Override the `onTypefaceRequestFailed()` method to receive information about errors in the font request process. For more information about error codes, refer to the [error code constants](https://developer.android.com/reference/android/provider/FontsContract.FontRequestCallback.md.txt#FAIL_REASON_FONT_LOAD_ERROR).
 5. Call the `FontsContract.requestFont()` method to retrieve the font from the font provider. The method initiates a check to determine whether the font exists in the cache. If the font isn't available locally, it calls the font provider, retrieves the font asynchronously, and passes the result to the callback. Pass the following parameters:
-   - An instance of the `https://developer.android.com/reference/android/content/Context` class
+   - An instance of the `Context` class
    - An instance of the `android.graphics.fonts.FontRequest` class
    - A callback to receive the results of the font request
    - A handler to fetch fonts on a thread
@@ -166,17 +166,17 @@ sample app.
 
 The AndroidX Core provides support for the Downloadable Fonts feature on devices running Android
 API versions 14 or higher. The
-`https://developer.android.com/reference/androidx/core/provider/package-summary`
+`androidx.core.provider`
 package contains `FontsContractCompat` and `FontRequest` classes to implement
 the backward-compatible Downloadable Fonts feature support. The AndroidX classes contain methods
 similar to the framework methods, and the process for downloading fonts is similar to the one
 described in the section on this page about
-[using Downloadable Fonts programmatically](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts#programmatically).
+[using Downloadable Fonts programmatically](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts.md.txt#programmatically).
 
 To download fonts using AndroidX, import the `FontsContractCompat` and
 `FontRequest` classes from the `androidx.core.provider` package. Create
 instances of these classes instead of
-`https://developer.android.com/reference/android/provider/FontsContract` and
+`FontsContract` and
 `android.graphics.fonts.FontRequest` framework classes.
 
 > [!NOTE]
@@ -227,7 +227,7 @@ multiple weights and styles, such as bold, medium, or light, when provided.
         android:fontProviderCerts="@array/certs">
 </font-family>
 ```
-3. Refer to the file as `@font/font_file_name` in the layout XML file. You can also use the `https://developer.android.com/reference/android/content/res/Resources#getFont(int)` method to retrieve the file programmatically, such as `getFont(R.font.font_file_name)`.
+3. Refer to the file as `@font/font_file_name` in the layout XML file. You can also use the `getFont()` method to retrieve the file programmatically, such as `getFont(R.font.font_file_name)`.
 
 ### Pre-declare fonts in the manifest
 
@@ -265,7 +265,7 @@ the certificates the font provider is signed with. The system uses the certifica
 font provider's identity.
 
 > [!NOTE]
-> **Note** : Android Studio can automatically populate the values for the Google Play services provider if you use the font selector tool in Android Studio. For more information about using Android Studio for downloading fonts, see the [Use Downloadable Fonts with Android Studio and Google Play services](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts#via-android-studio) section on this page.
+> **Note** : Android Studio can automatically populate the values for the Google Play services provider if you use the font selector tool in Android Studio. For more information about using Android Studio for downloading fonts, see the [Use Downloadable Fonts with Android Studio and Google Play services](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts.md.txt#via-android-studio) section on this page.
 
 Perform the following steps to add certificates:
 

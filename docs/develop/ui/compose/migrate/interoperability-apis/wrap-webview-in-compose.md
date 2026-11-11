@@ -54,7 +54,7 @@ can manually persist its internal navigation history and scroll state using a
 `Bundle`.
 
 > [!NOTE]
-> **Note:** For apps with Compose-only activities, you should ideally avoid Activity recreation altogether by handling configuration changes in the manifest (see [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes)). Handling changes directly improves performance and helps preserve the `WebView`'s internal state.
+> **Note:** For apps with Compose-only activities, you should ideally avoid Activity recreation altogether by handling configuration changes in the manifest (see [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes.md.txt)). Handling changes directly improves performance and helps preserve the `WebView`'s internal state.
 
 
 ```kotlin
@@ -98,7 +98,7 @@ fun PersistentWebView(url: String) {
 When a `WebView` has navigation history, the system back gesture should navigate
 backward within the `WebView` rather than exiting the screen.
 
-Use the Compose [`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/BackHandler.composable) API to intercept the system back event, and
+Use the Compose [`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/BackHandler.composable.md.txt) API to intercept the system back event, and
 call the `WebView` `goBack()` function:
 
 
@@ -194,10 +194,10 @@ fun EdgeToEdgeDemo(url: String) {
 
 <br />
 
-For more information on insets, see [Understand window insets in WebView](https://developer.android.com/develop/ui/views/layout/webapps/understand-window-insets).
+For more information on insets, see [Understand window insets in WebView](https://developer.android.com/develop/ui/views/layout/webapps/understand-window-insets.md.txt).
 
 > [!NOTE]
-> **Note:** If you control the website content, use the [CSS Safe Area variables](https://developer.android.com/develop/ui/views/layout/webapps/understand-window-insets#core-mechanics). The `WebView` engine automatically calculates the `env(safe-area-inset-top)` based on the device's status bar. Use this in your CSS to add safe padding in your layout.
+> **Note:** If you control the website content, use the [CSS Safe Area variables](https://developer.android.com/develop/ui/views/layout/webapps/understand-window-insets.md.txt#core-mechanics). The `WebView` engine automatically calculates the `env(safe-area-inset-top)` based on the device's status bar. Use this in your CSS to add safe padding in your layout.
 
 ## Synchronize app theme with WebView content
 
@@ -267,7 +267,7 @@ fun ThemeSyncDemo(onBack: () -> Unit) {
 <br />
 
 If the web page does not have a dark theme, or if you don't own the web content,
-[algorithmic darkening](https://developer.android.com/develop/ui/views/layout/webapps/dark-theme#algorithmic-darkening) may help force a dark theme. Modern websites that
+[algorithmic darkening](https://developer.android.com/develop/ui/views/layout/webapps/dark-theme.md.txt#algorithmic-darkening) may help force a dark theme. Modern websites that
 already have dark mode ignore this algorithm and use their own built-in styles
 instead.
 
@@ -343,7 +343,7 @@ Next, create a composable that remembers the `WebViewPermissionHandler`. Use
 `rememberLauncherForActivityResult` to request permissions:
 
 > [!NOTE]
-> **Note:** In production, the permission handler should also handle all the partial permission grants and denial use cases and provide UI feedback to the users. For more information, see [Request runtime permissions](https://developer.android.com/training/permissions/requesting).
+> **Note:** In production, the permission handler should also handle all the partial permission grants and denial use cases and provide UI feedback to the users. For more information, see [Request runtime permissions](https://developer.android.com/training/permissions/requesting.md.txt).
 
 
 ```kotlin
@@ -406,6 +406,6 @@ for your use cases (like browsing or authentication).
 
 ## Additional resources
 
-- [Manage and diagnose WebView memory](https://developer.android.com/develop/ui/views/layout/webapps/manage-webview-memory)
-- [Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state)
-- [Debug web apps](https://developer.android.com/develop/ui/views/layout/webapps/debugging)
+- [Manage and diagnose WebView memory](https://developer.android.com/develop/ui/views/layout/webapps/manage-webview-memory.md.txt)
+- [Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state.md.txt)
+- [Debug web apps](https://developer.android.com/develop/ui/views/layout/webapps/debugging.md.txt)

@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/stronger-threat-detection-simpler-
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Stronger threat detection, simpler integration: Protect your growth with the Play Integrity API
 
-5 min read ![](https://developer.android.com/static/blog/assets/SS_Alt_Playbrand_Integrity_API_21cd2391d2_Z2k9Cew.webp) 19 Nov 2025 [![View Dom Elliott's profile](https://developer.android.com/static/blog/assets/dom_elliot_d78b0628db_ZAGWES.webp)](https://developer.android.com/blog/authors/dom-elliott)[![View Eric Lynch's profile](https://developer.android.com/static/blog/assets/Eric_Lynch_bb0a252f52_ZRW5B5.webp)](https://developer.android.com/blog/authors/eric-lynch) [Dom Elliott](https://developer.android.com/blog/authors/dom-elliott) \& [Eric Lynch](https://developer.android.com/blog/authors/eric-lynch) In the mobile ecosystem, abuse can threaten your revenue, growth, and user trust. To help developers thrive, Google Play offers a resilient threat detection service, [**Play Integrity API**](https://developer.android.com/google/play/integrity/overview). Play Integrity API helps you verify that interactions and server requests are genuine---coming from your unmodified app on a certified Android device, installed by Google Play.
+5 min read ![](https://developer.android.com/static/blog/assets/SS_Alt_Playbrand_Integrity_API_21cd2391d2_Z2k9Cew.webp) 19 Nov 2025 [![View Dom Elliott's profile](https://developer.android.com/static/blog/assets/dom_elliot_d78b0628db_ZAGWES.webp)](https://developer.android.com/blog/authors/dom-elliott.md.txt)[![View Eric Lynch's profile](https://developer.android.com/static/blog/assets/Eric_Lynch_bb0a252f52_ZRW5B5.webp)](https://developer.android.com/blog/authors/eric-lynch.md.txt) [Dom Elliott](https://developer.android.com/blog/authors/dom-elliott.md.txt) \& [Eric Lynch](https://developer.android.com/blog/authors/eric-lynch.md.txt) In the mobile ecosystem, abuse can threaten your revenue, growth, and user trust. To help developers thrive, Google Play offers a resilient threat detection service, [**Play Integrity API**](https://developer.android.com/google/play/integrity/overview.md.txt). Play Integrity API helps you verify that interactions and server requests are genuine---coming from your unmodified app on a certified Android device, installed by Google Play.
 
 The impact is significant: apps using Play integrity features see **80% lower unauthorized usage** on average compared to other apps. Today, leaders across diverse categories---including Uber, TikTok, Stripe, Kabam, Wooga, Radar.com, Zimperium, Paytm, and Remini---use it to help safeguard their businesses.
 
@@ -31,7 +31,7 @@ The API can be used across Android form factors including phones, tablets, folda
 
 ### Make the most of Play Integrity API
 
-Apps and games have found success with the Play Integrity API by following the [security considerations](https://developer.android.com/google/play/integrity/overview#security-considerations) and taking a phased approach to their anti-abuse strategy.
+Apps and games have found success with the Play Integrity API by following the [security considerations](https://developer.android.com/google/play/integrity/overview.md.txt#security-considerations) and taking a phased approach to their anti-abuse strategy.
 
 **Step 1: Decide what you want to protect**: Decide what actions and server requests in your apps and games are important to verify and protect. For example, you could perform integrity checks when a user is launching the app, signing in, joining a multiplayer game, generating AI content, or transferring money.
 
@@ -43,27 +43,27 @@ Apps and games have found success with the Play Integrity API by following the [
 
 ### NEW: Let Play recover users with issues automatically
 
-Deciding how to respond to different integrity signals can be complex, you need to handle various integrity responses and API error codes (like network issues or outdated Play services). We're simplifying this with new [**Play in-app remediation prompts**](https://developer.android.com/google/play/integrity/remediation). You can show a Google Play prompt to your users to automatically fix a wide range of issues directly within your app. This reduces integration complexity, ensures a consistent user interface, and helps get more users back to a good state.
+Deciding how to respond to different integrity signals can be complex, you need to handle various integrity responses and API error codes (like network issues or outdated Play services). We're simplifying this with new [**Play in-app remediation prompts**](https://developer.android.com/google/play/integrity/remediation.md.txt). You can show a Google Play prompt to your users to automatically fix a wide range of issues directly within your app. This reduces integration complexity, ensures a consistent user interface, and helps get more users back to a good state.
 ![get_integrity.gif](https://developer.android.com/static/blog/assets/get_integrity_7d2e165184_1VjSU5.webp)
 
 *GET_INTEGRITY automatically detects the issue (in this example, a network error) and resolves it.*
 
-You can trigger the[GET_INTEGRITY](https://developer.android.com/google/play/integrity/remediation#get-integrity-dialog) dialog, available in Play Integrity API library version 1.5.0+, after a range of issues to automatically guide the user through the necessary fixes including:
+You can trigger the[GET_INTEGRITY](https://developer.android.com/google/play/integrity/remediation.md.txt#get-integrity-dialog) dialog, available in Play Integrity API library version 1.5.0+, after a range of issues to automatically guide the user through the necessary fixes including:
 
 - **Unauthorized access:**GET_INTEGRITY guides the user back to a Play licensed response in accountDetails.
 - **Code tampering:** GET_INTEGRITY guides the user back to a Play recognized response in appIntegrity.
 - **Device integrity issues:** GET_INTEGRITY guides the user on how to get back to the MEETS_DEVICE_INTEGRITY state in `deviceIntegrity`.
 - **Remediable error codes:** GET_INTEGRITY resolves remediable API errors, such as prompting the user to fix network connectivity or update Google Play Services.
 
-We also offer specialized dialogs including[GET_STRONG_INTEGRITY](https://developer.android.com/google/play/integrity/remediation#get-strong-integrity-dialog) (which works like GET_INTEGRITY while also getting the user back to the MEETS_STRONG_INTEGRITY state with no known malware issues in the `playProtectVerdict`), [GET_LICENSED](https://developer.android.com/google/play/integrity/remediation#get-licensed-dialog) (which gets the user back to a Play licensed and Play recognized state), and [CLOSE_UNKNOWN_ACCESS_RISK](https://developer.android.com/google/play/integrity/remediation#close-unknown-access-risk-dialog) and [CLOSE_ALL_ACCESS_RISK](https://developer.android.com/google/play/integrity/remediation#close-all-access-risk-dialog) (which prompt the user to close potentially risky apps).
+We also offer specialized dialogs including[GET_STRONG_INTEGRITY](https://developer.android.com/google/play/integrity/remediation.md.txt#get-strong-integrity-dialog) (which works like GET_INTEGRITY while also getting the user back to the MEETS_STRONG_INTEGRITY state with no known malware issues in the `playProtectVerdict`), [GET_LICENSED](https://developer.android.com/google/play/integrity/remediation.md.txt#get-licensed-dialog) (which gets the user back to a Play licensed and Play recognized state), and [CLOSE_UNKNOWN_ACCESS_RISK](https://developer.android.com/google/play/integrity/remediation.md.txt#close-unknown-access-risk-dialog) and [CLOSE_ALL_ACCESS_RISK](https://developer.android.com/google/play/integrity/remediation.md.txt#close-all-access-risk-dialog) (which prompt the user to close potentially risky apps).
 
 ### Choose modern integrity solutions
 
-In addition to Play Integrity API, Google offers several other features to consider as part of your overall anti-abuse strategy. Both Play Integrity API and Play's automatic protection offer user experience and developer benefits for safeguarding app distribution. We encourage existing apps to migrate to these modern integrity solutions instead of using the [legacy Play licensing library](https://developer.android.com/google/play/licensing).
+In addition to Play Integrity API, Google offers several other features to consider as part of your overall anti-abuse strategy. Both Play Integrity API and Play's automatic protection offer user experience and developer benefits for safeguarding app distribution. We encourage existing apps to migrate to these modern integrity solutions instead of using the [legacy Play licensing library](https://developer.android.com/google/play/licensing.md.txt).
 
 **Automatic protection:** Prevent unauthorized access with Google Play's [automatic protection](https://support.google.com/googleplay/android-developer/answer/10183279) and ensure users continue getting your official app updates. Turn it on and Google Play will automatically add an installer check to your app's code, with no developer integration work required. If your protected app is redistributed or shared through another channel, then the user will be prompted to get your app from Google Play. Eligible Play developers also have access to Play's advanced anti-tamper protection, which uses obfuscation and runtime checks to make it harder and costlier for attackers to modify and redistribute protected apps.
 
-**Android platform key attestation:** Play Integrity API is the recommended way to benefit from hardware-backed [Android platform key attestation](https://developer.android.com/privacy-and-security/security-key-attestation). Play Integrity API takes care of the underlying implementation across the device ecosystem, Play automatically mitigates key-related issues and outages, and you can use the API to detect other threats. Developers who directly implement key attestation instead of relying on Play Integrity API should prepare for the upcoming Android Platform [root certificate rotation](https://developer.android.com/privacy-and-security/security-key-attestation#root_certificate_rotation) in February 2026 to avoid disruption (developers using Play Integrity API do not need to take any action).
+**Android platform key attestation:** Play Integrity API is the recommended way to benefit from hardware-backed [Android platform key attestation](https://developer.android.com/privacy-and-security/security-key-attestation.md.txt). Play Integrity API takes care of the underlying implementation across the device ecosystem, Play automatically mitigates key-related issues and outages, and you can use the API to detect other threats. Developers who directly implement key attestation instead of relying on Play Integrity API should prepare for the upcoming Android Platform [root certificate rotation](https://developer.android.com/privacy-and-security/security-key-attestation.md.txt#root_certificate_rotation) in February 2026 to avoid disruption (developers using Play Integrity API do not need to take any action).
 
 **Firebase App Check** : Developers using Firebase can use [Firebase App Check](https://firebase.google.com/docs/app-check) to receive an app and device integrity verdict powered by Play Integrity API on certified Android devices, along with responses from other platform attestation providers. To detect all other threats and use other Play features, integrate Play Integrity API directly.
 
@@ -73,12 +73,12 @@ In addition to Play Integrity API, Google offers several other features to consi
 
 With a strong foundation in hardware-backed security and new automated remediation dialogs simplifying integration, the Play Integrity API is an essential tool for protecting your growth.
 
-[Get started with the Play Integrity API documentation](https://developer.android.com/google/play/integrity/overview).
+[Get started with the Play Integrity API documentation](https://developer.android.com/google/play/integrity/overview.md.txt).
 Written by:
 
 -
 
-  ## [Dom Elliott](https://developer.android.com/blog/authors/dom-elliott)
+  ## [Dom Elliott](https://developer.android.com/blog/authors/dom-elliott.md.txt)
 
   ###### Principal Product Manager
 
@@ -86,38 +86,37 @@ Written by:
   View profile](https://developer.android.com/blog/authors/dom-elliott) ![View Dom Elliott's profile](https://developer.android.com/static/blog/assets/dom_elliot_d78b0628db_ZAGWES.webp) ![View Dom Elliott's profile](https://developer.android.com/static/blog/assets/dom_elliot_d78b0628db_ZAGWES.webp)
 -
 
-  ## [Eric Lynch](https://developer.android.com/blog/authors/eric-lynch)
+  ## [Eric Lynch](https://developer.android.com/blog/authors/eric-lynch.md.txt)
 
   ###### Product Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/eric-lynch) ![View Eric Lynch's profile](https://developer.android.com/static/blog/assets/Eric_Lynch_bb0a252f52_ZRW5B5.webp) ![View Eric Lynch's profile](https://developer.android.com/static/blog/assets/Eric_Lynch_bb0a252f52_ZRW5B5.webp)
 Continue reading
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 3 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 4 min read
+  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp.md.txt)
+  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano.md.txt)
+  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
   - +2 ↩
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
 

@@ -10,8 +10,8 @@ Get your app noticed on Google Play by users looking for premium app experiences
 foldables, Googlebooks, and other large screen devices.
 
 
-Complete [Tier 2](https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-2) of the Adaptive app quality guidelines to
-optimize your app for all screen sizes; [Tier 1](https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-1) to create
+Complete [Tier 2](https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-2.md.txt) of the Adaptive app quality guidelines to
+optimize your app for all screen sizes; [Tier 1](https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-1.md.txt) to create
 a differentiated experience made for large screens. Then, get your Google
 Play badge!
 [Get your badge](https://docs.google.com/forms/d/e/1FAIpQLScwcqug_NeZZyGce7keKO9yKcHw7I_gHqwNUfLQDoy0F-7lYg/viewform?usp=header)
@@ -95,7 +95,7 @@ the following:
 
 ### Make your app adaptive
 
-Use the `adaptive` [Android skill](https://developer.android.com/tools/agents/android-skills) to update your app's UI so that it adapts to different Android devices and displays. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the `adaptive` [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to update your app's UI so that it adapts to different Android devices and displays. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add adaptive
 
@@ -120,10 +120,10 @@ when rendering layouts, which also works when the app window is the full screen.
 > [!NOTE]
 > **Note:** Because vertical scrolling is commonplace, window width is typically the main consideration in determining window size class.
 
-Compute your app's [`WindowSizeClass`](https://developer.android.com/reference/androidx/window/core/layout/WindowSizeClass) using the
-[`currentWindowAdaptiveInfo()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#currentWindowAdaptiveInfo()) top‑level function of the [Compose
+Compute your app's [`WindowSizeClass`](https://developer.android.com/reference/androidx/window/core/layout/WindowSizeClass.md.txt) using the
+[`currentWindowAdaptiveInfo()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary.md.txt#currentWindowAdaptiveInfo()) top‑level function of the [Compose
 Material 3 Adaptive library](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary). The function returns an instance of
-[`WindowAdaptiveInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo), which contains [`windowSizeClass`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo#windowSizeClass()). Your app
+[`WindowAdaptiveInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo.md.txt), which contains [`windowSizeClass`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo.md.txt#windowSizeClass()). Your app
 receives updates whenever the window size class changes:
 
 
@@ -164,21 +164,21 @@ the detail.
 Jetpack Compose is the modern, declarative approach to building adaptive apps
 without the duplication and maintenance burden of multiple layout files.
 
-The [Compose Material 3 Adaptive library](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary) contains composables that manage
+The [Compose Material 3 Adaptive library](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary.md.txt) contains composables that manage
 window size classes, navigation components, multi‑pane layouts, and
 foldable postures and hinge location, for example:
 
-- [`NavigationSuiteScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScaffold.composable): Automatically switches between navigation bar
+- [`NavigationSuiteScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScaffold.composable.md.txt): Automatically switches between navigation bar
   and navigation rail depending on app window size class and device posture.
 
-- [`ListDetailPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ListDetailPaneScaffold.composable): Implements the [list-detail canonical
+- [`ListDetailPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ListDetailPaneScaffold.composable.md.txt): Implements the [list-detail canonical
   layout](https://developer.android.com/guide/topics/large-screens/large-screen-canonical-layouts#list-detail).
 
   Adapts the layout to the app window size. Presents a list and the detail of
   a list item in side‑by‑side panes on the expanded window size
   class, but just the list or the detail on compact and medium window size
   classes.
-- [`SupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/SupportingPaneScaffold.composable): Implements the [supporting pane canonical
+- [`SupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/SupportingPaneScaffold.composable.md.txt): Implements the [supporting pane canonical
   layout](https://developer.android.com/guide/topics/large-screens/large-screen-canonical-layouts#supporting_pane).
 
   Presents the main content pane and a supporting pane on the expanded window
@@ -197,7 +197,7 @@ foldable changes, or the screen density or font changes.
 
 By default, configuration changes recreate the app activity, and all activity
 state is lost. To maintain continuity, adaptive apps save state in the
-activity's [`onSaveInstanceState()`](https://developer.android.com/reference/kotlin/android/app/Activity#onsaveinstancestate_1) method or in a [`ViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel).
+activity's [`onSaveInstanceState()`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#onsaveinstancestate_1) method or in a [`ViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel.md.txt).
 
 #### Posture
 
@@ -205,14 +205,14 @@ Adaptive apps respond to changes in the posture of foldable devices. Postures
 include tabletop and book posture.
 ![A foldable phone in tabletop mode, with the bottom half of the screen resting on a surface and the top half upright.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/build-adaptive-apps/foldable_in_tabletop_posture.png) **Figure 7.** Foldable device in tabletop posture.
 
-The [`WindowInfoTracker`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowInfoTracker) interface in Jetpack WindowManager lets you to
-obtain a list of [`DisplayFeature`](https://developer.android.com/reference/kotlin/androidx/window/layout/DisplayFeature) objects for the device. Among the display
-features is [`FoldingFeature.State`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State), which indicates whether the device is
+The [`WindowInfoTracker`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowInfoTracker.md.txt) interface in Jetpack WindowManager lets you to
+obtain a list of [`DisplayFeature`](https://developer.android.com/reference/kotlin/androidx/window/layout/DisplayFeature.md.txt) objects for the device. Among the display
+features is [`FoldingFeature.State`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State.md.txt), which indicates whether the device is
 fully or half open.
 
 The Compose Material 3 Adaptive library provides the
-[`currentWindowAdaptiveInfo()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#currentWindowAdaptiveInfo()) top‑level function, which returns an
-instance of [`WindowAdaptiveInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo) containing [`windowPosture`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo#windowPosture()).
+[`currentWindowAdaptiveInfo()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary.md.txt#currentWindowAdaptiveInfo()) top‑level function, which returns an
+instance of [`WindowAdaptiveInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo.md.txt) containing [`windowPosture`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo.md.txt#windowPosture()).
 
 ### Input beyond touch
 
@@ -227,20 +227,20 @@ much of the work for you:
 - Jetpack Compose 1.7 and higher: Keyboard tab navigation and mouse or
   trackpad click, select, and scroll are supported by default.
 
-- Jetpack [`androidx.compose.material3`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary) library: Enables users to write
-  into any [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable#TextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors)) component using a stylus.
+- Jetpack [`androidx.compose.material3`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt) library: Enables users to write
+  into any [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable.md.txt#TextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors)) component using a stylus.
 
-- [Keyboard Shortcuts Helper](https://developer.android.com/develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper): Makes Android platform and app keyboard
+- [Keyboard Shortcuts Helper](https://developer.android.com/develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper.md.txt): Makes Android platform and app keyboard
   shortcuts discoverable by users. Publish your app's keyboard shortcuts in
   Keyboard Shortcuts Helper by overriding the
-  [`onProvideKeyboardShortcuts()`](https://developer.android.com/reference/kotlin/android/view/Window.Callback#onprovidekeyboardshortcuts) window callback.
+  [`onProvideKeyboardShortcuts()`](https://developer.android.com/reference/kotlin/android/view/Window.Callback.md.txt#onprovidekeyboardshortcuts) window callback.
 
 To fully support form factors of all sizes, adaptive apps support input of all
 types.
 
 ## How to test adaptive apps
 
-[Test different screen and window sizes](https://developer.android.com/training/testing/different-screens) and different device configurations.
+[Test different screen and window sizes](https://developer.android.com/training/testing/different-screens.md.txt) and different device configurations.
 Use host‑side screenshots and Compose previews to check your app layouts.
 Run your app on Android Studio emulators and remote Android devices hosted in
 Google data centers.
@@ -255,14 +255,14 @@ with all screen sizes.
 
 ### Multiple configurations
 
-The [`DeviceConfigurationOverride`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/DeviceConfigurationOverride) interface in Compose 1.7 and higher
+The [`DeviceConfigurationOverride`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/DeviceConfigurationOverride.md.txt) interface in Compose 1.7 and higher
 lets you to override various aspects of device configuration. The API
 simulates different device configurations in a localized way for whatever
 composable content you want to test. For example, you can test multiple,
 arbitrary UI sizes in a single run of your test suite on a single device or
 emulator.
 
-With the [`DeviceConfigurationOverride.then()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/DeviceConfigurationOverride#(androidx.compose.ui.test.DeviceConfigurationOverride).then(androidx.compose.ui.test.DeviceConfigurationOverride)) extension function, you can
+With the [`DeviceConfigurationOverride.then()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/DeviceConfigurationOverride.md.txt#(androidx.compose.ui.test.DeviceConfigurationOverride).then(androidx.compose.ui.test.DeviceConfigurationOverride)) extension function, you can
 test multiple configuration parameters, such as font size, locale, theme, and
 layout size, all at the same time.
 
@@ -272,19 +272,19 @@ Host-side screenshot tests are a fast and scalable way of verifying the visual
 appearance of your app layouts. Use host-side screenshots to test your UI for a
 variety of display sizes.
 
-For more information, see [Compose Preview Screenshot Testing](https://developer.android.com/studio/preview/compose-screenshot-testing-with-testsuites).
+For more information, see [Compose Preview Screenshot Testing](https://developer.android.com/studio/preview/compose-screenshot-testing-with-testsuites.md.txt).
 
 ### Compose previews
 
 Compose previews let you check your app's UI in the design view of Android
-Studio. Previews use annotations, such as [`@PreviewScreenSizes`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewScreenSizes),
-[`@PreviewFontScale`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewFontScale), and [`@PreviewLightDark`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewLightDark) to let you see composable
+Studio. Previews use annotations, such as [`@PreviewScreenSizes`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewScreenSizes.md.txt),
+[`@PreviewFontScale`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewFontScale.md.txt), and [`@PreviewLightDark`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewLightDark.md.txt) to let you see composable
 content in various configurations. You can even interact with the previews.
 
 Android Studio also highlights common usability issues in previews, such as
 buttons or text fields that are too wide.
 
-For more information, see [Preview your UI with composable previews](https://developer.android.com/develop/ui/compose/tooling/previews).
+For more information, see [Preview your UI with composable previews](https://developer.android.com/develop/ui/compose/tooling/previews.md.txt).
 
 ### Emulators
 
@@ -303,7 +303,7 @@ ADB commands, and rotate and fold devices to verify that your app works well on
 a variety of real devices.
 
 Remote device streaming is integrated into Android Studio. For more information,
-see [Android Device Streaming, powered by Firebase](https://developer.android.com/studio/run/android-device-streaming).
+see [Android Device Streaming, powered by Firebase](https://developer.android.com/studio/run/android-device-streaming.md.txt).
 
 ## Additional resources
 

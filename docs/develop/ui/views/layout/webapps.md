@@ -14,8 +14,8 @@ display ads, or even host a mini-game without building everything from scratch.
 Think of it as a window to the internet, from within your app. There are two
 ways to embed web content into your app:
 
-- [`WebView`](https://developer.android.com/reference/android/webkit/WebView): It displays web content you control inline where you want a high degree of flexibility in customizing or updating the UI.
-- [`Custom Tabs`](https://developer.android.com/develop/ui/views/layout/webapps/overview-of-android-custom-tabs): A full in-app browsing experience powered by the user's default browser ([see browser support](https://developer.chrome.com/docs/android/custom-tabs/browser-support)) for when users click a link and you want to keep them in the app, instead of leaving to an external browser, with much of the browsing experience out-of-the-box.
+- [`WebView`](https://developer.android.com/reference/android/webkit/WebView.md.txt): It displays web content you control inline where you want a high degree of flexibility in customizing or updating the UI.
+- [`Custom Tabs`](https://developer.android.com/develop/ui/views/layout/webapps/overview-of-android-custom-tabs.md.txt): A full in-app browsing experience powered by the user's default browser ([see browser support](https://developer.chrome.com/docs/android/custom-tabs/browser-support)) for when users click a link and you want to keep them in the app, instead of leaving to an external browser, with much of the browsing experience out-of-the-box.
 
 ![Android app open to Google Play, with the primary web view highlighted.](https://developer.android.com/static/develop/ui/views/layout/webapps/LandpageWebView1.png) ![Custom tab open to Android For Developers web page, highlighted.](https://developer.android.com/static/develop/ui/views/layout/webapps/LandpageCustom1.png) **Figure 1.** \`WebView\` (left) and \`Custom Tab\` (right) outlined.
 
@@ -31,7 +31,7 @@ There are several benefits to embedding web content in your app:
 
 There are three primary uses cases for using the Web in your Android app:
 
-**1. [Embedding web content into your app as primary or supporting content](https://developer.android.com/develop/ui/views/layout/webapps/embed-web-content-in-app):
+**1. [Embedding web content into your app as primary or supporting content](https://developer.android.com/develop/ui/views/layout/webapps/embed-web-content-in-app.md.txt):
 Use `WebView`**
 
 - Display your own web content inline as a primary experience where you want a high degree of flexibility in customizing or updating the UI.
@@ -40,7 +40,7 @@ Use `WebView`**
 ![Android app open to Google Play, with the primary web view highlighted in a
 red box](https://developer.android.com/static/develop/ui/views/layout/webapps/LandpageWebView2.png) ![Android app open with supporting text inside a red box.](https://developer.android.com/static/develop/ui/views/layout/webapps/LandpageKids1.png) **Figure 2.** Web content embedded within the app with \`WebView\`s as primary (left) and supporting content (right).
 
-**2. [In-app browsing](https://developer.android.com/develop/ui/views/layout/webapps/in-app-browsing-embedded-web) using `Custom Tabs`, or `WebView` for more advanced
+**2. [In-app browsing](https://developer.android.com/develop/ui/views/layout/webapps/in-app-browsing-embedded-web.md.txt) using `Custom Tabs`, or `WebView` for more advanced
 use cases**
 
 - Have a full in-app browsing experience for when users click a link and you want to keep them in the app, instead of leaving to an external browser.
@@ -65,7 +65,7 @@ guidance:
 - When linking out to a third-party identity provider or login experience, such as "Sign in with...", `Custom Tabs` are the way to go. Launching a `Custom Tab` helps protect the user's credential by keeping it isolated to the third-party site.
 
 For more information about using `WebView`s for authentication,
-see [Authenticate users with WebView](https://developer.android.com/identity/sign-in/credential-manager-webview).
-For launching a `Custom Tab`, see [Overview of Android Custom Tabs](https://developer.android.com/develop/ui/views/layout/webapps/overview-of-android-custom-tabs).
+see [Authenticate users with WebView](https://developer.android.com/identity/sign-in/credential-manager-webview.md.txt).
+For launching a `Custom Tab`, see [Overview of Android Custom Tabs](https://developer.android.com/develop/ui/views/layout/webapps/overview-of-android-custom-tabs.md.txt).
 ![In-app login field with WebView on left.](https://developer.android.com/static/develop/ui/views/layout/webapps/LandpageLogin1.png) ![A third-party login with Custom Tab on right.](https://developer.android.com/static/develop/ui/views/layout/webapps/LandpageLogin2.png) **Figure
 4.** An in-app login field (left) and a third-party login opened in a \`Custom Tab\` (right).

@@ -25,82 +25,86 @@ build files.
 
 ### Version catalog (`gradle/libs.versions.toml`)
 
-    [versions]
-    ink = "<latest_version>"
-    inputMotionPrediction = "<latest_version>"
+```toml
+[versions]
+ink = "<latest_version>"
+inputMotionPrediction = "<latest_version>"
 
-    [libraries]
-    # Core Ink modules
-    androidx-ink-authoring         = { module = "androidx.ink:ink-authoring",         version.ref = "ink" }
-    androidx-ink-brush             = { module = "androidx.ink:ink-brush",             version.ref = "ink" }
-    androidx-ink-geometry          = { module = "androidx.ink:ink-geometry",          version.ref = "ink" }
-    androidx-ink-nativeloader      = { module = "androidx.ink:ink-nativeloader",      version.ref = "ink" }
-    androidx-ink-rendering         = { module = "androidx.ink:ink-rendering",         version.ref = "ink" }
-    androidx-ink-strokes           = { module = "androidx.ink:ink-strokes",           version.ref = "ink" }
-    androidx-ink-storage           = { module = "androidx.ink:ink-storage",           version.ref = "ink" }
+[libraries]
+# Core Ink modules
+androidx-ink-authoring         = { module = "androidx.ink:ink-authoring",         version.ref = "ink" }
+androidx-ink-brush             = { module = "androidx.ink:ink-brush",             version.ref = "ink" }
+androidx-ink-geometry          = { module = "androidx.ink:ink-geometry",          version.ref = "ink" }
+androidx-ink-nativeloader      = { module = "androidx.ink:ink-nativeloader",      version.ref = "ink" }
+androidx-ink-rendering         = { module = "androidx.ink:ink-rendering",         version.ref = "ink" }
+androidx-ink-strokes           = { module = "androidx.ink:ink-strokes",           version.ref = "ink" }
+androidx-ink-storage           = { module = "androidx.ink:ink-storage",           version.ref = "ink" }
 
-    # Compose integration modules
-    androidx-ink-authoring-android = { module = "androidx.ink:ink-authoring-android", version.ref = "ink" }
-    androidx-ink-authoring-compose = { module = "androidx.ink:ink-authoring-compose", version.ref = "ink" }
-    androidx-ink-brush-compose     = { module = "androidx.ink:ink-brush-compose",     version.ref = "ink" }
-    androidx-ink-geometry-compose  = { module = "androidx.ink:ink-geometry-compose",  version.ref = "ink" }
+# Compose integration modules
+androidx-ink-authoring-android = { module = "androidx.ink:ink-authoring-android", version.ref = "ink" }
+androidx-ink-authoring-compose = { module = "androidx.ink:ink-authoring-compose", version.ref = "ink" }
+androidx-ink-brush-compose     = { module = "androidx.ink:ink-brush-compose",     version.ref = "ink" }
+androidx-ink-geometry-compose  = { module = "androidx.ink:ink-geometry-compose",  version.ref = "ink" }
 
-    # Motion prediction (required for low-latency stylus tracking)
-    androidx-input-motionprediction = { module = "androidx.input:input-motionprediction", version.ref = "inputMotionPrediction" }
+# Motion prediction (required for low-latency stylus tracking)
+androidx-input-motionprediction = { module = "androidx.input:input-motionprediction", version.ref = "inputMotionPrediction" }
 
-    # Persistence (kotlinx.serialization + Room with KSP)
-    kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
-    androidx-room-runtime      = { module = "androidx.room:room-runtime",  version.ref = "room" }
-    androidx-room-ktx          = { module = "androidx.room:room-ktx",      version.ref = "room" }
-    androidx-room-compiler     = { module = "androidx.room:room-compiler", version.ref = "room" }
+# Persistence (kotlinx.serialization + Room with KSP)
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+androidx-room-runtime      = { module = "androidx.room:room-runtime",  version.ref = "room" }
+androidx-room-ktx          = { module = "androidx.room:room-ktx",      version.ref = "room" }
+androidx-room-compiler     = { module = "androidx.room:room-compiler", version.ref = "room" }
 
-    [plugins]
-    kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-    ksp                  = { id = "com.google.devtools.ksp",                   version.ref = "ksp" }
+[plugins]
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ksp                  = { id = "com.google.devtools.ksp",                   version.ref = "ksp" }
+```
 
 ### App module configuration (`app/build.gradle.kts`)
 
-    plugins {
-        alias(libs.plugins.android.application)
-        alias(libs.plugins.kotlin.compose)
-        alias(libs.plugins.kotlin.serialization)
-        alias(libs.plugins.ksp) // Mandatory when using Room in Kotlin
+```kotlin
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp) // Mandatory when using Room in Kotlin
+}
+
+android {
+    defaultConfig {
+        minSdk = 26
     }
-
-    android {
-        defaultConfig {
-            minSdk = 26
-        }
-        compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_17
-            targetCompatibility = JavaVersion.VERSION_17
-        }
-        buildFeatures {
-            compose = true
-        }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
-
-    dependencies {
-        implementation(libs.androidx.ink.authoring)
-        implementation(libs.androidx.ink.brush)
-        implementation(libs.androidx.ink.geometry)
-        implementation(libs.androidx.ink.nativeloader)
-        implementation(libs.androidx.ink.rendering)
-        implementation(libs.androidx.ink.strokes)
-        implementation(libs.androidx.ink.storage)
-
-        implementation(libs.androidx.ink.authoring.android)
-        implementation(libs.androidx.ink.authoring.compose)
-        implementation(libs.androidx.ink.brush.compose)
-        implementation(libs.androidx.ink.geometry.compose)
-
-        implementation(libs.androidx.input.motionprediction)
-
-        implementation(libs.kotlinx.serialization.json)
-        implementation(libs.androidx.room.runtime)
-        implementation(libs.androidx.room.ktx)
-        ksp(libs.androidx.room.compiler) // NEVER use annotationProcessor in Kotlin
+    buildFeatures {
+        compose = true
     }
+}
+
+dependencies {
+    implementation(libs.androidx.ink.authoring)
+    implementation(libs.androidx.ink.brush)
+    implementation(libs.androidx.ink.geometry)
+    implementation(libs.androidx.ink.nativeloader)
+    implementation(libs.androidx.ink.rendering)
+    implementation(libs.androidx.ink.strokes)
+    implementation(libs.androidx.ink.storage)
+
+    implementation(libs.androidx.ink.authoring.android)
+    implementation(libs.androidx.ink.authoring.compose)
+    implementation(libs.androidx.ink.brush.compose)
+    implementation(libs.androidx.ink.geometry.compose)
+
+    implementation(libs.androidx.input.motionprediction)
+
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler) // NEVER use annotationProcessor in Kotlin
+}
+```
 
 ## Core drawing surface and default brush
 
@@ -239,11 +243,11 @@ fun DrawingSurface(
 
 Follow these conditional instructions based on the requested task:
 
-- **Step 1 (Dependencies and SDK setup)** : When adding Ink API dependencies or configuring `minSdk`, follow the setup blocks in this file and the [Ink API setup guide](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-setup). Verify that `ink-nativeloader`, `ink-authoring-android`, and `androidx.input:input-motionprediction` are present.
-- **Step 2 (Drawing surface and stroke rendering)** : When creating a Compose drawing screen with wet ink (`InProgressStrokes`) and dry ink (`CanvasStrokeRenderer`), implement `DrawingSurface` from this file and review [Draw a stroke](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-draw-stroke). For `InProgressStrokes` parameter details, `BlendMode.Multiply` highlighter layer compositing, and `TextureBitmapStore` generation invalidation, you MUST follow [drawing-and-brushes.md](https://developer.android.com/agents/skills/jetpack-compose/ink/ink-app-builder/references/drawing-and-brushes).
-- **Step 3 (Stock brushes and brush switching)** : When creating, modifying, or switching stock brushes (`StockBrushes.pressurePen`, `marker`, `highlighter`, `dashedLine`, or `emojiHighlighter`), review [Brush APIs](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-brush-apis) and you MUST follow [drawing-and-brushes.md](https://developer.android.com/agents/skills/jetpack-compose/ink/ink-app-builder/references/drawing-and-brushes) for `epsilon` geometry constraints, highlighter alpha preservation, and Android 14 (API level 34) `emojiHighlighter` rules.
-- **Step 4 (Eraser, undo and redo, and MVVM architecture)** : When implementing a geometry-based stroke eraser, linear undo and redo history stacks, or MVVM `ViewModel` and Hilt wiring, review [Geometry APIs](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-geometry-apis) and you MUST follow [editing-and-architecture.md](https://developer.android.com/agents/skills/jetpack-compose/ink/ink-app-builder/references/editing-and-architecture).
-- **Step 5 (Persistence, bitmap export, and gesture coexistence)** : When saving and loading strokes with Room (`StrokeInputBatch.encode` and `decode`), preserving UI state across configuration changes, exporting drawings to a `Bitmap` or PNG file, or combining long-press drag gestures with drawing (`pointerInputWithSiblingFallthrough`), review [State preservation and persistent storage](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-state-preservation) and you MUST follow [persistence-and-advanced.md](https://developer.android.com/agents/skills/jetpack-compose/ink/ink-app-builder/references/persistence-and-advanced).
+- **Step 1 (Dependencies and SDK setup)** : When adding Ink API dependencies or configuring `minSdk`, follow the setup blocks in this file and the [Ink API setup guide](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-setup.md.txt). Verify that `ink-nativeloader`, `ink-authoring-android`, and `androidx.input:input-motionprediction` are present.
+- **Step 2 (Drawing surface and stroke rendering)** : When creating a Compose drawing screen with wet ink (`InProgressStrokes`) and dry ink (`CanvasStrokeRenderer`), implement `DrawingSurface` from this file and review [Draw a stroke](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-draw-stroke.md.txt). For `InProgressStrokes` parameter details, `BlendMode.Multiply` highlighter layer compositing, and `TextureBitmapStore` generation invalidation, you MUST follow [drawing-and-brushes.md](https://developer.android.com/agents/skills/jetpack-compose/ink/ink-app-builder/references/drawing-and-brushes.md.txt).
+- **Step 3 (Stock brushes and brush switching)** : When creating, modifying, or switching stock brushes (`StockBrushes.pressurePen`, `marker`, `highlighter`, `dashedLine`, or `emojiHighlighter`), review [Brush APIs](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-brush-apis.md.txt) and you MUST follow [drawing-and-brushes.md](https://developer.android.com/agents/skills/jetpack-compose/ink/ink-app-builder/references/drawing-and-brushes.md.txt) for `epsilon` geometry constraints, highlighter alpha preservation, and Android 14 (API level 34) `emojiHighlighter` rules.
+- **Step 4 (Eraser, undo and redo, and MVVM architecture)** : When implementing a geometry-based stroke eraser, linear undo and redo history stacks, or MVVM `ViewModel` and Hilt wiring, review [Geometry APIs](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-geometry-apis.md.txt) and you MUST follow [editing-and-architecture.md](https://developer.android.com/agents/skills/jetpack-compose/ink/ink-app-builder/references/editing-and-architecture.md.txt).
+- **Step 5 (Persistence, bitmap export, and gesture coexistence)** : When saving and loading strokes with Room (`StrokeInputBatch.encode` and `decode`), preserving UI state across configuration changes, exporting drawings to a `Bitmap` or PNG file, or combining long-press drag gestures with drawing (`pointerInputWithSiblingFallthrough`), review [State preservation and persistent storage](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-state-preservation.md.txt) and you MUST follow [persistence-and-advanced.md](https://developer.android.com/agents/skills/jetpack-compose/ink/ink-app-builder/references/persistence-and-advanced.md.txt).
 - **Programmatic custom brushes** : For custom `BrushFamily` creation, custom tip shapes, or behavior node graphs, suggest the `ink-custom-brush-builder` skill.
 
 ## Antipatterns

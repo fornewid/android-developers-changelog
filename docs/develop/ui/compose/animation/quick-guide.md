@@ -22,7 +22,7 @@ properties of a composable.
 
 ![Green composable showing and hiding itself](https://developer.android.com/static/develop/ui/compose/images/animations/animated_visibility_column.gif) **Figure 1.** Animating the appearance and disappearance of an item in a Column
 
-Use [`AnimatedVisibility`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedvisibility) to hide or show a Composable. Children inside
+Use [`AnimatedVisibility`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt#animatedvisibility) to hide or show a Composable. Children inside
 `AnimatedVisibility` can use `Modifier.animateEnterExit()` for their own enter
 or exit transition.
 
@@ -45,7 +45,7 @@ a composable behaves when it appears and disappears. Read the [full
 documentation](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedvisibility) for more information.
 
 Another option for animating the visibility of a composable is to animate the
-alpha over time using [`animateFloatAsState`](https://developer.android.com/develop/ui/compose/animation/value-based#animate-as-state):
+alpha over time using [`animateFloatAsState`](https://developer.android.com/develop/ui/compose/animation/value-based.md.txt#animate-as-state):
 
 
 ```kotlin
@@ -141,9 +141,9 @@ Box(
 <br />
 
 > [!NOTE]
-> **Note:** [Ordering of the modifiers](https://developer.android.com/develop/ui/compose/modifiers#order-modifier-matters) matters here. Make sure to place it **before** any size modifiers.
+> **Note:** [Ordering of the modifiers](https://developer.android.com/develop/ui/compose/modifiers.md.txt#order-modifier-matters) matters here. Make sure to place it **before** any size modifiers.
 
-You can also use [`AnimatedContent`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedcontent), with a [`SizeTransform`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SizeTransform) to describe
+You can also use [`AnimatedContent`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt#animatedcontent), with a [`SizeTransform`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SizeTransform.md.txt) to describe
 how size changes should take place.
 
 ### Animate position of composable
@@ -327,7 +327,7 @@ Box(
 
 <br />
 
-Alternatively, use the [`Card`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable, and set the elevation property to
+Alternatively, use the [`Card`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable.md.txt#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable, and set the elevation property to
 different values per state.
 
 ### Animate text scale, translation or rotation
@@ -335,8 +335,8 @@ different values per state.
 ![Text composable saying Hello animating between a small and larger size.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_text.gif) **Figure 9.** Text animating smoothly between two sizes
 
 When animating scale, translation, or rotation of text, set the `textMotion`
-parameter on `TextStyle` to [`TextMotion.Animated`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/TextMotion). This ensures smoother
-transitions between text animations. Use [`Modifier.graphicsLayer{ }`](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers#graphicsLayer) to
+parameter on `TextStyle` to [`TextMotion.Animated`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/TextMotion.md.txt). This ensures smoother
+transitions between text animations. Use [`Modifier.graphicsLayer{ }`](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers.md.txt#graphicsLayer) to
 translate, rotate or scale the text.
 
 
@@ -398,7 +398,7 @@ BasicText(
 
 ![Green screen saying Loading, blue screen saying Loaded and white screen saying Error, the different composables are being iterated between, with a simple animation.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_content_slower.gif) **Figure 11.** Using AnimatedContent to animate changes between different composables (slowed down)
 
-Use [`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContent.composable) to animate between different composables, if you
+Use [`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContent.composable.md.txt) to animate between different composables, if you
 just want a standard fade between composables, use `Crossfade`.
 
 
@@ -443,7 +443,7 @@ AnimatedContent(
 
 `AnimatedContent` can be customized to show many different kinds of enter and
 exit transitions. For more information, read the documentation on
-[`AnimatedContent`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedcontent) or read this [blog post on](https://medium.com/androiddevelopers/customizing-animatedcontent-in-jetpack-compose-629c67b45894)
+[`AnimatedContent`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt#animatedcontent) or read this [blog post on](https://medium.com/androiddevelopers/customizing-animatedcontent-in-jetpack-compose-629c67b45894)
 [`AnimatedContent`](https://medium.com/androiddevelopers/customizing-animatedcontent-in-jetpack-compose-629c67b45894).
 
 ## Animate while navigating to different destinations
@@ -451,7 +451,7 @@ exit transitions. For more information, read the documentation on
 ![Two composables, one green saying Landing and one blue saying Detail, animating by sliding the detail composable over the landing composable.](https://developer.android.com/static/develop/ui/compose/images/animations/navigation_compose_animation.gif) **Figure 12.** Animating between composables using navigation-compose
 
 To animate transitions between composables when using the
-[navigation-compose](https://developer.android.com/jetpack/androidx/releases/navigation) artifact, specify the `enterTransition` and
+[navigation-compose](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt) artifact, specify the `enterTransition` and
 `exitTransition` on a composable. You can also set the default animation to be
 used for all destinations at the top level `NavHost`:
 
@@ -503,17 +503,17 @@ NavHost(
 
 There are many different kinds of enter and exit transitions that apply
 different effects to the incoming and outgoing content, see the
-[documentation](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#enter-exit-transition) for more.
+[documentation](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt#enter-exit-transition) for more.
 
 ## Repeat an animation
 
 ![A green background that transforms into a blue background, infinitely by animating between the two colors.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_forever.gif) **Figure 13.** Background color animating between two values, infinitely
 
-Use [`rememberInfiniteTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/InfiniteTransition) with an `infiniteRepeatable`
+Use [`rememberInfiniteTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/InfiniteTransition.md.txt) with an `infiniteRepeatable`
 `animationSpec` to continuously repeat your animation. Change `RepeatMode` to
 specify how it should go back and forth.
 
-Use [`repeatable`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#repeatable(kotlin.Int,androidx.compose.animation.core.DurationBasedAnimationSpec,androidx.compose.animation.core.RepeatMode,androidx.compose.animation.core.StartOffset)) to repeat a set number of times.
+Use [`repeatable`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary.md.txt#repeatable(kotlin.Int,androidx.compose.animation.core.DurationBasedAnimationSpec,androidx.compose.animation.core.RepeatMode,androidx.compose.animation.core.StartOffset)) to repeat a set number of times.
 
 
 ```kotlin
@@ -540,7 +540,7 @@ Column(
 
 ## Start an animation on launch of a composable
 
-[`LaunchedEffect`](https://developer.android.com/develop/ui/compose/side-effects#launchedeffect) runs when a composable enters the composition. It starts
+[`LaunchedEffect`](https://developer.android.com/develop/ui/compose/side-effects.md.txt#launchedeffect) runs when a composable enters the composition. It starts
 an animation on launch of a composable, you can use this to drive the animation
 state change. Using `Animatable` with the `animateTo` method to start the
 animation on launch:
@@ -593,8 +593,8 @@ LaunchedEffect("animationKey") {
 
 ![Three circles with green arrows animating to each one, animating all together at the same time.](https://developer.android.com/static/develop/ui/compose/images/animations/multiple_properties.gif) **Figure 15.** Diagram indicating how concurrent animations progress, all at the same time.
 
-Use the coroutine APIs ([`Animatable#animateTo()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Animatable#animateTo(kotlin.Any,androidx.compose.animation.core.AnimationSpec,kotlin.Any,kotlin.Function1)) or [`animate`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#animate(kotlin.Float,kotlin.Float,kotlin.Float,androidx.compose.animation.core.AnimationSpec,kotlin.Function2))), or
-the [`Transition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Transition) API to achieve concurrent animations. If you use multiple
+Use the coroutine APIs ([`Animatable#animateTo()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Animatable.md.txt#animateTo(kotlin.Any,androidx.compose.animation.core.AnimationSpec,kotlin.Any,kotlin.Function1)) or [`animate`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary.md.txt#animate(kotlin.Float,kotlin.Float,kotlin.Float,androidx.compose.animation.core.AnimationSpec,kotlin.Function2))), or
+the [`Transition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Transition.md.txt) API to achieve concurrent animations. If you use multiple
 launch functions in a coroutine context, it launches the animations at the same
 time:
 
@@ -615,7 +615,7 @@ LaunchedEffect("animationKey") {
 
 <br />
 
-You could use the [`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/updateTransition.composable#updateTransition(kotlin.Any,kotlin.String)) API to use the same state to drive
+You could use the [`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/updateTransition.composable.md.txt#updateTransition(kotlin.Any,kotlin.String)) API to use the same state to drive
 many different property animations at the same time. The following example
 animates two properties controlled by a state change, `rect` and `borderWidth`:
 
@@ -646,7 +646,7 @@ Animations in Compose can cause performance problems. This is due to the nature
 of what an animation is: moving or changing pixels on screen quickly,
 frame-by-frame to create the illusion of movement.
 
-Consider the [different phases of Compose](https://developer.android.com/develop/ui/compose/phases): composition, layout and draw. If
+Consider the [different phases of Compose](https://developer.android.com/develop/ui/compose/phases.md.txt): composition, layout and draw. If
 your animation changes the layout phase, it requires all affected composables to
 relayout and redraw. If your animation occurs in the draw phase, it is by
 default more performant than if you were to run the animation in the layout
@@ -655,8 +655,8 @@ phase, as it would have less work to do overall.
 To ensure your app does as little as possible while animating, choose the lambda
 version of a `Modifier` where possible. This skips recomposition and performs
 the animation outside of the composition phase, otherwise use
-[`Modifier.graphicsLayer{ }`](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers), as this modifier always runs in the draw
-phase. For more information on this, see the [deferring reads](https://developer.android.com/develop/ui/compose/performance/bestpractices#defer-reads) section in
+[`Modifier.graphicsLayer{ }`](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers.md.txt), as this modifier always runs in the draw
+phase. For more information on this, see the [deferring reads](https://developer.android.com/develop/ui/compose/performance/bestpractices.md.txt#defer-reads) section in
 the performance documentation.
 
 ## Change animation timing
@@ -671,16 +671,16 @@ more bouncy.
 
 The following is a summary of the different `animationSpec` options:
 
-- [`spring`](https://developer.android.com/develop/ui/compose/animation/customize#spring): Physics-based animation, the default for all animations. You can change the stiffness or dampingRatio to achieve a different animation look and feel.
-- [`tween`](https://developer.android.com/develop/ui/compose/animation/customize#tween) (short for **between** ): Duration-based animation, animates between two values with an `Easing` function.
-- [`keyframes`](https://developer.android.com/develop/ui/compose/animation/customize#keyframes): Spec for specifying values at certain key points in an animation.
-- [`repeatable`](https://developer.android.com/develop/ui/compose/animation/customize#repeatable): Duration-based spec that runs a certain number of times, specified by `RepeatMode`.
-- [`infiniteRepeatable`](https://developer.android.com/develop/ui/compose/animation/customize#infiniterepeatable): Duration-based spec that runs forever.
-- [`snap`](https://developer.android.com/develop/ui/compose/animation/customize#snap): Instantly snaps to the end value without any animation.
+- [`spring`](https://developer.android.com/develop/ui/compose/animation/customize.md.txt#spring): Physics-based animation, the default for all animations. You can change the stiffness or dampingRatio to achieve a different animation look and feel.
+- [`tween`](https://developer.android.com/develop/ui/compose/animation/customize.md.txt#tween) (short for **between** ): Duration-based animation, animates between two values with an `Easing` function.
+- [`keyframes`](https://developer.android.com/develop/ui/compose/animation/customize.md.txt#keyframes): Spec for specifying values at certain key points in an animation.
+- [`repeatable`](https://developer.android.com/develop/ui/compose/animation/customize.md.txt#repeatable): Duration-based spec that runs a certain number of times, specified by `RepeatMode`.
+- [`infiniteRepeatable`](https://developer.android.com/develop/ui/compose/animation/customize.md.txt#infiniterepeatable): Duration-based spec that runs forever.
+- [`snap`](https://developer.android.com/develop/ui/compose/animation/customize.md.txt#snap): Instantly snaps to the end value without any animation.
 
 ![Two animations demonstrating no spec set versus a custom Spring spec set.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_spec_set.gif) **Figure 16.** No spec set versus Custom Spring spec set
 
-Read the full documentation for more information about [animationSpecs](https://developer.android.com/develop/ui/compose/animation/customize#animationspec).
+Read the full documentation for more information about [animationSpecs](https://developer.android.com/develop/ui/compose/animation/customize.md.txt#animationspec).
 
 ## Additional resources
 

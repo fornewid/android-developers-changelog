@@ -10,7 +10,7 @@ Many apps need to display collections of items. This document explains how you
 can efficiently do this in Jetpack Compose.
 
 If you know that your use case does not require any scrolling, you may wish to
-use a simple [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) or [`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)) (depending on the direction), and emit each item's content by
+use a simple [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable.md.txt#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) or [`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable.md.txt#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)) (depending on the direction), and emit each item's content by
 iterating over a list in the following way:
 
 
@@ -27,35 +27,35 @@ fun MessageList(messages: List<Message>) {
 
 <br />
 
-We can make the [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) scrollable by using the `verticalScroll()` modifier.
+We can make the [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable.md.txt#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) scrollable by using the `verticalScroll()` modifier.
 
 ## Lazy lists
 
 If you need to display a large number of items (or a list of an unknown length),
-using a layout such as [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) can cause performance issues, since all the items will be composed and laid out whether or not they are visible.
+using a layout such as [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable.md.txt#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) can cause performance issues, since all the items will be composed and laid out whether or not they are visible.
 
 Compose provides a set of components which only compose and lay out items which
 are visible in the component's viewport. These components include
-[`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable)
+[`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt)
 and
-[`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable).
+[`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable.md.txt).
 
 > [!NOTE]
 > **Note:** If you've used the [`RecyclerView`
 > widget](https://developer.android.com/guide/topics/ui/layout/recyclerview), these components follow the same set of principles.
 
 As the name suggests, the difference between
-[`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable)
+[`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt)
 and
-[`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable)
-is the orientation in which they lay out their items and scroll. [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable)
-produces a vertically scrolling list, and [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable) produces a horizontally
+[`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable.md.txt)
+is the orientation in which they lay out their items and scroll. [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt)
+produces a vertically scrolling list, and [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable.md.txt) produces a horizontally
 scrolling list.
 
 The Lazy components are different to most layouts in Compose. Instead of
 accepting a `@Composable` content block parameter, allowing apps to directly
 emit composables, the Lazy components provide a `LazyListScope.()` block. This
-[`LazyListScope`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope)
+[`LazyListScope`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope.md.txt)
 block offers a DSL which allows apps to *describe* the item contents. The Lazy component is then responsible for adding each item's content as
 required by the layout and scroll position.
 
@@ -65,11 +65,11 @@ required by the layout and scroll position.
 
 ## `LazyListScope` DSL
 
-The DSL of [`LazyListScope`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope) provides a number of functions for describing items
+The DSL of [`LazyListScope`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope.md.txt) provides a number of functions for describing items
 in the layout. At the most basic,
-[`item()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope#item(kotlin.Any,kotlin.Any,kotlin.Function1))
+[`item()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope.md.txt#item(kotlin.Any,kotlin.Any,kotlin.Function1))
 adds a single item, and
-[`items(Int)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope#items(kotlin.Int,kotlin.Function1,kotlin.Function1,kotlin.Function2))
+[`items(Int)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope.md.txt#items(kotlin.Int,kotlin.Function1,kotlin.Function1,kotlin.Function2))
 adds multiple items:
 
 
@@ -96,7 +96,7 @@ LazyColumn {
 
 There are also a number of extension functions which allow you to add
 collections of items, such as a `List`. These extensions allow us to easily
-migrate our [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) example from above:
+migrate our [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable.md.txt#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) example from above:
 
 
 ```kotlin
@@ -113,11 +113,11 @@ LazyColumn {
 <br />
 
 There is also a variant of the
-[`items()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope#items(kotlin.Int,kotlin.Function1,kotlin.Function1,kotlin.Function2))
+[`items()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope.md.txt#items(kotlin.Int,kotlin.Function1,kotlin.Function1,kotlin.Function2))
 extension function called
-[`itemsIndexed()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#(androidx.compose.foundation.lazy.LazyListScope).itemsIndexed(kotlin.collections.List,kotlin.Function2,kotlin.Function2,kotlin.Function3)),
+[`itemsIndexed()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary.md.txt#(androidx.compose.foundation.lazy.LazyListScope).itemsIndexed(kotlin.collections.List,kotlin.Function2,kotlin.Function2,kotlin.Function3)),
 which provides the index. Please see the
-[`LazyListScope`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope)
+[`LazyListScope`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope.md.txt)
 reference for more details.
 
 ## Lazy grids
@@ -125,9 +125,9 @@ reference for more details.
 [Video](https://www.youtube.com/watch?v=qP-ieASbqMY)
 
 The
-[`LazyVerticalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyVerticalGrid.composable)
+[`LazyVerticalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyVerticalGrid.composable.md.txt)
 and
-[`LazyHorizontalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyHorizontalGrid.composable)
+[`LazyHorizontalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyHorizontalGrid.composable.md.txt)
 composables provide support for displaying items in a grid. A Lazy vertical grid
 will display its items in a vertically scrollable container, spanned across
 multiple columns, while the Lazy horizontal grids will have the same behavior
@@ -135,18 +135,18 @@ on the horizontal axis.
 
 Grids have the same powerful API capabilities as lists and they also use a
 very similar DSL -
-[`LazyGridScope.()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyGridScope)
+[`LazyGridScope.()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyGridScope.md.txt)
 for describing the content.
 
 ![Screenshot of a phone showing a grid of photos](https://developer.android.com/static/develop/ui/compose/images/lists-photogrid.png)
 
 The `columns` parameter in
-[`LazyVerticalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyVerticalGrid.composable)
+[`LazyVerticalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyVerticalGrid.composable.md.txt)
 and `rows` parameter in
-[`LazyHorizontalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyHorizontalGrid.composable)
+[`LazyHorizontalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyHorizontalGrid.composable.md.txt)
 control how cells are formed into columns or rows. The following
 example displays items in a grid, using
-[`GridCells.Adaptive`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/GridCells.Adaptive)
+[`GridCells.Adaptive`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/GridCells.Adaptive.md.txt)
 to set each column to be at least `128.dp` wide:
 
 
@@ -170,15 +170,15 @@ across different screen sizes.
 
 If you know the exact number of columns to be used, you can instead provide an
 instance of
-[`GridCells.Fixed`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/GridCells.Fixed)
+[`GridCells.Fixed`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/GridCells.Fixed.md.txt)
 containing the number of required columns.
 
 If your design requires only certain items to have non-standard dimensions,
 you can use the grid support for providing custom column spans for items.
 Specify the column span with the `span` parameter of the
-[`LazyGridScope DSL`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyGridScope)
+[`LazyGridScope DSL`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyGridScope.md.txt)
 `item` and `items` methods.
-[`maxLineSpan`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyGridItemSpanScope#maxLineSpan()),
+[`maxLineSpan`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyGridItemSpanScope.md.txt#maxLineSpan()),
 one of the span scope's values, is particularly useful when you're using
 adaptive sizing, because the number of columns is not fixed.
 This example shows how to provide a full row span:
@@ -203,9 +203,9 @@ LazyVerticalGrid(
 
 ## Lazy staggered grid
 
-[`LazyVerticalStaggeredGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/staggeredgrid/LazyVerticalStaggeredGrid.composable)
+[`LazyVerticalStaggeredGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/staggeredgrid/LazyVerticalStaggeredGrid.composable.md.txt)
 and
-[`LazyHorizontalStaggeredGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/staggeredgrid/LazyHorizontalStaggeredGrid.composable)
+[`LazyHorizontalStaggeredGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/staggeredgrid/LazyHorizontalStaggeredGrid.composable.md.txt)
 are composables that allow you to create a lazy-loaded, staggered grid of items.
 A lazy vertical staggered grid displays its items in a vertically scrollable
 container that spans across multiple columns and allows individual items to be
@@ -279,7 +279,7 @@ LazyVerticalStaggeredGrid(
 
 Sometimes you'll need to add padding around the edges of the content. The lazy
 components allow you to pass some
-[`PaddingValues`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/PaddingValues)
+[`PaddingValues`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/PaddingValues.md.txt)
 to the `contentPadding` parameter to support this:
 
 
@@ -308,7 +308,7 @@ As another example, you can pass `Scaffold`'s `PaddingValues` into
 ## Content spacing
 
 To add spacing in-between items, you can use
-[`Arrangement.spacedBy()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement#spacedBy(androidx.compose.ui.unit.Dp)).
+[`Arrangement.spacedBy()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement.md.txt#spacedBy(androidx.compose.ui.unit.Dp)).
 The example below adds `4.dp` of space in-between each item:
 
 
@@ -322,7 +322,7 @@ LazyColumn(
 
 <br />
 
-Similarly for [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable):
+Similarly for [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable.md.txt):
 
 
 ```kotlin
@@ -361,7 +361,7 @@ imagine the scenario of `LazyRow` within a `LazyColumn`, if the row changes
 item position, the user would then lose their scroll position within the row.
 
 > [!NOTE]
-> **Note:** For more information on how Compose remembers state, see the [State](https://developer.android.com/develop/ui/compose/state) documentation
+> **Note:** For more information on how Compose remembers state, see the [State](https://developer.android.com/develop/ui/compose/state.md.txt) documentation
 
 To combat this, you can provide a stable and unique key for each item, providing
 a block to the `key` parameter. Providing a stable key enables item state to be
@@ -403,7 +403,7 @@ LazyColumn {
 
 However, there is one limitation on what types you can use as item keys.
 The key's type must be supported by
-[`Bundle`](https://developer.android.com/reference/android/os/Bundle), Android's mechanism for keeping the
+[`Bundle`](https://developer.android.com/reference/android/os/Bundle.md.txt), Android's mechanism for keeping the
 states when the Activity is recreated. `Bundle` supports types like primitives,
 enums or Parcelables.
 
@@ -443,7 +443,7 @@ If you've used the RecyclerView widget, you'll know that it [animates item
 changes](https://developer.android.com/guide/topics/ui/layout/recyclerview-custom#animations) automatically.
 Lazy layouts provide the same functionality for item reorderings.
 The API is simple - you just need to set the
-[`animateItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyItemScope#(androidx.compose.ui.Modifier).animateItem(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.animation.core.FiniteAnimationSpec))
+[`animateItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyItemScope.md.txt#(androidx.compose.ui.Modifier).animateItem(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.animation.core.FiniteAnimationSpec))
 modifier to the item content:
 
 
@@ -521,10 +521,10 @@ fun ListAnimatedItems(
 
 #### Key points about the code
 
-- `ListAnimatedItems` displays a list of strings in a [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) with animated transitions when items are modified.
+- `ListAnimatedItems` displays a list of strings in a [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) with animated transitions when items are modified.
 - The `items` function assigns a unique key to each item in the list. Compose uses the keys to track the items and identify changes in their positions.
 - `ListItem` defines the layout of each list item. It takes a `headlineContent` parameter, which defines the main content of the item.
-- The [`animateItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyItemScope#(androidx.compose.ui.Modifier).animateItem(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.animation.core.FiniteAnimationSpec)) modifier applies default animations to item additions, removals, and moves.
+- The [`animateItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyItemScope.md.txt#(androidx.compose.ui.Modifier).animateItem(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.animation.core.FiniteAnimationSpec)) modifier applies default animations to item additions, removals, and moves.
 
 The following snippet presents a screen that incorporates controls for adding
 and removing items, as well as sorting a predefined list:
@@ -678,7 +678,7 @@ initial:
 ![Video of a phone scrolling up and down through a contacts list](https://developer.android.com/static/develop/ui/compose/images/lists-scrolling.gif)
 
 To achieve a sticky header with `LazyColumn`, you can use the
-[`stickyHeader()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1))
+[`stickyHeader()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1))
 
 function, providing the header content:
 
@@ -730,7 +730,7 @@ fun ContactsList(grouped: Map<Char, List<Contact>>) {
 
 Many apps need to react and listen to scroll position and item layout changes.
 The Lazy components support this use-case by hoisting the
-[`LazyListState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState):
+[`LazyListState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState.md.txt):
 
 
 ```kotlin
@@ -750,11 +750,11 @@ fun MessageList(messages: List<Message>) {
 
 For simple use-cases, apps commonly only need to know information about the
 first visible item. For this
-[`LazyListState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState)
+[`LazyListState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState.md.txt)
 provides the
-[`firstVisibleItemIndex`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState#firstVisibleItemIndex())
+[`firstVisibleItemIndex`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState.md.txt#firstVisibleItemIndex())
 and
-[`firstVisibleItemScrollOffset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState#firstVisibleItemScrollOffset())
+[`firstVisibleItemScrollOffset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState.md.txt#firstVisibleItemScrollOffset())
 properties.
 
 If we use the example of showing and hiding a button based on if the user has
@@ -790,7 +790,7 @@ fun MessageList(messages: List<Message>) {
 <br />
 
 > [!NOTE]
-> **Note:** The example above uses [`derivedStateOf()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#derivedStateOf(kotlin.Function0)) to minimize unnecessary compositions. For more information, see the [Side
+> **Note:** The example above uses [`derivedStateOf()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary.md.txt#derivedStateOf(kotlin.Function0)) to minimize unnecessary compositions. For more information, see the [Side
 > Effects](https://developer.android.com/develop/ui/compose/side-effects#derivedstateof) documentation.
 
 Reading the state directly in composition is useful when you need to update
@@ -798,7 +798,7 @@ other UI composables, but there are also scenarios where the event does not need
 to be handled in the same composition. A common example of this is sending an
 analytics event once the user has scrolled past a certain point. To handle this
 efficiently, we can use a
-[`snapshotFlow()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#snapshotFlow(kotlin.Function0)):
+[`snapshotFlow()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary.md.txt#snapshotFlow(kotlin.Function0)):
 
 
 ```kotlin
@@ -823,23 +823,23 @@ LaunchedEffect(listState) {
 
 `LazyListState` also provides information about all of the items currently being
 displayed and their bounds on screen, via the
-[`layoutInfo`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState#layoutInfo())
+[`layoutInfo`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState.md.txt#layoutInfo())
 property. See the
-[`LazyListLayoutInfo`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListLayoutInfo)
+[`LazyListLayoutInfo`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListLayoutInfo.md.txt)
 class for more information.
 
 ## Controlling the scroll position
 
 As well as reacting to scroll position, it's also useful for apps to be able to
 control the scroll position too.
-[`LazyListState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState)
-supports this via the [`scrollToItem()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState#scrollToItem(kotlin.Int,kotlin.Int))
+[`LazyListState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState.md.txt)
+supports this via the [`scrollToItem()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState.md.txt#scrollToItem(kotlin.Int,kotlin.Int))
 function, which 'immediately' snaps the
-scroll position, and [`animateScrollToItem()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState#animateScrollToItem(kotlin.Int,kotlin.Int))
+scroll position, and [`animateScrollToItem()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState.md.txt#animateScrollToItem(kotlin.Int,kotlin.Int))
 which scrolls using an animation (also known as a smooth scroll):
 
 > [!NOTE]
-> **Note:** Both [`scrollToItem()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState#scrollToItem(kotlin.Int,kotlin.Int)) and [`animateScrollToItem()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState#animateScrollToItem(kotlin.Int,kotlin.Int)) are suspending functions, which means that we need to invoke them in a coroutine. See our [coroutines documentation](https://developer.android.com/develop/ui/compose/kotlin#coroutines) for more information on how to do that in Compose.
+> **Note:** Both [`scrollToItem()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState.md.txt#scrollToItem(kotlin.Int,kotlin.Int)) and [`animateScrollToItem()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState.md.txt#animateScrollToItem(kotlin.Int,kotlin.Int)) are suspending functions, which means that we need to invoke them in a coroutine. See our [coroutines documentation](https://developer.android.com/develop/ui/compose/kotlin.md.txt#coroutines) for more information on how to do that in Compose.
 
 
 ```kotlin
@@ -868,7 +868,7 @@ fun MessageList(messages: List<Message>) {
 
 ## Large data-sets (paging)
 
-The [Paging library](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) enables apps to
+The [Paging library](https://developer.android.com/topic/libraries/architecture/paging/v3-overview.md.txt) enables apps to
 support large lists of items, loading and displaying small chunks of the list as
 necessary. Paging 3.0 and later provides Compose support through the
 `androidx.paging:paging-compose` library.
@@ -878,9 +878,9 @@ necessary. Paging 3.0 and later provides Compose support through the
 > 3.0](https://developer.android.com/topic/libraries/architecture/paging/v3-migration) first.
 
 To display a list of paged content, we can use the
-[`collectAsLazyPagingItems()`](https://developer.android.com/reference/kotlin/androidx/paging/compose/package-summary#collectaslazypagingitems)
+[`collectAsLazyPagingItems()`](https://developer.android.com/reference/kotlin/androidx/paging/compose/package-summary.md.txt#collectaslazypagingitems)
 extension function, and then pass in the returned
-[`LazyPagingItems`](https://developer.android.com/reference/kotlin/androidx/paging/compose/LazyPagingItems)
+[`LazyPagingItems`](https://developer.android.com/reference/kotlin/androidx/paging/compose/LazyPagingItems.md.txt)
 to `items()` in our `LazyColumn`. Similar to Paging support in views, you can
 display placeholders while data loads by checking if the `item` is `null`:
 
@@ -909,7 +909,7 @@ fun MessageList(pager: Pager<Int, Message>) {
 <br />
 
 > [!WARNING]
-> **Warning:** If you use a [`RemoteMediator`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator) to fetch data from a network service, make sure to provide realistically sized placeholder items. If you use a `RemoteMediator`, it will be repeatedly invoked to fetch new data, up until the screen has been filled with content. If small placeholders are provided (or no placeholder at all), the screen might never be filled, and your app will fetch many pages of data.
+> **Warning:** If you use a [`RemoteMediator`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator.md.txt) to fetch data from a network service, make sure to provide realistically sized placeholder items. If you use a `RemoteMediator`, it will be repeatedly invoked to fetch new data, up until the screen has been filled with content. If small placeholders are provided (or no placeholder at all), the screen might never be filled, and your app will fetch many pages of data.
 
 ## Tips on using Lazy layouts
 
@@ -1090,7 +1090,7 @@ design can have more specific requirements for how these should be positioned
 in the viewport.
 
 To achieve this, you can use custom vertical
-[`Arrangement`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement)
+[`Arrangement`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement.md.txt)
 and pass it to the `LazyColumn`. In the following example, the `TopWithFooter`
 object only needs to implement the `arrange` method. Firstly, it will position
 items one after another. Secondly, if the total used height is lower than the
@@ -1123,7 +1123,7 @@ object TopWithFooter : Arrangement.Vertical {
 
 Starting with Compose 1.2, in order to maximize the performance of your Lazy
 layout, consider adding
-[`contentType`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#extension-functions-summary)
+[`contentType`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary.md.txt#extension-functions-summary)
 to your lists or grids. This allows you to specify the content type for each
 item of the layout, in cases where you're composing a list or a grid consisting
 of multiple different types of items:
@@ -1140,7 +1140,7 @@ LazyColumn {
 <br />
 
 When you provide the
-[`contentType`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#extension-functions-summary),
+[`contentType`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary.md.txt#extension-functions-summary),
 Compose is able to reuse compositions only
 between the items of the same type. As reusing is more efficient when you
 compose items of similar structure, providing the content types ensures
@@ -1153,21 +1153,21 @@ reusing and your Lazy layout performance.
 You can only reliably measure the performance of a Lazy layout when running in
 release mode and with R8 optimization enabled. On debug builds, Lazy layout
 scrolling may appear slower. For more information on this, read through
-[Compose performance](https://developer.android.com/develop/ui/compose/performance).
+[Compose performance](https://developer.android.com/develop/ui/compose/performance.md.txt).
 
 ## Additional resources
 
-- [Create a finite scrollable list](https://developer.android.com/develop/ui/compose/quick-guides/content/finite-scrolling-list)
-- [Create a scrollable grid](https://developer.android.com/develop/ui/compose/quick-guides/content/create-scrollable-grid)
-- [Display nested scrolling items in a list](https://developer.android.com/develop/ui/compose/quick-guides/content/display-nested-list)
-- [Filter a list while typing](https://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing)
-- [Lazily load data with lists and Paging](https://developer.android.com/develop/ui/compose/quick-guides/content/lazily-load-list)
-- [Build a list using multiple item types](https://developer.android.com/develop/ui/compose/quick-guides/content/build-list-multiple-item-types)
-- [Video: Lists in Compose](https://developer.android.com/develop/ui/compose/quick-guides/content/video/lists-in-compose)
+- [Create a finite scrollable list](https://developer.android.com/develop/ui/compose/quick-guides/content/finite-scrolling-list.md.txt)
+- [Create a scrollable grid](https://developer.android.com/develop/ui/compose/quick-guides/content/create-scrollable-grid.md.txt)
+- [Display nested scrolling items in a list](https://developer.android.com/develop/ui/compose/quick-guides/content/display-nested-list.md.txt)
+- [Filter a list while typing](https://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing.md.txt)
+- [Lazily load data with lists and Paging](https://developer.android.com/develop/ui/compose/quick-guides/content/lazily-load-list.md.txt)
+- [Build a list using multiple item types](https://developer.android.com/develop/ui/compose/quick-guides/content/build-list-multiple-item-types.md.txt)
+- [Video: Lists in Compose](https://developer.android.com/develop/ui/compose/quick-guides/content/video/lists-in-compose.md.txt)
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Migrate `RecyclerView` to Lazy list](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/recycler-view)
-- [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving)
-- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin)
+- [Migrate `RecyclerView` to Lazy list](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/recycler-view.md.txt)
+- [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving.md.txt)
+- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin.md.txt)

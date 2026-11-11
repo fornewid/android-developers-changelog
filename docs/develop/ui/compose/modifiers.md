@@ -13,7 +13,7 @@ these sorts of things:
 - Add high-level interactions, like making an element clickable, scrollable, draggable, or zoomable
 
 Modifiers are standard Kotlin objects. Create a modifier by calling one of the
-[`Modifier`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier) class functions:
+[`Modifier`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt) class functions:
 
 
 ```kotlin
@@ -124,12 +124,12 @@ augment a composable. Here are some common modifiers you'll use to adjust your
 layouts.
 
 > [!NOTE]
-> **Note:** Many of these modifiers are designed to help you arrange your UI's layout just the way you need it. For more information about how modifiers work in your layout, see the [Compose layout basics](https://developer.android.com/develop/ui/compose/layouts/basics) documentation.
+> **Note:** Many of these modifiers are designed to help you arrange your UI's layout just the way you need it. For more information about how modifiers work in your layout, see the [Compose layout basics](https://developer.android.com/develop/ui/compose/layouts/basics.md.txt) documentation.
 
 ### `padding` and `size`
 
 By default, layouts provided in Compose wrap their children. However,
-you can set a size by using the [`size`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/size.modifier#(androidx.compose.ui.Modifier).size(androidx.compose.ui.unit.Dp)) modifier:
+you can set a size by using the [`size`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/size.modifier.md.txt#(androidx.compose.ui.Modifier).size(androidx.compose.ui.unit.Dp)) modifier:
 
 
 ```kotlin
@@ -202,7 +202,7 @@ fun ArtistCard(/*...*/) {
 
 ![The image height is as big as its parent](https://developer.android.com/static/develop/ui/compose/images/layout-fillmaxheight.png)
 
-To add padding all around an element, set a [`padding`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/padding.modifier#(androidx.compose.ui.Modifier).padding(androidx.compose.ui.unit.Dp)) modifier.
+To add padding all around an element, set a [`padding`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/padding.modifier.md.txt#(androidx.compose.ui.Modifier).padding(androidx.compose.ui.unit.Dp)) modifier.
 The `start` and `end` parameters of `padding` follow the layout direction. To
 pad the left or right edge regardless of layout direction, use
 [`absolutePadding`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/absolutePadding.modifier#(androidx.compose.ui.Modifier).absolutePadding(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) with its `left` and `right`
@@ -235,7 +235,7 @@ fun ArtistCard(artist: Artist) {
 ### Offset
 
 To position a layout relative to its original position, add the
-[`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/offset.modifier#(androidx.compose.ui.Modifier).offset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) modifier and set the offset in the **x** and **y** axis.
+[`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/offset.modifier.md.txt#(androidx.compose.ui.Modifier).offset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) modifier and set the offset in the **x** and **y** axis.
 Offsets can be positive as well as non-positive. The difference between
 `padding` and `offset` is that adding an `offset` to a composable does not
 change its measurements:
@@ -264,15 +264,15 @@ The `offset` modifier is applied horizontally according to the layout direction.
 In a **left-to-right** context, a positive `offset` shifts the element to the
 right, while in a **right-to-left** context, it shifts the element to the left.
 If you need to set an offset without considering layout direction, see the
-[`absoluteOffset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/absoluteOffset.modifier#(androidx.compose.ui.Modifier).absoluteOffset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp))
+[`absoluteOffset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/absoluteOffset.modifier.md.txt#(androidx.compose.ui.Modifier).absoluteOffset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp))
 modifier, in which a positive offset value always shifts the element to the
 right.
 
-The `offset` modifier provides two overloads - [`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/offset.modifier#(androidx.compose.ui.Modifier).offset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) that takes the
-offsets as parameters and [`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/offset.modifier#(androidx.compose.ui.Modifier).offset(kotlin.Function1)) that takes in a lambda.
+The `offset` modifier provides two overloads - [`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/offset.modifier.md.txt#(androidx.compose.ui.Modifier).offset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) that takes the
+offsets as parameters and [`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/offset.modifier.md.txt#(androidx.compose.ui.Modifier).offset(kotlin.Function1)) that takes in a lambda.
 For more in depth information on when to use each of these and how to optimize
 for performance, read through the
-[Compose performance - Defer reads as long as possible](https://developer.android.com/develop/ui/compose/performance#defer-reads) section.
+[Compose performance - Defer reads as long as possible](https://developer.android.com/develop/ui/compose/performance.md.txt#defer-reads) section.
 
 ## Scope safety in Compose
 
@@ -281,9 +281,9 @@ of certain composables. Compose enforces this by means of custom scopes.
 
 For example, if you want to make a child as big as the parent `Box` without
 affecting the `Box` size, use the
-[`matchParentSize`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/BoxScope#(androidx.compose.ui.Modifier).matchParentSize())
+[`matchParentSize`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/BoxScope.md.txt#(androidx.compose.ui.Modifier).matchParentSize())
 modifier. `matchParentSize` is only available in
-[`BoxScope`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/BoxScope).
+[`BoxScope`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/BoxScope.md.txt).
 Therefore, it can only be used on a child within a `Box` parent.
 
 Scope safety prevents you from adding modifiers that wouldn't work in other
@@ -374,8 +374,8 @@ fun ArtistCard(/*...*/) {
 ## Extracting and reusing modifiers
 
 Multiple modifiers can be chained together to decorate or
-augment a composable. This chain is created via the [`Modifier`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier) interface
-which represents an ordered, immutable list of single [`Modifier.Elements`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.Element).
+augment a composable. This chain is created via the [`Modifier`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt) interface
+which represents an ordered, immutable list of single [`Modifier.Elements`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.Element.md.txt).
 
 Each `Modifier.Element` represents an individual behavior, like layout, drawing
 and graphics behaviors, all gesture-related, focus and semantics behaviors, as
@@ -568,7 +568,7 @@ Column(modifier = Modifier.fillMaxWidth()) {
 #### Further chaining of extracted modifiers
 
 You can further chain or append your extracted modifier chains by calling the
-[`.then()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#then(androidx.compose.ui.Modifier)) function:
+[`.then()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#then(androidx.compose.ui.Modifier)) function:
 
 
 ```kotlin
@@ -586,11 +586,11 @@ otherModifier.then(reusableModifier)
 
 <br />
 
-Just keep in mind that [the order of modifiers matters!](https://developer.android.com/develop/ui/compose/modifiers#order-modifier-matters)
+Just keep in mind that [the order of modifiers matters!](https://developer.android.com/develop/ui/compose/modifiers.md.txt#order-modifier-matters)
 
 ## Learn more
 
-We provide a [full list of modifiers](https://developer.android.com/develop/ui/compose/modifiers-list), with
+We provide a [full list of modifiers](https://developer.android.com/develop/ui/compose/modifiers-list.md.txt), with
 their parameters and scopes.
 
 For more practice on how to use modifiers, you can also go through the
@@ -598,11 +598,11 @@ For more practice on how to use modifiers, you can also go through the
 [Now in Android repository](https://github.com/android/nowinandroid).
 
 For more information on custom modifiers and how to create them, take a look at
-the documentation on [Custom layouts - Using the layout modifier](https://developer.android.com/develop/ui/compose/layouts/custom#layout-modifier).
+the documentation on [Custom layouts - Using the layout modifier](https://developer.android.com/develop/ui/compose/layouts/custom.md.txt#layout-modifier).
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Compose layout basics](https://developer.android.com/develop/ui/compose/layouts/basics)
-- [Editor actions {:#editor-actions}](https://developer.android.com/develop/ui/compose/tooling/editor-actions)
-- [Custom layouts {:#custom-layouts }](https://developer.android.com/develop/ui/compose/layouts/custom)
+- [Compose layout basics](https://developer.android.com/develop/ui/compose/layouts/basics.md.txt)
+- [Editor actions {:#editor-actions}](https://developer.android.com/develop/ui/compose/tooling/editor-actions.md.txt)
+- [Custom layouts {:#custom-layouts }](https://developer.android.com/develop/ui/compose/layouts/custom.md.txt)

@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/views/appwidgets
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance/create-app-widget) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance/create-app-widget.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -17,10 +17,10 @@ music widget:
 ![Example of music widget](https://developer.android.com/static/images/appwidgets/music.png) **Figure 1.** Example of a music widget.
 
 This document describes how to publish a widget using a widget provider. For
-details about creating your own [`AppWidgetHost`](https://developer.android.com/reference/android/appwidget/AppWidgetHost) to host
-app widgets, see [Build a widget host](https://developer.android.com/develop/ui/views/appwidgets/host).
+details about creating your own [`AppWidgetHost`](https://developer.android.com/reference/android/appwidget/AppWidgetHost.md.txt) to host
+app widgets, see [Build a widget host](https://developer.android.com/develop/ui/views/appwidgets/host.md.txt).
 
-For information about how to design your widget, see [App widgets overview](https://developer.android.com/develop/ui/views/appwidgets/overview).
+For information about how to design your widget, see [App widgets overview](https://developer.android.com/develop/ui/views/appwidgets/overview.md.txt).
 
 
 ## Android skills
@@ -29,7 +29,7 @@ For information about how to design your widget, see [App widgets overview](http
 
 ### Manage AppWidget updates and bitmap memory
 
-Use the AppWidget Updates and Memory [Android skill](https://developer.android.com/tools/agents/android-skills) to downsample widget bitmaps, deduplicate responsive images, and stay within Android 17 RemoteViews memory limits across Glance and classic AppWidgetProvider widgets. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the AppWidget Updates and Memory [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to downsample widget bitmaps, deduplicate responsive images, and stay within Android 17 RemoteViews memory limits across Glance and classic AppWidgetProvider widgets. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add glance-appwidget-updates-and-memory
 
@@ -39,18 +39,18 @@ Use the AppWidget Updates and Memory [Android skill](https://developer.android.c
 
 To create a widget, you need the following basic components:
 
-[`AppWidgetProviderInfo`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo) object
+[`AppWidgetProviderInfo`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt) object
 :   Describes the metadata for a widget, such
-    as the widget's layout, update frequency, and [`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider)
+    as the widget's layout, update frequency, and [`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider.md.txt)
     class. `AppWidgetProviderInfo` is [defined in
     XML](https://developer.android.com/develop/ui/views/appwidgets#AppWidgetProviderInfo), as described in this document.
 
-[`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider) class
+[`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider.md.txt) class
 :   Defines the basic methods
     that let you programmatically interface with the widget. Through it, you
     receive broadcasts when the widget is updated, enabled, disabled, or
-    deleted. You [declare `AppWidgetProvider` in the manifest](https://developer.android.com/develop/ui/views/appwidgets#widget-broadcasts) and then
-    [implement](https://developer.android.com/develop/ui/views/appwidgets#widget-broadcasts) it, as described in this document.
+    deleted. You [declare `AppWidgetProvider` in the manifest](https://developer.android.com/develop/ui/views/appwidgets.md.txt#widget-broadcasts) and then
+    [implement](https://developer.android.com/develop/ui/views/appwidgets.md.txt#widget-broadcasts) it, as described in this document.
 
 View layout
 :   Defines the initial layout for the widget. The layout is [defined
@@ -72,9 +72,9 @@ time zone for a clock widget.
   widgets](https://developer.android.com/develop/ui/views/appwidgets/configuration#reconfigure-widgets) for more details.
 - In Android 11 (API level 30) or lower, this activity is launched every time the user adds the widget to their home screen.
 
-We also recommend the following improvements: [flexible widget layouts](https://developer.android.com/develop/ui/views/appwidgets/layouts),
-[miscellaneous enhancements](https://developer.android.com/develop/ui/views/appwidgets/enhance), [advanced widgets](https://developer.android.com/develop/ui/views/appwidgets/advanced), [collection
-widgets](https://developer.android.com/develop/ui/views/appwidgets/collections), and [building a widget host](https://developer.android.com/develop/ui/views/appwidgets/host).
+We also recommend the following improvements: [flexible widget layouts](https://developer.android.com/develop/ui/views/appwidgets/layouts.md.txt),
+[miscellaneous enhancements](https://developer.android.com/develop/ui/views/appwidgets/enhance.md.txt), [advanced widgets](https://developer.android.com/develop/ui/views/appwidgets/advanced.md.txt), [collection
+widgets](https://developer.android.com/develop/ui/views/appwidgets/collections), and [building a widget host](https://developer.android.com/develop/ui/views/appwidgets/host.md.txt).
 
 ## Declare the AppWidgetProviderInfo XML
 
@@ -83,7 +83,7 @@ and update frequencies) is exactly identical across both traditional Views and
 Glance-based widgets.
 
 To learn how to define and configure your metadata XML file, see the
-Compose-first [Declare the AppWidgetProviderInfo XML section](https://developer.android.com/develop/ui/compose/glance/create-app-widget#AppWidgetProviderInfo) in the Glance
+Compose-first [Declare the AppWidgetProviderInfo XML section](https://developer.android.com/develop/ui/compose/glance/create-app-widget.md.txt#AppWidgetProviderInfo) in the Glance
 documentation.
 
 ## Use the AppWidgetProvider class to handle widget broadcasts
@@ -101,15 +101,15 @@ documentation.
 ## Create the widget layout
 
 You must define an initial layout for your widget in XML and save it in the
-project's `res/layout/` directory. Refer to [Design guidelines](https://developer.android.com/develop/ui/views/appwidgets/overview#design) for details.
+project's `res/layout/` directory. Refer to [Design guidelines](https://developer.android.com/develop/ui/views/appwidgets/overview.md.txt#design) for details.
 
 Creating the widget layout is straightforward if you're familiar with
 [layouts](https://developer.android.com/guide/topics/ui/declaring-layout). However, be aware that widget layouts are based on
-[`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews), which doesn't support every kind of layout or view widget.
+[`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews.md.txt), which doesn't support every kind of layout or view widget.
 You can't use custom views or subclasses of the views that are supported by
 `RemoteViews`.
 
-`RemoteViews` also supports [`ViewStub`](https://developer.android.com/reference/android/view/ViewStub), which is an invisible, zero-sized
+`RemoteViews` also supports [`ViewStub`](https://developer.android.com/reference/android/view/ViewStub.md.txt), which is an invisible, zero-sized
 `View` you can use to lazily inflate layout resources at runtime.
 
 ### Support for stateful behavior
@@ -117,11 +117,11 @@ You can't use custom views or subclasses of the views that are supported by
 Android 12 adds support for stateful behavior using the following
 existing components:
 
-- [`CheckBox`](https://developer.android.com/reference/kotlin/android/widget/CheckBox)
+- [`CheckBox`](https://developer.android.com/reference/kotlin/android/widget/CheckBox.md.txt)
 
-- [`Switch`](https://developer.android.com/reference/android/widget/Switch)
+- [`Switch`](https://developer.android.com/reference/android/widget/Switch.md.txt)
 
-- [`RadioButton`](https://developer.android.com/reference/android/widget/RadioButton)
+- [`RadioButton`](https://developer.android.com/reference/android/widget/RadioButton.md.txt)
 
 The widget is still stateless. Your app must store the state and register for
 state change events.
@@ -161,14 +161,14 @@ shared. In Compose-first development, this can be set dynamically in Kotlin
 alongside custom theme resources.
 
 To implement corner radii or set up dynamic styles for older Android devices,
-see the Compose-first [Implement rounded corners section](https://developer.android.com/develop/ui/compose/glance/create-app-widget#rounded-corner) in the Glance
+see the Compose-first [Implement rounded corners section](https://developer.android.com/develop/ui/compose/glance/create-app-widget.md.txt#rounded-corner) in the Glance
 documentation.
 
 ## Keep RemoteViews images within system memory limits
 
 Widgets run inside the home screen launcher process, and `system_server`
 enforces a per-widget bitmap memory ceiling (`6 * width * height` bytes; see the
-[Android 17 widget memory limit behavior change](https://developer.android.com/about/versions/17/behavior-changes-17#memory-limit-widget)). When building classic
+[Android 17 widget memory limit behavior change](https://developer.android.com/about/versions/17/behavior-changes-17.md.txt#memory-limit-widget)). When building classic
 `AppWidgetProvider` widgets with `RemoteViews`, do the following:
 
 - **Downsample bitmaps using `WindowMetrics`:** On API level 30 and higher, compute your maximum bitmap budget from `WindowManager.currentWindowMetrics.bounds` rather than `resources.displayMetrics`, and decode opaque images with `Bitmap.Config.RGB_565` and power-of-two `inSampleSize`.

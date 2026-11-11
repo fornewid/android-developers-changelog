@@ -36,33 +36,35 @@ notification to appear as a bubble, attach extra data to it.
 
 The expanded view of the bubble is created from an activity that you choose.
 Configure the activity to appear properly as a bubble. The activity must be
-[resizeable](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) and [embedded](https://developer.android.com/guide/topics/manifest/activity-element#embedded). If it lacks either of these requirements, the
+[resizeable](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#resizeableActivity) and [embedded](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#embedded). If it lacks either of these requirements, the
 system displays it as a notification instead.
 
 The following code demonstrates how to implement a bubble:
 
-    <activity
-      android:name=".bubbles.BubbleActivity"
-      android:theme="@style/AppTheme.NoActionBar"
-      android:label="@string/title_activity_bubble"
-      android:allowEmbedded="true"
-      android:resizeableActivity="true"
-    />
+```xml
+<activity
+  android:name=".bubbles.BubbleActivity"
+  android:theme="@style/AppTheme.NoActionBar"
+  android:label="@string/title_activity_bubble"
+  android:allowEmbedded="true"
+  android:resizeableActivity="true"
+/>
+```
 
 If your app shows multiple bubbles of the same type, like multiple chat
 conversations with different contacts, the activity must be able to launch
 multiple instances. On devices running Android 10 and lower,
 notifications aren't shown as bubbles unless you explicitly set
-[`documentLaunchMode`](https://developer.android.com/guide/topics/manifest/activity-element#dlmode) to
+[`documentLaunchMode`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#dlmode) to
 `"always"`. Beginning with Android 11, you don't need to explicitly
 set this value, as the system automatically sets all conversations'
 `documentLaunchMode` to `"always"`.
 
 To send a notification bubble, follow these steps:
 
-1. [Create a notification](https://developer.android.com/develop/ui/compose/notifications/create-notification) as you normally do.
-2. Call [`BubbleMetadata.Builder(PendingIntent, Icon)`](https://developer.android.com/reference/android/app/Notification.BubbleMetadata.Builder#Builder(android.app.PendingIntent,%20android.graphics.drawable.Icon)) or [`BubbleMetadata.Builder(String)`](https://developer.android.com/reference/android/app/Notification.BubbleMetadata.Builder#Builder(java.lang.String)) to create a `BubbleMetadata` object.
-3. Use [`setBubbleMetadata()`](https://developer.android.com/reference/android/app/Notification.Builder#setBubbleMetadata(android.app.Notification.BubbleMetadata)) to add the metadata to the notification.
+1. [Create a notification](https://developer.android.com/develop/ui/compose/notifications/create-notification.md.txt) as you normally do.
+2. Call [`BubbleMetadata.Builder(PendingIntent, Icon)`](https://developer.android.com/reference/android/app/Notification.BubbleMetadata.Builder.md.txt#Builder(android.app.PendingIntent,%20android.graphics.drawable.Icon)) or [`BubbleMetadata.Builder(String)`](https://developer.android.com/reference/android/app/Notification.BubbleMetadata.Builder.md.txt#Builder(java.lang.String)) to create a `BubbleMetadata` object.
+3. Use [`setBubbleMetadata()`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setBubbleMetadata(android.app.Notification.BubbleMetadata)) to add the metadata to the notification.
 4. If targeting Android 11 (API level 30) or higher, make sure the bubble metadata or notification references a sharing shortcut.
 5. Modify your app to **not** cancel notifications that appear as bubbles. Canceling a notification removes the bubble from the screen. Opening a bubble automatically hides the notification associated with it.
 
@@ -111,7 +113,7 @@ val builder = NotificationCompat.Builder(context, CHANNEL_ID)
 <br />
 
 > [!NOTE]
-> **Note:** The first time you send the notification to display a bubble, make sure it's in a notification channel with [`IMPORTANCE_MIN`](https://developer.android.com/reference/android/app/NotificationManager#IMPORTANCE_MIN) or higher.
+> **Note:** The first time you send the notification to display a bubble, make sure it's in a notification channel with [`IMPORTANCE_MIN`](https://developer.android.com/reference/android/app/NotificationManager.md.txt#IMPORTANCE_MIN) or higher.
 
 If your app is in the foreground when a bubble is sent, importance is ignored
 and your bubble is always shown, unless the user blocks bubbles or notifications
@@ -126,9 +128,9 @@ it also makes sense to suppress the initial notification sent when a bubble is
 created.
 
 There are methods you can use to set flags that enable these behaviors:
-[`setAutoExpandBubble()`](https://developer.android.com/reference/android/app/Notification.BubbleMetadata.Builder#setAutoExpandBubble(boolean))
+[`setAutoExpandBubble()`](https://developer.android.com/reference/android/app/Notification.BubbleMetadata.Builder.md.txt#setAutoExpandBubble(boolean))
 and
-[`setSuppressNotification()`](https://developer.android.com/reference/android/app/Notification.BubbleMetadata.Builder#setSuppressNotification(boolean)).
+[`setSuppressNotification()`](https://developer.android.com/reference/android/app/Notification.BubbleMetadata.Builder.md.txt#setSuppressNotification(boolean)).
 
 The following example shows how to configure a bubble to automatically present
 in an expanded state:
@@ -166,8 +168,8 @@ requirements](https://developer.android.com/guide/topics/ui/conversations). If a
 Android 10 (API level 29) or lower, the notification appears as a bubble only if
 one or more of the following conditions are met:
 
-- The notification uses [`MessagingStyle`](https://developer.android.com/reference/android/app/Notification.MessagingStyle) and has a [`Person`](https://developer.android.com/reference/android/app/Person) added.
-- The notification is from a call to [`Service.startForeground`](https://developer.android.com/reference/android/app/Service#startForeground(int,%20android.app.Notification)), has a [`category`](https://developer.android.com/reference/android/app/Notification.Builder#setCategory(java.lang.String)) of [`CATEGORY_CALL`](https://developer.android.com/reference/android/app/Notification#CATEGORY_CALL), and has a `Person` added.
+- The notification uses [`MessagingStyle`](https://developer.android.com/reference/android/app/Notification.MessagingStyle.md.txt) and has a [`Person`](https://developer.android.com/reference/android/app/Person.md.txt) added.
+- The notification is from a call to [`Service.startForeground`](https://developer.android.com/reference/android/app/Service.md.txt#startForeground(int,%20android.app.Notification)), has a [`category`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setCategory(java.lang.String)) of [`CATEGORY_CALL`](https://developer.android.com/reference/android/app/Notification.md.txt#CATEGORY_CALL), and has a `Person` added.
 - The app is in the foreground when the notification is sent.
 
 If none of these conditions are met, the notification is shown instead of a
@@ -197,14 +199,14 @@ navigation.
 
 - Send a notification as a bubble only if it is important, such as when it is part of an ongoing communication or if the user explicitly requests a bubble for content. Bubbles use screen real estate and cover other app content.
 - Make sure your bubble notification also works as a normal notification. When the user disables the bubble, a bubble notification is shown as a normal notification.
-- Use the [`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/package-summary#backhandler) composable and tie its `enabled` parameter to your UI state so it only intercepts back presses when necessary. Once your handler disables itself, the bubble collapses.
+- Use the [`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/package-summary.md.txt#backhandler) composable and tie its `enabled` parameter to your UI state so it only intercepts back presses when necessary. Once your handler disables itself, the bubble collapses.
 
 When a collapsed bubble receives an updated message, the bubble shows a badge
 icon to indicate an unread message. When the user opens the message in the
 associated app, follow these steps:
 
-- [Update](https://developer.android.com/training/notify-user/build-notification#Updating) the `BubbleMetadata` to suppress the notification. Call [`BubbleMetadata.Builder.setSuppressNotification()`](https://developer.android.com/reference/android/app/Notification.BubbleMetadata.Builder#setSuppressNotification(boolean)). This removes the badge icon to indicate that the user interacted with the message.
-- Set [`Notification.Builder.setOnlyAlertOnce()`](https://developer.android.com/reference/android/app/Notification.Builder#setOnlyAlertOnce(boolean)) to `true` to suppress the sound or vibration that accompanies the `BubbleMetadata` update.
+- [Update](https://developer.android.com/training/notify-user/build-notification#Updating) the `BubbleMetadata` to suppress the notification. Call [`BubbleMetadata.Builder.setSuppressNotification()`](https://developer.android.com/reference/android/app/Notification.BubbleMetadata.Builder.md.txt#setSuppressNotification(boolean)). This removes the badge icon to indicate that the user interacted with the message.
+- Set [`Notification.Builder.setOnlyAlertOnce()`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setOnlyAlertOnce(boolean)) to `true` to suppress the sound or vibration that accompanies the `BubbleMetadata` update.
 
 ## Sample app
 

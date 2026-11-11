@@ -87,7 +87,7 @@ fun ValidateInput() {
 
 ### Key points about the code
 
-- Defines a composable that reuses the [`OutlinedTextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable) component, adding the required parameters to display validator error messages as user types.
+- Defines a composable that reuses the [`OutlinedTextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable.md.txt) component, adding the required parameters to display validator error messages as user types.
 - `EmailViewModel` is used to maintain state and provide the email validation logic.
 - if `isError` is true, the UI provides a visual indicator of a validation error state.
 - The component will display "Incorrect email format." until a complete, correct email is input.
@@ -108,4 +108,4 @@ Learn how to implement ways for users to interact with your app by entering text
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

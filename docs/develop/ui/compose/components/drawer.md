@@ -23,10 +23,10 @@ In Material Design, there are two types of navigation drawers:
 
 ## Example
 
-You can use the [`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0)) composable to implement a
+You can use the [`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable.md.txt#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0)) composable to implement a
 navigation drawer.
 
-Use the `drawerContent` slot to provide a [`ModalDrawerSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalDrawerSheet.composable#ModalDrawerSheet(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) and provide
+Use the `drawerContent` slot to provide a [`ModalDrawerSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalDrawerSheet.composable.md.txt#ModalDrawerSheet(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) and provide
 the drawer's contents, as in the following example:
 
 
@@ -73,14 +73,14 @@ ModalNavigationDrawer(
 
 ## Control behavior
 
-To control how the drawer opens and closes, use [`DrawerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DrawerState). You should
+To control how the drawer opens and closes, use [`DrawerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DrawerState.md.txt). You should
 pass a `DrawerState` to `ModalNavigationDrawer` using the `drawerState`
 parameter.
 
-`DrawerState` provides access to the [`open`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DrawerState#open) and [`close`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DrawerState#close) functions, as
+`DrawerState` provides access to the [`open`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DrawerState.md.txt#open) and [`close`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DrawerState.md.txt#close) functions, as
 well as properties related to the current drawer state. These suspending
 functions require a `CoroutineScope`, which you can instantiate using
-[`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rememberCoroutineScope.composable). You can also call the suspending functions in
+[`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rememberCoroutineScope.composable.md.txt). You can also call the suspending functions in
 response to UI events.
 
 
@@ -205,20 +205,20 @@ fun DetailedDrawerExample(
 ### Key points about the code
 
 - Populates the `drawerContent` with a `Column` containing sections, dividers, and navigation items.
-- [`ModalDrawerSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalDrawerSheet.composable#ModalDrawerSheet(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) provides Material Design styling for the drawer.
-- [`HorizontalDivider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/HorizontalDivider.composable#HorizontalDivider(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color)) separates sections within the drawer.
-- [`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0)) creates the drawer.
+- [`ModalDrawerSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalDrawerSheet.composable.md.txt#ModalDrawerSheet(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) provides Material Design styling for the drawer.
+- [`HorizontalDivider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/HorizontalDivider.composable.md.txt#HorizontalDivider(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color)) separates sections within the drawer.
+- [`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable.md.txt#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0)) creates the drawer.
 - `drawerContent` defines the content of the drawer.
 - Inside the `ModalDrawerSheet`, a `Column` arranges the drawer elements vertically.
-- [`NavigationDrawerItem`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationDrawerItem.composable#NavigationDrawerItem(kotlin.Function0,kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.material3.NavigationDrawerItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) composables represent individual items in the drawer.
-- The [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Scaffold.composable#Scaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.material3.FabPosition,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) provides the basic structure of the screen, including the [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable).
+- [`NavigationDrawerItem`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationDrawerItem.composable.md.txt#NavigationDrawerItem(kotlin.Function0,kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.material3.NavigationDrawerItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) composables represent individual items in the drawer.
+- The [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Scaffold.composable.md.txt#Scaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.material3.FabPosition,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) provides the basic structure of the screen, including the [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable.md.txt).
 - The `navigationIcon` in the `TopAppBar` controls the drawer's open and close state.
 
 ### Result
 
-The following image shows how the drawer appears when opened, with sections and
+The following preview shows how the drawer appears when opened, with sections and
 items displayed:
-![A detailed navigation drawer with two sections, each with multiple labeled items and icons.](https://developer.android.com/static/develop/ui/compose/images/components/drawer-detailed.png) **Figure 2.** A navigation drawer opened with two nested groups.
+![An open modal navigation drawer with the title 'Drawer Title', 'Section 1' with 'Item 1' and 'Item 2', and 'Section 2', over the dimmed app screen.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_detaileddrawerexample.png) **Figure 2.** A navigation drawer opened with two nested groups.
 
 ## Additional resources
 

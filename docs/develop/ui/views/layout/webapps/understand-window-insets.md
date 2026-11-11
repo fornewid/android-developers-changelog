@@ -21,7 +21,7 @@ behavior with native Android app expectations:
 | M139 | `ime()` (input method editor, which is a keyboard) support through visual viewport resizing. | All WebViews. |
 | M144 | `displayCutout()` and `systemBars()` support. | All WebViews (regardless of fullscreen state). |
 
-For more information, see [`WindowInsetsCompat`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat).
+For more information, see [`WindowInsetsCompat`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat.md.txt).
 
 ## Core mechanics
 
@@ -92,7 +92,7 @@ ViewCompat.setOnApplyWindowInsetsListener(myWebView, (v, windowInsets) -> {
 <br />
 
 > [!CAUTION]
-> **Caution:** Returning the original `windowInsets` object overrides WebView's default bounds-checking, but can cause double-padding if your native UI also applies padding based on window insets. To know how to avoid this, see [Implement inset handling](https://developer.android.com/develop/ui/views/layout/webapps/understand-window-insets#inset-handling).
+> **Caution:** Returning the original `windowInsets` object overrides WebView's default bounds-checking, but can cause double-padding if your native UI also applies padding based on window insets. To know how to avoid this, see [Implement inset handling](https://developer.android.com/develop/ui/views/layout/webapps/understand-window-insets.md.txt#inset-handling).
 
 ## Manage resize events
 
@@ -116,7 +116,7 @@ WebView's default settings work automatically for most apps. However, if your
 app uses custom layouts (for example, if you add your own padding to account for
 the status bar or keyboard), you can use the following approaches to improve how
 the web content and native UI work together. If your native UI applies padding
-to a container based on [`WindowInsets`](https://developer.android.com/reference/android/view/WindowInsets), you must manage these insets
+to a container based on [`WindowInsets`](https://developer.android.com/reference/android/view/WindowInsets.md.txt), you must manage these insets
 correctly before they reach the WebView to avoid double-padding.
 
 Double-padding is a situation where the native layout and the web content apply
@@ -153,7 +153,7 @@ The following example shows a broken interaction between the app and WebView:
 3. **Notification blocked:** Consuming the insets prevents the Android system from sending the necessary update notification down the view hierarchy to the WebView.
 4. **Ghost padding:** Because the WebView doesn't receive the update, it retains the padding from the previous state, causing ghost padding (for example, keeping keyboard padding after the keyboard is hidden).
 
-Instead, use the [`WindowInsetsCompat.Builder`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat.Builder) to set the handled types to
+Instead, use the [`WindowInsetsCompat.Builder`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat.Builder.md.txt) to set the handled types to
 zero before passing the object to the child views. This informs the WebView that
 those specific insets have already been accounted for while enabling the
 notification to continue down the view hierarchy.
@@ -210,8 +210,8 @@ ViewCompat.setOnApplyWindowInsetsListener(rootView, (view, windowInsets) -> {
 To disable these modern behaviors and return to legacy viewport handling, do the
 following:
 
-1. **Intercept insets:** Use [`setOnApplyWindowInsetsListener`](https://developer.android.com/reference/android/view/View.OnApplyWindowInsetsListener) or override
-   [`onApplyWindowInsets`](https://developer.android.com/reference/android/view/View#onApplyWindowInsets(android.view.WindowInsets)) in a `WebView` subclass.
+1. **Intercept insets:** Use [`setOnApplyWindowInsetsListener`](https://developer.android.com/reference/android/view/View.OnApplyWindowInsetsListener.md.txt) or override
+   [`onApplyWindowInsets`](https://developer.android.com/reference/android/view/View.md.txt#onApplyWindowInsets(android.view.WindowInsets)) in a `WebView` subclass.
 
 2. **Clear insets:** Return a consumed set of insets (for example,
    `WindowInsetsCompat.CONSUMED`) from the start. This action prevents the inset

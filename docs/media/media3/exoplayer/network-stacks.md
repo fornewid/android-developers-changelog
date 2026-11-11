@@ -105,7 +105,7 @@ other network stack that works on Android.
 
 ### HttpEngine
 
-[`HttpEngine`](https://developer.android.com/reference/android/net/http/HttpEngine)
+[`HttpEngine`](https://developer.android.com/reference/android/net/http/HttpEngine.md.txt)
 is the recommended default network stack on Android from API 34 (or S
 extensions 7). In most cases, it is using the Cronet network stack internally,
 supporting HTTP, HTTP/2, and HTTP/3 over QUIC protocols.
@@ -150,7 +150,7 @@ smaller, adding under 1MB to your app.
 ### Android's built-in network stack
 
 > [!NOTE]
-> **Note:** On API 34 (or S extensions 7) and above, the recommended built-in network stack is [HttpEngine](https://developer.android.com/media/media3/exoplayer/network-stacks#httpengine).
+> **Note:** On API 34 (or S extensions 7) and above, the recommended built-in network stack is [HttpEngine](https://developer.android.com/media/media3/exoplayer/network-stacks.md.txt#httpengine).
 
 ExoPlayer supports use of Android's built-in network stack with
 `DefaultHttpDataSource` and `DefaultHttpDataSource.Factory`, which are part of
@@ -227,7 +227,7 @@ the same bytes from network. This is useful when seeking back in the current
 media or repeating the same item.
 
 > [!NOTE]
-> **Note:** You can also download media more permanently outside of playback as explained in [Downloading media](https://developer.android.com/media/media3/exoplayer/downloading-media).
+> **Note:** You can also download media more permanently outside of playback as explained in [Downloading media](https://developer.android.com/media/media3/exoplayer/downloading-media.md.txt).
 
 Caching requires a `SimpleCache` instance pointing to a dedicated cache
 directory and a `CacheDataSource.Factory`:

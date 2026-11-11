@@ -19,7 +19,7 @@ When a phone is unavailable, Wi-Fi and cellular networks are used, depending on
 the watch hardware. The Wear OS platform handles transitions between networks.
 
 You can use protocols such as HTTP, TCP, and UDP. However, the
-[`android.webkit`](https://developer.android.com/reference/android/webkit/package-summary) APIs, including the [`CookieManager`](https://developer.android.com/reference/android/webkit/CookieManager) class, are not
+[`android.webkit`](https://developer.android.com/reference/android/webkit/package-summary.md.txt) APIs, including the [`CookieManager`](https://developer.android.com/reference/android/webkit/CookieManager.md.txt) class, are not
 available. You can use cookies by reading and writing headers on requests and
 responses.
 
@@ -39,7 +39,7 @@ When battery preservation is prioritized, the active network might not have
 enough bandwidth for network tasks like transporting large files or streaming
 media.
 
-This section provides guidance on using the [`ConnectivityManager`](https://developer.android.com/reference/android/net/ConnectivityManager) class to
+This section provides guidance on using the [`ConnectivityManager`](https://developer.android.com/reference/android/net/ConnectivityManager.md.txt) class to
 help ensure that your app has the network bandwidth it needs. For general
 information about fine-grained control over network resources, see [manage
 network usage](https://developer.android.com/training/basics/network-ops/managing).
@@ -143,7 +143,7 @@ For sending notifications, use [Firebase Cloud Messaging (FCM)](https://firebase
 No APIs for network access or FCM are specific to Wear OS. Refer to the existing
 documentation about [connecting to a network](https://developer.android.com/training/basics/network-ops/connecting) and [cloud messaging](https://firebase.google.com/docs/cloud-messaging/).
 
-FCM works well with [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) and is the recommended way to send notifications
+FCM works well with [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby.md.txt) and is the recommended way to send notifications
 to a watch.
 
 Provide for messages from FCM by collecting a registration token for a device
@@ -163,12 +163,12 @@ By default, notifications are bridged from a phone app to a watch. If you have a
 standalone Wear OS app and a corresponding phone app, duplicate notifications
 can occur. For example, a single [notification](https://developer.android.com/training/wearables/notifications/creating) from FCM, received by both a
 phone and a watch, could be displayed by both devices independently. You can
-prevent this by using [bridging APIs](https://developer.android.com/training/wearables/notifications/bridger).
+prevent this by using [bridging APIs](https://developer.android.com/training/wearables/notifications/bridger.md.txt).
 
 ## Use background services
 
 To help ensure that background tasks are correctly executed, they must account
-for [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) and App Standby.
+for [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby.md.txt) and App Standby.
 
 When a screen turns off or enters ambient mode for a long enough time, a subset
 of Doze can occur, and background tasks can be deferred for certain periods.
@@ -184,7 +184,7 @@ requests:
 
 - Schedule a request that requires networking.
 
-  Specify whether the [`NetworkType`](https://developer.android.com/reference/androidx/work/NetworkType) is `CONNECTED` or `UNMETERED`.
+  Specify whether the [`NetworkType`](https://developer.android.com/reference/androidx/work/NetworkType.md.txt) is `CONNECTED` or `UNMETERED`.
   `UNMETERED` is for large data transfers, while `CONNECTED` is for small
   transfers.
 - Schedule a request while charging.

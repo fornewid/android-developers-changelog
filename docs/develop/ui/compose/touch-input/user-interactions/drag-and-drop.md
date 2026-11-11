@@ -6,8 +6,8 @@ source: md.txt
 
 Jetpack Compose supports drag and drop with two modifiers:
 
-- [`dragAndDropSource`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/dragAndDropSource.modifier#(androidx.compose.ui.Modifier).dragAndDropSource(kotlin.Function1)): Specifies a composable as the starting point of the drag gesture
-- [`dragAndDropTarget`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/dragAndDropTarget.modifier#(androidx.compose.ui.Modifier).dragAndDropTarget(kotlin.Function1,androidx.compose.ui.draganddrop.DragAndDropTarget)): Specifies a composable that accepts the dropped data
+- [`dragAndDropSource`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/dragAndDropSource.modifier.md.txt#(androidx.compose.ui.Modifier).dragAndDropSource(kotlin.Function1)): Specifies a composable as the starting point of the drag gesture
+- [`dragAndDropTarget`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/dragAndDropTarget.modifier.md.txt#(androidx.compose.ui.Modifier).dragAndDropTarget(kotlin.Function1,androidx.compose.ui.draganddrop.DragAndDropTarget)): Specifies a composable that accepts the dropped data
 
 For example, to enable users to drag an image in your app, create an image
 composable and add the `dragAndDropSource` modifier. To set up a drop target,
@@ -16,7 +16,7 @@ create another image composable and add the `dragAndDropTarget` modifier.
 The modifiers can be applied to multiple drag sources and multiple drop targets.
 
 The modifiers enable apps to share data between two or more composables using
-[`ClipData`](https://developer.android.com/reference/kotlin/android/content/ClipData), which is interoperable with [`View`](https://developer.android.com/reference/kotlin/android/view/View) implementations.
+[`ClipData`](https://developer.android.com/reference/kotlin/android/content/ClipData.md.txt), which is interoperable with [`View`](https://developer.android.com/reference/kotlin/android/view/View.md.txt) implementations.
 
 > [!NOTE]
 > **Note:** Drag and drop is different from [pick up and
@@ -26,7 +26,7 @@ The modifiers enable apps to share data between two or more composables using
 
 To enable drag events inside a component, add the `dragAndDropSource` modifier.
 This takes a function as a parameter. Inside this function, use
-[`DragAndDropTransferData`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draganddrop/DragAndDropTransferData) to represent the transferable data. The data can
+[`DragAndDropTransferData`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draganddrop/DragAndDropTransferData.md.txt) to represent the transferable data. The data can
 be a remote URI, rich text data on the clipboard, a local file, or more, but
 they all need to be wrapped in a `ClipData` object. Provide plain text, for
 example, as follows:
@@ -46,7 +46,7 @@ Modifier.dragAndDropSource { _ ->
 
 To allow the drag action to cross the borders of the app, the
 `DragAndDropTransferData` constructor accepts a `flags` argument. In the
-following example, the [`DRAG_FLAG_GLOBAL`](https://developer.android.com/reference/kotlin/android/view/View#drag_flag_global) constant specifies that data can
+following example, the [`DRAG_FLAG_GLOBAL`](https://developer.android.com/reference/kotlin/android/view/View.md.txt#drag_flag_global) constant specifies that data can
 be dragged from one app into another:
 
 
@@ -64,7 +64,7 @@ Modifier.dragAndDropSource { _ ->
 <br />
 
 `DragAndDropTransferData` accepts flags supported by the Android View system.
-See the list of [View](https://developer.android.com/reference/kotlin/android/view/View) constants for an exhaustive list of available flags.
+See the list of [View](https://developer.android.com/reference/kotlin/android/view/View.md.txt) constants for an exhaustive list of available flags.
 
 ## Receive drop data
 
@@ -90,7 +90,7 @@ val callback = remember {
 
 <br />
 
-To accept data from other apps, use the [`requestDragAndDropPermission`](https://developer.android.com/reference/android/app/Activity#requestDragAndDropPermissions(android.view.DragEvent)) to
+To accept data from other apps, use the [`requestDragAndDropPermission`](https://developer.android.com/reference/android/app/Activity.md.txt#requestDragAndDropPermissions(android.view.DragEvent)) to
 enable the reception, and release it once done:
 
 
@@ -112,7 +112,7 @@ val externalAppCallback = remember {
 
 It's important to remember that the `DragAndDropEvent` returned from the Compose
 callback is different from the one expected by the `requestDragAndDropPermission`
-method, so you need to call the [`toAndroidDragEvent()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draganddrop/DragAndDropEvent#(androidx.compose.ui.draganddrop.DragAndDropEvent).toAndroidDragEvent()) extension function on the parameter before
+method, so you need to call the [`toAndroidDragEvent()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draganddrop/DragAndDropEvent.md.txt#(androidx.compose.ui.draganddrop.DragAndDropEvent).toAndroidDragEvent()) extension function on the parameter before
 passing it to the permission request.
 
 The next snippet demonstrates how to handle dropped plain text:
@@ -133,7 +133,7 @@ if the event is refused and does not propagate to the parent component.
 
 ## Handle drag-and-drop events
 
-Override callbacks in the [`DragAndDropTarget`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draganddrop/DragAndDropTarget) interface to observe when a
+Override callbacks in the [`DragAndDropTarget`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draganddrop/DragAndDropTarget.md.txt) interface to observe when a
 drag-and-drop event starts, ends, or enters or exits a component for precise
 control of the UI and the app's behavior:
 

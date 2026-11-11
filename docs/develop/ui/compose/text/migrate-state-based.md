@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 This page provides examples of how you can migrate value-based `TextField`s to
-state-based `TextField`s. See the [Configure text fields](https://developer.android.com/develop/ui/compose/text/user-input) page for
+state-based `TextField`s. See the [Configure text fields](https://developer.android.com/develop/ui/compose/text/user-input.md.txt) page for
 information on the differences between value and state-based `TextField`s.
 
 ## Basic usage
@@ -159,7 +159,7 @@ fun NewTextFieldCreditCardFormatter() {
 <br />
 
 - Replace the filtering in `onValueChange` with an `InputTransformation` to set the max length of the input.
-  - Refer to the [Filtering through `onValueChange`](https://developer.android.com/develop/ui/compose/text/migrate-state-based#filtering-through) section.
+  - Refer to the [Filtering through `onValueChange`](https://developer.android.com/develop/ui/compose/text/migrate-state-based.md.txt#filtering-through) section.
 - Replace `VisualTransformation` with `OutputTransformation` to add in dashes.
   - With `VisualTransformation`, you are responsible for both creating the new text with the dashes and also calculating how the indices are mapped between the visual text and the backing state.
   - `OutputTransformation` takes care of the offset mapping automatically. You just need to add the dashes in correct places using the `TextFieldBuffer` from `OutputTransformation.transformOutput`'s receiver scope.
@@ -280,7 +280,7 @@ position after the changes.
 
 ## ViewModel `StateFlow` architecture
 
-Many applications follow the [Modern app development guidelines](https://developer.android.com/topic/architecture/ui-layer/state-production), which
+Many applications follow the [Modern app development guidelines](https://developer.android.com/topic/architecture/ui-layer/state-production.md.txt), which
 promote using a `StateFlow` to define the UI state of a screen or a component
 through a single immutable class that carries all the information.
 

@@ -4,7 +4,7 @@ url: https://developer.android.com/training/wearables/data/dynamic
 source: md.txt
 ---
 
-Wear OS supports dynamic updates to information that appears in your [tiles](https://developer.android.com/training/wearables/tiles)
+Wear OS supports dynamic updates to information that appears in your [tiles](https://developer.android.com/training/wearables/tiles.md.txt)
 and [complications](https://developer.android.com/training/wearables/tiles/complications).
 
 Using dynamic expressions, you can bind data that appears on a surface of your
@@ -16,14 +16,14 @@ complications automatically.
 ## Create dynamic data bindings
 
 To create a dynamic data binding, define a variable that uses a
-[dynamic data type](https://developer.android.com/training/wearables/data/dynamic#data-types). Associate this variable with the data stream that you
+[dynamic data type](https://developer.android.com/training/wearables/data/dynamic.md.txt#data-types). Associate this variable with the data stream that you
 want to use.
 
 For example, you can fetch values related to the system clock and health
 information, as shown in the following code snippet.
 
 > [!NOTE]
-> **Note:** To access the data in [`PlatformHealthSources`](https://developer.android.com/reference/androidx/wear/protolayout/expression/PlatformHealthSources), you must [request a
+> **Note:** To access the data in [`PlatformHealthSources`](https://developer.android.com/reference/androidx/wear/protolayout/expression/PlatformHealthSources.md.txt), you must [request a
 > runtime permission](https://developer.android.com/training/permissions/requesting) in your app.
 
 <br />
@@ -50,18 +50,18 @@ val dynamicAdditionResult = DynamicInt32.constant(1).plus(2)
 
 Wear OS supports the following dynamic data types:
 
-- [`DynamicBool`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicBool)
-- [`DynamicColor`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicColor)
-- [`DynamicDuration`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicDuration)
-- [`DynamicFloat`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicFloat)
-- [`DynamicInstant`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicInstant)
-- [`DynamicInt32`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicInt32)
-- [`DynamicString`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicString)
+- [`DynamicBool`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicBool.md.txt)
+- [`DynamicColor`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicColor.md.txt)
+- [`DynamicDuration`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicDuration.md.txt)
+- [`DynamicFloat`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicFloat.md.txt)
+- [`DynamicInstant`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicInstant.md.txt)
+- [`DynamicInt32`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicInt32.md.txt)
+- [`DynamicString`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicString.md.txt)
 
 In addition, you can transform the data type using built-in capabilities, such
 as the following:
 
-- `DynamicInt32` supports conversion to a `DynamicString` using [`format()`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicInt32#format()).
+- `DynamicInt32` supports conversion to a `DynamicString` using [`format()`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicInt32.md.txt#format()).
 - `DynamicDuration` lets you extract specific parts, such as the seconds part of a duration, as `DynamicInt32` objects.
 
 ## Use a limited number of dynamic expressions on each screen
@@ -91,12 +91,12 @@ val animatedAdditionResult = DynamicInt32.constant(1).plus(2).animate()
 To learn more about how to use dynamic expressions in specific surfaces, see the
 following pages:
 
-- [Use dynamic values in complications](https://developer.android.com/training/wearables/complications/exposing-data#providing-dynamic-values)
-- [Dynamic expressions in Tiles](https://developer.android.com/training/wearables/tiles/dynamic)
+- [Use dynamic values in complications](https://developer.android.com/training/wearables/complications/exposing-data.md.txt#providing-dynamic-values)
+- [Dynamic expressions in Tiles](https://developer.android.com/training/wearables/tiles/dynamic.md.txt)
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
 - [Migrate to ProtoLayout namespaces](https://developer.android.com/training/wearables/tiles/migrate-to-protolayout)
-- [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects)
-- [AGSL Quick Reference](https://developer.android.com/develop/ui/views/graphics/agsl/agsl-quick-reference)
+- [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects.md.txt)
+- [AGSL Quick Reference](https://developer.android.com/develop/ui/views/graphics/agsl/agsl-quick-reference.md.txt)

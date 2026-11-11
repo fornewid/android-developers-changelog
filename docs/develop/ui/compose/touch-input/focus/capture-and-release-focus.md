@@ -14,7 +14,7 @@ or directional keys from navigating away.
 
 ## Capture focus
 
-To capture focus, invoke [`captureFocus()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary#(androidx.compose.ui.focus.FocusRequesterModifierNode).captureFocus()) on a [`FocusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester):
+To capture focus, invoke [`captureFocus()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary.md.txt#(androidx.compose.ui.focus.FocusRequesterModifierNode).captureFocus()) on a [`FocusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester.md.txt):
 
 
 ```kotlin
@@ -43,7 +43,7 @@ don't move focus to neighboring components.
 ## Release focus
 
 To exit the captured state and restore normal focus navigation across the UI,
-call [`freeFocus()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary#(androidx.compose.ui.focus.FocusRequesterModifierNode).freeFocus()):
+call [`freeFocus()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary.md.txt#(androidx.compose.ui.focus.FocusRequesterModifierNode).freeFocus()):
 
 
 ```kotlin
@@ -61,6 +61,6 @@ IconButton(
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-target)
-- [Group focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-group)
-- [Programmatically request focus](https://developer.android.com/develop/ui/compose/touch-input/focus/request-focus)
+- [Focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-target.md.txt)
+- [Group focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-group.md.txt)
+- [Programmatically request focus](https://developer.android.com/develop/ui/compose/touch-input/focus/request-focus.md.txt)

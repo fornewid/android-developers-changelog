@@ -8,7 +8,7 @@ source: md.txt
 > **Experimental:** On-device code coverage is in active development, and its behavior and Gradle properties might change between releases.
 
 The Android Gradle plugin (AGP) can create code coverage reports for your
-[instrumented tests](https://developer.android.com/training/testing/instrumented-tests) with an on-device coverage agent. By
+[instrumented tests](https://developer.android.com/training/testing/instrumented-tests.md.txt) with an on-device coverage agent. By
 default, AGP instruments your app's classes with JaCoCo when it builds your
 app, which means that it adds code that records which parts of your app your
 tests run. With the on-device coverage agent, AGP builds your app without this
@@ -21,7 +21,6 @@ following benefits:
 
 - **Faster builds**: AGP doesn't run the JaCoCo instrumentation step on your app's classes and their dependencies, which can reduce build times by 10-20%.
 - **Smaller debug APKs**: AGP doesn't add coverage-tracking code to your app's classes, which can make your debug APK 20-25% smaller.
-- **No unused generated classes in reports**: Generated classes that your tests don't use don't lower your coverage numbers.
 
 The actual build time and APK size improvements depend on your project.
 
@@ -33,7 +32,7 @@ devices meet the following requirements:
 - AGP 9.6.0-alpha01 or higher.
 - A device or emulator that runs Android 9 (API level 28) or higher.
 - A debuggable build type for the variant that you test, such as the default `debug` build type. The agent can attach only to debuggable apps.
-- Instrumented tests that run with [`AndroidJUnitRunner`](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/runner) or a custom test runner that extends it.
+- Instrumented tests that run with [`AndroidJUnitRunner`](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/runner.md.txt) or a custom test runner that extends it.
 
 ## Enable on-device code coverage
 
@@ -43,36 +42,42 @@ module-level build files for each variant you want to get coverage reports for:
 
 ### Kotlin
 
-    android {
-        // ...
-        buildTypes {
-            debug {
-                // Enable coverage for instrumentation tests
-                enableAndroidTestCoverage = true
-            }
+```kotlin
+android {
+    // ...
+    buildTypes {
+        debug {
+            // Enable coverage for instrumentation tests
+            enableAndroidTestCoverage = true
         }
     }
+}
+```
 
 ### Groovy
 
-    android {
-        // ...
-        buildTypes {
-            debug {
-                // Enable coverage for instrumentation tests
-                enableAndroidTestCoverage true
-            }
+```groovy
+android {
+    // ...
+    buildTypes {
+        debug {
+            // Enable coverage for instrumentation tests
+            enableAndroidTestCoverage true
         }
     }
+}
+```
 
 Then, enable the on-device coverage agent and report aggregation in your
 project's `gradle.properties` file:
 
-    android.experimental.androidTest.coverage.useOnDeviceAgent=true
-    android.experimental.reportAggregationSupport=true
+```properties
+android.experimental.androidTest.coverage.useOnDeviceAgent=true
+android.experimental.reportAggregationSupport=true
+```
 
 On-device code coverage generates its HTML report with the same renderer as
-[unified code coverage reports](https://developer.android.com/studio/test/coverage-report#unified), so it requires both
+[unified code coverage reports](https://developer.android.com/studio/test/coverage-report.md.txt#unified), so it requires both
 properties.
 
 ## Generate on-device code coverage reports
@@ -93,7 +98,7 @@ reports, or when you move coverage thresholds from one to the other:
 | Area | Build-time code coverage | On-device code coverage |
 |---|---|---|
 | **When classes are instrumented** | When AGP builds your app, using JaCoCo | On the test device while your tests run, using the coverage agent |
-| **Classes in the report** | All classes in your module | Only the classes in your module's namespace that load while your tests run, so coverage percentages can be higher |
+| **Classes in the report** | All compiled classes, except code annotated as generated, such as Dagger factories | Classes with a source file in your module's source folders, including Dagger factories |
 | **Instruction counts** | Java bytecode instructions | DEX bytecode instructions |
 | **Branch counts** | Branches in Java bytecode | Branches in DEX bytecode. D8 can compile conditions into different branches, and each tool leaves out different compiler-generated branches, so counts can differ. |
 | **Counters** | Instructions, branches, lines, complexity, methods, and classes | Instructions, branches, lines, methods, and classes. Complexity counters aren't supported yet. |
@@ -109,7 +114,7 @@ run.
 
 On-device code coverage has the following known issues:
 
-- **Classes that don't load:** Classes that never load while your tests run don't appear in the report. Build-time code coverage reports list them with 0% coverage.
-- **Aggregated reports:** If your project also collects coverage from host tests, such as unit tests, the aggregated coverage report that the `testAllSuites` and `testAllSuitesWithDependencies` tasks create combines Java bytecode counts from those tests with DEX bytecode counts from the agent. Because of the [differences between the two](https://developer.android.com/studio/test/on-device-code-coverage#differences), the aggregated instruction and branch numbers can differ from the numbers in build-time code coverage reports.
+- **Generated code:** On-device reports include generated code, such as Dagger factories, that build-time reports typically skip. If your tests don't execute this code, it counts as uncovered.
+- **Aggregated reports:** If your project also collects coverage from host tests, such as unit tests, the aggregated coverage report that the `testAllSuites` and `testAllSuitesWithDependencies` tasks create combines Java bytecode counts from those tests with DEX bytecode counts from the agent. Because of the [differences between the two](https://developer.android.com/studio/test/on-device-code-coverage.md.txt#differences), the aggregated instruction and branch numbers can differ from the numbers in build-time code coverage reports.
 
 Report any other feedback and issues through the [issue tracker](https://issuetracker.google.com/issues/new?component=192708&template=840533).

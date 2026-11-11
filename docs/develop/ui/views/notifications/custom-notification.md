@@ -18,7 +18,7 @@ layout for the notification.
 ## Create custom layout for the content area
 
 If you need a custom layout, you can apply
-[`NotificationCompat.DecoratedCustomViewStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.DecoratedCustomViewStyle) to your notification. This
+[`NotificationCompat.DecoratedCustomViewStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.DecoratedCustomViewStyle.md.txt) to your notification. This
 API lets you provide a custom layout for the content area normally occupied by
 the title and text content, while still using system decorations for the
 notification icon, timestamp, sub-text, and action buttons.
@@ -26,11 +26,11 @@ notification icon, timestamp, sub-text, and action buttons.
 This API works similarly to the [expandable notification templates](https://developer.android.com/training/notify-user/expanded) by
 building on the basic notification layout as follows:
 
-1. Build a [basic notification](https://developer.android.com/training/notify-user/build-notification) with [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder).
-2. Call [`setStyle()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setStyle(androidx.core.app.NotificationCompat.Style)), passing it an instance of [`NotificationCompat.DecoratedCustomViewStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.DecoratedCustomViewStyle).
-3. Inflate your custom layout as an instance of [`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews).
-4. Call [`setCustomContentView()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setCustomContentView(android.widget.RemoteViews)) to set the layout for the collapsed notification.
-5. Optionally, also call [`setCustomBigContentView()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setCustomBigContentView(android.widget.RemoteViews)) to set a different layout for the expanded notification.
+1. Build a [basic notification](https://developer.android.com/training/notify-user/build-notification) with [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt).
+2. Call [`setStyle()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setStyle(androidx.core.app.NotificationCompat.Style)), passing it an instance of [`NotificationCompat.DecoratedCustomViewStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.DecoratedCustomViewStyle.md.txt).
+3. Inflate your custom layout as an instance of [`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews.md.txt).
+4. Call [`setCustomContentView()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setCustomContentView(android.widget.RemoteViews)) to set the layout for the collapsed notification.
+5. Optionally, also call [`setCustomBigContentView()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setCustomBigContentView(android.widget.RemoteViews)) to set a different layout for the expanded notification.
 
 > [!NOTE]
 > **Note:** If you're creating a customized notification for media playback controls, follow the same recommendations but use the `NotificationCompat.DecoratedMediaCustomViewStyle` class instead.
@@ -120,13 +120,15 @@ and versions. Apply Support Library styles such as
 as shown in the following example. These styles adapt to the color variations so
 you don't end up with black-on-black or white-on-white text.
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="@string/notification_title"
-        android:id="@+id/notification_title"
-        style="@style/TextAppearance.Compat.Notification.Title" />
+```xml
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:text="@string/notification_title"
+    android:id="@+id/notification_title"
+    style="@style/TextAppearance.Compat.Notification.Title" />
+```
 
 Avoid setting a background image on your `RemoteViews` object, because your text
 might become unreadable.
@@ -148,7 +150,7 @@ Tapping the expander arrow expands the notification, as shown in figure 4:
 ## Create a fully custom notification layout
 
 > [!NOTE]
-> **Note:** Apps targeting [Android 12](https://developer.android.com/about/versions/12/behavior-changes-12#custom-notifications) (API level 31) or later can't create fully custom notifications. Instead, the system applies a standard template nearly identical to the behavior of [`Notification.DecoratedCustomViewStyle`](https://developer.android.com/reference/android/app/Notification.DecoratedCustomViewStyle).
+> **Note:** Apps targeting [Android 12](https://developer.android.com/about/versions/12/behavior-changes-12.md.txt#custom-notifications) (API level 31) or later can't create fully custom notifications. Instead, the system applies a standard template nearly identical to the behavior of [`Notification.DecoratedCustomViewStyle`](https://developer.android.com/reference/android/app/Notification.DecoratedCustomViewStyle.md.txt).
 
 If you don't want your notification decorated with the standard notification
 icon and header, follow the preceding steps but *don't* call `setStyle()`.

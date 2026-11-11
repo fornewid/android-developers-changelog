@@ -13,7 +13,7 @@ user choice in your app.
 
 ## Play Billing Library setup
 
-[Add the Play Billing Library dependency](https://developer.android.com/google/play/billing/getting-ready#dependency) to your Android app. To use the
+[Add the Play Billing Library dependency](https://developer.android.com/google/play/billing/getting-ready.md.txt#dependency) to your Android app. To use the
 alternative billing APIs you need to use version 5.2 or higher. If you need to
 migrate from an earlier version, follow the instructions in the [migration
 guide](https://developer.android.com/google/play/billing/migrate-gpblv5) before you attempt to implement alternative billing.
@@ -24,11 +24,11 @@ guide](https://developer.android.com/google/play/billing/migrate-gpblv5) before 
 > **Note:** In Play Billing Library 6.1 alternative billing was renamed to user choice billing to distinguish alternative billing with user choice from alternative billing only (i.e. without user choice). As a result, API and class names such as enableAlternativeBilling have been switched to enableUserChoiceBilling. APIs and classes with the old naming still exist for backwards compatibility and will be removed in a subsequent release.
 
 The first steps in the integration process are the same as the ones described in
-the [Google Play Billing integration guide](https://developer.android.com/google/play/billing/integrate), with a few modifications when
-[initializing your BillingClient](https://developer.android.com/google/play/billing/integrate#initialize):
+the [Google Play Billing integration guide](https://developer.android.com/google/play/billing/integrate.md.txt), with a few modifications when
+[initializing your BillingClient](https://developer.android.com/google/play/billing/integrate.md.txt#initialize):
 
-- You need to call a new method to indicate that you want to offer the user a choice of billing options: [`enableUserChoiceBilling`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.Builder#enableUserChoiceBilling(com.android.billingclient.api.UserChoiceBillingListener)).
-- You need to register an [`UserChoiceBillingListener`](https://developer.android.com/reference/com/android/billingclient/api/UserChoiceBillingListener) for handling cases where the user chooses alternative billing.
+- You need to call a new method to indicate that you want to offer the user a choice of billing options: [`enableUserChoiceBilling`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.Builder.md.txt#enableUserChoiceBilling(com.android.billingclient.api.UserChoiceBillingListener)).
+- You need to register an [`UserChoiceBillingListener`](https://developer.android.com/reference/com/android/billingclient/api/UserChoiceBillingListener.md.txt) for handling cases where the user chooses alternative billing.
 
 The following example demonstrates initializing a `BillingClient` with these
 modifications:
@@ -58,33 +58,35 @@ val billingClient = BillingClient.newBuilder(context)
 
 ### Java
 
-    private PurchasesUpdatedListener purchasesUpdatedListener = new PurchasesUpdatedListener() {
-        @Override
-        public void onPurchasesUpdated(BillingResult billingResult, List<Purchase> purchases) {
-            // Handle new Google Play purchase.
-        }
-    };
+```java
+private PurchasesUpdatedListener purchasesUpdatedListener = new PurchasesUpdatedListener() {
+    @Override
+    public void onPurchasesUpdated(BillingResult billingResult, List<Purchase> purchases) {
+        // Handle new Google Play purchase.
+    }
+};
 
-    private UserChoiceBillingListener userChoiceBillingListener = new UserChoiceBillingListener() {
-        @Override
-        public void userSelectedAlternativeBilling(
-            UserChoiceDetails userChoiceDetails) {
-            // Handle new Google Play purchase.
-        }
-    };
+private UserChoiceBillingListener userChoiceBillingListener = new UserChoiceBillingListener() {
+    @Override
+    public void userSelectedAlternativeBilling(
+        UserChoiceDetails userChoiceDetails) {
+        // Handle new Google Play purchase.
+    }
+};
 
-    private BillingClient billingClient = BillingClient.newBuilder(context)
-        .setListener(purchasesUpdatedListener)
-        .enablePendingPurchases()
-        .enableUserChoiceBilling(userChoiceBillingListener)
-        .build();
+private BillingClient billingClient = BillingClient.newBuilder(context)
+    .setListener(purchasesUpdatedListener)
+    .enablePendingPurchases()
+    .enableUserChoiceBilling(userChoiceBillingListener)
+    .build();
+```
 
 After you initialize the `BillingClient`, you need to [establish a connection to
 Google Play](https://developer.android.com/google/play/billing/integrate#connect_to_google_play) as described in the integration guide.
 
 ## Display available products
 
-You can [display available products to the user](https://developer.android.com/google/play/billing/integrate#show-products) in the same way as with a
+You can [display available products to the user](https://developer.android.com/google/play/billing/integrate.md.txt#show-products) in the same way as with a
 Google Play billing system integration. When your user has seen the products
 available for purchase and selects one to buy, launch the user choice billing
 flow as described in the following section.
@@ -92,10 +94,10 @@ flow as described in the following section.
 ## Launch the user choice billing flow
 
 > [!NOTE]
-> **Note:** If you are offering user choice billing through alternative billing APIs, the user experience requirements will be met by integrating with and using the client-side APIs. You will not need to separately follow the interim user experience guidelines ([for South Korea](https://developer.android.com/google/play/billing/alternative/interim-ux/billing-choice), [for other eligible markets](https://developer.android.com/google/play/billing/alternative/interim-ux/user-choice)).
+> **Note:** If you are offering user choice billing through alternative billing APIs, the user experience requirements will be met by integrating with and using the client-side APIs. You will not need to separately follow the interim user experience guidelines ([for South Korea](https://developer.android.com/google/play/billing/alternative/interim-ux/billing-choice.md.txt), [for other eligible markets](https://developer.android.com/google/play/billing/alternative/interim-ux/user-choice.md.txt)).
 
 Launch the user choice billing flow by calling `launchBillingFlow()`. This works
-the same as [launching a purchase flow](https://developer.android.com/google/play/billing/integrate#launch) with a Google Play billing system
+the same as [launching a purchase flow](https://developer.android.com/google/play/billing/integrate.md.txt#launch) with a Google Play billing system
 integration: you provide a `ProductDetails` instance and an `offerToken`
 corresponding to the product and the offer that the user wants to acquire. If
 the user chooses Google Play's billing system, this information is used to
@@ -105,7 +107,7 @@ When developers call `launchBillingFlow()`, the Google Play billing system
 performs the following check:
 
 - The system checks if the user's [Google Play country](https://support.google.com/googleplay/answer/7431675) is a country that supports alternative billing with user choice (i.e. a supported country). If the user's Google Play country is supported, Google Play checks whether alternative billing has been enabled based on the configuration of the `BillingClient`.
-  - If alternative billing with user choice has been enabled, the purchase flow shows the [user choice UX](https://developer.android.com/google/play/billing/alternative#user-experience).
+  - If alternative billing with user choice has been enabled, the purchase flow shows the [user choice UX](https://developer.android.com/google/play/billing/alternative.md.txt#user-experience).
   - If alternative billing with user choice is **not** enabled, the purchase flow shows the standard Google Play billing system UX, without user choice.
 - If the user's Google Play country is **not** a supported country, the purchase flow shows the standard Google Play billing system UX, without user choice.
 
@@ -129,7 +131,7 @@ purchase flow in the alternative billing system. In particular, the
 The external transaction token provided in the `UserChoiceDetails` object
 represents a signature for the user's choice to enter the alternative billing
 flow. Use this token to report any transaction resulting from this choice as
-explained in the [backend integration guide](https://developer.android.com/google/play/billing/outside-gpb-backend).
+explained in the [backend integration guide](https://developer.android.com/google/play/billing/outside-gpb-backend.md.txt).
 
 The `UserChoiceBillingListener` should perform the following actions:
 
@@ -141,7 +143,7 @@ If the user completes the purchase using the alternative billing system, **you
 must report the transaction to Google Play by calling the Google Play Developer
 API from your backend within 24 hours** , providing the
 `externalTransactionToken` and additional transaction details. See the
-[backend integration guide](https://developer.android.com/google/play/billing/outside-gpb-backend) for more details.
+[backend integration guide](https://developer.android.com/google/play/billing/outside-gpb-backend.md.txt) for more details.
 
 The following example demonstrates how to implement the
 `UserChoiceBillingListener`:
@@ -179,38 +181,40 @@ private val userChoiceBillingListener =
 
 ### Java
 
-    private userChoiceBillingListener userChoiceBillingListener = new UserChoiceBillingListener() {
-        @Override
-        public void userSelectedAlternativeBilling(
-               UserChoiceDetails userChoiceDetails) {
-           // Get the products being purchased by the user.
-           List<Product> products =
-                  userChoiceDetails.getProducts();
+```java
+private userChoiceBillingListener userChoiceBillingListener = new UserChoiceBillingListener() {
+    @Override
+    public void userSelectedAlternativeBilling(
+           UserChoiceDetails userChoiceDetails) {
+       // Get the products being purchased by the user.
+       List<Product> products =
+              userChoiceDetails.getProducts();
 
-           // Send external transaction token to developer backend server
-           // this devBackend object is for demonstration purposes,
-           // developers can implement this step however best fits their
-           // app to backend communication.
-           devBackend.sendExternalTransactionStarted(
-                  userChoiceDetails.getExternalTransactionToken(),
-                  user
-           );
+       // Send external transaction token to developer backend server
+       // this devBackend object is for demonstration purposes,
+       // developers can implement this step however best fits their
+       // app to backend communication.
+       devBackend.sendExternalTransactionStarted(
+              userChoiceDetails.getExternalTransactionToken(),
+              user
+       );
 
-           // Launch alternative billing
-           // ...
-           // The developer backend handles reporting the transaction
-           // to Google Play's backend once the alternative billing
-           // purchase is completed.
-        }
-    };
+       // Launch alternative billing
+       // ...
+       // The developer backend handles reporting the transaction
+       // to Google Play's backend once the alternative billing
+       // purchase is completed.
+    }
+};
+```
 
 ### When the user selects Google Play's billing system
 
 If the user chooses Google Play's billing system, they continue with the
 purchase through Google Play.
 
-- See [Processing purchases](https://developer.android.com/google/play/billing/integrate#process) in the library integration guide for more information about how to handle new in-app purchases through Google Play's billing system.
-- See [New subscriptions](https://developer.android.com/google/play/billing/subscriptions#new) in the subscription management guide for additional guidance for subscription purchases.
+- See [Processing purchases](https://developer.android.com/google/play/billing/integrate.md.txt#process) in the library integration guide for more information about how to handle new in-app purchases through Google Play's billing system.
+- See [New subscriptions](https://developer.android.com/google/play/billing/subscriptions.md.txt#new) in the subscription management guide for additional guidance for subscription purchases.
 
 ## Handle changes in subscription
 
@@ -294,37 +298,39 @@ val billingResult = billingClient.launchBillingFlow(activity, billingFlowParams)
 
 ### Java
 
-    // The external transaction ID from the current
-    // alternative billing subscription.
-    String externalTransactionId = //... ;
+```java
+// The external transaction ID from the current
+// alternative billing subscription.
+String externalTransactionId = //... ;
 
-    BillingFlowParams billingFlowParams =
-        BillingFlowParams.newBuilder()
-            .setProductDetailsParamsList(
-                ImmutableList.of(
-                    ProductDetailsParams.newBuilder()
-                        // Fetched using queryProductDetailsAsync.
-                        .setProductDetails(productDetailsNewPlan)
-                        // offerIdToken can be found in
-                        // ProductDetails=>SubscriptionOfferDetails
-                        .setOfferToken(offerTokenNewPlan)
-                        .build()
-                    )
-                )
-            .setSubscriptionUpdateParams(
-                SubscriptionUpdateParams.newBuilder()
-                    .setOriginalExternalTransactionId(externalTransactionId)
+BillingFlowParams billingFlowParams =
+    BillingFlowParams.newBuilder()
+        .setProductDetailsParamsList(
+            ImmutableList.of(
+                ProductDetailsParams.newBuilder()
+                    // Fetched using queryProductDetailsAsync.
+                    .setProductDetails(productDetailsNewPlan)
+                    // offerIdToken can be found in
+                    // ProductDetails=>SubscriptionOfferDetails
+                    .setOfferToken(offerTokenNewPlan)
                     .build()
                 )
-            .build();
+            )
+        .setSubscriptionUpdateParams(
+            SubscriptionUpdateParams.newBuilder()
+                .setOriginalExternalTransactionId(externalTransactionId)
+                .build()
+            )
+        .build();
 
-    BillingResult billingResult = billingClient.launchBillingFlow(activity, billingFlowParams);
+BillingResult billingResult = billingClient.launchBillingFlow(activity, billingFlowParams);
 
-    // When the user selects the alternative billing flow,
-    // the UserChoiceBillingListener is triggered.
+// When the user selects the alternative billing flow,
+// the UserChoiceBillingListener is triggered.
+```
 
 When the upgrade or downgrade is completed in the alternative billing system,
-you need to [report a new transaction](https://developer.android.com/google/play/billing/alternative#report-new) using the external transaction token
+you need to [report a new transaction](https://developer.android.com/google/play/billing/alternative.md.txt#report-new) using the external transaction token
 obtained through the previous call for the new subscription purchase.
 
 #### Subscriptions bought through Google Play's billing system
@@ -351,10 +357,11 @@ Play's billing system:
 
    ### Java
 
-       String offerTokenNewPlan = productDetailsNewPlan
-               .getSubscriptionOfferDetails(selectedOfferIndex)
-               .getOfferToken();
-
+   ```java
+   String offerTokenNewPlan = productDetailsNewPlan
+           .getSubscriptionOfferDetails(selectedOfferIndex)
+           .getOfferToken();
+   ```
 2. Send the correct information to Google Play's billing system to process the
    new purchase, including the purchase token for the existing subscription:
 
@@ -399,30 +406,32 @@ Play's billing system:
 
    ### Java
 
-       BillingFlowParams billingFlowParams =
-           BillingFlowParams.newBuilder()
-               .setProductDetailsParamsList(
-                   ImmutableList.of(
-                       ProductDetailsParams.newBuilder()
-                           // Fetched using queryProductDetailsAsync
-                           .setProductDetails(productDetailsNewPlan)
-                           // offerIdToken can be found in
-                           // ProductDetails=>SubscriptionOfferDetails.
-                           .setOfferToken(offerTokenNewPlan)
-                           .build()
-                   )
-               )
-               .setSubscriptionUpdateParams(
-                   SubscriptionUpdateParams.newBuilder()
-                       // purchaseToken can be found in
-                       // Purchase#getPurchaseToken
-                       .setOldPurchaseToken(oldToken)
-                       .setReplaceProrationMode(BillingFlowParams.ProrationMode.IMMEDIATE_AND_CHARGE_FULL_PRICE)
+   ```java
+   BillingFlowParams billingFlowParams =
+       BillingFlowParams.newBuilder()
+           .setProductDetailsParamsList(
+               ImmutableList.of(
+                   ProductDetailsParams.newBuilder()
+                       // Fetched using queryProductDetailsAsync
+                       .setProductDetails(productDetailsNewPlan)
+                       // offerIdToken can be found in
+                       // ProductDetails=>SubscriptionOfferDetails.
+                       .setOfferToken(offerTokenNewPlan)
                        .build()
                )
-               .build();
+           )
+           .setSubscriptionUpdateParams(
+               SubscriptionUpdateParams.newBuilder()
+                   // purchaseToken can be found in
+                   // Purchase#getPurchaseToken
+                   .setOldPurchaseToken(oldToken)
+                   .setReplaceProrationMode(BillingFlowParams.ProrationMode.IMMEDIATE_AND_CHARGE_FULL_PRICE)
+                   .build()
+           )
+           .build();
 
-       BillingResult billingResult = billingClient.launchBillingFlow(activity, billingFlowParams);
+   BillingResult billingResult = billingClient.launchBillingFlow(activity, billingFlowParams);
+   ```
 
 This purchase proceeds in Google Play's billing system, and your app receives
 the `PurchasesUpdatedListener.onPurchaseUpdated` call with the result of the
@@ -435,7 +444,7 @@ recommended](https://medium.com/androiddevelopers/implementing-linkedpurchasetok
 
 ### Subscription cancellations and restorations
 
-Users should be able to [cancel](https://developer.android.com/google/play/billing/subscriptions#cancel) their subscription at any time. When a user
+Users should be able to [cancel](https://developer.android.com/google/play/billing/subscriptions.md.txt#cancel) their subscription at any time. When a user
 cancels a subscription, the termination of the entitlement may be deferred until
 the paid period ends. For example, if a user cancels a monthly subscription
 halfway through the month, they may continue to access the service for the
@@ -463,11 +472,11 @@ the user receives a credit or special renewal price as part of the restoration
 Generally, users can restore subscriptions on Google Play's billing system. For
 canceled subscriptions that were originally purchased on Google Play's billing
 system, the user may choose to undo the cancellation while the subscription is
-active through Google Play's [Resubscribe](https://developer.android.com/google/play/billing/subscriptions#restore) feature. In that case, you
+active through Google Play's [Resubscribe](https://developer.android.com/google/play/billing/subscriptions.md.txt#restore) feature. In that case, you
 receive a `SUBSCRIPTION_RESTARTED` Real Time Developer Notification in your
 backend, and a new purchase token is **not** issued---the original token is used
 to continue the subscription. To learn how to manage restoration in Google
-Play's billing system, see [Restorations](https://developer.android.com/google/play/billing/subscriptions#restore) in the subscription management
+Play's billing system, see [Restorations](https://developer.android.com/google/play/billing/subscriptions.md.txt#restore) in the subscription management
 guide.
 
 You can also trigger a restoration in Google Play's billing system from the app
@@ -492,7 +501,7 @@ payment decline without recovery (an expired account hold), then the user must
 Resubscribing can also be enabled through the app by processing it similarly to
 a standard signup. Users should be able to choose which billing system they want
 to use. `launchBillingFlow()` may be called in this case, as described in
-[Launch the user choice billing flow](https://developer.android.com/google/play/billing/alternative/alternative-billing-with-user-choice-in-app#launch-user-choice).
+[Launch the user choice billing flow](https://developer.android.com/google/play/billing/alternative/alternative-billing-with-user-choice-in-app.md.txt#launch-user-choice).
 
 ## Test alternative billing
 

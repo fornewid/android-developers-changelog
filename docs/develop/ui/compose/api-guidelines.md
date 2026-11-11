@@ -35,7 +35,7 @@ Compose:
 These guidelines are written for the following three audiences:
 
 - **Developers building apps based on Jetpack Compose**. You are in this group if you use Jetpack Compose in some part of your app.
-- **Developers working on Jetpack Compose framework development** . You are in this group if you make contributions to the [`androidx.compose` libraries](https://developer.android.com/jetpack/androidx/releases/compose).
+- **Developers working on Jetpack Compose framework development** . You are in this group if you make contributions to the [`androidx.compose` libraries](https://developer.android.com/jetpack/androidx/releases/compose.md.txt).
 - **Developers creating libraries based on Jetpack Compose**. You are in this group if you create Compose APIs or libraries of Compose UI elements. These libraries of Compose components may be publicly available or local to your company or team.
 
 Depending on the group you're in, you have different strictness levels for each

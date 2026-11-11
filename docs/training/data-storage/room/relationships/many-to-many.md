@@ -16,8 +16,8 @@ between the `Playlist` and `Song` entities.
 Follow these steps to define and query many-to-many relationships in your
 database:
 
-1. **[Define the relationship](https://developer.android.com/training/data-storage/room/relationships/many-to-many#define)**: Establish the entities and the associative entity, or cross-reference table, to represent the many-to-many relationship.
-2. **[Query the entities](https://developer.android.com/training/data-storage/room/relationships/many-to-many#query)**: Determine how you want to query the related entities, and create data classes to represent the intended output.
+1. **[Define the relationship](https://developer.android.com/training/data-storage/room/relationships/many-to-many.md.txt#define)**: Establish the entities and the associative entity, or cross-reference table, to represent the many-to-many relationship.
+2. **[Query the entities](https://developer.android.com/training/data-storage/room/relationships/many-to-many.md.txt#query)**: Determine how you want to query the related entities, and create data classes to represent the intended output.
 
 ## Define the relationship
 
@@ -64,7 +64,7 @@ The next step depends on how you want to query these related entities.
 - If you want to query *songs* and a list of the corresponding *playlists* for each song, create a new data class that contains a single `Song` object and a list of the `Playlist` objects that include the song.
 
 In either case, model the relationship between the entities by using the
-[`associateBy`](https://developer.android.com/reference/kotlin/androidx/room3/Relation#associateBy()) property in the [`@Relation`](https://developer.android.com/reference/kotlin/androidx/room3/Relation) annotation in each of these
+[`associateBy`](https://developer.android.com/reference/kotlin/androidx/room3/Relation.md.txt#associateBy()) property in the [`@Relation`](https://developer.android.com/reference/kotlin/androidx/room3/Relation.md.txt) annotation in each of these
 classes to identify the cross-reference entity providing the relationship
 between the `Playlist` entity and the `Song` entity.
 
@@ -102,7 +102,7 @@ query function your app needs.
 `getSongsWithPlaylists`
 :   Queries the database and returns all resulting `SongWithPlaylists` objects.
 
-Each function requires Room to run two queries. Add the [`@Transaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transaction)
+Each function requires Room to run two queries. Add the [`@Transaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transaction.md.txt)
 annotation to both functions to ensure the operation runs atomically.
 
 
@@ -119,7 +119,7 @@ suspend fun getSongsWithPlaylists(): List<SongWithPlaylists>
 <br />
 
 > [!NOTE]
-> **Note:** If the `@Relation` annotation doesn't meet your specific use case, you might need to use the `JOIN` keyword in your SQL queries to manually define the appropriate relationships. For more information about querying multiple tables manually, see [Accessing data using Room DAOs](https://developer.android.com/training/data-storage/room/accessing-data#query-multiple-tables).
+> **Note:** If the `@Relation` annotation doesn't meet your specific use case, you might need to use the `JOIN` keyword in your SQL queries to manually define the appropriate relationships. For more information about querying multiple tables manually, see [Accessing data using Room DAOs](https://developer.android.com/training/data-storage/room/accessing-data.md.txt#query-multiple-tables).
 
 ### Composite keys
 

@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/android-studio-otter-2-feature-dro
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Android Studio Otter 2 Feature Drop is stable!
 
-3 min read ![](https://developer.android.com/static/blog/assets/as_Otter2_96831eedef_hH9yT.webp) 04 Dec 2025 [![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1PwJsP.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns) [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan) \& [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) The [**Android Studio Otter 2 Feature Drop**](http://d.android.com/studio) is here to supercharge your productivity.
+3 min read ![](https://developer.android.com/static/blog/assets/as_Otter2_96831eedef_hH9yT.webp) 04 Dec 2025 [![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1PwJsP.webp)](https://developer.android.com/blog/authors/sandhya-mohan.md.txt)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns.md.txt) [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan.md.txt) \& [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns.md.txt) The [**Android Studio Otter 2 Feature Drop**](http://d.android.com/studio) is here to supercharge your productivity.
 
 This final stable release for '25 powers up Agent Mode, equipping it with the new Android Knowledge Base for improved accuracy, and giving you the option to try out the new Gemini 3 model. You'll also be able to take advantage of new settings such as the ability to keep your personalized IDE environment consistent across all of your machines. We've also incorporated all of the latest stability and performance improvements from the IntelliJ IDEA 2025.2 platform, including Kotlin compiler and terminal improvements, making this a significant enhancement for your development workflow.
 
@@ -29,13 +29,13 @@ The information in the Android Knowledge Base is stored in Android Studio and it
 
 *Gemini searching documentation before it answers you*
 
-This feature will be invoked automatically when Agent Mode detects a need for additional context, and you'll see additional explanatory text. However, if you'd like Agent Mode to reference documentation more frequently, you can include a line such as "Refer to Android documentation for guidance" in your [Rules configuration](https://developer.android.com/studio/gemini/rules).
+This feature will be invoked automatically when Agent Mode detects a need for additional context, and you'll see additional explanatory text. However, if you'd like Agent Mode to reference documentation more frequently, you can include a line such as "Refer to Android documentation for guidance" in your [Rules configuration](https://developer.android.com/studio/gemini/rules.md.txt).
 
 **Requested settings updates**
 
 **Backup and Sync**
 
-[Backup and Sync](https://developer.android.com/studio/intro/studio-config#ExportImportSettings) is a new way to keep your personalized Android Studio environment consistent across all your installations. You can now back up your settings---including your preferred keymaps, Code Editor settings, system settings, and more---to cloud storage using your Google Account, giving you a seamless experience wherever you code. We also support Backup and Sync using JetBrains accounts for developers using both IntelliJ and Android Studio installs simultaneously.
+[Backup and Sync](https://developer.android.com/studio/intro/studio-config.md.txt#ExportImportSettings) is a new way to keep your personalized Android Studio environment consistent across all your installations. You can now back up your settings---including your preferred keymaps, Code Editor settings, system settings, and more---to cloud storage using your Google Account, giving you a seamless experience wherever you code. We also support Backup and Sync using JetBrains accounts for developers using both IntelliJ and Android Studio installs simultaneously.
 ![settings.png](https://developer.android.com/static/blog/assets/settings_d1b7687b5e_201GUl.webp)
 
 *Backup and Sync*
@@ -60,12 +60,12 @@ This release incorporates all stability and quality improvements from the [Intel
 
 **Get started**
 
-Ready to dive in and accelerate your development? [Download](https://developer.android.com/studio) Android Studio Otter 2 Feature Drop and start exploring these powerful new features today! As always, your feedback is crucial to us. [Check known issues](https://developer.android.com/studio/known-issues), [report bugs](https://developer.android.com/studio/report-bugs), and be part of our vibrant community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all) [Medium](https://medium.com/androiddevelopers), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), or [X](https://twitter.com/androidstudio). Let's build the future of Android apps together!
+Ready to dive in and accelerate your development? [Download](https://developer.android.com/studio) Android Studio Otter 2 Feature Drop and start exploring these powerful new features today! As always, your feedback is crucial to us. [Check known issues](https://developer.android.com/studio/known-issues.md.txt), [report bugs](https://developer.android.com/studio/report-bugs.md.txt), and be part of our vibrant community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all) [Medium](https://medium.com/androiddevelopers), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), or [X](https://twitter.com/androidstudio). Let's build the future of Android apps together!
 Written by:
 
 -
 
-  ## [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan)
+  ## [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan.md.txt)
 
   ###### Product Manager
 
@@ -73,32 +73,31 @@ Written by:
   View profile](https://developer.android.com/blog/authors/sandhya-mohan) ![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1PwJsP.webp) ![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1PwJsP.webp)
 -
 
-  ## [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns)
+  ## [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns.md.txt)
 
   ###### Staff Developer Programs Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/trevor-johns) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 Continue reading
-- [![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1PwJsP.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns) 15 Jan 2026 15 Jan 2026 ![](https://developer.android.com/static/blog/assets/as_Otter3feb_2dc12a1b18_ZUOMxT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1PwJsP.webp)](https://developer.android.com/blog/authors/sandhya-mohan.md.txt)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns.md.txt) 15 Jan 2026 15 Jan 2026 ![](https://developer.android.com/static/blog/assets/as_Otter3feb_2dc12a1b18_ZUOMxT.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [LLM flexibility, Agent Mode improvements, and new agentic experiences in Android Studio Otter 3 Feature Drop](https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop)
+  ## [LLM flexibility, Agent Mode improvements, and new agentic experiences in Android Studio Otter 3 Feature Drop](https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop) We are excited to announce that Android Studio Otter 3 Feature Drop is now stable! This feature-packed release brings a huge update to your agentic workflows in Android Studio, and offers you more flexibility and control for how you use AI to help you build Android apps.
-  [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) • 9 min read
-- [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns) 02 Mar 2026 02 Mar 2026 ![](https://developer.android.com/static/blog/assets/supercharge_99f4219536_1MIVmw.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop.md.txt) We are excited to announce that Android Studio Otter 3 Feature Drop is now stable! This feature-packed release brings a huge update to your agentic workflows in Android Studio, and offers you more flexibility and control for how you use AI to help you build Android apps.
+  [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan.md.txt), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns.md.txt) • 9 min read
+- [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns.md.txt) 02 Mar 2026 02 Mar 2026 ![](https://developer.android.com/static/blog/assets/supercharge_99f4219536_1MIVmw.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Supercharge your Android development with 6 expert tips for Gemini in Android Studio](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio)
+  ## [Supercharge your Android development with 6 expert tips for Gemini in Android Studio](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio) In January we announced Android Studio Otter 3 Feature Drop in stable, including Agent Mode enhancements and many other updates to provide more control and flexibility over using AI to help you build high quality Android apps.
-  [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) • 4 min read
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio.md.txt) In January we announced Android Studio Otter 3 Feature Drop in stable, including Agent Mode enhancements and many other updates to provide more control and flexibility over using AI to help you build high quality Android apps.
+  [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns.md.txt) • 4 min read
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
 Stay in the loop
 
 

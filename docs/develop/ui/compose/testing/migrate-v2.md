@@ -4,16 +4,16 @@ url: https://developer.android.com/develop/ui/compose/testing/migrate-v2
 source: md.txt
 ---
 
-v2 versions of the Compose testing APIs ([`createComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary#createComposeRule()),
-[`createAndroidComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary#createAndroidComposeRule(java.lang.Class,androidx.compose.ui.test.ComposeUiTestConfig)), [`runComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary#runComposeUiTest(kotlin.coroutines.SuspendFunction1)),
-[`runAndroidComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary#runAndroidComposeUiTest(java.lang.Class,androidx.compose.ui.test.ComposeUiTestConfig,kotlin.coroutines.SuspendFunction1)), etc) are now available to improve control over
+v2 versions of the Compose testing APIs ([`createComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary.md.txt#createComposeRule()),
+[`createAndroidComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary.md.txt#createAndroidComposeRule(java.lang.Class,androidx.compose.ui.test.ComposeUiTestConfig)), [`runComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary.md.txt#runComposeUiTest(kotlin.coroutines.SuspendFunction1)),
+[`runAndroidComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary.md.txt#runAndroidComposeUiTest(java.lang.Class,androidx.compose.ui.test.ComposeUiTestConfig,kotlin.coroutines.SuspendFunction1)), etc) are now available to improve control over
 coroutine execution. This update does not duplicate the entire API surface;
 only the APIs that establish the test environment have been updated.
 
 The v1 APIs are deprecated, and it's strongly recommended to migrate to the new
 APIs. Migrating verifies your tests align with standard coroutine behavior and
 avoids future compatibility issues. For a list of the deprecated v1 APIs, see
-[API mappings](https://developer.android.com/develop/ui/compose/testing/migrate-v2#api-mappings).
+[API mappings](https://developer.android.com/develop/ui/compose/testing/migrate-v2.md.txt#api-mappings).
 
 While the v1 APIs relied on the `UnconfinedTestDispatcher`, the v2 APIs use the
 `StandardTestDispatcher` by default for the running composition. This change
@@ -23,22 +23,22 @@ explicit control over coroutine execution order.
 ## Configure the test environment
 
 > [!NOTE]
-> **Note:** The [`ComposeUiTestConfig`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTestConfig) class is included, starting in version 1.13, in the `junit4` and `ui-test` parts of the `androidx.compose.ui` AndroidX artifact ([androidx.compose.ui:ui-test-junit4:1.13.0-alpha01+](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-alpha01) and [androidx.compose.ui:ui-test:1.13.0-alpha01+](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-alpha01)).
+> **Note:** The [`ComposeUiTestConfig`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTestConfig.md.txt) class is included, starting in version 1.13, in the `junit4` and `ui-test` parts of the `androidx.compose.ui` AndroidX artifact ([androidx.compose.ui:ui-test-junit4:1.13.0-alpha01+](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#1.13.0-alpha01) and [androidx.compose.ui:ui-test:1.13.0-alpha01+](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#1.13.0-alpha01)).
 
-Compose test v2 APIs use [`ComposeUiTestConfig`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTestConfig) to customize the test
+Compose test v2 APIs use [`ComposeUiTestConfig`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTestConfig.md.txt) to customize the test
 environment. APIs that create setup functions for tests, such as
-[`createComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary#createComposeRule(androidx.compose.ui.test.ComposeUiTestConfig)), [`runComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary#runComposeUiTest(androidx.compose.ui.test.ComposeUiTestConfig,kotlin.coroutines.SuspendFunction1)), and other related APIs,
+[`createComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary.md.txt#createComposeRule(androidx.compose.ui.test.ComposeUiTestConfig)), [`runComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary.md.txt#runComposeUiTest(androidx.compose.ui.test.ComposeUiTestConfig,kotlin.coroutines.SuspendFunction1)), and other related APIs,
 accept `ComposeUiTestConfig`. This configuration object consolidates
-environmental related APIs like [`effectContext`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTestConfig#effectContext()), [`runTestContext`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTestConfig#runTestContext()),
-and [`testTimeout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTestConfig#testTimeout()) into a single object.
+environmental related APIs like [`effectContext`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTestConfig.md.txt#effectContext()), [`runTestContext`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTestConfig.md.txt#runTestContext()),
+and [`testTimeout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTestConfig.md.txt#testTimeout()) into a single object.
 
-The configuration model also manages [`inputMode`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTestConfig#inputMode()). Compose test v2 APIs
-enforce [`InputMode.Touch`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/InputMode#Touch()) by default at the start of each test to ensure
+The configuration model also manages [`inputMode`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTestConfig.md.txt#inputMode()). Compose test v2 APIs
+enforce [`InputMode.Touch`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/InputMode.md.txt#Touch()) by default at the start of each test to ensure
 determinism and prevent input mode state from leaking between tests.
 
 `ComposeUiTestConfig` is part of the Compose testing v2 APIs, which use
 [`StandardTestDispatcher`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-standard-test-dispatcher.html) by default. If your tests use v1 APIs,
-see [Migrate to v2 testing APIs](https://developer.android.com/develop/ui/compose/testing/migrate-v2#migrate-v2-apis) before adopting
+see [Migrate to v2 testing APIs](https://developer.android.com/develop/ui/compose/testing/migrate-v2.md.txt#migrate-v2-apis) before adopting
 `ComposeUiTestConfig`.
 
 ## Migrate to `ComposeUiTestConfig`
@@ -114,7 +114,7 @@ class FocusTest {
 <br />
 
 For other migration issues and resolutions, see
-[Common failures and how to fix them](https://developer.android.com/develop/ui/compose/testing/migrate-v2#common-failures).
+[Common failures and how to fix them](https://developer.android.com/develop/ui/compose/testing/migrate-v2.md.txt#common-failures).
 
 ## Migrate to v2 testing APIs
 
@@ -143,7 +143,7 @@ This prompt will use this guide to migrate to v2 testing APIs.
 
 AI prompts are intended to be used within Gemini in Android Studio.
 
-Learn more about Gemini in Studio here: [https://developer.android.com/studio/gemini/overview](https://developer.android.com/studio/gemini/overview)
+Learn more about Gemini in Studio here: [https://developer.android.com/studio/gemini/overview](https://developer.android.com/studio/gemini/overview.md.txt)
 <button class="devsite-dialog-close">Close</button> <button class="button icon-button android-ai-prompt-help-button" data-modal-dialog-id="ai-prompt_help_modal__migrate-from-v1-testing-apis-to-v2-testing-apis"> </button> <button class="button google-feedback" data-p="5207477" data-b="llm-prompts" data-context="migrate-from-v1-testing-apis-to-v2-testing-apis"> Share your thoughts </button>
 
 <br />
@@ -152,14 +152,14 @@ Use the following table to map deprecated v1 APIs to their v2 replacements:
 
 | **Deprecated (v1)** | **Replacement (v2)** |
 |---|---|
-| `androidx.compose.ui.test.junit4.createComposeRule` | [`androidx.compose.ui.test.junit4.v2.createComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary#createComposeRule(kotlin.coroutines.CoroutineContext)) |
-| `androidx.compose.ui.test.junit4.createAndroidComposeRule` | [`androidx.compose.ui.test.junit4.v2.createAndroidComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary#createAndroidComposeRule(kotlin.coroutines.CoroutineContext)) |
-| `androidx.compose.ui.test.junit4.createEmptyComposeRule` | [`androidx.compose.ui.test.junit4.v2.createEmptyComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary#createEmptyComposeRule(kotlin.coroutines.CoroutineContext)) |
-| `androidx.compose.ui.test.junit4.AndroidComposeTestRule` | [`androidx.compose.ui.test.junit4.v2.AndroidComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary#AndroidComposeTestRule(org.junit.rules.TestRule,kotlin.coroutines.CoroutineContext,kotlin.Function1)) |
-| `androidx.compose.ui.test.runComposeUiTest` | [`androidx.compose.ui.test.v2.runComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary#runComposeUiTest(kotlin.coroutines.CoroutineContext,kotlin.coroutines.CoroutineContext,kotlin.time.Duration,kotlin.coroutines.SuspendFunction1)) |
-| `androidx.compose.ui.test.runAndroidComposeUiTest` | [`androidx.compose.ui.test.v2.runAndroidComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary#runAndroidComposeUiTest(kotlin.coroutines.CoroutineContext,kotlin.coroutines.CoroutineContext,kotlin.time.Duration,kotlin.coroutines.SuspendFunction1)) |
-| `androidx.compose.ui.test.runEmptyComposeUiTest` | [`androidx.compose.ui.test.v2.runEmptyComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary#runEmptyComposeUiTest(kotlin.Function1)) |
-| `androidx.compose.ui.test.AndroidComposeUiTestEnvironment` | [`androidx.compose.ui.test.v2.AndroidComposeUiTestEnvironment`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary#AndroidComposeUiTestEnvironment(kotlin.coroutines.CoroutineContext,kotlin.coroutines.CoroutineContext,kotlin.time.Duration,kotlin.Function0)) |
+| `androidx.compose.ui.test.junit4.createComposeRule` | [`androidx.compose.ui.test.junit4.v2.createComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary.md.txt#createComposeRule(kotlin.coroutines.CoroutineContext)) |
+| `androidx.compose.ui.test.junit4.createAndroidComposeRule` | [`androidx.compose.ui.test.junit4.v2.createAndroidComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary.md.txt#createAndroidComposeRule(kotlin.coroutines.CoroutineContext)) |
+| `androidx.compose.ui.test.junit4.createEmptyComposeRule` | [`androidx.compose.ui.test.junit4.v2.createEmptyComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary.md.txt#createEmptyComposeRule(kotlin.coroutines.CoroutineContext)) |
+| `androidx.compose.ui.test.junit4.AndroidComposeTestRule` | [`androidx.compose.ui.test.junit4.v2.AndroidComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary.md.txt#AndroidComposeTestRule(org.junit.rules.TestRule,kotlin.coroutines.CoroutineContext,kotlin.Function1)) |
+| `androidx.compose.ui.test.runComposeUiTest` | [`androidx.compose.ui.test.v2.runComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary.md.txt#runComposeUiTest(kotlin.coroutines.CoroutineContext,kotlin.coroutines.CoroutineContext,kotlin.time.Duration,kotlin.coroutines.SuspendFunction1)) |
+| `androidx.compose.ui.test.runAndroidComposeUiTest` | [`androidx.compose.ui.test.v2.runAndroidComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary.md.txt#runAndroidComposeUiTest(kotlin.coroutines.CoroutineContext,kotlin.coroutines.CoroutineContext,kotlin.time.Duration,kotlin.coroutines.SuspendFunction1)) |
+| `androidx.compose.ui.test.runEmptyComposeUiTest` | [`androidx.compose.ui.test.v2.runEmptyComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary.md.txt#runEmptyComposeUiTest(kotlin.Function1)) |
+| `androidx.compose.ui.test.AndroidComposeUiTestEnvironment` | [`androidx.compose.ui.test.v2.AndroidComposeUiTestEnvironment`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary.md.txt#AndroidComposeUiTestEnvironment(kotlin.coroutines.CoroutineContext,kotlin.coroutines.CoroutineContext,kotlin.time.Duration,kotlin.Function0)) |
 
 ### Backward compatibility and exceptions
 
@@ -197,36 +197,42 @@ pattern:
 In v1, the task launched and finished immediately. In v2, the following code
 fails because `loadData()` hasn't actually run yet.
 
-    // In v1, this launched and finished immediately.
-    viewModel.loadData()
+```kotlin
+// In v1, this launched and finished immediately.
+viewModel.loadData()
 
-    // In v2, this fails because loadData() hasn't actually run yet!
-    assertEquals(Success, viewModel.state.value)
+// In v2, this fails because loadData() hasn't actually run yet!
+assertEquals(Success, viewModel.state.value)
+```
 
 ### Recommended approach
 
-Use [`waitForIdle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule#waitForIdle()) or [`runOnIdle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule#runOnIdle(kotlin.Function0)) to execute queued tasks before
+Use [`waitForIdle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule.md.txt#waitForIdle()) or [`runOnIdle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule.md.txt#runOnIdle(kotlin.Function0)) to execute queued tasks before
 asserting.
 
 **Option 1** : Using `waitForIdle` advances the clock until the UI is idle,
 verifying the coroutine has run.
 
-    viewModel.loadData()
+```kotlin
+viewModel.loadData()
 
-    // Explicitly run all queued tasks
-    composeTestRule.waitForIdle()
+// Explicitly run all queued tasks
+composeTestRule.waitForIdle()
 
-    assertEquals(Success, viewModel.state.value)
+assertEquals(Success, viewModel.state.value)
+```
 
 **Option 2** : Using `runOnIdle` executes the code block on the UI thread after
 the UI has become idle.
 
-    viewModel.loadData()
+```kotlin
+viewModel.loadData()
 
-    // Run the assertion after the UI is idle
-    composeTestRule.runOnIdle {
-        assertEquals(Success, viewModel.state.value)
-    }
+// Run the assertion after the UI is idle
+composeTestRule.runOnIdle {
+    assertEquals(Success, viewModel.state.value)
+}
+```
 
 ### Manual synchronization
 
@@ -236,7 +242,9 @@ the test clock is paused. To execute coroutines in the queue without
 advancing the virtual clock, use the [`runCurrent()`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/run-current.html) API. This runs tasks
 scheduled for the current virtual time.
 
-    composeTestRule.mainClock.scheduler.runCurrent()
+```kotlin
+composeTestRule.mainClock.scheduler.runCurrent()
+```
 
 In contrast to `waitForIdle()`, which advances the test clock until the UI
 stabilizes, `runCurrent()` executes pending tasks while maintaining the current
@@ -250,7 +258,7 @@ synchronize the test clock.
 ### Migrate to `runComposeUiTest`
 
 If you're using Compose test APIs alongside the Kotlin `runTest` API,
-it's strongly recommended to switch to [`runComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary#runComposeUiTest%28kotlin.coroutines.CoroutineContext,kotlin.coroutines.CoroutineContext,kotlin.time.Duration,kotlin.coroutines.SuspendFunction1%29).
+it's strongly recommended to switch to [`runComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary.md.txt#runComposeUiTest%28kotlin.coroutines.CoroutineContext,kotlin.coroutines.CoroutineContext,kotlin.time.Duration,kotlin.coroutines.SuspendFunction1%29).
 
 #### Previous approach
 

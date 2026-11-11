@@ -6,14 +6,14 @@ source: md.txt
 
 ![Four star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/shared/four-star-rating.png)
 
-The Jetpack Compose [`Grid`](https://developer.android.com/develop/adaptive-apps/guides/grid) API is designed for structural, two-dimensional screen
+The Jetpack Compose [`Grid`](https://developer.android.com/develop/adaptive-apps/guides/grid.md.txt) API is designed for structural, two-dimensional screen
 layouts. Unlike lazy grids, which are optimized for large data sets, `Grid` lets
 you define a fixed *or* responsive layout structure using tracks (rows and columns),
-gaps, and [grid areas](https://developer.android.com/develop/adaptive-apps/guides/grid#grid-area). You place items into this structure using `Modifier.gridItem`,
+gaps, and [grid areas](https://developer.android.com/develop/adaptive-apps/guides/grid.md.txt#grid-area). You place items into this structure using `Modifier.gridItem`,
 which gives you explicit control over positioning and spanning within the grid
 container.
 
-When your UI requires multiple items in the same [grid area](https://developer.android.com/develop/adaptive-apps/guides/grid#grid-area) or overlapping
+When your UI requires multiple items in the same [grid area](https://developer.android.com/develop/adaptive-apps/guides/grid.md.txt#grid-area) or overlapping
 areas---such as badge overlays, status indicators, or layered cards---coordinate
 ambiguity can make layout behavior unpredictable. Managing the depth of overlapping
 components without resorting to complex `Box` nesting or manual coordinate offsets is
@@ -22,16 +22,16 @@ essential for maintaining clean, readable layout code.
 ## Best practices
 
 - **Declaration order:** `Grid` follows standard `zIndex` ordering based on the order of declaration within the `Grid` block. Items declared later in the `Grid` content block are rendered on top of items declared earlier.
-- **Explicit z-index control:** Use [`Modifier.zIndex`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).zIndex(kotlin.Float)) if you need to explicitly control or override the default drawing order of overlapping elements.
+- **Explicit z-index control:** Use [`Modifier.zIndex`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).zIndex(kotlin.Float)) if you need to explicitly control or override the default drawing order of overlapping elements.
 - **Named area vs item overlays:** Use `Grid` and named areas to define the structure of your layout, but keep complex overlay logic inside the specific `gridItem` if those overlays are logically tied to that grid cell.
 - **Intentional spans for overlays:** When overlaying, ensure that the `rowSpan` and `columnSpan` parameters are intentional for the overlapping elements to control how much of the underlying content is obscured.
 
 ## Ingredients
 
-- [`Grid`](https://developer.android.com/develop/adaptive-apps/guides/grid): A structural, two-dimensional layout container
-- [`GridConfigurationScope.area`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope#(androidx.compose.foundation.layout.GridConfigurationScope).area(kotlin.Any,kotlin.Int,kotlin.Int,kotlin.Int,kotlin.Int)): Scope function used to define named regions and overlay areas across grid tracks
-- [`Modifier.gridItem`](https://developer.android.com/develop/adaptive-apps/guides/grid/item-properties): Modifier used to place and span composables across grid tracks or into named grid areas
-- [`Modifier.zIndex`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).zIndex(kotlin.Float)): Modifier used to explicitly control drawing and layer elevation order
+- [`Grid`](https://developer.android.com/develop/adaptive-apps/guides/grid.md.txt): A structural, two-dimensional layout container
+- [`GridConfigurationScope.area`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope.md.txt#(androidx.compose.foundation.layout.GridConfigurationScope).area(kotlin.Any,kotlin.Int,kotlin.Int,kotlin.Int,kotlin.Int)): Scope function used to define named regions and overlay areas across grid tracks
+- [`Modifier.gridItem`](https://developer.android.com/develop/adaptive-apps/guides/grid/item-properties.md.txt): Modifier used to place and span composables across grid tracks or into named grid areas
+- [`Modifier.zIndex`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).zIndex(kotlin.Float)): Modifier used to explicitly control drawing and layer elevation order
 
 ## Steps
 
@@ -67,7 +67,7 @@ Place your base composables in the grid cells using `Modifier.gridItem`. `Grid`
 follows standard `zIndex` ordering based on composition order, so items declared
 later within the `Grid` block are drawn on top of earlier items. When placing an
 overlay in the same cell or an overlapping area, declare the overlay composable
-after the base element, or reference a named area. You can use [`Modifier.zIndex`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).zIndex(kotlin.Float))
+after the base element, or reference a named area. You can use [`Modifier.zIndex`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.md.txt#(androidx.compose.ui.Modifier).zIndex(kotlin.Float))
 if you need to explicitly control or override this default drawing order.
 
 

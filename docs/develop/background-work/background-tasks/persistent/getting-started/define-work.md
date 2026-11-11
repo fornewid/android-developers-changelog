@@ -544,7 +544,7 @@ class UploadWork(appContext: Context, workerParams: WorkerParameters)
 }
 
 // Create a WorkRequest for your Worker and sending it input
-val myUploadWork = OneTimeWorkRequ<estBuilder>UploadWork()
+val myUploadWork = OneTimeWorkRequestBuilder<UploadWork>()
    .setInputData(workDataOf(
        "IMAGE_URI" to "http://..."
    ))

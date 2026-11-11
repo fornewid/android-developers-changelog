@@ -31,7 +31,7 @@ The layout divides the app window into two side-by-side panes: one for the list,
 one for the detail. Users select items from the list to display the item detail.
 Deep links in the detail reveal additional content in the detail pane.
 
-Expanded-width displays (see [Use window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes)) accommodate both the
+Expanded-width displays (see [Use window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes.md.txt)) accommodate both the
 list and detail at the same time. Selection of a list item updates the detail
 pane to show the related content for the selected item.
 
@@ -64,12 +64,12 @@ To ensure unidirectional data flow, [hoist all state](https://developer.android.
 window size class and detail of the selected list item (if any), so all
 composables have access to the data and can render correctly.
 
-When showing just the detail pane on small window sizes, add a [`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/BackHandler.composable#BackHandler(kotlin.Boolean,kotlin.Function0))
+When showing just the detail pane on small window sizes, add a [`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/BackHandler.composable.md.txt#BackHandler(kotlin.Boolean,kotlin.Function0))
 to remove the detail pane and display just the list pane. The `BackHandler` is
 not part of the overall app navigation since the handler is dependent on the
 window size class and selected detail state.
 
-[`ListDetailPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ListDetailPaneScaffold.composable#ListDetailPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldState,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState)) is a high-level composable that simplifies the
+[`ListDetailPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ListDetailPaneScaffold.composable.md.txt#ListDetailPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldState,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState)) is a high-level composable that simplifies the
 implementation of list-detail layouts. It automatically handles pane logic based
 on window size classes and supports navigation between panes.
 
@@ -104,7 +104,7 @@ The following are the key components in this example:
 
 For detailed implementation examples, see:
 
-- [Build a list-detail layout](https://developer.android.com/develop/ui/compose/layouts/adaptive/list-detail) developer guide
+- [Build a list-detail layout](https://developer.android.com/develop/ui/compose/layouts/adaptive/list-detail.md.txt) developer guide
 - [list-detail-compose](https://github.com/android/adaptive-apps-samples/tree/main/CanonicalLayouts/list-detail-compose) sample
 
 ## Feed
@@ -141,10 +141,10 @@ set the minimum allowable width for grid items. When defining grid items, adjust
 column spans to emphasize some items over others.
 
 For section headers, dividers, or other items designed to occupy the full width
-of the feed, use [`maxLineSpan`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyGridItemSpanScope#maxLineSpan()) to take up the full width of the layout.
+of the feed, use [`maxLineSpan`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyGridItemSpanScope.md.txt#maxLineSpan()) to take up the full width of the layout.
 
 On compact-width displays that don't have enough space to show more than one
-column, [`LazyVerticalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyVerticalGrid.composable) behaves just like a [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable).
+column, [`LazyVerticalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyVerticalGrid.composable.md.txt) behaves just like a [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt).
 
 Here is a minimal implementation using `LazyVerticalGrid`:
 
@@ -226,7 +226,7 @@ space available. For medium width, split the display space equally between the
 main and supporting content. For expanded width, give 70% of the space to the
 main content, 30% to the supporting content.
 
-[`SupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/SupportingPaneScaffold.composable#SupportingPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldValue,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState)) is a high-level composable that simplifies the
+[`SupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/SupportingPaneScaffold.composable.md.txt#SupportingPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldValue,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState)) is a high-level composable that simplifies the
 implementation of supporting pane layouts. The composable automatically handles
 pane logic based on window size classes, displaying panes side by side on large
 screens or hiding the supporting pane on small screens. `SupportingPaneScaffold`
@@ -258,13 +258,13 @@ Key components in the example:
 
 <br />
 
-- **[`rememberSupportingPaneScaffoldNavigator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/rememberSupportingPaneScaffoldNavigator.composable#rememberSupportingPaneScaffoldNavigator(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldAdaptStrategies,kotlin.Boolean))**: Composable that creates a navigator to manage pane visibility (for example, hiding or showing the supporting pane on compact screens)
+- **[`rememberSupportingPaneScaffoldNavigator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/rememberSupportingPaneScaffoldNavigator.composable.md.txt#rememberSupportingPaneScaffoldNavigator(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldAdaptStrategies,kotlin.Boolean))**: Composable that creates a navigator to manage pane visibility (for example, hiding or showing the supporting pane on compact screens)
 - **`mainPane`**: Composable that displays the primary content
 - **`supportingPane`**: Composable that displays the supplementary content
 
 For detailed implementation examples, see:
 
-- [Build a supporting pane layout](https://developer.android.com/develop/ui/compose/layouts/adaptive/build-a-supporting-pane-layout) developer guide
+- [Build a supporting pane layout](https://developer.android.com/develop/ui/compose/layouts/adaptive/build-a-supporting-pane-layout.md.txt) developer guide
 - [supporting-pane-compose](https://github.com/android/adaptive-apps-samples/tree/main/CanonicalLayouts/supporting-pane-compose) sample
 
 ## Additional resources

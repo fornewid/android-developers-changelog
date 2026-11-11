@@ -10,7 +10,7 @@ Your app shouldn't enter PiP mode in the following situations:
 - If you are on a different page of the app than the video player.
 
 To control when your app enters PiP mode, add a variable that tracks the state
-of the video player using a [`mutableStateOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#mutableStateOf(kotlin.Any,androidx.compose.runtime.SnapshotMutationPolicy)).
+of the video player using a [`mutableStateOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary.md.txt#mutableStateOf(kotlin.Any,androidx.compose.runtime.SnapshotMutationPolicy)).
 
 ## Toggle state based on if video is playing
 
@@ -44,7 +44,7 @@ fun releasePlayer() {
 
 ## Use state to define if PiP mode is entered (pre-Android 12)
 
-1. Since adding PiP pre-12 uses a [`DisposableEffect`](https://developer.android.com/develop/ui/compose/side-effects#disposableeffect), you need to create a new variable by [`rememberUpdatedState`](https://developer.android.com/develop/ui/compose/side-effects#rememberupdatedstate) with `newValue` set as your state variable. This will ensure that the updated version is used within the `DisposableEffect`.
+1. Since adding PiP pre-12 uses a [`DisposableEffect`](https://developer.android.com/develop/ui/compose/side-effects.md.txt#disposableeffect), you need to create a new variable by [`rememberUpdatedState`](https://developer.android.com/develop/ui/compose/side-effects.md.txt#rememberupdatedstate) with `newValue` set as your state variable. This will ensure that the updated version is used within the `DisposableEffect`.
 2. In the lambda that defines the behavior when the `OnUserLeaveHintListener`
    is triggered, add an `if` statement with the state variable around the call to
    `enterPictureInPictureMode()`:
@@ -103,13 +103,13 @@ VideoPlayer(pipModifier)
 
 ## Use `setSourceRectHint` for a smooth animation
 
-The [`setSourceRectHint`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setSourceRectHint(android.graphics.Rect)) API creates a smoother animation for entering PiP
+The [`setSourceRectHint`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder.md.txt#setSourceRectHint(android.graphics.Rect)) API creates a smoother animation for entering PiP
 mode. In Android 12+, it also creates a smoother animation for exiting PiP mode.
 Add this API to the PiP builder to indicate the area of the activity that is
 visible following the transition into PiP.
 
 1. Only add `setSourceRectHint()` to the `builder` if the state defines that the app should enter PiP mode. This avoids calculating `sourceRect` when the app does not need to enter PiP.
-2. To set the `sourceRect` value, use the `layoutCoordinates` that are given from the [`onGloballyPositioned`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/OnGloballyPositionedModifier) function on the modifier.
+2. To set the `sourceRect` value, use the `layoutCoordinates` that are given from the [`onGloballyPositioned`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/OnGloballyPositionedModifier.md.txt) function on the modifier.
 3. Call `setSourceRectHint()` on the `builder` and pass in the `sourceRect` variable.
 
 

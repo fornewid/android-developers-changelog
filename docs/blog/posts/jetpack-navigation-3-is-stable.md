@@ -4,28 +4,28 @@ url: https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Jetpack Navigation 3 is stable
 
-3 min read ![](https://developer.android.com/static/blog/assets/jetpack_navigation_d1257f9ca2_Z16ze9q.webp) 19 Nov 2025 [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)](https://developer.android.com/blog/authors/don-turner) [Don Turner](https://developer.android.com/blog/authors/don-turner) Developer Relations Engineer [Jetpack Navigation 3](https://developer.android.com/guide/navigation/navigation-3) version 1.0 is stable 🎉. Go ahead and use it in your production apps today. JetBrains are [already using it in their KotlinConf app](https://github.com/JetBrains/kotlinconf-app/pull/504).
+3 min read ![](https://developer.android.com/static/blog/assets/jetpack_navigation_d1257f9ca2_Z16ze9q.webp) 19 Nov 2025 [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)](https://developer.android.com/blog/authors/don-turner.md.txt) [Don Turner](https://developer.android.com/blog/authors/don-turner.md.txt) Developer Relations Engineer [Jetpack Navigation 3](https://developer.android.com/guide/navigation/navigation-3.md.txt) version 1.0 is stable 🎉. Go ahead and use it in your production apps today. JetBrains are [already using it in their KotlinConf app](https://github.com/JetBrains/kotlinconf-app/pull/504).
 
-Navigation 3 is a new navigation library built from the ground up to embrace Jetpack Compose [state](https://developer.android.com/develop/ui/compose/state#state-in-composables). It gives you full control over your back stack, helps you retain navigation state, and allows you to easily create adaptive layouts (like list-detail). [There's even a cross-platform version from JetBrains](https://kotlinlang.org/docs/multiplatform/whats-new-compose-110.html#support-for-navigation-3).
+Navigation 3 is a new navigation library built from the ground up to embrace Jetpack Compose [state](https://developer.android.com/develop/ui/compose/state.md.txt#state-in-composables). It gives you full control over your back stack, helps you retain navigation state, and allows you to easily create adaptive layouts (like list-detail). [There's even a cross-platform version from JetBrains](https://kotlinlang.org/docs/multiplatform/whats-new-compose-110.html#support-for-navigation-3).
 
 **Why a new library?**
 
 The original Jetpack Navigation library (now Nav2) was designed 7 years ago and, while it serves its original goals well and has been improved iteratively, the way apps are now built has fundamentally changed.
 
-Reactive programming with a declarative UI is now the norm. Nav3 embraces this approach. For example, NavDisplay (the Nav3 UI component that [displays your screens](https://developer.android.com/guide/navigation/navigation-3/basics#display-back)) simply observes a list of keys (each one representing a screen) backed by Compose state and updates its UI when that list changes.
+Reactive programming with a declarative UI is now the norm. Nav3 embraces this approach. For example, NavDisplay (the Nav3 UI component that [displays your screens](https://developer.android.com/guide/navigation/navigation-3/basics.md.txt#display-back)) simply observes a list of keys (each one representing a screen) backed by Compose state and updates its UI when that list changes.
 ![nav-display.png](https://developer.android.com/static/blog/assets/nav_display_6244a3347c_2rGTvN.webp)
 
-Nav2 can also make it difficult to have a [single source of truth](https://developer.android.com/topic/architecture#single-source-of-truth) for your navigation state because it has its own internal state. With Nav3, you supply your own state, which gives you complete control.
+Nav2 can also make it difficult to have a [single source of truth](https://developer.android.com/topic/architecture.md.txt#single-source-of-truth) for your navigation state because it has its own internal state. With Nav3, you supply your own state, which gives you complete control.
 
 Lastly, you asked for more flexibility and customizability. Rather than having a single, monolithic API, Nav3 provides smaller, decoupled APIs (or "building blocks") that can be combined together to create complex functionality. Nav3 itself uses these building blocks to provide sensible defaults for well-defined navigation use cases.
 
 This approach allows you to:
 
-- [Customize screen animations](https://developer.android.com/guide/navigation/navigation-3/animate-destinations) at both a global and individual level
+- [Customize screen animations](https://developer.android.com/guide/navigation/navigation-3/animate-destinations.md.txt) at both a global and individual level
 - Display multiple panes at the same time, and [create flexible layouts using the Scenes API](https://developer.android.com/guide/navigation/navigation-3/custom-layouts)
 - Easily replace Nav3 components with your own implementations if you want custom behavior
 
@@ -33,9 +33,9 @@ Read more about its design and features in the [launch blog](https://android-dev
 
 **Migrating from Navigation 2**
 
-If you're already using Nav2, specifically [Navigation Compose](https://developer.android.com/develop/ui/compose/navigation), you should consider migrating to Nav3. To assist you with this, there is a [migration guide](https://developer.android.com/guide/navigation/navigation-3/migration-guide). The key steps are:
+If you're already using Nav2, specifically [Navigation Compose](https://developer.android.com/develop/ui/compose/navigation), you should consider migrating to Nav3. To assist you with this, there is a [migration guide](https://developer.android.com/guide/navigation/navigation-3/migration-guide.md.txt). The key steps are:
 
-1. Add the [navigation 3 dependencies](https://developer.android.com/guide/navigation/navigation-3/get-started).
+1. Add the [navigation 3 dependencies](https://developer.android.com/guide/navigation/navigation-3/get-started.md.txt).
 2. Update your navigation routes to implement NavKey. Your routes don't have to implement this interface to use Nav3, but if they do, you can take advantage of Nav3's rememberNavBackStack function to create a persistent back stack.
 3. Create classes to hold and modify your navigation state - this is where your back stacks are held.
 4. Replace NavController with these classes.
@@ -44,7 +44,7 @@ If you're already using Nav2, specifically [Navigation Compose](https://develope
 
 *Experimenting with AI agent migration*
 
-You may want to experiment with using an AI agent to read the migration guide and perform the steps on your project. To try this with [Gemini in Android Studio's Agent Mode](https://developer.android.com/studio/gemini/agent-mode):
+You may want to experiment with using an AI agent to read the migration guide and perform the steps on your project. To try this with [Gemini in Android Studio's Agent Mode](https://developer.android.com/studio/gemini/agent-mode.md.txt):
 
 - Save [this markdown version of the guide](https://raw.githubusercontent.com/android/nav3-recipes/refs/heads/main/docs/migration-guide.md) into your project.
 - Paste this prompt to the agent (but don't hit enter): "Migrate this project to Navigation 3 using ".
@@ -72,7 +72,7 @@ If you have a common use case that you'd like to see a recipe for, please [file 
 
 **Summary**
 
-To get started with Nav3, check out [the docs](https://developer.android.com/guide/navigation/navigation-3) and [the recipes](https://github.com/android/nav3-recipes). Plus, keep an eye out for a whole week of technical content including:
+To get started with Nav3, check out [the docs](https://developer.android.com/guide/navigation/navigation-3.md.txt) and [the recipes](https://github.com/android/nav3-recipes). Plus, keep an eye out for a whole week of technical content including:
 
 - A deep dive video on the API covering modularization, animations and adaptive layouts.
 - A live Ask Me Anything (AMA) with the engineers who built Nav3.
@@ -82,48 +82,43 @@ Nav3 Spotlight Week starts Dec 1st 2025.
 <br />
 
 As always, if you find any issues, please [file them here](https://issuetracker.google.com/issues/new?component=1750212&template=2102223).
-- [#Nav3](https://developer.android.com/blog/topics/nav3)
-- [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+- [#Nav3](https://developer.android.com/blog/topics/nav3.md.txt)
+- [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation.md.txt)
 Written by:
 
 -
 
-  ## [Don Turner](https://developer.android.com/blog/authors/don-turner)
+  ## [Don Turner](https://developer.android.com/blog/authors/don-turner.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/don-turner) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)
 Continue reading
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 Dec 2025 19 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z103sxP.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt) 19 Dec 2025 19 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z103sxP.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Goodbye Mobile Only, Hello Adaptive: Three essential updates from 2025 for building adaptive apps](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive)
+  ## [Goodbye Mobile Only, Hello Adaptive: Three essential updates from 2025 for building adaptive apps](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive) In 2025 the Android ecosystem has grown far beyond the phone. Today, developers have the opportunity to reach over 500 million active devices, including foldables, tablets, XR, Chromebooks, and compatible cars.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) • 2 min read
-  - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
-  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
-  - [#Compose](https://developer.android.com/blog/topics/compose)
-  - [#Android 16](https://developer.android.com/blog/topics/android-16)
+  [arrow_forward](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive.md.txt) In 2025 the Android ecosystem has grown far beyond the phone. Today, developers have the opportunity to reach over 500 million active devices, including foldables, tablets, XR, Chromebooks, and compatible cars.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt) • 2 min read
+  - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation.md.txt)
+  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps.md.txt)
+  - [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
+  - [#Android 16](https://developer.android.com/blog/topics/android-16.md.txt)
   - +2 ↩
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
-  - +2 ↩
+  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 3 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
 Stay in the loop
 
 

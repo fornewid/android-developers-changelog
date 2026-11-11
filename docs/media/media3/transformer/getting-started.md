@@ -22,15 +22,19 @@ on the library in the `build.gradle` file of your app module:
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-transformer:1.11.1")
-    implementation("androidx.media3:media3-effect:1.11.1")
-    implementation("androidx.media3:media3-common:1.11.1")
+```kotlin
+implementation("androidx.media3:media3-transformer:1.11.1")
+implementation("androidx.media3:media3-effect:1.11.1")
+implementation("androidx.media3:media3-common:1.11.1")
+```
 
 ### Groovy
 
-    implementation "androidx.media3:media3-transformer:1.11.1"
-    implementation "androidx.media3:media3-effect:1.11.1"
-    implementation "androidx.media3:media3-common:1.11.1"
+```groovy
+implementation "androidx.media3:media3-transformer:1.11.1"
+implementation "androidx.media3:media3-effect:1.11.1"
+implementation "androidx.media3:media3-common:1.11.1"
+```
 
 where 1.11.1 is your preferred version. The latest version can be
 found by consulting the [release
@@ -48,9 +52,11 @@ If not enabled already, you need to turn on Java 8 support in all `build.gradle`
 files that depend on Transformer by adding the following to the `android`
 section:
 
-    compileOptions {
-      targetCompatibility JavaVersion.VERSION_1_8
-    }
+```groovy
+compileOptions {
+  targetCompatibility JavaVersion.VERSION_1_8
+}
+```
 
 ## Start a transformation
 
@@ -92,7 +98,7 @@ For more information about media items, see the [ExoPlayer media items
 page](https://developer.android.com/media/media3/exoplayer/media-items). The input can be a progressive or an adaptive
 stream, but the output is always a progressive stream. For adaptive inputs, the
 highest-resolution tracks are always selected for the transformation. The input
-can be of any container format [supported](https://developer.android.com/media/media3/transformer/supported-formats) by ExoPlayer, but
+can be of any container format [supported](https://developer.android.com/media/media3/transformer/supported-formats.md.txt) by ExoPlayer, but
 the output is always an MP4 file.
 
 You can execute multiple export operations sequentially on the same
@@ -100,7 +106,7 @@ You can execute multiple export operations sequentially on the same
 supported.
 
 For information on generating media by composing together multiple inputs, see
-[Multi-asset editing](https://developer.android.com/media/media3/transformer/multi-asset).
+[Multi-asset editing](https://developer.android.com/media/media3/transformer/multi-asset.md.txt).
 
 ### A note on threading
 

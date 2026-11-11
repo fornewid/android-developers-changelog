@@ -4,24 +4,24 @@ url: https://developer.android.com/guide/navigation/navigation-3/return-results
 source: md.txt
 ---
 
-Starting in Navigation 3 [1.2.0](https://developer.android.com/jetpack/androidx/releases/navigation3#navigation3_version_12_2), you can return
-results from destinations using the [`ResultEventBus`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBus)
+Starting in Navigation 3 [1.2.0](https://developer.android.com/jetpack/androidx/releases/navigation3.md.txt#navigation3_version_12_2), you can return
+results from destinations using the [`ResultEventBus`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBus.md.txt)
 API.
 
 `ResultEventBus` provides two communication models:
 
-- **Event-based results** : For transient, one-time events (such as showing a confirmation snackbar or triggering a side effect) using [`ResultEffect`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEffect.composable).
-- **State-based results** : For observing the latest result as Compose `State` using [`conflateAsState`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBus#conflateAsState(kotlin.Any)).
+- **Event-based results** : For transient, one-time events (such as showing a confirmation snackbar or triggering a side effect) using [`ResultEffect`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEffect.composable.md.txt).
+- **State-based results** : For observing the latest result as Compose `State` using [`conflateAsState`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBus.md.txt#conflateAsState(kotlin.Any)).
 
 > [!CAUTION]
-> **Caution:** `ResultEventBus` is an in-memory communication bus. Results aren't saved across process death or activity recreation automatically. If a result must survive process death, persist the value using [`rememberSaveable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSaveable.composable), a `SavedStateHandle` inside a scoped `ViewModel`, or by embedding the data in a [`NavKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavKey). For one implementation, see the [Serializable result recipe](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/results/serializable).
+> **Caution:** `ResultEventBus` is an in-memory communication bus. Results aren't saved across process death or activity recreation automatically. If a result must survive process death, persist the value using [`rememberSaveable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSaveable.composable.md.txt), a `SavedStateHandle` inside a scoped `ViewModel`, or by embedding the data in a [`NavKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavKey.md.txt). For one implementation, see the [Serializable result recipe](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/results/serializable).
 
 ## Set up the result event bus
 
 To make `ResultEventBus` available to your composable destinations, add the
-[`rememberResultEventBusNavEntryDecorator`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/rememberResultEventBusNavEntryDecorator.composable) to the list
-of decorators passed to your [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.composable). This provides each
-destination's content with a [`LocalResultEventBus`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/LocalResultEventBus)
+[`rememberResultEventBusNavEntryDecorator`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/rememberResultEventBusNavEntryDecorator.composable.md.txt) to the list
+of decorators passed to your [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.composable.md.txt). This provides each
+destination's content with a [`LocalResultEventBus`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/LocalResultEventBus.md.txt)
 composition local.
 
 
@@ -56,9 +56,9 @@ To keep screen composables reusable and testable, don't access
 `LocalResultEventBus` directly inside your screen UI. Instead, expose callback
 lambdas from your screen. In your `entryProvider`, handle the callback by
 sending the result using
-[`LocalResultEventBus.current`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/LocalResultEventBus) and navigating back.
+[`LocalResultEventBus.current`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/LocalResultEventBus.md.txt) and navigating back.
 
-You can send results using an explicit [result key](https://developer.android.com/guide/navigation/navigation-3/return-results#result-keys):
+You can send results using an explicit [result key](https://developer.android.com/guide/navigation/navigation-3/return-results.md.txt#result-keys):
 
 
 ```kotlin
@@ -110,12 +110,12 @@ state-based observables.
 
 | API | Behavior | Recommended use cases |
 |---|---|---|
-| [`ResultEffect`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEffect.composable) | **Queued**: Processes all results emitted for the key in order. | One-time events and side effects (such as displaying a snackbar or forwarding to a `ViewModel`). |
-| [`conflateAsState`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBus#conflateAsState(kotlin.Any)) | **Conflated** : Drops intermediate results and retains only the latest result as Compose `State`. | Lightweight UI state modifiers (such as active filter tags or selection overrides). |
+| [`ResultEffect`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEffect.composable.md.txt) | **Queued**: Processes all results emitted for the key in order. | One-time events and side effects (such as displaying a snackbar or forwarding to a `ViewModel`). |
+| [`conflateAsState`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBus.md.txt#conflateAsState(kotlin.Any)) | **Conflated** : Drops intermediate results and retains only the latest result as Compose `State`. | Lightweight UI state modifiers (such as active filter tags or selection overrides). |
 
 ### Handle one-time events with `ResultEffect`
 
-Use [`ResultEffect`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEffect.composable) when handling one-time events such as
+Use [`ResultEffect`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEffect.composable.md.txt) when handling one-time events such as
 triggering analytics, displaying a snackbar, or forwarding a result to a
 `ViewModel`.
 
@@ -125,7 +125,7 @@ sent. Additionally, `ResultEffect` runs in a coroutine scope, which lets you
 call suspending functions directly inside the effect body.
 
 You can listen for results associated with an explicit
-[result key](https://developer.android.com/guide/navigation/navigation-3/return-results#result-keys):
+[result key](https://developer.android.com/guide/navigation/navigation-3/return-results.md.txt#result-keys):
 
 
 ```kotlin
@@ -200,13 +200,13 @@ following lifecycle sequence:
 
 When you only need the latest result value to directly modify or filter local UI
 state and want Compose to automatically recompose whenever the result updates,
-call [`conflateAsState`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBus#conflateAsState(kotlin.Any)) on `ResultEventBus`.
+call [`conflateAsState`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBus.md.txt#conflateAsState(kotlin.Any)) on `ResultEventBus`.
 
 > [!TIP]
 > **Tip:** Use `conflateAsState` for lightweight, optional UI modifiers, such as a selected filter or tag. For primary screen data backed by repositories, use `ResultEffect` to update a `ViewModel`.
 
 You can observe results associated with an explicit
-[result key](https://developer.android.com/guide/navigation/navigation-3/return-results#result-keys):
+[result key](https://developer.android.com/guide/navigation/navigation-3/return-results.md.txt#result-keys):
 
 
 ```kotlin
@@ -276,7 +276,7 @@ fun FilterableProductListScreen(
 
 By default, `rememberResultEventBusNavEntryDecorator` creates and remembers
 its own `ResultEventBus` internally using
-[`rememberResultEventBus`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/rememberResultEventBus.composable).
+[`rememberResultEventBus`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/rememberResultEventBus.composable.md.txt).
 
 You can explicitly create and hoist a `ResultEventBus` when you need to:
 
@@ -316,7 +316,7 @@ NavDisplay(
 ## Manage and clear results
 
 When a destination consumes a one-time result, clear it from the event bus using
-[`removeResult`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBus#removeResult()). This prevents the bus from re-delivering
+[`removeResult`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBus.md.txt#removeResult()). This prevents the bus from re-delivering
 past events to new observers when destinations re-enter composition:
 
 
@@ -345,7 +345,7 @@ fun NotificationSettingsScreen(
 
 You can clear results by explicit key (`resultBus.removeResult(resultKey)`) or
 by type-derived key (`resultBus.removeResult<T>()`). For details on key
-matching, see [Result keys](https://developer.android.com/guide/navigation/navigation-3/return-results#result-keys).
+matching, see [Result keys](https://developer.android.com/guide/navigation/navigation-3/return-results.md.txt#result-keys).
 
 ## Recipes
 

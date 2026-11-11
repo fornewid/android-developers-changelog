@@ -11,7 +11,7 @@ how to create both basic menus and more complex menus with dividers and icons.
 
 ## API surface
 
-Use [`DropdownMenu`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#DropdownMenu(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.unit.DpOffset,androidx.compose.foundation.ScrollState,androidx.compose.ui.window.PopupProperties,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.BorderStroke,kotlin.Function1)), [`DropdownMenuItem`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#DropdownMenuItem(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.MenuItemColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)), and the [`IconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#IconButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,kotlin.Function0))
+Use [`DropdownMenu`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#DropdownMenu(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.unit.DpOffset,androidx.compose.foundation.ScrollState,androidx.compose.ui.window.PopupProperties,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.BorderStroke,kotlin.Function1)), [`DropdownMenuItem`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#DropdownMenuItem(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.MenuItemColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)), and the [`IconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#IconButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,kotlin.Function0))
 components to implement a custom drop-down menu. The `DropdownMenu` and
 `DropdownMenuItem` components are used to display the menu items, while the
 `IconButton` is the trigger to display or hide the drop-down menu.
@@ -72,7 +72,7 @@ fun MinimalDropdownMenu() {
 
 ### Result
 
-![A dropdown menu triggered by an icon with three vertical dots. The menu displays two selectable options, Option 1 and Option 2.](https://developer.android.com/static/develop/ui/compose/images/components/MinimalDropdownMenu.png) **Figure 2.** A minimal drop-down menu with only two options.
+![An open drop-down menu with two items, 'Option 1' and 'Option 2'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_minimaldropdownmenu.png) **Figure 2.** A minimal drop-down menu with only two options.
 
 ## Create a longer drop-down menu
 
@@ -121,8 +121,7 @@ fun LongBasicDropdownMenu() {
 ### Result
 
 The preceding code snippet produces the following scrollable menu:
-![A dropdown menu with many options, requiring scrolling to view all
-items.](https://developer.android.com/static/develop/ui/compose/images/components/LongBasicDropdownMenu.png) **Figure 3.** A long, scrollable drop-down menu.
+![An open, scrollable drop-down menu that lists items from 'Option 1' to 'Option 6', with more below.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_longbasicdropdownmenu.png) **Figure 3.** A long, scrollable drop-down menu.
 
 ## Create a longer drop-down menu with dividers
 
@@ -198,12 +197,12 @@ This code defines a `DropdownMenu` within a `Box`.
 - The `leadingIcon` and `trailingIcon` parameters add icons to the start and end of a `DropdownMenuItem`.
 - An `IconButton` triggers the menu's expansion.
 - The `DropdownMenu` contains several `DropdownMenuItem` composables, each representing a selectable action.
-- [`HorizontalDivider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#HorizontalDivider(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color)) composables insert a horizontal line to separate groups of menu items.
+- [`HorizontalDivider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#HorizontalDivider(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color)) composables insert a horizontal line to separate groups of menu items.
 
 ### Result
 
 The preceding snippet produces a drop-down menu with icons and dividers:
-![A dropdown menu with sections for Profile, Settings, Send Feedback, About, and Help. Each option has an icon, such as a person icon for Profile.](https://developer.android.com/static/develop/ui/compose/images/components/DropdownMenuWithDetails.png) **Figure 4.** A drop-down menu divided into sections with leading and trailing icons.
+![An open drop-down menu with leading icons, divided into three sections: 'Profile' and 'Settings'; 'Send Feedback' with a trailing send icon; and 'About' and 'Help' with a trailing open-in-new icon.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_dropdownmenuwithdetails.png) **Figure 4.** A drop-down menu divided into sections with leading and trailing icons.
 
 ## Additional resources
 

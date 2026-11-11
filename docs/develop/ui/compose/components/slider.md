@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/compose/components/slider
 source: md.txt
 ---
 
-The [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) composable allows users to make selections from a range of
+The [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable.md.txt#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) composable allows users to make selections from a range of
 values. You might use a slider to let the user do the following:
 
 - Adjust settings that use a range of values, such as volume, and brightness.
@@ -21,7 +21,7 @@ The slider contains a track, thumb, value label, and tick marks:
 
 ## Basic implementation
 
-See the [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) reference for a full API definition. Some of the key
+See the [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable.md.txt#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) reference for a full API definition. Some of the key
 parameters for the `Slider` composable are the following:
 
 - **`value`**: The current value of the slider.
@@ -37,7 +37,7 @@ that range, the slider is *continuous*.
 @Preview
 @Composable
 fun SliderMinimalExample() {
-    var sliderPosition by remember { mutableFloatStateOf(0f) }
+    var sliderPosition by remember { mutableFloatStateOf(0.5f) }
     Column {
         Slider(
             value = sliderPosition,
@@ -51,7 +51,7 @@ fun SliderMinimalExample() {
 <br />
 
 This implementation appears as follows:
-![A slider component with a value selected roughly three quarters along the track.](https://developer.android.com/static/develop/ui/compose/images/components/slider-basic.png) **Figure 2.** A basic implementation of a slider.
+![A slider with its thumb halfway along the track, above the value '0.5'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_sliderminimal.png) **Figure 2.** A basic implementation of a slider.
 
 ## Advanced implementation
 
@@ -71,7 +71,7 @@ from `0.0` to `50.0`. Because the thumb snaps to each step, this slider is
 @Preview
 @Composable
 fun SliderAdvancedExample() {
-    var sliderPosition by remember { mutableFloatStateOf(0f) }
+    var sliderPosition by remember { mutableFloatStateOf(25f) }
     Column {
         Slider(
             value = sliderPosition,
@@ -92,7 +92,7 @@ fun SliderAdvancedExample() {
 <br />
 
 The implementation appears as follows:
-![A discrete slider with a range from 0 to 50, showing five tick marks at equal intervals. The thumb is positioned near the second tick mark, indicating a selected value of 16.](https://developer.android.com/static/develop/ui/compose/images/components/slider-advanced.png) **Figure 3.** A slider with steps and a set value range.
+![A discrete slider with tick marks and its thumb on the middle tick, above the value '25.0'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_slideradvanced.png) **Figure 3.** A slider with steps and a set value range.
 
 > [!NOTE]
 > **Note:** The very beginning and end of a slider count as "steps". In the preceding example where the range is `0f..50f` and the number of `steps` is `3`, each interval along the range is `12.5` because the beginning and end of the slider are also intervals the user can select.
@@ -114,11 +114,10 @@ range slider.
 @Preview
 @Composable
 fun RangeSliderExample() {
-    var sliderPosition by remember { mutableStateOf(0f..100f) }
+    var sliderPosition by remember { mutableStateOf(20f..80f) }
     Column {
         RangeSlider(
             value = sliderPosition,
-            steps = 5,
             onValueChange = { range -> sliderPosition = range },
             valueRange = 0f..100f,
             onValueChangeFinished = {
@@ -133,7 +132,7 @@ fun RangeSliderExample() {
 
 <br />
 
-![A range slider component with two values selected. A label displays the upper and lower bounds of the selection.](https://developer.android.com/static/develop/ui/compose/images/components/slider-range.png) **Figure 4.** An implementation of a range slider.
+![A range slider with thumbs at 20% and 80% of the track and the active track between them, above the label '20.0..80.0'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_rangeslider.png) **Figure 4.** An implementation of a range slider.
 
 ## Additional resources
 

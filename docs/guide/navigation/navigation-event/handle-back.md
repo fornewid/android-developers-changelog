@@ -54,7 +54,7 @@ myHandler.remove()
 <br />
 
 Handlers are invoked based on priority, and then by recency. All
-[`PRIORITY_OVERLAY`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher#PRIORITY_OVERLAY()) handlers are called before any [`PRIORITY_DEFAULT`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher#PRIORITY_DEFAULT())
+[`PRIORITY_OVERLAY`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher.md.txt#PRIORITY_OVERLAY()) handlers are called before any [`PRIORITY_DEFAULT`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher.md.txt#PRIORITY_DEFAULT())
 handlers. Within each priority group, handlers are invoked in a Last-In,
 First-Out (LIFO) order --- the most recently added handler is called first.
 
@@ -122,14 +122,14 @@ fun HandlingBackWithTransitionState(
 <br />
 
 This example shows how to observe predictive back gesture updates using
-[`NavigationEventTransitionState`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventTransitionState). The `progress` value can be used to
+[`NavigationEventTransitionState`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventTransitionState.md.txt). The `progress` value can be used to
 update UI elements in response to the back gesture, while handling completion
 and cancellation through `NavigationBackHandler`.
 
 ### Access the back gesture or swipe edge in Compose
 
 > [!NOTE]
-> **Note:** For Android, if you're already using a navigation library with built-in Predictive Back support, like [Navigation 3](https://developer.android.com/guide/navigation/navigation-3/animate-destinations), use that instead of implementing the guidance here. The following section shows how to create a Predictive Back animation using only `NavigationEvent` and Compose.
+> **Note:** For Android, if you're already using a navigation library with built-in Predictive Back support, like [Navigation 3](https://developer.android.com/guide/navigation/navigation-3/animate-destinations.md.txt), use that instead of implementing the guidance here. The following section shows how to create a Predictive Back animation using only `NavigationEvent` and Compose.
 
 **Figure 1** . A predictive back animation built with `NavigationEvent` and Compose.
 

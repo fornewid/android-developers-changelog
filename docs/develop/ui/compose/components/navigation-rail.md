@@ -18,7 +18,7 @@ basic navigation.
 
 ## API surface
 
-Use the [`NavigationRail`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationRail.composable#NavigationRail(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable with [`NavigationRailItem`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationRailItem.composable#NavigationRailItem(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.NavigationRailItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) to
+Use the [`NavigationRail`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationRail.composable.md.txt#NavigationRail(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable with [`NavigationRailItem`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationRailItem.composable.md.txt#NavigationRailItem(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.NavigationRailItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) to
 implement a rail in your application. The `NavigationRailItem` represents a
 single rail item in the rail column.
 
@@ -74,7 +74,7 @@ fun NavigationRailExample(modifier: Modifier = Modifier) {
 ### Key points
 
 - `NavigationRail` displays a vertical column of rail items, with each item corresponding to a `Destination`.
-- `val navController = rememberNavController()` creates and remembers an instance of [`NavHostController`](https://developer.android.com/reference/androidx/navigation/NavHostController), which manages the navigation within a [`NavHost`](https://developer.android.com/reference/androidx/navigation/NavHost).
+- `val navController = rememberNavController()` creates and remembers an instance of [`NavHostController`](https://developer.android.com/reference/androidx/navigation/NavHostController.md.txt), which manages the navigation within a [`NavHost`](https://developer.android.com/reference/androidx/navigation/NavHost.md.txt).
 - `var selectedDestination by rememberSaveable {
   mutableIntStateOf(startDestination.ordinal) }` manages the state of the selected rail item.
   - `startDestination.ordinal` gets the numerical index (position) of the `Destination.SONGS` enum entry.
@@ -86,9 +86,9 @@ fun NavigationRailExample(modifier: Modifier = Modifier) {
 ### Result
 
 The following image shows the result of the previous snippet:
-![A vertical navigation rail with 3 destinations with associated icons: Songs, Album, and Playlist. Icons visually indicate the purpose of each navigation button in the rail. Each destination has a relevant icon paired with it (e.g., a music note for 'Songs').](https://developer.android.com/static/develop/ui/compose/images/components/navigation-rail-result.png) **Figure 2.** A navigation rail that contains 3 destinations with associated icons: Songs, Album, and Playlist.
+![A navigation rail with Songs, Album and Playlist destinations next to a screen that reads 'Songs Screen'; Songs is selected.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_navigationrailexample.png) **Figure 2.** A navigation rail that contains 3 destinations with associated icons: Songs, Album, and Playlist.
 
 ## Additional resources
 
 - [Material 3 - Navigation rail](https://m3.material.io/components/navigation-rail/overview)
-- [Navigation with Compose](https://developer.android.com/guide/navigation#framework-options)
+- [Navigation with Compose](https://developer.android.com/guide/navigation.md.txt#framework-options)

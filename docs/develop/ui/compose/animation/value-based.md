@@ -9,13 +9,13 @@ focusing on APIs that animate values based on their current and target states.
 
 ## Animate a single value with `animate*AsState`
 
-The [`animate*AsState`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/animateDpAsState.composable#animateDpAsState(androidx.compose.ui.unit.Dp,androidx.compose.animation.core.AnimationSpec,kotlin.String,kotlin.Function1)) functions are straightforward animation APIs in
+The [`animate*AsState`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/animateDpAsState.composable.md.txt#animateDpAsState(androidx.compose.ui.unit.Dp,androidx.compose.animation.core.AnimationSpec,kotlin.String,kotlin.Function1)) functions are straightforward animation APIs in
 Compose for animating a single value. You provide only the target value
 (or end value), and the API starts animation from the current value to the
 specified value.
 
 The following example animates alpha using this API. By wrapping the target
-value in [`animateFloatAsState`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/animateFloatAsState.composable#animateFloatAsState(kotlin.Float,androidx.compose.animation.core.AnimationSpec,kotlin.Float,kotlin.String,kotlin.Function1)), the alpha value is now an animation value
+value in [`animateFloatAsState`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/animateFloatAsState.composable.md.txt#animateFloatAsState(kotlin.Float,androidx.compose.animation.core.AnimationSpec,kotlin.Float,kotlin.String,kotlin.Function1)), the alpha value is now an animation value
 between the provided values (`1f` or `0.5f` in this case).
 
 
@@ -49,11 +49,11 @@ support for other data types by providing a `TwoWayConverter` to
 `animateValueAsState` that takes a generic type.
 
 You can customize the animation specifications by providing an
-[`AnimationSpec`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/AnimationSpec). See [`AnimationSpec`](https://developer.android.com/develop/ui/compose/animation/customize#animationspec) for more information.
+[`AnimationSpec`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/AnimationSpec.md.txt). See [`AnimationSpec`](https://developer.android.com/develop/ui/compose/animation/customize.md.txt#animationspec) for more information.
 
 ## Animate multiple properties simultaneously with a transition
 
-[`Transition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Transition) manages one or more animations as its children and runs them
+[`Transition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Transition.md.txt) manages one or more animations as its children and runs them
 simultaneously between multiple states.
 
 The states can be any data type. In many cases, you can use a custom `enum`
@@ -69,7 +69,7 @@ enum class BoxState {
 
 <br />
 
-[`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/updateTransition.composable#updateTransition(kotlin.Any,kotlin.String)) creates and remembers an instance of `Transition` and
+[`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/updateTransition.composable.md.txt#updateTransition(kotlin.Any,kotlin.String)) creates and remembers an instance of `Transition` and
 updates its state.
 
 
@@ -106,7 +106,7 @@ val borderWidth by transition.animateDp(label = "border width") { state ->
 
 Optionally, you can pass a `transitionSpec` parameter to specify a different
 `AnimationSpec` for each of the combinations of transition state changes. See
-[`AnimationSpec`](https://developer.android.com/develop/ui/compose/animation/customize#animationspec) for more information.
+[`AnimationSpec`](https://developer.android.com/develop/ui/compose/animation/customize.md.txt#animationspec) for more information.
 
 
 ```kotlin
@@ -135,8 +135,8 @@ the same as `Transition.targetState`. You can use this as a signal for whether
 the transition has finished.
 
 Sometimes, you might want to have an initial state different from the first
-target state. You can use [`rememberTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/rememberTransition.composable#rememberTransition(androidx.compose.animation.core.TransitionState,kotlin.String)) with
-[`MutableTransitionState`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/MutableTransitionState) to achieve this. For example, it lets you start
+target state. You can use [`rememberTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/rememberTransition.composable.md.txt#rememberTransition(androidx.compose.animation.core.TransitionState,kotlin.String)) with
+[`MutableTransitionState`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/MutableTransitionState.md.txt) to achieve this. For example, it lets you start
 animation as soon as the code enters composition.
 
 
@@ -151,7 +151,7 @@ val transition = rememberTransition(currentState, label = "box state")
 <br />
 
 For a more complex transition involving multiple composable functions, you can
-use [`createChildTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Transition#(androidx.compose.animation.core.Transition).createChildTransition(kotlin.String,kotlin.Function1)) to create a child transition. This technique is
+use [`createChildTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Transition.md.txt#(androidx.compose.animation.core.Transition).createChildTransition(kotlin.String,kotlin.Function1)) to create a child transition. This technique is
 useful for separating concerns among multiple subcomponents in a complex
 composable. The parent transition is aware of all the animation values in the
 child transitions.
@@ -199,7 +199,7 @@ fun Dialer(dialerState: DialerState) {
 
 ### Use transition with `AnimatedVisibility` and `AnimatedContent`
 
-[`AnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibility.composable#(androidx.compose.animation.core.Transition).AnimatedVisibility(kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.Function1)) and [`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContent.composable#(androidx.compose.animation.core.Transition).AnimatedContent(androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.ui.Alignment,kotlin.Function1,kotlin.Function2)) are available as extension
+[`AnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibility.composable.md.txt#(androidx.compose.animation.core.Transition).AnimatedVisibility(kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.Function1)) and [`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContent.composable.md.txt#(androidx.compose.animation.core.Transition).AnimatedContent(androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.ui.Alignment,kotlin.Function1,kotlin.Function2)) are available as extension
 functions of `Transition`. The `targetState` for `Transition.AnimatedVisibility`
 and `Transition.AnimatedContent` is derived from the `Transition`, and trigger
 enter, exit, and `sizeTransform` animations as needed when the `Transition`'s
@@ -211,7 +211,7 @@ state change from outside. Instead of a boolean `visible` parameter, this
 version of `AnimatedVisibility` takes a lambda that converts the parent
 transition's target state into a boolean.
 
-See [`AnimatedVisibility`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedvisibility) and [`AnimatedContent`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedcontent) for the details.
+See [`AnimatedVisibility`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt#animatedvisibility) and [`AnimatedContent`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt#animatedcontent) for the details.
 
 
 ```kotlin
@@ -319,7 +319,7 @@ private fun updateTransitionData(boxState: BoxState): TransitionData {
 
 ## Create an infinitely repeating animation with `rememberInfiniteTransition`
 
-[`InfiniteTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/InfiniteTransition) holds one or more child animations like `Transition`,
+[`InfiniteTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/InfiniteTransition.md.txt) holds one or more child animations like `Transition`,
 but the animations start running as soon as they enter the composition and don't
 stop unless they're removed. You can create an instance of `InfiniteTransition`
 with `rememberInfiniteTransition`, and add child animations with `animateColor`,
@@ -372,7 +372,7 @@ animations](https://developer.android.com/develop/ui/compose/animation/customize
 
 ### `Animatable`: Coroutine-based single value animation
 
-[`Animatable`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Animatable) is a value holder that can animate the value as it is changed
+[`Animatable`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Animatable.md.txt) is a value holder that can animate the value as it is changed
 using `animateTo`. This is the API backing up the implementation of
 `animate*AsState`. It ensures consistent continuation and mutual exclusiveness,
 which means the value change is always continuous and Compose cancels any
@@ -416,20 +416,20 @@ finer-grained control in several ways:
   - `snapTo` sets the current value to the target value immediately. This is useful when the animation is not the only source of truth and must synchronize with other states, such as touch events.
   - `animateDecay` starts an animation that slows down from the given velocity. This is useful for implementing fling behavior.
 
-See [Gesture and animation](https://developer.android.com/develop/ui/compose/animation/advanced) for more information.
+See [Gesture and animation](https://developer.android.com/develop/ui/compose/animation/advanced.md.txt) for more information.
 
 By default, `Animatable` supports `Float` and `Color`, but you can use any data
-type by providing a `TwoWayConverter`. See [AnimationVector](https://developer.android.com/develop/ui/compose/animation/customize#animationvector) for more
+type by providing a `TwoWayConverter`. See [AnimationVector](https://developer.android.com/develop/ui/compose/animation/customize.md.txt#animationvector) for more
 information.
 
 You can customize the animation specifications by providing an `AnimationSpec`.
-See [`AnimationSpec`](https://developer.android.com/develop/ui/compose/animation/customize#animationspec) for more information.
+See [`AnimationSpec`](https://developer.android.com/develop/ui/compose/animation/customize.md.txt#animationspec) for more information.
 
 ### `Animation`: Manually controlled animation
 
-[`Animation`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Animation) is the lowest-level Animation API available. Many of the
+[`Animation`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Animation.md.txt) is the lowest-level Animation API available. Many of the
 animations we've seen so far build on `Animation`. There are two `Animation`
-subtypes: [`TargetBasedAnimation`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/TargetBasedAnimation) and [`DecayAnimation`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/DecayAnimation).
+subtypes: [`TargetBasedAnimation`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/TargetBasedAnimation.md.txt) and [`DecayAnimation`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/DecayAnimation.md.txt).
 
 Use `Animation` only to manually control the animation's time. `Animation` is
 stateless, and it doesn't have any concept of lifecycle. It serves as an
@@ -471,7 +471,7 @@ LaunchedEffect(anim) {
 
 #### `DecayAnimation`
 
-Unlike `TargetBasedAnimation`, [`DecayAnimation`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/DecayAnimation) doesn't require a
+Unlike `TargetBasedAnimation`, [`DecayAnimation`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/DecayAnimation.md.txt) doesn't require a
 `targetValue` to be provided. Instead, it calculates its `targetValue` based on
 the starting conditions, set by `initialVelocity` and `initialValue` and the
 supplied `DecayAnimationSpec`.
@@ -483,6 +483,6 @@ sets and slows down over time.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Customize animations](https://developer.android.com/develop/ui/compose/animation/customize)
+- [Customize animations](https://developer.android.com/develop/ui/compose/animation/customize.md.txt)
 - [Animations in Compose](https://developer.android.com/develop/ui/compose/animation/introduction)
-- [Animation modifiers and composables](https://developer.android.com/develop/ui/compose/animation/composables-modifiers)
+- [Animation modifiers and composables](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt)

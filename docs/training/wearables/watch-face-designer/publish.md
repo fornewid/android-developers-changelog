@@ -8,7 +8,7 @@ This guide explains how to publish your watch face, created using
 Watch Face Designer, to Google Play.
 
 > [!NOTE]
-> **Note:** Before you begin, [export your watch face using the Google Play option](https://developer.android.com/training/wearables/watch-face-designer/export#google-play) so that you have an Android App Bundle (AAB) file ready.
+> **Note:** Before you begin, [export your watch face using the Google Play option](https://developer.android.com/training/wearables/watch-face-designer/export.md.txt#google-play) so that you have an Android App Bundle (AAB) file ready.
 
 ## Sign into your developer account in Google Play
 

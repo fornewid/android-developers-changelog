@@ -5,8 +5,8 @@ source: md.txt
 ---
 
 The Jetpack
-[`androidx.compose.material3`](https://developer.android.com/jetpack/androidx/releases/compose-material3)
-library enables users to write into any [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable#TextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors)) component in
+[`androidx.compose.material3`](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt)
+library enables users to write into any [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable.md.txt#TextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors)) component in
 any app using a stylus.
 Your browser doesn't support the video tag. **Figure 1.** Handwritten input with a stylus.
 
@@ -61,7 +61,7 @@ android {
 
 Stylus handwriting is enabled for all `TextField` components by default on
 Android 14 and higher and the
-[`androidx.compose.foundation:foundation:1.7.0`](https://developer.android.com/jetpack/androidx/releases/compose-foundation)
+[`androidx.compose.foundation:foundation:1.7.0`](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt)
 dependency. Handwriting mode is started for a `TextField` when a stylus motion
 event is detected within the handwriting bounds of the component.
 
@@ -70,7 +70,7 @@ padding around the input field.
 ![Input field with surrounding rectangle indicating the bounds for detection of stylus motion events.](https://developer.android.com/static/images/develop/ui/compose/touch-input/stylus-input/shared/edittext_handwriting_bounds.png) **Figure 2.** Handwriting bounds of `TextField` components.
 
 Stylus handwriting is not supported for `TextField` fields when the input method
-editor is requested with [`KeyboardType.Password`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/input/KeyboardType#Password()).
+editor is requested with [`KeyboardType.Password`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/input/KeyboardType.md.txt#Password()).
 
 ## Input delegation
 
@@ -83,15 +83,15 @@ Your browser doesn't support the video tag. **Figure 3.** Input delegation from 
 ### Stylus input delegation
 
 Use the handwriting delegation APIs to support stylus handwriting input for
-placeholder input fields (see [`handwritingDetector`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/handwriting/handwritingDetector.modifier#(androidx.compose.ui.Modifier).handwritingDetector(kotlin.Function0)) and
-[`handwritingHandler`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/handwriting/handwritingHandler.modifier#(androidx.compose.ui.Modifier).handwritingHandler())). The placeholder UI element is
+placeholder input fields (see [`handwritingDetector`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/handwriting/handwritingDetector.modifier.md.txt#(androidx.compose.ui.Modifier).handwritingDetector(kotlin.Function0)) and
+[`handwritingHandler`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/handwriting/handwritingHandler.modifier.md.txt#(androidx.compose.ui.Modifier).handwritingHandler())). The placeholder UI element is
 configured to delegate handwriting to a functional input field. For an example
 implementation, see
 [`HandwritingDetectorSample.kt`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/foundation/foundation/samples/src/main/java/androidx/compose/foundation/samples/HandwritingDetectorSample.kt).
 
 Stylus handwriting mode starts when the functional input field gains focus and
 creates an
-[`InputConnection`](https://developer.android.com/reference/kotlin/android/view/inputmethod/InputConnection).
+[`InputConnection`](https://developer.android.com/reference/kotlin/android/view/inputmethod/InputConnection.md.txt).
 Your browser doesn't support the video tag. **Figure 4.** Stylus input delegation from static UI element to text input field.
 
 ## Testing
@@ -105,13 +105,16 @@ If you don't have a stylus input device, simulate stylus input on any device
 with root access (including emulators) using the following Android Debug Bridge
 (adb) commands:
 
+```bash
 
-    // Android 14
-    adb shell setprop persist.debug.input.simulate_stylus_with_touch true && adb shell stop && adb shell start
+// Android 14
+adb shell setprop persist.debug.input.simulate_stylus_with_touch true && adb shell stop && adb shell start
 
-    // Android 15 and higher
-    // Property takes effect after screen reconfiguration such as orientation change.
-    adb shell setprop debug.input.simulate_stylus_with_touch true
+// Android 15 and higher
+// Property takes effect after screen reconfiguration such as orientation change.
+adb shell setprop debug.input.simulate_stylus_with_touch true
+
+```
 
 Use the Gboard beta for testing if you are using a device that doesn't support
 stylus.
@@ -119,4 +122,4 @@ stylus.
 ## Additional resources
 
 - Material Design --- [Text fields](https://m3.material.io/components/text-fields/overview)
-- [Handle user input](https://developer.android.com/develop/ui/compose/text/user-input)
+- [Handle user input](https://developer.android.com/develop/ui/compose/text/user-input.md.txt)

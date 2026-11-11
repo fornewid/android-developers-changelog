@@ -12,10 +12,10 @@ Layout Inspector lets you inspect a Compose layout inside a running app in an
 emulator or physical device. You can use the Layout Inspector to check how often
 a composable is recomposed or skipped, which can help identify issues with your
 app. For example, some coding errors might force your UI to recompose
-excessively, which can cause [poor performance](https://developer.android.com/develop/ui/compose/performance).
+excessively, which can cause [poor performance](https://developer.android.com/develop/ui/compose/performance.md.txt).
 Some coding errors can prevent your UI from recomposing and, therefore,
 prevent your UI changes from showing up on the screen. If you're new to
-Layout inspector, check the [guidance](https://developer.android.com/studio/debug/layout-inspector) on how to
+Layout inspector, check the [guidance](https://developer.android.com/studio/debug/layout-inspector.md.txt) on how to
 run it.
 
 > [!NOTE]
@@ -24,7 +24,7 @@ run it.
 ### Get recomposition counts
 
 When debugging your Compose layouts, knowing when composables
-[recompose](https://developer.android.com/develop/ui/compose/mental-model#recomposition) is important in
+[recompose](https://developer.android.com/develop/ui/compose/mental-model.md.txt#recomposition) is important in
 understanding whether your UI is implemented properly. For example, if it's
 recomposing too many times, your app might be doing more work than is necessary.
 On the other hand, components that don't recompose when you anticipate them to
@@ -74,10 +74,10 @@ Inspector](https://developer.android.com/static/develop/ui/compose/images/li-sho
 
 ### Compose semantics
 
-In Compose, [Semantics](https://developer.android.com/develop/ui/compose/accessibility/semantics) describe your UI in an
+In Compose, [Semantics](https://developer.android.com/develop/ui/compose/accessibility/semantics.md.txt) describe your UI in an
 alternative manner that is understandable for
-[Accessibility](https://developer.android.com/develop/ui/compose/accessibility) services and for the
-[Testing](https://developer.android.com/develop/ui/compose/testing) framework. You can use the Layout Inspector
+[Accessibility](https://developer.android.com/develop/ui/compose/accessibility.md.txt) services and for the
+[Testing](https://developer.android.com/develop/ui/compose/testing.md.txt) framework. You can use the Layout Inspector
 to inspect semantic information in your Compose layouts.
 ![Semantic information displayed using the Layout Inspector.](https://developer.android.com/static/develop/ui/compose/images/layout_inspector_semantics_new.png) **Figure 4.** Semantic information displayed using the Layout Inspector.
 
@@ -93,7 +93,7 @@ between them.
 
 To help you build more adaptive and accessible UIs in Jetpack Compose, Android
 Studio provides a UI Check mode in Compose Preview. This feature is similar
-to [Accessibility Scanner](https://developer.android.com/guide/topics/ui/accessibility/testing#accessibility-scanner)
+to [Accessibility Scanner](https://developer.android.com/guide/topics/ui/accessibility/testing.md.txt#accessibility-scanner)
 for views.
 
 When you activate Compose UI check mode on a Compose Preview, Android Studio

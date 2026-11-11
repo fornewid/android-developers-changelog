@@ -50,9 +50,9 @@ browser. The function takes the following arguments:
 
 Compose for TV offers lazy lists, a component to display a large
 number of items (or a list of an unknown length). Call
-[`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,kotlin.Function1))
+[`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary.md.txt#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,kotlin.Function1))
 to place sections vertically. `LazyColumn` provides a
-[`LazyListScope.() -> Unit`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope)
+[`LazyListScope.() -> Unit`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope.md.txt)
 block, which offers a DSL to define item contents. In the following example,
 each section is placed in a vertical list with a 16 dp gap between sections:
 
@@ -81,8 +81,8 @@ fun CatalogBrowser(
 
 In the example, `SectionRow` composable function defines how to display
 sections.
-In the following function, [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#LazyRow(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,kotlin.Function1)) demonstrates how this
-horizontal version of [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,kotlin.Function1)) is similarly used to
+In the following function, [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary.md.txt#LazyRow(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,kotlin.Function1)) demonstrates how this
+horizontal version of [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary.md.txt#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,kotlin.Function1)) is similarly used to
 define a horizontal list with a `LazyListScope.() -> Unit` block by calling
 the provided DSL:
 
@@ -133,13 +133,13 @@ fun MovieCatalog(
 
 <br />
 
-In the `SectionRow` composable, the [`Text`](https://developer.android.com/reference/kotlin/androidx/tv/material3/package-summary#Text(androidx.compose.ui.text.AnnotatedString,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.collections.Map,kotlin.Function1,androidx.compose.ui.text.TextStyle)) component is used.
+In the `SectionRow` composable, the [`Text`](https://developer.android.com/reference/kotlin/androidx/tv/material3/package-summary.md.txt#Text(androidx.compose.ui.text.AnnotatedString,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.collections.Map,kotlin.Function1,androidx.compose.ui.text.TextStyle)) component is used.
 Text and other components
 defined in Material Design are offered in the tv-material library . You can
 change the texts' style as defined in Material Design by referring to the
-[`MaterialTheme`](https://developer.android.com/reference/kotlin/androidx/tv/material3/MaterialTheme) object.
+[`MaterialTheme`](https://developer.android.com/reference/kotlin/androidx/tv/material3/MaterialTheme.md.txt) object.
 This object is also provided by the tv-material library.
-[`Card`](https://developer.android.com/reference/kotlin/androidx/tv/material3/package-summary#Card(kotlin.Function0,androidx.compose.ui.Modifier,androidx.tv.material3.CardShape,androidx.tv.material3.CardColors,androidx.tv.material3.CardScale,androidx.tv.material3.CardBorder,androidx.tv.material3.CardGlow,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) is part of the tv-material library.
+[`Card`](https://developer.android.com/reference/kotlin/androidx/tv/material3/package-summary.md.txt#Card(kotlin.Function0,androidx.compose.ui.Modifier,androidx.tv.material3.CardShape,androidx.tv.material3.CardColors,androidx.tv.material3.CardScale,androidx.tv.material3.CardBorder,androidx.tv.material3.CardGlow,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) is part of the tv-material library.
 `MovieCard` defines how each movie data is rendered in the catalog defined
 as the following snippet:
 
@@ -167,19 +167,19 @@ fun MovieCard(
 <br />
 
 > [!NOTE]
-> **Note:** `AsyncImage` is a composable that loads an image from the internet. See [Loading Images](https://developer.android.com/develop/ui/compose/graphics/images/loading#internet-loading) for details.
+> **Note:** `AsyncImage` is a composable that loads an image from the internet. See [Loading Images](https://developer.android.com/develop/ui/compose/graphics/images/loading.md.txt#internet-loading) for details.
 
 ## Highlight featured content
 
 In the example described earlier, all movies are displayed equally.
 They have the same area, no visual difference between them.
-You can highlight some of them with [`Carousel`](https://developer.android.com/reference/kotlin/androidx/tv/material3/Carousel.composable#Carousel(kotlin.Int,androidx.compose.ui.Modifier,androidx.tv.material3.CarouselState,kotlin.Long,androidx.compose.animation.ContentTransform,androidx.compose.animation.ContentTransform,kotlin.Function1,kotlin.Function2)).
+You can highlight some of them with [`Carousel`](https://developer.android.com/reference/kotlin/androidx/tv/material3/Carousel.composable.md.txt#Carousel(kotlin.Int,androidx.compose.ui.Modifier,androidx.tv.material3.CarouselState,kotlin.Long,androidx.compose.animation.ContentTransform,androidx.compose.animation.ContentTransform,kotlin.Function1,kotlin.Function2)).
 
 Carousel displays the information in a set of items that can slide, fade, or
 move into view. You use the component to highlight featured content, such as
 newly available movies or new episodes of TV programs.
 
-[`Carousel`](https://developer.android.com/reference/kotlin/androidx/tv/material3/Carousel.composable#Carousel(kotlin.Int,androidx.compose.ui.Modifier,androidx.tv.material3.CarouselState,kotlin.Long,androidx.compose.animation.ContentTransform,androidx.compose.animation.ContentTransform,kotlin.Function1,kotlin.Function2))
+[`Carousel`](https://developer.android.com/reference/kotlin/androidx/tv/material3/Carousel.composable.md.txt#Carousel(kotlin.Int,androidx.compose.ui.Modifier,androidx.tv.material3.CarouselState,kotlin.Long,androidx.compose.animation.ContentTransform,androidx.compose.animation.ContentTransform,kotlin.Function1,kotlin.Function2))
 expects you to at least specify the number of items that Carousel has and how to
 draw each item. The first one can be specified with `itemCount`. The second one
 can be passed as a lambda. The index number of the displayed item is

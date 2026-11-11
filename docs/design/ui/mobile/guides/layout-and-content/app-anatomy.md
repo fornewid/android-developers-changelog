@@ -4,7 +4,7 @@ url: https://developer.android.com/design/ui/mobile/guides/layout-and-content/ap
 source: md.txt
 ---
 
-Most Android apps consist of regions referred to as the [system bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars),
+Most Android apps consist of regions referred to as the [system bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars.md.txt),
 the navigation area, and the body.
 ![](https://developer.android.com/static/images/design/ui/mobile/app-anatomy_parts.png) **Figure 1.** : **Figure 4:** Parts of an Android app: systems bars (1), navigation area (2), and body (3)
 
@@ -13,7 +13,7 @@ the navigation area, and the body.
 The status bar and navigation bar--collectively known as the system bars--display
 important information such as battery level, the time, and notification alerts,
 and provide direct device interaction from anywhere. Read more about [system
-bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars) and how to [design for edge-to-edge](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge).
+bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars) and how to [design for edge-to-edge](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge.md.txt).
 ![](https://developer.android.com/static/images/design/ui/mobile/app-anatomy_parts_bars.png) **Figure 2.** : System bars (1) Navigation (2)
 
 ## Navigation region

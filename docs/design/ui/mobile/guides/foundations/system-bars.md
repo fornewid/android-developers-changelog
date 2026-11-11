@@ -20,7 +20,7 @@ you're designing layouts, input methods, or other device capabilities.
 
 ### Add Edge-to-Edge support
 
-Use the Edge-to-Edge [Android skill](https://developer.android.com/tools/agents/android-skills) to add adaptive edge-to-edge support to your Jetpack Compose app. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the Edge-to-Edge [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to add adaptive edge-to-edge support to your Jetpack Compose app. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add edge-to-edge
 
@@ -41,10 +41,10 @@ Use the Edge-to-Edge [Android skill](https://developer.android.com/tools/agents/
 - Keep the system status and navigation bars transparent or translucent and
   draw content behind these bars to go edge-to-edge.
 
-- Use [`WindowInsets`](https://developer.android.com/reference/android/view/WindowInsets) to properly handle system bar intrusions and ensure
+- Use [`WindowInsets`](https://developer.android.com/reference/android/view/WindowInsets.md.txt) to properly handle system bar intrusions and ensure
   your content is not obscured in your adaptive layouts.
 
-- Use [canonical layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts), which use the screen space efficiently.
+- Use [canonical layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts.md.txt), which use the screen space efficiently.
 
 ## Status bar
 
@@ -57,7 +57,7 @@ bar styles can be transparent or translucent.
 
 Status bar icons can appear differently depending on the context, time of day,
 user-set preferences or themes, and other parameters. For more information, see
-[System bar icons](https://developer.android.com/develop/ui/compose/system/insets-views-compose#system-bar-icons).
+[System bar icons](https://developer.android.com/develop/ui/compose/system/insets-views-compose.md.txt#system-bar-icons).
 ![](https://developer.android.com/static/images/design/ui/mobile/system-bars-status-bar-light-dark-theme.png) **Figure 3.** Status bar icons in light and dark theme.
 
 When a notification arrives, an icon usually appears in the status bar. This
@@ -82,7 +82,7 @@ In the following left-side image, the status bar is transparent and the
 Transparent status bars are ideal when the UI doesn't appear underneath the
 status bar or an image draws underneath the status bar. Translucent status bars
 are ideal when the UI scrolls underneath the status bar. For more on gradient
-protection see [Edge-to-edge design](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge).
+protection see [Edge-to-edge design](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge.md.txt).
 ![](https://developer.android.com/static/images/design/ui/mobile/system-bars-gradient-protection.png) **Figure 6.** An edge-to-edge app with dual tone gradient protection spanning two panes behind the system status bar.
 
 ## Navigation
@@ -111,7 +111,7 @@ gesture navigation by doing the following:
 - Supporting edge-to-edge content.
 - Avoid adding interactions or touch targets under gesture navigation insets.
 
-For more information, see [Add support for gesture navigation](https://developer.android.com/develop/ui/views/touch-and-input/gestures/gesturenav).
+For more information, see [Add support for gesture navigation](https://developer.android.com/develop/ui/views/touch-and-input/gestures/gesturenav.md.txt).
 ![](https://developer.android.com/static/images/design/ui/mobile/system-bars-gesture-handle.png) **Figure 7.** Gesture handle navigation bar.
 
 ### Adaptive navigation
@@ -126,12 +126,12 @@ In adaptive layouts, consider how the system bars might behave or be styled
 differently across various contexts, such as compact or expanded window sizes or
 different foldable postures.
 
-For more information, see [Build adaptive navigation](https://developer.android.com/develop/ui/compose/layouts/adaptive/build-adaptive-navigation).
+For more information, see [Build adaptive navigation](https://developer.android.com/develop/ui/compose/layouts/adaptive/build-adaptive-navigation.md.txt).
 
 #### Navigation icons
 
 Navigation icons can also appear differently depending on user-set preferences
-or themes. For more information, see [System bar icons](https://developer.android.com/develop/ui/compose/system/insets-views-compose#system-bar-icons).
+or themes. For more information, see [System bar icons](https://developer.android.com/develop/ui/compose/system/insets-views-compose.md.txt#system-bar-icons).
 
 ### Set a navigation style
 
@@ -174,21 +174,21 @@ draw underneath system navigation bars, as seen in figures 7, 8, and 9. See
 [System bar protection](https://developer.android.com/develop/ui/compose/layouts/insets#system_bar_protection) for more information.
 
 Use a translucent three-button navigation bar for scrolling content. For more on
-translucent navigation bar considerations, see [Edge-to-edge design](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge).
+translucent navigation bar considerations, see [Edge-to-edge design](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge.md.txt).
 
 ### Keyboard and navigation
 
 ![](https://developer.android.com/static/images/design/ui/mobile/system-bars-on-screen-keyboard.png) **Figure 10.** On-screen keyboard with navigation bars.
 
-Each navigation type reacts appropriately to the [on-screen keyboard](https://developer.android.com/develop/ui/views/layout/sw-keyboard) to allow
+Each navigation type reacts appropriately to the [on-screen keyboard](https://developer.android.com/develop/ui/views/layout/sw-keyboard.md.txt) to allow
 the user to perform actions such as dismissing or even changing the keyboard
 type. To ensure a smooth transition that synchronizes the transition of the app
 with the keyboard sliding up and down from the bottom of the screen, use
-[`WindowInsetsAnimationCompat`](https://developer.android.com/reference/kotlin/androidx/core/view/WindowInsetsAnimationCompat).
+[`WindowInsetsAnimationCompat`](https://developer.android.com/reference/kotlin/androidx/core/view/WindowInsetsAnimationCompat.md.txt).
 
 ## Layouts
 
-[Adaptive layouts](https://developer.android.com/design/ui/mobile/guides/layout-and-content/adapt-layout) optimize available display space. They organize the app UI
+[Adaptive layouts](https://developer.android.com/design/ui/mobile/guides/layout-and-content/adapt-layout.md.txt) optimize available display space. They organize the app UI
 by moving content into secondary or tertiary panes.
 
 When designing adaptive layouts, consider how the system bars interact with your
@@ -200,7 +200,7 @@ When your app is displayed edge-to-edge, verify that content and controls are
 not obscured by the system UI. If, for example, the navigation bar covers a
 button, the user might not be able to click the button.
 
-For more information, see [Canonical layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts).
+For more information, see [Canonical layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts.md.txt).
 
 ## Display cutouts
 
@@ -217,5 +217,5 @@ content, orientation, and edge-to-edge.
 You can hide system bars when you need a full-screen experience, for example
 when the user is watching a movie. The user should still be able to tap to
 reveal system bars and navigate or interact with system controls. For more
-information, see [Immersive content](https://developer.android.com/design/ui/mobile/guides/layout-and-content/immersive-content) and [Hide the system bars for immersive
+information, see [Immersive content](https://developer.android.com/design/ui/mobile/guides/layout-and-content/immersive-content.md.txt) and [Hide the system bars for immersive
 mode](https://developer.android.com/develop/ui/views/layout/immersive).

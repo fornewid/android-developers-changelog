@@ -6,7 +6,7 @@ source: md.txt
 
 ![Four star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/shared/four-star-rating.png)
 
-The [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable#Grid(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) composable creates structural, two-dimensional screen layouts.
+The [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable.md.txt#Grid(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) composable creates structural, two-dimensional screen layouts.
 `Grid` defines a responsive layout structure using explicitly defined tracks
 (rows and columns) and gaps as the foundational architecture of your UI.
 
@@ -16,26 +16,26 @@ As a result, rendering large or dynamic datasets directly within a `Grid` can ca
 bottlenecks as all items compose simultaneously.
 
 To display large collections of data within a structured screen layout, embed
-lazy components such as [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) or [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable#LazyRow(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) in your `Grid` cells.
+lazy components such as [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) or [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable.md.txt#LazyRow(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) in your `Grid` cells.
 But note: flexible tracks (with specifications such as `1.fr`) query the
 intrinsic sizes of child elements. Because [`SubcomposeLayout`](https://developer.android.com/develop/adaptive-apps/cookbook/which%20backs%0A%60LazyColumn%60%20and%20%60LazyRow%60) does not support intrinsic measurement passes,
 placing a lazy list inside a flexible track causes an
-[`IllegalStateException`](https://developer.android.com/reference/java/lang/IllegalStateException) crash. To safely place lazy lists inside a flexible grid
-track, you must use [`GridTrackSize.MinMax`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize#MinMax(androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.Fr)) sizing (such as `minmax(0.dp, 1.fr)`)
+[`IllegalStateException`](https://developer.android.com/reference/java/lang/IllegalStateException.md.txt) crash. To safely place lazy lists inside a flexible grid
+track, you must use [`GridTrackSize.MinMax`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize.md.txt#MinMax(androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.Fr)) sizing (such as `minmax(0.dp, 1.fr)`)
 to bypass the intrinsic measurement pass.
 ![Screen layout with a top Header, a scrollable list of items in the main content area, and a bottom Footer.](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/grid-lazy-column.png) **Figure 1.** Structural screen layout with a header, footer, and an embedded `LazyColumn` for content.
 
 ## Best practices
 
 - **Use lazy lists instead of large explicit loops** : To display large or dynamic datasets within a structured `Grid`, embed lazy components (typically `LazyColumn` or `LazyRow`) inside specific grid cells rather than creating large explicit loops over items, as `Grid` does not recycle items and has a limit of 1000 tracks.
-- **Use `MinMax` track sizing for lazy lists** : Because `LazyColumn` and `LazyRow` don't support intrinsic measurement passes (see [`SubcomposeLayout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/SubcomposeLayout.composable)), use `GridTrackSize.MinMax` on flexible tracks hosting lazy components to bypass intrinsic measurements safely.
+- **Use `MinMax` track sizing for lazy lists** : Because `LazyColumn` and `LazyRow` don't support intrinsic measurement passes (see [`SubcomposeLayout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/SubcomposeLayout.composable.md.txt)), use `GridTrackSize.MinMax` on flexible tracks hosting lazy components to bypass intrinsic measurements safely.
 
 ## Ingredients
 
-- [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable#Grid(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)): Composable layout that places items in a two-dimensional grid structure configured using explicit row and column tracks.
-- [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)): Vertically scrolling list that composes and recycles only the items currently visible on screen.
-- [`GridTrackSize.MinMax`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize#MinMax(androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.Fr)): Track sizing property that defines flexible bounds (`min` and `max`) to safely host lazy components without triggering runtime measurement crashes.
-- [`gridItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridScope#(androidx.compose.ui.Modifier).gridItem(kotlin.Any,androidx.compose.ui.Alignment)): Compose `Modifier` extension that assigns a child UI element to a specific cell or named area inside a `Grid`.
+- [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable.md.txt#Grid(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)): Composable layout that places items in a two-dimensional grid structure configured using explicit row and column tracks.
+- [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)): Vertically scrolling list that composes and recycles only the items currently visible on screen.
+- [`GridTrackSize.MinMax`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize.md.txt#MinMax(androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.Fr)): Track sizing property that defines flexible bounds (`min` and `max`) to safely host lazy components without triggering runtime measurement crashes.
+- [`gridItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridScope.md.txt#(androidx.compose.ui.Modifier).gridItem(kotlin.Any,androidx.compose.ui.Alignment)): Compose `Modifier` extension that assigns a child UI element to a specific cell or named area inside a `Grid`.
 
 ## Steps
 
@@ -129,6 +129,6 @@ exceptions.
 
 ## Additional resources
 
-- [Grid in Jetpack Compose](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid)
-- [Set container properties](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties)
-- [Lazy lists and lazy grids](https://developer.android.com/develop/ui/compose/lists)
+- [Grid in Jetpack Compose](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid.md.txt)
+- [Set container properties](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties.md.txt)
+- [Lazy lists and lazy grids](https://developer.android.com/develop/ui/compose/lists.md.txt)

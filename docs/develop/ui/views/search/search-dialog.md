@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/views/search/search-dialog
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Search bar →](https://developer.android.com/develop/ui/compose/components/search-bar) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Search bar →](https://developer.android.com/develop/ui/compose/components/search-bar.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 When you're ready to add search functionality to your app, Android helps you
 implement the user interface with either a search dialog that appears at the top
@@ -40,14 +40,14 @@ features, but in slightly different ways:
   user submits a query, the system delivers the query to the activity that
   you specify to handle searches. The dialog can also provide search
   suggestions while the user types.
-- The **search widget** is an instance of `https://developer.android.com/reference/android/widget/SearchView` that you can place anywhere in your layout. By default, the search widget behaves like a standard `https://developer.android.com/reference/android/widget/EditText` widget and doesn't do anything, but you can configure it so that the Android system handles all input events, delivers queries to the appropriate activity, and provides search suggestions---just like the search dialog.
+- The **search widget** is an instance of `SearchView` that you can place anywhere in your layout. By default, the search widget behaves like a standard `EditText` widget and doesn't do anything, but you can configure it so that the Android system handles all input events, delivers queries to the appropriate activity, and provides search suggestions---just like the search dialog.
 
 > [!NOTE]
 > **Note:** This document focuses on how to integrate the search widget with the system for an assisted search implementation. But you can also handle all user input into the search widget yourself, using various callback methods and listeners. If you want to handle user input yourself, read the reference document for `SearchView` and its nested interfaces.
 
 When the user executes a search from the search dialog or a search widget,
 the system creates an
-`https://developer.android.com/reference/android/content/Intent` and
+`Intent` and
 stores the user query in it. The system then starts the activity that you
 declare to handle searches---the "searchable activity"---and delivers it
 the intent. To set up your app for this kind of assisted search, you need the
@@ -60,14 +60,14 @@ search dialog or search widget.
 ## Create a searchable configuration
 
 The first thing you need is an XML file called a
-[search configuration](https://developer.android.com/develop/ui/views/search/searchable-config).
+[search configuration](https://developer.android.com/develop/ui/views/search/searchable-config.md.txt).
 It configures certain UI aspects of the search dialog or widget and defines how
 features such as suggestions and voice search behave. This file is traditionally
 named `searchable.xml` and must be saved in the `res/xml/`
 project directory.
 
 > [!NOTE]
-> **Note:** The system uses this file to instantiate a `https://developer.android.com/reference/android/app/SearchableInfo` object. You can't create this object yourself at runtime. You must declare the search configuration in XML.
+> **Note:** The system uses this file to instantiate a `SearchableInfo` object. You can't create this object yourself at runtime. You must declare the search configuration in XML.
 
 The search configuration file must include the
 [`<searchable>`](https://developer.android.com/guide/topics/search/searchable-config#searchable-element)
@@ -98,8 +98,8 @@ important clues to users about what they can search.
 
 The `<searchable>` element accepts several other attributes.
 However, you don't need most attributes until you add features such as
-[search suggestions](https://developer.android.com/develop/ui/views/search/search-dialog#SearchSuggestions) and
-[voice search](https://developer.android.com/develop/ui/views/search/search-dialog#VoiceSearch). For detailed information about the
+[search suggestions](https://developer.android.com/develop/ui/views/search/search-dialog.md.txt#SearchSuggestions) and
+[voice search](https://developer.android.com/develop/ui/views/search/search-dialog.md.txt#VoiceSearch). For detailed information about the
 search configuration file, see the
 [Search configuration](https://developer.android.com/guide/topics/search/searchable-config)
 reference document.
@@ -112,9 +112,9 @@ searches based on a query string and presents the search results.
 When the user executes a search in the search dialog or widget, the system
 starts your searchable activity and delivers it the search query in an
 `Intent` with the
-`https://developer.android.com/reference/android/content/Intent#ACTION_SEARCH`
+`ACTION_SEARCH`
 action. Your searchable activity retrieves the query from the intent's
-`https://developer.android.com/reference/android/app/SearchManager#QUERY`
+`QUERY`
 extra, then searches your data and presents the results.
 
 Because you can include the search dialog or widget in any other activity in
@@ -128,11 +128,11 @@ If you don't have one already, create an `Activity` that performs
 searches and presents results. You don't need to implement the search
 functionality yet---just create an activity that you can declare in the
 manifest. Inside the manifest's
-[`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element)
+[`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt)
 element, do the following:
 
-1. Declare the activity to accept the `ACTION_SEARCH` intent in an [`<intent-filter>`](https://developer.android.com/guide/topics/manifest/intent-filter-element) element.
-2. Specify the search configuration to use in a `https://developer.android.com/guide/topics/manifest/meta-data-element` element.
+1. Declare the activity to accept the `ACTION_SEARCH` intent in an [`<intent-filter>`](https://developer.android.com/guide/topics/manifest/intent-filter-element.md.txt) element.
+2. Specify the search configuration to use in a `<meta-data>` element.
 
 This is shown in the following example:
 
@@ -157,16 +157,16 @@ preceding example, it refers to the `res/xml/searchable.xml`
 file.
 
 > [!NOTE]
-> **Note:** The `<intent-filter>` doesn't need a [`<category>`](https://developer.android.com/guide/topics/manifest/category-element) with the `DEFAULT` value---which you usually see in `<activity>` elements---because the system delivers the `ACTION_SEARCH` intent explicitly to your searchable activity using its component name.
+> **Note:** The `<intent-filter>` doesn't need a [`<category>`](https://developer.android.com/guide/topics/manifest/category-element.md.txt) with the `DEFAULT` value---which you usually see in `<activity>` elements---because the system delivers the `ACTION_SEARCH` intent explicitly to your searchable activity using its component name.
 
 ### Perform a search
 
 After you declare your searchable activity in the manifest, follow this
 procedure to perform a search in your searchable activity:
 
-1. [Receive the query](https://developer.android.com/develop/ui/views/search/search-dialog#ReceivingTheQuery).
-2. [Search your data](https://developer.android.com/develop/ui/views/search/search-dialog#SearchingYourData).
-3. [Present the results](https://developer.android.com/develop/ui/views/search/search-dialog#PresentingTheResults).
+1. [Receive the query](https://developer.android.com/develop/ui/views/search/search-dialog.md.txt#ReceivingTheQuery).
+2. [Search your data](https://developer.android.com/develop/ui/views/search/search-dialog.md.txt#SearchingYourData).
+3. [Present the results](https://developer.android.com/develop/ui/views/search/search-dialog.md.txt#PresentingTheResults).
 
 #### Receive the query
 
@@ -222,8 +222,8 @@ store and search your data in many ways, and this document doesn't show you how.
 Consider how you store and search your data in terms of your needs and your data
 format. The following are tips you might be able to apply:
 
-- If your data is stored in a SQLite database on the device, performing a full-text search---using FTS3, rather than a `LIKE` query---can provide a more robust search across text data and can produce results significantly faster. See [sqlite.org](http://sqlite.org/fts3.html) for information about FTS3 and the `https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase` class for information about SQLite on Android.
-- If your data is stored online, then the perceived search performance might be inhibited by the user's data connection. You might want to display a progress indicator until your search returns. See `https://developer.android.com/reference/android/net/package-summary` for a reference of network APIs and [`ProgressBar`](https://developer.android.com/reference/android/widget/ProgressBar) for information about how to display a progress indicator.
+- If your data is stored in a SQLite database on the device, performing a full-text search---using FTS3, rather than a `LIKE` query---can provide a more robust search across text data and can produce results significantly faster. See [sqlite.org](http://sqlite.org/fts3.html) for information about FTS3 and the `SQLiteDatabase` class for information about SQLite on Android.
+- If your data is stored online, then the perceived search performance might be inhibited by the user's data connection. You might want to display a progress indicator until your search returns. See `android.net` for a reference of network APIs and [`ProgressBar`](https://developer.android.com/reference/android/widget/ProgressBar.md.txt) for information about how to display a progress indicator.
 
 > [!NOTE]
 > **Note:** If you plan to use a local database, see [Save data in a local database using
@@ -233,22 +233,22 @@ format. The following are tips you might be able to apply:
 
 Regardless of where your data lives and how you search it, we recommend that
 you return search results to your searchable activity with an
-`https://developer.android.com/reference/android/widget/Adapter`. This
+`Adapter`. This
 way, you can present all the search results in a
-`https://developer.android.com/develop/ui/views/layout/recyclerview`.
+`RecyclerView`.
 If your data comes from a SQLite database query, you can apply your results to a
 `RecyclerView` using a
-`https://developer.android.com/reference/android/widget/CursorAdapter`.
+`CursorAdapter`.
 If your data comes in a different format, then you can create an extension of
-`https://developer.android.com/reference/android/widget/BaseAdapter`.
+`BaseAdapter`.
 
 An `Adapter` binds each item from a set of data into a
-`https://developer.android.com/reference/android/view/View` object. When
+`View` object. When
 the `Adapter` is applied to a `RecyclerView`, each piece
 of data is inserted as an individual view into the list. `Adapter` is
 just an interface, so implementations such as
 `CursorAdapter`---for binding data from a
-`https://developer.android.com/reference/android/database/Cursor`---are
+`Cursor`---are
 needed. If none of the existing implementations work for your data, then you can
 implement your own from `BaseAdapter`.
 
@@ -267,7 +267,7 @@ enable the search dialog for the activity.
 To enable the search dialog to perform searches, indicate to the system which
 searchable activity must receive search queries from the search dialog. For
 example, in the preceding section about
-[creating a searchable activity](https://developer.android.com/develop/ui/views/search/search-dialog#SearchableActivity), a searchable
+[creating a searchable activity](https://developer.android.com/develop/ui/views/search/search-dialog.md.txt#SearchableActivity), a searchable
 activity named `SearchableActivity` is created. If you want a
 separate activity, such as one named `OtherActivity`, to show the
 search dialog and deliver searches to `SearchableActivity`, declare
@@ -321,7 +321,7 @@ intent.
 
 If you want every activity in your app to provide the search dialog, insert
 the preceding `<meta-data>` element as a child of the
-[`<application>`](https://developer.android.com/guide/topics/manifest/application-element)
+[`<application>`](https://developer.android.com/guide/topics/manifest/application-element.md.txt)
 element, instead of each `<activity>`. This way, every activity
 inherits the value, provides the search dialog, and delivers searches to the
 same searchable activity. If you have multiple searchable activities, you can
@@ -345,25 +345,25 @@ that calls `onSearchRequested()`.
 
 > [!NOTE]
 > **Note:** If your app uses an [app
-> bar](https://developer.android.com/training/appbar), then don't use the search dialog for your search interface. Instead, use the [search widget](https://developer.android.com/develop/ui/views/search/search-dialog#UsingSearchWidget) as a collapsible view in the app bar.
+> bar](https://developer.android.com/training/appbar), then don't use the search dialog for your search interface. Instead, use the [search widget](https://developer.android.com/develop/ui/views/search/search-dialog.md.txt#UsingSearchWidget) as a collapsible view in the app bar.
 
 You can also enable "type-to-search" functionality, which activates the
 search dialog when the user starts typing on the keyboard. The keystrokes are
 inserted into the search dialog. You can enable type-to-search in your activity
 by calling
-`https://developer.android.com/reference/android/app/Activity#setDefaultKeyMode(int)`---or
-`https://developer.android.com/reference/android/app/Activity#DEFAULT_KEYS_SEARCH_LOCAL`---during
+`setDefaultKeyMode`---or
+`DEFAULT_KEYS_SEARCH_LOCAL`---during
 your activity's
-`https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)`
+`onCreate()`
 method.
 
 ### The impact of the search dialog on your activity lifecycle
 
 The search dialog is a
-`https://developer.android.com/reference/android/app/Dialog` that floats
+`Dialog` that floats
 at the top of the screen. It doesn't cause any change in the activity stack, so
 when the search dialog appears, no lifecycle methods---such as
-`https://developer.android.com/reference/android/app/Activity#onPause()`---are
+`onPause()`---are
 called. Your activity loses input focus, because input focus is given to the
 search dialog.
 
@@ -397,12 +397,12 @@ public boolean onSearchRequested() {
 If the user cancels search by tapping the Back button, the search dialog
 closes and the activity regains input focus. You can register to be notified
 when the search dialog is closed with
-`https://developer.android.com/reference/android/app/SearchManager#setOnDismissListener(android.app.SearchManager.OnDismissListener)`,
-`https://developer.android.com/reference/android/app/SearchManager#setOnCancelListener(android.app.SearchManager.OnCancelListener)`,
+`setOnDismissListener()`,
+`setOnCancelListener()`,
 or both. You only need to register the
-`https://developer.android.com/reference/android/app/SearchManager.OnDismissListener`,
+`OnDismissListener`,
 because it is called every time the search dialog closes. The
-`https://developer.android.com/reference/android/app/SearchManager.OnCancelListener`
+`OnCancelListener`
 only pertains to events in which the user explicitly exits the search dialog, so
 it's not called when a search is executed. When the search is executed, the
 search dialog automatically disappears.
@@ -415,7 +415,7 @@ activities](https://developer.android.com/guide/components/activities#Lifecycle)
 then one of two things happens:
 
 - By default, the searchable activity receives the `ACTION_SEARCH` intent with a call to `onCreate()`, and a new instance of the activity is brought to the top of the activity stack. There are now two instances of your searchable activity in the activity stack, so tapping the Back button takes you back to the previous instance of the searchable activity, rather than exiting the searchable activity.
-- If you set `android:launchMode` to `"singleTop"`, then the searchable activity receives the `ACTION_SEARCH` intent with a call to `https://developer.android.com/reference/android/app/Activity#onNewIntent(android.content.Intent)`, passing the new `ACTION_SEARCH` intent. For example, here's how you might handle this case, in which the searchable activity's launch mode is `"singleTop"`:
+- If you set `android:launchMode` to `"singleTop"`, then the searchable activity receives the `ACTION_SEARCH` intent with a call to `onNewIntent(Intent)`, passing the new `ACTION_SEARCH` intent. For example, here's how you might handle this case, in which the searchable activity's launch mode is `"singleTop"`:
 
   ### Kotlin
 
@@ -467,16 +467,16 @@ then one of two things happens:
   ```
 
   Compared to the example code in the section about
-  [performing a search](https://developer.android.com/develop/ui/views/search/search-dialog#PerformingSearch), all the code to handle the
+  [performing a search](https://developer.android.com/develop/ui/views/search/search-dialog.md.txt#PerformingSearch), all the code to handle the
   search intent is now in the `handleIntent()` method, so that both
   `onCreate()` and `onNewIntent()` can execute it.
 
   When the system calls `onNewIntent(Intent)`, the activity isn't
   restarted, so the
-  `https://developer.android.com/reference/android/app/Activity#getIntent()`
+  `getIntent()`
   method returns the same intent that is received with `onCreate()`.
   This is why you must call
-  `https://developer.android.com/reference/android/app/Activity#setIntent(android.content.Intent)`
+  `setIntent(Intent)`
   inside `onNewIntent(Intent)`: so that the intent saved by the
   activity is updated in case you call `getIntent()` in the future.
 
@@ -506,15 +506,15 @@ the searchable activity for every search made. However, if you want to refine
 your search criteria based on the activity from which the user is performing a
 search, you can provide additional data in the intent that the system sends to
 your searchable activity. You can pass the additional data in the
-`https://developer.android.com/reference/android/app/SearchManager#APP_DATA`
-`https://developer.android.com/reference/android/os/Bundle`, which is
+`APP_DATA`
+`Bundle`, which is
 included in the `ACTION_SEARCH` intent.
 
 To pass this kind of data to your searchable activity, override the
 `onSearchRequested()` method for the activity from which the user can
 perform a search, create a `Bundle` with the additional data, and
 call
-`https://developer.android.com/reference/android/app/Activity#startSearch(java.lang.String, boolean, android.os.Bundle, boolean)`
+`startSearch()`
 to activate the search dialog. For example:
 
 ### Kotlin
@@ -585,21 +585,21 @@ widget somewhere in your activity layout.
 ### Configure the search widget
 
 After you create a
-[search configuration](https://developer.android.com/develop/ui/views/search/search-dialog#SearchableConfiguration) and a
-[searchable activity](https://developer.android.com/develop/ui/views/search/search-dialog#SearchableActivity), enable assisted search
+[search configuration](https://developer.android.com/develop/ui/views/search/search-dialog.md.txt#SearchableConfiguration) and a
+[searchable activity](https://developer.android.com/develop/ui/views/search/search-dialog.md.txt#SearchableActivity), enable assisted search
 for each `SearchView` by calling
-`https://developer.android.com/reference/android/widget/SearchView#setSearchableInfo(android.app.SearchableInfo)`
+`setSearchableInfo()`
 and passing it the `SearchableInfo` object that represents your
 searchable configuration.
 
 You can get a reference to the `SearchableInfo` by calling
-`https://developer.android.com/reference/android/app/SearchManager#getSearchableInfo(android.content.ComponentName)`
+`getSearchableInfo()`
 on
-`https://developer.android.com/reference/android/app/SearchManager`.
+`SearchManager`.
 
 For example, if you're using a `SearchView` as an action view in
 the app bar, enable the widget during the
-`https://developer.android.com/reference/android/app/Activity#onCreateOptionsMenu(android.view.Menu)`
+`onCreateOptionsMenu()`
 callback, as shown in the following example:
 
 ### Kotlin
@@ -644,7 +644,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 The search widget is now configured, and the system delivers search queries
 to your searchable activity. You can also enable
-[search suggestions](https://developer.android.com/develop/ui/views/search/search-dialog#SearchSuggestions) for the search widget.
+[search suggestions](https://developer.android.com/develop/ui/views/search/search-dialog.md.txt#SearchSuggestions) for the search widget.
 
 > [!NOTE]
 > **Note:** If you want to handle all user input yourself, you can do so with some callback methods and event listeners. For more information, see the reference documentation for `SearchView` and its nested interfaces.
@@ -662,23 +662,23 @@ A submit button
 :   By default, there's no button to submit a search query, so the user has to
     press the <kbd>Return</kbd> key on the keyboard to initiate a search. You
     can add a "submit" button by calling
-    `https://developer.android.com/reference/android/widget/SearchView#setSubmitButtonEnabled(boolean)`.
+    `setSubmitButtonEnabled(true)`.
 
 Query refinement for search suggestions
 :   When you enable search suggestions, you usually expect users to select a
     suggestion, but they might also want to refine the suggested search query.
     You can add a button alongside each suggestion that inserts the suggestion
     in the search box for refinement by the user by calling
-    `https://developer.android.com/reference/android/widget/SearchView#setQueryRefinementEnabled(boolean)`.
+    `setQueryRefinementEnabled(true)`.
 
 The ability to toggle search box visibility
 :   By default, the search widget is "iconified," meaning that it is
     represented only by a search icon---a magnifying glass. It expands to
     show the search box when the user taps the icon. As shown in the preceding
     example, you can show the search box by default by calling
-    `https://developer.android.com/reference/android/widget/SearchView#setIconifiedByDefault(boolean)`.
+    `setIconifiedByDefault(false)`.
     You can also toggle the search widget appearance by calling
-    `https://developer.android.com/reference/android/widget/SearchView#setIconified(boolean)`.
+    `setIconified()`.
 
 There are several other APIs in the `SearchView` class that let
 you customize the search widget. However, most of them are used only when you
@@ -701,7 +701,7 @@ item and doesn't display the action view---that is, the search widget.
 To handle this situation, the menu item to which you attach the search widget
 must activate the search dialog when the user selects it from the overflow menu.
 To make this happen, implement
-`https://developer.android.com/reference/android/app/Activity#onOptionsItemSelected(android.view.MenuItem)`
+`onOptionsItemSelected()`
 to handle the "Search" menu item and open the search dialog by calling
 `onSearchRequested()`.
 
@@ -735,7 +735,7 @@ transcribed text to the searchable activity.
 
 You can provide additional attributes to specify the voice search behavior,
 such as the expected language and the maximum number of results to return. See
-the [Search configuration](https://developer.android.com/develop/ui/views/search/searchable-config) reference for more
+the [Search configuration](https://developer.android.com/develop/ui/views/search/searchable-config.md.txt) reference for more
 information about the available attributes.
 
 > [!NOTE]

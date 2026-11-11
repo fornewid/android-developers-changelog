@@ -30,7 +30,7 @@ higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/lazily-load-list_f195cd3dd10dc6c1d18a046a5263532cf63fcce217e053cee8c70afd25ed0b49.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/lazily-load-list_5b1bcbb3422e30e8acd54918fae2781a48664bf76a324d4d04a9cbd4db2907c5.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Display paged content
 
@@ -94,8 +94,8 @@ fun MessageList(
 
 ### Key points about the code
 
-- [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable): This composable is used to display a large list of items (messages) efficiently. It only renders the items that are visible on the screen, thus saving resources and memory.
-- The [`lazyPagingItems`](https://developer.android.com/reference/kotlin/androidx/paging/compose/LazyPagingItems) object efficiently manages the loading and presentation of paged data within the `LazyColumn`. It passes `LazyPagingItems` to [`items`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope#items(kotlin.Int,kotlin.Function1,kotlin.Function1,kotlin.Function2)) in the `LazyColumn` composable.
+- [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt): This composable is used to display a large list of items (messages) efficiently. It only renders the items that are visible on the screen, thus saving resources and memory.
+- The [`lazyPagingItems`](https://developer.android.com/reference/kotlin/androidx/paging/compose/LazyPagingItems.md.txt) object efficiently manages the loading and presentation of paged data within the `LazyColumn`. It passes `LazyPagingItems` to [`items`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope.md.txt#items(kotlin.Int,kotlin.Function1,kotlin.Function1,kotlin.Function2)) in the `LazyColumn` composable.
 - `MessageRow(message: Text)` is responsible for rendering individual message items, likely displaying the sender and text of the message within a Card.
 - `MessagePlaceholder()` provides a visual placeholder (a loading spinner) while the actual message data is being fetched, enhancing the user experience.
 
@@ -119,4 +119,4 @@ This series of videos introduces various Compose APIs, quickly showing you what'
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq.md.txt) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

@@ -11,12 +11,12 @@ browsing and playback experience while ensuring the experience is
 optimized for car screens and minimizes distractions while driving.
 
 > [!NOTE]
-> **Design guidelines:** Refer to [Media Apps](https://developer.android.com/design/ui/cars/guides/app-types/media-apps) for UX guidance specific to media apps.
+> **Design guidelines:** Refer to [Media Apps](https://developer.android.com/design/ui/cars/guides/app-types/media-apps.md.txt) for UX guidance specific to media apps.
 
 This guide assumes that you already have a media app that plays audio on a phone
-and that your media app conforms to the [Android media app architecture](https://developer.android.com/media/legacy). The
+and that your media app conforms to the [Android media app architecture](https://developer.android.com/media/legacy.md.txt). The
 Car App Library gives you the ability to replace the in-app experience with
-templates instead of those built using the [Build media apps for cars](https://developer.android.com/training/cars/media)
+templates instead of those built using the [Build media apps for cars](https://developer.android.com/training/cars/media.md.txt)
 `MediaBrowser` data structure. You still must provide a `MediaSession`
 for playback controls, and a `MediaBrowserService` or `MediaLibraryService`,
 which is used for recommendations and other smart experiences.
@@ -32,68 +32,78 @@ required of templated media apps:
 
 Your app needs to declare the `androidx.car.app.category.MEDIA`
 [car app category](https://developer.android.com/training/cars/apps#supported-app-categories) in the intent
-filter of its [`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService).
+filter of its [`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService.md.txt).
 
-    <application>
-        ...
-       <service
-           ...
-            android:name=".MyCarAppService"
-            android:exported="true">
-          <intent-filter>
-            <action android:name="androidx.car.app.CarAppService" />
-            <category android:name="androidx.car.app.category.MEDIA"/>
-          </intent-filter>
-        </service>
-        ...
-    <application>
+```xml
+<application>
+    ...
+   <service
+       ...
+        android:name=".MyCarAppService"
+        android:exported="true">
+      <intent-filter>
+        <action android:name="androidx.car.app.CarAppService" />
+        <category android:name="androidx.car.app.category.MEDIA"/>
+      </intent-filter>
+    </service>
+    ...
+<application>
+```
 
-To get access to the [`MediaPlaybackTemplate`](https://developer.android.com/reference/kotlin/androidx/car/app/media/model/MediaPlaybackTemplate), your app also
+To get access to the [`MediaPlaybackTemplate`](https://developer.android.com/reference/kotlin/androidx/car/app/media/model/MediaPlaybackTemplate.md.txt), your app also
 needs to declare the `androidx.car.app.MEDIA_TEMPLATES` permission in its
 manifest file:
 
-    <manifest ...>
-      ...
-      <uses-permission android:name="androidx.car.app.MEDIA_TEMPLATES"/>
-      ...
-    </manifest>
+```xml
+<manifest ...>
+  ...
+  <uses-permission android:name="androidx.car.app.MEDIA_TEMPLATES"/>
+  ...
+</manifest>
+```
 
 ### Set the minimum car app API level
 
 Media apps using the `MediaPlaybackTemplate` are only supported in CAL API 8 and
 higher, be sure your minimum [`Car App API level`](https://developer.android.com/training/cars/apps#api-level) is set to 8.
 
-    <application ...>
-      ...
-      <meta-data
-        android:name="androidx.car.app.minCarApiLevel"
-        android:value="8"/>
-      ...
-    </application>
+```xml
+<application ...>
+  ...
+  <meta-data
+    android:name="androidx.car.app.minCarApiLevel"
+    android:value="8"/>
+  ...
+</application>
+```
 
 ### Provide an attribution icon
 
-Be sure to add an [attribution icon](https://developer.android.com/training/cars/media/configure-manifest#attribution-icon) for media apps built using the Car
+Be sure to add an [attribution icon](https://developer.android.com/training/cars/media/configure-manifest.md.txt#attribution-icon) for media apps built using the Car
 App Library.
 
 ## Declare Android Auto support
 
 Ensure the following is included in your app's manifest:
 
-    <application>
-      ...
-      <meta-data android:name="com.google.android.gms.car.application"
-          android:resource="@xml/automotive_app_desc"/>
-      ...
-    </application>
+```xml
+<application>
+  ...
+  <meta-data android:name="com.google.android.gms.car.application"
+      android:resource="@xml/automotive_app_desc"/>
+  ...
+</application>
+```
 
 Then, add the *template* declaration to `automotive_app_desc.xml` in your xml
 resources. It should look as follows:
 
-    <automotiveApp xmlns:android="http://schemas.android.com/apk/res/android">
-     <uses name="media"/>
-     <uses name="template"/>
-    </automotiveApp>
+```xml
+<automotiveApp xmlns:android="http://schemas.android.com/apk/res/android">
+ <uses name="media"/>
+ <uses name="template"/>
+</automotiveApp>
+```
 
 ## Declare Android Automotive OS support
 
@@ -116,9 +126,11 @@ When distributing a single APK for the Car App Library and `MediaBrowserService`
 or `MediaLibraryService` versions of your app, it's crucial to set the
 `android.software.car.templates_host.media` to `android:required="false"`.
 
-    <uses-feature android:name="android.software.car.templates_host.media" android:required="false"/>
+```xml
+<uses-feature android:name="android.software.car.templates_host.media" android:required="false"/>
+```
 
-Next, follow the [Car App Library guidelines for AAOS](https://developer.android.com/training/cars/apps/automotive-os#car-app-activity) and
+Next, follow the [Car App Library guidelines for AAOS](https://developer.android.com/training/cars/apps/automotive-os.md.txt#car-app-activity) and
 introduce a launchable `CarAppActivity` (or trampoline activity). You must set
 the activity to android:enabled="false" in the manifest. Next, add a metadata
 tag to the `MediaBrowserService` declaration indicating the `CarAppActivity`
@@ -127,35 +139,37 @@ component as the replacement. See the following example manifest:
 > [!NOTE]
 > **Note:** The trampoline activity (LaunchableTrampoline) launches the `androidx.car.app.activity.CarAppActivity` and finishes. This allows the `MediaLibraryService` implementation to still use the Car App Library for Settings or Sign-in screens while not using Car App Library for the full media experience.
 
-    <service android:name=".media.MyMediaService"
-        android:exported="true"
-        android:label="@string/app_name">
-        <intent-filter>
-            <action android:name="androidx.media3.session.MediaLibraryService"/>
-        </intent-filter>
+```xml
+<service android:name=".media.MyMediaService"
+    android:exported="true"
+    android:label="@string/app_name">
+    <intent-filter>
+        <action android:name="androidx.media3.session.MediaLibraryService"/>
+    </intent-filter>
 
-        <!-- Link to Car App Library Activity -->
-        <meta-data
-            android:name="androidx.car.app.media.CalMediaActivityComponent"
-            android:value="com.example.mediaapp.LaunchableTrampoline"/>
-    </service>
+    <!-- Link to Car App Library Activity -->
+    <meta-data
+        android:name="androidx.car.app.media.CalMediaActivityComponent"
+        android:value="com.example.mediaapp.LaunchableTrampoline"/>
+</service>
 
-    <activity
-        android:name=".LaunchableTrampoline"
-        android:exported="true"
-        android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
-        android:launchMode="singleTask"
-        android:label="@string/app_name_cal"
-        android:enabled="false"> <!-- Set to false -->
+<activity
+    android:name=".LaunchableTrampoline"
+    android:exported="true"
+    android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+    android:launchMode="singleTask"
+    android:label="@string/app_name_cal"
+    android:enabled="false"> <!-- Set to false -->
 
-        <meta-data android:name="distractionOptimized" android:value="true" />
+    <meta-data android:name="distractionOptimized" android:value="true" />
 
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
-            <action android:name="androidx.car.app.media.action.SHOW_MEDIA_PLAYBACK"/>
-            <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter>
-    </activity>
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <action android:name="androidx.car.app.media.action.SHOW_MEDIA_PLAYBACK"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+    </intent-filter>
+</activity>
+```
 
 #### Play distribution
 
@@ -174,11 +188,13 @@ you must set the `android.software.car.templates_host.media` to
 `android:required=true`. This ensures the app is distributed only on Android
 Automotive OS builds certified with support for the Car App Library host.
 
-    <uses-feature android:name="android.software.car.templates_host.media" android:required="true"/>
+```xml
+<uses-feature android:name="android.software.car.templates_host.media" android:required="true"/>
+```
 
 Aside from using `android.software.car.templates_host.media` and setting it to
 `android:required=true`, follow these steps to
-[enable Android Automotive OS](https://developer.android.com/training/cars/apps/automotive-os) for your launchable Car App Library
+[enable Android Automotive OS](https://developer.android.com/training/cars/apps/automotive-os.md.txt) for your launchable Car App Library
 activity.
 
 #### Play Distribution
@@ -192,17 +208,17 @@ the Automotive OS dedicated track.
 ## Support voice actions
 
 Voice-enable your app to allow users to complete common actions hands-free.
-See [support voice actions for media](https://developer.android.com/training/cars/media#support_voice) for more detailed implementation
+See [support voice actions for media](https://developer.android.com/training/cars/media.md.txt#support_voice) for more detailed implementation
 instructions. With a templated media app if you receive a voice command, you
 don't need to update your `MediaBrowserService` or `MediaLibraryService` with
 search results. Instead, consider adding an action in your media playback
 template to allow the user to find more content based on that play or search
-query. Supporting voice commands is required to meet the [`VC-1`](https://developer.android.com/docs/quality-guidelines/car-app-quality#car-optimized-tier) quality
+query. Supporting voice commands is required to meet the [`VC-1`](https://developer.android.com/docs/quality-guidelines/car-app-quality.md.txt#car-optimized-tier) quality
 guideline.
 
 ## Create your Playback Template
 
-The [`MediaPlaybackTemplate`](https://developer.android.com/reference/kotlin/androidx/car/app/media/model/MediaPlaybackTemplate) displays media playback
+The [`MediaPlaybackTemplate`](https://developer.android.com/reference/kotlin/androidx/car/app/media/model/MediaPlaybackTemplate.md.txt) displays media playback
 information in your Car App Library media app. This template allows setting a
 header with a title and customizable actions while the media information and
 playback controls are populated by the host based off of the state of your app's
@@ -221,52 +237,56 @@ This code example shows how to build an example playback template that sets a
 header action which allows the user to navigate to a screen with the queue
 of songs.
 
-    val playbackTemplate = MediaPlaybackTemplate.Builder()
-          .setHeader(
-            Header.Builder()
-              .setStartHeaderAction(Action.BACK)
-              .addEndHeaderAction(
-                    Action.Builder()
-                      .setTitle(model.context.getString(R.string.queue_button_title))
-                      .setIcon(
-                        CarIcon.Builder(
-                            IconCompat.createWithResource(
-                              model.context,
-                              R.drawable.gs_queue_music_vd_theme_24,
-                            ))
-                          .build())
-                      .setOnClickListener(showQueueScreen())
+```kotlin
+val playbackTemplate = MediaPlaybackTemplate.Builder()
+      .setHeader(
+        Header.Builder()
+          .setStartHeaderAction(Action.BACK)
+          .addEndHeaderAction(
+                Action.Builder()
+                  .setTitle(model.context.getString(R.string.queue_button_title))
+                  .setIcon(
+                    CarIcon.Builder(
+                        IconCompat.createWithResource(
+                          model.context,
+                          R.drawable.gs_queue_music_vd_theme_24,
+                        ))
                       .build())
-              .setTitle(model.context.getString(R.string.media_playback_view_title))
-              .build())
-          .build()
+                  .setOnClickListener(showQueueScreen())
+                  .build())
+          .setTitle(model.context.getString(R.string.media_playback_view_title))
+          .build())
+      .build()
+```
 
-When you use [`MediaPlaybackTemplate`](https://developer.android.com/reference/kotlin/androidx/car/app/media/model/MediaPlaybackTemplate), register a
-`MediaSession` token using the [`MediaPlaybackManager`](https://developer.android.com/reference/androidx/car/app/media/MediaPlaybackManager) in your
+When you use [`MediaPlaybackTemplate`](https://developer.android.com/reference/kotlin/androidx/car/app/media/model/MediaPlaybackTemplate.md.txt), register a
+`MediaSession` token using the [`MediaPlaybackManager`](https://developer.android.com/reference/androidx/car/app/media/MediaPlaybackManager.md.txt) in your
 `CarAppService`. Failing to do so causes an error to be displayed when a
 `MediaPlaybackTemplate` is sent to the host.
 
-    import androidx.car.app.media.MediaPlaybackManager
-    ...
+```kotlin
+import androidx.car.app.media.MediaPlaybackManager
+...
 
-    override fun onCreateSession(sessionInfo: SessionInfo): Session {
-        return object : Session() {
-            ...
+override fun onCreateSession(sessionInfo: SessionInfo): Session {
+    return object : Session() {
+        ...
 
-            init {
-              lifecycle.addObserver(
-                LifecycleEventObserver { _, event ->
-                  if (event == ON_CREATE) {
-                    val token = ... // MediaSessionCompat.Token
-                    (carContext.getCarService(CarContext.MEDIA_PLAYBACK_SERVICE) as MediaPlaybackManager)
-                      .registerMediaPlaybackToken(token)
-                  }
-                  ...
-                }
-              )
+        init {
+          lifecycle.addObserver(
+            LifecycleEventObserver { _, event ->
+              if (event == ON_CREATE) {
+                val token = ... // MediaSessionCompat.Token
+                (carContext.getCarService(CarContext.MEDIA_PLAYBACK_SERVICE) as MediaPlaybackManager)
+                  .registerMediaPlaybackToken(token)
+              }
+              ...
             }
+          )
         }
     }
+}
+```
 
 `.registerMediaPlaybackToken` is necessary for exposing media playback
 information and controls to Android Auto. This is also important for the host to
@@ -284,9 +304,9 @@ to the Car App Library in `.registerMediaPlaybackToken()`.
 ## Organize media using templates
 
 To organize media for browsing such as songs or albums, we recommend using the
-[`SectionedItemTemplate`](https://developer.android.com/reference/androidx/car/app/model/SectionedItemTemplate),
-which lets you use the [`GridSection`](https://developer.android.com/reference/androidx/car/app/model/GridSection) and
-[`RowSection`](https://developer.android.com/reference/androidx/car/app/model/RowSection) together to create layouts that mix lists of images
+[`SectionedItemTemplate`](https://developer.android.com/reference/androidx/car/app/model/SectionedItemTemplate.md.txt),
+which lets you use the [`GridSection`](https://developer.android.com/reference/androidx/car/app/model/GridSection.md.txt) and
+[`RowSection`](https://developer.android.com/reference/androidx/car/app/model/RowSection.md.txt) together to create layouts that mix lists of images
 and text items.
 
 > [!CAUTION]
@@ -304,25 +324,27 @@ followed by a `GridSection`
 ### Using SectionedItemTemplate inside a TabTemplate
 
 One convenient way to categorize media within your app, is using the
-[`SectionedItemTemplate`](https://developer.android.com/reference/androidx/car/app/model/SectionedItemTemplate) inside a
-[`TabTemplate`](https://developer.android.com/reference/androidx/car/app/model/TabTemplate).
+[`SectionedItemTemplate`](https://developer.android.com/reference/androidx/car/app/model/SectionedItemTemplate.md.txt) inside a
+[`TabTemplate`](https://developer.android.com/reference/androidx/car/app/model/TabTemplate.md.txt).
 
-    val template =
-          SectionedItemTemplate.Builder()...build();
-    val tabTemplate =
-          TabTemplate.Builder(tabCallback)
-              .setTabContents(TabContents.Builder(template).build)
-              .setHeaderAction(Action.APP_ICON)
-              ...
-              .build();
+```kotlin
+val template =
+      SectionedItemTemplate.Builder()...build();
+val tabTemplate =
+      TabTemplate.Builder(tabCallback)
+          .setTabContents(TabContents.Builder(template).build)
+          .setHeaderAction(Action.APP_ICON)
+          ...
+          .build();
+```
 
 ### Car app library 1.9 components and features
 
-[Car App Library API Version 1.9](https://developer.android.com/jetpack/androidx/releases/car-app) introduces customized
-components for unique browsing capabilities, such as [Chips](https://developer.android.com/reference/kotlin/androidx/car/app/model/Chip),
-[Progress Bars](https://developer.android.com/reference/kotlin/androidx/car/app/model/CarProgressBar), [Condensed Items](https://developer.android.com/reference/kotlin/androidx/car/app/model/CondensedItem),
-[Interactive and Expanded Header](https://developer.android.com/reference/kotlin/androidx/car/app/model/Header),
-[Spotlight Sections](https://developer.android.com/reference/kotlin/androidx/car/app/model/SpotlightSection) and [Banners](https://developer.android.com/reference/kotlin/androidx/car/app/model/Banner).
+[Car App Library API Version 1.9](https://developer.android.com/jetpack/androidx/releases/car-app.md.txt) introduces customized
+components for unique browsing capabilities, such as [Chips](https://developer.android.com/reference/kotlin/androidx/car/app/model/Chip.md.txt),
+[Progress Bars](https://developer.android.com/reference/kotlin/androidx/car/app/model/CarProgressBar.md.txt), [Condensed Items](https://developer.android.com/reference/kotlin/androidx/car/app/model/CondensedItem.md.txt),
+[Interactive and Expanded Header](https://developer.android.com/reference/kotlin/androidx/car/app/model/Header.md.txt),
+[Spotlight Sections](https://developer.android.com/reference/kotlin/androidx/car/app/model/SpotlightSection.md.txt) and [Banners](https://developer.android.com/reference/kotlin/androidx/car/app/model/Banner.md.txt).
 
 > [!NOTE]
 > **Note:** Car App Library API 1.9 is in alpha, reach out to express interest in [joining our beta program](https://goo.gle/Media-Comms-EAP).
@@ -350,20 +372,20 @@ For more details about how to design your media app's user interface using these
 templates, see [Media apps](https://developers.google.com/cars/design/create-apps/app-types/media).
 
 > [!NOTE]
-> **Note:** To test your application with the new Car App Library 1.9 features, you must enable the **Enable CAL Beta Features** flag. To access this setting, first [enable Android Auto developer mode](https://developer.android.com/training/cars/testing#developer-mode). Once developer mode is active, open the **Developer settings** from the overflow menu and go to the bottom to find the **Enable CAL Beta Features** toggle.
+> **Note:** To test your application with the new Car App Library 1.9 features, you must enable the **Enable CAL Beta Features** flag. To access this setting, first [enable Android Auto developer mode](https://developer.android.com/training/cars/testing.md.txt#developer-mode). Once developer mode is active, open the **Developer settings** from the overflow menu and go to the bottom to find the **Enable CAL Beta Features** toggle.
 
 ## Navigating to the playback controls
 
 When browsing through media it is important that the user is able to quickly
 navigate to the `MediaPlaybackTemplate` with minimal distraction.To meet the
-[`MFT-1`](https://developer.android.com/docs/quality-guidelines/car-app-quality#car-optimized-tier) quality requirement, your app must have a way to access
+[`MFT-1`](https://developer.android.com/docs/quality-guidelines/car-app-quality.md.txt#car-optimized-tier) quality requirement, your app must have a way to access
 the `MediaPlaybackTemplate` from all media browsing screens.
 
 If you are using `SectionedItemTemplate` you can achieve this by adding an
-action button that [navigates you](https://developer.android.com/training/cars/apps/library/screen-navigation) to the media playback screen. Use the
+action button that [navigates you](https://developer.android.com/training/cars/apps/library/screen-navigation.md.txt) to the media playback screen. Use the
 standard Car App Library `Action.MEDIA_PLAYBACK` action. A media app will
-surface this action as a [Minimized control panel](https://developer.android.com/design/ui/cars/guides/components/fab),
-which is required to meet the [`MFT-1`](https://developer.android.com/docs/quality-guidelines/car-app-quality#car-optimized-tier) quality requirement if you are
+surface this action as a [Minimized control panel](https://developer.android.com/design/ui/cars/guides/components/fab.md.txt),
+which is required to meet the [`MFT-1`](https://developer.android.com/docs/quality-guidelines/car-app-quality.md.txt#car-optimized-tier) quality requirement if you are
 using Car App Library API 1.9 or higher. For other templates, a header action is
 another way to achieve this.
 
@@ -381,63 +403,69 @@ your trampoline `Activity`).
 Ensure your activity uses a `launchMode` of `singleTask` or `singleTop` so that
 `onNewIntent()` is invoked.
 
-    <activity
-        android:name=".LaunchableTrampoline"
-        android:exported="true"
-        android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
-        android:launchMode="singleTask"
-        android:label="@string/app_name_cal"
-        android:enabled="false">
+```xml
+<activity
+    android:name=".LaunchableTrampoline"
+    android:exported="true"
+    android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+    android:launchMode="singleTask"
+    android:label="@string/app_name_cal"
+    android:enabled="false">
 
-        <meta-data android:name="distractionOptimized" android:value="true" />
+    <meta-data android:name="distractionOptimized" android:value="true" />
 
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
-            <action android:name="androidx.car.app.media.action.SHOW_MEDIA_PLAYBACK"/>
-            <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter>
-    </activity>
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <action android:name="androidx.car.app.media.action.SHOW_MEDIA_PLAYBACK"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+    </intent-filter>
+</activity>
+```
 
 In your `Session` class, override `onNewIntent()` to parse the incoming intent.
 If the incoming intent action matches `SHOW_MEDIA_PLAYBACK`, navigate the user
 to your Now Playing screen.
 
-    @Override
-    public void onNewIntent(@NonNull Intent intent) {
-        super.onNewIntent(intent);
-        if (SHOW_MEDIA_PLAYBACK.equals(intent.getAction())) {
-            ScreenManager screenManager = getCarContext().getCarService(ScreenManager.class);
-            // Avoid redundant navigation if already on the playing screen
-            if (screenManager.getTop() instanceof MyMediaPlayScreen) {
-                return;
-            }
-            screenManager.push(MyMediaPlayScreen.createScreenFromPlaying(
-                    getCarContext(), mMediaSessionController));
+```kotlin
+@Override
+public void onNewIntent(@NonNull Intent intent) {
+    super.onNewIntent(intent);
+    if (SHOW_MEDIA_PLAYBACK.equals(intent.getAction())) {
+        ScreenManager screenManager = getCarContext().getCarService(ScreenManager.class);
+        // Avoid redundant navigation if already on the playing screen
+        if (screenManager.getTop() instanceof MyMediaPlayScreen) {
+            return;
         }
+        screenManager.push(MyMediaPlayScreen.createScreenFromPlaying(
+                getCarContext(), mMediaSessionController));
     }
+}
+```
 
 If you are using a trampoline activity, check for the intent action within
 `onCreate()`. Pass this action to the `CarAppActivity` creation intent before
 calling `finish()`.
 
-    public class LaunchableTrampoline extends AppCompatActivity {
-        private static final String SHOW_MEDIA_PLAYBACK = "androidx.car.app.media.action.SHOW_MEDIA_PLAYBACK";
+```kotlin
+public class LaunchableTrampoline extends AppCompatActivity {
+    private static final String SHOW_MEDIA_PLAYBACK = "androidx.car.app.media.action.SHOW_MEDIA_PLAYBACK";
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            Intent receivedIntent = getIntent();
-            String action;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Intent receivedIntent = getIntent();
+        String action;
 
-            if (SHOW_MEDIA_PLAYBACK.equals(receivedIntent.getAction())) {
-                action = SHOW_MEDIA_PLAYBACK;
-            } else {
-                action = Intent.ACTION_MAIN;
-            }
-
-            Intent intent = new Intent(action);
-            intent.setClassName(getPackageName(), "androidx.car.app.activity.CarAppActivity");
-            startActivity(intent);
-            finish();
+        if (SHOW_MEDIA_PLAYBACK.equals(receivedIntent.getAction())) {
+            action = SHOW_MEDIA_PLAYBACK;
+        } else {
+            action = Intent.ACTION_MAIN;
         }
+
+        Intent intent = new Intent(action);
+        intent.setClassName(getPackageName(), "androidx.car.app.activity.CarAppActivity");
+        startActivity(intent);
+        finish();
     }
+}
+```

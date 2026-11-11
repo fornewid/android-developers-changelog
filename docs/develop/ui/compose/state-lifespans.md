@@ -6,12 +6,12 @@ source: md.txt
 
 In Jetpack Compose, composable functions often hold state using the `remember`
 function. Values that are remembered can be reused across recompositions, as
-explained in [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state).
+explained in [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state.md.txt).
 
 While `remember` serves as a tool to persist values across recompositions, state
 often needs to live beyond the lifetime of a composition. This page explains the
-difference between the [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable#remember(kotlin.Function0)), [`retain`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/retain.composable#retain(kotlin.Function0)), [`rememberSaveable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSaveable.composable#rememberSaveable(kotlin.Array,kotlin.Function0)),
-and [`rememberSerializable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSerializable.composable#rememberSerializable(kotlin.Array,androidx.savedstate.serialization.SavedStateConfiguration,kotlin.Function0)) APIs, when to choose which API, and what the
+difference between the [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable.md.txt#remember(kotlin.Function0)), [`retain`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/retain.composable#retain(kotlin.Function0)), [`rememberSaveable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSaveable.composable.md.txt#rememberSaveable(kotlin.Array,kotlin.Function0)),
+and [`rememberSerializable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSerializable.composable.md.txt#rememberSerializable(kotlin.Array,androidx.savedstate.serialization.SavedStateConfiguration,kotlin.Function0)) APIs, when to choose which API, and what the
 best practices are for managing remembered and retained values in Compose.
 
 ## Choose the correct lifespan
@@ -231,7 +231,7 @@ scope of this guide.
 Sometimes, an object needs to have a hybrid lifespan of both `retained` and
 `rememberSaveable` or `rememberSerializable`. This may be an indicator that your
 object should be a `ViewModel`, which can support saved state as described in
-the [Saved State module for ViewModel guide](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate).
+the [Saved State module for ViewModel guide](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate.md.txt).
 
 It is possible to use `retain` and `rememberSaveable` or `rememberSerializable`
 simultaneously. Correctly combining both lifecycles adds significant complexity.

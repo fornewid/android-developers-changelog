@@ -9,7 +9,7 @@ how Compose decides whether a composable needs recomposition.
 
 ## Lifecycle overview
 
-As mentioned in the [Managing state documentation](https://developer.android.com/develop/ui/compose/state), a
+As mentioned in the [Managing state documentation](https://developer.android.com/develop/ui/compose/state.md.txt), a
 Composition describes the UI of your app and is produced by running composables.
 A Composition is a tree-structure of the composables that describe your UI.
 
@@ -29,13 +29,13 @@ recomposition. The only way to modify a Composition is through recomposition.
 ![Diagram showing the lifecycle of a composable](https://developer.android.com/static/develop/ui/compose/images/lifecycle-composition.png) **Figure 1.** Lifecycle of a composable in the Composition. It enters the Composition, gets recomposed 0 or more times, and leaves the Composition.
 
 Recomposition is typically triggered by a change to a
-[`State<T>`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State) object. Compose
+[`State<T>`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State.md.txt) object. Compose
 tracks these and runs all composables in the Composition that read that
 particular `State<T>`, and any composables that they call that cannot be
-[skipped](https://developer.android.com/develop/ui/compose/lifecycle#skipping).
+[skipped](https://developer.android.com/develop/ui/compose/lifecycle.md.txt#skipping).
 
 > [!NOTE]
-> **Note:** A composable's lifecycle is simpler than the lifecycle of views, activities, and fragments. When a composable needs to manage or interact with external resources that *do* have a more complex lifecycle, you should use [effects](https://developer.android.com/develop/ui/compose/side-effects#state-effect-use-cases).
+> **Note:** A composable's lifecycle is simpler than the lifecycle of views, activities, and fragments. When a composable needs to manage or interact with external resources that *do* have a more complex lifecycle, you should use [effects](https://developer.android.com/develop/ui/compose/side-effects.md.txt#state-effect-use-cases).
 
 If a composable is called multiple times, multiple instances are placed in the
 Composition. Each call has its own lifecycle in the Composition.
@@ -235,7 +235,7 @@ A composable function is eligible for skipping *unless*:
 - The function is annotated with `@NonRestartableComposable` or `@NonSkippableComposable`
 - A required parameter is of a non-stable type
 
-There is a compiler mode, [Strong Skipping](https://developer.android.com/develop/ui/compose/performance/stability/strongskipping),
+There is a compiler mode, [Strong Skipping](https://developer.android.com/develop/ui/compose/performance/stability/strongskipping.md.txt),
 which relaxes the last requirement.
 
 In order for a type to be considered stable it must comply with the following
@@ -279,7 +279,7 @@ properties whose implementation could be immutable are not stable either.
 
 If Compose is not able to infer that a type is stable, but you want to force
 Compose to treat it as stable, mark it with the
-[`@Stable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/Stable) annotation.
+[`@Stable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/Stable.md.txt) annotation.
 
 
 ```kotlin
@@ -308,6 +308,6 @@ implementations as stable if the interface is used as the parameter type.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state)
-- [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects)
-- [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving)
+- [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state.md.txt)
+- [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects.md.txt)
+- [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving.md.txt)

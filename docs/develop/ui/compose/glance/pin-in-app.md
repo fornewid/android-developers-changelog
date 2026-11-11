@@ -12,8 +12,8 @@ your app.
 
 ## Create a Pin Request
 
-To initiate widget pinning, use the [`requestPinGlanceAppWidget`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/GlanceAppWidgetManager#requestPinGlanceAppWidget(java.lang.Class,androidx.glance.appwidget.GlanceAppWidget,kotlin.Any,android.app.PendingIntent)) method
-from the [`GlanceAppWidgetManager`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/GlanceAppWidgetManager) class. For apps running on lower versions
+To initiate widget pinning, use the [`requestPinGlanceAppWidget`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/GlanceAppWidgetManager.md.txt#requestPinGlanceAppWidget(java.lang.Class,androidx.glance.appwidget.GlanceAppWidget,kotlin.Any,android.app.PendingIntent)) method
+from the [`GlanceAppWidgetManager`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/GlanceAppWidgetManager.md.txt) class. For apps running on lower versions
 of Android, this returns false. However, if the request is successfully sent
 to the system, this returns true.
 

@@ -53,13 +53,13 @@ fun testAnimationWithClock() {
 ## Optimize animation tests
 
 > [!NOTE]
-> **Note:** The `runWithoutImplicitWait` API is included in [`androidx.compose.ui:ui-test-junit4:1.12.0-alpha03+`](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0-alpha03) and [`androidx.compose.ui:ui-test:1.12.0-alpha03+`](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0-alpha03).
+> **Note:** The `runWithoutImplicitWait` API is included in [`androidx.compose.ui:ui-test-junit4:1.12.0-alpha03+`](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#1.12.0-alpha03) and [`androidx.compose.ui:ui-test:1.12.0-alpha03+`](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#1.12.0-alpha03).
 
 When testing high-fidelity animations, you often need to disable auto-advance
 and manually step through frames to assert intermediate UI states. For these
-specific frame-by-frame loops, use the [`runWithoutImplicitWait`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTest#runWithoutImplicitWait(kotlin.Function0)) method to
-execute your assertions. Standard node queries (like [`onNodeWithTag`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsNodeInteractionsProvider#(androidx.compose.ui.test.SemanticsNodeInteractionsProvider).onNodeWithTag(kotlin.String,kotlin.Boolean)) or
-[`fetchSemanticsNode`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsNodeInteraction#fetchSemanticsNode(kotlin.String)))) trigger implicit synchronizations that are redundant
+specific frame-by-frame loops, use the [`runWithoutImplicitWait`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTest.md.txt#runWithoutImplicitWait(kotlin.Function0)) method to
+execute your assertions. Standard node queries (like [`onNodeWithTag`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsNodeInteractionsProvider.md.txt#(androidx.compose.ui.test.SemanticsNodeInteractionsProvider).onNodeWithTag(kotlin.String,kotlin.Boolean)) or
+[`fetchSemanticsNode`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsNodeInteraction.md.txt#fetchSemanticsNode(kotlin.String)))) trigger implicit synchronizations that are redundant
 when you are manually controlling the clock, so bypassing them significantly
 speeds up your test runtimes.
 
@@ -68,8 +68,8 @@ speeds up your test runtimes.
 
 #### Usage guidelines
 
-- **Manual clock management** : Use this API when [`mainClock.autoAdvance`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/MainTestClock#autoAdvance()) is set to `false` and the UI is in a known, stable state for the current frame.
-- **UI thread execution** : To ensure the stability of the UI tree, call [`runWithoutImplicitWait`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTest#runWithoutImplicitWait(kotlin.Function0)) on the UI thread, such as with [`runOnUiThread`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTest#runOnUiThread(kotlin.Function0)). Running it off the UI thread exposes your test to race conditions and stale state reads.
+- **Manual clock management** : Use this API when [`mainClock.autoAdvance`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/MainTestClock.md.txt#autoAdvance()) is set to `false` and the UI is in a known, stable state for the current frame.
+- **UI thread execution** : To ensure the stability of the UI tree, call [`runWithoutImplicitWait`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTest.md.txt#runWithoutImplicitWait(kotlin.Function0)) on the UI thread, such as with [`runOnUiThread`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTest.md.txt#runOnUiThread(kotlin.Function0)). Running it off the UI thread exposes your test to race conditions and stale state reads.
 - **Read-only assertions**: The block should strictly contain read-only assertions. Any actions that mutate state should be performed outside of this block.
 
 #### Example
@@ -110,6 +110,6 @@ fun runWithoutImplicitWaitSample() = runComposeUiTest {
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing)
-- [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations)
-- [Customize animations](https://developer.android.com/develop/ui/compose/animation/customize)
+- [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing.md.txt)
+- [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations.md.txt)
+- [Customize animations](https://developer.android.com/develop/ui/compose/animation/customize.md.txt)

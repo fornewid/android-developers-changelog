@@ -201,7 +201,7 @@ ACTION_HEALTH_CONNECT_SETTINGS`
 
 ### Getting the Health Connect client
 
-We've created [a single API](https://developer.android.com/jetpack/androidx/releases/health-connect#1.0.0-alpha11) called `sdkStatus`, available in Jetpack 11, to
+We've created [a single API](https://developer.android.com/jetpack/androidx/releases/health-connect.md.txt#1.0.0-alpha11) called `sdkStatus`, available in Jetpack 11, to
 replace two other deprecated APIs - `IsSdkSupported()` and
 `isProviderAvailable()`.
 

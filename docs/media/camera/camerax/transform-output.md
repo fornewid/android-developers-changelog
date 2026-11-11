@@ -19,9 +19,9 @@ action needed from the app.
 
 For the `Preview` use case, you can get the transformation information by
 calling
-[`SurfaceRequest.setTransformationInfoListener()`](https://developer.android.com/reference/androidx/camera/core/SurfaceRequest#setTransformationInfoListener(java.util.concurrent.Executor,%20androidx.camera.core.SurfaceRequest.TransformationInfoListener)).
+[`SurfaceRequest.setTransformationInfoListener()`](https://developer.android.com/reference/androidx/camera/core/SurfaceRequest.md.txt#setTransformationInfoListener(java.util.concurrent.Executor,%20androidx.camera.core.SurfaceRequest.TransformationInfoListener)).
 Every time the transformation is updated, the caller receives a new
-[`SurfaceRequest.TransformationInfo`](https://developer.android.com/reference/androidx/camera/core/SurfaceRequest.TransformationInfo)
+[`SurfaceRequest.TransformationInfo`](https://developer.android.com/reference/androidx/camera/core/SurfaceRequest.TransformationInfo.md.txt)
 object.
 
 How to apply the transformation information depends on the source of the
@@ -40,8 +40,8 @@ preview.
 
 The following code snippet creates a matrix that maps from image analysis
 coordinates to `PreviewView` coordinates. To transform the (x, y) coordinates
-with a [`Matrix`](https://developer.android.com/reference/android/graphics/Matrix), see
-[`Matrix.mapPoints()`](https://developer.android.com/reference/android/graphics/Matrix#mapPoints(float%5B%5D)).
+with a [`Matrix`](https://developer.android.com/reference/android/graphics/Matrix.md.txt), see
+[`Matrix.mapPoints()`](https://developer.android.com/reference/android/graphics/Matrix.md.txt#mapPoints(float%5B%5D)).
 
 ### Kotlin
 

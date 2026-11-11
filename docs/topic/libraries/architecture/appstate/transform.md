@@ -11,7 +11,7 @@ Part of [Android Jetpack](https://developer.android.com/jetpack).
 > **Experimental:** AppState is in alpha. Its APIs are subject to change. File bugs and feedback using the [Transform issue tracker](https://issuetracker.google.com/issues/new?component=2302904&template=2430547) or [StateStore issue tracker](https://issuetracker.google.com/issues/new?component=2302751&template=2430521).
 
 Transform is a library built on the Compose runtime that runs a `@Composable`
-block without a UI to transform inputs into Compose [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State).
+block without a UI to transform inputs into Compose [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State.md.txt).
 Whenever any `State` read inside the block changes, the block automatically
 recomposes and updates the returned `State`---letting you use Compose's
 dependency tracking and recomposition model in ViewModels, repositories, or
@@ -21,42 +21,44 @@ background services.
 
 - **Reactive data transformation**: Convert raw data streams (such as network responses or database queries) into UI-ready state.
 - **Combine multiple inputs** : Merge multiple independent state sources (such as user input, settings, and network status) into a single cohesive state without complex `Flow` operators.
-- **Debouncing and throttling** : Implement time-based behavior (such as debouncing search queries) using standard Compose [side-effects](https://developer.android.com/develop/ui/compose/side-effects) like [`LaunchedEffect`](https://developer.android.com/develop/ui/compose/side-effects#launchedeffect).
+- **Debouncing and throttling** : Implement time-based behavior (such as debouncing search queries) using standard Compose [side-effects](https://developer.android.com/develop/ui/compose/side-effects.md.txt) like [`LaunchedEffect`](https://developer.android.com/develop/ui/compose/side-effects.md.txt#launchedeffect).
 - **Conditional operations** : Run different state-gathering logic based on current conditions using standard `if`-`else` or `when` expressions.
 
 ## API overview
 
 The `androidx.appstate.transform` package provides the following functions:
 
-    package androidx.appstate.transform
+```kotlin
+package androidx.appstate.transform
 
-    import androidx.compose.runtime.Composable
-    import androidx.compose.runtime.State
-    import kotlinx.coroutines.CoroutineDispatcher
-    import kotlinx.coroutines.CoroutineScope
-    import kotlinx.coroutines.Dispatchers
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
-    public fun <R> transform(
-        initialValue: R,
-        scope: CoroutineScope,
-        dispatcher: CoroutineDispatcher = Dispatchers.Default,
-        onUpdate: @Composable (R) -> R,
-    ): State<R>
+public fun <R> transform(
+    initialValue: R,
+    scope: CoroutineScope,
+    dispatcher: CoroutineDispatcher = Dispatchers.Default,
+    onUpdate: @Composable (R) -> R,
+): State<R>
 
-    @Composable
-    public fun <R> transform(
-        initialValue: R,
-        dispatcher: CoroutineDispatcher = Dispatchers.Default,
-        onUpdate: @Composable (R) -> R,
-    ): State<R>
+@Composable
+public fun <R> transform(
+    initialValue: R,
+    dispatcher: CoroutineDispatcher = Dispatchers.Default,
+    onUpdate: @Composable (R) -> R,
+): State<R>
 
-    public suspend fun listener(
-        dispatcher: CoroutineDispatcher = Dispatchers.Default,
-        onUpdate: @Composable () -> Unit,
-    )
+public suspend fun listener(
+    dispatcher: CoroutineDispatcher = Dispatchers.Default,
+    onUpdate: @Composable () -> Unit,
+)
+```
 
 > [!NOTE]
-> **Note:** Because `transform` and `listener` take `@Composable` blocks, you must enable Compose build features (`buildFeatures { compose = true }`) and the [Compose Compiler Gradle plugin](https://developer.android.com/develop/ui/compose/setup-compose-dependencies-and-compiler) in any module that uses them, including non-UI modules. For setup details, see [Project
+> **Note:** Because `transform` and `listener` take `@Composable` blocks, you must enable Compose build features (`buildFeatures { compose = true }`) and the [Compose Compiler Gradle plugin](https://developer.android.com/develop/ui/compose/setup-compose-dependencies-and-compiler.md.txt) in any module that uses them, including non-UI modules. For setup details, see [Project
 > setup](https://developer.android.com/topic/libraries/architecture/appstate#project-setup).
 
 ## Create a transform
@@ -98,7 +100,7 @@ In this snippet:
 
 - `query` is backed by a `MutableState`, which a search bar UI composable can read and update.
 - `transform` takes an `initialValue` of an empty list, a `CoroutineScope`, and `onUpdate` as a trailing lambda.
-- Inside the `onUpdate` block, [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable#remember(kotlin.Function0)) keeps the `results` state across recompositions while `LaunchedEffect` runs.
+- Inside the `onUpdate` block, [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable.md.txt#remember(kotlin.Function0)) keeps the `results` state across recompositions while `LaunchedEffect` runs.
 - `LaunchedEffect` takes `query` as a key. Because `query` is backed by a `MutableState`, the effect is cancelled and relaunched every time `query` changes.
 - To avoid calling the API on every keystroke, the effect body waits 300 ms. If the query changes before that delay completes, the effect is cancelled and no network call is made.
 
@@ -233,7 +235,7 @@ val displayedTasks: State<List<Task>> = transform(
 
 Because Compose automatically tracks state reads, you can combine any number of
 `State<T>` properties and `Flow` streams in a single `transform` block. Unlike
-[`Flow.combine`](https://developer.android.com/kotlin/flow), which only provides typed overloads for up to
+[`Flow.combine`](https://developer.android.com/kotlin/flow.md.txt), which only provides typed overloads for up to
 five flows before falling back to an untyped `Array<Any?>`, adding another input
 in `transform` is always a single type-safe read:
 
@@ -277,7 +279,7 @@ The non-composable `transform` overload runs reactive logic in non-UI layers
 (such as ViewModels or repositories) while using Compose's state model. It runs
 as long as the provided `CoroutineScope` is active, so you can tie it to a
 component's lifecycle by passing `viewModelScope` inside a
-[`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel):
+[`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt):
 
 
 ```kotlin
@@ -312,7 +314,7 @@ switches between collecting `mediaRepository.downloadedTracksFlow` when offline
 and `mediaRepository.allTracksFlow` when online, exposing a single
 `State<HomeUiState>` that UI composables can read directly. For more details on
 combining `transform` with `MutableState` and `SavedStateHandle.saveable`, see
-[Use Compose State in a ViewModel](https://developer.android.com/topic/libraries/architecture/appstate/state-beyond-ui#state-in-viewmodel).
+[Use Compose State in a ViewModel](https://developer.android.com/topic/libraries/architecture/appstate/state-beyond-ui.md.txt#state-in-viewmodel).
 
 > [!NOTE]
 > **Note:** A `transform` scoped to `viewModelScope` remains active for the entire lifetime of `viewModelScope` (including while the UI is in the background), whereas the `@Composable transform` overload follows the lifecycle of the UI composition that calls it.
@@ -324,16 +326,16 @@ and Kotlin `Flow`:
 
 ### `derivedStateOf` versus `transform`
 
-Both [`derivedStateOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#derivedStateOf(kotlin.Function0)) and `transform` produce a derived
+Both [`derivedStateOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary.md.txt#derivedStateOf(kotlin.Function0)) and `transform` produce a derived
 `State<T>` that automatically tracks the Compose states read inside its block.
 Choose between them based on whether you're computing a value directly from
 existing `State<T>` objects or need `@Composable` features such as
-`collectAsState`, [`produceState`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/produceState.composable#produceState(kotlin.Any,kotlin.coroutines.SuspendFunction1)), and `LaunchedEffect`:
+`collectAsState`, [`produceState`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/produceState.composable.md.txt#produceState(kotlin.Any,kotlin.coroutines.SuspendFunction1)), and `LaunchedEffect`:
 
 | Capability | `derivedStateOf` | `transform` |
 |---|---|---|
 | **Lambda type** | Standard Kotlin lambda (`() -> T`) | `@Composable` lambda (`@Composable (R) -> R`) |
-| **Supported inputs** | Synchronous `State<T>` reads only | `State<T>`, Kotlin `Flow` (using [`collectAsState`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/collectAsState.composable#(kotlinx.coroutines.flow.Flow).collectAsState(kotlin.Any,kotlin.coroutines.CoroutineContext,androidx.compose.runtime.SnapshotMutationPolicy))), `suspend` functions, and callback APIs (using [`produceState`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/produceState.composable#produceState(kotlin.Any,kotlin.coroutines.SuspendFunction1))) |
+| **Supported inputs** | Synchronous `State<T>` reads only | `State<T>`, Kotlin `Flow` (using [`collectAsState`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/collectAsState.composable.md.txt#(kotlinx.coroutines.flow.Flow).collectAsState(kotlin.Any,kotlin.coroutines.CoroutineContext,androidx.compose.runtime.SnapshotMutationPolicy))), `suspend` functions, and callback APIs (using [`produceState`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/produceState.composable.md.txt#produceState(kotlin.Any,kotlin.coroutines.SuspendFunction1))) |
 | **Execution and consistency** | Lazy and synchronous when `.value` is read; updates atomically within the same snapshot without an `initialValue` or `CoroutineScope` | Runs an active Composition in a `CoroutineScope` and recomposes asynchronously after a snapshot commits; requires an `initialValue` |
 | **State and side-effects** | Can't call `remember` or side-effect APIs | Supports `remember`, `LaunchedEffect`, `produceState`, and reusable `@Composable` functions |
 
@@ -351,7 +353,7 @@ Use **`transform`** when your derivation requires the Compose runtime:
 - **Running side-effects or remembering intermediate state** : Using `LaunchedEffect` (for example, to debounce inputs or run timers), `produceState` (to load data from a `suspend` function or wrap a callback with `awaitDispose`), or `remember` to keep state across recompositions.
 
 > [!NOTE]
-> **Note:** Inside a `@Composable` function (including `transform`), use [`produceState`](https://developer.android.com/develop/ui/compose/side-effects#producestate) when converting a single `suspend` call or callback-based API into `State<T>` keyed on explicit inputs (`produceState(init, key1)`). Unlike `transform`, `produceState` runs a `suspend` coroutine rather than a Composition, so it doesn't automatically track `State<T>` reads inside its producer block unless you pass those values as keys. Use `transform` when you want automatic, dynamic `State<T>` read tracking or need to call `@Composable` functions such as `collectAsState` and `remember`.
+> **Note:** Inside a `@Composable` function (including `transform`), use [`produceState`](https://developer.android.com/develop/ui/compose/side-effects.md.txt#producestate) when converting a single `suspend` call or callback-based API into `State<T>` keyed on explicit inputs (`produceState(init, key1)`). Unlike `transform`, `produceState` runs a `suspend` coroutine rather than a Composition, so it doesn't automatically track `State<T>` reads inside its producer block unless you pass those values as keys. Use `transform` when you want automatic, dynamic `State<T>` read tracking or need to call `@Composable` functions such as `collectAsState` and `remember`.
 
 The following example compares `derivedStateOf` with a `transform` block that
 combines `State<T>` and a repository `Flow`:
@@ -402,7 +404,7 @@ avoid recreating the `Flow` when only `searchQuery` changes.
 `transform` is designed to represent the **current value** of state, not a
 stream of events. If a state changes multiple times before the next
 recomposition, Compose only uses the latest value, and it skips updates when the
-new value equals (`==`) the previous value. Use Kotlin [`Flow`](https://developer.android.com/kotlin/flow)
+new value equals (`==`) the previous value. Use Kotlin [`Flow`](https://developer.android.com/kotlin/flow.md.txt)
 instead when your logic must process every value in order:
 
 - **Running totals and averages** : Calculations like moving averages, cumulative sums, or undo history (`runningFold` or `scan`) need every value to be counted once. In a `transform` block, rapid updates before recomposition are skipped, two identical readings in a row (such as a sensor emitting `10.0` twice) don't trigger recomposition, and recompositions triggered by other states in the same block can count the current value twice. Compute the running value in a `Flow` first, then collect the result in `transform` if you need to combine it with other state.
@@ -419,29 +421,31 @@ coroutine scheduler and trigger recompositions in unit tests.
 
 The `androidx.appstate.transform.testing` package provides the following APIs:
 
-    package androidx.appstate.transform.testing
+```kotlin
+package androidx.appstate.transform.testing
 
-    import kotlin.coroutines.CoroutineContext
-    import kotlin.coroutines.EmptyCoroutineContext
-    import kotlin.time.Duration
-    import kotlinx.coroutines.CoroutineScope
-    import kotlinx.coroutines.test.TestCoroutineScheduler
-    import kotlinx.coroutines.test.TestDispatcher
-    import kotlinx.coroutines.test.TestResult
+import kotlin.coroutines.CoroutineContext
+import kotlin.coroutines.EmptyCoroutineContext
+import kotlin.time.Duration
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.test.TestCoroutineScheduler
+import kotlinx.coroutines.test.TestDispatcher
+import kotlinx.coroutines.test.TestResult
 
-    public fun transformTest(
-        context: CoroutineContext = EmptyCoroutineContext,
-        block: suspend TransformTestScope.() -> Unit,
-    ): TestResult
+public fun transformTest(
+    context: CoroutineContext = EmptyCoroutineContext,
+    block: suspend TransformTestScope.() -> Unit,
+): TestResult
 
-    public sealed interface TransformTestScope : CoroutineScope {
-        public val testCoroutineScheduler: TestCoroutineScheduler
-        public val testDispatcher: TestDispatcher
-        public val backgroundScope: CoroutineScope
-        public fun advance()
-        public fun advanceTimeBy(duration: Duration)
-        public fun advanceUntilIdle()
-    }
+public sealed interface TransformTestScope : CoroutineScope {
+    public val testCoroutineScheduler: TestCoroutineScheduler
+    public val testDispatcher: TestDispatcher
+    public val backgroundScope: CoroutineScope
+    public fun advance()
+    public fun advanceTimeBy(duration: Duration)
+    public fun advanceUntilIdle()
+}
+```
 
 `transformTest` wraps [`runTest`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/run-test.html) and executes your test
 block with a `TransformTestScope` receiver:
@@ -537,7 +541,7 @@ fun testDebouncedSearch() = transformTest {
 Because `transform` runs its Composition in the provided `scope` and defaults
 its `dispatcher` parameter to `Dispatchers.Default`, classes that create a
 `transform` should accept a `CoroutineScope` and a `CoroutineDispatcher` as
-constructor parameters. In a [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel), pass the injected
+constructor parameters. In a [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt), pass the injected
 `CoroutineScope` to the `ViewModel(coroutineScope)` constructor and forward the
 `CoroutineDispatcher` to `transform`:
 
@@ -617,4 +621,4 @@ In this test, passing `backgroundScope` and `testDispatcher` into
 test scheduler, so each `advance` call deterministically processes emissions
 from `FakeMediaRepository` and `FakeNetworkMonitor`. For more patterns on using
 `SavedStateHandle.saveable` and `Snapshot.withMutableSnapshot` in a `ViewModel`,
-see [Use Compose State in a ViewModel](https://developer.android.com/topic/libraries/architecture/appstate/state-beyond-ui#state-in-viewmodel).
+see [Use Compose State in a ViewModel](https://developer.android.com/topic/libraries/architecture/appstate/state-beyond-ui.md.txt#state-in-viewmodel).

@@ -4,7 +4,7 @@ url: https://developer.android.com/media/camera/camera2/camera-preview
 source: md.txt
 ---
 
-**Note:** This page refers to the [Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
+**Note:** This page refers to the [Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary.md.txt) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
 
 <br />
 
@@ -24,9 +24,9 @@ camera preview is expected to be wider than it is tall.
 But these assumptions are challenged by new form factors, such as [foldable
 devices](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/learn-about-foldables),
 and display modes such as
-[multi‑window](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode)
+[multi‑window](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode.md.txt)
 and
-[multi‑display](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode#multi-display_support).
+[multi‑display](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode.md.txt#multi-display_support).
 Foldable devices change display size and aspect ratio without changing
 orientation. Multi‑window mode constrains camera apps to a portion of the
 screen, scaling the camera preview regardless of device orientation.
@@ -55,8 +55,8 @@ display) is rotated 270 degrees relative to the phone to comply with the
 Android Compatibility Definition.
 
 To expose the sensor rotation to apps, the
-[camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary) API includes a
-[`SENSOR_ORIENTATION`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#SENSOR_ORIENTATION)
+[camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary.md.txt) API includes a
+[`SENSOR_ORIENTATION`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics.md.txt#SENSOR_ORIENTATION)
 constant. For most phones and tablets, the device reports a sensor orientation
 of 270 degrees for front-facing cameras and 90 degrees (point of view from the
 back of the device) for back-facing cameras, which aligns the long edge of the
@@ -119,8 +119,8 @@ degrees of rotation to 180).
 
 Different APIs report device rotation differently:
 
-- [`Display#getRotation()`](https://developer.android.com/reference/android/view/Display#getRotation()) provides the counterclockwise rotation of the device (from the user's point of view). This value plugs into the formula above as is.
-- [`OrientationEventListener#onOrientationChanged()`](https://developer.android.com/reference/android/view/OrientationEventListener#onOrientationChanged(int)) returns the clockwise rotation of the device (from the user's point of view). Negate the value for use in the formula above.
+- [`Display#getRotation()`](https://developer.android.com/reference/android/view/Display.md.txt#getRotation()) provides the counterclockwise rotation of the device (from the user's point of view). This value plugs into the formula above as is.
+- [`OrientationEventListener#onOrientationChanged()`](https://developer.android.com/reference/android/view/OrientationEventListener.md.txt#onOrientationChanged(int)) returns the clockwise rotation of the device (from the user's point of view). Negate the value for use in the formula above.
 
 ### Front-facing cameras
 
@@ -131,7 +131,7 @@ Here's the image buffer produced by the camera sensor in figure 2:
 ![Camera sensor in landscape orientation with image upright.](https://developer.android.com/static/images/training/camera/camera2/camera-preview/camera_sensor_landscape.png)
 
 The buffer has to be rotated 270 degrees counterclockwise to adjust for sensor
-orientation (see [Camera orientation](https://developer.android.com/media/camera/camera2/camera-preview#camera-orientation) above):
+orientation (see [Camera orientation](https://developer.android.com/media/camera/camera2/camera-preview.md.txt#camera-orientation) above):
 ![Camera sensor rotated to portait orientation with image sideways,
 top right.](https://developer.android.com/static/images/training/camera/camera2/camera-preview/camera_sensor_landscape_rotated_270.png)
 
@@ -221,10 +221,10 @@ relative to the camera sensor.
 ## Inset portrait mode
 
 Camera apps that do not support multi-window mode
-([`resizeableActivity="false"`](https://developer.android.com/guide/topics/manifest/application-element#resizeableActivity))
+([`resizeableActivity="false"`](https://developer.android.com/guide/topics/manifest/application-element.md.txt#resizeableActivity))
 and restrict their orientation
-([`screenOrientation="portrait"`](https://developer.android.com/guide/topics/manifest/activity-element#screen)
-or [`screenOrientation="landscape"`](https://developer.android.com/guide/topics/manifest/activity-element#screen))
+([`screenOrientation="portrait"`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#screen)
+or [`screenOrientation="landscape"`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#screen))
 can be placed in inset portrait mode on large screen devices to properly orient
 the camera preview.
 
@@ -283,19 +283,19 @@ upright on foldable device.](https://developer.android.com/static/images/trainin
 
 As of Android 12 (API level 31) apps can also explicitly control inset portrait
 mode by means of the
-[`SCALER_ROTATE_AND_CROP`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#SCALER_ROTATE_AND_CROP)
-property of the [`CaptureRequest`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest)
+[`SCALER_ROTATE_AND_CROP`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.md.txt#SCALER_ROTATE_AND_CROP)
+property of the [`CaptureRequest`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.md.txt)
 class.
 
 The default value is
-[`SCALER_ROTATE_AND_CROP_AUTO`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#SCALER_ROTATE_AND_CROP_AUTO),
+[`SCALER_ROTATE_AND_CROP_AUTO`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata.md.txt#SCALER_ROTATE_AND_CROP_AUTO),
 which enables the system to invoke inset portrait mode.
-[`SCALER_ROTATE_AND_CROP_90`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#SCALER_ROTATE_AND_CROP_90)
+[`SCALER_ROTATE_AND_CROP_90`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata.md.txt#SCALER_ROTATE_AND_CROP_90)
 is the behavior of inset portrait mode as described above.
 
 Not all devices support all `SCALER_ROTATE_AND_CROP` values. To obtain a list
 of supported values, reference
-[`CameraCharacteristics#SCALER_AVAILABLE_ROTATE_AND_CROP_MODES`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#SCALER_AVAILABLE_ROTATE_AND_CROP_MODES).
+[`CameraCharacteristics#SCALER_AVAILABLE_ROTATE_AND_CROP_MODES`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics.md.txt#SCALER_AVAILABLE_ROTATE_AND_CROP_MODES).
 
 > [!NOTE]
 > **Note:** Only devices with a camera hardware abstraction layer ([HAL](https://source.android.com/devices/camera/camera3)) that supports the `SCALER_ROTATE_AND_CROP` API can enable inset portrait mode.
@@ -309,14 +309,14 @@ The [Jetpack CameraX](https://developer.android.com/training/camerax) library
 makes creating a camera viewfinder that accommodates sensor orientation and
 device rotation a simple task.
 
-The [`PreviewView`](https://developer.android.com/reference/androidx/camera/view/PreviewView) layout element
+The [`PreviewView`](https://developer.android.com/reference/androidx/camera/view/PreviewView.md.txt) layout element
 creates a camera preview, automatically adjusting for sensor orientation,
 device rotation, and scaling. `PreviewView` maintains the aspect ratio of the
 camera image by applying the
-[`FILL_CENTER`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType#FILL_CENTER)
+[`FILL_CENTER`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType.md.txt#FILL_CENTER)
 scale type, which centers the image but might crop it to match the dimensions
 of the `PreviewView`. To letterbox the camera image, set the scale type to
-[`FIT_CENTER`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType#FIT_CENTER).
+[`FIT_CENTER`](https://developer.android.com/reference/androidx/camera/view/PreviewView.ScaleType.md.txt#FIT_CENTER).
 
 To learn the basics of creating a camera preview with `PreviewView`, see
 [Implement a preview](https://developer.android.com/training/camerax/preview).
@@ -337,7 +337,7 @@ It does not depend on CameraX Core, so you can seamlessly integrate it into your
 existing Camera2 codebase.
 
 Instead of using the
-[`Surface`](https://developer.android.com/reference/android/view/Surface)
+[`Surface`](https://developer.android.com/reference/android/view/Surface.md.txt)
 directly, you can use the
 [`CameraViewfinder`](https://developer.android.com/reference/androidx/camera/viewfinder/CameraViewfinder)
 widget to display the camera feed for Camera2.
@@ -351,7 +351,7 @@ To request the surface from the `CameraViewfinder` object, you need to
 create a [`ViewfinderSurfaceRequest`](https://developer.android.com/reference/androidx/camera/viewfinder/ViewfinderSurfaceRequest).
 
 This request contains requirements for the surface resolution and camera device
-information from [`CameraCharacteristics`](https://developer.android.com/reference/kotlin/android/hardware/camera2/CameraCharacteristics).
+information from [`CameraCharacteristics`](https://developer.android.com/reference/kotlin/android/hardware/camera2/CameraCharacteristics.md.txt).
 
 Calling [`requestSurfaceAsync()`](https://developer.android.com/reference/androidx/camera/viewfinder/CameraViewfinder#requestSurfaceAsync(androidx.camera.viewfinder.ViewfinderSurfaceRequest))
 sends the request to the surface provider, which is either a `TextureView` or
@@ -402,7 +402,7 @@ fun startCamera(){
 
 ## SurfaceView
 
-[`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView) is a
+[`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView.md.txt) is a
 straightforward approach to creating a camera preview if the preview doesn't
 require processing and isn't animated.
 
@@ -414,11 +414,11 @@ dimensions without any consideration of aspect ratio.
 You must ensure that the aspect ratio of the image buffer matches the aspect
 ratio of the `SurfaceView`, which you can accomplish by scaling the contents
 of the `SurfaceView` in the component's
-[`onMeasure()`](https://developer.android.com/reference/android/view/SurfaceView#onMeasure(int,%20int))
+[`onMeasure()`](https://developer.android.com/reference/android/view/SurfaceView.md.txt#onMeasure(int,%20int))
 method:
 
 (The `computeRelativeRotation()` source code is in
-[Relative rotation](https://developer.android.com/media/camera/camera2/camera-preview#relative-rotation) below.)
+[Relative rotation](https://developer.android.com/media/camera/camera2/camera-preview.md.txt#relative-rotation) below.)
 
 ### Kotlin
 
@@ -492,7 +492,7 @@ For more details on implementing `SurfaceView` as a camera preview, see
 
 ## TextureView
 
-[`TextureView`](https://developer.android.com/reference/android/view/TextureView) is less performant than
+[`TextureView`](https://developer.android.com/reference/android/view/TextureView.md.txt) is less performant than
 `SurfaceView`---and more work---but `TextureView` gives you maximum
 control of the camera preview.
 
@@ -500,7 +500,7 @@ control of the camera preview.
 does not handle device rotation or preview scaling.
 
 Scaling and rotation can be encoded in a
-[Matrix](https://developer.android.com/reference/android/graphics/Matrix) transformation. To learn how to
+[Matrix](https://developer.android.com/reference/android/graphics/Matrix.md.txt) transformation. To learn how to
 correctly scale and rotate a `TextureView`, see
 [Support resizable surfaces in your camera app](https://developer.android.com/codelabs/android-camera2-preview)
 
@@ -514,9 +514,9 @@ to determine x and y scaling factors for the preview image. It is also used to
 specify the rotation of the sensor image buffer.
 
 The
-[`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics)
+[`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics.md.txt)
 and
-[`Surface`](https://developer.android.com/reference/android/view/Surface) classes enable calculation of the
+[`Surface`](https://developer.android.com/reference/android/view/Surface.md.txt) classes enable calculation of the
 camera sensor's relative rotation:
 
 ### Kotlin
@@ -582,30 +582,30 @@ Screen size should not be used to determine the dimensions of the camera
 viewfinder; the camera app might be running in a portion of the screen, either
 in multi-window mode on mobile devices or free-from mode on ChromeOS.
 
-[`WindowManager#getCurrentWindowMetrics()`](https://developer.android.com/reference/android/view/WindowManager#getCurrentWindowMetrics())
+[`WindowManager#getCurrentWindowMetrics()`](https://developer.android.com/reference/android/view/WindowManager.md.txt#getCurrentWindowMetrics())
 (added in API level 30) returns the size of the application window rather than
 the size of the screen. The Jetpack WindowManager library methods
-[`WindowMetricsCalculator#computeCurrentWindowMetrics()`](https://developer.android.com/reference/androidx/window/layout/WindowMetricsCalculator#computeCurrentWindowMetrics(android.app.Activity))
+[`WindowMetricsCalculator#computeCurrentWindowMetrics()`](https://developer.android.com/reference/androidx/window/layout/WindowMetricsCalculator.md.txt#computeCurrentWindowMetrics(android.app.Activity))
 and
-[`WindowInfoTracker#currentWindowMetrics()`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowInfoTracker)
+[`WindowInfoTracker#currentWindowMetrics()`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowInfoTracker.md.txt)
 provide similar support with backward compatibility to API level 14.
 
 > [!NOTE]
-> **Note:** [`Display`](https://developer.android.com/reference/android/view/Display) methods [`getRealSize()`](https://developer.android.com/reference/android/view/Display#getRealSize(android.graphics.Point)) and [`getRealMetrics()`](https://developer.android.com/reference/android/view/Display#getRealMetrics(android.util.DisplayMetrics)) are deprecated as of API level 31. The methods do not support multi-window mode or free-form mode. To get the display density, use [`Configuration#densityDpi`](https://developer.android.com/reference/android/content/res/Configuration#densityDpi) instead of `getRealMetrics()`.
+> **Note:** [`Display`](https://developer.android.com/reference/android/view/Display.md.txt) methods [`getRealSize()`](https://developer.android.com/reference/android/view/Display.md.txt#getRealSize(android.graphics.Point)) and [`getRealMetrics()`](https://developer.android.com/reference/android/view/Display.md.txt#getRealMetrics(android.util.DisplayMetrics)) are deprecated as of API level 31. The methods do not support multi-window mode or free-form mode. To get the display density, use [`Configuration#densityDpi`](https://developer.android.com/reference/android/content/res/Configuration.md.txt#densityDpi) instead of `getRealMetrics()`.
 
 ## 180 degree rotation
 
 A 180 degree rotation of a device (for example, from natural orientation to
 natural orientation upside down) does not trigger the
-[`onConfigurationChanged()`](https://developer.android.com/reference/android/app/Activity#onConfigurationChanged(android.content.res.Configuration))
+[`onConfigurationChanged()`](https://developer.android.com/reference/android/app/Activity.md.txt#onConfigurationChanged(android.content.res.Configuration))
 callback. As a result, the camera preview might be upside down.
 
 To detect a 180 degree rotation, implement a
-[`DisplayListener`](https://developer.android.com/reference/android/hardware/display/DisplayManager.DisplayListener)
+[`DisplayListener`](https://developer.android.com/reference/android/hardware/display/DisplayManager.DisplayListener.md.txt)
 and check the device rotation with a call to
-[`Display#getRotation()`](https://developer.android.com/reference/android/view/Display#getRotation())
+[`Display#getRotation()`](https://developer.android.com/reference/android/view/Display.md.txt#getRotation())
 in the
-[`onDisplayChanged()`](https://developer.android.com/reference/android/hardware/display/DisplayManager.DisplayListener#onDisplayChanged(int))
+[`onDisplayChanged()`](https://developer.android.com/reference/android/hardware/display/DisplayManager.DisplayListener.md.txt#onDisplayChanged(int))
 callback.
 
 ## Exclusive resources
@@ -624,12 +624,12 @@ An application using the camera, microphone, or any exclusive or
 singleton resource on API level 29 or higher must support multi-resume. For
 example, if three resumed activities want to use the camera, only one is able
 to access this exclusive resource. Each activity must implement an
-[`onDisconnected()`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice.StateCallback#onDisconnected(android.hardware.camera2.CameraDevice))
+[`onDisconnected()`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice.StateCallback.md.txt#onDisconnected(android.hardware.camera2.CameraDevice))
 callback to stay aware of preemptive access to the camera by a higher priority
 activity.
 
 > [!NOTE]
-> **Note:** Setting [`resizeableActivity="false"`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) doesn't guarantee access to exclusive resources because another activity or an application running on a secondary display might have higher priority. Also, as of Android 12 (API level 31), `resizeableActivity="false"` does not prevent an activity from entering multi-window mode in which other activities might take precedence for exclusive resources.
+> **Note:** Setting [`resizeableActivity="false"`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#resizeableActivity) doesn't guarantee access to exclusive resources because another activity or an application running on a secondary display might have higher priority. Also, as of Android 12 (API level 31), `resizeableActivity="false"` does not prevent an activity from entering multi-window mode in which other activities might take precedence for exclusive resources.
 
 For more information, see
 [Multi-resume](https://source.android.com/devices/tech/display/multi_display/multi-resume).
@@ -640,4 +640,4 @@ For more information, see
 - To learn about the CameraX preview use case, see CameraX [Implement a preview](https://developer.android.com/training/camerax/preview).
 - For a CameraX camera preview sample implementation, see the [CameraXBasic](https://github.com/android/camera-samples/tree/master/CameraXBasic) repository on GitHub.
 - For information about camera preview on ChromeOS, see [Camera orientations](https://chromeos.dev/en/android/camera-orientation).
-- For information about developing for foldable devices, see [Learn about foldables](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/learn-about-foldables).
+- For information about developing for foldable devices, see [Learn about foldables](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/learn-about-foldables.md.txt).

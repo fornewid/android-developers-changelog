@@ -76,7 +76,7 @@ ScreenScaffold(
 
 This example also demonstrates `ScreenScaffold` and `AppScaffold`.
 These coordinate between the App and individual screens
-([navigation routes](https://developer.android.com/training/wearables/compose/navigation)) to ensure the correct scrolling behavior and
+([navigation routes](https://developer.android.com/training/wearables/compose/navigation.md.txt)) to ensure the correct scrolling behavior and
 `TimeText` positioning.
 
 For the top and bottom padding, also note the following:
@@ -105,7 +105,7 @@ and font-scaling.*
 
 Dialogs should also be scrollable, unless there is a very good reason not to.
 
-The [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/package-summary#AlertDialog(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.foundation.layout.PaddingValues,androidx.compose.ui.window.DialogProperties,kotlin.Function1)) component is responsive and is scrollable by default
+The [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/package-summary.md.txt#AlertDialog(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.foundation.layout.PaddingValues,androidx.compose.ui.window.DialogProperties,kotlin.Function1)) component is responsive and is scrollable by default
 if the content exceeds the viewport height.
 
 
@@ -146,17 +146,17 @@ The [design guidance](https://developer.android.com/design/ui/wear/guides/founda
 
 ## Test combinations of screen and font sizes using previews
 
-[Compose previews](https://developer.android.com/develop/ui/compose/tooling/previews) help you develop for a variety of Wear OS screen sizes.
+[Compose previews](https://developer.android.com/develop/ui/compose/tooling/previews.md.txt) help you develop for a variety of Wear OS screen sizes.
 Use both the devices and font-scaling preview definitions to see the following:
 
 - How your screens look at the extremes of sizing, for example, largest font paired with smallest screen.
 - How your differentiated experience behaves across breakpoints.
 
-Ensure you implement previews using [`WearPreviewDevices`](https://developer.android.com/reference/kotlin/androidx/wear/compose/ui/tooling/preview/WearPreviewDevices) and
-[`WearPreviewFontScales`](https://developer.android.com/reference/kotlin/androidx/wear/compose/ui/tooling/preview/WearPreviewFontScales) for all the screens in your app. For complete
+Ensure you implement previews using [`WearPreviewDevices`](https://developer.android.com/reference/kotlin/androidx/wear/compose/ui/tooling/preview/WearPreviewDevices.md.txt) and
+[`WearPreviewFontScales`](https://developer.android.com/reference/kotlin/androidx/wear/compose/ui/tooling/preview/WearPreviewFontScales.md.txt) for all the screens in your app. For complete
 details on configuring Wear OS previews, custom hardware specs, and previewing
 scrolled lists, see
-[Preview your UI in Compose for Wear OS](https://developer.android.com/training/wearables/compose/previews).
+[Preview your UI in Compose for Wear OS](https://developer.android.com/training/wearables/compose/previews.md.txt).
 
 ```kotlin
 @WearPreviewDevices
@@ -213,13 +213,17 @@ Some important points to note:
 
 To generate images for your screens, run the following command in a terminal:
 
-    ./gradlew recordRoborazziDebug
+```bash
+./gradlew recordRoborazziDebug
+```
 
 ### Verify images
 
 To verify changes against existing images, run the following command in a
 terminal:
 
-    ./gradlew verifyRoborazziDebug
+```bash
+./gradlew verifyRoborazziDebug
+```
 
 For a full example of screenshot testing, see the [ComposeStarter](https://github.com/android/wear-os-samples/tree/main/ComposeStarter) sample.

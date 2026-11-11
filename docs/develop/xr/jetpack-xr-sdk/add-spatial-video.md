@@ -7,7 +7,7 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices.md.txt#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
@@ -29,8 +29,8 @@ Side-by-side video is not a codec but rather a way of organizing stereoscopic
 frames, which means it can be encoded in any of the [codecs supported by
 Android](https://developer.android.com/media/platform/supported-formats#video-codecs).
 
-You can load side-by-side video using [Media3 Exoplayer](https://developer.android.com/media/media3/exoplayer) and then render it
-using the new [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity). To create a `SurfaceEntity`, call
+You can load side-by-side video using [Media3 Exoplayer](https://developer.android.com/media/media3/exoplayer.md.txt) and then render it
+using the new [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity.md.txt). To create a `SurfaceEntity`, call
 `SurfaceEntity.create`, as shown in the following example.
 
 
@@ -63,13 +63,13 @@ allowing your app to efficiently play back immersive videos at great quality.
 MV-HEVC files have a primary stream, usually the left eye, and a stereo stream
 with the other eye.
 
-Similar to side-by-side video, you can load it using [Media3 Exoplayer](https://developer.android.com/media/media3/exoplayer) and
-render it using the [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity). You will want to specify whether your
+Similar to side-by-side video, you can load it using [Media3 Exoplayer](https://developer.android.com/media/media3/exoplayer.md.txt) and
+render it using the [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity.md.txt). You will want to specify whether your
 MV-HEVC file is left or right primary in the `stereoMode` parameter when calling
 `SurfaceEntity.create`.
 
 > [!IMPORTANT]
-> **Important:** You must use [Media3 1.6.0](https://developer.android.com/jetpack/androidx/releases/media3#1.6.0) or later and an Android XR device with MV-HEVC decoding support to playback MV-HEVC content.
+> **Important:** You must use [Media3 1.6.0](https://developer.android.com/jetpack/androidx/releases/media3.md.txt#1.6.0) or later and an Android XR device with MV-HEVC decoding support to playback MV-HEVC content.
 
 
 ```kotlin
@@ -109,12 +109,12 @@ be accessed by the system or other applications, preventing screen capture.
 
 To play DRM-protected video with Jetpack SceneCore, you need to:
 
-1. Configure [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity) to request a protected surface.
-2. Configure [Media3 Exoplayer](https://developer.android.com/media/media3/exoplayer) with the necessary DRM information to handle the key exchange.
-3. Set the player's output to the [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity)'s surface.
+1. Configure [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity.md.txt) to request a protected surface.
+2. Configure [Media3 Exoplayer](https://developer.android.com/media/media3/exoplayer.md.txt) with the necessary DRM information to handle the key exchange.
+3. Set the player's output to the [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity.md.txt)'s surface.
 
 The following example shows how to configure ExoPlayer to play a DRM-protected
-stream and render it on a [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity):
+stream and render it on a [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity.md.txt):
 
 
 ```kotlin
@@ -160,7 +160,7 @@ DRM documentation on source.android.com](https://en.wikipedia.org/wiki/Stereosco
 
 ## Play 180-degree and 360-degree video using Jetpack SceneCore
 
-[`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity) supports playback of 180° videos on hemispherical surfaces
+[`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity.md.txt) supports playback of 180° videos on hemispherical surfaces
 and 360° videos on spherical surfaces. The `radius` parameter refers to the
 radial size of the respective surfaces in meters by default.
 
@@ -169,7 +169,7 @@ hemisphere and a 360° sphere. When using these canvas shapes, position the
 surface by leveraging the user's head pose to provide an immersive experience.
 
 > [!NOTE]
-> **Note:** [`ResizableComponent`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ResizableComponent) isn't supported for [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity) when the `SurfaceEntity` has a `canvasShape` of `Hemisphere` or `Sphere`.
+> **Note:** [`ResizableComponent`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ResizableComponent.md.txt) isn't supported for [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity.md.txt) when the `SurfaceEntity` has a `canvasShape` of `Hemisphere` or `Sphere`.
 
 
 ```kotlin
@@ -273,4 +273,4 @@ activity.lifecycleScope.launch {
 ## Play spatial video using Jetpack Compose for XR
 
 If you're interested in learning how to play video using Jetpack Compose for XR,
-learn how to [add a surface for image or video content](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/spatial-external-surface).
+learn how to [add a surface for image or video content](https://developer.android.com/develop/xr/jetpack-xr-sdk/compose/spatial-external-surface.md.txt).

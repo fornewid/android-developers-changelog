@@ -28,7 +28,7 @@ When you enter PiP mode, your app's entire UI enters the PiP window unless you
 specify how your UI should look in and out of PiP mode.
 
 First, you need to know when your app is in PiP mode or not. You can use
-[`OnPictureInPictureModeChangedProvider`](https://developer.android.com/reference/androidx/core/app/OnPictureInPictureModeChangedProvider) to achieve this.
+[`OnPictureInPictureModeChangedProvider`](https://developer.android.com/reference/androidx/core/app/OnPictureInPictureModeChangedProvider.md.txt) to achieve this.
 The following code checks whether your app is in PiP mode.
 
 

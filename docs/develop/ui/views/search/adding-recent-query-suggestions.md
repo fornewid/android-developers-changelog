@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/views/search/adding-recent-query-s
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Search bar →](https://developer.android.com/develop/ui/compose/components/search-bar) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Search bar →](https://developer.android.com/develop/ui/compose/components/search-bar.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 You can provide search suggestions based on recent search queries in the Android search dialog or
 search widget. For example, if a user queries "puppies," the query appears as a suggestion when they
@@ -13,7 +13,7 @@ suggestions.
 
 Before you begin, implement the search dialog or a search widget for basic searches
 in your application. To learn how, see
-[Create a search interface](https://developer.android.com/develop/ui/views/search/search-dialog).
+[Create a search interface](https://developer.android.com/develop/ui/views/search/search-dialog.md.txt).
 
 ## The basics
 
@@ -24,13 +24,13 @@ suggestions.
 
 Recent query suggestions are saved searches. When the user selects a suggestion, your searchable
 activity receives an
-`https://developer.android.com/reference/android/content/Intent#ACTION_SEARCH` intent
+`ACTION_SEARCH` intent
 with the suggestion as the search query that your searchable activity already handles.
 
 To provide recent queries suggestions, you need to:
 
 - Implement a searchable activity.
-- Create a content provider that extends `https://developer.android.com/reference/android/content/SearchRecentSuggestionsProvider` and declare it in your application manifest.
+- Create a content provider that extends `SearchRecentSuggestionsProvider` and declare it in your application manifest.
 - Modify the searchable configuration with information about the content provider that provides search suggestions.
 - Save queries to your content provider each time a search is executed.
 
@@ -41,7 +41,7 @@ When the system identifies that your activity is searchable and provides search 
 following happens when the user types a query:
 
 1. The system takes the search query text---whatever the user begins typing---and performs a query to the content provider that contains your suggestions.
-2. Your content provider returns a `https://developer.android.com/reference/android/database/Cursor` that points to all suggestions that match the search query text.
+2. Your content provider returns a `Cursor` that points to all suggestions that match the search query text.
 3. The system displays the list of suggestions provided by the `Cursor`.
 
 Once the recent query suggestions are displayed, the following might happen:
@@ -91,16 +91,16 @@ public class MySuggestionProvider extends SearchRecentSuggestionsProvider {
 ```
 
 The call to
-`https://developer.android.com/reference/android/content/SearchRecentSuggestionsProvider#setupSuggestions(java.lang.String, int)`
+`setupSuggestions()`
 passes the name of the search authority and a database mode. The search authority can be any unique
 string, but the best practice is to use a fully qualified name for your content provider, such as
 the package name followed by the provider's class name. For example,
 `"com.example.MySuggestionProvider"`.
 
 The database mode must include
-`https://developer.android.com/reference/android/content/SearchRecentSuggestionsProvider#DATABASE_MODE_QUERIES`
+`DATABASE_MODE_QUERIES`
 and can optionally include
-`https://developer.android.com/reference/android/content/SearchRecentSuggestionsProvider#DATABASE_MODE_2LINES`,
+`DATABASE_MODE_2LINES`,
 which adds a column to the suggestions table so you can provide a second line of text with each
 suggestion. If you want to provide two lines in each suggestion, see the following example:
 
@@ -157,12 +157,12 @@ automatically replaced by the query text entered by the user.
 
 To populate your collection of recent queries, add each query received by your searchable
 activity to your `SearchRecentSuggestionsProvider`. To do this, create an instance of
-`https://developer.android.com/reference/android/provider/SearchRecentSuggestions`
+`SearchRecentSuggestions`
 and call
-`https://developer.android.com/reference/android/provider/SearchRecentSuggestions#saveRecentQuery(java.lang.String, java.lang.String)`
+`saveRecentQuery()`
 each time your searchable activity receives a query. For example, here's how you can save the query
 during your activity's
-`https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)`
+`onCreate()`
 method:
 
 ### Kotlin
@@ -213,7 +213,7 @@ the second line when the system looks for matching suggestions.
 
 To protect the user's privacy, always provide a way for the user to clear the recent query
 suggestions. To clear the query history, call
-`https://developer.android.com/reference/android/provider/SearchRecentSuggestions#clearHistory()`.
+`clearHistory()`.
 For example:
 
 ### Kotlin

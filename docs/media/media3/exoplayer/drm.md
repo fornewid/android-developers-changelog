@@ -4,7 +4,7 @@ url: https://developer.android.com/media/media3/exoplayer/drm
 source: md.txt
 ---
 
-ExoPlayer uses Android's [`MediaDrm`](https://developer.android.com/reference/android/media/MediaDrm) API to support DRM-protected playback.
+ExoPlayer uses Android's [`MediaDrm`](https://developer.android.com/reference/android/media/MediaDrm.md.txt) API to support DRM-protected playback.
 The minimum Android versions required for different supported DRM schemes, along
 with the streaming formats for which they're supported, are described in the
 following table:
@@ -17,7 +17,7 @@ following table:
 | PlayReady SL2000 "cenc" | Android TV | Android TV | DASH, SmoothStreaming, HLS (FMP4 only) |
 
 In order to play DRM-protected content with ExoPlayer, the UUID of the DRM
-system must be specified [when building a media item](https://developer.android.com/media/media3/exoplayer/media-items#protected-content), and
+system must be specified [when building a media item](https://developer.android.com/media/media3/exoplayer/media-items.md.txt#protected-content), and
 other properties can also be provided. The player will then use these properties
 to build a default implementation of `DrmSessionManager`, called
 `DefaultDrmSessionManager`, that's suitable for most use cases. For some use

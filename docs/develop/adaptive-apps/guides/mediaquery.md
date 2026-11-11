@@ -20,7 +20,7 @@ In addition to that, you can refer to the following information:
 
 Because the information is updated dynamically,
 you need to monitor it and trigger recomposition when any update happens.
-The [`mediaQuery`](https://developer.android.com/reference/kotlin/androidx/compose/ui/mediaQuery.composable#mediaQuery(kotlin.Function1)) function abstracts the details of the information retrieval
+The [`mediaQuery`](https://developer.android.com/reference/kotlin/androidx/compose/ui/mediaQuery.composable.md.txt#mediaQuery(kotlin.Function1)) function abstracts the details of the information retrieval
 and lets you focus on defining the condition to trigger the layout updates.
 
 > [!NOTE]
@@ -51,7 +51,7 @@ fun VideoPlayer(
 
 To enable the `mediaQuery` function,
 set the `isMediaQueryIntegrationEnabled` attribute of
-the [`ComposeUiFlags`](https://developer.android.com/reference/kotlin/androidx/compose/ui/ComposeUiFlags) object to `true`:
+the [`ComposeUiFlags`](https://developer.android.com/reference/kotlin/androidx/compose/ui/ComposeUiFlags.md.txt) object to `true`:
 
 
 ```kotlin
@@ -68,7 +68,7 @@ class MyApplication : Application() {
 ## Define a condition with parameters
 
 You can define a condition as a lambda
-that is evaluated within [`UiMediaScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope).
+that is evaluated within [`UiMediaScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.md.txt).
 The `mediaQuery` function evaluates the condition according to
 the current status and the device capabilities.
 The function returns a boolean value,
@@ -78,17 +78,17 @@ Table 1 describes the parameters available in `UiMediaScope`.
 
 | Parameter | Value type | Description |
 |---|---|---|
-| `windowWidth` | [`Dp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/Dp) | The current window width in dp. |
+| `windowWidth` | [`Dp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/Dp.md.txt) | The current window width in dp. |
 | `windowHeight` | `Dp` | The current window height in dp. |
 | `windowPosture` | [`UiMediaScope.Posture`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.Posture) | The current posture of the application window. |
-| `pointerPrecision` | [`UiMediaScope.PointerPrecision`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.PointerPrecision) | The highest precision of the available pointing devices. |
-| `keyboardKind` | [`UiMediaScope.KeyboardKind`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.KeyboardKind) | The type of keyboard available or connected. |
+| `pointerPrecision` | [`UiMediaScope.PointerPrecision`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.PointerPrecision.md.txt) | The highest precision of the available pointing devices. |
+| `keyboardKind` | [`UiMediaScope.KeyboardKind`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.KeyboardKind.md.txt) | The type of keyboard available or connected. |
 | `hasCamera` | `Boolean` | Whether the camera is supported on the device. |
 | `hasMicrophone` | `Boolean` | Whether the microphone is supported on the device. |
-| `viewingDistance` | [`UiMediaScope.ViewingDistance`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.ViewingDistance) | The typical distance between the user and the device screen. |
+| `viewingDistance` | [`UiMediaScope.ViewingDistance`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.ViewingDistance.md.txt) | The typical distance between the user and the device screen. |
 
 A `UiMediaScope` object resolves the values of the parameters.
-The `mediaQuery` function uses [`LocalUiMediaScope.current`](https://developer.android.com/reference/kotlin/androidx/compose/ui/package-summary#LocalUiMediaScope())
+The `mediaQuery` function uses [`LocalUiMediaScope.current`](https://developer.android.com/reference/kotlin/androidx/compose/ui/package-summary.md.txt#LocalUiMediaScope())
 to access the `UiMediaScope` object,
 which represents the current device capabilities and context.
 This object is dynamically updated when any changes are made,
@@ -118,16 +118,16 @@ fun VideoPlayer(
 
 ### Make a decision based on the window size
 
-[Window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes) are a set of opinionated viewport breakpoints
+[Window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes.md.txt) are a set of opinionated viewport breakpoints
 that help you design, develop, and test adaptive layouts.
 You can compare the two parameters representing the current window size
 with the threshold defined in the window size classes.
 The following example changes the number of panes according to the window width.
-[`WindowSizeClass`](https://developer.android.com/reference/androidx/window/core/layout/WindowSizeClass) class has constants for the thresholds
+[`WindowSizeClass`](https://developer.android.com/reference/androidx/window/core/layout/WindowSizeClass.md.txt) class has constants for the thresholds
 of window size classes (Figure 1).
 
-The [`derivedMediaQuery`](https://developer.android.com/reference/kotlin/androidx/compose/ui/derivedMediaQuery.composable#derivedMediaQuery(kotlin.Function1)) function evaluates the `query` lambda
-and wraps the result in a [`derivedStateOf`](https://developer.android.com/develop/ui/compose/side-effects#derivedstateof).
+The [`derivedMediaQuery`](https://developer.android.com/reference/kotlin/androidx/compose/ui/derivedMediaQuery.composable.md.txt#derivedMediaQuery(kotlin.Function1)) function evaluates the `query` lambda
+and wraps the result in a [`derivedStateOf`](https://developer.android.com/develop/ui/compose/side-effects.md.txt#derivedstateof).
 Because `windowWidth` and `windowHeight` can update frequently,
 call the `derivedMediaQuery` function instead of the `mediaQuery` function
 when you refer to those parameters in the `query` lambda.
@@ -155,7 +155,7 @@ when {
 
 The `windowPosture` parameter describes the current window posture
 as a `UiMediaScope.Posture` object.
-You can check the current [posture](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/learn-about-foldables) by comparing the parameter
+You can check the current [posture](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/learn-about-foldables.md.txt) by comparing the parameter
 with the values defined in the `UiMediaScope.Posture` class.
 The following example switches layout according to the window posture:
 
@@ -178,7 +178,7 @@ The precision of a pointing device depends on the device type.
 The `pointerPrecision` parameter describes the precision
 of the available pointing devices, such as a mouse and touchscreen.
 There are four values defined in the `UiMediaScope.PointerPrecision` class:
-[`Fine`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.PointerPrecision#Fine()), [`Coarse`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.PointerPrecision#Coarse()), [`Blunt`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.PointerPrecision#Blunt()), and [`None`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.PointerPrecision#None()).
+[`Fine`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.PointerPrecision.md.txt#Fine()), [`Coarse`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.PointerPrecision.md.txt#Coarse()), [`Blunt`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.PointerPrecision.md.txt#Blunt()), and [`None`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.PointerPrecision.md.txt#None()).
 `None` means that no pointing device is available.
 The precision ranges from highest to lowest in this order:
 `Fine`, `Coarse`, and `Blunt`.
@@ -206,7 +206,7 @@ if (mediaQuery { pointerPrecision == UiMediaScope.PointerPrecision.Blunt }) {
 ### Check the available keyboard type
 
 The `keyboardKind` parameter represents the type of the available keyboards:
-[`Physical`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.KeyboardKind#Physical()), [`Virtual`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.KeyboardKind#Virtual()), and [`None`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.KeyboardKind#None()).
+[`Physical`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.KeyboardKind.md.txt#Physical()), [`Virtual`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.KeyboardKind.md.txt#Virtual()), and [`None`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.KeyboardKind.md.txt#None()).
 If an on-screen keyboard is displayed and
 a hardware keyboard is available at the same time,
 the parameter is resolved as `Physical`.
@@ -257,7 +257,7 @@ The `viewingDistance` parameter provides an estimate of the viewing distance
 based on the device type and its typical usage context.
 
 There are three values defined in the `UiMediaScope.ViewingDistance` class:
-[`Near`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.ViewingDistance#Near()), [`Medium`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.ViewingDistance#Medium()), and [`Far`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.ViewingDistance#Far()).
+[`Near`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.ViewingDistance.md.txt#Near()), [`Medium`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.ViewingDistance.md.txt#Medium()), and [`Far`](https://developer.android.com/reference/kotlin/androidx/compose/ui/UiMediaScope.ViewingDistance.md.txt#Far()).
 `Near` means that the screen is in close range,
 and `Far` means that the device is viewed from a distance.
 The following example increases the font size when the viewing distance is
@@ -301,7 +301,7 @@ You can override it with the following steps:
 
 1. Enable the `mediaQuery` function.
 2. Define a custom object that implements the `UiMediaScope` interface.
-3. Set the custom object to the `LocalUiMediaScope` with the [`CompositionLocalProvider`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocalProvider.composable#CompositionLocalProvider(androidx.compose.runtime.CompositionLocalContext,kotlin.Function0)) function.
+3. Set the custom object to the `LocalUiMediaScope` with the [`CompositionLocalProvider`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocalProvider.composable.md.txt#CompositionLocalProvider(androidx.compose.runtime.CompositionLocalContext,kotlin.Function0)) function.
 4. Call the composable to preview in the content lambda of the `CompositionLocalProvider` function.
 
 You can preview the `TabletopLayout` with the following example:

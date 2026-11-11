@@ -7,11 +7,11 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
-The [`onIndirectPointerGesture`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/onIndirectPointerGesture.modifier) modifier lets component receive and respond
+The [`onIndirectPointerGesture`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/onIndirectPointerGesture.modifier.md.txt) modifier lets component receive and respond
 to high-level indirect pointer events, such as those originating from a device's
 touchpad. Use this modifier to capture and process gestures that come from a
 touchpad or similar source.
@@ -68,5 +68,5 @@ fun OnIndirectPointerGestureSample() {
 
 ### Key points about the code
 
-- `onIndirectPointerGesture` requires focus, so the [`focusTarget`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/focusTarget.modifier) is also applied to make the `Box` focusable. You can use `focusTarget` or another focus-enabling modifier such as [`surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/surface.composable#(androidx.compose.ui.Modifier).surface(kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.xr.glimmer.SurfaceDepthEffect,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.interaction.MutableInteractionSource)). Without focus, the modifier can't act upon indirect pointer events.
+- `onIndirectPointerGesture` requires focus, so the [`focusTarget`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/focusTarget.modifier.md.txt) is also applied to make the `Box` focusable. You can use `focusTarget` or another focus-enabling modifier such as [`surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/surface.composable.md.txt#(androidx.compose.ui.Modifier).surface(kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.xr.glimmer.SurfaceDepthEffect,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.interaction.MutableInteractionSource)). Without focus, the modifier can't act upon indirect pointer events.
 - This example implements both the `onSwipeForward` and `onClick` callbacks, so swipe and click gestures that are detected are intercepted and consumed, and don't reach outwards to parent containers. However, you can also leave a specific callback null to pass through a gesture to an `onIndirectPointerGesture` modifier in a parent container.

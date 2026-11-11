@@ -67,11 +67,11 @@ first time.
 changes.
 
 To learn more about initial composition and recomposition, see
-[Thinking in Compose](https://developer.android.com/develop/ui/compose/mental-model).
+[Thinking in Compose](https://developer.android.com/develop/ui/compose/mental-model.md.txt).
 
 ## State in composables
 
-Composable functions can use the [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable#remember(kotlin.Function0)) API to store an
+Composable functions can use the [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable.md.txt#remember(kotlin.Function0)) API to store an
 object in memory. A value computed by `remember` is stored in the Composition
 during initial composition, and the stored value is returned during
 recomposition. `remember` can be used to store both mutable and immutable
@@ -80,13 +80,15 @@ objects.
 > [!NOTE]
 > **Note:** `remember` stores objects in the Composition, and forgets the object when the composable that called `remember` is removed from the Composition.
 
-[`mutableStateOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#mutableStateOf(kotlin.Any,androidx.compose.runtime.SnapshotMutationPolicy)) creates an observable
-[`MutableState<T>`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState),
+[`mutableStateOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary.md.txt#mutableStateOf(kotlin.Any,androidx.compose.runtime.SnapshotMutationPolicy)) creates an observable
+[`MutableState<T>`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState.md.txt),
 which is an observable type integrated with the compose runtime.
 
-    interface MutableState<T> : State<T> {
-        override var value: T
-    }
+```kotlin
+interface MutableState<T> : State<T> {
+    override var value: T
+}
+```
 
 Any changes to `value` schedule recomposition of any composable functions
 that read `value`.
@@ -103,8 +105,10 @@ easiest-to-read code in the composable you're writing.
 
 The `by` delegate syntax requires the following imports:
 
-    import androidx.compose.runtime.getValue
-    import androidx.compose.runtime.setValue
+```kotlin
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+```
 
 You can use the remembered value as a parameter for other composables or even as
 logic in statements to change which composables are displayed. For example, if
@@ -150,118 +154,134 @@ supports other observable types. Before reading another observable type in
 Compose, you must convert it to a `State<T>` so that composables can
 automatically recompose when the state changes.
 
-Compose ships with functions to create [`State<T>`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State) from common observable
+Compose ships with functions to create [`State<T>`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State.md.txt) from common observable
 types used in Android apps. Before using these integrations, add the
-appropriate [artifact(s)](https://developer.android.com/jetpack/androidx/releases/compose-runtime#declaring_dependencies) as follows:
+appropriate [artifact(s)](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt#declaring_dependencies) as follows:
 
-- [`Flow`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/index.html): [`collectAsStateWithLifecycle()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/compose/package-summary#extension-functions)
+- [`Flow`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/index.html): [`collectAsStateWithLifecycle()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/compose/package-summary.md.txt#extension-functions)
 
-  [`collectAsStateWithLifecycle()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/compose/package-summary#extension-functions) collects values from a
+  [`collectAsStateWithLifecycle()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/compose/package-summary.md.txt#extension-functions) collects values from a
   [`Flow`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/index.html) in a lifecycle-aware manner, allowing your app to
   conserve app resources. It represents the latest emitted value from the
-  Compose [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State). Use this API as the recommended way to collect flows on
+  Compose [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State.md.txt). Use this API as the recommended way to collect flows on
   Android apps.
 
   > [!NOTE]
   > **Note:** To learn more about collecting flows safely in Android with `collectAsStateWithLifecycle()` API, you can read [Consuming flows safely in Jetpack Compose](https://medium.com/androiddevelopers/consuming-flows-safely-in-jetpack-compose-cde014d0d5a3).
 
-  The following [dependency](https://developer.android.com/jetpack/androidx/releases/lifecycle) is required in the `build.gradle` file (it should
+  The following [dependency](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt) is required in the `build.gradle` file (it should
   be 2.6.0-beta01 or newer):
 
 ### Kotlin
 
-    dependencies {
-          ...
-          implementation("androidx.lifecycle:lifecycle-runtime-compose:2.11.0")
-    }
+```kotlin
+dependencies {
+      ...
+      implementation("androidx.lifecycle:lifecycle-runtime-compose:2.11.0")
+}
+```
 
 ### Groovy
 
-    dependencies {
-          ...
-          implementation "androidx.lifecycle:lifecycle-runtime-compose:2.11.0"
-    }
+```groovy
+dependencies {
+      ...
+      implementation "androidx.lifecycle:lifecycle-runtime-compose:2.11.0"
+}
+```
 
-- [`Flow`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/index.html): [`collectAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/collectAsState.composable#(kotlinx.coroutines.flow.StateFlow).collectAsState(kotlin.coroutines.CoroutineContext))
+- [`Flow`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/index.html): [`collectAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/collectAsState.composable.md.txt#(kotlinx.coroutines.flow.StateFlow).collectAsState(kotlin.coroutines.CoroutineContext))
 
   `collectAsState` is similar to `collectAsStateWithLifecycle`, because it also
-  collects values from a `Flow` and transforms it into Compose [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State).
+  collects values from a `Flow` and transforms it into Compose [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State.md.txt).
 
   Use `collectAsState` for platform-agnostic code instead of
   `collectAsStateWithLifecycle`, which is Android-only.
 
   Additional dependencies are not required for `collectAsState`, because it is
   available in `compose-runtime`.
-- [`LiveData`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/livedata/package-summary): [`observeAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/livedata/observeAsState.composable#(androidx.lifecycle.LiveData).observeAsState(kotlin.Any))
+- [`LiveData`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/livedata/package-summary.md.txt): [`observeAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/livedata/observeAsState.composable.md.txt#(androidx.lifecycle.LiveData).observeAsState(kotlin.Any))
 
-  `observeAsState()` starts observing this [`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData) and represents its
-  values using [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State).
+  `observeAsState()` starts observing this [`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.md.txt) and represents its
+  values using [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State.md.txt).
 
-  The following [dependency](https://developer.android.com/jetpack/androidx/releases/compose-runtime) is required in the `build.gradle` file:
+  The following [dependency](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt) is required in the `build.gradle` file:
 
 ### Kotlin
 
-    dependencies {
-          ...
-          implementation("androidx.compose.runtime:runtime-livedata:1.12.1")
-    }
+```kotlin
+dependencies {
+      ...
+      implementation("androidx.compose.runtime:runtime-livedata:1.12.1")
+}
+```
 
 ### Groovy
 
-    dependencies {
-          ...
-          implementation "androidx.compose.runtime:runtime-livedata:1.12.1"
-    }
+```groovy
+dependencies {
+      ...
+      implementation "androidx.compose.runtime:runtime-livedata:1.12.1"
+}
+```
 
-- [`RxJava2`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava2/package-summary): [`subscribeAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava2/package-summary#extension-functions)
+- [`RxJava2`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava2/package-summary.md.txt): [`subscribeAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava2/package-summary.md.txt#extension-functions)
 
   `subscribeAsState()` are extension functions that transform RxJava2's reactive
   streams (e.g. [`Single`](http://reactivex.io/RxJava/2.x/javadoc/2.0.8/io/reactivex/Single.html), [`Observable`](http://reactivex.io/RxJava/2.x/javadoc/2.0.8/io/reactivex/Observable.html),
-  [`Completable`](http://reactivex.io/RxJava/2.x/javadoc/2.0.8/io/reactivex/Completable.html)) into Compose [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State).
+  [`Completable`](http://reactivex.io/RxJava/2.x/javadoc/2.0.8/io/reactivex/Completable.html)) into Compose [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State.md.txt).
 
-  The following [dependency](https://developer.android.com/jetpack/androidx/releases/compose-runtime) is required in the `build.gradle` file:
+  The following [dependency](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt) is required in the `build.gradle` file:
 
 ### Kotlin
 
-    dependencies {
-          ...
-          implementation("androidx.compose.runtime:runtime-rxjava2:1.12.1")
-    }
+```kotlin
+dependencies {
+      ...
+      implementation("androidx.compose.runtime:runtime-rxjava2:1.12.1")
+}
+```
 
 ### Groovy
 
-    dependencies {
-          ...
-          implementation "androidx.compose.runtime:runtime-rxjava2:1.12.1"
-    }
+```groovy
+dependencies {
+      ...
+      implementation "androidx.compose.runtime:runtime-rxjava2:1.12.1"
+}
+```
 
-- [`RxJava3`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava3/package-summary): [`subscribeAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava3/package-summary#extension-functions)
+- [`RxJava3`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava3/package-summary.md.txt): [`subscribeAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava3/package-summary.md.txt#extension-functions)
 
   `subscribeAsState()` are extension functions that transform RxJava3's reactive
   streams (e.g. [`Single`](http://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html), [`Observable`](http://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Observable.html),
-  [`Completable`](http://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html)) into Compose [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State).
+  [`Completable`](http://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html)) into Compose [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State.md.txt).
 
-  The following [dependency](https://developer.android.com/jetpack/androidx/releases/compose-runtime) is required in the `build.gradle` file:
+  The following [dependency](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt) is required in the `build.gradle` file:
 
 ### Kotlin
 
-    dependencies {
-          ...
-          implementation("androidx.compose.runtime:runtime-rxjava3:1.12.1")
-    }
+```kotlin
+dependencies {
+      ...
+      implementation("androidx.compose.runtime:runtime-rxjava3:1.12.1")
+}
+```
 
 ### Groovy
 
-    dependencies {
-          ...
-          implementation "androidx.compose.runtime:runtime-rxjava3:1.12.1"
-    }
+```groovy
+dependencies {
+      ...
+      implementation "androidx.compose.runtime:runtime-rxjava3:1.12.1"
+}
+```
 
 > [!IMPORTANT]
 > **Key Point:** Compose automatically recomposes from reading `State` objects. If you use another observable type such as `LiveData` in Compose, you should convert it to `State` before reading it. Make sure that type conversion happens in a composable, using a composable extension function like `LiveData<T>.observeAsState()`.
 
 > [!NOTE]
-> **Note:** You are not limited to these integrations. You can build an extension function for Jetpack Compose that reads other observable types. If your app uses a custom observable class, convert it to produce `State<T>` using the [`produceState`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/produceState.composable#produceState(kotlin.Any,kotlin.coroutines.SuspendFunction1)) API.  
+> **Note:** You are not limited to these integrations. You can build an extension function for Jetpack Compose that reads other observable types. If your app uses a custom observable class, convert it to produce `State<T>` using the [`produceState`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/produceState.composable.md.txt#produceState(kotlin.Any,kotlin.coroutines.SuspendFunction1)) API.  
 >
 > See the implementation of the built-ins for examples of how to do this: [collectAsStateWithLifecycle](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:lifecycle/lifecycle-runtime-compose/src/commonMain/kotlin/androidx/lifecycle/compose/FlowExt.kt). Any object that allows Jetpack Compose to subscribe to every change can be converted to `State<T>` and read in a Composable.
 
@@ -275,7 +295,7 @@ use it without having to manage the state themselves. However, composables with
 internal state tend to be less reusable and harder to test.
 
 A *stateless* composable is a composable that doesn't hold any state. A common
-way to achieve statelessness is by using [state hoisting](https://developer.android.com/develop/ui/compose/state#state-hoisting).
+way to achieve statelessness is by using [state hoisting](https://developer.android.com/develop/ui/compose/state.md.txt#state-hoisting).
 
 As you develop reusable composables, you often want to expose both a stateful
 and a stateless version of the same composable. The stateful version is
@@ -353,17 +373,17 @@ state in the UI from the parts of your app that store and change state.
 You can hoist state higher than these rules require, but underhoisting state
 makes it difficult or impossible to follow unidirectional data flow.
 
-See the [Where to hoist state](https://developer.android.com/develop/ui/compose/state-hoisting) page to learn more.
+See the [Where to hoist state](https://developer.android.com/develop/ui/compose/state-hoisting.md.txt) page to learn more.
 
 ## Restoring state in Compose
 
-The [`rememberSaveable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSaveable.composable#rememberSaveable(kotlin.Array,androidx.compose.runtime.saveable.Saver,kotlin.String,kotlin.Function0)) API behaves similarly to `remember` because it
+The [`rememberSaveable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSaveable.composable.md.txt#rememberSaveable(kotlin.Array,androidx.compose.runtime.saveable.Saver,kotlin.String,kotlin.Function0)) API behaves similarly to `remember` because it
 retains state across recompositions, and also across activity or process
 recreation using the saved instance state mechanism. For example, this happens
 when the screen is rotated.
 
 > [!NOTE]
-> **Note:** `rememberSaveable` won't retain state if the activity is [completely dismissed by the user](https://developer.android.com/topic/libraries/architecture/saving-states#ui-dismissal-user). For example, it does not retain state if the user swipes the current activity up from the [recents screen](https://developer.android.com/guide/components/activities/recents).
+> **Note:** `rememberSaveable` won't retain state if the activity is [completely dismissed by the user](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt#ui-dismissal-user). For example, it does not retain state if the user swipes the current activity up from the [recents screen](https://developer.android.com/guide/components/activities/recents.md.txt).
 
 ### Ways to store state
 
@@ -459,15 +479,15 @@ logic and state responsibilities to other classes: **state holders**.
 Note that in other materials, state holders are also called *hoisted state
 objects*.
 
-See the [state hoisting in Compose](https://developer.android.com/develop/ui/compose/state-hoisting) documentation or, more generally, the
-[State holders and UI State](https://developer.android.com/topic/architecture/ui-layer/stateholders) page in the architecture guide to learn more.
+See the [state hoisting in Compose](https://developer.android.com/develop/ui/compose/state-hoisting.md.txt) documentation or, more generally, the
+[State holders and UI State](https://developer.android.com/topic/architecture/ui-layer/stateholders.md.txt) page in the architecture guide to learn more.
 
 > [!NOTE]
-> **Note:** To share Compose `State` across application components or transform data streams into `State` outside UI composables, see the [AppState](https://developer.android.com/topic/libraries/architecture/appstate) libraries (Transform and StateStore).
+> **Note:** To share Compose `State` across application components or transform data streams into `State` outside UI composables, see the [AppState](https://developer.android.com/topic/libraries/architecture/appstate.md.txt) libraries (Transform and StateStore).
 
 ## Retrigger remember calculations when keys change
 
-The [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable#remember(kotlin.Any,kotlin.Any,kotlin.Any,kotlin.Function0)) API is frequently used together with [`MutableState`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState):
+The [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable.md.txt#remember(kotlin.Any,kotlin.Any,kotlin.Any,kotlin.Function0)) API is frequently used together with [`MutableState`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState.md.txt):
 
 
 ```kotlin
@@ -486,7 +506,7 @@ recomposition, `remember` returns the value that was last stored.
 Apart from caching state, you can also use `remember` to store any object or
 result of an operation in the Composition that is expensive to initialize or
 calculate. You might not want to repeat this calculation in every recomposition.
-An example is creating this [`ShaderBrush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ShaderBrush) object, which is an expensive
+An example is creating this [`ShaderBrush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ShaderBrush.md.txt) object, which is an expensive
 operation:
 
 
@@ -514,8 +534,8 @@ change, instead of until the remembered value leaves the Composition.
 
 The following examples show how this mechanism works.
 
-In this snippet, a [`ShaderBrush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ShaderBrush) is created and used as the background
-paint of a `Box` composable. `remember` stores the [`ShaderBrush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ShaderBrush) instance
+In this snippet, a [`ShaderBrush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ShaderBrush.md.txt) is created and used as the background
+paint of a `Box` composable. `remember` stores the [`ShaderBrush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ShaderBrush.md.txt) instance
 because it is expensive to recreate, as explained earlier. `remember` takes
 `avatarRes` as the `key1` parameter, which is the selected background image. If
 `avatarRes` changes, the brush recomposes with the new image, and reapplies to
@@ -550,11 +570,11 @@ private fun BackgroundBanner(
 
 <br />
 
-In the next snippet, state is hoisted to a [plain state holder class](https://developer.android.com/topic/architecture/ui-layer/stateholders#choose_between_a_viewmodel_and_plain_class_for_a_state_holder)
+In the next snippet, state is hoisted to a [plain state holder class](https://developer.android.com/topic/architecture/ui-layer/stateholders.md.txt#choose_between_a_viewmodel_and_plain_class_for_a_state_holder)
 `MyAppState`. It exposes a `rememberMyAppState` function to initialize an
 instance of the class using `remember`. Exposing such functions to create an
 instance that survives recompositions is a common pattern in Compose. The
-`rememberMyAppState` function receives [`windowSizeClass`](https://developer.android.com/reference/kotlin/androidx/compose/material3/windowsizeclass/WindowSizeClass), which serves as
+`rememberMyAppState` function receives [`windowSizeClass`](https://developer.android.com/reference/kotlin/androidx/compose/material3/windowsizeclass/WindowSizeClass.md.txt), which serves as
 the `key` parameter for `remember`. If this parameter changes, the app needs to
 recreate the plain state holder class with the latest value. This may occur if,
 for example, the user rotates the device.
@@ -583,17 +603,17 @@ class MyAppState(
 > state holder class as state owner](https://developer.android.com/develop/ui/compose/state-hoisting#plain-state) documentation, or the [State holders and
 > UI State](https://developer.android.com/topic/architecture/ui-layer/stateholders) documentation in the Architecture guide.
 
-Compose uses the class's [equals](https://developer.android.com/reference/java/lang/Object#equals(java.lang.Object)) implementation to decide if a key has
+Compose uses the class's [equals](https://developer.android.com/reference/java/lang/Object.md.txt#equals(java.lang.Object)) implementation to decide if a key has
 changed and invalidate the stored value.
 
 > [!NOTE]
-> **Note:** At first glance, using `remember` with keys might seem similar to using other Compose APIs, like [`derivedStateOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#derivedStateOf(kotlin.Function0)). See the [Jetpack Compose --- When
+> **Note:** At first glance, using `remember` with keys might seem similar to using other Compose APIs, like [`derivedStateOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary.md.txt#derivedStateOf(kotlin.Function0)). See the [Jetpack Compose --- When
 > should I use derivedStateOf?](https://medium.com/androiddevelopers/jetpack-compose-when-should-i-use-derivedstateof-63ce7954c11b) blog post to learn about the difference.
 
 ### Store state with keys beyond recomposition
 
-The [`rememberSaveable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSaveable.composable#rememberSaveable(kotlin.Array,androidx.compose.runtime.saveable.Saver,kotlin.String,kotlin.Function0)) API is a wrapper around `remember` that can store
-data in a [`Bundle`](https://developer.android.com/reference/android/os/Bundle). This API allows state to survive not only
+The [`rememberSaveable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSaveable.composable.md.txt#rememberSaveable(kotlin.Array,androidx.compose.runtime.saveable.Saver,kotlin.String,kotlin.Function0)) API is a wrapper around `remember` that can store
+data in a [`Bundle`](https://developer.android.com/reference/android/os/Bundle.md.txt). This API allows state to survive not only
 recomposition, but also activity recreation and system-initiated process death.
 `rememberSaveable` receives `input` parameters for the same purpose that
 `remember` receives `keys`. *The cache is invalidated when any of the inputs
@@ -639,6 +659,6 @@ additional resources.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Architecting your Compose UI](https://developer.android.com/develop/ui/compose/architecture)
-- [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving)
-- [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects)
+- [Architecting your Compose UI](https://developer.android.com/develop/ui/compose/architecture.md.txt)
+- [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving.md.txt)
+- [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects.md.txt)

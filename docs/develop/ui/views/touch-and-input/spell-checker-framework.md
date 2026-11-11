@@ -78,7 +78,7 @@ controlling settings, as shown in the following example:
 ```
 
 Components that want to use the service must request the permission
-`https://developer.android.com/reference/android/Manifest.permission#BIND_TEXT_SERVICE`
+`BIND_TEXT_SERVICE`
 to ensure that only the system binds to the service. The service's definition
 also specifies the `spellchecker.xml` metadata file, which is
 described in the next section.
@@ -108,8 +108,8 @@ subtypes define locales that the spell checker can handle.
 ## Access the spell checker service from a client
 
 apps that use
-`https://developer.android.com/reference/android/widget/TextView` and
-`https://developer.android.com/reference/android/widget/EditText`
+`TextView` and
+`EditText`
 views automatically benefit from spell checking, because `TextView`
 automatically uses a spell checker:
 ![An image showing how the spell checker is automatically enabled in EditText](https://developer.android.com/static/images/ui/spellchecker_edittext.png) **Figure 2.** Spell checking in an `EditText`.

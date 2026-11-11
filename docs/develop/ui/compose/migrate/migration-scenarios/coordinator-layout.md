@@ -10,7 +10,7 @@ interactions, such as expanding/collapsing toolbars and bottom sheets, for Views
 contained within it.
 
 In Compose, the closest equivalent of a `CoordinatorLayout` is a
-[`Scaffold`](https://developer.android.com/develop/ui/compose/components/scaffold). A `Scaffold` provides content slots for combining Material
+[`Scaffold`](https://developer.android.com/develop/ui/compose/components/scaffold.md.txt). A `Scaffold` provides content slots for combining Material
 Components into common screen patterns and interactions. This page describes how
 you can migrate your `CoordinatorLayout` implementation to use `Scaffold` in
 Compose.
@@ -30,11 +30,10 @@ To migrate `CoordinatorLayout` to `Scaffold`, follow these steps:
 
        <!-- AppBarLayout contents here -->
 
-
    \`\`\`
 
    > [!NOTE]
-   > **Note:** Since `CoordinatorLayout` is a `ViewGroup`, it's best to migrate all its child views to Compose at the same time or prior to this step, depending on your [migration strategy](https://developer.android.com/develop/ui/compose/migrate/strategy). However, if you are unable to do so, you can add an `AndroidView` to use Views within Compose. See [Using Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose) to learn more.
+   > **Note:** Since `CoordinatorLayout` is a `ViewGroup`, it's best to migrate all its child views to Compose at the same time or prior to this step, depending on your [migration strategy](https://developer.android.com/develop/ui/compose/migrate/strategy.md.txt). However, if you are unable to do so, you can add an `AndroidView` to use Views within Compose. See [Using Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose.md.txt) to learn more.
 
 2. In your Fragment or Activity, obtain a reference to the `ComposeView` you
    just added and call the `setContent` method on it. In the body of the method,
@@ -78,8 +77,8 @@ To migrate `CoordinatorLayout` to `Scaffold`, follow these steps:
 
 4. Use other content slots that `Scaffold` provides to add more screen elements
    and migrate remaining child Views. You can use the `topBar` slot to add a
-   [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable), and the `floatingActionButton` slot to provide a
-   [`FloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FloatingActionButton.composable#FloatingActionButton(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.material3.FloatingActionButtonElevation,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)).
+   [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable.md.txt), and the `floatingActionButton` slot to provide a
+   [`FloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FloatingActionButton.composable.md.txt#FloatingActionButton(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.material3.FloatingActionButtonElevation,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)).
 
 
    ```kotlin
@@ -123,17 +122,17 @@ To migrate `CoordinatorLayout` to `Scaffold`, follow these steps:
 
 In the View system, to collapse and expand the toolbar with `CoordinatorLayout`,
 you use an `AppBarLayout` as a container for the toolbar. You can then specify a
-[`Behavior`](https://developer.android.com/reference/androidx/coordinatorlayout/widget/CoordinatorLayout.Behavior) through `layout_behavior` in XML on the associated scrollable
+[`Behavior`](https://developer.android.com/reference/androidx/coordinatorlayout/widget/CoordinatorLayout.Behavior.md.txt) through `layout_behavior` in XML on the associated scrollable
 View (like `RecyclerView` or `NestedScrollView`) to declare how the toolbar
 collapses/expands as you scroll.
 
 In Compose, you can achieve a similar effect through a
-[`TopAppBarScrollBehavior`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarScrollBehavior). For example, to implement a collapsing/expanding
+[`TopAppBarScrollBehavior`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarScrollBehavior.md.txt). For example, to implement a collapsing/expanding
 toolbar so that the toolbar appears when you scroll up, follow these steps:
 
 1. Call `TopAppBarDefaults.enterAlwaysScrollBehavior()` to create a `TopAppBarScrollBehavior`.
 2. Provide the created `TopAppBarScrollBehavior` to the `TopAppBar`.
-3. Connect the [`NestedScrollConnection`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarScrollBehavior#nestedScrollConnection()) via `Modifier.nestedScroll` on the
+3. Connect the [`NestedScrollConnection`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarScrollBehavior.md.txt#nestedScrollConnection()) via `Modifier.nestedScroll` on the
    `Scaffold` so that the Scaffold can receive nested scroll events as the
    scrollable content scrolls up/down. This way, the contained app bar can
    appropriately collapse/expand as the content scrolls.
@@ -170,10 +169,10 @@ toolbar so that the toolbar appears when you scroll up, follow these steps:
 
 #### Customize the collapsing/expanding scroll effect
 
-You can provide several parameters for [`enterAlwaysScrollBehavior`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarDefaults#enterAlwaysScrollBehavior(androidx.compose.material3.TopAppBarState,kotlin.Function0,androidx.compose.animation.core.AnimationSpec,androidx.compose.animation.core.DecayAnimationSpec)) to
+You can provide several parameters for [`enterAlwaysScrollBehavior`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarDefaults.md.txt#enterAlwaysScrollBehavior(androidx.compose.material3.TopAppBarState,kotlin.Function0,androidx.compose.animation.core.AnimationSpec,androidx.compose.animation.core.DecayAnimationSpec)) to
 customize the collapsing/expanding animation effect. `TopAppBarDefaults` also
 provides other `TopAppBarScrollBehavior` such as
-[`exitUntilCollapsedScrollBehavior`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarDefaults#exitUntilCollapsedScrollBehavior(androidx.compose.material3.TopAppBarState,kotlin.Function0,androidx.compose.animation.core.AnimationSpec,androidx.compose.animation.core.DecayAnimationSpec)), which only expands the app bar when
+[`exitUntilCollapsedScrollBehavior`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarDefaults.md.txt#exitUntilCollapsedScrollBehavior(androidx.compose.material3.TopAppBarState,kotlin.Function0,androidx.compose.animation.core.AnimationSpec,androidx.compose.animation.core.DecayAnimationSpec)), which only expands the app bar when
 the content is scrolled all the way down.
 
 To create a completely custom effect (for example, a parallax effect), you can
@@ -184,13 +183,13 @@ code example.
 ### Drawers
 
 With Views, you implement a [navigation drawer](https://m3.material.io/components/navigation-drawer/overview) by using a
-[`DrawerLayout`](https://developer.android.com/reference/androidx/drawerlayout/widget/DrawerLayout) as the root view. In turn, your `CoordinatorLayout` is a
+[`DrawerLayout`](https://developer.android.com/reference/androidx/drawerlayout/widget/DrawerLayout.md.txt) as the root view. In turn, your `CoordinatorLayout` is a
 child view of the `DrawerLayout`. The `DrawerLayout` also contains another child
-view, such as a [`NavigationView`](https://developer.android.com/reference/com/google/android/material/navigation/NavigationView), to display the navigation options in the
+view, such as a [`NavigationView`](https://developer.android.com/reference/com/google/android/material/navigation/NavigationView.md.txt), to display the navigation options in the
 drawer.
 
 In Compose, you can implement a navigation drawer using the
-[`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0)) composable. `ModalNavigationDrawer` offers a
+[`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable.md.txt#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0)) composable. `ModalNavigationDrawer` offers a
 `drawerContent` slot for the drawer and a `content` slot for the screen's
 content.
 

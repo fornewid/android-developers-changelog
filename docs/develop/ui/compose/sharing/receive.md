@@ -75,33 +75,35 @@ intents with this action. You define an intent filter in your manifest using the
 content, a manifest that includes one or more images of any type would look like
 the following snippet:
 
-    <activity android:name=".ui.MyActivity" android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.SEND" />
-            <category android:name="android.intent.category.DEFAULT" />
-            <data android:mimeType="image/*" />
-        </intent-filter>
-        <intent-filter>
-            <action android:name="android.intent.action.SEND" />
-            <category android:name="android.intent.category.DEFAULT" />
-            <data android:mimeType="text/plain" />
-        </intent-filter>
-        <intent-filter>
-            <action android:name="android.intent.action.SEND_MULTIPLE" />
-            <category android:name="android.intent.category.DEFAULT" />
-            <data android:mimeType="image/*" />
-        </intent-filter>
-    </activity>
+```xml
+<activity android:name=".ui.MyActivity" android:exported="true">
+    <intent-filter>
+        <action android:name="android.intent.action.SEND" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:mimeType="image/*" />
+    </intent-filter>
+    <intent-filter>
+        <action android:name="android.intent.action.SEND" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:mimeType="text/plain" />
+    </intent-filter>
+    <intent-filter>
+        <action android:name="android.intent.action.SEND_MULTIPLE" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:mimeType="image/*" />
+    </intent-filter>
+</activity>
+```
 
 When another app tries to share any of these things by constructing an intent
-and passing it to [`startActivity()`](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)), your application is listed
+and passing it to [`startActivity()`](https://developer.android.com/reference/android/content/Context.md.txt#startActivity(android.content.Intent)), your application is listed
 as an option in the Android Sharesheet or intent resolver. If the user selects
 your app, this starts the corresponding activity (`.ui.MyActivity` in the
 preceding example). It's then up to you to handle the content appropriately
 within your code and UI.
 
 > [!NOTE]
-> **Note:** For more information about intent filters and intent resolution, read [Intents and Intent Filters](https://developer.android.com/guide/components/intents-filters#Receiving).
+> **Note:** For more information about intent filters and intent resolution, read [Intents and Intent Filters](https://developer.android.com/guide/components/intents-filters.md.txt#Receiving).
 
 ### Define a deep link in your navigation graph
 
@@ -142,8 +144,8 @@ single image versus multiple images) and extracts the corresponding extras.
 
 ### Handle the incoming content
 
-To retrieve the content delivered by an [`Intent`](https://developer.android.com/reference/android/content/Intent), read the current
-activity from [`LocalActivity.current`](https://developer.android.com/reference/kotlin/androidx/activity/compose/package-summary#LocalActivity()) within your composable,
+To retrieve the content delivered by an [`Intent`](https://developer.android.com/reference/android/content/Intent.md.txt), read the current
+activity from [`LocalActivity.current`](https://developer.android.com/reference/kotlin/androidx/activity/compose/package-summary.md.txt#LocalActivity()) within your composable,
 then examine the intent to determine what to do next. If this activity can be
 started from other parts of the system (such as the launcher), take this into
 consideration when examining the intent.
@@ -206,15 +208,15 @@ private fun handleSendMultipleImages(intent: Intent) {
 <br />
 
 When extracting binary data or URIs from intent extras (such as `EXTRA_STREAM`),
-use [`IntentCompat.getParcelableExtra()`](https://developer.android.com/reference/androidx/core/content/IntentCompat#getparcelableextra) or
-[`IntentCompat.getParcelableArrayListExtra()`](https://developer.android.com/reference/androidx/core/content/IntentCompat#getparcelablearraylistextra)
+use [`IntentCompat.getParcelableExtra()`](https://developer.android.com/reference/androidx/core/content/IntentCompat.md.txt#getparcelableextra) or
+[`IntentCompat.getParcelableArrayListExtra()`](https://developer.android.com/reference/androidx/core/content/IntentCompat.md.txt#getparcelablearraylistextra)
 from the AndroidX Core library, as shown in the preceding `handleSendImage` and
 `handleSendMultipleImages` functions. Android 13 (API level 33) deprecates the
 unparameterized `Intent.getParcelableExtra(String)` method in favor of type-safe
 methods that take the expected class type.
 
 Updating the UI after receiving the data can be as straightforward as updating
-state to populate a [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable), or as complex as applying a filter
+state to populate a [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable.md.txt), or as complex as applying a filter
 to an image. It's up to your app what happens next.
 
 #### Screenshot URL sharing
@@ -236,8 +238,8 @@ IntentCompat.getParcelableExtra(intent, Intent.EXTRA_STREAM, Uri::class.java).le
 
 ### Ensure users recognize your app
 
-Your app is represented by its [icon](https://developer.android.com/guide/topics/manifest/application-element#icon) and
-[label](https://developer.android.com/guide/topics/manifest/application-element#label) in the Android Sharesheet and intent resolver. These
+Your app is represented by its [icon](https://developer.android.com/guide/topics/manifest/application-element.md.txt#icon) and
+[label](https://developer.android.com/guide/topics/manifest/application-element.md.txt#label) in the Android Sharesheet and intent resolver. These
 are both defined in the manifest. You can set activity or intent filter labels
 to provide more context.
 
@@ -260,12 +262,12 @@ direct UI interactions. These mechanisms include:
 - Dragging and dropping content from another app in multi-window or split-screen mode
 
 In View-based UIs, Android 12 (API level 31) and AndroidX Core 1.7 introduce the
-unified [`OnReceiveContentListener`](https://developer.android.com/reference/androidx/core/view/OnReceiveContentListener) API. This
+unified [`OnReceiveContentListener`](https://developer.android.com/reference/androidx/core/view/OnReceiveContentListener.md.txt) API. This
 listener consolidates content handling from the clipboard, keyboard, and
 drag-and-drop into a single callback. For detailed instructions on implementing
-this in Views, see [Receive rich content](https://developer.android.com/develop/ui/views/receive-rich-content).
+this in Views, see [Receive rich content](https://developer.android.com/develop/ui/views/receive-rich-content.md.txt).
 
 In Jetpack Compose, you can handle receiving rich content inserted into UI
 components (such as text fields) using the
-[`Modifier.contentReceiver`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/content/package-summary#(androidx.compose.ui.Modifier).contentReceiver(androidx.compose.foundation.content.ReceiveContentListener)) modifier or
+[`Modifier.contentReceiver`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/content/package-summary.md.txt#(androidx.compose.ui.Modifier).contentReceiver(androidx.compose.foundation.content.ReceiveContentListener)) modifier or
 drag-and-drop modifiers.

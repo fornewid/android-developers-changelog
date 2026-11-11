@@ -10,7 +10,7 @@ Several tools can help you quickly inspect your content from an accessibility
 point of view:
 
 - [Android Accessibility Suite](https://play.google.com/store/apps/details?id=com.google.android.marvin.talkback): Includes Accessibility Menu, Select to Speak, Switch Access, and TalkBack, which provide insight into how your app's semantics work for users of these technologies. Testing with Android's assistive technologies is highly recommended as the best way to understand what your users with accessibility needs will experience.
-- [Layout Inspector](https://developer.android.com/develop/ui/compose/tooling/debug#layout_inspector): Lets you inspect and debug semantics of each composable, and helps identify any missing or incorrect information.
+- [Layout Inspector](https://developer.android.com/develop/ui/compose/tooling/debug.md.txt#layout_inspector): Lets you inspect and debug semantics of each composable, and helps identify any missing or incorrect information.
 - [Accessibility Scanner](https://support.google.com/accessibility/android/answer/6376570) app: Scans your screen and provides suggestions to improve its accessibility by identifying some common pitfalls.
 
 ## Debug
@@ -20,9 +20,9 @@ might run into unexpected accessibility behaviors that are difficult to trace.
 Semantic properties can help you understand why your components are behaving
 the way that they are.
 
-You can debug accessibility behavior issues with the [Layout Inspector](https://developer.android.com/develop/ui/compose/tooling/debug#layout_inspector) in
+You can debug accessibility behavior issues with the [Layout Inspector](https://developer.android.com/develop/ui/compose/tooling/debug.md.txt#layout_inspector) in
 Android Studio, TreeDebug in TalkBack developer settings, or `ComposeTestRule`'s
-[`printToLog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/package-summary#(androidx.compose.ui.test.SemanticsNodeInteraction).printToLog(kotlin.String,kotlin.Int)). All of these tools can provide information about nodes
+[`printToLog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/package-summary.md.txt#(androidx.compose.ui.test.SemanticsNodeInteraction).printToLog(kotlin.String,kotlin.Int)). All of these tools can provide information about nodes
 (and their properties) that are exposed to accessibility services by Compose.
 
 The following example uses Layout Inspector to debug a screen with three
@@ -57,6 +57,6 @@ announcements or selections aren't performed by accessibility services.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Accessibility in Compose](https://developer.android.com/develop/ui/compose/tooling/debug#layout_inspector)
+- [Accessibility in Compose](https://developer.android.com/develop/ui/compose/tooling/debug.md.txt#layout_inspector)
 - \[Material Design 2 in Compose\]\[19\]
 - [Testing your Compose layout](https://support.google.com/accessibility/android/answer/6376570)

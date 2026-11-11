@@ -44,7 +44,7 @@ fun HorizontalDividerExample() {
 <br />
 
 This implementation renders a thin horizontal line between two text components:
-![An Android app screen displaying two text items, 'First item in list' and 'Second item in list,' separated by a thin horizontal line.](https://developer.android.com/static/develop/ui/compose/images/components/divider-horizontal.png) **Figure 1.** A horizontal divider separating two text components.
+![The text 'First item in list' and 'Second item in list' separated by a thin horizontal line.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_horizontaldivider.png) **Figure 1.** A horizontal divider separating two text components.
 
 ## Vertical divider example
 
@@ -72,7 +72,7 @@ fun VerticalDividerExample() {
 <br />
 
 This implementation renders a thin vertical line between two text components:
-![An Android app screen displaying two text items, 'First item in row' and 'Second item in row,' separated by a thin vertical line.](https://developer.android.com/static/develop/ui/compose/images/components/divider-vertical.png) **Figure 2.** A vertical divider separating two text components.
+![The text 'First item in row' and 'Second item in row' separated by a thin vertical line.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_verticaldivider.png) **Figure 2.** A vertical divider separating two text components.
 
 ## Additional resources
 

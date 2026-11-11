@@ -10,7 +10,7 @@ breakpoints and devices.
 To implement adaptive layouts effectively:
 
 - First, consider the device's window class width to determine layout changes,
-  then adjust for height. [Support different screen sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes).
+  then adjust for height. [Support different screen sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes.md.txt).
 
 - Android leverages responsive design concepts, similar to web development,
   employing flexible grids and images to create layouts that respond
@@ -35,7 +35,7 @@ Design only for portrait phone layout, this will create letterboxing. Your app w
 <br />
 
 For design guidelines about adapting layouts to expanded screen sizes, read the
-[Support different screen sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes) developers guide in Compose and the M3
+[Support different screen sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes.md.txt) developers guide in Compose and the M3
 [Applying Layout](https://m3.material.io/foundations/layout/applying-layout/expanded) page. You can also check out the Android
 [large screen canonical](https://developer.android.com/guide/topics/large-screens/large-screen-canonical-layouts) gallery for inspiration and implementation of
 large screen layouts.
@@ -127,7 +127,7 @@ Consider the scale and amount of content shown.
 A small grid of videos on a phone becomes tight and overwhelming on a tablet.
 Update UI element's scale based on screen size, density, and input.
 
-A high quality app should meet the differentiated tier in [core app](https://developer.android.com/docs/quality-guidelines/core-app-quality) and
+A high quality app should meet the differentiated tier in [core app](https://developer.android.com/docs/quality-guidelines/core-app-quality.md.txt) and
 [large screen quality](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality) guidelines.
 
 For more on layouts, check out the [Material Design 3 (M3) Understanding layout
@@ -154,7 +154,7 @@ the content around and the hero art becomes the background on the cover screen.
 Although window size is a common factor for adaptive design, your app must also
 be ready for users to plug in monitors and input devices, view at various
 distances, and change their device's posture. It's possible to check for these
-changes using the [`mediaQuery`](https://developer.android.com/develop/adaptive-apps/guides/mediaquery) API, which lets you add nuance when you
+changes using the [`mediaQuery`](https://developer.android.com/develop/adaptive-apps/guides/mediaquery.md.txt) API, which lets you add nuance when you
 design how your app adapts specific UI elements to certain use cases.
 Adapt your app's design at the component or pane level, rather than designing
 entire screens per size, input, form factor, and posture.
@@ -164,7 +164,7 @@ guides](https://developer.android.com/design/ui/desktop/guides/interaction/point
 
 ![Keyboard input](https://developer.android.com/static/images/design/ui/mobile/layout_input.webp)
 
-Check out a sample case study, [Pawparrazzi](https://developer.android.com/design/ui/gallery/social/pawparazzi), built and designed with the
+Check out a sample case study, [Pawparrazzi](https://developer.android.com/design/ui/gallery/social/pawparazzi.md.txt), built and designed with the
 latest adaptive apis and design guidance.
 
 ![Pawparazzi case study](https://developer.android.com/static/images/design/ui/mobile/gallery_paw_overview.webp)

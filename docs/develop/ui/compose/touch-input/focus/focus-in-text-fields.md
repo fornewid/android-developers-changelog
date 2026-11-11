@@ -13,9 +13,9 @@ key event handlers (`onKeyEvent` or `onPreviewKeyEvent`) to allow users to leave
 a text field. Users can always escape using <kbd>Shift+Tab</kbd> or by navigating past
 the text boundaries with directional keys.
 
-[`KeyboardOptions`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/KeyboardOptions) can be used to provide an intuitive software keyboard
+[`KeyboardOptions`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/KeyboardOptions.md.txt) can be used to provide an intuitive software keyboard
 action that coordinates with hardware keyboard navigation.
-[`ImeAction.Next`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/input/ImeAction#Next()) moves focus to the next focus target, for example.
+[`ImeAction.Next`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/input/ImeAction.md.txt#Next()) moves focus to the next focus target, for example.
 
 ## One-dimensional focus traversal
 
@@ -23,8 +23,8 @@ In one-dimensional focus traversal,
 the behavior of the <kbd>Tab</kbd> key depends on the
 `lineLimits` configured on the text field:
 
-- **Single-line text fields ([`TextFieldLineLimits.SingleLine`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldLineLimits.SingleLine))** Pressing the <kbd>Tab</kbd> key moves focus to the next focus target in the UI.
-- **Multi-line text fields ([`TextFieldLineLimits.MultiLine`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldLineLimits.MultiLine)`()` or
+- **Single-line text fields ([`TextFieldLineLimits.SingleLine`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldLineLimits.SingleLine.md.txt))** Pressing the <kbd>Tab</kbd> key moves focus to the next focus target in the UI.
+- **Multi-line text fields ([`TextFieldLineLimits.MultiLine`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldLineLimits.MultiLine.md.txt)`()` or
   default)** : Pressing the <kbd>Tab</kbd> key inserts a tab character (`\t`) into the text buffer instead of moving focus.
 - **Reverse navigation (<kbd>Shift+Tab</kbd>)** : Pressing <kbd>Shift+Tab</kbd> unconditionally moves focus backward to the previous focus target in both single-line and multi-line text fields.
 
@@ -69,7 +69,7 @@ On Android TV, using D-pad controllers without a physical keyboard:
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-target)
-- [Focus traversal order](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-traversal)
-- [Group focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-group)
-- [Test focus navigation](https://developer.android.com/develop/ui/compose/touch-input/focus/testing-focus)
+- [Focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-target.md.txt)
+- [Focus traversal order](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-traversal.md.txt)
+- [Group focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-group.md.txt)
+- [Test focus navigation](https://developer.android.com/develop/ui/compose/touch-input/focus/testing-focus.md.txt)

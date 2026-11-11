@@ -26,7 +26,7 @@ Android devices.
 The primary difference between these units of measurement is that scalable
 pixels preserve a user's font settings. Users who have larger text settings for
 accessibility see font sizes match their text size preferences. See how to
-[change font size](https://developer.android.com/develop/ui/compose/text/style-text#change-size) in Compose.
+[change font size](https://developer.android.com/develop/ui/compose/text/style-text.md.txt#change-size) in Compose.
 
 Android uses these units to help scale and translate across the range of
 devices and resolutions.
@@ -100,7 +100,7 @@ should keep flexible sizing.
 ![A column grid example on compact and large](https://developer.android.com/static/images/design/ui/mobile/grids-and-units-column.webp)
 
 Learn the basics on how to set up a column grid and
-apply content in [Layout basics](https://developer.android.com/design/ui/mobile/guides/layout-and-content/layout-basics). The column grid can accommodate
+apply content in [Layout basics](https://developer.android.com/design/ui/mobile/guides/layout-and-content/layout-basics.md.txt). The column grid can accommodate
 different form factors by changing the column sizes and number of columns as
 needed by the screen size at certain points while allowing content to also
 scale.
@@ -111,7 +111,7 @@ scale.
 Window size classes are a set of opinionated viewport breakpoints that help you
 design, develop, and test responsive and adaptive application layouts. Android
 breaks window size classes into 3: Compact, Medium, and Expanded. Read more on
-[Window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes).
+[Window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes.md.txt).
 
 ### Aspect ratios
 

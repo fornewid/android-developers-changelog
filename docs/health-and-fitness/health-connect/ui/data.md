@@ -6,12 +6,12 @@ source: md.txt
 
 To assure users that their data is being read correctly, clearly show how your
 app obtains data, which comes from the
-[`packageName` property of the `DataOrigin` class](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/DataOrigin#packageName()).
+[`packageName` property of the `DataOrigin` class](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/DataOrigin.md.txt#packageName()).
 
 There are two ways to achieve this:
 
-1. [Basic attribution](https://developer.android.com/health-and-fitness/health-connect/ui/data#basic)
-2. [Attribution with education](https://developer.android.com/health-and-fitness/health-connect/ui/data#education)
+1. [Basic attribution](https://developer.android.com/health-and-fitness/health-connect/ui/data.md.txt#basic)
+2. [Attribution with education](https://developer.android.com/health-and-fitness/health-connect/ui/data.md.txt#education)
 
 ## Basic attribution
 
@@ -29,17 +29,19 @@ You don't need to request any sensitive permission, such as
 example demonstrates how to retrieve the app label and icon for a given package
 from the `PackageManager`:
 
-    fun getAppLabelAndIcon(context: Context, packageName: String): Pair<CharSequence?, Drawable?>{
-        return try {
-          val pm = context.packageManager
-          val appInfo = pm.getApplicationInfo(packageName, 0)
-          val label = pm.getApplicationLabel(appInfo)
-          val icon = pm.getApplicationIcon(appInfo)
-          label to icon
-        } catch (e: PackageManager.NameNotFoundException){
-          null to null
-        }
+```kotlin
+fun getAppLabelAndIcon(context: Context, packageName: String): Pair<CharSequence?, Drawable?>{
+    return try {
+      val pm = context.packageManager
+      val appInfo = pm.getApplicationInfo(packageName, 0)
+      val label = pm.getApplicationLabel(appInfo)
+      val icon = pm.getApplicationIcon(appInfo)
+      label to icon
+    } catch (e: PackageManager.NameNotFoundException){
+      null to null
     }
+}
+```
 
 This utility helps verify proper attribution by displaying both the app name
 and icon alongside the data.

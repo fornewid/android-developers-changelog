@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 ExoPlayer supports the following image formats. See
-[Image Loading Libraries](https://developer.android.com/media/media3/exoplayer/images#image-loading-libraries)
+[Image Loading Libraries](https://developer.android.com/media/media3/exoplayer/images.md.txt#image-loading-libraries)
 for how to integrate with external libraries that may provide support for a
 different set of formats.
 
@@ -187,15 +187,14 @@ val player: Player =
 
 ```java
 ImageDecoder.Factory glideImageDecoderFactory =
-    new ExternallyLoadedImageDecoder.Factory(
-        request -> {
-          Point displaySize = Util.getCurrentDisplayModeSize(context);
-          return GlideFutures.submit(
-              Glide.with(context)
-                  .asBitmap()
-                  .load(request.uri)
-                  .override(max(displaySize.x, displaySize.y)));
-        });
+    new ExternallyLoadedImageDecoder.Factory(request -> {
+      Point displaySize = Util.getCurrentDisplayModeSize(context);
+      return GlideFutures.submit(
+          Glide.with(context)
+              .asBitmap()
+              .load(request.uri)
+              .override(max(displaySize.x, displaySize.y)));
+    });
 Player player =
     new ExoPlayer.Builder(context)
         .setRenderersFactory(

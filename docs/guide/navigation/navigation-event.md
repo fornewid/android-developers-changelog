@@ -17,9 +17,9 @@ such as those found in Jetpack Compose.
 
 ### `NavigationEventDispatcher`
 
-The [`NavigationEventDispatcher`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher) is the central class responsible for
+The [`NavigationEventDispatcher`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher.md.txt) is the central class responsible for
 managing all registered navigation event consumers
-([`NavigationEventHandler`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventHandler)) and orchestrating the flow of events.
+([`NavigationEventHandler`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventHandler.md.txt)) and orchestrating the flow of events.
 
 In a hierarchical setup, all dispatchers within the same chain share a single
 `NavigationEventProcessor`, which manages the global state and ensures a single,
@@ -39,17 +39,17 @@ dispatcher and are invoked based on priority and registration order.
 
 ### `NavigationEvent`
 
-[`NavigationEvent`](https://developer.android.com/reference/androidx/navigationevent/NavigationEvent) is a data class that carries the details of the
+[`NavigationEvent`](https://developer.android.com/reference/androidx/navigationevent/NavigationEvent.md.txt) is a data class that carries the details of the
 navigation gesture.
 
 ### `NavigationEventInfo`
 
-[`NavigationEventInfo`](https://developer.android.com/reference/androidx/navigationevent/NavigationEventInfo) is an abstract class that provides contextual
+[`NavigationEventInfo`](https://developer.android.com/reference/androidx/navigationevent/NavigationEventInfo.md.txt) is an abstract class that provides contextual
 information about a navigation state.
 
 ### `NavigationEventInput`
 
-[`NavigationEventInput`](https://developer.android.com/reference/androidx/navigationevent/NavigationEventInput) is an abstract class for components that generate
+[`NavigationEventInput`](https://developer.android.com/reference/androidx/navigationevent/NavigationEventInput.md.txt) is an abstract class for components that generate
 and dispatch navigation events. It acts as the "input" side of the navigation
 system, translating platform-specific events (like system back gestures or
 button clicks) into standardized events that can be sent to a

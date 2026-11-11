@@ -43,12 +43,12 @@ the key parameters you should keep in mind are the following:
 ## Determinate indicators
 
 A determinate indicator reflects exactly how complete an action is. Use either
-the [`LinearProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LinearProgressIndicator.composable#LinearProgressIndicator(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp,kotlin.Function1)) or [`CircularProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CircularProgressIndicator.composable#CircularProgressIndicator(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp))
+the [`LinearProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LinearProgressIndicator.composable.md.txt#LinearProgressIndicator(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp,kotlin.Function1)) or [`CircularProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CircularProgressIndicator.composable.md.txt#CircularProgressIndicator(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp))
 composables and pass a value for the `progress` parameter.
 
 The following snippet provides a relatively detailed example. When the user
-presses the button, the app both displays the progress indicator, and launches a
-coroutine that gradually increases the value of `progress`. This causes the
+presses the button, the app replaces it with the progress indicator and launches
+a coroutine that gradually increases the value of `progress`. This causes the
 progress indicator to iterate up in turn.
 
 > [!NOTE]
@@ -61,12 +61,18 @@ fun LinearDeterminateIndicator() {
     var currentProgress by remember { mutableFloatStateOf(0f) }
     var loading by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope() // Create a coroutine scope
+    // Animate between progress updates so the indicator fills smoothly.
+    val animatedProgress by animateFloatAsState(
+        targetValue = currentProgress,
+        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
+    )
 
-    Column(
-        verticalArrangement = Arrangement.spacedBy(12.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxWidth()
-    ) {
+    if (loading) {
+        LinearProgressIndicator(
+            progress = { animatedProgress },
+            modifier = Modifier.fillMaxWidth(),
+        )
+    } else {
         Button(onClick = {
             loading = true
             scope.launch {
@@ -75,15 +81,8 @@ fun LinearDeterminateIndicator() {
                 }
                 loading = false // Reset loading when the coroutine finishes
             }
-        }, enabled = !loading) {
+        }) {
             Text("Start loading")
-        }
-
-        if (loading) {
-            LinearProgressIndicator(
-                progress = { currentProgress },
-                modifier = Modifier.fillMaxWidth(),
-            )
         }
     }
 }
@@ -96,6 +95,7 @@ suspend fun loadProgress(updateProgress: (Float) -> Unit) {
     }
 }
 ```
+![A linear progress indicator about half filled, shown in place of the 'Start loading' button after it's pressed.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_determinateindicator.png)
 
 <br />
 
@@ -124,19 +124,20 @@ indeterminate indicator with a button press.
 fun IndeterminateCircularIndicator() {
     var loading by remember { mutableStateOf(false) }
 
-    Button(onClick = { loading = true }, enabled = !loading) {
-        Text("Start loading")
+    if (loading) {
+        CircularProgressIndicator(
+            modifier = Modifier.size(64.dp),
+            color = MaterialTheme.colorScheme.secondary,
+            trackColor = MaterialTheme.colorScheme.surfaceVariant,
+        )
+    } else {
+        Button(onClick = { loading = true }) {
+            Text("Start loading")
+        }
     }
-
-    if (!loading) return
-
-    CircularProgressIndicator(
-        modifier = Modifier.width(64.dp),
-        color = MaterialTheme.colorScheme.secondary,
-        trackColor = MaterialTheme.colorScheme.surfaceVariant,
-    )
 }
 ```
+![A circular progress indicator, shown in place of the 'Start loading' button after it's pressed.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_indeterminateindicator.png)
 
 <br />
 

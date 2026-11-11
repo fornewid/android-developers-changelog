@@ -11,19 +11,19 @@ the system settings and use it across the entire system. Only one IME can be ena
 
 To add an IME to the Android system, create an Android application containing a class that
 extends
-`https://developer.android.com/reference/android/inputmethodservice/InputMethodService`.
+`InputMethodService`.
 In addition, you usually create a "settings" activity that passes options to the IME service. You
 can also define a settings UI that's displayed as part of the system settings.
 
 This page covers the following topics:
 
-- [The IME lifecycle](https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method#InputMethodLifecycle)
-- [Declaring IME components in the application manifest](https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method#DefiningIME)
-- [The IME API](https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method#IMEAPI)
-- [Designing an IME UI](https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method#IMEUI)
-- [Sending text from an IME to an application](https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method#SendText)
-- [Working with IME subtypes](https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method#IMESubTypes)
-- [Other IME considerations](https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method#GeneralDesign)
+- [The IME lifecycle](https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method.md.txt#InputMethodLifecycle)
+- [Declaring IME components in the application manifest](https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method.md.txt#DefiningIME)
+- [The IME API](https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method.md.txt#IMEAPI)
+- [Designing an IME UI](https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method.md.txt#IMEUI)
+- [Sending text from an IME to an application](https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method.md.txt#SendText)
+- [Working with IME subtypes](https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method.md.txt#IMESubTypes)
+- [Other IME considerations](https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method.md.txt#GeneralDesign)
 
 If you haven't worked with IMEs, read the introductory article
 [On-screen Input Methods](http://android-developers.blogspot.com/2009/04/updating-applications-for-on-screen.html)
@@ -50,7 +50,7 @@ user modify the behavior of the IME, you can define a "settings" activity that c
 System Settings.
 
 The following snippet declares an IME service. It requests the permission
-`https://developer.android.com/reference/android/Manifest.permission#BIND_INPUT_METHOD`
+`BIND_INPUT_METHOD`
 to let the service connect the IME to the system, sets up an intent filter that matches the action
 `android.view.InputMethod`, and defines metadata for the IME:
 
@@ -68,7 +68,7 @@ to let the service connect the IME to the system, sets up an intent filter that 
 ```
 
 The next snippet declares the settings activity for the IME. It has an intent filter for
-`https://developer.android.com/reference/android/content/Intent#ACTION_MAIN` that
+`ACTION_MAIN` that
 indicates that this activity is the main entry point for the IME application:
 
 ```xml
@@ -86,10 +86,10 @@ You can also provide access to the IME's settings directly from its UI.
 ## The input method API
 
 Classes specific to IMEs are found in the
-`https://developer.android.com/reference/android/inputmethodservice/package-summary`
+`android.inputmethodservice`
 and
-`https://developer.android.com/reference/android/view/inputmethod/package-summary`
-packages. The `https://developer.android.com/reference/android/view/KeyEvent` class is
+`android.view.inputmethod`
+packages. The `KeyEvent` class is
 important for handling keyboard characters.
 
 The central part of an IME is a service component---a class that extends
@@ -101,21 +101,21 @@ input field.
 
 The following classes are also important:
 
-`https://developer.android.com/reference/android/view/inputmethod/BaseInputConnection`
+`BaseInputConnection`
 :
     Defines the communication channel from an
-    `https://developer.android.com/reference/android/view/inputmethod/InputMethod`
+    `InputMethod`
     back to the application that is receiving its input. You use it to read text around the
     cursor, commit text to the text box, and send raw key events to the application.
     Applications must extend this class rather than implementing the base interface
-    `https://developer.android.com/reference/android/view/inputmethod/InputConnection`.
+    `InputConnection`.
 
-`https://developer.android.com/reference/android/inputmethodservice/KeyboardView`
+`KeyboardView`
 :
-    An extension of `https://developer.android.com/reference/android/view/View` that
+    An extension of `View` that
     renders a keyboard and responds to user input events. The keyboard layout is specified by an
     instance of
-    `https://developer.android.com/reference/android/inputmethodservice/Keyboard`,
+    `Keyboard`,
     which you can define in an XML file.
 
 ## Design the input method UI
@@ -128,7 +128,7 @@ input method you're designing.
 
 The input view is the UI where the user inputs text in the form of keyclicks, handwriting, or
 gestures. When the IME is displayed for the first time, the system calls the
-`https://developer.android.com/reference/android/inputmethodservice/InputMethodService#onCreateInputView()`
+`onCreateInputView()`
 callback. In your implementation of this method, create the layout you want to display in the IME
 window and return the layout to the system. The following snippet shows an example of implementing
 the `onCreateInputView()` method:
@@ -168,7 +168,7 @@ In this example, `MyKeyboardView` is an instance of a custom implementation of
 
 The candidates view is the UI where the IME displays potential word corrections or suggestions
 for the user to select. In the IME lifecycle, the system calls
-`https://developer.android.com/reference/android/inputmethodservice/InputMethodService#onCreateCandidatesView()`
+`onCreateCandidatesView()`
 when it's ready to display the candidates view. In your implementation of this method, return a
 layout that shows word suggestions, or return null if you don't want to show anything. A null
 response is the default behavior, so you don't have to implement this if you don't provide
@@ -202,17 +202,17 @@ numeric input:
 ![An image showing a numeric input on a Latin IME](https://developer.android.com/static/images/ui/numeric_input.png) **Figure 3.** Latin IME numeric input.
 
 When an input field receives focus and your IME starts, the system calls
-`https://developer.android.com/reference/android/inputmethodservice/InputMethodService#onStartInputView(android.view.inputmethod.EditorInfo, boolean)`,
+`onStartInputView()`,
 passing in an
-`https://developer.android.com/reference/android/view/inputmethod/EditorInfo` object
+`EditorInfo` object
 that contains details about the input type and other attributes of the text field. In this object,
 the
-`https://developer.android.com/reference/android/view/inputmethod/EditorInfo#inputType`
+`inputType`
 field contains the text field's input type.
 
 The `inputType` field is an `int` that contains bit patterns for various
 input type settings. To test it for the text field's input type, mask it with the constant
-`https://developer.android.com/reference/android/text/InputType#TYPE_MASK_CLASS`,
+`TYPE_MASK_CLASS`,
 like this:
 
 ### Kotlin
@@ -229,34 +229,34 @@ inputType & InputType.TYPE_MASK_CLASS
 
 The input type bit pattern can have one of several values, including:
 
-`https://developer.android.com/reference/android/text/InputType#TYPE_CLASS_NUMBER`
+`TYPE_CLASS_NUMBER`
 :   A text field for entering numbers. As illustrated in figure 3, the Latin IME displays a
     number pad for fields of this type.
 
-`https://developer.android.com/reference/android/text/InputType#TYPE_CLASS_DATETIME`
+`TYPE_CLASS_DATETIME`
 :   A text field for entering a date and time.
 
-`https://developer.android.com/reference/android/text/InputType#TYPE_CLASS_PHONE`
+`TYPE_CLASS_PHONE`
 :   A text field for entering telephone numbers.
 
-`https://developer.android.com/reference/android/text/InputType#TYPE_CLASS_TEXT`
+`TYPE_CLASS_TEXT`
 :   A text field for entering any supported characters.
 
 These constants are described in more detail in the reference documentation for
-`https://developer.android.com/reference/android/text/InputType`.
+`InputType`.
 
 The `inputType` field can contain other bits that indicate a variant of the text field
 type, such as:
 
-`https://developer.android.com/reference/android/text/InputType#TYPE_TEXT_VARIATION_PASSWORD`
+`TYPE_TEXT_VARIATION_PASSWORD`
 :   A variant of `TYPE_CLASS_TEXT` for entering passwords. The input method displays
     dingbats instead of the actual text.
 
-`https://developer.android.com/reference/android/text/InputType#TYPE_TEXT_VARIATION_URI`
+`TYPE_TEXT_VARIATION_URI`
 :   A variant of `TYPE_CLASS_TEXT` for entering web URLs and other Uniform Resource
     Identifiers (URIs).
 
-`https://developer.android.com/reference/android/text/InputType#TYPE_TEXT_FLAG_AUTO_COMPLETE`
+`TYPE_TEXT_FLAG_AUTO_COMPLETE`
 :   A variant of `TYPE_CLASS_TEXT` for entering text that the application
     auto-completes from a dictionary, search, or other facility.
 
@@ -271,7 +271,7 @@ available mask constants are listed in the reference documentation for `InputTyp
 As the user inputs text with your IME, you can send text to the application by sending individual
 key events or by editing the text around the cursor in the application's text field. In either case,
 use an instance of `InputConnection` to deliver the text. To get this instance, call
-`https://developer.android.com/reference/android/inputmethodservice/InputMethodService#getCurrentInputConnection()`.
+`InputMethodService.getCurrentInputConnection()`.
 
 ### Edit the text around the cursor
 
@@ -279,21 +279,21 @@ When you're handling the editing of existing text, some useful methods in
 `BaseInputConnection` are the following:
 
 
-`https://developer.android.com/reference/android/view/inputmethod/BaseInputConnection#getTextBeforeCursor(int, int)`
-:   Returns a `https://developer.android.com/reference/java/lang/CharSequence`
+`getTextBeforeCursor()`
+:   Returns a `CharSequence`
     containing the number of requested characters before the current cursor position.
 
 
-`https://developer.android.com/reference/android/view/inputmethod/BaseInputConnection#getTextAfterCursor(int, int)`
+`getTextAfterCursor()`
 :   Returns a `CharSequence` containing the number of requested characters following
     the current cursor position.
 
 
-`https://developer.android.com/reference/android/view/inputmethod/BaseInputConnection#deleteSurroundingText(int, int)`
+`deleteSurroundingText()`
 :   Deletes the specified number of characters before and following the current cursor position.
 
 
-`https://developer.android.com/reference/android/view/inputmethod/BaseInputConnection#commitText(java.lang.CharSequence, int)`
+`commitText()`
 :   Commits a `CharSequence` to the text field and sets a new cursor position.
 
 For example, the following snippet shows how to replace the four characters to the left of the
@@ -324,7 +324,7 @@ If your IME predicts text or requires multiple steps to compose a glyph or word,
 progress in the text field until the user commits the word, and then you can replace the partial
 composition with the completed text. You can give special treatment to the text by adding a
 *span* to it when you pass it to
-`https://developer.android.com/reference/android/view/inputmethod/InputConnection#setComposingText(java.lang.CharSequence, int)`.
+`setComposingText()`.
 
 The following snippet demonstrates how to show progress in a text field:
 
@@ -356,9 +356,9 @@ You might also want to trap the back key to dismiss any dialogs originating from
 window.
 
 To intercept hardware keys, override
-`https://developer.android.com/reference/android/inputmethodservice/InputMethodService#onKeyDown(int, android.view.KeyEvent)`
+`onKeyDown()`
 and
-`https://developer.android.com/reference/android/inputmethodservice/InputMethodService#onKeyUp(int, android.view.KeyEvent)`.
+`onKeyUp()`.
 
 Call the `super()` method for keys you don't want to handle yourself.
 
@@ -452,9 +452,9 @@ for the user. To enable this switching, perform the following steps:
            android:icon="@drawable/ime_icon"
            android:supportsSwitchingToNextInputMethod="true">
    ```
-2. Call the `https://developer.android.com/reference/android/inputmethodservice/InputMethodService#shouldOfferSwitchingToNextInputMethod()` method.
+2. Call the `shouldOfferSwitchingToNextInputMethod()` method.
 3. If the method returns true, display a switching key.
-4. When the user taps the switching key, call `https://developer.android.com/reference/android/inputmethodservice/InputMethodService#switchToNextInputMethod(boolean)`, passing false. A value of false tells the system to treat all subtypes equally, regardless of what IME they belong to. Specifying true requires the system to cycle through subtypes in the current IME.
+4. When the user taps the switching key, call `switchToNextInputMethod()`, passing false. A value of false tells the system to treat all subtypes equally, regardless of what IME they belong to. Specifying true requires the system to cycle through subtypes in the current IME.
 
 ## General IME considerations
 

@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Announcing Gemma 4 in the AICore Developer Preview
 
-3 min read ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z2rWEol.webp) 02 Apr 2026 [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang)[![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_ZVseX2.webp)](https://developer.android.com/blog/authors/david-chou) [Caren Chang](https://developer.android.com/blog/authors/caren-chang) \& [David Chou](https://developer.android.com/blog/authors/david-chou) At Google, we're committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we're thrilled to announce the release of our latest state-of-the-art open model: [**Gemma 4**](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/).
+3 min read ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z2rWEol.webp) 02 Apr 2026 [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang.md.txt)[![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_ZVseX2.webp)](https://developer.android.com/blog/authors/david-chou.md.txt) [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt) \& [David Chou](https://developer.android.com/blog/authors/david-chou.md.txt) At Google, we're committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we're thrilled to announce the release of our latest state-of-the-art open model: [**Gemma 4**](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/).
 
 These models are the foundation for the next generation of Gemini Nano, so code you write today for Gemma 4 will automatically work on Gemini Nano 4-enabled devices that will be available later this year. With Gemini Nano 4, you'll benefit from our additional performance optimizations so you can ship to production across the Android ecosystem with the most efficient on-device inference.
 
@@ -34,7 +34,7 @@ Join the [Developer Preview](https://developers.google.com/ml-kit/genai/aicore-d
 
 #### Start testing the model
 
-You can try out the model without code by following the [Developer Preview guide](https://developers.google.com/ml-kit/genai/aicore-dev-preview). If you want to jump straight into integrating these models with your existing workflow, we've made that seamless. Head over to [Android Studio](https://developer.android.com/studio/gemini/use-a-local-model) to refine your prompt and build with the familiar ML Kit Prompt API. We've introduced a new ability to specify a model, allowing you to target the E2B (fast) or E4B (full) variants for testing.
+You can try out the model without code by following the [Developer Preview guide](https://developers.google.com/ml-kit/genai/aicore-dev-preview). If you want to jump straight into integrating these models with your existing workflow, we've made that seamless. Head over to [Android Studio](https://developer.android.com/studio/gemini/use-a-local-model.md.txt) to refine your prompt and build with the familiar ML Kit Prompt API. We've introduced a new ability to specify a model, allowing you to target the E2B (fast) or E4B (full) variants for testing.
 
 ```kotlin
 // Define the configuration with a specific track and preference
@@ -79,7 +79,7 @@ Written by:
 
 -
 
-  ## [Caren Chang](https://developer.android.com/blog/authors/caren-chang)
+  ## [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -87,32 +87,31 @@ Written by:
   View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)
 -
 
-  ## [David Chou](https://developer.android.com/blog/authors/david-chou)
+  ## [David Chou](https://developer.android.com/blog/authors/david-chou.md.txt)
 
   ###### Product Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/david-chou) ![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_ZVseX2.webp) ![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_ZVseX2.webp)
 Continue reading
-- 4 Authors 28 Jan 2026 28 Jan 2026 ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_Zxdllo.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 4 Authors 28 Jan 2026 28 Jan 2026 ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_Zxdllo.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api)
+  ## [How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api) To further help bring your ML Kit Prompt API use cases to production, we are excited to announce Automated Prompt Optimization (APO) targeting On-Device models on Vertex AI. Automated Prompt Optimization is a tool that helps you automatically find the optimal prompt for your use cases.
-  [Chetan Tekur](https://developer.android.com/blog/authors/chetan-tekur), [Chao Zhao](https://developer.android.com/blog/authors/chao-zhao), [Paul Zhou](https://developer.android.com/blog/authors/paul-zhou), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 3 min read
-- 3 Authors 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/kakao_8769e675f9_Pq2bf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api.md.txt) To further help bring your ML Kit Prompt API use cases to production, we are excited to announce Automated Prompt Optimization (APO) targeting On-Device models on Vertex AI. Automated Prompt Optimization is a tool that helps you automatically find the optimal prompt for your use cases.
+  [Chetan Tekur](https://developer.android.com/blog/authors/chetan-tekur.md.txt), [Chao Zhao](https://developer.android.com/blog/authors/chao-zhao.md.txt), [Paul Zhou](https://developer.android.com/blog/authors/paul-zhou.md.txt), [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt) • 3 min read
+- 3 Authors 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/kakao_8769e675f9_Pq2bf.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [ML Kit's Prompt API: Unlock Custom On-Device Gemini Nano Experiences](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences)
+  ## [ML Kit's Prompt API: Unlock Custom On-Device Gemini Nano Experiences](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences) AI is making it easier to create personalized app experiences that transform content into the right format for users. We previously enabled developers to integrate with Gemini Nano through ML Kit GenAI APIs tailored for specific use cases like summarization and image description.
-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [Chengji Yan](https://developer.android.com/blog/authors/chengji-yan), [Penny Li](https://developer.android.com/blog/authors/penny-li) • 2 min read
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md.txt) AI is making it easier to create personalized app experiences that transform content into the right format for users. We previously enabled developers to integrate with Gemini Nano through ML Kit GenAI APIs tailored for specific use cases like summarization and image description.
+  [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt), [Chengji Yan](https://developer.android.com/blog/authors/chengji-yan.md.txt), [Penny Li](https://developer.android.com/blog/authors/penny-li.md.txt) • 2 min read
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
 Stay in the loop
 
 

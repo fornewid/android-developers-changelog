@@ -6,9 +6,9 @@ source: md.txt
 
 ## Load an image from the disk
 
-Use the [`Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Image.composable) composable to display a graphic on screen. To load an image
+Use the [`Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Image.composable.md.txt) composable to display a graphic on screen. To load an image
 (for example: PNG, JPEG, WEBP) or vector resource from the disk, use the
-[`painterResource`](https://developer.android.com/develop/ui/compose/quick-guides/content/load-images?hl=en) API with your image reference. You don't need to know the type
+[`painterResource`](https://developer.android.com/develop/ui/compose/quick-guides/content/load-images.md.txt?hl=en) API with your image reference. You don't need to know the type
 of the asset, just use `painterResource` in `Image` or `paint` modifiers.
 
 `DrawScope`:
@@ -23,7 +23,7 @@ Image(
 
 <br />
 
-To ensure that your app is [accessible](https://developer.android.com/develop/ui/compose/accessibility), supply a `contentDescription` for visual
+To ensure that your app is [accessible](https://developer.android.com/develop/ui/compose/accessibility.md.txt), supply a `contentDescription` for visual
 elements on screen. TalkBack reads out the content description, so you must
 ensure that the text is meaningful if read out loud and translated. In the
 preceding example, a `stringResource()` is used to load up the translated
@@ -33,16 +33,16 @@ for the screen reader to ignore it.
 
 If you need lower-level `ImageBitmap` specific functionality, you can use
 `ImageBitmap.imageResource()` to load up a Bitmap. For more information on
-ImageBitmaps, read the [ImageBitmap versus ImageVector](https://developer.android.com/develop/ui/compose/graphics/images/compare) section.
+ImageBitmaps, read the [ImageBitmap versus ImageVector](https://developer.android.com/develop/ui/compose/graphics/images/compare.md.txt) section.
 
 ### Drawable support
 
 `painterResource` supports the following drawable types:
 
-- [`AnimatedVectorDrawable`](https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable)
-- [`BitmapDrawable`](https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable) (PNG, JPG, WEBP)
-- [`ColorDrawable`](https://developer.android.com/reference/android/graphics/drawable/ColorDrawable)
-- [`VectorDrawable`](https://developer.android.com/reference/android/graphics/drawable/VectorDrawable)
+- [`AnimatedVectorDrawable`](https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable.md.txt)
+- [`BitmapDrawable`](https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable.md.txt) (PNG, JPG, WEBP)
+- [`ColorDrawable`](https://developer.android.com/reference/android/graphics/drawable/ColorDrawable.md.txt)
+- [`VectorDrawable`](https://developer.android.com/reference/android/graphics/drawable/VectorDrawable.md.txt)
 
 ## Load an image from the internet
 
@@ -75,11 +75,11 @@ A fast and efficient image loading library for Android focused on smooth scrolli
 
 ## Additional resources
 
-- [Load and display images](https://developer.android.com/develop/ui/compose/quick-guides/content/load-images?hl=en)
+- [Load and display images](https://developer.android.com/develop/ui/compose/quick-guides/content/load-images.md.txt?hl=en)
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Resources in Compose](https://developer.android.com/develop/ui/compose/resources)
-- [Accessibility in Compose](https://developer.android.com/develop/ui/compose/accessibility)
-- [Graphics in Compose](https://developer.android.com/develop/ui/compose/graphics/draw/overview)
+- [Resources in Compose](https://developer.android.com/develop/ui/compose/resources.md.txt)
+- [Accessibility in Compose](https://developer.android.com/develop/ui/compose/accessibility.md.txt)
+- [Graphics in Compose](https://developer.android.com/develop/ui/compose/graphics/draw/overview.md.txt)

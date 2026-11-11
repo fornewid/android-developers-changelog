@@ -112,7 +112,7 @@ As the container size shrinks, Child 1 shrinks.
 ## Item alignment
 
 Use `alignSelf` to control how an item is aligned to the cross axis. This
-overrides the [`alignItems` property](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/container-behavior#align-distribute) of the container for this item. It
+overrides the [`alignItems` property](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/container-behavior.md.txt#align-distribute) of the container for this item. It
 has all the same possible values, with the addition of `Auto` which inherits the
 behavior of the `FlexBox` container.
 

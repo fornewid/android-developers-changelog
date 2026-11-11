@@ -10,14 +10,14 @@ display relevant results within your app, and is recommended when search is the
 primary focus of your app.
 
 > [!NOTE]
-> **Note:** The [`SearchBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SearchBar.composable#SearchBar(kotlin.Function0,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.SearchBarColors,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable is experimental.
+> **Note:** The [`SearchBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SearchBar.composable.md.txt#SearchBar(kotlin.Function0,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.SearchBarColors,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable is experimental.
 
 ![Two search bars are shown. The one on the left only has a text field.
 The search bar on the right has a text field and a search suggestion beneath it.](https://developer.android.com/static/develop/ui/compose/images/components/m3-search-bar.png) **Figure 1.** A basic search bar (1) and a search bar with a suggestion (2).
 
 ## API surface
 
-Use the [`SearchBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SearchBar.composable#SearchBar(kotlin.Function0,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.SearchBarColors,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable to implement search bars. Key parameters for
+Use the [`SearchBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SearchBar.composable.md.txt#SearchBar(kotlin.Function0,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.SearchBarColors,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable to implement search bars. Key parameters for
 this composable include the following:
 
 - `inputField`: Defines the input field of the search bar. It typically utilizes `SearchBarDefaults.InputField`, which allows customization of:
@@ -98,7 +98,7 @@ fun SimpleSearchBar(
 - The `semantics` modifier controls the TalkBack traversal order.
   - `isTraversalGroup` is set for `Box` to group all its child composables.
   - `traversalIndex` is set to specify the order in which TalkBack reads accessibility information from each group peer. TalkBack reads accessibility information on a peer with a negative value, such as `-1`, before a peer with a positive value, such as `1`. Because the value is a float, you can specify a custom order of many peers by setting values in between `-1.0` and `1.0` on each peer.
-- The `SearchBar` contains an `inputField` for user input and a [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) to display search suggestions.
+- The `SearchBar` contains an `inputField` for user input and a [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable.md.txt#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) to display search suggestions.
   - `SearchBarDefaults.InputField` creates the input field and handles changes to the user query.
   - `onQueryChange` handles the text input and updates the state whenever the text in the input field changes.
   - `expanded` state controls the visibility of the suggestion list.
@@ -107,7 +107,7 @@ fun SimpleSearchBar(
 
 ### Result
 
-![A search bar is shown with the letter 'a' typed inside of the bar. A list containing six search suggestions is displayed below the search bar.](https://developer.android.com/static/develop/ui/compose/images/components/search bar with suggestions displayed.png) **Figure 2.** A search bar with suggestions displayed.
+![An expanded search bar with the query 'a', showing suggestions starting with 'Cupcake', 'Eclair' and 'Gingerbread'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_simple_searchbar.png) **Figure 2.** A search bar with suggestions displayed.
 
 ## Search bar with filtered list
 
@@ -201,7 +201,7 @@ fun CustomizableSearchBar(
 
 ### Result
 
-![A search bar containing the words hinted text search inside is shown. Below the search bar, a list of search suggestions is displayed, with a star icon beside each suggestion.](https://developer.android.com/static/develop/ui/compose/images/components/search bar with relevant suggestions displayed.png) **Figure 3.** A search bar with relevant suggestions displayed.
+![An expanded search bar with a search icon, the placeholder 'Search desserts' and a 'more options' icon, above suggestions such as 'Cupcake' and 'Donut', each with a star icon and the text 'Android dessert'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_customizable_searchbar.png) **Figure 3.** A search bar with relevant suggestions displayed.
 
 ## Additional resources
 

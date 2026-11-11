@@ -8,7 +8,7 @@ The Android home screen, available on most Android-powered devices, lets the
 user embed [app widgets](https://developer.android.com/guide/topics/appwidgets/overview) (or *widgets* ) for
 quick access to content. If you're building a home screen replacement or a
 similar app, you can also let the user embed widgets by implementing
-[`AppWidgetHost`](https://developer.android.com/reference/android/appwidget/AppWidgetHost). This isn't
+[`AppWidgetHost`](https://developer.android.com/reference/android/appwidget/AppWidgetHost.md.txt). This isn't
 something that most apps need to do, but if you are creating your own host, it's
 important to understand the contractual obligations a host implicitly agrees to.
 [Video](https://www.youtube.com/watch?v=15Q7xqxBGG0)
@@ -29,34 +29,34 @@ custom `AppWidgetHost`:
 
 - **App widget ID** : each widget instance is assigned a unique ID at the time
   of binding. See
-  [`bindAppWidgetIdIfAllowed()`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#bindAppWidgetIdIfAllowed(int,%20android.content.ComponentName))
-  and, for more detail, the [Binding widgets](https://developer.android.com/develop/ui/views/appwidgets/host#bind) section that follows. The
+  [`bindAppWidgetIdIfAllowed()`](https://developer.android.com/reference/android/appwidget/AppWidgetManager.md.txt#bindAppWidgetIdIfAllowed(int,%20android.content.ComponentName))
+  and, for more detail, the [Binding widgets](https://developer.android.com/develop/ui/views/appwidgets/host.md.txt#bind) section that follows. The
   host obtains the unique ID using
-  [`allocateAppWidgetId()`](https://developer.android.com/reference/android/appwidget/AppWidgetHost#allocateAppWidgetId()).
+  [`allocateAppWidgetId()`](https://developer.android.com/reference/android/appwidget/AppWidgetHost.md.txt#allocateAppWidgetId()).
   This ID persists across the lifetime of the widget until it is deleted from the
   host. Any host-specific state---such as the size and location of the
   widget---must be persisted by the hosting package and associated with the
   app widget ID.
 
 - **App widget host view** : think of
-  [`AppWidgetHostView`](https://developer.android.com/reference/android/appwidget/AppWidgetHostView) as a frame
+  [`AppWidgetHostView`](https://developer.android.com/reference/android/appwidget/AppWidgetHostView.md.txt) as a frame
   that the widget is wrapped in whenever it needs to be displayed. A widget is
   associated with an `AppWidgetHostView` every time the widget is inflated by the
   host.
 
   - By default, the system creates an `AppWidgetHostView`, but the host can create its own subclass of `AppWidgetHostView` by extending it.
-  - Starting in Android 12 (API level 31), `AppWidgetHostView` introduces the the [`setColorResources()`](https://developer.android.com/reference/android/appwidget/AppWidgetHostView#setColorResources(android.util.SparseIntArray)) and [`resetColorResources()`](https://developer.android.com/reference/android/appwidget/AppWidgetHostView#resetColorResources()) methods for handling dynamically overloaded colors. The host is responsible for providing the colors to these methods.
+  - Starting in Android 12 (API level 31), `AppWidgetHostView` introduces the the [`setColorResources()`](https://developer.android.com/reference/android/appwidget/AppWidgetHostView.md.txt#setColorResources(android.util.SparseIntArray)) and [`resetColorResources()`](https://developer.android.com/reference/android/appwidget/AppWidgetHostView.md.txt#resetColorResources()) methods for handling dynamically overloaded colors. The host is responsible for providing the colors to these methods.
 - **Options bundle** : the `AppWidgetHost` uses the options bundle to
   communicate information to the
-  [`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider)
+  [`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider.md.txt)
   about how the widget is displayed---for example, the
-  [list of size ranges](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-exact-layouts)---and whether the
+  [list of size ranges](https://developer.android.com/develop/ui/views/appwidgets/layouts.md.txt#provide-exact-layouts)---and whether the
   widget is on a lockscreen or the home screen. This information lets the
   `AppWidgetProvider` tailor the widget's contents and appearance based on how and
   where it is displayed. You can use
-  [`updateAppWidgetOptions()`](https://developer.android.com/reference/android/appwidget/AppWidgetHostView#updateAppWidgetOptions(android.os.Bundle)) and [`updateAppWidgetSize()`](https://developer.android.com/reference/android/appwidget/AppWidgetHostView#updateAppWidgetSize(android.os.Bundle,%20java.util.List%3Candroid.util.SizeF%3E))
+  [`updateAppWidgetOptions()`](https://developer.android.com/reference/android/appwidget/AppWidgetHostView.md.txt#updateAppWidgetOptions(android.os.Bundle)) and [`updateAppWidgetSize()`](https://developer.android.com/reference/android/appwidget/AppWidgetHostView.md.txt#updateAppWidgetSize(android.os.Bundle,%20java.util.List%3Candroid.util.SizeF%3E))
   to modify a widget's bundle. Both of these methods trigger the
-  [`onAppWidgetOptionsChanged()`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider#onAppWidgetOptionsChanged(android.content.Context,%20android.appwidget.AppWidgetManager,%20int,%20android.os.Bundle))
+  [`onAppWidgetOptionsChanged()`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider.md.txt#onAppWidgetOptionsChanged(android.content.Context,%20android.appwidget.AppWidgetManager,%20int,%20android.os.Bundle))
   callback to the `AppWidgetProvider`.
 
 ## Binding widgets
@@ -67,15 +67,17 @@ specific `AppWidgetProvider`.
 
 Binding APIs also make it possible for a host to provide a custom UI for
 binding. To use this process, your app must declare the
-[`BIND_APPWIDGET`](https://developer.android.com/reference/android/Manifest.permission#BIND_APPWIDGET)
+[`BIND_APPWIDGET`](https://developer.android.com/reference/android/Manifest.permission.md.txt#BIND_APPWIDGET)
 permission in the host's manifest:
 
-    <uses-permission android:name="android.permission.BIND_APPWIDGET" />
+```xml
+<uses-permission android:name="android.permission.BIND_APPWIDGET" />
+```
 
 But this is just the first step. At runtime, the user must explicitly grant
 permission to your app to let it add a widget to the host. To test whether your
 app has permission to add the widget, use the
-[`bindAppWidgetIdIfAllowed()`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#bindAppWidgetIdIfAllowed(int,%20android.content.ComponentName))
+[`bindAppWidgetIdIfAllowed()`](https://developer.android.com/reference/android/appwidget/AppWidgetManager.md.txt#bindAppWidgetIdIfAllowed(int,%20android.content.ComponentName))
 method. If `bindAppWidgetIdIfAllowed()` returns `false`, your app must display a
 dialog prompting the user to grant permission: "allow" for the current widget
 addition, or "always allow" to cover all future widget additions.
@@ -102,23 +104,23 @@ widgets](https://developer.android.com/develop/ui/views/appwidgets/configuration
 ## Host responsibilities
 
 You can specify a number of configuration settings for widgets using the
-[`AppWidgetProviderInfo` metadata](https://developer.android.com/develop/ui/views/appwidgets#components).
+[`AppWidgetProviderInfo` metadata](https://developer.android.com/develop/ui/views/appwidgets.md.txt#components).
 You can retrieve these configuration options, covered in more detail in the
-following sections, from the [`AppWidgetProviderInfo`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo)
+following sections, from the [`AppWidgetProviderInfo`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt)
 object associated with a widget provider.
 
 All hosts have the following responsibilities:
 
 - When adding a widget, allocate the widget ID as described earlier. When a
   widget is removed from the host, call
-  [`deleteAppWidgetId()`](https://developer.android.com/reference/android/appwidget/AppWidgetHost#deleteAppWidgetId(int))
+  [`deleteAppWidgetId()`](https://developer.android.com/reference/android/appwidget/AppWidgetHost.md.txt#deleteAppWidgetId(int))
   to deallocate the widget ID.
 
 - When adding a widget, check whether the configuration activity needs to be
   launched. Typically, the host needs to launch the widget's configuration
   activity if it exists and isn't marked as optional by specifying both the
   `configuration_optional` and `reconfigurable` flags. See
-  [Update the widget from the configuration activity](https://developer.android.com/develop/ui/views/appwidgets/configuration#update)
+  [Update the widget from the configuration activity](https://developer.android.com/develop/ui/views/appwidgets/configuration.md.txt#update)
   for details. This is a necessary step for many widgets before they can display.
 
   > [!NOTE]
@@ -128,7 +130,7 @@ All hosts have the following responsibilities:
   metadata. These values are defined in cells---starting in
   Android 12, if `targetCellWidth` and `targetCellHeight` are
   specified---or dps if only `minWidth` and `minHeight` are specified. See
-  [Widget sizing attributes](https://developer.android.com/develop/ui/views/appwidgets#widget-sizing-attributes).
+  [Widget sizing attributes](https://developer.android.com/develop/ui/views/appwidgets.md.txt#widget-sizing-attributes).
 
   Make sure that the widget is laid out with at least this many dps. For
   example, many hosts align icons and widgets in a grid. In this scenario, by
@@ -147,14 +149,14 @@ for phones---portrait and landscape---and four sizes for foldables.
 
 There is a limit of `MAX_INIT_VIEW_COUNT` (16) on the number of different
 `RemoteViews` that an `AppWidgetProvider` can provide to
-[`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews#RemoteViews(java.util.Map%3Candroid.util.SizeF,%20android.widget.RemoteViews%3E)).
+[`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews.md.txt#RemoteViews(java.util.Map%3Candroid.util.SizeF,%20android.widget.RemoteViews%3E)).
 Since `AppWidgetProvider` objects map a `RemoteViews` object to each size in the
 `List<SizeF>`, don't provide more than `MAX_INIT_VIEW_COUNT` sizes.
 
-When widgets specify the [`maxResizeWidth`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#maxResizeWidth) and [`maxResizeHeight`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#maxResizeHeight)
+When widgets specify the [`maxResizeWidth`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#maxResizeWidth) and [`maxResizeHeight`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#maxResizeHeight)
 attributes in dps, we recommend that a widget that uses at least one of these
 attributes doesn't exceed the size specified by the attributes.
 
 ## Additional resources
 
-- See the [`Glance`](https://developer.android.com/jetpack/androidx/releases/glance) reference documentation.
+- See the [`Glance`](https://developer.android.com/jetpack/androidx/releases/glance.md.txt) reference documentation.

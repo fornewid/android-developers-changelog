@@ -4,13 +4,13 @@ url: https://developer.android.com/blog/posts/under-the-hood-android-17-lock-fre
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Under the hood: Android 17's lock-free MessageQueue
 
-16 min read ![](https://developer.android.com/static/blog/assets/Android_17_s_Lock_Free_Message_Queue_Blog_2169eab465_1v3Azi.webp) 17 Feb 2026 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/charles-munger)[![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_2aBzdV.webp)](https://developer.android.com/blog/authors/shai-barack) [Charles Munger](https://developer.android.com/blog/authors/charles-munger) \& [Shai Barack](https://developer.android.com/blog/authors/shai-barack) In Android 17, apps targeting SDK 37 or higher will receive a new implementation of MessageQueue where the implementation is lock-free. The new implementation improves performance and reduces missed frames, but may break clients that reflect on MessageQueue private fields and methods. To learn more about the behavior change and how you can mitigate impact, [check out the MessageQueue behavior change documentation](http://developer.android.com/about/versions/17/changes/messagequeue). This technical blog post provides an overview of the MessageQueue rearchitecture and how you can analyze lock contention issues using Perfetto.
+16 min read ![](https://developer.android.com/static/blog/assets/Android_17_s_Lock_Free_Message_Queue_Blog_2169eab465_1v3Azi.webp) 17 Feb 2026 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/charles-munger.md.txt)[![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_2aBzdV.webp)](https://developer.android.com/blog/authors/shai-barack.md.txt) [Charles Munger](https://developer.android.com/blog/authors/charles-munger.md.txt) \& [Shai Barack](https://developer.android.com/blog/authors/shai-barack.md.txt) In Android 17, apps targeting SDK 37 or higher will receive a new implementation of MessageQueue where the implementation is lock-free. The new implementation improves performance and reduces missed frames, but may break clients that reflect on MessageQueue private fields and methods. To learn more about the behavior change and how you can mitigate impact, [check out the MessageQueue behavior change documentation](http://developer.android.com/about/versions/17/changes/messagequeue.md.txt). This technical blog post provides an overview of the MessageQueue rearchitecture and how you can analyze lock contention issues using Perfetto.
 
-The [Looper](https://developer.android.com/reference/android/os/Looper) drives the UI thread of every Android application. It pulls work from a [MessageQueue](https://developer.android.com/reference/android/os/MessageQueue), dispatches it to a [Handler](https://developer.android.com/reference/android/os/Handler), and repeats. For two decades, `MessageQueue` used a single monitor lock (i.e. a `synchronized` code block) to protect its state.
+The [Looper](https://developer.android.com/reference/android/os/Looper.md.txt) drives the UI thread of every Android application. It pulls work from a [MessageQueue](https://developer.android.com/reference/android/os/MessageQueue.md.txt), dispatches it to a [Handler](https://developer.android.com/reference/android/os/Handler.md.txt), and repeats. For two decades, `MessageQueue` used a single monitor lock (i.e. a `synchronized` code block) to protect its state.
 
 Android 17 introduces a significant update to this component: a lock-free implementation named **DeliQueue**.
 
@@ -44,7 +44,7 @@ To illustrate, let's analyze a trace where a user experienced jank while navigat
 
 - **Symptom:** The Launcher main thread missed its frame deadline. It blocked for 18ms, which exceeds the 16ms deadline required for 60Hz rendering.
 - **Diagnosis:** Perfetto showed the main thread blocked on the `MessageQueue` lock. A "BackgroundExecutor" thread owned the lock.
-- **Root Cause:** The BackgroundExecutor runs at [Process.THREAD_PRIORITY_BACKGROUND](https://developer.android.com/reference/android/os/Process#THREAD_PRIORITY_BACKGROUND) (very low priority). It performed a non-urgent task (checking [app usage limits](https://www.android.com/digital-wellbeing/)). Simultaneously, medium priority threads were using CPU time to process data from the camera. The OS scheduler preempted the BackgroundExecutor thread to run the camera threads.
+- **Root Cause:** The BackgroundExecutor runs at [Process.THREAD_PRIORITY_BACKGROUND](https://developer.android.com/reference/android/os/Process.md.txt#THREAD_PRIORITY_BACKGROUND) (very low priority). It performed a non-urgent task (checking [app usage limits](https://www.android.com/digital-wellbeing/)). Simultaneously, medium priority threads were using CPU time to process data from the camera. The OS scheduler preempted the BackgroundExecutor thread to run the camera threads.
 
 This sequence caused the Launcher's UI thread (high priority) to become indirectly blocked by the camera worker thread (medium priority), which was keeping the Launcher's background thread (low priority) from releasing the lock.
 
@@ -142,7 +142,7 @@ ldadd   x0, x1, [x2]    // Atomic load-add.
 
 In our benchmarks, high-contention code that uses CAS achieves a \~3x speedup over the LL/SC variant.
 
-The Java programming language offers atomic primitives via [java.util.concurrent.atomic](https://developer.android.com/reference/java/util/concurrent/atomic/package-summary) that rely on these and other specialized CPU instructions.
+The Java programming language offers atomic primitives via [java.util.concurrent.atomic](https://developer.android.com/reference/java/util/concurrent/atomic/package-summary.md.txt) that rely on these and other specialized CPU instructions.
 
 ### **The Data Structure: DeliQueue**
 
@@ -246,7 +246,7 @@ There's a lot of other tricks and complexity in the implementation. You can lear
 
 #### **Optimization: branchless programming**
 
-While developing and testing DeliQueue, the team ran many benchmarks and carefully profiled the new code. One issue identified using the [simpleperf tool](https://developer.android.com/ndk/guides/simpleperf) was pipeline flushes caused by the `Message` comparator code.
+While developing and testing DeliQueue, the team ran many benchmarks and carefully profiled the new code. One issue identified using the [simpleperf tool](https://developer.android.com/ndk/guides/simpleperf.md.txt) was pipeline flushes caused by the `Message` comparator code.
 
 A standard comparator uses conditional jumps, with the condition for deciding which `Message` comes first simplified below:
 
@@ -403,7 +403,7 @@ Written by:
 
 -
 
-  ## [Charles Munger](https://developer.android.com/blog/authors/charles-munger)
+  ## [Charles Munger](https://developer.android.com/blog/authors/charles-munger.md.txt)
 
   ###### Software Engineer
 
@@ -411,38 +411,37 @@ Written by:
   View profile](https://developer.android.com/blog/authors/charles-munger) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 -
 
-  ## [Shai Barack](https://developer.android.com/blog/authors/shai-barack)
+  ## [Shai Barack](https://developer.android.com/blog/authors/shai-barack.md.txt)
 
   ###### Android Platform Performance Lead
 
   [read_more
   View profile](https://developer.android.com/blog/authors/shai-barack) ![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_2aBzdV.webp) ![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_2aBzdV.webp)
 Continue reading
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
+  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 3 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 4 min read
+  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp.md.txt)
+  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano.md.txt)
+  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
   - +2 ↩
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
 

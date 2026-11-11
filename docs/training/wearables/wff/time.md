@@ -111,7 +111,7 @@ Analog watch faces often have decorations around the face showing the hours or
 minutes. To achieve this, there are two approaches:
 
 1. Include a full-screen background image, which contains your predrawn watch
-   face. [See working with images](https://developer.android.com/training/wearables/wff/images).
+   face. [See working with images](https://developer.android.com/training/wearables/wff/images.md.txt).
 
    <br />
 

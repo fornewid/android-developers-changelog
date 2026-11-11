@@ -4,10 +4,12 @@ url: https://developer.android.com/agents/skills/system/glance-appwidget-updates
 source: md.txt
 ---
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-        android:minWidth="180dp"
-        android:minHeight="110dp"
-        android:resizeMode="horizontal|vertical"
-        android:updatePeriodMillis="1800000"
-        android:widgetCategory="home_screen" />
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="180dp"
+    android:minHeight="110dp"
+    android:resizeMode="horizontal|vertical"
+    android:updatePeriodMillis="1800000"
+    android:widgetCategory="home_screen" />
+```

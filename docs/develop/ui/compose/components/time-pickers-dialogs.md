@@ -4,17 +4,17 @@ url: https://developer.android.com/develop/ui/compose/components/time-pickers-di
 source: md.txt
 ---
 
-[Time pickers](https://developer.android.com/develop/ui/compose/components/time-pickers) often appear in dialogs. You can use a relatively generic and
+[Time pickers](https://developer.android.com/develop/ui/compose/components/time-pickers.md.txt) often appear in dialogs. You can use a relatively generic and
 minimal implementation of a dialog, or you can implement a custom dialog with
 more flexibility.
 
 For more information on dialogs in general, including how to use the time picker
-state, see the [Time pickers guide](https://developer.android.com/develop/ui/compose/components/time-pickers).
+state, see the [Time pickers guide](https://developer.android.com/develop/ui/compose/components/time-pickers.md.txt).
 
 ## Basic example
 
 The most straightforward way to create a dialog for your time picker is to
-create a composable that implements [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AlertDialog.composable#AlertDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.window.DialogProperties)). The following snippet
+create a composable that implements [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AlertDialog.composable.md.txt#AlertDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.window.DialogProperties)). The following snippet
 provides an example of a relatively minimal dialog using this approach:
 
 
@@ -69,7 +69,7 @@ fun TimePickerDialog(
 
 Note the key points in this snippet:
 
-1. The `DialWithDialogExample` composable wraps [`TimePicker`](https://developer.android.com/develop/ui/compose/components/time-pickers) in a dialog.
+1. The `DialWithDialogExample` composable wraps [`TimePicker`](https://developer.android.com/develop/ui/compose/components/time-pickers.md.txt) in a dialog.
 2. `TimePickerDialog` is a custom composable that creates an `AlertDialog` with the following parameters:
    - `onDismiss`: A function called when the user dismisses the dialog (via the dismiss button or navigation back).
    - `onConfirm`: A function called when the user clicks the "OK" button.
@@ -194,7 +194,7 @@ fun AdvancedTimePickerDialog(
 Note the key points in this snippet:
 
 1. The `AdvancedTimePickerExample` composable creates a customizable time picker dialog.
-2. It uses a [`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) composable for more flexibility than `AlertDialog`.
+2. It uses a [`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable.md.txt#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) composable for more flexibility than `AlertDialog`.
 3. The dialog includes a customizable title and a toggle button to switch between dial and input modes.
 4. `Surface` applies shape and elevation to the dialog, with `IntrinsicSize.Min` for both width and height.
 5. `Column` and `Row` layout provide the dialog's structure components.
@@ -210,5 +210,5 @@ This implementation appears as follows:
 
 ## Additional resources
 
-- [Time pickers guide](https://developer.android.com/develop/ui/compose/components/time-pickers)
+- [Time pickers guide](https://developer.android.com/develop/ui/compose/components/time-pickers.md.txt)
 - [Material Design - Time Pickers](https://m3.material.io/components/time-pickers/overview)

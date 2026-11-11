@@ -35,7 +35,7 @@ When requesting data items, the system returns objects that properly implement t
 `DataItem` interface. However, instead of working with raw bytes using
 `setData()`, we recommend that you
 [use a data map](https://developer.android.com/training/wearables/data-layer/data-items#SyncData),
-which exposes a data item with a `https://developer.android.com/reference/android/os/Bundle`-like interface.
+which exposes a data item with a `Bundle`-like interface.
 
 
 For more information, see the [DataLayer Sample](https://github.com/android/wear-os-samples/tree/main/DataLayer) app.
@@ -44,7 +44,7 @@ For more information, see the [DataLayer Sample](https://github.com/android/wear
 
 
 When possible, use the [`DataMap`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataMap.html) class.
-This approach lets you work with data items in the form of an Android `https://developer.android.com/reference/android/os/Bundle`,
+This approach lets you work with data items in the form of an Android `Bundle`,
 so the system does object serialization and deserialization for you, and you can manipulate data
 with key-value pairs.
 

@@ -18,9 +18,9 @@ for a custom implementation when you need more control. This is when
 `media3-ui-compose` library comes into play.
 
 For example, imagine you want to use the standard
-[`PreviousButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/PreviousButton.composable#PreviousButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) and [`NextButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/NextButton.composable#NextButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) from the
+[`PreviousButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/PreviousButton.composable.md.txt#PreviousButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) and [`NextButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/NextButton.composable.md.txt#NextButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) from the
 Material3 library, but you need a completely custom `PlayPauseButton`. You can
-achieve this by using [`PlayPauseButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/buttons/PlayPauseButton.composable#PlayPauseButton(androidx.media3.common.Player,kotlin.Function1)) from the core `media3-ui-compose`
+achieve this by using [`PlayPauseButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/buttons/PlayPauseButton.composable.md.txt#PlayPauseButton(androidx.media3.common.Player,kotlin.Function1)) from the core `media3-ui-compose`
 library and place it alongside the prebuilt components.
 
 
@@ -59,27 +59,27 @@ your app:
 
 | Component | Description |
 |---|---|
-| [`PlayPauseButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/buttons/PlayPauseButton.composable#PlayPauseButton(androidx.media3.common.Player,kotlin.Function1)) | A state container for a button that toggles between play and pause. |
-| [`SeekBackButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/SeekBackButton.composable#SeekBackButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A state container for a button that seeks backward by a defined increment. |
-| [`SeekForwardButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/SeekForwardButton.composable#SeekForwardButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A state container for a button that seeks forward by a defined increment. |
-| [`NextButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/NextButton.composable#NextButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A state container for a button that seeks to the next media item. |
-| [`PreviousButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/buttons/PreviousButton.composable#PreviousButton(androidx.media3.common.Player,kotlin.Function1)) | A state container for a button that seeks to the previous media item. |
-| [`RepeatButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/RepeatButton.composable#RepeatButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.collections.List,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A state container for a button that cycles through repeat modes. |
+| [`PlayPauseButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/buttons/PlayPauseButton.composable.md.txt#PlayPauseButton(androidx.media3.common.Player,kotlin.Function1)) | A state container for a button that toggles between play and pause. |
+| [`SeekBackButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/SeekBackButton.composable.md.txt#SeekBackButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A state container for a button that seeks backward by a defined increment. |
+| [`SeekForwardButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/SeekForwardButton.composable.md.txt#SeekForwardButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A state container for a button that seeks forward by a defined increment. |
+| [`NextButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/NextButton.composable.md.txt#NextButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A state container for a button that seeks to the next media item. |
+| [`PreviousButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/buttons/PreviousButton.composable.md.txt#PreviousButton(androidx.media3.common.Player,kotlin.Function1)) | A state container for a button that seeks to the previous media item. |
+| [`RepeatButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/RepeatButton.composable.md.txt#RepeatButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.collections.List,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A state container for a button that cycles through repeat modes. |
 | [`ShuffleButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/buttons/ShuffleButton.composable#ShuffleButton(androidx.media3.common.Player,kotlin.Function1)) | A state container for a button that toggles shuffle mode. |
 | [`MuteButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/buttons/MuteButton.composable#MuteButton(androidx.media3.common.Player,kotlin.Function1)) | A state container for a button that mutes and unmutes the player. |
 | [`TimeText`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/indicators/TimeText.composable#TimeText(androidx.media3.common.Player,kotlin.Int,kotlinx.coroutines.CoroutineScope,kotlin.Function1)) | A state container for a composable that displays the player progress. |
-| [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) | A surface for media content that handles aspect ratio management, resizing, a shutter, artwork, and a subtitles slot. |
+| [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable.md.txt#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) | A surface for media content that handles aspect ratio management, resizing, a shutter, artwork, and a subtitles slot. |
 | [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) | Raw surface which wraps `SurfaceView` and `TextureView` in `AndroidView`. |
-| [`Artwork`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/Artwork.composable) | A composable that displays the artwork of the current media item, such as an album cover. |
+| [`Artwork`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/Artwork.composable.md.txt) | A composable that displays the artwork of the current media item, such as an album cover. |
 
 ### Customize the `Player` composable
 
 When using the `media3-ui-compose-material3` library, the
-[`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) composable provides a complete media playback
+[`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable.md.txt) composable provides a complete media playback
 experience. You can customize its layout by providing your own composables to
-its content slots, or you can leverage the [`PlayerDefaults`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults) object to
-customize specific parts of the UI, such as [`TopControls`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults#TopControls(androidx.media3.common.Player,kotlin.Boolean,androidx.compose.ui.Modifier,kotlin.Function2)), [`CenterControls`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults#CenterControls(androidx.media3.common.Player,kotlin.Boolean,androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1)),
-[`BottomControls`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults#BottomControls(androidx.media3.common.Player,kotlin.Boolean,androidx.compose.ui.Modifier,kotlin.Function2,kotlin.Function1,kotlin.Function1,kotlin.Function2,kotlin.Function1)), and [`ErrorOverlay`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults#ErrorOverlay(androidx.media3.common.Player,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,kotlin.CharSequence,androidx.media3.common.ErrorMessageProvider)).
+its content slots, or you can leverage the [`PlayerDefaults`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults.md.txt) object to
+customize specific parts of the UI, such as [`TopControls`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults.md.txt#TopControls(androidx.media3.common.Player,kotlin.Boolean,androidx.compose.ui.Modifier,kotlin.Function2)), [`CenterControls`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults.md.txt#CenterControls(androidx.media3.common.Player,kotlin.Boolean,androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1)),
+[`BottomControls`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults.md.txt#BottomControls(androidx.media3.common.Player,kotlin.Boolean,androidx.compose.ui.Modifier,kotlin.Function2,kotlin.Function1,kotlin.Function1,kotlin.Function2,kotlin.Function1)), and [`ErrorOverlay`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults.md.txt#ErrorOverlay(androidx.media3.common.Player,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,kotlin.CharSequence,androidx.media3.common.ErrorMessageProvider)).
 
 Figure 1 shows where the `Player` composable places its slots. Figure 2 shows
 the order in which it draws its layers.
@@ -140,7 +140,7 @@ state objects directly. It's generally advisable to use the corresponding
 `remember` methods to preserve your UI look between recompositions.
 
 To better understand how you can use the flexibility of UI state holders versus
-composables, read about how Compose [manages State](https://developer.android.com/develop/ui/compose/state).
+composables, read about how Compose [manages State](https://developer.android.com/develop/ui/compose/state.md.txt).
 
 ### Button state holders
 
@@ -149,12 +149,12 @@ be consumed by button-like composables.
 
 | State | remember\*State | Type |
 |---|---|---|
-| [`PlayPauseButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlayPauseButtonState#PlayPauseButtonState(androidx.media3.common.Player)) | [`rememberPlayPauseButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberPlayPauseButtonState.composable#rememberPlayPauseButtonState(androidx.media3.common.Player)) | 2-Toggle or N-Toggle |
-| [`PreviousButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PreviousButtonState) | [`rememberPreviousButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberPreviousButtonState.composable#rememberPreviousButtonState(androidx.media3.common.Player)) | Constant |
-| [`NextButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/NextButtonState) | [`rememberNextButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberNextButtonState.composable#rememberNextButtonState(androidx.media3.common.Player)) | Constant |
-| [`RepeatButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/RepeatButtonState) | [`rememberRepeatButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberRepeatButtonState.composable#rememberRepeatButtonState(androidx.media3.common.Player,kotlin.collections.List)) | 3-Toggle |
-| [`ShuffleButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/ShuffleButtonState) | [`rememberShuffleButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberShuffleButtonState.composable#rememberShuffleButtonState(androidx.media3.common.Player)) | 2-Toggle |
-| [`PlaybackSpeedState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlaybackSpeedState) | [`rememberPlaybackSpeedState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberPlaybackSpeedState.composable#rememberPlaybackSpeedState(androidx.media3.common.Player)) | Menu or N-Toggle |
+| [`PlayPauseButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlayPauseButtonState.md.txt#PlayPauseButtonState(androidx.media3.common.Player)) | [`rememberPlayPauseButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberPlayPauseButtonState.composable.md.txt#rememberPlayPauseButtonState(androidx.media3.common.Player)) | 2-Toggle or N-Toggle |
+| [`PreviousButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PreviousButtonState.md.txt) | [`rememberPreviousButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberPreviousButtonState.composable#rememberPreviousButtonState(androidx.media3.common.Player)) | Constant |
+| [`NextButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/NextButtonState.md.txt) | [`rememberNextButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberNextButtonState.composable#rememberNextButtonState(androidx.media3.common.Player)) | Constant |
+| [`RepeatButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/RepeatButtonState.md.txt) | [`rememberRepeatButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberRepeatButtonState.composable#rememberRepeatButtonState(androidx.media3.common.Player,kotlin.collections.List)) | 3-Toggle |
+| [`ShuffleButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/ShuffleButtonState.md.txt) | [`rememberShuffleButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberShuffleButtonState.composable.md.txt#rememberShuffleButtonState(androidx.media3.common.Player)) | 2-Toggle |
+| [`PlaybackSpeedState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlaybackSpeedState.md.txt) | [`rememberPlaybackSpeedState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberPlaybackSpeedState.composable.md.txt#rememberPlaybackSpeedState(androidx.media3.common.Player)) | Menu or N-Toggle |
 
 In addition to the play and pause states, `PlayPauseButtonState` exposes
 `showBuffering`, `showReplay`, and `showRetry`. Use them to show a buffering
@@ -192,23 +192,23 @@ IconButton(onClick = state::onClick, modifier = modifier, enabled = state.isEnab
 
 ### Visual output state holders
 
-[`CurrentMediaItemState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/CurrentMediaItemState) provides information about the currently playing
-`MediaItem`, while [`PlaylistState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlaylistState) exposes information about the `MediaItems`
+[`CurrentMediaItemState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/CurrentMediaItemState.md.txt) provides information about the currently playing
+`MediaItem`, while [`PlaylistState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlaylistState.md.txt) exposes information about the `MediaItems`
 set on the player. These are useful for displaying metadata information in your
 custom UI.
 
-[`ErrorState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/ErrorState) provides information about the current error state of the player,
+[`ErrorState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/ErrorState.md.txt) provides information about the current error state of the player,
 which can be used to display an error overlay.
 
-[`PlaybackState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlaybackState) exposes the core playback state of the player, such as
+[`PlaybackState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlaybackState.md.txt) exposes the core playback state of the player, such as
 `playbackState`, `isPlaying`, and `playerError`, independently of any specific
 UI component. Use it to drive overlays or custom layouts, for example to show a
 loading indicator while the player is buffering. For a prebuilt Material3
-indicator, use [`BufferingIndicator`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/indicator/BufferingIndicator.composable).
+indicator, use [`BufferingIndicator`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/indicator/BufferingIndicator.composable.md.txt).
 
-[`PresentationState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PresentationState) holds to information for when the video output in a
+[`PresentationState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PresentationState.md.txt) holds to information for when the video output in a
 [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) can be shown or should be covered by a placeholder UI element.
-[`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) composable combines the aspect ratio handling with taking care
+[`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable.md.txt#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) composable combines the aspect ratio handling with taking care
 of showing the shutter over a surface that is not ready yet.
 
 
@@ -241,17 +241,17 @@ fun ContentFrame(
 <br />
 
 Here, we can use both `presentationState.videoAspectRatio` to scale the Surface
-to the chosen aspect ratio (see [Content scale](https://developer.android.com/develop/ui/compose/graphics/images/customize#content-scale) for more types) and
+to the chosen aspect ratio (see [Content scale](https://developer.android.com/develop/ui/compose/graphics/images/customize.md.txt#content-scale) for more types) and
 `presentationState.coverSurface` to know when the timing is not right to be
 showing the Surface. In this case, you can position an opaque shutter on top of
 the surface, which will disappear when the surface becomes ready.
-[`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) lets you customize the shutter as a trailing lambda, but by
+[`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable.md.txt#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) lets you customize the shutter as a trailing lambda, but by
 default it will be a black `@Composable Box` filling the size of the parent
 container.
 
 `PresentationState` also exposes `showArtwork`, which is `true` when the current
 media item plays without a video track, such as audio-only content. In
-that case, `ContentFrame` displays the [`Artwork`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/Artwork.composable) composable, which shows the
+that case, `ContentFrame` displays the [`Artwork`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/Artwork.composable.md.txt) composable, which shows the
 artwork from the item's `MediaMetadata`. To customize or hide the artwork, pass
 your own composable or `null` to the `artwork` slot of `ContentFrame`.
 
@@ -265,19 +265,19 @@ or other sources, use one of the following options:
 Unlike the `Player` composable, which renders subtitles by default,
 `ContentFrame` leaves its `subtitles` slot empty. To render subtitles in a
 `ContentFrame`, or to customize subtitle rendering in `Player`, observe the
-player's current cues with [`CuesState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/CuesState) and render them in the `subtitles`
+player's current cues with [`CuesState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/CuesState.md.txt) and render them in the `subtitles`
 slot. `ContentFrame` lays out this slot within the bounds of the scaled video
 and draws it above the shutter and the artwork, so that subtitles stay visible
 when there's no video.
 
 > [!NOTE]
-> **Note:** These composables form a hierarchy of convenience: the [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) composable consists of a [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) plus UI control slots, and [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) consists of a [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) plus resizing, shutter, and artwork logic. You don't need to use the lower-level composables when a higher-level one fits your needs.
+> **Note:** These composables form a hierarchy of convenience: the [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable.md.txt) composable consists of a [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable.md.txt#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) plus UI control slots, and [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable.md.txt#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) consists of a [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) plus resizing, shutter, and artwork logic. You don't need to use the lower-level composables when a higher-level one fits your needs.
 
 ### Track selection state holders
 
-[`TrackSelectionState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/TrackSelectionState) helps you build a menu for a single track type, such as
+[`TrackSelectionState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/TrackSelectionState.md.txt) helps you build a menu for a single track type, such as
 an audio language or subtitle menu. Create it with
-[`rememberTrackSelectionState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberTrackSelectionState.composable), passing the track type and a combination of
+[`rememberTrackSelectionState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/rememberTrackSelectionState.composable.md.txt), passing the track type and a combination of
 filters, such as `TRACK_FILTER_LANGUAGE` or `TRACK_FILTER_RESOLUTION`, that
 determine which track properties distinguish the options. Set `hasOffOption` or
 `hasAutoOption` to `true` to add an option that disables the track type or one
@@ -338,8 +338,8 @@ fun SubtitleMenu(player: Player, modifier: Modifier = Modifier) {
 <br />
 
 If you need direct access to the player's `Tracks` and
-`TrackSelectionParameters`, use [`TrackSelectionParametersState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/TrackSelectionParametersState) instead. For
-more information about how the player selects tracks, see [Track selection](https://developer.android.com/media/media3/exoplayer/track-selection).
+`TrackSelectionParameters`, use [`TrackSelectionParametersState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/TrackSelectionParametersState.md.txt) instead. For
+more information about how the player selects tracks, see [Track selection](https://developer.android.com/media/media3/exoplayer/track-selection.md.txt).
 
 ## Where are Flows?
 
@@ -365,9 +365,9 @@ You can add custom UI states if the existing ones don't fulfill your needs.
 Check out the source code of the existing state to copy the pattern. A typical
 UI state holder class does the following:
 
-1. Takes in a [`Player`](https://developer.android.com/reference/androidx/media3/common/Player) object.
-2. Subscribes to the `Player` using coroutines. See [`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listen(kotlin.Function2)) for more details.
-3. Responds to particular [`Player.Events`](https://developer.android.com/reference/androidx/media3/common/Player.Events) by updating its internal state.
+1. Takes in a [`Player`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt) object.
+2. Subscribes to the `Player` using coroutines. See [`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt#(androidx.media3.common.Player).listen(kotlin.Function2)) for more details.
+3. Responds to particular [`Player.Events`](https://developer.android.com/reference/androidx/media3/common/Player.Events.md.txt) by updating its internal state.
 4. Accepts business-logic commands that will be transformed into an appropriate `Player` update.
 5. Can be created in multiple places across the UI tree and will always maintain a consistent view of Player's state.
 6. Exposes Compose `State` fields that can be consumed by a composable to dynamically respond to changes.
@@ -399,7 +399,7 @@ class SomeButtonState(private val player: Player) {
 
 <br />
 
-To react to your own `Player.Events`, you can catch them using [`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listen(kotlin.Function2))
+To react to your own `Player.Events`, you can catch them using [`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt#(androidx.media3.common.Player).listen(kotlin.Function2))
 which is a `suspend fun` that lets you enter the coroutine world and
 indefinitely listen to `Player.Events`. Media3 implementation of various UI
 states helps the end developer not to concern themselves with learning about

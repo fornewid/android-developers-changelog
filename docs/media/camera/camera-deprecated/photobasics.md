@@ -4,19 +4,14 @@ url: https://developer.android.com/media/camera/camera-deprecated/photobasics
 source: md.txt
 ---
 
-**Note:** This page refers to the
-[Camera](https://developer.android.com/reference/android/hardware/Camera) class, which is deprecated. We
-recommend using [CameraX](https://developer.android.com/media/camera/camerax) or, for specific use cases,
-[Camera2](https://developer.android.com/media/camera/camera2). Both CameraX and Camera2 support Android 5.0
-(API level 21) and higher.
+This page refers to the [Camera](https://developer.android.com/reference/android/hardware/Camera.md.txt) class, which
+is deprecated. We recommend using [CameraX](https://developer.android.com/media/camera/camerax.md.txt) or, for specific use
+cases, [Camera2](https://developer.android.com/media/camera/camera2.md.txt). Both CameraX and Camera2 support Android 5.0
+(API level 21) and higher.   
 
-<br />
-
-
-To learn how to migrate from Camera1 to CameraX, see
-[Migrate Camera1 to CameraX](https://developer.android.com/media/camera/camerax/camera1-to-camerax).
-Alternatively, you can use the
-[agentic skill for Camera1 to CameraX migration](https://github.com/android/skills/blob/main/camera/camerax/SKILL.md).
+To learn how to migrate from Camera1 to CameraX, see [Migrate Camera1 to CameraX](https://developer.android.com/media/camera/camerax/camera1-to-camerax.md.txt). Alternatively, you
+can use the [agentic
+skill for Camera1 to CameraX migration](https://github.com/android/skills/blob/main/camera/camerax/SKILL.md).
 
 
 This lesson teaches how to capture a photo by delegating the work to another camera app on the
@@ -36,7 +31,7 @@ installed. In this lesson, you learn how to make it take a picture for you.
 If an essential function of your application is taking pictures, then restrict its visibility on
 Google Play to devices that have a camera. To advertise that your application depends on having a
 camera, put a
-[`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element) tag in
+[`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt) tag in
 your manifest file:
 
 ```xml
@@ -52,7 +47,7 @@ If your application uses, but does not require a camera in order to function, in
 `android:required` to `false`. In doing so, Google Play will allow devices
 without a camera to download your application. It's then your responsibility to check for the
 availability of the camera at runtime by calling
-`https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String)`.
+`hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)`.
 If a camera is not available, you should then disable your camera features.
 
 ## Get the thumbnail
@@ -63,11 +58,11 @@ probably want to get the image back from the camera application and do something
 
 
 The Android Camera application encodes the photo in the return
-`https://developer.android.com/reference/android/content/Intent` delivered to
-`https://developer.android.com/reference/android/app/Activity#onActivityResult(int, int, android.content.Intent)`
-as a small `https://developer.android.com/reference/android/graphics/Bitmap` in the extras,
+`Intent` delivered to
+`onActivityResult()`
+as a small `Bitmap` in the extras,
 under the key `"data"`. The following code retrieves this image and displays it in an
-`https://developer.android.com/reference/android/widget/ImageView`.
+`ImageView`.
 
 ### Kotlin
 
@@ -107,14 +102,14 @@ must provide a fully qualified filename where the camera app should save the pho
 Generally, any photos that the user captures with the device camera should be saved on the device
 in the public external storage so they are accessible by all apps. The proper directory for shared
 photos is provided by
-`https://developer.android.com/reference/android/os/Environment#getExternalStoragePublicDirectory(java.lang.String)`,
+`getExternalStoragePublicDirectory()`,
 with the
-`https://developer.android.com/reference/android/os/Environment#DIRECTORY_PICTURES`
+`DIRECTORY_PICTURES`
 argument. The directory provided by this method is shared among all apps. On Android 9 (API level
 28) and lower, reading and writing to this directory requires the
-`https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE`
+`READ_EXTERNAL_STORAGE`
 and
-`https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE`
+`WRITE_EXTERNAL_STORAGE`
 permissions, respectively:
 
 ```xml
@@ -127,20 +122,20 @@ permissions, respectively:
 
 
 On Android 10 (API level 29) and higher, the proper directory for sharing photos is the
-[`MediaStore.Images`](https://developer.android.com/reference/android/provider/MediaStore.Images) table.
+[`MediaStore.Images`](https://developer.android.com/reference/android/provider/MediaStore.Images.md.txt) table.
 You don't need to declare any storage permissions, as long as your app only needs to access the
 photos that the user took using your app.
 
 
 However, if you'd like the photos to remain private to your app only, you can instead use the
 directory provided by
-`https://developer.android.com/reference/android/content/Context#getExternalFilesDir(java.lang.String)`.
+`Context.getExternalFilesDir()`.
 On Android 4.3 and lower, writing to this directory also requires the
-`https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE`
+`WRITE_EXTERNAL_STORAGE`
 permission. Beginning with Android 4.4, the permission is no longer required because the directory
 is not accessible by other apps, so you can declare the permission should be requested only on the
 lower versions of Android by adding the
-[`maxSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-permission-element#maxSdk)
+[`maxSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-permission-element.md.txt#maxSdk)
 attribute:
 
 ```xml
@@ -153,9 +148,9 @@ attribute:
 
 
 **Note:** Files you save in the directories provided by
-`https://developer.android.com/reference/android/content/Context#getExternalFilesDir(java.lang.String)`
+`getExternalFilesDir()`
 or
-`https://developer.android.com/reference/android/content/Context#getFilesDir()` are
+`getFilesDir()` are
 deleted when the user uninstalls your app.
 
 
@@ -209,7 +204,7 @@ private File createImageFile() throws IOException {
 
 
 With this method available to create a file for the photo, you can now create and invoke the
-`https://developer.android.com/reference/android/content/Intent` like this:
+`Intent` like this:
 
 ### Kotlin
 
@@ -270,16 +265,16 @@ private void dispatchTakePictureIntent() {
 
 
 **Note:** We are using
-`https://developer.android.com/reference/androidx/core/content/FileProvider#getUriForFile(android.content.Context, java.lang.String, java.io.File)`
+`getUriForFile(Context, String, File)`
 which returns a `content://` URI. For more recent apps targeting Android 7.0 (API level
 24) and higher, passing a `file://` URI across a package boundary causes a
-`https://developer.android.com/reference/android/os/FileUriExposedException`.
+`FileUriExposedException`.
 Therefore, we now present a more generic way of storing images using a
-`https://developer.android.com/reference/androidx/core/content/FileProvider`.
+`FileProvider`.
 
 
 Now, you need to configure the
-`https://developer.android.com/reference/androidx/core/content/FileProvider`. In your
+`FileProvider`. In your
 app's manifest, add a provider to your application:
 
 ```xml
@@ -300,7 +295,7 @@ app's manifest, add a provider to your application:
 
 
 Make sure that the authorities string matches the second argument to
-`https://developer.android.com/reference/androidx/core/content/FileProvider#getUriForFile(android.content.Context, java.lang.String, java.io.File)`.
+`getUriForFile(Context, String, File)`.
 In the metadata section of the provider definition, you can see that the provider expects
 eligible paths to be configured in a dedicated resource file, res/xml/file_paths.xml. Here
 is the content required for this particular example:
@@ -314,12 +309,12 @@ is the content required for this particular example:
 
 
 The path component corresponds to the path that is returned by
-`https://developer.android.com/reference/android/content/Context#getExternalFilesDir(java.lang.String)`
+`getExternalFilesDir()`
 when called with
-`https://developer.android.com/reference/android/os/Environment#DIRECTORY_PICTURES`.
+`Environment.DIRECTORY_PICTURES`.
 Make sure that you replace `com.example.package.name` with the actual package name of
 your app. Also, checkout the documentation of
-`https://developer.android.com/reference/androidx/core/content/FileProvider` for an
+`FileProvider` for an
 extensive description of path specifiers that you can use besides `external-path`.
 
 ## Add the photo to a gallery
@@ -331,7 +326,7 @@ your photo accessible is to make it accessible from the system's Media Provider.
 
 
 **Note:** If you saved your photo to the directory provided by
-`https://developer.android.com/reference/android/content/Context#getExternalFilesDir(java.lang.String)`,
+`getExternalFilesDir()`,
 the media scanner cannot access the files because they are private to your app.
 
 

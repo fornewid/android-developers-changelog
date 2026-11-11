@@ -30,7 +30,7 @@ data](https://developer.android.com/training/wearables/apps/location-detection#n
 ## Choose your method
 
 There are two ways to provide location data to a Wear OS app. You can use the
-[Fused Location Provider (FLP)](https://developer.android.com/training/wearables/apps/location-detection#fused) or [Wear Health Services (WHS)](https://developer.android.com/training/wearables/health-services). FLP is a
+[Fused Location Provider (FLP)](https://developer.android.com/training/wearables/apps/location-detection.md.txt#fused) or [Wear Health Services (WHS)](https://developer.android.com/training/wearables/health-services). FLP is a
 Google Play services API.
 
 Use FLP in the following circumstances:
@@ -66,8 +66,8 @@ connected device. Detect this situation in your app and warn the user that
 location capabilities are unavailable.
 
 To determine whether a watch has a built-in GPS sensor, call the
-[`hasSystemFeature()`](https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String)) method with
-[`PackageManager.FEATURE_LOCATION_GPS`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_LOCATION_GPS). The following code detects whether
+[`hasSystemFeature()`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#hasSystemFeature(java.lang.String)) method with
+[`PackageManager.FEATURE_LOCATION_GPS`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#FEATURE_LOCATION_GPS). The following code detects whether
 the watch has a built-in GPS sensor when you start an activity:
 
 
@@ -94,14 +94,14 @@ degrade in functionality.
 
 As with a mobile device, when you request location updates using
 [`FusedLocationProviderClient.requestLocationUpdates()`](https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#requestLocationUpdates(com.google.android.gms.location.LocationRequest,%20android.app.PendingIntent)), you pass in either
-a [`LocationCallback`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationCallback#public-void-onlocationavailability-locationavailability-locationavailability) or a [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent). Both of these include the
+a [`LocationCallback`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationCallback#public-void-onlocationavailability-locationavailability-locationavailability) or a [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent.md.txt). Both of these include the
 location information and the [`LocationAvailability`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationAvailability) status.
 
 When using the `LocationCallback` option, override
 [`onLocationAvailability()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationCallback#public-void-onlocationavailability-locationavailability-locationavailability) to receive updates regarding location
 availability status.
 
-When using the `PendingIntent` option and an [`Intent`](https://developer.android.com/reference/android/content/Intent) is returned, extract
+When using the `PendingIntent` option and an [`Intent`](https://developer.android.com/reference/android/content/Intent.md.txt) is returned, extract
 the location availability status from the `Intent` using the
 [`LocationAvailability.extractLocationAvailability(Intent)`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationAvailability#extractLocationAvailability(android.content.Intent)) method.
 
@@ -122,10 +122,10 @@ locations to all registered `LocationListeners`, `LocationCallbacks`, and
 ## Testing considerations
 
 Simulate location and other sensor data using the Wear OS emulator's extended
-controls. For more information, see [Simulating sensors](https://developer.android.com/training/wearables/get-started/emulator#simulating-sensors).
+controls. For more information, see [Simulating sensors](https://developer.android.com/training/wearables/get-started/emulator.md.txt#simulating-sensors).
 
 ## Recommended for you
 
-- [Optimize location for battery](https://developer.android.com/develop/sensors-and-location/location/battery)
+- [Optimize location for battery](https://developer.android.com/develop/sensors-and-location/location/battery.md.txt)
 - [Create a notification](https://developer.android.com/develop/ui/views/notifications/build-notification)
-- [Detect when users start or end an activity](https://developer.android.com/develop/sensors-and-location/location/transitions)
+- [Detect when users start or end an activity](https://developer.android.com/develop/sensors-and-location/location/transitions.md.txt)

@@ -35,7 +35,7 @@ different display sizes.
 
 ### Make your app adaptive
 
-Use the `adaptive` [Android skill](https://developer.android.com/tools/agents/android-skills) to update your app's UI so that it adapts to different Android devices and displays. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the `adaptive` [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to update your app's UI so that it adapts to different Android devices and displays. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add adaptive
 
@@ -69,7 +69,7 @@ physical screen size isn't relevant for deciding how to display content.
 
 Instead, make decisions based on the actual portion of the screen allocated to
 your app described by the current window metrics provided by the Jetpack
-[WindowManager](https://developer.android.com/jetpack/androidx/releases/window) library. For an example of how to use WindowManager in a
+[WindowManager](https://developer.android.com/jetpack/androidx/releases/window.md.txt) library. For an example of how to use WindowManager in a
 Compose app, see the [JetNews](https://github.com/android/compose-samples/tree/main/JetNews) sample.
 
 Making your layouts adaptive to the available display space also reduces the
@@ -166,7 +166,7 @@ Use the width that the composable is actually given to render itself. You have
 two options to get that width:
 
 - If you want to change *where* or *how* content is displayed, use a
-  collection of modifiers or a [custom layout](https://developer.android.com/develop/ui/compose/layouts/custom) to make the layout
+  collection of modifiers or a [custom layout](https://developer.android.com/develop/ui/compose/layouts/custom.md.txt) to make the layout
   responsive. This could be as straightforward as having a child fill all of
   the available space, or laying out children with multiple columns if there's
   enough room.

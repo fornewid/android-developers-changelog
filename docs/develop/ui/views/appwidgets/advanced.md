@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/views/appwidgets/advanced
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -40,7 +40,7 @@ appWidgetManager.updateAppWidget(appWidgetId, remoteViews)
 <br />
 
 - **Partial update:** call
-  [`AppWidgetManager.partiallyUpdateAppWidget`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#partiallyUpdateAppWidget(int,%20android.widget.RemoteViews))
+  [`AppWidgetManager.partiallyUpdateAppWidget`](https://developer.android.com/reference/android/appwidget/AppWidgetManager.md.txt#partiallyUpdateAppWidget(int,%20android.widget.RemoteViews))
   to update parts of the widget. This merges the new `RemoteViews` with the
   previously provided `RemoteViews`. This method is ignored if a widget
   doesn't receive at least one full update through [`updateAppWidget(int[],
@@ -60,7 +60,7 @@ appWidgetManager.partiallyUpdateAppWidget(appWidgetId, remoteViews)
 
 <br />
 
-- **Collection data refresh:** call [`AppWidgetManager.notifyAppWidgetViewDataChanged`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#notifyAppWidgetViewDataChanged(int,%20int)) to invalidate the data of a collection view in your widget. This triggers [`RemoteViewsFactory.onDataSetChanged`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory#onDataSetChanged()). In the interim, the old data is displayed in the widget. You can safely perform expensive tasks synchronously with this method.
+- **Collection data refresh:** call [`AppWidgetManager.notifyAppWidgetViewDataChanged`](https://developer.android.com/reference/android/appwidget/AppWidgetManager.md.txt#notifyAppWidgetViewDataChanged(int,%20int)) to invalidate the data of a collection view in your widget. This triggers [`RemoteViewsFactory.onDataSetChanged`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory.md.txt#onDataSetChanged()). In the interim, the old data is displayed in the widget. You can safely perform expensive tasks synchronously with this method.
 
 
 ```kotlin
@@ -72,12 +72,12 @@ appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.widget_listvie
 
 You can call these methods from anywhere in your app, as long as the app has the
 same UID as the corresponding
-[`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider) class.
+[`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider.md.txt) class.
 
 ### Determine how often to update a widget
 
 Widgets are updated periodically depending on the value provided for the
-[`updatePeriodMillis`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#updatePeriodMillis)
+[`updatePeriodMillis`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.md.txt#updatePeriodMillis)
 attribute. The widget can update in response to user interaction, broadcast
 updates, or both.
 
@@ -116,7 +116,7 @@ Here are some recommended ways to update the widget based on user interaction:
   construct a `PendingIntent`, then update the widget from the invoked
   `Activity`, `Broadcast`, or `Service`. You can choose your own priority. For
   example, if you select a `Broadcast` for the `PendingIntent`, you can choose
-  a [foreground broadcast](https://developer.android.com/develop/ui/views/appwidgets/advanced#broadcastreceiver-priority) to give the
+  a [foreground broadcast](https://developer.android.com/develop/ui/views/appwidgets/advanced.md.txt#broadcastreceiver-priority) to give the
   `BroadcastReceiver` priority.
 
 #### Update in response to a broadcast event
@@ -127,11 +127,11 @@ is detected.
 
 You can schedule work with [`WorkManager`](https://developer.android.com/topic/libraries/architecture/workmanager) and specify a content URI
 trigger using the
-[`Constraints.Builder.addContentUriTrigger`](https://developer.android.com/reference/androidx/work/Constraints.Builder#addContentUriTrigger(android.net.Uri,%20boolean))
+[`Constraints.Builder.addContentUriTrigger`](https://developer.android.com/reference/androidx/work/Constraints.Builder.md.txt#addContentUriTrigger(android.net.Uri,%20boolean))
 method.
 
 You can also register a `BroadcastReceiver` for the broadcast---for example,
-listening for [`ACTION_LOCALE_CHANGED`](https://developer.android.com/reference/android/content/Intent#ACTION_LOCALE_CHANGED).
+listening for [`ACTION_LOCALE_CHANGED`](https://developer.android.com/reference/android/content/Intent.md.txt#ACTION_LOCALE_CHANGED).
 However, because this consumes device resources, use this with care and listen
 only to the specific broadcast. With the introduction of [broadcast
 limitations](https://developer.android.com/about/versions/oreo/background#broadcasts) in Android
@@ -152,8 +152,8 @@ main thread, run for up to 10 seconds before considering them non-responsive and
 triggering an [Application Not
 Responding](https://developer.android.com/topic/performance/issues/anr) (ANR) error. To avoid blocking the
 main thread while handling the broadcast, use the
-[`goAsync`](https://developer.android.com/reference/android/content/BroadcastReceiver#goAsync()) method. If it takes longer to update the widget, consider
-scheduling a task using [`WorkManager`](https://developer.android.com/reference/androidx/work/WorkManager).
+[`goAsync`](https://developer.android.com/reference/android/content/BroadcastReceiver.md.txt#goAsync()) method. If it takes longer to update the widget, consider
+scheduling a task using [`WorkManager`](https://developer.android.com/reference/androidx/work/WorkManager.md.txt).
 
     Caution: Any work you do here blocks further broadcasts until it completes,
     so it can slow the receiving of later events.
@@ -167,6 +167,6 @@ By default, broadcasts---including those made using
 overloaded system resources can cause a delay in the invocation of the broadcast
 receiver. To prioritize the broadcast, make it a foreground process.
 
-For example, add the [`Intent.FLAG_RECEIVER_FOREGROUND`](https://developer.android.com/reference/android/content/Intent#FLAG_RECEIVER_FOREGROUND)
+For example, add the [`Intent.FLAG_RECEIVER_FOREGROUND`](https://developer.android.com/reference/android/content/Intent.md.txt#FLAG_RECEIVER_FOREGROUND)
 flag to the `Intent` passed to the `PendingIntent.getBroadcast` when the user
 taps on a certain part of the widget.

@@ -10,28 +10,28 @@ source: md.txt
 Rich text input lets users format what they type, including bolding a word,
 adding a heading, aligning a paragraph, or inserting a highlighted `@mention`.
 In Compose, you build this on top of state-based text fields
-([`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable#BasicTextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.input.TextFieldDecorator,androidx.compose.foundation.ScrollState)) and [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable#TextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource))). Styles live in
-[`TextFieldState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState) alongside the text, so they survive edits, selection
+([`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable.md.txt#BasicTextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.input.TextFieldDecorator,androidx.compose.foundation.ScrollState)) and [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable.md.txt#TextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource))). Styles live in
+[`TextFieldState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState.md.txt) alongside the text, so they survive edits, selection
 changes, and recompositions, and stay in sync as the user types, deletes, and
 pastes.
 
 This page shows how to apply, update, query, extract, and remove styles in a
-`TextFieldState` using [`TextFieldBuffer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer), and how to drive a formatting
-toolbar from [`TextFieldState.textStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState#textStyles()).
+`TextFieldState` using [`TextFieldBuffer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer.md.txt), and how to drive a formatting
+toolbar from [`TextFieldState.textStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState.md.txt#textStyles()).
 
 > [!NOTE]
-> **Note:** To apply visual-only formatting that isn't saved in `TextFieldState`, such as syntax highlighting or phone number formatting, call [`addStyle`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer#addStyle(androidx.compose.ui.text.SpanStyle,androidx.compose.ui.text.TextRange,androidx.compose.foundation.text.input.ExpandPolicy)) inside an [`OutputTransformation`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/OutputTransformation). Rich text styling in [`TextFieldState.edit`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState#edit(kotlin.Function1)) and [`InputTransformation`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/InputTransformation) is enabled by default in Compose Foundation `1.12.0` through [`ComposeFoundationFlags.isBasicTextFieldStyledTextEnabled`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/ComposeFoundationFlags#isBasicTextFieldStyledTextEnabled()). For more information on visual-only formatting, see [Format input before it's displayed](https://developer.android.com/develop/ui/compose/text/user-input?textfield=state-based#format-input-display).
+> **Note:** To apply visual-only formatting that isn't saved in `TextFieldState`, such as syntax highlighting or phone number formatting, call [`addStyle`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer.md.txt#addStyle(androidx.compose.ui.text.SpanStyle,androidx.compose.ui.text.TextRange,androidx.compose.foundation.text.input.ExpandPolicy)) inside an [`OutputTransformation`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/OutputTransformation.md.txt). Rich text styling in [`TextFieldState.edit`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState.md.txt#edit(kotlin.Function1)) and [`InputTransformation`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/InputTransformation.md.txt) is enabled by default in Compose Foundation `1.12.0` through [`ComposeFoundationFlags.isBasicTextFieldStyledTextEnabled`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/ComposeFoundationFlags.md.txt#isBasicTextFieldStyledTextEnabled()). For more information on visual-only formatting, see [Format input before it's displayed](https://developer.android.com/develop/ui/compose/text/user-input.md.txt?textfield=state-based#format-input-display).
 
 ## Apply inline and paragraph styles
 
 You can apply character-level and paragraph-level formatting inside any
 `TextFieldBuffer` receiver scope, including `TextFieldState.edit`,
-[`InputTransformation.transformInput`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/InputTransformation#(androidx.compose.foundation.text.input.TextFieldBuffer).transformInput()), and
-[`OutputTransformation.transformOutput`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/OutputTransformation#(androidx.compose.foundation.text.input.TextFieldBuffer).transformOutput()).
+[`InputTransformation.transformInput`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/InputTransformation.md.txt#(androidx.compose.foundation.text.input.TextFieldBuffer).transformInput()), and
+[`OutputTransformation.transformOutput`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/OutputTransformation.md.txt#(androidx.compose.foundation.text.input.TextFieldBuffer).transformOutput()).
 
 ### Control boundary expansion with `ExpandPolicy`
 
-When you call `addStyle`, you can pass an [`ExpandPolicy`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/ExpandPolicy) to define how the
+When you call `addStyle`, you can pass an [`ExpandPolicy`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/ExpandPolicy.md.txt) to define how the
 styled range behaves when the user inserts new characters directly at its
 `start` or `end` boundary:
 
@@ -51,9 +51,9 @@ typical use cases:
 
 ### Apply character formatting with `SpanStyle`
 
-Use `addStyle` with a [`SpanStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/SpanStyle) to apply character-level formatting,
-such as text color, background highlight, [`FontWeight`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontWeight), [`FontStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontStyle),
-or underline to a specific [`TextRange`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextRange) in the buffer.
+Use `addStyle` with a [`SpanStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/SpanStyle.md.txt) to apply character-level formatting,
+such as text color, background highlight, [`FontWeight`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontWeight.md.txt), [`FontStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontStyle.md.txt),
+or underline to a specific [`TextRange`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextRange.md.txt) in the buffer.
 
 #### Key behaviors for `SpanStyle` ranges
 
@@ -61,7 +61,7 @@ or underline to a specific [`TextRange`](https://developer.android.com/reference
 - **Non-empty range requirement** : You must pass a non-collapsed range where `start` \< `end`. Calling `addStyle` on a collapsed selection of length `0` has no effect, and passing reversed or out-of-bounds indexes throws an `IllegalArgumentException`.
 
 > [!NOTE]
-> **Note:** Because `addStyle` has no effect on a collapsed selection, pressing a Bold button with only a cursor can't style anything yet. To make the next typed characters bold, track a pending `SpanStyle` in your state holder and apply it to each new range in [`changes`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer#changes()) inside an `InputTransformation`, as shown in the following example.
+> **Note:** Because `addStyle` has no effect on a collapsed selection, pressing a Bold button with only a cursor can't style anything yet. To make the next typed characters bold, track a pending `SpanStyle` in your state holder and apply it to each new range in [`changes`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer.md.txt#changes()) inside an `InputTransformation`, as shown in the following example.
 
 
 ```kotlin
@@ -92,9 +92,9 @@ TextField(
 
 ### Apply block formatting with `ParagraphStyle`
 
-Use [`addStyle`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer#addStyle(androidx.compose.ui.text.ParagraphStyle,androidx.compose.ui.text.TextRange,androidx.compose.foundation.text.input.ExpandPolicy)) with a [`ParagraphStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle) to apply block-level
-structural formatting such as [`textAlign`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle#textAlign()), [`lineHeight`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle#lineHeight()),
-[`textDirection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle#textDirection()), or [`textIndent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle#textIndent()) to a paragraph range.
+Use [`addStyle`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer.md.txt#addStyle(androidx.compose.ui.text.ParagraphStyle,androidx.compose.ui.text.TextRange,androidx.compose.foundation.text.input.ExpandPolicy)) with a [`ParagraphStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle.md.txt) to apply block-level
+structural formatting such as [`textAlign`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle.md.txt#textAlign()), [`lineHeight`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle.md.txt#lineHeight()),
+[`textDirection`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle.md.txt#textDirection()), or [`textIndent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle.md.txt#textIndent()) to a paragraph range.
 
 
 ```kotlin
@@ -139,7 +139,7 @@ following scenarios:
 ## Update a style in place with `TrackedRange`
 
 Calling `addStyle` with a `TextRange` and `ExpandPolicy` returns a
-[`TrackedRange`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TrackedRange) handle, which can be `TrackedRange<SpanStyle>` or
+[`TrackedRange`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TrackedRange.md.txt) handle, which can be `TrackedRange<SpanStyle>` or
 `TrackedRange<ParagraphStyle>`. A `TrackedRange` is a dynamic reference to a
 style interval in the `TextFieldBuffer` that automatically updates its `start`
 and `end` character offsets as text is inserted, deleted, or replaced around it.
@@ -181,23 +181,23 @@ Keep the following scope and lifecycle rules in mind when working with
 - **Automatic pruning on collapse** : If user edits delete all characters covered by a `TrackedRange`, its length shrinks to `0`, `isValid` returns `false`, and the style is removed from the buffer.
 
 > [!CAUTION]
-> **Caution:** Don't store `TrackedRange` instances in long-lived `ViewModel` properties or external state holders. A `TrackedRange` is bound to a single `TextFieldBuffer` edit session, has no accessible properties outside that block, and becomes permanently invalid if the range is deleted, undone, or restored. To observe styles outside an edit block, read [`TextFieldState.textStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState#textStyles()) instead.
+> **Caution:** Don't store `TrackedRange` instances in long-lived `ViewModel` properties or external state holders. A `TrackedRange` is bound to a single `TextFieldBuffer` edit session, has no accessible properties outside that block, and becomes permanently invalid if the range is deleted, undone, or restored. To observe styles outside an edit block, read [`TextFieldState.textStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState.md.txt#textStyles()) instead.
 
 ## Query and remove styles
 
 Compose provides two ways to inspect active styles, depending on whether you are
 mutating the buffer or reading state for your UI:
 
-- **Inside a `TextFieldBuffer` block** : Call [`getSpanStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer#getSpanStyles(androidx.compose.ui.text.TextRange)) and [`getParagraphStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer#getParagraphStyles(androidx.compose.ui.text.TextRange)) directly on the `TextFieldBuffer` receiver to obtain mutable `TrackedRange` handles.
-- **Outside an edit block** : Read [`TextFieldState.textStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState#textStyles()), which returns immutable `AnnotatedString.Range` lists that reflect the committed state.
+- **Inside a `TextFieldBuffer` block** : Call [`getSpanStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer.md.txt#getSpanStyles(androidx.compose.ui.text.TextRange)) and [`getParagraphStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer.md.txt#getParagraphStyles(androidx.compose.ui.text.TextRange)) directly on the `TextFieldBuffer` receiver to obtain mutable `TrackedRange` handles.
+- **Outside an edit block** : Read [`TextFieldState.textStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState.md.txt#textStyles()), which returns immutable `AnnotatedString.Range` lists that reflect the committed state.
 
 > [!CAUTION]
 > **Caution:** Don't query `state.textStyles` inside a `state.edit` block. `state.textStyles` only reflects the committed state prior to the edit session and doesn't include ongoing buffer changes.
 
 ### Query intersecting styles in `TextFieldBuffer`
 
-[`TextFieldBuffer.getSpanStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer#getSpanStyles(androidx.compose.ui.text.TextRange)) and
-[`TextFieldBuffer.getParagraphStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer#getParagraphStyles(androidx.compose.ui.text.TextRange)) return all `TrackedRange` instances
+[`TextFieldBuffer.getSpanStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer.md.txt#getSpanStyles(androidx.compose.ui.text.TextRange)) and
+[`TextFieldBuffer.getParagraphStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer.md.txt#getParagraphStyles(androidx.compose.ui.text.TextRange)) return all `TrackedRange` instances
 that intersect with the given `TextRange`, ordered by when they were added to
 the buffer.
 
@@ -230,11 +230,11 @@ cursor point:
   - **Not returned (touching end rule)** : Any style ending at the cursor position. For example, a cursor at `10` excludes `[0, 10)`.
 
 > [!NOTE]
-> **Note:** `getSpanStyles` and `getParagraphStyles` evaluate semi-open interval bounds `[start, end)` and ignore `ExpandPolicy`. To inspect a style touching the end boundary at a collapsed cursor (`index > 0`), query the preceding character window instead. Because `TextRange` counts UTF-16 code units and a single emoji can span several of them, compute the window start with [`BreakIterator.getCharacterInstance()`](https://developer.android.com/reference/java/text/BreakIterator#getCharacterInstance()) rather than `index - 1` so the query never starts in the middle of a character.
+> **Note:** `getSpanStyles` and `getParagraphStyles` evaluate semi-open interval bounds `[start, end)` and ignore `ExpandPolicy`. To inspect a style touching the end boundary at a collapsed cursor (`index > 0`), query the preceding character window instead. Because `TextRange` counts UTF-16 code units and a single emoji can span several of them, compute the window start with [`BreakIterator.getCharacterInstance()`](https://developer.android.com/reference/java/text/BreakIterator.md.txt#getCharacterInstance()) rather than `index - 1` so the query never starts in the middle of a character.
 
 ### Remove or toggle styles with `removeStyle`
 
-Pass a `TrackedRange` handle to [`removeStyle`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer#removeStyle(androidx.compose.foundation.text.input.TrackedRange)) to delete that specific
+Pass a `TrackedRange` handle to [`removeStyle`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer.md.txt#removeStyle(androidx.compose.foundation.text.input.TrackedRange)) to delete that specific
 style interval from the `TextFieldBuffer`.
 
 `removeStyle` returns `true` if the `TrackedRange` was found and removed, or
@@ -290,13 +290,13 @@ fun toggleBold(state: TextFieldState) {
 ## Extract or serialize rich text
 
 To display formatted input in a read-only `Text` composable, or serialize it to
-a backend service, read [`TextFieldState.textStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState#textStyles()) outside an edit block.
+a backend service, read [`TextFieldState.textStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState.md.txt#textStyles()) outside an edit block.
 
-[`state.textStyles.getSpanStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldTextStyles#getSpanStyles(androidx.compose.ui.text.TextRange)) and
-[`state.textStyles.getParagraphStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldTextStyles#getParagraphStyles(androidx.compose.ui.text.TextRange)) return
+[`state.textStyles.getSpanStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldTextStyles.md.txt#getSpanStyles(androidx.compose.ui.text.TextRange)) and
+[`state.textStyles.getParagraphStyles`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldTextStyles.md.txt#getParagraphStyles(androidx.compose.ui.text.TextRange)) return
 `List<AnnotatedString.Range<SpanStyle>>` and
 `List<AnnotatedString.Range<ParagraphStyle>>`, which you can pass directly to
-the [`AnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString) constructor:
+the [`AnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.md.txt) constructor:
 
 
 ```kotlin

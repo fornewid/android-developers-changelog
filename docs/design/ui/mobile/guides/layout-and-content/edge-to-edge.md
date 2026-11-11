@@ -27,9 +27,9 @@ immersive experience.
 
 An app can address overlaps in content by reacting to *insets* . Insets describe
 how much the content of your app needs to be padded to avoid overlapping with
-system bars or with physical device features such as [display cutouts](https://developer.android.com/develop/ui/views/layout/display-cutout). Read
-about how to support edge-to-edge and handle insets in [Compose](https://developer.android.com/develop/ui/compose/system/insets) and
-[Views](https://developer.android.com/develop/ui/views/layout/edge-to-edge).
+system bars or with physical device features such as [display cutouts](https://developer.android.com/develop/ui/views/layout/display-cutout.md.txt). Read
+about how to support edge-to-edge and handle insets in [Compose](https://developer.android.com/develop/ui/compose/system/insets.md.txt) and
+[Views](https://developer.android.com/develop/ui/views/layout/edge-to-edge.md.txt).
 
 Be aware of the following types of insets when designing edge-to-edge use cases:
 
@@ -39,12 +39,12 @@ Be aware of the following types of insets when designing edge-to-edge use cases:
 
 ### Status bar considerations
 
-See the [Android System Bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars) for fundamental system bar design guidance. The
+See the [Android System Bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars.md.txt) for fundamental system bar design guidance. The
 following section discusses additional status bar considerations.
 
 #### Scrolling content
 
-Top app bars should collapse while scrolling. Learn how to [collapse](https://developer.android.com/develop/ui/compose/components/app-bars#scroll) the
+Top app bars should collapse while scrolling. Learn how to [collapse](https://developer.android.com/develop/ui/compose/components/app-bars.md.txt#scroll) the
 Material 3 TopAppBar. In Material 3, small top app bars can collapse to status
 bar height or scroll offscreen. Medium and large top app bars can collapse to a
 smaller app bar. See the \[Material guidance\]\[10\].
@@ -60,12 +60,12 @@ Add a matching background color gradient if the small top app bar is not sticky.
 
 Status bars should be translucent when the UI scrolls underneath, so that the
 status bar icons don't look cluttered. To accomplish this, first make a
-scrollable UI edge-to-edge by implementing the steps in the [LazyColumn](https://developer.android.com/develop/ui/compose/system/material-insets#scaffold) or
-[RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview#enable-edge-to-edge-display) documentation. Then, ensure the system bar is translucent by
+scrollable UI edge-to-edge by implementing the steps in the [LazyColumn](https://developer.android.com/develop/ui/compose/system/material-insets.md.txt#scaffold) or
+[RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview.md.txt#enable-edge-to-edge-display) documentation. Then, ensure the system bar is translucent by
 doing one of the following:
 
-- Rely on the Material 3 TopAppBar automatic protection when [scrolling](https://developer.android.com/develop/ui/compose/components/app-bars#scroll), if applicable.
-- Create a custom gradient composable or use [GradientProtection](https://developer.android.com/reference/androidx/core/view/insets/GradientProtection) for Views. For more information on doing this in compose, see [System bar
+- Rely on the Material 3 TopAppBar automatic protection when [scrolling](https://developer.android.com/develop/ui/compose/components/app-bars.md.txt#scroll), if applicable.
+- Create a custom gradient composable or use [GradientProtection](https://developer.android.com/reference/androidx/core/view/insets/GradientProtection.md.txt) for Views. For more information on doing this in compose, see [System bar
   protection](https://developer.android.com/develop/ui/compose/layouts/system-bars).
 
 ![](https://developer.android.com/static/images/design/ui/mobile/e2e-protection.png) **Figure 3.** An app with gesture insets highlighted green.
@@ -91,7 +91,7 @@ TopAppBar built-in protection and a custom protection.
 
 ### Navigation bar considerations
 
-See the [Android System Bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars) for fundamental navigation bar design guidance.
+See the [Android System Bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars.md.txt) for fundamental navigation bar design guidance.
 The following section includes additional navigation bar considerations.
 
 #### Scrolling content
@@ -133,7 +133,7 @@ in the following image.
 Ensure horizontal carousels draw into the display cutout.
 ![](https://developer.android.com/static/images/design/ui/mobile/e2e-horizontal-display.png) **Figure 6.** An edge-to-edge horizontal display, where the carousel scrolls through the display cutout.
 
-Read about how to support display cutouts in [Compose](https://developer.android.com/develop/ui/compose/system/cutouts).
+Read about how to support display cutouts in [Compose](https://developer.android.com/develop/ui/compose/system/cutouts.md.txt).
 
 ### Other guidance
 

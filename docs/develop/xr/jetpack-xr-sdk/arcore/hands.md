@@ -7,7 +7,7 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices.md.txt#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
@@ -22,13 +22,13 @@ Your browser doesn't support HTML video. Here is a
 
 ## Access a session
 
-Access hand information through a Jetpack XR Runtime [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session),
-which your [app can create](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#access-session).
+Access hand information through a Jetpack XR Runtime [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session.md.txt),
+which your [app can create](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session.md.txt#access-session).
 
 ## Configure the session
 
 Hand tracking is not enabled by default on XR sessions. To receive hand data,
-configure the session and set the [`HandTrackingMode.BOTH`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/HandTrackingMode#BOTH()) mode:
+configure the session and set the [`HandTrackingMode.BOTH`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/HandTrackingMode.md.txt#BOTH()) mode:
 
 
 ```kotlin
@@ -45,7 +45,7 @@ when (val result = session.configure(newConfig)) {
 <br />
 
 > [!NOTE]
-> **Note:** Tracking the user's hands requires the `android.permission.HAND_TRACKING` [runtime permission](https://developer.android.com/training/permissions/requesting) to be granted to your app.
+> **Note:** Tracking the user's hands requires the `android.permission.HAND_TRACKING` [runtime permission](https://developer.android.com/training/permissions/requesting.md.txt) to be granted to your app.
 
 ## Retrieve hand data
 
@@ -75,7 +75,7 @@ Hands have the following properties:
 
 ## Use hand data in your app
 
-The positions of a user's hand joints can be used to [anchor 3D objects](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/anchors#anchor-content) to a
+The positions of a user's hand joints can be used to [anchor 3D objects](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/anchors.md.txt#anchor-content) to a
 user's hands, for example, to attach a model to the left palm:
 
 
