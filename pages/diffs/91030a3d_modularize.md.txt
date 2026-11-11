@@ -1,0 +1,54 @@
+diff --git a/docs/guide/navigation/navigation-3/modularize.md b/docs/guide/navigation/navigation-3/modularize.md
+index 98c46f76..388ac239 100644
+--- a/docs/guide/navigation/navigation-3/modularize.md
++++ b/docs/guide/navigation/navigation-3/modularize.md
+@@ -5,7 +5,7 @@ source: md.txt
+ ---
+ 
+ This page is a guide for modularizing your navigation code. It is intended to
+-complement the general [guidance for app modularization](https://developer.android.com/topic/modularization).
++complement the general [guidance for app modularization](https://developer.android.com/topic/modularization.md.txt).
+ 
+ ## Overview
+ 
+@@ -32,8 +32,8 @@ navigation code.
+ 
+ |---|---|
+ | **Module name** | **Contains** |
+-| `api` | [navigation keys](https://developer.android.com/guide/navigation/navigation-3/basics#create-back) |
+-| `impl` | Content for that feature, including definitions for `NavEntry`s and the `entryProvider`. See also [resolve keys to content](https://developer.android.com/guide/navigation/navigation-3/basics#resolve-keys). |
++| `api` | [navigation keys](https://developer.android.com/guide/navigation/navigation-3/basics.md.txt#create-back) |
++| `impl` | Content for that feature, including definitions for `NavEntry`s and the `entryProvider`. See also [resolve keys to content](https://developer.android.com/guide/navigation/navigation-3/basics.md.txt#resolve-keys). |
+ 
+ This approach allows one feature to navigate to another by allowing its content,
+ contained in its `impl` module, to depend on the navigation keys of another
+@@ -43,9 +43,9 @@ depend on `api` modules.](https://developer.android.com/static/images/topic/libr
+ 
+ ## Separate navigation entries using extension functions
+ 
+-In Navigation 3, navigable content is defined [using navigation entries](https://developer.android.com/guide/navigation/navigation-3/basics#resolve-keys). To
++In Navigation 3, navigable content is defined [using navigation entries](https://developer.android.com/guide/navigation/navigation-3/basics.md.txt#resolve-keys). To
+ separate these entries into separate modules, create extension functions on
+-[`EntryProviderScope`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/EntryProviderScope) and move them into the `impl` module for that feature.
++[`EntryProviderScope`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/EntryProviderScope.md.txt) and move them into the `impl` module for that feature.
+ These are known as *entry builders*.
+ 
+ The following code example shows an entry builder that builds two navigation
+@@ -72,7 +72,7 @@ fun EntryProviderScope<NavKey>.featureAEntryBuilder() {
+ 
+ <br />
+ 
+-Call that function using the [`entryProvider` DSL](https://developer.android.com/guide/navigation/navigation-3/basics#entry-provider-DSL) when defining your
++Call that function using the [`entryProvider` DSL](https://developer.android.com/guide/navigation/navigation-3/basics.md.txt#entry-provider-DSL) when defining your
+ `entryProvider` in your main app module.
+ 
+ 
+@@ -165,7 +165,7 @@ If your navigation entries need to navigate---for example, they contain UI eleme
+ 
+ ## Modularize deep link matchers
+ 
+-If your app supports [deep links](https://developer.android.com/guide/navigation/navigation-3/deep-links) and is modularized, each feature module
++If your app supports [deep links](https://developer.android.com/guide/navigation/navigation-3/deep-links.md.txt) and is modularized, each feature module
+ should define the `DeepLinkMatcher` instances for the destinations it owns.
+ 
+ To collate all matchers from across your app, you can use

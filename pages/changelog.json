@@ -1,5 +1,753 @@
 [
   {
+    "date": "2026-11-11T15:10:50Z",
+    "commit_hash": "91030a3d",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/build-system/agp/agp-9-upgrade/references/paparazzi-gradle-9\" target=\"_blank\">Known issue: Paparazzi and Gradle 9</a>",
+        "path": "agents/skills/build-system/agp/agp-9-upgrade/references/paparazzi-gradle-9.md",
+        "summary": "The documentation was updated to wrap the Kotlin and Groovy DSL code snippets in proper markdown code blocks, improving readability and formatting for developers applying the Paparazzi Gradle workaround.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_paparazzi-gradle-9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/build-system/agp/agp-9-upgrade/references/recipes\" target=\"_blank\">Gradle recipes</a>",
+        "path": "agents/skills/build-system/agp/agp-9-upgrade/references/recipes.md",
+        "summary": "Updated documentation links to point directly to .md.txt files for internal references and improved the formatting of code snippets by wrapping them in proper Markdown code blocks, enhancing readability and correctness.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_recipes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/references/migration\" target=\"_blank\">Migrate from the TensorFlow Lite Interpreter to CompiledModel</a>",
+        "path": "agents/skills/device-ai/litert/litert-runtime/references/migration.md",
+        "summary": "Updated code snippets and command examples throughout the LiteRT migration documentation to use proper Markdown code blocks (Kotlin and Bash) for improved readability and syntax highlighting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_migration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/references/play-services\" target=\"_blank\">Run CompiledModel on LiteRT in Google Play services</a>",
+        "path": "agents/skills/device-ai/litert/litert-runtime/references/play-services.md",
+        "summary": "Updated the code snippets in the LiteRT Play Services documentation to use proper Markdown Kotlin code blocks instead of indented plain text blocks. This improves readability and syntax highlighting for developers integrating LiteRT via Google Play Services.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_play-services.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability\" target=\"_blank\">State, snapshots, and stability optimization</a>",
+        "path": "agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability.md",
+        "summary": "The documentation updates fix broken external documentation links by appending '.md.txt' to the target URLs for Backwards Write and Strong Skipping Mode, and correct the Markdown syntax for a Kotlin code block demonstrating Jetpack Compose compiler-generated code for skippable composables.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_state-and-stability.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/skill\" target=\"_blank\">Jetpack Compose performance optimization skill</a>",
+        "path": "agents/skills/jetpack-compose/jetpack-compose-performance/skill.md",
+        "summary": "Updated multiple reference documentation links within the Jetpack Compose performance skill guide to append the '.txt' extension. This ensures proper file resolution and linking for all mandatory reference reads across categories 1 through 7.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/security/android-intent-security/skill\" target=\"_blank\">Android intent and component security: Audit and remediation guide</a>",
+        "path": "agents/skills/security/android-intent-security/skill.md",
+        "summary": "Updated the reporting template in the Android intent security documentation by wrapping it within a Markdown code block. This formatting change ensures that template instructions and examples are rendered cleanly and prevented from parsing as active documentation sections.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/FeedCollectionGlanceWidget.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-appwidget-updates-and-memory/references/FeedCollectionGlanceWidget.kt.rawcontent.md",
+        "summary": "The documentation update wraps the raw Kotlin code snippet inside proper markdown code blocks (```kotlin), improving readability and syntax highlighting without altering the underlying code logic.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_FeedCollectionGlanceWidget.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetBitmapUtils.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-appwidget-updates-and-memory/references/WidgetBitmapUtils.kt.rawcontent.md",
+        "summary": "Fixed the Markdown formatting in WidgetBitmapUtils.kt.rawcontent.md by wrapping the raw Kotlin snippet inside a proper ```kotlin code block instead of using manual indentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_WidgetBitmapUtils.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/collections/data/FakeImageGridDataRepository.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/collections/data/FakeImageGridDataRepository.kt.rawcontent.md",
+        "summary": "Formatted the Kotlin source code block within the Markdown file to correctly use triple-backtick fencing, ensuring proper syntax highlighting and readability for the Glance canonical layout reference.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_FakeImageGridDataRepository.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/collections/data/FakeImageTextListDataRepository.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/collections/data/FakeImageTextListDataRepository.kt.rawcontent.md",
+        "summary": "The changes in FakeImageTextListDataRepository.kt.rawcontent.md are purely formatting-related, consisting of whitespace adjustments and the addition of a markdown code block wrapper around the Kotlin source code. These changes do not affect the functional logic or documentation content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_FakeImageTextListDataRepository.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/collections/layout/EmptyListContent.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/collections/layout/EmptyListContent.kt.rawcontent.md",
+        "summary": "The Kotlin code snippet in the documentation was wrapped inside proper markdown code block syntax (```kotlin ... ```), improving readability and rendering accuracy for developers referencing the Glance canonical layout example.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_EmptyListContent.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/collections/layout/ListItem.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/collections/layout/ListItem.kt.rawcontent.md",
+        "summary": "Wrapped the Kotlin code snippet inside explicit Markdown code blocks (````kotlin`) to improve formatting and documentation rendering. This change is purely structural and does not affect the actual code implementation of the `ListItem` component.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_ListItem.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/collections/layout/VerticalListItem.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/collections/layout/VerticalListItem.kt.rawcontent.md",
+        "summary": "Wrapped the Kotlin code snippet inside standard markdown code block formatting (```kotlin), which is a trivial documentation syntax update.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_VerticalListItem.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_arrow_right_icon.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_arrow_right_icon.xml.rawcontent.md",
+        "summary": "Wrapped the raw vector drawable XML content in standard markdown code blocks, improving readability and proper formatting for documentation parsers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_sample_arrow_right_icon.xml.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_checked_circle_icon.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_checked_circle_icon.xml.rawcontent.md",
+        "summary": "Wrapped the raw vector drawable XML snippet in standard markdown code block formatting to improve readability and proper syntax highlighting in the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_sample_checked_circle_icon.xml.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_circle_icon.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_circle_icon.xml.rawcontent.md",
+        "summary": "The vector drawable content for the sample circle icon was wrapped in a proper Markdown code block. This improves documentation rendering and readability for developers referencing the canonical layout resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_sample_circle_icon.xml.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_delete_icon.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_delete_icon.xml.rawcontent.md",
+        "summary": "Wrapped the sample delete icon vector drawable resource content in a proper Markdown XML code block. This improves documentation readability and ensures correct rendering of the vector asset.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_sample_delete_icon.xml.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_edit_icon.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_edit_icon.xml.rawcontent.md",
+        "summary": "The raw XML vector asset content for the sample edit icon was wrapped in a Markdown code block. This improves documentation rendering and readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_sample_edit_icon.xml.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_info_icon.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_info_icon.xml.rawcontent.md",
+        "summary": "The XML vector drawable content for the sample info icon was wrapped in a Markdown code block. This improves documentation readability and ensures proper syntax highlighting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_sample_info_icon.xml.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_no_data_icon.xml.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_no_data_icon.xml.rawcontent.md",
+        "summary": "The XML vector drawable content in the sample documentation has been enclosed within a proper Markdown code block. This improves syntax highlighting, readability, and consistency across the documentation set.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_sample_no_data_icon.xml.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/text/data/FakeTextWithImageRepository.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/text/data/FakeTextWithImageRepository.kt.rawcontent.md",
+        "summary": "The diff only shows indentation fixes and the addition of a markdown code block wrapper (````kotlin`) around the existing code snippet, which are trivial formatting changes. Therefore, no meaningful documentation content was modified.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_FakeTextWithImageRepository.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/text/layout/FullBleedImageLayout.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/text/layout/FullBleedImageLayout.kt.rawcontent.md",
+        "summary": "Refactored the `FullBleedImageLayout.kt.rawcontent.md` documentation to wrap the code snippet inside a proper Markdown code block instead of indented raw text. This improves syntax highlighting, readability, and correct rendering within agent documentation skills.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_FullBleedImageLayout.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/toolbars/layout/ExpressiveToolbarLayout.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/toolbars/layout/ExpressiveToolbarLayout.kt.rawcontent.md",
+        "summary": "Fixed code block formatting by removing extraneous leading indentation across the entire file contents, ensuring valid markdown and proper syntax highlighting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_ExpressiveToolbarLayout.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/ui/theme/Color.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/ui/theme/Color.kt.rawcontent.md",
+        "summary": "The code snippet for the Color.kt theme file was wrapped in a proper markdown Kotlin code block and indentation was corrected. This ensures proper syntax highlighting and formatting for developers referencing the Glance canonical layout theme setup.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_Color.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/utils/ActionUtils.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/utils/ActionUtils.kt.rawcontent.md",
+        "summary": "The ActionUtils.kt.rawcontent.md file was updated to wrap the Kotlin code snippet inside proper markdown code blocks (```kotlin). This improves markdown rendering and syntax highlighting for developers reading the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_ActionUtils.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/utils/ImageAspectRatio.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/utils/ImageAspectRatio.kt.rawcontent.md",
+        "summary": "The `ImageAspectRatio.kt.rawcontent.md` file was updated to wrap the code snippet inside a proper markdown Kotlin code block. This formatting improvement ensures correct syntax highlighting and readability for the Glance canonical layouts documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_ImageAspectRatio.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/utils/ImageUtils.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/utils/ImageUtils.kt.rawcontent.md",
+        "summary": "Fixed indentation and formatting in the ImageUtils.kt reference documentation by removing leading spaces from the code block, ensuring proper rendering and clean markdown structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_ImageUtils.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/tv/leanback-to-compose-tv-migration/skill\" target=\"_blank\">Migrate Android TV apps from Leanback to Jetpack Compose for TV</a>",
+        "path": "agents/skills/tv/leanback-to-compose-tv-migration/skill.md",
+        "summary": "Updated documentation links within the Leanback to Compose TV migration skill file to point to correct .md.txt documentation paths. This ensures proper reference resolution for Compose for TV setup, TV navigation, and catalog browsing guides.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source\" target=\"_blank\">Implementation samples for Glimmer Button component</a>",
+        "path": "agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md",
+        "summary": "Updated the LargeButtonWithLeadingAndTrailingIconPreview composable to wrap the sample inside GlimmerTheme for proper styling consistency, and removed a stray file name artifact from the code block.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_button-samples-source.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/14\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/14.md",
+        "summary": "Updated author profile URLs to append .md.txt extensions, added Sara Hamilton to the author list, and removed Stevan Silva from this page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_14.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/17\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/17.md",
+        "summary": "Updated author profile 17 by replacing Zoe Lopez-Latorre with Yasmine Evjen (Senior Product Manager), updating Zoe's source link, and updating pagination links to reference the correct .md.txt file paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/michelle-martin\" target=\"_blank\">Michelle Martin</a>",
+        "path": "blog/authors/michelle-martin.md",
+        "summary": "Added a new author profile page for Michelle Martin, Sr. Solutions Consultant, highlighting her contributions including the post on the Open-Source Sign in with Google Plugin for Unity.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/16\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/16.md",
+        "summary": "Updated the Product News category page to feature the new 'Trade-in mode on Android 16+' post at the top, replacing the previous Play Console item, and appended '.md.txt' to various internal documentation links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_16.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/2\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/2.md",
+        "summary": "Updated the product news category page to append '.md.txt' extensions across all internal links, author profiles, topics, and pagination controls, ensuring proper file path routing in the documentation structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/20\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/20.md",
+        "summary": "Updated the Product News blog category index (page 20) to include internal file extension references (.md.txt) for links and added a new entry highlighting ML Kit's Prompt API for on-device Gemini Nano experiences.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_20.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/6\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/6.md",
+        "summary": "Updated the product news category page to append `.md.txt` extensions to internal links for blog posts, authors, topics, and pagination, ensuring proper routing within the documentation site.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/5\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/5.md",
+        "summary": "Updated the blog index page to include a new post regarding verified email credentials via Credential Manager, and appended '.md.txt' extensions to various internal blog link paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/7\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/7.md",
+        "summary": "The latest blog updates now feature an announcement for the first beta of Android 17, replacing previous top entries and highlighting new platform capabilities focused on privacy, security, and performance. Additionally, internal links and URLs across the latest blog listing were updated with '.md.txt' extensions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/open-source-google-sign-in-unity\" target=\"_blank\">Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity</a>",
+        "path": "blog/posts/open-source-google-sign-in-unity.md",
+        "summary": "This new documentation page introduces the open-source Sign in with Google Mobile Plugin for Unity, providing a modern, high-performance authentication bridge compatible with Unity 6.5. It matters because it replaces outdated legacy implementations with secure, native-only integration via Android Credential Manager and iOS GIDSignIn, improving player onboarding and retention.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/mobile/guides/layout-and-content/app-anatomy\" target=\"_blank\">App Anatomy</a>",
+        "path": "design/ui/mobile/guides/layout-and-content/app-anatomy.md",
+        "summary": "The changes update internal documentation links within 'app-anatomy.md' to append '.md.txt' extensions, ensuring proper resolution in the local documentation viewer context. These are trivial formatting and artifact adjustments that do not impact the actual guidance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_app-anatomy.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/guides/flexbox/get-started\" target=\"_blank\">Get started with FlexBox</a>",
+        "path": "develop/adaptive-apps/guides/flexbox/get-started.md",
+        "summary": "The get-started documentation for Flexbox layouts was updated to fix code block formatting and correct internal documentation links by appending the '.md.txt' extension.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work\" target=\"_blank\">Define work requests</a>",
+        "path": "develop/background-work/background-tasks/persistent/getting-started/define-work.md",
+        "summary": "Fixed a syntax error in the Kotlin code snippet for creating a WorkRequest by correcting 'OneTimeWorkRequ<estBuilder>UploadWork()' to 'OneTimeWorkRequestBuilder<UploadWork>()'. This ensures developers copy-pasting the guide start with valid, compilable code.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_define-work.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/background-tasks/testing/persistent/worker-impl\" target=\"_blank\">Testing Worker implementation</a>",
+        "path": "develop/background-work/background-tasks/testing/persistent/worker-impl.md",
+        "summary": "Fixed syntax errors and corrupted code snippets within the SleepWorker testing documentation. These corrections ensure that the provided Kotlin code examples for testing persistent workers are syntactically valid and compile successfully for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_worker-impl.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/api-guidelines\" target=\"_blank\">Style guidelines for Jetpack Compose APIs</a>",
+        "path": "develop/ui/compose/api-guidelines.md",
+        "summary": "Updated a documentation link referencing the androidx.compose libraries release page to point to the correct markdown text file format (.md.txt).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_api-guidelines.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/badges\" target=\"_blank\">Badges</a>",
+        "path": "develop/ui/compose/components/badges.md",
+        "summary": "Updated the Compose badges documentation to improve the interactive example and preview images. The interactive code snippet was updated to initialize with 3 items and now includes both add and remove icon buttons for better demonstration, alongside updated image references and descriptive text.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_badges.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/card\" target=\"_blank\">Card</a>",
+        "path": "develop/ui/compose/components/card.md",
+        "summary": "Updated documentation for the Jetpack Compose Card component to fix code block formatting, update API reference links to include '.md.txt' extensions, and replace image URLs and alt text for filled, elevated, and outlined card examples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_card.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/checkbox\" target=\"_blank\">Checkbox</a>",
+        "path": "develop/ui/compose/components/checkbox.md",
+        "summary": "Updated documentation for the Compose Checkbox component, including updated sample code explanations to match an initially checked state, refreshed preview images for both minimal and advanced examples, and adjusted reference link paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_checkbox.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/progress\" target=\"_blank\">Progress indicators</a>",
+        "path": "develop/ui/compose/components/progress.md",
+        "summary": "Updated the Jetpack Compose progress indicators documentation to include smooth progress animation using `animateFloatAsState`, replaced buttons with indicators upon loading instead of disabling them, and added visual preview screenshots for both determinate and indeterminate examples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_progress.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/radio-button\" target=\"_blank\">Radio button</a>",
+        "path": "develop/ui/compose/components/radio-button.md",
+        "summary": "Updated the screenshot and descriptive text for Figure 2 in the Radio Button documentation to reflect the 'Calls' option being selected instead of 'Friends', and updated the image asset path to use the new preview directory structure. This ensures the visual documentation accurately matches the provided code example.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_radio-button.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/designsystems/migrate-xml-theme-to-compose\" target=\"_blank\">Migrate XML themes to Material 3 in Compose</a>",
+        "path": "develop/ui/compose/designsystems/migrate-xml-theme-to-compose.md",
+        "summary": "The internal documentation links for migrating XML themes to Compose were updated to reference the corresponding .md.txt source files instead of web URLs. This ensures proper link resolution within the documentation build system.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_migrate-xml-theme-to-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/glance/enhance\" target=\"_blank\">Enhance your widget</a>",
+        "path": "develop/ui/compose/glance/enhance.md",
+        "summary": "The documentation was updated to fix a code block formatting issue for the `<appwidget-provider>` XML snippet and to correct the API reference link for `descriptionRes` to ensure proper navigation for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_enhance.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance\" target=\"_blank\">Jetpack Compose Performance</a>",
+        "path": "develop/ui/compose/performance.md",
+        "summary": "Updated documentation links to include '.md.txt' extensions and replaced the scroll jank SVG chart with a detailed Markdown data table showing performance comparisons between Compose versions and the Views framework across various devices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_performance.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/bestpractices\" target=\"_blank\">Follow best practices</a>",
+        "path": "develop/ui/compose/performance/bestpractices.md",
+        "summary": "This update consists entirely of documentation link adjustments (appending `.md.txt` extensions to internal URLs) and minor code block formatting corrections in the Jetpack Compose performance best practices guide. No functional or technical guidance changes were made.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_bestpractices.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/herobenchmark\" target=\"_blank\">Hero benchmarks</a>",
+        "path": "develop/ui/compose/performance/herobenchmark.md",
+        "summary": "Updated the hero benchmark documentation by replacing image-based charts with structured Markdown data tables for time to initial display, time to full display, and scroll jank metrics. Additionally, internal documentation links were updated to reference local markdown text files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_herobenchmark.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/sharing/send\" target=\"_blank\">Send data to other apps</a>",
+        "path": "develop/ui/compose/sharing/send.md",
+        "summary": "Cleaned up markdown links throughout the document, replacing fully-qualified API reference URLs with clean, shorthand class and method names (e.g., changing `https://developer.android.com/reference/android/content/Intent#ACTION_SEND` to `ACTION_SEND`), and updating relative links to include `.md.txt` extensions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_send.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss\" target=\"_blank\">Swipe to dismiss or update</a>",
+        "path": "develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss.md",
+        "summary": "Added screenshot preview images to the swipe-to-dismiss code examples to visually illustrate the UI states, and changed the visibility modifier of the `SwipeItemWithAnimationExample` composable from private to public.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_swipe-to-dismiss.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/appwidgets/advanced\" target=\"_blank\">Create an advanced widget</a>",
+        "path": "develop/ui/views/appwidgets/advanced.md",
+        "summary": "The changes in this file are trivial, consisting solely of internal link format updates (appending '.md.txt' to documentation URLs) to match local file structures. Therefore, no functional or content-related changes affect the developer documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_advanced.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/improving-layouts/optimizing-layouts\" target=\"_blank\">Optimize layout hierarchies</a>",
+        "path": "develop/ui/views/layout/improving-layouts/optimizing-layouts.md",
+        "summary": "The changes update documentation references and links within the optimizing-layouts.md file, replacing fully qualified URL class paths and tools links with clean local markdown references and simple class names (e.g., changing long Android reference URLs to `LinearLayout`, `RecyclerView`, and `ConstraintLayout`). This improves readability and maintains correct relative link structures within the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_optimizing-layouts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/webapps/in-app-browsing-embedded-web\" target=\"_blank\">In-app browsing using Embedded Web</a>",
+        "path": "develop/ui/views/layout/webapps/in-app-browsing-embedded-web.md",
+        "summary": "The documentation updates internal documentation links by appending '.md.txt' extensions, and improves technical clarity by replacing a lengthy MDN URL for postMessage with standard 'window.postMessage()' syntax.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_in-app-browsing-embedded-web.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/notifications/snackbar/action\" target=\"_blank\">Add an action to a message</a>",
+        "path": "develop/ui/views/notifications/snackbar/action.md",
+        "summary": "The documentation updates clean up raw reference URLs within the text, replacing them with standard readable class and method names (such as `Snackbar`, `View.OnClickListener`, `onClick()`, `setAction()`, `show()`, and `SnackbarHost`). This improves readability and maintains consistency with standard Android documentation practices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_action.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/search/adding-recent-query-suggestions\" target=\"_blank\">Add custom search suggestions</a>",
+        "path": "develop/ui/views/search/adding-recent-query-suggestions.md",
+        "summary": "Cleaned up documentation links by replacing absolute Android reference URLs and internal file paths with standard class and method names, making the text more readable and reducing clutter.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_adding-recent-query-suggestions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/search/searchable-config\" target=\"_blank\">Search configuration</a>",
+        "path": "develop/ui/views/search/searchable-config.md",
+        "summary": "Updated internal document links by appending '.md.txt' and cleaned up external reference links by replacing full API URLs with shorthand class and attribute names across the searchable configuration documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_searchable-config.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/understand-age-signals-responses\" target=\"_blank\">Understand age signals responses</a>",
+        "path": "google/play/age-signals/understand-age-signals-responses.md",
+        "summary": "Updated Play Age Signals API documentation to clarify regional differences for age verification tiers (TIER_C and TIER_D) and revised response examples to distinguish between regulated regions where age verification is mandatory and other regions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_understand-age-signals-responses.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/billingchoice/integration\" target=\"_blank\">In-app integration guidance for billing choice</a>",
+        "path": "google/play/billing/billingchoice/integration.md",
+        "summary": "The documentation updates fix formatting by enclosing Java code snippets within explicit markdown code blocks and appending '.md.txt' to various reference links. These changes improve readability and document linking without altering the technical guidance for Play Billing integration.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_integration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/modularize\" target=\"_blank\">Modularize navigation code</a>",
+        "path": "guide/navigation/navigation-3/modularize.md",
+        "summary": "Updated internal links within the modularization documentation to include `.md.txt` extensions, ensuring proper resolution of cross-references in the documentation generation pipeline.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_modularize.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/basicparcelable\" target=\"_blank\">Basic Parcelable Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/basicparcelable.md",
+        "summary": "The documentation was updated to fix a broken link by appending '.md.txt' to the kotlin-parcelize plugin URL and to improve readability by wrapping plain-text code snippets in proper Markdown syntax-highlighted Kotlin code blocks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_basicparcelable.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/navscenedecorator\" target=\"_blank\">Nav UI with Scene Decorators Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/navscenedecorator.md",
+        "summary": "Updated documentation links for Jetpack Compose APIs (`movableContentOf` and shared element) to point to their local `.md.txt` reference paths, ensuring correct internal navigation within the documentation source.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_navscenedecorator.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-event/setup\" target=\"_blank\">Set up development environment for Navigation Event</a>",
+        "path": "guide/navigation/navigation-event/setup.md",
+        "summary": "The setup documentation for NavigationEvent was updated to properly wrap code snippets in markdown code blocks (TOML and Kotlin), improving readability and formatting consistency for developers following the integration guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/fitness/basic-app/integrate-wear-os\" target=\"_blank\">Integrate a Wear OS module</a>",
+        "path": "health-and-fitness/fitness/basic-app/integrate-wear-os.md",
+        "summary": "This update standardizes the Markdown documentation formatting by explicitly wrapping code and command-line snippets in proper fenced code blocks (using ```kotlin and ```bash) instead of indentation-based code blocks. Additionally, internal links to guides and documentation were updated with explicit file extensions (.md.txt).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_integrate-wear-os.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/features/training-plans\" target=\"_blank\">Training plans</a>",
+        "path": "health-and-fitness/health-connect/features/training-plans.md",
+        "summary": "Updated documentation formatting by wrapping code snippets and XML blocks in proper Markdown code fences and appending file extensions to internal links, improving readability and rendering accuracy.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_training-plans.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/read-data\" target=\"_blank\">Read raw data</a>",
+        "path": "health-and-fitness/health-connect/read-data.md",
+        "summary": "Updated documentation links to include file extensions and fixed code block formatting across multiple examples. These changes improve documentation parser compatibility and ensure proper syntax highlighting for Kotlin code snippets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_read-data.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/ui/data\" target=\"_blank\">Data display and attribution</a>",
+        "path": "health-and-fitness/health-connect/ui/data.md",
+        "summary": "The documentation updates fix internal documentation link suffixes by appending '.md.txt' to reference URLs and properly wraps the Kotlin code snippet for retrieving app labels and icons in markdown code block syntax. These changes ensure correct internal navigation and improve readability of the code example.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_data.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera-deprecated/videobasics\" target=\"_blank\">Record videos</a>",
+        "path": "media/camera/camera-deprecated/videobasics.md",
+        "summary": "The documentation updates for videobasics.md primarily involve formatting fixes, such as replacing verbose, absolute documentation URLs with cleaner inline class/method names (e.g., `Intent`, `Uri`, `hasSystemFeature(PackageManager.FEATURE_CAMERA)`) and adjusting link paths. These changes improve readability and maintain consistency across the deprecated Camera API guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_videobasics.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax/mlkitanalyzer\" target=\"_blank\">ML Kit Analyzer</a>",
+        "path": "media/camera/camerax/mlkitanalyzer.md",
+        "summary": "Updated documentation links to include the '.md.txt' suffix for Android reference URLs across the ML Kit Analyzer guide, ensuring they correctly point to local markdown reference files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_mlkitanalyzer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax/preview\" target=\"_blank\">Implement a preview</a>",
+        "path": "media/camera/camerax/preview.md",
+        "summary": "The changes in the preview.md documentation consist entirely of updates to reference link URLs, appending '.md.txt' to various Android API reference paths, along with a minor formatting glitch introduced in an XML code block. Because these changes are strictly link formatting and trivial markup adjustments that do not impact technical guidance or API behavior, no documentation update summary is necessary.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/lowlight/low-light-boost-ae\" target=\"_blank\">Low Light Boost Auto Exposure Mode</a>",
+        "path": "media/camera/lowlight/low-light-boost-ae.md",
+        "summary": "The low-light-boost-ae.md documentation was updated to remove all Java code snippets, standardizing the implementation examples to Kotlin only. Additionally, documentation reference links were updated to target local markdown files (.md.txt), and minor formatting adjustments were made.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_low-light-boost-ae.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/ad-insertion\" target=\"_blank\">Ad insertion</a>",
+        "path": "media/media3/exoplayer/ad-insertion.md",
+        "summary": "Updated internal documentation links to point directly to the source .md.txt files rather than the rendered web pages. This ensures correct navigation within the source documentation structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_ad-insertion.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/images\" target=\"_blank\">Images</a>",
+        "path": "media/media3/exoplayer/images.md",
+        "summary": "The changes in the images.md documentation are trivial formatting updates, including a minor URL link fix pointing to the source text file and code formatting adjustments for the Glide image decoder factory example. These changes do not affect the functionality or core instructions of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_images.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/session/control-playback\" target=\"_blank\">Control and advertise playback using a MediaSession</a>",
+        "path": "media/media3/session/control-playback.md",
+        "summary": "Updated the documentation for playlist management in Media3 media sessions to emphasize setting explicit media types (such as podcasts, audiobooks, and music albums) on playlist metadata using `setMediaType`. This ensures connected controllers can correctly interpret and display the playlist type alongside its title and artwork.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_control-playback.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/transformer/customization\" target=\"_blank\">Customization</a>",
+        "path": "media/media3/transformer/customization.md",
+        "summary": "Updated the reference link for `Muxer.Factory#supportsWritingNegativeTimestampsInEditList` in the Transformer customization documentation to point to the correct documentation file path (.md.txt). This ensures developers are directed to the proper API reference when implementing custom muxers that support negative timestamps in MP4 edit lists.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_customization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/emulator/37\" target=\"_blank\">Android Emulator 37 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/emulator/37.md",
+        "summary": "Added release notes for Android Emulator 37.3.9 Beta, documenting minor fixes and improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_37.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/test/on-device-code-coverage\" target=\"_blank\">View code coverage reports (with on-device agent)</a>",
+        "path": "studio/test/on-device-code-coverage.md",
+        "summary": "Updated the on-device code coverage documentation to reflect changes in how classes are reported and handled. The update removes a benefit regarding unused generated classes, updates the comparison table to clarify that on-device reports include generated code like Dagger factories (which can affect coverage percentages if not executed), and adds a corresponding known issue for generated code. Additionally, code blocks and internal links were formatted correctly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_on-device-code-coverage.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/coroutines\" target=\"_blank\">Use Kotlin coroutines with lifecycle-aware components</a>",
+        "path": "topic/libraries/architecture/coroutines.md",
+        "summary": "The changes primarily consist of updating internal documentation link extensions to include `.md.txt` and wrapping raw code snippets in proper Markdown code blocks (` ```kotlin `) to improve syntax highlighting and readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_coroutines.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/paging/load-state\" target=\"_blank\">Manage and present loading states</a>",
+        "path": "topic/libraries/architecture/paging/load-state.md",
+        "summary": "Added best practices for handling Paging load states in Jetpack Compose. This includes wrapping full-screen loading checks in `derivedStateOf` to prevent unnecessary recompositions during scroll events, and using `snapshotFlow` combined with `distinctUntilChangedBy` to reliably display error Snackbars on refresh failures.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_load-state.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/paging/test\" target=\"_blank\">Test your Paging implementation</a>",
+        "path": "topic/libraries/architecture/paging/test.md",
+        "summary": "The Paging testing documentation was updated to include a new section on testing Compose load states using static PagingData snapshots and explicit LoadStates. Additionally, code blocks throughout the guide were formatted using explicit Markdown syntax, and internal reference links were updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_test.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/paging/v3-overview\" target=\"_blank\">Paging library overview</a>",
+        "path": "topic/libraries/architecture/paging/v3-overview.md",
+        "summary": "Updated Paging library documentation to version 3.5.3, added references to the `paging-testing` artifact (`TestPager` and `asSnapshot`), highlighted built-in Jetpack Compose support, and updated dependency configuration snippets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_v3-overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data\" target=\"_blank\">Load and display paged data</a>",
+        "path": "topic/libraries/architecture/paging/v3-paged-data.md",
+        "summary": "Updated the Paging 3 guide with better code formatting using standard Markdown code blocks, added an example of an offset-based `getRefreshKey` implementation, expanded the `Pager` configuration details with `initialKey`, `initialLoadSize`, and `prefetchDistance`, and fixed reference links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_v3-paged-data.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/profiling-manager/debugging-anr-example\" target=\"_blank\">Perfetto ANR Root-Cause Analysis Report</a>",
+        "path": "topic/performance/tracing/profiling-manager/debugging-anr-example.md",
+        "summary": "Updated documentation links to include explicit '.md.txt' extensions for relative documentation targets and wrapped the large markdown-based Perfetto AI agent report inside standard fenced code blocks to fix formatting and rendering.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_debugging-anr-example.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars\" target=\"_blank\">Android for Cars overview</a>",
+        "path": "training/cars.md",
+        "summary": "The changes in the documentation consist entirely of updating internal link paths by appending '.md.txt' to various developer.android.com URLs. These updates are trivial formatting or tooling artifacts related to source file references and do not impact the actual content or meaning of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_cars.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars/apps/library/connection-api\" target=\"_blank\">Connection API</a>",
+        "path": "training/cars/apps/library/connection-api.md",
+        "summary": "Updated documentation links within the warning and introduction sections of the connection API guide to point to local Markdown reference files instead of external URLs, ensuring proper internal navigation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_connection-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/views\" target=\"_blank\">Build View-based UIs on Wear OS</a>",
+        "path": "training/wearables/views.md",
+        "summary": "The documentation for Wear OS views was updated to bump the core wear library dependency version from 1.4.0 (previously 1.2.0), replace references to the older AmbientModeSupport API with AmbientLifecycleObserver, and adjust several documentation links and class list formats.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_views.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/views/navigation\" target=\"_blank\">Navigation</a>",
+        "path": "training/wearables/views/navigation.md",
+        "summary": "The documentation was updated to replace the deprecated AmbientMode class with the new AmbientLifecycleObserver class for handling ambient mode in fragments. Additionally, various reference links throughout the document were updated to point to their corresponding .md.txt documentation paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/91030a3d_navigation.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-10T15:10:35Z",
     "commit_hash": "f5897726",
     "entries": [

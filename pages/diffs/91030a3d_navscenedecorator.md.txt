@@ -1,0 +1,13 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/navscenedecorator.md b/docs/guide/navigation/navigation-3/recipes/navscenedecorator.md
+index 3f7f4e40..169ac37b 100644
+--- a/docs/guide/navigation/navigation-3/recipes/navscenedecorator.md
++++ b/docs/guide/navigation/navigation-3/recipes/navscenedecorator.md
+@@ -20,7 +20,7 @@ During transitions between scenes, both scenes are composed and rendered at the
+ 
+ For example, the nav bar and rail composables in this recipe have some internal state that can't be hoisted (such as the state for the animations after an item is selected). As such, it's desirable to call the given composable only from one scene at any given time.
+ 
+-To accomplish the desired behavior, this recipe combines Compose's [movable content](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#movableContentOf(kotlin.Function0)) and [shared element](https://developer.android.com/develop/ui/compose/animation/shared-elements) APIs:
++To accomplish the desired behavior, this recipe combines Compose's [movable content](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary.md.txt#movableContentOf(kotlin.Function0)) and [shared element](https://developer.android.com/develop/ui/compose/animation/shared-elements.md.txt) APIs:
+ 
+ - By using `movableContentOf`, it is able to retain the state of the composable as it is moved between the different branches of the composition corresponding to each scene.
+ - By using the shared element APIs, it is able to keep the nav bar/rail in place while animating the content of the scenes that have been decorated. This is accomplished using the `sharedElement` modifier as well as a custom modifier, `cacheSize`, that maintains a placeholder of the correct size in the scene that doesn't call the movable content composable.

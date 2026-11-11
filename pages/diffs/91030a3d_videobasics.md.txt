@@ -1,0 +1,50 @@
+diff --git a/docs/media/camera/camera-deprecated/videobasics.md b/docs/media/camera/camera-deprecated/videobasics.md
+index 747f0dc8..e9355ee9 100644
+--- a/docs/media/camera/camera-deprecated/videobasics.md
++++ b/docs/media/camera/camera-deprecated/videobasics.md
+@@ -4,19 +4,14 @@ url: https://developer.android.com/media/camera/camera-deprecated/videobasics
+ source: md.txt
+ ---
+ 
+-**Note:** This page refers to the
+-[Camera](https://developer.android.com/reference/android/hardware/Camera) class, which is deprecated. We
+-recommend using [CameraX](https://developer.android.com/media/camera/camerax) or, for specific use cases,
+-[Camera2](https://developer.android.com/media/camera/camera2). Both CameraX and Camera2 support Android 5.0
+-(API level 21) and higher.
++This page refers to the [Camera](https://developer.android.com/reference/android/hardware/Camera.md.txt) class, which
++is deprecated. We recommend using [CameraX](https://developer.android.com/media/camera/camerax.md.txt) or, for specific use
++cases, [Camera2](https://developer.android.com/media/camera/camera2.md.txt). Both CameraX and Camera2 support Android 5.0
++(API level 21) and higher.   
+ 
+-<br />
+-
+-
+-To learn how to migrate from Camera1 to CameraX, see
+-[Migrate Camera1 to CameraX](https://developer.android.com/media/camera/camerax/camera1-to-camerax).
+-Alternatively, you can use the
+-[agentic skill for Camera1 to CameraX migration](https://github.com/android/skills/blob/main/camera/camerax/SKILL.md).
++To learn how to migrate from Camera1 to CameraX, see [Migrate Camera1 to CameraX](https://developer.android.com/media/camera/camerax/camera1-to-camerax.md.txt). Alternatively, you
++can use the [agentic
++skill for Camera1 to CameraX migration](https://github.com/android/skills/blob/main/camera/camerax/SKILL.md).
+ 
+ This lesson explains how to capture video using existing camera
+ applications.
+@@ -47,14 +42,14 @@ To advertise that your application depends on having a camera, put a
+ 
+ If your application uses, but does not require a camera in order to function, set `android:required` to `false`. In doing so, Google Play will allow devices without a
+ camera to download your application. It's then your responsibility to check for the availability
+-of the camera at runtime by calling `https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String)`.
++of the camera at runtime by calling `hasSystemFeature(PackageManager.FEATURE_CAMERA)`.
+ If a camera is not available, you should then disable your camera features.
+ 
+ ## View the video
+ 
+-The Android Camera application returns the video in the `https://developer.android.com/reference/android/content/Intent` delivered
+-to `https://developer.android.com/reference/android/app/Activity#onActivityResult(int, int, android.content.Intent)` as a `https://developer.android.com/reference/android/net/Uri` pointing to the video location in storage. The following code
+-retrieves this video and displays it in a `https://developer.android.com/reference/android/widget/VideoView`.
++The Android Camera application returns the video in the `Intent` delivered
++to `onActivityResult()` as a `Uri` pointing to the video location in storage. The following code
++retrieves this video and displays it in a `VideoView`.
+ 
+ ### Kotlin
+ 

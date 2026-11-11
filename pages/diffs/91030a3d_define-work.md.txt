@@ -1,0 +1,13 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/getting-started/define-work.md b/docs/develop/background-work/background-tasks/persistent/getting-started/define-work.md
+index 3205611f..f4435294 100644
+--- a/docs/develop/background-work/background-tasks/persistent/getting-started/define-work.md
++++ b/docs/develop/background-work/background-tasks/persistent/getting-started/define-work.md
+@@ -544,7 +544,7 @@ class UploadWork(appContext: Context, workerParams: WorkerParameters)
+ }
+ 
+ // Create a WorkRequest for your Worker and sending it input
+-val myUploadWork = OneTimeWorkRequ<estBuilder>UploadWork()
++val myUploadWork = OneTimeWorkRequestBuilder<UploadWork>()
+    .setInputData(workDataOf(
+        "IMAGE_URI" to "http://..."
+    ))

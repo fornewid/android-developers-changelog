@@ -1,0 +1,31 @@
+diff --git a/docs/agents/skills/system/glance-canonical-layouts/references/ui/theme/Color.kt.rawcontent.md b/docs/agents/skills/system/glance-canonical-layouts/references/ui/theme/Color.kt.rawcontent.md
+index c1d21811..425788f3 100644
+--- a/docs/agents/skills/system/glance-canonical-layouts/references/ui/theme/Color.kt.rawcontent.md
++++ b/docs/agents/skills/system/glance-canonical-layouts/references/ui/theme/Color.kt.rawcontent.md
+@@ -4,14 +4,16 @@ url: https://developer.android.com/agents/skills/system/glance-canonical-layouts
+ source: md.txt
+ ---
+ 
+-    package com.example.platform.ui.appwidgets.glance.layout.ui.theme
++```kotlin
++package com.example.platform.ui.appwidgets.glance.layout.ui.theme
+ 
+-    import androidx.compose.ui.graphics.Color
++import androidx.compose.ui.graphics.Color
+ 
+-    val Purple80 = Color(0xFFD0BCFF)
+-    val PurpleGrey80 = Color(0xFFCCC2DC)
+-    val Pink80 = Color(0xFFEFB8C8)
++val Purple80 = Color(0xFFD0BCFF)
++val PurpleGrey80 = Color(0xFFCCC2DC)
++val Pink80 = Color(0xFFEFB8C8)
+ 
+-    val Purple40 = Color(0xFF6650a4)
+-    val PurpleGrey40 = Color(0xFF625b71)
+-    val Pink40 = Color(0xFF7D5260)
+\ No newline at end of file
++val Purple40 = Color(0xFF6650a4)
++val PurpleGrey40 = Color(0xFF625b71)
++val Pink40 = Color(0xFF7D5260)
++```
+\ No newline at end of file

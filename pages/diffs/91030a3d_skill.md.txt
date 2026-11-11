@@ -1,0 +1,31 @@
+diff --git a/docs/agents/skills/tv/leanback-to-compose-tv-migration/skill.md b/docs/agents/skills/tv/leanback-to-compose-tv-migration/skill.md
+index a7e3f5b6..97c2325d 100644
+--- a/docs/agents/skills/tv/leanback-to-compose-tv-migration/skill.md
++++ b/docs/agents/skills/tv/leanback-to-compose-tv-migration/skill.md
+@@ -20,7 +20,7 @@ When migrating an Android TV application to Jetpack Compose, you must use
+ `androidx.tv` libraries and follow these 10-foot UI patterns:
+ 
+ - **UI modernization**: Focus on custom, cinematic layouts over legacy direct 1:1 templates. You must use Jetpack Compose for TV features like dynamic gradient hero backdrops, custom focus animations, custom navigation drawers, and custom layouts.
+-- **Primary design system** : You must always use `androidx.tv.material3.*` (`androidx.tv:tv-material`) over mobile `androidx.compose.material3.*`. TV Material 3 provides built-in D-Pad focus handling, focus zoom scaling, and TV-optimized typography and shapes. To set up Compose for TV dependencies, follow [Compose for TV setup](https://developer.android.com/training/tv/playback/compose).
++- **Primary design system** : You must always use `androidx.tv.material3.*` (`androidx.tv:tv-material`) over mobile `androidx.compose.material3.*`. TV Material 3 provides built-in D-Pad focus handling, focus zoom scaling, and TV-optimized typography and shapes. To set up Compose for TV dependencies, follow [Compose for TV setup](https://developer.android.com/training/tv/playback/compose.md.txt).
+ - **Focus zoom animation** : For interactive cards, you must use `CompactCard`, `ClassicCard`, or `WideCardContainer` with `scale =
+   CardDefaults.scale(focusedScale = 1.1f)` to provide standard TV focus animation.
+ - **Coil image loading** : To use declarative `AsyncImage(model,
+@@ -39,7 +39,7 @@ When migrating an Android TV application to Jetpack Compose, you must use
+ Jetpack Compose for TV (`androidx.tv.material3`) requires explicit focus
+ management, as components don't receive initial focus automatically and
+ navigation uses 2D spatial coordinates. To configure TV D-pad navigation, follow
+-instructions in [TV Navigation guide](https://developer.android.com/training/tv/get-started/navigation).
++instructions in [TV Navigation guide](https://developer.android.com/training/tv/get-started/navigation.md.txt).
+ 
+ ### Initial focus
+ 
+@@ -227,7 +227,7 @@ Surface(
+ When implementing scrollable lists or grids in Jetpack Compose for TV, you must
+ use standard `LazyColumn`, `LazyRow`, and `LazyVerticalGrid` from
+ `androidx.compose.foundation.lazy` and `androidx.compose.foundation.lazy.grid`.
+-For catalog browsing layouts, follow instructions in [Catalog Browser guide](https://developer.android.com/training/tv/playback/compose/browse).
++For catalog browsing layouts, follow instructions in [Catalog Browser guide](https://developer.android.com/training/tv/playback/compose/browse.md.txt).
+ 
+ 1. **Pivot scrolling with `BringIntoViewSpec`** : When defining a custom pivot scroll line for catalog rows using `BringIntoViewSpec` and `CompositionLocalProvider(LocalBringIntoViewSpec provides ...)`, you must ensure your project compiles against Compose Foundation 1.7.0+ by adding `implementation platform('androidx.compose:compose-bom:2024.06.00')` (or newer) or `implementation 'androidx.compose.foundation:foundation:1.7.0'` in `app/build.gradle`. Without Compose Foundation 1.7.0+, `import
+    androidx.compose.foundation.gestures.LocalBringIntoViewSpec` will fail with `Unresolved reference: LocalBringIntoViewSpec`.

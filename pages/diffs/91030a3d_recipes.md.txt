@@ -1,0 +1,49 @@
+diff --git a/docs/agents/skills/build-system/agp/agp-9-upgrade/references/recipes.md b/docs/agents/skills/build-system/agp/agp-9-upgrade/references/recipes.md
+index 7c89a553..58805f31 100644
+--- a/docs/agents/skills/build-system/agp/agp-9-upgrade/references/recipes.md
++++ b/docs/agents/skills/build-system/agp/agp-9-upgrade/references/recipes.md
+@@ -15,7 +15,7 @@ migrated.
+ - **DO** use only public APIs in migrated code.
+ 
+ In some cases, there is a one-to-one replacement for the old code. Some examples
+-are in [the AGP 9.0.0 release notes](https://developer.android.com/build/releases/agp-9-0-0-release-notes).
++are in [the AGP 9.0.0 release notes](https://developer.android.com/build/releases/agp-9-0-0-release-notes.md.txt).
+ 
+ In other cases, there is no direct one-to-one replacement. For these situations,
+ the [gradle-recipes repo](https://github.com/android/gradle-recipes) is a great resource. You can checkout one of its
+@@ -44,23 +44,25 @@ Additional details for each use-case follow.
+ 
+ ### Add custom BuildConfig fields
+ 
+-See the detailed guide at [BuildConfig](https://developer.android.com/agents/skills/build-system/agp/agp-9-upgrade/references/buildconfig).
++See the detailed guide at [BuildConfig](https://developer.android.com/agents/skills/build-system/agp/agp-9-upgrade/references/buildconfig.md.txt).
+ 
+ ### Renaming an APK
+ 
+ In the old DSL, an APK could be renamed very simply. Here's an example:
+ 
+-    android {
+-      applicationVariants.all {
+-        outputs.all {
+-          val output = this as com.android.build.gradle.api.ApkVariantOutput
+-          val fileName = output.outputFileName
+-          if (fileName.contains("release")) {
+-            output.outputFileName = "my-cool-new-name.apk"
+-          }
+-        }
++```kotlin
++android {
++  applicationVariants.all {
++    outputs.all {
++      val output = this as com.android.build.gradle.api.ApkVariantOutput
++      val fileName = output.outputFileName
++      if (fileName.contains("release")) {
++        output.outputFileName = "my-cool-new-name.apk"
+       }
+     }
++  }
++}
++```
+ 
+ However, with AGP 9 and the new DSL, `applicationVariants` is no longer
+ available. You must instead react to artifact creation using the

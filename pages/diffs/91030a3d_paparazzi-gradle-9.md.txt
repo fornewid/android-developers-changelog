@@ -1,0 +1,33 @@
+diff --git a/docs/agents/skills/build-system/agp/agp-9-upgrade/references/paparazzi-gradle-9.md b/docs/agents/skills/build-system/agp/agp-9-upgrade/references/paparazzi-gradle-9.md
+index a6a007ae..4147b15b 100644
+--- a/docs/agents/skills/build-system/agp/agp-9-upgrade/references/paparazzi-gradle-9.md
++++ b/docs/agents/skills/build-system/agp/agp-9-upgrade/references/paparazzi-gradle-9.md
+@@ -23,14 +23,18 @@ must apply one of these two workarounds.
+ 
+ Kotlin DSL:
+ 
+-    tasks.withType<Test>().configureEach {
+-      // https://github.com/cashapp/paparazzi/issues/2111
+-      reports.html.required = false
+-    }
++```kotlin
++tasks.withType<Test>().configureEach {
++  // https://github.com/cashapp/paparazzi/issues/2111
++  reports.html.required = false
++}
++```
+ 
+ Groovy DSL:
+ 
+-    tasks.withType(Test).configureEach {
+-      // https://github.com/cashapp/paparazzi/issues/2111
+-      reports.html.required = false
+-    }
+\ No newline at end of file
++```groovy
++tasks.withType(Test).configureEach {
++  // https://github.com/cashapp/paparazzi/issues/2111
++  reports.html.required = false
++}
++```
+\ No newline at end of file

@@ -1,0 +1,204 @@
+diff --git a/docs/develop/ui/views/search/searchable-config.md b/docs/develop/ui/views/search/searchable-config.md
+index 1bb15367..8e38ba0c 100644
+--- a/docs/develop/ui/views/search/searchable-config.md
++++ b/docs/develop/ui/views/search/searchable-config.md
+@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/views/search/searchable-config
+ source: md.txt
+ ---
+ 
+-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Search bar →](https://developer.android.com/develop/ui/compose/components/search-bar) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Search bar →](https://developer.android.com/develop/ui/compose/components/search-bar.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ To implement search with assistance from the Android system---that is, to deliver search
+ queries to an activity and provide search suggestions---your application must provide a search
+@@ -12,7 +12,7 @@ configuration in the form of an XML file.
+ 
+ This page describes the search configuration file in terms of its syntax and usage. For more
+ information about how to implement search features for your application, see
+-[Create a search interface](https://developer.android.com/develop/ui/views/search/search-dialog).
++[Create a search interface](https://developer.android.com/develop/ui/views/search/search-dialog.md.txt).
+ 
+ file location:
+ :   `res/xml/filename.xml`  
+@@ -29,8 +29,8 @@ syntax:
+         android:hint="string resource"
+         android:searchMode=["queryRewriteFromData" | "queryRewriteFromText"]
+         android:searchButtonText="string resource"
+-        android:inputType="`https://developer.android.com/reference/android/R.attr#inputType`"
+-        android:imeOptions="`https://developer.android.com/reference/android/R.attr#imeOptions`"
++        android:inputType="`inputType`"
++        android:imeOptions="`imeOptions`"
+         android:searchSuggestAuthority="string"
+         android:searchSuggestPath="string"
+         android:searchSuggestSelection="string"
+@@ -47,7 +47,7 @@ syntax:
+         android:voiceMaxResults="int"
+         >
+         <actionkey
+-            android:keycode="`https://developer.android.com/reference/android/view/KeyEvent`"
++            android:keycode="`KEYCODE`"
+             android:queryActionMsg="string"
+             android:suggestActionMsg="string"
+             android:suggestActionMsgColumn="string" />
+@@ -64,9 +64,9 @@ elements:
+         `android:label`
+         :   *String resource* . (Required.) The name of your application. It must be the same as
+             the name applied to the `android:label` attribute of your
+-            [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element#label)
++            [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#label)
+             or
+-            [`<application>`](https://developer.android.com/guide/topics/manifest/application-element#label)
++            [`<application>`](https://developer.android.com/guide/topics/manifest/application-element.md.txt#label)
+             manifest element. This label is only visible to the user when you set
+             `android:includeInGlobalSearch` to `"true"`, in which case, this label is used
+             to identify your application as a searchable item in the system's search settings.
+@@ -85,12 +85,12 @@ elements:
+ 
+             | Value | Description |
+             |---|---|
+-            | `"queryRewriteFromData"` | Use the value from the `https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_INTENT_DATA` column to rewrite thebquery text. This must only be used when the values in `SUGGEST_COLUMN_INTENT_DATA` are suitable for user inspection and editing, such as HTTP URIs. |
+-            | `"queryRewriteFromText"` | Use the value from the `https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_TEXT_1` column to rewrite the query text. |
++            | `"queryRewriteFromData"` | Use the value from the `SUGGEST_COLUMN_INTENT_DATA` column to rewrite thebquery text. This must only be used when the values in `SUGGEST_COLUMN_INTENT_DATA` are suitable for user inspection and editing, such as HTTP URIs. |
++            | `"queryRewriteFromText"` | Use the value from the `SUGGEST_COLUMN_TEXT_1` column to rewrite the query text. |
+ 
+ 
+             For more information, see the documentation about rewriting the query text in
+-            [Add custom search suggestions](https://developer.android.com/develop/ui/views/search/adding-custom-suggestions#RewritingQueryText).
++            [Add custom search suggestions](https://developer.android.com/develop/ui/views/search/adding-custom-suggestions.md.txt#RewritingQueryText).
+ 
+         `android:searchButtonText`
+         :   *String resource*. The text to display in the button that executes search. By
+@@ -101,14 +101,14 @@ elements:
+         `android:inputType`
+         :   *Keyword* . Defines the type of input method to use, such as the type of soft
+             keyboard. For most searches, in which free-form text is expected, you don't need this attribute.
+-            See `https://developer.android.com/reference/android/R.attr#inputType` for a list of
++            See `inputType` for a list of
+             suitable values for this attribute.
+ 
+         `android:imeOptions`
+         :   *Keyword* . Supplies additional options for the input method. For most searches, in
+             which free-form text is expected, you don't need this attribute. The default IME is
+             `actionSearch`, which provides the "search" button instead of a carriage return in the
+-            soft keyboard. See `https://developer.android.com/reference/android/R.attr#imeOptions`
++            soft keyboard. See `imeOptions`
+             for a list of suitable values for this attribute.
+ 
+         #### Search suggestion attributes
+@@ -124,7 +124,7 @@ elements:
+ 
+         `android:searchSuggestPath`
+         :   *String* . This path is used as a portion of the suggestions
+-            query `https://developer.android.com/reference/android/net/Uri`, after the prefix and
++            query `Uri`, after the prefix and
+             authority and before the standard suggestions path. This is only required if you have a
+             single content provider issuing different types of suggestions---such as for different
+             data types---and you need a way to disambiguate the suggestions queries when you receive
+@@ -142,18 +142,18 @@ elements:
+         :   *String* . The default intent action to be used when a user
+             taps on a custom search suggestion---such as `"android.intent.action.VIEW"`.
+             If this value is not overridden by the selected suggestion using the
+-            `https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_INTENT_ACTION`
++            `SUGGEST_COLUMN_INTENT_ACTION`
+             column, the value is placed in the action field of the
+-            `https://developer.android.com/reference/android/content/Intent` when the user taps
++            `Intent` when the user taps
+             a suggestion.
+ 
+         `android:searchSuggestIntentData`
+         :   *String* . The default intent data to be used when a user
+             taps on a custom search suggestion.
+             If not overridden by the selected suggestion---via the
+-            `https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_INTENT_DATA`
++            `SUGGEST_COLUMN_INTENT_DATA`
+             column---this value is placed in the data field of the
+-            `https://developer.android.com/reference/android/content/Intent` when the user taps
++            `Intent` when the user taps
+             a suggestion.
+ 
+         `android:searchSuggestThreshold`
+@@ -162,8 +162,8 @@ elements:
+             content provider for anything shorter than the threshold. The default value is 0.
+ 
+         For more information about the above attributes for search suggestions, see the documentation
+-        for [adding custom search suggestions](https://developer.android.com/develop/ui/views/search/adding-recent-query-suggestions) and
+-        [adding custom suggestions](https://developer.android.com/develop/ui/views/search/adding-custom-suggestions).
++        for [adding custom search suggestions](https://developer.android.com/develop/ui/views/search/adding-recent-query-suggestions.md.txt) and
++        [adding custom suggestions](https://developer.android.com/develop/ui/views/search/adding-custom-suggestions.md.txt).
+ 
+         #### Quick Search Box attributes
+ 
+@@ -222,7 +222,7 @@ elements:
+ 
+ 
+             See
+-            `https://developer.android.com/reference/android/speech/RecognizerIntent#EXTRA_LANGUAGE_MODEL` for more
++            `EXTRA_LANGUAGE_MODEL` for more
+             information.
+ 
+         `android:voicePromptText`
+@@ -230,16 +230,16 @@ elements:
+ 
+         `android:voiceLanguage`
+         :   *String* . The spoken language to be expected, expressed as the string value of
+-            a constant in `https://developer.android.com/reference/java/util/Locale`, such as
++            a constant in `Locale`, such as
+             `"de"` for German or `"fr"` for French. This is needed only if it is different
+-            from the current value of `https://developer.android.com/reference/java/util/Locale#getDefault()`.
++            from the current value of `Locale.getDefault()`.
+ 
+         `android:voiceMaxResults`
+         :   *Integer* . Sets the maximum number of results to return,
+             including the "best" result, which is always provided as the
+-            `https://developer.android.com/reference/android/content/Intent#ACTION_SEARCH`
++            `ACTION_SEARCH`
+             intent's primary query. Must be 1 or greater. Use
+-            `https://developer.android.com/reference/android/speech/RecognizerIntent#EXTRA_RESULTS`
++            `EXTRA_RESULTS`
+             to get the results from the intent.
+             If not provided, the recognizer chooses how many results to return.
+ 
+@@ -263,28 +263,28 @@ elements:
+ 
+         `android:keycode`
+         :   *String* . (Required.) A key code from
+-            `https://developer.android.com/reference/android/view/KeyEvent` that represents
++            `KeyEvent` that represents
+             the action key you want to respond to---for example, `"KEYCODE_CALL"`. This
+             is added to the
+-            `https://developer.android.com/reference/android/content/Intent#ACTION_SEARCH`
++            `ACTION_SEARCH`
+             intent that is passed to your searchable activity. To examine the key code, use
+-            `https://developer.android.com/reference/android/content/Intent#getIntExtra(java.lang.String, int)`.
++            `getIntExtra(SearchManager.ACTION_KEY)`.
+             Not all keys are supported for a search action, as many of them are used for typing,
+             navigation, or system functions.
+ 
+         `android:queryActionMsg`
+         :   *String* . An action message to be sent if the action key is pressed while the
+             user is entering query text. This is added to the
+-            `https://developer.android.com/reference/android/content/Intent#ACTION_SEARCH`
++            `ACTION_SEARCH`
+             intent that the system passes to your searchable activity. To examine the string, use
+-            `https://developer.android.com/reference/android/content/Intent#getStringExtra(java.lang.String)`.
++            `getStringExtra(SearchManager.ACTION_MSG)`.
+ 
+         `android:suggestActionMsg`
+         :   *String* . An action message to be sent if the action key is pressed while a
+             suggestion is in focus. This is added to the intent that the system passes to your
+             searchable activity---using the action you define for the suggestion. To examine the
+             string, use
+-            `https://developer.android.com/reference/android/content/Intent#getStringExtra(java.lang.String)`.
++            `getStringExtra(SearchManager.ACTION_MSG)`.
+             This must only be used if all your suggestions support this action key. If not all
+             suggestions can handle the same action key, then you must instead use the following
+             `android:suggestActionMsgColumn` attribute.
+@@ -303,7 +303,7 @@ elements:
+             message column, and then selects the action message string from the cursor. That string is
+             added to the intent that the system passes to your searchable activity, using the action you
+             define for suggestions. To examine the string, use
+-            `https://developer.android.com/reference/android/content/Intent#getStringExtra(java.lang.String)`.
++            `getStringExtra(SearchManager.ACTION_MSG)`.
+             If the data doesn't exist for the selected suggestion, the action key is ignored.
+ 
+ example:

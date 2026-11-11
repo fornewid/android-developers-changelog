@@ -1,0 +1,29 @@
+diff --git a/docs/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss.md b/docs/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss.md
+index 4679eaae..048d55bb 100644
+--- a/docs/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss.md
++++ b/docs/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss.md
+@@ -137,6 +137,7 @@ fun SwipeItemExample() {
+     }
+ }
+ ```
++![A list of to-do items with the first item partly swiped toward the start, revealing a red background with a delete icon, above 'Buy groceries' and 'Go to gym'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_swipeitemexample.png)
+ 
+ <br />
+ 
+@@ -250,7 +251,7 @@ fun TodoListItemWithAnimation(
+ 
+ ```kotlin
+ @Composable
+-private fun SwipeItemWithAnimationExample() {
++fun SwipeItemWithAnimationExample() {
+     val todoItems = remember {
+         mutableStateListOf(
+             TodoItem("Pay bills"), TodoItem("Buy groceries"),
+@@ -277,6 +278,7 @@ private fun SwipeItemWithAnimationExample() {
+     }
+ }
+ ```
++![A list of to-do items with the first item partly swiped toward the start, revealing a red background with a delete icon, above 'Buy groceries' and 'Go to gym'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_swipecarditemexample.png)
+ 
+ <br />
+ 

@@ -1,0 +1,71 @@
+diff --git a/docs/agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability.md b/docs/agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability.md
+index 8710d21e..07b26e03 100644
+--- a/docs/agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability.md
++++ b/docs/agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability.md
+@@ -213,7 +213,7 @@ unoptimized recomposition loop.
+ 
+   <br />
+ 
+-For more information, see the [Backwards Write documentation](https://developer.android.com/develop/ui/compose/performance/backwards-write).
++For more information, see the [Backwards Write documentation](https://developer.android.com/develop/ui/compose/performance/backwards-write.md.txt).
+ 
+ ## 3. State and snapshot optimizations
+ 
+@@ -435,27 +435,29 @@ degrade runtime performance instead of improving it.
+ When a composable is made skippable, the Compose compiler generates slot table
+ storage and comparison logic for every parameter:
+ 
+-    // What you write
+-    @Composable
+-    fun ContactCell(contact: Contact) {
+-        /* Your function body */
+-    }
++```kotlin
++// What you write
++@Composable
++fun ContactCell(contact: Contact) {
++    /* Your function body */
++}
+ 
+-    // What the Compose compiler generates (simplified)
+-    @Composable
+-    fun ContactCell(
+-        contact: Contact,
+-        $composer: Composer?,
+-        $changed: Int
+-    ) {
+-        val $dirty = $changed or $composer.changed(contact)
+-
+-        if ($dirty) {
+-            /* Your function body */
+-        } else {
+-            $composer.skipToGroupEnd()
+-        }
++// What the Compose compiler generates (simplified)
++@Composable
++fun ContactCell(
++    contact: Contact,
++    $composer: Composer?,
++    $changed: Int
++) {
++    val $dirty = $changed or $composer.changed(contact)
++
++    if ($dirty) {
++        /* Your function body */
++    } else {
++        $composer.skipToGroupEnd()
+     }
++}
++```
+ 
+ Every parameter passed to a composable is effectively stored in the slot table
+ as if it were `remember`ed. On every recomposition pass:
+@@ -600,7 +602,7 @@ occurs.
+ 
+   <br />
+ 
+-For more information, see the [Strong Skipping Mode documentation](https://developer.android.com/develop/ui/compose/performance/stability/strongskipping).
++For more information, see the [Strong Skipping Mode documentation](https://developer.android.com/develop/ui/compose/performance/stability/strongskipping.md.txt).
+ 
+ ## 5. Using `remember` and calculation keys
+ 

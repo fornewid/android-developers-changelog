@@ -1,0 +1,64 @@
+diff --git a/docs/develop/ui/compose/components/badges.md b/docs/develop/ui/compose/components/badges.md
+index db426a88..fc64c5c4 100644
+--- a/docs/develop/ui/compose/components/badges.md
++++ b/docs/develop/ui/compose/components/badges.md
+@@ -56,7 +56,7 @@ the following in the code:
+ - `Icon` serves as the argument for the `content` parameter of `BadgedBox`. It is the icon over which the badge appears. In this case, it is a mail icon.
+ 
+ This is how it appears:
+-![A simple badge that contains no content.](https://developer.android.com/static/develop/ui/compose/images/components/badge-simple.png) **Figure 2.** A minimal badge implementation.
++![A mail icon with a small red badge at its top-right corner.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_badge.png) **Figure 2.** A minimal badge implementation.
+ 
+ > [!IMPORTANT]
+ > **Important:** You can pass any composable to the `BadgedBox` composable's content slot. You could therefore create a badge that displays on a `Button`, an `Image`, or any other composable.
+@@ -70,10 +70,11 @@ respond to user actions.
+ ```kotlin
+ @Composable
+ fun BadgeInteractiveExample() {
+-    var itemCount by remember { mutableIntStateOf(0) }
++    var itemCount by remember { mutableIntStateOf(3) }
+ 
+     Column(
+-        verticalArrangement = Arrangement.spacedBy(16.dp)
++        verticalArrangement = Arrangement.spacedBy(16.dp),
++        horizontalAlignment = Alignment.CenterHorizontally,
+     ) {
+         BadgedBox(
+             badge = {
+@@ -92,8 +93,22 @@ fun BadgeInteractiveExample() {
+                 contentDescription = "Shopping cart",
+             )
+         }
+-        Button(onClick = { itemCount++ }) {
+-            Text("Add item")
++        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
++            FilledTonalIconButton(
++                onClick = { itemCount-- },
++                enabled = itemCount > 0,
++            ) {
++                Icon(
++                    painter = rememberVectorPainter(AppIcons.Remove),
++                    contentDescription = "Remove item",
++                )
++            }
++            FilledIconButton(onClick = { itemCount++ }) {
++                Icon(
++                    painter = rememberVectorPainter(AppIcons.Add),
++                    contentDescription = "Add item",
++                )
++            }
+         }
+     }
+ }
+@@ -107,9 +122,10 @@ number of items in the user's cart.
+ - The [`BadgedBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/BadgedBox.composable.md.txt#BadgedBox(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) displays only when the item count is over 0.
+ - The arguments for `containerColor` and `contentColor` control the appearance of the badge.
+ - The `Text` composable for the content slot of [`Badge`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Badge.composable#Badge(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) appears within the badge. In this case, it displays the number of items in the cart.
++- The remove and add icon buttons decrease and increase the item count. The remove button is disabled when the cart is empty.
+ 
+ This implementation appears as follows:
+-![A badge implementation that contains the number of items in a shopping cart.](https://developer.android.com/static/develop/ui/compose/images/components/badge-advanced.png) **Figure 3.** A badge that displays the number of items in a shopping cart.
++![A shopping cart icon with a red badge that shows 3, above remove and add icon buttons.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_badgeinteractive.png) **Figure 3.** A badge that displays the number of items in a shopping cart.
+ 
+ ## Additional resources
+ 

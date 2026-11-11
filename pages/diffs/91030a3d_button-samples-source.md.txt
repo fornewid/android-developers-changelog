@@ -1,0 +1,22 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md
+index 4b01393c..f60ffa88 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md
+@@ -189,7 +189,7 @@ private fun LargeButtonWithTrailingIconPreview() {
+ @Preview
+ @Composable
+ private fun LargeButtonWithLeadingAndTrailingIconPreview() {
+-    GrgeButtonWithLeadingAndTrailingIconSample() }
++    GlimmerTheme { LargeButtonWithLeadingAndTrailingIconSample() }
+ }
+ 
+ @Preview
+@@ -197,7 +197,6 @@ private fun LargeButtonWithLeadingAndTrailingIconPreview() {
+ private fun CustomFocusedColorButtonPreview() {
+     GlimmerTheme { CustomFocusedColorButtonSample() }
+ }
+-ButtonSamples.kt
+ ```
+ 
+ <br />
+\ No newline at end of file

@@ -1,0 +1,19 @@
+diff --git a/docs/media/media3/session/control-playback.md b/docs/media/media3/session/control-playback.md
+index 606864ca..36879452 100644
+--- a/docs/media/media3/session/control-playback.md
++++ b/docs/media/media3/session/control-playback.md
+@@ -192,11 +192,12 @@ across two [`MediaMetadata`](https://developer.android.com/reference/androidx/me
+ 
+ - **Item-level playlist ID (`MediaItem.mediaMetadata.playlistId`)** :
+   - Mark a playing `MediaItem` as part of a playlist by calling [`MediaMetadata.Builder.setPlaylistId`](https://developer.android.com/reference/androidx/media3/common/MediaMetadata.Builder.md.txt#setPlaylistId(java.lang.String)) on the item's `MediaMetadata`, while `MediaItem.mediaId` uniquely identifies the individual track.
+-  - The `playlistId` is an opaque, app-defined string that uniquely identifies the playlist across sessions for as long as the playlist can be resumed (for example, `37i9dQZF1DX76Wlfdnj7AP`), and shouldn't be reused for a different playlist. Connected controllers don't interpret this ID; they store it and send it back to your app to resume the playlist.
++  - The `playlistId` is an opaque, app-defined string that uniquely identifies the playlist across sessions for as long as the playlist can be resumed (for example, `a8f3k9m2p7q4r1w6x5z0v2`), and shouldn't be reused for a different playlist. Connected controllers don't interpret this ID; they store it and send it back to your app to resume the playlist.
+   - Every track that belongs to the playlist carries the same `playlistId`. Leave `playlistId` unset (`null`) for tracks that aren't played from a playlist context, such as a single standalone track.
+ - **Player-level playlist metadata (`Player.getPlaylistMetadata`)** :
+   - Populate a dedicated `MediaMetadata` instance with the playlist's descriptive attributes (`setTitle`, `setArtworkUri`, and `setMediaType`) and set it on the player using [`Player.setPlaylistMetadata`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#setPlaylistMetadata(androidx.media3.common.MediaMetadata)).
+-  - When a connected controller detects a non-null `currentMediaItem.mediaMetadata.playlistId`, it inspects [`MediaController.getPlaylistMetadata`](https://developer.android.com/reference/androidx/media3/session/MediaController.md.txt#getPlaylistMetadata()) to retrieve the playlist's title and artwork URI.
++  - Set the relevant media type on the playlist metadata using `setMediaType`. For example, for podcasts set [`MEDIA_TYPE_PODCAST`](https://developer.android.com/reference/androidx/media3/common/MediaMetadata.md.txt#MEDIA_TYPE_PODCAST()), for audiobooks set [`MEDIA_TYPE_AUDIO_BOOK`](https://developer.android.com/reference/androidx/media3/common/MediaMetadata.md.txt#MEDIA_TYPE_AUDIO_BOOK()), and for music albums set [`MEDIA_TYPE_ALBUM`](https://developer.android.com/reference/androidx/media3/common/MediaMetadata.md.txt#MEDIA_TYPE_ALBUM()).
++  - When a connected controller detects a non-null `currentMediaItem.mediaMetadata.playlistId`, it inspects [`MediaController.getPlaylistMetadata`](https://developer.android.com/reference/androidx/media3/session/MediaController.md.txt#getPlaylistMetadata()) to retrieve the playlist's title, artwork URI, and media type.
+   - Update the playlist metadata whenever the active playlist changes (for example, when the user starts a different playlist) so that `getPlaylistMetadata` always describes the playlist referenced by the current item's `playlistId`.
+ 
+ The following example shows how to publish playlist metadata on the `Player`
