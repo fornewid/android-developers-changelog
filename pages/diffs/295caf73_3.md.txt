@@ -1,0 +1,50 @@
+diff --git a/docs/blog/latest/3.md b/docs/blog/latest/3.md
+index 511d1f19..ccae9d19 100644
+--- a/docs/blog/latest/3.md
++++ b/docs/blog/latest/3.md
+@@ -7,6 +7,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)](https://developer.android.com/blog/authors/miguel-montemayor.md.txt) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_1vfHD.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
++
++  ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices.md.txt) Today at Galaxy Unpacked, Samsung unveiled its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
++  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor.md.txt) • 3 min read
+ - [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang.md.txt) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+ 
+   ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference.md.txt)
+@@ -154,16 +160,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   - [#AppFunctions](https://developer.android.com/blog/topics/app-functions.md.txt)
+   - [#On-device](https://developer.android.com/blog/topics/on-device.md.txt)
+   - +2 ↩
+-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
+-
+-  ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md.txt)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md.txt) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
+-  1 min read
+-  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+-  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear.md.txt)
+-  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses.md.txt)
+-  - +1 ↩
+ [arrow_back](https://developer.android.com/blog/latest/2.md.txt)
+ 
+ #### Page 3
+@@ -249,6 +245,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano.md.txt)
+ - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+ - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
++- [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Large Screens](https://developer.android.com/blog/topics/large-screens)
+@@ -256,7 +253,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Window Size Classes](https://developer.android.com/blog/topics/blog-topic)
+ - [#usage-based billing GenAI apps](https://developer.android.com/blog/topics/usage-based-billing-gen-ai-apps)
+ - [#Remote Compose](https://developer.android.com/blog/topics/remote-compose)
+-- [#Camera X](https://developer.android.com/blog/topics/camera-x)
+ Stay in the loop
+ 
+ 

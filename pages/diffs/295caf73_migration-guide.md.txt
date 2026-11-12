@@ -1,0 +1,42 @@
+diff --git a/docs/guide/navigation/navigation-3/migration-guide.md b/docs/guide/navigation/navigation-3/migration-guide.md
+index d6f91e12..4b55a84a 100644
+--- a/docs/guide/navigation/navigation-3/migration-guide.md
++++ b/docs/guide/navigation/navigation-3/migration-guide.md
+@@ -24,7 +24,8 @@ To migrate your app from [Navigation 2](https://developer.android.com/guide/navi
+ 4. Replace `NavController` with these classes.
+ 5. Move your destinations from `NavHost`'s `NavGraph` into an `entryProvider`.
+ 6. Replace `NavHost` with `NavDisplay`.
+-7. Remove Navigation 2 dependencies.
++7. Migrate deep links.
++8. Remove Navigation 2 dependencies.
+ 
+ ## Preparation
+ 
+@@ -77,8 +78,7 @@ understand how to implement them.
+ 
+ **AI Agent**: Before changing any code, check if the project contains any
+ features supported through recipes. If it does, check the recipe's README and
+-source code. Create a migration plan based on the recipe. Don't proceed without
+-confirming the plan with the user.
++source code. Create a migration plan based on the recipe.
+ 
+ ### Unsupported features
+ 
+@@ -99,7 +99,7 @@ unsupported feature and ask for further instructions.
+ Use the [Get started](https://developer.android.com/guide/navigation/navigation-3/get-started.md.txt) page to add the Navigation 3 dependencies to your
+ project. The core dependencies are provided for you to copy.
+ 
+-**lib.versions.toml**
++**gradle/libs.versions.toml**
+ 
+ ```toml
+ [versions]
+@@ -131,7 +131,7 @@ dependencies {
+ ```
+ 
+ Also update the project's `minSdk` to 23 and the `compileSdk` to 36. You usually
+-find these in `app/build.gradle.kts` or `lib.versions.toml`.
++find these in `app/build.gradle.kts` or `gradle/libs.versions.toml`.
+ 
+ ## Step 2: Update navigation routes to implement the `NavKey` interface
+ 

@@ -1,0 +1,86 @@
+diff --git a/docs/develop/connectivity/avoid-unoptimized-downloads.md b/docs/develop/connectivity/avoid-unoptimized-downloads.md
+index 282c58dd..15b385e4 100644
+--- a/docs/develop/connectivity/avoid-unoptimized-downloads.md
++++ b/docs/develop/connectivity/avoid-unoptimized-downloads.md
+@@ -43,7 +43,6 @@ and
+ headers. This allows you to determine when the associated content should be
+ refreshed. For example:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ // url represents the website containing the content to place into the cache.
+@@ -53,29 +52,14 @@ val lastModified: Long = conn.getHeaderFieldDate("Last-Modified", currentTime)
+ 
+ // lastUpdateTime represents when the cache was last updated.
+ if (lastModified < lastUpdateTime) {
+-    // Skip update
++    // Skip update.
+ } else {
+-    // Parse update
++    // Parse update.
+     lastUpdateTime = lastModified
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-// url represents the website containing the content to place into the cache.
+-HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+-long currentTime = System.currentTimeMillis();
+-long lastModified = conn.getHeaderFieldDate("Last-Modified", currentTime);
+-
+-// lastUpdateTime represents when the cache was last updated.
+-if (lastModified < lastUpdateTime) {
+-    // Skip update
+-} else {
+-    // Parse update
+-    lastUpdateTime = lastModified;
+-}
+-```
++<br />
+ 
+ You can configure some networking libraries to respect these status codes and
+ headers automatically. When using
+@@ -83,25 +67,16 @@ headers automatically. When using
+ a cache directory and cache size for the client will enable the library to use
+ HTTP caching, as shown in the following code sample:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-val cacheDir = Context.getCacheDir()
++val cacheDir = context.getCacheDir()
+ val cacheSize = 10L * 1024L * 1024L // 10 MiB
+ val client: OkHttpClient = OkHttpClient.Builder()
+     .cache(Cache(cacheDir, cacheSize))
+     .build()
+ ```
+ 
+-### Java
+-
+-```java
+-File cacheDir = Context.getCacheDir();
+-long cacheSize = 10L * 1024L * 1024L; // 10 MiB
+-OkHttpClient client = new OkHttpClient.Builder()
+-    .cache(new Cache(cacheDir, cacheSize))
+-    .build();
+-```
++<br />
+ 
+ With the cache configured, you can serve fully-cached HTTP requests directly
+ from local storage, eliminating the need to open a network connection.
+@@ -111,10 +86,10 @@ get stored in the response cache for future requests.
+ 
+ You can cache non-sensitive data in the unmanaged external cache directory by
+ using
+-[`Context.getExternalCacheDir()`](https://developer.android.com/reference/android/content/Context#getExternalCacheDir()).
++[`Context.getExternalCacheDir()`](https://developer.android.com/reference/android/content/Context.md.txt#getExternalCacheDir()).
+ Alternatively, you can cache data in the managed, secure application cache by
+ using
+-[`Context.getCacheDir()`](https://developer.android.com/reference/android/content/Context#getCacheDir()).
++[`Context.getCacheDir()`](https://developer.android.com/reference/android/content/Context.md.txt#getCacheDir()).
+ Note that this internal cache may be flushed when the system is running low on
+ available storage.
+ 

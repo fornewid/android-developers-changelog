@@ -1,0 +1,15 @@
+diff --git a/docs/training/wearables/apps/auth-wear.md b/docs/training/wearables/apps/auth-wear.md
+index 12b748d8..6c932318 100644
+--- a/docs/training/wearables/apps/auth-wear.md
++++ b/docs/training/wearables/apps/auth-wear.md
+@@ -160,8 +160,8 @@ included in your UX flow of Credential Manager as fallbacks in case users
+ dismiss the Credential Manager screen.
+ 
+ To handle the user action of dismissing the Credential Manager screen, catch a
+-[`NoCredentialException`](https://developer.android.com/reference/androidx/credentials/exceptions/NoCredentialException.md.txt) as part of your
+-[`GetCredential`](https://developer.android.com/reference/androidx/credentials/CredentialManager.md.txt#getCredential(android.content.Context,androidx.credentials.GetCredentialRequest))
++[`GetCredentialCancellationException`](https://developer.android.com/reference/androidx/credentials/exceptions/GetCredentialCancellationException.md.txt)
++as part of your [`GetCredential`](https://developer.android.com/reference/androidx/credentials/CredentialManager.md.txt#getCredential(android.content.Context,androidx.credentials.GetCredentialRequest))
+ logic, and navigate to your own custom auth UI.
+ 
+ 

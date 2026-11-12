@@ -1,0 +1,212 @@
+diff --git a/docs/guide/navigation/type-safe-destinations.md b/docs/guide/navigation/type-safe-destinations.md
+index 271e6e7c..f4bf33c4 100644
+--- a/docs/guide/navigation/type-safe-destinations.md
++++ b/docs/guide/navigation/type-safe-destinations.md
+@@ -1,18 +1,9 @@
+ ---
+-title: Guide: Migrating to Type-Safe Navigation in Compose and Navigation 2  |  App architecture  |  Android Developers
++title: https://developer.android.com/guide/navigation/type-safe-destinations
+ url: https://developer.android.com/guide/navigation/type-safe-destinations
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [App architecture](https://developer.android.com/topic/architecture/intro)
+-
+-# Guide: Migrating to Type-Safe Navigation in Compose and Navigation 2 Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-
+ This guide outlines the process of replacing string-based routes with
+ serializable Kotlin types to achieve compile-time safety and eliminate runtime
+ crashes caused by typos or incorrect argument types.
+@@ -23,44 +14,46 @@ Before starting the migration, verify that your project meets the following
+ requirements:
+ 
+ 1. **Navigation version**: Update to Jetpack Navigation 2.8.0 or higher
+-2. **Kotlin serialization plugin**:
+-3. Add the plugin to `libs.versions.toml`:
++2. **Kotlin serialization plugin**: Add the Kotlin serialization plugin to your project:
+ 
+-```
+-[libraries]
+-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
++   - Add the plugin to `gradle/libs.versions.toml`:
+ 
+-[plugins]
+-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+-```
++     ```toml
++     [libraries]
++     kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+ 
+-* Add the dependencies to your top-level `build.gradle.kts` and module-level
+-  `build.gradle.kts`.
++     [plugins]
++     kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
++     ```
++   - Add the dependencies to your top-level `build.gradle.kts` and module-level
++     `build.gradle.kts`.
+ 
+ ## Step 1: Define Your Destinations
+ 
+ Replace your constant route strings with `@Serializable` objects and classes.
+ 
+-* **For screens without arguments**: Use a `data object`
+-* **For screens with arguments**: Use a `data class`
++- **For screens without arguments** : Use a `data object`
++- **For screens with arguments** : Use a `data class`
+ 
+ **Before (string based):**
+ 
+-```
++```kotlin
+ const val ROUTE_HOME = "home"
+ const val ROUTE_PROFILE = "profile/{userId}"
++
+ ```
+ 
+ **After (type safe):**
+ 
+-```
++```kotlin
+ import kotlinx.serialization.Serializable
+ 
+ @Serializable
+-object Home
++data object Home
+ 
+ @Serializable
+ data class Profile(val userId: String)
++
+ ```
+ 
+ ## Step 2: Update the NavHost Configuration
+@@ -70,7 +63,7 @@ Update your `NavHost` to use the new generic types in the `composable` and
+ 
+ **Before:**
+ 
+-```
++```kotlin
+ NavHost(navController, startDestination = "home") {
+     composable("home") { HomeScreen(...) }
+     composable("profile/{userId}") { backStackEntry ->
+@@ -78,11 +71,12 @@ NavHost(navController, startDestination = "home") {
+         ProfileScreen(userId)
+     }
+ }
++
+ ```
+ 
+ **After:**
+ 
+-```
++```kotlin
+ NavHost(navController, startDestination = Home) {
+     composable<Home> {
+         HomeScreen(...)
+@@ -93,6 +87,7 @@ NavHost(navController, startDestination = Home) {
+         ProfileScreen(profile.userId)
+     }
+ }
++
+ ```
+ 
+ ## Step 3: Implement Type-Safe Navigation Calls
+@@ -101,14 +96,16 @@ Replace string-interpolated navigation calls with class instances.
+ 
+ **Before:**
+ 
+-```
++```kotlin
+ navController.navigate("profile/user123")
++
+ ```
+ 
+ **After:**
+ 
+-```
++```kotlin
+ navController.navigate(Profile(userId = "user123"))
++
+ ```
+ 
+ ## Step 4: Accessing Arguments in ViewModels
+@@ -118,7 +115,7 @@ If you use a `ViewModel`, you can now extract the route object directly from the
+ 
+ **Implementation:**
+ 
+-```
++```kotlin
+ class ProfileViewModel(
+     savedStateHandle: SavedStateHandle
+ ) : ViewModel() {
+@@ -126,6 +123,7 @@ class ProfileViewModel(
+     private val profile = savedStateHandle.toRoute<Profile>()
+     val userId = profile.userId
+ }
++
+ ```
+ 
+ ## Step 5: (Advanced) Handling Custom Types
+@@ -133,38 +131,29 @@ class ProfileViewModel(
+ If you need to pass complex data classes (not just primitives), you must define
+ a custom `NavType`.
+ 
+-1. **Create the Custom Type**:
+-   ```kotlin
+-   val SearchFilterType = object : NavType(isNullableAllowed = false) {
+-   override fun get(bundle: Bundle, key: String): SearchFilter? =
+-   Json.decodeFromString(bundle.getString(key) ?: return null)
++1. **Create the Custom Type** : \`\`\`kotlin val SearchFilterType = object : NavType(isNullableAllowed = false) { override fun get(bundle: Bundle, key: String): SearchFilter? = Json.decodeFromString(bundle.getString(key) ?: return null)
+ 
+-```
+-override fun parseValue(value: String): SearchFilter =
+-    Json.decodeFromString(Uri.decode(value))
++    override fun parseValue(value: String): SearchFilter =
++        Json.decodeFromString(Uri.decode(value))
+ 
+-override fun put(bundle: Bundle, key: String, value: SearchFilter) {
+-    bundle.putString(key, Json.encodeToString(value))
+-}
+-```
++    override fun put(bundle: Bundle, key: String, value: SearchFilter) {
++        bundle.putString(key, Json.encodeToString(value))
++    }
+ 
+ }
+ 
+-```
+-2. **Register it in the Graph**:
+-```kotlin
+-composable<Search>(
+-    typeMap = mapOf(typeOf<SearchFilter>() to SearchFilterType)
+-) { ... }
+-```
++
++
++    2. **Register it in the Graph**:
++    ```kotlin
++    composable<Search>(
++        typeMap = mapOf(typeOf<SearchFilter>() to SearchFilterType)
++    ) { ... }
+ 
+ ## Best practices and tips
+ 
+-* **Sealed Hierarchies**: For large apps, group your routes using a sealed
+-  interface or class to keep the navigation structure organized
+-* **Object Instances**: For routes without parameters, always use `object`
+-  instead of `class` to avoid unnecessary allocations
+-* **Nullable Types**: The new API supports nullable types (for example, `data
++- **Sealed Hierarchies**: For large apps, group your routes using a sealed interface or class to keep the navigation structure organized
++- **Object Instances** : For routes without parameters, always use `object` instead of `class` to avoid unnecessary allocations
++- **Nullable Types** : The new API supports nullable types (for example, `data
+   class Search(val query: String?)`) and provides default values automatically
+-* **Testing**: Use `navController.currentBackStackEntry?.hasRoute<T>()` to
+-  check the current destination in a type-safe manner during UI tests
+\ No newline at end of file
++- **Testing** : Use `navController.currentBackStackEntry?.hasRoute<T>()` to check the current destination in a type-safe manner during UI tests
+\ No newline at end of file

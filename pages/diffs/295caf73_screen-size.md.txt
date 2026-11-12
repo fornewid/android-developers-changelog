@@ -1,0 +1,24 @@
+diff --git a/docs/training/wearables/compose/screen-size.md b/docs/training/wearables/compose/screen-size.md
+index f0fd80a5..81b75117 100644
+--- a/docs/training/wearables/compose/screen-size.md
++++ b/docs/training/wearables/compose/screen-size.md
+@@ -18,7 +18,7 @@ To learn more about the design principles for adaptive layouts, read the
+ 
+ ## Build responsive layouts using Material 3
+ 
+-Layouts should have [percentage-based margins](https://developer.android.com/design/ui/wear/guides/foundations/canonical-adaptive-layouts#non-scrolling-responsiveness). Because Compose works by default in absolute values instead, use `rememberResponsiveColumnPadding` from the [Horologist Library](https://github.com/google/horologist) to calculate the padding and pass it to the `ScreenScaffold`'s `contentPadding` parameter and the `TransformingLazyColumn`'s `contentPadding` parameter.
++Layouts should have [percentage-based margins](https://developer.android.com/design/ui/wear/guides/foundations/canonical-adaptive-layouts#non-scrolling-responsiveness). In Wear Compose Material 3, `ScreenScaffold` calculates percentage-based padding automatically and supplies `contentPadding` to its content lambda; pass this `contentPadding` parameter to `TransformingLazyColumn`.
+ 
+ <br />
+ 
+@@ -81,8 +81,8 @@ These coordinate between the App and individual screens
+ 
+ For the top and bottom padding, also note the following:
+ 
+-- The specification of the first and last `ItemType`, to determine the correct padding.
+-- The use of `ListHeader` for the first item in the list, because `Text` headers shouldn't have padding.
++- The use of `Modifier.minimumVerticalContentPadding` (such as `ListHeaderDefaults.minimumTopListContentPadding` and `ButtonDefaults.minimumVerticalListContentPadding`), so that `TransformingLazyColumn` uses at least the recommended top and bottom padding when those items appear at the edge of the list.
++- The use of `ListHeader` for the first item in the list, rather than a plain `Text` composable.
+ 
+ Full specifications can be found in the [Figma design kits](https://developer.android.com/design/ui/wear/guides/foundations/download). For more
+ details and examples, see:

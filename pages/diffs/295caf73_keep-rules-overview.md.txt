@@ -1,0 +1,248 @@
+diff --git a/docs/topic/performance/app-optimization/keep-rules-overview.md b/docs/topic/performance/app-optimization/keep-rules-overview.md
+index 0c1f7e6c..b7ed04ed 100644
+--- a/docs/topic/performance/app-optimization/keep-rules-overview.md
++++ b/docs/topic/performance/app-optimization/keep-rules-overview.md
+@@ -4,16 +4,13 @@ url: https://developer.android.com/topic/performance/app-optimization/keep-rules
+ source: md.txt
+ ---
+ 
+-When you [enable app optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization) with the default settings, R8 performs
++When you [enable app optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt) with the default settings, R8 performs
+ extensive optimizations in order to maximize your performance benefits. R8 makes
+ substantial modifications to the code including renaming, moving, and removing
+ classes, fields and methods. If you observe that these modifications cause
+ errors, you need to specify which parts of the code R8 *shouldn't* modify by
+ declaring those in keep rules.
+ 
+-> [!NOTE]
+-> **Note:** Keep rules that are narrowly scoped allow for maximum optimization. Use keep rules that are as specific as possible if rules are necessary, or consider a change in libraries if usage of a library is causing problems with R8 optimizations.
+-
+ ## Common scenarios that require keep rules
+ 
+ R8 identifies and preserves all direct calls in your code. However, R8 cannot
+@@ -29,11 +26,39 @@ This is not an exhaustive list of scenarios that require keep rules, but these
+ scenarios cover most of the cases where you might need keep rules.
+ 
+ If your own code uses reflection or is called from JNI, you can annotate that
+-code with [Jetpack Keep](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations) annotations instead of writing keep rules manually.
++code with [Jetpack Keep](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations.md.txt) annotations instead of writing keep rules manually.
+ Its Gradle plugin generates the keep rules from the annotations at build time.
+ 
+ > [!NOTE]
+-> **Note:** In modern Android development, you should limit the use of reflection and avoid calls from native code into your Java or Kotlin code where possible because these code patterns can impact performance. When selecting dependencies for your app, choose libraries that are compatible with R8 optimization. To learn more, see [Choose libraries wisely](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely).
++> **Note:** In modern Android development, you should limit the use of reflection and avoid calls from native code into your Java or Kotlin code where possible because these code patterns can impact performance. When selecting dependencies for your app, choose libraries that are compatible with R8 optimization. To learn more, see [Choose libraries wisely](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely.md.txt).
++
++## Understand how keep rules affect optimization
++
++R8 is a whole-program optimizer that analyzes your app code to remove unused
++code, inline methods, merge classes, and obfuscate identifiers. However, R8 can
++only optimize within the configuration you define.
++
++Keep rules represent an explicit instruction to limit optimization. Every keep
++rule you declare restricts R8's ability to transform that portion of your
++codebase. The value of a well-crafted keep rule lies in its specificity:
++
++- **Narrow keep rules enable maximum optimization:** By targeting only the
++  exact entry points accessed dynamically (such as a reflective constructor
++  or a serialized field), you let R8 optimize the rest of your code.
++
++- **Broad keep rules prevent optimization:** Declaring package-wide
++  rules or wide wildcards prevents R8 from optimizing entire classes and all
++  of their members. R8 can't remove, inline, merge, or obfuscate that code.
++
++Overly broad keep rules directly lead to bloated DEX binaries, increased app
++memory footprint, slower startup times (TTID and TTFD), and higher ANR rates.
++Your goal shouldn't be to keep classes "just in case," but to define the minimal
++contract required for dynamic execution.
++
++To find broad or unnecessary keep rules, including those from third-party
++libraries, use the [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer.md.txt). It reports shrinking,
++optimization, and obfuscation scores that show how much of your code R8 can
++optimize.
+ 
+ ## How to add keep rules to your app
+ 
+@@ -58,27 +83,31 @@ explicitly omitted.
+ 
+ ### Kotlin
+ 
+-    android {
+-        buildTypes {
+-            release {
+-                optimization {
+-                    enable = true // Enables code and resource optimizations.
+-                }
++```kotlin
++android {
++    buildTypes {
++        release {
++            optimization {
++                enable = true // Enables code and resource optimizations.
+             }
+         }
+     }
++}
++```
+ 
+ ### Groovy
+ 
+-    android {
+-        buildTypes {
+-            release {
+-                optimization {
+-                    enable = true // Enables code and resource optimizations.
+-                }
++```groovy
++android {
++    buildTypes {
++        release {
++            optimization {
++                enable = true // Enables code and resource optimizations.
+             }
+         }
+     }
++}
++```
+ 
+ > [!NOTE]
+ > **Note:** The legacy DSL which required code and resource optimization to be distinctly enabled is still supported with AGP versions 9.3 and higher.
+@@ -91,37 +120,41 @@ your project's configuration and manage all keep rules yourself, set
+ 
+ ### Kotlin
+ 
+-    android {
+-        buildTypes {
+-            release {
+-                optimization {
+-                    enable = true // Enables code and resource optimizations.
+-                    keepRules {
+-                        includeDefault = false // The file with optimization
+-                        // rules for the Android platform is included by
+-                        // default. To omit this file, set this option to false.
+-                    }
++```kotlin
++android {
++    buildTypes {
++        release {
++            optimization {
++                enable = true // Enables code and resource optimizations.
++                keepRules {
++                    includeDefault = false // The file with optimization
++                    // rules for the Android platform is included by
++                    // default. To omit this file, set this option to false.
+                 }
+             }
+         }
+     }
++}
++```
+ 
+ ### Groovy
+ 
+-    android {
+-        buildTypes {
+-            release {
+-                optimization {
+-                    enable = true // Enables code and resource optimizations.
+-                    keepRules {
+-                        includeDefault = false // The file with optimization
+-                        // rules for the Android platform is included by
+-                        // default. To omit this file, set this option to false.
+-                    }
++```groovy
++android {
++    buildTypes {
++        release {
++            optimization {
++                enable = true // Enables code and resource optimizations.
++                keepRules {
++                    includeDefault = false // The file with optimization
++                    // rules for the Android platform is included by
++                    // default. To omit this file, set this option to false.
+                 }
+             }
+         }
+     }
++}
++```
+ 
+ ### Legacy DSL for AGP versions lower than 9.3
+ 
+@@ -140,35 +173,39 @@ content with, the [`proguard-common.txt`](https://cs.android.com/android-studio/
+ 
+ ### Legacy DSL (Kotlin)
+ 
+-    android {
+-        buildTypes {
+-            release {
+-                isMinifyEnabled = true
+-                isShrinkResources = true
+-
+-                proguardFiles(
+-                    // Default file with default optimization rules.
+-                    getDefaultProguardFile("proguard-android-optimize.txt"),
+-                    ...
+-                )
+-            }
++```kotlin
++android {
++    buildTypes {
++        release {
++            isMinifyEnabled = true
++            isShrinkResources = true
++
++            proguardFiles(
++                // Default file with default optimization rules.
++                getDefaultProguardFile("proguard-android-optimize.txt"),
++                ...
++            )
+         }
+     }
++}
++```
+ 
+ ### Legacy DSL (Groovy)
+ 
+-    android {
+-        buildTypes {
+-            release {
+-                minifyEnabled = true
+-                shrinkResources = true
++```groovy
++android {
++    buildTypes {
++        release {
++            minifyEnabled = true
++            shrinkResources = true
+ 
+-                // Default file with default optimization rules.
+-                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+-                ...
+-            }
++            // Default file with default optimization rules.
++            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
++            ...
+         }
+     }
++}
++```
+ 
+ ## Add a keep rule
+ 
+@@ -176,7 +213,7 @@ When you add keep rules, you can include global options as well as define your
+ own keep rules.
+ 
+ - **Global options** : Global options are general directives that affect how R8
+-  operates on your entire codebase. To learn more, see [Global options](https://developer.android.com/topic/performance/app-optimization/global-options).
++  operates on your entire codebase. To learn more, see [Global options](https://developer.android.com/topic/performance/app-optimization/global-options.md.txt).
+ 
+ - **Keep rules** : Keep rules need to be designed carefully, to make sure you
+   get the right balance between maximizing code optimization without
+@@ -189,4 +226,4 @@ own keep rules.
+ ## Keep rules for library authors
+ 
+ After learning about the global options and syntax for keep rules, see
+-[Optimization for library authors](https://developer.android.com/topic/performance/app-optimization/library-optimization) for further details.
+\ No newline at end of file
++[Optimization for library authors](https://developer.android.com/topic/performance/app-optimization/library-optimization.md.txt) for further details.
+\ No newline at end of file

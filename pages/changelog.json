@@ -1,5 +1,377 @@
 [
   {
+    "date": "2026-11-12T15:09:35Z",
+    "commit_hash": "295caf73",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/references/SampleGlanceWidget.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-appwidget-updates-and-memory/references/SampleGlanceWidget.kt.rawcontent.md",
+        "summary": "Fixed syntax errors in the SampleGlanceWidget code snippet by correcting typos in the `currentState<Preferences>()` call and the `actionRunCallback<RefreshWidgetAction>()` button click handler.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_SampleGlanceWidget.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-appwidget-updates-and-memory/skill\" target=\"_blank\">Manage Jetpack Glance state and AppWidget bitmap memory</a>",
+        "path": "agents/skills/system/glance-appwidget-updates-and-memory/skill.md",
+        "summary": "Updated the Glance AppWidget documentation to recommend using in-memory Bitmaps over FileProvider content:// URIs by default. This addresses permission grant failures that occur specifically when a work-profile widget is placed on a personal home screen, and makes FileProvider setup optional unless content URIs are strictly required.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/samples/socialite\" target=\"_blank\">Add generative AI responses the SociaLite sample app</a>",
+        "path": "ai/samples/socialite.md",
+        "summary": "Updated the Firebase AI initialization code snippet to use the new `Firebase.ai.generativeModel` syntax and updated the model name to \"gemini-2.0-flash-lite-001\". Additionally, formatted code blocks with proper Markdown syntax and updated the resource link URL to point to the correct documentation file.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_socialite.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench\" target=\"_blank\">Android Bench</a>",
+        "path": "bench.md",
+        "summary": "Updated the AI benchmarking documentation to include new model results for Gemini 4 Carbon, Claude Haiku 5.5, and Muse Wonder, while also updating DeepSeek V4.1 Flash's model classification from closed to open weights. These additions expand the benchmark scope and provide developers with a broader comparison of AI agent performance across Android-specific development tasks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_bench.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench/archive\" target=\"_blank\">Android Bench</a>",
+        "path": "bench/archive.md",
+        "summary": "Added historical benchmark archive data for November 4th, 2026, featuring new evaluation metrics, model rankings (including Claude Sonnet 5.5, Claude Opus 5.5, and GPT 6.1 Sol), and per-task performance breakdowns to track long-term progress on Android development tasks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_archive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench/changelog\" target=\"_blank\">Android Bench</a>",
+        "path": "bench/changelog.md",
+        "summary": "The changelog was updated to include new AI model and agent benchmark results for November 11th, 2026, featuring entries for claude-code (Claude Haiku 5.5), antigravity-sdk (Gemini 4 Carbon), and muse-code (Muse Wonder). Additionally, documentation links throughout the changelog were updated to point to their corresponding `.md.txt` source files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_changelog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog\" target=\"_blank\">The Android Developers' Blog</a>",
+        "path": "blog.md",
+        "summary": "Added a new blog post entry about how SmileID scaled identity verification using CameraX across 18,000+ Android devices, and removed an older post regarding Android Dev Summit developer tools and performance updates. This keeps the documentation current with the latest Android developer blog content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_blog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/donovan-mcmurray\" target=\"_blank\">Donovan McMurray</a>",
+        "path": "blog/authors/donovan-mcmurray.md",
+        "summary": "Updated Donovan McMurray's author profile documentation to include a new case study post about SmileID utilizing CameraX for identity verification, bringing the total post count to 2.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_donovan-mcmurray.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/case-studies\" target=\"_blank\">Case Studies</a>",
+        "path": "blog/categories/case-studies.md",
+        "summary": "Updated links and references in the case studies documentation by appending '.md.txt' extensions to post URLs, author profiles, topic tags, and pagination links to align with the documentation source mapping.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_case-studies.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/case-studies/2\" target=\"_blank\">Case Studies</a>",
+        "path": "blog/categories/case-studies/2.md",
+        "summary": "Added a new Datadog case study regarding ProfilingManager to the Case Studies documentation index, along with updating internal links to include `.md.txt` extensions for posts, authors, and topics.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest.md",
+        "summary": "The latest Android documentation updates include a new case study detailing how SmileID scaled identity verification across 18,000+ device types using CameraX, while removing an older post about Android Bench 2.0. Additionally, navigation topic tags for CameraX were updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_latest.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/10\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/10.md",
+        "summary": "Updated the latest blog list by adding an announcement for the Samsung Galaxy XR device launch by Matthew McCullough, removing an older Google I/O 2025 post, and reordering the topic tags to include CameraX.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/11\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/11.md",
+        "summary": "Added a new blog post entry for Google I/O 2025 focusing on building adaptive Android apps across multiple form factors by author Fahd Imtiaz. Additionally, updated the CameraX topic link to point to its proper markdown file.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/2\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/2.md",
+        "summary": "Updated the latest blog listings to include the announcement for Android Bench 2.0 regarding long-horizon tasks and agentic evaluation, removed an older post about optimizing apps for Samsung Galaxy devices, and adjusted tag listings like CameraX.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/3\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/3.md",
+        "summary": "The latest Android blog updates page has been refreshed to include a new post regarding app optimization for Samsung Galaxy foldable and wearable devices announced at Galaxy Unpacked. Additionally, an older post about the Android XR Developer Catalyst Program was removed, and topic tags like CameraX were reorganized.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/4\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/4.md",
+        "summary": "The latest Android blog documentation was updated to include an announcement for the Android XR Developer Catalyst Program and associated topics, removed an older Jetpack Compose April '26 release post entry, and adjusted the ordering of the CameraX tag.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/5\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/5.md",
+        "summary": "Added a new blog post entry for the Jetpack Compose April '26 release detailing version 1.11 features, shared element debug tools, and trackpad events, while removing an older entry about the Google Play Apps Accelerator. These updates help developers stay informed on the latest stable UI toolkits and platform news.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/6\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/6.md",
+        "summary": "Updated the latest Android blog page to include the announcement for the Google Play Apps Accelerator class of 2026 by Robbie McLachlan, removed an older post regarding Android 17 resizability, and rearranged the CameraX topic tag.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/7\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/7.md",
+        "summary": "Updated the blog listing page to include a new post regarding app resizability and orientation changes in Android 17, removed an older post about the Android XR SDK Developer Preview 3, and adjusted the CameraX topic tag placement.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/8\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/8.md",
+        "summary": "The latest blog updates documentation (8.md) was updated to include a new announcement regarding the Android XR SDK Developer Preview 3 for AI Glasses, removed an older post about CameraX 1.5, and adjusted the topic tags for Camera X to maintain accurate navigation across developer updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/9\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/9.md",
+        "summary": "Updated the latest Android blog post listings to introduce the CameraX 1.5 release announcement by Scott Nien, removed an older Samsung Galaxy XR post by Matthew McCullough, and adjusted the placement of the Camera X topic tag. This keeps the developer blog feed current with recent library and platform announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification\" target=\"_blank\">How SmileID Scaled Identity Verification to 18,000+ Android Device Types with CameraX</a>",
+        "path": "blog/posts/smileid-camerax-android-identity-verification.md",
+        "summary": "This new case study documents how SmileID successfully scaled its Android identity verification SDK to support over 18,000 device types by migrating to CameraX, resulting in increased verification pass rates and significantly higher SDK adoption.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/camera-x\" target=\"_blank\">#Camera X</a>",
+        "path": "blog/topics/camera-x.md",
+        "summary": "This new documentation page introduces case studies and development insights regarding the use of CameraX for identity verification across diverse Android devices. It highlights how developers can achieve high-resolution face captures for liveness checks while maintaining performance on low-memory devices.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started\" target=\"_blank\">Getting started with WorkManager</a>",
+        "path": "develop/background-work/background-tasks/persistent/getting-started.md",
+        "summary": "The documentation changes simplify reference links within the text by replacing full URLs to Android reference documentation with clean class and method names (e.g., Worker, Result, WorkRequest, and enqueue()), and remove the Sunflower sample reference from the additional resources section.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_getting-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/avoid-unoptimized-downloads\" target=\"_blank\">Avoid unoptimized downloads</a>",
+        "path": "develop/connectivity/avoid-unoptimized-downloads.md",
+        "summary": "The documentation updates remove Java code snippets in favor of Kotlin-only examples for conditional HTTP caching and OkHttpClient configuration, and correct API reference links to use local markdown paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_avoid-unoptimized-downloads.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/satellite/constrained-networks\" target=\"_blank\">Develop for constrained satellite networks</a>",
+        "path": "develop/connectivity/satellite/constrained-networks.md",
+        "summary": "Updated the constrained satellite networks documentation to improve code snippet formatting, fix syntax errors in the Kotlin example, and remove the Java example. It also added a note regarding SDK dependencies and handling capabilities on Android 16 and higher.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_constrained-networks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/glance/error-handling\" target=\"_blank\">Handle errors with Glance</a>",
+        "path": "develop/ui/compose/glance/error-handling.md",
+        "summary": "The documentation updates fix code block formatting for Kotlin snippets and XML layouts related to error handling in Jetpack Compose Glance. It also corrects reference link extensions for Android documentation targets to ensure proper navigation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_error-handling.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/test-rewards\" target=\"_blank\">Test Rewards</a>",
+        "path": "games/test-rewards.md",
+        "summary": "The documentation for testing rewards in Google Play games was updated to remove references to backend Real-Time Developer Notifications (RTDN) and server-side purchase acknowledgment steps. This clarifies that out-of-app purchase handling can focus on client-side detection via queryPurchasesAsync and general purchase processing logic.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_test-rewards.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/migration-guide\" target=\"_blank\">If your screens depend on ViewModels, add the Nav3 Lifecycle ViewModel add-on library</a>",
+        "path": "guide/navigation/navigation-3/migration-guide.md",
+        "summary": "The Navigation 3 migration guide has been updated to include a specific step for migrating deep links and to correct the version catalog file path from `lib.versions.toml` to `gradle/libs.versions.toml`. Additionally, instructions for AI agents regarding the migration plan confirmation flow were streamlined.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_migration-guide.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/type-safe-destinations\" target=\"_blank\">Guide: Migrating to Type-Safe Navigation in Compose and Navigation 2</a>",
+        "path": "guide/navigation/type-safe-destinations.md",
+        "summary": "The changes to the type-safe navigation documentation primarily involve formatting and structural cleanups, such as fixing code block languages, improving lists, and updating metadata sources rather than altering core technical guidance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_type-safe-destinations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/food\" target=\"_blank\">Engage SDK Food: Third-party technical integration instructions</a>",
+        "path": "guide/playcore/engage/food.md",
+        "summary": "Updated documentation links to include '.md.txt' extensions for related guides and tools, improved code block formatting for Gradle dependencies and Kotlin/Java snippets, and fixed broken links in tables.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_food.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/media3\" target=\"_blank\">Media3</a>",
+        "path": "jetpack/androidx/releases/media3.md",
+        "summary": "This update introduces Media3 version 1.12.0-beta01, bringing numerous performance improvements, bug fixes, API modernizations, and new features across various libraries such as ExoPlayer, Transformer, Session, UI, and Cast extensions, alongside the removal of several deprecated symbols.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_media3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/test\" target=\"_blank\">Test</a>",
+        "path": "jetpack/androidx/releases/test.md",
+        "summary": "Updated AndroidX Test library release documentation to include the latest alpha releases (such as Core 1.8.0-alpha04, Espresso 3.8.0-alpha04, Runner 1.8.0-alpha04, and others) released on November 9, 2026. This includes bug fixes like reporting `@Ignore` reasons in `InstrumentationResultPrinter#testIgnored` for the Runner artifact, alongside standard documentation link updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_test.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/all-channel\" target=\"_blank\">Recent Release Notes</a>",
+        "path": "jetpack/androidx/versions/all-channel.md",
+        "summary": "Updated the AndroidX release documentation channels by appending new library versions for November 2026 (such as Media3 Version 1.12.0-beta01 and various Test library updates) and updated internal documentation links to point to their corresponding .md.txt text files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_all-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/multiplatform/datastore\" target=\"_blank\">Set up DataStore for KMP</a>",
+        "path": "kotlin/multiplatform/datastore.md",
+        "summary": "Updated the Kotlin Multiplatform DataStore documentation to include version requirements for PreferencesFileSerializer (1.2.0+), fixed the Android code snippet to properly accept a Context parameter, added the required @OptIn annotation for iOS foreign APIs, and improved code block formatting across all platforms.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_datastore.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax/preview\" target=\"_blank\">Implement a preview</a>",
+        "path": "media/camera/camerax/preview.md",
+        "summary": "Fixed XML syntax errors in the PreviewView layout sample by correcting malformed tags and attribute quotes. This ensures developers can correctly copy and paste the CameraX preview layout snippet into their Android projects.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview\" target=\"_blank\">Android Studio Preview</a>",
+        "path": "studio/preview.md",
+        "summary": "Updated Android Studio preview documentation to point to the latest Rabbit 3 (2026.2.3 RC 1) release downloads and updated internal documentation links (.md.txt).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.3\" target=\"_blank\">Android Studio Rabbit 3 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/studio/2026.2.3.md",
+        "summary": "Added release notes for Android Studio Rabbit 3 | 2026.2.3 RC 1, documenting a fix for a crash that occurred when opening layout XML files under Layout and Resource Editing (Issue #583343830).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_2026.2.3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely\" target=\"_blank\">Choose libraries wisely</a>",
+        "path": "topic/performance/app-optimization/choose-libraries-wisely.md",
+        "summary": "Updated documentation on choosing libraries wisely by adding a recommended workflow for handling broad library keep rules using the R8 Configuration Analyzer, cautioning against filtering rules in production releases, and improving Markdown formatting for code blocks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_choose-libraries-wisely.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/keep-rules-overview\" target=\"_blank\">About keep rules</a>",
+        "path": "topic/performance/app-optimization/keep-rules-overview.md",
+        "summary": "Added a new section explaining how keep rules affect R8 optimization, highlighting the performance impact of broad versus narrow rules and introducing the R8 Configuration Analyzer tool. Also improved code block formatting throughout the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_keep-rules-overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/library-optimization\" target=\"_blank\">Optimization for library authors</a>",
+        "path": "topic/performance/app-optimization/library-optimization.md",
+        "summary": "Updated library optimization documentation with better explanations regarding R8 consumer keep rules, global options restrictions, and AGP 9.0 build failures. It also adds code block syntax formatting for Gradle configurations and fixes several internal documentation links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_library-optimization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/app-memory-budgets\" target=\"_blank\">Set app memory budgets</a>",
+        "path": "topic/performance/memory/app-memory-budgets.md",
+        "summary": "Updated the app memory budgets documentation to include build configuration instructions (specifying compileSdk with minorApiLevel = 2 for Android 17 QPR2/API 37.2), added code snippets for Kotlin and Groovy build files, updated links with `.md.txt` extensions, and refined guidance on handling state-specific memory budget clauses and mapping budget states to process importance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_app-memory-budgets.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/guide/tools-overview\" target=\"_blank\">Sort by private clean + private dirty memory</a>",
+        "path": "topic/performance/memory/guide/tools-overview.md",
+        "summary": "Updated code snippets across the memory analysis tools documentation to use proper Markdown code blocks (bash and text) and added references to `MemoryBudgetManager` for querying app cgroup usage in-process.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_tools-overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/apps/auth-wear\" target=\"_blank\">Authentication on wearables: Credential Manager</a>",
+        "path": "training/wearables/apps/auth-wear.md",
+        "summary": "Updated the authentication documentation for Wear OS by replacing `NoCredentialException` with `GetCredentialCancellationException`. This ensures developers correctly handle when a user dismisses the Credential Manager screen, guiding them to direct users to a custom fallback authentication UI.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_auth-wear.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose/screen-size\" target=\"_blank\">Develop for different screen sizes</a>",
+        "path": "training/wearables/compose/screen-size.md",
+        "summary": "Updated the Wear OS Compose documentation to reflect new Material 3 APIs. It now explains that `ScreenScaffold` automatically calculates percentage-based padding and introduces `Modifier.minimumVerticalContentPadding` alongside proper `ListHeader` usage for managing edge paddings in `TransformingLazyColumn`. This matters because it guides developers away from deprecated manual padding calculations (like Horologist) toward official Wear Compose Material 3 idioms.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_screen-size.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/principles\" target=\"_blank\">Principles of Wear OS development</a>",
+        "path": "training/wearables/principles.md",
+        "summary": "The Wear OS principles documentation was updated to recommend the Jetpack SplashScreen API (`androidx.core:core-splashscreen`) for handling app cold starts instead of creating a custom splash activity. Additionally, several internal documentation links were updated to point to `.md.txt` files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/295caf73_principles.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-11T15:10:50Z",
     "commit_hash": "91030a3d",
     "entries": [

@@ -1,0 +1,127 @@
+diff --git a/docs/develop/ui/compose/glance/error-handling.md b/docs/develop/ui/compose/glance/error-handling.md
+index 8a9198cf..b1b35eac 100644
+--- a/docs/develop/ui/compose/glance/error-handling.md
++++ b/docs/develop/ui/compose/glance/error-handling.md
+@@ -66,14 +66,16 @@ This way, you can add action callbacks in the event of an uncaught exception or
+ error in composition.
+ 
+ To use this feature, override the
+-[`onCompositionError()`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/GlanceAppWidget#onCompositionError(android.content.Context,androidx.glance.GlanceId,kotlin.Int,kotlin.Throwable)) function:
++[`onCompositionError()`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/GlanceAppWidget.md.txt#onCompositionError(android.content.Context,androidx.glance.GlanceId,kotlin.Int,kotlin.Throwable)) function:
+ 
+-    GlanceAppWidget.onCompositionError(
+-        context: Context,
+-        glanceId: GlanceId,
+-        appWidgetId: Int,
+-        throwable: Throwable
+-    )
++```kotlin
++GlanceAppWidget.onCompositionError(
++    context: Context,
++    glanceId: GlanceId,
++    appWidgetId: Int,
++    throwable: Throwable
++)
++```
+ 
+ In this function, Glance falls back to the `RemoteViews` API for error handling.
+ This lets you specify layouts and action handlers using XML.
+@@ -85,49 +87,51 @@ includes a button to send feedback:
+ 
+    <br />
+ 
+-       <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-          style="@style/Widget.MyApplication.AppWidget.Error"
+-          android:id="@android:id/background"
++   ```xml
++   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++      style="@style/Widget.MyApplication.AppWidget.Error"
++      android:id="@android:id/background"
++      android:layout_width="match_parent"
++      android:textSize="24sp"
++      android:layout_height="match_parent"
++      android:orientation="vertical">
++
++      <TextView
++          android:id="@+id/error_title_view"
+           android:layout_width="match_parent"
+-          android:textSize="24sp"
+-          android:layout_height="match_parent"
+-          android:orientation="vertical">
++          android:textColor="@color/white"
++          android:textFontWeight="800"
++          android:layout_height="wrap_content"
++          android:text="Example Widget Error" />
+ 
++      <LinearLayout
++          android:layout_width="match_parent"
++          android:orientation="horizontal"
++          android:paddingTop="4dp"
++          android:layout_height="match_parent">
++
++          <ImageButton
++           android:layout_width="64dp"
++           android:layout_height="64dp"
++           android:layout_gravity="center"
++           android:tint="@color/white"
++           android:id="@+id/error_icon"
++           android:src="@drawable/heart_broken_fill0_wght400_grad0_opsz24"
++          />
+           <TextView
+-              android:id="@+id/error_title_view"
+-              android:layout_width="match_parent"
++              android:id="@+id/error_text_view"
++              android:layout_width="wrap_content"
+               android:textColor="@color/white"
+-              android:textFontWeight="800"
+               android:layout_height="wrap_content"
+-              android:text="Example Widget Error" />
+-
+-          <LinearLayout
+-              android:layout_width="match_parent"
+-              android:orientation="horizontal"
+-              android:paddingTop="4dp"
+-              android:layout_height="match_parent">
+-
+-              <ImageButton
+-               android:layout_width="64dp"
+-               android:layout_height="64dp"
+-               android:layout_gravity="center"
+-               android:tint="@color/white"
+-               android:id="@+id/error_icon"
+-               android:src="@drawable/heart_broken_fill0_wght400_grad0_opsz24"
+-              />
+-              <TextView
+-                  android:id="@+id/error_text_view"
+-                  android:layout_width="wrap_content"
+-                  android:textColor="@color/white"
+-                  android:layout_height="wrap_content"
+-                  android:layout_gravity="center"
+-                  android:padding="8dp"
+-                  android:textSize="16sp"
+-                  android:layout_weight="1"
+-                  android:text="Useful Error Message!" />
+-          </LinearLayout>
+-
+-       </LinearLayout>
++              android:layout_gravity="center"
++              android:padding="8dp"
++              android:textSize="16sp"
++              android:layout_weight="1"
++              android:text="Useful Error Message!" />
++      </LinearLayout>
++
++   </LinearLayout>
++   ```
+ 
+    <br />
+ 
+@@ -151,7 +155,7 @@ includes a button to send feedback:
+    <br />
+ 
+    > [!NOTE]
+-   > **Note:** On Android 17 (API level 37) and higher, `AppWidgetManager.updateAppWidget` throws an `IllegalArgumentException` if a widget's total serialized bitmap memory exceeds the [system bitmap memory limit](https://developer.android.com/about/versions/17/behavior-changes-17#memory-limit-widget). When you override `onCompositionError`, Glance catches exceptions thrown during widget update execution and invokes your callback. Always construct a lightweight, text-only `RemoteViews` fallback layout (with zero bitmaps) inside `onCompositionError` and push it with `AppWidgetManager.updateAppWidget(appWidgetId, fallbackViews)` so the user sees a recoverable state rather than the default error UI.
++   > **Note:** On Android 17 (API level 37) and higher, `AppWidgetManager.updateAppWidget` throws an `IllegalArgumentException` if a widget's total serialized bitmap memory exceeds the [system bitmap memory limit](https://developer.android.com/about/versions/17/behavior-changes-17.md.txt#memory-limit-widget). When you override `onCompositionError`, Glance catches exceptions thrown during widget update execution and invokes your callback. Always construct a lightweight, text-only `RemoteViews` fallback layout (with zero bitmaps) inside `onCompositionError` and push it with `AppWidgetManager.updateAppWidget(appWidgetId, fallbackViews)` so the user sees a recoverable state rather than the default error UI.
+ 
+ 3. Create a pending intent that references your `GlanceAppWidgetReceiver`:
+ 

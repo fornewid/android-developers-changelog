@@ -1,0 +1,32 @@
+diff --git a/docs/blog/authors/donovan-mcmurray.md b/docs/blog/authors/donovan-mcmurray.md
+index cdb7f9e9..76ea863b 100644
+--- a/docs/blog/authors/donovan-mcmurray.md
++++ b/docs/blog/authors/donovan-mcmurray.md
+@@ -4,16 +4,23 @@ url: https://developer.android.com/blog/authors/donovan-mcmurray
+ source: md.txt
+ ---
+ 
+-1 post ![](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)
++2 posts ![](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)
+ 
+ # Donovan McMurray
+ 
+ Developer Relations Engineer
+-- 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/Brighten_Real_Time_0d4c07ef35_ZnMjzn.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++- 11 Nov 2026 11 Nov 2026 ![](https://developer.android.com/static/blog/assets/1007_ABL_134_How_Smile_ID_Scaled_Identity_Verification_with_Camera_X_Strapi_788bf73f23_1N5Hb5.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
+ 
+-  ## [Brighten Your Real-Time Camera Feeds with Low Light Boost](https://developer.android.com/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost)
++  ## [How SmileID Scaled Identity Verification to 18,000+ Android Device Types with CameraX](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost) Today, we're diving into Low Light Boost (LLB), a powerful feature designed to brighten real-time camera streams
++  [arrow_forward](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt) Identity verification apps for banking and SIM registration require clear, high-resolution face captures to detect spoofing and deepfakes. Capturing frames sharp enough for liveness and anti-spoofing checks, without crashing low-memory devices, is a common challenge for Android camera develope
++  4 min read
++  - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
++- 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/Brighten_Real_Time_0d4c07ef35_ZnMjzn.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
++
++  ## [Brighten Your Real-Time Camera Feeds with Low Light Boost](https://developer.android.com/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md.txt) Today, we're diving into Low Light Boost (LLB), a powerful feature designed to brighten real-time camera streams
+   7 min read
+ Stay in the loop
+ 

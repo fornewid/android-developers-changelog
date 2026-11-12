@@ -1,0 +1,168 @@
+diff --git a/docs/develop/connectivity/satellite/constrained-networks.md b/docs/develop/connectivity/satellite/constrained-networks.md
+index 26c92055..eaca8878 100644
+--- a/docs/develop/connectivity/satellite/constrained-networks.md
++++ b/docs/develop/connectivity/satellite/constrained-networks.md
+@@ -11,7 +11,7 @@ called a *constrained satellite network*.
+ 
+ Due to these constraints, Android apps don't use these networks by default. If
+ you want your app to operate on constrained satellite networks, you must
+-[identify your app as optimized for satellite data usage](https://developer.android.com/develop/connectivity/satellite/constrained-networks#self-identify) and [adapt your
++[identify your app as optimized for satellite data usage](https://developer.android.com/develop/connectivity/satellite/constrained-networks.md.txt#self-identify) and [adapt your
+ app's use cases](https://developer.android.com/develop/connectivity/satellite/constrained-networks#adapt-use-cases) to conserve resources when connected to a constrained
+ satellite network.
+ 
+@@ -30,16 +30,18 @@ consider when you optimize for constrained data usage:
+   3. **Adapt the way your app uses network resources.** Constrained networks work best when apps perform network operations in bursts and spend most of the time not using the network. Variable latency can make real-time synchronous communication challenging.
+ 
+ There are also specific changes you need to make if your app uses [complex
+-networking logic](https://developer.android.com/develop/connectivity/satellite/constrained-networks#change-behavior) or [Firebase Cloud Messaging](https://developer.android.com/develop/connectivity/satellite/constrained-networks#firebase-cloud-messaging).
++networking logic](https://developer.android.com/develop/connectivity/satellite/constrained-networks#change-behavior) or [Firebase Cloud Messaging](https://developer.android.com/develop/connectivity/satellite/constrained-networks.md.txt#firebase-cloud-messaging).
+ 
+ ## Self-identify as optimized for constrained networks
+ 
+ To identify your app as optimized for constrained networks and opt into using
+-them, update your [app manifest file](https://developer.android.com/guide/topics/manifest/manifest-intro) with a
+-[`<meta-data>`](https://developer.android.com/guide/topics/manifest/meta-data-element) element as follows:
++them, update your [app manifest file](https://developer.android.com/guide/topics/manifest/manifest-intro.md.txt) with a
++[`<meta-data>`](https://developer.android.com/guide/topics/manifest/meta-data-element.md.txt) element as follows:
+ 
+-    <meta-data android:name="android.telephony.PROPERTY_SATELLITE_DATA_OPTIMIZED"
+-              android:value="PACKAGE_NAME" />
++```xml
++<meta-data android:name="android.telephony.PROPERTY_SATELLITE_DATA_OPTIMIZED"
++          android:value="PACKAGE_NAME" />
++```
+ 
+ This element allows your app to use a constrained satellite network when it's
+ the only network available. It also notifies the system that your app is
+@@ -53,14 +55,14 @@ the satellite-enabled apps in the settings app.
+ 
+ If you need to change your app's behavior when using a constrained network, or
+ if your app has pre-existing logic that uses
+-[`ConnectivityManager`](https://developer.android.com/reference/android/net/ConnectivityManager) to manage network use, you'll need
++[`ConnectivityManager`](https://developer.android.com/reference/android/net/ConnectivityManager.md.txt) to manage network use, you'll need
+ to make some changes to your network flow.
+ 
+ ### Detect constrained data conditions
+ 
+-The [`NetworkCapabilities`](https://developer.android.com/reference/android/net/NetworkCapabilities) object used for network
++The [`NetworkCapabilities`](https://developer.android.com/reference/android/net/NetworkCapabilities.md.txt) object used for network
+ requests includes a
+-[`NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED`](https://developer.android.com/reference/android/net/NetworkCapabilities#NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED) bit that is
++[`NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED`](https://developer.android.com/reference/android/net/NetworkCapabilities.md.txt#NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED) bit that is
+ set by default on all networks and removed on networks that are
+ bandwidth-constrained. You can determine whether a network is
+ bandwidth-constrained by checking whether or not it has the
+@@ -68,47 +70,47 @@ bandwidth-constrained by checking whether or not it has the
+ 
+ ### Work with constrained networks
+ 
+-[`NetworkRequest`](https://developer.android.com/reference/android/net/NetworkRequest) objects also include the
++[`NetworkRequest`](https://developer.android.com/reference/android/net/NetworkRequest.md.txt) objects also include the
+ `NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED` capability by default. Remove this
+ capability to indicate that constrained networks are acceptable.
+ 
+ When you detect that you've connected to a constrained network, you can adapt
+ your app's features as necessary:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-val HandlerThread = HandlerThread("SatelliteNetworkMonitor"
++val handlerThread = HandlerThread("SatelliteNetworkMonitor")
+ handlerThread.start()
+ val handler = Handler(handlerThread.getLooper())
+ 
+ // Make the network request.
+ val request = NetworkRequest.Builder()
+-    .addCapability(NET_CAPABILITY_INTERNET
++    .addCapability(NET_CAPABILITY_INTERNET)
+     .removeCapability(NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED)
+     .build()
+ 
+ // Register for the callback.
+-val callback = NetworkCallback() {
+-    override fun onCapabilitiesChanged(net: Network, nc: NetWorkCapabilities) {
++val callback = object : NetworkCallback() {
++    override fun onCapabilitiesChanged(net: Network, nc: NetworkCapabilities) {
+         updateAppUseCases(net, nc)
+     }
+ 
+     fun updateAppUseCases(net: Network, nc: NetworkCapabilities) {
+-    // Check if the network is bandwidth-constrained or if the transport is satellite.
+-    // Checking for the satellite transport is to make sure that application
+-    // continue to have optimized behavior on satellite networks irrespective of whether
+-    // the NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED capability is set or not. This is
+-    // because the capability can be removed on an unconstraned satellite Network which only
+-    // means applications does not need to modify to get data access but should continue
+-    // to optimize for data usage.
++        // Check if the network is bandwidth-constrained or if the transport is satellite.
++        // Checking for the satellite transport is to make sure that application
++        // continue to have optimized behavior on satellite networks irrespective of whether
++        // the NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED capability is set or not. This is
++        // because the capability can be removed on an unconstraned satellite Network which only
++        // means applications does not need to modify to get data access but should continue
++        // to optimize for data usage.
+         if (!nc.hasCapability(NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED) ||
+-             nc.hasTransport(NetworkCapabilities.TRANSPORT_SATELLITE)) {
++            nc.hasTransport(NetworkCapabilities.TRANSPORT_SATELLITE)
++        ) {
+             // Adapt to constrained network or disable heavy data usage features.
+-            ...
++            // ...
+         } else {
+-            // Revert to non optimized behavior for data usage
+-            ...
++            // Revert to non optimized behavior for data usage.
++            // ...
+         }
+     }
+ }
+@@ -116,46 +118,7 @@ val callback = NetworkCallback() {
+ cm.registerBestMatchingNetworkCallback(request, callback, handler)
+ ```
+ 
+-### Java
+-
+-```java
+-HandlerThread handlerThread = new HandlerThread("SatelliteNetworkMonitor");
+-handlerThread.start();
+-Handler handler = new Handler(handlerThread.getLooper());
+-
+-// Make the network request.
+-NetworkRequest request = new NetworkRequest.Builder()
+-    .addCapability(NET_CAPABILITY_INTERNET)
+-    .removeCapability(NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED)
+-    .build();
+-
+-// Register for the callback.
+-NetworkCallback callback = new NetworkCallback() {
+-    @Override
+-    public void onCapabilitiesChanged(Network net, NetworkCapabilities nc) {
+-        updateAppUsecases(net, nc);
+-    }
+-
+-    private void updateAppUsecases(Network net, NetworkCapabilities nc) {
+-    // Check if the network is bandwidth-constrained or if the transport is satellite.
+-    // Checking for the satellite transport is to make sure that application
+-    // continue to have optimized behavior on satellite networks irrespective of whether
+-    // the NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED capability is set or not. This is
+-    // because the capability can be removed on an unconstraned satellite Network which only
+-    // means applications does not need to modify to get data access but should continue
+-    // to optimize for data usage.
+-        if (!nc.hasCapability(NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED) || nc.hasTransport(NetworkCapabilities.TRANSPORT_SATELLITE)) {
+-            // Adapt to constrained network or disable heavy data usage features.
+-            ...
+-        } else {
+-            // Revert to non optimized behavior for data usage
+-            ...
+-        }
+-    }
+-};
+-// Where cm is your ConnectivityManager object:
+-cm.registerBestMatchingNetworkCallback(request, callback, handler);
+-```
++<br />
+ 
+ > [!NOTE]
+ > **Note:** There are no specific SDK dependencies for accessing constrained satellite networks. You can hardcode the integer values for `NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED` and `TRANSPORT_SATELLITE` on lower versions of Android, but on Android 16 and above apps need to use the net network capabilities as demonstrated, handling any exceptions thrown by `ConnectivityManager`.

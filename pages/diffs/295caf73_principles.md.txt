@@ -1,0 +1,78 @@
+diff --git a/docs/training/wearables/principles.md b/docs/training/wearables/principles.md
+index 72822ab2..8406a964 100644
+--- a/docs/training/wearables/principles.md
++++ b/docs/training/wearables/principles.md
+@@ -68,7 +68,7 @@ needs. The following table provides an example of priorities for a weather app.
+ |---|---|---|---|
+ | Complication P1: What's the weather right now? | Notification P1 Tell me about a severe weather advisory | Tile P1: What's the weather right now? P2: What's the weather today? | App P1: What's the weather right now? P2: What's the weather today? P3: What's the hourly breakdown? P3: Preferences |
+ 
+-To learn more, read the [User Interface Guide](https://developer.android.com/training/wearables/user-interfaces).
++To learn more, read the [User Interface Guide](https://developer.android.com/training/wearables/user-interfaces.md.txt).
+ 
+ ## Add notifications to additional surfaces
+ 
+@@ -98,13 +98,12 @@ makes sense for your app.
+ 
+ ## Improve user experience during an app cold start
+ 
+-To improve user experience during an app cold start, create a splash activity
+-with a separate theme. Then, set its `windowBackground` to your custom splash
+-drawable in the manifest file. The splash screen consists of a layer-list with
+-two elements: the background color and the custom drawable, which is typically
+-your app icon. Use a 48x48 dp drawable.
++To improve user experience during an app cold start, use the Jetpack
++`SplashScreen` API (`androidx.core:core-splashscreen`) rather than creating a
++dedicated splash activity.
+ 
+-For more information, see [Add a splash screen](https://developer.android.com/training/wearables/apps/splash-screen).
++For implementation steps and icon sizing specifications, see
++[Add a splash screen](https://developer.android.com/training/wearables/apps/splash-screen.md.txt).
+ 
+ ## Considerations for media apps
+ 
+@@ -152,12 +151,12 @@ where the user starts the music.
+ Some Wear OS devices include a built-in speaker that you can use for things like
+ reminders and alarms. Avoid using the built-in speaker for playing media and
+ music, because users expect these experiences to be tied to using headphones.
+-For more information, see [Detecting audio devices](https://developer.android.com/training/wearables/apps/audio#detecting-audio-devices).
++For more information, see [Detecting audio devices](https://developer.android.com/training/wearables/apps/audio.md.txt#detecting-audio-devices).
+ 
+ ## Considerations for fitness apps
+ 
+ When creating fitness apps for Android 10 (API level 29) and higher, request the
+-[Physical activity recognition](https://developer.android.com/about/versions/10/privacy/changes#physical-activity-recognition) permission.
++[Physical activity recognition](https://developer.android.com/about/versions/10/privacy/changes.md.txt#physical-activity-recognition) permission.
+ 
+ ### Complement the mobile app
+ 
+@@ -178,7 +177,7 @@ performs the work. When the user navigates away from your app, the service
+ unbinds and can promote itself to an ongoing notification.
+ 
+ In Wear OS, you can expose your Ongoing Notifications to new surfaces with the
+-[Ongoing Activity API](https://developer.android.com/training/wearables/notifications/ongoing-activity) by using a minimal amount of code.
++[Ongoing Activity API](https://developer.android.com/training/wearables/notifications/ongoing-activity.md.txt) by using a minimal amount of code.
+ 
+ Review the [Ongoing Activity code lab](https://developer.android.com/codelabs/ongoing-activity) on GitHub to see a simplified app
+ with this architecture.
+@@ -222,7 +221,7 @@ Services](https://developer.android.com/health-and-fitness/guides/health-service
+ 
+ ### Use haptics to confirm actions
+ 
+-Use [haptic feedback](https://developer.android.com/develop/ui/views/haptics/haptic-feedback) to confirm actions, for example, start, stop,
++Use [haptic feedback](https://developer.android.com/develop/ui/views/haptics/haptic-feedback.md.txt) to confirm actions, for example, start, stop,
+ auto-pause, or auto-lap.
+ 
+ ### Use touch lock
+@@ -235,9 +234,9 @@ accidental touch is likely in this case.
+ 
+ ### Start with notifications
+ 
+-Support [`MessagingStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle) to improve the user's app experience.
++Support [`MessagingStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle.md.txt) to improve the user's app experience.
+ 
+ ### Support voice input
+ 
+-Support [speech-to-text](https://developer.android.com/training/wearables/user-input/voice), because it's much faster on a watch. You might
++Support [speech-to-text](https://developer.android.com/training/wearables/user-input/voice.md.txt), because it's much faster on a watch. You might
+ also want to support recorded audio.
+\ No newline at end of file

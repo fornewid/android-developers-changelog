@@ -1,0 +1,358 @@
+diff --git a/docs/jetpack/androidx/releases/test.md b/docs/jetpack/androidx/releases/test.md
+index 86a97a22..31bb891c 100644
+--- a/docs/jetpack/androidx/releases/test.md
++++ b/docs/jetpack/androidx/releases/test.md
+@@ -6,30 +6,30 @@ source: md.txt
+ 
+ # Test
+ 
+-[User Guide](https://developer.android.com/training/testing) [Code Sample](https://github.com/android/testing-samples) Testing in Android.
++[User Guide](https://developer.android.com/training/testing.md.txt) [Code Sample](https://github.com/android/testing-samples) Testing in Android.
+ 
+ 
+ This table lists all the artifacts in the `androidx.test` group.
+ 
+ | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| annotation | [1.0.1](https://developer.android.com/jetpack/androidx/releases/test#annotation-1.0.1) | - | - | [1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test#annotation-1.1.0-alpha04) |
+-| core | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test#core-1.7.0) | - | - | [1.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#core-1.8.0-alpha03) |
+-| espresso | [3.7.0](https://developer.android.com/jetpack/androidx/releases/test#espresso-3.7.0) | - | - | [3.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#espresso-3.8.0-alpha03) |
+-| espresso-device | [1.1.0](https://developer.android.com/jetpack/androidx/releases/test#espresso-device-1.1.0) | - | - | [1.2.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#espresso-device-1.2.0-alpha03) |
+-| ext.junit | [1.3.0](https://developer.android.com/jetpack/androidx/releases/test#ext.junit-1.3.0) | - | - | [1.4.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#ext.junit-1.4.0-alpha03) |
+-| ext:junit-gtest | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#ext:junit-gtest-1.0.0-alpha03) |
+-| ext.truth | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test#ext.truth-1.7.0) | - | - | [1.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#ext.truth-1.8.0-alpha03) |
+-| monitor | [1.8.0](https://developer.android.com/jetpack/androidx/releases/test#monitor-1.8.0) | - | - | [1.9.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test#monitor-1.9.0-alpha04) |
+-| orchestrator | [1.6.1](https://developer.android.com/jetpack/androidx/releases/test#orchestrator-1.6.1) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#orchestrator-1.7.0-alpha03) |
+-| runner | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test#runner-1.7.0) | - | - | [1.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#runner-1.8.0-alpha03) |
+-| rules | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test#rules-1.7.0) | - | - | [1.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#rules-1.8.0-alpha03) |
+-| services | [1.6.0](https://developer.android.com/jetpack/androidx/releases/test#services-1.6.0) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#services-1.7.0-alpha03) |
+-
+-This library was last updated on: October 29, 2026
++| annotation | [1.0.1](https://developer.android.com/jetpack/androidx/releases/test.md.txt#annotation-1.0.1) | - | - | [1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test.md.txt#annotation-1.1.0-alpha04) |
++| core | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test.md.txt#core-1.7.0) | - | - | [1.8.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test.md.txt#core-1.8.0-alpha04) |
++| espresso | [3.7.0](https://developer.android.com/jetpack/androidx/releases/test.md.txt#espresso-3.7.0) | - | - | [3.8.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test.md.txt#espresso-3.8.0-alpha04) |
++| espresso-device | [1.1.0](https://developer.android.com/jetpack/androidx/releases/test.md.txt#espresso-device-1.1.0) | - | - | [1.2.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test.md.txt#espresso-device-1.2.0-alpha04) |
++| ext.junit | [1.3.0](https://developer.android.com/jetpack/androidx/releases/test.md.txt#ext.junit-1.3.0) | - | - | [1.4.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test.md.txt#ext.junit-1.4.0-alpha04) |
++| ext:junit-gtest | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test.md.txt#ext:junit-gtest-1.0.0-alpha03) |
++| ext.truth | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test.md.txt#ext.truth-1.7.0) | - | - | [1.8.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test.md.txt#ext.truth-1.8.0-alpha04) |
++| monitor | [1.8.0](https://developer.android.com/jetpack/androidx/releases/test.md.txt#monitor-1.8.0) | - | - | [1.9.0-alpha05](https://developer.android.com/jetpack/androidx/releases/test.md.txt#monitor-1.9.0-alpha05) |
++| orchestrator | [1.6.1](https://developer.android.com/jetpack/androidx/releases/test.md.txt#orchestrator-1.6.1) | - | - | [1.7.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test.md.txt#orchestrator-1.7.0-alpha04) |
++| runner | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test.md.txt#runner-1.7.0) | - | - | [1.8.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test.md.txt#runner-1.8.0-alpha04) |
++| rules | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test.md.txt#rules-1.7.0) | - | - | [1.8.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test.md.txt#rules-1.8.0-alpha04) |
++| services | [1.6.0](https://developer.android.com/jetpack/androidx/releases/test.md.txt#services-1.6.0) | - | - | [1.7.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test.md.txt#services-1.7.0-alpha04) |
++
++This library was last updated on: November 09, 2026
+ 
+ > [!NOTE]
+-> **Note:** This page includes release notes for Test components that shipped in the AndroidX library. For earlier updates that appeared in the support library see the [archive page](https://developer.android.com/jetpack/androidx/releases/archive/test).
++> **Note:** This page includes release notes for Test components that shipped in the AndroidX library. For earlier updates that appeared in the support library see the [archive page](https://developer.android.com/jetpack/androidx/releases/archive/test.md.txt).
+ 
+ ## Declaring dependencies
+ 
+@@ -142,7 +142,7 @@ November 29, 2023
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ 
+ ### Annotation 1.1.0-alpha01
+ 
+@@ -235,6 +235,12 @@ Sept 28, 2021
+ 
+ ## Core 1.8.0
+ 
++### Core Core-ktx 1.8.0-alpha04
++
++November 09, 2026
++
++`androidx.test:core:1.8.0-alpha04` and `androidx.test:core-ktx:1.8.0-alpha04` are released.
++
+ ### Core Core-ktx 1.8.0-alpha03
+ 
+ October 29, 2026
+@@ -371,7 +377,7 @@ Changes since last stable release 1.5.0 include:
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ - Major release toolchain update: now compiled to java8 bytecode
+ 
+ ### Core Core-ktx 1.6.0-rc01
+@@ -448,7 +454,7 @@ November 29, 2023
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ 
+ ### Core Core-ktx 1.6.0-alpha02
+ 
+@@ -672,6 +678,22 @@ Aug 23, 2021
+ 
+ ## Espresso 3.8.0
+ 
++### Espresso 3.8.0-alpha04
++
++November 09, 2026
++
++The following artifacts were released:
++
++- `androidx.test.espresso:espresso-accessibility:3.8.0-alpha04`
++- `androidx.test.espresso:espresso-core:3.8.0-alpha04`
++- `androidx.test.espresso:espresso-contrib:3.8.0-alpha04`
++- `androidx.test.espresso:espresso-idling-resource:3.8.0-alpha04`
++- `androidx.test.espresso:espresso-intents:3.8.0-alpha04`
++- `androidx.test.espresso:espresso-remote:3.8.0-alpha04`
++- `androidx.test.espresso:espresso-web:3.8.0-alpha04`
++- `androidx.test.espresso.idling:idling-concurrent:3.8.0-alpha04`
++- `androidx.test.espresso.idling:idling-net:3.8.0-alpha04`
++
+ ### Espresso 3.8.0-alpha03
+ 
+ October 29, 2026
+@@ -957,7 +979,7 @@ Changes since last stable release 3.5.1 include:
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ - Major release toolchain update:
+   - classes are now compiled to java8 bytecode
+   - javac compiler switched to OpenJDK 17. This should resolve IncompatibleClassChangeErrors (https://github.com/android/android-test/issues/1642)
+@@ -1093,7 +1115,7 @@ The following artifacts were released:
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ 
+ ### Espresso 3.6.0-alpha01
+ 
+@@ -1464,6 +1486,12 @@ The following artifacts were released:
+ 
+ ## Espresso Device 1.2.0
+ 
++### Espresso Device 1.2.0-alpha04
++
++November 09, 2026
++
++`androidx.test.espresso:espresso-device:1.2.0-alpha04` is released.
++
+ ### Espresso Device 1.2.0-alpha03
+ 
+ October 29, 2026
+@@ -1652,7 +1680,7 @@ November 29, 2023
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ 
+ ### Espresso Device 1.0.0-alpha06
+ 
+@@ -1683,6 +1711,13 @@ The following artifacts were released:
+ 
+ ## JUnit Extensions 1.4.0
+ 
++### ext.junit 1.4.0-alpha04
++
++November 09, 2026
++
++`androidx.test.ext:junit:1.4.0-alpha04` and `androidx.test.ext:junit-ktx:1.4.0-alpha04`
++are released.
++
+ ### ext.junit 1.4.0-alpha03
+ 
+ October 29, 2026
+@@ -1811,7 +1846,7 @@ Changes since last stable release 1.1.5 include:
+ - Major release toolchain update:
+   - classes are now compiled to java8 bytecode
+   - javac compiler switched to OpenJDK 17.
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ 
+ ### ext.junit 1.2.0-rc01
+ 
+@@ -1858,7 +1893,7 @@ November 29, 2023
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ 
+ ### ext.junit 1.2.0-alpha01
+ 
+@@ -2003,6 +2038,12 @@ March 23, 2022
+ 
+ ## Truth Extensions 1.8.0
+ 
++### ext.truth 1.8.0-alpha04
++
++November 09, 2026
++
++`androidx.test.ext:truth:1.8.0-alpha04` is released.
++
+ ### ext.truth 1.8.0-alpha03
+ 
+ October 29, 2026
+@@ -2120,7 +2161,7 @@ Changes since last stable release 1.5.0 include:
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ - Major release toolchain update:
+   - classes are now compiled to java8 bytecode
+   - javac compiler switched to OpenJDK 17.
+@@ -2177,7 +2218,7 @@ November 29, 2023
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ 
+ ### ext.truth 1.6.0-alpha01
+ 
+@@ -2312,6 +2353,12 @@ Aug 23, 2021
+ 
+ ## Monitor 1.9.0
+ 
++### monitor 1.9.0-alpha05
++
++November 09, 2026
++
++`androidx.test:monitor:1.9.0-alpha05` is released.
++
+ ### monitor 1.9.0-alpha04
+ 
+ October 29, 2026
+@@ -2477,7 +2524,7 @@ Changes since last stable release 1.6.1 include:
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ - Major release toolchain update: now compiled to java8 bytecode
+ 
+ **Known issues**
+@@ -2537,7 +2584,7 @@ November 29, 2023
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ 
+ ### monitor 1.7.0-alpha02
+ 
+@@ -2730,6 +2777,12 @@ Aug 23, 2021
+ 
+ ## Orchestrator 1.7.0
+ 
++### orchestrator 1.7.0-alpha04
++
++November 09, 2026
++
++`androidx.test:orchestrator:1.7.0-alpha04` is released.
++
+ ### orchestrator 1.7.0-alpha03
+ 
+ October 29, 2026
+@@ -2914,7 +2967,7 @@ November 29, 2023
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ 
+ ### orchestrator 1.5.0-alpha01
+ 
+@@ -3025,6 +3078,16 @@ Aug 23, 2021
+ 
+ ## Runner 1.8.0
+ 
++### runner 1.8.0-alpha04
++
++November 09, 2026
++
++`androidx.test:runner:1.8.0-alpha04` is released.
++
++**Bug Fixes**
++
++- Report `@Ignore` reason in `InstrumentationResultPrinter#testIgnored`. (b/559750770)
++
+ ### runner 1.8.0-alpha03
+ 
+ October 29, 2026
+@@ -3191,7 +3254,7 @@ Changes since last stable release 1.5.2 include:
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ - Major release toolchain update:
+   - classes are now compiled to java8 bytecode
+   - javac compiler switched to OpenJDK 17.
+@@ -3259,7 +3322,7 @@ November 29, 2023
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ 
+ ### runner 1.6.0-alpha04
+ 
+@@ -3500,6 +3563,12 @@ Aug 23, 2021
+ 
+ ## Rules 1.8.0
+ 
++### rules 1.8.0-alpha04
++
++November 09, 2026
++
++`androidx.test:rules:1.8.0-alpha04` is released.
++
+ ### rules 1.8.0-alpha03
+ 
+ October 29, 2026
+@@ -3622,7 +3691,7 @@ Changes since last stable release 1.5.0 include:
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ - Major release toolchain update:
+   - classes are now compiled to java8 bytecode
+   - javac compiler switched to OpenJDK 17.
+@@ -3683,7 +3752,7 @@ November 29, 2023
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ 
+ ### rules 1.6.0-alpha01
+ 
+@@ -3805,6 +3874,12 @@ No significant changes
+ 
+ ## Services 1.7.0
+ 
++### services 1.7.0-alpha04
++
++November 09, 2026
++
++`androidx.test.services:test-services:1.7.0-alpha04` `androidx.test.services:storage:1.7.0-alpha04` are released.
++
+ ### services 1.7.0-alpha03
+ 
+ October 29, 2026
+@@ -4014,7 +4089,7 @@ November 29, 2023
+ 
+ **New Features**
+ 
+-- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies) for more details.
++- Artifacts are now signed. See [verify dependencies](https://developer.android.com/jetpack/getting-started.md.txt#verify_dependencies) for more details.
+ 
+ ### services 1.5.0-alpha01
+ 

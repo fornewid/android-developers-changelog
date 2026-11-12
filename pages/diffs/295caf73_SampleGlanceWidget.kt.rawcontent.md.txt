@@ -1,0 +1,22 @@
+diff --git a/docs/agents/skills/system/glance-appwidget-updates-and-memory/references/SampleGlanceWidget.kt.rawcontent.md b/docs/agents/skills/system/glance-appwidget-updates-and-memory/references/SampleGlanceWidget.kt.rawcontent.md
+index c050e3e1..2b150994 100644
+--- a/docs/agents/skills/system/glance-appwidget-updates-and-memory/references/SampleGlanceWidget.kt.rawcontent.md
++++ b/docs/agents/skills/system/glance-appwidget-updates-and-memory/references/SampleGlanceWidget.kt.rawcontent.md
+@@ -61,7 +61,7 @@ class SampleGlanceWidget : GlanceAppWidget() {
+             config = Bitmap.Config.RGB_565,
+         )
+         provideContent {
+-            val revision = cu<rrentStateP>references()[KEY_REVISION] ?: 0
++            val revision = currentState<Preferences>()[KEY_REVISION] ?: 0
+             val size = LocalSize.current
+             GlanceTheme {
+                 Column(
+@@ -79,7 +79,7 @@ class SampleGlanceWidget : GlanceAppWidget() {
+                             modifier = GlanceModifier.fillMaxWidth().height(96.dp),
+                         )
+                     }
+-                    Button(text = "Refresh"<;, onClick = action>RunCallbackRefreshWidgetAction())
++                    Button(text = "Refresh", onClick = actionRunCallback<RefreshWidgetAction>())
+                 }
+             }
+         }

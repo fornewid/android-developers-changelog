@@ -1,0 +1,341 @@
+diff --git a/docs/topic/performance/memory/guide/tools-overview.md b/docs/topic/performance/memory/guide/tools-overview.md
+index 3d1dcb9a..88780ae3 100644
+--- a/docs/topic/performance/memory/guide/tools-overview.md
++++ b/docs/topic/performance/memory/guide/tools-overview.md
+@@ -13,40 +13,44 @@ The most common way to get an overview of an application's memory usage is
+ `dumpsys meminfo`. To see a detailed breakdown including all memory mappings, it
+ is often helpful to include the `-a` flag:
+ 
+-    adb shell dumpsys meminfo -a <package_name_or_pid>
++```bash
++adb shell dumpsys meminfo -a <package_name_or_pid>
++```
+ 
+ Here is a sample output from an application under some memory pressure (notice
+ the high SwapPss):
+ 
+-    ** MEMINFO in pid 4562 [com.android.memorylab] **
+-                       Pss  Private  Private  SwapPss      Rss     Heap     Heap     Heap
+-                     Total    Dirty    Clean    Dirty    Total     Size    Alloc     Free
+-                    ---   ---   ---   ---   ---   ---   ---   ---
+-      Native Heap      394      268       64    17440     4264    29416    18128     8040
+-      Dalvik Heap      165        8        0      672     8196    40949    32757     8192
+-     Dalvik Other       47       28        0      604     1132
+-            Stack      112      108        4      312      120
+-    ...
+-            TOTAL    33197      580      788    21920   167776    70365    50885    16232
+-
+-     App Summary
+-                           Pss(KB)                        Rss(KB)
+-                            ---                         ---
+-               Java Heap:       12                          32608
+-             Native Heap:      268                           4264
+-                    Code:      724                         125672
+-                   Stack:      108                            120
+-                Graphics:        0                              0
+-           Private Other:      256
+-                  System:    31829
+-                 Unknown:                                    5112
+-
+-               TOTAL PSS:    33197            TOTAL RSS:   167776       TOTAL SWAP PSS:    21920
+-
+-     Objects
+-                   Views:       15         ViewRootImpl:        1
+-             AppContexts:        5           Activities:        1
+-    ...
++```text
++** MEMINFO in pid 4562 [com.android.memorylab] **
++                   Pss  Private  Private  SwapPss      Rss     Heap     Heap     Heap
++                 Total    Dirty    Clean    Dirty    Total     Size    Alloc     Free
++                ---   ---   ---   ---   ---   ---   ---   ---
++  Native Heap      394      268       64    17440     4264    29416    18128     8040
++  Dalvik Heap      165        8        0      672     8196    40949    32757     8192
++ Dalvik Other       47       28        0      604     1132
++        Stack      112      108        4      312      120
++...
++        TOTAL    33197      580      788    21920   167776    70365    50885    16232
++
++ App Summary
++                       Pss(KB)                        Rss(KB)
++                        ---                         ---
++           Java Heap:       12                          32608
++         Native Heap:      268                           4264
++                Code:      724                         125672
++               Stack:      108                            120
++            Graphics:        0                              0
++       Private Other:      256
++              System:    31829
++             Unknown:                                    5112
++
++           TOTAL PSS:    33197            TOTAL RSS:   167776       TOTAL SWAP PSS:    21920
++
++ Objects
++               Views:       15         ViewRootImpl:        1
++         AppContexts:        5           Activities:        1
++...
++```
+ 
+ ### Interpreting the data
+ 
+@@ -81,28 +85,30 @@ you don't need to find the cgroup files yourself. Here is the section from
+ the MemoryLab sample app in the foreground, after three taps of **Allocate Java
+ Memory (10MB)**:
+ 
+-     Memory Budget
+-                            Process(KB)       Package(KB)
+-                            ---       ---
+-      Current Usage:              83820             87976
+-      Limit:                       none           4718592
+-      Limit Source:                none     MemoryLimiter
+-      Peak Usage:                 85136             89292
+-      Swap Used:                      0                 0
+-
+-      Usage Breakdown
+-        Anonymous:                81700             81700
+-        File:                        96              4200
+-        File Mapped:                 16               616
+-        Shared Memory:               16                16
+-        Kernel:                    1580              1632
+-        Page Tables:                640               640
+-        Slab:                       439               458
+-
+-      Pressure & Reclaim
+-        Throttle Events:              0                 0
+-        Refaults (Anon):              0                 0
+-        Refaults (File):              0                 0
++```text
++ Memory Budget
++                        Process(KB)       Package(KB)
++                        ---       ---
++  Current Usage:              83820             87976
++  Limit:                       none           4718592
++  Limit Source:                none     MemoryLimiter
++  Peak Usage:                 85136             89292
++  Swap Used:                      0                 0
++
++  Usage Breakdown
++    Anonymous:                81700             81700
++    File:                        96              4200
++    File Mapped:                 16               616
++    Shared Memory:               16                16
++    Kernel:                    1580              1632
++    Page Tables:                640               640
++    Slab:                       439               458
++
++  Pressure & Reclaim
++    Throttle Events:              0                 0
++    Refaults (Anon):              0                 0
++    Refaults (File):              0                 0
++```
+ 
+ - **Current Usage** : Memory charged to the memcg (`memory.current`). This is the number that memory budgets limit. In the sample, it rose by about 36,700 KB after the three 10MB Java allocations, in line with **TOTAL
+   PSS**. The package total is higher than the process total even for a single-process app when cached file pages from an earlier run haven't been reclaimed yet.
+@@ -117,7 +123,7 @@ With the `-a` or `-v` flag, the section also lists every raw counter from
+ `memory.stat` and `memory.events`.
+ 
+ > [!NOTE]
+-> **Note:** The Memory Budget section was added in Android 18. On devices running Android 17 QPR2 (API level 37.2), read the [memcg statistics](https://developer.android.com/topic/performance/memory/guide/tools-overview#memcg) directly.
++> **Note:** The Memory Budget section was added in Android 18. On devices running Android 17 QPR2 (API level 37.2), read the [memcg statistics](https://developer.android.com/topic/performance/memory/guide/tools-overview.md.txt#memcg) directly.
+ 
+ ### Practice exercise: quick triage with meminfo
+ 
+@@ -125,11 +131,14 @@ This exercise shows how different types of allocations show up in `meminfo`.
+ 
+ 1. **Launch the app**:
+ 
+-       adb shell am start -W -n com.android.memorylab/.MainActivity
+-
++   ```bash
++   adb shell am start -W -n com.android.memorylab/.MainActivity
++   ```
+ 2. **Check baseline memory**:
+ 
+-       adb shell dumpsys meminfo -s com.android.memorylab
++   ```bash
++   adb shell dumpsys meminfo -s com.android.memorylab
++   ```
+ 
+    (The `-s` flag provides a short, concise summary of memory categories).
+ 3. **Allocate Java Memory** : Tap the **Allocate Java Memory (10MB)** button 3
+@@ -153,7 +162,9 @@ This exercise shows how different types of allocations show up in `meminfo`.
+ 
+ To see memory usage across the entire system, run:
+ 
+-    adb shell dumpsys meminfo
++```bash
++adb shell dumpsys meminfo
++```
+ 
+ This provides a summary of RAM usage, including total RAM, free RAM, and a list
+ of processes sorted by PSS.
+@@ -168,7 +179,7 @@ of processes sorted by PSS.
+ 
+ Every app process has its own memory control group (memcg), and the kernel
+ keeps running totals of the memory charged to it (see
+-[memcg](https://developer.android.com/topic/performance/memory/guide/concepts#memcg) for how this accounting differs from RSS and PSS).
++[memcg](https://developer.android.com/topic/performance/memory/guide/concepts.md.txt#memcg) for how this accounting differs from RSS and PSS).
+ Reading these files is cheap and doesn't disturb your app, so you can sample
+ them every second while you run a user flow.
+ 
+@@ -176,17 +187,18 @@ them every second while you run a user flow.
+ > **Note:** memcg metrics are supported on devices running Android 17 QPR2 (API level 37.2) and higher.
+ 
+ Look up the memcg path of a process from the `0::` line of `/proc/<PID>/cgroup`
+-instead of building the path yourself, because the cgroup layout can differ
+-between devices. Pass each device command to `adb shell` as a single quoted
+-string so that the device shell sees the quotes:
++instead of hardcoding the path. Pass each device command to `adb shell` as a
++single quoted string so that the device shell sees the quotes:
+ 
+-    PID=$(adb shell pidof -s <package_name>)
++```bash
++PID=$(adb shell pidof -s <package_name>)
+ 
+-    CG=/sys/fs/cgroup$(adb shell "sed -n 's/^0:://p' /proc/$PID/cgroup")
++CG=/sys/fs/cgroup$(adb shell "sed -n 's/^0:://p' /proc/$PID/cgroup")
+ 
+-    adb shell "cat $CG/memory.current $CG/memory.swap.current"
++adb shell "cat $CG/memory.current $CG/memory.swap.current"
+ 
+-    adb shell "grep -E '^(anon|file|workingset_refault_.*) ' $CG/memory.stat"
++adb shell "grep -E '^(anon|file|workingset_refault_.*) ' $CG/memory.stat"
++```
+ 
+ The key files are:
+ 
+@@ -200,13 +212,17 @@ Its files include the memory of all the app's running processes, plus cached
+ file pages left over from earlier processes of the app that have exited and
+ haven't been reclaimed yet:
+ 
+-    adb shell "cat $CG/../memory.current"
++```bash
++adb shell "cat $CG/../memory.current"
++```
+ 
+-If you get a permission error, run `adb root` and try again. Some devices only
+-let you read these files as root.
++An app can query its own cgroup usage in-process through
++[`MemoryBudgetManager`](https://developer.android.com/reference/android/app/MemoryBudgetManager.md.txt). If you get a permission error when inspecting
++an app's cgroup files from `adb shell`, run `adb root` on a `userdebug` build or
++an emulator image without Google Play, and then try again.
+ 
+ For a guided walkthrough of these files with the MemoryLab sample app, see
+-[Hands-on exercise: exploring memcg](https://developer.android.com/topic/performance/memory/guide/reclaim#hands-on-memcg).
++[Hands-on exercise: exploring memcg](https://developer.android.com/topic/performance/memory/guide/reclaim.md.txt#hands-on-memcg).
+ 
+ ## showmap
+ 
+@@ -217,7 +233,9 @@ For a much more detailed breakdown of a process's memory mappings, use
+ > **Note:** To run this command, you must build your app with `<profileable
+ > android:shell="true"/>` or `<debuggable>`.
+ 
+-    adb shell showmap <pid>
++```bash
++adb shell showmap <pid>
++```
+ 
+ `showmap` lists every memory map in the process. Key mappings to look for
+ include:
+@@ -230,18 +248,22 @@ include:
+ 
+ You can sort the output to find the largest private memory consumers:
+ 
+-    # Sort by private clean + private dirty memory
+-    adb shell showmap <pid> | awk '{print $6+$7, $0}' | sort -rn | head -n 10
++```bash
++# Sort by private clean + private dirty memory
++adb shell showmap <pid> | awk '{print $6+$7, $0}' | sort -rn | head -n 10
++```
+ 
+ Sample output:
+ 
+-     virtual                     shared   shared  private  private                   Anon      Shmem     File      Shared   Private
+-        size      RSS      PSS    clean    dirty    clean    dirty     swap  swapPSS HugePages PmdMapped PmdMapped Hugetlb  Hugetlb    Locked    # object
+-    --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+-    2776    18176     5784     2823        0     3008      308     2468     4700     4700         0         0         0        0        0        0   47 [anon:scudo:primary]
+-    560      952      876      657      316        0      560        0       12       12         0         0         0        0        0        0    8 /data/app/.../base.apk
+-    448   393216      448      448        0        0        0      448        0        0         0         0         0        0        0        0    2 [anon:dalvik-main space]
+-    ...
++```text
++ virtual                     shared   shared  private  private                   Anon      Shmem     File      Shared   Private
++    size      RSS      PSS    clean    dirty    clean    dirty     swap  swapPSS HugePages PmdMapped PmdMapped Hugetlb  Hugetlb    Locked    # object
++--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
++2776    18176     5784     2823        0     3008      308     2468     4700     4700         0         0         0        0        0        0   47 [anon:scudo:primary]
++560      952      876      657      316        0      560        0       12       12         0         0         0        0        0        0    8 /data/app/.../base.apk
++448   393216      448      448        0        0        0      448        0        0         0         0         0        0        0        0    2 [anon:dalvik-main space]
++...
++```
+ 
+ ### Practice exercise: deep dive with showmap
+ 
+@@ -252,13 +274,15 @@ and dirty memory.
+ 2. **Get the Process ID**: The app's UI shows its PID. You can also find it
+    with this command:
+ 
+-       adb shell pidof com.android.memorylab
+-
++   ```bash
++   adb shell pidof com.android.memorylab
++   ```
+ 3. **Inspect with showmap**:
+ 
+-       # Replace <PID> with the actual process ID from the previous step
+-       adb shell showmap <PID> | grep "memorylab-clean"
+-
++   ```bash
++   # Replace <PID> with the actual process ID from the previous step
++   adb shell showmap <PID> | grep "memorylab-clean"
++   ```
+ 4. **Identify the mapping** : You should see an anonymous mapping labeled
+    **`[anon:memorylab-clean]`** with a virtual size of exactly 10240 KB. Note
+    that the **private dirty** value for this map is likely 0. This is "clean"
+@@ -284,15 +308,19 @@ data by periodically sampling the state and memory use of all running
+ applications. This is the primary tool used for long-term memory health
+ monitoring and is what drives the memory usage reporting in Android Settings.
+ 
+-    # View stats for the last 3 hours
+-    adb shell dumpsys procstats --hours 3
++```bash
++# View stats for the last 3 hours
++adb shell dumpsys procstats --hours 3
++```
+ 
+ ### Understanding the states
+ 
+ The output of `procstats` can be overwhelming. The most critical part is the
+ parenthetical metrics next to each process state:
+ 
+-    Top: 100% (54MB-64MB-67MB / 49MB-58MB-61MB / 110MB-120MB-130MB over 4)
++```text
++Top: 100% (54MB-64MB-67MB / 49MB-58MB-61MB / 110MB-120MB-130MB over 4)
++```
+ 
+ The format is:
+ **(% time in state) (minPss-avgPss-maxPss / minUss-avgUss-maxUss /
+@@ -325,11 +353,13 @@ minRss-avgRss-maxRss over samples)**
+ `procstats` also tracks how much time the *entire device* spent under memory
+ pressure. Look for the **Run time Stats** section:
+ 
+-    Run time Stats:
+-      SOff/Norm: +1h10m15s
+-       SOn/Norm: +15m20s
+-            Low: +2m10s
+-           Crit: +45s
++```text
++Run time Stats:
++  SOff/Norm: +1h10m15s
++   SOn/Norm: +15m20s
++        Low: +2m10s
++       Crit: +45s
++```
+ 
+ - **SOff / SOn**: Screen Off versus Screen On.
+ - **Norm / Mod / Low / Crit**: Memory pressure levels (Normal, Moderate, Low, Critical).
+@@ -342,4 +372,4 @@ the device is in these stressed states.
+ 
+ *** ** * ** ***
+ 
+-**[← Concepts](https://developer.android.com/topic/performance/memory/guide/concepts) \| [↑ Up](https://developer.android.com/topic/performance/memory/guide) \| [Java →](https://developer.android.com/topic/performance/memory/guide/java-memory)**
+\ No newline at end of file
++**[← Concepts](https://developer.android.com/topic/performance/memory/guide/concepts.md.txt) \| [↑ Up](https://developer.android.com/topic/performance/memory/guide.md.txt) \| [Java →](https://developer.android.com/topic/performance/memory/guide/java-memory.md.txt)**
+\ No newline at end of file
