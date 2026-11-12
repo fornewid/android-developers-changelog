@@ -35,11 +35,11 @@ class NewsRepository {
 
 This dependency injection pattern makes testing easier as you can replace those
 dispatchers in unit and instrumentation tests with a
-[test dispatcher](https://developer.android.com/kotlin/coroutines/coroutines-best-practices#test-coroutine-dispatcher)
+[test dispatcher](https://developer.android.com/kotlin/coroutines/coroutines-best-practices.md.txt#test-coroutine-dispatcher)
 to make your tests more deterministic.
 
 > [!NOTE]
-> **Note:** The [`viewModelScope`](https://medium.com/androiddevelopers/easy-coroutines-in-android-viewmodelscope-25bffb605471) property of [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) classes is hardcoded to `Dispatchers.Main`. Replace it in tests by calling `Dispatchers.setMain` and passing in a test dispatcher.
+> **Note:** The [`viewModelScope`](https://medium.com/androiddevelopers/easy-coroutines-in-android-viewmodelscope-25bffb605471) property of [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt) classes is hardcoded to `Dispatchers.Main`. Replace it in tests by calling `Dispatchers.setMain` and passing in a test dispatcher.
 
 > [!NOTE]
 > **Note:** While you might have seen hardcoded dispatchers in code snippets across this site and our codelabs, this is only to keep the sample code concise and simple. In your application, you should inject dispatchers.
@@ -94,7 +94,7 @@ responsibility lies in the class that does the work.
 
 ## The ViewModel should create coroutines
 
-[`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) classes should prefer
+[`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt) classes should prefer
 creating coroutines instead of exposing suspend functions to perform business
 logic. Suspend functions in the `ViewModel` can be useful if instead of
 exposing state using a stream of data, only a single value needs to be emitted.
@@ -144,7 +144,7 @@ In addition to that, your coroutines will survive configuration changes
 automatically if the work is started in the `viewModelScope`. If you create
 coroutines using `lifecycleScope` instead, you'd have to handle that manually.
 If the coroutine needs to outlive the `ViewModel`'s scope, check out the
-[Creating coroutines in the business and data layer section](https://developer.android.com/kotlin/coroutines/coroutines-best-practices#create-coroutines-data-layer).
+[Creating coroutines in the business and data layer section](https://developer.android.com/kotlin/coroutines/coroutines-best-practices.md.txt#create-coroutines-data-layer).
 
 > [!NOTE]
 > **Note:** Views should trigger coroutines for UI-related logic. For example, fetching an image from the Internet or formatting a String.
@@ -349,7 +349,7 @@ with it:
 
 Instead, consider injecting a `CoroutineScope` for work that needs to outlive
 the current scope. Check out the
-[Creating coroutines in the business and data layer section](https://developer.android.com/kotlin/coroutines/coroutines-best-practices#create-coroutines-data-layer)
+[Creating coroutines in the business and data layer section](https://developer.android.com/kotlin/coroutines/coroutines-best-practices.md.txt#create-coroutines-data-layer)
 to learn more about this topic.
 
 

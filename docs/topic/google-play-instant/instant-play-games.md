@@ -75,4 +75,4 @@ In order to remain eligible for featuring in the Google Play Games app, your Goo
   - Consider making an in-app-purchase available for users.
   - Cross-promotion to other games is acceptable, subject to the preceding ads requirements. Do not prompt users to install cross-promoted games.
 
-For more information, see the [Instant play checklist](https://developer.android.com/topic/google-play-instant/instant-play-games-checklist).
+For more information, see the [Instant play checklist](https://developer.android.com/topic/google-play-instant/instant-play-games-checklist.md.txt).

@@ -52,16 +52,19 @@ these rules:
 
    For example:
 
-       fun parseEmail(email: String): String {
-           ... 
-       }
+   ```kotlin
+   fun parseEmail(email: String): String {
+       ... 
+   }
+   ```
 
    should be refactored to:
 
-       fun parseEmail(email: String): ParsedEmail? {
-           ...
-       }
-
+   ```kotlin
+   fun parseEmail(email: String): ParsedEmail? {
+       ...
+   }
+   ```
 3. **Example:**
 
    This is the example code before refactoring:

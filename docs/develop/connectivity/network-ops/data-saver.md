@@ -20,7 +20,7 @@ Saver is turned on.
 
 
 Android 7.0 (API level 24) extends the
-`https://developer.android.com/reference/android/net/ConnectivityManager`
+`ConnectivityManager`
 API to provide apps with a way to [retrieve the user's Data
 Saver preferences](https://developer.android.com/develop/connectivity/network-ops/data-saver#status) and [monitor preference
 changes](https://developer.android.com/develop/connectivity/network-ops/data-saver#monitor-changes). It is considered good practice for apps to check whether the
@@ -31,9 +31,9 @@ background data usage.
 
 
 On Android 7.0 (API level 24) and higher, apps can use the
-`https://developer.android.com/reference/android/net/ConnectivityManager` API
+`ConnectivityManager` API
 to determine what data usage restrictions are being applied. The
-`https://developer.android.com/reference/android/net/ConnectivityManager#getRestrictBackgroundStatus()`
+`getRestrictBackgroundStatus()`
 method returns one of the following values:
 
 
@@ -57,7 +57,7 @@ method returns one of the following values:
 
 Limit data usage whenever the device is connected to a metered network, even if Data Saver is
 disabled or the app is allowed to bypass it. The following sample code uses
-`https://developer.android.com/reference/android/net/ConnectivityManager#isActiveNetworkMetered()`
+`ConnectivityManager.isActiveNetworkMetered()`
 and `ConnectivityManager.getRestrictBackgroundStatus()` to determine how much data the
 app should use:
 
@@ -116,10 +116,10 @@ usage.
 
 
 Apps can monitor changes to Data Saver preferences by creating a
-`https://developer.android.com/reference/android/content/BroadcastReceiver` to
+`BroadcastReceiver` to
 listen for `ConnectivityManager.ACTION_RESTRICT_BACKGROUND_CHANGED` and dynamically
 registering the receiver with
-`https://developer.android.com/reference/android/content/Context#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter)`.
+`Context.registerReceiver()`.
 When an app receives this broadcast, it should [check if the new Data Saver
 preferences affect its permissions](https://developer.android.com/develop/connectivity/network-ops/data-saver#status) by calling
 `ConnectivityManager.getRestrictBackgroundStatus()`.
@@ -127,7 +127,7 @@ preferences affect its permissions](https://developer.android.com/develop/connec
 
 **Note:** The system only sends this broadcast to apps that dynamically register for
 them with
-`https://developer.android.com/reference/android/content/Context#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter)`.
+`Context.registerReceiver()`.
 Apps that register to receive this broadcast in their manifest won't receive them.
 
 ## Test with Android Debug Bridge commands

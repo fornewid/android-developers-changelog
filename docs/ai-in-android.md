@@ -14,7 +14,7 @@ Download Not Available
 
 Your current device is not supported.  
 
-[See the system requirements](https://developer.android.com/studio/install).
+[See the system requirements](https://developer.android.com/studio/install.md.txt).
 ![](http://developer.android.com/static/images/picto-icons/tools-2.svg)
 
 ### Build your way
@@ -51,27 +51,27 @@ Run 100% offline using Gemma, or use other local models.
 
 ## Key features to support your development
 
-[See the docs](http://developer.android.com/studio/gemini/overview) [![](http://developer.android.com/static/images/gemini-in-android/ai-agent.png)](http://developer.android.com/studio/gemini/agent-mode)
+[See the docs](http://developer.android.com/studio/gemini/overview.md.txt) [![](http://developer.android.com/static/images/gemini-in-android/ai-agent.png)](http://developer.android.com/studio/gemini/agent-mode.md.txt)
 
-### [Get more done with the AI agent](http://developer.android.com/studio/gemini/agent-mode)
+### [Get more done with the AI agent](http://developer.android.com/studio/gemini/agent-mode.md.txt)
 
-Deeply integrated into the editor, the built-in agent plans complex, multi-step tasks across your codebase. It suggests edits, iteratively fixes bugs, and validates changes directly in the Android emulator. For manual coding, Next Edit Prediction provides intelligent code completions anywhere in your file as you type. [Learn more](http://developer.android.com/studio/gemini/agent-mode) [![](http://developer.android.com/static/images/gemini-in-android/android-skills.png)](http://developer.android.com/tools/agents/android-skills)
+Deeply integrated into the editor, the built-in agent plans complex, multi-step tasks across your codebase. It suggests edits, iteratively fixes bugs, and validates changes directly in the Android emulator. For manual coding, Next Edit Prediction provides intelligent code completions anywhere in your file as you type. [Learn more](http://developer.android.com/studio/gemini/agent-mode.md.txt) [![](http://developer.android.com/static/images/gemini-in-android/android-skills.png)](http://developer.android.com/tools/agents/android-skills.md.txt)
 
-### [Android skills](http://developer.android.com/tools/agents/android-skills)
+### [Android skills](http://developer.android.com/tools/agents/android-skills.md.txt)
 
-Android Studio now features built-in support for Android skills, expanding the AI agent's capabilities to handle complex, specialized tasks. Whether you're optimizing app performance with Perfetto, migrating legacy XML to Jetpack Compose, or building adaptive layouts for any screen, the AI agent automatically pulls in the relevant skills to match your needs. With new skills being added continuously, you can focus on building high-quality apps while the agent handles the heavy lifting. [Learn more](http://developer.android.com/tools/agents/android-skills) [![](http://developer.android.com/static/images/gemini-in-android/compose-ui.png)](http://developer.android.com/studio/gemini/generate-compose-previews)
+Android Studio now features built-in support for Android skills, expanding the AI agent's capabilities to handle complex, specialized tasks. Whether you're optimizing app performance with Perfetto, migrating legacy XML to Jetpack Compose, or building adaptive layouts for any screen, the AI agent automatically pulls in the relevant skills to match your needs. With new skills being added continuously, you can focus on building high-quality apps while the agent handles the heavy lifting. [Learn more](http://developer.android.com/tools/agents/android-skills.md.txt) [![](http://developer.android.com/static/images/gemini-in-android/compose-ui.png)](http://developer.android.com/studio/gemini/generate-compose-previews.md.txt)
 
-### [Compose UI tools](http://developer.android.com/studio/gemini/generate-compose-previews)
+### [Compose UI tools](http://developer.android.com/studio/gemini/generate-compose-previews.md.txt)
 
-Android Studio's built-in agent understands Compose, helping you build high-fidelity UIs with ease. You can describe UI changes in natural language, ask the AI agent to generate Compose Previews, or even have the AI make your UI precisely match a provided design mockup. [Learn more](http://developer.android.com/studio/gemini/generate-compose-previews) [![](http://developer.android.com/static/images/gemini-in-android/journey-editor.png)](http://developer.android.com/tools/agents/android-cli/journeys)
+Android Studio's built-in agent understands Compose, helping you build high-fidelity UIs with ease. You can describe UI changes in natural language, ask the AI agent to generate Compose Previews, or even have the AI make your UI precisely match a provided design mockup. [Learn more](http://developer.android.com/studio/gemini/generate-compose-previews.md.txt) [![](http://developer.android.com/static/images/gemini-in-android/journey-editor.png)](http://developer.android.com/tools/agents/android-cli/journeys.md.txt)
 
-### [Intelligent debugging and profiling tools](http://developer.android.com/tools/agents/android-cli/journeys)
+### [Intelligent debugging and profiling tools](http://developer.android.com/tools/agents/android-cli/journeys.md.txt)
 
-Proactively identify and resolve your app's issues with built-in tools. Automatically detect memory leaks using LeakCanary, get intelligent analysis and fixes for crash reports through App Quality Insights, and use Journeys to build complex AI-assisted UI tests. [Learn more](http://developer.android.com/tools/agents/android-cli/journeys)
+Proactively identify and resolve your app's issues with built-in tools. Automatically detect memory leaks using LeakCanary, get intelligent analysis and fixes for crash reports through App Quality Insights, and use Journeys to build complex AI-assisted UI tests. [Learn more](http://developer.android.com/tools/agents/android-cli/journeys.md.txt)
 
 ## Most used features
 
-[See all features](http://developer.android.com/studio/gemini/features)
+[See all features](http://developer.android.com/studio/gemini/features.md.txt)
 - ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) Integrated Android skills
 - ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) Journeys with Gemini
 - ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) Natural language Compose UI transformations
@@ -111,7 +111,7 @@ Gemini Enterprise provides flexible per seat costs with admin management for quo
 
 
 Experience Android Studio's built-in agent without a subscription plan
-[Get started](https://developer.android.com/studio/gemini/get-started)
+[Get started](https://developer.android.com/studio/gemini/get-started.md.txt)
 
 *** ** * ** ***
 
@@ -188,9 +188,9 @@ Developers with Google AI subscriptions can leverage additional benefits in Andr
 
 [View coding benefits](https://one.google.com/intl/en_us/about/google-ai-plans/#code)
 
-### [Get more out of Agent Mode with a larger context window](http://developer.android.com/studio/gemini/agent-mode)
+### [Get more out of Agent Mode with a larger context window](http://developer.android.com/studio/gemini/agent-mode.md.txt)
 
-[Learn more](http://developer.android.com/studio/gemini/agent-mode)
+[Learn more](http://developer.android.com/studio/gemini/agent-mode.md.txt)
 
 ## See how Gemini in Android Studio supercharged development for these developers
 
@@ -214,7 +214,7 @@ Ultrahuman launches features 15% faster with Gemini in Android Studio [Read more
 
 ## Boost your productivity with Android Studio's AI agent
 
-[Download Android Studio arrow_right_alt](http://developer.android.com/studio)
+[Download Android Studio arrow_right_alt](http://developer.android.com/studio.md.txt)
 
 ## Download Android Studio Rabbit 2 \| 2026.2.2 Patch 1
 

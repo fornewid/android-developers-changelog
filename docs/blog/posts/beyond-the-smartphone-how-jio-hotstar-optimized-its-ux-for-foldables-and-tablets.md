@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/beyond-the-smartphone-how-jio-hots
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # Beyond the smartphone: How JioHotstar optimized its UX for foldables and tablets
 
-3 min read ![](https://developer.android.com/static/blog/assets/beyond_Smartphone_e17b5979d9_TVvtm.webp) 26 Jan 2026 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/prateek-batra) [Prateek Batra](https://developer.android.com/blog/authors/prateek-batra) Developer Relations Engineer, Android Adaptive Apps
+3 min read ![](https://developer.android.com/static/blog/assets/beyond_Smartphone_e17b5979d9_TVvtm.webp) 26 Jan 2026 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/prateek-batra.md.txt) [Prateek Batra](https://developer.android.com/blog/authors/prateek-batra.md.txt) Developer Relations Engineer, Android Adaptive Apps
 
 ### **Beyond Phones: How JioHotstar Built an Adaptive UX**
 
@@ -26,9 +26,9 @@ JioHotstar's user interface, designed primarily for standard phone displays, enc
 
 ### **What they did**
 
-For a better viewing experience on large screens, JioHotstar took the initiative to enhance its app by incorporating [WindowSizeClass](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes) and creating optimized layouts for compact, medium and extended widths. This allowed the app to adapt its user interface to various screen dimensions and aspect ratios, ensuring a consistent and visually appealing UI across different devices.
+For a better viewing experience on large screens, JioHotstar took the initiative to enhance its app by incorporating [WindowSizeClass](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes.md.txt) and creating optimized layouts for compact, medium and extended widths. This allowed the app to adapt its user interface to various screen dimensions and aspect ratios, ensuring a consistent and visually appealing UI across different devices.
 
-JioHotstar followed this pattern using Material 3 Adaptive library to know how much space the app has available. First invoking the [currentWindowAdaptiveInfo()](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#currentWindowAdaptiveInfo(kotlin.Boolean)) function, then using new layouts accordingly for the three window size classes:
+JioHotstar followed this pattern using Material 3 Adaptive library to know how much space the app has available. First invoking the [currentWindowAdaptiveInfo()](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary.md.txt#currentWindowAdaptiveInfo(kotlin.Boolean)) function, then using new layouts accordingly for the three window size classes:
 
 ```
 val sizeClass = currentWindowAdaptiveInfo().windowSizeClass
@@ -46,9 +46,9 @@ The breakpoints are in order, from the biggest to the smallest, as internally th
 
 <br />
 
-JioHotstar is able to provide the premium experience unique to foldable devices: [Tabletop Mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/make-your-app-fold-aware#tabletop_posture). This feature conveniently relocates the video player to the top half of the screen and the video controls to the bottom half when a foldable device is partially folded for a handsfree experience.
+JioHotstar is able to provide the premium experience unique to foldable devices: [Tabletop Mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/make-your-app-fold-aware.md.txt#tabletop_posture). This feature conveniently relocates the video player to the top half of the screen and the video controls to the bottom half when a foldable device is partially folded for a handsfree experience.
 
-To accomplish this, also using the Material 3 Adaptive library, the same [currentWindowAdaptiveInfo()](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/Posture#isTabletop()) can be used to query for the tabletop mode. Once the device is held in tabletop mode, a change of layout to match the top and bottom half of the posture can be done with a column to place the player in the top half and the controllers in the bottom half:
+To accomplish this, also using the Material 3 Adaptive library, the same [currentWindowAdaptiveInfo()](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/Posture.md.txt#isTabletop()) can be used to query for the tabletop mode. Once the device is held in tabletop mode, a change of layout to match the top and bottom half of the posture can be done with a column to place the player in the top half and the controllers in the bottom half:
 
 ```
 val isTabletTop = currentWindowAdaptiveInfo().windowPosture.isTabletop
@@ -78,35 +78,35 @@ Written by:
 
 -
 
-  ## [Prateek Batra](https://developer.android.com/blog/authors/prateek-batra)
+  ## [Prateek Batra](https://developer.android.com/blog/authors/prateek-batra.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/prateek-batra) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 Continue reading
-- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) 11 Nov 2026 11 Nov 2026 ![](https://developer.android.com/static/blog/assets/1007_ABL_134_How_Smile_ID_Scaled_Identity_Verification_with_Camera_X_Strapi_788bf73f23_1N5Hb5.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time)
+  ## [How SmileID Scaled Identity Verification to 18,000+ Android Device Types with CameraX](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- [![View Pavlo Stavytskyi's profile](https://developer.android.com/static/blog/assets/pavlo_a4e2ec12e9_v4xs2.webp)](https://developer.android.com/blog/authors/pavlo-stavytskyi)[![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)](https://developer.android.com/blog/authors/rebecca-franks) 30 Sep 2026 30 Sep 2026 ![](https://developer.android.com/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt) Identity verification apps for banking and SIM registration require clear, high-resolution face captures to detect spoofing and deepfakes. Capturing frames sharp enough for liveness and anti-spoofing checks, without crashing low-memory devices, is a common challenge for Android camera develope
+  [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) • 4 min read
+  - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
+- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct)
+  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct) The team built an AI-native UI codebase that is 50% smaller than the original implementation, while achieving a 35% reduction in AI agent execution time, 32% fewer engineer-agent exchanges, and a 33% reduction in token cost.
-  [Pavlo Stavytskyi](https://developer.android.com/blog/authors/pavlo-stavytskyi), [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks) • 11 min read
-  - [#Compose-first](https://developer.android.com/blog/topics/compose-first)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+- [![View Pavlo Stavytskyi's profile](https://developer.android.com/static/blog/assets/pavlo_a4e2ec12e9_v4xs2.webp)](https://developer.android.com/blog/authors/pavlo-stavytskyi.md.txt)[![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)](https://developer.android.com/blog/authors/rebecca-franks.md.txt) 30 Sep 2026 30 Sep 2026 ![](https://developer.android.com/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+  ## [How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
-  - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
+  [arrow_forward](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct.md.txt) The team built an AI-native UI codebase that is 50% smaller than the original implementation, while achieving a 35% reduction in AI agent execution time, 32% fewer engineer-agent exchanges, and a 33% reduction in token cost.
+  [Pavlo Stavytskyi](https://developer.android.com/blog/authors/pavlo-stavytskyi.md.txt), [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks.md.txt) • 11 min read
+  - [#Compose-first](https://developer.android.com/blog/topics/compose-first.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
 Stay in the loop
 
 

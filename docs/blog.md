@@ -22,6 +22,13 @@ Tools and resources to help you build faster and easier.
 
 ## The Latest
 
+- [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) 11 Nov 2026 11 Nov 2026 ![](https://developer.android.com/static/blog/assets/1007_ABL_134_How_Smile_ID_Scaled_Identity_Verification_with_Camera_X_Strapi_788bf73f23_1N5Hb5.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
+
+  ## [How SmileID Scaled Identity Verification to 18,000+ Android Device Types with CameraX](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt)
+
+  Identity verification apps for banking and SIM registration require clear, high-resolution face captures to detect spoofing and deepfakes. Capturing frames sharp enough for liveness and anti-spoofing checks, without crashing low-memory devices, is a common challenge for Android camera develope
+  [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) • 4 min read
+  - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
 - [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
   ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
@@ -59,13 +66,6 @@ Tools and resources to help you build faster and easier.
 
   Over 900 attendees joined our event spaces for a keynote about our outlook on the future, demo sessions, dozens of workshops, a hackathon, and for community discussions focused on ideas and feedback on Android platform.
   [Florina Muntenescu](https://developer.android.com/blog/authors/florina-muntenescu.md.txt) • 1 min read
-  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
-- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
-
-  ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance.md.txt)
-
-  This year at Android Dev Summit we shared how Android's developer tools are evolving to help you be more productive alongside your agents.
-  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando.md.txt) • 10 min read
   - [#Android](https://developer.android.com/blog/topics/android.md.txt)
 [arrow_forward
 See all latest posts](https://developer.android.com/blog/latest) ![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1Ad42c.webp)

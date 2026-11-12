@@ -5,12 +5,12 @@ source: md.txt
 ---
 
 To create the screens displayed by your app, you define the classes that extend
-the `Screen` class and implement its [`onGetTemplate`](https://developer.android.com/reference/androidx/car/app/Screen#onGetTemplate()) method to return the
-[`Template`](https://developer.android.com/reference/androidx/car/app/model/Template) instance that represents the state of the UI to display in the
+the `Screen` class and implement its [`onGetTemplate`](https://developer.android.com/reference/androidx/car/app/Screen.md.txt#onGetTemplate()) method to return the
+[`Template`](https://developer.android.com/reference/androidx/car/app/model/Template.md.txt) instance that represents the state of the UI to display in the
 car screen.
 
 This code snippet shows how to declare a `Screen` that uses a
-[`PaneTemplate`](https://developer.android.com/reference/androidx/car/app/model/PaneTemplate) template to display a "Hello world!" string:
+[`PaneTemplate`](https://developer.android.com/reference/androidx/car/app/model/PaneTemplate.md.txt) template to display a "Hello world!" string:
 
 
 ```kotlin

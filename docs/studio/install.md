@@ -770,16 +770,16 @@ Download Not Available
 
 Your current device is not supported.  
 
-[See the system requirements](https://developer.android.com/studio/install).
+[See the system requirements](https://developer.android.com/studio/install.md.txt).
 
 The Android Emulator lets you test your apps across a wide range of device
 configurations and Android API levels without needing a physical device. For
 this reason, it's the preferred method for testing your Android apps. To learn
-more, see [Run apps on the Android Emulator](https://developer.android.com/studio/run/emulator).
+more, see [Run apps on the Android Emulator](https://developer.android.com/studio/run/emulator.md.txt).
 
 However, you can also use Android Studio without the Emulator by using a modern
 physical [Android Device](https://www.android.com/phones/help-me-choose/) or
-the [Android Device Streaming Service](https://developer.android.com/studio/run/android-device-streaming)
+the [Android Device Streaming Service](https://developer.android.com/studio/run/android-device-streaming.md.txt)
 to deploy and test apps.
 
 If your system has limited resources, you might consider our cloud-based IDE
@@ -796,7 +796,7 @@ Studio and typically apply to the following use cases:
 - Creating a single Android Virtual Device (AVD).
 
 - Deploying an app to a single AVD, to a local physical device, or to
-  [Android Device Streaming](https://developer.android.com/studio/run/android-device-streaming) devices. This doesn't include XR AVDs.
+  [Android Device Streaming](https://developer.android.com/studio/run/android-device-streaming.md.txt) devices. This doesn't include XR AVDs.
 
 > [!NOTE]
 > **Note:** Some minimum requirements differ depending on whether you want to run Android Studio alone or Android Studio with the Android Emulator. In those cases, both requirements are listed and labelled accordingly with either **Studio** or **Studio \& Emulator**.
@@ -903,7 +903,7 @@ To install Android Studio on Linux, follow these steps:
 
 
    For a 64-bit version of Linux, first install the
-   [required libraries for 64-bit machines](https://developer.android.com/studio/install#64bit-libs).
+   [required libraries for 64-bit machines](https://developer.android.com/studio/install.md.txt#64bit-libs).
 2. To launch Android Studio, open a terminal, navigate to the `android-studio/bin/` directory, and execute `studio`.
 3. Select whether you want to import previous Android Studio settings, then click **OK**.
 4. Complete the Android Studio **Setup Wizard**, which includes downloading the Android SDK components that are required for development.

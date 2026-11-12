@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-de
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # Datadog delivers millions of in-depth performance insights with ProfilingManager
 
-4 min read ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_prXkK.webp) 08 Jun 2026 3 Authors [Alice Yuan,](https://developer.android.com/blog/authors/alice-yuan) [Arti Arutiunov,](https://developer.android.com/blog/authors/arti-arutiunov) [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers. Although signals like ANR rates indicate *what* issues occur in production, pinpointing the specific line of code that resulted in the performance issue has historically necessitated exhaustive manual reproduction or speculative trial-and-error experimentation.
+4 min read ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_prXkK.webp) 08 Jun 2026 3 Authors [Alice Yuan,](https://developer.android.com/blog/authors/alice-yuan.md.txt) [Arti Arutiunov,](https://developer.android.com/blog/authors/arti-arutiunov.md.txt) [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov.md.txt) Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers. Although signals like ANR rates indicate *what* issues occur in production, pinpointing the specific line of code that resulted in the performance issue has historically necessitated exhaustive manual reproduction or speculative trial-and-error experimentation.
 
 Datadog collaborated with Google to mitigate this frustration by integrating the ProfilingManager API (available on Android 15+ devices) into its Real User Monitoring (RUM) and Continuous Profiling platforms. This integration transforms the debugging workflow, allowing developers to move beyond surface-level symptoms to being able to detect the *why* behind a performance bottleneck.
 
@@ -33,7 +33,7 @@ ProfilingManager supports a wide range of collection methods, including CPU trac
 By centralizing high-fidelity telemetry within a unified observability API, ProfilingManager empowers Datadog and its clients to proactively monitor, investigate, and remediate complex Android performance regressions through key technical advantages:
 
 - **Granular session diagnostics:** ProfilingManager enhances debuggability by delivering direct OS-level trace data, overcoming the visibility and alignment challenges typical of custom logging with system services. To dive deeper, developers can download these traces from Datadog to investigate further in visualization tools like the [Perfetto UI](https://ui.perfetto.dev/).
-- **Automated telemetry triggers:** By leveraging native system events to initiate trace recordings at key optimization points, Datadog reduces the need to build custom collection logic. While the initial rollout focuses on the [APP_FULLY_DRAWN](https://developer.android.com/reference/android/os/ProfilingTrigger?_gl=1*xix6h8*_up*MQ..*_ga*MTc4ODI2NDgwMy4xNzc5MzE2ODcw*_ga_6HH9YJMN9M*czE3NzkzMTY4NzAkbzEkZzAkdDE3NzkzMTY4NzAkajYwJGwwJGgyMTE1NzIyNjk1#TRIGGER_TYPE_APP_FULLY_DRAWN) signal, there are already plans to expand this observability to include [ANR](https://developer.android.com/reference/android/os/ProfilingTrigger?_gl=1*1hl4p7n*_up*MQ..*_ga*MTc4ODI2NDgwMy4xNzc5MzE2ODcw*_ga_6HH9YJMN9M*czE3NzkzMTY4NzAkbzEkZzAkdDE3NzkzMTY4NzAkajYwJGwwJGgyMTE1NzIyNjk1#TRIGGER_TYPE_ANR), [OOM](https://developer.android.com/reference/android/os/ProfilingTrigger?_gl=1*8x3pd*_up*MQ..*_ga*MTc4ODI2NDgwMy4xNzc5MzE2ODcw*_ga_6HH9YJMN9M*czE3NzkzMTY4NzAkbzEkZzAkdDE3NzkzMTY4NzAkajYwJGwwJGgyMTE1NzIyNjk1#TRIGGER_TYPE_OOM), and [COLD_START](https://developer.android.com/reference/android/os/ProfilingTrigger?_gl=1*1ezx2ma*_up*MQ..*_ga*MTc4ODI2NDgwMy4xNzc5MzE2ODcw*_ga_6HH9YJMN9M*czE3NzkzMTY4NzAkbzEkZzAkdDE3NzkzMTY4NzAkajYwJGwwJGgyMTE1NzIyNjk1#TRIGGER_TYPE_COLD_START) triggers.
+- **Automated telemetry triggers:** By leveraging native system events to initiate trace recordings at key optimization points, Datadog reduces the need to build custom collection logic. While the initial rollout focuses on the [APP_FULLY_DRAWN](https://developer.android.com/reference/android/os/ProfilingTrigger.md.txt?_gl=1*xix6h8*_up*MQ..*_ga*MTc4ODI2NDgwMy4xNzc5MzE2ODcw*_ga_6HH9YJMN9M*czE3NzkzMTY4NzAkbzEkZzAkdDE3NzkzMTY4NzAkajYwJGwwJGgyMTE1NzIyNjk1#TRIGGER_TYPE_APP_FULLY_DRAWN) signal, there are already plans to expand this observability to include [ANR](https://developer.android.com/reference/android/os/ProfilingTrigger.md.txt?_gl=1*1hl4p7n*_up*MQ..*_ga*MTc4ODI2NDgwMy4xNzc5MzE2ODcw*_ga_6HH9YJMN9M*czE3NzkzMTY4NzAkbzEkZzAkdDE3NzkzMTY4NzAkajYwJGwwJGgyMTE1NzIyNjk1#TRIGGER_TYPE_ANR), [OOM](https://developer.android.com/reference/android/os/ProfilingTrigger.md.txt?_gl=1*8x3pd*_up*MQ..*_ga*MTc4ODI2NDgwMy4xNzc5MzE2ODcw*_ga_6HH9YJMN9M*czE3NzkzMTY4NzAkbzEkZzAkdDE3NzkzMTY4NzAkajYwJGwwJGgyMTE1NzIyNjk1#TRIGGER_TYPE_OOM), and [COLD_START](https://developer.android.com/reference/android/os/ProfilingTrigger.md.txt?_gl=1*1ezx2ma*_up*MQ..*_ga*MTc4ODI2NDgwMy4xNzc5MzE2ODcw*_ga_6HH9YJMN9M*czE3NzkzMTY4NzAkbzEkZzAkdDE3NzkzMTY4NzAkajYwJGwwJGgyMTE1NzIyNjk1#TRIGGER_TYPE_COLD_START) triggers.
 - **Proactive trace snapshots:**By interfacing directly with the system-level Perfetto service (traced), ProfilingManager utilizes a proactive background recording model designed to capture unpredictable issues. This ensures that developers receive a precise visualization of the events leading up to a performance anomaly, offering a level of insight that exceeds what is possible through manual instrumentation.
 - **Bottleneck detection at scale:**Datadog is able to synthesize telemetry from across Datadog's global customer base to uncover regressions that only emerge under unique hardware configurations and variable network environments.
 - **System-enforced resource stability:**The API leverages sampling trace collection to ensure performance and user experience impacts remain unnoticeable.
@@ -49,19 +49,19 @@ The team has been profiling Datadog's own native Android application and a numbe
 
 ## Conclusion
 
-By integrating Android's ProfilingManager API, Datadog successfully closed the visibility gap between backend systems and mobile client applications for their customers. By processing millions of profiles weekly with negligible device overhead, Datadog equips Android developers with the code-level insights necessary to diagnose complex performance bugs instantly, helping developers build smoother applications and improve their app's performance signals in the Play Store. To adopt the ProfilingManager API directly into your performance observability framework, check out our [documentation](https://developer.android.com/topic/performance/tracing/profiling-manager/overview).
+By integrating Android's ProfilingManager API, Datadog successfully closed the visibility gap between backend systems and mobile client applications for their customers. By processing millions of profiles weekly with negligible device overhead, Datadog equips Android developers with the code-level insights necessary to diagnose complex performance bugs instantly, helping developers build smoother applications and improve their app's performance signals in the Play Store. To adopt the ProfilingManager API directly into your performance observability framework, check out our [documentation](https://developer.android.com/topic/performance/tracing/profiling-manager/overview.md.txt).
 
 In the future, Datadog aims to make Android profiling data a first-class input for coding agents to autonomously resolve performance bottlenecks, closing the feedback loop between detection and remediation. Datadog is working toward making Android profiling broadly accessible to developers.
 
 To get started using the Datadog real user monitoring feature powered by ProfilingManager, visit[Datadog Mobile Real User Monitoring](https://www.datadoghq.com/dg/real-user-monitoring/android-profiling/?utm_source=inbound&utm_medium=corpsite-display&utm_campaign=int-rum-ww-blog-announcement-announcement-androidprofilerblog2026).
-- [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
-- [#Android](https://developer.android.com/blog/topics/android)
-- [#Performance](https://developer.android.com/blog/topics/performance)
+- [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager.md.txt)
+- [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
 Written by:
 
 -
 
-  ## [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan)
+  ## [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -69,7 +69,7 @@ Written by:
   View profile](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)
 -
 
-  ## [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov)
+  ## [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov.md.txt)
 
   ###### Product Manager
 
@@ -77,35 +77,34 @@ Written by:
   View profile](https://developer.android.com/blog/authors/arti-arutiunov) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_Z1kVIJ2.webp) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_Z1kVIJ2.webp)
 -
 
-  ## [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov)
+  ## [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov.md.txt)
 
   ###### Staff Software Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/nikita-ogorodnikov) ![View Nikita Ogorodnikov's profile](https://developer.android.com/static/blog/assets/nickolay_profile_blog_4e456d6b31_1rbt1v.webp) ![View Nikita Ogorodnikov's profile](https://developer.android.com/static/blog/assets/nickolay_profile_blog_4e456d6b31_1rbt1v.webp)
 Continue reading
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_276PBK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan.md.txt)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_276PBK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
+  ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature) Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 2 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature.md.txt) Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
+  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 2 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) 11 Nov 2026 11 Nov 2026 ![](https://developer.android.com/static/blog/assets/1007_ABL_134_How_Smile_ID_Scaled_Identity_Verification_with_Camera_X_Strapi_788bf73f23_1N5Hb5.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time)
+  ## [How SmileID Scaled Identity Verification to 18,000+ Android Device Types with CameraX](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- [![View Pavlo Stavytskyi's profile](https://developer.android.com/static/blog/assets/pavlo_a4e2ec12e9_v4xs2.webp)](https://developer.android.com/blog/authors/pavlo-stavytskyi)[![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)](https://developer.android.com/blog/authors/rebecca-franks) 30 Sep 2026 30 Sep 2026 ![](https://developer.android.com/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt) Identity verification apps for banking and SIM registration require clear, high-resolution face captures to detect spoofing and deepfakes. Capturing frames sharp enough for liveness and anti-spoofing checks, without crashing low-memory devices, is a common challenge for Android camera develope
+  [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) • 4 min read
+  - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
+- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct)
+  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct) The team built an AI-native UI codebase that is 50% smaller than the original implementation, while achieving a 35% reduction in AI agent execution time, 32% fewer engineer-agent exchanges, and a 33% reduction in token cost.
-  [Pavlo Stavytskyi](https://developer.android.com/blog/authors/pavlo-stavytskyi), [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks) • 11 min read
-  - [#Compose-first](https://developer.android.com/blog/topics/compose-first)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
 Stay in the loop
 
 

@@ -9,7 +9,7 @@ muxes the two streams, then writes the resultant stream to disk.
 ![conceptual diagram for a video and audio capturing system](https://developer.android.com/static/images/training/camera/camerax/conceptual-capturing-system.png) **Figure 1.** Conceptual diagram for a video and audio capturing system.
 
 In CameraX, the solution for video capturing is the
-[`VideoCapture`](https://developer.android.com/reference/androidx/camera/video/VideoCapture)
+[`VideoCapture`](https://developer.android.com/reference/androidx/camera/video/VideoCapture.md.txt)
 use case:
 ![conceptual diagram that shows how camera x handles the
 video capture use case](https://developer.android.com/static/images/training/camera/camerax/videocapture-use-case.png) **Figure 2.** Conceptual diagram that shows how CameraX handles the `VideoCapture` use case.
@@ -39,10 +39,10 @@ valid use case combination on all devices.
 The VideoCapture API consists of the following objects that communicate
 with applications:
 
-- [`VideoCapture`](https://developer.android.com/reference/androidx/camera/video/VideoCapture) is the top-level use case class. `VideoCapture` binds to a `LifecycleOwner` with a `CameraSelector` and other CameraX UseCases. For more information about these concepts and usages, see [CameraX Architecture](https://developer.android.com/training/camerax/architecture).
-- A [`Recorder`](https://developer.android.com/reference/androidx/camera/video/Recorder) is an implementation of VideoOutput that is tightly coupled with `VideoCapture`. `Recorder` is used to perform the video and audio capturing. An application **creates** recordings from a `Recorder`.
-- A [`PendingRecording`](https://developer.android.com/reference/androidx/camera/video/PendingRecording) configures a recording, providing options like enabling audio and setting an event listener. You must use a `Recorder` to create a `PendingRecording`. A `PendingRecording` does not record anything.
-- A [`Recording`](https://developer.android.com/reference/androidx/camera/video/Recording) performs the actual recording. You must use a `PendingRecording` to create a `Recording`.
+- [`VideoCapture`](https://developer.android.com/reference/androidx/camera/video/VideoCapture.md.txt) is the top-level use case class. `VideoCapture` binds to a `LifecycleOwner` with a `CameraSelector` and other CameraX UseCases. For more information about these concepts and usages, see [CameraX Architecture](https://developer.android.com/training/camerax/architecture).
+- A [`Recorder`](https://developer.android.com/reference/androidx/camera/video/Recorder.md.txt) is an implementation of VideoOutput that is tightly coupled with `VideoCapture`. `Recorder` is used to perform the video and audio capturing. An application **creates** recordings from a `Recorder`.
+- A [`PendingRecording`](https://developer.android.com/reference/androidx/camera/video/PendingRecording.md.txt) configures a recording, providing options like enabling audio and setting an event listener. You must use a `Recorder` to create a `PendingRecording`. A `PendingRecording` does not record anything.
+- A [`Recording`](https://developer.android.com/reference/androidx/camera/video/Recording.md.txt) performs the actual recording. You must use a `PendingRecording` to create a `Recording`.
 
 Figure 3 shows the relationships between these objects:
 ![diagram showing the interactions that occur in a video
@@ -50,12 +50,12 @@ capture use case](https://developer.android.com/static/images/training/camera/ca
 
 **Legend:**
 
-1. Create a [`Recorder`](https://developer.android.com/reference/androidx/camera/video/Recorder) with [`QualitySelector`](https://developer.android.com/reference/androidx/camera/video/QualitySelector).
-2. Configure the `Recorder` with one of the [`OutputOptions`](https://developer.android.com/reference/androidx/camera/video/OutputOptions).
-3. Enable audio with [`withAudioEnabled()`](https://developer.android.com/reference/androidx/camera/video/PendingRecording#withAudioEnabled()) if needed.
-4. Call [`start()`](https://developer.android.com/reference/androidx/camera/video/PendingRecording#start()) with a [`VideoRecordEvent`](https://developer.android.com/reference/androidx/camera/video/VideoRecordEvent) listener to begin recording.
-5. Use `pause()`/`resume()`/`stop()` on the [`Recording`](https://developer.android.com/reference/androidx/camera/video/Recording) to control the recording.
-6. Respond to [`VideoRecordEvents`](https://developer.android.com/reference/androidx/camera/video/VideoRecordEvent) inside your event listener.
+1. Create a [`Recorder`](https://developer.android.com/reference/androidx/camera/video/Recorder.md.txt) with [`QualitySelector`](https://developer.android.com/reference/androidx/camera/video/QualitySelector.md.txt).
+2. Configure the `Recorder` with one of the [`OutputOptions`](https://developer.android.com/reference/androidx/camera/video/OutputOptions.md.txt).
+3. Enable audio with [`withAudioEnabled()`](https://developer.android.com/reference/androidx/camera/video/PendingRecording.md.txt#withAudioEnabled()) if needed.
+4. Call [`start()`](https://developer.android.com/reference/androidx/camera/video/PendingRecording.md.txt#start()) with a [`VideoRecordEvent`](https://developer.android.com/reference/androidx/camera/video/VideoRecordEvent.md.txt) listener to begin recording.
+5. Use `pause()`/`resume()`/`stop()` on the [`Recording`](https://developer.android.com/reference/androidx/camera/video/Recording.md.txt) to control the recording.
+6. Respond to [`VideoRecordEvents`](https://developer.android.com/reference/androidx/camera/video/VideoRecordEvent.md.txt) inside your event listener.
 
 The detailed API list is in [the current.txt inside the source code](https://github.com/androidx/androidx/blob/androidx-main/camera/camera-video/api/current.txt).
 
@@ -83,7 +83,7 @@ CameraX VideoCapture API follows the builder design pattern. Applications
 use `Recorder.Builder` to create a `Recorder`. You can also configure the
 video resolution for the `Recorder` through a `QualitySelector` object.
 
-CameraX `Recorder` supports the following pre-defined [`Qualities`](https://developer.android.com/reference/androidx/camera/video/Quality)
+CameraX `Recorder` supports the following pre-defined [`Qualities`](https://developer.android.com/reference/androidx/camera/video/Quality.md.txt)
 for video resolutions:
 
 - `Quality.UHD` for 4K ultra HD video size (2160p)
@@ -96,107 +96,112 @@ Note that CameraX can also choose other resolutions when authorized by the app.
 
 The exact video size of each selection depends on the camera and encoder's
 capabilities. For more information, see the documentation for
-[`CamcorderProfile`](https://developer.android.com/reference/android/media/CamcorderProfile).
+[`CamcorderProfile`](https://developer.android.com/reference/android/media/CamcorderProfile.md.txt).
 
 Applications can configure resolution by creating a
-[`QualitySelector`](https://developer.android.com/reference/androidx/camera/video/QualitySelector).
+[`QualitySelector`](https://developer.android.com/reference/androidx/camera/video/QualitySelector.md.txt).
 You can create a `QualitySelector` using one of the following methods:
 
-- Provide a few preferred resolutions by using `fromOrderedList()`, and
+- Provide a few preferred resolutions by using
+  [`fromOrderedList`](https://developer.android.com/reference/androidx/camera/video/QualitySelector.md.txt#fromOrderedList(java.util.List%3Candroidx.camera.video.Quality%3E,androidx.camera.video.FallbackStrategy)), and
   include a fallback strategy to use in case none of the
   preferred resolutions is supported.
 
   CameraX can decide the best fallback match based on the selected camera's
-  capability, refer to `QualitySelector`'s [`FallbackStrategy specification`](https://developer.android.com/reference/androidx/camera/video/FallbackStrategy)
+  capability, refer to `QualitySelector`'s [`FallbackStrategy specification`](https://developer.android.com/reference/androidx/camera/video/FallbackStrategy.md.txt)
   for more details. For example, the following code requests the highest supported
   resolution for recording, and if none of the request resolutions can be supported,
   authorize CameraX to choose one that is the closest to the Quality.SD resolution:
 
-      val qualitySelector = QualitySelector.fromOrderedList(
-               listOf(Quality.UHD, Quality.QHD, Quality.FHD, Quality.HD, Quality.SD),
-               FallbackStrategy.lowerQualityOrHigherThan(Quality.SD))
-
+  ```kotlin
+  val qualitySelector = QualitySelector.fromOrderedList(
+           listOf(Quality.UHD, Quality.QHD, Quality.FHD, Quality.HD, Quality.SD),
+           FallbackStrategy.lowerQualityOrHigherThan(Quality.SD))
+  ```
 - Query the camera capabilities first, and choose from the supported
-  resolutions using `QualitySelector::from()`:
+  resolutions using [`QualitySelector.from`](https://developer.android.com/reference/androidx/camera/video/QualitySelector.md.txt#from(androidx.camera.video.Quality)):
 
-      val cameraInfo = cameraProvider.availableCameraInfos.filter {
-          Camera2CameraInfo
-          .from(it)
-          .getCameraCharacteristic(CameraCharacteristics.LENS\_FACING) == CameraMetadata.LENS_FACING_BACK
+  ```kotlin
+  val cameraInfo = cameraProvider.availableCameraInfos.filter {
+      it.cameraCharacteristics.get(CameraCharacteristics.LENS_FACING) ==
+          CameraMetadata.LENS_FACING_BACK
+  }
+
+  // Filter to SDR resolutions supported by both the camera sensor and Recorder
+  // encoder so the UI picker only displays valid options.
+  val supportedQualities =
+      Recorder.getVideoCapabilities(cameraInfo[0]).getSupportedQualities(DynamicRange.SDR)
+  val filteredQualities = arrayListOf (Quality.UHD, Quality.QHD, Quality.FHD, Quality.HD, Quality.SD)
+                         .filter { supportedQualities.contains(it) }
+
+  viewBinding.simpleQualityListView.apply {
+      adapter = ArrayAdapter(context,
+                             android.R.layout.simple_list_item_1,
+                             filteredQualities.map { it.qualityToString() })
+
+      setOnItemClickListener { _, _, position, _ ->
+          // QualitySelector is configured at Recorder build time, so selecting
+          // a new resolution requires building a new Recorder instance.
+          val qualitySelector = QualitySelector.from(filteredQualities[position])
+
+          val recorder = Recorder.Builder()
+              .setQualitySelector(qualitySelector).build()
+
+           // ...
       }
+  }
 
-      val supportedQualities = QualitySelector.getSupportedQualities(cameraInfo[0])
-      val filteredQualities = arrayListOf (Quality.UHD, Quality.QHD, Quality.FHD, Quality.HD, Quality.SD)
-                             .filter { supportedQualities.contains(it) }
-
-      // Use a simple ListView with the id of simple_quality_list_view
-      viewBinding.simpleQualityListView.apply {
-          adapter = ArrayAdapter(context,
-                                 android.R.layout.simple_list_item_1,
-                                 filteredQualities.map { it.qualityToString() })
-
-          // Set up the user interaction to manually show or hide the system UI.
-          setOnItemClickListener { _, _, position, _ ->
-              // Inside View.OnClickListener,
-              // convert Quality.* constant to QualitySelector
-              val qualitySelector = QualitySelector.from(filteredQualities[position])
-
-              // Create a new Recorder/VideoCapture for the new quality
-              // and bind to lifecycle
-              val recorder = Recorder.Builder()
-                  .setQualitySelector(qualitySelector).build()
-
-               // ...
-          }
+  fun Quality.qualityToString() : String {
+      return when (this) {
+          Quality.UHD -> "UHD"
+          Quality.QHD -> "QHD"
+          Quality.FHD -> "FHD"
+          Quality.HD -> "HD"
+          Quality.SD -> "SD"
+          else -> throw IllegalArgumentException()
       }
+  }
 
-      // A helper function to translate Quality to a string
-      fun Quality.qualityToString() : String {
-          return when (this) {
-              Quality.UHD -> "UHD"
-              Quality.QHD -> "QHD"
-              Quality.FHD -> "FHD"
-              Quality.HD -> "HD"
-              Quality.SD -> "SD"
-              else -> throw IllegalArgumentException()
-          }
-      }
+  ```
 
-  Note that the returned capability from
-  [`QualitySelector.getSupportedQualities()`](https://developer.android.com/reference/androidx/camera/video/QualitySelector#getSupportedQualities(androidx.camera.core.CameraInfo))
-  is guaranteed to work for either the `VideoCapture` use case or the
-  combination of `VideoCapture` and `Preview` use cases. When binding together with
-  `ImageCapture` or `ImageAnalysis` use case, CameraX
-  might still fail the binding when the required combination is not supported on
-  the requested camera.
+  Each [`Quality`](https://developer.android.com/reference/androidx/camera/video/Quality.md.txt) returned by
+  [`VideoCapabilities.getSupportedQualities`](https://developer.android.com/reference/androidx/camera/video/VideoCapabilities.md.txt#getSupportedQualities(androidx.camera.core.DynamicRange)) (from
+  [`Recorder.getVideoCapabilities`](https://developer.android.com/reference/androidx/camera/video/Recorder.md.txt#getVideoCapabilities(androidx.camera.core.CameraInfo)) for
+  [`DynamicRange.SDR`](https://developer.android.com/reference/androidx/camera/core/DynamicRange.md.txt#SDR())) works for the
+  [`VideoCapture`](https://developer.android.com/reference/androidx/camera/video/VideoCapture.md.txt) use case alone or combined with the
+  [`Preview`](https://developer.android.com/reference/androidx/camera/core/Preview.md.txt) use case. If you also bind
+  [`ImageCapture`](https://developer.android.com/reference/androidx/camera/core/ImageCapture.md.txt) or [`ImageAnalysis`](https://developer.android.com/reference/androidx/camera/core/ImageAnalysis.md.txt), CameraX
+  can fail to bind if the camera does not support that combination.
 
 Once you have a `QualitySelector`, the application can create a
 `VideoCapture` object and perform the binding. Note that this binding is
 the same as with other use cases:
 
-    val recorder = Recorder.Builder()
-        .setExecutor(cameraExecutor).setQualitySelector(qualitySelector)
-        .build()
-    val videoCapture = VideoCapture.withOutput(recorder)
+```kotlin
+val recorder = Recorder.Builder()
+    .setExecutor(cameraExecutor).setQualitySelector(qualitySelector)
+    .build()
+val videoCapture = VideoCapture.withOutput(recorder)
 
-    try {
-        // Bind use cases to camera
-        cameraProvider.bindToLifecycle(
-                this, CameraSelector.DEFAULT_BACK_CAMERA, preview, videoCapture)
-    } catch(exc: Exception) {
-        Log.e(TAG, "Use case binding failed", exc)
-    }
+try {
+    // Bind use cases to camera
+    cameraProvider.bindToLifecycle(
+            this, CameraSelector.DEFAULT_BACK_CAMERA, preview, videoCapture)
+} catch(exc: Exception) {
+    Log.e(TAG, "Use case binding failed", exc)
+}
+```
 
-Note that [`bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...)) returns a [`Camera`](https://developer.android.com/reference/androidx/camera/core/Camera) object. See [this guide](https://developer.android.com/training/camerax/configuration#camera-output) for more information about controlling camera output, such as zoom and exposure.
+Note that [`bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider.md.txt#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...)) returns a [`Camera`](https://developer.android.com/reference/androidx/camera/core/Camera.md.txt) object. See [this guide](https://developer.android.com/training/camerax/configuration#camera-output) for more information about controlling camera output, such as zoom and exposure.
 
 > [!NOTE]
 > **Note:** The eventual video codec and container format are not currently configurable.
 
 The `Recorder` selects the most suitable format for the system. The most
 common video codec is
-[H.264 AVC](https://developer.android.com/reference/android/media/MediaFormat#MIMETYPE_VIDEO_AVC)) with
+[H.264 AVC](https://developer.android.com/reference/android/media/MediaFormat.md.txt#MIMETYPE_VIDEO_AVC)) with
 container format
-[MPEG-4](https://developer.android.com/reference/android/media/MediaFormat#MIMETYPE_VIDEO_MPEG4).
+[MPEG-4](https://developer.android.com/reference/android/media/MediaFormat.md.txt#MIMETYPE_VIDEO_MPEG4).
 
 ## Configure and create recording
 
@@ -206,7 +211,7 @@ the following:
 
 1. Configure `OutputOptions` with the `prepareRecording()`.
 2. (Optional) Enable audio recording.
-3. Use `start()` to register a [`VideoRecordEvent`](https://developer.android.com/reference/androidx/camera/video/VideoRecordEvent) listener, and begin video capturing.
+3. Use `start()` to register a [`VideoRecordEvent`](https://developer.android.com/reference/androidx/camera/video/VideoRecordEvent.md.txt) listener, and begin video capturing.
 
 The`Recorder` returns a `Recording` object when you call the `start()` function.
 Your application can use this `Recording` object to finish
@@ -220,9 +225,9 @@ Let's look at these steps in more detail. First, the application configures
 the `OutputOptions` for a Recorder with `Recorder.prepareRecording()`.
 A `Recorder` supports the following types of `OutputOptions`:
 
-- `FileDescriptorOutputOptions` for capturing into a [`FileDescriptor`](https://developer.android.com/reference/java/io/FileDescriptor).
-- `FileOutputOptions` for capturing into a [`File`](https://developer.android.com/reference/java/io/File).
-- `MediaStoreOutputOptions` for capturing into a [`MediaStore`](https://developer.android.com/reference/android/provider/MediaStore).
+- `FileDescriptorOutputOptions` for capturing into a [`FileDescriptor`](https://developer.android.com/reference/java/io/FileDescriptor.md.txt).
+- `FileOutputOptions` for capturing into a [`File`](https://developer.android.com/reference/java/io/File.md.txt).
+- `MediaStoreOutputOptions` for capturing into a [`MediaStore`](https://developer.android.com/reference/android/provider/MediaStore.md.txt).
 
 All `OutputOptions` types enable you to set a maximum file size with
 `setFileSizeLimit()`. Other options are specific to the individual output
@@ -248,23 +253,25 @@ Once recording begins on the corresponding Camera device, CameraX sends a
 The following example shows how to record video and audio into a
 `MediaStore` file:
 
-    // Create MediaStoreOutputOptions for our recorder
-    val name = "CameraX-recording-" +
-            SimpleDateFormat(FILENAME_FORMAT, Locale.US)
-                    .format(System.currentTimeMillis()) + ".mp4"
-    val contentValues = ContentValues().apply {
-       put(MediaStore.Video.Media.DISPLAY_NAME, name)
-    }
-    val mediaStoreOutput = MediaStoreOutputOptions.Builder(this.contentResolver,
-                                  MediaStore.Video.Media.EXTERNAL_CONTENT_URI)
-                                  .setContentValues(contentValues)
-                                  .build()
+```kotlin
+// Create MediaStoreOutputOptions for our recorder
+val name = "CameraX-recording-" +
+        SimpleDateFormat(FILENAME_FORMAT, Locale.US)
+                .format(System.currentTimeMillis()) + ".mp4"
+val contentValues = ContentValues().apply {
+   put(MediaStore.Video.Media.DISPLAY_NAME, name)
+}
+val mediaStoreOutput = MediaStoreOutputOptions.Builder(this.contentResolver,
+                              MediaStore.Video.Media.EXTERNAL_CONTENT_URI)
+                              .setContentValues(contentValues)
+                              .build()
 
-    // 2. Configure Recorder and Start recording to the mediaStoreOutput.
-    val recording = videoCapture.output
-                    .prepareRecording(context, mediaStoreOutput)
-                    .withAudioEnabled()
-                    .start(ContextCompat.getMainExecutor(this), captureListener)
+// 2. Configure Recorder and Start recording to the mediaStoreOutput.
+val recording = videoCapture.output
+                .prepareRecording(context, mediaStoreOutput)
+                .withAudioEnabled()
+                .start(ContextCompat.getMainExecutor(this), captureListener)
+```
 
 While the camera preview is mirrored on the front camera by default, videos
 recorded by VideoCapture are not mirrored by default. With CameraX 1.3, it's
@@ -277,11 +284,11 @@ camera preview, Google recommends using MIROR_MODE_ON_FRONT_ONLY, which means
 that
 mirroring is not enabled for the rear camera, but is enabled for the front
 camera. For more information about MirrorMode, see
-[`MirrorMode constants`](https://developer.android.com/reference/androidx/camera/core/MirrorMode).
+[`MirrorMode constants`](https://developer.android.com/reference/androidx/camera/core/MirrorMode.md.txt).
 
 This code snippet shows how to call
 `VideoCapture.Builder.setMirrorMode()` using `MIRROR_MODE_ON_FRONT_ONLY`. For
-more information, see [`setMirrorMode()`](https://developer.android.com/reference/androidx/camera/video/VideoCapture.Builder#setMirrorMode(int)).
+more information, see [`setMirrorMode()`](https://developer.android.com/reference/androidx/camera/video/VideoCapture.Builder.md.txt#setMirrorMode(int)).
 
 ### Kotlin
 
@@ -312,13 +319,13 @@ if (mVideoQuality != QUALITY_AUTO) {
 ### Dynamic range (HDR video)
 
 CameraX supports 10-bit high dynamic range (HDR) video recording, such as
-HLG10, HDR10, HDR10+, or Dolby Vision, using [`DynamicRange`](https://developer.android.com/reference/androidx/camera/core/DynamicRange).
+HLG10, HDR10, HDR10+, or Dolby Vision, using [`DynamicRange`](https://developer.android.com/reference/androidx/camera/core/DynamicRange.md.txt).
 
 To use HDR video recording, complete the following steps:
 
-1. Query the camera's supported dynamic ranges using [`VideoCapabilities.getSupportedDynamicRanges()`](https://developer.android.com/reference/androidx/camera/video/VideoCapabilities#getSupportedDynamicRanges()).
-2. Optional: If you configure a custom `QualitySelector`, check which qualities are supported for that dynamic range using [`getSupportedQualities(DynamicRange)`](https://developer.android.com/reference/androidx/camera/video/VideoCapabilities#getSupportedQualities(androidx.camera.core.DynamicRange)).
-3. Configure `VideoCapture.Builder` with [`setDynamicRange()`](https://developer.android.com/reference/androidx/camera/video/VideoCapture.Builder#setDynamicRange(androidx.camera.core.DynamicRange)).
+1. Query the camera's supported dynamic ranges using [`VideoCapabilities.getSupportedDynamicRanges()`](https://developer.android.com/reference/androidx/camera/video/VideoCapabilities.md.txt#getSupportedDynamicRanges()).
+2. Optional: If you configure a custom `QualitySelector`, check which qualities are supported for that dynamic range using [`getSupportedQualities(DynamicRange)`](https://developer.android.com/reference/androidx/camera/video/VideoCapabilities.md.txt#getSupportedQualities(androidx.camera.core.DynamicRange)).
+3. Configure `VideoCapture.Builder` with [`setDynamicRange()`](https://developer.android.com/reference/androidx/camera/video/VideoCapture.Builder.md.txt#setDynamicRange(androidx.camera.core.DynamicRange)).
 
 The following example enables HLG 10-bit HDR recording when the camera supports
 it:
@@ -361,8 +368,8 @@ during video recording.
 
 To enable video stabilization, complete the following steps:
 
-1. Check whether the camera device supports stabilization using [`VideoCapabilities.isStabilizationSupported()`](https://developer.android.com/reference/androidx/camera/video/VideoCapabilities#isStabilizationSupported()).
-2. Enable it on `VideoCapture.Builder` using [`setVideoStabilizationEnabled(true)`](https://developer.android.com/reference/androidx/camera/video/VideoCapture.Builder#setVideoStabilizationEnabled(boolean)).
+1. Check whether the camera device supports stabilization using [`VideoCapabilities.isStabilizationSupported()`](https://developer.android.com/reference/androidx/camera/video/VideoCapabilities.md.txt#isStabilizationSupported()).
+2. Enable it on `VideoCapture.Builder` using [`setVideoStabilizationEnabled(true)`](https://developer.android.com/reference/androidx/camera/video/VideoCapture.Builder.md.txt#setVideoStabilizationEnabled(boolean)).
 
 The following example enables stabilization when the camera supports it:
 
@@ -389,10 +396,10 @@ VideoCapture<Recorder> videoCapture = new VideoCapture.Builder<>(recorder)
 You can pause, resume, and stop an ongoing `Recording` by
 using the following methods:
 
-- [`pause`](https://developer.android.com/reference/androidx/camera/video/Recording#pause()) to pause the current active recording.
-- [`resume()`](https://developer.android.com/reference/androidx/camera/video/Recording#resume()) to resume a paused active recording.
-- [`stop()`](https://developer.android.com/reference/androidx/camera/video/Recording#stop()) to finish recording and flush any associated recording objects.
-- [`mute()`](https://developer.android.com/reference/androidx/camera/video/Recording#mute()) to mute or un-mute the current recording.
+- [`pause`](https://developer.android.com/reference/androidx/camera/video/Recording.md.txt#pause()) to pause the current active recording.
+- [`resume()`](https://developer.android.com/reference/androidx/camera/video/Recording.md.txt#resume()) to resume a paused active recording.
+- [`stop()`](https://developer.android.com/reference/androidx/camera/video/Recording.md.txt#stop()) to finish recording and flush any associated recording objects.
+- [`mute()`](https://developer.android.com/reference/androidx/camera/video/Recording.md.txt#mute()) to mute or un-mute the current recording.
 
 Note that you can call `stop()` to terminate a `Recording` regardless
 of whether the recording is in a paused or active recording state.
@@ -400,7 +407,7 @@ of whether the recording is in a paused or active recording state.
 If you've registered an `EventListener` with
 `PendingRecording.start()`, the `Recording` communicates
 by using a
-[`VideoRecordEvent`](https://developer.android.com/reference/androidx/camera/video/VideoRecordEvent).
+[`VideoRecordEvent`](https://developer.android.com/reference/androidx/camera/video/VideoRecordEvent.md.txt).
 
 - `VideoRecordEvent.EVENT_TYPE_STATUS` is used for recording statistics such as current file size and recorded time span.
 - `VideoRecordEvent.EVENT_TYPE_FINALIZE` is used for the recording result and includes information such as the URI of the final file along with any related errors.
@@ -412,10 +419,10 @@ specified in `OutputOptions`.
 ### Real-time audio amplitude and state
 
 During recording, `VideoRecordEvent.Status` events provide real-time audio
-statistics through [`AudioStats`](https://developer.android.com/reference/androidx/camera/video/AudioStats):
+statistics through [`AudioStats`](https://developer.android.com/reference/androidx/camera/video/AudioStats.md.txt):
 
-- [`AudioStats.getAudioAmplitude()`](https://developer.android.com/reference/androidx/camera/video/AudioStats#getAudioAmplitude()) returns the current audio peak amplitude, ranging from `0.0` to `1.0`. You can use this value to drive UI meters or audio waveform visualizers.
-- [`AudioStats.getAudioState()`](https://developer.android.com/reference/androidx/camera/video/AudioStats#getAudioState()) indicates the current status of the audio stream, such as `AUDIO_STATE_ACTIVE`, `AUDIO_STATE_MUTED`, or `AUDIO_STATE_SOURCE_SILENCED`.
+- [`AudioStats.getAudioAmplitude()`](https://developer.android.com/reference/androidx/camera/video/AudioStats.md.txt#getAudioAmplitude()) returns the current audio peak amplitude, ranging from `0.0` to `1.0`. You can use this value to drive UI meters or audio waveform visualizers.
+- [`AudioStats.getAudioState()`](https://developer.android.com/reference/androidx/camera/video/AudioStats.md.txt#getAudioState()) indicates the current status of the audio stream, such as `AUDIO_STATE_ACTIVE`, `AUDIO_STATE_MUTED`, or `AUDIO_STATE_SOURCE_SILENCED`.
 
 The following example reads the audio amplitude from a status event:
 
@@ -458,12 +465,12 @@ which enables two distinct use cases:
 ### Check high-speed capabilities
 
 High-speed video capture requires hardware support and corresponding
-[`CamcorderProfile`](https://developer.android.com/reference/android/media/CamcorderProfile) definitions from device manufacturers,
+[`CamcorderProfile`](https://developer.android.com/reference/android/media/CamcorderProfile.md.txt) definitions from device manufacturers,
 such as `CamcorderProfile.QUALITY_HIGH_SPEED_1080P` or
 `QUALITY_HIGH_SPEED_720P`.
 
 Before configuring high-speed recording, query high-speed capabilities using
-[`Recorder.getHighSpeedVideoCapabilities(CameraInfo)`](https://developer.android.com/reference/androidx/camera/video/Recorder#getHighSpeedVideoCapabilities(androidx.camera.core.CameraInfo)):
+[`Recorder.getHighSpeedVideoCapabilities(CameraInfo)`](https://developer.android.com/reference/androidx/camera/video/Recorder.md.txt#getHighSpeedVideoCapabilities(androidx.camera.core.CameraInfo)):
 
 ### Kotlin
 
@@ -493,12 +500,12 @@ List<Quality> supportedQualities = highSpeedCapabilities.getSupportedQualities(D
 ### Configure HighSpeedVideoSessionConfig
 
 To use high-speed capture, combine your `VideoCapture` and `Preview` use cases
-in a [`HighSpeedVideoSessionConfig`](https://developer.android.com/reference/androidx/camera/video/HighSpeedVideoSessionConfig). To configure
+in a [`HighSpeedVideoSessionConfig`](https://developer.android.com/reference/androidx/camera/video/HighSpeedVideoSessionConfig.md.txt). To configure
 the session, complete the following steps:
 
 1. Create a `VideoCapture` use case and a `Preview` use case.
-2. Initialize [`HighSpeedVideoSessionConfig.Builder`](https://developer.android.com/reference/androidx/camera/video/HighSpeedVideoSessionConfig.Builder) with the `VideoCapture` use case and attach the `Preview`.
-3. Query the supported frame rate ranges using [`CameraInfo.getSupportedFrameRateRanges(SessionConfig)`](https://developer.android.com/reference/androidx/camera/core/CameraInfo#getSupportedFrameRateRanges(androidx.camera.core.SessionConfig)) and set the selected range.
+2. Initialize [`HighSpeedVideoSessionConfig.Builder`](https://developer.android.com/reference/androidx/camera/video/HighSpeedVideoSessionConfig.Builder.md.txt) with the `VideoCapture` use case and attach the `Preview`.
+3. Query the supported frame rate ranges using [`CameraInfo.getSupportedFrameRateRanges(SessionConfig)`](https://developer.android.com/reference/androidx/camera/core/CameraInfo.md.txt#getSupportedFrameRateRanges(androidx.camera.core.SessionConfig)) and set the selected range.
 4. Choose between high-frame-rate video or ready-to-play slow-motion video:
    - To create a **high-frame-rate video** , leave `setSlowMotionEnabled(false)` (default).
    - To create a **ready-to-play slow-motion video** , call `setSlowMotionEnabled(true)`.
@@ -567,16 +574,18 @@ cameraProvider.bindToLifecycle(
 You can also use the Kotlin DSL, introduced in CameraX `1.7.0-alpha02`, to
 configure high-speed sessions concisely:
 
-    val sessionConfig = highSpeedVideoSessionConfig(videoCapture) {
-        this.preview = preview
-        isSlowMotionEnabled = true
-        frameRateRange = supportedFpsRanges.first()
-    }
-    cameraProvider.bindToLifecycle(
-        lifecycleOwner,
-        CameraSelector.DEFAULT_BACK_CAMERA,
-        sessionConfig
-    )
+```kotlin
+val sessionConfig = highSpeedVideoSessionConfig(videoCapture) {
+    this.preview = preview
+    isSlowMotionEnabled = true
+    frameRateRange = supportedFpsRanges.first()
+}
+cameraProvider.bindToLifecycle(
+    lifecycleOwner,
+    CameraSelector.DEFAULT_BACK_CAMERA,
+    sessionConfig
+)
+```
 
 ### Record high-speed or slow-motion video
 
@@ -626,6 +635,6 @@ To learn more about CameraX, see the following additional resources:
 - [Getting Started with CameraX Codelab](https://codelabs.developers.google.com/codelabs/camerax-getting-started)
 - [Official CameraX sample app](https://github.com/android/camera-samples/tree/main/CameraXBasic)
 - [Latest CameraX Video Capture API List](https://github.com/androidx/androidx/blob/androidx-main/camera/camera-video/api/current.txt)
-- [CameraX release notes](https://developer.android.com/jetpack/androidx/releases/camera)
+- [CameraX release notes](https://developer.android.com/jetpack/androidx/releases/camera.md.txt)
 - [CameraX source code](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:camera/)
-- [High-Speed Capture and Slow-Motion Video with CameraX 1.5](https://developer.android.com/blog/posts/high-speed-capture-and-slow-motion-video-with-camera-x-1-5)
+- [High-Speed Capture and Slow-Motion Video with CameraX 1.5](https://developer.android.com/blog/posts/high-speed-capture-and-slow-motion-video-with-camera-x-1-5.md.txt)

@@ -4,23 +4,25 @@ url: https://developer.android.com/media/media3/transformer/troubleshooting
 source: md.txt
 ---
 
-- [Why can't I access local files in the demo app?](https://developer.android.com/media/media3/transformer/troubleshooting#local-files)
-- [Why does exporting fail on a specific device?](https://developer.android.com/media/media3/transformer/troubleshooting#device-specific)
-- [Does Transformer support transforming (or recording) remote media](https://developer.android.com/media/media3/transformer/troubleshooting#remote-media)
-- [Does Transformer support 8k input?](https://developer.android.com/media/media3/transformer/troubleshooting#8k-media)
-- [How does Transformer relate to platform compatible media transcoding?](https://developer.android.com/media/media3/transformer/troubleshooting#compatible-transcoding)
-- [How can I reduce export latency or increase throughput?](https://developer.android.com/media/media3/transformer/troubleshooting#throughput)
+- [Why can't I access local files in the demo app?](https://developer.android.com/media/media3/transformer/troubleshooting.md.txt#local-files)
+- [Why does exporting fail on a specific device?](https://developer.android.com/media/media3/transformer/troubleshooting.md.txt#device-specific)
+- [Does Transformer support transforming (or recording) remote media](https://developer.android.com/media/media3/transformer/troubleshooting.md.txt#remote-media)
+- [Does Transformer support 8k input?](https://developer.android.com/media/media3/transformer/troubleshooting.md.txt#8k-media)
+- [How does Transformer relate to platform compatible media transcoding?](https://developer.android.com/media/media3/transformer/troubleshooting.md.txt#compatible-transcoding)
+- [How can I reduce export latency or increase throughput?](https://developer.android.com/media/media3/transformer/troubleshooting.md.txt#throughput)
 
 *** ** * ** ***
 
 #### Why can't I access local files in the demo app?
 
-[Scoped storage enforcement](https://developer.android.com/about/versions/11/privacy/storage) from Android 11
+[Scoped storage enforcement](https://developer.android.com/about/versions/11/privacy/storage.md.txt) from Android 11
 (API level 30) prevents direct file system access. For manual testing during
 development, it's possible to access local files by adding the manage external
 storage permission in the demo app manifest:
 
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+```xml
+<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+```
 
 Then grant the permission via adb:
 

@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 Create a
-[`MediaSession`](https://developer.android.com/reference/android/media/session/MediaSession#MediaSession(android.content.Context,java.lang.String))
+[`MediaSession`](https://developer.android.com/reference/android/media/session/MediaSession.md.txt#MediaSession(android.content.Context,java.lang.String))
 when your app is preparing to play media. The following code snippet
 is an example of how to set the appropriate callback and flags:
 
@@ -25,17 +25,19 @@ session = MediaSession(this, "MusicService").apply {
 
 ### Java
 
-    session = new MediaSession(this, "MusicService");
-    session.setCallback(new MediaSessionCallback());
-    session.setFlags(MediaSession.FLAG_HANDLES_MEDIA_BUTTONS |
-            MediaSession.FLAG_HANDLES_TRANSPORT_CONTROLS);
+```java
+session = new MediaSession(this, "MusicService");
+session.setCallback(new MediaSessionCallback());
+session.setFlags(MediaSession.FLAG_HANDLES_MEDIA_BUTTONS |
+        MediaSession.FLAG_HANDLES_TRANSPORT_CONTROLS);
+```
 
 ## Start a media session
 
 Be sure to also call
-[`setActive(true)`](https://developer.android.com/reference/kotlin/android/media/session/MediaSession#setactive)
+[`setActive(true)`](https://developer.android.com/reference/kotlin/android/media/session/MediaSession.md.txt#setactive)
 when playback begins. Your app must also request audio focus, as described in
-[Manage audio focus](https://developer.android.com/media/optimize/audio-focus). These steps are
+[Manage audio focus](https://developer.android.com/media/optimize/audio-focus.md.txt). These steps are
 shown in the following example:
 
 ### Kotlin
@@ -56,20 +58,22 @@ fun handlePlayRequest() {
 
 ### Java
 
-    private void handlePlayRequest() {
+```java
+private void handlePlayRequest() {
 
-        tryToGetAudioFocus();
+    tryToGetAudioFocus();
 
-        if (!session.isActive()) {
-            session.setActive(true);
-        }
-        ...
+    if (!session.isActive()) {
+        session.setActive(true);
     }
+    ...
+}
+```
 
 ## Update the playback state
 
 Update the playback state in the
-[`MediaSession`](https://developer.android.com/reference/android/media/session/MediaSession) to reflect
+[`MediaSession`](https://developer.android.com/reference/android/media/session/MediaSession.md.txt) to reflect
 the state of the current media:
 
 ### Kotlin
@@ -118,42 +122,44 @@ private fun getAvailableActions(): Long {
 
 ### Java
 
-    private void updatePlaybackState() {
-        long position = PlaybackState.PLAYBACK_POSITION_UNKNOWN;
-        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            position = mediaPlayer.getCurrentPosition();
-        }
-        PlaybackState.Builder stateBuilder = new PlaybackState.Builder()
-                .setActions(getAvailableActions());
-        stateBuilder.setState(mState, position, 1.0f);
-        session.setPlaybackState(stateBuilder.build());
+```java
+private void updatePlaybackState() {
+    long position = PlaybackState.PLAYBACK_POSITION_UNKNOWN;
+    if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+        position = mediaPlayer.getCurrentPosition();
     }
+    PlaybackState.Builder stateBuilder = new PlaybackState.Builder()
+            .setActions(getAvailableActions());
+    stateBuilder.setState(mState, position, 1.0f);
+    session.setPlaybackState(stateBuilder.build());
+}
 
-    private long getAvailableActions() {
-        long actions = PlaybackState.ACTION_PLAY_PAUSE |
-                PlaybackState.ACTION_PLAY_FROM_MEDIA_ID |
-                PlaybackState.ACTION_PLAY_FROM_SEARCH;
-        if (playingQueue == null || playingQueue.isEmpty()) {
-            return actions;
-        }
-        if (mState == PlaybackState.STATE_PLAYING) {
-            actions |= PlaybackState.ACTION_PAUSE;
-        } else {
-            actions |= PlaybackState.ACTION_PLAY;
-        }
-        if (currentIndexOnQueue > 0) {
-            actions |= PlaybackState.ACTION_SKIP_TO_PREVIOUS;
-        }
-        if (currentIndexOnQueue < playingQueue.size() - 1) {
-            actions |= PlaybackState.ACTION_SKIP_TO_NEXT;
-        }
+private long getAvailableActions() {
+    long actions = PlaybackState.ACTION_PLAY_PAUSE |
+            PlaybackState.ACTION_PLAY_FROM_MEDIA_ID |
+            PlaybackState.ACTION_PLAY_FROM_SEARCH;
+    if (playingQueue == null || playingQueue.isEmpty()) {
         return actions;
     }
+    if (mState == PlaybackState.STATE_PLAYING) {
+        actions |= PlaybackState.ACTION_PAUSE;
+    } else {
+        actions |= PlaybackState.ACTION_PLAY;
+    }
+    if (currentIndexOnQueue > 0) {
+        actions |= PlaybackState.ACTION_SKIP_TO_PREVIOUS;
+    }
+    if (currentIndexOnQueue < playingQueue.size() - 1) {
+        actions |= PlaybackState.ACTION_SKIP_TO_NEXT;
+    }
+    return actions;
+}
+```
 
 ## Update the media metadata
 
-Set the [`MediaMetadata`](https://developer.android.com/reference/android/media/MediaMetadata) with the
-[`setMetadata()`](https://developer.android.com/reference/android/media/session/MediaSession#setMetadata(android.media.MediaMetadata))
+Set the [`MediaMetadata`](https://developer.android.com/reference/android/media/MediaMetadata.md.txt) with the
+[`setMetadata()`](https://developer.android.com/reference/android/media/session/MediaSession.md.txt#setMetadata(android.media.MediaMetadata))
 method. This method is only called once per object that is played. It lets you
 provide information to
 the media session about the media, including its title, subtitle,
@@ -186,24 +192,26 @@ private fun updateMetadata(myData: MediaData) {
 
 ### Java
 
-    private void updateMetadata(MediaData myData) {
-        MediaMetadata.Builder metadataBuilder = new MediaMetadata.Builder();
-        // To provide most control over how an item is displayed set the
-        // display fields in the metadata
-        metadataBuilder.putString(MediaMetadata.METADATA_KEY_DISPLAY_TITLE,
-                myData.displayTitle);
-        metadataBuilder.putString(MediaMetadata.METADATA_KEY_DISPLAY_SUBTITLE,
-                myData.displaySubtitle);
-        metadataBuilder.putString(MediaMetadata.METADATA_KEY_DISPLAY_ICON_URI,
-                myData.artUri);
-        // And at minimum the title and artist for legacy support
-        metadataBuilder.putString(MediaMetadata.METADATA_KEY_TITLE,
-                myData.title);
-        metadataBuilder.putString(MediaMetadata.METADATA_KEY_ARTIST,
-                myData.artist);
-        // A small bitmap for the artwork is also recommended
-        metadataBuilder.putBitmap(MediaMetadata.METADATA_KEY_ART,
-                myData.artBitmap);
-        // Add any other fields you have for your data as well
-        session.setMetadata(metadataBuilder.build());
-    }
+```java
+private void updateMetadata(MediaData myData) {
+    MediaMetadata.Builder metadataBuilder = new MediaMetadata.Builder();
+    // To provide most control over how an item is displayed set the
+    // display fields in the metadata
+    metadataBuilder.putString(MediaMetadata.METADATA_KEY_DISPLAY_TITLE,
+            myData.displayTitle);
+    metadataBuilder.putString(MediaMetadata.METADATA_KEY_DISPLAY_SUBTITLE,
+            myData.displaySubtitle);
+    metadataBuilder.putString(MediaMetadata.METADATA_KEY_DISPLAY_ICON_URI,
+            myData.artUri);
+    // And at minimum the title and artist for legacy support
+    metadataBuilder.putString(MediaMetadata.METADATA_KEY_TITLE,
+            myData.title);
+    metadataBuilder.putString(MediaMetadata.METADATA_KEY_ARTIST,
+            myData.artist);
+    // A small bitmap for the artwork is also recommended
+    metadataBuilder.putBitmap(MediaMetadata.METADATA_KEY_ART,
+            myData.artBitmap);
+    // Add any other fields you have for your data as well
+    session.setMetadata(metadataBuilder.build());
+}
+```

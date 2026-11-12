@@ -9,7 +9,7 @@ battery life of the device. To optimize that traffic, you need to measure it
 and identify its source. Network requests can come directly from a user action,
 from your own app code, or from a server communicating with your app.
 
-This topic shows you how to monitor and categorize your network traffic, and
+This document shows you how to monitor and categorize your network traffic, and
 provides guidance on identifying and resolving issues.
 
 ## Use the Network Profiler to monitor requests
@@ -20,29 +20,25 @@ data and optimize the underlying code appropriately.
 
 <br />
 
-![](https://developer.android.com/static/studio/images/profile/network_profiler_thread_view-2X.png)   
-
-**Figure 1.** Tracking network traffic. The network traffic pattern suggests
-that efficiency could be dramatically improved by prefetching requests or
-bundling uploads.
+![Network Profiler thread view of an app's network requests.](https://developer.android.com/static/studio/images/profile/network_profiler_thread_view-2X.png) **Figure 1.** Tracking network traffic. The network traffic pattern suggests that efficiency could be dramatically improved by prefetching requests or bundling uploads.
 
 By monitoring the frequency of your data transfers and the amount of data
 transferred during each connection, you can identify areas of your application
 that can be made more battery-efficient. Generally, you will be looking for
 short spikes that can be delayed.
 
-To better identify the cause of transfer spikes, the Traffic Stats API enables
-you to tag the data transfers occurring from a socket within a given thread
+To better identify the cause of transfer spikes, the Traffic Stats API lets
+you tag the data transfers occurring from a socket within a given thread
 using
-[`TrafficStats.setThreadStatsTag()`](https://developer.android.com/reference/android/net/TrafficStats#setThreadStatsTag(int)).
+[`TrafficStats.setThreadStatsTag()`](https://developer.android.com/reference/android/net/TrafficStats.md.txt#setThreadStatsTag(int)).
 Calling this function doesn't automatically tag all traffic for a particular
 thread; the tags have to be applied to the sockets.
 
 Once the thread tag is set, you can manually tag and untag individual sockets
 using
-[`TrafficStats.tagSocket()`](https://developer.android.com/reference/android/net/TrafficStats#tagSocket(java.net.Socket))
+[`TrafficStats.tagSocket()`](https://developer.android.com/reference/android/net/TrafficStats.md.txt#tagSocket(java.net.Socket))
 and
-[`TrafficStats.untagSocket()`](https://developer.android.com/reference/android/net/TrafficStats#untagSocket(java.net.Socket)).
+[`TrafficStats.untagSocket()`](https://developer.android.com/reference/android/net/TrafficStats.md.txt#untagSocket(java.net.Socket)).
 A tag is also applied if a socket is opened on the thread, or if a server socket
 accepts a connection.
 
@@ -52,12 +48,11 @@ different from when the user wrote or read the data, due to buffering and
 retransmits).
 
 > [!NOTE]
-> **Note:** This technique for tagging network traffic from your app depends on how the APIs that you are using access and manage network sockets. Some networking libraries may not allow the [`TrafficStats`](https://developer.android.com/reference/android/net/TrafficStats) utilities to tag traffic from your app.
+> **Note:** This technique for tagging network traffic from your app depends on how the APIs that you are using access and manage network sockets. Some networking libraries may not allow the [`TrafficStats`](https://developer.android.com/reference/android/net/TrafficStats.md.txt) utilities to tag traffic from your app.
 
 For example, you can define constants to represent different types of network
 traffic, as shown in the following code sample:
 
-### Kotlin
 
 ```kotlin
 const val USER_INITIATED = 0x1000
@@ -65,67 +60,56 @@ const val APP_INITIATED = 0x2000
 const val SERVER_INITIATED = 0x3000
 ```
 
-### Java
-
-```java
-public static final int USER_INITIATED = 0x1000;
-public static final int APP_INITIATED = 0x2000;
-public static final int SERVER_INITIATED = 0x3000;
-```
+<br />
 
 You can then tag your network requests accordingly:
 
-### Kotlin
 
 ```kotlin
 TrafficStats.setThreadStatsTag(USER_INITIATED)
-TrafficStats.tagSocket(outputSocket)
-// Transfer data using socket
-TrafficStats.untagSocket(outputSocket)
+try {
+    TrafficStats.tagSocket(outputSocket)
+    try {
+        // Transfer data using socket.
+    } finally {
+        TrafficStats.untagSocket(outputSocket)
+    }
+} finally {
+    TrafficStats.clearThreadStatsTag()
+}
 ```
 
-### Java
+<br />
 
-```java
-TrafficStats.setThreadStatsTag(USER_INITIATED);
-TrafficStats.tagSocket(outputSocket);
-// Transfer data using socket
-TrafficStats.untagSocket(outputSocket);
-```
-
-The [`HttpURLConnection`](https://developer.android.com/reference/java/net/HttpURLConnection)
+The [`HttpURLConnection`](https://developer.android.com/reference/java/net/HttpURLConnection.md.txt)
 library automatically tags sockets based on the current
-[`TrafficStats.getThreadStatsTag()`](https://developer.android.com/reference/android/net/TrafficStats#getThreadStatsTag())
+[`TrafficStats.getThreadStatsTag()`](https://developer.android.com/reference/android/net/TrafficStats.md.txt#getThreadStatsTag())
 value. The library also tags and untags sockets when recycled through
 keep-alive pools as shown in the following code sample:
 
-### Kotlin
 
 ```kotlin
 class IdentifyTransferSpikeTask {
     @WorkerThread
     fun request(url: String) {
         TrafficStats.setThreadStatsTag(APP_INITIATED)
-        // Make network request using HttpURLConnection.connect()
-        ...
-        TrafficStats.clearThreadStatsTag()
+        try {
+            // Make network request using HttpURLConnection.connect().
+            val connection = URL(url).openConnection() as HttpURLConnection
+            try {
+                connection.connect()
+                // ...
+            } finally {
+                connection.disconnect()
+            }
+        } finally {
+            TrafficStats.clearThreadStatsTag()
+        }
     }
 }
 ```
 
-### Java
-
-```java
-public class IdentifyTransferSpikeTask {
-    @WorkerThread
-    public void request(String url) {
-        TrafficStats.setThreadStatsTag(APP_INITIATED);
-        // Make network request using HttpURLConnection.connect()
-        ...
-        TrafficStats.clearThreadStatsTag();
-    }
-}
-```
+<br />
 
 > [!NOTE]
 > **Note:** When running performance tests, your APK should be as close as possible to the production build. You may want to create a new debuggable build type, separate from the debug build type, in order to achieve this. For more information on creating build types, see [Configure build
@@ -191,7 +175,7 @@ requests](https://developer.android.com/develop/connectivity/minimize-effect-reg
 
 ## Use Battery Historian to visualize network traffic effects
 
-[Battery Historian](https://developer.android.com/topic/performance/power/battery-historian)
+[Battery Historian](https://developer.android.com/topic/performance/power/battery-historian.md.txt)
 is a tool that visualizes a device's battery consumption over a period of time.
 You can use this tool to analyze how your network activity affects battery
 consumption. For example, Battery Historian can show you whether your app is

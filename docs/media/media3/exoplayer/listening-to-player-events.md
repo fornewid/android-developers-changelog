@@ -153,8 +153,7 @@ player.addListener(
         }
       }
     }
-  }
-)
+ s.kt
 ```
 
 ### Java
@@ -179,7 +178,7 @@ player.addListener(
           }
         }
       }
-    });
+   java
 ```
 
 <br />

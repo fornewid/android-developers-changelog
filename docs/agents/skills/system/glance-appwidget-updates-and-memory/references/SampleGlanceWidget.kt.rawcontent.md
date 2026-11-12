@@ -61,7 +61,7 @@ class SampleGlanceWidget : GlanceAppWidget() {
             config = Bitmap.Config.RGB_565,
         )
         provideContent {
-            val revision = cu<rrentStateP>references()[KEY_REVISION] ?: 0
+            val revision = currentState<Preferences>()[KEY_REVISION] ?: 0
             val size = LocalSize.current
             GlanceTheme {
                 Column(
@@ -79,7 +79,7 @@ class SampleGlanceWidget : GlanceAppWidget() {
                             modifier = GlanceModifier.fillMaxWidth().height(96.dp),
                         )
                     }
-                    Button(text = "Refresh"<;, onClick = action>RunCallbackRefreshWidgetAction())
+                    Button(text = "Refresh", onClick = actionRunCallback<RefreshWidgetAction>())
                 }
             }
         }

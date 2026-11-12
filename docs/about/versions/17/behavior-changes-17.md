@@ -12,10 +12,10 @@ targeting Android 17 or higher. If your app is targeting Android 17 or higher,
 you should modify your app to support these behaviors, where applicable.
 
 Be sure to also review the list of [behavior changes that affect all apps
-running on Android 17](https://developer.android.com/about/versions/17/behavior-changes-all) regardless of your app's [`targetSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target).
+running on Android 17](https://developer.android.com/about/versions/17/behavior-changes-all) regardless of your app's [`targetSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-sdk-element.md.txt#target).
 
 > [!NOTE]
-> **Note:** This page lists some of the more important changes. For more detailed information, see the [Android 17 release notes](https://developer.android.com/about/versions/17/release-notes).
+> **Note:** This page lists some of the more important changes. For more detailed information, see the [Android 17 release notes](https://developer.android.com/about/versions/17/release-notes.md.txt).
 
 ## User experience and system UI
 
@@ -27,7 +27,7 @@ more consistent, intuitive user experience.
 Beginning with Android 17, the system enforces a strict memory limit on
 `RemoteViews` updates for apps targeting Android 17 (API level 37) or
 higher. When an app passes a `RemoteViews` object to
-[`AppWidgetManager.updateAppWidget`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#updateAppWidget(int,%20android.widget.RemoteViews)),
+[`AppWidgetManager.updateAppWidget`](https://developer.android.com/reference/android/appwidget/AppWidgetManager.md.txt#updateAppWidget(int,%20android.widget.RemoteViews)),
 `system_server` calculates the total memory footprint of all image data across
 every orientation and size bucket in the payload. If the total memory exceeds
 the system ceiling (`mMaxWidgetBitmapMemory`), the system rejects the update and
@@ -45,7 +45,7 @@ as a warning (`Slog.w`) without throwing an exception.
 
 ### Manage AppWidget updates and bitmap memory
 
-Use the AppWidget Updates and Memory [Android skill](https://developer.android.com/tools/agents/android-skills) to downsample widget bitmaps, deduplicate responsive images, and stay within Android 17 RemoteViews memory limits across Glance and classic AppWidgetProvider widgets. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the AppWidget Updates and Memory [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to downsample widget bitmaps, deduplicate responsive images, and stay within Android 17 RemoteViews memory limits across Glance and classic AppWidgetProvider widgets. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add glance-appwidget-updates-and-memory
 
@@ -58,8 +58,8 @@ The system sets the widget bitmap memory budget at `6 * width * height` bytes
 `ARGB_8888` buffer) for the active display configuration. Under API level 37 and
 higher, this calculation includes both of the following:
 
-- In-memory [`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap) and bitmap-backed [`Icon`](https://developer.android.com/reference/android/graphics/drawable/Icon) objects (`Icon.TYPE_BITMAP` and `Icon.TYPE_ADAPTIVE_BITMAP`) stored in `RemoteViews.mBitmapCache` (such as calls to `setImageViewBitmap`, `Icon.createWithBitmap`, `Icon.createWithAdaptiveBitmap`, or Jetpack Glance `ImageProvider(bitmap)`). Each unique `Bitmap` or bitmap-backed `Icon` instance in `mBitmapCache` is counted once per `RemoteViews` hierarchy.
-- URI-backed images (`Icon.createWithContentUri`, `setImageViewUri`, or Glance `ImageProvider(uri)`) don't count toward the `RemoteViews` IPC byte cap in `system_server`, but the widget host process decodes the referenced `content://` file at full resolution into its own heap. Always write a downsampled image into `context.cacheDir` before exposing it through a `FileProvider` URI.
+- In-memory [`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap.md.txt) and bitmap-backed [`Icon`](https://developer.android.com/reference/android/graphics/drawable/Icon.md.txt) objects (`Icon.TYPE_BITMAP` and `Icon.TYPE_ADAPTIVE_BITMAP`) stored in `RemoteViews.mBitmapCache` (such as calls to `setImageViewBitmap`, `Icon.createWithBitmap`, `Icon.createWithAdaptiveBitmap`, or Jetpack Glance `ImageProvider(bitmap)`). Each unique `Bitmap` or bitmap-backed `Icon` instance in `mBitmapCache` is counted once per `RemoteViews` hierarchy.
+- URI-backed images (`Icon.createWithContentUri`, `setImageViewUri`, or Glance `ImageProvider(uri)`) don't count toward the `RemoteViews` IPC byte cap in `system_server`, but the widget host process decodes the referenced `content://` file at full resolution into its own heap. Prefer passing a downsampled `Bitmap` directly in memory (`androidx.glance.ImageProvider(bitmap)` or `setImageViewBitmap`), as `FileProvider` URI permission grants fail when a work-profile widget is placed on a personal home screen. If your widget must use a `FileProvider` URI, always write a downsampled image into `context.cacheDir` first.
 
 #### Mitigation steps
 
@@ -74,19 +74,20 @@ and foldables, do the following:
    widget image budget at `6L * bounds.width() * bounds.height()`
    as shown in the following example:
 
-       private const val FALLBACK_MAX_BYTES = 15_000_000L
+   ```kotlin
+   private const val FALLBACK_MAX_BYTES = 15_000_000L
 
-       fun calculateWidgetMemoryCapBytes(context: Context): Long {
-           if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-               val wm = context.getSystemService(WindowManager::class.java)
-                   ?: return FALLBACK_MAX_BYTES
-               val bounds = wm.currentWindowMetrics.bounds
-               return 6L * bounds.width().toLong() * bounds.height().toLong()
-           }
-           val dm = context.resources.displayMetrics
-           return 6L * dm.widthPixels.toLong() * dm.heightPixels.toLong()
+   fun calculateWidgetMemoryCapBytes(context: Context): Long {
+       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+           val wm = context.getSystemService(WindowManager::class.java)
+               ?: return FALLBACK_MAX_BYTES
+           val bounds = wm.currentWindowMetrics.bounds
+           return 6L * bounds.width().toLong() * bounds.height().toLong()
        }
-
+       val dm = context.resources.displayMetrics
+       return 6L * dm.widthPixels.toLong() * dm.heightPixels.toLong()
+   }
+   ```
 2. **Downsample images to the widget's viewable dimensions and use `RGB_565`:**
    Decode bitmaps with power-of-two `BitmapFactory.Options.inSampleSize` values
    sized to the widget's maximum display dimensions (`maxWidthDp` by
@@ -108,13 +109,15 @@ and foldables, do the following:
    Build a complete `RemoteViews` layout and call `updateAppWidget` instead.
 
 5. **Provide an error fallback layout:** In Jetpack Glance, override
-   [`onCompositionError`](https://developer.android.com/develop/ui/compose/glance/error-handling)
+   [`onCompositionError`](https://developer.android.com/develop/ui/compose/glance/error-handling.md.txt)
    to render a zero-bitmap `RemoteViews` fallback if an update fails.
 
 You can inspect your widget's current serialized bitmap memory usage on a
 connected device by running the following:
 
-    adb shell dumpsys appwidget
+```bash
+adb shell dumpsys appwidget
+```
 
 ## Core functionality
 
@@ -125,7 +128,7 @@ expand various core capabilities of the Android system.
 
 Beginning with Android 17, apps targeting Android 17 (API level 37)
 or higher receive a new lock-free implementation of
-[`android.os.MessageQueue`](https://developer.android.com/reference/android/os/MessageQueue). The new implementation improves performance and
+[`android.os.MessageQueue`](https://developer.android.com/reference/android/os/MessageQueue.md.txt). The new implementation improves performance and
 reduces missed frames, but may break clients that reflect on `MessageQueue`
 private fields and methods.
 
@@ -146,7 +149,7 @@ Android 17 makes the following changes to improve accessibility.
 
 ### Accessibility support of complex IME physical keyboard typing
 
-This feature introduces new [`AccessibilityEvent`](https://developer.android.com/reference/android/view/accessibility/AccessibilityEvent) and [`TextAttribute`](https://developer.android.com/reference/android/view/inputmethod/TextAttribute)
+This feature introduces new [`AccessibilityEvent`](https://developer.android.com/reference/android/view/accessibility/AccessibilityEvent.md.txt) and [`TextAttribute`](https://developer.android.com/reference/android/view/inputmethod/TextAttribute.md.txt)
 APIs to enhance screen reader spoken feedback for CJKV language input. CJKV IME
 apps can now signal whether a text conversion candidate has been selected during
 text composition. Apps with edit fields can specify *text change types* when
@@ -197,16 +200,16 @@ client sends an ECH extension with randomized contents (a mechanism called ECH
 GREASE). See [RFC 9849](https://www.rfc-editor.org/rfc/rfc9849.html#name-grease-ech) for more details on how ECH GREASE works.
 
 To allow apps to customize this behavior, Android 17 adds a new
-[`<domainEncryption>`](https://developer.android.com/privacy-and-security/security-config#domainEncryption) element to the Network Security Configuration file.
+[`<domainEncryption>`](https://developer.android.com/privacy-and-security/security-config.md.txt#domainEncryption) element to the Network Security Configuration file.
 Developers can use `<domainEncryption>` within `<base-config>` or
 `<domain-config>` tags to select an ECH mode (for example,
 `"enabled"` or `"disabled"`) on a global or per-domain basis.
 
-For more information, see the [Encrypted Client Hello](https://developer.android.com/privacy-and-security/security-config#EncryptedClientHelloSummary) documentation.
+For more information, see the [Encrypted Client Hello](https://developer.android.com/privacy-and-security/security-config.md.txt#EncryptedClientHelloSummary) documentation.
 
 ### Local network permission required for apps targeting Android 17
 
-Android 17 introduces the [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_LOCAL_NETWORK) runtime permission
+Android 17 introduces the [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/android/Manifest.permission.md.txt#ACCESS_LOCAL_NETWORK) runtime permission
 to protect users from unauthorized local network access. Because this falls
 under the existing `NEARBY_DEVICES` permission group, users who have already
 granted other `NEARBY_DEVICES` permissions aren't prompted again. This new
@@ -220,7 +223,7 @@ maintain communication with LAN devices: Adopt system-mediated,
 privacy-preserving device pickers to skip the permission prompt, or explicitly
 request this new permission at runtime to maintain local network communication.
 
-For more information, see the [Local network permission](https://developer.android.com/privacy-and-security/local-network-permission) documentation.
+For more information, see the [Local network permission](https://developer.android.com/privacy-and-security/local-network-permission.md.txt) documentation.
 
 > [!NOTE]
 > **Note:** In Android 16, apps could opt in to local network permissions. Beginning with Android 17, enforcement is mandatory for apps that target Android 17 (API level 37) or higher.
@@ -250,17 +253,17 @@ use the WebOTP or SMS Retriever formats). For most apps targeting
 Android 17 (API level 37) or higher, these SMS messages do not become
 available until three hours after receipt. This delay is intended to help
 prevent OTP hijacking. During this three hour delay, the
-[`SMS_RECEIVED_ACTION`](https://developer.android.com/reference/android/provider/Telephony.Sms.Intents#SMS_RECEIVED_ACTION) broadcast is withheld and
-[SMS provider](https://developer.android.com/reference/android/provider/Telephony.Sms) database queries are filtered. The SMS message is
+[`SMS_RECEIVED_ACTION`](https://developer.android.com/reference/android/provider/Telephony.Sms.Intents.md.txt#SMS_RECEIVED_ACTION) broadcast is withheld and
+[SMS provider](https://developer.android.com/reference/android/provider/Telephony.Sms.md.txt) database queries are filtered. The SMS message is
 available to these apps after the delay.
 
 Certain apps such as the default SMS assistant app, connected device companion
 apps, etc., are exempted from this delay. All apps that rely on reading SMS
-messages for OTP extraction should transition to using [SMS Retriever](https://developer.android.com/identity/sms-retriever) or [SMS
+messages for OTP extraction should transition to using [SMS Retriever](https://developer.android.com/identity/sms-retriever.md.txt) or [SMS
 User Consent](https://developers.google.com/identity/sms-retriever/user-consent/overview) APIs to ensure continued functionality.
 
 > [!NOTE]
-> **Note:** Additional SMS OTP protections for WebOTP and SMS Retriever format messages apply to all apps, regardless of their target API level. For more information, see [SMS OTP protection](https://developer.android.com/about/versions/17/behavior-changes-all#sms-otp-all-apps) in the [Behavior changes for all
+> **Note:** Additional SMS OTP protections for WebOTP and SMS Retriever format messages apply to all apps, regardless of their target API level. For more information, see [SMS OTP protection](https://developer.android.com/about/versions/17/behavior-changes-all.md.txt#sms-otp-all-apps) in the [Behavior changes for all
 > apps](https://developer.android.com/about/versions/17/behavior-changes-all) documentation.
 
 ## Security
@@ -277,14 +280,14 @@ new security standards to maintain app compatibility and user protection.
 
 Key impacts for developers include:
 
-- **BAL hardening \& improved opt-in:** We are refining Background Activity Launch (BAL) restrictions by extending protections to [`IntentSender`](https://developer.android.com/reference/android/content/IntentSender). Developers must migrate away from the legacy [`MODE_BACKGROUND_ACTIVITY_START_ALLOWED`](https://developer.android.com/reference/android/app/ActivityOptions#MODE_BACKGROUND_ACTIVITY_START_ALLOWED) constant. Instead, you should adopt granular controls like [`MODE_BACKGROUND_ACTIVITY_START_ALLOW_IF_VISIBLE`](https://developer.android.com/reference/android/app/ActivityOptions#MODE_BACKGROUND_ACTIVITY_START_ALLOW_IF_VISIBLE), which restricts activity starts to scenarios where the calling app is visible, significantly reducing the attack surface.
+- **BAL hardening \& improved opt-in:** We are refining Background Activity Launch (BAL) restrictions by extending protections to [`IntentSender`](https://developer.android.com/reference/android/content/IntentSender.md.txt). Developers must migrate away from the legacy [`MODE_BACKGROUND_ACTIVITY_START_ALLOWED`](https://developer.android.com/reference/android/app/ActivityOptions.md.txt#MODE_BACKGROUND_ACTIVITY_START_ALLOWED) constant. Instead, you should adopt granular controls like [`MODE_BACKGROUND_ACTIVITY_START_ALLOW_IF_VISIBLE`](https://developer.android.com/reference/android/app/ActivityOptions.md.txt#MODE_BACKGROUND_ACTIVITY_START_ALLOW_IF_VISIBLE), which restricts activity starts to scenarios where the calling app is visible, significantly reducing the attack surface.
 - **Adoption tools:** Developers should utilize strict mode and updated lint checks to identify legacy patterns and ensure readiness for future target SDK requirements.
 
 ### Enable CT by default
 
 If an app targets Android 17 (API level 37) or higher,
-[certificate transparency (CT)](https://developer.android.com/privacy-and-security/security-config#CertificateTransparencySummary) is enabled by default. (On Android 16, CT is
-available but apps had to [opt in](https://developer.android.com/privacy-and-security/security-config#certificateTransparency).)
+[certificate transparency (CT)](https://developer.android.com/privacy-and-security/security-config.md.txt#CertificateTransparencySummary) is enabled by default. (On Android 16, CT is
+available but apps had to [opt in](https://developer.android.com/privacy-and-security/security-config.md.txt#certificateTransparency).)
 
 ### Safer Native DCL---C
 
@@ -308,25 +311,25 @@ is enabled, these columns are removed from the data view to enhance user
 privacy.
 The restricted columns include:
 
-- [`ACCOUNT_NAME`](https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#ACCOUNT_NAME)
-- [`ACCOUNT_TYPE`](https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#ACCOUNT_TYPE)
-- [`ACCOUNT_TYPE_AND_DATA_SET`](https://developer.android.com/reference/android/provider/ContactsContract.RawContactsColumns#ACCOUNT_TYPE_AND_DATA_SET)
+- [`ACCOUNT_NAME`](https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns.md.txt#ACCOUNT_NAME)
+- [`ACCOUNT_TYPE`](https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns.md.txt#ACCOUNT_TYPE)
+- [`ACCOUNT_TYPE_AND_DATA_SET`](https://developer.android.com/reference/android/provider/ContactsContract.RawContactsColumns.md.txt#ACCOUNT_TYPE_AND_DATA_SET)
 
-Apps that are using these columns from [`ContactsContract.Data`](https://developer.android.com/reference/android/provider/ContactsContract.Data)
-can extract them from [`ContactsContract.RawContacts`](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts)
-instead, by joining with [`RAW_CONTACT_ID`](https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#RAW_CONTACT_ID).
+Apps that are using these columns from [`ContactsContract.Data`](https://developer.android.com/reference/android/provider/ContactsContract.Data.md.txt)
+can extract them from [`ContactsContract.RawContacts`](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts.md.txt)
+instead, by joining with [`RAW_CONTACT_ID`](https://developer.android.com/reference/android/provider/ContactsContract.DataColumns.md.txt#RAW_CONTACT_ID).
 
 ### Enforce strict SQL checks in CP2
 
 For apps targeting Android 17 (API level 37) and
 higher, Contacts Provider 2 (CP2) enforces strict SQL query validation when
-the [`ContactsContract.Data`](https://developer.android.com/reference/android/provider/ContactsContract.Data) table is accessed without
-[`READ_CONTACTS`](https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS) permission.
+the [`ContactsContract.Data`](https://developer.android.com/reference/android/provider/ContactsContract.Data.md.txt) table is accessed without
+[`READ_CONTACTS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_CONTACTS) permission.
 
-With this change, if an app doesn't have [`READ_CONTACTS`](https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS)
-permission, [`StrictColumns`](https://developer.android.com/reference/android/database/sqlite/SQLiteQueryBuilder#setStrictColumns(boolean)) and
-[`StrictGrammar`](https://developer.android.com/reference/android/database/sqlite/SQLiteQueryBuilder#setStrictGrammar(boolean)) options are set when querying
-the [`ContactsContract.Data`](https://developer.android.com/reference/android/provider/ContactsContract.Data) table. If a query
+With this change, if an app doesn't have [`READ_CONTACTS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_CONTACTS)
+permission, [`StrictColumns`](https://developer.android.com/reference/android/database/sqlite/SQLiteQueryBuilder.md.txt#setStrictColumns(boolean)) and
+[`StrictGrammar`](https://developer.android.com/reference/android/database/sqlite/SQLiteQueryBuilder.md.txt#setStrictGrammar(boolean)) options are set when querying
+the [`ContactsContract.Data`](https://developer.android.com/reference/android/provider/ContactsContract.Data.md.txt) table. If a query
 uses a pattern that isn't compatible with these, it will be
 rejected and cause an exception to be thrown.
 
@@ -340,34 +343,38 @@ Content Capture is enabled by default on certain devices to allow
 on-device AI features to analyze screen contents for intelligent experiences.
 
 Starting in Android 17, the
-[`ContentCaptureManager.setContentCaptureEnabled(boolean)`](https://developer.android.com/reference/android/view/contentcapture/ContentCaptureManager#setContentCaptureEnabled(boolean))
+[`ContentCaptureManager.setContentCaptureEnabled(boolean)`](https://developer.android.com/reference/android/view/contentcapture/ContentCaptureManager.md.txt#setContentCaptureEnabled(boolean))
 API method is deprecated. For apps that target Android 17 (API level 37) or
 higher, calling `setContentCaptureEnabled(false)` no longer disables Content
 Capture.
 
 If your app needs to continue disabling Content Capture or restrict screen
 contents from being captured by the system, you must transition to using the
-[`FLAG_SECURE`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_SECURE) window layout parameter.
+[`FLAG_SECURE`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.md.txt#FLAG_SECURE) window layout parameter.
 
 To disable Content Capture, set the `FLAG_SECURE` flag on your window as shown
 in the following example:
 
 ### Kotlin
 
-    window.setFlags(
-        WindowManager.LayoutParams.FLAG_SECURE,
-        WindowManager.LayoutParams.FLAG_SECURE
-    )
+```kotlin
+window.setFlags(
+    WindowManager.LayoutParams.FLAG_SECURE,
+    WindowManager.LayoutParams.FLAG_SECURE
+)
+```
 
 ### Java
 
-    getWindow().setFlags(
-        WindowManager.LayoutParams.FLAG_SECURE,
-        WindowManager.LayoutParams.FLAG_SECURE
-    );
+```java
+getWindow().setFlags(
+    WindowManager.LayoutParams.FLAG_SECURE,
+    WindowManager.LayoutParams.FLAG_SECURE
+);
+```
 
 For more details, see the
-[`WindowManager.LayoutParams.FLAG_SECURE`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_SECURE) reference
+[`WindowManager.LayoutParams.FLAG_SECURE`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.md.txt#FLAG_SECURE) reference
 documentation.
 
 ## Media
@@ -388,7 +395,7 @@ service running. In addition, the app must meet one or both of these
 requirements:
 
 - The foreground service must have while-in-use (WIU) capabilities.
-- The app must have the [exact alarm](https://developer.android.com/develop/background-work/services/alarms#exact) permission and be interacting with [`USAGE_ALARM`](https://developer.android.com/reference/android/media/AudioAttributes#USAGE_ALARM) audio streams.
+- The app must have the [exact alarm](https://developer.android.com/develop/background-work/services/alarms.md.txt#exact) permission and be interacting with [`USAGE_ALARM`](https://developer.android.com/reference/android/media/AudioAttributes.md.txt#USAGE_ALARM) audio streams.
 
 For more information, including mitigation strategies, see [Background audio
 hardening](https://developer.android.com/about/versions/17/changes/bg-audio).
@@ -418,12 +425,12 @@ align with standard Java `InputStream` behavior for Bluetooth RFCOMM sockets.
 ### Consistent BluetoothSocket read() behavior for RFCOMM
 
 For apps targeting Android 17 (API level 37), the
-[`read()`](https://developer.android.com/reference/java/io/InputStream#read(byte%5B%5D)) method of the `InputStream` obtained from an
-RFCOMM-based [`BluetoothSocket`](https://developer.android.com/reference/android/bluetooth/BluetoothSocket) now returns `-1` when the
+[`read()`](https://developer.android.com/reference/java/io/InputStream.md.txt#read(byte%5B%5D)) method of the `InputStream` obtained from an
+RFCOMM-based [`BluetoothSocket`](https://developer.android.com/reference/android/bluetooth/BluetoothSocket.md.txt) now returns `-1` when the
 socket is closed or the connection is dropped.
 
 This change makes RFCOMM socket behavior consistent with LE CoC sockets and
-aligns with the standard [`InputStream.read()`](https://developer.android.com/reference/java/io/InputStream#read(byte%5B%5D))
+aligns with the standard [`InputStream.read()`](https://developer.android.com/reference/java/io/InputStream.md.txt#read(byte%5B%5D))
 documentation, which states that `-1` is returned when the end of the stream is
 reached.
 
@@ -432,5 +439,5 @@ be impacted by this change and should update the BluetoothSocket read loops to
 explicitly check for a return value of `-1`. This ensures the loop terminates
 correctly when the remote device disconnects or the socket is closed. For an
 example of the recommended implementation, see the
-[code snippet](https://developer.android.com/develop/connectivity/bluetooth/transfer-data#example) in the [Transfer Bluetooth data](https://developer.android.com/develop/connectivity/bluetooth/transfer-data)
+[code snippet](https://developer.android.com/develop/connectivity/bluetooth/transfer-data.md.txt#example) in the [Transfer Bluetooth data](https://developer.android.com/develop/connectivity/bluetooth/transfer-data.md.txt)
 guide.

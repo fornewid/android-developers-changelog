@@ -4,7 +4,7 @@ url: https://developer.android.com/training/cars/apps/library/car-microphone
 source: md.txt
 ---
 
-You can use your car's [`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService) and [`CarAudioRecord`](https://developer.android.com/reference/androidx/car/app/media/CarAudioRecord) API
+You can use your car's [`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService.md.txt) and [`CarAudioRecord`](https://developer.android.com/reference/androidx/car/app/media/CarAudioRecord.md.txt) API
 to grant your app access to the user's car microphone. Users must grant
 permission to your app to access the car microphone. Your app can record and
 process user input in your app.
@@ -14,14 +14,16 @@ process user input in your app.
 Before recording any audio, you must first declare the permission to record in
 your `AndroidManifest.xml` and request that the user grant it.
 
-    <manifest ...>
-       ...
-       <uses-permission android:name="android.permission.RECORD_AUDIO" />
-       ...
-    </manifest>
+```xml
+<manifest ...>
+   ...
+   <uses-permission android:name="android.permission.RECORD_AUDIO" />
+   ...
+</manifest>
+```
 
 You must request the permission to record at runtime. To learn more about how
-to request permissions in your car, see [Request permissions](https://developer.android.com/training/cars/apps/library/request-permissions).
+to request permissions in your car, see [Request permissions](https://developer.android.com/training/cars/apps/library/request-permissions.md.txt).
 
 ## Record audio
 
@@ -45,7 +47,7 @@ carAudioRecord.stopRecording()
 
 ## Acquire audio focus
 
-When recording from the car microphone, you must acquire [audio focus](https://developer.android.com/reference/android/media/AudioFocusRequest#what-is-audio-focus) first.
+When recording from the car microphone, you must acquire [audio focus](https://developer.android.com/reference/android/media/AudioFocusRequest.md.txt#what-is-audio-focus) first.
 This stops any ongoing media. If you lose audio focus, stop recording. For
 example, to acquire audio focus:
 

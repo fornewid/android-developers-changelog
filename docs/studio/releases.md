@@ -772,15 +772,15 @@ Download Not Available
 
 Your current device is not supported.  
 
-[See the system requirements](https://developer.android.com/studio/install).
+[See the system requirements](https://developer.android.com/studio/install.md.txt).
 
 This is a stable release of Android Studio. Note that patches might contain new
 minor features and bug fixes. See
-[Android Studio release names](https://developer.android.com/studio/releases/studio-release-names) to understand Android
+[Android Studio release names](https://developer.android.com/studio/releases/studio-release-names.md.txt) to understand Android
 Studio version naming.
 
 To see what's been fixed in this version of Android Studio, see the
-[closed issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.2).
+[closed issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.2.md.txt).
 
 To view the release notes for older versions of Android Studio, see
 [Past releases](https://developer.android.com/studio/past-releases/past-android-studio-releases).
@@ -789,7 +789,7 @@ For early access to upcoming features and improvements, see the [Preview builds
 of Android Studio](https://developer.android.com/studio/preview).
 
 If you encounter problems in Android Studio, check the
-[Known issues](https://developer.android.com/studio/known-issues) or [Troubleshoot](https://developer.android.com/studio/troubleshoot)
+[Known issues](https://developer.android.com/studio/known-issues.md.txt) or [Troubleshoot](https://developer.android.com/studio/troubleshoot.md.txt)
 page.
 
 
@@ -805,7 +805,7 @@ Android Studio.
 > There is now a time-based compatibility policy for AGP and Android Studio. Each Android Studio version will support AGP versions released within the previous 3 years. AGP versions older than 3 years will no longer be supported in newer Android Studio versions. If your project's AGP version is incompatible, Android Studio will require you to update AGP.
 
 > [!NOTE]
-> If your project is not supported by a specific version of Android Studio, you can still open and update your project using an [older version of Android Studio](https://developer.android.com/studio/archive).
+> If your project is not supported by a specific version of Android Studio, you can still open and update your project using an [older version of Android Studio](https://developer.android.com/studio/archive.md.txt).
 
 | Android Studio version | Required AGP version |
 |---|---|
@@ -862,7 +862,7 @@ project's `targetSdk` or `compileSdk` could lead to
 unexpected issues. We recommend using the latest preview version of Android
 Studio and AGP to work on projects that target preview versions of the Android
 OS. You can
-[install preview versions of Android Studio alongside a stable version](https://developer.android.com/studio/preview/install-preview#install_alongside_your_stable_version).
+[install preview versions of Android Studio alongside a stable version](https://developer.android.com/studio/preview/install-preview.md.txt#install_alongside_your_stable_version).
 
 The minimum versions of Android Studio and AGP are as follows:
 
@@ -903,7 +903,7 @@ versions are currently supported.
 Studio Labs lets you try out the latest AI experimental features in a stable
 version of Android Studio, so you can more quickly integrate our AI assistance
 offerings in your development workflow. For more information, see
-[Studio Labs](https://developer.android.com/studio/gemini/labs).
+[Studio Labs](https://developer.android.com/studio/gemini/labs.md.txt).
 
 > [!NOTE]
 > **Note:** Studio Labs is accessible in RC and stable releases starting with Android Studio Narwhal. In the corresponding canary versions of Android Studio, the features are enabled by default.
@@ -912,7 +912,7 @@ The following are features currently available in Studio Labs.
 
 | Feature | Description | Docs |
 |---|---|---|
-| Journeys for Android Studio | Use natural language to describe steps and assertions for end-to-end tests. | [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys) |
+| Journeys for Android Studio | Use natural language to describe steps and assertions for end-to-end tests. | [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys.md.txt) |
 
 ## New features
 
@@ -959,7 +959,7 @@ correct them. Try this feature out in the **LeakCanary** task in **Profiler**.
 ### Discover, install, and manage Android skills in Android Studio
 
 In Android Studio Rabbit 2, it's easier to discover, install, and manage Android
-[skills](https://developer.android.com/studio/gemini/skills) directly in the
+[skills](https://developer.android.com/studio/gemini/skills.md.txt) directly in the
 IDE, giving you granular control over the specialized workflows and procedural
 guidance available to the agent.
 
@@ -1006,11 +1006,11 @@ Embedded XR glasses emulator running inside Android Studio. Customizing the envi
 
 For detailed setup and interaction instructions, see the following pages:
 
-- [Create virtual devices for XR headsets and wired XR glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses)
+- [Create virtual devices for XR headsets and wired XR glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses.md.txt)
 - [Use the Android XR Emulator for XR headsets and wired XR
   glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/xr-headsets-glasses)
-- [Create virtual devices for audio and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/glasses)
-- [Use the emulators for audio and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/glasses)
+- [Create virtual devices for audio and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/glasses.md.txt)
+- [Use the emulators for audio and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/glasses.md.txt)
 
 ### Resize Running Devices tool window by double-clicking empty space
 

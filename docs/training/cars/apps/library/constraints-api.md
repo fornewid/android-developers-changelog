@@ -5,8 +5,8 @@ source: md.txt
 ---
 
 Different cars can allow for differing numbers of
-[`Item`](https://developer.android.com/reference/androidx/car/app/model/Item) instances to be displayed to the user at a time. Use the
-[`ConstraintManager`](https://developer.android.com/reference/androidx/car/app/constraints/ConstraintManager) to check the content limit at runtime and to set the
+[`Item`](https://developer.android.com/reference/androidx/car/app/model/Item.md.txt) instances to be displayed to the user at a time. Use the
+[`ConstraintManager`](https://developer.android.com/reference/androidx/car/app/constraints/ConstraintManager.md.txt) to check the content limit at runtime and to set the
 appropriate number of items in your templates.
 
 > [!IMPORTANT]
@@ -23,7 +23,7 @@ val manager = carContext.getCarService(ConstraintManager::class.java)
 
 Query the retrieved `ConstraintManager` object for the relevant content limit.
 For example, to get the number of items that can be displayed in a grid, call
-[`getContentLimit`](https://developer.android.com/reference/androidx/car/app/constraints/ConstraintManager#getContentLimit(int)) with [`CONTENT_LIMIT_TYPE_GRID`](https://developer.android.com/reference/androidx/car/app/constraints/ConstraintManager#CONTENT_LIMIT_TYPE_GRID()):
+[`getContentLimit`](https://developer.android.com/reference/androidx/car/app/constraints/ConstraintManager.md.txt#getContentLimit(int)) with [`CONTENT_LIMIT_TYPE_GRID`](https://developer.android.com/reference/androidx/car/app/constraints/ConstraintManager.md.txt#CONTENT_LIMIT_TYPE_GRID()):
 
 
 ```kotlin

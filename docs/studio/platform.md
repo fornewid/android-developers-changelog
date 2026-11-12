@@ -20,17 +20,17 @@ Your machine type is not supported. Android Studio for Platform requires Linux.
 
 ## Dive in
 
-Learn how to set up your platform development environment, configure Android Studio for Platform using shareable project templates, and start developing in the Android Open Source Project. [Learn more](http://developer.android.com/studio/platform/intro) Install
+Learn how to set up your platform development environment, configure Android Studio for Platform using shareable project templates, and start developing in the Android Open Source Project. [Learn more](http://developer.android.com/studio/platform/intro.md.txt) Install
 
-### [Install and update ASfP](http://developer.android.com/studio/platform/install)
+### [Install and update ASfP](http://developer.android.com/studio/platform/install.md.txt)
 
 Step-by-step instructions to install ASfP on Linux and receive automatic in-IDE update notifications. Tutorial
 
-### [Watch the tutorial](http://developer.android.com/studio/platform/tutorial)
+### [Watch the tutorial](http://developer.android.com/studio/platform/tutorial.md.txt)
 
 See how to set up an Android platform project in ASfP. Community
 
-### [Join the community](http://developer.android.com/studio/platform/resources)
+### [Join the community](http://developer.android.com/studio/platform/resources.md.txt)
 
 Connect with fellow platform developers, ask questions, and get support. Feedback
 
@@ -47,35 +47,35 @@ AI in Android Studio
 Use the **Built-in Agent** in AI in Android Studio to plan multi-step changes, run Soong target builds, and execute platform tests (`atest`) directly from the editor.
 
 Choose the model that fits your workflow---including built-in Gemini models, Gemini Code Assist, Gemini Enterprise, or custom third-party models using Bring Your Own Model (BYOM) API keys.
-[Learn about AI in Android Studio](https://developer.android.com/ai-in-android) ![Built-in Agent in AI in Android Studio executing Soong build and test tools in ASfP](https://developer.android.com/static/studio/platform/images/asfp-agent-example.png) Configure and sync
+[Learn about AI in Android Studio](https://developer.android.com/ai-in-android.md.txt) ![Built-in Agent in AI in Android Studio executing Soong build and test tools in ASfP](https://developer.android.com/static/studio/platform/images/asfp-agent-example.png) Configure and sync
 
 ### Faster project setup, templates, and partial sync
 
 Built on the IntelliJ Workspace Model, ASfP delivers faster project setup and instant startup snapshot restoration. Bootstrap projects quickly by importing a shared `.asfp-project` template or exporting your own configuration for your team.
 
 Stay productive with flexible sync modes---including **Partial Sync** , **No-Build Sync** , and **Sync and Full Build** ---along with a dedicated **Soong** tool window.
-[Set up projects](https://developer.android.com/studio/platform/projects/create-project) ![Project Templates and Setup Wizard in ASfP](https://developer.android.com/static/studio/platform/images/asfp-new-project-config.png) Build and deploy
+[Set up projects](https://developer.android.com/studio/platform/projects/create-project.md.txt) ![Project Templates and Setup Wizard in ASfP](https://developer.android.com/static/studio/platform/images/asfp-new-project-config.png) Build and deploy
 
 ### Build, run, and debug from `Android.bp`
 
 Click the gutter icon next to any module to build it, or run and debug test modules and `android_app` targets directly from `Android.bp`. ASfP runs platform tests through `atest` and launches `cc_test` and `rust_test` targets under the built-in LLDB debugger.
 
 **Ctrl+click** any module reference or `srcs` file to jump to its declaration, view inline usage counts, hover over properties for Soong documentation, or right-click any source file and select **Open Corresponding Android.bp File**.
-[Explore build workflows](https://developer.android.com/studio/platform/projects) ![Build, run, and debug targets from Android.bp gutter icons in ASfP](https://developer.android.com/static/studio/platform/images/asfp-bp-gutter.png) Virtual devices and AAOS
+[Explore build workflows](https://developer.android.com/studio/platform/projects.md.txt) ![Build, run, and debug targets from Android.bp gutter icons in ASfP](https://developer.android.com/static/studio/platform/images/asfp-bp-gutter.png) Virtual devices and AAOS
 
 ### Cuttlefish device management and multi-screen mirroring
 
 Create and manage multidevice Cuttlefish virtual device setups in **Device Manager** using your local AOSP checkout.
 
 Use built-in Cuttlefish multi-screen display mirroring in the dedicated **Cuttlefish** tool window---built for multi-display Android Automotive OS (AAOS) and Software-Defined Vehicle (SDV) development.
-[Manage Cuttlefish devices](https://developer.android.com/studio/platform/projects#cuttlefish-devices) ![Cuttlefish virtual device management and multi-screen mirroring in ASfP](https://developer.android.com/static/studio/platform/images/asfp_cuttlefish_mirroring.png) Develop
+[Manage Cuttlefish devices](https://developer.android.com/studio/platform/projects.md.txt#cuttlefish-devices) ![Cuttlefish virtual device management and multi-screen mirroring in ASfP](https://developer.android.com/static/studio/platform/images/asfp_cuttlefish_mirroring.png) Develop
 
 ### Rust language support
 
 Develop platform code in Rust with cross-module code completion, navigation, find usages, inlay hints, and refactoring powered by automatic `rust-analyzer` integration.
 
 Debug Rust platform code on the host or on a device with the built-in LLDB debugger.
-[Explore Rust features](https://developer.android.com/studio/platform/projects/rust) ![Rust support in ASfP](https://developer.android.com/static/studio/platform/images/asfp-rust-cross_module_completions.png)
+[Explore Rust features](https://developer.android.com/studio/platform/projects/rust.md.txt) ![Rust support in ASfP](https://developer.android.com/static/studio/platform/images/asfp-rust-cross_module_completions.png)
 
 ### Core features
 
@@ -83,23 +83,23 @@ Develop
 
 ### Multi-language support
 
-Write better code, work faster, and be more productive with an intelligent code editor that provides deep code completion, symbol indexing, and structural navigation across Kotlin, Java, C/C++, Rust, and `Android.bp` files. [Edit platform code](https://developer.android.com/studio/platform/intro) ![Code editing in ASfP](https://developer.android.com/static/studio/platform/images/text_screen.png) Debug
+Write better code, work faster, and be more productive with an intelligent code editor that provides deep code completion, symbol indexing, and structural navigation across Kotlin, Java, C/C++, Rust, and `Android.bp` files. [Edit platform code](https://developer.android.com/studio/platform/intro.md.txt) ![Code editing in ASfP](https://developer.android.com/static/studio/platform/images/text_screen.png) Debug
 
 ### Java, C++, and Rust debugging from one Attach tab
 
 Select **Run \> Attach to Android Process** to open the **Attach** tab in the Debug tool window. Inspect every `.so` loaded in a process along with its ELF **Build ID** and local symbol verification status, root the device or enable JDWP with one click, and attach the **Java debugger** , **Native debugger**, or both.
 
 Native LLDB sessions support conditional and exception breakpoints, inline variable values, Drop Frame, smart Step Into, and automatic Rust type visualizers.
-[Debug platform code](https://developer.android.com/studio/platform/debug) ![Attach tab in ASfP showing Libraries, Build IDs, and local symbol checkmarks](https://developer.android.com/static/studio/platform/images/asfp-attach-libraries.png) Test
+[Debug platform code](https://developer.android.com/studio/platform/debug.md.txt) ![Attach tab in ASfP showing Libraries, Build IDs, and local symbol checkmarks](https://developer.android.com/static/studio/platform/images/asfp-attach-libraries.png) Test
 
 ### Run and debug platform tests with `atest` and LLDB
 
 Run and debug `android_test`, `cc_test`, and `rust_test` modules directly from `Android.bp` gutter icons or source files. ASfP automatically infers whether a test builds for **Device** , **Host** , or both (`host_supported: true`), handles Tradefed target preparation, and launches tests under the Java or built-in LLDB debugger.
-[Test platform code](https://developer.android.com/studio/platform/test) ![Soong Test run configuration with Device or Host and LLDB options in ASfP](https://developer.android.com/static/studio/platform/images/asfp-soong-test-config.png)
+[Test platform code](https://developer.android.com/studio/platform/test.md.txt) ![Soong Test run configuration with Device or Host and LLDB options in ASfP](https://developer.android.com/static/studio/platform/images/asfp-soong-test-config.png)
 
 ### Android Studio for Platform downloads
 
-Download the latest version of Android Studio for Platform. Once you install a build with automatic updates enabled (starting with **2026.2.2 Canary 1** ), ASfP automatically checks for updates and notifies you inside the IDE when new releases are available. For more information, see [Update Android Studio for Platform](https://developer.android.com/studio/platform/install#updating) and the [Android Studio for Platform release notes](https://developer.android.com/studio/platform/releases).
+Download the latest version of Android Studio for Platform. Once you install a build with automatic updates enabled (starting with **2026.2.2 Canary 1** ), ASfP automatically checks for updates and notifies you inside the IDE when new releases are available. For more information, see [Update Android Studio for Platform](https://developer.android.com/studio/platform/install.md.txt#updating) and the [Android Studio for Platform release notes](https://developer.android.com/studio/platform/releases.md.txt).
 
 | Platform | Is Canary? | Android Studio package |
 |---|---|---|
@@ -107,7 +107,7 @@ Download the latest version of Android Studio for Platform. Once you install a b
 | Linux (64-bit) | Yes | <button class="devsite-dialog-button button-white button-regular" data-modal-dialog-id="asfp_canary_linux_bundle_download">asfp-canary-current-linux.deb</button> |
 
 More downloads are available in the
-[download archives](https://developer.android.com/studio/platform/releases/archive).
+[download archives](https://developer.android.com/studio/platform/releases/archive.md.txt).
 
 ## Download Android Studio for Platform
 

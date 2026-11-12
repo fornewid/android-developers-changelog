@@ -7,7 +7,7 @@ source: md.txt
 The Room persistence library provides an abstraction layer over SQLite to allow
 for more robust database access while harnessing the full power of SQLite. This
 page focuses on using Room in **Kotlin Multiplatform (KMP)** projects. For more
-information on using Room, see [Save data in a local database using Room](https://developer.android.com/training/data-storage/room) or
+information on using Room, see [Save data in a local database using Room](https://developer.android.com/training/data-storage/room.md.txt) or
 our [official samples](https://github.com/android/kotlin-multiplatform-samples/).
 
 ## Set up dependencies
@@ -17,70 +17,80 @@ the `build.gradle.kts` file for your KMP module.
 
 Define the dependencies in the `libs.versions.toml` file:
 
-    [versions]
-    room3 = "3.1.0-alpha03"
-    sqlite = "2.7.1"
-    ksp = "<kotlinCompatibleKspVersion>"
+```toml
+[versions]
+room3 = "3.1.0-alpha03"
+sqlite = "2.7.1"
+ksp = "<kotlinCompatibleKspVersion>"
 
-    [libraries]
-    androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
-    androidx-room3-runtime = { module = "androidx.room3:room3-runtime", version.ref = "room3" }
-    androidx-room3-compiler = { module = "androidx.room3:room3-compiler", version.ref = "room3" }
+[libraries]
+androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
+androidx-room3-runtime = { module = "androidx.room3:room3-runtime", version.ref = "room3" }
+androidx-room3-compiler = { module = "androidx.room3:room3-compiler", version.ref = "room3" }
 
-    # Optional SQLite Wrapper
-    androidx-room3-sqlite-wrapper = { module = "androidx.room3:room3-sqlite-wrapper", version.ref = "room3" }
+# Optional SQLite Wrapper
+androidx-room3-sqlite-wrapper = { module = "androidx.room3:room3-sqlite-wrapper", version.ref = "room3" }
 
-    [plugins]
-    ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-    androidx-room3 = { id = "androidx.room3", version.ref = "room3" }
+[plugins]
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+androidx-room3 = { id = "androidx.room3", version.ref = "room3" }
+```
 
 > [!NOTE]
-> **Note:** To help with migrating from `SupportSQLiteDatabase` to `SQLiteDriver`, use the `androidx.room3:room3-sqlite-wrapper` artifact. For more information, see the [Use Room SQLite Wrapper](https://developer.android.com/kotlin/multiplatform/room#migrate-room-sqlite-wrapper) section.
+> **Note:** To help with migrating from `SupportSQLiteDatabase` to `SQLiteDriver`, use the `androidx.room3:room3-sqlite-wrapper` artifact. For more information, see the [Use Room SQLite Wrapper](https://developer.android.com/kotlin/multiplatform/room.md.txt#migrate-room-sqlite-wrapper) section.
 
 Add the Room Gradle Plugin to configure Room schemas and the [KSP
 plugin](https://kotlinlang.org/docs/ksp-multiplatform.html).
 
-    plugins {
-      alias(libs.plugins.ksp)
-      alias(libs.plugins.androidx.room3)
-    }
+```kotlin
+plugins {
+  alias(libs.plugins.ksp)
+  alias(libs.plugins.androidx.room3)
+}
+```
 
 Add the Room runtime dependency and the bundled SQLite library:
 
-    commonMain.dependencies {
-      implementation(libs.androidx.room3.runtime)
-      implementation(libs.androidx.sqlite.bundled)
-    }
+```kotlin
+commonMain.dependencies {
+  implementation(libs.androidx.room3.runtime)
+  implementation(libs.androidx.sqlite.bundled)
+}
 
-    // Optional when using Room SQLite Wrapper
-    androidMain.dependencies {
-      implementation(libs.androidx.room3.sqlite.wrapper)
-    }
+// Optional when using Room SQLite Wrapper
+androidMain.dependencies {
+  implementation(libs.androidx.room3.sqlite.wrapper)
+}
+```
 
 > [!NOTE]
-> **Note:** You can use the [platform-specific implementation of SQLite](https://developer.android.com/kotlin/multiplatform/room#selecting-sqlitedriver), but we recommend bundling it with your app to prevent any inconsistencies between the platform implementations of SQLite.
+> **Note:** You can use the [platform-specific implementation of SQLite](https://developer.android.com/kotlin/multiplatform/room.md.txt#selecting-sqlitedriver), but we recommend bundling it with your app to prevent any inconsistencies between the platform implementations of SQLite.
 
 Add the KSP dependencies to the **root** `dependencies` block. You need to add
 all the targets your app uses. For more information, see [KSP with
 Kotlin Multiplatform](https://kotlinlang.org/docs/ksp-multiplatform.html).
 
-    dependencies {
-        add("kspAndroid", libs.androidx.room3.compiler)
-        add("kspIosSimulatorArm64", libs.androidx.room3.compiler)
-        add("kspIosX64", libs.androidx.room3.compiler)
-        add("kspIosArm64", libs.androidx.room3.compiler)
-        // Add any other platform target you use in your project, for example kspDesktop
-    }
+```kotlin
+dependencies {
+    add("kspAndroid", libs.androidx.room3.compiler)
+    add("kspIosSimulatorArm64", libs.androidx.room3.compiler)
+    add("kspIosX64", libs.androidx.room3.compiler)
+    add("kspIosArm64", libs.androidx.room3.compiler)
+    // Add any other platform target you use in your project, for example kspDesktop
+}
+```
 
 Define the Room schema directory. For additional information, see [Set schema
 location using Room Gradle Plugin](https://developer.android.com/training/data-storage/room/migrating-db-versions#set_schema_location_using_room_gradle_plugin).
 
-    room {
-        schemaDirectory("$projectDir/schemas")
-    }
+```kotlin
+room {
+    schemaDirectory("$projectDir/schemas")
+}
+```
 
 > [!WARNING]
-> **Warning:** If using Kotlin version 1.9.x, you must add the property `kotlin.native.disableCompilerDaemon = true` to the `gradle.properties` configuration file for Room's KSP processor to function properly. This property is not needed when using Kotlin version 2.0 or higher. For more information, see [KT-65761](https://youtrack.jetbrains.com/issue/KT-65761).
+> **Warning:** If using Kotlin version 1.9.x, you must add the property `kotlin.native.disableCompilerDaemon = true` to the `gradle.properties` configuration file for Room's KSP processor to function properly. This property isn't needed when using Kotlin version 2.0 or higher. For more information, see [KT-65761](https://youtrack.jetbrains.com/issue/KT-65761).
 
 ## Define database classes
 
@@ -89,19 +99,24 @@ and entities inside the common source set of your shared KMP module. Placing
 these classes in common sources will allow them to be shared across all target
 platforms.
 
-    // shared/src/commonMain/kotlin/Database.kt
 
-    @Database(entities = [TodoEntity::class], version = 1)
-    @ConstructedBy(AppDatabaseConstructor::class)
-    abstract class AppDatabase : RoomDatabase() {
-      abstract fun getDao(): TodoDao
-    }
+```kotlin
+// shared/src/commonMain/kotlin/Database.kt
 
-    // The Room compiler generates the `actual` implementations.
-    @Suppress("KotlinNoActualForExpect")
-    expect object AppDatabaseConstructor : RoomDatabaseConstructor<AppDatabase> {
-        override fun initialize(): AppDatabase
-    }
+@Database(entities = [TodoEntity::class], version = 1)
+@ConstructedBy(AppDatabaseConstructor::class)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun getDao(): TodoDao
+}
+
+// The Room compiler generates the `actual` implementations.
+@Suppress("KotlinNoActualForExpect")
+expect object AppDatabaseConstructor : RoomDatabaseConstructor<AppDatabase> {
+    override fun initialize(): AppDatabase
+}
+```
+
+<br />
 
 When you declare an `expect` object with the
 `RoomDatabaseConstructor` interface, the Room compiler generates the `actual`
@@ -110,33 +125,43 @@ suppress with `@Suppress("KotlinNoActualForExpect")`:
 
     Expected object 'AppDatabaseConstructor' has no actual declaration in module`
 
-Next, either define a new [DAO interface](https://developer.android.com/training/data-storage/room/accessing-data) or move an existing one to
+Next, either define a new [DAO interface](https://developer.android.com/training/data-storage/room/accessing-data.md.txt) or move an existing one to
 `commonMain`:
 
-    // shared/src/commonMain/kotlin/TodoDao.kt
 
-    @Dao
-    interface TodoDao {
-      @Insert
-      suspend fun insert(item: TodoEntity)
+```kotlin
+// shared/src/commonMain/kotlin/TodoDao.kt
 
-      @Query("SELECT count(*) FROM TodoEntity")
-      suspend fun count(): Int
+@Dao
+interface TodoDao {
+    @Insert
+    suspend fun insert(item: TodoEntity)
 
-      @Query("SELECT * FROM TodoEntity")
-      fun getAllAsFlow(): Flow<List<TodoEntity>>
-    }
+    @Query("SELECT count(*) FROM TodoEntity")
+    suspend fun count(): Int
 
-Define or move your [entities](https://developer.android.com/training/data-storage/room/defining-data) to `commonMain`:
+    @Query("SELECT * FROM TodoEntity")
+    fun getAllAsFlow(): Flow<List<TodoEntity>>
+}
+```
 
-    // shared/src/commonMain/kotlin/TodoEntity.kt
+<br />
 
-    @Entity
-    data class TodoEntity(
-      @PrimaryKey(autoGenerate = true) val id: Long = 0,
-      val title: String,
-      val content: String
-    )
+Define or move your [entities](https://developer.android.com/training/data-storage/room/defining-data.md.txt) to `commonMain`:
+
+
+```kotlin
+// shared/src/commonMain/kotlin/TodoEntity.kt
+
+@Entity
+data class TodoEntity(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val title: String,
+    val content: String
+)
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** You can optionally use [expect / actual declarations](https://kotlinlang.org/docs/multiplatform-expect-actual.html) to create platform-specific Room implementations. For example, you can add a platform-specific DAO that is defined in common code using `expect` and then specify the `actual` definitions with additional queries in platform-specific source sets.
@@ -150,58 +175,71 @@ source sets, due to differences in file-system APIs.
 ### Android
 
 On Android, you usually obtain the database location using the
-[`Context.getDatabasePath`](https://developer.android.com/reference/android/content/Context#getDatabasePath(java.lang.String)) API. To create the database instance, specify a
-[`Context`](https://developer.android.com/reference/android/content/Context) and the database path.
+[`Context.getDatabasePath`](https://developer.android.com/reference/android/content/Context.md.txt#getDatabasePath(java.lang.String)) API. To create the database instance, specify a
+[`Context`](https://developer.android.com/reference/android/content/Context.md.txt) and the database path.
 
-    // shared/src/androidMain/kotlin/Database.android.kt
 
-    fun getDatabaseBuilder(context: Context): RoomDatabase.Builder<AppDatabase> {
-      val appContext = context.applicationContext
-      val dbFile = appContext.getDatabasePath("my_room.db")
-      return Room.databaseBuilder<AppDatabase>(
+```kotlin
+// shared/src/androidMain/kotlin/Database.android.kt
+
+fun getDatabaseBuilder(context: Context): RoomDatabase.Builder<AppDatabase> {
+    val appContext = context.applicationContext
+    val dbFile = appContext.getDatabasePath("my_room.db")
+    return Room.databaseBuilder<AppDatabase>(
         context = appContext,
         name = dbFile.absolutePath
-      )
-    }
+    )
+}
+```
+
+<br />
 
 ### iOS
 
 To create the database instance on iOS, provide a database path using the
 [`NSFileManager`](https://developer.apple.com/documentation/foundation/nsfilemanager/1407693-urlfordirectory), usually located in the `NSDocumentDirectory`.
 
-    // shared/src/iosMain/kotlin/Database.ios.kt
 
-    fun getDatabaseBuilder(): RoomDatabase.Builder<AppDatabase> {
-        val dbFilePath = documentDirectory() + "/my_room.db"
-        return Room.databaseBuilder<AppDatabase>(
-            name = dbFilePath,
-        )
-    }
+```kotlin
+// shared/src/iosMain/kotlin/Database.ios.kt
 
-    private fun documentDirectory(): String {
-      val documentDirectory = NSFileManager.defaultManager.URLForDirectory(
+fun getDatabaseBuilder(): RoomDatabase.Builder<AppDatabase> {
+    val dbFilePath = documentDirectory() + "/my_room.db"
+    return Room.databaseBuilder<AppDatabase>(
+        name = dbFilePath,
+    )
+}
+
+@OptIn(ExperimentalForeignApi::class)
+private fun documentDirectory(): String {
+    val documentDirectory = NSFileManager.defaultManager.URLForDirectory(
         directory = NSDocumentDirectory,
         inDomain = NSUserDomainMask,
         appropriateForURL = null,
         create = false,
         error = null,
-      )
-      return requireNotNull(documentDirectory?.path)
-    }
+    )
+    return requireNotNull(documentDirectory?.path)
+}
+```
+
+<br />
 
 ### JVM desktop
 
 To create the database instance, provide a database path using Java or Kotlin
 APIs.
 
-    // shared/src/jvmMain/kotlin/Database.desktop.kt
+```kotlin
+// shared/src/jvmMain/kotlin/Database.desktop.kt
 
-    fun getDatabaseBuilder(): RoomDatabase.Builder<AppDatabase> {
-        val dbFile = File(System.getProperty("java.io.tmpdir"), "my_room.db")
-        return Room.databaseBuilder<AppDatabase>(
-            name = dbFile.absolutePath,
-        )
-    }
+fun getDatabaseBuilder(): RoomDatabase.Builder<AppDatabase> {
+    val dbFile = File(System.getProperty("java.io.tmpdir"), "my_room.db")
+    return Room.databaseBuilder<AppDatabase>(
+        name = dbFile.absolutePath,
+    )
+}
+```
 
 > [!NOTE]
 > **Note:** `System.getProperty("java.io.tmpdir")` points to the temporary folder on the system, which might be cleaned upon reboot. For example, on macOS, you can instead use the `~/Library/Application Support/[your-app]` folder.
@@ -212,53 +250,60 @@ Once you obtain the `RoomDatabase.Builder` from one of the platform-specific
 constructors, you can configure the rest of the Room database in common code
 along with the actual database instantiation.
 
-    // shared/src/commonMain/kotlin/Database.kt
 
-    fun getRoomDatabase(
-        builder: RoomDatabase.Builder<AppDatabase>
-    ): AppDatabase {
-      return builder
-          .setDriver(BundledSQLiteDriver())
-          .setQueryCoroutineContext(Dispatchers.IO)
-          .build()
-    }
+```kotlin
+// shared/src/commonMain/kotlin/Database.kt
+
+fun getRoomDatabase(
+    builder: RoomDatabase.Builder<AppDatabase>
+): AppDatabase {
+    return builder
+        .setDriver(BundledSQLiteDriver())
+        .setQueryCoroutineContext(Dispatchers.IO)
+        .build()
+}
+```
+
+<br />
 
 ### Select a SQLite driver
 
 The previous code snippet calls the `setDriver` builder function to define what
 SQLite driver the Room database should use. These drivers differ based on the
-target platform. The previous code snippets use the [`BundledSQLiteDriver`](https://developer.android.com/reference/kotlin/androidx/sqlite/driver/bundled/BundledSQLiteDriver).
+target platform. The previous code snippets use the [`BundledSQLiteDriver`](https://developer.android.com/reference/kotlin/androidx/sqlite/driver/bundled/BundledSQLiteDriver.md.txt).
 It's the recommended driver that includes SQLite compiled from source, which
 provides the most consistent and up-to-date version of SQLite across all
 platforms.
 
 If you want to use the OS-provided SQLite, use the `setDriver` API in the
 platform-specific source sets that specify a platform-specific driver. See
-[Driver implementations](https://developer.android.com/kotlin/multiplatform/sqlite#sqlite-driver-implementations) for descriptions of available driver
+[Driver implementations](https://developer.android.com/kotlin/multiplatform/sqlite.md.txt#sqlite-driver-implementations) for descriptions of available driver
 implementations. You can use either of the following:
 
-- [`AndroidSQLiteDriver`](https://developer.android.com/reference/androidx/sqlite/driver/AndroidSQLiteDriver) in `androidMain`
-- [`NativeSQLiteDriver`](https://developer.android.com/reference/kotlin/androidx/sqlite/driver/NativeSQLiteDriver) in `iosMain`
+- [`AndroidSQLiteDriver`](https://developer.android.com/reference/androidx/sqlite/driver/AndroidSQLiteDriver.md.txt) in `androidMain`
+- [`NativeSQLiteDriver`](https://developer.android.com/reference/kotlin/androidx/sqlite/driver/NativeSQLiteDriver.md.txt) in `iosMain`
 
 To use `NativeSQLiteDriver`, you need to provide a linker option `-lsqlite3` so
 that the iOS app dynamically links with the system SQLite.
 
-    // shared/build.gradle.kts
+```kotlin
+// shared/build.gradle.kts
 
-    kotlin {
-        listOf(
-            iosX64(),
-            iosArm64(),
-            iosSimulatorArm64()
-        ).forEach { iosTarget ->
-            iosTarget.binaries.framework {
-                baseName = "TodoApp"
-                isStatic = true
-                // Required when using NativeSQLiteDriver
-                linkerOpts.add("-lsqlite3")
-            }
+kotlin {
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
+            baseName = "TodoApp"
+            isStatic = true
+            // Required when using NativeSQLiteDriver
+            linkerOpts.add("-lsqlite3")
         }
     }
+}
+```
 
 ### Set a coroutine context
 
@@ -290,12 +335,12 @@ listed and described as follows.
 ### Migrate from Support SQLite to SQLite Driver
 
 Any usages of `SupportSQLiteDatabase` and other APIs in
-[`androidx.sqlite.db`](https://developer.android.com/reference/kotlin/androidx/sqlite/db/package-summary) need to be refactored with SQLite Driver APIs,
-because the APIs in [`androidx.sqlite.db`](https://developer.android.com/reference/kotlin/androidx/sqlite/db/package-summary) are Android-only (note the
+[`androidx.sqlite.db`](https://developer.android.com/reference/kotlin/androidx/sqlite/db/package-summary.md.txt) need to be refactored with SQLite Driver APIs,
+because the APIs in [`androidx.sqlite.db`](https://developer.android.com/reference/kotlin/androidx/sqlite/db/package-summary.md.txt) are Android-only (note the
 different package than the KMP package).
 
 > [!NOTE]
-> **Note:** If you're using any low-level SQLite APIs in your codebase, see [Migrate SQLite to Kotlin Multiplatform](https://developer.android.com/kotlin/multiplatform/sqlite#migrate).
+> **Note:** If you're using any low-level SQLite APIs in your codebase, see [Migrate SQLite to Kotlin Multiplatform](https://developer.android.com/kotlin/multiplatform/sqlite.md.txt#migrate).
 
 For backwards compatibility, and as long as the `RoomDatabase` is configured
 with a `SupportSQLiteOpenHelper.Factory` (for example, no `SQLiteDriver` is
@@ -329,37 +374,51 @@ Migrations subclasses need to be migrated to the SQLite driver counterparts:
 
 Migration subclasses
 
-    object Migration_1_2 : Migration(1, 2) {
-      override fun migrate(connection: SQLiteConnection) {
+
+```kotlin
+object Migration_1_2 : Migration(1, 2) {
+    override suspend fun migrate(connection: SQLiteConnection) {
         // ...
-      }
     }
+}
+```
+
+<br />
 
 Auto migration specification subclasses
 
-    class AutoMigrationSpec_1_2 : AutoMigrationSpec {
-      override fun onPostMigrate(connection: SQLiteConnection) {
+
+```kotlin
+class AutoMigrationSpec_1_2 : AutoMigrationSpec {
+    override suspend fun onPostMigrate(connection: SQLiteConnection) {
         // ...
-      }
     }
+}
+```
+
+<br />
 
 ### Android-only
 
 Migration subclasses
 
-    object Migration_1_2 : Migration(1, 2) {
-      override fun migrate(db: SupportSQLiteDatabase) {
-        // ...
-      }
-    }
+```kotlin
+object Migration_1_2 : Migration(1, 2) {
+  override fun migrate(db: SupportSQLiteDatabase) {
+    // ...
+  }
+}
+```
 
 Auto migration specification subclasses
 
-    class AutoMigrationSpec_1_2 : AutoMigrationSpec {
-      override fun onPostMigrate(db: SupportSQLiteDatabase) {
-        // ...
-      }
-    }
+```kotlin
+class AutoMigrationSpec_1_2 : AutoMigrationSpec {
+  override fun onPostMigrate(db: SupportSQLiteDatabase) {
+    // ...
+  }
+}
+```
 
 #### Convert database callback
 
@@ -367,35 +426,42 @@ Database callbacks need to be migrated to the SQLite driver counterparts:
 
 ### Kotlin Multiplatform
 
-    object MyRoomCallback : RoomDatabase.Callback() {
-      override fun onCreate(connection: SQLiteConnection) {
-        // ...
-      }
 
-      override fun onDestructiveMigration(connection: SQLiteConnection) {
+```kotlin
+object MyRoomCallback : RoomDatabase.Callback() {
+    override suspend fun onCreate(connection: SQLiteConnection) {
         // ...
-      }
-
-      override fun onOpen(connection: SQLiteConnection) {
-        // ...
-      }
     }
+
+    override suspend fun onDestructiveMigration(connection: SQLiteConnection) {
+        // ...
+    }
+
+    override suspend fun onOpen(connection: SQLiteConnection) {
+        // ...
+    }
+}
+```
+
+<br />
 
 ### Android-only
 
-    object MyRoomCallback : RoomDatabase.Callback() {
-      override fun onCreate(db: SupportSQLiteDatabase) {
-        // ...
-      }
+```kotlin
+object MyRoomCallback : RoomDatabase.Callback() {
+  override fun onCreate(db: SupportSQLiteDatabase) {
+    // ...
+  }
 
-      override fun onDestructiveMigration(db: SupportSQLiteDatabase) {
-        // ...
-      }
+  override fun onDestructiveMigration(db: SupportSQLiteDatabase) {
+    // ...
+  }
 
-      override fun onOpen(db: SupportSQLiteDatabase) {
-        // ...
-      }
-    }
+  override fun onOpen(db: SupportSQLiteDatabase) {
+    // ...
+  }
+}
+```
 
 ### Convert `@RawQuery` DAO functions
 
@@ -407,44 +473,58 @@ will need to declare a parameter of type `RoomRawQuery` instead of
 
 Define the raw query
 
-    @Dao
-    interface TodoDao {
-      @RawQuery
-      suspend fun getTodos(query: RoomRawQuery): List<TodoEntity>
-    }
+
+```kotlin
+@Dao
+interface TodoDao {
+    @RawQuery
+    suspend fun getTodos(query: RoomRawQuery): List<TodoEntity>
+}
+```
+
+<br />
 
 A `RoomRawQuery` can then be used to create a query at runtime:
 
-    suspend fun AppDatabase.getTodosWithLowercaseTitle(title: String): List<TodoEntity> {
-        val query = RoomRawQuery(
-            sql = "SELECT * FROM TodoEntity WHERE title = ?",
-            onBindStatement = {
-                it.bindText(1, title.lowercase())
-            }
-        )
 
-        return todoDao().getTodos(query)
-    }
+```kotlin
+suspend fun AppDatabase.getTodosWithLowercaseTitle(title: String): List<TodoEntity> {
+    val query = RoomRawQuery(
+        sql = "SELECT * FROM TodoEntity WHERE title = ?",
+        onBindStatement = {
+            it.bindText(1, title.lowercase())
+        }
+    )
+
+    return getDao().getTodos(query)
+}
+```
+
+<br />
 
 ### Android-only
 
 Define the raw query
 
-    @Dao
-    interface TodoDao {
-      @RawQuery
-      suspend fun getTodos(query: SupportSQLiteQuery): List<TodoEntity>
-    }
+```kotlin
+@Dao
+interface TodoDao {
+  @RawQuery
+  suspend fun getTodos(query: SupportSQLiteQuery): List<TodoEntity>
+}
+```
 
 A `SimpleSQLiteQuery` can then be used to create a query at runtime:
 
-    suspend fun AndroidOnlyDao.getTodosWithLowercaseTitle(title: String): List<TodoEntity> {
-      val query = SimpleSQLiteQuery(
-          query = "SELECT * FROM TodoEntity WHERE title = ?",
-          bindArgs = arrayOf(title.lowercase())
-      )
-      return getTodos(query)
-    }
+```kotlin
+suspend fun AndroidOnlyDao.getTodosWithLowercaseTitle(title: String): List<TodoEntity> {
+  val query = SimpleSQLiteQuery(
+      query = "SELECT * FROM TodoEntity WHERE title = ?",
+      bindArgs = arrayOf(title.lowercase())
+  )
+  return getTodos(query)
+}
+```
 
 ### Convert blocking DAO functions
 
@@ -456,37 +536,53 @@ existing codebase. When using Room for KMP, all DAO functions compiled for
 non-Android platforms need to be `suspend` functions.
 
 > [!NOTE]
-> **Note:** Migrating existing DAO blocking functions to suspend functions can be complicated if the existing codebase does not already incorporate coroutines. See [Coroutines in Android](https://developer.android.com/kotlin/coroutines) to get started with coroutines and [Flows in Android](https://developer.android.com/kotlin/flow) to get started with flows in your codebase.
+> **Note:** Migrating existing DAO blocking functions to suspend functions can be complicated if the existing codebase doesn't already incorporate coroutines. See [Coroutines in Android](https://developer.android.com/kotlin/coroutines.md.txt) to get started with coroutines and [Flows in Android](https://developer.android.com/kotlin/flow.md.txt) to get started with flows in your codebase.
 
 ### Kotlin Multiplatform
 
 Suspending queries
 
-    @Query("SELECT * FROM Todo")
-    suspend fun getAllTodos(): List<Todo>
+
+```kotlin
+@Query("SELECT * FROM Todo")
+suspend fun getAllTodos(): List<Todo>
+```
+
+<br />
 
 Suspending transactions
 
-    @Transaction
-    suspend fun transaction() { ... }
+
+```kotlin
+@Transaction
+suspend fun transaction() {
+    // ...
+}
+```
+
+<br />
 
 ### Android-only
 
 Blocking queries
 
-    @Query("SELECT * FROM Todo")
-    fun getAllTodos(): List<Todo>
+```kotlin
+@Query("SELECT * FROM Todo")
+fun getAllTodos(): List<Todo>
+```
 
 Blocking transactions
 
-    @Transaction
-    fun blockingTransaction() { ... }
+```kotlin
+@Transaction
+fun blockingTransaction() { ... }
+```
 
 ### Convert reactive types to Flow
 
 Not all DAO functions need to be suspend functions. DAO functions that return
 reactive types such as `LiveData` or RxJava's `Flowable` shouldn't be converted
-to suspend functions. Some types, however, such as `LiveData` are not KMP
+to suspend functions. Some types, however, such as `LiveData`, aren't KMP
 compatible. DAO functions with reactive return types must be migrated to
 coroutine flows.
 
@@ -494,15 +590,22 @@ coroutine flows.
 
 Reactive types `Flows`
 
-    @Query("SELECT * FROM Todo")
-    fun getTodosFlow(): Flow<List<Todo>>
+
+```kotlin
+@Query("SELECT * FROM Todo")
+fun getTodosFlow(): Flow<List<Todo>>
+```
+
+<br />
 
 ### Android-only
 
 Reactive types like `LiveData` or RxJava's `Flowable`
 
-    @Query("SELECT * FROM Todo")
-    fun getTodosLiveData(): LiveData<List<Todo>>
+```kotlin
+@Query("SELECT * FROM Todo")
+fun getTodosLiveData(): LiveData<List<Todo>>
+```
 
 ### Convert transaction APIs
 
@@ -514,19 +617,26 @@ Database transaction APIs for Room KMP can differentiate between writing
 
 ### Kotlin Multiplatform
 
-    val database: RoomDatabase = ...
-    database.useWriterConnection { transactor ->
-      transactor.immediateTransaction {
-        // perform database operations in transaction
-      }
+
+```kotlin
+val database: RoomDatabase = getRoomDatabase(builder)
+database.useWriterConnection { transactor ->
+    transactor.immediateTransaction {
+        // perform database operations in transaction.
     }
+}
+```
+
+<br />
 
 ### Android-only
 
-    val database: RoomDatabase = ...
-    database.withTransaction {
-      // perform database operations in transaction
-    }
+```kotlin
+val database: RoomDatabase = ...
+database.withTransaction {
+  // perform database operations in transaction
+}
+```
 
 #### Write transactions
 
@@ -546,7 +656,7 @@ so that readers can consistently access the data. You can do this using
   just a name of the playlist and the playlist doesn't exist, then no write
   (delete) operation is needed.
 
-- `exclusiveTransaction`: This mode behaves identical to
+- `exclusiveTransaction`: This mode behaves identically to
   `immediateTransaction` in the WAL mode. In other journaling modes, it
   prevents other database connections from reading the database while the
   transaction is underway.
@@ -562,12 +672,17 @@ clause. Only deferred transactions are allowed in reader connections. Attempting
 to start an immediate or exclusive transaction in a reader connection will throw
 an exception, as these are considered 'write' operations.
 
-    val database: RoomDatabase = ...
-    database.useReaderConnection { transactor ->
-      transactor.deferredTransaction {
-          // perform database operations in transaction
-      }
+
+```kotlin
+val database: RoomDatabase = getRoomDatabase(builder)
+database.useReaderConnection { transactor ->
+    transactor.deferredTransaction {
+        // perform database operations in transaction.
     }
+}
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** For more details about SQLite transactions, see the [SQLite
@@ -575,52 +690,42 @@ an exception, as these are considered 'write' operations.
 
 ## Not available in Kotlin Multiplatform
 
-Some of the APIs that were available for Android are not available in Kotlin
+Some of the APIs that were available for Android aren't available in Kotlin
 Multiplatform.
 
 ### Query callback
 
-The following APIs for configuring query callbacks are not available in common
+The following APIs for configuring query callbacks aren't available in common
 and are thus unavailable in platforms other than Android.
 
 - `RoomDatabase.Builder.setQueryCallback`
 - `RoomDatabase.QueryCallback`
 
-We intend to add support for query callback in a future version of Room.
-
-The API to configure a `RoomDatabase` with a query callback
-`RoomDatabase.Builder.setQueryCallback` along with the callback interface
-`RoomDatabase.QueryCallback` are not available in common and thus not available
-in other platforms other than Android.
-
 ### Auto-closing database
 
 The API to enable auto-closing after a timeout,
-`RoomDatabase.Builder.setAutoCloseTimeout`, is only available on Android and is
-not available in other platforms.
+`RoomDatabase.Builder.setAutoCloseTimeout`, is only available on Android.
 
 ### Pre-packaged database
 
-The following APIs to create a `RoomDatabase` using an existing database (i.e. a
-pre-packaged database) are not available in common and are thus not available in
-other platforms other than Android. These APIs are:
+The following APIs to create a `RoomDatabase` using an existing database (a
+pre-packaged database) aren't available in common and are thus unavailable in
+platforms other than Android:
 
 - `RoomDatabase.Builder.createFromAsset`
 - `RoomDatabase.Builder.createFromFile`
 - `RoomDatabase.Builder.createFromInputStream`
 - `RoomDatabase.PrepackagedDatabaseCallback`
 
-We intend to add support for pre-packaged databases in a future version of Room.
-
 ### Multi-instance invalidation
 
 The API to enable multi-instance invalidation,
-`RoomDatabase.Builder.enableMultiInstanceInvalidation` is only available on
-Android and is not available in common or other platforms.
+`RoomDatabase.Builder.enableMultiInstanceInvalidation`, is only available on
+Android and isn't available in common or other platforms.
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
 - [Migrate existing apps to Room KMP Codelab](https://developer.android.com/codelabs/kmp-migrate-room)
 - [Get Started with KMP Codelab](https://developer.android.com/codelabs/kmp-get-started)
-- [Save data in local database with Room](https://developer.android.com/training/data-storage/room)
+- [Save data in local database with Room](https://developer.android.com/training/data-storage/room.md.txt)

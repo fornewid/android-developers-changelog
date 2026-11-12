@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/how-r8-made-kotlin-coroutines-on-a
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # How R8 made Kotlin Coroutines on Android 2x faster
 
-7 min read ![](https://developer.android.com/static/blog/assets/0707_Faster_Kotlin_coroutines_on_Android_with_R8_Strapi_5b162a2623_wPRs6.webp) 27 Jul 2026 [![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z2tS3U3.webp)](https://developer.android.com/blog/authors/jonathan-starup)[![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_27dNln.webp)](https://developer.android.com/blog/authors/andrei-shikov) [Jonathan Starup](https://developer.android.com/blog/authors/jonathan-starup) \& [Andrei Shikov](https://developer.android.com/blog/authors/andrei-shikov) Starting from AGP 9.2.0, R8 optimizes most Atomic\*FieldUpdater calls into Unsafe variants that perform [2x to 4x better on common operations](https://github.com/Kotlin/kotlinx.coroutines/issues/3950). This has a particularly large impact on the kotlinx.atomicfu library that implements atomics for `kotlinx.coroutines`, making launching and cancelling coroutines up to 2x faster. In order to get the benefits, update your AGP to 9.2.0 or above.
+7 min read ![](https://developer.android.com/static/blog/assets/0707_Faster_Kotlin_coroutines_on_Android_with_R8_Strapi_5b162a2623_wPRs6.webp) 27 Jul 2026 [![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z2tS3U3.webp)](https://developer.android.com/blog/authors/jonathan-starup.md.txt)[![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_27dNln.webp)](https://developer.android.com/blog/authors/andrei-shikov.md.txt) [Jonathan Starup](https://developer.android.com/blog/authors/jonathan-starup.md.txt) \& [Andrei Shikov](https://developer.android.com/blog/authors/andrei-shikov.md.txt) Starting from AGP 9.2.0, R8 optimizes most Atomic\*FieldUpdater calls into Unsafe variants that perform [2x to 4x better on common operations](https://github.com/Kotlin/kotlinx.coroutines/issues/3950). This has a particularly large impact on the kotlinx.atomicfu library that implements atomics for `kotlinx.coroutines`, making launching and cancelling coroutines up to 2x faster. In order to get the benefits, update your AGP to 9.2.0 or above.
 
 With the majority of Android apps adopting Kotlin as their main language of choice, [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines) has become a de-facto standard for asynchronous programming. The library offers a well-designed and structured way of managing concurrent flows that is native to Kotlin. Jetpack Compose was no exception, adopting coroutines for managing pointer events, animations and other interactions. At the time of writing, most concurrent APIs in Compose call `suspend` functions under the hood and are launching and/or cancelling coroutines to handle updates.
 
@@ -155,14 +155,14 @@ Jetpack Compose was the main beneficiary of this work. Compose runtime has a num
 Aside from that, the ART team is implementing these optimizations natively at the VM level. If your app is targeting API 36 and is running on a recent version of Android, it is possible that your device is already optimizing coroutines in a similar way. The coroutine benchmarks above observed \~15% improvement in performance after JIT updates in the recent versions of ART.
 
 Your app will receive this optimization by default when upgrading to AGP 9.2.0 or by using R8 9.2.0 directly. For more information, see [D8 dexer and R8 shrinker](https://r8.googlesource.com/r8/+/refs/heads/main/README.md#replacing-r8-in-agp).
-- [#Compose](https://developer.android.com/blog/topics/compose)
-- [#R8](https://developer.android.com/blog/topics/r8)
-- [#coroutines](https://developer.android.com/blog/topics/coroutines)
+- [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
+- [#R8](https://developer.android.com/blog/topics/r8.md.txt)
+- [#coroutines](https://developer.android.com/blog/topics/coroutines.md.txt)
 Written by:
 
 -
 
-  ## [Jonathan Starup](https://developer.android.com/blog/authors/jonathan-starup)
+  ## [Jonathan Starup](https://developer.android.com/blog/authors/jonathan-starup.md.txt)
 
   ###### Software Engineer
 
@@ -170,35 +170,35 @@ Written by:
   View profile](https://developer.android.com/blog/authors/jonathan-starup) ![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z2tS3U3.webp) ![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z2tS3U3.webp)
 -
 
-  ## [Andrei Shikov](https://developer.android.com/blog/authors/andrei-shikov)
+  ## [Andrei Shikov](https://developer.android.com/blog/authors/andrei-shikov.md.txt)
 
   ###### Senior Software Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/andrei-shikov) ![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_27dNln.webp) ![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_27dNln.webp)
 Continue reading
-- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) 11 Nov 2026 11 Nov 2026 ![](https://developer.android.com/static/blog/assets/1007_ABL_134_How_Smile_ID_Scaled_Identity_Verification_with_Camera_X_Strapi_788bf73f23_1N5Hb5.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time)
+  ## [How SmileID Scaled Identity Verification to 18,000+ Android Device Types with CameraX](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- [![View Pavlo Stavytskyi's profile](https://developer.android.com/static/blog/assets/pavlo_a4e2ec12e9_v4xs2.webp)](https://developer.android.com/blog/authors/pavlo-stavytskyi)[![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)](https://developer.android.com/blog/authors/rebecca-franks) 30 Sep 2026 30 Sep 2026 ![](https://developer.android.com/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt) Identity verification apps for banking and SIM registration require clear, high-resolution face captures to detect spoofing and deepfakes. Capturing frames sharp enough for liveness and anti-spoofing checks, without crashing low-memory devices, is a common challenge for Android camera develope
+  [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) • 4 min read
+  - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
+- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct)
+  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct) The team built an AI-native UI codebase that is 50% smaller than the original implementation, while achieving a 35% reduction in AI agent execution time, 32% fewer engineer-agent exchanges, and a 33% reduction in token cost.
-  [Pavlo Stavytskyi](https://developer.android.com/blog/authors/pavlo-stavytskyi), [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks) • 11 min read
-  - [#Compose-first](https://developer.android.com/blog/topics/compose-first)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+- [![View Pavlo Stavytskyi's profile](https://developer.android.com/static/blog/assets/pavlo_a4e2ec12e9_v4xs2.webp)](https://developer.android.com/blog/authors/pavlo-stavytskyi.md.txt)[![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)](https://developer.android.com/blog/authors/rebecca-franks.md.txt) 30 Sep 2026 30 Sep 2026 ![](https://developer.android.com/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+  ## [How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
-  - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
+  [arrow_forward](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct.md.txt) The team built an AI-native UI codebase that is 50% smaller than the original implementation, while achieving a 35% reduction in AI agent execution time, 32% fewer engineer-agent exchanges, and a 33% reduction in token cost.
+  [Pavlo Stavytskyi](https://developer.android.com/blog/authors/pavlo-stavytskyi.md.txt), [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks.md.txt) • 11 min read
+  - [#Compose-first](https://developer.android.com/blog/topics/compose-first.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
 Stay in the loop
 
 

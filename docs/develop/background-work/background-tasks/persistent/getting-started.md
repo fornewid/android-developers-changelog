@@ -70,7 +70,7 @@ next step is to define some work to run.
 
 ## Define the work
 
-Work is defined using the `https://developer.android.com/reference/androidx/work/Worker`
+Work is defined using the `Worker`
 class. The `doWork()` method runs asynchronously on a background
 thread provided by WorkManager.
 
@@ -116,7 +116,7 @@ public class UploadWorker extends Worker {
 }
 ```
 
-The `https://developer.android.com/reference/androidx/work/ListenableWorker.Result`
+The `Result`
 returned from `doWork()` informs the WorkManager service whether the
 work succeeded and, in the case of failure, whether or not the work should be
 retried.
@@ -135,12 +135,12 @@ over an interval of time, or you can schedule it to run only [one
 time](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work#constraints).
 
 However you choose to schedule the work, you will always use a
-`https://developer.android.com/reference/androidx/work/WorkRequest`. While a
+`WorkRequest`. While a
 `Worker` defines the unit of work, a
-`https://developer.android.com/reference/androidx/work/WorkRequest` (and its
+`WorkRequest` (and its
 subclasses) define how and when it should be run. In the simplest case, you can
 use a
-`https://developer.android.com/reference/androidx/work/OneTimeWorkRequest`,
+`OneTimeWorkRequest`,
 as shown in the following example.
 
 ### Kotlin
@@ -162,7 +162,7 @@ WorkRequest uploadWorkRequest =
 ## Submit the WorkRequest to the system
 
 Finally, you need to submit your `WorkRequest` to `WorkManager` using the
-`https://developer.android.com/reference/androidx/work/WorkManager#enqueue(androidx.work.WorkRequest)`
+`enqueue()`
 method.
 
 ### Kotlin
@@ -197,12 +197,8 @@ of how to schedule unique and reoccurring work.
 
 ## Additional resources
 
-In addition to guide documentation, there are several blogs, codelabs, and code
-samples available to help you get started.
-
-### Samples
-
-- [Sunflower](https://github.com/android/sunflower), a demo app demonstrating best practices with various architecture components, including WorkManager.
+In addition to guide documentation, there are several blogs and codelabs
+available to help you get started.
 
 ### Codelabs
 

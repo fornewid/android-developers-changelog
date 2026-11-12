@@ -24,7 +24,7 @@ content that might not belong to any of these categories.
 
 ### Integrate Engage SDK
 
-Use the Engage SDK [Android skill](https://developer.android.com/tools/agents/android-skills) to integrate, debug, and resolve implementation issues. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the Engage SDK [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to integrate, debug, and resolve implementation issues. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add engage-sdk-integration
 
@@ -149,10 +149,12 @@ Minimum API level: 19
 
 Add the `com.google.android.engage:engage-core` library to your app:
 
-    dependencies {
-        // Make sure you also include that repository in your project's build.gradle file.
-        implementation 'com.google.android.engage:engage-core:1.6.0'
-    }
+```groovy
+dependencies {
+    // Make sure you also include that repository in your project's build.gradle file.
+    implementation 'com.google.android.engage:engage-core:1.6.0'
+}
+```
 
 ### Summary
 
@@ -193,44 +195,44 @@ type.
 
 | Attribute | Requirement | Description | Format |
 |---|---|---|---|
-| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) | Uri |
-| Poster images | **Required** | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) | Uri |
+| Poster images | **Required** | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Title | Optional | Title of the entity. | Free text **Recommended text size: 50 chars** |
 | Description | Optional | A single paragraph of text to describe the entity. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size: 180 chars** |
 | Subtitle list | Optional | Up to 3 subtitles, with each subtitle a single line of text. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size for each subtitle: max 50 chars** |
 | Badges | Optional | Each badge is either free text (max 15 chars) or small image. Special UX treatment on top of image/video, for example, as badge overlay on the image - "Live update" - Article read duration |   |
 | Badge - Text | Optional | Title for the badge **Note:** Either text or image is required for the badge | Free text **Recommended text size: max 15 chars** |
-| Badge - Image | Optional | Small image Special UX treatment, for example as badge overlay on the image/video thumbnail. **Note:** Either text or image is required for the badge | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
-| Content Categories | Optional | Describe the category of the content in the entity. | List of Enums See the [Content Category section](https://developer.android.com/guide/playcore/engage/otherverticals#content-category) for guidance. |
+| Badge - Image | Optional | Small image Special UX treatment, for example as badge overlay on the image/video thumbnail. **Note:** Either text or image is required for the badge | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
+| Content Categories | Optional | Describe the category of the content in the entity. | List of Enums See the [Content Category section](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#content-category) for guidance. |
 
 #### `ArticleEntity`
 
 | Attribute | Requirement | Description | Format |
 |---|---|---|---|
-| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) | Uri |
+| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) | Uri |
 | Title | **Required** | Title of the entity. | Free text **Recommended text size: Max 50 chars** |
-| Poster images | Optional | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** Image is highly recommended. If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Poster images | Optional | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** Image is highly recommended. If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Source - Title | Optional | The name of the author, organization, or reporter | Free text **Recommended text size: Under 25 chars** |
-| Source - Image | Optional | An image of the source like the author, the organization, reporter | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Source - Image | Optional | An image of the source like the author, the organization, reporter | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Description | Optional | A single paragraph of text to describe the entity. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size: 180 chars** |
 | Subtitle list | Optional | Up to 3 subtitles, with each subtitle a single line of text. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size for each subtitle: max 50 chars** |
 | Badges | Optional | Each badge is either free text (max 15 chars) or small image. Special UX treatment on top of image/video, for example as badge overlay on the image - "Live update" - Article read duration |   |
 | Badge - Text | Optional | Title for the badge **Note:** Either text or image is required for the badge | Free text **Recommended text size: max 15 chars** |
-| Badge - Image | Optional | Small image Special UX treatment, for example as badge overlay on the image/video thumbnail. **Note:** Either text or image is required for the badge | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Badge - Image | Optional | Small image Special UX treatment, for example as badge overlay on the image/video thumbnail. **Note:** Either text or image is required for the badge | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Content Publish Time | Optional | This is the epoch timestamp in milliseconds on when the content was published / updated in the app. | Epoch timestamp in milliseconds |
 | Last Engagement Time | Conditionally Required | The epoch timestamp in milliseconds when the user interacted with this entity last time. **Note:** This field is required if this entity is part of the continuation cluster. | Epoch timestamp in milliseconds |
 | Progress Percentage | Conditionally Required | The percentage of the full content consumed by the user to date. **Note:** This field is required if this entity is part of the continuation cluster. | An int value between 0\~100 inclusive. |
-| Content Categories | Optional | Describe the category of the content in the entity. | List of Enums See the [Content Category section](https://developer.android.com/guide/playcore/engage/otherverticals#content-category) for guidance. |
+| Content Categories | Optional | Describe the category of the content in the entity. | List of Enums See the [Content Category section](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#content-category) for guidance. |
 
 #### `EventEntity`
 
 | Attribute | Requirement | Description | Format |
 |---|---|---|---|
-| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) | Uri |
+| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) | Uri |
 | Title | **Required** | Title of the entity. | String **Recommended text size: Max 50 chars** |
 | Start time | **Required** | The epoch timestamp when the event is expected to start. **Note:**This will be represented in milliseconds. | Epoch timestamp in milliseconds |
 | Event mode | **Required** | A field to indicate whether the event will be virtual, in-person or both. | Enum: VIRTUAL, IN_PERSON, or HYBRID |
-| Poster images | **Required** | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** Image is highly recommended. If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Poster images | **Required** | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** Image is highly recommended. If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Location - Country | Conditionally Required | The country in which the event is happening. **Note:** This is required for events which are IN_PERSON or HYBRID | Free text **Recommended text size: max \~20 chars** |
 | Location - City | Conditionally Required | The city in which the event is happening. **Note:** This is required for events which are IN_PERSON or HYBRID | Free text **Recommended text size: max \~20 chars** |
 | Location - Display Address | Conditionally Required | The address or venue name where the event will take place that should be displayed to the user. **Note:** This is required for events which are IN_PERSON or HYBRID | Free text **Recommended text size: max \~20 chars** |
@@ -243,19 +245,19 @@ type.
 | Subtitle list | Optional | Up to 3 subtitles, with each subtitle a single line of text. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size for each subtitle: max 50 chars** |
 | Badges | Optional | Each badge is either free text (max 15 chars) or small image. |   |
 | Badge - Text | Optional | Title for the badge **Note:** Either text or image is required for the badge | Free text **Recommended text size: max 15 chars** |
-| Badge - Image | Optional | Small image Special UX treatment, for example as badge overlay on the image/video thumbnail. **Note:** Either text or image is required for the badge | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Badge - Image | Optional | Small image Special UX treatment, for example as badge overlay on the image/video thumbnail. **Note:** Either text or image is required for the badge | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Price - CurrentPrice | Conditionally required | The current price of the ticket/pass for the event. **Must be provided if strikethrough price is provided.** | Free text |
 | Price - StrikethroughPrice | Optional | The original price of the ticket/pass for the event. | Free text |
 | Price Callout | Optional | Price callout to feature a promo, event, member discount, if available. | Free text **Recommended text size: under 45 chars (Text that is too long may show ellipses)** |
-| Content Categories | Optional | Describe the category of the content in the entity. | List of Eligible Enums - TYPE_MOVIES_AND_TV_SHOWS (Example - Cinema) - TYPE_DIGITAL_GAMES (Example - eSports) - TYPE_MUSIC (Example - Concert) - TYPE_TRAVEL_AND_LOCAL (Example - Tour, festival) - TYPE_HEALTH_AND_FITENESS (Example - Yoga class) - TYPE_EDUCATION (Example - Class) - TYPE_SPORTS (Example - Football game) - TYPE_DATING (Example - meetup) See the [Content Category section](https://developer.android.com/guide/playcore/engage/otherverticals#content-category) for guidance. |
+| Content Categories | Optional | Describe the category of the content in the entity. | List of Eligible Enums - TYPE_MOVIES_AND_TV_SHOWS (Example - Cinema) - TYPE_DIGITAL_GAMES (Example - eSports) - TYPE_MUSIC (Example - Concert) - TYPE_TRAVEL_AND_LOCAL (Example - Tour, festival) - TYPE_HEALTH_AND_FITENESS (Example - Yoga class) - TYPE_EDUCATION (Example - Class) - TYPE_SPORTS (Example - Football game) - TYPE_DATING (Example - meetup) See the [Content Category section](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#content-category) for guidance. |
 
 #### `LodgingEntity`
 
 | Attribute | Requirement | Description | Format |
 |---|---|---|---|
-| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) | Uri |
+| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) | Uri |
 | Title | **Required** | Title of the entity. | String **Recommended text size: Max 50 chars** |
-| Poster images | **Required** | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Poster images | **Required** | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Location - Country | **Required** | The country in which the lodging is happening. | Free text **Recommended text size: max \~20 chars** |
 | Location - City | **Required** | The city in which the lodging is happening. | Free text **Recommended text size: max \~20 chars** |
 | Location - Display Address | **Required** | The address of the lodging that will be displayed to the user. | Free text **Recommended text size: max \~20 chars** |
@@ -265,7 +267,7 @@ type.
 | Location - Neighborhood | Optional | The neighborhood (if applicable) of the lodging. | Free text **Recommended text size: max \~20 chars** |
 | Badges | Optional | Each badge is either free text (max 15 chars) or small image. |   |
 | Badge - Text | Optional | Title for the badge **Note:** Either text or image is required for the badge | Free text **Recommended text size: max 15 chars** |
-| Badge - Image | Optional | Small image Special UX treatment, for example as badge overlay on the image/video thumbnail. **Note:** Either text or image is required for the badge | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Badge - Image | Optional | Small image Special UX treatment, for example as badge overlay on the image/video thumbnail. **Note:** Either text or image is required for the badge | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Description | Optional | A single paragraph of text to describe the entity. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size: 180 chars** |
 | Subtitle list | Optional | Up to 3 subtitles, with each subtitle a single line of text. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size for each subtitle: max 50 chars** |
 | AvailabilityTimeWindow - Start Time | Optional | The epoch timestamp in milliseconds when the lodging is expected to be open/available. | Epoch timestamp in milliseconds |
@@ -285,8 +287,8 @@ want to publish, such as a restaurant or a grocery store.
 
 | Attribute | Requirement | Description | Format |
 |---|---|---|---|
-| Poster images | **Required** | At least one image must be provided. | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
-| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) | Uri |
+| Poster images | **Required** | At least one image must be provided. | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
+| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) | Uri |
 | Title | Optional | The name of the store. | Free text **Recommended text size: under 45 chars** (Text that is too long may show ellipses) |
 | Location | Optional | The location of the store. | Free text **Recommended text size: under 45 chars** (Text that is too long may show ellipses) |
 | Callout | Optional | Callout to feature a promo, event, or update for the store, if available. | Free text **Recommended text size: under 45 chars** (Text that is too long may show ellipses) |
@@ -301,9 +303,9 @@ want to publish, such as a restaurant or a grocery store.
 
 | Attribute | Requirement | Description | Format |
 |---|---|---|---|
-| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) | Uri |
+| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) | Uri |
 | Title | **Required** | Title of the entity. | String **Recommended text size: Max 50 chars** |
-| Poster images | **Required** | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** Image is highly recommended. If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Poster images | **Required** | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** Image is highly recommended. If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Location - Country | **Required** | The country in which the point of interest is happening. | Free text **Recommended text size: max \~20 chars** |
 | Location - City | **Required** | The city in which the point of interest is happening. | Free text **Recommended text size: max \~20 chars** |
 | Location - Display Address | **Required** | The address of the point of interest that will be displayed to the user. | Free text **Recommended text size: max \~20 chars** |
@@ -315,7 +317,7 @@ want to publish, such as a restaurant or a grocery store.
 | AvailabilityTimeWindow - End Time | Optional | The epoch timestamp in milliseconds until which the point of interest is expected to be open/available. | Epoch timestamp in milliseconds |
 | Badges | Optional | Each badge is either free text (max 15 chars) or small image. |   |
 | Badge - Text | Optional | Title for the badge **Note:** Either text or image is required for the badge | Free text **Recommended text size: max 15 chars** |
-| Badge - Image | Optional | Small image Special UX treatment, for example as badge overlay on the image/video thumbnail. **Note:** Either text or image is required for the badge | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Badge - Image | Optional | Small image Special UX treatment, for example as badge overlay on the image/video thumbnail. **Note:** Either text or image is required for the badge | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Description | Optional | A single paragraph of text to describe the entity. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size: 180 chars** |
 | Subtitle list | Optional | Up to 3 subtitles, with each subtitle a single line of text. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size for each subtitle: max 50 chars** |
 | Rating - Max value | Optional | The maximum value of the rating scale. **Must be provided if current value of rating is also provided.** | Number \>= 0.0 |
@@ -325,22 +327,22 @@ want to publish, such as a restaurant or a grocery store.
 | Price - CurrentPrice | Conditionally required | The current price of the tickets/entry pass for the point of interest. **Must be provided if strikethrough price is provided.** | Free text |
 | Price - StrikethroughPrice | Optional | The original price of the tickets/entry pass for the point of interest. | Free text |
 | Price Callout | Optional | Price callout to feature a promo, event, member discount, if available. | Free text **Recommended text size: under 45 chars (Text that is too long may show ellipses)** |
-| Content Categories | Optional | Describe the category of the content in the entity. | List of Eligible Enums - TYPE_TRAVEL_AND_LOCAL - TYPE_MOVIES_AND_TV_SHOWS (Example - theater) - TYPE_MEDICAL (Example - hospital) - TYPE_EDUCATION (Example - school) - TYPE_SPORTS (Example - stadium) See the [Content Category section](https://developer.android.com/guide/playcore/engage/otherverticals#content-category) for guidance. |
+| Content Categories | Optional | Describe the category of the content in the entity. | List of Eligible Enums - TYPE_TRAVEL_AND_LOCAL - TYPE_MOVIES_AND_TV_SHOWS (Example - theater) - TYPE_MEDICAL (Example - hospital) - TYPE_EDUCATION (Example - school) - TYPE_SPORTS (Example - stadium) See the [Content Category section](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#content-category) for guidance. |
 
 #### `PersonEntity`
 
 | Attribute | Requirement | Description | Format |
 |---|---|---|---|
-| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) | Uri |
+| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) | Uri |
 | Profile - Name | **Required** | Profile name or id or handle, eg "John Doe", "@TeamPixel", etc. | String **Recommended text size: Max 50 chars** |
-| Profile - Avatar | **Required** | Profile picture or avatar image of the user. **Note:**Must be Square 1:1 image. | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Profile - Avatar | **Required** | Profile picture or avatar image of the user. **Note:**Must be Square 1:1 image. | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Profile - Additional Text | Optional | Free text like the profile handle. | Free text **Recommended text size: Max 15 chars** |
-| Profile - Additional Image | Optional | Small image like a verified badge. | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
-| Header image | Optional | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** Image is highly recommended. If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Profile - Additional Image | Optional | Small image like a verified badge. | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
+| Header image | Optional | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** Image is highly recommended. If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Popularity - Count | Optional | Indicate the number of followers or popularity value, for example - "3.7 M". **Note:** If both Count and Count Value are provided, Count will be used | String **Recommended text size: max 20 chars for count + label combined** |
 | Popularity - Count Value | Optional | The number of followers or popularity value. **Note:** Provide Count Value if your app doesn't want to handle logic on how a large number should be optimized for different display sizes. If both Count and Count Value are provided, Count will be used. | Long |
 | Popularity - Label | Optional | Indicate what the popularity label is. For example - "Likes". | String **Recommended text size: Max 20 chars for count + label combined** |
-| Popularity - Visual | Optional | Indicate what the interaction is for. For example - Image showing Likes icon, emoji. Can provide more than 1 image, though not all may not be shown on all form factors. **Note:** Must be Square 1:1 image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Popularity - Visual | Optional | Indicate what the interaction is for. For example - Image showing Likes icon, emoji. Can provide more than 1 image, though not all may not be shown on all form factors. **Note:** Must be Square 1:1 image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Rating - Max value | Required | The maximum value of the rating scale. **Must be provided if current value of rating is also provided.** | Number \>= 0.0 |
 | Rating - Current value | Required | The current value of the rating scale. **Must be provided if maximum value of rating is also provided.** | Number \>= 0.0 |
 | Rating - Count | Optional | The count of the ratings for the entity. **Note:** Provide this field if your app wants to control how this is displayed to the users. Provide the concise string that can be displayed to the user. For example, if the count is 1,000,000, consider using abbreviations like 1M, so that it won't be truncated on smaller display sizes. | String |
@@ -354,16 +356,16 @@ want to publish, such as a restaurant or a grocery store.
 | Location - Neighborhood | Optional | The neighborhood (if applicable) where the person is located or serving. | Free text **Recommended text size: max \~20 chars** |
 | Badges | Optional | Each badge is either free text (max 15 chars) or small image. |   |
 | Badge - Text | Optional | Title for the badge **Note:** Either text or image is required for the badge | Free text **Recommended text size: max 15 chars** |
-| Badge - Image | Optional | Small image Special UX treatment, for example as badge overlay on the image/video thumbnail. **Note:** Either text or image is required for the badge | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Badge - Image | Optional | Small image Special UX treatment, for example as badge overlay on the image/video thumbnail. **Note:** Either text or image is required for the badge | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Description | Optional | A single paragraph of text to describe the entity. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size: 180 chars** |
 | Subtitle list | Optional | Up to 3 subtitles, with each subtitle a single line of text. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size for each subtitle: max 50 chars** |
-| Content Categories | Optional | Describe the category of the content in the entity. | List of Eligible Enums - TYPE_HEALTH_AND_FITENESS (Example - Yoga/fitness trainer) - TYPE_HOME_AND_AUTO (Example - Plumber) - TYPE_SPORTS (Example - Player) - TYPE_DATING See the [Content Category section](https://developer.android.com/guide/playcore/engage/otherverticals#content-category) for guidance. |
+| Content Categories | Optional | Describe the category of the content in the entity. | List of Eligible Enums - TYPE_HEALTH_AND_FITENESS (Example - Yoga/fitness trainer) - TYPE_HOME_AND_AUTO (Example - Plumber) - TYPE_SPORTS (Example - Player) - TYPE_DATING See the [Content Category section](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#content-category) for guidance. |
 
 #### `RestaurantReservationEntity`
 
 | Attribute | Requirement | Description | Format |
 |---|---|---|---|
-| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) | Uri |
+| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) | Uri |
 | Title | **Required** | Title of the entity. | String **Recommended text size: Max 50 chars** |
 | Reservation Start Time | **Required** | The epoch timestamp in milliseconds when the reservation is expected to start. | Epoch timestamp in milliseconds |
 | Location - Country | **Required** | The country in which the restaurant is happening. | Free text **Recommended text size: max \~20 chars** |
@@ -373,7 +375,7 @@ want to publish, such as a restaurant or a grocery store.
 | Location - State | Optional | The state or province (if applicable) in which the restaurant is located. | Free text **Recommended text size: max \~20 chars** |
 | Location - Zip code | Optional | The zip code (if applicable) of the restaurant. | Free text **Recommended text size: max \~20 chars** |
 | Location - Neighborhood | Optional | The neighborhood (if applicable) of the restaurant. | Free text **Recommended text size: max \~20 chars** |
-| Poster images | Optional | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Poster images | Optional | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Description | Optional | A single paragraph of text to describe the entity. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size: 180 chars** |
 | Subtitle list | Optional | Up to 3 subtitles, with each subtitle a single line of text. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size for each subtitle: max 50 chars** |
 | Table Size | Optional | The number of people in the reservation group | Integer \> 0 |
@@ -382,7 +384,7 @@ want to publish, such as a restaurant or a grocery store.
 
 | Attribute | Requirement | Description | Format |
 |---|---|---|---|
-| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) | Uri |
+| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) | Uri |
 | Title | **Required** | Title of the entity. | String **Recommended text size: Max 50 chars** |
 | Start time | **Required** | The epoch timestamp when the event is expected to start. **Note:**This will be represented in milliseconds. | Epoch timestamp in milliseconds |
 | Event mode | **Required** | A field to indicate whether the event will be virtual, in-person or both. | Enum: VIRTUAL, IN_PERSON, or HYBRID |
@@ -393,15 +395,15 @@ want to publish, such as a restaurant or a grocery store.
 | Location - State | Optional | The state or province (if applicable) in which the event is being hosted. | Free text **Recommended text size: max \~20 chars** |
 | Location - Zip code | Optional | The zip code (if applicable) of the location in which the event is being hosted. | Free text **Recommended text size: max \~20 chars** |
 | Location - Neighborhood | Optional | The neighborhood (if applicable) in which the event is being hosted. | Free text **Recommended text size: max \~20 chars** |
-| Poster images | Optional | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** Image is highly recommended. If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Poster images | Optional | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** Image is highly recommended. If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | End time | Optional | The epoch timestamp when the event is expected to end. **Note:**This will be represented in milliseconds. | Epoch timestamp in milliseconds |
 | Service Provider - Name | Optional | The name of the service provider. **Note:**Either text or image is required for the service provider. | Free text. For example, name of the event organizer/tour |
-| Service Provider - Image | Optional | The logo/image of the service provider. **Note:**Either text or image is required for the service provider. | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Service Provider - Image | Optional | The logo/image of the service provider. **Note:**Either text or image is required for the service provider. | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Description | Optional | A single paragraph of text to describe the entity. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size: 180 chars** |
 | Subtitle list | Optional | Up to 3 subtitles, with each subtitle a single line of text. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size for each subtitle: max 50 chars** |
 | Badges | Optional | Each badge is either free text (max 15 chars) or small image. |   |
 | Badge - Text | Optional | Title for the badge **Note:** Either text or image is required for the badge | Free text **Recommended text size: max 15 chars** |
-| Badge - Image | Optional | Small image Special UX treatment, for example as badge overlay on the image/video thumbnail. **Note:** Either text or image is required for the badge | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Badge - Image | Optional | Small image Special UX treatment, for example as badge overlay on the image/video thumbnail. **Note:** Either text or image is required for the badge | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Reservation ID | Optional | The reservation ID for the event reservation. | Free text |
 | Price - CurrentPrice | Conditionally required | The current price of the ticket/pass for the event. **Must be provided if strikethrough price is provided.** | Free text |
 | Price - StrikethroughPrice | Optional | The original price of the ticket/pass for the event. | Free text |
@@ -410,13 +412,13 @@ want to publish, such as a restaurant or a grocery store.
 | Rating - Current value | Optional | The current value of the rating scale. **Must be provided if maximum value of rating is also provided.** | Number \>= 0.0 |
 | Rating - Count | Optional | The count of the ratings for the event. **Note:** Provide this field if your app wants to control how this is displayed to the users. Provide the concise string that can be displayed to the user. For example, if the count is 1,000,000, consider using abbreviations like 1M, so that it won't be truncated on smaller display sizes. | String |
 | Rating - Count Value | Optional | The count of the ratings for the event. **Note:** Provide this field if you don't want to handle the display abbreviation logic yourself. If both Count and Count Value are present, we will use the Count to display to users | Long |
-| Content Categories | Optional | Describe the category of the content in the entity. | List of Eligible Enums - TYPE_MOVIES_AND_TV_SHOWS (Example - Cinema) - TYPE_DIGITAL_GAMES (Example - eSports) - TYPE_MUSIC (Example - Concert) - TYPE_TRAVEL_AND_LOCAL (Example - Tour, festival) - TYPE_HEALTH_AND_FITENESS (Example - Yoga class) - TYPE_EDUCATION (Example - Class) - TYPE_SPORTS (Example - Football game) - TYPE_DATING (Example - meetup) See the [Content Category section](https://developer.android.com/guide/playcore/engage/otherverticals#content-category) for guidance. |
+| Content Categories | Optional | Describe the category of the content in the entity. | List of Eligible Enums - TYPE_MOVIES_AND_TV_SHOWS (Example - Cinema) - TYPE_DIGITAL_GAMES (Example - eSports) - TYPE_MUSIC (Example - Concert) - TYPE_TRAVEL_AND_LOCAL (Example - Tour, festival) - TYPE_HEALTH_AND_FITENESS (Example - Yoga class) - TYPE_EDUCATION (Example - Class) - TYPE_SPORTS (Example - Football game) - TYPE_DATING (Example - meetup) See the [Content Category section](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#content-category) for guidance. |
 
 #### `LodgingReservationEntity`
 
 | Attribute | Requirement | Description | Format |
 |---|---|---|---|
-| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) | Uri |
+| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) | Uri |
 | Title | **Required** | Title of the entity. | Free text. For example, "Your Stay from Dec 12th" **Recommended text size: Max 50 chars** |
 | Check-in Time | **Required** | The epoch timestamp in milliseconds that represents the check in time for the reservation. | Epoch timestamp in milliseconds |
 | Check-out Time | **Required** | The epoch timestamp in milliseconds that represents the check out time for the reservation. | Epoch timestamp in milliseconds |
@@ -427,7 +429,7 @@ want to publish, such as a restaurant or a grocery store.
 | Location - State | Optional | The state or province (if applicable) in which the lodging is located. | Free text **Recommended text size: max \~20 chars** |
 | Location - Zip code | Optional | The zip code (if applicable) of the lodging. | Free text **Recommended text size: max \~20 chars** |
 | Location - Neighborhood | Optional | The neighborhood (if applicable) of the lodging. | Free text **Recommended text size: max \~20 chars** |
-| Poster images | Optional | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Poster images | Optional | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 **Note:** If a badge is provided, ensure safe space of 24 dps at both the top and bottom of the image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Description | Optional | A single paragraph of text to describe the entity. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size: 180 chars** |
 | Subtitle list | Optional | Up to 3 subtitles, with each subtitle a single line of text. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size for each subtitle: max 50 chars** |
 | Reservation ID | Optional | The reservation ID for the lodging reservation. | Free text |
@@ -443,7 +445,7 @@ want to publish, such as a restaurant or a grocery store.
 
 | Attribute | Requirement | Description | Format |
 |---|---|---|---|
-| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) | Uri |
+| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) | Uri |
 | Title | **Required** | Title of the entity. | Free text. For example, "SFO to SAN" **Recommended text size: Max 50 chars** |
 | Transportation Type | **Required** | The mode/type of transportation for the reservation. | Enum: FLIGHT, TRAIN, BUS, or FERRY |
 | Departure Time | **Required** | The epoch timestamp in milliseconds that represents the departure time. | Epoch timestamp in milliseconds |
@@ -463,8 +465,8 @@ want to publish, such as a restaurant or a grocery store.
 | Arrival Location - Zip code | Optional | The zip code (if applicable) of the arrival location. | Free text **Recommended text size: max \~20 chars** |
 | Arrival Location - Neighborhood | Optional | The neighborhood (if applicable) of the arrival location. | Free text **Recommended text size: max \~20 chars** |
 | Service Provider - Name | Optional | The name of the service provider. **Note:**Either text or image is required for the service provider. | Free text. For example, Airline name |
-| Service Provider - Image | Optional | The logo/image of the service provider. **Note:**Either text or image is required for the service provider. | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
-| Poster images | Optional | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Service Provider - Image | Optional | The logo/image of the service provider. **Note:**Either text or image is required for the service provider. | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
+| Poster images | Optional | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Description | Optional | A single paragraph of text to describe the entity. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size: 180 chars** |
 | Subtitle list | Optional | Up to 3 subtitles, with each subtitle a single line of text. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size for each subtitle: max 50 chars** |
 | Reservation ID | Optional | The reservation ID for the transportation reservation. | Free text |
@@ -478,7 +480,7 @@ want to publish, such as a restaurant or a grocery store.
 
 | Attribute | Requirement | Description | Format |
 |---|---|---|---|
-| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) | Uri |
+| Action Uri | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) | Uri |
 | Title | **Required** | Title of the entity. | Free text. For example, "Avis Union Square SF" **Recommended text size: Max 50 chars** |
 | Pickup Time | **Required** | The epoch timestamp that represents the pick up time for the reservation. | Epoch timestamp in milliseconds |
 | Return Time | Optional | The epoch timestamp that represents the check out time for the reservation. | Epoch timestamp in milliseconds |
@@ -497,8 +499,8 @@ want to publish, such as a restaurant or a grocery store.
 | Return Address - Zip code | Optional | The zip code (if applicable) of the return location. | Free text **Recommended text size: max \~20 chars** |
 | Return Address - Neighborhood | Optional | The neighborhood (if applicable) of the return location. | Free text **Recommended text size: max \~20 chars** |
 | Service Provider - Name | Optional | The name of the service provider. **Note:**Either text or image is required for the service provider. | Free text. For example, "Avis Car Rental" |
-| Service Provider - Image | Optional | The logo/image of the service provider. **Note:**Either text or image is required for the service provider. | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
-| Poster images | Optional | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals#image-specs) for guidance. |
+| Service Provider - Image | Optional | The logo/image of the service provider. **Note:**Either text or image is required for the service provider. | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
+| Poster images | Optional | We will show only 1 image when multiple images are provided. Recommended aspect ratio is 16:9 | See [Image Specifications](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt#image-specs) for guidance. |
 | Description | Optional | A single paragraph of text to describe the entity. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size: 180 chars** |
 | Subtitle list | Optional | Up to 3 subtitles, with each subtitle a single line of text. **Note:** Either description or subtitle list will be displayed to the user, not both. | Free text **Recommended text size for each subtitle: max 50 chars** |
 | Confirmation ID | Optional | The confirmation ID for the vehicle rental reservation. | Free text |
@@ -564,11 +566,11 @@ them.
 2. Use the specific entity type for some content categories over a combination
    of the Generic entities and the ContentCategory:
 
-   - TYPE_MOVIES_AND_TV_SHOWS - Check out the entities from [Watch integration guide](https://developer.android.com/guide/playcore/engage/watch) before using the generic entities.
-   - TYPE_BOOKS - Check out the [EbookEntity](https://developer.android.com/guide/playcore/engage/read#ebookentity) before using the generic entities.
-   - TYPE_AUDIOBOOKS - Check out [AudiobookEntity](https://developer.android.com/guide/playcore/engage/read#audiobookentity) before using the generic entities.
-   - TYPE_SHOPPING - Check out [ShoppingEntity](https://developer.android.com/guide/playcore/engage/shopping#shoppingEntity) before using the generic entities.
-   - TYPE_FOOD_AND_DRINK - Check out entities from [Food Integration guide](https://developer.android.com/guide/playcore/engage/food) before using the generic entities.
+   - TYPE_MOVIES_AND_TV_SHOWS - Check out the entities from [Watch integration guide](https://developer.android.com/guide/playcore/engage/watch.md.txt) before using the generic entities.
+   - TYPE_BOOKS - Check out the [EbookEntity](https://developer.android.com/guide/playcore/engage/read.md.txt#ebookentity) before using the generic entities.
+   - TYPE_AUDIOBOOKS - Check out [AudiobookEntity](https://developer.android.com/guide/playcore/engage/read.md.txt#audiobookentity) before using the generic entities.
+   - TYPE_SHOPPING - Check out [ShoppingEntity](https://developer.android.com/guide/playcore/engage/shopping.md.txt#shoppingentity) before using the generic entities.
+   - TYPE_FOOD_AND_DRINK - Check out entities from [Food Integration guide](https://developer.android.com/guide/playcore/engage/food.md.txt) before using the generic entities.
 3. The ContentCategory field is optional and should be left blank if the
    content doesn't belong to any of the categories mentioned earlier.
 
@@ -613,7 +615,7 @@ whether the content can be presented on the device.
 
 ### Engage SDK integration
 
-To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add engage-sdk-integration
 
@@ -649,48 +651,52 @@ required for `ServiceAvailabilityRequest` from the following table.
 
 ### Kotlin
 
-    val request = ServiceAvailabilityRequest.Builder()
-        .addIntendedClusterType(ClusterType.TYPE_CONTINUATION)
-        .addIntendedClusterType(ClusterType.TYPE_RECOMMENDATION)
-        .build()
+```kotlin
+val request = ServiceAvailabilityRequest.Builder()
+    .addIntendedClusterType(ClusterType.TYPE_CONTINUATION)
+    .addIntendedClusterType(ClusterType.TYPE_RECOMMENDATION)
+    .build()
 
-    client.isServiceAvailable(request).addOnCompleteListener { task ->
-        if (task.isSuccessful) {
-            val availabilityMap = task.result
-            if (availabilityMap[ClusterType.TYPE_CONTINUATION] == true) {
-                // Proceed with publishing continuation content
-            }
-            if (availabilityMap[ClusterType.TYPE_RECOMMENDATION] == true) {
-                // Proceed with publishing recommendation content
-            }
-        } else {
-            // The IPC call itself fails, proceed with error handling logic here,
-            // such as retry.
+client.isServiceAvailable(request).addOnCompleteListener { task ->
+    if (task.isSuccessful) {
+        val availabilityMap = task.result
+        if (availabilityMap[ClusterType.TYPE_CONTINUATION] == true) {
+            // Proceed with publishing continuation content
         }
+        if (availabilityMap[ClusterType.TYPE_RECOMMENDATION] == true) {
+            // Proceed with publishing recommendation content
+        }
+    } else {
+        // The IPC call itself fails, proceed with error handling logic here,
+        // such as retry.
     }
+}
+```
 
 ### Java
 
-    ServiceAvailabilityRequest request =
-        new ServiceAvailabilityRequest.Builder()
-            .addIntendedClusterType(ClusterType.TYPE_CONTINUATION)
-            .addIntendedClusterType(ClusterType.TYPE_RECOMMENDATION)
-            .build();
+```java
+ServiceAvailabilityRequest request =
+    new ServiceAvailabilityRequest.Builder()
+        .addIntendedClusterType(ClusterType.TYPE_CONTINUATION)
+        .addIntendedClusterType(ClusterType.TYPE_RECOMMENDATION)
+        .build();
 
-    client.isServiceAvailable(request).addOnCompleteListener(task -> {
-        if (task.isSuccessful()) {
-            Map<Integer, Boolean> availabilityMap = task.getResult();
-            if (Boolean.TRUE.equals(availabilityMap.get(ClusterType.TYPE_CONTINUATION))) {
-                // Proceed with publishing continuation content
-            }
-            if (Boolean.TRUE.equals(availabilityMap.get(ClusterType.TYPE_RECOMMENDATION))) {
-                // Proceed with publishing recommendation content
-            }
-        } else {
-            // The IPC call itself fails, proceed with error handling logic here,
-            // such as retry.
+client.isServiceAvailable(request).addOnCompleteListener(task -> {
+    if (task.isSuccessful()) {
+        Map<Integer, Boolean> availabilityMap = task.getResult();
+        if (Boolean.TRUE.equals(availabilityMap.get(ClusterType.TYPE_CONTINUATION))) {
+            // Proceed with publishing continuation content
         }
-    });
+        if (Boolean.TRUE.equals(availabilityMap.get(ClusterType.TYPE_RECOMMENDATION))) {
+            // Proceed with publishing recommendation content
+        }
+    } else {
+        // The IPC call itself fails, proceed with error handling logic here,
+        // such as retry.
+    }
+});
+```
 
 ###### Conditional Service Availability Feature
 
@@ -712,37 +718,41 @@ engage-developers@google.com.
 
 ### Kotlin
 
-    client.isServiceAvailable.addOnCompleteListener { task ->
-        if (task.isSuccessful) {
-            // Handle IPC call success
-            if(task.result) {
-              // Service is available on the device, proceed with content publish
-              // calls.
-            } else {
-              // Service is not available, no further action is needed.
-            }
+```kotlin
+client.isServiceAvailable.addOnCompleteListener { task ->
+    if (task.isSuccessful) {
+        // Handle IPC call success
+        if(task.result) {
+          // Service is available on the device, proceed with content publish
+          // calls.
         } else {
-          // The IPC call itself fails, proceed with error handling logic here,
-          // such as retry.
+          // Service is not available, no further action is needed.
         }
+    } else {
+      // The IPC call itself fails, proceed with error handling logic here,
+      // such as retry.
     }
+}
+```
 
 ### Java
 
-    client.isServiceAvailable().addOnCompleteListener(task - > {
-        if (task.isSuccessful()) {
-            // Handle success
-            if(task.getResult()) {
-              // Service is available on the device, proceed with content publish
-              // calls.
-            } else {
-              // Service is not available, no further action is needed.
-            }
+```java
+client.isServiceAvailable().addOnCompleteListener(task - > {
+    if (task.isSuccessful()) {
+        // Handle success
+        if(task.getResult()) {
+          // Service is available on the device, proceed with content publish
+          // calls.
         } else {
-          // The IPC call itself fails, proceed with error handling logic here,
-          // such as retry.
+          // Service is not available, no further action is needed.
         }
-    });
+    } else {
+      // The IPC call itself fails, proceed with error handling logic here,
+      // such as retry.
+    }
+});
+```
 
 > [!NOTE]
 > **Note:** We highly recommend keeping a periodic job running to check if the service becomes available at a later point in time. The availability of the service may change with Android version upgrades, app upgrades, installs, and uninstalls. By ensuring periodic job checks at a certain time interval, data can be published once the service becomes available.
@@ -756,29 +766,33 @@ This API is used to publish a list of `RecommendationCluster` objects.
 
 ### Kotlin
 
-    client.publishRecommendationClusters(
-          PublishRecommendationClustersRequest.Builder()
-            .addRecommendationCluster(
-              RecommendationCluster.Builder()
-                .addEntity(entity1)
-                .addEntity(entity2)
-                .setTitle("Top Picks For You")
-                .build()
-            )
+```kotlin
+client.publishRecommendationClusters(
+      PublishRecommendationClustersRequest.Builder()
+        .addRecommendationCluster(
+          RecommendationCluster.Builder()
+            .addEntity(entity1)
+            .addEntity(entity2)
+            .setTitle("Top Picks For You")
             .build()
         )
+        .build()
+    )
+```
 
 ### Java
 
-    client.publishRecommendationClusters(
-                new PublishRecommendationClustersRequest.Builder()
-                    .addRecommendationCluster(
-                        new RecommendationCluster.Builder()
-                            .addEntity(entity1)
-                            .addEntity(entity2)
-                            .setTitle("Top Picks For You")
-                            .build())
-                    .build());
+```java
+client.publishRecommendationClusters(
+            new PublishRecommendationClustersRequest.Builder()
+                .addRecommendationCluster(
+                    new RecommendationCluster.Builder()
+                        .addEntity(entity1)
+                        .addEntity(entity2)
+                        .setTitle("Top Picks For You")
+                        .build())
+                .build());
+```
 
 When the service receives the request, the following actions take place within
 one transaction:
@@ -798,25 +812,29 @@ This API is used to publish a list of `FeaturedCluster` objects.
 
 ### Kotlin
 
-    client.publishFeaturedCluster(
-        PublishFeaturedClusterRequest.Builder()
-          .setFeaturedCluster(
-            FeaturedCluster.Builder()
-              .addEntity(entity1)
-              .addEntity(entity2)
-              .build())
+```kotlin
+client.publishFeaturedCluster(
+    PublishFeaturedClusterRequest.Builder()
+      .setFeaturedCluster(
+        FeaturedCluster.Builder()
+          .addEntity(entity1)
+          .addEntity(entity2)
           .build())
+      .build())
+```
 
 ### Java
 
-    client.publishFeaturedCluster(
-                new PublishFeaturedClusterRequest.Builder()
-                    .setFeaturedCluster(
-                        new FeaturedCluster.Builder()
-                            .addEntity(entity1)
-                            .addEntity(entity2)
-                            .build())
-                    .build());
+```java
+client.publishFeaturedCluster(
+            new PublishFeaturedClusterRequest.Builder()
+                .setFeaturedCluster(
+                    new FeaturedCluster.Builder()
+                        .addEntity(entity1)
+                        .addEntity(entity2)
+                        .build())
+                .build());
+```
 
 When the service receives the request, the following actions take place within
 one transaction:
@@ -836,25 +854,29 @@ This API is used to publish a `ContinuationCluster` object.
 
 ### Kotlin
 
-    client.publishContinuationCluster(
-        PublishContinuationClusterRequest.Builder()
-          .setContinuationCluster(
-            ContinuationCluster.Builder()
-              .addEntity(entity1)
-              .addEntity(entity2)
-              .build())
+```kotlin
+client.publishContinuationCluster(
+    PublishContinuationClusterRequest.Builder()
+      .setContinuationCluster(
+        ContinuationCluster.Builder()
+          .addEntity(entity1)
+          .addEntity(entity2)
           .build())
+      .build())
+```
 
 ### Java
 
-    client.publishContinuationCluster(
-                new PublishContinuationClusterRequest.Builder()
-                    .setContinuationCluster(
-                        new ContinuationCluster.Builder()
-                            .addEntity(entity1)
-                            .addEntity(entity2)
-                            .build())
-                    .build());
+```java
+client.publishContinuationCluster(
+            new PublishContinuationClusterRequest.Builder()
+                .setContinuationCluster(
+                    new ContinuationCluster.Builder()
+                        .addEntity(entity1)
+                        .addEntity(entity2)
+                        .build())
+                .build());
+```
 
 When the service receives the request, the following actions take place within
 one transaction:
@@ -886,41 +908,45 @@ The following metadata is part of the Sign In Card -
 
 ### Kotlin
 
-    var SIGN_IN_CARD_ENTITY =
-          SignInCardEntity.Builder()
-              .addPosterImage(
-                  Image.Builder()
-                      .setImageUri(Uri.parse("http://www.x.com/image.png"))
-                      .setImageHeightInPixel(500)
-                      .setImageWidthInPixel(500)
-                      .build())
-              .setActionText("Sign In")
-              .setActionUri(Uri.parse("http://xx.com/signin"))
-              .build()
+```kotlin
+var SIGN_IN_CARD_ENTITY =
+      SignInCardEntity.Builder()
+          .addPosterImage(
+              Image.Builder()
+                  .setImageUri(Uri.parse("http://www.x.com/image.png"))
+                  .setImageHeightInPixel(500)
+                  .setImageWidthInPixel(500)
+                  .build())
+          .setActionText("Sign In")
+          .setActionUri(Uri.parse("http://xx.com/signin"))
+          .build()
 
-    client.publishUserAccountManagementRequest(
-                PublishUserAccountManagementRequest.Builder()
-                    .setSignInCardEntity(SIGN_IN_CARD_ENTITY)
-                    .build());
+client.publishUserAccountManagementRequest(
+            PublishUserAccountManagementRequest.Builder()
+                .setSignInCardEntity(SIGN_IN_CARD_ENTITY)
+                .build());
+```
 
 ### Java
 
-    SignInCardEntity SIGN_IN_CARD_ENTITY =
-          new SignInCardEntity.Builder()
-              .addPosterImage(
-                  new Image.Builder()
-                      .setImageUri(Uri.parse("http://www.x.com/image.png"))
-                      .setImageHeightInPixel(500)
-                      .setImageWidthInPixel(500)
-                      .build())
-              .setActionText("Sign In")
-              .setActionUri(Uri.parse("http://xx.com/signin"))
-              .build();
+```java
+SignInCardEntity SIGN_IN_CARD_ENTITY =
+      new SignInCardEntity.Builder()
+          .addPosterImage(
+              new Image.Builder()
+                  .setImageUri(Uri.parse("http://www.x.com/image.png"))
+                  .setImageHeightInPixel(500)
+                  .setImageWidthInPixel(500)
+                  .build())
+          .setActionText("Sign In")
+          .setActionUri(Uri.parse("http://xx.com/signin"))
+          .build();
 
-    client.publishUserAccountManagementRequest(
-                new PublishUserAccountManagementRequest.Builder()
-                    .setSignInCardEntity(SIGN_IN_CARD_ENTITY)
-                    .build());
+client.publishUserAccountManagementRequest(
+            new PublishUserAccountManagementRequest.Builder()
+                .setSignInCardEntity(SIGN_IN_CARD_ENTITY)
+                .build());
+```
 
 When the service receives the request, the following actions take place within
 one transaction:
@@ -983,17 +1009,21 @@ to publish the Sign In Card then we recommend calling the
 
 ### Kotlin
 
-    client.updatePublishStatus(
-       PublishStatusRequest.Builder()
-         .setStatusCode(AppEngagePublishStatusCode.NOT_PUBLISHED_REQUIRES_SIGN_IN)
-         .build())
+```kotlin
+client.updatePublishStatus(
+   PublishStatusRequest.Builder()
+     .setStatusCode(AppEngagePublishStatusCode.NOT_PUBLISHED_REQUIRES_SIGN_IN)
+     .build())
+```
 
 ### Java
 
-    client.updatePublishStatus(
-        new PublishStatusRequest.Builder()
-            .setStatusCode(AppEngagePublishStatusCode.NOT_PUBLISHED_REQUIRES_SIGN_IN)
-            .build());
+```java
+client.updatePublishStatus(
+    new PublishStatusRequest.Builder()
+        .setStatusCode(AppEngagePublishStatusCode.NOT_PUBLISHED_REQUIRES_SIGN_IN)
+        .build());
+```
 
 #### `deleteRecommendationsClusters`
 
@@ -1004,11 +1034,15 @@ This API is used to delete the content of Recommendation Clusters.
 
 ### Kotlin
 
-    client.deleteRecommendationsClusters()
+```kotlin
+client.deleteRecommendationsClusters()
+```
 
 ### Java
 
-    client.deleteRecommendationsClusters();
+```java
+client.deleteRecommendationsClusters();
+```
 
 When the service receives the request, it removes the existing data from the
 Recommendation Clusters. In case of an error, the entire request is rejected and
@@ -1026,11 +1060,15 @@ This API is used to delete the content of Featured Cluster.
 
 ### Kotlin
 
-    client.deleteFeaturedCluster()
+```kotlin
+client.deleteFeaturedCluster()
+```
 
 ### Java
 
-    client.deleteFeaturedCluster();
+```java
+client.deleteFeaturedCluster();
+```
 
 When the service receives the request, it removes the existing data from the
 Featured Cluster. In case of an error, the entire request is rejected and the
@@ -1048,11 +1086,15 @@ This API is used to delete the content of Continuation Cluster.
 
 ### Kotlin
 
-    client.deleteContinuationCluster()
+```kotlin
+client.deleteContinuationCluster()
+```
 
 ### Java
 
-    client.deleteContinuationCluster();
+```java
+client.deleteContinuationCluster();
+```
 
 When the service receives the request, it removes the existing data from the
 Continuation Cluster. In case of an error, the entire request is rejected and
@@ -1070,11 +1112,15 @@ This API is used to delete the content of UserAccountManagement Cluster.
 
 ### Kotlin
 
-    client.deleteUserManagementCluster()
+```kotlin
+client.deleteUserManagementCluster()
+```
 
 ### Java
 
-    client.deleteUserManagementCluster();
+```java
+client.deleteUserManagementCluster();
+```
 
 When the service receives the request, it removes the existing data from the
 UserAccountManagement Cluster. In case of an error, the entire request is
@@ -1092,21 +1138,25 @@ This API is used to delete the content of a given cluster type.
 
 ### Kotlin
 
-    client.deleteClusters(
-        DeleteClustersRequest.Builder()
-          .addClusterType(ClusterType.TYPE_CONTINUATION)
-          .addClusterType(ClusterType.TYPE_FEATURED)
-          .addClusterType(ClusterType.TYPE_RECOMMENDATION)
-          .build())
+```kotlin
+client.deleteClusters(
+    DeleteClustersRequest.Builder()
+      .addClusterType(ClusterType.TYPE_CONTINUATION)
+      .addClusterType(ClusterType.TYPE_FEATURED)
+      .addClusterType(ClusterType.TYPE_RECOMMENDATION)
+      .build())
+```
 
 ### Java
 
-    client.deleteClusters(
-                new DeleteClustersRequest.Builder()
-                    .addClusterType(ClusterType.TYPE_CONTINUATION)
-                    .addClusterType(ClusterType.TYPE_FEATURED)
-                    .addClusterType(ClusterType.TYPE_RECOMMENDATION)
-                    .build());
+```java
+client.deleteClusters(
+            new DeleteClustersRequest.Builder()
+                .addClusterType(ClusterType.TYPE_CONTINUATION)
+                .addClusterType(ClusterType.TYPE_FEATURED)
+                .addClusterType(ClusterType.TYPE_RECOMMENDATION)
+                .build());
+```
 
 When the service receives the request, it removes the existing data from all
 clusters matching the specified cluster types. Clients can choose to pass one or
@@ -1120,45 +1170,49 @@ that a follow-up action can be taken to recover and resubmit an successful task.
 
 ### Kotlin
 
-    client.publishRecommendationClusters(
-            PublishRecommendationClustersRequest.Builder()
-              .addRecommendationCluster(..)
-              .build())
-          .addOnCompleteListener { task ->
-            if (task.isSuccessful) {
+```kotlin
+client.publishRecommendationClusters(
+        PublishRecommendationClustersRequest.Builder()
+          .addRecommendationCluster(..)
+          .build())
+      .addOnCompleteListener { task ->
+        if (task.isSuccessful) {
+          // do something
+        } else {
+          val exception = task.exception
+          if (exception is AppEngageException) {
+            @AppEngageErrorCode val errorCode = exception.errorCode
+            if (errorCode == AppEngageErrorCode.SERVICE_NOT_FOUND) {
               // do something
-            } else {
-              val exception = task.exception
-              if (exception is AppEngageException) {
-                @AppEngageErrorCode val errorCode = exception.errorCode
-                if (errorCode == AppEngageErrorCode.SERVICE_NOT_FOUND) {
-                  // do something
-                }
-              }
             }
           }
+        }
+      }
+```
 
 ### Java
 
-    client.publishRecommendationClusters(
-                  new PublishRecommendationClustersRequest.Builder()
-                      .addRecommendationCluster(...)
-                      .build())
-              .addOnCompleteListener(
-                  task -> {
-                    if (task.isSuccessful()) {
+```java
+client.publishRecommendationClusters(
+              new PublishRecommendationClustersRequest.Builder()
+                  .addRecommendationCluster(...)
+                  .build())
+          .addOnCompleteListener(
+              task -> {
+                if (task.isSuccessful()) {
+                  // do something
+                } else {
+                  Exception exception = task.getException();
+                  if (exception instanceof AppEngageException) {
+                    @AppEngageErrorCode
+                    int errorCode = ((AppEngageException) exception).getErrorCode();
+                    if (errorCode == AppEngageErrorCode.SERVICE_NOT_FOUND) {
                       // do something
-                    } else {
-                      Exception exception = task.getException();
-                      if (exception instanceof AppEngageException) {
-                        @AppEngageErrorCode
-                        int errorCode = ((AppEngageException) exception).getErrorCode();
-                        if (errorCode == AppEngageErrorCode.SERVICE_NOT_FOUND) {
-                          // do something
-                        }
-                      }
                     }
-                  });
+                  }
+                }
+              });
+```
 
 The error is returned as an `AppEngageException` with the cause included as an
 error code.
@@ -1177,7 +1231,7 @@ error code.
 
 In addition to making publish content API calls through a job, it is also
 required to set up a
-[`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) to receive
+[`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver.md.txt) to receive
 the request for a content publish.
 
 The goal of broadcast intents is mainly for app reactivation and forcing data
@@ -1195,96 +1249,102 @@ The `BroadcastReceiver` must be set up in the following two ways:
 
 ### Kotlin
 
-    class AppEngageBroadcastReceiver : BroadcastReceiver(){
-      // Trigger recommendation cluster publish when PUBLISH_RECOMMENDATION broadcast
-      // is received
-      // Trigger featured cluster publish when PUBLISH_FEATURED broadcast is received
-      // Trigger continuation cluster publish when PUBLISH_CONTINUATION broadcast is
-      // received
-    }
+```kotlin
+class AppEngageBroadcastReceiver : BroadcastReceiver(){
+  // Trigger recommendation cluster publish when PUBLISH_RECOMMENDATION broadcast
+  // is received
+  // Trigger featured cluster publish when PUBLISH_FEATURED broadcast is received
+  // Trigger continuation cluster publish when PUBLISH_CONTINUATION broadcast is
+  // received
+}
 
-    fun registerBroadcastReceivers(context: Context){
-      var  context = context
-      context = context.applicationContext
+fun registerBroadcastReceivers(context: Context){
+  var  context = context
+  context = context.applicationContext
 
-    // Register Recommendation Cluster Publish Intent
-      context.registerReceiver(AppEngageBroadcastReceiver(),
-                               IntentFilter(Intents.ACTION_PUBLISH_RECOMMENDATION),
-                               com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
-                               /*scheduler=*/null)
+// Register Recommendation Cluster Publish Intent
+  context.registerReceiver(AppEngageBroadcastReceiver(),
+                           IntentFilter(Intents.ACTION_PUBLISH_RECOMMENDATION),
+                           com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
+                           /*scheduler=*/null)
 
-    // Register Featured Cluster Publish Intent
-      context.registerReceiver(AppEngageBroadcastReceiver(),
-                               IntentFilter(Intents.ACTION_PUBLISH_FEATURED),
-                               com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
-                               /*scheduler=*/null)
+// Register Featured Cluster Publish Intent
+  context.registerReceiver(AppEngageBroadcastReceiver(),
+                           IntentFilter(Intents.ACTION_PUBLISH_FEATURED),
+                           com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
+                           /*scheduler=*/null)
 
-    // Register Continuation Cluster Publish Intent
-      context.registerReceiver(AppEngageBroadcastReceiver(),
-                               IntentFilter(Intents.ACTION_PUBLISH_CONTINUATION),
-                               com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
-                               /*scheduler=*/null)
-    }
+// Register Continuation Cluster Publish Intent
+  context.registerReceiver(AppEngageBroadcastReceiver(),
+                           IntentFilter(Intents.ACTION_PUBLISH_CONTINUATION),
+                           com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
+                           /*scheduler=*/null)
+}
+```
 
 ### Java
 
-    class AppEngageBroadcastReceiver extends BroadcastReceiver {
-    // Trigger recommendation cluster publish when PUBLISH_RECOMMENDATION broadcast
-    // is received
+```java
+class AppEngageBroadcastReceiver extends BroadcastReceiver {
+// Trigger recommendation cluster publish when PUBLISH_RECOMMENDATION broadcast
+// is received
 
-    // Trigger featured cluster publish when PUBLISH_FEATURED broadcast is received
+// Trigger featured cluster publish when PUBLISH_FEATURED broadcast is received
 
-    // Trigger continuation cluster publish when PUBLISH_CONTINUATION broadcast is
-    // received
-    }
+// Trigger continuation cluster publish when PUBLISH_CONTINUATION broadcast is
+// received
+}
 
-    public static void registerBroadcastReceivers(Context context) {
+public static void registerBroadcastReceivers(Context context) {
 
-    context = context.getApplicationContext();
+context = context.getApplicationContext();
 
-    // Register Recommendation Cluster Publish Intent
-    context.registerReceiver(new AppEngageBroadcastReceiver(),
-                             new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_RECOMMENDATION),
-                             com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
-                             /*scheduler=*/null);
+// Register Recommendation Cluster Publish Intent
+context.registerReceiver(new AppEngageBroadcastReceiver(),
+                         new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_RECOMMENDATION),
+                         com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
+                         /*scheduler=*/null);
 
-    // Register Featured Cluster Publish Intent
-    context.registerReceiver(new AppEngageBroadcastReceiver(),
-                             new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_FEATURED),
-                             com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
-                             /*scheduler=*/null);
+// Register Featured Cluster Publish Intent
+context.registerReceiver(new AppEngageBroadcastReceiver(),
+                         new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_FEATURED),
+                         com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
+                         /*scheduler=*/null);
 
-    // Register Continuation Cluster Publish Intent
-    context.registerReceiver(new AppEngageBroadcastReceiver(),
-                             new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_CONTINUATION),
-                             com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
-                             /*scheduler=*/null);
-    }
+// Register Continuation Cluster Publish Intent
+context.registerReceiver(new AppEngageBroadcastReceiver(),
+                         new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_CONTINUATION),
+                         com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
+                         /*scheduler=*/null);
+}
+```
 
 - Statically declare an implementation with the `<receiver>` tag in your
   `AndroidManifest.xml` file. This allows the application to receive broadcast
   intents when it is not running, and also allows the application to publish
   the content.
 
-    <application>
-       <receiver
-          android:name=".AppEngageBroadcastReceiver"
-          android:permission="com.google.android.engage.REQUEST_ENGAGE_DATA"
-          android:exported="true"
-          android:enabled="true">
-          <intent-filter>
-             <action android:name="com.google.android.engage.action.PUBLISH_RECOMMENDATION" />
-          </intent-filter>
-          <intent-filter>
-             <action android:name="com.google.android.engage.action.PUBLISH_FEATURED" />
-          </intent-filter>
-          <intent-filter>
-             <action android:name="com.google.android.engage.action.PUBLISH_CONTINUATION" />
-          </intent-filter>
-       </receiver>
-    </application>
+```xml
+<application>
+   <receiver
+      android:name=".AppEngageBroadcastReceiver"
+      android:permission="com.google.android.engage.REQUEST_ENGAGE_DATA"
+      android:exported="true"
+      android:enabled="true">
+      <intent-filter>
+         <action android:name="com.google.android.engage.action.PUBLISH_RECOMMENDATION" />
+      </intent-filter>
+      <intent-filter>
+         <action android:name="com.google.android.engage.action.PUBLISH_FEATURED" />
+      </intent-filter>
+      <intent-filter>
+         <action android:name="com.google.android.engage.action.PUBLISH_CONTINUATION" />
+      </intent-filter>
+   </receiver>
+</application>
+```
 
-The following [intents](https://developer.android.com/reference/android/content/Intent) is sent by the
+The following [intents](https://developer.android.com/reference/android/content/Intent.md.txt) is sent by the
 service:
 
 - `com.google.android.engage.action.PUBLISH_RECOMMENDATION` It is recommended to start a `publishRecommendationClusters` call when receiving this intent.
@@ -1294,11 +1354,11 @@ service:
 ## Integration workflow
 
 For a step-by-step guide on verifying your integration after it is complete, see
-[Engage developer integration workflow](https://developer.android.com/guide/playcore/engage/workflow).
+[Engage developer integration workflow](https://developer.android.com/guide/playcore/engage/workflow.md.txt).
 
 ## FAQs
 
-See [Engage SDK Frequently Asked Questions](https://developer.android.com/guide/playcore/engage/faq) for
+See [Engage SDK Frequently Asked Questions](https://developer.android.com/guide/playcore/engage/faq.md.txt) for
 FAQs.
 
 ## Contact

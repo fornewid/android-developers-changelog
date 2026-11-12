@@ -7,7 +7,7 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices.md.txt#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
@@ -28,7 +28,7 @@ install the following applications and tools:
 
 3. Install the [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
 
-4. Install [Android Studio](https://developer.android.com/studio) (Rabbit 2 \| 2026.2.2 Patch 1 or higher).
+4. Install [Android Studio](https://developer.android.com/studio.md.txt) (Rabbit 2 \| 2026.2.2 Patch 1 or higher).
 
 ## Install Android build support
 

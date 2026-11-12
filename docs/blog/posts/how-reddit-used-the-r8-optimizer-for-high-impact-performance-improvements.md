@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/how-reddit-used-the-r8-optimizer-f
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # How Reddit used the R8 optimizer for high impact performance improvements
 
-4 min read ![](https://developer.android.com/static/blog/assets/REDDIT_casestudy01_1_f3fc4706f3_1O096s.webp) 17 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) Developer Relations Engineer In today's world of mobile applications, a seamless user experience is not just a feature---it's a necessity. Slow load times, unresponsive interfaces, and instability can be significant barriers to user engagement and retention. During their work with the Android Developer Relations team, the engineering team at [Reddit](https://play.google.com/store/apps/details?id=com.reddit.frontpage) used the [App Performance Score](https://developer.android.com/topic/performance/app-score) to evaluate their app. After assessing their performance, they identified significant improvement potential and decided to take the steps to enable the full power of [R8, the Android app optimizer](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization). This focused initiative led to remarkable improvements in startup times, reductions in slow or frozen frames and ANRs, and an overall increase in Play Store ratings. This case study breaks down how Reddit achieved these impressive results.
+4 min read ![](https://developer.android.com/static/blog/assets/REDDIT_casestudy01_1_f3fc4706f3_1O096s.webp) 17 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss.md.txt) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt) Developer Relations Engineer In today's world of mobile applications, a seamless user experience is not just a feature---it's a necessity. Slow load times, unresponsive interfaces, and instability can be significant barriers to user engagement and retention. During their work with the Android Developer Relations team, the engineering team at [Reddit](https://play.google.com/store/apps/details?id=com.reddit.frontpage) used the [App Performance Score](https://developer.android.com/topic/performance/app-score.md.txt) to evaluate their app. After assessing their performance, they identified significant improvement potential and decided to take the steps to enable the full power of [R8, the Android app optimizer](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt). This focused initiative led to remarkable improvements in startup times, reductions in slow or frozen frames and ANRs, and an overall increase in Play Store ratings. This case study breaks down how Reddit achieved these impressive results.
 
 ## **How the R8 Optimizer helped Reddit**
 
@@ -44,13 +44,13 @@ Most impressively, this was accomplished with a focused effort. Drew Heavner, th
 
 ## **Confirming the gains: A deep dive with macrobenchmarks**
 
-After observing the significant real-world improvements, Reddit's engineering team and the Android Developer Relations team at Google conducted detailed benchmarks to scientifically confirm the gains and experiment with further optimizations. For this analysis, Reddit engineering provided two versions of their app: one without optimizations and another that applied [**R8**](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization) and two more foundational performance optimization tools: [**Baseline Profiles**](https://developer.android.com/topic/performance/baselineprofiles/overview), and [**Startup Profiles**](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations).
+After observing the significant real-world improvements, Reddit's engineering team and the Android Developer Relations team at Google conducted detailed benchmarks to scientifically confirm the gains and experiment with further optimizations. For this analysis, Reddit engineering provided two versions of their app: one without optimizations and another that applied [**R8**](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt) and two more foundational performance optimization tools: [**Baseline Profiles**](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt), and [**Startup Profiles**](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations).
 
 Baseline Profiles effectively move the Just in Time (JIT) compilation steps away from user devices and onto developer machines. The generated Ahead Of Time (AOT) compiled code has proven to reduce startup time and rendering issues alike.
 
 When an app is packaged, the d8 dexer takes classes and methods and constructs your app's `classes.dex` files. When a user opens the app, these dex files are loaded, one after the other until the app can start. By providing a **Startup Profile** you let d8 know which classes and methods to pack in the first `classes.dex` files. This structure allows the app to load fewer files, which in turn improves startup speed.
 
-[**Jetpack Macrobenchmark**](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview) was the core tool for this phase, allowing for precise measurement of user interactions in a controlled environment. To simulate a typical user journey, they used the [**UIAutomator API**](https://developer.android.com/training/testing/other-components/ui-automator) to create a test that opened the app, scrolled down three times, and then scrolled back up.
+[**Jetpack Macrobenchmark**](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview.md.txt) was the core tool for this phase, allowing for precise measurement of user interactions in a controlled environment. To simulate a typical user journey, they used the [**UIAutomator API**](https://developer.android.com/training/testing/other-components/ui-automator.md.txt) to create a test that opened the app, scrolled down three times, and then scrolled back up.
 
 In the end all that was needed to write the benchmark was this:
 
@@ -117,47 +117,46 @@ android {
 
 This step has to be followed by holistic end to end testing, as performance optimizations can lead to unwanted behavior, which you better catch before your users do.
 
-As shown earlier in this article, R8 performs extensive optimizations in order to maximize your performance benefits. R8 makes substantial modifications to the code including renaming, moving, and removing classes, fields and methods. If you observe that these modifications cause errors, you need to specify which parts of the code R8 shouldn't modify by declaring those in [keep rules](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview).
+As shown earlier in this article, R8 performs extensive optimizations in order to maximize your performance benefits. R8 makes substantial modifications to the code including renaming, moving, and removing classes, fields and methods. If you observe that these modifications cause errors, you need to specify which parts of the code R8 shouldn't modify by declaring those in [keep rules](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview.md.txt).
 
 ## **Follow Reddit's example in your app**
 
 Reddit's success with R8 serves as a powerful case study for any development team looking to make a significant, low-effort impact on their app's performance. The direct correlation between the technical improvements and the subsequent rise in user satisfaction underscores the value of performance optimization.
 
-By following the blueprint laid out in this case study---using tools like the [App Performance Score](https://developer.android.com/topic/performance/app-score) to identify opportunities, enabling R8's full optimization potential, monitoring real-world data, and using benchmarks to confirm and deepen understanding---other developers can achieve similar gains.
+By following the blueprint laid out in this case study---using tools like the [App Performance Score](https://developer.android.com/topic/performance/app-score.md.txt) to identify opportunities, enabling R8's full optimization potential, monitoring real-world data, and using benchmarks to confirm and deepen understanding---other developers can achieve similar gains.
 
-To get started with R8 in your own app, refer to the freshly updated [official documentation and guidance](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization) on enabling, configuring and troubleshooting the R8 optimizer.
+To get started with R8 in your own app, refer to the freshly updated [official documentation and guidance](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt) on enabling, configuring and troubleshooting the R8 optimizer.
 Written by:
 
 -
 
-  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss)
+  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)
 Continue reading
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/monzo_boosts_performance_aff3a37917_1dhX7d.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss.md.txt)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/monzo_boosts_performance_aff3a37917_1dhX7d.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Monzo boosts performance metrics by up to 35% with a simple R8 update](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update)
+  ## [Monzo boosts performance metrics by up to 35% with a simple R8 update](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update) Monzo is a UK digital bank with 15 million customers and growing. As the app scaled, the engineering team identified app startup time as a critical area for improvement but worried it would require significant changes to their codebase.
-  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 2 min read
-- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update.md.txt) Monzo is a UK digital bank with 15 million customers and growing. As the app scaled, the engineering team identified app startup time as a critical area for improvement but worried it would require significant changes to their codebase.
+  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 2 min read
+- [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) 11 Nov 2026 11 Nov 2026 ![](https://developer.android.com/static/blog/assets/1007_ABL_134_How_Smile_ID_Scaled_Identity_Verification_with_Camera_X_Strapi_788bf73f23_1N5Hb5.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time)
+  ## [How SmileID Scaled Identity Verification to 18,000+ Android Device Types with CameraX](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- [![View Pavlo Stavytskyi's profile](https://developer.android.com/static/blog/assets/pavlo_a4e2ec12e9_v4xs2.webp)](https://developer.android.com/blog/authors/pavlo-stavytskyi)[![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)](https://developer.android.com/blog/authors/rebecca-franks) 30 Sep 2026 30 Sep 2026 ![](https://developer.android.com/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt) Identity verification apps for banking and SIM registration require clear, high-resolution face captures to detect spoofing and deepfakes. Capturing frames sharp enough for liveness and anti-spoofing checks, without crashing low-memory devices, is a common challenge for Android camera develope
+  [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) • 4 min read
+  - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
+- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct)
+  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct) The team built an AI-native UI codebase that is 50% smaller than the original implementation, while achieving a 35% reduction in AI agent execution time, 32% fewer engineer-agent exchanges, and a 33% reduction in token cost.
-  [Pavlo Stavytskyi](https://developer.android.com/blog/authors/pavlo-stavytskyi), [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks) • 11 min read
-  - [#Compose-first](https://developer.android.com/blog/topics/compose-first)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
 Stay in the loop
 
 

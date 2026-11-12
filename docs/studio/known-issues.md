@@ -6,13 +6,13 @@ source: md.txt
 
 This page tracks known issues with Android Studio and the Android Gradle
 plugin. If you experience an issue not already included here, please
-[report a bug](https://developer.android.com/studio/report-bugs).
+[report a bug](https://developer.android.com/studio/report-bugs.md.txt).
 
 
 **Upgrade to preview:** Each release of Android Studio and the Android
 Gradle plugin aims to improve stability and performance, and add new features.
 To experience the benefits of upcoming releases now, download and install
-[Android Studio Preview](https://developer.android.com/studio/preview).
+[Android Studio Preview](https://developer.android.com/studio/preview.md.txt).
 
 ## Known Issues with Android Studio
 
@@ -39,11 +39,13 @@ can't navigate to the source code of the lambda as usual.
 **Workaround**: Add the compiler option below as a workaround until this
 issue is fixed:
 
-    kotlin {
-      compilerOptions {
-        freeCompilerArgs.add("-Xlambdas=class")
-      }
-    }
+```kotlin
+kotlin {
+  compilerOptions {
+    freeCompilerArgs.add("-Xlambdas=class")
+  }
+}
+```
 
 ### Run configuration without "Before launch" Gradle-aware Make leads to deployment error
 
@@ -73,13 +75,13 @@ invalidate the caches and restart Android Studio to fix the error.
 ### Can't isolate a view using Layout Inspector
 
 The ability to isolate a view using the embedded
-[Layout Inspector](https://developer.android.com/studio/debug/layout-inspector) is temporarily unavailable.
+[Layout Inspector](https://developer.android.com/studio/debug/layout-inspector.md.txt) is temporarily unavailable.
 We're working on fixing this issue in a future release.
 
 ### Compose nodes are not all inspectable using Layout Inspector
 
 If you notice that not all Compose nodes are inspectable when you're using
-[Layout Inspector](https://developer.android.com/studio/debug/layout-inspector), this is likely due to a bug
+[Layout Inspector](https://developer.android.com/studio/debug/layout-inspector.md.txt), this is likely due to a bug
 that has been fixed in Compose version 1.5.0-alpha04. If you're experiencing
 this issue, make sure that you upgrade to Compose version 1.5.0-alpha04 or
 higher.
@@ -141,7 +143,7 @@ found in the following locations:
 `~/.config/Google/AndroidStudio4.2/studio64.vmoptions`
 
 If Studio still doesn't start after trying this workaround,
-see [Studio doesn't start after upgrade](https://developer.android.com/studio/known-issues#studio-config-directories)
+see [Studio doesn't start after upgrade](https://developer.android.com/studio/known-issues.md.txt#studio-config-directories)
 below.
 
 ### Apps using Database Inspector crash on Android 11 emulator
@@ -315,7 +317,7 @@ compatibility and stability with macOS. However, macOS 10.13 has a more
 involved process to install kernel extensions such as HAXM. You need
 to manually allow the kernel extension itself to be installed as follows:
 
-1. First, attempt to install the latest version of HAXM from the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager).
+1. First, attempt to install the latest version of HAXM from the [SDK Manager](https://developer.android.com/studio/intro/update.md.txt#sdk-manager).
 2. In MacOS, go to **System Preferences \> Security and Privacy**.
 3. If you see an alert that *System software from developer "Intel Corporation
    Apps" was blocked from loading* , click **Allow**:
@@ -501,7 +503,7 @@ directory. On Windows, to clear the cache use
 ### Espresso Test Recorder doesn't work with Compose
 
 The
-[Espresso Test Recorder](https://developer.android.com/studio/test/other-testing-tools/espresso-test-recorder)
+[Espresso Test Recorder](https://developer.android.com/studio/test/other-testing-tools/espresso-test-recorder.md.txt)
 doesn't work with projects that include Compose. To create UI tests for projects
 that include Compose, see [Testing your Compose layout](https://developer.android.com/jetpack/compose/testing).
 
@@ -613,7 +615,7 @@ continue to use Kotlin 1.6.21.
 
 This section describes known issues that have been fixed in a recent release. If
 you are experiencing any of these issues, you should [update Android
-Studio](https://developer.android.com/studio) to the latest stable or [preview version](https://developer.android.com/studio/preview).
+Studio](https://developer.android.com/studio) to the latest stable or [preview version](https://developer.android.com/studio/preview.md.txt).
 
 **Fixed in Android Studio Rabbit 1 Canary 5**
 

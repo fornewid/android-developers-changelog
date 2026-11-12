@@ -16,7 +16,7 @@ an API so that you can specify requirements at a high level, like high accuracy
 or low power. It also optimizes the device's use of battery power.
 
 > [!NOTE]
-> **Note:** When your app is running in the background, [access to location](https://developer.android.com/develop/sensors-and-location/location/background) should be critical to the core functionality of the app and is accompanied with proper disclosure to users.
+> **Note:** When your app is running in the background, [access to location](https://developer.android.com/develop/sensors-and-location/location/background.md.txt) should be critical to the core functionality of the app and is accompanied with proper disclosure to users.
 
 This lesson shows you how to make a single request for the location of a device
 using the [`getLastLocation()`](https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#public-abstract-tasklocation-getlastlocation) method in the fused location provider.
@@ -25,18 +25,18 @@ using the [`getLastLocation()`](https://developers.google.com/android/reference/
 
 To access the fused location provider, your app's development project must
 include Google Play services. Download and install the Google Play services
-component through the [SDK Manager](https://developer.android.com/studio/intro/update) and add the library to your project.
+component through the [SDK Manager](https://developer.android.com/studio/intro/update.md.txt) and add the library to your project.
 For details, see the guide to [Set up Google Play services](https://developers.google.com/android/guides/setup).
 
 ## Specify app permissions
 
 Apps whose features use location services must
-[request location permissions](https://developer.android.com/develop/sensors-and-location/location/permissions), depending on the use cases of those
+[request location permissions](https://developer.android.com/develop/sensors-and-location/location/permissions.md.txt), depending on the use cases of those
 features.
 
 ## Create location services client
 
-In your activity's [`onCreate()`](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) method, create an instance of the
+In your activity's [`onCreate()`](https://developer.android.com/reference/android/app/Activity.md.txt#onCreate(android.os.Bundle)) method, create an instance of the
 Fused Location Provider Client as the following code snippet shows.
 
 
@@ -59,7 +59,7 @@ location of a user's device. Use the fused location provider's
 [`getLastLocation()`](https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#public-abstract-tasklocation-getlastlocation) method to retrieve the device location. The
 precision of the location returned by this call is
 determined by the permission setting you put in your app manifest, as described
-in the guide on how to [request location permissions](https://developer.android.com/develop/sensors-and-location/location/permissions).
+in the guide on how to [request location permissions](https://developer.android.com/develop/sensors-and-location/location/permissions.md.txt).
 
 To request the last known location, call the [`getLastLocation()`](https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#public-abstract-tasklocation-getlastlocation) method.
 The following code snippet illustrates the request and basic handling of the
@@ -76,13 +76,13 @@ fusedLocationClient.lastLocation
 <br />
 
 The [`getLastLocation()`](https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#public-abstract-tasklocation-getlastlocation) method returns a [`Task`](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task) that you can use
-to get a [`Location`](https://developer.android.com/reference/android/location/Location) object with the latitude and longitude
+to get a [`Location`](https://developer.android.com/reference/android/location/Location.md.txt) object with the latitude and longitude
 coordinates of a geographic location. The location object may be `null` in the
 following situations:
 
 - Location is turned off in the device settings. The result could be `null` even if the last location was previously retrieved because disabling location also clears the cache.
 - The device never recorded its location, which could be the case of a new device or a device that's been restored to factory settings.
-- Google Play services on the device has restarted, and there's no active Fused Location Provider client that's requested location after the services restarted. To avoid this situation you can create a new client and request location updates yourself. For more information, see [Request location updates](https://developer.android.com/develop/sensors-and-location/location/request-updates).
+- Google Play services on the device has restarted, and there's no active Fused Location Provider client that's requested location after the services restarted. To avoid this situation you can create a new client and request location updates yourself. For more information, see [Request location updates](https://developer.android.com/develop/sensors-and-location/location/request-updates.md.txt).
 
 ## Choose the best location estimate
 

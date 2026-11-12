@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # Gratitude saw 25% higher retention for widget users
 
-3 min read ![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_1gGbqL.webp) 08 May 2026 [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_1SuI5e.webp)](https://developer.android.com/blog/authors/ash-nohe) [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev) \& [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe) Practicing gratitude may decrease symptoms of depression and anxiety, and improve mental health and life satisfaction¹. Consistent gratitude practice may lead to sustained improvements that last months². The mindfulness app [Gratitude](https://play.google.com/store/apps/details?id=com.northstar.gratitude) encourages consistency through micro daily journaling, affirmations, and vision boards. The app has over 6 million downloads, 150 thousand 5 star ratings, and 100 million journal entries logged.
+3 min read ![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_1gGbqL.webp) 08 May 2026 [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)](https://developer.android.com/blog/authors/amrit-sanjeev.md.txt)[![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_1SuI5e.webp)](https://developer.android.com/blog/authors/ash-nohe.md.txt) [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev.md.txt) \& [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe.md.txt) Practicing gratitude may decrease symptoms of depression and anxiety, and improve mental health and life satisfaction¹. Consistent gratitude practice may lead to sustained improvements that last months². The mindfulness app [Gratitude](https://play.google.com/store/apps/details?id=com.northstar.gratitude) encourages consistency through micro daily journaling, affirmations, and vision boards. The app has over 6 million downloads, 150 thousand 5 star ratings, and 100 million journal entries logged.
 
 Developers Divij Gupta and Narendra Aanjna developed widgets for each of their app's core user journeys. Their goal was to meet users in their everyday moments without requiring the overhead of a full app session.
 
@@ -24,14 +24,14 @@ While the impact of widgets was clear, Gratitude's original XML-based RemoteView
 
 ### The Solution Part 1: migrating from XML to Jetpack Glance
 
-To modernize their widgets, the team turned to [Jetpack Glance](https://developer.android.com/develop/ui/compose/glance).
+To modernize their widgets, the team turned to [Jetpack Glance](https://developer.android.com/develop/ui/compose/glance.md.txt).
 
-They first consulted the [Widgets on Android](https://developer.android.com/design/ui/widget) design page and [canonical widget layouts](https://developer.android.com/design/ui/mobile/guides/widgets/layouts) to understand best practices for displaying information within a limited amount of space.
+They first consulted the [Widgets on Android](https://developer.android.com/design/ui/widget) design page and [canonical widget layouts](https://developer.android.com/design/ui/mobile/guides/widgets/layouts.md.txt) to understand best practices for displaying information within a limited amount of space.
 
 Then, they migrated their widget suite to Jetpack Glance. This declarative framework enabled the developers to move from planning to shipping in **less than a month** , **saving about 50% development time**, and saw two additional advantages:
 
 - Replacing restrictive XML layouts with declarative code made the codebase easier to read, maintain, and reduced developer effort.
-- Jetpack Glance allowed the team to more easily implement [dynamic colors](https://developer.android.com/develop/ui/compose/glance/theme), flexible [resizing](https://developer.android.com/develop/ui/compose/glance/build-ui#sizemode.exact), and expanded configuration options. These features ensure the widgets harmonize with a user's unique home screen layout.
+- Jetpack Glance allowed the team to more easily implement [dynamic colors](https://developer.android.com/develop/ui/compose/glance/theme.md.txt), flexible [resizing](https://developer.android.com/develop/ui/compose/glance/build-ui.md.txt#sizemode.exact), and expanded configuration options. These features ensure the widgets harmonize with a user's unique home screen layout.
 
 ![AANDDM_Gratitude_03.png](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_03_f177cefe5d_ZF0eB8.webp)
 
@@ -40,15 +40,15 @@ The following GIF shows two Gratitude widgets and adaptive resizing:
 
 While Glance simplified the UI, the team noted that testing across various OEM launchers was also essential to ensure layout consistency across devices.
 
-The team also implemented [Generated Widget Previews](https://developer.android.com/develop/ui/compose/glance/generated-previews) so users can see personalized previews. They noted that testing Generated Previews could be slow, as the previews are rate limited to preserve battery. To bypass the rate limiting for testing, use the adb command:
+The team also implemented [Generated Widget Previews](https://developer.android.com/develop/ui/compose/glance/generated-previews.md.txt) so users can see personalized previews. They noted that testing Generated Previews could be slow, as the previews are rate limited to preserve battery. To bypass the rate limiting for testing, use the adb command:
 
 `adb shell device_config put systemui generated_preview_api_reset_interval_ms 0`
 
-All of their efforts have made the Gratitude widget [high quality and differentiated](https://developer.android.com/docs/quality-guidelines/widget-quality).
+All of their efforts have made the Gratitude widget [high quality and differentiated](https://developer.android.com/docs/quality-guidelines/widget-quality.md.txt).
 
 ### The Solution Part 2: promote new widgets in-app
 
-The developers then used [in-app widget pinning](https://developer.android.com/develop/ui/compose/glance/pin-in-app) to increase widget discoverability and widget installs. Asking users to install widgets at a contextually relevant moment within the app helps users find their widgets without needing to go through the system widget picker. The following GIF shows Gratitude's bottom sheet to add widgets from within the app:
+The developers then used [in-app widget pinning](https://developer.android.com/develop/ui/compose/glance/pin-in-app.md.txt) to increase widget discoverability and widget installs. Asking users to install widgets at a contextually relevant moment within the app helps users find their widgets without needing to go through the system widget picker. The following GIF shows Gratitude's bottom sheet to add widgets from within the app:
 
 The team also refactored widget packages, which changed widget receiver paths and caused widgets to be deleted from users' home screens. Using previously stored user flags to identify widget users, they triggered another `requestPinGlanceAppWidget` prompt inviting widget users to use the new modernized widgets.
 
@@ -66,14 +66,14 @@ This Gratitude story shows that widgets can be tools for habit formation. By imp
 
 To get started with Jetpack Glance and learn about the technologies mentioned in this post, see these guides:
 
-- [Jetpack Glance Overview](https://developer.android.com/develop/ui/compose/glance)
+- [Jetpack Glance Overview](https://developer.android.com/develop/ui/compose/glance.md.txt)
 - [Widgets on Android](https://developer.android.com/design/ui/widget) design page
-- [Canonical widget layouts](https://developer.android.com/design/ui/mobile/guides/widgets/layouts)
-- [Generated Widget Previews](https://developer.android.com/develop/ui/compose/glance/generated-previews)
-- [Widget Quality Tiers](https://developer.android.com/docs/quality-guidelines/widget-quality)
-- [In-app widget pinning](https://developer.android.com/develop/ui/compose/glance/pin-in-app)
-- [Dynamic colors](https://developer.android.com/develop/ui/compose/glance/theme)
-- [Resizing](https://developer.android.com/develop/ui/compose/glance/build-ui#sizemode.exact)
+- [Canonical widget layouts](https://developer.android.com/design/ui/mobile/guides/widgets/layouts.md.txt)
+- [Generated Widget Previews](https://developer.android.com/develop/ui/compose/glance/generated-previews.md.txt)
+- [Widget Quality Tiers](https://developer.android.com/docs/quality-guidelines/widget-quality.md.txt)
+- [In-app widget pinning](https://developer.android.com/develop/ui/compose/glance/pin-in-app.md.txt)
+- [Dynamic colors](https://developer.android.com/develop/ui/compose/glance/theme.md.txt)
+- [Resizing](https://developer.android.com/develop/ui/compose/glance/build-ui.md.txt#sizemode.exact)
 - [Configuration activities](https://developer.android.com/codelabs/glance#3)
 
 See other widget case studies:
@@ -88,7 +88,7 @@ Written by:
 
 -
 
-  ## [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev)
+  ## [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev.md.txt)
 
   ###### Staff Developer Advocate
 
@@ -96,34 +96,33 @@ Written by:
   View profile](https://developer.android.com/blog/authors/amrit-sanjeev) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)
 -
 
-  ## [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe)
+  ## [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe.md.txt)
 
   ###### Sr. Android Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/ash-nohe) ![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_1SuI5e.webp) ![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_1SuI5e.webp)
 Continue reading
-- [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns) 08 Jan 2026 08 Jan 2026 ![](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Banner_1612731319_1Eiopn.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)](https://developer.android.com/blog/authors/amrit-sanjeev.md.txt)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns.md.txt) 08 Jan 2026 08 Jan 2026 ![](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Banner_1612731319_1Eiopn.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Ultrahuman launches features 15% faster with Gemini in Android Studio](https://developer.android.com/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio)
+  ## [Ultrahuman launches features 15% faster with Gemini in Android Studio](https://developer.android.com/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio) Ultrahuman is a consumer health-tech startup that provides daily well-being insights to users based on biometric data from the company's wearables, like the RING Air and the M1 Live Continuous Glucose Monitor (CGM).
-  [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) • 2 min read
-- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio.md.txt) Ultrahuman is a consumer health-tech startup that provides daily well-being insights to users based on biometric data from the company's wearables, like the RING Air and the M1 Live Continuous Glucose Monitor (CGM).
+  [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev.md.txt), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns.md.txt) • 2 min read
+- [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) 11 Nov 2026 11 Nov 2026 ![](https://developer.android.com/static/blog/assets/1007_ABL_134_How_Smile_ID_Scaled_Identity_Verification_with_Camera_X_Strapi_788bf73f23_1N5Hb5.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time)
+  ## [How SmileID Scaled Identity Verification to 18,000+ Android Device Types with CameraX](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- [![View Pavlo Stavytskyi's profile](https://developer.android.com/static/blog/assets/pavlo_a4e2ec12e9_v4xs2.webp)](https://developer.android.com/blog/authors/pavlo-stavytskyi)[![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)](https://developer.android.com/blog/authors/rebecca-franks) 30 Sep 2026 30 Sep 2026 ![](https://developer.android.com/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt) Identity verification apps for banking and SIM registration require clear, high-resolution face captures to detect spoofing and deepfakes. Capturing frames sharp enough for liveness and anti-spoofing checks, without crashing low-memory devices, is a common challenge for Android camera develope
+  [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) • 4 min read
+  - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
+- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct)
+  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct) The team built an AI-native UI codebase that is 50% smaller than the original implementation, while achieving a 35% reduction in AI agent execution time, 32% fewer engineer-agent exchanges, and a 33% reduction in token cost.
-  [Pavlo Stavytskyi](https://developer.android.com/blog/authors/pavlo-stavytskyi), [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks) • 11 min read
-  - [#Compose-first](https://developer.android.com/blog/topics/compose-first)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
 Stay in the loop
 
 

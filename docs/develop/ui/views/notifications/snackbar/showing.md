@@ -4,10 +4,10 @@ url: https://developer.android.com/develop/ui/views/notifications/snackbar/showi
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add notifications in Compose. [Snackbar →](https://developer.android.com/develop/ui/compose/components/snackbar) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add notifications in Compose. [Snackbar →](https://developer.android.com/develop/ui/compose/components/snackbar.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 You can use a
-`https://developer.android.com/reference/com/google/android/material/snackbar/Snackbar` to
+`Snackbar` to
 display a brief message to the user. Unlike
 [Notifications](https://developer.android.com/guide/topics/ui/notifiers/notifications), the
 message automatically goes away after a short period. A `Snackbar` is
@@ -19,18 +19,18 @@ successfully sent an email.
 
 A `Snackbar` is attached to a view. The `Snackbar`
 provides basic functionality if it is attached to any object derived from the
-`https://developer.android.com/reference/android/view/View` class, such as
+`View` class, such as
 any of the common layout objects. However, if the `Snackbar` is
 attached to a
-`https://developer.android.com/reference/androidx/coordinatorlayout/widget/CoordinatorLayout`,
+`CoordinatorLayout`,
 the `Snackbar` gains additional features:
 
 - The user can dismiss the `Snackbar` by swiping it away.
-- The layout moves other UI elements when the `Snackbar` appears. For example, if the layout has a `https://developer.android.com/reference/com/google/android/material/floatingactionbutton/FloatingActionButton`, the layout moves the button up when it shows a `Snackbar`, instead of drawing the `Snackbar` on top of the button. You can see how this looks in Figure 1.
+- The layout moves other UI elements when the `Snackbar` appears. For example, if the layout has a `FloatingActionButton`, the layout moves the button up when it shows a `Snackbar`, instead of drawing the `Snackbar` on top of the button. You can see how this looks in Figure 1.
 
 The `CoordinatorLayout` class provides a superset of the
 functionality of
-`https://developer.android.com/reference/android/widget/FrameLayout`.
+`FrameLayout`.
 If your app already uses a `FrameLayout`, you can replace that layout
 with a `CoordinatorLayout` to enable the full `Snackbar`
 functionality. If your app uses other layout objects, wrap your existing layout
@@ -70,13 +70,13 @@ You need the layout's ID when you display the message.
 
 There are two steps to displaying a message. First, you create a
 `Snackbar` object with the message text. Then, you call that object's
-`https://developer.android.com/reference/com/google/android/material/snackbar/BaseTransientBottomBar#show()`
+`show()`
 method to display the message to the user.
 
 ### Create a Snackbar object
 
 Create a `Snackbar` object by calling the static
-`https://developer.android.com/reference/com/google/android/material/snackbar/Snackbar#make(android.view.View, int, int)`
+`Snackbar.make()`
 method. When you create the `Snackbar`, specify the message it
 displays and the length of time to show the message:
 
@@ -103,9 +103,9 @@ stringId
 duration
 :
     The length of time to show the message. This can be
-    `https://developer.android.com/reference/com/google/android/material/snackbar/BaseTransientBottomBar#LENGTH_SHORT`
+    `LENGTH_SHORT`
     or
-    `https://developer.android.com/reference/com/google/android/material/snackbar/BaseTransientBottomBar#LENGTH_LONG`.
+    `LENGTH_LONG`.
 
 ### Show the message to the user
 

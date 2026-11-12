@@ -28,24 +28,34 @@ The chatbot implementation is primarily located in the `ChatRepository` class.
 The `GenerativeModel` class lets you interact with the Gemini API, which is
 instantiated as follows:
 
-    val generativeModel = Firebase.ai(backend = GenerativeBackend.googleAI()).generativeModel(
-      // Set the model name to the latest Gemini model.
-      modelName = "gemini-3.5-flash-lite",
-      // Set a system instruction to set the behavior of the model.
-      systemInstruction = content {
+
+```kotlin
+val generativeModel = Firebase.ai.generativeModel(
+    // Set the model name to the latest Gemini model.
+    modelName = "gemini-2.0-flash-lite-001",
+    // Set a system instruction to set the behavior of the model.
+    systemInstruction = content {
         text("Please respond to this chat conversation like a friendly cat.")
-      },
-    )
+    },
+)
+```
+
+<br />
 
 In a coroutine scope, initiate a chat by passing `pastMessages` to `startChat()`
 to ensure that the model has access to conversation history. This gives your
 chatbot the ability to maintain context and generate coherent responses that
 build on previous exchanges.
 
-    val pastMessages = getMessageHistory(chatId)
-    val chat = generativeModel.startChat(
-      history = pastMessages,
-    )
+
+```kotlin
+val pastMessages = getMessageHistory(chatId)
+val chat = generativeModel.startChat(
+    history = pastMessages,
+)
+```
+
+<br />
 
 Use the `sendMessage()` method to pass messages to the model.
 
@@ -72,4 +82,4 @@ You're now ready to chat!
 
 ## Additional resources
 
-[Learn more about the Firebase AI Logic SDK](https://developer.android.com/ai/gemini).
+[Learn more about the Firebase AI Logic SDK](https://developer.android.com/ai/gemini.md.txt).

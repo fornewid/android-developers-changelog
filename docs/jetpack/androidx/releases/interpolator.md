@@ -9,11 +9,11 @@ source: md.txt
 [User Guide](https://developer.android.com/guide/topics/graphics/prop-animation#interpolators) Use animation interpolators on older platforms.
 
 > [!CAUTION]
-> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
+> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first.md.txt) for more information.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 21, 2018 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/interpolator#1.0.0) | - | - | - |
+| September 21, 2018 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/interpolator.md.txt#1.0.0) | - | - | - |
 
 ## Declaring dependencies
 

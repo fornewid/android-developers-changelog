@@ -4,7 +4,7 @@ url: https://developer.android.com/training/wearables/apps/launcher
 source: md.txt
 ---
 
-The [launcher](https://developer.android.com/training/wearables/user-interfaces#app_launcher_entries) displays a label and icon for any recently resumed [tasks](https://developer.android.com/guide/components/activities/tasks-and-back-stack).
+The [launcher](https://developer.android.com/training/wearables/user-interfaces.md.txt#app_launcher_entries) displays a label and icon for any recently resumed [tasks](https://developer.android.com/guide/components/activities/tasks-and-back-stack.md.txt).
 If your app package has multiple apps as separate launcher activities, the
 launcher doesn't know which label and icon to display for non-launcher
 activities, such as activities launched from a tile or a notification. This
@@ -32,12 +32,12 @@ and that you manage your tasks and back stack consistently.
 
 Consider the following when assigning tasks:
 
-- Choose a unique [`taskAffinity`](https://developer.android.com/guide/topics/manifest/activity-element#aff) name for each task in your app. You can consider each launcher activity and its children as one task. Assign that `taskAffinity` to each related activity in your manifest file.
-- Avoid calling `startActivity()` with [`FLAG_ACTIVITY_NEW_TASK`](https://developer.android.com/reference/android/content/Intent#FLAG_ACTIVITY_NEW_TASK) or [`FLAG_ACTIVITY_CLEAR_TOP`](https://developer.android.com/reference/android/content/Intent#FLAG_ACTIVITY_CLEAR_TOP).
+- Choose a unique [`taskAffinity`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#aff) name for each task in your app. You can consider each launcher activity and its children as one task. Assign that `taskAffinity` to each related activity in your manifest file.
+- Avoid calling `startActivity()` with [`FLAG_ACTIVITY_NEW_TASK`](https://developer.android.com/reference/android/content/Intent.md.txt#FLAG_ACTIVITY_NEW_TASK) or [`FLAG_ACTIVITY_CLEAR_TOP`](https://developer.android.com/reference/android/content/Intent.md.txt#FLAG_ACTIVITY_CLEAR_TOP).
 - Avoid creating *trampoline activities* , which are activities that only launch other activities. Create splash screens using the [SplashScreen
-  API](https://developer.android.com/reference/android/R.attr#windowSplashscreenContent).
+  API](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen).
 - Use `android:excludeFromRecents="true"` and `android:noHistory="true"` flags when you don't want your activity to appear in the **Recents** section.
-- Determine the best [launch mode](https://developer.android.com/guide/components/activities/tasks-and-back-stack#TaskLaunchModes) for your activities and develop with that in mind.
+- Determine the best [launch mode](https://developer.android.com/guide/components/activities/tasks-and-back-stack.md.txt#TaskLaunchModes) for your activities and develop with that in mind.
 
 ## Debug tips
 
@@ -49,6 +49,6 @@ Consider the following when debugging:
 
 ## Recommended resources
 
-- [Building UI with Compose](https://developer.android.com/training/wearables/compose)
-- [Wear OS apps](https://developer.android.com/training/wearables/apps)
+- [Building UI with Compose](https://developer.android.com/training/wearables/compose.md.txt)
+- [Wear OS apps](https://developer.android.com/training/wearables/apps.md.txt)
 - [Compose for Wear OS codelab](https://developer.android.com/codelabs/compose-for-wear-os#0)

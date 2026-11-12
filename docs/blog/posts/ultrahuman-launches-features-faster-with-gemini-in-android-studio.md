@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/ultrahuman-launches-features-faste
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # Ultrahuman launches features 15% faster with Gemini in Android Studio
 
-2 min read ![](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Banner_1612731319_1Eiopn.webp) 08 Jan 2026 [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns) [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev) \& [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) [Ultrahuman](https://play.google.com/store/apps/details?id=com.ultrahuman.android) is a consumer health-tech startup that provides daily well-being insights to users based on biometric data from the company's wearables, like the [RING Air](https://www.ultrahuman.com/ring/buy/us/) and the [M1 Live](https://www.ultrahuman.com/m1/) Continuous Glucose Monitor (CGM). The Ultrahuman team leaned on [Gemini in Android Studio's](https://developer.android.com/gemini-in-android) contextually aware tools to streamline and accelerate their development process.
+2 min read ![](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Banner_1612731319_1Eiopn.webp) 08 Jan 2026 [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)](https://developer.android.com/blog/authors/amrit-sanjeev.md.txt)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns.md.txt) [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev.md.txt) \& [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns.md.txt) [Ultrahuman](https://play.google.com/store/apps/details?id=com.ultrahuman.android) is a consumer health-tech startup that provides daily well-being insights to users based on biometric data from the company's wearables, like the [RING Air](https://www.ultrahuman.com/ring/buy/us/) and the [M1 Live](https://www.ultrahuman.com/m1/) Continuous Glucose Monitor (CGM). The Ultrahuman team leaned on [Gemini in Android Studio's](https://developer.android.com/gemini-in-android) contextually aware tools to streamline and accelerate their development process.
 
 Ultrahuman's app is maintained by a lean team of just eight developers. They prioritize building features that their users love, and have a backlog of bugs and needed performance improvements that take a lot of time. The team needed to scale up their output of feature improvements, and also needed to handle their performance improvements, without increasing headcount. One of their biggest opportunities was reducing the amount of time and effort for their backlog: every hour saved on maintenance could be reinvested into working on features for their users.
 ![UltrahumanxGiAS_Image_01.webp](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Image_01_645a0baed3_2rKFBi.webp)
@@ -20,7 +20,7 @@ The team integrated Gemini in Android Studio to see if the AI enhanced tools cou
 
 As Ultrahuman's Android Development Lead, Arka, noted, "**Gemini helped us reach a working prototype in under an hour**---something that would have otherwise taken us several hours." The BLE implementation provided by Gemini worked perfectly for syncing large amounts of health sensor data while the app ran in the background, improving the data syncing process and saving battery life on both the user's Android phone and Ultrahuman's paired wearable device.
 
-Beyond this core challenge, Gemini also proved invaluable for finding algorithmic optimizations in a custom open-source library, pointing to helpful documentation, assisting with code commenting, and analyzing crash logs. The Ultrahuman team also used [code completion](https://developer.android.com/studio/preview/gemini/ai-code-completion) to help them breeze through writing otherwise repetitive code, [Jetpack Compose Preview Generation](https://developer.android.com/studio/gemini/generate-compose-previews) to enable rapid iteration during UI design, and [Agent Mode](https://developer.android.com/studio/gemini/agent-mode) for managing complex, project-wide changes, such as rendering a new stacked bar graph that mapped to backend data models and UI models.
+Beyond this core challenge, Gemini also proved invaluable for finding algorithmic optimizations in a custom open-source library, pointing to helpful documentation, assisting with code commenting, and analyzing crash logs. The Ultrahuman team also used [code completion](https://developer.android.com/studio/preview/gemini/ai-code-completion) to help them breeze through writing otherwise repetitive code, [Jetpack Compose Preview Generation](https://developer.android.com/studio/gemini/generate-compose-previews.md.txt) to enable rapid iteration during UI design, and [Agent Mode](https://developer.android.com/studio/gemini/agent-mode.md.txt) for managing complex, project-wide changes, such as rendering a new stacked bar graph that mapped to backend data models and UI models.
 ![arka2.png](https://developer.android.com/static/blog/assets/arka2_812923fa66_2jkIwC.webp)
 
 <br />
@@ -38,7 +38,7 @@ Written by:
 
 -
 
-  ## [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev)
+  ## [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev.md.txt)
 
   ###### Staff Developer Advocate
 
@@ -46,34 +46,33 @@ Written by:
   View profile](https://developer.android.com/blog/authors/amrit-sanjeev) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)
 -
 
-  ## [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns)
+  ## [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns.md.txt)
 
   ###### Staff Developer Programs Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/trevor-johns) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 Continue reading
-- [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_1SuI5e.webp)](https://developer.android.com/blog/authors/ash-nohe) 08 May 2026 08 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_1gGbqL.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)](https://developer.android.com/blog/authors/amrit-sanjeev.md.txt)[![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_1SuI5e.webp)](https://developer.android.com/blog/authors/ash-nohe.md.txt) 08 May 2026 08 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_1gGbqL.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Gratitude saw 25% higher retention for widget users](https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-for-widget-users)
+  ## [Gratitude saw 25% higher retention for widget users](https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-for-widget-users.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-for-widget-users) The mindfulness app Gratitude encourages consistency through micro daily journaling, affirmations, and vision boards. The app has over 6 million downloads, 150 thousand 5 star ratings, and 100 million journal entries logged.
-  [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev), [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe) • 3 min read
-- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-for-widget-users.md.txt) The mindfulness app Gratitude encourages consistency through micro daily journaling, affirmations, and vision boards. The app has over 6 million downloads, 150 thousand 5 star ratings, and 100 million journal entries logged.
+  [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev.md.txt), [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe.md.txt) • 3 min read
+- [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) 11 Nov 2026 11 Nov 2026 ![](https://developer.android.com/static/blog/assets/1007_ABL_134_How_Smile_ID_Scaled_Identity_Verification_with_Camera_X_Strapi_788bf73f23_1N5Hb5.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time)
+  ## [How SmileID Scaled Identity Verification to 18,000+ Android Device Types with CameraX](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- [![View Pavlo Stavytskyi's profile](https://developer.android.com/static/blog/assets/pavlo_a4e2ec12e9_v4xs2.webp)](https://developer.android.com/blog/authors/pavlo-stavytskyi)[![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)](https://developer.android.com/blog/authors/rebecca-franks) 30 Sep 2026 30 Sep 2026 ![](https://developer.android.com/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt) Identity verification apps for banking and SIM registration require clear, high-resolution face captures to detect spoofing and deepfakes. Capturing frames sharp enough for liveness and anti-spoofing checks, without crashing low-memory devices, is a common challenge for Android camera develope
+  [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) • 4 min read
+  - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
+- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct)
+  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct) The team built an AI-native UI codebase that is 50% smaller than the original implementation, while achieving a 35% reduction in AI agent execution time, 32% fewer engineer-agent exchanges, and a 33% reduction in token cost.
-  [Pavlo Stavytskyi](https://developer.android.com/blog/authors/pavlo-stavytskyi), [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks) • 11 min read
-  - [#Compose-first](https://developer.android.com/blog/topics/compose-first)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
 Stay in the loop
 
 

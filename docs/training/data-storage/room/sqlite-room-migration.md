@@ -13,32 +13,32 @@ APIs directly:
 
 If your app has a non-Room SQLite implementation, read this page to learn
 how to migrate to Room. If Room is the first SQLite implementation in your
-app, see [Save data in a local database using Room](https://developer.android.com/training/data-storage/room) for basic usage.
+app, see [Save data in a local database using Room](https://developer.android.com/training/data-storage/room.md.txt) for basic usage.
 
 ## Migration steps
 
 Perform the following steps to migrate your SQLite implementation to Room. If
 your SQLite implementation uses a large database or complex queries, you might
 prefer to migrate to Room gradually. For more information about an incremental
-migration strategy, see [Incremental migration](https://developer.android.com/training/data-storage/room/sqlite-room-migration#incremental).
+migration strategy, see [Incremental migration](https://developer.android.com/training/data-storage/room/sqlite-room-migration.md.txt#incremental).
 
 ### Update dependencies
 
 To use Room in your app, you must include the appropriate dependencies in your
 app's `build.gradle` file. For more information about Room dependencies, see
-[Setup](https://developer.android.com/training/data-storage/room#setup).
+[Setup](https://developer.android.com/training/data-storage/room.md.txt#setup).
 
 ### Update model classes to data entities
 
-Room uses [data entities](https://developer.android.com/training/data-storage/room/defining-data) to represent the tables in the database. Each
+Room uses [data entities](https://developer.android.com/training/data-storage/room/defining-data.md.txt) to represent the tables in the database. Each
 entity class represents a table and has properties that represent columns in
 that table. Follow these steps to update your existing model classes to be Room
 entities:
 
-1. Annotate the class declaration with [`@Entity`](https://developer.android.com/reference/kotlin/androidx/room3/Entity) to indicate that it's a Room entity. You can optionally use the [`tableName`](https://developer.android.com/reference/kotlin/androidx/room3/Entity#tableName()) property to indicate that the resulting table should have a name different from the class name.
-2. Annotate the primary key property with [`@PrimaryKey`](https://developer.android.com/reference/kotlin/androidx/room3/PrimaryKey).
-3. If any of the columns in the resulting table should have a name that is different from the name of the corresponding property, annotate the property with [`@ColumnInfo`](https://developer.android.com/reference/kotlin/androidx/room3/ColumnInfo) and set the [`name`](https://developer.android.com/reference/kotlin/androidx/room3/ColumnInfo#name()) property to the correct column name.
-4. If the class has properties that you don't want to persist in the database, annotate those properties with [`@Ignore`](https://developer.android.com/reference/kotlin/androidx/room3/Ignore) to indicate that Room shouldn't create columns for them in the corresponding table.
+1. Annotate the class declaration with [`@Entity`](https://developer.android.com/reference/kotlin/androidx/room3/Entity.md.txt) to indicate that it's a Room entity. You can optionally use the [`tableName`](https://developer.android.com/reference/kotlin/androidx/room3/Entity.md.txt#tableName()) property to indicate that the resulting table should have a name different from the class name.
+2. Annotate the primary key property with [`@PrimaryKey`](https://developer.android.com/reference/kotlin/androidx/room3/PrimaryKey.md.txt).
+3. If any of the columns in the resulting table should have a name that is different from the name of the corresponding property, annotate the property with [`@ColumnInfo`](https://developer.android.com/reference/kotlin/androidx/room3/ColumnInfo.md.txt) and set the [`name`](https://developer.android.com/reference/kotlin/androidx/room3/ColumnInfo.md.txt#name()) property to the correct column name.
+4. If the class has properties that you don't want to persist in the database, annotate those properties with [`@Ignore`](https://developer.android.com/reference/kotlin/androidx/room3/Ignore.md.txt) to indicate that Room shouldn't create columns for them in the corresponding table.
 5. If the class has more than one constructor, indicate which constructor Room should use by annotating all of the other constructors with `@Ignore`.
 
 
@@ -56,13 +56,13 @@ data class User(
 ### Create DAOs
 
 Room uses data access objects (DAOs) to define functions that access the
-database. Follow the guidance in [Accessing data using Room DAOs](https://developer.android.com/training/data-storage/room/accessing-data) to replace
+database. Follow the guidance in [Accessing data using Room DAOs](https://developer.android.com/training/data-storage/room/accessing-data.md.txt) to replace
 your existing query functions with DAOs.
 
 ### Create a database class
 
 Implementations of Room use a database class to manage an instance of the
-database. Your database class should extend [`RoomDatabase`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase) and reference
+database. Your database class should extend [`RoomDatabase`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.md.txt) and reference
 all the entities and DAOs you've defined.
 
 > [!NOTE]
@@ -82,7 +82,7 @@ abstract class UsersDatabase : RoomDatabase() {
 ### Define a migration path
 
 Because the database version number is changing, you must define a
-[`Migration`](https://developer.android.com/reference/kotlin/androidx/room3/migration/Migration) object to preserve the existing database data. If the
+[`Migration`](https://developer.android.com/reference/kotlin/androidx/room3/migration/Migration.md.txt) object to preserve the existing database data. If the
 database schema doesn't change, this migration can be empty.
 
 
@@ -97,12 +97,12 @@ val MIGRATION_1_2 = object : Migration(1, 2) {
 <br />
 
 For more information about database migration paths in Room, see
-[Migrate your database](https://developer.android.com/training/data-storage/room/migrating-db-versions).
+[Migrate your database](https://developer.android.com/training/data-storage/room/migrating-db-versions.md.txt).
 
 ### Update the database instantiation
 
 After you've defined a database class and a migration path, you can use
-[`Room.databaseBuilder`](https://developer.android.com/reference/kotlin/androidx/room3/Room#databasebuilder) to create an instance of your database with the
+[`Room.databaseBuilder`](https://developer.android.com/reference/kotlin/androidx/room3/Room.md.txt#databasebuilder) to create an instance of your database with the
 migration path applied:
 
 
@@ -119,8 +119,8 @@ val db =
 
 Make sure you test your new Room implementation:
 
-- Follow the guidance in [Test migrations](https://developer.android.com/training/data-storage/room/migrating-db-versions#test) to test your database migration.
-- Follow the guidance in [Test your database](https://developer.android.com/training/data-storage/room/testing-db#test) to test your DAO functions.
+- Follow the guidance in [Test migrations](https://developer.android.com/training/data-storage/room/migrating-db-versions.md.txt#test) to test your database migration.
+- Follow the guidance in [Test your database](https://developer.android.com/training/data-storage/room/testing-db.md.txt#test) to test your DAO functions.
 
 ## Incremental migration
 

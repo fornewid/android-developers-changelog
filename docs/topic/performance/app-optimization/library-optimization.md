@@ -10,15 +10,15 @@ experience. This means your library must be compatible with Android optimization
 (R8) without requiring additional setup from the developer---or document that the
 library might be inappropriate for usage on Android. It is crucial that
 libraries intended for use on Android must not prevent important app
-optimizations and [adhere to additional optimization requirements](https://developer.android.com/topic/performance/app-optimization/library-optimization#requirements).
+optimizations and [adhere to additional optimization requirements](https://developer.android.com/topic/performance/app-optimization/library-optimization.md.txt#requirements).
 
 This documentation is targeted at developers of published libraries, but might
 also be useful for developers of internal library modules in a large,
 modularized app.
 
 If you're an app developer and want to learn about optimizing your Android app,
-see [Enable app optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization). To learn about which libraries are appropriate
-to use, see [Choose libraries wisely](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely).
+see [Enable app optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt). To learn about which libraries are appropriate
+to use, see [Choose libraries wisely](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely.md.txt).
 
 ## Understand keep rule types
 
@@ -26,7 +26,7 @@ There are two distinct types of keep rules that you can have in libraries:
 
 - **Consumer keep rules** must specify rules that keep whatever the library reflects on. If a library uses reflection or JNI to call into its code, or code defined by a client app, these rules need to describe what code needs to be kept. Libraries should package consumer keep rules, which use the same format as app keep rules. These rules are bundled into library artifacts (AARs or JARs) and get consumed automatically during Android app optimization when the library is used. These rules are maintained in the file specified with the `consumerProguardFiles` property in your `build.gradle.kts` (or `build.gradle`) file. To learn more, see [Write
   consumer keep rules](https://developer.android.com/topic/performance/app-optimization/library-optimization#write-consumer-rules).
-- **Library build keep rules** are applied when your library is built. They are only needed if you decide to partially optimize your library at build time. They must keep the library's public API from being removed, otherwise the public API won't be present in the library distribution, meaning app developers can't use the library. These rules are maintained in the file specified with the `proguardFiles` property in your `build.gradle.kts` (or `build.gradle`) file. To learn more, see [Optimize AAR library build](https://developer.android.com/topic/performance/app-optimization/library-optimization#optimize-aar).
+- **Library build keep rules** are applied when your library is built. They are only needed if you decide to partially optimize your library at build time. They must keep the library's public API from being removed, otherwise the public API won't be present in the library distribution, meaning app developers can't use the library. These rules are maintained in the file specified with the `proguardFiles` property in your `build.gradle.kts` (or `build.gradle`) file. To learn more, see [Optimize AAR library build](https://developer.android.com/topic/performance/app-optimization/library-optimization.md.txt#optimize-aar).
 
 ## Optimization requirements and guidelines
 
@@ -51,7 +51,13 @@ quality, and user experience.
   {*; }`) for packages in your library or other referenced libraries. Such
   rules limit optimization for these packages across all the apps that consume
   your library.
-- **No inappropriate global rules:** Never use [global options](https://developer.android.com/topic/performance/app-optimization/global-options) like
+
+  Don't include broad keep rules for third-party dependencies that your
+  library consumes (for example, `-keep public class com.google.android.gms.** { *; }`).
+  Many external libraries already ship their own consumer keep rules; introducing
+  a package-wide rule supersedes those rules and forces R8 to retain unreferenced
+  dependency code across the entire application.
+- **No inappropriate global rules:** Never use [global options](https://developer.android.com/topic/performance/app-optimization/global-options.md.txt) like
   `-dontobfuscate` or `-allowaccessmodification`.
 
 - **Use of codegen over reflection whenever possible:** When possible, use
@@ -71,27 +77,46 @@ quality, and user experience.
   users.
 
   Many modern libraries use codegen instead of reflection. See
-  [KSP](https://github.com/google/ksp) for a common entrypoint, used by [Room](https://developer.android.com/training/data-storage/room),
-  [Hilt](https://developer.android.com/training/dependency-injection/hilt-android), and many others.
+  [KSP](https://github.com/google/ksp) for a common entrypoint, used by [Room](https://developer.android.com/training/data-storage/room.md.txt),
+  [Hilt](https://developer.android.com/training/dependency-injection/hilt-android.md.txt), and many others.
 
   > [!NOTE]
-  > **Note:** There are instances when it might be appropriate to use reflection. For more information, see [When reflection is okay](https://developer.android.com/topic/performance/app-optimization/library-optimization#when-reflection).
+  > **Note:** There are instances when it might be appropriate to use reflection. For more information, see [When reflection is okay](https://developer.android.com/topic/performance/app-optimization/library-optimization.md.txt#when-reflection).
 
 - **Support R8 full mode:** Your library shouldn't crash when
-  [R8 full mode](https://developer.android.com/topic/performance/app-optimization/full-mode) is enabled. R8's full mode is the recommended mode to use
+  [R8 full mode](https://developer.android.com/topic/performance/app-optimization/full-mode.md.txt) is enabled. R8's full mode is the recommended mode to use
   R8, and is the default since AGP 8.0, which was made stable in 2023. If your
   library crashes under R8, the solution is to identify the specific
   reflection or JNI entry point and add a targeted rule, not to keep the
-  entire package.
+  entire package. To generate targeted rules from annotations on these entry
+  points, use [Jetpack Keep](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations.md.txt).
 
 ### Additional recommendations
 
 Apart from the optimization requirements, the following are additional
 recommendations.
 
-- Don't use `-repackageclasses` in your library's consumer keep rules file. However, to optimize your library build, you can use `-repackageclasses` with an internal package name, such as `<your.library.package>.internal`, in your library's build keep rules file. This can improve your library's efficiency in unoptimized apps. However, it is generally not necessary, because apps should also be optimized.
-- Declare any attributes you need for your library to function in your library's keep rules files, even if there might be an overlap with the attributes defined in `proguard-android-optimize.txt`.
-- If you require the following attributes in your library distribution, maintain them in your library's build keep rules file, and *not* in your library's consumer keep rules file:
+- Don't use `-repackageclasses` in your library's consumer keep rules file.
+  Consumer keep rules are merged into the R8 configuration of every app that
+  uses your library, so this global option applies to the entire app and
+  overrides the app developer's own repackaging settings. By default,
+  starting with AGP 9.0, publishing a library fails if its consumer keep
+  rules contain global options. For more information, see the
+  [AGP 9.0 release notes](https://developer.android.com/build/releases/agp-9-0-0-release-notes.md.txt#property-android.r8.globalOptionsInConsumerRules.disallowed).
+
+  To optimize your library build, you can instead use `-repackageclasses`
+  with an internal package name, such as `<your.library.package>.internal`, in
+  your library's build keep rules file. This can improve your library's
+  efficiency in unoptimized apps, but it's generally not necessary because
+  apps should also be optimized.
+- Declare any attributes you need for your library to function in your
+  library's keep rules files, even if there might be an overlap with the
+  attributes defined in `proguard-android-optimize.txt`.
+
+- If you require the following attributes in your library distribution,
+  maintain them in your library's build keep rules file, and *not* in your
+  library's consumer keep rules file:
+
   - `AnnotationDefault`
   - `EnclosingMethod`
   - `Exceptions`
@@ -103,8 +128,14 @@ recommendations.
   - `RuntimeVisibleParameterAnnotations`
   - `RuntimeVisibleTypeAnnotations`
   - `Signature`
-- Library authors should keep the `RuntimeVisibleAnnotations` attribute in their consumer keep rules if annotations are used at runtime.
-- Library authors shouldn't use the following global options in their consumer keep rules:
+- Library authors should keep the `RuntimeVisibleAnnotations` attribute in
+  their consumer keep rules if annotations are used at runtime.
+
+- Library authors shouldn't use the following global options in their consumer
+  keep rules. Like `-repackageclasses`, these options configure the app's
+  entire R8 build rather than only your library's code, so leave them to the
+  app developer:
+
   - `-include`
   - `-basedirectory`
   - `-injars`
@@ -134,13 +165,13 @@ following:
 - Code using a specific runtime annotation
 
 Using reflection in this way limits the runtime cost, and enables writing
-[targeted consumer keep rules](https://developer.android.com/topic/performance/app-optimization/library-optimization#write-consumer-rules).
+[targeted consumer keep rules](https://developer.android.com/topic/performance/app-optimization/library-optimization.md.txt#write-consumer-rules).
 
 This specific and targeted form of reflection is a pattern you can see across
 both the Android framework (for example, when inflating activities, views, and
 drawables) and AndroidX libraries (for example when constructing `WorkManager
 ListenableWorkers`, or `RoomDatabases`). By contrast, the open ended reflection
-of [Gson isn't appropriate for usage in Android apps](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely#gson-issues).
+of [Gson isn't appropriate for usage in Android apps](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely.md.txt#gson-issues).
 
 ### Common misconceptions
 
@@ -158,18 +189,18 @@ include the following:
   obfuscated when it was compiled to an AAR (Android Archive) or JAR (Java
   Archive). The optimizations during library build time are limited, and your
   app shouldn't disable the optimization of the library by including it in a
-  keep rule. For more information, see [Optimize AAR library build](https://developer.android.com/topic/performance/app-optimization/library-optimization#optimize-aar).
+  keep rule. For more information, see [Optimize AAR library build](https://developer.android.com/topic/performance/app-optimization/library-optimization.md.txt#optimize-aar).
 
 - **Incorrect understanding of the `-keep` option** The `-keep` rule prevents
-  R8 from running any of its [optimization passes](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#overview). For more information,
-  see [Choose the right keep option](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#choose-keep).
+  R8 from running any of its [optimization passes](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt#overview). For more information,
+  see [Choose the right keep option](https://developer.android.com/topic/performance/app-optimization/add-keep-rules.md.txt#choose-keep).
 
 ## Validate consumer keep rule quality
 
 To validate that your library doesn't prevent too much code optimization when
 embedded in an app, use a library sample or integration test app. Enable
 R8, and inspect the overall R8 configuration quality of the app with the
-[R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer).
+[R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer.md.txt).
 
 If your consumer rules are shown to limit optimization on large portions of your
 library's code, this signals that your consumer rules need refinement.
@@ -181,7 +212,7 @@ with R8 enabled.
 To ensure your consumer keep rules are applied correctly, you must package them
 appropriately depending on your library format.
 
-If you use [Jetpack Keep](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations#verify) to declare your library's reflection and JNI
+If you use [Jetpack Keep](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations.md.txt#verify) to declare your library's reflection and JNI
 usage, its Gradle plugin can package the generated rules as consumer keep rules
 for you.
 
@@ -189,25 +220,29 @@ for you.
 
 To add consumer rules for an AAR library, use the `consumerProguardFiles` option
 in the Android library module's build script. For more information, see our
-[guidance on creating library modules](https://developer.android.com/studio/projects/android-library#Considerations).
+[guidance on creating library modules](https://developer.android.com/studio/projects/android-library.md.txt#Considerations).
 
 ### Kotlin
 
-    android {
-        defaultConfig {
-            consumerProguardFiles("consumer-proguard-rules.pro")
-        }
-        ...
+```kotlin
+android {
+    defaultConfig {
+        consumerProguardFiles("consumer-proguard-rules.pro")
     }
+    ...
+}
+```
 
 ### Groovy
 
-    android {
-        defaultConfig {
-            consumerProguardFiles 'consumer-proguard-rules.pro'
-        }
-        ...
+```groovy
+android {
+    defaultConfig {
+        consumerProguardFiles 'consumer-proguard-rules.pro'
     }
+    ...
+}
+```
 
 ### JAR libraries
 
@@ -236,36 +271,40 @@ the Android Gradle Plugin.
 
 ### Kotlin
 
-    android {
-        buildTypes {
-            release {
-                isMinifyEnabled = true
-                proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
-                )
-            }
-            configureEach {
-                consumerProguardFiles("consumer-rules.pro")
-            }
+```kotlin
+android {
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        configureEach {
+            consumerProguardFiles("consumer-rules.pro")
         }
     }
+}
+```
 
 ### Groovy
 
-    android {
-        buildTypes {
-            release {
-                minifyEnabled true
-                proguardFiles
-                    getDefaultProguardFile('proguard-android-optimize.txt'),
-                    'proguard-rules.pro'
-            }
-            configureEach {
-                consumerProguardFiles "consumer-rules.pro"
-            }
+```groovy
+android {
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles
+                getDefaultProguardFile('proguard-android-optimize.txt'),
+                'proguard-rules.pro'
+        }
+        configureEach {
+            consumerProguardFiles "consumer-rules.pro"
         }
     }
+}
+```
 
 Note that the behavior of `proguardFiles` is very different from
 `consumerProguardFiles`:

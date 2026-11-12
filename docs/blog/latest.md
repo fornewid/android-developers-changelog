@@ -7,6 +7,13 @@ source: md.txt
 # The Latest
 
 Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
+- [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) 11 Nov 2026 11 Nov 2026 ![](https://developer.android.com/static/blog/assets/1007_ABL_134_How_Smile_ID_Scaled_Identity_Verification_with_Camera_X_Strapi_788bf73f23_1N5Hb5.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
+
+  ## [How SmileID Scaled Identity Verification to 18,000+ Android Device Types with CameraX](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt) Identity verification apps for banking and SIM registration require clear, high-resolution face captures to detect spoofing and deepfakes. Capturing frames sharp enough for liveness and anti-spoofing checks, without crashing low-memory devices, is a common challenge for Android camera develope
+  [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) • 4 min read
+  - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
 - [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
   ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
@@ -149,14 +156,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
   - [#Android Auto](https://developer.android.com/blog/topics/android-auto.md.txt)
   - +1 ↩
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
-
-  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt)
-
-  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
-  - [#Android Bench](https://developer.android.com/blog/topics/android-bench.md.txt)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
@@ -242,6 +241,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano.md.txt)
 - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
 - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
+- [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
 - [#authentication](https://developer.android.com/blog/topics/authentication)
 - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
 - [#Large Screens](https://developer.android.com/blog/topics/large-screens)
@@ -249,7 +249,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Window Size Classes](https://developer.android.com/blog/topics/blog-topic)
 - [#usage-based billing GenAI apps](https://developer.android.com/blog/topics/usage-based-billing-gen-ai-apps)
 - [#Remote Compose](https://developer.android.com/blog/topics/remote-compose)
-- [#Camera X](https://developer.android.com/blog/topics/camera-x)
 Stay in the loop
 
 

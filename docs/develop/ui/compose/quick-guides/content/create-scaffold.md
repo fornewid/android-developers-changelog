@@ -29,7 +29,7 @@ or higher.
 The following example provides a full example of how you might implement
 [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable.md.txt#Scaffold(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)). It contains a top app bar, bottom app bar, and a floating action
 button that interacts with `Scaffold`'s internal state.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-scaffold_d2b421d64a58234b09e3476b97006ce2b88580e07ad40a5340e8aa7fad598799.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-scaffold_c3415e0d7872ff8b88c4f9a4f1e2d74b06e9a71e72c43895fd8c939d888ee71e.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Key points
 

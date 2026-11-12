@@ -15,7 +15,7 @@ The official IDE for Android app development now accelerates your productivity w
 
 Your current device is not supported.  
 
-[See the system requirements](https://developer.android.com/studio/install).
+[See the system requirements](https://developer.android.com/studio/install.md.txt).
 
 <br />
 
@@ -27,14 +27,14 @@ Your current device is not supported.
 
 Feature
 
-### [Try AI in Android Studio](http://developer.android.com/studio/gemini/overview)
+### [Try AI in Android Studio](http://developer.android.com/studio/gemini/overview.md.txt)
 
 Use the agent of your choice to help you generate code, fix code, and answer questions about Android app development.
 
 
-[Try AI in Android Studio](http://developer.android.com/studio/gemini/overview) Feature
+[Try AI in Android Studio](http://developer.android.com/studio/gemini/overview.md.txt) Feature
 
-### [Test on real devices with Android Device Streaming](http://developer.android.com/studio/run/android-device-streaming)
+### [Test on real devices with Android Device Streaming](http://developer.android.com/studio/run/android-device-streaming.md.txt)
 
 
 Android Device Streaming lets you run apps on real devices, directly from Android Studio,
@@ -42,7 +42,7 @@ to help you make sure your app works great across different screen sizes, OEMs, 
 Android versions.
 
 
-[Try Android Device Streaming](http://developer.android.com/studio/run/android-device-streaming)
+[Try Android Device Streaming](http://developer.android.com/studio/run/android-device-streaming.md.txt)
 
 ### Core features
 
@@ -54,7 +54,7 @@ Create dynamic layouts with Jetpack Compose. Then preview your layouts on any sc
 
 ### Intelligent code editor
 
-Write better code, work faster, and be more productive with an intelligent code editor that provides code completion for Kotlin, Java, and C/C++ programing languages. Moreover, when editing Jetpack Compose you can see your code changes reflected immediately with Live Edit. [More about the editor](https://developer.android.com/studio/intro) Build
+Write better code, work faster, and be more productive with an intelligent code editor that provides code completion for Kotlin, Java, and C/C++ programing languages. Moreover, when editing Jetpack Compose you can see your code changes reflected immediately with Live Edit. [More about the editor](https://developer.android.com/studio/intro.md.txt) Build
 
 ### [Flexible build system](http://developer.android.com/studio/build)
 
@@ -63,14 +63,14 @@ Powered by Gradle, Android Studio's build system lets you customize your build t
 ![](https://developer.android.com/static/images/studio/flexible-build-system.png)
 [More about Android Build](http://developer.android.com/studio/build) Test
 
-### [Easily emulate any device](http://developer.android.com/studio/run/emulator)
+### [Easily emulate any device](http://developer.android.com/studio/run/emulator.md.txt)
 
 The Android Emulator lets you to test your application on a variety of Android devices. Unlock the full potential of your apps by using responsive layouts that adapt to fit phones, tablets, foldables, Wear OS, TV and ChromeOS devices.
-[Use Android Emulator](http://developer.android.com/studio/run/emulator) [![](http://developer.android.com/static/images/studio/apk-bundle-analyzer.png)](http://developer.android.com/studio/debug/apk-analyzer) Publish
+[Use Android Emulator](http://developer.android.com/studio/run/emulator.md.txt) [![](http://developer.android.com/static/images/studio/apk-bundle-analyzer.png)](http://developer.android.com/studio/debug/apk-analyzer.md.txt) Publish
 
-### [Android App Bundle](http://developer.android.com/studio/debug/apk-analyzer)
+### [Android App Bundle](http://developer.android.com/studio/debug/apk-analyzer.md.txt)
 
-Find opportunities to optimize your Android app size before publishing by inspecting the contents of your app APK file or Android App Bundle. Inspect the manifest file, resources, and DEX files. Compare two APKs or Android App Bundles to see how your app size changed between app versions. [More about the APK Analyzer](http://developer.android.com/studio/debug/apk-analyzer)
+Find opportunities to optimize your Android app size before publishing by inspecting the contents of your app APK file or Android App Bundle. Inspect the manifest file, resources, and DEX files. Compare two APKs or Android App Bundles to see how your app size changed between app versions. [More about the APK Analyzer](http://developer.android.com/studio/debug/apk-analyzer.md.txt)
 
 ### Get started with Android Studio
 
@@ -78,9 +78,9 @@ Find opportunities to optimize your Android app size before publishing by inspec
 
 ## Getting started
 
-Learn how to set up your app development environment, configure Android Studio, and start writing an Android app. [Start using Android Studio](http://developer.android.com/studio/intro) Getting started
+Learn how to set up your app development environment, configure Android Studio, and start writing an Android app. [Start using Android Studio](http://developer.android.com/studio/intro.md.txt) Getting started
 
-### [Install Android Studio](http://developer.android.com/studio/install)
+### [Install Android Studio](http://developer.android.com/studio/install.md.txt)
 
 Android Studio can be installed on Microsoft® Windows®, MacOS®, Linux, and ChromeOS. Learn how to install it in a few simple clicks. Getting started
 
@@ -88,7 +88,7 @@ Android Studio can be installed on Microsoft® Windows®, MacOS®, Linux, and Ch
 
 Learn how to build a simple Android app in Android Studio by creating a "Hello, World!" project. Getting started
 
-### [Configure Android Studio](http://developer.android.com/studio/intro/studio-config)
+### [Configure Android Studio](http://developer.android.com/studio/intro/studio-config.md.txt)
 
 Learn to configure Android Studio according to system requirements, create preferred default settings, customize virtual machine options, and more. Getting started
 
@@ -111,9 +111,9 @@ release notes](https://developer.android.com/studio/releases).
 | ChromeOS | <button class="devsite-dialog-button button-white button-regular" data-modal-dialog-id="studio_chrome_os_bundle_download">android-studio-rabbit2-patch1-cros.deb</button> | 1.3 GB | 2a23f10720adc22047f6a6ebbc2897241017a52021e5b1dd6e0f6f6864cd8ce7 |
 
 More downloads are available in the
-[download archives](https://developer.android.com/studio/archive). For
+[download archives](https://developer.android.com/studio/archive.md.txt). For
 Android Emulator downloads, see the
-[Emulator download archives](https://developer.android.com/studio/emulator_archive).
+[Emulator download archives](https://developer.android.com/studio/emulator_archive.md.txt).
 ![](http://developer.android.com/static/images/studio/wallpapers/wallpaper-preview_2.png)
 
 ### Look! It's some of our favorite Android Studio animals in their natural habitat.

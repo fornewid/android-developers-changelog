@@ -50,7 +50,7 @@ vulnerabilities, systematically inspect each area:
 ## 2. Custom permissions and protection levels
 
 When declaring custom permissions or partner certificates in the manifest, you
-must follow the instructions in the [`<permission>` element guide](https://developer.android.com/guide/topics/manifest/permission-element).
+must follow the instructions in the [`<permission>` element guide](https://developer.android.com/guide/topics/manifest/permission-element.md.txt).
 
 - **`signature`**: Restricts access to apps signed with the same developer key.
 - **`signature|knownSigner`** (API 31+): Restricts access to partner apps whose signing certificate digests match declared hashes in `android:knownCerts`.
@@ -339,7 +339,7 @@ class SecureBoundService : Service() {
 
 When implementing runtime permission requests or handling permission denial
 states, you must follow the instructions in the [Request runtime permissions
-guide](https://developer.android.com/training/permissions/requesting) and [Permissions overview](https://developer.android.com/guide/topics/permissions/overview). Implement a 3-state flow without
+guide](https://developer.android.com/training/permissions/requesting) and [Permissions overview](https://developer.android.com/guide/topics/permissions/overview.md.txt). Implement a 3-state flow without
 caching states or creating infinite retry loops:
 
 1. **Check Granted State** : `ContextCompat.checkSelfPermission(this,
@@ -558,7 +558,7 @@ class ProtectedReceiver : BroadcastReceiver() {
 *Legacy compatibility (Pre-API 34)* : On API 33 and lower, **never** authenticate
 a broadcast sender using `PendingIntent.getCreatorPackage()` or
 `PendingIntent.getCreatorUid()`, because any app that acquires a trusted app's
-`PendingIntent` can attach and send it (see [Sender of Pending Intents](https://developer.android.com/privacy-and-security/risks/sender-of-pending-intents)).
+`PendingIntent` can attach and send it (see [Sender of Pending Intents](https://developer.android.com/privacy-and-security/risks/sender-of-pending-intents.md.txt)).
 Instead, restrict the `<receiver>` with a `signature` or `signature|knownSigner`
 (API 31+) permission in the manifest; if `minSdkVersion` is lower than 31, use a
 bound `Service` or `ContentProvider` and verify `Binder.getCallingUid()`.

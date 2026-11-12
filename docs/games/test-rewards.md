@@ -117,11 +117,10 @@ Play Store:
    user clicks for the reward to be granted again. The third screen
    shows an error state because the first reward hasn't been properly
    processed.](https://developer.android.com/static/images/google/play/billing/play-billing-lab-games-rewards-testing.png) Play Games Rewards testing flow.
-2. **Handle and deliver the entitlement:**
-
-   - Your app should detect the out-of-app purchase (for example, by calling `queryPurchasesAsync` when the game starts or is foregrounded) and then deliver the item to the respective user. For the full process, see [processing purchases](https://developer.android.com/google/play/billing/integrate.md.txt#process).
-   - Verify that Google Play sends a Real-Time Developer Notification (**RTDN**) to your backend server, and that your server calls the Google Play Developer API to acknowledge the purchase and grant the entitlement to the user.
-   - Check the user purchase history in the Play Store app to confirm that a 0 USD transaction is recorded for the reward.
+2. **Handle and deliver the entitlement:** Your app should detect the
+   out-of-app purchase (for example, by calling `queryPurchasesAsync` when the
+   game starts or is foregrounded) and then deliver the item to the respective
+   user. For the full process, see [processing purchases](https://developer.android.com/google/play/billing/integrate.md.txt#process).
 
 ### Step 7: Stop and clear the OOAP test
 
@@ -194,7 +193,7 @@ changes must be synchronized with OOAP testing:
 #### Why wasn't my granted reward delivered in the game?
 
 - **Account consistency:** Verify that the account signed in to Play Billing Lab, the Google Play Store app, and your game is the exact same licensed tester account.
-- **Out-of-app purchase handling:** Check your game's `queryPurchasesAsync` implementation and your backend RTDN webhook and API integration. Because rewards are granted outside your app's standard UI, your game or backend server must detect unacknowledged purchases and process them.
+- **Out-of-app purchase handling:** Check your game's `queryPurchasesAsync` implementation and purchase processing logic. Because rewards are granted outside your app's standard UI, your game or backend server must detect unacknowledged purchases and process them.
 
 #### How do I stop or clear an active test before the 2-hour timer expires?
 

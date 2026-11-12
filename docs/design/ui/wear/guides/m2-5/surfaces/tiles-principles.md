@@ -4,8 +4,6 @@ url: https://developer.android.com/design/ui/wear/guides/m2-5/surfaces/tiles-pri
 source: md.txt
 ---
 
-# Tiles design principles
-
 Tiles provide quick access to information and actions users need to get things
 done. After performing a swipe on the watch face, a user can see how they're
 progressing toward their fitness goals, check the weather, and more. Users can
@@ -25,19 +23,17 @@ tiles to be each of the following:
 
 ## App icon
 
-| **Note:** The app icon is not displayed in any mocks that follow, since it's not part of the tile layout and might be added at a system level.
+> [!NOTE]
+> **Note:** The app icon is not displayed in any mocks that follow, since it's not part of the tile layout and might be added at a system level.
 
 The app icon that may appear at the top of the screen is automatically generated
 by the system from the [launcher icon](https://developer.android.com/develop/ui/views/launch/icon_design_adaptive). Don't make this icon part of your tile's
-layout.  
-![](https://developer.android.com/static/wear/images/surfaces/app-icon-do.png)  
-check_circle
+layout.
+![](https://developer.android.com/static/wear/images/surfaces/app-icon-do.png)
 
 ### Do
 
-Wear OS may display the app icon automatically as the user scrolls through the tile carousel. There is no need to put the app icon in the tile design.  
-![](https://developer.android.com/static/wear/images/surfaces/app-icon-dont.png)  
-cancel
+Wear OS may display the app icon automatically as the user scrolls through the tile carousel. There is no need to put the app icon in the tile design. ![](https://developer.android.com/static/wear/images/surfaces/app-icon-dont.png)
 
 ### Don't
 
@@ -49,14 +45,11 @@ Keep the following guidelines in mind when creating tiles.
 
 ### Focus on a single task
 
-![](https://developer.android.com/static/wear/images/surfaces/tiles-single-task-do.png)  
-check_circle
+![](https://developer.android.com/static/wear/images/surfaces/tiles-single-task-do.png)
 
 ### Do
 
-Focus each tile on a single task, such as **start run.**  
-![](https://developer.android.com/static/wear/images/surfaces/tiles-single-task-dont.png)  
-cancel
+Focus each tile on a single task, such as **start run.** ![](https://developer.android.com/static/wear/images/surfaces/tiles-single-task-dont.png)
 
 ### Don't
 
@@ -72,14 +65,11 @@ and a workout activity tile.
 
 ### Show glanceable representations of graphs and charts
 
-![](https://developer.android.com/static/wear/images/surfaces/tiles-glanceable-do.png)  
-check_circle
+![](https://developer.android.com/static/wear/images/surfaces/tiles-glanceable-do.png)
 
 ### Do
 
-Show quick, glanceable representations of numerical or statistical information and allow the user to tap to see more in an app if needed.  
-![](https://developer.android.com/static/wear/images/surfaces/tiles-glanceable-dont.png)  
-cancel
+Show quick, glanceable representations of numerical or statistical information and allow the user to tap to see more in an app if needed. ![](https://developer.android.com/static/wear/images/surfaces/tiles-glanceable-dont.png)
 
 ### Don't
 
@@ -103,7 +93,7 @@ and step count, Wear OS controls the update rate for you.
 ## Empty states
 
 Tiles have two types of empty states. For both, use
-[`PrimaryLayout`](https://developer.android.com/reference/androidx/wear/tiles/material/layouts/PrimaryLayout).
+[`PrimaryLayout`](https://developer.android.com/reference/androidx/wear/protolayout/material/layouts/PrimaryLayout.md.txt).
 
 
 ![Example of error/permission empty state](https://developer.android.com/static/wear/images/surfaces/tiles-empty-states-1.png)
@@ -111,7 +101,7 @@ Tiles have two types of empty states. For both, use
 **Errors or permission**
 
 Tell the user that they need to update their settings or preferences from the
-tile.  
+tile.
 ![Example of sign in empty state](https://developer.android.com/static/wear/images/surfaces/tiles-empty-states-2.png)
 
 **Sign in**
@@ -124,7 +114,7 @@ Provide a clear call to action on a sign-in tile.
 
 When an app performs a long-running activity---such as tracking a
 workout or playing music---it should show the progress of the
-[ongoing activity](https://developer.android.com/training/wearables/notifications/ongoing-activity) in one of more tiles.
+[ongoing activity](https://developer.android.com/training/wearables/notifications/ongoing-activity.md.txt) in one of more tiles.
 
 If your app also supports tiles that allow users to start these activities,
 do the following to minimize user confusion:
@@ -132,7 +122,8 @@ do the following to minimize user confusion:
 - Indicate that an ongoing activity is already in progress.
 - If the user taps on such a tile, launch your app and show the in-progress activity. Don't start a new instance of an ongoing activity.
 
-| **Note:** Typically, users can't stop an in-progress activity directly from a tile.
+> [!NOTE]
+> **Note:** Typically, users can't stop an in-progress activity directly from a tile.
 
 ![Each tile includes a call to action button at the bottom, allowing users to open the app](https://developer.android.com/static/wear/images/surfaces/tiles-ongoing-activities.png)
 
@@ -148,15 +139,12 @@ do the following to minimize user confusion:
 
 ## Motion on tiles
 
-When you add animations to tiles, help users understand changes:  
-![](https://developer.android.com/static/wear/images/surfaces/tiles-motion-do.gif)  
-check_circle
+When you add animations to tiles, help users understand changes:
+![](https://developer.android.com/static/wear/images/surfaces/tiles-motion-do.gif)
 
 ### Do
 
-Emphasize if you're updating information on a tile, such as progress toward a step count goal.  
-![](https://developer.android.com/static/wear/images/surfaces/tiles-motion-dont.gif)  
-cancel
+Emphasize if you're updating information on a tile, such as progress toward a step count goal. ![](https://developer.android.com/static/wear/images/surfaces/tiles-motion-dont.gif)
 
 ### Don't
 
@@ -171,7 +159,7 @@ representative preview image. That image should meet the following requirements:
 *** ** * ** ***
 
 
-![Example of tile preview](https://developer.android.com/static/wear/images/surfaces/tiles-previews-1.png)  
+![Example of tile preview](https://developer.android.com/static/wear/images/surfaces/tiles-previews-1.png)
 **Requirements**
 
 - Export assets at 400px x 400px.
@@ -187,7 +175,7 @@ representative preview image. That image should meet the following requirements:
 
 ![Example of tile preview in tile manager on Wear OS](https://developer.android.com/static/wear/images/surfaces/tiles-previews-2.png)
 
-A tile preview displayed in tile manager on a Wear OS device.  
+A tile preview displayed in tile manager on a Wear OS device.
 ![Example of tile preview in tile manager on a phone](https://developer.android.com/static/wear/images/surfaces/tiles-previews-3.png)
 
 A tile preview displayed in tile manager on a phone.
@@ -196,14 +184,11 @@ A tile preview displayed in tile manager on a phone.
 
 *** ** * ** ***
 
-![](https://developer.android.com/static/wear/images/surfaces/tiles-previews-do.png)  
-check_circle
+![](https://developer.android.com/static/wear/images/surfaces/tiles-previews-do.png)
 
 ### Do
 
-Emphasize if you're updating information on a tile, such as progress on a step count chart.  
-![](https://developer.android.com/static/wear/images/surfaces/tiles-previews-dont.png)  
-cancel
+Emphasize if you're updating information on a tile, such as progress on a step count chart. ![](https://developer.android.com/static/wear/images/surfaces/tiles-previews-dont.png)
 
 ### Don't
 

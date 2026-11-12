@@ -8,7 +8,7 @@ source: md.txt
 Part of [Android Jetpack](https://developer.android.com/jetpack).
 
 
-Try with Kotlin Multiplatform Kotlin Multiplatform allows sharing the database layer with other platforms. Learn how to set up and work with Room Database in KMP [Set up Room Database for KMP →](https://developer.android.com/kotlin/multiplatform/room) ![](https://developer.android.com/static/images/android-kmp-logo.png)
+Try with Kotlin Multiplatform Kotlin Multiplatform allows sharing the database layer with other platforms. Learn how to set up and work with Room Database in KMP [Set up Room Database for KMP →](https://developer.android.com/kotlin/multiplatform/room.md.txt) ![](https://developer.android.com/static/images/android-kmp-logo.png)
 
 <br />
 
@@ -25,10 +25,10 @@ Room provides the following benefits:
 - Convenience annotations that minimize repetitive and error-prone boilerplate code.
 - Streamlined database migration paths.
 
-We recommend using Room instead of [using the SQLite APIs directly](https://developer.android.com/training/data-storage/sqlite).
+We recommend using Room instead of [using the SQLite APIs directly](https://developer.android.com/training/data-storage/sqlite.md.txt).
 
 > [!NOTE]
-> **Note:** Room is designed for on-device data persistence. If your app needs to synchronize data across multiple devices, support real-time collaboration, or connect to a cloud backend with offline support, you can pair Room with [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent) and a custom backend, or use managed cloud solutions such as [Cloud Firestore](https://firebase.google.com/docs/firestore) or [Firebase SQL Connect](https://firebase.google.com/docs/sql-connect). For more information, see [Custom versus managed synchronization](https://developer.android.com/topic/architecture/data-layer/offline-first#custom-vs-managed).
+> **Note:** Room is designed for on-device data persistence. If your app needs to synchronize data across multiple devices, support real-time collaboration, or connect to a cloud backend with offline support, you can pair Room with [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent.md.txt) and a custom backend, or use managed cloud solutions such as [Cloud Firestore](https://firebase.google.com/docs/firestore) or [Firebase SQL Connect](https://firebase.google.com/docs/sql-connect). For more information, see [Custom versus managed synchronization](https://developer.android.com/topic/architecture/data-layer/offline-first.md.txt#custom-vs-managed).
 
 ## Setup
 
@@ -62,9 +62,9 @@ dependencies {
 
 There are three major components in Room:
 
-- The [database class](https://developer.android.com/reference/kotlin/androidx/room3/Database) that holds the database and serves as the main access point for the underlying connection to your app's persisted data.
-- The [data entities](https://developer.android.com/training/data-storage/room/defining-data) that represent tables in your app's database.
-- The [data access objects (DAOs)](https://developer.android.com/training/data-storage/room/accessing-data) that provide functions that your app can use to query, update, insert, and delete data in the database.
+- The [database class](https://developer.android.com/reference/kotlin/androidx/room3/Database.md.txt) that holds the database and serves as the main access point for the underlying connection to your app's persisted data.
+- The [data entities](https://developer.android.com/training/data-storage/room/defining-data.md.txt) that represent tables in your app's database.
+- The [data access objects (DAOs)](https://developer.android.com/training/data-storage/room/accessing-data.md.txt) that provide functions that your app can use to query, update, insert, and delete data in the database.
 
 The database class provides your app with instances of the DAOs associated with
 that database. In turn, the app can use the DAOs to retrieve data from the
@@ -143,8 +143,8 @@ The following code defines an `AppDatabase` class to hold the database.
 access point to the persisted data. The database class must satisfy the
 following conditions:
 
-- The class must be annotated with a [`@Database`](https://developer.android.com/reference/kotlin/androidx/room3/Database) annotation that includes an [`entities`](https://developer.android.com/reference/kotlin/androidx/room3/Database#entities()) array that lists all of the data entities associated with the database.
-- The class must be an abstract class that extends [`RoomDatabase`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase).
+- The class must be annotated with a [`@Database`](https://developer.android.com/reference/kotlin/androidx/room3/Database.md.txt) annotation that includes an [`entities`](https://developer.android.com/reference/kotlin/androidx/room3/Database.md.txt#entities()) array that lists all of the data entities associated with the database.
+- The class must be an abstract class that extends [`RoomDatabase`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.md.txt).
 - For each DAO class associated with the database, the database class must define an abstract function that takes no arguments and returns an instance of the DAO class.
 
 

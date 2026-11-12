@@ -4,11 +4,11 @@ url: https://developer.android.com/blog/posts/how-calm-reimagined-mindfulness-fo
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # How Calm Reimagined Mindfulness for Android XR
 
-4 min read ![](https://developer.android.com/static/blog/assets/how_Calm_edf30223a8_Z7VLxu.webp) 30 Oct 2025 [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)](https://developer.android.com/blog/authors/stevan-silva) [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva) Group Product Manager [Calm](https://play.google.com/store/apps/details?id=com.calm.android) is a leading mental health and wellness company with over 180 million downloads. When they started their development for[Android XR,](https://developer.android.com/xr) their core engineering team was able to build their first functional XR orbiter menus on Day 1 and a core experience in just two weeks. This demonstrates that building for XR can be an [extension of existing Android development work,](https://developer.android.com/adaptive-apps) not something that has to be started from scratch. As a company dedicated to helping users sleep better, stress less, and live more mindfully, their extensive library has made Calm a trusted source for well-being content on Android.
+4 min read ![](https://developer.android.com/static/blog/assets/how_Calm_edf30223a8_Z7VLxu.webp) 30 Oct 2025 [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)](https://developer.android.com/blog/authors/stevan-silva.md.txt) [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva.md.txt) Group Product Manager [Calm](https://play.google.com/store/apps/details?id=com.calm.android) is a leading mental health and wellness company with over 180 million downloads. When they started their development for[Android XR,](https://developer.android.com/xr) their core engineering team was able to build their first functional XR orbiter menus on Day 1 and a core experience in just two weeks. This demonstrates that building for XR can be an [extension of existing Android development work,](https://developer.android.com/adaptive-apps) not something that has to be started from scratch. As a company dedicated to helping users sleep better, stress less, and live more mindfully, their extensive library has made Calm a trusted source for well-being content on Android.
 [Video](https://www.youtube.com/watch?v=yUx8T06arKQ)
 
 With the introduction of the [Android XR platform](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html), the Calm team saw an opportunity to not just optimize their existing Android app, but to truly create the next generation of immersive experiences.
@@ -27,11 +27,11 @@ We wanted to create a version of Calm that couldn't exist anywhere else, a seren
 
 ***Q: For developers who might think building for XR is a massive undertaking, what was your initial approach to bringing your existing Android app over?***
 
-**A (Jamie Martini, Sr. Manager of Engineering):** Our main goal was to [adapt our Android app](https://developer.android.com/develop/ui/compose/build-adaptive-apps) for XR and honestly, the process felt easy and seamless.
+**A (Jamie Martini, Sr. Manager of Engineering):** Our main goal was to [adapt our Android app](https://developer.android.com/develop/ui/compose/build-adaptive-apps.md.txt) for XR and honestly, the process felt easy and seamless.
 
-We already use [Jetpack Compose](https://developer.android.com/develop/ui/compose/documentation) extensively for our mobile app, so expanding that expertise into XR was the natural choice. It felt like extending our Android development, not starting from scratch. We were able to reuse a lot of our existing codebase, including our backend, media playback, and other core components, which dramatically cut down on the initial work.
+We already use [Jetpack Compose](https://developer.android.com/develop/ui/compose/documentation.md.txt) extensively for our mobile app, so expanding that expertise into XR was the natural choice. It felt like extending our Android development, not starting from scratch. We were able to reuse a lot of our existing codebase, including our backend, media playback, and other core components, which dramatically cut down on the initial work.
 
-The [Android XR design guides](https://developer.android.com/design/ui/xr/guides) provided valuable context throughout the process, helping both our design and development teams shape Calm's mobile-first UX into something natural and intuitive for a spatial experience.
+The [Android XR design guides](https://developer.android.com/design/ui/xr/guides.md.txt) provided valuable context throughout the process, helping both our design and development teams shape Calm's mobile-first UX into something natural and intuitive for a spatial experience.
 
 ***Q: You noted the process felt seamless. How quickly was your team able to start building and iterating on the core XR experience?***
 
@@ -64,49 +64,49 @@ We quickly realized that in a multisensory environment, restraint was incredibly
 
 **A (Jamie Martini, Sr. Manager of Engineering)**: This project was the first step into immersive platforms for our Android engineering team, and we were pleasantly surprised. The APIs were very easy to learn and use and felt consistent with other Jetpack libraries.
 
-My advice to other developers? Begin by integrating the[Jetpack XR APIs](https://developer.android.com/develop/xr/jetpack-xr-sdk) into your existing Android app and reusing as much of your existing code as possible. That is the quickest way to get a functional prototype.
+My advice to other developers? Begin by integrating the[Jetpack XR APIs](https://developer.android.com/develop/xr/jetpack-xr-sdk.md.txt) into your existing Android app and reusing as much of your existing code as possible. That is the quickest way to get a functional prototype.
 
 **A (Kristen Coke, Lead Product Manager)**: Think as big as possible. Android XR gave us a whole new world to build our app within. Teams should ask themselves: What is the biggest, boldest version of your experience that you could possibly build? This is your opportunity to finally put into action what you've always wanted to do, because now, you have the platform that can make it real.
 ![calm4.png](https://developer.android.com/static/blog/assets/calm4_7e5a953563_Zt3Thn.webp)
 
 **Building the next generation of spatial experiences**
 
-The work the Calm team has done showcases how building on the [Android XR platform](https://developer.android.com/xr) can be a natural extension of your existing Android expertise. By leveraging the [Jetpack XR SDKs](https://developer.android.com/develop/xr/jetpack-xr-sdk), Calm quickly evolved their core mobile features into a stunning spatial experience.
+The work the Calm team has done showcases how building on the [Android XR platform](https://developer.android.com/xr) can be a natural extension of your existing Android expertise. By leveraging the [Jetpack XR SDKs](https://developer.android.com/develop/xr/jetpack-xr-sdk.md.txt), Calm quickly evolved their core mobile features into a stunning spatial experience.
 
 If you're ready to get started, you can find all the resources you need at[developer.android.com/xr](https://developer.android.com/xr). Head over there to download the latest SDK, explore our documentation, and start building today.
 Written by:
 
 -
 
-  ## [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva)
+  ## [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva.md.txt)
 
   ###### Group Product Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/stevan-silva) ![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp) ![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)
 Continue reading
-- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) 11 Nov 2026 11 Nov 2026 ![](https://developer.android.com/static/blog/assets/1007_ABL_134_How_Smile_ID_Scaled_Identity_Verification_with_Camera_X_Strapi_788bf73f23_1N5Hb5.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time)
+  ## [How SmileID Scaled Identity Verification to 18,000+ Android Device Types with CameraX](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- [![View Pavlo Stavytskyi's profile](https://developer.android.com/static/blog/assets/pavlo_a4e2ec12e9_v4xs2.webp)](https://developer.android.com/blog/authors/pavlo-stavytskyi)[![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)](https://developer.android.com/blog/authors/rebecca-franks) 30 Sep 2026 30 Sep 2026 ![](https://developer.android.com/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt) Identity verification apps for banking and SIM registration require clear, high-resolution face captures to detect spoofing and deepfakes. Capturing frames sharp enough for liveness and anti-spoofing checks, without crashing low-memory devices, is a common challenge for Android camera develope
+  [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) • 4 min read
+  - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
+- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct)
+  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct) The team built an AI-native UI codebase that is 50% smaller than the original implementation, while achieving a 35% reduction in AI agent execution time, 32% fewer engineer-agent exchanges, and a 33% reduction in token cost.
-  [Pavlo Stavytskyi](https://developer.android.com/blog/authors/pavlo-stavytskyi), [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks) • 11 min read
-  - [#Compose-first](https://developer.android.com/blog/topics/compose-first)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+- [![View Pavlo Stavytskyi's profile](https://developer.android.com/static/blog/assets/pavlo_a4e2ec12e9_v4xs2.webp)](https://developer.android.com/blog/authors/pavlo-stavytskyi.md.txt)[![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)](https://developer.android.com/blog/authors/rebecca-franks.md.txt) 30 Sep 2026 30 Sep 2026 ![](https://developer.android.com/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+  ## [How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
-  - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
+  [arrow_forward](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct.md.txt) The team built an AI-native UI codebase that is 50% smaller than the original implementation, while achieving a 35% reduction in AI agent execution time, 32% fewer engineer-agent exchanges, and a 33% reduction in token cost.
+  [Pavlo Stavytskyi](https://developer.android.com/blog/authors/pavlo-stavytskyi.md.txt), [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks.md.txt) • 11 min read
+  - [#Compose-first](https://developer.android.com/blog/topics/compose-first.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
 Stay in the loop
 
 

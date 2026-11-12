@@ -46,7 +46,7 @@ Learn how to simplify auth journeys using Credential Manager API in your Android
 
 Introduce passkeys at the right moment to help users stay engaged and adopt this new sign-in method.
 
-[Read article](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys)
+[Read article](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys.md.txt)
 
 ## Sign in your user with Credential Manager
 
@@ -55,10 +55,10 @@ Introduce passkeys at the right moment to help users stay engaged and adopt this
 Review the official developer guides for Credential Manager. Become familiar with where to find deeper information on important topics, such as:
 
 - [Authenticate users with Credential Manager](https://developer.android.com/identity/sign-in/credential-manager)
-- [Integrate Credential Manager with autofill](https://developer.android.com/identity/autofill/credential-manager-autofill)
-- [Integrate single tap passkey creation and sign-in with biometric prompts](https://developer.android.com/identity/sign-in/single-tap-biometric)
-- [Migrate from FIDO2 to Credential Manager](https://developer.android.com/identity/sign-in/fido2-migration)
-- [Restore app credentials for new devices](https://developer.android.com/identity/sign-in/restore-credentials)
+- [Integrate Credential Manager with autofill](https://developer.android.com/identity/autofill/credential-manager-autofill.md.txt)
+- [Integrate single tap passkey creation and sign-in with biometric prompts](https://developer.android.com/identity/sign-in/single-tap-biometric.md.txt)
+- [Migrate from FIDO2 to Credential Manager](https://developer.android.com/identity/sign-in/fido2-migration.md.txt)
+- [Restore app credentials for new devices](https://developer.android.com/identity/sign-in/restore-credentials.md.txt)
 
 And more!
 

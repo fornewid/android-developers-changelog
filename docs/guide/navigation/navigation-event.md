@@ -39,7 +39,7 @@ dispatcher and are invoked based on priority and registration order.
 
 ### `NavigationEvent`
 
-[`NavigationEvent`](https://developer.android.com/reference/androidx/navigationevent/NavigationEvent.md.txt) is a data class that carries the details of the
+[`NavigationEvent`](https://developer.android.com/reference/androidx/navigationevent/NavigationEvent.md.txt) is a class that carries the details of the
 navigation gesture.
 
 ### `NavigationEventInfo`

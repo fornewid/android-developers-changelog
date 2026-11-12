@@ -38,10 +38,10 @@ The following sample shows a `PreviewView` in a layout:
 
 ```xml
 <FrameLayout
-    android:id="@+id/conta>iner"<;
-        androidx.camera.view.PreviewView
-            android:id="@+id>/<previewView&>quot; /
-/FrameLayout
+    android:id="@+id/container">
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView" />
+</FrameLayout>
 ```
 
 ### Request a CameraProvider
