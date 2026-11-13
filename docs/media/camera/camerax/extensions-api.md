@@ -38,11 +38,10 @@ method with the `CameraSelector` extension enabled.
 To implement the extension for the image capture and preview use cases,
 refer to the following code sample:
 
-### Kotlin
 
 ```kotlin
-import androidx.camera.extensions.ExtensionMode
-import androidx.camera.extensions.ExtensionsManager
+// import androidx.camera.extensions.ExtensionMode
+// import androidx.camera.extensions.ExtensionsManager
 
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -51,7 +50,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
     val cameraProviderFuture = ProcessCameraProvider.getInstance(applicationContext)
     cameraProviderFuture.addListener({
-        // Obtain an instance of a process camera provider
+        // Obtain an instance of a process camera provider.
         // The camera provider provides access to the set of cameras associated with the device.
         // The camera obtained from the provider will be bound to the activity lifecycle.
         val cameraProvider = cameraProviderFuture.get()
@@ -59,12 +58,12 @@ override fun onCreate(savedInstanceState: Bundle?) {
         val extensionsManagerFuture =
             ExtensionsManager.getInstanceAsync(applicationContext, cameraProvider)
         extensionsManagerFuture.addListener({
-            // Obtain an instance of the extensions manager
+            // Obtain an instance of the extensions manager.
             // The extensions manager enables a camera to use extension capabilities available on
             // the device.
             val extensionsManager = extensionsManagerFuture.get()
 
-            // Select the camera
+            // Select the camera.
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
             // Query if extension is available.
@@ -75,7 +74,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
                 try {
                     cameraProvider.unbindAll()
 
-                    // Retrieve a night extension enabled camera selector
+                    // Retrieve a night extension enabled camera selector.
                     val nightCameraSelector =
                         extensionsManager.getExtensionEnabledCameraSelector(
                             cameraSelector,
@@ -91,8 +90,8 @@ override fun onCreate(savedInstanceState: Bundle?) {
                     // or SurfaceView. The SurfaceProvider can be obtained from the PreviewView.
                     preview.setSurfaceProvider(surfaceProvider)
 
-                    // Returns an instance of the camera bound to the lifecycle
-                    // Use this camera object to control various operations with the camera
+                    // Returns an instance of the camera bound to the lifecycle.
+                    // Use this camera object to control various operations with the camera.
                     // Example: flash, zoom, focus metering etc.
                     val camera = cameraProvider.bindToLifecycle(
                         lifecycleOwner,
@@ -109,83 +108,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-### Java
-
-```java
-import androidx.camera.extensions.ExtensionMode;
-import androidx.camera.extensions.ExtensionsManager;
-
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-    final LifecycleOwner lifecycleOwner = this;
-
-    final ListenableFuture cameraProviderFuture =
-            ProcessCameraProvider.getInstance(getApplicationContext());
-
-    cameraProviderFuture.addListener(() -> {
-      try {
-          // Obtain an instance of a process camera provider
-          // The camera provider provides access to the set of cameras associated with the
-          // device. The camera obtained from the provider will be bound to the activity
-          // lifecycle.
-          final ProcessCameraProvider cameraProvider = cameraProviderFuture.get();
-
-          final ListenableFuture extensionsManagerFuture =
-                  ExtensionsManager.getInstanceAsync(getApplicationContext(), cameraProvider);
-          extensionsManagerFuture.addListener(() -> {
-              // Obtain an instance of the extensions manager
-              // The extensions manager enables a camera to use extension capabilities available
-              // on the device.
-              try {
-                  final ExtensionsManager extensionsManager = extensionsManagerFuture.get();
-
-                  // Select the camera
-                  final CameraSelector cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA;
-
-                  // Query if extension is available.
-                  // Not all devices will support extensions or might only support a subset of
-                  // extensions.
-                  if (extensionsManager.isExtensionAvailable(
-                          cameraSelector,
-                          ExtensionMode.NIGHT
-                  )) {
-                      // Unbind all use cases before enabling different extension modes.
-                      cameraProvider.unbindAll();
-
-                      // Retrieve extension enabled camera selector
-                      final CameraSelector nightCameraSelector = extensionsManager
-                              .getExtensionEnabledCameraSelector(cameraSelector, ExtensionMode.NIGHT);
-
-                      // Bind image capture and preview use cases with the extension enabled camera
-                      // selector.
-                      final ImageCapture imageCapture = new ImageCapture.Builder().build();
-                      final Preview preview = new Preview.Builder().build();
-                      // Connect the preview to receive the surface the camera outputs the frames
-                      // to. This will allow displaying the camera frames in either a TextureView
-                      // or SurfaceView. The SurfaceProvider can be obtained from the PreviewView.
-                      preview.setSurfaceProvider(surfaceProvider);
-
-                      cameraProvider.bindToLifecycle(
-                              lifecycleOwner,
-                              nightCameraSelector,
-                              imageCapture,
-                              preview
-                      );
-                  }
-              } catch (ExecutionException | InterruptedException e) {
-                  throw new RuntimeException(e);
-              }
-          }, ContextCompat.getMainExecutor(this));
-
-      } catch (ExecutionException | InterruptedException e) {
-          throw new RuntimeException(e);
-      }
-
-  }, ContextCompat.getMainExecutor(this));
-}
-```
+<br />
 
 ## Disable the extension
 

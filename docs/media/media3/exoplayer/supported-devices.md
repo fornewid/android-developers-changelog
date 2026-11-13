@@ -4,6 +4,8 @@ url: https://developer.android.com/media/media3/exoplayer/supported-devices
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/media3/exoplayer/llms.txt
+
 The minimum Android versions required for core ExoPlayer use cases are:
 
 | Use case | Android version | API level |
@@ -38,4 +40,5 @@ Android Studio) supports ExoPlayer. The level of support provided by third-party
 emulators varies. Issues running ExoPlayer on third-party emulators should be
 reported to the developer of the emulator rather than to the ExoPlayer team.
 Where possible, we recommend testing media apps on physical devices rather than
-emulators.
+emulators. For more information about writing automated local and device
+playback tests, see the [testing guide](https://developer.android.com/media/media3/exoplayer/testing.md.txt).

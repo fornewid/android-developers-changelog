@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/releases/past-releases/as-3-0-0-releas
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/releases/past-releases/llms.txt
+
 <br />
 
 # Android Studio 3.0 (October 2017)
@@ -26,13 +28,13 @@ fixes and performance improvements.
 
 ## Android Plugin for Gradle 3.0.0
 
-The new [Android plugin for Gradle](https://developer.android.com/studio/releases/gradle-plugin)
+The new [Android plugin for Gradle](https://developer.android.com/build/releases/agp-3-0-0-release-notes.md.txt)
 includes a variety of improvements and new features, but it primarily improves
 build performance for projects that have a large number of modules. When using
 the new plugin with these large projects, you should experience the following:
 
 - Faster build configuration times due to new delayed dependency resolution.
-- [Variant-aware dependency resolution](https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration#variant_aware) for only the projects and variants you are building.
+- [Variant-aware dependency resolution](https://developer.android.com/build/build-variants.md.txt#variant_aware) for only the projects and variants you are building.
 - Faster incremental build times when applying simple changes to code or resources.
 
 Note: These improvements required significant changes that break some of the
@@ -43,15 +45,15 @@ This version also includes the following:
 
 - Support for Android 8.0.
 - Support for building separate APKs based on language resources.
-- Support for [Java 8 libraries and Java 8 language features](https://developer.android.com/studio/write/java8-support) (without the Jack compiler).
-- Support for Android Test Support Library 1.0 (Android Test Utility and [Android Test Orchestrator](https://developer.android.com/training/testing/junit-runner#using-android-test-orchestrator)).
+- Support for [Java 8 libraries and Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt) (without the Jack compiler).
+- Support for Android Test Support Library 1.0 (Android Test Utility and [Android Test Orchestrator](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/runner.md.txt#use-android)).
 - Improved ndk-build and cmake build speeds.
 - Improved Gradle sync speed.
 - AAPT2 is now enabled by default.
-- Using `ndkCompile` is now more restricted. You should instead migrate to using either CMake or ndk-build to compile native code that you want to package into your APK. To learn more, read [Migrate from ndkcompile](https://developer.android.com/studio/projects/add-native-code#ndkCompile).
+- Using `ndkCompile` is now more restricted. You should instead migrate to using either CMake or ndk-build to compile native code that you want to package into your APK. To learn more, read [Migrate from ndkcompile](https://developer.android.com/studio/projects/add-native-code.md.txt).
 
 For more information about what's changed, see the [Android Plugin for Gradle
-release notes](https://developer.android.com/studio/releases/gradle-plugin#3-0-0).
+release notes](https://developer.android.com/build/releases/agp-3-0-0-release-notes).
 
 If you're ready to upgrade to the new plugin, see
 [Migrate to Android Plugin for Gradle 3.0.0](https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration).
@@ -83,14 +85,14 @@ read how to [add Kotlin to your project](https://developer.android.com/studio/pr
 
 You can now use certain Java 8 language features and
 consume libraries built with Java 8. **Jack is no longer required** , and you
-should first [disable Jack](https://developer.android.com/studio/write/java8-support#disable_jack)
+should first [disable Jack](https://developer.android.com/studio/write/java8-support.md.txt)
 to use the improved Java 8 support built into the default toolchain.
 
 To update your project to support the new Java 8 language toolchain,
 update the **Source Compatibility** and **Target Compatibility** to 1.8
 in the **Project Structure** dialog (click **File \> Project Structure** ).
 To learn more, read how to
-[use Java 8 language features](https://developer.android.com/studio/write/java8-support).
+[use Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt).
 ![](https://developer.android.com/static/studio/images/projects/project-java-compatibility_2x.png)
 
 ## Android Profiler
@@ -121,7 +123,7 @@ The CPU Profiler helps you analyze the CPU thread usage of your app by
 triggering a sample or instrumented CPU trace. Then, you can
 troubleshoot CPU performance issues using a variety of data views and filters.
 
-For more information, see the [CPU Profiler guide](https://developer.android.com/studio/profile/cpu-profiler).
+For more information, see the [CPU Profiler guide](https://developer.android.com/studio/profile/cpu-profiler.md.txt).
 ![](https://developer.android.com/static/studio/images/releases/cpu-profiler_2x.png)
 
 ### Memory Profiler
@@ -151,7 +153,7 @@ For more information, see the [Network Profiler guide](https://developer.android
 
 Android Studio now allows you to **profile and debug any
 APK** without having to build it from an Android Studio project---as long as the
-APK is built to [enable debugging](https://developer.android.com/studio/debug#enable-debug) and
+APK is built to [enable debugging](https://developer.android.com/studio/debug.md.txt#enable-debug) and
 you have access to the debug symbols and source files.
 
 To get started, click **Profile or debug APK** from the
@@ -162,7 +164,7 @@ So, to properly add breakpoints and view stack traces,
 you need to attach Java source files and native debug symbols.
 
 For more information, see
-[Profile and Debug Pre-built APKs](https://developer.android.com/studio/debug/apk-debugger).
+[Profile and Debug Pre-built APKs](https://developer.android.com/studio/debug/apk-debugger.md.txt).
 ![](https://developer.android.com/static/studio/images/debug/apk-debugging_2x.png)
 
 <br />
@@ -178,7 +180,7 @@ This replaces the filesystem tool available in DDMS.
 To open, click **View \> Tool Windows \> Device File Explorer**.
 
 For more information, see the
-[Device File Explorer guide](https://developer.android.com/studio/debug/device-file-explorer).
+[Device File Explorer guide](https://developer.android.com/studio/debug/device-file-explorer.md.txt).
 ![](https://developer.android.com/static/studio/images/debug/device-file-explorer_2x.png)
 
 <br />
@@ -189,7 +191,7 @@ For more information, see the
 
 New support for Android Instant Apps allows you to create Instant Apps in your
 project using **two new module types** : Instant App modules and Feature modules
-(these require that you [install the Instant Apps Development SDK](https://developer.android.com/topic/instant-apps/getting-started/setup#setup-sdk)).
+(these require that you [install the Instant Apps Development SDK](https://developer.android.com/topic/google-play-instant/getting-started/instant-enabled-app-bundle.md.txt#set-up-dev-env)).
 ![](https://developer.android.com/static/studio/images/projects/instant-apps-module_2x.png)
 
 Android Studio also includes a **new modularize refactoring action** to help you
@@ -281,7 +283,7 @@ buttons to test your public and personal content indexing:
 
 ## Android App Links Assistant
 
-The [App Links Assistant](https://developer.android.com/studio/write/app-link-indexing)
+The [App Links Assistant](https://developer.android.com/studio/write/app-link-indexing.md.txt)
 has been updated with the following new capabilities:
 
 - **Add URL tests** for each URL mapping to be sure your intent filters
@@ -312,14 +314,17 @@ To declare a test URL
 for an intent filter, add a `<tools:validation>` element alongside the
 corresponding `<intent-filter>` element. For example:
 
-          <activity ...>
-              <intent-filter>
-                  ...
-              </intent-filter>
-              <tools:validation testUrl="https://www.example.com/recipe/1138" />
-          </activity>
-        
-        
+```xml
+      <activity ...>
+          <intent-filter>
+              ...
+          </intent-filter>
+          <tools:validation testUrl="https://www.example.com/recipe/1138" />
+      </activity>
+    
+    
+```
+
 Be sure to also include `xmlns:tools="http://schemas.android.com/tools"` in
 the `<manifest>` tag.
 
@@ -334,7 +339,7 @@ but it will break your release builds.
 
 ## Layout Editor
 
-The [Layout Editor](https://developer.android.com/studio/write/layout-editor) has been updated
+The [Layout Editor](https://developer.android.com/studio/views/layout-editor.md.txt) has been updated
 with a number of enhancements, including the following:
 
 - New toolbar layout and icons.
@@ -355,7 +360,7 @@ with a number of enhancements, including the following:
 
 ## Layout Inspector
 
-The [Layout Inspector](https://developer.android.com/studio/debug/layout-inspector) includes
+The [Layout Inspector](https://developer.android.com/studio/debug/layout-inspector.md.txt) includes
 enhancements to make it easier to debug issues with your app layouts, including
 grouping properties into common categories and new search functionality in both
 the **View Tree** and the **Properties** panes.
@@ -380,7 +385,7 @@ The APK Analyzer has also been updated with the following improvements:
 - New filtering options at the top to show and hide fields and methods.
 - In the tree view, nodes that are references not defined in the DEX file appear in italics.
 
-For more information, see [Analyze Your Build with APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer).
+For more information, see [Analyze Your Build with APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer.md.txt).
 
 <br />
 
@@ -399,8 +404,11 @@ having the same or better app runtime performance.
 
 To try it, set the following in your project's `gradle.properties` file:
 
-    android.enableD8=true
-        
+```none
+android.enableD8=true
+    
+```
+
 For more information, see the [blog post about the D8 compiler](https://android-developers.googleblog.com/2017/08/next-generation-dex-compiler-now-in.html).
 
 <br />
@@ -419,14 +427,17 @@ All new projects now include the Google Maven repository by default. To update
 your existing project, add `google()` in the `repositories` block of the
 top-level `build.gradle` file:
 
-          allprojects {
-              repositories {
-                  google()
-              }
+```none
+      allprojects {
+          repositories {
+              google()
           }
-        
-        
-Learn more about [Google's Maven repository here](https://developer.android.com/studio/build/dependencies#google-maven).
+      }
+    
+    
+```
+
+Learn more about [Google's Maven repository here](https://developer.android.com/build/remote-repositories.md.txt#google-maven).
 
 <br />
 
@@ -434,9 +445,9 @@ Learn more about [Google's Maven repository here](https://developer.android.com/
 
 ## Other changes
 
-- Native debugging with Android Studio no longer supports 32-bit Windows. We've chosen to focus on other platforms because very few developers are using this platform. If you are using 32-bit Windows and you plan to debug native code, you should keep using [Android Studio 2.3](https://developer.android.com/studio/archive#android-studio-2-3-3).
+- Native debugging with Android Studio no longer supports 32-bit Windows. We've chosen to focus on other platforms because very few developers are using this platform. If you are using 32-bit Windows and you plan to debug native code, you should keep using [Android Studio 2.3](https://developer.android.com/studio/archive.md.txt#android-studio-2-3-3).
 - Upgraded the base IDE to [IntelliJ 2017.1.2](https://confluence.jetbrains.com/display/IDEADEV/IntelliJ+IDEA+2017.1.2+Release+Notes), which adds a number of new features from [2016.3](https://www.jetbrains.com/idea/whatsnew/#v2016-3) and [2017.1](https://blog.jetbrains.com/idea/2017/02/intellij-idea-2017-1-public-preview-java-9-debugger-vcs-search-editor-and-many-more/), such as Java 8 language refactoring, parameter hints, semantic highlighting, draggable breakpoints, instant results in search, and much more.
 - Added many new lint checks.
-- Also see the latest [Android Emulator updates](https://developer.android.com/studio/releases/emulator).
+- Also see the latest [Android Emulator updates](https://developer.android.com/studio/releases/emulator.md.txt).
 
 <br />

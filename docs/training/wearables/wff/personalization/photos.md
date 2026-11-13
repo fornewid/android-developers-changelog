@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/wff/personalization/photos
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/wff/personalization/llms.txt
+
 **Note**: This feature is available on version 4 and higher of Watch Face
 Format.
 
@@ -83,7 +85,7 @@ In the preceding example, both `TAP` and `ON_VISIBLE` are specified, meaning
 that the photo changes in response *either* to a user tapping the photo *or*
 in response to the photo becoming visible.
 
-1. The `changeAfterEvery` attribute applies only to the `ON_VISIBLE` change event, specifing how many times the photo should have become visible before the photo is changed. For example, you may feel that changing the photo every time the user wakes their watch is too frequent. The default value here is 3.
+1. The `changeAfterEvery` attribute applies only to the `ON_VISIBLE` change event, specifying how many times the photo should have become visible before the photo is changed. For example, you might feel that changing the photo every time the user wakes their watch is too frequent. The default value here is 3.
 
 For more details on working with `PhotosConfiguration`, see the samples on
 GitHub.

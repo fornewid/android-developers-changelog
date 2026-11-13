@@ -4,6 +4,8 @@ url: https://developer.android.com/build/publish-library/configure-test-fixtures
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/publish-library/llms.txt
+
 While publishing test fixtures doesn't require any particular configuration
 of the publication, the
 [capability mechanism](https://docs.gradle.org/current/userguide/component_capabilities.html)

@@ -4,6 +4,8 @@ url: https://developer.android.com/build/remote-repositories
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/llms.txt
+
 When your dependency is something other than a local library or file tree,
 Gradle looks for the files in whichever online repositories are specified in the
 `dependencyResolutionManagement { repositories {...} }` block of your
@@ -12,9 +14,9 @@ the order in which Gradle searches the repositories for each project dependency.
 For example, if a dependency is available from both repository A and B, and you
 list A first, Gradle downloads the dependency from repository A.
 
-By default, new Android Studio projects specify [Google's Maven repository](https://developer.android.com/build/remote-repositories#google-maven), and the
-[Maven central repository](https://search.maven.org/) as
-repository locations in the project's `settings.gradle` file, as shown below:
+By default, new Android Studio projects specify [Google's Maven repository](https://developer.android.com/build/remote-repositories.md.txt#google-maven),
+and the [Maven central repository](https://search.maven.org/) as repository locations in the
+project's `settings.gradle` file, as shown in the following example:
 
 ### Kotlin
 
@@ -41,8 +43,7 @@ dependencyResolutionManagement {
 ```
 
 > [!WARNING]
-> **Warning:** The JCenter repository, which was included by default in the past, became read-only on March 31st, 2021. For more information, see [JCenter service
-> update](https://developer.android.com/studio/build/jcenter-migration).
+> **Warning:** The JCenter repository, which was included by default in the past, became read-only on March 31st, 2021. For more information, see [JCenter service update](https://developer.android.com/studio/build/jcenter-migration).
 
 If you want something from a local repository use `mavenLocal()`:
 
@@ -106,28 +107,26 @@ dependencyResolutionManagement {
 }
 ```
 
-For more information, see the
-[Gradle Repositories guide](https://docs.gradle.org/current/userguide/dependency_management.html#sec:repositories).
+For more information, see the [Gradle Repositories guide](https://docs.gradle.org/current/userguide/dependency_management.html#sec:repositories).
 
 ## Google's Maven repository
 
 The most recent versions of the following Android libraries are available from
 Google's Maven repository:
 
-- [AndroidX Libraries](https://developer.android.com/jetpack/androidx)
+- [AndroidX Libraries](https://developer.android.com/jetpack/androidx.md.txt)
 - [Architecture Components Library](https://developer.android.com/topic/libraries/architecture)
 - [Constraint Layout Library](https://developer.android.com/training/constraint-layout)
-- [AndroidX Test](https://developer.android.com/training/testing)
-- [Databinding Library](https://developer.android.com/topic/libraries/data-binding)
+- [AndroidX Test](https://developer.android.com/training/testing.md.txt)
+- [Databinding Library](https://developer.android.com/topic/libraries/data-binding.md.txt)
 - [Android Instant App Library](https://developer.android.com/topic/instant-apps)
 - [Wear OS](https://developer.android.com/training/building-wearables)
 - [Google Play services](https://developers.google.com/android/guides/setup)
-- [Google Play Billing Library](https://developer.android.com/google/play/billing)
+- [Google Play Billing Library](https://developer.android.com/google/play/billing.md.txt)
 - [Firebase](https://firebase.google.com/docs/android/setup)
 
-You can see all available artifacts at
-[Google's Maven repository index](https://maven.google.com)
-(see below for [programmatic access](https://developer.android.com/build/remote-repositories#gmaven-access)).
+You can see all available artifacts at [Google's Maven repository index](https://maven.google.com).
+(For programmatic access, see [Programmatic access](https://developer.android.com/build/remote-repositories.md.txt#gmaven-access).)
 
 To add one of these libraries to your build, include Google's Maven repository
 in your top-level `build.gradle.kts` file:
@@ -168,9 +167,8 @@ dependencyResolutionManagement {
 }
 ```
 
-Then add the desired library to your module's `dependencies` block.
-For example,the [appcompat library](https://developer.android.com/jetpack/androidx/releases/appcompat)
-looks like this:
+Then add your chosen library to your module's `dependencies` block. For
+example, the [appcompat library](https://developer.android.com/jetpack/androidx/releases/appcompat.md.txt) looks like this:
 
 ### Kotlin
 
@@ -188,9 +186,9 @@ dependencies {
 }
 ```
 
-However, if you're trying to use an older version of the above
-libraries and your dependency fails, then it's not available in the Maven
-repository and you must instead get the library from the offline repository.
+However, if you're trying to use an older version of these libraries and your
+dependency fails, then it's not available in the Maven repository and you must
+instead get the library from the offline repository.
 
 ### Programmatic access
 
@@ -215,9 +213,8 @@ For example: [maven.google.com/android/arch/lifecycle/compiler/1.0.0/compiler-1.
 
 For libraries not available from the Google Maven repository (usually older
 library versions), you must download the offline **Google Repository** package
-from the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager).
+from the [SDK Manager](https://developer.android.com/studio/intro/update.md.txt#sdk-manager).
 
 Then you can add these libraries to your `dependencies` block as usual.
 
-The offline libraries are saved in
-`android_sdk/extras/`.
+The offline libraries are saved in `android_sdk/extras/`.

@@ -4,6 +4,8 @@ url: https://developer.android.com/media/grow/hdr-playback
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/grow/llms.txt
+
 HDR, or High Dynamic Range, provides a wider range of colors and greater
 contrast between the brightest whites and darkest shadows, resulting in video
 quality that more closely resembles what the naked eye perceives.
@@ -26,7 +28,7 @@ prerequisites:
 
 ## Check for HDR playback support
 
-Use [`Display.getHdrCapabilities()`](https://developer.android.com/reference/android/view/Display#getHdrCapabilities()) to query a display's HDR capabilities. The method returns information about the supported HDR profiles and luminance range for the display.
+Use [`Display.getHdrCapabilities()`](https://developer.android.com/reference/android/view/Display.md.txt#getHdrCapabilities()) to query a display's HDR capabilities. The method returns information about the supported HDR profiles and luminance range for the display.
 
 The following code checks if the device supports HLG10 playback. Starting in Android 13, HLG10 is the minimum standard that device makers must support if the device is capable of HDR playback:
 
@@ -53,16 +55,16 @@ if (!capabilities.contains(HDR_TYPE_HLG)) {
 
 ## Set up HDR playback in your app
 
-If your app uses [ExoPlayer](https://exoplayer.dev/), it supports HDR playback by default. See [Check for HDR playback support](https://developer.android.com/media/grow/hdr-playback#check_for_hdr_playback_support) for next steps.
+If your app uses [ExoPlayer](https://exoplayer.dev/), it supports HDR playback by default. See [Check for HDR playback support](https://developer.android.com/media/grow/hdr-playback.md.txt#check-for-hdr-playback-support) for next steps.
 
 If your app does not use ExoPlayer, set up HDR playback using `MediaCodec` via `SurfaceView`.
 
 > [!NOTE]
-> **Note:** HDR playback has limited support on [`TextureView`](https://developer.android.com/reference/android/view/TextureView) in Android 13 (API layer 33) and higher. When playing back HDR video content, `TextureView` transcodes the video from HDR to SDR, resulting in playback with possible loss of detail including clipped colors and video banding. If at all possible, you should use `SurfaceView` for HDR playback.
+> **Note:** HDR playback has limited support on [`TextureView`](https://developer.android.com/reference/android/view/TextureView.md.txt) in Android 13 (API layer 33) and higher. When playing back HDR video content, `TextureView` transcodes the video from HDR to SDR, resulting in playback with possible loss of detail including clipped colors and video banding. If at all possible, you should use `SurfaceView` for HDR playback.
 
 ### Set up MediaCodec using SurfaceView
 
-Set up a standard [`MediaCodec`](https://developer.android.com/reference/android/media/MediaCodec) playback flow using [`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView). This allows you to display HDR video content without any special handling for HDR playback:
+Set up a standard [`MediaCodec`](https://developer.android.com/reference/android/media/MediaCodec.md.txt) playback flow using [`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView.md.txt). This allows you to display HDR video content without any special handling for HDR playback:
 
 - `MediaCodec`: Decodes HDR video content.
 - `SurfaceView`: Displays HDR video content.
@@ -185,5 +187,5 @@ For more information related to HDR playback, see the following resources:
 
 ### Media
 
-- [Media API reference](https://developer.android.com/reference/android/media/package-summary): learn more about the Media APIs.
+- [Media API reference](https://developer.android.com/reference/android/media/package-summary.md.txt): learn more about the Media APIs.
 - [ExoPlayer](https://exoplayer.dev/): learn how to set up your app with the ExoPlayer library.

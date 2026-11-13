@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/releases/past-releases/as-2-2-0-releas
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/releases/past-releases/llms.txt
+
     <h1 id="2-2-0" class="showalways">Android Studio 2.2 (September 2016)</h1>
 
 <br />
@@ -30,7 +32,7 @@ source: md.txt
       to roll forward to ProGuard 5.3.2 in Android Studio 2.3 Canary 3.
       </li>
       <li>Bug fix for <code>aaptOptions</code> <code>IgnoreAssetsPattern</code>
-      not working properly (<a href="http://b.android.com/224167">issue
+      not working properly (<a href="https://issuetracker.google.com/issues/37121816">issue
       224167</a>)
       </li>
       <li>Bug fix for Gradle autodownload for Constraint Layout library
@@ -38,7 +40,7 @@ source: md.txt
         212128</a>)
       </li>
       <li>Bug fix for a JDK8/Kotlin compiler + dx issue (<a href=
-      "http://b.android.com/227729">issue 227729</a>)
+      "https://issuetracker.google.com/issues/37126636">issue 227729</a>)
       </li>
     </ul>
 
@@ -68,7 +70,7 @@ source: md.txt
       <li>When reporting Instant Run issues through the IDE, the report now also
       includes logcat output for <code>InstantRun</code> events. To help us
       improve Instant Run, please <a href=
-      "/studio/run/index.html#submit-feedback">enable extra logging and report
+      "/studio/run">enable extra logging and report
       any issues</a>.
       </li>
       <li>A number of small bug fixes for Gradle.
@@ -92,7 +94,7 @@ source: md.txt
       This is a minor update to Android Studio 2.2. It includes several bug fixes
       and a new feature to enable extra logging to help us troubleshoot Instant
       Run issues---to help us improve Instant Run, please <a href=
-      "/studio/run/index.html#submit-feedback">enable extra logging and report
+      "/studio/run">enable extra logging and report
       any issues</a>.
     </p>
 
@@ -115,10 +117,10 @@ source: md.txt
 <br />
 
 - All new **[Layout
-  Editor](https://developer.android.com/studio/write/layout-editor)** with tools custom-built to support [ConstraintLayout](https://developer.android.com/training/constraint-layout).
+  Editor](https://developer.android.com/studio/views/layout-editor)** with tools custom-built to support [ConstraintLayout](https://developer.android.com/training/constraint-layout).
 
     <li>New <strong><a href=
-    "http://tools.android.com/tech-docs/layout-inspector">Layout
+    "/studio/debug/layout-inspector">Layout
     Inspector</a></strong> lets you examine snapshots of your layout hierarchy
     while your app is running on the emulator or a device.
     </li>
@@ -133,7 +135,7 @@ source: md.txt
     </li>
 
     <li>New <strong><a href=
-    "http://tools.android.com/tech-docs/test-recorder">Espresso Test
+    "/studio/test/other-testing-tools/espresso-test-recorder">Espresso Test
     Recorder</a></strong> tool (currently in beta) to help you create UI tests by
     recording your own interactions.
     </li>
@@ -150,10 +152,10 @@ source: md.txt
     to include native code in your Android application, read <a href=
     "/studio/projects/add-native-code.html">Add C and C++ Code to Your
     Project</a>. To learn how to debug native code with lldb, see <a href=
-    "/studio/debug/index.html#debug-native">Debug Native Code</a>.
+    "/studio/debug#debug-types">Debug Native Code</a>.
     </li>
 
-    <li>New <strong><a href="/studio/intro/index.html#sample-code">Samples
+    <li>New <strong><a href="/studio/write/sample-code">Samples
     Browser</a></strong> so you can easily look up Google Android sample code
     from within Android Studio to jump start app development.
     </li>
@@ -238,19 +240,19 @@ source: md.txt
   2016.1**
 - Instant Run now requires the platform SDK corresponding to the target device API level to be installed.
 - Instant Run will automatically disabled if user is running the app under a work profile or as a secondary user.
-- Fixed many reliability issues for **[Instant Run](https://developer.android.com/studio/run#instant-run)** where changes were not getting deployed or the app would crash:
-  - Some app assets were not deployed to your running app. ( [Bug: #213454](http://b.android.com/213454))
-  - App crashes when user transitions between Instant Run and non Instant Run sessions where a Serializable class does not have serialVersionUID defined. ([Bug: #209006](http://b.android.com/209006))
-  - Style changes aren't reflected with Instant Run. ([Bug: #210851](http://b.android.com/210851))
+- Fixed many reliability issues for **[Instant Run](https://developer.android.com/studio/run.md.txt)** where changes were not getting deployed or the app would crash:
+  - Some app assets were not deployed to your running app. ( [Bug: #213454](https://issuetracker.google.com/issues/37105558))
+  - App crashes when user transitions between Instant Run and non Instant Run sessions where a Serializable class does not have serialVersionUID defined. ([Bug: #209006](https://issuetracker.google.com/issues/37097018))
+  - Style changes aren't reflected with Instant Run. ([Bug: #210851](https://issuetracker.google.com/issues/37100489))
   - Instant Run session is unreliable and causes FileNotFoundException. ([Bug: #213083](http://b.android.com/213083))
-  - Changes to drawables not reflected until full rebuild is performed for KitKat. ([Bug: #21530](http://b.android.com/215360))
-  - Resource changes aren't reflected with Instant Run when custom sourceSets contain nested paths. ([Bug: #219145](http://b.android.com/219145))
-  - Hot and warm swap don't work if changed class contains annotation with enum value. ([Bug: #209047](http://b.android.com/209047))
-  - Changes to annotation data not reflected with Instant Run. ([Bug: #210089](http://b.android.com/210089))
-  - Instant Run doesn't pick up code changes if you make changes outside the IDE. ([Bug: #213205](http://b.android.com/213205))
-  - Instant Run session is unreliable due to mismatch security token. ([Bug: #211989](http://b.android.com/211989)
-  - Cold swap fails for devices that doesn't properly support run-as. ([Bug: #210875](http://b.android.com/210875))
-  - App crash after instant run restart. ([Bug: #219744](http://b.android.com/219744))
+  - Changes to drawables not reflected until full rebuild is performed for KitKat. ([Bug: #21530](https://issuetracker.google.com/issues/37109266))
+  - Resource changes aren't reflected with Instant Run when custom sourceSets contain nested paths. ([Bug: #219145](https://issuetracker.google.com/issues/37114870))
+  - Hot and warm swap don't work if changed class contains annotation with enum value. ([Bug: #209047](https://issuetracker.google.com/issues/37097108))
+  - Changes to annotation data not reflected with Instant Run. ([Bug: #210089](https://issuetracker.google.com/issues/37099131))
+  - Instant Run doesn't pick up code changes if you make changes outside the IDE. ([Bug: #213205](https://issuetracker.google.com/issues/37104960))
+  - Instant Run session is unreliable due to mismatch security token. ([Bug: #211989](https://issuetracker.google.com/issues/37102611)
+  - Cold swap fails for devices that doesn't properly support run-as. ([Bug: #210875](https://issuetracker.google.com/issues/37100563))
+  - App crash after instant run restart. ([Bug: #219744](https://issuetracker.google.com/issues/37115594))
   - ClassNotFoundException observed when switching from Instant Run to Instant Debug. ([Bug: #215805](http://b.android.com/215805))
 
     <li>Improved performance for <strong>Gradle sync</strong> within the IDE,
@@ -264,7 +266,7 @@ source: md.txt
     <li>Improved <strong>Jack compiler performance and features</strong>,
     including support for annotation processors and dexing in process. To learn
     more, read the <a href=
-    "/studio/releases/gradle-plugin.html#revisions">Android plugin for Gradle
+    "/build/releases/agp-2-2-0-release-notes">Android plugin for Gradle
     2.2.0 release notes</a>.
     </li>
 

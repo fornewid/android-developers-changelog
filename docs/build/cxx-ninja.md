@@ -4,19 +4,31 @@ url: https://developer.android.com/build/cxx-ninja
 source: md.txt
 ---
 
-If you do not use CMake or ndk-build but want full integration of the Android Gradle plugin (AGP) C/C++ build and Android Studio, you can create a custom C/C++ build system by making a shell script that writes build information in the [Ninja](https://ninja-build.org/) build file format.
+> Documentation index: https://developer.android.com/build/llms.txt
+
+If you don't use CMake or ndk-build but want full integration of the Android
+Gradle plugin (AGP) C/C++ build and Android Studio, you can create a custom
+C/C++ build system by making a shell script that writes build information in the
+[Ninja](https://ninja-build.org/) build file format.
 
 > [!CAUTION]
 > **Caution:** Experimental APIs can change in the future or may be removed entirely.
 
-Experimental support for custom C/C++ build systems has been added to Android Studio and AGP. This feature is available starting in Android Studio Dolphin \| 2021.3.1 Canary 4.
+Experimental support for custom C/C++ build systems has been added to Android
+Studio and AGP. This feature is available starting in Android Studio Dolphin \|
+2021.3.1 Canary 4.
 
 ## Overview
 
-A common pattern for C/C++ projects, especially those that target multiple platforms, is to generate projects for each of those platforms from some underlying representation.
-A prominent example of this pattern is [CMake](http://cmake.org). CMake can generate projects for Android, iOS, and other platforms from a single underlying representation, saved in the `CMakeLists.txt` file.
+A common pattern for C/C++ projects, especially those that target multiple
+platforms, is to generate projects for each of those platforms from some
+underlying representation. A prominent example of this pattern is
+[CMake](http://cmake.org). CMake can generate projects for Android, iOS, and other
+platforms from a single underlying representation, saved in the `CMakeLists.txt`
+file.
 
-While CMake is directly supported by AGP, there are other project generators available that aren't directly supported:
+While CMake is directly supported by AGP, there are other project generators
+available that aren't directly supported:
 
 - [Premake](https://premake.github.io/)
 
@@ -28,13 +40,17 @@ While CMake is directly supported by AGP, there are other project generators ava
 
 - Private custom built project generators
 
-These types of project generators either support Ninja as a backend representation of the C/C++ build or can be adapted to generate Ninja as a backend representation.
+These types of project generators either support Ninja as a backend
+representation of the C/C++ build or can be adapted to generate Ninja as a
+backend representation.
 
-When configured correctly, an AGP project with an integrated C/C++ project system generator enables users to:
+When configured correctly, an AGP project with an integrated C/C++ project
+system generator enables users to:
 
 - Build from command-line and Android Studio.
 
-- Edit sources with full language service support (for example, go-to definition) in Android Studio.
+- Edit sources with full language service support (for example, go-to
+  definition) in Android Studio.
 
 - Use Android Studio debuggers to debug native and mixed processes.
 
@@ -43,11 +59,13 @@ When configured correctly, an AGP project with an integrated C/C++ project syste
 
 ## How to modify your build to use a custom C/C++ build configuration script
 
-This section walks through the steps to use a custom C/C++ build configuration script from AGP.
+This section walks through the steps to use a custom C/C++ build configuration
+script from AGP.
 
 ### Step 1: Modify the module-level `build.gradle` file to reference a configuration script
 
-To enable Ninja support in AGP, configure `experimentalProperties` in the module-level `build.gradle` file:
+To enable Ninja support in AGP, configure `experimentalProperties` in the
+module-level `build.gradle` file:
 
     android {
       defaultConfig {
@@ -68,53 +86,82 @@ To enable Ninja support in AGP, configure `experimentalProperties` in the module
 
 The properties are interpreted by AGP as follows:
 
-- `ninja.abiFilters` is a list of ABIs to build. The valid values are: `x86`, `x86-64`, `armeabi-v7a`, and `arm64-v8a`.
+- `ninja.abiFilters` is a list of ABIs to build. The valid values are: `x86`,
+  `x86-64`, `armeabi-v7a`, and `arm64-v8a`.
 
-- `ninja.path` is a path to a C/C++ project file. The format of this file can be anything you want. Changes to this file will trigger a prompt to Gradle sync in Android Studio.
+- `ninja.path` is a path to a C/C++ project file. The format of this file can
+  be anything you want. Changes to this file will trigger a prompt to Gradle
+  sync in Android Studio.
 
-- `ninja.configure` is a path to a script file that will be executed by Gradle when it is necessary to configure the C/C++ project. A project is configured on the first build, during a Gradle sync in Android Studio, or when one of the configure script inputs changes.
+- `ninja.configure` is a path to a script file that will be executed by Gradle
+  when it is necessary to configure the C/C++ project. A project is configured
+  on the first build, during a Gradle sync in Android Studio, or when one of
+  the configure script inputs changes.
 
   > [!NOTE]
-  > **Note:** On Windows only, the extension ".bat" will be added to this path if it isn't already there. This way, you can author a pair of scripts (`script` for Linux/macOS and `script.bat` for Windows) such that the `build.gradle` file is host platform agnostic.
+  > **Note:** On Windows only, the extension ".bat" will be added to this path if it isn't already there. This way, you can author a pair of scripts (`script` for Linux/macOS and `script.bat` for Windows) such that the `build.gradle` file is host platform-independent.
 
-- `ninja.arguments` is a list of arguments that will be passed to the script defined by ninja.configure. Elements in this list can reference a set of macros whose values depend on the current configuration context in AGP:
+- `ninja.arguments` is a list of arguments that will be passed to the script
+  defined by ninja.configure. Elements in this list can reference a set of
+  macros whose values depend on the current configuration context in AGP:
 
-  - `${ndk.moduleMakeFile}` is the full path to the `ninja.configure` file. So in the example, it would be `C:\path\to\configure-ninja.bat`.
+  - `${ndk.moduleMakeFile}` is the full path to the `ninja.configure` file.
+    So in the example, it would be `C:\path\to\configure-ninja.bat`.
 
-  - `${ndk.variantName}` is the name of the current AGP variant that is being built. For example, debug or release.
+  - `${ndk.variantName}` is the name of the current AGP variant that is
+    being built. For example, debug or release.
 
-  - `${ndk.abi}` is the name of the current AGP ABI that is being built. For example, `x86` or `arm64-v8a`.
+  - `${ndk.abi}` is the name of the current AGP ABI that is being built. For
+    example, `x86` or `arm64-v8a`.
 
   > [!NOTE]
   > **Note:** You must pass `${ndk.abi}` to the configure script as one of the arguments, because the same `build.ninja` file cannot be shared by multiple ABIs.
 
-  - `${ndk.buildRoot}` is the name of a folder, generated by AGP, that the script writes its output to. Details of this will be explained in [Step 2: Create the configure script](https://developer.android.com/build/configure-script-responsibilities).
+  - `${ndk.buildRoot}` is the name of a folder, generated by AGP, that the
+    script writes its output to. Details of this will be explained in
+    [Step 2: Create the configure script](https://developer.android.com/build/cxx-ninja.md.txt#configure-script-responsibilities).
 
-  - `${ndk.ndkVersion}` is the version of the NDK to be used. This is usually the value passed to android.ndkVersion in the `build.gradle` file or a default value if none is present.
+  - `${ndk.ndkVersion}` is the version of the NDK to be used. This is
+    usually the value passed to android.ndkVersion in the `build.gradle`
+    file or a default value if none is present.
 
-  - `${ndk.minPlatform}` is the minimum target Android platform requested by AGP.
+  - `${ndk.minPlatform}` is the minimum target Android platform requested by
+    AGP.
 
-- `ninja.targets` is a list of the specific Ninja targets that should be built.
+- `ninja.targets` is a list of the specific Ninja targets that should be
+  built.
 
 ### Step 2: Create the configure script
 
-The minimum responsibility of the configure script (`configure-ninja.bat` in the earlier example) is to generate a `build.ninja` file that, when built with Ninja, will compile and link all the native outputs of the project. Usually these are `.o` (Object), `.a` (Archive), and `.so` (Shared Object) files.
+The minimum responsibility of the configure script (`configure-ninja.bat` in the
+earlier example) is to generate a `build.ninja` file that, when built with
+Ninja, will compile and link all the native outputs of the project. Usually
+these are `.o` (Object), `.a` (Archive), and `.so` (Shared Object) files.
 
-The configure script can write the `build.ninja` file in two different places depending on your needs.
+The configure script can write the `build.ninja` file in two different places
+depending on your needs.
 
-- If it's okay for AGP to choose a location, then the configure script writes `build.ninja` at the location set in the `${ndk.buildRoot}` macro.
+- If it's okay for AGP to choose a location, then the configure script writes
+  `build.ninja` at the location set in the `${ndk.buildRoot}` macro.
 
-- If the configure script needs to choose the location of the `build.ninja` file then it also writes a file named `build.ninja.txt` at the location set in the `${ndk.buildRoot}` macro. This file contains the full path to the `build.ninja` file that the configure script wrote.
+- If the configure script needs to choose the location of the `build.ninja`
+  file then it also writes a file named `build.ninja.txt` at the location set
+  in the `${ndk.buildRoot}` macro. This file contains the full path to the
+  `build.ninja` file that the configure script wrote.
 
 #### Structure of the `build.ninja` file
 
-Generally, most structures that accurately represent an Android C/C++ build will work. The key elements needed by AGP and Android Studio are:
+Generally, most structures that accurately represent an Android C/C++ build will
+work. The key elements needed by AGP and Android Studio are:
 
-- The list of C/C++ source files along with flags needed by Clang to compile them.
+- The list of C/C++ source files along with flags needed by Clang to compile
+  them.
 
-- The list of output libraries. These are typically `.so` (shared object) files but can also be `.a` (archive) or executable (no extension).
+- The list of output libraries. These are typically `.so` (shared object)
+  files but can also be `.a` (archive) or executable (no extension).
 
-If you need examples of how to generate a `build.ninja` file, you can look at the output of CMake when the `build.ninja` generator is used.
+If you need examples of how to generate a `build.ninja` file, you can look at
+the output of CMake when the `build.ninja` generator is used.
 
 Here is an example of a minimal `build.ninja` template.
 
@@ -126,17 +173,22 @@ Here is an example of a minimal `build.ninja` template.
     build source.o : COMPILE source.cpp
     build lib.so : LINK source.o
 
-## Best practices
+## Recommendations
 
-In addition to the requirements (list of source files and output libraries), here are some recommended best practices.
+In addition to the requirements (list of source files and output libraries),
+here are some recommendations.
 
 ### Declare named outputs with `phony` rules
 
-When possible, it is recommended that the `build.ninja` structure use `phony` rules to give build outputs human-readable names. So for example, if you have an output named `c:/path/to/lib.so`, you can give it a human-readable name as follows.
+When possible, it is recommended that the `build.ninja` structure use `phony`
+rules to give build outputs human-readable names. So for example, if you have an
+output named `c:/path/to/lib.so`, you can give it a human-readable name as
+follows.
 
     build curl: phony /path/to/lib.so
 
-The benefit of doing this is that you can then specify this name as a build target in the `build.gradle` file. For example,
+The benefit of doing this is that you can then specify this name as a build
+target in the `build.gradle` file. For example:
 
     android {
       defaultConfig {
@@ -146,7 +198,8 @@ The benefit of doing this is that you can then specify this name as a build targ
 
 ### Specify an 'all' target
 
-When you specify an `all` target this will be the default set of libraries built by AGP when no targets are explicitly specified in the `build.gradle` file.
+When you specify an `all` target this will be the default set of libraries built
+by AGP when no targets are explicitly specified in the `build.gradle` file.
 
     rule COMPILE
        command = /path/to/ndk/clang $in -o $out {other flags}
@@ -161,11 +214,18 @@ When you specify an `all` target this will be the default set of libraries built
 
 ### Specify an alternative build method (optional)
 
-A more advanced use case is to wrap an existing build system that isn't Ninja based. In this case, you still need to represent all of the sources with their flags along with the output libraries so that Android Studio can present proper language service features like autocomplete and go-to definition. However, you'd like AGP to defer to the underlying build system during the actual build.
+A more advanced use case is to wrap an existing build system that isn't Ninja
+based. In this case, you still need to represent all of the sources with their
+flags along with the output libraries so that Android Studio can present proper
+language service features like autocomplete and go-to definition. However, you'd
+like AGP to defer to the underlying build system during the actual build.
 
-To accomplish this, you can use a Ninja build output with a specific extension `.passthrough`.
+To accomplish this, you can use a Ninja build output with a specific extension
+`.passthrough`.
 
-As a more concrete example, let's say you'd like to wrap an MSBuild. Your configure script would generate the `build.ninja` as usual, but it would also add a passthrough target that defines how AGP will invoke MSBuild.
+As a more concrete example, to wrap an MSBuild your
+configure script would generate the `build.ninja` as usual, but it would also
+add a passthrough target that defines how AGP will invoke MSBuild.
 
     rule COMPILE
        command = /path/to/ndk/clang $in -o $out {other flags}
@@ -182,10 +242,13 @@ As a more concrete example, let's say you'd like to wrap an MSBuild. Your config
 
 ## Give feedback
 
-This feature is experimental, so feedback is greatly appreciated. You can give feedback through the following channels:
+This feature is experimental, so feedback is greatly appreciated. You can give
+feedback through the following channels:
 
-- For general feedback, add a comment to [this bug](https://issuetracker.google.com/213607318).
+- For general feedback, add a comment to [the related bug](https://issuetracker.google.com/213607318).
 
-- To report a bug, open Android Studio and click **Help \> Submit Feedback**. Be sure to reference "Custom C/C++ Build Systems" to help direct the bug.
+- To report a bug, open Android Studio and click **Help \> Submit Feedback**.
+  Be sure to reference "Custom C/C++ Build Systems" to help direct the bug.
 
-- To report a bug if you don't have Android Studio installed, file a bug using [this template](https://issuetracker.google.com/issues/new?component=192708&template=840533&description=IMPORTANT:+Please+read+https://developer.android.com/studio/report-bugs.html+carefully+and+supply+all+required+information%0A%0ABug+related+to+'Android+Gradle+plugin+Custom+C/C%2B%2B+Build+System').
+- To report a bug if you don't have Android Studio installed, file a bug using
+  [the bug template](https://issuetracker.google.com/issues/new?component=192708&template=840533&description=IMPORTANT:+Please+read+https://developer.android.com/studio/report-bugs.html+carefully+and+supply+all+required+information%0A%0ABug+related+to+'Android+Gradle+plugin+Custom+C/C%2B%2B+Build+System').

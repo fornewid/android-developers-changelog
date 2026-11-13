@@ -4,6 +4,8 @@ url: https://developer.android.com/build/native-dependencies
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/llms.txt
+
 AAR libraries can contain native dependencies that the Android Gradle Plugin can
 consume. AGP is also capable of producing AARs that expose native libraries to
 their consumers.
@@ -16,11 +18,12 @@ available to the native build system, but your build system must be configured
 to make use of the imported libraries and headers. Since C/C++ dependencies are
 distributed as AARs, the following links about generic AARs may be helpful:
 
-- [Creating an Android Library](https://developer.android.com/studio/projects/android-library) for generic AAR documentation and how to integrate it into your project, especially when you want to use the AAR as a local C/C++ dependency.
+- [Creating an Android Library](https://developer.android.com/studio/projects/android-library.md.txt) for generic AAR documentation and how to integrate it into your project, especially when you want to use the AAR as a local C/C++ dependency.
 - [Add build dependencies](https://developer.android.com/studio/build/dependencies) for information on adding dependencies to your `build.gradle` file, especially for the remote dependencies.
 
-This document focuses on how to configure your native build system and assumes you've already
-added a C/C++ dependency AAR into your project's Gradle build environment.
+This document focuses on how to configure your native build system and assumes
+you've already added a C/C++ dependency AAR into your project's Gradle build
+environment.
 
 ## Native dependencies in AARs
 
@@ -62,8 +65,7 @@ buildFeatures {
 }
 ```
 
-Optionally, configure [a version](https://github.com/google/prefab/releases)
-in your project's `gradle.properties` file:
+Optionally, configure [a version](https://github.com/google/prefab/releases) in your project's `gradle.properties` file:
 
     android.prefabVersion=2.0.0
 
@@ -73,7 +75,7 @@ a new feature you want.
 
 <button value="cmake" default="">CMake</button> <button value="ndk-build">ndk-build</button>
 
-Dependencies imported from an AAR are exposed to CMake via
+Dependencies imported from an AAR are exposed to CMake through
 [CMAKE_FIND_ROOT_PATH](https://cmake.org/cmake/help/latest/variable/CMAKE_FIND_ROOT_PATH.html). This value will be set automatically by Gradle when
 CMake is invoked, so if your build modifies this variable be sure to append
 rather than assign to it.
@@ -82,13 +84,16 @@ Each dependency exposes a [config-file package](https://cmake.org/cmake/help/lat
 imported with the [find_package](https://cmake.org/cmake/help/latest/command/find_package.html) command. This command searches for config-file
 packages matching the given package name and version and exposes the targets it
 defines to be used in your build. For example, if your application defines
-`libapp.so` and it uses cURL, your `CMakeLists.txt` should include the following:
+`libapp.so` and it uses curl, your `CMakeLists.txt` should include the
+following:
 
-    add_library(app SHARED app.cpp)
+```cmake
+add_library(app SHARED app.cpp)
 
-    # Add these two lines.
-    find_package(curl REQUIRED CONFIG)
-    target_link_libraries(app curl::curl)
+# Add these two lines.
+find_package(curl REQUIRED CONFIG)
+target_link_libraries(app curl::curl)
+```
 
 `app.cpp` is now able to `#include "curl/curl.h"`, `libapp.so` will be
 automatically linked against `libcurl.so` when building, and `libcurl.so` will

@@ -4,6 +4,8 @@ url: https://developer.android.com/build/publish-library/fused-library
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/publish-library/llms.txt
+
 In projects with many modules, it can be challenging to distribute Android
 Libraries to your users while trying to maintain a clear project structure.
 In many cases, many more libraries need to be published than intended.
@@ -41,7 +43,8 @@ To use the plugin, you must add a new Android module to your project:
 *In this example, the fused library module will be called `myFusedLibrary`.*
 
 1. Append `include(":myFusedLibrary")` to the `settings.gradle.kts` file.
-2. Add `android-fusedlibrary = { id = "com.android.fused-library", version.ref = "agp" }` under the `[plugins]` section in the `gradle/libs.versions.toml` file.
+2. Add `android-fusedlibrary = { id = "com.android.fused-library", version.ref =
+   "agp" }` under the `[plugins]` section in the `gradle/libs.versions.toml` file.
 3. Add `alias(libs.plugins.android.fusedlibrary) apply false` in the plugins block in the top level `build.gradle.kts` file.
 4. To create the `myFusedLibrary` module, create a new directory called `myFusedLibrary` (right-click 'My Application' \> New \> Directory).
 5. Create a `build.gradle.kts` file in the `myFusedLibrary` module (right-click the `myFusedLibrary` module \> New \> File).
@@ -243,7 +246,7 @@ following table:
 **Known issues**
 
 Fused Library is a new plugin and there are known issues that are being worked
-on to fulfill all use cases. You can [report bugs](https://developer.android.com/studio/report-bugs) for any issues you
+on to fulfill all use cases. You can [report bugs](https://developer.android.com/studio/report-bugs.md.txt) for any issues you
 encounter.
 
 - [Issue #454305444](https://issuetracker.google.com/454305444): Libraries containing consumer proguard rules that are not called 'proguard.txt' result in a build failure. Fixed in AGP 9.1 and higher.

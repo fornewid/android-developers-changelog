@@ -4,45 +4,41 @@ url: https://developer.android.com/build/profile-your-build
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/llms.txt
+
 Larger projects, or those that implement a lot of custom build logic, may
 require you to take a deeper look into the build process to find bottlenecks.
-You can do that by profiling how long Gradle takes to execute each phase of
-the build lifecycle and each build task. For example, if your build profile
-shows that Gradle is spending too much time configuring your project, it may
-suggest that you need to
-[move custom build logic out of the configuration phase](https://developer.android.com/studio/build/optimize-your-build#optimize_configuration).
-Additionally, if the `mergeDevDebugResources` task consumes a large amount
-of the build time, it may indicate that you need to either
-[convert your images to WebP](https://developer.android.com/studio/build/optimize-your-build#use_webp)
-or [disable PNG crunching](https://developer.android.com/studio/build/optimize-your-build#disable_crunching).
+You can do that by profiling how long Gradle takes to execute each phase of the
+build lifecycle and each build task. For example, if your build profile shows
+that Gradle is spending too much time configuring your project, it may suggest
+that you need to [move custom build logic out of the configuration phase](https://developer.android.com/studio/build/optimize-your-build#optimize_configuration).
+Additionally, if the `mergeDevDebugResources` task consumes a large amount of
+the build time, it may indicate that you need to either [convert your images to
+WebP](https://developer.android.com/studio/build/optimize-your-build#use_webp) or [disable PNG crunching](https://developer.android.com/studio/build/optimize-your-build#disable_crunching).
 
-If you're using
-Android Studio 4.0 or higher, the best way to investigate build performance
-issues is by [using the Build Analyzer](https://developer.android.com/studio/build/build-analyzer).
+If you're using Android Studio 4.0 or higher, the best way to investigate build
+performance issues is by [using the Build Analyzer](https://developer.android.com/studio/build/build-analyzer).
 
-In addition, there are two options for profiling your build outside of
-Android Studio:
+In addition, there are two options for profiling your build outside of Android
+Studio:
 
-1. The standalone [`gradle-profiler` tool](https://developer.android.com/build/profile-your-build#gradle-profiler), a
-   robust tool for deep analysis of your build.
+1. The standalone [`gradle-profiler` tool](https://developer.android.com/build/profile-your-build.md.txt#gradle-profiler), a robust tool for deep analysis
+   of your build.
 
-2. The Gradle [`--profile` option](https://developer.android.com/build/profile-your-build#gradle-profile-option),
-   a convenient tool available from the Gradle command line.
+2. The Gradle [`--profile` option](https://developer.android.com/build/profile-your-build.md.txt#gradle-profile-option), a convenient tool available from the
+   Gradle command line.
 
 ## Using the standalone `gradle-profiler` tool
 
 In order to find the project setup that provides you with the best build speed,
-you should use [Gradle profiler](https://github.com/gradle/gradle-profiler),
-a tool for gathering profiling and benchmarking information for Gradle builds.
-Gradle profiler allows you to create build scenarios and run them multiple
-times, preventing high variance between results and ensuring reproducibility
-of the results.
+you should use [Gradle profiler](https://github.com/gradle/gradle-profiler), a tool for gathering profiling
+and benchmarking information for Gradle builds. Gradle profiler lets you create
+build scenarios and run them multiple times, preventing high variance between
+results and ensuring reproducibility of the results.
 
-[Benchmarking mode](https://github.com/gradle/gradle-profiler#benchmarking-a-build)
-should be used to collect information about clean and incremental builds,
-while [profiling mode](https://github.com/gradle/gradle-profiler#profiling-a-build)
-can be used to collect more granular information about the runs, including CPU
-snapshots.
+[Benchmarking mode](https://github.com/gradle/gradle-profiler#benchmarking-a-build) should be used to collect information about clean and
+incremental builds, while [profiling mode](https://github.com/gradle/gradle-profiler#profiling-a-build) can be used to collect more
+granular information about the runs, including CPU snapshots.
 
 Some of the project setup configurations for benchmarking include:
 
@@ -72,7 +68,7 @@ There are other scenarios that may be more useful to benchmark:
 
 In order to benchmark these use cases, you can create a scenario that will be
 used to drive the `gradle-profiler` execution and which applies appropriate
-changes to your sources. You can examine some of the common scenarios below.
+changes to your sources. The following sections describe some common scenarios.
 
 > [!NOTE]
 > **Note:** Depending on a variety of factors, Gradle profiler may take a long time to complete. These factors include the size of your codebase and the type of build you're running -- for example, a clean build generally takes longer than other operations.
@@ -102,7 +98,8 @@ example, you can create scenarios:
         cleanup-tasks = ["clean"]
     }
 
-Running `gradle-profiler --benchmark --project-dir <root-project> --scenario-file scenarios.txt`
+Running `gradle-profiler --benchmark --project-dir
+<root-project> --scenario-file scenarios.txt`
 will run three scenarios, and you'll be able to compare how long
 `:app:assembleDebug` takes for each of these setups.
 
@@ -151,11 +148,11 @@ the source files:
 ### Profiling an incremental build
 
 The majority of builds are incremental, making this one of the most important
-scenarios to profile. Gradle profiler has extensive support for
-[profiling incremental builds](https://github.com/gradle/gradle-profiler#profiling-incremental-builds).
-It is able to apply changes to a source file automatically by changing a
-method body, adding a new method, or changing a layout or string resource. For
-instance, you can create incremental scenarios like this:
+scenarios to profile. Gradle profiler has extensive support for [profiling
+incremental builds](https://github.com/gradle/gradle-profiler#profiling-incremental-builds). It is able to apply changes to a source
+file automatically by changing a method body, adding a new method, or changing a
+layout or string resource. For example, you can create incremental scenarios
+like this:
 
     # <root-project>/scenarios.txt
     non_abi_change {
@@ -179,7 +176,8 @@ instance, you can create incremental scenarios like this:
         apply-android-resource-value-change-to = "app/src/main/res/values/strings.xml"
     }
 
-Running `gradle-profiler --benchmark --project-dir &lt;root-project> --scenario-file scenarios.txt`
+Running `gradle-profiler --benchmark --project-dir <root-project>
+--scenario-file scenarios.txt`
 will generate the HTML report with the benchmarking data.
 
 You can combine incremental scenarios with other settings, like heap size,
@@ -224,83 +222,91 @@ To run this scenario, use the following command:
 
     gradle-profiler --benchmark --project-dir <root-project> --scenario-file scenarios.txt
 
-
 ## Using the Gradle `--profile` option
-
 
 To generate and view a build profile from the Gradle command line, perform
 the following steps:
 
-<br />
-
 1. Open a command-line terminal at the root of your project.
-2. Perform a clean build by entering the following command. As you profile your build, you should perform a clean build between each build you profile because Gradle skips tasks when inputs to a task (such as source code) don't change. Thus, a second build with no input changes always runs faster because tasks are not being re-run. So running the `clean` task between your builds ensures that you profile the full build process.
 
-   ```
-   // On Mac or Linux, run the Gradle wrapper using "./gradlew".
-   gradlew clean
-   ```
-3. Execute a debug build of one of your product flavors, such as the "dev" flavor, with the following flags:
+2. Perform a clean build by entering the following command. As you profile your
+   build, you should perform a clean build between each build you profile
+   because Gradle skips tasks when inputs to a task (such as source code) don't
+   change. Thus, a second build with no input changes always runs faster
+   because tasks are not being re-run. So running the `clean` task between your
+   builds ensures that you profile the full build process.
 
-   ```
-   gradlew --profile --offline --rerun-tasks assembleFlavorDebug
-   ```
+       // On Mac or Linux, run the Gradle wrapper using "./gradlew".
+       gradlew clean
+
+3. Execute a debug build of one of your product flavors, such as the "dev"
+   flavor, with the following flags:
+
+       gradlew --profile --offline --rerun-tasks assemble<var>Flavor</var>Debug
+
    - `--profile`: Enables profiling.
-   - `--offline`: Disables Gradle from fetching online dependencies. This makes sure than any delays caused by Gradle attempting to update your dependencies don't interfere with your profiling data. You should have already built your project once to make sure Gradle has already downloaded and cached your dependencies.
-   - `--rerun-tasks`: Forces Gradle to rerun all tasks and ignore any task optimizations.
-4. ![](https://developer.android.com/static/studio/images/build/build-report_2X.png)
 
-   **Figure 1.** Project view indicating the location of
-   profile reports.
+   - `--offline`: Disables Gradle from fetching online dependencies. This
+     makes sure than any delays caused by Gradle attempting to update your
+     dependencies don't interfere with your profiling data. You should have
+     already built your project once to make sure Gradle has already
+     downloaded and cached your dependencies.
 
-   After the build completes, use the **Project** window navigate to the
+   - `--rerun-tasks`: Forces Gradle to rerun all tasks and ignore any task
+     optimizations.
+
+4. After the build completes, use the **Project** window navigate to the
    `project-root/build/reports/profile/` directory (as
    shown in figure 1).
-5.
-   Right-click the `profile-timestamp.html` file and select
-   **Open in Browser \> Default** . The report should look similar to the one
-   shown in figure 2. You can inspect each tab in the report to learn about your
-   build, such as the **Task Execution** tab which shows how long Gradle took
-   to execute each build task.
+
+   ![](https://developer.android.com/static/studio/images/build/build-report_2X.png)
+
+   **Figure 1.** Project view indicating the location of profile reports.
+5. Right-click the `profile-timestamp.html` file and
+   select **Open in Browser \> Default** . The report should look similar to the
+   one shown in figure 2. You can inspect each tab in the report to learn about
+   your build, such as the **Task Execution** tab which shows how long Gradle
+   took to execute each build task.
 
    ![](https://developer.android.com/static/studio/images/build/build-report-before_2X.png)
 
 
    **Figure 2.** Viewing a report in a browser.
-6.
-   **Optional:** Before making any changes to your project or build
-   configuration, repeat the command in step 3, but omit the
-   `--rerun-tasks` flag. Because Gradle attempts to save time by not
-   re-executing tasks whose inputs haven't changed (these are indicated as
-   `UP-TO-DATE` in the **Task Execution** tab of the report, as shown
-   in figure 3), you can identify which tasks are performing work when they
-   shouldn't be. For example, if the
-   `:app:processDevUniversalDebugManifest` is not marked as
-   `UP-TO-DATE`, it may suggest that your build configuration is
-   dynamically updating the manifest with every build. However, some tasks need to
-   run during each build, such as `:app:checkDevDebugManifest`.
+
+   <br />
+
+6. **Optional:** Before making any changes to your project or build
+   configuration, repeat the command in step 3, but omit the `--rerun-tasks`
+   flag. Because Gradle attempts to save time by not re-executing tasks whose
+   inputs haven't changed (these are indicated as `UP-TO-DATE` in the **Task
+   Execution** tab of the report, as shown in figure 3), you can identify which
+   tasks are performing work when they shouldn't be. For example, if the
+   `:app:processDevUniversalDebugManifest` is not marked as `UP-TO-DATE`, it
+   may suggest that your build configuration is dynamically updating the
+   manifest with every build. However, some tasks need to run during each
+   build, such as `:app:checkDevDebugManifest`.
 
    ![](https://developer.android.com/static/studio/images/build/build-report-tasks_2X.png)
 
 
    **Figure 3.** Viewing task execution results.
 
+   <br />
 
-Now that you have a build profile report, you can begin looking for
-optimization opportunities by inspecting the information in each tab of the
-report. Some build settings require experimentation because the benefits may
-differ between projects and workstations. For example, projects with a large
-codebase may benefit from [code shrinking](https://developer.android.com/studio/build/shrink-code)
-to remove unused code and shrink the app size. However, smaller
-projects may benefit more from disabling code shrinking altogether. Additionally,
-increasing the Gradle heap size (using
-[`org.gradle.jvmargs`](https://docs.gradle.org/current/userguide/build_environment.html)) might negatively impact performance on low-memory machines.
+Now that you have a build profile report, you can begin looking for optimization
+opportunities by inspecting the information in each tab of the report. Some
+build settings require experimentation because the benefits may differ between
+projects and workstations. For example, projects with a large codebase may
+benefit from [code shrinking](https://developer.android.com/studio/build/shrink-code) to remove unused code and shrink the app size.
+However, smaller projects may benefit more from disabling code shrinking
+altogether. Additionally, increasing the Gradle heap size (using
+[`org.gradle.jvmargs`](https://docs.gradle.org/current/userguide/build_environment)) might negatively impact performance on
+low-memory machines.
 
-
-After making a change to your build configuration, observe the results of
-your changes by repeating the steps above and generating a new build profile.
-For example, figure 4 shows a report for the same sample app after applying
-some of the basic optimizations described in this page.
+After making a change to your build configuration, observe the results of your
+changes by repeating the previous steps and generating a new build profile. For
+example, figure 4 shows a report for the same sample app after applying some of
+the basic optimizations described in this page.
 
 ![](https://developer.android.com/static/studio/images/build/build-report-after_2X.png)
 

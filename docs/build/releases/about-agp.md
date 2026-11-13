@@ -4,6 +4,8 @@ url: https://developer.android.com/build/releases/about-agp
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/llms.txt
+
 > [!IMPORTANT]
 > **Important:** For a detailed log of Android Gradle plugin API deprecations and removals, see the [Android Gradle plugin API updates](https://developer.android.com/studio/releases/gradle-plugin-api-updates).
 
@@ -14,14 +16,13 @@ This page explains how to keep your Gradle tools up to date. For release notes
 on the Android Gradle plugin, see the [release notes page](https://developer.android.com/build/releases/gradle-plugin).
 
 For a high-level summary of upcoming breaking changes in the Android Gradle
-plugin, see the [Android
-Gradle plugin roadmap](https://developer.android.com/studio/releases/gradle-plugin-roadmap).
+plugin, see the [Android Gradle plugin roadmap](https://developer.android.com/studio/releases/gradle-plugin-roadmap).
 
 For details about how to configure your Android builds with Gradle,
 see the following pages:
 
-- [Configure your build](https://developer.android.com/build)
-- [Android Gradle plugin DSL reference](https://developer.android.com/reference/tools/gradle-api)
+- [Configure your build](https://developer.android.com/build.md.txt)
+- [Android Gradle plugin DSL reference](https://developer.android.com/reference/tools/gradle-api.md.txt)
 - [Gradle DSL reference](https://docs.gradle.org/current/dsl/)
 - [Gradle performance user guide](https://docs.gradle.org/current/userguide/performance.html)
 
@@ -35,7 +36,7 @@ For more information about the Gradle build system, see the
 
 ### AGP 9 Upgrade
 
-Use the AGP 9 Upgrade [Android skill](https://developer.android.com/tools/agents/android-skills) to upgrade your project to AGP version 9.x (non-KMP projects). To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the AGP 9 Upgrade [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to upgrade your project to AGP version 9.x (non-KMP projects). To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add agp-9-upgrade
 
@@ -80,12 +81,8 @@ plugins {
 }
 ```
 
-
-**Caution:** You should not use dynamic dependencies in version
-numbers, such as
-`'com.android.tools.build:gradle:9.5.+'`.
-Using this feature can cause unexpected version updates and difficulty
-resolving version differences.
+> [!CAUTION]
+> **Caution:** You shouldn't use dynamic dependencies in version numbers, such as `'com.android.tools.build:gradle:9.5.+'`. Using this feature can cause unexpected version updates and difficulty resolving version differences.
 
 
 If the specified plugin version has not been downloaded, Gradle downloads it
@@ -128,7 +125,7 @@ use the latest possible version of both Gradle and the plugin.
 | 8.1 | 8.0 |
 | 8.0 | 8.0 |
 
-### Older versions
+### Earlier versions
 
 | Plugin version | Required Gradle version |
 |---|---|
@@ -184,6 +181,8 @@ example sets the Gradle version to 9.6.0 in the
 ## Android Gradle
 plugin and Android Studio compatibility
 
+<br />
+
 The Android Studio build system is based on Gradle, and the Android Gradle
 plugin (AGP) adds several features that are specific to building Android apps. The
 following table lists which version of AGP is required for each version of
@@ -193,7 +192,7 @@ Android Studio.
 > There is now a time-based compatibility policy for AGP and Android Studio. Each Android Studio version will support AGP versions released within the previous 3 years. AGP versions older than 3 years will no longer be supported in newer Android Studio versions. If your project's AGP version is incompatible, Android Studio will require you to update AGP.
 
 > [!NOTE]
-> If your project is not supported by a specific version of Android Studio, you can still open and update your project using an [older version of Android Studio](https://developer.android.com/studio/archive).
+> If your project is not supported by a specific version of Android Studio, you can still open and update your project using an [older version of Android Studio](https://developer.android.com/studio/archive.md.txt).
 
 | Android Studio version | Required AGP version |
 |---|---|
@@ -244,13 +243,15 @@ For information on what's new in the Android Gradle plugin, see the
 
 ## Minimum versions of tools for Android API level
 
+<br />
+
 There are minimum versions of Android Studio and AGP that support a specific
 API level. Using lower versions of Android Studio or AGP than required by your
 project's `targetSdk` or `compileSdk` could lead to
 unexpected issues. We recommend using the latest preview version of Android
 Studio and AGP to work on projects that target preview versions of the Android
 OS. You can
-[install preview versions of Android Studio alongside a stable version](https://developer.android.com/studio/preview/install-preview#install_alongside_your_stable_version).
+[install preview versions of Android Studio alongside a stable version](https://developer.android.com/studio/preview/install-preview.md.txt#install_alongside_your_stable_version).
 
 The minimum versions of Android Studio and AGP are as follows:
 

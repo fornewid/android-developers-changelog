@@ -4,6 +4,8 @@ url: https://developer.android.com/media/implement/surfaces/android-tv
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/implement/llms.txt
+
 Android offers a rich user experience that's optimized for apps running on large
 screen devices, such as high-definition televisions. You can extend your app's
 audience by developing it for Android TV. This document provides guidance on how
@@ -51,7 +53,7 @@ interface. This facilitates much simpler interaction between the components.
 For more information, see [The Player interface](https://developer.android.com/guide/topics/media/session/player).
 
 For more information about creating a media playback app, see
-[Create a basic media player using ExoPlayer](https://developer.android.com/media/implement/playback-app).
+[Create a basic media player using ExoPlayer](https://developer.android.com/media/implement/playback-app.md.txt).
 
 To create the best experience for the end users of your media app, you need to
 implement `MediaSession`. To do so, initialize a `Player` and supply it to
@@ -76,7 +78,7 @@ MediaSession mediaSession = new MediaSession.Builder(context, player).build();
 The Media3 library automatically updates the media session using the player's
 state. As such, you don't need to manually handle the mapping from player to
 session. This helps ensure that your users always see the up-to-date information
-on the playing media, including in the [Now Playing card](https://developer.android.com/training/tv/playback/now-playing).
+on the playing media, including in the [Now Playing card](https://developer.android.com/training/tv/playback/now-playing.md.txt).
 
 ### Control and advertise playback
 
@@ -114,7 +116,7 @@ Using `MediaSession` lets you avoid unnecessary disruptions such as:
 - **Restricted interaction with content** that inhibits users from controlling
   playback. For example, returning to your app if it's playing music in the
   background, or supporting voice commands. With `MediaSession` in your app,
-  users can [use voice commands](https://developer.android.com/media/implement/assistant) to seek and skip
+  users can [use voice commands](https://developer.android.com/media/implement/assistant.md.txt) to seek and skip
   songs or episodes.
 
 ## Further Considerations
@@ -135,7 +137,7 @@ for users with vision impairments.
 
 The first step toward improving accessibility is awareness. For more information
 about text scaling, keyboard layouts, and audio descriptions, see
-[accessibility resources](https://developer.android.com/training/tv/accessibility#android_accessibility_resources).
+[accessibility resources](https://developer.android.com/training/tv/accessibility.md.txt#android_accessibility_resources).
 
 ### Best practices to drive engagement on Google TV
 
@@ -145,7 +147,7 @@ best practices.
 
 You need to use `MediaSession`, to provide a universal way of interacting with
 an audio or video player. For more information about how to implement this, see
-[Use Media3 MediaSession](https://developer.android.com/media/implement/surfaces/android-tv#use_media3_mediasession).
+[Use Media3 MediaSession](https://developer.android.com/media/implement/surfaces/android-tv.md.txt#use-media3-mediasession).
 
 As a baseline, your app needs to support Google Cast. It lets you extend your
 Android, iOS, and Chrome apps to enable audio and video streaming to Android TVs
@@ -173,4 +175,4 @@ ideo or music content in the TV programming guide.
 The TV Input Framework provides a unified method for the receiving and playback
 of live video content from hardware sources, such as HDMI ports and
 built-in-tuners, and software sources, such as video streamed over the internet.
-For further information, see [Build TV input services](https://developer.android.com/training/tv/tif).
+For further information, see [Build TV input services](https://developer.android.com/training/tv/tif.md.txt).

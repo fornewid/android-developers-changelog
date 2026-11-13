@@ -4,6 +4,8 @@ url: https://developer.android.com/media/optimize/sharing
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/optimize/llms.txt
+
 Many people share videos using their Android device. The quality of the received
 video is often inferior to the original because of processing that's performed
 by the sharing app. This document describes how to optimize the quality of
@@ -129,9 +131,9 @@ visual quality.
 ### Quantization Parameter (QP)
 
 On Android 12 and higher, the QP keys are standardized and are available in the
-[`MediaFormat`](https://developer.android.com/reference/android/media/MediaFormat#KEY_VIDEO_QP_B_MAX)
+[`MediaFormat`](https://developer.android.com/reference/android/media/MediaFormat.md.txt#KEY_VIDEO_QP_B_MAX)
 API and in the
-[NDK Media library](https://developer.android.com/ndk/reference/group/media).
+[NDK Media library](https://developer.android.com/ndk/reference/group/media.md.txt).
 On earlier Android versions, QP manipulation is available only through framework
 functions using vendor-specific keys in the `MediaFormat` configuration.
 
@@ -172,12 +174,12 @@ Consider using B-frames only during the sharing step, and only when running
 Android 10 or higher.
 
 Apps should check the supported encoding profiles using
-[`CodecCapabilities`](https://developer.android.com/reference/android/media/MediaCodecInfo.CodecCapabilities),
+[`CodecCapabilities`](https://developer.android.com/reference/android/media/MediaCodecInfo.CodecCapabilities.md.txt),
 since not all devices support main or high profiles. Use the highest profile
 supported by the AVC encoder: High \> Main \> Baseline. For safest results, do not
 configure B-frames
-([`KEY_LATENCY`](https://developer.android.com/reference/android/media/MediaFormat#KEY_LATENCY) or
-[`KEY_MAX_B_FRAMES`](https://developer.android.com/reference/android/media/MediaFormat#KEY_MAX_B_FRAMES))
+([`KEY_LATENCY`](https://developer.android.com/reference/android/media/MediaFormat.md.txt#KEY_LATENCY) or
+[`KEY_MAX_B_FRAMES`](https://developer.android.com/reference/android/media/MediaFormat.md.txt#KEY_MAX_B_FRAMES))
 when using the baseline
 profile as some encoders may fail configuration.
 
@@ -190,8 +192,10 @@ API 29 or higher
 
 Use the highest supported profile and set the B-frame parameter to 1:
 
-    format.setInt32(KEY_PROFILE, AVCProfileHigh);
-    format.setInt32(KEY_MAX_B_FRAMES, 1);
+```java
+format.setInt32(KEY_PROFILE, AVCProfileHigh);
+format.setInt32(KEY_MAX_B_FRAMES, 1);
+```
 
 Do not set `KEY_LATENCY` in this situation.
 
@@ -201,10 +205,12 @@ APIs 26, 27, 28
 
 Use the highest-supported profile, but disable the generation of B-frames. This
 accommodates some limitations in the
-[`MediaMuxer`](https://developer.android.com/reference/android/media/MediaMuxer) in these system versions
+[`MediaMuxer`](https://developer.android.com/reference/android/media/MediaMuxer.md.txt) in these system versions
 
-    format.setInt32(KEY_PROFILE, AVCProfileHigh);
-    format.setInt32(KEY_LATENCY, 1);
+```java
+format.setInt32(KEY_PROFILE, AVCProfileHigh);
+format.setInt32(KEY_LATENCY, 1);
+```
 
 The `KEY_LATENCY` value prohibits the codecs from generating B-frames, but still
 takes advantage of other codec efficiencies.
@@ -219,7 +225,9 @@ API 25 and earlier
 
 Use the baseline profile for safest results.
 
-    format.setInt32(KEY_PROFILE, AVCProfileBaseline);
+```java
+format.setInt32(KEY_PROFILE, AVCProfileBaseline);
+```
 
 Prior to version 7, Android AOSP supports only the baseline profile. However, it
 is likely that OEMs enabled a main/high profile on some devices, perhaps by
@@ -275,6 +283,6 @@ To try out the tone mapping functionality, see the
 [Transformer demo app](https://github.com/androidx/media/tree/release/demos/transformer).
 
 You can also set up tone mapping using
-[`MediaCodec`](https://developer.android.com/reference/android/media/MediaCodec), although the implementation
+[`MediaCodec`](https://developer.android.com/reference/android/media/MediaCodec.md.txt), although the implementation
 is more complex. For more information, see the
-[`MediaCodec`](https://developer.android.com/reference/android/media/MediaCodec) reference documentation.
+[`MediaCodec`](https://developer.android.com/reference/android/media/MediaCodec.md.txt) reference documentation.

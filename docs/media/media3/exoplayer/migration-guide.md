@@ -4,6 +4,8 @@ url: https://developer.android.com/media/media3/exoplayer/migration-guide
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/media3/exoplayer/llms.txt
+
 Apps that are currently using the standalone `com.google.android.exoplayer2`
 library and `androidx.media` should migrate to `androidx.media3`. Use
 the [migration script](https://developer.android.com/media/media3/exoplayer/migration-guide.md.txt#exoplayer) to migrate gradle build files, Java and

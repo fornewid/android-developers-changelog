@@ -4,28 +4,30 @@ url: https://developer.android.com/media/optimize/performance/codec
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/optimize/llms.txt
+
 Beginning with Android 10 (API level 29) and higher, there are methods in
-[`MediaCodecInfo`](https://developer.android.com/reference/android/media/MediaCodecInfo) that
+[`MediaCodecInfo`](https://developer.android.com/reference/android/media/MediaCodecInfo.md.txt) that
 reveal more information about a codec:
 
-[`isSoftwareOnly()`](https://developer.android.com/reference/android/media/MediaCodecInfo#isSoftwareOnly)
+[`isSoftwareOnly()`](https://developer.android.com/reference/android/media/MediaCodecInfo.md.txt#isSoftwareOnly)
 :   Returns true if the codec runs in software only. Software codecs make no
     guarantees about rendering performance.
 
-[`isHardwareAccelerated()`](https://developer.android.com/reference/android/media/MediaCodecInfo#isHardwareAccelerated)
+[`isHardwareAccelerated()`](https://developer.android.com/reference/android/media/MediaCodecInfo.md.txt#isHardwareAccelerated)
 :   Returns true if a codec is accelerated by hardware.
 
-[`isVendor()`](https://developer.android.com/reference/android/media/MediaCodecInfo#isVendor)
+[`isVendor()`](https://developer.android.com/reference/android/media/MediaCodecInfo.md.txt#isVendor)
 :   Returns true if the codec is provided by the device vendor or false if provided
     by the Android platform.
 
-[`isAlias()`](https://developer.android.com/reference/android/media/MediaCodecInfo#isAlias)
+[`isAlias()`](https://developer.android.com/reference/android/media/MediaCodecInfo.md.txt#isAlias)
 :   `MediaCodecList` may contain additional entries for the same underlying codec
     using an alternate codec name/s (alias/es). This method returns true if the
     codec in this entry is an alias for another codec.
 
 In addition,
-[`MediaCodec.getCanonicalName()`](https://developer.android.com/reference/android/media/MediaCodecInfo#getCanonicalName)
+[`MediaCodec.getCanonicalName()`](https://developer.android.com/reference/android/media/MediaCodecInfo.md.txt#getCanonicalName)
 returns the underlying codec name for codecs created via an alias.
 
 #### Performance Points
@@ -36,13 +38,13 @@ represents Ultra High Definition video (3840x2160 pixels) rendered at 60 frames
 per second.
 
 The method
-[`MediaCodecInfo.VideoCapabilities.getSupportedPerformancePoints()`](https://developer.android.com/reference/android/media/MediaCodecInfo.VideoCapabilities#getSupportedPerformancePoints())
+[`MediaCodecInfo.VideoCapabilities.getSupportedPerformancePoints()`](https://developer.android.com/reference/android/media/MediaCodecInfo.VideoCapabilities.md.txt#getSupportedPerformancePoints())
 returns a list of
-[`PerformancePoint`](https://developer.android.com/reference/android/media/MediaCodecInfo.VideoCapabilities.PerformancePoint)
+[`PerformancePoint`](https://developer.android.com/reference/android/media/MediaCodecInfo.VideoCapabilities.PerformancePoint.md.txt)
 entries that the codec can render or capture.
 
 You can check whether a given `PerformancePoint` covers another by calling
-[`PerformancePoint.covers(PerformancePoint)`](https://developer.android.com/reference/android/media/MediaCodecInfo.VideoCapabilities.PerformancePoint#covers(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint)).
+[`PerformancePoint.covers(PerformancePoint)`](https://developer.android.com/reference/android/media/MediaCodecInfo.VideoCapabilities.PerformancePoint.md.txt#covers(android.media.MediaCodecInfo.VideoCapabilities.PerformancePoint)).
 For example, `UHD_60.covers(UHD_50)` returns true.
 
 A list of performance points is provided for all hardware-accelerated codecs.

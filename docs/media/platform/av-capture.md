@@ -4,16 +4,18 @@ url: https://developer.android.com/media/platform/av-capture
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/platform/llms.txt
+
 An app can record the video or audio that is being played from another app. Such
 apps must handle the
-[`MediaProjection`](https://developer.android.com/reference/android/media/projection/MediaProjection) token
+[`MediaProjection`](https://developer.android.com/reference/android/media/projection/MediaProjection.md.txt) token
 correctly. This page explains how. It also shows how a device admin can disable
 the ability to record any screen snapshots, and how an audio app can prevent
 other apps from recording the content it plays.
 
 ## How to handle a `MediaProjection` token
 
-The [`MediaProjection`](https://developer.android.com/reference/android/media/projection/MediaProjection) API
+The [`MediaProjection`](https://developer.android.com/reference/android/media/projection/MediaProjection.md.txt) API
 allows apps to acquire a `MediaProjection` token that gives them one time access
 to capture screen contents or audio. The Android OS asks the user for their
 permission before granting the token to your app.
@@ -26,20 +28,20 @@ to record audio silence or a black video stream.
 
 To handle the loss of a token, register a callback on the `MediaProjection`
 instance using the
-[`registerCallback`](https://developer.android.com/reference/android/media/projection/MediaProjection#registerCallback(android.media.projection.MediaProjection.Callback,%20android.os.Handler))
+[`registerCallback`](https://developer.android.com/reference/android/media/projection/MediaProjection.md.txt#registerCallback(android.media.projection.MediaProjection.Callback,%20android.os.Handler))
 method, and stop recording when the
-[`onStop`](https://developer.android.com/reference/android/media/projection/MediaProjection.Callback#onStop())
+[`onStop`](https://developer.android.com/reference/android/media/projection/MediaProjection.Callback.md.txt#onStop())
 method is called.
 
-For more information, see [Media projection](https://developer.android.com/media/grow/media-projection).
+For more information, see [Media projection](https://developer.android.com/media/grow/media-projection.md.txt).
 
 ## Capture video
 
-You can use the [`DevicePolicyManager`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager)
+You can use the [`DevicePolicyManager`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager.md.txt)
 to prevent screen recording. For enterprise accounts (Android for Work), the
 administrator can disable the collection of assistant data for the work profile
 by using the
-[setScreenCaptureDisabled](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setScreenCaptureDisabled(android.content.ComponentName,%20boolean))
+[setScreenCaptureDisabled](https://developer.android.com/reference/android/app/admin/DevicePolicyManager.md.txt#setScreenCaptureDisabled(android.content.ComponentName,%20boolean))
 method.
 
 The codelab
@@ -48,7 +50,7 @@ shows how to forbid screenshots.
 
 ## Capture audio playback
 
-The [AudioPlaybackCapture API](https://developer.android.com/guide/topics/media/playback-capture) was introduced in Android 10. This API
+The [AudioPlaybackCapture API](https://developer.android.com/media/platform/av-capture.md.txt#capture-audio) was introduced in Android 10. This API
 gives apps the ability to copy the audio being played by other apps. This
 feature is the analog of screen capture, but for audio. The primary use case is
 for streaming apps that want to capture the audio being played by games.
@@ -61,18 +63,18 @@ being captured.
 For security and privacy, playback capture imposes some limitations.
 To be able to capture audio, an app must meet these requirements:
 
-- The app must have the [`RECORD_AUDIO`](https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO) permission.
-- The app must bring up the prompt displayed by [`MediaProjectionManager.createScreenCaptureIntent()`](https://developer.android.com/reference/android/media/projection/MediaProjectionManager#createScreenCaptureIntent()), and the user must approve it.
+- The app must have the [`RECORD_AUDIO`](https://developer.android.com/reference/android/Manifest.permission.md.txt#RECORD_AUDIO) permission.
+- The app must bring up the prompt displayed by [`MediaProjectionManager.createScreenCaptureIntent()`](https://developer.android.com/reference/android/media/projection/MediaProjectionManager.md.txt#createScreenCaptureIntent()), and the user must approve it.
 - The capturing and playing apps must be in the same user profile.
 
 To capture audio from another app, your app must build an
-[`AudioRecord`](https://developer.android.com/reference/android/media/AudioRecord) object
+[`AudioRecord`](https://developer.android.com/reference/android/media/AudioRecord.md.txt) object
 and add an
-[`AudioPlaybackCaptureConfiguration`](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration)
+[`AudioPlaybackCaptureConfiguration`](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.md.txt)
 to it. Follow these steps:
 
-1. Call [`AudioPlaybackCaptureConfiguration.Builder.build()`](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.Builder#build()) to build an [`AudioPlaybackCaptureConfiguration`](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration).
-2. Pass the configuration to the `AudioRecord` by calling [`setAudioPlaybackCaptureConfig`](https://developer.android.com/reference/android/media/AudioRecord.Builder#setAudioPlaybackCaptureConfig(AudioPlaybackCaptureConfiguration)).
+1. Call [`AudioPlaybackCaptureConfiguration.Builder.build()`](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.Builder.md.txt#build()) to build an [`AudioPlaybackCaptureConfiguration`](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.md.txt).
+2. Pass the configuration to the `AudioRecord` by calling [`setAudioPlaybackCaptureConfig`](https://developer.android.com/reference/android/media/AudioRecord.Builder.md.txt#setAudioPlaybackCaptureConfig(android.media.AudioPlaybackCaptureConfiguration)).
 
 ### Controlling audio capture
 
@@ -84,10 +86,10 @@ kinds of app can record its own playback.
 An app can limit which audio it can capture by using these
 methods:
 
-- Pass an `AUDIO_USAGE` to [AudioPlaybackCaptureConfiguration.Builder.addMatchingUsage()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.Builder#addMatchingUsage(int)) to permit capturing a specific usage. Call the method multiple times to specify more than one usage.
-- Pass an `AUDIO_USAGE` to [AudioPlaybackCaptureConfiguration.excludeUsage()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.Builder#excludeUsage(int)) to forbid capturing that usage. Call the method multiple times to specify more than one usage.
-- Pass a UID to [AudioPlaybackCaptureConfiguration.addMatchingUid()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.Builder#addMatchingUid(int)) to only capture apps with a specific UID. Call the method multiple times to specify more than one UID.
-- Pass a UID to [AudioPlaybackCaptureConfiguration.excludeUid()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.Builder#excludeUid(int)) to forbid capturing that UID. Call the method multiple times to specify more than one UID.
+- Pass an `AUDIO_USAGE` to [AudioPlaybackCaptureConfiguration.Builder.addMatchingUsage()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.Builder.md.txt#addMatchingUsage(int)) to permit capturing a specific usage. Call the method multiple times to specify more than one usage.
+- Pass an `AUDIO_USAGE` to [AudioPlaybackCaptureConfiguration.excludeUsage()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.Builder.md.txt#excludeUsage(int)) to forbid capturing that usage. Call the method multiple times to specify more than one usage.
+- Pass a UID to [AudioPlaybackCaptureConfiguration.addMatchingUid()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.Builder.md.txt#addMatchingUid(int)) to only capture apps with a specific UID. Call the method multiple times to specify more than one UID.
+- Pass a UID to [AudioPlaybackCaptureConfiguration.excludeUid()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.Builder.md.txt#excludeUid(int)) to forbid capturing that UID. Call the method multiple times to specify more than one UID.
 
 Note that you cannot use the `addMatchingUsage()` and `excludeUsage()` methods
 together. You must choose one or the other. Likewise, you cannot use `addMatchingUid()` and `excludeUid()`
@@ -100,20 +102,20 @@ The audio coming from an app can be captured only if the app meets these require
 
 #### Usage
 
-The player producing the audio must [set its usage](https://developer.android.com/reference/android/media/AudioAttributes.Builder#setUsage(int))
-to [`USAGE_MEDIA`](https://developer.android.com/reference/android/media/AudioAttributes#USAGE_MEDIA),
-[`USAGE_GAME`](https://developer.android.com/reference/android/media/AudioAttributes#USAGE_GAME), or
-[`USAGE_UNKNOWN`](https://developer.android.com/reference/android/media/AudioAttributes#USAGE_UNKNOWN).
+The player producing the audio must [set its usage](https://developer.android.com/reference/android/media/AudioAttributes.Builder.md.txt#setUsage(int))
+to [`USAGE_MEDIA`](https://developer.android.com/reference/android/media/AudioAttributes.md.txt#USAGE_MEDIA),
+[`USAGE_GAME`](https://developer.android.com/reference/android/media/AudioAttributes.md.txt#USAGE_GAME), or
+[`USAGE_UNKNOWN`](https://developer.android.com/reference/android/media/AudioAttributes.md.txt#USAGE_UNKNOWN).
 
 #### Capture policy
 
 The player's capture policy must be
-[`AudioAttributes.ALLOW_CAPTURE_BY_ALL`](https://developer.android.com/reference/android/media/AudioAttributes#ALLOW_CAPTURE_BY_ALL),
+[`AudioAttributes.ALLOW_CAPTURE_BY_ALL`](https://developer.android.com/reference/android/media/AudioAttributes.md.txt#ALLOW_CAPTURE_BY_ALL),
 which allows other apps to capture playback. This can be done in a number of ways:
 
 - To enable capture on all players, include `android:allowAudioPlaybackCapture="true"` in the app's `manifest.xml` file.
-- You can also enable capture on all players by calling [`AudioManager.setAllowedCapturePolicy(AudioAttributes.ALLOW_CAPTURE_BY_ALL)`](https://developer.android.com/reference/android/media/AudioManager#setAllowedCapturePolicy(int)).
-- You can set the policy on an individual player when you build it using [`AudioAttributes.Builder.setAllowedCapturePolicy(AudioAttributes.ALLOW_CAPTURE_BY_ALL)`](https://developer.android.com/reference/android/media/AudioAttributes.Builder#setAllowedCapturePolicy(int)). (If you are using [`AAudio`](https://developer.android.com/ndk/guides/audio/aaudio/aaudio) call [`AAudioStreamBuilder_setAllowedCapturePolicy(AAUDIO_ALLOW_CAPTURE_BY_ALL)`](https://developer.android.com/ndk/reference/group/audio#aaudiostreambuilder_setallowedcapturepolicy).)
+- You can also enable capture on all players by calling [`AudioManager.setAllowedCapturePolicy(AudioAttributes.ALLOW_CAPTURE_BY_ALL)`](https://developer.android.com/reference/android/media/AudioManager.md.txt#setAllowedCapturePolicy(int)).
+- You can set the policy on an individual player when you build it using [`AudioAttributes.Builder.setAllowedCapturePolicy(AudioAttributes.ALLOW_CAPTURE_BY_ALL)`](https://developer.android.com/reference/android/media/AudioAttributes.Builder.md.txt#setAllowedCapturePolicy(int)). (If you are using [`AAudio`](https://developer.android.com/ndk/guides/audio/aaudio/aaudio.md.txt) call [`AAudioStreamBuilder_setAllowedCapturePolicy(AAUDIO_ALLOW_CAPTURE_BY_ALL)`](https://developer.android.com/ndk/reference/group/audio.md.txt#aaudiostreambuilder_setallowedcapturepolicy).)
 
 If these prerequisites are met, any audio produced by the player can be captured.
 
@@ -131,7 +133,7 @@ Many of these components are customized by Android vendors and support features
 like accessibility and captioning. For this reason it is recommended that apps
 allow the system to capture their playback. In the rare case when you do not
 want the system to capture your app's playback, set the capture policy to
-[`ALLOW_CAPTURE_BY_NONE`](https://developer.android.com/reference/android/media/AudioAttributes#ALLOW_CAPTURE_BY_NONE).
+[`ALLOW_CAPTURE_BY_NONE`](https://developer.android.com/reference/android/media/AudioAttributes.md.txt#ALLOW_CAPTURE_BY_NONE).
 
 #### Setting policy at runtime
 

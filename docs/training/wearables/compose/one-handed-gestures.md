@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/compose/one-handed-gesture
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/compose/llms.txt
+
 Compose for Wear OS Material version <button value="2.5">2.5</button> <button value="3" default="">3</button>
 
 *** ** * ** ***
@@ -24,10 +26,14 @@ frequency according to user preferences.
 
 ## Supported gestures and actions
 
-The Wear OS gestures framework supports two gesture types:
+The Wear OS gestures framework supports two gesture action types:
 
-- **Primary action (Double pinch):** Maps to the main action on a screen, such as answering a call or toggling media playback.
-- **Dismiss action (Wrist turn):** Maps to backward navigation, dismissing a dialog, or canceling a prompt.
+- **Primary action:** Maps to the main action on a screen, such as answering a call or toggling media playback. On Pixel Watch devices, this action maps to the **Double pinch** gesture.
+- **Dismiss action:** Maps to backward navigation, dismissing a dialog, or canceling a prompt. On Pixel Watch devices, this action maps to the **Wrist
+  turn** gesture.
+
+> [!NOTE]
+> **Note:** The mapping between gesture actions and physical gestures can vary across device manufacturers and form factors. Your Compose app configures gesture actions (`OneHandedGestureAction.Primary` or `OneHandedGestureAction.Dismiss`), and the system translates the device's physical gesture to the corresponding action.
 
 ## Configure gestures in Compose
 
@@ -217,19 +223,46 @@ constraint overrides:
 
 ### Trigger gesture events using ADB
 
-To simulate the **Double pinch** gesture (which is the `Primary` action on Pixel
-watches), run the following ADB shell command:
+Because the physical gesture mapped to each gesture action can vary by device
+manufacturer or emulator image, first query the system for the supported
+action-to-gesture mappings:
 
 ```bash
-adb shell cmd IWearGestureService gesture DoublePinch
+adb shell cmd IWearGestureService get-supported-actions -readable
 ```
 
-To simulate the **Wrist turn** gesture (which is the `Dismiss` action on Pixel
-watches), run the following ADB shell command:
+This command outputs a JSON object showing the physical gestures mapped to
+`PrimaryAction` and `DismissAction` for `local` (on-watch) and `remote`
+subscribers. For example, on a Pixel Watch or Wear OS emulator:
 
-```bash
-adb shell cmd IWearGestureService gesture WristTurn
+```json
+{
+  "remote": {
+    "PrimaryAction": "DoublePinch",
+    "DismissAction": "WristTurn"
+  },
+  "local": {
+    "PrimaryAction": "DoublePinch",
+    "DismissAction": "WristTurn"
+  }
+}
 ```
+
+Use the gesture names listed under `"local"` to simulate gestures for your
+watch app:
+
+- To simulate the gesture mapped to `PrimaryAction` (such as `DoublePinch`),
+  run the following ADB shell command:
+
+  ```bash
+  adb shell cmd IWearGestureService gesture DoublePinch
+  ```
+- To simulate the gesture mapped to `DismissAction` (such as `WristTurn`),
+  run the following ADB shell command:
+
+  ```bash
+  adb shell cmd IWearGestureService gesture WristTurn
+  ```
 
 ### Reset gesture hint tracking
 
@@ -264,8 +297,8 @@ adb shell cmd IWearGestureService override-constraints reset
 
 If your app doesn't receive simulated gestures:
 
-1. Verify that the watch screen is awake and turned ON. The gesture
-   framework does not dispatch gestures to applications while the screen
+1. Verify that the watch screen is awake and turned on. The gesture
+   framework doesn't dispatch gestures to applications while the screen
    is off or in ambient mode. To wake the display using ADB, run:
 
    ```bash
@@ -279,9 +312,10 @@ If your app doesn't receive simulated gestures:
    ```
 
    When your app's gesture screen is in the foreground and the screen is
-   awake, this command returns `[DoublePinch]` or `[DoublePinch, WristTurn]`.
-   If an empty list (`[]`) is returned, check whether your window has focus or
-   if off-body constraints are blocking activation.
+   awake, this command returns the active gestures for the subscribed actions
+   (for example, `[DoublePinch]` or `[DoublePinch, WristTurn]`). If an empty
+   list (`[]`) is returned, check whether your window has focus or if off-body
+   constraints are blocking activation.
 3. Inspect the internal gesture service state and active subscriber tokens:
 
    ```bash

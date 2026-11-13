@@ -177,6 +177,7 @@ Once you have a `QualitySelector`, the application can create a
 `VideoCapture` object and perform the binding. Note that this binding is
 the same as with other use cases:
 
+
 ```kotlin
 val recorder = Recorder.Builder()
     .setExecutor(cameraExecutor).setQualitySelector(qualitySelector)
@@ -184,13 +185,16 @@ val recorder = Recorder.Builder()
 val videoCapture = VideoCapture.withOutput(recorder)
 
 try {
-    // Bind use cases to camera
+    // Bind use cases to camera.
     cameraProvider.bindToLifecycle(
-            this, CameraSelector.DEFAULT_BACK_CAMERA, preview, videoCapture)
-} catch(exc: Exception) {
+        this, CameraSelector.DEFAULT_BACK_CAMERA, preview, videoCapture
+    )
+} catch (exc: Exception) {
     Log.e(TAG, "Use case binding failed", exc)
 }
 ```
+
+<br />
 
 Note that [`bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider.md.txt#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...)) returns a [`Camera`](https://developer.android.com/reference/androidx/camera/core/Camera.md.txt) object. See [this guide](https://developer.android.com/training/camerax/configuration#camera-output) for more information about controlling camera output, such as zoom and exposure.
 
@@ -253,25 +257,30 @@ Once recording begins on the corresponding Camera device, CameraX sends a
 The following example shows how to record video and audio into a
 `MediaStore` file:
 
+
 ```kotlin
-// Create MediaStoreOutputOptions for our recorder
+// Create MediaStoreOutputOptions for our recorder.
 val name = "CameraX-recording-" +
-        SimpleDateFormat(FILENAME_FORMAT, Locale.US)
-                .format(System.currentTimeMillis()) + ".mp4"
+    SimpleDateFormat(FILENAME_FORMAT, Locale.US)
+        .format(System.currentTimeMillis()) + ".mp4"
 val contentValues = ContentValues().apply {
-   put(MediaStore.Video.Media.DISPLAY_NAME, name)
+    put(MediaStore.Video.Media.DISPLAY_NAME, name)
 }
-val mediaStoreOutput = MediaStoreOutputOptions.Builder(this.contentResolver,
-                              MediaStore.Video.Media.EXTERNAL_CONTENT_URI)
-                              .setContentValues(contentValues)
-                              .build()
+val mediaStoreOutput = MediaStoreOutputOptions.Builder(
+    this.contentResolver,
+    MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+)
+    .setContentValues(contentValues)
+    .build()
 
 // 2. Configure Recorder and Start recording to the mediaStoreOutput.
 val recording = videoCapture.output
-                .prepareRecording(context, mediaStoreOutput)
-                .withAudioEnabled()
-                .start(ContextCompat.getMainExecutor(this), captureListener)
+    .prepareRecording(context, mediaStoreOutput)
+    .withAudioEnabled()
+    .start(ContextCompat.getMainExecutor(this), captureListener)
 ```
+
+<br />
 
 While the camera preview is mirrored on the front camera by default, videos
 recorded by VideoCapture are not mirrored by default. With CameraX 1.3, it's
@@ -290,7 +299,6 @@ This code snippet shows how to call
 `VideoCapture.Builder.setMirrorMode()` using `MIRROR_MODE_ON_FRONT_ONLY`. For
 more information, see [`setMirrorMode()`](https://developer.android.com/reference/androidx/camera/video/VideoCapture.Builder.md.txt#setMirrorMode(int)).
 
-### Kotlin
 
 ```kotlin
 val recorder = Recorder.Builder().build()
@@ -299,22 +307,10 @@ val videoCapture = VideoCapture.Builder(recorder)
     .setMirrorMode(MIRROR_MODE_ON_FRONT_ONLY)
     .build()
 
-useCases.add(videoCapture);
+useCases.add(videoCapture)
 ```
 
-### Java
-
-```java
-Recorder.Builder builder = new Recorder.Builder();
-if (mVideoQuality != QUALITY_AUTO) {
-    builder.setQualitySelector(
-        QualitySelector.from(mVideoQuality));
-}
-  VideoCapture<Recorder> videoCapture = new VideoCapture.Builder<>(builder.build())
-      .setMirrorMode(MIRROR_MODE_ON_FRONT_ONLY)
-      .build();
-    useCases.add(videoCapture);
-```
+<br />
 
 ### Dynamic range (HDR video)
 

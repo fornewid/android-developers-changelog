@@ -4,10 +4,11 @@ url: https://developer.android.com/build/annotation-processors
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/llms.txt
+
 This page includes detailed guidance on how to add and configure annotation
 processors as project dependencies. To learn more about annotation processors,
-see the entry in
-[Configure dependencies](https://developer.android.com/build/dependencies#dependency_configurations).
+see the entry in [Configure dependencies](https://developer.android.com/build/dependencies.md.txt#dependency_configurations).
 
 If you add annotation processors to your compile classpath, you'll see
 an error message similar to the following:
@@ -17,7 +18,7 @@ Error: Annotation processors must be explicitly declared now.
 ```
 
 To resolve this error, add annotation processors to your project by configuring
-your dependency using `annotationProcessor` as shown below:
+your dependency using `annotationProcessor` as shown in the following example:
 
 ### Kotlin
 
@@ -41,16 +42,16 @@ dependencies {
 }
 ```
 
-**Note:** Android plugin for Gradle 3.0.0+ no longer
-supports [`android-apt` plugin.](https://github.com/littlerobots/android-apt)
+> [!NOTE]
+> **Note:** Android plugin for Gradle 3.0.0+ no longer supports [`android-apt` plugin](https://github.com/littlerobots/android-apt).
 
 ## Pass arguments to annotation processors
 
 If you need to pass arguments to an annotation processor, you can do so using
-the [`AnnotationProcessorOptions`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/AnnotationProcessorOptions)
-block in your module's build configuration. For example, if you want to pass
-primitive data types as key-value pairs, you can use the `argument` property,
-as shown below:
+the [`AnnotationProcessorOptions`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/AnnotationProcessorOptions) block in your module's build
+configuration. For example, if you want to pass primitive data types as
+key-value pairs, you can use the `argument` property, as shown in the following
+example:
 
 ### Kotlin
 
@@ -96,8 +97,8 @@ incremental and cached clean builds by applying [incremental build property type
 annotations](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks)
 to each argument.
 
-For example, the class below implements `CommandLineArgumentProvider` and
-annotates each argument for the processor.
+For example, the class in the following example implements
+`CommandLineArgumentProvider` and annotates each argument for the processor.
 
 > [!NOTE]
 > **Note:** Typically, annotation processor authors provide either this class or instructions on how to write such a class. That's because each argument needs to specify the correct build property type annotation in order to work as intended.
@@ -170,7 +171,7 @@ android {...}
 After you define a class that implements `CommandLineArgumentProvider`, you need
 to create an instance and pass it to the Android plugin using the
 [`annotationProcessorOptions.compilerArgumentProvider`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/AnnotationProcessorOptions#compilerArgumentProvider(org.gradle.process.CommandLineArgumentProvider))
-method, as shown below.
+method, as shown in the following example.
 
 ### Kotlin
 
@@ -211,8 +212,7 @@ android {
 ```
 
 To learn more about how implementing `CommandLineArgumentProvider` helps
-improve build performance, read
-[Caching Java projects](https://docs.gradle.org/current/userguide/build_cache_use_cases.html).
+improve build performance, read [Caching Java projects](https://docs.gradle.org/current/userguide/build_cache_use_cases.html).
 
 ## Disable the annotation processor error check
 

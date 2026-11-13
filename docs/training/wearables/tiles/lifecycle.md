@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/tiles/lifecycle
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/tiles/llms.txt
+
 `TileService` is a [bound service](https://developer.android.com/guide/components/bound-services). Your `TileService` is bound as a result
 of your app request or if the system needs to communicate with it. A typical
 [bound-service lifecycle](https://developer.android.com/guide/components/bound-services#Lifecycle) contains the following four callback methods:
@@ -20,7 +22,7 @@ There are two categories of `TileService` methods:
 
 - **Methods relating to core Tile functionality.** [`onTileRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt#onTileRequest(androidx.wear.tiles.RequestBuilders.TileRequest)) (mandatory to implement) and [`onTileResourcesRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt#onTileResourcesRequest(androidx.wear.tiles.RequestBuilders.ResourcesRequest)) are in this category.
 - **Methods relating to analytics and visibility.** This includes methods such as:
-  - [`onTileAddEvent()`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt#onTileAddEvent(androidx.wear.tiles.EventBuilders.TileAddEvent)) called when when the user adds your tile to the carousel
+  - [`onTileAddEvent()`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt#onTileAddEvent(androidx.wear.tiles.EventBuilders.TileAddEvent)) called when the user adds your tile to the carousel
   - [`onTileRemoveEvent()`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt#onTileRemoveEvent(androidx.wear.tiles.EventBuilders.TileRemoveEvent)) called when the user removes your tile from the carousel
   - [`onRecentInteractionEventsAsync()`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt#onRecentInteractionEventsAsync(java.util.List%3Candroidx.wear.tiles.EventBuilders.TileInteractionEvent%3E)) provides information about recent user and system interactions with tiles
 

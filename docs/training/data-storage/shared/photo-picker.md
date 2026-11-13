@@ -4,6 +4,8 @@ url: https://developer.android.com/training/data-storage/shared/photo-picker
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/data-storage/shared/photo-picker/llms.txt
+
 ![Photo picker dialog appears with media files on your device. Select a photo to share with the app.](https://developer.android.com/static/images/training/data-storage/kotlin-picker.gif) **Figure 1.** The photo picker provides an intuitive UI for sharing photos with your app.
 
 The photo picker provides a browsable interface that presents the
@@ -22,20 +24,20 @@ users over time without requiring any code changes.
 ## Use Jetpack Activity contracts
 
 To simplify photo picker integration, include version 1.7.0 or higher of the
-[`androidx.activity`](https://developer.android.com/jetpack/androidx/releases/activity#1.7.0) library.
+[`androidx.activity`](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.7.0) library.
 
 Use the following activity result contracts to launch the photo picker:
 
-- [`PickVisualMedia`](https://developer.android.com/reference/kotlin/androidx/activity/result/contract/ActivityResultContracts.PickVisualMedia) to [select a single image or video](https://developer.android.com/training/data-storage/shared/photo-picker#select-single-item).
-- [`PickMultipleVisualMedia`](https://developer.android.com/reference/kotlin/androidx/activity/result/contract/ActivityResultContracts.PickMultipleVisualMedia) to [select multiple images or videos](https://developer.android.com/training/data-storage/shared/photo-picker#select-multiple-items).
+- [`PickVisualMedia`](https://developer.android.com/reference/kotlin/androidx/activity/result/contract/ActivityResultContracts.PickVisualMedia.md.txt) to [select a single image or video](https://developer.android.com/training/data-storage/shared/photo-picker.md.txt#select-single-item).
+- [`PickMultipleVisualMedia`](https://developer.android.com/reference/kotlin/androidx/activity/result/contract/ActivityResultContracts.PickMultipleVisualMedia.md.txt) to [select multiple images or videos](https://developer.android.com/training/data-storage/shared/photo-picker.md.txt#select-multiple-items).
 
 If the photo picker isn't available on a device, the library
 automatically invokes the
-[`ACTION_OPEN_DOCUMENT`](https://developer.android.com/reference/kotlin/android/content/Intent#action_open_document)
+[`ACTION_OPEN_DOCUMENT`](https://developer.android.com/reference/kotlin/android/content/Intent.md.txt#action_open_document)
 intent action instead. This intent is supported on devices that run Android 4.4
 (API level 19) or higher. You can verify whether the photo picker is available
 on a given device by calling
-[`isPhotoPickerAvailable()`](https://developer.android.com/reference/kotlin/androidx/activity/result/contract/ActivityResultContracts.PickVisualMedia#isPhotoPickerAvailable(android.content.Context)).
+[`isPhotoPickerAvailable()`](https://developer.android.com/reference/kotlin/androidx/activity/result/contract/ActivityResultContracts.PickVisualMedia.md.txt#isPhotoPickerAvailable(android.content.Context)).
 
 ### Select a single media item
 
@@ -174,7 +176,7 @@ val pickMultipleMedia =
 // For this example, launch the photo picker and let the user choose images
 // and videos. If you want the user to select a specific type of media file,
 // use the overloaded versions of launch(), as shown in the section about how
-// to https://developer.android.com/training/data-storage/shared/photo-picker#select-single-item.
+// to select a single media item.
 pickMultipleMedia.launch(PickVisualMediaRequest(PickVisualMedia.ImageAndVideo))
 ```
 
@@ -197,7 +199,7 @@ ActivityResultLauncher<PickVisualMediaRequest> pickMultipleMedia =
 // For this example, launch the photo picker and let the user choose images
 // and videos. If you want the user to select a specific type of media file,
 // use the overloaded versions of launch(), as shown in the section about how
-// to https://developer.android.com/training/data-storage/shared/photo-picker#select-single-item.
+// to select a single media item.
 pickMultipleMedia.launch(new PickVisualMediaRequest.Builder()
         .setMediaType(PickVisualMedia.ImageAndVideo.INSTANCE)
         .build());
@@ -222,13 +224,13 @@ val pickMultipleMedia =
 // For this example, launch the photo picker and let the user choose images
 // and videos. If you want the user to select a specific type of media file,
 // use the overloaded versions of launch(), as shown in the section about how
-// to https://developer.android.com/training/data-storage/shared/photo-picker#select-single-item.
+// to select a single media item.
 pickMultipleMedia.launch(PickVisualMediaRequest(PickVisualMedia.ImageAndVideo))
 ```
 
 The platform limits the maximum number of files that you can ask the user to
 select in the photo picker. To access this limit, call
-[`getPickImagesMaxLimit()`](https://developer.android.com/reference/android/provider/MediaStore#getPickImagesMaxLimit()).
+[`getPickImagesMaxLimit()`](https://developer.android.com/reference/android/provider/MediaStore.md.txt#getPickImagesMaxLimit()).
 On devices where the photo picker isn't supported, this limit is ignored.
 
 > [!NOTE]
@@ -248,16 +250,18 @@ enable the automatic installation of the backported photo picker module through
 Google Play services, add the following entry to the `<application>` tag in your
 app's manifest file:
 
-    <!-- Trigger Google Play services to install the backported photo picker module. -->
-    <service android:name="com.google.android.gms.metadata.ModuleDependencies"
-             android:enabled="false"
-             android:exported="false"
-             tools:ignore="MissingClass">
-        <intent-filter>
-            <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
-        </intent-filter>
-        <meta-data android:name="photopicker_activity:0:required" android:value="" />
-    </service>
+```xml
+<!-- Trigger Google Play services to install the backported photo picker module. -->
+<service android:name="com.google.android.gms.metadata.ModuleDependencies"
+         android:enabled="false"
+         android:exported="false"
+         tools:ignore="MissingClass">
+    <intent-filter>
+        <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
+    </intent-filter>
+    <meta-data android:name="photopicker_activity:0:required" android:value="" />
+</service>
+```
 
 ## Persist media file access
 
@@ -265,7 +269,7 @@ By default, the system grants your app access to media files until the device is
 restarted or until your app stops. If your app performs long-running work, such
 as uploading a large file in the background, you might need this access to be
 persisted for a longer period of time. To do so, call the
-[`takePersistableUriPermission()`](https://developer.android.com/reference/android/content/ContentResolver#takePersistableUriPermission(android.net.Uri,%20int))
+[`takePersistableUriPermission()`](https://developer.android.com/reference/android/content/ContentResolver.md.txt#takePersistableUriPermission(android.net.Uri,%20int))
 method:
 
 ### Kotlin
@@ -324,36 +328,38 @@ capabilities will be considered unsupported. This API is supported on **Android
 13 (API level 33) and higher** and is annotated with
 `@RequiresApi(Build.VERSION_CODES.TIRAMISU)`.
 
-    import androidx.activity.result.PickVisualMediaRequest
-    import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia
-    import androidx.annotation.RequiresApi
-    import android.os.Build
-    import android.util.Log
-    import android.provider.MediaStore
+```kotlin
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia
+import androidx.annotation.RequiresApi
+import android.os.Build
+import android.util.Log
+import android.provider.MediaStore
 
-    // Registers a photo picker activity launcher.
-    val pickMedia = registerForActivityResult(PickVisualMedia()) { uri ->
-        // Callback invoked after media selected or picker activity closed.
-        if (uri != null) {
-            Log.d("photo picker", "Selected URI: $uri")
-        } else {
-            Log.d("photo picker", "No media selected")
-        }
+// Registers a photo picker activity launcher.
+val pickMedia = registerForActivityResult(PickVisualMedia()) { uri ->
+    // Callback invoked after media selected or picker activity closed.
+    if (uri != null) {
+        Log.d("photo picker", "Selected URI: $uri")
+    } else {
+        Log.d("photo picker", "No media selected")
     }
+}
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-    fun launchPhotoPickerWithTranscodingSupport() {
-        val mediaCapabilities = MediaCapabilities.Builder()
-            .addSupportedHdrType(MediaCapabilities.HdrType.TYPE_HLG10)
-            .build()
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
+fun launchPhotoPickerWithTranscodingSupport() {
+    val mediaCapabilities = MediaCapabilities.Builder()
+        .addSupportedHdrType(MediaCapabilities.HdrType.TYPE_HLG10)
+        .build()
 
-        // Launch the photo picker and let the user choose only videos with
-        // transcoding enabled.
-        pickMedia.launch(PickVisualMediaRequest.Builder()
-            .setMediaType(PickVisualMedia.VideoOnly)
-            .setMediaCapabilitiesForTranscoding(mediaCapabilities)
-            .build())
-    }
+    // Launch the photo picker and let the user choose only videos with
+    // transcoding enabled.
+    pickMedia.launch(PickVisualMediaRequest.Builder()
+        .setMediaType(PickVisualMedia.VideoOnly)
+        .setMediaCapabilitiesForTranscoding(mediaCapabilities)
+        .build())
+}
+```
 
 The transcoding by photo picker is based on both the app's media capabilities
 and the chosen video. A URI to the transcoded video is returned if transcoding

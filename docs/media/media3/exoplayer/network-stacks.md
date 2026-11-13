@@ -4,6 +4,8 @@ url: https://developer.android.com/media/media3/exoplayer/network-stacks
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/media3/exoplayer/llms.txt
+
 ExoPlayer is commonly used for streaming media over the internet. It supports
 multiple network stacks for making its underlying network requests. Your choice
 of network stack can have a significant impact on streaming performance.
@@ -168,9 +170,11 @@ together with a corresponding `HttpDataSource.Factory`. ExoPlayer's Cronet and
 OkHttp libraries are good examples of how to do this.
 
 When integrating with a pure Java network stack, it's a good idea to implement a
-`DataSourceContractTest` to check that your `HttpDataSource` implementation
-behaves correctly. `OkHttpDataSourceContractTest` in the OkHttp library is a
-good example of how to do this.
+[`DataSourceContractTest`](https://developer.android.com/reference/androidx/media3/test/utils/DataSourceContractTest.md.txt) (in `media3-test-utils`) to
+check that your `HttpDataSource` implementation behaves correctly.
+`OkHttpDataSourceContractTest` in the OkHttp library is a good example of how to
+do this. For more information about Media3's testing artifacts, see the
+[testing guide](https://developer.android.com/media/media3/exoplayer/testing.md.txt).
 
 ## Choosing a network stack
 

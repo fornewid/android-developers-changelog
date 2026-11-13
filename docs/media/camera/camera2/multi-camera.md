@@ -133,7 +133,6 @@ logical cameras and find the physical cameras behind them. You can define a
 function to help identify potential pairs of physical cameras that you can use
 to replace one of the logical camera streams:
 
-### Kotlin
 
 ```kotlin
 /**
@@ -143,28 +142,32 @@ to replace one of the logical camera streams:
 data class DualCamera(val logicalId: String, val physicalId1: String, val physicalId2: String)
 
 fun findDualCameras(manager: CameraManager, facing: Int? = null): List<DualCamera> {
-    val dualCameras = MutableList<DualCamera>()
+    val dualCameras = mutableListOf<DualCamera>()
 
-    // Iterate over all the available camera characteristics
+    // Iterate over all the available camera characteristics.
     manager.cameraIdList.map {
         Pair(manager.getCameraCharacteristics(it), it)
     }.filter {
-        // Filter by cameras facing the requested direction
+        // Filter by cameras facing the requested direction.
         facing == null || it.first.get(CameraCharacteristics.LENS_FACING) == facing
     }.filter {
-        // Filter by logical cameras
-        // CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA requires API >= 28
-        it.first.get(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES)!!.contains(
-            CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA)
+        // Filter by logical cameras.
+        // CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA requires API >= 28.
+        it.first.get(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES)?.contains(
+            CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA
+        ) ?: false
     }.forEach {
-        // All possible pairs from the list of physical cameras are valid results
-        // NOTE: There could be N physical cameras as part of a logical camera grouping
-        // getPhysicalCameraIds() requires API >= 28
+        // All possible pairs from the list of physical cameras are valid results.
+        // NOTE: There could be N physical cameras as part of a logical camera grouping.
+        // getPhysicalCameraIds() requires API >= 28.
         val physicalCameras = it.first.physicalCameraIds.toTypedArray()
         for (idx1 in 0 until physicalCameras.size) {
             for (idx2 in (idx1 + 1) until physicalCameras.size) {
-                dualCameras.add(DualCamera(
-                    it.second, physicalCameras[idx1], physicalCameras[idx2]))
+                dualCameras.add(
+                    DualCamera(
+                        it.second, physicalCameras[idx1], physicalCameras[idx2]
+                    )
+                )
             }
         }
     }
@@ -173,134 +176,41 @@ fun findDualCameras(manager: CameraManager, facing: Int? = null): List<DualCamer
 }
 ```
 
-### Java
-
-```java
-/**
- * Helper class used to encapsulate a logical camera and two underlying
- * physical cameras
- */
-final class DualCamera {
-    final String logicalId;
-    final String physicalId1;
-    final String physicalId2;
-
-    DualCamera(String logicalId, String physicalId1, String physicalId2) {
-        this.logicalId = logicalId;
-        this.physicalId1 = physicalId1;
-        this.physicalId2 = physicalId2;
-    }
-}
-List<DualCamera> findDualCameras(CameraManager manager, Integer facing) {
-    List<DualCamera> dualCameras = new ArrayList<>();
-
-    List<String> cameraIdList;
-    try {
-        cameraIdList = Arrays.asList(manager.getCameraIdList());
-    } catch (CameraAccessException e) {
-        e.printStackTrace();
-        cameraIdList = new ArrayList<>();
-    }
-
-    // Iterate over all the available camera characteristics
-    cameraIdList.stream()
-            .map(id -> {
-                try {
-                    CameraCharacteristics characteristics = manager.getCameraCharacteristics(id);
-                    return new Pair<>(characteristics, id);
-                } catch (CameraAccessException e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            })
-            .filter(pair -> {
-                // Filter by cameras facing the requested direction
-                return (pair != null) &&
-                        (facing == null || pair.first.get(CameraCharacteristics.LENS_FACING).equals(facing));
-            })
-            .filter(pair -> {
-                // Filter by logical cameras
-                // CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA requires API >= 28
-                IntPredicate logicalMultiCameraPred =
-                        arg -> arg == CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA;
-                return Arrays.stream(pair.first.get(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES))
-                        .anyMatch(logicalMultiCameraPred);
-            })
-            .forEach(pair -> {
-                // All possible pairs from the list of physical cameras are valid results
-                // NOTE: There could be N physical cameras as part of a logical camera grouping
-                // getPhysicalCameraIds() requires API >= 28
-                String[] physicalCameras = pair.first.getPhysicalCameraIds().toArray(new String[0]);
-                for (int idx1 = 0; idx1 < physicalCameras.length; idx1++) {
-                    for (int idx2 = idx1 + 1; idx2 < physicalCameras.length; idx2++) {
-                        dualCameras.add(
-                                new DualCamera(pair.second, physicalCameras[idx1], physicalCameras[idx2]));
-                    }
-                }
-            });
-    return dualCameras;
-}
-```
+<br />
 
 State handling of the physical cameras is controlled by the logical camera. To
 open a "dual camera," open the logical camera corresponding to the physical
 cameras:
 
-### Kotlin
 
 ```kotlin
-fun openDualCamera(cameraManager: CameraManager,
-                       dualCamera: DualCamera,
-                       // AsyncTask is deprecated beginning API 30
-                       executor: Executor = AsyncTask.SERIAL_EXECUTOR,
-                       callback: (CameraDevice) -> Unit) {
+fun openDualCamera(
+    cameraManager: CameraManager,
+    dualCamera: DualCamera,
+    executor: Executor,
+    callback: (CameraDevice) -> Unit
+) {
 
-        // openCamera() requires API >= 28
-        cameraManager.openCamera(
-            dualCamera.logicalId, executor, object : CameraDevice.StateCallback() {
-                override fun onOpened(device: CameraDevice) = callback(device)
-                // Omitting for brevity...
-                override fun onError(device: CameraDevice, error: Int) = onDisconnected(device)
-                override fun onDisconnected(device: CameraDevice) = device.close()
-            })
-    }
+    // openCamera() requires API >= 28.
+    cameraManager.openCamera(
+        dualCamera.logicalId, executor,
+        object : CameraDevice.StateCallback() {
+            override fun onOpened(device: CameraDevice) = callback(device)
+            // Omitting for brevity...
+            override fun onError(device: CameraDevice, error: Int) = onDisconnected(device)
+            override fun onDisconnected(device: CameraDevice) = device.close()
+        }
+    )
+}
 ```
 
-### Java
-
-```java
-void openDualCamera(CameraManager cameraManager,
-                        DualCamera dualCamera,
-                        Executor executor,
-                        CameraDeviceCallback cameraDeviceCallback
-    ) {
-
-        // openCamera() requires API >= 28
-        cameraManager.openCamera(dualCamera.logicalId, executor, new CameraDevice.StateCallback() {
-            @Override
-            public void onOpened(@NonNull CameraDevice cameraDevice) {
-               cameraDeviceCallback.callback(cameraDevice);
-            }
-
-            @Override
-            public void onDisconnected(@NonNull CameraDevice cameraDevice) {
-                cameraDevice.close();
-            }
-
-            @Override
-            public void onError(@NonNull CameraDevice cameraDevice, int i) {
-                onDisconnected(cameraDevice);
-            }
-        });
-    }
-```
+<br />
 
 Besides selecting which camera to open, the process is the same as opening a
 camera in past Android versions. Creating a capture session using the new
 session configuration API tells the framework to associate certain targets with
 specific physical camera IDs:
 
-### Kotlin
 
 ```kotlin
 /**
@@ -311,139 +221,53 @@ specific physical camera IDs:
  * 3. Second physical camera
  */
 typealias DualCameraOutputs =
-        Triple<MutableList<Surface>?, MutableList<Surface>?, MutableList<Surface>?>
+    Triple<MutableList<Surface>?, MutableList<Surface>?, MutableList<Surface>?>
 
-fun createDualCameraSession(cameraManager: CameraManager,
-                            dualCamera: DualCamera,
-                            targets: DualCameraOutputs,
-                            // AsyncTask is deprecated beginning API 30
-                            executor: Executor = AsyncTask.SERIAL_EXECUTOR,
-                            callback: (CameraCaptureSession) -> Unit) {
+fun createDualCameraSession(
+    cameraManager: CameraManager,
+    dualCamera: DualCamera,
+    targets: DualCameraOutputs,
+    executor: Executor,
+    callback: (CameraCaptureSession) -> Unit
+) {
 
     // Create 3 sets of output configurations: one for the logical camera, and
     // one for each of the physical cameras.
     val outputConfigsLogical = targets.first?.map { OutputConfiguration(it) }
     val outputConfigsPhysical1 = targets.second?.map {
-        OutputConfiguration(it).apply { setPhysicalCameraId(dualCamera.physicalId1) } }
+        OutputConfiguration(it).apply { setPhysicalCameraId(dualCamera.physicalId1) }
+    }
     val outputConfigsPhysical2 = targets.third?.map {
-        OutputConfiguration(it).apply { setPhysicalCameraId(dualCamera.physicalId2) } }
+        OutputConfiguration(it).apply { setPhysicalCameraId(dualCamera.physicalId2) }
+    }
 
-    // Put all the output configurations into a single flat array
+    // Put all the output configurations into a single flat array.
     val outputConfigsAll = arrayOf(
-        outputConfigsLogical, outputConfigsPhysical1, outputConfigsPhysical2)
+        outputConfigsLogical, outputConfigsPhysical1, outputConfigsPhysical2
+    )
         .filterNotNull().flatMap { it }
 
-    // Instantiate a session configuration that can be used to create a session
+    // Instantiate a session configuration that can be used to create a session.
     val sessionConfiguration = SessionConfiguration(
         SessionConfiguration.SESSION_REGULAR,
-        outputConfigsAll, executor, object : CameraCaptureSession.StateCallback() {
+        outputConfigsAll, executor,
+        object : CameraCaptureSession.StateCallback() {
             override fun onConfigured(session: CameraCaptureSession) = callback(session)
             // Omitting for brevity...
             override fun onConfigureFailed(session: CameraCaptureSession) = session.device.close()
-        })
+        }
+    )
 
-    // Open the logical camera using the previously defined function
+    // Open the logical camera using the previously defined function.
     openDualCamera(cameraManager, dualCamera, executor = executor) {
 
-        // Finally create the session and return using the callback
+        // Finally create the session and return using the callback.
         it.createCaptureSession(sessionConfiguration)
     }
 }
 ```
 
-### Java
-
-```java
-/**
- * Helper class definition that encapsulates 3 sets of output targets:
- * <p>
- * 1. Logical camera
- * 2. First physical camera
- * 3. Second physical camera
- */
-final class DualCameraOutputs {
-    private final List<Surface> logicalCamera;
-    private final List<Surface> firstPhysicalCamera;
-    private final List<Surface> secondPhysicalCamera;
-
-    public DualCameraOutputs(List<Surface> logicalCamera, List<Surface> firstPhysicalCamera, List<Surface> third) {
-        this.logicalCamera = logicalCamera;
-        this.firstPhysicalCamera = firstPhysicalCamera;
-        this.secondPhysicalCamera = third;
-    }
-
-    public List<Surface> getLogicalCamera() {
-        return logicalCamera;
-    }
-
-    public List<Surface> getFirstPhysicalCamera() {
-        return firstPhysicalCamera;
-    }
-
-    public List<Surface> getSecondPhysicalCamera() {
-        return secondPhysicalCamera;
-    }
-}
-
-interface CameraCaptureSessionCallback {
-    void callback(CameraCaptureSession cameraCaptureSession);
-}
-
-void createDualCameraSession(CameraManager cameraManager,
-                             DualCamera dualCamera,
-                             DualCameraOutputs targets,
-                             Executor executor,
-                             CameraCaptureSessionCallback cameraCaptureSessionCallback) {
-
-    // Create 3 sets of output configurations: one for the logical camera, and
-    // one for each of the physical cameras.
-    List<OutputConfiguration> outputConfigsLogical = targets.getLogicalCamera().stream()
-            .map(OutputConfiguration::new)
-            .collect(Collectors.toList());
-    List<OutputConfiguration> outputConfigsPhysical1 = targets.getFirstPhysicalCamera().stream()
-            .map(s -> {
-                OutputConfiguration outputConfiguration = new OutputConfiguration(s);
-                outputConfiguration.setPhysicalCameraId(dualCamera.physicalId1);
-                return outputConfiguration;
-            })
-            .collect(Collectors.toList());
-    List<OutputConfiguration> outputConfigsPhysical2 = targets.getSecondPhysicalCamera().stream()
-            .map(s -> {
-                OutputConfiguration outputConfiguration = new OutputConfiguration(s);
-                outputConfiguration.setPhysicalCameraId(dualCamera.physicalId2);
-                return outputConfiguration;
-            })
-            .collect(Collectors.toList());
-
-    // Put all the output configurations into a single flat array
-    List<OutputConfiguration> outputConfigsAll = Stream.of(
-                    outputConfigsLogical, outputConfigsPhysical1, outputConfigsPhysical2
-            )
-            .filter(Objects::nonNull)
-            .flatMap(Collection::stream)
-            .collect(Collectors.toList());
-
-    // Instantiate a session configuration that can be used to create a session
-    SessionConfiguration sessionConfiguration = new SessionConfiguration(
-            SessionConfiguration.SESSION_REGULAR,
-            outputConfigsAll, executor, new CameraCaptureSession.StateCallback() {
-        @Override
-        public void onConfigured(@NonNull CameraCaptureSession cameraCaptureSession) {
-            cameraCaptureSessionCallback.callback(cameraCaptureSession);
-        }
-        // Omitting for brevity...
-        @Override
-        public void onConfigureFailed(@NonNull CameraCaptureSession cameraCaptureSession) {
-            cameraCaptureSession.getDevice().close();
-        }
-    });
-
-    // Open the logical camera using the previously defined function
-    openDualCamera(cameraManager, dualCamera, executor, (CameraDevice c) ->
-            // Finally create the session and return using the callback
-            c.createCaptureSession(sessionConfiguration));
-}
-```
+<br />
 
 See [`createCaptureSession`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice.md.txt#createCaptureSession(android.hardware.camera2.params.SessionConfiguration)) for information on which
 combination of streams is supported. Combining streams is for multiple streams
@@ -467,7 +291,6 @@ Start by selecting the pair of physical cameras to allow users to switch
 between. For maximum effect, you can choose the pair of cameras that provide the
 minimum and maximum focal length available.
 
-### Kotlin
 
 ```kotlin
 fun findShortLongCameraPair(manager: CameraManager, facing: Int? = null): DualCamera? {
@@ -476,79 +299,31 @@ fun findShortLongCameraPair(manager: CameraManager, facing: Int? = null): DualCa
         val characteristics1 = manager.getCameraCharacteristics(it.physicalId1)
         val characteristics2 = manager.getCameraCharacteristics(it.physicalId2)
 
-        // Query the focal lengths advertised by each physical camera
+        // Query the focal lengths advertised by each physical camera.
         val focalLengths1 = characteristics1.get(
-            CameraCharacteristics.LENS_INFO_AVAILABLE_FOCAL_LENGTHS) ?: floatArrayOf(0F)
+            CameraCharacteristics.LENS_INFO_AVAILABLE_FOCAL_LENGTHS
+        ) ?: floatArrayOf(0F)
         val focalLengths2 = characteristics2.get(
-            CameraCharacteristics.LENS_INFO_AVAILABLE_FOCAL_LENGTHS) ?: floatArrayOf(0F)
+            CameraCharacteristics.LENS_INFO_AVAILABLE_FOCAL_LENGTHS
+        ) ?: floatArrayOf(0F)
 
-        // Compute the largest difference between min and max focal lengths between cameras
-        val focalLengthsDiff1 = focalLengths2.maxOrNull()!! - focalLengths1.minOrNull()!!
-        val focalLengthsDiff2 = focalLengths1.maxOrNull()!! - focalLengths2.minOrNull()!!
+        // Compute the largest difference between min and max focal lengths between cameras.
+        val focalLengthsDiff1 = (focalLengths2.maxOrNull() ?: 0f) - (focalLengths1.minOrNull() ?: 0f)
+        val focalLengthsDiff2 = (focalLengths1.maxOrNull() ?: 0f) - (focalLengths2.minOrNull() ?: 0f)
 
-        // Return the pair of camera IDs and the difference between min and max focal lengths
+        // Return the pair of camera IDs and the difference between min and max focal lengths.
         if (focalLengthsDiff1 < focalLengthsDiff2) {
             Pair(DualCamera(it.logicalId, it.physicalId1, it.physicalId2), focalLengthsDiff1)
         } else {
             Pair(DualCamera(it.logicalId, it.physicalId2, it.physicalId1), focalLengthsDiff2)
         }
 
-        // Return only the pair with the largest difference, or null if no pairs are found
+        // Return only the pair with the largest difference, or null if no pairs are found.
     }.maxByOrNull { it.second }?.first
 }
 ```
 
-### Java
-
-```java
-// Utility functions to find min/max value in float[]
-    float findMax(float[] array) {
-        float max = Float.NEGATIVE_INFINITY;
-        for(float cur: array)
-            max = Math.max(max, cur);
-        return max;
-    }
-    float findMin(float[] array) {
-        float min = Float.NEGATIVE_INFINITY;
-        for(float cur: array)
-            min = Math.min(min, cur);
-        return min;
-    }
-
-DualCamera findShortLongCameraPair(CameraManager manager, Integer facing) {
-        return findDualCameras(manager, facing).stream()
-                .map(c -> {
-                    CameraCharacteristics characteristics1;
-                    CameraCharacteristics characteristics2;
-                    try {
-                        characteristics1 = manager.getCameraCharacteristics(c.physicalId1);
-                        characteristics2 = manager.getCameraCharacteristics(c.physicalId2);
-                    } catch (CameraAccessException e) {
-                        e.printStackTrace();
-                        return null;
-                    }
-
-                    // Query the focal lengths advertised by each physical camera
-                    float[] focalLengths1 = characteristics1.get(
-                            CameraCharacteristics.LENS_INFO_AVAILABLE_FOCAL_LENGTHS);
-                    float[] focalLengths2 = characteristics2.get(
-                            CameraCharacteristics.LENS_INFO_AVAILABLE_FOCAL_LENGTHS);
-
-                    // Compute the largest difference between min and max focal lengths between cameras
-                    Float focalLengthsDiff1 = findMax(focalLengths2) - findMin(focalLengths1);
-                    Float focalLengthsDiff2 = findMax(focalLengths1) - findMin(focalLengths2);
-
-                    // Return the pair of camera IDs and the difference between min and max focal lengths
-                    if (focalLengthsDiff1 < focalLengthsDiff2) {
-                        return new Pair<>(new DualCamera(c.logicalId, c.physicalId1, c.physicalId2), focalLengthsDiff1);
-                    } else {
-                        return new Pair<>(new DualCamera(c.logicalId, c.physicalId2, c.physicalId1), focalLengthsDiff2);
-                    }
-
-                }) // Return only the pair with the largest difference, or null if no pairs are found
-                .max(Comparator.comparing(pair -> pair.second)).get().first;
-    }
-```
+<br />
 
 A sensible architecture for this would be to have two
 [`SurfaceViews`](https://developer.android.com/reference/android/view/SurfaceView.md.txt)---one for each stream. These `SurfaceViews` get
@@ -557,63 +332,38 @@ swapped based on user interaction so that only one is visible at any given time.
 The following code shows how to open the logical camera, configure the camera
 outputs, create a camera session, and start two preview streams:
 
-### Kotlin
 
 ```kotlin
 val cameraManager: CameraManager = ...
+val cameraExecutor: Executor = ...  // owned by your activity / fragment
 
-// Get the two output targets from the activity / fragment
+// Get the two output targets from the activity / fragment.
 val surface1 = ...  // from SurfaceView
 val surface2 = ...  // from SurfaceView
 
-val dualCamera = findShortLongCameraPair(manager)!!
+val dualCamera = findShortLongCameraPair(cameraManager) ?: return
 val outputTargets = DualCameraOutputs(
-    null, mutableListOf(surface1), mutableListOf(surface2))
+    null, mutableListOf(surface1), mutableListOf(surface2)
+)
 
-// Here you open the logical camera, configure the outputs and create a session
-createDualCameraSession(manager, dualCamera, targets = outputTargets) { session ->
+// Here you open the logical camera, configure the outputs and create a session.
+createDualCameraSession(
+    cameraManager, dualCamera, targets = outputTargets, executor = cameraExecutor
+) { session ->
 
-  // Create a single request which has one target for each physical camera
-  // NOTE: Each target receive frames from only its associated physical camera
-  val requestTemplate = CameraDevice.TEMPLATE_PREVIEW
-  val captureRequest = session.device.createCaptureRequest(requestTemplate).apply {
-    arrayOf(surface1, surface2).forEach { addTarget(it) }
-  }.build()
+    // Create a single request which has one target for each physical camera.
+    // NOTE: Each target receive frames from only its associated physical camera.
+    val requestTemplate = CameraDevice.TEMPLATE_PREVIEW
+    val captureRequest = session.device.createCaptureRequest(requestTemplate).apply {
+        arrayOf(surface1, surface2).forEach { addTarget(it) }
+    }.build()
 
-  // Set the sticky request for the session and you are done
-  session.setRepeatingRequest(captureRequest, null, null)
+    // Set the sticky request for the session and you are done.
+    session.setRepeatingRequest(captureRequest, null, null)
 }
 ```
 
-### Java
-
-```java
-CameraManager manager = ...;
-
-        // Get the two output targets from the activity / fragment
-        Surface surface1 = ...;  // from SurfaceView
-        Surface surface2 = ...;  // from SurfaceView
-
-        DualCamera dualCamera = findShortLongCameraPair(manager, null);
-                DualCameraOutputs outputTargets = new DualCameraOutputs(
-                null, Collections.singletonList(surface1), Collections.singletonList(surface2));
-
-        // Here you open the logical camera, configure the outputs and create a session
-        createDualCameraSession(manager, dualCamera, outputTargets, null, (session) -> {
-            // Create a single request which has one target for each physical camera
-            // NOTE: Each target receive frames from only its associated physical camera
-            CaptureRequest.Builder captureRequestBuilder;
-            try {
-                captureRequestBuilder = session.getDevice().createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
-                Arrays.asList(surface1, surface2).forEach(captureRequestBuilder::addTarget);
-
-                // Set the sticky request for the session and you are done
-                session.setRepeatingRequest(captureRequestBuilder.build(), null, null);
-            } catch (CameraAccessException e) {
-                e.printStackTrace();
-            }
-        });
-```
+<br />
 
 All that is left to do is provide a UI for the user to switch between the two
 surfaces, such as a button or double-tapping the `SurfaceView`. You could even
@@ -635,71 +385,37 @@ Some devices may implement automatic distortion correction using
 [`CaptureRequest.DISTORTION_CORRECTION_MODE`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.md.txt#DISTORTION_CORRECTION_MODE).
 Distortion correction defaults to being on for most devices.
 
-### Kotlin
 
 ```kotlin
 val cameraSession: CameraCaptureSession = ...
 
-        // Use still capture template to build the capture request
-        val captureRequest = cameraSession.device.createCaptureRequest(
-            CameraDevice.TEMPLATE_STILL_CAPTURE
-        )
+// Use still capture template to build the capture request.
+val captureRequest = cameraSession.device.createCaptureRequest(
+    CameraDevice.TEMPLATE_STILL_CAPTURE
+)
 
-        // Determine if this device supports distortion correction
-        val characteristics: CameraCharacteristics = ...
-        val supportsDistortionCorrection = characteristics.get(
-            CameraCharacteristics.DISTORTION_CORRECTION_AVAILABLE_MODES
-        )?.contains(
-            CameraMetadata.DISTORTION_CORRECTION_MODE_HIGH_QUALITY
-        ) ?: false
+// Determine if this device supports distortion correction.
+val characteristics: CameraCharacteristics = ...
+val supportsDistortionCorrection = characteristics.get(
+    CameraCharacteristics.DISTORTION_CORRECTION_AVAILABLE_MODES
+)?.contains(
+    CameraMetadata.DISTORTION_CORRECTION_MODE_HIGH_QUALITY
+) ?: false
 
-        if (supportsDistortionCorrection) {
-            captureRequest.set(
-                CaptureRequest.DISTORTION_CORRECTION_MODE,
-                CameraMetadata.DISTORTION_CORRECTION_MODE_HIGH_QUALITY
-            )
-        }
+if (supportsDistortionCorrection) {
+    captureRequest.set(
+        CaptureRequest.DISTORTION_CORRECTION_MODE,
+        CameraMetadata.DISTORTION_CORRECTION_MODE_HIGH_QUALITY
+    )
+}
 
-        // Add output target, set other capture request parameters...
+// Add output target, set other capture request parameters...
 
-        // Dispatch the capture request
-        cameraSession.capture(captureRequest.build(), ...)
+// Dispatch the capture request.
+cameraSession.capture(captureRequest.build(), ...)
 ```
 
-### Java
-
-```java
-CameraCaptureSession cameraSession = ...;
-
-        // Use still capture template to build the capture request
-        CaptureRequest.Builder captureRequestBuilder = null;
-        try {
-            captureRequestBuilder = cameraSession.getDevice().createCaptureRequest(
-                    CameraDevice.TEMPLATE_STILL_CAPTURE
-            );
-        } catch (CameraAccessException e) {
-            e.printStackTrace();
-        }
-
-        // Determine if this device supports distortion correction
-        CameraCharacteristics characteristics = ...;
-        boolean supportsDistortionCorrection = Arrays.stream(
-                        characteristics.get(
-                                CameraCharacteristics.DISTORTION_CORRECTION_AVAILABLE_MODES
-                        ))
-                .anyMatch(i -> i == CameraMetadata.DISTORTION_CORRECTION_MODE_HIGH_QUALITY);
-        if (supportsDistortionCorrection) {
-            captureRequestBuilder.set(
-                    CaptureRequest.DISTORTION_CORRECTION_MODE,
-                    CameraMetadata.DISTORTION_CORRECTION_MODE_HIGH_QUALITY
-            );
-        }
-
-        // Add output target, set other capture request parameters...
-
-        // Dispatch the capture request
-        cameraSession.capture(captureRequestBuilder.build(), ...);
-```
+<br />
 
 Setting a capture request in this mode can impact the frame rate that can be
 produced by the camera. You may choose to set the distortion correction on only

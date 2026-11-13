@@ -4,18 +4,19 @@ url: https://developer.android.com/build/migrate-to-catalogs
 source: md.txt
 ---
 
-[Gradle version catalogs](https://docs.gradle.org/current/userguide/platforms.html)
-enable you to add and maintain dependencies and plugins in a scalable way.
-Using Gradle version catalogs makes managing dependencies and plugins easier
-when you have [multiple modules](https://developer.android.com/topic/modularization). Instead of hardcoding
-dependency names and versions in individual build files and updating each
-entry whenever you need to upgrade a dependency, you can create a central
-*version catalog* of dependencies that various modules can reference in
-a type-safe way with Android Studio assistance.
+> Documentation index: https://developer.android.com/build/llms.txt
 
-This page provides basic information about migrating your Android app to
-version catalogs. To learn more, see
-[Add build dependencies](https://developer.android.com/build/dependencies) and the Gradle documentation.
+[Gradle version catalogs](https://docs.gradle.org/current/userguide/platforms.html) enable you to add and maintain dependencies and
+plugins in a scalable way. Using Gradle version catalogs makes managing
+dependencies and plugins easier when you have [multiple modules](https://developer.android.com/topic/modularization.md.txt). Instead of
+hardcoding dependency names and versions in individual build files and updating
+each entry whenever you need to upgrade a dependency, you can create a central
+*version catalog* of dependencies that various modules can reference in a
+type-safe way with Android Studio assistance.
+
+This page provides basic information about migrating your Android app to version
+catalogs. To learn more, see [Add build dependencies](https://developer.android.com/build/dependencies.md.txt) and the Gradle
+documentation.
 
 ## Create a version catalog file
 
@@ -25,15 +26,17 @@ in the `libs.versions.toml` file by [default](https://docs.gradle.org/current/us
 so we recommend using this default name.
 
 > [!NOTE]
-> **Note:** It's possible to change the catalog file name; however, this requires changing your build files, so we don't recommend doing it.
+> **Note:** It's possible to change the catalog filename; however, this requires changing your build files, so we don't recommend doing it.
 
 In your `libs.versions.toml` file, add these sections:
 
-    [versions]
+```toml
+[versions]
 
-    [libraries]
+[libraries]
 
-    [plugins]
+[plugins]
+```
 
 The sections are used as follows:
 
@@ -83,15 +86,17 @@ dependencies {
 This code snippet shows how to define the dependency in the version
 catalog file:
 
-    [versions]
-    ktx = "1.9.0"
+```toml
+[versions]
+ktx = "1.9.0"
 
-    [libraries]
-    androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
+[libraries]
+androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
 
-The recommended naming for dependencies block in catalogs is kebab case (such as
-`androidx-ktx`) for better
-[code completion assistance](https://www.jetbrains.com/help/idea/auto-completing-code.html)
+```
+
+The recommended naming for dependencies block in catalogs is dash-case (such as
+`androidx-ktx`) for better [code completion assistance](https://www.jetbrains.com/help/idea/auto-completing-code.html)
 in your build files.
 
 In the `build.gradle.kts` file of each module that requires the dependency,
@@ -159,22 +164,23 @@ plugins {
 
 This code snippet shows how to define the plugin in the version catalog file:
 
-    [versions]
-    androidGradlePlugin = "7.4.1"
+```toml
+[versions]
+androidGradlePlugin = "7.4.1"
 
-    [plugins]
-    android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+
+```
 
 As with dependencies, the recommended formatting for `plugins` block catalog
-entries is kebab case (such as `android-application`) for better
-[code completion assistance](https://www.jetbrains.com/help/idea/auto-completing-code.html)
-in your build files.
+entries is dash-case (such as `android-application`) for better
+[code completion assistance](https://www.jetbrains.com/help/idea/auto-completing-code.html) in your build files.
 
 The following code shows how to define the `com.android.application` plugin in
 the top and module level `build.gradle.kts` files. Use `alias` for plugins
 that come from the version catalog file and `id` for plugins that don't come
-from the version catalog file, such as
-[convention plugins](https://docs.gradle.org/current/samples/sample_convention_plugins.html#organizing_build_logic).
+from the version catalog file, such as [convention plugins](https://docs.gradle.org/current/samples/sample_convention_plugins.html#organizing_build_logic).
 
 ### Kotlin
 
@@ -209,7 +215,7 @@ plugins {
 ```
 
 > [!NOTE]
-> **Note:** If you are using a version of Gradle below 8.1, you need to annotate the `plugins{}` block with `@Suppress("DSL_SCOPE_VIOLATION")` when using version catalogs. Refer to [issue #22797](https://github.com/gradle/gradle/issues/22797) for more info.
+> **Note:** If you are using a version of Gradle lower than 8.1, you need to annotate the `plugins{}` block with `@Suppress("DSL_SCOPE_VIOLATION")` when using version catalogs. Refer to [issue #22797](https://github.com/gradle/gradle/issues/22797) for more info.
 
 ## Learn more
 

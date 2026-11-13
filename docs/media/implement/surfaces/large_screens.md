@@ -4,6 +4,8 @@ url: https://developer.android.com/media/implement/surfaces/large_screens
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/implement/llms.txt
+
 Android devices come in a variety of form factors---phones, tablets, foldables,
 ChromeOS devices---which have a wide range of screen sizes. Android supports many
 display modes, including multi-window, multi-display, free-form, and
@@ -41,14 +43,14 @@ adaptive across phones, tablets, foldables, and ChromeOS devices.
 
 Your app should be responsive to account for different display sizes,
 orientations, and form factors. An adaptive layout changes based on the display
-space available to it. For more information, see [Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes).
+space available to it. For more information, see [Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes.md.txt).
 
 ### Design according to guidelines
 
 Core app quality is the basis of all Android apps regardless of display size,
 device posture, or other device-specific considerations. Your app should meet
 these basic requirements before you start designing for a large screen. For
-more information, see [Core app quality](https://developer.android.com/docs/quality-guidelines/core-app-quality).
+more information, see [Core app quality](https://developer.android.com/docs/quality-guidelines/core-app-quality.md.txt).
 
 Your app should offer an excellent user experience regardless of device form
 factor, screen size, display mode, or posture, so design your app according to
@@ -59,7 +61,7 @@ types of Android apps.
 
 #### Tier 3:
 
-At this basic level, your app still must adhere to the [UI and graphics](https://developer.android.com/docs/quality-guidelines/core-app-quality#ui_and_graphics)
+At this basic level, your app still must adhere to the [UI and graphics](https://developer.android.com/docs/quality-guidelines/core-app-quality.md.txt#ui_and_graphics)
 requirements. Your app is large screen ready, and users can complete critical
 task flows but with a less than optimal user experience.
 
@@ -108,18 +110,18 @@ Compose layouts, see [Layout resources](https://m3.material.io/foundations/layou
   media while watching or listening. Media titles are displayed side by side with
   a playing video or audio file. If the device orientation changes, a list-detail
   layout responds to preserve the app state. To learn more, see
-  [List-detail layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#list-detail).
+  [List-detail layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts.md.txt#list-detail).
 
 - **Feed:**
   A feed layout arranges equivalent content elements in a configurable grid for
   quick, convenient viewing of a large amount of content, such as a music feed or
-  movie and TV kiosk in your app. For more information, see [Feed layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#feed).
+  movie and TV kiosk in your app. For more information, see [Feed layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts.md.txt#feed).
 
 - **Supporting pane:**
   With primary and secondary display areas, your app can embed a supporting pane
   for context, relevance, or reference, such as a scrolling list of similar
   titles, published reviews, or additional works by the same artists or actors.
-  For further details, see [Supporting pane layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#supporting_pane).
+  For further details, see [Supporting pane layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts.md.txt#supporting_pane).
 
 For a curated collection of media layouts, see [Media gallery](https://developer.android.com/large-screens/gallery/media).
 
@@ -134,19 +136,19 @@ layouts.
 - **List-detail:**
   This is ideal for messaging apps, contact managers, or file browsers. For
   example, your app can display a list of conversations side by side with details
-  to stay current on the latest messages. For more information, see [List-detail layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#list-detail).
+  to stay current on the latest messages. For more information, see [List-detail layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts.md.txt#list-detail).
 
 - **Feed:**
   Common components in this style of layout are cards and lists. For example,
   create a collage of posts in a flexible grid format, or use size and position
   to draw attention to prominent posts. Users can quickly view large groups of
-  content. For more information, see [Feed layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#feed).
+  content. For more information, see [Feed layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts.md.txt#feed).
 
 - **Supporting pane:**
   Search and reference apps or a productivity app can benefit from this style of
   layout. It keeps content creation tools close at hand for the user. For example,
   your app can let users adjust settings, access color palettes, apply effects,
-  and see the changes instantly. For more information, see [Supporting pane layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#supporting_pane).
+  and see the changes instantly. For more information, see [Supporting pane layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts.md.txt#supporting_pane).
 
 For a curated collection of social media layouts, see [Social media gallery](https://developer.android.com/large-screens/gallery/social) page.
 
@@ -195,8 +197,8 @@ For example, if a user takes a picture with their tablet but on their tablet
 screen it renders upside down, this is a suboptimal experience. Include camera
 preview support for large screens.
 
-For more information, see [CameraX preview](https://developer.android.com/media/camera/camerax/preview), or
-[Camera2 preview](https://developer.android.com/media/camera/camera2/camera-preview).
+For more information, see [CameraX preview](https://developer.android.com/media/camera/camerax/preview.md.txt), or
+[Camera2 preview](https://developer.android.com/media/camera/camera2/camera-preview.md.txt).
 
 ### Foldable postures
 
@@ -207,4 +209,4 @@ use a rear display and dual screen mode for previews and capturing.
 With foldable postures included in your development plan, your app is available
 to more devices and has a wider impact. You enlarge the media experience for
 the user in ways other devices cannot do without foldable postures. For more
-information, see [Foldable postures](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/learn-about-foldables).
+information, see [Foldable postures](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/learn-about-foldables.md.txt).

@@ -13,13 +13,15 @@ source: md.txt
 Intelligent eyewear hardware is only accessible while the glasses are connected
 to the host phone. Monitor connection state and manage resource lifecycles using
 `ProjectedContext`. You must read
-[Understand projected activities and projected contexts](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types) to understand
-how to get a projected context and [how to manage its lifecycle](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/check-availability).
+[Understand projected activities and projected contexts](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types.md.txt) to understand
+how to get a projected context and [how to manage its lifecycle](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/check-availability.md.txt).
 
 ## Request glasses hardware permissions
 
-- **Hardware permissions and opt-in** : You must read [Request hardware permissions](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions) to understand how to declare camera and microphone runtime permissions in the Android Manifest file, request runtime permissions in different scenarios, and handle permission results.
+- **Hardware permissions and opt-in** : You must read [Request hardware permissions](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions.md.txt) to understand how to declare camera and microphone runtime permissions in the Android Manifest file, request runtime permissions in different scenarios, and handle permission results.
 
 ## Glasses hardware access and capabilities
 
-- **Camera capture and CameraX** : You must read [Capture an image with the glasses' camera](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context) to understand the implementation patterns for capturing a photo with the glasses' camera using a `ProjectedContext`.
+- **Camera capture and CameraX** : You must read [Capture an image with the glasses' camera](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md.txt) to understand the implementation patterns for capturing a photo with the glasses' camera using a `ProjectedContext`.
+- **Bluetooth HFP audio and host device context** : Read [Use a projected
+  context to access hardware](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context) to route `AudioRecord` to the glasses microphone over Bluetooth HFP (`TYPE_BLUETOOTH_SCO`, `VOICE_COMMUNICATION`, `setPreferredDevice`, and `setCommunicationDevice`) and to obtain the host phone context from a projected activity using `ProjectedContext.createHostDeviceContext(activity)` (annotated with `@OptIn(ExperimentalProjectedApi::class)` from `androidx.xr.projected.experimental.ExperimentalProjectedApi`).

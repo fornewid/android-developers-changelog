@@ -4,6 +4,8 @@ url: https://developer.android.com/media/optimize/performance/frame-rate
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/optimize/llms.txt
+
 The frame rate API lets apps inform the Android platform of their intended frame
 rate and is available on apps that target Android 11 (API level 30) or higher.
 Traditionally, most devices have supported only a single display refresh rate,
@@ -28,14 +30,14 @@ Android exposes several ways to access and control surfaces, so there are
 several versions of the `setFrameRate()` API. Each version of the API takes the
 same parameters and works the same as the others:
 
-- [`Surface.setFrameRate()`](https://developer.android.com/reference/android/view/Surface#setFrameRate(float,%20int))
-- [`SurfaceControl.Transaction.setFrameRate()`](https://developer.android.com/reference/android/view/SurfaceControl.Transaction#setFrameRate(android.view.SurfaceControl,%20float,%20int))
-- [`ANativeWindow_setFrameRate()`](https://developer.android.com/ndk/reference/group/a-native-window#anativewindow_setframerate)
-- [`ASurfaceTransaction_setFrameRate()`](https://developer.android.com/ndk/reference/group/native-activity#asurfacetransaction_setframerate)
+- [`Surface.setFrameRate()`](https://developer.android.com/reference/android/view/Surface.md.txt#setFrameRate(float,%20int))
+- [`SurfaceControl.Transaction.setFrameRate()`](https://developer.android.com/reference/android/view/SurfaceControl.Transaction.md.txt#setFrameRate(android.view.SurfaceControl,%20float,%20int))
+- [`ANativeWindow_setFrameRate()`](https://developer.android.com/ndk/reference/group/a-native-window.md.txt#anativewindow_setframerate)
+- [`ASurfaceTransaction_setFrameRate()`](https://developer.android.com/ndk/reference/group/native-activity.md.txt#asurfacetransaction_setframerate)
 
 The app does not need to consider the actual supported display refresh rates,
 which can be obtained by calling
-[`Display.getSupportedModes()`](https://developer.android.com/reference/android/view/Display#getSupportedModes()),
+[`Display.getSupportedModes()`](https://developer.android.com/reference/android/view/Display.md.txt#getSupportedModes()),
 in order to safely call `setFrameRate()`. For example, even if the device only
 supports 60Hz, call `setFrameRate()` with the frame rate your app prefers.
 Devices that don't have a better match for the app's frame rate will stay with
@@ -43,8 +45,8 @@ the current display refresh rate.
 
 To see if a call to `setFrameRate()` results in a change to the display refresh
 rate, register for display change notifications by calling
-[`DisplayManager.registerDisplayListener()`](https://developer.android.com/reference/android/hardware/display/DisplayManager#registerDisplayListener(android.hardware.display.DisplayManager.DisplayListener,%20android.os.Handler))
-or [`AChoreographer_registerRefreshRateCallback()`](https://developer.android.com/ndk/reference/group/choreographer#achoreographer_registerrefreshratecallback).
+[`DisplayManager.registerDisplayListener()`](https://developer.android.com/reference/android/hardware/display/DisplayManager.md.txt#registerDisplayListener(android.hardware.display.DisplayManager.DisplayListener,%20android.os.Handler))
+or [`AChoreographer_registerRefreshRateCallback()`](https://developer.android.com/ndk/reference/group/choreographer.md.txt#achoreographer_registerrefreshratecallback).
 
 When calling `setFrameRate()`, it's best to pass in the exact frame rate rather
 than rounding to an integer. For example, when rendering a video recorded at
@@ -69,7 +71,7 @@ setting only when the surface remains visible without being used.
 On some devices, refresh rate switching may have visual interruptions like a black
 screen for a second or two. This typically occurs on set top boxes, TV panels,
 and similar devices. By default the Android framework doesn't switch modes
-when the [`Surface.setFrameRate()`](https://developer.android.com/reference/android/view/Surface#setFrameRate(float,%20int,%20int))
+when the [`Surface.setFrameRate()`](https://developer.android.com/reference/android/view/Surface.md.txt#setFrameRate(float,%20int,%20int))
 API is called, in order to avoid such visual interruptions.
 
 Some users prefer a visual interruption at the beginning and
@@ -81,9 +83,9 @@ For this reason, non-seamless refresh rate switches can be enabled if both the
 user and apps opt-in:
 
 - **Users** : To opt in, users can enable the [Match content frame rate](https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/java/android/provider/Settings.java;l=8393;drc=eb151ee8d0ffaca0acbc68e3ac2548efaa3acc32) user setting.
-- **Apps** : To opt in, apps can pass [`CHANGE_FRAME_RATE_ALWAYS`](https://developer.android.com/reference/android/view/Surface#CHANGE_FRAME_RATE_ALWAYS) into [`setFrameRate()`](https://developer.android.com/reference/android/view/Surface#setFrameRate(float,%20int,%20int)).
+- **Apps** : To opt in, apps can pass [`CHANGE_FRAME_RATE_ALWAYS`](https://developer.android.com/reference/android/view/Surface.md.txt#CHANGE_FRAME_RATE_ALWAYS) into [`setFrameRate()`](https://developer.android.com/reference/android/view/Surface.md.txt#setFrameRate(float,%20int,%20int)).
 
-We recommend you always use [`CHANGE_FRAME_RATE_ALWAYS`](https://developer.android.com/reference/android/view/Surface#CHANGE_FRAME_RATE_ALWAYS)
+We recommend you always use [`CHANGE_FRAME_RATE_ALWAYS`](https://developer.android.com/reference/android/view/Surface.md.txt#CHANGE_FRAME_RATE_ALWAYS)
 for long-running videos such as movies. This is because the benefit of matching
 the video frame rate outweighs the interruption that occurs when changing the
 refresh rate.
@@ -128,16 +130,16 @@ In cases where the app won't or can't run at the display refresh rate, the app
 should specify presentation timestamps for each frame, using one of the
 platform's mechanisms for setting presentation timestamps:
 
-- [`ASurfaceTransaction_setDesiredPresentTime()`](https://developer.android.com/ndk/reference/group/native-activity#group___native_activity_1gae7b547aa6e72b83d0a151cac62880d47)
+- [`ASurfaceTransaction_setDesiredPresentTime()`](https://developer.android.com/ndk/reference/group/native-activity.md.txt#group___native_activity_1gae7b547aa6e72b83d0a151cac62880d47)
 - [`EGL_ANDROID_presentation_time`](https://www.khronos.org/registry/EGL/extensions/ANDROID/EGL_ANDROID_presentation_time.txt)
 - [`VK_GOOGLE_display_timing`](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/man/html/VK_GOOGLE_display_timing.html)
 
 Using these timestamps stops the platform from presenting an app frame too
 early, which would result in unnecessary judder. Correct usage of frame
 presentation timestamps is a bit tricky. For games, see our
-[frame pacing guide](https://developer.android.com/games/sdk/frame-pacing#short_game_frames_lead_to_stuttering)
+[frame pacing guide](https://developer.android.com/games/sdk/frame-pacing.md.txt#short_game_frames_lead_to_stuttering)
 for more info on avoiding judder, and consider using the
-[Android Frame Pacing library](https://developer.android.com/games/sdk).
+[Android Frame Pacing library](https://developer.android.com/games/agdk/get-agdk.md.txt).
 
 In some cases, the platform may switch to a multiple of the frame rate the app
 specified in `setFrameRate()`. For example, an app may call `setFrameRate()`
@@ -153,7 +155,7 @@ setting frame presentation timestamps.
 
 ### setFrameRate() vs preferredDisplayModeId
 
-[`WindowManager.LayoutParams.preferredDisplayModeId`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#preferredDisplayModeId)
+[`WindowManager.LayoutParams.preferredDisplayModeId`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.md.txt#preferredDisplayModeId)
 is another way that apps can indicate their frame rate to the platform. Some
 apps only want to change the display refresh rate rather than changing other
 display mode settings, like the display resolution. In general, use
@@ -182,7 +184,7 @@ instead of `setFrameRate()`, such as the following:
 
 ### setFrameRate() vs preferredRefreshRate
 
-[`WindowManager.LayoutParams#preferredRefreshRate`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#preferredRefreshRate)
+[`WindowManager.LayoutParams#preferredRefreshRate`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.md.txt#preferredRefreshRate)
 sets a preferred frame rate on the app's window, and the rate is applicable
 to all the surfaces within the window. The app should specify its preferred
 frame rate regardless of device's supported refresh rates, similar to
@@ -231,19 +233,19 @@ non-video usage, use `FRAME_RATE_COMPATIBILITY_DEFAULT`.
 We recommend the following steps for integrating refresh rate switches in video playback apps:
 
 1. Decide the `changeFrameRateStrategy`:
-   1. If playing a long running video such as a movie use [`MATCH_CONTENT_FRAMERATE_ALWAYS`](https://developer.android.com/reference/android/hardware/display/DisplayManager#MATCH_CONTENT_FRAMERATE_ALWAYS)
-   2. If playing a short video such as a move trailer use [`CHANGE_FRAME_RATE_ONLY_IF_SEAMLESS`](https://developer.android.com/reference/android/view/Surface#CHANGE_FRAME_RATE_ONLY_IF_SEAMLESS)
-2. If the `changeFrameRateStrategy` is [`CHANGE_FRAME_RATE_ONLY_IF_SEAMLESS`](https://developer.android.com/reference/android/view/Surface#CHANGE_FRAME_RATE_ONLY_IF_SEAMLESS) , go to step 4.
+   1. If playing a long running video such as a movie use [`MATCH_CONTENT_FRAMERATE_ALWAYS`](https://developer.android.com/reference/android/hardware/display/DisplayManager.md.txt#MATCH_CONTENT_FRAMERATE_ALWAYS)
+   2. If playing a short video such as a move trailer use [`CHANGE_FRAME_RATE_ONLY_IF_SEAMLESS`](https://developer.android.com/reference/android/view/Surface.md.txt#CHANGE_FRAME_RATE_ONLY_IF_SEAMLESS)
+2. If the `changeFrameRateStrategy` is [`CHANGE_FRAME_RATE_ONLY_IF_SEAMLESS`](https://developer.android.com/reference/android/view/Surface.md.txt#CHANGE_FRAME_RATE_ONLY_IF_SEAMLESS) , go to step 4.
 3. Detect if a non-seamless refresh rate switch is about to happen by checking that both of these facts are true:
-   1. Seamless mode switch isn't possible from the current refresh rate (let's call it C) to the frame rate of the video (let's call it V). This will be the case if C and V are different and [`Display.getMode().getAlternativeRefreshRates`](https://developer.android.com/reference/android/view/Display.Mode#getAlternativeRefreshRates()) does not contain a multiple of V.
-   2. The user has opted in to non-seamless refresh rate changes. You can detect this by checking if [`DisplayManager.getMatchContentFrameRateUserPreference`](https://developer.android.com/reference/android/hardware/display/DisplayManager#getMatchContentFrameRateUserPreference()) returns [`MATCH_CONTENT_FRAMERATE_ALWAYS`](https://developer.android.com/reference/android/hardware/display/DisplayManager#MATCH_CONTENT_FRAMERATE_ALWAYS)
+   1. Seamless mode switch isn't possible from the current refresh rate (let's call it C) to the frame rate of the video (let's call it V). This will be the case if C and V are different and [`Display.getMode().getAlternativeRefreshRates`](https://developer.android.com/reference/android/view/Display.Mode.md.txt#getAlternativeRefreshRates()) does not contain a multiple of V.
+   2. The user has opted in to non-seamless refresh rate changes. You can detect this by checking if [`DisplayManager.getMatchContentFrameRateUserPreference`](https://developer.android.com/reference/android/hardware/display/DisplayManager.md.txt#getMatchContentFrameRateUserPreference()) returns [`MATCH_CONTENT_FRAMERATE_ALWAYS`](https://developer.android.com/reference/android/hardware/display/DisplayManager.md.txt#MATCH_CONTENT_FRAMERATE_ALWAYS)
 4. If the switch is going to be seamless, do the following:
-   1. Call [`setFrameRate`](https://developer.android.com/reference/android/view/Surface#setFrameRate(float,%20int,%20int)) and pass it `fps`, [`FRAME_RATE_COMPATIBILITY_FIXED_SOURCE`](https://developer.android.com/reference/android/view/Surface#FRAME_RATE_COMPATIBILITY_FIXED_SOURCE), and `changeFrameRateStrategy`, where `fps` is the frame rate of the video.
+   1. Call [`setFrameRate`](https://developer.android.com/reference/android/view/Surface.md.txt#setFrameRate(float,%20int,%20int)) and pass it `fps`, [`FRAME_RATE_COMPATIBILITY_FIXED_SOURCE`](https://developer.android.com/reference/android/view/Surface.md.txt#FRAME_RATE_COMPATIBILITY_FIXED_SOURCE), and `changeFrameRateStrategy`, where `fps` is the frame rate of the video.
    2. Begin video playback
 5. If a non-seamless mode change is about to happen, do the following:
    1. Show UX to notify the user. Note that we recommend you implement a way for the user to dismiss this UX and skip the additional delay in step 5.d. This is because our recommended delay is greater than necessary on displays that exhibit faster switching times.
-   2. Call [`setFrameRate`](https://developer.android.com/reference/android/view/Surface#setFrameRate(float,%20int,%20int)) and pass it `fps`, [`FRAME_RATE_COMPATIBILITY_FIXED_SOURCE`](https://developer.android.com/reference/android/view/Surface#FRAME_RATE_COMPATIBILITY_FIXED_SOURCE), and [`CHANGE_FRAME_RATE_ALWAYS`](https://developer.android.com/reference/android/view/Surface#CHANGE_FRAME_RATE_ALWAYS), where `fps` is the frame rate of the video.
-   3. Wait for the [`onDisplayChanged`](https://developer.android.com/reference/android/hardware/display/DisplayManager.DisplayListener#onDisplayChanged(int)) callback.
+   2. Call [`setFrameRate`](https://developer.android.com/reference/android/view/Surface.md.txt#setFrameRate(float,%20int,%20int)) and pass it `fps`, [`FRAME_RATE_COMPATIBILITY_FIXED_SOURCE`](https://developer.android.com/reference/android/view/Surface.md.txt#FRAME_RATE_COMPATIBILITY_FIXED_SOURCE), and [`CHANGE_FRAME_RATE_ALWAYS`](https://developer.android.com/reference/android/view/Surface.md.txt#CHANGE_FRAME_RATE_ALWAYS), where `fps` is the frame rate of the video.
+   3. Wait for the [`onDisplayChanged`](https://developer.android.com/reference/android/hardware/display/DisplayManager.DisplayListener.md.txt#onDisplayChanged(int)) callback.
    4. Wait 2 seconds for the mode switch to complete.
    5. Begin video playback
 

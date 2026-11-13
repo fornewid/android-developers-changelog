@@ -65,11 +65,13 @@ standard that device makers must support on cameras with 10-bit output.
 1. First, check if the device supports 10-bit profiles (the bit-depth for
    HLG10):
 
+
    ```kotlin
    private fun isTenBitProfileSupported(cameraId: String): Boolean {
        val cameraCharacteristics = cameraManager.getCameraCharacteristics(cameraId)
        val availableCapabilities = cameraCharacteristics.get(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES)
-       for (capability in availableCapabilities!!) {
+           ?: return false
+       for (capability in availableCapabilities) {
            if (capability == CameraMetadata.REQUEST_AVAILABLE_CAPABILITIES_DYNAMIC_RANGE_TEN_BIT) {
                return true
            }
@@ -77,24 +79,30 @@ standard that device makers must support on cameras with 10-bit output.
        return false
    }
    ```
+
+   <br />
+
 2. Next, check if the device supports HLG10 (or [another supported
    profile](https://developer.android.com/reference/android/hardware/camera2/params/DynamicRangeProfiles)):
+
 
    ```kotlin
    @RequiresApi(api = 33)
    private fun isHLGSupported(cameraId: String): Boolean {
-     if (isTenBitProfileSupported(cameraId)) {
-       Val cameraCharacteristics = cameraManager.getCameraCharacteristics(cameraId)
-       val availableProfiles = cameraCharacteristics
-       .get(CameraCharacteristics.REQUEST_AVAILABLE_DYNAMIC_RANGE_PROFILES)!!
-       .getSupportedProfiles()
+       if (isTenBitProfileSupported(cameraId)) {
+           val cameraCharacteristics = cameraManager.getCameraCharacteristics(cameraId)
+           val availableProfiles = cameraCharacteristics
+               .get(CameraCharacteristics.REQUEST_AVAILABLE_DYNAMIC_RANGE_PROFILES)
+               ?.getSupportedProfiles()
 
-       // Checks for the chosen profile, in this case HLG10
-       return availableProfiles.contains(DynamicRangeProfiles.HLG10)
-     }
-     return false;
+           // Checks for the chosen profile, in this case HLG10.
+           return availableProfiles?.contains(DynamicRangeProfiles.HLG10) ?: false
+       }
+       return false
    }
    ```
+
+   <br />
 
 If the device supports HDR, `isHLGSupported()` always return `true`. For more
 information, see the [`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics.md.txt) reference
@@ -148,26 +156,38 @@ that the device is running Android 13. Then, it sets up the
 When your camera app initializes the camera, it sends a repeating
 [`CaptureRequest`](https://developer.android.com/media/camera/camera2/capture-sessions-requests.md.txt#repeat-capture-requests) to preview the recording:
 
+
 ```kotlin
 session.setRepeatingRequest(previewRequest, null, cameraHandler)
 ```
 
+<br />
+
 And also to start the video recording:
+
 
 ```kotlin
 // Start recording repeating requests, which stops the ongoing preview
 //  repeating requests without having to explicitly call
-//  `session.stopRepeating`
-session.setRepeatingRequest(recordRequest,
-        object : CameraCaptureSession.CaptureCallback() {
-    override fun onCaptureCompleted(session: CameraCaptureSession,
-            request: CaptureRequest, result: TotalCaptureResult) {
-        if (currentlyRecording) {
-            encoder.frameAvailable()
+//  `session.stopRepeating`.
+session.setRepeatingRequest(
+    recordRequest,
+    object : CameraCaptureSession.CaptureCallback() {
+        override fun onCaptureCompleted(
+            session: CameraCaptureSession,
+            request: CaptureRequest,
+            result: TotalCaptureResult
+        ) {
+            if (currentlyRecording) {
+                encoder.frameAvailable()
+            }
         }
-    }
-}, cameraHandler)
+    },
+    cameraHandler
+)
 ```
+
+<br />
 
 ## Encode the HDR camera stream
 
@@ -182,32 +202,33 @@ To initialize `MediaCodec`, an app must create a [`MediaFormat`](https://develop
 with a specified codec profile, color space, color range, and transfer
 function:
 
+
 ```kotlin
 val mimeType = when {
     dynamicRange == DynamicRangeProfiles.STANDARD -> MediaFormat.MIMETYPE_VIDEO_AVC
     dynamicRange < DynamicRangeProfiles.PUBLIC_MAX ->
-            MediaFormat.MIMETYPE_VIDEO_HEVC
+        MediaFormat.MIMETYPE_VIDEO_HEVC
     else -> throw IllegalArgumentException("Unknown dynamic range format")
 }
 
 val codecProfile = when {
     dynamicRange == DynamicRangeProfiles.HLG10 ->
-            MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10
+        MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10
     dynamicRange == DynamicRangeProfiles.HDR10 ->
-            MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10
+        MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10
     dynamicRange == DynamicRangeProfiles.HDR10_PLUS ->
-            MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10Plus
+        MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10Plus
     else -> -1
 }
 // Failing to correctly set color transfer causes quality issues
-// for example, washout and color clipping
+// for example, washout and color clipping.
 val transferFunction = when (codecProfile) {
     MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10 ->
-            MediaFormat.COLOR_TRANSFER_HLG
+        MediaFormat.COLOR_TRANSFER_HLG
     MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10 ->
-            MediaFormat.COLOR_TRANSFER_ST2084
+        MediaFormat.COLOR_TRANSFER_ST2084
     MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10Plus ->
-            MediaFormat.COLOR_TRANSFER_ST2084
+        MediaFormat.COLOR_TRANSFER_ST2084
     else -> MediaFormat.COLOR_TRANSFER_SDR_VIDEO
 }
 
@@ -215,24 +236,32 @@ val format = MediaFormat.createVideoFormat(mimeType, width, height)
 
 // Set some properties.  Failing to specify some of these can cause the MediaCodec
 // configure() call to throw an exception.
-format.setInteger(MediaFormat.KEY_COLOR_FORMAT,
-        MediaCodecInfo.CodecCapabilities.COLOR_FormatSurface)
+format.setInteger(
+    MediaFormat.KEY_COLOR_FORMAT,
+    MediaCodecInfo.CodecCapabilities.COLOR_FormatSurface
+)
 format.setInteger(MediaFormat.KEY_BIT_RATE, bitRate)
 format.setInteger(MediaFormat.KEY_FRAME_RATE, frameRate)
 format.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, IFRAME_INTERVAL)
 
 if (codecProfile != -1) {
     format.setInteger(MediaFormat.KEY_PROFILE, codecProfile)
-    format.setInteger(MediaFormat.KEY_COLOR_STANDARD,
-            MediaFormat.COLOR_STANDARD_BT2020)
+    format.setInteger(
+        MediaFormat.KEY_COLOR_STANDARD,
+        MediaFormat.COLOR_STANDARD_BT2020
+    )
     format.setInteger(MediaFormat.KEY_COLOR_RANGE, MediaFormat.COLOR_RANGE_LIMITED)
     format.setInteger(MediaFormat.KEY_COLOR_TRANSFER, transferFunction)
-    format.setFeatureEnabled(MediaCodecInfo.CodecCapabilities.FEATURE_HdrEditing,
-            true)
+    format.setFeatureEnabled(
+        MediaCodecInfo.CodecCapabilities.FEATURE_HdrEditing,
+        true
+    )
 }
 
 mediaCodec.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE)
 ```
+
+<br />
 
 For more details about implementation, see the Camera2Video sample app's
 [`EncoderWrapper.kt`](https://github.com/android/camera-samples/blob/main/Camera2Video/app/src/main/java/com/example/android/camera2/video/EncoderWrapper.kt).

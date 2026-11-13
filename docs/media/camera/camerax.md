@@ -4,6 +4,8 @@ url: https://developer.android.com/media/camera/camerax
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/camera/camerax/llms.txt
+
 # CameraX overview
 Part of [Android Jetpack](https://developer.android.com/jetpack).
 

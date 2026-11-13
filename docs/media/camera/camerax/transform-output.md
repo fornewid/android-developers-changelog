@@ -43,101 +43,52 @@ coordinates to `PreviewView` coordinates. To transform the (x, y) coordinates
 with a [`Matrix`](https://developer.android.com/reference/android/graphics/Matrix.md.txt), see
 [`Matrix.mapPoints()`](https://developer.android.com/reference/android/graphics/Matrix.md.txt#mapPoints(float%5B%5D)).
 
-### Kotlin
 
 ```kotlin
-fun getCorrectionMatrix(imageProxy: ImageProxy, previewView: PreviewView) : Matrix {
-   val cropRect = imageProxy.cropRect
-   val rotationDegrees = imageProxy.imageInfo.rotationDegrees
-   val matrix = Matrix()
+fun getCorrectionMatrix(imageProxy: ImageProxy, previewView: PreviewView): Matrix {
+    val cropRect = imageProxy.cropRect
+    val rotationDegrees = imageProxy.imageInfo.rotationDegrees
+    val matrix = Matrix()
 
-   // A float array of the source vertices (crop rect) in clockwise order.
-   val source = floatArrayOf(
-       cropRect.left.toFloat(),
-       cropRect.top.toFloat(),
-       cropRect.right.toFloat(),
-       cropRect.top.toFloat(),
-       cropRect.right.toFloat(),
-       cropRect.bottom.toFloat(),
-       cropRect.left.toFloat(),
-       cropRect.bottom.toFloat()
-   )
+    // A float array of the source vertices (crop rect) in clockwise order.
+    val source = floatArrayOf(
+        cropRect.left.toFloat(),
+        cropRect.top.toFloat(),
+        cropRect.right.toFloat(),
+        cropRect.top.toFloat(),
+        cropRect.right.toFloat(),
+        cropRect.bottom.toFloat(),
+        cropRect.left.toFloat(),
+        cropRect.bottom.toFloat()
+    )
 
-   // A float array of the destination vertices in clockwise order.
-   val destination = floatArrayOf(
-       0f,
-       0f,
-       previewView.width.toFloat(),
-       0f,
-       previewView.width.toFloat(),
-       previewView.height.toFloat(),
-       0f,
-       previewView.height.toFloat()
-   )
+    // A float array of the destination vertices in clockwise order.
+    val destination = floatArrayOf(
+        0f,
+        0f,
+        previewView.width.toFloat(),
+        0f,
+        previewView.width.toFloat(),
+        previewView.height.toFloat(),
+        0f,
+        previewView.height.toFloat()
+    )
 
-   // The destination vertexes need to be shifted based on rotation degrees. The
-   // rotation degree represents the clockwise rotation needed to correct the image.
+    // The destination vertexes need to be shifted based on rotation degrees. The
+    // rotation degree represents the clockwise rotation needed to correct the image.
 
-   // Each vertex is represented by 2 float numbers in the vertices array.
-   val vertexSize = 2
-   // The destination needs to be shifted 1 vertex for every 90° rotation.
-   val shiftOffset = rotationDegrees / 90 * vertexSize;
-   val tempArray = destination.clone()
-   for (toIndex in source.indices) {
-       val fromIndex = (toIndex + shiftOffset) % source.size
-       destination[toIndex] = tempArray[fromIndex]
-   }
-   matrix.setPolyToPoly(source, 0, destination, 0, 4)
-   return matrix
+    // Each vertex is represented by 2 float numbers in the vertices array.
+    val vertexSize = 2
+    // The destination needs to be shifted 1 vertex for every 90° rotation.
+    val shiftOffset = rotationDegrees / 90 * vertexSize
+    val tempArray = destination.clone()
+    for (toIndex in source.indices) {
+        val fromIndex = (toIndex + shiftOffset) % source.size
+        destination[toIndex] = tempArray[fromIndex]
+    }
+    matrix.setPolyToPoly(source, 0, destination, 0, 4)
+    return matrix
 }
 ```
 
-### Java
-
-```java
-Matrix getMappingMatrix(ImageProxy imageProxy, PreviewView previewView) {
-   Rect cropRect = imageProxy.getCropRect();
-   int rotationDegrees = imageProxy.getImageInfo().getRotationDegrees();
-   Matrix matrix = new Matrix();
-
-   // A float array of the source vertices (crop rect) in clockwise order.
-   float[] source = {
-       cropRect.left,
-       cropRect.top,
-       cropRect.right,
-       cropRect.top,
-       cropRect.right,
-       cropRect.bottom,
-       cropRect.left,
-       cropRect.bottom
-   };
-
-   // A float array of the destination vertices in clockwise order.
-   float[] destination = {
-       0f,
-       0f,
-       previewView.getWidth(),
-       0f,
-       previewView.getWidth(),
-       previewView.getHeight(),
-       0f,
-       previewView.getHeight()
-   };
-
-   // The destination vertexes need to be shifted based on rotation degrees.
-   // The rotation degree represents the clockwise rotation needed to correct
-   // the image.
-
-   // Each vertex is represented by 2 float numbers in the vertices array.
-   int vertexSize = 2;
-   // The destination needs to be shifted 1 vertex for every 90° rotation.
-   int shiftOffset = rotationDegrees / 90 * vertexSize;
-   float[] tempArray = destination.clone();
-   for (int toIndex = 0; toIndex < source.length; toIndex++) {
-       int fromIndex = (toIndex + shiftOffset) % source.length;
-       destination[toIndex] = tempArray[fromIndex];
-   }
-   matrix.setPolyToPoly(source, 0, destination, 0, 4);
-   return matrix;
-}
-```
+<br />

@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/migrate/compare-metrics
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/migrate/llms.txt
+
 Jetpack Compose accelerates UI development and [improves Android
 development](https://developer.android.com/develop/ui/compose/why-adopt). However, take into consideration how
 adding Compose to an existing app can affect metrics such as an app's APK size,
@@ -12,7 +14,7 @@ build, and runtime performance.
 ## APK size and build times
 
 This section goes over the impact to APK size and build time by looking at the
-[Sunflower](https://github.com/android/sunflower/tree/compose_recyclerview) sample app---an app that demonstrates best practices
+Sunflower sample app---an app that demonstrates best practices
 with migrating a View-based app to Compose.
 
 > [!NOTE]
@@ -22,7 +24,7 @@ with migrating a View-based app to Compose.
 
 Adding libraries to your project increases its APK size. The following results
 are for the minified release APK of each project with [resource and code
-shrinking enabled](https://developer.android.com/studio/build/shrink-code#shrink-resources), using R8 full mode, and measured using [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer).
+shrinking enabled](https://developer.android.com/studio/build/shrink-code#shrink-resources), using R8 full mode, and measured using [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer.md.txt).
 
 |   | **Views only** | **Mixed Views and Compose** | **Compose-only** |
 |---|---|---|---|
@@ -42,7 +44,7 @@ to removing unused View dependencies, such as `AppCompat` and
 
 Adding Compose increases the build time of your app as the Compose compiler
 processes composables in your app. The following results were obtained using the
-standalone [`gradle-profiler`](https://developer.android.com/build/profile-your-build#gradle-profiler) tool, which executes a build several times so
+standalone [`gradle-profiler`](https://developer.android.com/build/profile-your-build.md.txt#gradle-profiler) tool, which executes a build several times so
 that a mean build time can be obtained for the debug build duration of
 Sunflower:
 
@@ -59,7 +61,7 @@ performing additional tasks to transform Compose code defined in the project.
 Conversely, the mean build time dropped to 342 ms, a **57 ms decrease** , when
 Sunflower's migration to Compose was completed. This reduction can be attributed
 to several factors which collectively reduce build time such as removing [data
-binding](https://developer.android.com/topic/libraries/data-binding), migrating dependencies that use [kapt to KSP](https://developer.android.com/build/migrate-to-ksp), and updating
+binding](https://developer.android.com/topic/libraries/data-binding), migrating dependencies that use [kapt to KSP](https://developer.android.com/build/migrate-to-ksp.md.txt), and updating
 several dependencies to their latest versions.
 
 ### Summary
@@ -89,7 +91,7 @@ phases](https://developer.android.com/develop/ui/compose/phases) documentation.
 
 ### Baseline Profiles
 
-[Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview) are an
+[Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt) are an
 excellent way of speeding up common user journeys. Including a Baseline
 Profile in your app can improve code execution speed by about 30% from the first
 launch by avoiding interpretation and just-in-time (JIT) compilation steps for
@@ -98,7 +100,7 @@ included code paths.
 The Jetpack Compose library includes its own Baseline Profile and you
 automatically get these optimizations when you use Compose in your app. However,
 these optimizations only affect code paths within the Compose library, so we
-recommend that you [add a Baseline Profile](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile) to your
+recommend that you [add a Baseline Profile](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile.md.txt) to your
 app to cover code paths outside of Compose.
 
 ### Comparison with the View system
@@ -121,7 +123,7 @@ cut down explicit state tracking, memory allocations, and callbacks to only the
 composables that require said features instead of requiring them by all
 extensions of a given `View` type.
 
-Furthermore, Compose provides [smart recompositions](https://developer.android.com/develop/ui/compose/migrate/compare-metrics#smart-recomposition),
+Furthermore, Compose provides [smart recompositions](https://developer.android.com/develop/ui/compose/migrate/compare-metrics.md.txt#smart-recomposition),
 replaying the previously drawn result if you don't need to make changes.
 
 #### Multiple layout passes
@@ -131,10 +133,10 @@ APIs that make them prone to multiple layout passes. These multiple layout
 passes can cause exponential work if done at specific nested points in the view
 hierarchy.
 
-Jetpack Compose enforces a [single layout pass](https://developer.android.com/develop/ui/compose/layouts/custom)
+Jetpack Compose enforces a [single layout pass](https://developer.android.com/develop/ui/compose/layouts/custom.md.txt)
 for all layout composables via its API contract. This lets Compose efficiently
 handle deep UI trees. If multiple measurements are needed, Compose has
-[intrinsic measurements](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements).
+[intrinsic measurements](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements.md.txt).
 
 #### View startup performance
 
@@ -156,13 +158,13 @@ to use it with Jetpack Compose, see the
 The Jetpack Compose team also uses Macrobenchmark to track regressions and
 validate performance against Views across releases. For detailed startup and
 scroll benchmarks comparing Compose and Views on the open-source Pokedex app,
-see [Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark).
+see [Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark.md.txt).
 
 ### Compose profile installation
 
-Since Jetpack Compose is an unbundled library, it doesn't benefit from [Zygote](https://developer.android.com/topic/performance/memory-overview#SharingRAM) that preloads the View system's
+Since Jetpack Compose is an unbundled library, it doesn't benefit from [Zygote](https://developer.android.com/topic/performance/memory-overview.md.txt#SharingRAM) that preloads the View system's
 UI Toolkit classes and drawables. Jetpack Compose utilizes profile
-installation for *release* builds. [Profile installers](https://developer.android.com/jetpack/androidx/releases/profileinstaller) let apps specify critical code to
+installation for *release* builds. [Profile installers](https://developer.android.com/jetpack/androidx/releases/profileinstaller.md.txt) let apps specify critical code to
 be ahead-of-time (AOT) compiled at installation time. Compose ships profile
 installation rules which reduce startup time and jank in Compose apps.
 
@@ -173,7 +175,7 @@ installation rules which reduce startup time and jank in Compose apps.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark)
-- [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations)
-- [Using Compose in Views](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/compose-in-views)
+- [Hero benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark.md.txt)
+- [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations.md.txt)
+- [Using Compose in Views](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/compose-in-views.md.txt)
 - [Scroll](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/scroll)

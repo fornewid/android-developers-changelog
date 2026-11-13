@@ -4,6 +4,17 @@ url: https://developer.android.com/about/versions/17/qpr3/release-notes
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/about/versions/llms.txt
+
+### Beta 4
+
+|---|---|
+| **Release date** | November 12, 2026 |
+| **Builds** | DP11.261030.003 |
+| **Emulator support** | x86 (64-bit), ARM (v8-A) |
+| **Security patch level** | 2026-10-05 |
+| **Google Play services** | 26.41.31 |
+
 ### Beta 3
 
 |---|---|
@@ -31,7 +42,7 @@ source: md.txt
 | **Security patch level** | 2026-08-05 |
 | **Google Play services** | 26.32.34 |
 
-### Android 17 QPR 3 Beta 3 (October 2026)
+### Android 17 QPR 3 Beta 4 (November 2026)
 
 Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
 update the platform with fixes and improvements that are then rolled out to
@@ -44,11 +55,19 @@ images of the latest QPR beta builds so you can test your app with these builds
 as needed (for example, if there are upcoming features that might impact the
 user experience of your app).
 
+### Top Issues fixed in Beta 4 (November 2026)
+
+Top issues fixed include:
+
+- *Memory leaks in system_server cause severe UI lag, Pixel Launcher crashes, and unexpected device restarts. ([**Issue #440977407**](https://issuetracker.google.com/issues/440977407), [**Issue #560540681**](https://issuetracker.google.com/issues/560540681), [**Issue #561107077**](https://issuetracker.google.com/issues/561107077), [**Issue #562344942**](https://issuetracker.google.com/issues/562344942), [**Issue #564034352**](https://issuetracker.google.com/issues/564034352))*
+- *Conscrypt throws an unclear IllegalArgumentException message when TLSv1 or TLSv1.1 connection protocols are rejected for apps targeting API level 36. ([**Issue #568014509**](https://issuetracker.google.com/issues/568014509))*
+- *The on-screen keyboard appears visually clipped or partially cut off during text input. ([**Issue #568381960**](https://issuetracker.google.com/issues/568381960))*
+- *Excessive Bluetooth background activity consumes an abnormal amount of power and rapidly drains the device battery. ([**Issue #566820683**](https://issuetracker.google.com/issues/566820683))*
+
 ### Top Issues fixed in Beta 3 (October 2026)
 
 Top issues fixed include:
 
-- *Images render with incorrect transparency when using the Multiply blend mode. ([**Issue #73186237**](https://issuetracker.google.com/issues/73186237))*
 - *Recents overview flickers when performing a home gesture immediately after quick-switching apps. ([**Issue #237526296**](https://issuetracker.google.com/issues/237526296), [**Issue #341680318**](https://issuetracker.google.com/issues/341680318))*
 - *Inner display remains black when unfolding the device. ([**Issue #311469796**](https://issuetracker.google.com/issues/311469796), [**Issue #311583772**](https://issuetracker.google.com/issues/311583772))*
 - *Twitter app crashes when viewing post thread mentions. ([**Issue #282904709**](https://issuetracker.google.com/issues/282904709), [**Issue #293383813**](https://issuetracker.google.com/issues/293383813))*

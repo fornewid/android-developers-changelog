@@ -4,6 +4,8 @@ url: https://developer.android.com/build/agp-upgrade-assistant
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/llms.txt
+
 The Android Gradle plugin (AGP) Upgrade Assistant is a tool in Android Studio
 that helps you upgrade the version of AGP used by your project.
 
@@ -14,7 +16,7 @@ that helps you upgrade the version of AGP used by your project.
 
 ### AGP 9 Upgrade
 
-Use the AGP 9 Upgrade [Android skill](https://developer.android.com/tools/agents/android-skills) to upgrade your project to AGP version 9.x (non-KMP projects). To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the AGP 9 Upgrade [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to upgrade your project to AGP version 9.x (non-KMP projects). To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add agp-9-upgrade
 
@@ -29,7 +31,7 @@ Upgrading the version of AGP used by your project lets you benefit from the
 latest features.
 
 For more information about recommended project
-structure for the Upgrade Assistant, see [Setup](https://developer.android.com/build/agp-upgrade-assistant#setup) on this page.
+structure for the Upgrade Assistant, see [Setup](https://developer.android.com/build/agp-upgrade-assistant.md.txt#setup) on this page.
 
 ## AGP Upgrade Assistant use cases
 
@@ -62,7 +64,7 @@ Assistant also explains why the proposed changes are necessary.
 
 To use the Upgrade Assistant, make sure your project structure accommodates the
 tool, and then run it from Android Studio, as described in
-[Run the Upgrade Assistant](https://developer.android.com/build/agp-upgrade-assistant#run-upgrade-assistant).
+[Run the Upgrade Assistant](https://developer.android.com/build/agp-upgrade-assistant.md.txt#run-upgrade-assistant).
 
 ### Set up your project
 
@@ -74,7 +76,7 @@ correctly, read the following sections.
 
 To get the best use out of the AGP Upgrade Assistant, do the following:
 
-- **Configure the build using the Gradle build files** : The Upgrade Assistant relies on static analysis of the Gradle build files. To get the most out of the Upgrade Assistant, configure your build using these build files. Use [Gradle Version Catalogs](https://docs.gradle.org/current/userguide/platforms.html) to refer to dependencies and plugins defined in a `libs.versions.toml` file in the `gradle` subdirectory of your project.
+- **Configure the build using the Gradle build files** : The Upgrade Assistant relies on static analysis of the Gradle build files. To get the most out of the Upgrade Assistant, configure your build using these build files. Use [Gradle Version Catalogs](https://docs.gradle.org/current/userguide/platforms) to refer to dependencies and plugins defined in a `libs.versions.toml` file in the `gradle` subdirectory of your project.
 
 > [!NOTE]
 > **Note:** The Upgrade Assistant does not support projects that refer to constants or variables defined in the `buildSrc` directory, projects that use Gradle Version Catalogs defined in settings files, or projects that refer to Gradle Version Catalogs for things other than dependencies and plugins. In general, we don't recommended using `buildSrc` to structure your project, because it can be inefficient. Any change to `buildSrc` constants and variables, no matter how minor, triggers a full rebuild of the project.
@@ -83,7 +85,7 @@ To get the best use out of the AGP Upgrade Assistant, do the following:
 
 Even if a project conforms to these limitations, the Upgrade Assistant
 might still fail to perform a clean upgrade. See
-[Troubleshoot errors](https://developer.android.com/build/agp-upgrade-assistant#troubleshoot-errors) for guidance on how to resolve or
+[Troubleshoot errors](https://developer.android.com/build/agp-upgrade-assistant.md.txt#troubleshoot-errors) for guidance on how to resolve or
 report bugs.
 
 #### Back up your project
@@ -102,7 +104,7 @@ system.
 To run the Upgrade Assistant, follow these steps:
 
 1. To launch the Upgrade Assistant, navigate to
-   **Tools \> AGP Upgrade Assistant** or click on the notification prompt, as
+   **Tools \> AGP Upgrade Assistant** or click the notification prompt, as
    shown in figure 1.
 
    The tool window that appears displays the details of the default upgrade
@@ -118,8 +120,8 @@ To run the Upgrade Assistant, follow these steps:
    the upgrade, categorized by whether they are required or recommended to update
    and whether they are prerequisites of other steps. Select individual
    items in the tree to display more details about each step in the main panel.
-3. To run the upgrade, select the required and desired steps and click
-   **Run selected steps**.
+3. To run the upgrade, select the required steps and any additional steps you
+   want to run and click **Run selected steps**.
 
    The Upgrade Assistant changes the project build files and attempts to sync the
    new project build with Android Studio. This may take a while if you have
@@ -170,9 +172,9 @@ Investigate the error by following two kinds of upgrade breakdowns:
   with Gradle or AGP. Sometimes, a new release addresses the use of deprecated
   or internal APIs.
 
-- **[Report a bug](https://developer.android.com/studio/report-bugs).** Sometimes all the preparatory steps
+- **[Report a bug](https://developer.android.com/studio/report-bugs.md.txt).** Sometimes all the preparatory steps
   and sync succeed but the final upgrade step still fails. In this case,
   please report a bug.
   Even if you succeed in fixing the error yourself,
-  [report the original failure](https://developer.android.com/studio/report-bugs) to the bug tracker, so
+  [report the original failure](https://developer.android.com/studio/report-bugs.md.txt) to the bug tracker, so
   that the problem can be addressed by the development team.

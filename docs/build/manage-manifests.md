@@ -4,36 +4,34 @@ url: https://developer.android.com/build/manage-manifests
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/llms.txt
+
 This page describes how manifest merging works and how you can apply merge
-preferences to
-resolve merge conflicts. For an introduction to the app
-manifest file, see the
-[app manifest overview](https://developer.android.com/guide/topics/manifest/manifest-intro).
+preferences to resolve merge conflicts. For an introduction to the app manifest
+file, see the [app manifest overview](https://developer.android.com/guide/topics/manifest/manifest-intro.md.txt).
 
 ## Merge multiple manifest files
 
-Your APK or Android App Bundle file can contain just one
-`AndroidManifest.xml` file, but your Android Studio project may contain
-several manifest files provided by the main source set, build variants, and imported
-libraries. When building your app, the Gradle build merges
-all manifest files into a single manifest file that's packaged
-into your app.
+Your APK or Android App Bundle file can contain just one `AndroidManifest.xml`
+file, but your Android Studio project may contain several manifest files
+provided by the main source set, build variants, and imported libraries. When
+building your app, the Gradle build merges all manifest files into a single
+manifest file that's packaged into your app.
 
 The manifest merger tool combines all XML elements from each file by following
-merge heuristics and obeying merge preferences that you have defined
-with special XML attributes.
+merge heuristics and obeying merge preferences that you have defined with
+special XML attributes.
 
-**Tip:** Use the [**Merged Manifest**
-view](https://developer.android.com/build/manage-manifests#inspect_the_merged_manifest_and_find_conflicts), described in a following section, to preview the results of your merged manifest and find conflict
-errors.
+> [!TIP]
+> **Tip:** Use the [Merged Manifest view](https://developer.android.com/build/manage-manifests.md.txt#inspect_the_merged_manifest_and_find_conflicts), described in a following section, to preview the results of your merged manifest and find conflict errors.
 
 ### Merge priorities
 
-The merger tool combines all the manifest files into one file
-sequentially, based on each manifest file's priority. For example, if you have
-three manifest files, the lowest-priority manifest is merged into the
-next-highest-priority manifest, and then that is merged into the highest-priority
-manifest, as illustrated in figure 1.
+The merger tool combines all the manifest files into one file sequentially,
+based on each manifest file's priority. For example, if you have three manifest
+files, the lowest-priority manifest is merged into the next-highest-priority
+manifest, and then that is merged into the highest-priority manifest, as
+illustrated in figure 1.
 ![](https://developer.android.com/static/studio/images/build/manifest-merger_2x.png) **Figure 1.** The process to merge three manifest files, lowest priority into highest priority.
 
 There are three basic types of manifest files that may be merged into each
@@ -41,19 +39,21 @@ other, and their merge priorities are as follows (highest priority first):
 
 1. Manifest file for your [build variant](https://developer.android.com/studio/build/build-variants)
 
-   If you have multiple source sets for your variant, their
-   manifest priorities are as follows:
+   If you have multiple source sets for your variant, their manifest priorities
+   are as follows:
    - Build variant manifest (such as `src/demoDebug/`)
    - Build type manifest (such as `src/debug/`)
    - Product flavor manifest (such as `src/demo/`)
 
-     If you're using flavor dimensions, the manifest priorities
-     correspond to the order each dimension is listed in the
-     `flavorDimensions` property (first is highest priority).
+     If you're using flavor dimensions, the manifest priorities correspond to
+     the order each dimension is listed in the `flavorDimensions` property
+     (first is highest priority).
 2. Main manifest file for the app module
-3. Manifest file from an included library If you have multiple libraries, their manifest priorities match
-   the order they appear in your Gradle
-   `dependencies` block.
+
+3. Manifest file from an included library
+
+   If you have multiple libraries, their manifest priorities match the order
+   they appear in your Gradle `dependencies` block.
 
 For example, a library manifest is merged into the main manifest, then the main
 manifest is merged into the build variant manifest. Note that these are the same
@@ -63,21 +63,14 @@ merge priorities for all source sets, as described in
 > [!NOTE]
 > **Note:** If you're building a library module, the final merged manifest does **not** include content from the manifests of the library's dependencies.
 
-**Important:** Build configurations from the
-`build.gradle` file override any corresponding attributes in the
-merged manifest file. For example, the [`minSdk`](https://developer.android.com/reference/tools/gradle-api/7.2/com/android/build/api/dsl/BaseFlavor#minSdk()) from the `build.gradle` or
-`build.gradle.kts` file overrides the matching attribute in the
-[`<uses-sdk>`](https://developer.android.com/guide/topics/manifest/uses-sdk-element)
-manifest element. To avoid confusion, leave out the
-`<uses-sdk>` element and define these properties only in the
-`build.gradle` file. For more details, see
-[Configure your build](https://developer.android.com/studio/build).
+> [!CAUTION]
+> **Caution:** Build configurations from the `build.gradle` file override any corresponding attributes in the merged manifest file. For example, the [`minSdk`](https://developer.android.com/reference/tools/gradle-api/7.2/com/android/build/api/dsl/BaseFlavor.md.txt#minSdk()) from the `build.gradle` or `build.gradle.kts` file overrides the matching attribute in the [`<uses-sdk>`](https://developer.android.com/guide/topics/manifest/uses-sdk-element.md.txt) manifest element. To avoid confusion, leave out the `<uses-sdk>` element and define these properties only in the `build.gradle` file. For more details, see [Configure your build](https://developer.android.com/studio/build).
 
 ### Merge conflict heuristics
 
 The merger tool can logically match every XML element from one manifest to a
 corresponding element in another manifest. For details about how matching
-works, see the [merge priorities](https://developer.android.com/build/manage-manifests#merge_priorities) in the preceding section.
+works, see the [merge priorities](https://developer.android.com/build/manage-manifests.md.txt#merge_priorities) in the preceding section.
 
 If an element from the lower-priority manifest doesn't match any elements in
 the higher-priority manifest, then it is added to the merged manifest. However,
@@ -98,35 +91,25 @@ values
 | No value | Value B | Value B |
 | Value A | No value | Value A |
 | Value A | Value A | Value A |
-| Value A | Value B | **Conflict error** ---you must add a [merge rule marker](https://developer.android.com/build/manage-manifests#merge_rule_markers). |
+| Value A | Value B | **Conflict error** ---you must add a [merge rule marker](https://developer.android.com/build/manage-manifests.md.txt#merge_rule_markers). |
 
 However, there are a few situations in which the merger tool behaves differently
 to avoid merge conflicts:
 
 - Attributes in the `<manifest>` element are never merged together; only the attributes from the highest-priority manifest are used.
-- The `android:required` attribute in the [`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element) and [`<uses-library>`](https://developer.android.com/guide/topics/manifest/uses-library-element) elements use an *OR* merge. If there is a conflict, `"true"` is applied and the feature or library required by one manifest is always included.
+- The `android:required` attribute in the [`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt) and [`<uses-library>`](https://developer.android.com/guide/topics/manifest/uses-library-element.md.txt) elements use an *OR* merge. If there is a conflict, `"true"` is applied and the feature or library required by one manifest is always included.
 - Attributes in the `<uses-sdk>` element always use the value from the higher-priority manifest, except in the following situations:
-  - When the lower-priority manifest has a `minSdk` value that's higher, an error occurs unless you apply the [`overrideLibrary`](https://developer.android.com/build/manage-manifests#override_uses-sdk_for_imported_libraries) merge rule.
-  - When the lower-priority manifest has a `targetSdkVersion` value that's lower, the merger tool uses the value from the higher-priority manifest, and it also adds any system permissions that are necessary to ensure that the imported library continues to function properly (for cases in which the higher Android version has increased permission restrictions). For more information about this behavior, see the section about [implicit system
-    permissions](https://developer.android.com/build/manage-manifests#implicit_system_permissions).
+  - When the lower-priority manifest has a `minSdk` value that's higher, an error occurs unless you apply the [`overrideLibrary`](https://developer.android.com/build/manage-manifests.md.txt#override_uses-sdk_for_imported_libraries) merge rule.
+  - When the lower-priority manifest has a `targetSdkVersion` value that's lower, the merger tool uses the value from the higher-priority manifest, and it also adds any system permissions that are necessary to ensure that the imported library continues to function properly (for cases in which the higher Android version has increased permission restrictions). For more information about this behavior, see the section about [implicit system permissions](https://developer.android.com/build/manage-manifests.md.txt#implicit_system_permissions).
 - The `<intent-filter>` element is never matched between manifests. Each is treated as unique and is added to the common parent element in the merged manifest.
 
 For all other conflicts between attributes, you receive an error and you must
 instruct the merger tool how to resolve it by adding a special attribute in
 the higher-priority manifest file. See the following section about
-[merge rule markers](https://developer.android.com/build/manage-manifests#merge_rule_markers).
+[merge rule markers](https://developer.android.com/build/manage-manifests.md.txt#merge_rule_markers).
 
-**Do not depend on default attribute values.** Because all
-unique attributes are combined into the same element, this might cause
-unexpected results if the higher-priority manifest actually depends on the
-default value of an attribute without declaring it. For example, if the higher-
-priority manifest doesn't declare the `android:launchMode`
-attribute, then it uses the default value of `"standard"`---but if the
-lower-priority manifest declares this attribute with a different value, that
-value is applied to the merged manifest, which overrides the default value. You
-should explicitly define each attribute as you want it to be. Default values
-for each attribute are documented in the
-[manifest reference](https://developer.android.com/guide/topics/manifest/manifest-intro).
+> [!CAUTION]
+> **Caution:** **Don't depend on default attribute values.** Because all unique attributes are combined into the same element, this might cause unexpected results if the higher-priority manifest actually depends on the default value of an attribute without declaring it. For example, if the higher-priority manifest doesn't declare the `android:launchMode` attribute, then it uses the default value of `"standard"`---but if the lower-priority manifest declares this attribute with a different value, that value is applied to the merged manifest, which overrides the default value. You should explicitly define each attribute as you want it to be. Default values for each attribute are documented in the [manifest reference](https://developer.android.com/guide/topics/manifest/manifest-intro.md.txt).
 
 ### Merge rule markers
 
@@ -327,7 +310,7 @@ attributes:
 `tools:node="strict"`
 :   Generate a build failure any time this element in the lower-priority
     manifest doesn't exactly match the element in the higher-priority manifest (unless
-    resolved by other merge rule markers). This overrides the [merge conflict heuristics](https://developer.android.com/build/manage-manifests#merge_conflict_heuristics). For
+    resolved by other merge rule markers). This overrides the [merge conflict heuristics](https://developer.android.com/build/manage-manifests.md.txt#merge_conflict_heuristics). For
     example, if the lower-priority manifest includes an extra attribute,
     the build fails (whereas the default behavior adds the extra attribute to
     the merged manifest).
@@ -429,7 +412,7 @@ attribute namespace), separated by commas.
 :   Generate a build failure any time these attributes in the
     lower-priority manifest don't exactly match the attributes in the higher-priority
     manifest. This is the default behavior for all attributes, except for
-    those with special behaviors as described in the [merge conflict heuristics](https://developer.android.com/build/manage-manifests#merge_conflict_heuristics).
+    those with special behaviors as described in the [merge conflict heuristics](https://developer.android.com/build/manage-manifests.md.txt#merge_conflict_heuristics).
 
     Low-priority manifest:
 
@@ -452,7 +435,8 @@ attribute namespace), separated by commas.
     the same result occurs with explicitly adding
     `tools:strict="screenOrientation"`.
 
-You can also apply multiple markers to one element, as shown in the following example:
+You can also apply multiple markers to one element, as shown in the following
+example:
 Low-priority manifest:
 
 ```xml
@@ -502,8 +486,8 @@ merge rule is applied only when the lower-priority manifest file is from the
 If the lower-priority manifest is from any other source, the
 `remove` merge rule is ignored.
 
-**Note:** If you use this with one of the attribute markers,
-then it applies to all attributes specified in the marker.
+> [!NOTE]
+> **Note:** If you use this with one of the attribute markers, then it applies to all attributes specified in the marker.
 
 #### Override \<uses-sdk\> for imported libraries
 
@@ -563,7 +547,7 @@ explicitly adds the system permission to the merged manifest.
 
 For example, if your app sets `targetSdkVersion` to 4 or higher and imports a
 library with `targetSdkVersion` set to 3 or lower, the merger tool adds the
-[`WRITE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE)
+[`WRITE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#WRITE_EXTERNAL_STORAGE)
 permission to the merged manifest.
 
 > [!NOTE]
@@ -577,9 +561,9 @@ might add to the merged manifest
 
 | Lower-priority manifest declares | Permissions added to the merged manifest |
 |---|---|
-| `targetSdkVersion` is 3 or lower | `https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE`, `https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE` |
-| `targetSdkVersion` is 15 or lower and using `https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS` | `https://developer.android.com/reference/android/Manifest.permission#READ_CALL_LOG` |
-| `targetSdkVersion` is 15 or lower and using `https://developer.android.com/reference/android/Manifest.permission#WRITE_CONTACTS` | `https://developer.android.com/reference/android/Manifest.permission#WRITE_CALL_LOG` |
+| `targetSdkVersion` is 3 or lower | `WRITE_EXTERNAL_STORAGE`, `READ_PHONE_STATE` |
+| `targetSdkVersion` is 15 or lower and using `READ_CONTACTS` | `READ_CALL_LOG` |
+| `targetSdkVersion` is 15 or lower and using `WRITE_CONTACTS` | `WRITE_CALL_LOG` |
 
 ### Inspect the merged manifest and find conflicts
 
@@ -596,12 +580,7 @@ figure 2.
 The elements that were merged in from lower-priority manifest files
 are highlighted in different colors on the left. The key for each color is
 specified under **Manifest Sources**.
-
-![](https://developer.android.com/static/studio/images/build/manifest-merged-view_2x.png)
-
-**Figure 2.** The Merged Manifest view.
-
-<br />
+![The Merged Manifest view](https://developer.android.com/static/studio/images/build/manifest-merged-view_2x.png) **Figure 2.** The Merged Manifest view.
 
 Manifest files that were part of the build but didn't contribute elements or
 attributes are listed under **Other Manifest Files**.
@@ -611,7 +590,7 @@ pane, and the details appear under **Merging Log**.
 
 If any conflicts occur, they appear under **Merging Errors**
 with a recommendation for how to resolve the conflict using
-[merge rule markers](https://developer.android.com/build/manage-manifests#merge_rule_markers).
+[merge rule markers](https://developer.android.com/build/manage-manifests.md.txt#merge_rule_markers).
 
 The errors are also printed in the **Event Log** window. To view them, select
 **View \> Tool Windows \> Event Log**.
@@ -634,10 +613,10 @@ the tool merges the two elements together using one of three merge policies:
 Merge
 :   Combine all non-conflicting attributes into the same tag and merge
     child elements according to their respective merging policy. If any attributes
-    conflict with each other, merge them together with the [merge rule markers](https://developer.android.com/build/manage-manifests#merge_rule_markers).
+    conflict with each other, merge them together with the [merge rule markers](https://developer.android.com/build/manage-manifests.md.txt#merge_rule_markers).
 
 Merge children only
-:   Do not combine or merge the attributes (keep only the attributes provided
+:   Don't combine or merge the attributes (keep only the attributes provided
     by the highest-priority manifest file) and merge
     child elements according to their merging policy.
 
@@ -713,10 +692,12 @@ android {
 You can then insert one of the placeholders into the manifest file as an
 attribute value:
 
-    <intent-filter ... >
-        <data android:scheme="https" android:host="${hostName}" ... />
-        ...
-    </intent-filter>
+```xml
+<intent-filter ... >
+    <data android:scheme="https" android:host="${hostName}" ... />
+    ...
+</intent-filter>
+```
 
 By default, the build tools also provide your app's
 [application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id)
@@ -772,17 +753,21 @@ android {
 
 Then you can insert the application ID in your manifest like this:
 
-    <intent-filter ... >
-        <action android:name="${applicationId}.TRANSMOGRIFY" />
-        ...
-    </intent-filter>
+```xml
+<intent-filter ... >
+    <action android:name="${applicationId}.TRANSMOGRIFY" />
+    ...
+</intent-filter>
+```
 
 And the manifest result when you build the "free" product flavor is this:
 
-    <intent-filter ... >
-       <action android:name="com.example.myapp.free.TRANSMOGRIFY" />
-        ...
-    </intent-filter>
+```xml
+<intent-filter ... >
+   <action android:name="com.example.myapp.free.TRANSMOGRIFY" />
+    ...
+</intent-filter>
+```
 
 For more information, read
 [Set the application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id).

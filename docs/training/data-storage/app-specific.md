@@ -4,6 +4,8 @@ url: https://developer.android.com/training/data-storage/app-specific
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/data-storage/llms.txt
+
 In many cases, your app creates files that other apps don't need to access, or
 shouldn't access. The system provides the following locations for storing such
 *app-specific* files:
@@ -21,7 +23,7 @@ shouldn't access. The system provides the following locations for storing such
   if that app has the proper permissions, the files stored in these directories
   are meant for use only by your app. If you specifically intend to create files
   that other apps should be able to access, your app should store these files in
-  the [shared storage](https://developer.android.com/training/data-storage/shared) part of external storage
+  the [shared storage](https://developer.android.com/training/data-storage/shared.md.txt) part of external storage
   instead.
 
 When the user uninstalls your app, the files saved in app-specific storage are
@@ -30,7 +32,7 @@ anything that the user expects to persist independently of your app. For
 example, if your app allows users to capture photos, the user would expect that
 they can access those photos even after they uninstall your app. So you should
 instead use shared storage to save those types of files to the appropriate
-[media collection](https://developer.android.com/training/data-storage/shared/media).
+[media collection](https://developer.android.com/training/data-storage/shared/media.md.txt).
 
 The following sections describe how to store and access files within
 app-specific directories.
@@ -53,13 +55,13 @@ space](https://developer.android.com/training/data-storage/app-specific#query-fr
 ### Access persistent files
 
 Your app's ordinary, persistent files reside in a directory that you can
-access using the [`filesDir`](https://developer.android.com/reference/android/content/Context#getFilesDir())
+access using the [`filesDir`](https://developer.android.com/reference/android/content/Context.md.txt#getFilesDir())
 property of a context object. The framework provides several methods to help you
 access and store files in this directory.
 
 #### Access and store files
 
-You can use the [`File`](https://developer.android.com/reference/java/io/File) API to access and store files.
+You can use the [`File`](https://developer.android.com/reference/java/io/File.md.txt) API to access and store files.
 
 To help maintain your app's performance, don't open and close the same
 file multiple times.
@@ -81,8 +83,8 @@ File file = new File(context.getFilesDir(), filename);
 #### Store a file using a stream
 
 As an alternative to using the `File` API, you can call
-[`openFileOutput()`](https://developer.android.com/reference/android/content/Context#openFileOutput(java.lang.String,%20int))
-to get a [`FileOutputStream`](https://developer.android.com/reference/java/io/FileOutputStream) that writes
+[`openFileOutput()`](https://developer.android.com/reference/android/content/Context.md.txt#openFileOutput(java.lang.String,%20int))
+to get a [`FileOutputStream`](https://developer.android.com/reference/java/io/FileOutputStream.md.txt) that writes
 to a file within the `filesDir` directory.
 
 The following code snippet shows how to write some text to a file:
@@ -108,18 +110,18 @@ try (FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVAT
 ```
 
 > [!CAUTION]
-> **Caution:** On devices that run Android 7.0 (API level 24) or higher, unless you pass the `Context.MODE_PRIVATE` file mode into `openFileOutput()`, a [`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException) occurs.
+> **Caution:** On devices that run Android 7.0 (API level 24) or higher, unless you pass the `Context.MODE_PRIVATE` file mode into `openFileOutput()`, a [`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException.md.txt) occurs.
 
-To [allow other apps to access files](https://developer.android.com/training/secure-file-sharing) stored in
+To [allow other apps to access files](https://developer.android.com/training/secure-file-sharing.md.txt) stored in
 this directory within internal storage, use a
-[`FileProvider`](https://developer.android.com/reference/androidx/core/content/FileProvider) with the
-[`FLAG_GRANT_READ_URI_PERMISSION`](https://developer.android.com/reference/android/content/Intent#FLAG_GRANT_READ_URI_PERMISSION)
+[`FileProvider`](https://developer.android.com/reference/androidx/core/content/FileProvider.md.txt) with the
+[`FLAG_GRANT_READ_URI_PERMISSION`](https://developer.android.com/reference/android/content/Intent.md.txt#FLAG_GRANT_READ_URI_PERMISSION)
 attribute.
 
 #### Access a file using a stream
 
 To read a file as a stream, use
-[`openFileInput()`](https://developer.android.com/reference/android/content/Context#openFileInput(java.lang.String)):
+[`openFileInput()`](https://developer.android.com/reference/android/content/Context.md.txt#openFileInput(java.lang.String)):
 
 ### Kotlin
 
@@ -152,13 +154,13 @@ try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
 ```
 
 > [!NOTE]
-> **Note:** If you need to access a file as a stream at install time, save the file in your project's `/res/raw` directory. You can open these files with [`openRawResource()`](https://developer.android.com/reference/android/content/res/Resources#openRawResource(int)), passing in the filename prefixed with `R.raw` as the resource ID. This method returns an [`InputStream`](https://developer.android.com/reference/java/io/InputStream) that you can use to read the file. You cannot write to the original file.
+> **Note:** If you need to access a file as a stream at install time, save the file in your project's `/res/raw` directory. You can open these files with [`openRawResource()`](https://developer.android.com/reference/android/content/res/Resources.md.txt#openRawResource(int)), passing in the filename prefixed with `R.raw` as the resource ID. This method returns an [`InputStream`](https://developer.android.com/reference/java/io/InputStream.md.txt) that you can use to read the file. You cannot write to the original file.
 
 #### View list of files
 
 You can get an array containing the names of all files within the `filesDir`
 directory by calling
-[`fileList()`](https://developer.android.com/reference/android/content/Context#fileList()), as shown in
+[`fileList()`](https://developer.android.com/reference/android/content/Context.md.txt#fileList()), as shown in
 the following code snippet:
 
 ### Kotlin
@@ -176,7 +178,7 @@ Array<String> files = context.fileList();
 #### Create nested directories
 
 You can also create nested directories, or open an inner directory, by calling
-[`getDir()`](https://developer.android.com/reference/kotlin/android/content/Context#getdir) in Kotlin-based
+[`getDir()`](https://developer.android.com/reference/kotlin/android/content/Context.md.txt#getdir) in Kotlin-based
 code or by passing the root directory and a new directory name into a `File`
 constructor in Java-based code:
 
@@ -194,7 +196,7 @@ File file = new File(directory, filename);
 ```
 
 > [!NOTE]
-> **Note:** [`dataDir`](https://developer.android.com/reference/kotlin/android/content/pm/ApplicationInfo#datadir) is always an ancestor directory of this new directory.
+> **Note:** [`dataDir`](https://developer.android.com/reference/kotlin/android/content/pm/ApplicationInfo.md.txt#datadir) is always an ancestor directory of this new directory.
 
 ### Create cache files
 
@@ -202,13 +204,13 @@ If you need to store sensitive data only temporarily, you should use the app's
 designated cache directory within internal storage to save the data. As is the
 case for all app-specific storage, the files stored in this directory are
 removed when the user uninstalls your app, although the files in this directory
-might be [removed sooner](https://developer.android.com/training/data-storage/app-specific#internal-remove-cache).
+might be [removed sooner](https://developer.android.com/training/data-storage/app-specific.md.txt#internal-remove-cache).
 
 > [!NOTE]
-> **Note:** This cache directory is designed to store a small amount of your app's sensitive data. To determine how much cache space is currently available for your app, call [`getCacheQuotaBytes()`](https://developer.android.com/reference/android/os/storage/StorageManager#getCacheQuotaBytes(java.util.UUID)).
+> **Note:** This cache directory is designed to store a small amount of your app's sensitive data. To determine how much cache space is currently available for your app, call [`getCacheQuotaBytes()`](https://developer.android.com/reference/android/os/storage/StorageManager.md.txt#getCacheQuotaBytes(java.util.UUID)).
 
 To create a cached file, call
-[`File.createTempFile()`](https://developer.android.com/reference/java/io/File#createTempFile(java.lang.String,%20java.lang.String)):
+[`File.createTempFile()`](https://developer.android.com/reference/java/io/File.md.txt#createTempFile(java.lang.String,%20java.lang.String)):
 
 ### Kotlin
 
@@ -223,8 +225,8 @@ File.createTempFile(filename, null, context.getCacheDir());
 ```
 
 Your app accesses a file in this directory using the
-[`cacheDir`](https://developer.android.com/reference/android/content/Context#getCacheDir()) property of a
-context object and the [`File`](https://developer.android.com/reference/java/io/File) API:
+[`cacheDir`](https://developer.android.com/reference/android/content/Context.md.txt#getCacheDir()) property of a
+context object and the [`File`](https://developer.android.com/reference/java/io/File.md.txt) API:
 
 ### Kotlin
 
@@ -250,7 +252,7 @@ app's cache files within internal storage.
 To remove a file from the cache directory within internal storage, use one of
 the following methods:
 
-- The [`delete()`](https://developer.android.com/reference/java/io/File#delete()) method on a `File` object
+- The [`delete()`](https://developer.android.com/reference/java/io/File.md.txt#delete()) method on a `File` object
   that represents the file:
 
   ### Kotlin
@@ -265,7 +267,7 @@ the following methods:
   cacheFile.delete();
   ```
 - The
-  [`deleteFile()`](https://developer.android.com/reference/android/content/Context#deleteFile(java.lang.String))
+  [`deleteFile()`](https://developer.android.com/reference/android/content/Context.md.txt#deleteFile(java.lang.String))
   method of the app's context, passing in the name of the file:
 
   ### Kotlin
@@ -295,7 +297,7 @@ storage. The files stored in these directories are removed when your app is
 uninstalled.
 
 > [!CAUTION]
-> **Caution:** The files in these directories aren't guaranteed to be accessible, such as when a removable SD card is taken out of the device. If your app's functionality depends on these files, you should instead store the files within [internal storage](https://developer.android.com/training/data-storage/app-specific#internal).
+> **Caution:** The files in these directories aren't guaranteed to be accessible, such as when a removable SD card is taken out of the device. If your app's functionality depends on these files, you should instead store the files within [internal storage](https://developer.android.com/training/data-storage/app-specific.md.txt#internal).
 
 On devices that run Android 9 (API level 28) or lower, your app can access the
 app-specific files that belong to other apps, provided that your app has the
@@ -313,11 +315,11 @@ able to remove, verify that the volume is accessible before trying to read
 app-specific data from, or write app-specific data to, external storage.
 
 You can query the volume's state by calling
-[`Environment.getExternalStorageState()`](https://developer.android.com/reference/android/os/Environment#getExternalStorageState()).
+[`Environment.getExternalStorageState()`](https://developer.android.com/reference/android/os/Environment.md.txt#getExternalStorageState()).
 If the returned state is
-[`MEDIA_MOUNTED`](https://developer.android.com/reference/android/os/Environment#MEDIA_MOUNTED), then
+[`MEDIA_MOUNTED`](https://developer.android.com/reference/android/os/Environment.md.txt#MEDIA_MOUNTED), then
 you can read and write app-specific files within external storage. If it's
-[`MEDIA_MOUNTED_READ_ONLY`](https://developer.android.com/reference/android/os/Environment#MEDIA_MOUNTED_READ_ONLY),
+[`MEDIA_MOUNTED_READ_ONLY`](https://developer.android.com/reference/android/os/Environment.md.txt#MEDIA_MOUNTED_READ_ONLY),
 you can only read these files.
 
 For example, the following methods are useful to determine the storage
@@ -370,7 +372,7 @@ multiple physical volumes that could contain external storage, so you need to
 select which one to use for your app-specific storage.
 
 To access the different locations, call
-[`ContextCompat.getExternalFilesDirs()`](https://developer.android.com/reference/androidx/core/content/ContextCompat#getExternalFilesDirs(android.content.Context,%20java.lang.String)).
+[`ContextCompat.getExternalFilesDirs()`](https://developer.android.com/reference/androidx/core/content/ContextCompat.md.txt#getExternalFilesDirs(android.content.Context,%20java.lang.String)).
 As shown in the code snippet, the first element in the returned array is
 considered the primary external storage volume. Use this volume unless it's full
 or unavailable.
@@ -397,7 +399,7 @@ File primaryExternalStorage = externalStorageVolumes[0];
 ### Access persistent files
 
 To access app-specific files from external storage, call
-[`getExternalFilesDir()`](https://developer.android.com/reference/android/content/Context#getExternalFilesDir(java.lang.String)).
+[`getExternalFilesDir()`](https://developer.android.com/reference/android/content/Context.md.txt#getExternalFilesDir(java.lang.String)).
 
 To help maintain your app's performance, don't open and close the same
 file multiple times.
@@ -423,7 +425,7 @@ File appSpecificExternalDir = new File(context.getExternalFilesDir(null), filena
 
 To add an app-specific file to the cache within external storage, get a
 reference to the
-[`externalCacheDir`](https://developer.android.com/reference/android/content/Context#getExternalCacheDir()):
+[`externalCacheDir`](https://developer.android.com/reference/android/content/Context.md.txt#getExternalCacheDir()):
 
 ### Kotlin
 
@@ -440,7 +442,7 @@ File externalCacheFile = new File(context.getExternalCacheDir(), filename);
 ### Remove cache files
 
 To remove a file from the external cache directory, use the
-[`delete()`](https://developer.android.com/reference/java/io/File#delete()) method on a `File` object that
+[`delete()`](https://developer.android.com/reference/java/io/File.md.txt#delete()) method on a `File` object that
 represents the file:
 
 ### Kotlin
@@ -493,7 +495,7 @@ File getAppSpecificAlbumStorageDir(Context context, String albumName) {
 ```
 
 It's important that you use directory names provided by API constants like
-[`DIRECTORY_PICTURES`](https://developer.android.com/reference/android/os/Environment#DIRECTORY_PICTURES).
+[`DIRECTORY_PICTURES`](https://developer.android.com/reference/android/os/Environment.md.txt#DIRECTORY_PICTURES).
 These directory names ensure that the files are treated properly by the system.
 If none of the [pre-defined sub-directory
 names](https://developer.android.com/reference/android/os/Environment#fields) suit your files, you can
@@ -507,13 +509,13 @@ should consume space thoughtfully.
 
 If you know ahead of time how much data you're storing, you can find out how
 much space the device can provide your app by calling
-[`getAllocatableBytes()`](https://developer.android.com/reference/android/os/storage/StorageManager#getAllocatableBytes(java.util.UUID)).
+[`getAllocatableBytes()`](https://developer.android.com/reference/android/os/storage/StorageManager.md.txt#getAllocatableBytes(java.util.UUID)).
 The return value of `getAllocatableBytes()` might be larger than the current
 amount of free space on the device. This is because the system has identified
 files that it can remove from other apps' cache directories.
 
 If there's enough space to save your app's data, call
-[`allocateBytes()`](https://developer.android.com/reference/android/os/storage/StorageManager#allocateBytes(java.io.FileDescriptor,%20long)).
+[`allocateBytes()`](https://developer.android.com/reference/android/os/storage/StorageManager.md.txt#allocateBytes(java.io.FileDescriptor,%20long)).
 Otherwise, your app can request the user to [remove some
 files](https://developer.android.com/training/data-storage/app-specific#user-remove-device-files) from the device or [remove all cache
 files](https://developer.android.com/training/data-storage/app-specific#user-remove-all-cache-files) from the device.
@@ -566,25 +568,25 @@ if (availableBytes >= NUM_BYTES_NEEDED_FOR_MY_APP) {
 ```
 
 > [!NOTE]
-> **Note:** You aren't required to check the amount of available space before you save your file. You can instead try writing the file right away, then catch an [`IOException`](https://developer.android.com/reference/java/io/IOException) if one occurs. You may need to do this if you don't know exactly how much space you need. For example, if you change the file's encoding before you save it by converting a PNG image to JPEG, you don't know the file's size beforehand.
+> **Note:** You aren't required to check the amount of available space before you save your file. You can instead try writing the file right away, then catch an [`IOException`](https://developer.android.com/reference/java/io/IOException.md.txt) if one occurs. You may need to do this if you don't know exactly how much space you need. For example, if you change the file's encoding before you save it by converting a PNG image to JPEG, you don't know the file's size beforehand.
 
 ### Create a storage management activity
 
 Your app can declare and create a custom activity that, when launched, allows
 the user to manage the data that your app has stored on the user's device. You
 declare this custom "manage space" activity using the
-[`android:manageSpaceActivity`](https://developer.android.com/guide/topics/manifest/application-element#space)
+[`android:manageSpaceActivity`](https://developer.android.com/guide/topics/manifest/application-element.md.txt#space)
 attribute in the manifest file. File manager apps can [invoke this
 activity](https://developer.android.com/training/data-storage/manage-all-files#invoke-storage-management-activity)
 even when your app doesn't export the activity; that is, when your activity sets
-[`android:exported`](https://developer.android.com/guide/topics/manifest/activity-element#exported) to
+[`android:exported`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#exported) to
 `false`.
 
 ### Ask user to remove some device files
 
 To request that the user choose files on the device to remove, invoke an intent
 that includes the
-[`ACTION_MANAGE_STORAGE`](https://developer.android.com/reference/android/os/storage/StorageManager#ACTION_MANAGE_STORAGE)
+[`ACTION_MANAGE_STORAGE`](https://developer.android.com/reference/android/os/storage/StorageManager.md.txt#ACTION_MANAGE_STORAGE)
 action. This intent displays a prompt to the user. If desired, this prompt can
 show the amount of free space available on the device. To show this
 user-friendly information, use the result of the following calculation:
@@ -597,7 +599,7 @@ StorageStatsManager.getFreeBytes() / StorageStatsManager.getTotalBytes()
 
 Alternatively, you can request that the user clear the cache files from **all**
 apps on the device. To do so, invoke an intent that includes the
-[`ACTION_CLEAR_APP_CACHE`](https://developer.android.com/reference/android/os/storage/StorageManager#ACTION_CLEAR_APP_CACHE)
+[`ACTION_CLEAR_APP_CACHE`](https://developer.android.com/reference/android/os/storage/StorageManager.md.txt#ACTION_CLEAR_APP_CACHE)
 intent action.
 
 > [!CAUTION]

@@ -4,14 +4,16 @@ url: https://developer.android.com/about/versions/15/gsi-release-notes
 source: md.txt
 ---
 
-Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image) binaries are available to developers for
-app testing and validation purposes on [supported Treble-compliant devices](https://developer.android.com/topic/generic-system-image#device-compliance).
+> Documentation index: https://developer.android.com/about/versions/15/llms.txt
+
+Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image.md.txt) binaries are available to developers for
+app testing and validation purposes on [supported Treble-compliant devices](https://developer.android.com/topic/generic-system-image.md.txt#device-compliance).
 Developers can use these images to address any compatibility issues with
 Android 15 QPR2 as well as discover and report OS and framework issues
 until Android 15 QPR2 is officially released.
 
 GSI binaries for Android 15 QPR2 are built from
-the same AOSP and GMS sources as the [corresponding Google Pixel builds](https://developer.android.com/about/versions/15/download).
+the same AOSP and GMS sources as the [corresponding Google Pixel builds](https://developer.android.com/about/versions/15/download.md.txt).
 These binaries contain the same API and SDK, have a similar CTS result, and have
 been validated on the following Pixel devices:
 
@@ -24,11 +26,11 @@ been validated on the following Pixel devices:
 - Pixel 8a
 - Pixel 9, 9 Pro, 9 Pro XL, and 9 Pro Fold
 
-See the [GSI documentation](https://developer.android.com/topic/generic-system-image) for device requirements, flashing instructions,
+See the [GSI documentation](https://developer.android.com/topic/generic-system-image.md.txt) for device requirements, flashing instructions,
 and more information on choosing the right image type for your device.
 
 To find GSI binaries for already-released, stable versions of the platform, see
-the [Generic System Image releases](https://developer.android.com/topic/generic-system-image/releases#15-stable) page.
+the [Generic System Image releases](https://developer.android.com/topic/generic-system-image/releases.md.txt#15-stable) page.
 
 > [!NOTE]
 > **Note:** [**File GSI bugs**](https://issuetracker.google.com/issues/new?component=470386&template=1147338) for any system-related issues you encounter. Make sure to attach a full bug report and **clearly indicate that you are using a GSI
@@ -56,7 +58,7 @@ that supports WebUSB, such as Chrome or Edge 79+.
 
 Android Flash Tool guides you step-by-step through the process of flashing your
 device---there's no need to have tools installed---but you do need to unlock your
-device and [enable USB Debugging in Developer options](https://developer.android.com/studio/debug/dev-options#enable). For
+device and [enable USB Debugging in Developer options](https://developer.android.com/studio/debug/dev-options.md.txt#enable). For
 complete instructions, see the [Android Flash Tool
 documentation](https://source.android.com/setup/contribute/flash).
 

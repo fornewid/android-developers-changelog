@@ -4,6 +4,8 @@ url: https://developer.android.com/build/include-native-symbols
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/llms.txt
+
 By default, native code libraries are stripped in release builds of your app.
 This stripping consists of removing the symbol table and debugging information
 contained in any native libraries used by your app. Stripping native code
@@ -60,7 +62,7 @@ stripped to reduce size. You can verify this by running a build with the `info`
 log level and setting `debugSymbolLevel = { SYMBOL_TABLE | FULL }`.
 Then look for the following line in the build output:
 
-`Unable to extract native debug metadata from ... because the native debug metadata has already been stripped.`
+    Unable to extract native debug metadata from ... because the native debug metadata has already been stripped.
 
 ### Android Gradle plugin version 4.0 or earlier (and other build systems)
 
@@ -101,4 +103,4 @@ to the following:
 >
 > `$OBJCOPY --strip-debug lib.so lib.so.sym`   
 >
-> where `$OBJCOPY` points to the specific version for the ABI you're stripping (for example, `ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/aarch64-linux-android-objcopy`). This command is equivalent to the [`SYMBOL_TABLE` option for AGP 4.1 and higher](https://developer.android.com/build/include-native-symbols#agp-4.1).
+> where `$OBJCOPY` points to the specific version for the ABI you're stripping (for example, `ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/aarch64-linux-android-objcopy`). This command is equivalent to the [`SYMBOL_TABLE` option for AGP 4.1 and higher](https://developer.android.com/build/include-native-symbols.md.txt#agp-4-1).

@@ -4,6 +4,8 @@ url: https://developer.android.com/media/media3/session/player
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/media3/llms.txt
+
 A player is the component of your app that facilitates playback of media items.
 The Media3 [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt) interface
 sets up an outline for functionality generally handled by a player. This
@@ -16,7 +18,7 @@ includes:
 - Rendering video to the screen
 
 Media3 also provides an implementation of the `Player` interface, called
-[`ExoPlayer`](https://developer.android.com/guide/topics/media/exoplayer).
+[`ExoPlayer`](https://developer.android.com/media/media3/exoplayer.md.txt).
 
 > [!TIP]
 > **Tip:** If you're looking to implement a media player app using ExoPlayer, check out the [Create a basic media player app using Media3 ExoPlayer](https://developer.android.com/media/implement/playback-app.md.txt) guide.
@@ -89,7 +91,7 @@ auxiliary properties of the playback.
 
 Use a [`Player.Listener`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.Listener.md.txt)
 to listen for changes in a `Player`. See the ExoPlayer documentation on
-[Player events](https://developer.android.com/guide/topics/media/exoplayer/listening-to-player-events) for
+[Player events](https://developer.android.com/media/media3/exoplayer/listening-to-player-events.md.txt) for
 details on how to create and use a listener.
 
 Note that the listener interface doesn't include any callbacks to track normal
@@ -132,11 +134,11 @@ boolean checkPlaybackPosition(long delayMs) {
 The `Player` interface offers many ways to manipulate the state and control
 playback:
 
-- [Basic playback controls](https://developer.android.com/guide/topics/media/exoplayer/hello-world#populate-playlist) like `play()`, `pause()`, `prepare()` and `stop()`.
-- [Playlist operations](https://developer.android.com/guide/topics/media/exoplayer/playlists) like `addMediaItem()` or `removeMediaItem()`.
+- [Basic playback controls](https://developer.android.com/media/media3/exoplayer/hello-world.md.txt#populate-playlist) like `play()`, `pause()`, `prepare()` and `stop()`.
+- [Playlist operations](https://developer.android.com/media/media3/exoplayer/playlists.md.txt) like `addMediaItem()` or `removeMediaItem()`.
 - [Seeking](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#seekTo(long)) to change the current item or position.
-- Set [repeat modes](https://developer.android.com/guide/topics/media/exoplayer/playlists#repeat-modes) and the [shuffle mode](https://developer.android.com/guide/topics/media/exoplayer/playlists#shuffle-mode).
-- Update [track selection preferences](https://developer.android.com/guide/topics/media/exoplayer/track-selection#modifying-track).
+- Set [repeat modes](https://developer.android.com/media/media3/exoplayer/playlists.md.txt#repeat-modes) and the [shuffle mode](https://developer.android.com/media/media3/exoplayer/playlists.md.txt#shuffle-mode).
+- Update [track selection preferences](https://developer.android.com/media/media3/exoplayer/track-selection.md.txt#modifying-track).
 - Set the [playback speed](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#setPlaybackSpeed(float)).
 
 > [!NOTE]
@@ -213,3 +215,7 @@ Instead of creating a completely custom `Player`, you can use
 `ForwardingSimpleBasePlayer` to modify the state and behavior of an existing
 `Player`. See the guide on the [Customization page](https://developer.android.com/media/media3/exoplayer/customization.md.txt#player-operations) for
 more details.
+
+> [!TIP]
+> **Tip:** When writing Robolectric or UI tests for components that accept a `Player`, use [`FakePlayer`](https://developer.android.com/reference/androidx/media3/test/utils/FakePlayer.md.txt) in `media3-test-utils` instead of implementing a custom test stub or mocking `Player`. For more information, see [testing UI and
+> app components with FakePlayer](https://developer.android.com/media/media3/exoplayer/testing#fake-player).

@@ -4,6 +4,8 @@ url: https://developer.android.com/build/releases/agp-4-0-0-release-notes
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/llms.txt
+
 <br />
 
 # Android Gradle Plugin 4.0.0 (April 2020)
@@ -11,7 +13,7 @@ source: md.txt
 This version of the Android plugin requires the following:
 
 - [Gradle 6.1.1](https://docs.gradle.org/6.1.1/release-notes.html).
-  To learn more, read the section about [updating Gradle](https://developer.android.com/build/releases/agp-4-0-0-release-notes#updating-gradle).
+  To learn more, read the section about [updating Gradle](https://developer.android.com/build/releases/agp-4-0-0-release-notes.md.txt#updating-gradle).
 
 - [SDK Build Tools 29.0.2](https://developer.android.com/studio/releases/build-tools#notes) or higher.
 
@@ -45,7 +47,7 @@ to one of the following versions:
 |   | Minimum version | Default version | Notes |
 |---:|:---:|:---:|:---:|
 | Gradle | 6.1.1 | 6.1.1 | To learn more, see [updating Gradle](https://developer.android.com/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
-| SDK Build Tools | 29.0.2 | 29.0.2 | [Install](https://developer.android.com/studio/intro/update#sdk-manager) or [configure](https://developer.android.com/tools/releases/build-tools) SDK Build Tools. |
+| SDK Build Tools | 29.0.2 | 29.0.2 | [Install](https://developer.android.com/studio/intro/update.md.txt#sdk-manager) or [configure](https://developer.android.com/tools/releases/build-tools.md.txt) SDK Build Tools. |
 
 
 For more information on this new feature, see
@@ -118,59 +120,55 @@ runtime.
 To enable support for these language APIs, include the following in your
 **app module** 's `build.gradle` file:
 
-    android {
-      defaultConfig {
-        // Required when setting minSdkVersion to 20 or lower
-        multiDexEnabled true
-      }
+<br />
 
-    <br />
+### Groovy
 
+```groovy
+android {
+  defaultConfig {
+    // Required when setting minSdkVersion to 20 or lower
+    multiDexEnabled true
+  }
 
+  compileOptions {
+    // Flag to enable support for the new language APIs
+    coreLibraryDesugaringEnabled true
+    // Sets Java compatibility to Java 8
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
 
+dependencies {
+  coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.4'
+}
+```
 
+### Kotlin
 
-    compileOptions {
-        // Flag to enable support for the new language APIs
-        coreLibraryDesugaringEnabled true
-        // Sets Java compatibility to Java 8
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-      }
-    }
+```kotlin
+android {
+  defaultConfig {
+    // Required when setting minSdkVersion to 20 or lower
+    multiDexEnabled = true
+  }
 
+  compileOptions {
+    // Flag to enable support for the new language APIs
+    isCoreLibraryDesugaringEnabled = true
+    // Sets Java compatibility to Java 8
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+  }
+}
 
-    `dependencies {
-      coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.4'
-    }`
+dependencies {
+  coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.0.4")
+}
+```
 
-    android {
-      defaultConfig {
-        // Required when setting minSdkVersion to 20 or lower
-        multiDexEnabled = true
-      }
-
-    <br />
-
-
-
-
-
-    compileOptions {
-        // Flag to enable support for the new language APIs
-        isCoreLibraryDesugaringEnabled = true
-        // Sets Java compatibility to Java 8
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-      }
-    }
-
-
-    `dependencies {
-      coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.0.4")
-    }`
-
-Note that you may also need to include the above code snippet in a
+Note that you may also need to include the preceding code snippet in a
 **library module** 's `build.gradle` file if
 
 - The library module's instrumented tests use these language APIs (either
@@ -189,55 +187,63 @@ then use the `buildFeatures` block to enable only the features you want, and it
 helps you optimize the build performance for your project. You can set the
 options for each module in the module-level `build.gradle` file, as follows:
 
-    android {
-      // The default value for each feature is shown below. You can change the value to
-      // override the default behavior.
-      buildFeatures {
-        // Determines whether to generate a BuildConfig class.
-        buildConfig = true
-        // Determines whether to support View Binding.
-        // Note that the viewBinding.enabled property is now deprecated.
-        viewBinding = false
-        // Determines whether to support Data Binding.
-        // Note that the dataBinding.enabled property is now deprecated.
-        dataBinding = false
-        // Determines whether to generate binder classes for your AIDL files.
-        aidl = true
-        // Determines whether to support RenderScript.
-        renderScript = true
-        // Determines whether to support injecting custom variables into the module's R class.
-        resValues = true
-        // Determines whether to support shader AOT compilation.
-        shaders = true
-      }
-    }
+### Groovy
 
-    android {
-      // The default value for each feature is shown below. You can change the value to
-      // override the default behavior.
-      buildFeatures {
-        // Determines whether to generate a BuildConfig class.
-        buildConfig = true
-        // Determines whether to support View Binding.
-        // Note that the viewBinding.enabled property is now deprecated.
-        viewBinding = false
-        // Determines whether to support Data Binding.
-        // Note that the dataBinding.enabled property is now deprecated.
-        dataBinding = false
-        // Determines whether to generate binder classes for your AIDL files.
-        aidl = true
-        // Determines whether to support RenderScript.
-        renderScript = true
-        // Determines whether to support injecting custom variables into the module's R class.
-        resValues = true
-        // Determines whether to support shader AOT compilation.
-        shaders = true
-      }
-    }
+```groovy
+android {
+  // The default value for each feature is shown here. You can change the value to
+  // override the default behavior.
+  buildFeatures {
+    // Determines whether to generate a BuildConfig class.
+    buildConfig = true
+    // Determines whether to support View Binding.
+    // Note that the viewBinding.enabled property is now deprecated.
+    viewBinding = false
+    // Determines whether to support Data Binding.
+    // Note that the dataBinding.enabled property is now deprecated.
+    dataBinding = false
+    // Determines whether to generate binder classes for your AIDL files.
+    aidl = true
+    // Determines whether to support RenderScript.
+    renderScript = true
+    // Determines whether to support injecting custom variables into the module's R class.
+    resValues = true
+    // Determines whether to support shader AOT compilation.
+    shaders = true
+  }
+}
+```
+
+### Kotlin
+
+```kotlin
+android {
+  // The default value for each feature is shown here. You can change the value to
+  // override the default behavior.
+  buildFeatures {
+    // Determines whether to generate a BuildConfig class.
+    buildConfig = true
+    // Determines whether to support View Binding.
+    // Note that the viewBinding.enabled property is now deprecated.
+    viewBinding = false
+    // Determines whether to support Data Binding.
+    // Note that the dataBinding.enabled property is now deprecated.
+    dataBinding = false
+    // Determines whether to generate binder classes for your AIDL files.
+    aidl = true
+    // Determines whether to support RenderScript.
+    renderScript = true
+    // Determines whether to support injecting custom variables into the module's R class.
+    resValues = true
+    // Determines whether to support shader AOT compilation.
+    shaders = true
+  }
+}
+```
 
 You can also specify the default setting for these features across all modules
 in a project by including one or more of the following in your project's
-`gradle.properties` file, as shown below. Keep in mind, you can still use the
+`gradle.properties` file, as shown in the following example. Keep in mind, you can still use the
 `buildFeatures` block in the module-level `build.gradle` file to override these
 project-wide default settings.
 
@@ -253,8 +259,7 @@ In previous versions of the Android Gradle plugin, all feature modules
 could depend only on the app's base module. When using Android Gradle plugin
 4.0.0, you can now include a feature module that depends on another feature
 module. That is, a `:video` feature can depend on the
-`:camera` feature, which depends on the base module, as shown
-in the figure below.
+`:camera` feature, which depends on the base module:
 ![Feature on feature dependencies](https://developer.android.com/static/images/app-bundle/feature-on-feature.png)
 
 Feature module `:video` depends on feature
@@ -268,27 +273,35 @@ for your app, you can declare a feature-on-feature dependency in the module's
 `build.gradle` file. For example, the `:video` module declares a dependency on
 `:camera` as follows:
 
-    // In the build.gradle file of the ':video' module.
-    dependencies {
-      // All feature modules must declare a dependency
-      // on the base module.
-      implementation project(':app')
-      // Declares that this module also depends on the 'camera'
-      // feature module.
-      implementation project(':camera')
-      ...
-    }
+### Groovy
 
-    // In the build.gradle file of the ':video' module.
-    dependencies {
-        // All feature modules must declare a dependency
-        // on the base module.
-        implementation(project(":app"))
-        // Declares that this module also depends on the 'camera'
-        // feature module.
-        implementation(project(":camera"))
-        ...
-    }
+```groovy
+// In the build.gradle file of the ':video' module.
+dependencies {
+  // All feature modules must declare a dependency
+  // on the base module.
+  implementation project(':app')
+  // Declares that this module also depends on the 'camera'
+  // feature module.
+  implementation project(':camera')
+  ...
+}
+```
+
+### Kotlin
+
+```kotlin
+// In the build.gradle file of the ':video' module.
+dependencies {
+    // All feature modules must declare a dependency
+    // on the base module.
+    implementation(project(":app"))
+    // Declares that this module also depends on the 'camera'
+    // feature module.
+    implementation(project(":camera"))
+    ...
+}
+```
 
 Additionally, you should enable the feature-on-feature dependency feature in
 Android Studio (to support the feature when editing the Run configuration, for
@@ -315,30 +328,38 @@ yourself in the local intermediate build files in the following directory:
 If you'd rather not share this information, you can opt-out by including the
 following in your module's `build.gradle` file:
 
-    android {
-      dependenciesInfo {
-          // Disables dependency metadata when building APKs.
-          includeInApk = false
-          // Disables dependency metadata when building Android App Bundles.
-          includeInBundle = false
-      }
-    }
+### Groovy
 
-    android {
-      dependenciesInfo {
-          // Disables dependency metadata when building APKs.
-          includeInApk = false
-          // Disables dependency metadata when building Android App Bundles.
-          includeInBundle = false
-      }
-    }
+```groovy
+android {
+  dependenciesInfo {
+      // Disables dependency metadata when building APKs.
+      includeInApk = false
+      // Disables dependency metadata when building Android App Bundles.
+      includeInBundle = false
+  }
+}
+```
 
-### Import native libraries from AAR dependencies
+### Kotlin
+
+```kotlin
+android {
+  dependenciesInfo {
+      // Disables dependency metadata when building APKs.
+      includeInApk = false
+      // Disables dependency metadata when building Android App Bundles.
+      includeInBundle = false
+  }
+}
+```
+
+### Import C/C++ libraries from AAR dependencies
 
 You can now import C/C++ libraries
 from your app's AAR dependencies. When you follow the configuration steps
-described below, Gradle automatically makes these native libraries available to
-use with your external native build system, such as CMake. Note that Gradle only
+described in the following section, Gradle automatically makes these C/C++ libraries available to
+use with your external C/C++ build system, such as CMake. Note that Gradle only
 makes these libraries available to your build; you must still configure your
 build scripts to use them.
 
@@ -353,14 +374,14 @@ matches the library name, but this is not always true. Because you need to know
 the package and module name of the libraries, you might need to consult the
 dependency's documentation to determine what those names are.
 
-#### Configure your external native build system
+#### Configure your external C/C++ build system
 
-To see the steps you need to follow, follow the steps below for the external native build system
+To see the steps you need to follow, follow these steps for the external C/C++ build system
 you plan to use.
 
-Each of your app's AAR dependencies that includes native code exposes an
+Each of your app's AAR dependencies that includes C/C++ code exposes an
 `Android.mk` file that you need to import into your ndk-build project. You import
-this file using the [`import--module`](https://developer.android.com/ndk/guides/android_mk#import-module) command, which searches the paths you
+this file using the [`import--module`](https://developer.android.com/ndk/guides/android_mk.md.txt#import-module) command, which searches the paths you
 specify using the `import--add--path` property in your ndk-build project. For
 example, if your application defines `libapp.so` and it uses curl, you
 should include the following in your Android.mk file:
@@ -369,16 +390,11 @@ should include the following in your Android.mk file:
 
        add_library(app SHARED app.cpp)
 
-       <br />
-
-
-
-
-       `# Add these two lines.
+       # Add these two lines.
        find_package(curl REQUIRED CONFIG)
-       target_link_libraries(app curl::curl)`
+       target_link_libraries(app curl::curl)
 
-2. For `ndk-build`:
+2. For \`ndk-build\`:
 
        include $(CLEAR_VARS)
        LOCAL_MODULE := libapp
@@ -387,51 +403,38 @@ should include the following in your Android.mk file:
        LOCAL_SHARED_LIBRARIES := curl
        include $(BUILD_SHARED_LIBRARY)
 
-       <br />
-
-
-
-
-
        # If you don't expect that your project will be built using versions of the NDK
        # older than r21, you can omit this block.
        ifneq ($(call ndk-major-at-least,21),true)
            $(call import-add-path,$(NDK_GRADLE_INJECTED_IMPORT_PATH))
        endif
 
+       # Import all modules that are included in the curl AAR.
+       $(call import-module,prefab/curl)
 
-       `# Import all modules that are included in the curl AAR.
-       $(call import-module,prefab/curl)`
-
-Native dependencies included in an AAR are exposed to your CMake project via the
-[CMAKE_FIND_ROOT_PATH](https://cmake.org/cmake/help/latest/variable/CMAKE_FIND_ROOT_PATH.html){: .external} variable. This value will be set automatically by Gradle when
+C/C++ dependencies included in an AAR are exposed to your CMake project using the
+[CMAKE_FIND_ROOT_PATH](https://cmake.org/cmake/help/latest/variable/CMAKE_FIND_ROOT_PATH.html) variable. This value will be set automatically by Gradle when
 CMake is invoked, so if your build system modifies this variable, be sure to append
 rather than assign to it.
 
-Each dependency exposes a [config-file package](https://cmake.org/cmake/help/latest/manual/cmake-packages.7.html#config-file-packages){: .external} to your CMake build, which you
-import with the [`find_package`](https://cmake.org/cmake/help/latest/command/find_package.html){: .external} command. This command searches for config-file
+Each dependency exposes a [config-file package](https://cmake.org/cmake/help/latest/manual/cmake-packages.7.html#config-file-packages) to your CMake build, which you
+import with the [`find_package`](https://cmake.org/cmake/help/latest/command/find_package.html) command. This command searches for config-file
 packages that match the given package name and version and exposes the targets it
 defines to be used in your build. For example, if your application defines
 `libapp.so` and it uses curl, you should include the following in your
 `CMakeLists.txt` file:
 
+```cmake
+add_library(app SHARED app.cpp)
 
-    add_library(app SHARED app.cpp)
+&#x23; Add these two lines.
+find_package(curl REQUIRED CONFIG)
+target_link_libraries(app curl::curl)
+```
 
-    <br />
-
-
-
-
-    `# Add these two lines.
-    find_package(curl REQUIRED CONFIG)
-    target_link_libraries(app curl::curl)`
-
-You can now specify `#include "curl/curl.h"` in `app.cpp`. When you build your project, your external native build system automatically links `libapp.so`
+You can now specify `#include "curl/curl.h"` in `app.cpp`. When you build your project, your external C/C++ build system automatically links `libapp.so`
 against `libcurl.so` and packages `libcurl.so` in the APK or app bundle. For
-additional information, refer to the [curl prefab sample](https://github.com/android/ndk-samples/tree/main/prefab/curl-ssl){:.external}.
-
-<br />
+additional information, refer to the [curl prefab sample](https://github.com/android/ndk-samples/tree/main/prefab/curl-ssl).
 
 <br />
 
@@ -469,7 +472,7 @@ Android Gradle plugin 3.6.0 deprecated the Feature plugin
 (`com.android.instantapp`) in
 favor of using the Dynamic Feature plugin
 (`com.android.dynamic-feature`) to build and package your
-instant apps using [Android App Bundles](https://developer.android.com/guide/app-bundle).
+instant apps using [Android App Bundles](https://developer.android.com/guide/app-bundle.md.txt).
 
 In Android Gradle plugin 4.0.0 and higher, these deprecated plugins are
 fully removed. So, to use the latest Android Gradle plugin, you need to [migrate
@@ -479,9 +482,10 @@ By migrating your instant apps, you can leverage the benefits of app
 bundles and [simplify your app's modular
 design](https://android-developers.googleblog.com/2019/04/google-play-instant-feature-plugin.html).
 
-Note: To open projects that use the removed plugins in
-Android Studio 4.0 and higher, the project must use Android Gradle plugin
-3.6.0 or lower.
+<br />
+
+> [!NOTE]
+> **Note:** To open projects that use the removed plugins in Android Studio 4.0 and higher, the project must use Android Gradle plugin 3.6.0 or lower.
 
 ### Separate annotation processing feature removed
 
@@ -515,28 +519,36 @@ processors](https://developer.android.com/studio/build/dependencies#annotation_p
 used by CMake
 
 Prior versions of the Android Gradle Plugin required that you explicitly
-package any prebuilt libraries used by your CMake external native build by
+package any prebuilt libraries used by your CMake external C/C++ build by
 using `jniLibs`. You may have libraries in the
 `src/main/jniLibs` directory of your module, or possibly in some
 other directory configured in your `build.gradle` file:
 
-    sourceSets {
-      main {
-        // The libs directory contains prebuilt libraries that are used by the
-        // app's library defined in CMakeLists.txt via an IMPORTED target.
-        jniLibs.srcDirs = ['libs']
-      }
-    }
+### Groovy
 
-    sourceSets {
-      main {
-        // The libs directory contains prebuilt libraries that are used by the
-        // app's library defined in CMakeLists.txt via an IMPORTED target.
-        jniLibs.setSrcDirs(listOf("libs"))
-      }
-    }
+```groovy
+sourceSets {
+  main {
+    // The libs directory contains prebuilt libraries that are used by the
+    // app's library defined in CMakeLists.txt through an IMPORTED target.
+    jniLibs.srcDirs = ['libs']
+  }
+}
+```
 
-With Android Gradle Plugin 4.0, the above configuration is no longer necessary
+### Kotlin
+
+```kotlin
+sourceSets {
+  main {
+    // The libs directory contains prebuilt libraries that are used by the
+    // app's library defined in CMakeLists.txt through an IMPORTED target.
+    jniLibs.setSrcDirs(listOf("libs"))
+  }
+}
+```
+
+With Android Gradle Plugin 4.0, this configuration is no longer necessary
 and will result in a build failure:
 
     * What went wrong:
@@ -544,7 +556,7 @@ and will result in a build failure:
       > A failure occurred while executing com.android.build.gradle.internal.tasks.Workers$ActionFacade
         > More than one file was found with OS independent path 'lib/x86/libprebuilt.so'
 
-External native build now automatically packages those
+The external C/C++ build now automatically packages those
 libraries, so explicitly packaging the library with `jniLibs` results in a
 duplicate. To avoid the build error, move the prebuilt library to a location
 outside `jniLibs` or remove the `jniLibs` configuration from your `build.gradle`
@@ -558,8 +570,6 @@ This section describes known issues that exist in Android Gradle plugin 4.0.0.
 
 Changes in Android Gradle plugin 4.0 can trigger a race condition in Gradle
 when running with `---no--daemon` and versions of Gradle 6.3 or lower, causing
-builds to hang after the build is finished.
+builds to stop responding after the build is finished.
 
 This issue will be fixed in Gradle 6.4.
-
-<br />

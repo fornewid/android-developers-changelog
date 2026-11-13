@@ -4,6 +4,8 @@ url: https://developer.android.com/training/data-storage/manage-all-files
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/data-storage/llms.txt
+
 The majority of apps that require shared storage access can follow the best
 practices for [sharing media
 files](https://developer.android.com/training/data-storage/use-cases#share-media-all) and [sharing non-media
@@ -24,12 +26,12 @@ considerations.
 
 An app can request all-files access from the user by doing the following:
 
-1. Declare the [`MANAGE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#MANAGE_EXTERNAL_STORAGE) permission in the manifest.
-2. Use the [`ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION`](https://developer.android.com/reference/android/provider/Settings#ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION) intent action to direct users to a system settings page where they can enable the following option for your app: **Allow access to manage all files**.
+1. Declare the [`MANAGE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#MANAGE_EXTERNAL_STORAGE) permission in the manifest.
+2. Use the [`ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION`](https://developer.android.com/reference/android/provider/Settings.md.txt#ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION) intent action to direct users to a system settings page where they can enable the following option for your app: **Allow access to manage all files**.
 
 To determine whether your app has been granted the `MANAGE_EXTERNAL_STORAGE`
 permission, call
-[`Environment.isExternalStorageManager()`](https://developer.android.com/reference/android/os/Environment#isExternalStorageManager()).
+[`Environment.isExternalStorageManager()`](https://developer.android.com/reference/android/os/Environment.md.txt#isExternalStorageManager()).
 
 ## Operations permitted by MANAGE_EXTERNAL_STORAGE
 
@@ -42,7 +44,7 @@ The `MANAGE_EXTERNAL_STORAGE` permission grants the following:
   > **Note:** The `/sdcard/Android/media`⁠ directory is part of shared storage.
 
 - Access to the contents of the
-  [`MediaStore.Files`](https://developer.android.com/reference/android/provider/MediaStore.Files) table.
+  [`MediaStore.Files`](https://developer.android.com/reference/android/provider/MediaStore.Files.md.txt) table.
 
 - Access to the root directory of both the USB on-the-go (OTG) drive and the SD
   card.
@@ -59,27 +61,27 @@ The `MANAGE_EXTERNAL_STORAGE` permission grants the following:
 
 When an app has the `MANAGE_EXTERNAL_STORAGE` permission, it can access these
 additional files and directories using either the
-[`MediaStore`](https://developer.android.com/reference/android/provider/MediaStore) API or [direct file
+[`MediaStore`](https://developer.android.com/reference/android/provider/MediaStore.md.txt) API or [direct file
 paths](https://developer.android.com/training/data-storage/shared/media#direct-file-paths). When you use the
-[Storage Access Framework](https://developer.android.com/training/data-storage/shared/documents-files),
+[Storage Access Framework](https://developer.android.com/training/data-storage/shared/documents-files.md.txt),
 however, you can only access a file or directory if you can do so without
 having the `MANAGE_EXTERNAL_STORAGE` permission.
 
 ## Invoke another app's storage management activity
 
 On Android 12 (API level 31) and higher, apps that have both the
-[`MANAGE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#MANAGE_EXTERNAL_STORAGE)
+[`MANAGE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#MANAGE_EXTERNAL_STORAGE)
 permission and the
-[`QUERY_ALL_PACKAGES`](https://developer.android.com/reference/android/Manifest.permission#QUERY_ALL_PACKAGES)
+[`QUERY_ALL_PACKAGES`](https://developer.android.com/reference/android/Manifest.permission.md.txt#QUERY_ALL_PACKAGES)
 permission---such as file management apps---can use the
-[`getManageSpaceActivityIntent()`](https://developer.android.com/reference/android/os/storage/StorageManager#getManageSpaceActivityIntent(java.lang.String,%20int))
+[`getManageSpaceActivityIntent()`](https://developer.android.com/reference/android/os/storage/StorageManager.md.txt#getManageSpaceActivityIntent(java.lang.String,%20int))
 to send users to another app's [custom space management
 activity](https://developer.android.com/training/data-storage/app-specific#create-storage-management-activity).
 
 The `getManageSpaceActivityIntent()` method takes in a package name and a
 request code, and it returns one of the following:
 
-- A [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent), if the app with the specified package name has defined a custom "manage space" activity. The file management app that called the `getManageSpaceActivityIntent()` method can then invoke the returned intent to send users to the custom activity.
+- A [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent.md.txt), if the app with the specified package name has defined a custom "manage space" activity. The file management app that called the `getManageSpaceActivityIntent()` method can then invoke the returned intent to send users to the custom activity.
 - `null`, if the app with the specified package name doesn't define a "manage space" activity.
 
 ## Enable MANAGE_EXTERNAL_STORAGE for testing

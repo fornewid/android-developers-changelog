@@ -4,6 +4,8 @@ url: https://developer.android.com/media/media3/exoplayer/flags
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/media3/exoplayer/llms.txt
+
 Media3 introduces new optimizations, behavioral improvements, and architectural
 enhancements across its libraries. While these changes are thoroughly tested and
 verified before release, Media3 includes a centralized feature flags
@@ -239,9 +241,10 @@ public static void initializeMedia3Flags(
 ## Testing with flags
 
 When writing unit tests or Robolectric tests for code paths affected by feature
-flags, use `androidx.media3.test.utils.Media3FlagsRule` (available in the
+flags, use [`Media3FlagsRule`](https://developer.android.com/reference/androidx/media3/test/utils/Media3FlagsRule.md.txt) (available in the
 `media3-test-utils` module) to ensure tests don't pollute each other's static
-state.
+state. For more information about testing playback in Robolectric and
+instrumentation tests, see the [testing guide](https://developer.android.com/media/media3/exoplayer/testing.md.txt).
 
 ### Automatic cleanup with Media3FlagsRule
 

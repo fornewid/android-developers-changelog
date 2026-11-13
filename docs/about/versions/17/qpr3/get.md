@@ -4,13 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr3/get
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/about/versions/llms.txt
+
 ![Android logo below the word 'Android'](https://developer.android.com/static/images/lockups/android-stacked.svg)
 
 You can get Android 17 QPR 3 in any of the following ways:
 
-- [Get Android 17 QPR 3 on a Google Pixel device](https://developer.android.com/about/versions/17/qpr3/get#on_pixel)
-- [Set up the Android Emulator](https://developer.android.com/about/versions/17/qpr3/get#on_emulator)
-- [Get a generic system image (GSI)](https://developer.android.com/about/versions/17/qpr3/get#on_gsi)
+- [Get Android 17 QPR 3 on a Google Pixel device](https://developer.android.com/about/versions/17/qpr3/get.md.txt#on_pixel)
+- [Set up the Android Emulator](https://developer.android.com/about/versions/17/qpr3/get.md.txt#on_emulator)
+- [Get a generic system image (GSI)](https://developer.android.com/about/versions/17/qpr3/get.md.txt#on_gsi)
 
 ## Get Android 17 Beta on a Google Pixel device
 
@@ -70,7 +72,7 @@ devices:
 ### Flash or manually install a system image
 
 Alternatively, if you'd rather flash your device, we recommend using the [Android Flash
-Tool](https://flash.android.com/preview/cinnamonbun-qpr3-beta3). If you need to flash your device manually for some other reason, you can get an Android 17 QPR 3 system image for your device on the [Pixel downloads page](https://developer.android.com/about/versions/17/qpr3/download). See the general instructions on the downloads page for how to flash a system image to your device. This approach can be useful when you need more control over testing, such as for automated testing or regression testing. Android 17 QPR 3 Beta images are available for [supported Pixel devices](https://developer.android.com/about/versions/17/qpr3/get#google-pixel-devices).
+Tool](https://flash.android.com/preview/cinnamonbun-qpr3-beta4). If you need to flash your device manually for some other reason, you can get an Android 17 QPR 3 system image for your device on the [Pixel downloads page](https://developer.android.com/about/versions/17/qpr3/download.md.txt). See the general instructions on the downloads page for how to flash a system image to your device. This approach can be useful when you need more control over testing, such as for automated testing or regression testing. Android 17 QPR 3 Beta images are available for [supported Pixel devices](https://developer.android.com/about/versions/17/qpr3/get.md.txt#google-pixel-devices).
 
 <br />
 
@@ -86,8 +88,8 @@ lets you emulate various screen sizes and device characteristics.
 Depending on the type of testing you need to do, consider setting up a variety
 of virtual devices from these device categories:
 
-- [Phone](https://developer.android.com/about/versions/17/qpr3/get#phone-avd)
-- [Tablet or large-screen device](https://developer.android.com/about/versions/17/qpr3/get#large-screen-avd)
+- [Phone](https://developer.android.com/about/versions/17/qpr3/get.md.txt#phone-avd)
+- [Tablet or large-screen device](https://developer.android.com/about/versions/17/qpr3/get.md.txt#large-screen-avd)
 
 ### Set up a virtual device (phone)
 
@@ -105,7 +107,7 @@ To set up a virtual device to emulate a typical phone, follow these steps:
    ![Create an Android Virtual Device in Android
    Studio](https://developer.android.com/static/about/versions/17/images/17-create-avd.png)
 5. From the **Phone Category tab** , select a device definition for a
-   [supported Pixel device](https://developer.android.com/about/versions/17/qpr3/get#on_pixel), then click the **Next** button.
+   [supported Pixel device](https://developer.android.com/about/versions/17/qpr3/get.md.txt#on_pixel), then click the **Next** button.
 
 6. Find the Android 17 system image, named **CinnamonBun** , and click the
    **Download** button ![Download
@@ -174,14 +176,14 @@ category.
 
 ## Get a generic system image (GSI)
 
-Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image) binaries are available to developers
+Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image.md.txt) binaries are available to developers
 for app testing and validation purposes on supported Treble-compliant devices.
 You can use these images to address any compatibility issues as well as discover
 and report OS and framework issues.
 
-See the [GSI documentation](https://developer.android.com/topic/generic-system-image) for device requirements, flashing instructions,
+See the [GSI documentation](https://developer.android.com/topic/generic-system-image.md.txt) for device requirements, flashing instructions,
 and information on choosing the right image type for your device. Once you're
-ready to download a GSI binary, see the [Downloads section](https://developer.android.com/topic/generic-system-image/releases#android-gsi-17) on the GSI
+ready to download a GSI binary, see the [Downloads section](https://developer.android.com/topic/generic-system-image/releases.md.txt#android-gsi-17) on the GSI
 binaries page.
 
 
@@ -190,8 +192,8 @@ binaries page.
 To learn about which changes might affect you, and to learn how to test these
 changes in your app, read the following topics:
 
-- [Behavior changes that affect all apps](https://developer.android.com/about/versions/17/behavior-changes-all)
-- [Behavior changes that affect only apps that target Android 17](https://developer.android.com/about/versions/17/behavior-changes-17)
+- [Behavior changes that affect all apps](https://developer.android.com/about/versions/17/behavior-changes-all.md.txt)
+- [Behavior changes that affect only apps that target Android 17](https://developer.android.com/about/versions/17/behavior-changes-17.md.txt)
 
 To learn more about new APIs and features available in Android 17, read [Android
 17 features](https://developer.android.com/about/versions/17/features).

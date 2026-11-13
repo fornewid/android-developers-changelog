@@ -4,6 +4,8 @@ url: https://developer.android.com/topic/generic-system-image
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/generic-system-image/llms.txt
+
 [Video](https://www.youtube.com/watch?v=TExHLclCQG4)
 
 A Generic System Image ([GSI](https://source.android.com/setup/build/gsi)) is a
@@ -95,7 +97,7 @@ should install, do the following:
 
 There are a few ways to get GSIs, depending on your development needs:
 
-- For Android Preview GSIs and Android GSIs with GMS, download the images from the [GSI release page](https://developer.android.com/topic/generic-system-image/releases).
+- For Android Preview GSIs and Android GSIs with GMS, download the images from the [GSI release page](https://developer.android.com/topic/generic-system-image/releases.md.txt).
 - For pre-built GSI images without GMS applications, download the images from
   the AOSP CI site:
 
@@ -125,7 +127,7 @@ the exact tools and procedures. For Google Pixel devices such as the Pixel 3 and
 newer, there are several ways to install:
 
 - Manually flashing GSI images: see [Requirements for flashing GSIs](https://source.android.com/setup/build/gsi#flashing-gsis)
-- Using Dynamic System Update (DSU) for devices that already run Android 10 or higher: see the [Dynamic System Updates](https://developer.android.com/topic/dsu) page
+- Using Dynamic System Update (DSU) for devices that already run Android 10 or higher: see the [Dynamic System Updates](https://developer.android.com/topic/dsu.md.txt) page
 
 ## Give feedback
 

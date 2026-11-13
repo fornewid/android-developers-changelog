@@ -33,7 +33,6 @@ API. Extensions aren't supported by all devices or the device might support a
 subset of extensions. The snippet returns a list of compatible camera IDs that
 support camera extensions.
 
-### Kotlin
 
 ```kotlin
 private fun getExtensionCameraIds(cameraManager: CameraManager): List<String> =
@@ -45,44 +44,14 @@ private fun getExtensionCameraIds(cameraManager: CameraManager): List<String> =
             val capabilities =
                 characteristics.get(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES)
             extensionCharacteristics.supportedExtensions.isNotEmpty() &&
-                    capabilities?.contains(
-                        CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_BACKWARD_COMPATIBLE
-                    ) ?: false
+                capabilities?.contains(
+                    CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_BACKWARD_COMPATIBLE
+                ) ?: false
         }
     } else emptyList()
 ```
 
-### Java
-
-```java
-private List<String> getExtensionCameraIds(CameraManager cameraManager)
-        throws CameraAccessException {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-        return Arrays.stream(cameraManager.getCameraIdList()).filter(cameraId -> {
-            try {
-                CameraCharacteristics characteristics =
-                        cameraManager.getCameraCharacteristics(cameraId);
-                CameraExtensionCharacteristics extensionCharacteristics =
-                        cameraManager.getCameraExtensionCharacteristics(cameraId);
-                IntStream capabilities =
-                    Arrays.stream(
-                                characteristics.get(
-                                        CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES
-                                )
-                        );
-                return !extensionCharacteristics.getSupportedExtensions().isEmpty() &&
-                       capabilities.anyMatch(capability -> capability == CameraCharacteristics
-                                        .REQUEST_AVAILABLE_CAPABILITIES_BACKWARD_COMPATIBLE
-                        );
-            } catch (CameraAccessException e) {
-                throw new RuntimeException(e);
-            }
-        }).collect(Collectors.toList());
-    } else {
-        return Collections.emptyList();
-    }
-}
-```
+<br />
 
 ## Create a CameraExtensionSession with the Camera2 Extensions API
 
@@ -91,11 +60,10 @@ certain camera extensions. The following code snippet showcases an example of
 how to create a [`CameraExtensionSession`](https://developer.android.com/reference/android/hardware/camera2/CameraExtensionSession.md.txt)
 for using night capture mode for an existing Camera2 application.
 
-### Kotlin
 
 ```kotlin
 private val captureCallbacks = object : CameraExtensionSession.ExtensionCaptureCallback() {
-    // Implement Capture Callbacks
+    // Implement Capture Callbacks.
 }
 private val extensionSessionStateCallback = object : CameraExtensionSession.StateCallback() {
     override fun onConfigured(session: CameraExtensionSession) {
@@ -150,64 +118,7 @@ private fun startExtensionSession() {
 }
 ```
 
-### Java
-
-```java
-private CameraExtensionSession.ExtensionCaptureCallback captureCallbacks =
-        new CameraExtensionSession.ExtensionCaptureCallback() {
-            // Implement Capture Callbacks
-        };
-
-private CameraExtensionSession.StateCallback extensionSessionStateCallback =
-        new CameraExtensionSession.StateCallback() {
-            @Override
-            public void onConfigured(@NonNull CameraExtensionSession session) {
-                cameraExtensionSession = session;
-                try {
-                    CaptureRequest.Builder captureRequestBuilder =
-                            cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
-                    captureRequestBuilder.addTarget(previewSurface);
-                    CaptureRequest captureRequest = captureRequestBuilder.build();
-                    session.setRepeatingRequest(captureRequest, backgroundExecutor, captureCallbacks);
-                } catch (CameraAccessException e) {
-                    Snackbar.make(
-                            previewView,
-                            "Failed to preview capture request",
-                            Snackbar.LENGTH_SHORT
-                    ).show();
-                    requireActivity().finish();
-                }
-            }
-
-            @Override
-            public void onClosed(@NonNull CameraExtensionSession session) {
-                super.onClosed(session);
-                cameraDevice.close();
-            }
-
-            @Override
-            public void onConfigureFailed(@NonNull CameraExtensionSession session) {
-                Snackbar.make(
-                        previewView,
-                        "Failed to start camera extension preview",
-                        Snackbar.LENGTH_SHORT
-                ).show();
-                requireActivity().finish();
-            }
-        };
-
-private void startExtensionSession() {
-    ArrayList<OutputConfiguration> outputConfig = new ArrayList<>();
-    outputConfig.add(new OutputConfiguration(stillImageReader.getSurface()));
-    outputConfig.add(new OutputConfiguration(previewSurface));
-    ExtensionSessionConfiguration extensionConfiguration = new ExtensionSessionConfiguration(
-            CameraExtensionCharacteristics.EXTENSION_NIGHT,
-            outputConfig,
-            backgroundExecutor,
-            extensionSessionStateCallback
-    );
-}
-```
+<br />
 
 ## Additional resources
 

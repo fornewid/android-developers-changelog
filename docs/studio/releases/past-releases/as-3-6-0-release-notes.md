@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/releases/past-releases/as-3-6-0-releas
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/releases/past-releases/llms.txt
+
 <br />
 
 # Android Studio 3.6 (February 2020)
@@ -15,7 +17,7 @@ and improvements.
 
 <br />
 
-We'd also like to thank all of our [community contributors](https://developer.android.com/studio/releases/past-releases/as-3-6-0-release-notes#3-6-community-contributors) who have helped with this release.
+We'd also like to thank all of our [community contributors](https://developer.android.com/studio/releases/past-releases/as-3-6-0-release-notes.md.txt#3-6-community-contributors) who have helped with this release.
 
 <br />
 
@@ -91,7 +93,7 @@ release:
 
 <br />
 
-To learn more, see [Build a UI with Layout Editor](https://developer.android.com/studio/write/layout-editor).
+To learn more, see [Build a UI with Layout Editor](https://developer.android.com/studio/views/layout-editor.md.txt).
 
 <br />
 
@@ -135,7 +137,7 @@ The Resource Manager contains the following updates:
 <br />
 
 To learn more, see
-[Manage your app's UI resources with Resource Manager](https://developer.android.com/studio/write/resource-manager).
+[Manage your app's UI resources with Resource Manager](https://developer.android.com/studio/write/resource-manager.md.txt).
 
 <br />
 
@@ -150,7 +152,7 @@ To learn more, see
 The latest version of the Android Gradle plugin includes many updates,
 including optimizations for build speed, support for the Maven publishing
 plugin, and support for View Binding. To learn more, read the
-[full release notes](https://developer.android.com/studio/releases/gradle-plugin#3-6-0).
+[full release notes](https://developer.android.com/build/releases/agp-3-6-0-release-notes.md.txt).
 
 <br />
 
@@ -162,7 +164,7 @@ plugin, and support for View Binding. To learn more, read the
 
 <br />
 
-[View binding](https://developer.android.com/topic/libraries/view-binding) allows you to more
+[View binding](https://developer.android.com/topic/libraries/view-binding.md.txt) allows you to more
 easily write code that interacts with views by generating a binding class for each XML
 layout file. These classes contain direct references to all views that have an
 ID in the corresponding layout.
@@ -223,7 +225,7 @@ or **Apply Changes and Restart Activity** .
 <br />
 
 To learn more about the difference between these two actions, see
-[Apply Changes](https://developer.android.com/studio/run#apply-changes).
+[Apply Changes](https://developer.android.com/studio/run.md.txt#apply-changes).
 
 <br />
 
@@ -259,7 +261,7 @@ from the **Create New Project** wizard has been removed.
 <br />
 
 To learn more, read
-[Overview of Google Play Instant](https://developer.android.com/topic/google-play-instant/overview).
+[Overview of Google Play Instant](https://developer.android.com/topic/google-play-instant/overview.md.txt).
 
 <br />
 
@@ -271,7 +273,7 @@ To learn more, read
 
 <br />
 
-When using the [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer) to
+When using the [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer.md.txt) to
 inspect DEX files, you can deobfuscate class and method bytecode as follows:
 
 <br />
@@ -376,7 +378,7 @@ the option to re-import it.
 
 It is now possible to attach Kotlin-only external APK sources when you profile
 and debug pre-built APKs. To learn more, see
-[Attach Kotlin/Java sources](https://developer.android.com/studio/debug/apk-debugger#attach_java).
+[Attach Kotlin/Java sources](https://developer.android.com/studio/debug/apk-debugger.md.txt#attach_java).
 
 <br />
 
@@ -417,7 +419,7 @@ The types of data that the filter shows include the following:
 
 It is now possible to attach Kotlin-only external APK sources when you profile
 and debug pre-built APKs. To learn more, see
-[Attach Kotlin/Java sources](https://developer.android.com/studio/debug/apk-debugger#attach_java).
+[Attach Kotlin/Java sources](https://developer.android.com/studio/debug/apk-debugger.md.txt#attach_java).
 
 <br />
 
@@ -465,8 +467,8 @@ positives:
 <br />
 
 To use this feature, first
-[capture a heap dump](https://developer.android.com/studio/profile/memory-profiler#capture-heap-dump)
-or [import a heap dump file](https://developer.android.com/studio/profile/memory-profiler#import-hprof)
+[capture a heap dump](https://developer.android.com/studio/profile/capture-heap-dump.md.txt)
+or [import a heap dump file](https://developer.android.com/studio/profile/capture-heap-dump.md.txt#export-import-heap-dump)
 into Android Studio. To display the fragments and activities that may
 be leaking memory, select the **Activity/Fragment Leaks** checkbox in the heap
 dump pane of the Memory Profiler.
@@ -502,7 +504,7 @@ Android Emulator 29.2.7 and higher, as described below.
 
 Android Emulator 29.2.7 and higher provides additional support for emulating
 GPS coordinates and route information. When you open the Emulators
-[Extended controls](https://developer.android.com/studio/run/advanced-emulator-usage#extended),
+[Extended controls](https://developer.android.com/studio/run/emulator-extended-controls.md.txt),
 options in the Location tab are now organized under two tabs:
 **Single points** and **Routes**.
 
@@ -589,7 +591,7 @@ the specified route, select an option from the **Playback speed** dropdown.
 
 The Android Emulator now allows you to deploy your app to multiple displays,
 which support customizable dimensions and can help you test apps that support
-[multi-window](https://developer.android.com/guide/topics/ui/foldables#multi-window) and [multi-display](https://developer.android.com/guide/topics/ui/foldables#multi-display). While a virtual device is running,
+[multi-window](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode.md.txt) and [multi-display](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-connected-displays.md.txt). While a virtual device is running,
 you can add up to two additional displays as follows:
 
 <br />
@@ -597,7 +599,7 @@ you can add up to two additional displays as follows:
 <br />
 
 1. Open the
-   [**Extended controls**](https://developer.android.com/studio/run/advanced-emulator-usage#extended)
+   [**Extended controls**](https://developer.android.com/studio/run/emulator-extended-controls.md.txt)
    and navigate to the **Displays** tab.
 
 2. Add another display by clicking **Add secondary display**.
@@ -642,7 +644,7 @@ templates.
 <br />
 
 Additionally, you can now
-[create an Android Virtual Device (AVD)](https://developer.android.com/studio/run/managing-avds#createavd)
+[create an Android Virtual Device (AVD)](https://developer.android.com/studio/run/managing-avds.md.txt#createavd)
 for Android Automotive OS devices by selecting one of the following options
 in the **Automotive** tab in the **Virtual Device Configuration** wizard.
 

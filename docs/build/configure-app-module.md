@@ -4,6 +4,8 @@ url: https://developer.android.com/build/configure-app-module
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/llms.txt
+
 This page describes useful app settings in the module-level `build.gradle.kts`
 file. In addition to giving an overview of important properties set in the
 `build.gradle.kts` file, learn how to:
@@ -13,13 +15,12 @@ file. In addition to giving an overview of important properties set in the
 
 ## Set the application ID
 
-Every Android app has a unique application ID that looks like a Java
-or Kotlin package
-name, such as *com.example.myapp*. This ID uniquely identifies your app on the
-device and in the Google Play Store.
+Every Android app has a unique application ID that looks like a Java or Kotlin
+package name, such as *com.example.myapp*. This ID uniquely identifies your app
+on the device and in the Google Play Store.
 
 > [!IMPORTANT]
-> **Important:** Once you publish your app, you should never change the application ID. If you change the application ID, Google Play Store treats the upload as a completely different app. If you want to upload a new version of your app, you must use the same application ID and [signing certificate](https://developer.android.com/studio/publish/app-signing) as when originally published.
+> **Important:** Once you publish your app, you should never change the application ID. If you change the application ID, Google Play Store treats the upload as a completely different app. If you want to upload a new version of your app, you must use the same application ID and [signing certificate](https://developer.android.com/studio/publish/app-signing.md.txt) as when originally published.
 
 Your application ID is defined by the `applicationId` property in your module's
 `build.gradle.kts` file, as shown here. Update the value of the `applicationId`
@@ -57,15 +58,13 @@ android {
 ```
 
 Although the application ID looks like a traditional Kotlin or Java package
-name, the naming rules for the application ID
-are a bit more restrictive:
+name, the naming rules for the application ID are a bit more restrictive:
 
 - It must have at least two segments (one or more dots).
 - Each segment must start with a letter.
 - All characters must be alphanumeric or an underscore \[a-zA-Z0-9_\].
 
-When you [create a new project in Android
-Studio](https://developer.android.com/training/basics/firstapp/creating-project), the `applicationId` is
+When you [create a new project in Android Studio](https://developer.android.com/training/basics/firstapp/creating-project), the `applicationId` is
 automatically assigned the package name you chose during setup. You
 can technically toggle the two properties independently from then on, but it
 is not recommended.
@@ -77,10 +76,10 @@ It is recommended that you do the following when setting the application ID:
 - Explicitly define the application ID. If the application ID is not explicitly defined using the `applicationId` property, it automatically takes on the same value as the namespace. This means that changing the namespace changes the application ID, which is usually not what you want.
 
 > [!NOTE]
-> **Note:** The application ID used to be directly tied to your code's package name, so some Android APIs use the term "package name" in their method names and parameter names. This is actually your application ID. For example, the [`Context.getPackageName()`](https://developer.android.com/reference/android/content/Context#getPackageName()) method returns your application ID. There's never a need to share your code's true package name outside your app code.
+> **Note:** The application ID used to be directly tied to your code's package name, so some Android APIs use the term "package name" in their method names and parameter names. This is actually your application ID. For example, the [`Context.getPackageName()`](https://developer.android.com/reference/android/content/Context.md.txt#getPackageName()) method returns your application ID. There's never a need to share your code's true package name outside your app code.
 
 > [!CAUTION]
-> **Caution:** If you are using [`WebView`](https://developer.android.com/reference/android/webkit/WebView), consider using your package name as a prefix in your application ID. Otherwise, you might encounter problems as described in [Issue #37026699](https://issuetracker.google.com/issues/37026699).
+> **Caution:** If you are using [`WebView`](https://developer.android.com/reference/android/webkit/WebView.md.txt), consider using your package name as a prefix in your application ID. Otherwise, you might encounter problems as described in [Issue #37026699](https://issuetracker.google.com/issues/37026699).
 
 ### Change the application ID for testing
 
@@ -99,8 +98,7 @@ defining the `testApplicationId` property in your `defaultConfig` or
 ## Set the namespace
 
 Every Android module has a namespace, which is used as the Kotlin or Java
-package name for
-its generated [`R`](https://developer.android.com/reference/android/R) and `BuildConfig` classes.
+package name for its generated [`R`](https://developer.android.com/reference/android/R.md.txt) and `BuildConfig` classes.
 
 Your namespace is defined by the `namespace` property in your module's
 `build.gradle.kts` file, as shown in the following code snippet. The `namespace`
@@ -127,9 +125,8 @@ android {
 
 While building your app into the final application package (APK), the Android
 build tools use the namespace as the namespace for your app's generated `R`
-class, which is used to access your
-[app resources](https://developer.android.com/guide/topics/resources/overview).
-For example, in the preceding build file, the `R` class is created at
+class, which is used to access your [app resources](https://developer.android.com/guide/topics/resources/overview). For example, in the
+preceding build file, the `R` class is created at
 `com.example.myapp.R`.
 
 The name you set for the `build.gradle.kts` file's `namespace` property
@@ -142,7 +139,7 @@ For a simpler workflow, keep your namespace the same as your
 application ID, as they are by default.
 
 > [!CAUTION]
-> **Caution:** While the `namespace` property represents your app's Java or Kotlin package name, once the APK is compiled, the `package` attribute in the merged manifest file represents your app's universally unique [application ID](https://developer.android.com/build/configure-app-module#set-application-id).
+> **Caution:** While the `namespace` property represents your app's Java or Kotlin package name, once the APK is compiled, the `package` attribute in the merged manifest file represents your app's universally unique [application ID](https://developer.android.com/build/configure-app-module.md.txt#set-application-id).
 
 ### Change the namespace
 
@@ -155,7 +152,7 @@ In these cases, change the namespace by updating the
 application ID. Before you do so, make sure that your application ID is
 explicitly defined, so that changing the namespace doesn't likewise change the
 application ID. For more information on how the namespace can affect the
-application ID, see [Set the application ID](https://developer.android.com/build/configure-app-module#set-application-id).
+application ID, see [Set the application ID](https://developer.android.com/build/configure-app-module.md.txt#set-application-id).
 
 If you have different names for the `namespace`
 and the Gradle `applicationId`, the build tools copy
@@ -168,14 +165,11 @@ Google Play Store and the Android platform actually look to identify your app.
 ### Change the namespace for testing
 
 The default namespace for the `androidTest` and `test` source sets is the main
-namespace, with `.test` added at the end. For example, if the
-`namespace` property in the `build.gradle` file is
-`com.example.myapp`,
-the testing namespace is by default set to
-`com.example.myapp.test`.
-To change the namespace for testing, use the
-[`testNamespace`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/TestedExtension#testNamespace:kotlin.String)
-property, as shown in the following code snippet:
+namespace, with `.test` added at the end. For example, if the `namespace`
+property in the `build.gradle` file is `com.example.myapp`, the testing namespace is by default
+set to `com.example.myapp.test`. To change the
+namespace for testing, use the [`testNamespace`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/TestedExtension.md.txt#testNamespace:kotlin.String) property, as shown in the
+following code snippet:
 
 ### Kotlin
 
@@ -197,8 +191,7 @@ android {
 }
 ```
 
-**Caution:** Don't set `testNamespace` and
-`namespace` to the same value, otherwise namespace
-collisions occur.
+> [!CAUTION]
+> **Caution:** Don't set `testNamespace` and `namespace` to the same value, otherwise namespace collisions occur.
 
-To learn more about testing, see [Test apps on Android](https://developer.android.com/training/testing).
+To learn more about testing, see [Test apps on Android](https://developer.android.com/training/testing.md.txt).

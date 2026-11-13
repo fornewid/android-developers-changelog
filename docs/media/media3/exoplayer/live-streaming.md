@@ -49,14 +49,25 @@ to the default position by calling `Player.seekToDefaultPosition`.
 
 ## Live playback UI
 
-ExoPlayer's [default UI components](https://developer.android.com/guide/topics/media/ui/playerview) show the duration of the live window and
-the current playback position within it. This means the position appears to jump
-backward each time the live window is updated. If you need different behavior,
-for example showing the Unix epoch time or the current live offset, you can fork
-`PlayerControlView` and modify it to suit your needs.
+The [View-based UI components](https://developer.android.com/media/media3/ui/playerview.md.txt) in the `media3-ui` library, such as
+`PlayerView`, show the duration of the live window and the current playback
+position within it. This means the position appears to jump backward each time
+the live window is updated. If you need different behavior, for example showing
+the Unix epoch time or the current live offset, you can fork `PlayerControlView`
+and modify it to suit your needs.
 
 > [!NOTE]
-> **Note:** There is a [pending feature request (#2213)](https://github.com/google/ExoPlayer/issues/2213) for ExoPlayer's default UI components to support additional modes when playing live streams.
+> **Note:** There is a [pending feature request (#2213)](https://github.com/google/ExoPlayer/issues/2213) for the View-based UI components to support additional modes when playing live streams.
+
+The [`ProgressSlider`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/indicator/ProgressSlider.composable.md.txt) composable in the `media3-ui-compose-material3` library
+smooths out these jumps. It measures the playback position from a window start
+that advances smoothly in real time, so the position moves forward steadily
+instead of jumping backward whenever the live window is updated. To build your
+own live UI with the same behavior, use [`ProgressStateWithTickCount`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/ProgressStateWithTickCount.md.txt) or
+[`ProgressStateWithTickInterval`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/ProgressStateWithTickInterval.md.txt) from the `media3-ui-compose` library. Both
+expose the smoothed position together with `isLive` and `liveOffsetMs`. To show
+whether playback is at the live edge and let users return to it, add the
+[`LiveButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/LiveButton.composable.md.txt) composable from the `media3-ui-compose-material3` library.
 
 ## Configuring live playback parameters
 

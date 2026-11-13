@@ -4,6 +4,8 @@ url: https://developer.android.com/build/migrate-to-ksp
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/llms.txt
+
 > [!NOTE]
 > **Note:** Kapt is now in maintenance mode, and we recommend that you migrate from kapt to KSP for all processors that support it. In most cases, this migration only requires changes to your project's build configuration.
 
@@ -35,7 +37,7 @@ Here's an overview of the migration steps:
 
 To get started, check if the libraries you're using with kapt already have KSP
 support. This is the case for many popular libraries (including
-[Dagger](https://github.com/google/dagger/issues/2349), [Glide](https://bumptech.github.io/glide/doc/download-setup.html#kotlin---ksp), [Room](https://developer.android.com/jetpack/androidx/releases/room#declaring_dependencies),
+[Dagger](https://github.com/google/dagger/issues/2349), [Glide](https://bumptech.github.io/glide/doc/download-setup.html#kotlin---ksp), [Room](https://developer.android.com/jetpack/androidx/releases/room.md.txt#declaring_dependencies),
 and [Moshi](https://github.com/square/moshi#codegen)), and others are adding support.
 
 You can check the [list of supported libraries](https://kotlinlang.org/docs/ksp-overview.html#supported-libraries) in the
@@ -43,7 +45,7 @@ documentation, or refer to the documentation and issue tracker of the libraries
 you're using.
 
 > [!NOTE]
-> **Note:** While not a traditionally-included library dependency, [Data Binding](https://developer.android.com/topic/libraries/data-binding) also uses an annotation processor to provide its functionality, and [KSP support
+> **Note:** While not a traditionally-included library dependency, [Data Binding](https://developer.android.com/topic/libraries/data-binding.md.txt) also uses an annotation processor to provide its functionality, and [KSP support
 > for Data Binding is not planned](https://issuetracker.google.com/issues/173030256#comment10). You can mitigate the impact of kapt on your build by isolating the usages of Data Binding to separate modules.
 
 ## Add the KSP plugin to your project
@@ -129,7 +131,7 @@ When you have no dependencies included with `kapt` in your module anymore,
 remove the kapt plugin.
 
 > [!NOTE]
-> **Note:** [Data Binding](https://developer.android.com/topic/libraries/data-binding) also requires kapt to be enabled in the module. In modules where Data Binding is used, kapt can't be removed.
+> **Note:** [Data Binding](https://developer.android.com/topic/libraries/data-binding.md.txt) also requires kapt to be enabled in the module. In modules where Data Binding is used, kapt can't be removed.
 
 If it was declared in a plugins block:
 
@@ -151,7 +153,7 @@ plugins {
 
 If it was using the apply plugin syntax using Groovy:
 
-```
+```groovy
 apply plugin: 'kotlin-kapt'
 ```
 

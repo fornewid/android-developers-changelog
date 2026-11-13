@@ -4,6 +4,8 @@ url: https://developer.android.com/build/gradle-tips
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/llms.txt
+
 Gradle and the Android plugin for Gradle provide a flexible way to compile,
 build, and package your Android app or library. This page collects some
 useful tips and configurations to help you get the most out of each build.
@@ -20,12 +22,13 @@ documentation](https://developer.android.com/reference/tools/gradle-api) to lear
 
 Here are some configurations to manage your project's modules and their
 sources. To learn more about creating and managing projects and modules, read
-the [Projects Overview](https://developer.android.com/studio/projects).
+the [Projects Overview](https://developer.android.com/studio/projects.md.txt).
 
 ### Change default source set configurations
 
 
-You can use the `https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.api.AndroidSourceSet.html` block in the module-level `build.gradle`
+You can use the `
+sourceSets` block in the module-level `build.gradle`
 file to change where Gradle looks to gather files for each component of a
 [source set](https://developer.android.com/studio/build/build-variants#sourcesets).
 
@@ -113,12 +116,12 @@ android {
 
 
 Gradle provides a robust mechanism to [manage dependencies](https://developer.android.com/studio/build/dependencies), whether they're
-remote libraries or local [library modules](https://developer.android.com/studio/projects/android-library).
+remote libraries or local [library modules](https://developer.android.com/studio/projects/android-library.md.txt).
 
 ### Target specific builds with dependency configurations
 
 
-If you want a dependency for only a specific [build variant](https://developer.android.com/studio/build/build-variants) source set or [testing source set](https://developer.android.com/studio/test#sourcesets), capitalize the
+If you want a dependency for only a specific [build variant](https://developer.android.com/studio/build/build-variants) source set or [testing source set](https://developer.android.com/studio/test.md.txt#sourcesets), capitalize the
 [dependency
 configuration](https://developer.android.com/studio/build/dependencies#dependency-configurations) name and prefix it with the name of the build variant or
 testing source set.
@@ -179,7 +182,7 @@ By default, when Gradle generates APKs for your project, each APK has the
 same version information, as specified in the module-level `build.gradle` file.
 Because the Google Play Store does not allow multiple APKs for the same app
 that all have the same version information, you need to ensure each APK has
-its own unique [versionCode](https://developer.android.com/studio/publish/versioning#appversioning) before you
+its own unique [versionCode](https://developer.android.com/studio/publish/versioning.md.txt#appversioning) before you
 upload to the Play Store.
 
 
@@ -343,7 +346,7 @@ android {
       // To ensure the target device receives the version of the app with
       // the highest compatible API level, assign version codes in increasing
       // value with API level. To learn more about assigning version codes to
-      // support app updates and uploading to Google Play, read https://developer.android.com/google/play/publishing/multiple-apks#HowItWorks
+      // support app updates and uploading to Google Play, read Multiple APK Support
       versionCode 30000 + android.defaultConfig.versionCode
       versionNameSuffix "-minApi24"
       ...
@@ -408,7 +411,7 @@ android {
       // To ensure the target device receives the version of the app with
       // the highest compatible API level, assign version codes in increasing
       // value with API level. To learn more about assigning version codes to
-      // support app updates and uploading to Google Play, read https://developer.android.com/google/play/publishing/multiple-apks#HowItWorks
+      // support app updates and uploading to Google Play, read Multiple APK Support
       versionCode = 30000 + android.defaultConfig.versionCode
       versionNameSuffix = "-minApi24"
       ...
@@ -502,13 +505,13 @@ androidComponents {
 ## Test Your App
 
 
-To learn more about running local and integrated unit tests, read [Test your app](https://developer.android.com/studio/test).
+To learn more about running local and integrated unit tests, read [Test your app](https://developer.android.com/studio/test.md.txt).
 
 ### Configure lint options
 
 
 You can configure certain lint options using the [`lintOptions`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.LintOptions.html#com.android.build.gradle.internal.dsl.LintOptions) block in your module-level `build.gradle` file. To
-learn more about using lint for your Android project, read [Improve Your Code with Lint](https://developer.android.com/studio/write/lint).
+learn more about using lint for your Android project, read [Improve Your Code with Lint](https://developer.android.com/studio/write/lint.md.txt).
 
 ### Groovy
 
@@ -568,10 +571,10 @@ android {
 ### Configure instrumentation manifest settings
 
 
-When Gradle builds your test APK, it automatically generates the [`AndroidManifest.xml`](https://developer.android.com/guide/topics/manifest/manifest-intro) file and
-configures it with the [`<instrumentation>`](https://developer.android.com/guide/topics/manifest/instrumentation-element)
+When Gradle builds your test APK, it automatically generates the [`AndroidManifest.xml`](https://developer.android.com/guide/topics/manifest/manifest-intro.md.txt) file and
+configures it with the [`<instrumentation>`](https://developer.android.com/guide/topics/manifest/instrumentation-element.md.txt)
 node. You can change some of the settings for this node by either creating
-another manifest file in the [test source set](https://developer.android.com/studio/test#test_types_and_location) or
+another manifest file in the [test source set](https://developer.android.com/studio/test.md.txt#test_types_and_location) or
 configuring your module-level `build.gradle` file, as shown in the
 following code sample.
 
@@ -581,10 +584,10 @@ following code sample.
 android {
   ...
   // Each product flavor you configure can override properties in the
-  // defaultConfig block. To learn more, go to https://developer.android.com/studio/build/build-variants#product-flavors.
+  // defaultConfig block. To learn more, go to Configure Product Flavors.
   defaultConfig {
     ...
-    // Specifies the https://developer.android.com/studio/build/configure-app-module#application-id.html for the test APK.
+    // Specifies the application ID for the test APK.
     testApplicationId "com.test.foo"
     // Specifies the fully-qualified class name of the test instrumentation runner.
     testInstrumentationRunner "android.test.InstrumentationTestRunner"
@@ -606,10 +609,10 @@ android {
 android {
   ...
   // Each product flavor you configure can override properties in the
-  // defaultConfig block. To learn more, go to https://developer.android.com/studio/build/build-variants#product-flavors.
+  // defaultConfig block. To learn more, go to Configure Product Flavors.
   defaultConfig {
     ...
-    // Specifies the https://developer.android.com/studio/build/configure-app-module#set_the_application_id for the test APK.
+    // Specifies the application ID for the test APK.
     testApplicationId = "com.test.foo"
     // Specifies the fully-qualified class name of the test instrumentation runner.
     testInstrumentationRunner = "android.test.InstrumentationTestRunner"
@@ -710,13 +713,13 @@ android {
     // Encapsulates options for local unit tests.
     unitTests {
       // By default, local unit tests throw an exception any time the code you are testing tries to access
-      // Android platform APIs (unless you https://developer.android.com/training/testing/unit-testing/local-unit-tests#mocking-dependencies yourself or with a testing
+      // Android platform APIs (unless you mock Android dependencies yourself or with a testing
       // framework like Mockito). However, you can enable the following property so that the test
       // returns either null or zero when accessing platform APIs, rather than throwing an exception.
       returnDefaultValues true
 
       // Encapsulates options for controlling how Gradle executes local unit tests. For a list
-      // of all the options you can specify, read https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html.
+      // of all the options you can specify, read Gradle's reference documentation.
       all {
         // Sets JVM argument(s) for the test JVM(s).
         jvmArgs '-XX:MaxPermSize=256m'
@@ -741,13 +744,13 @@ android {
     // Encapsulates options for local unit tests.
     unitTests {
       // By default, local unit tests throw an exception any time the code you are testing tries to access
-      // Android platform APIs (unless you https://developer.android.com/training/testing/unit-testing/local-unit-tests#mocking-dependencies yourself or with a testing
+      // Android platform APIs (unless you mock Android dependencies yourself or with a testing
       // framework like Mockito). However, you can enable the following property so that the test
       // returns either null or zero when accessing platform APIs, rather than throwing an exception.
       returnDefaultValues true
 
       // Encapsulates options for controlling how Gradle executes local unit tests. For a list
-      // of all the options you can specify, read https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html.
+      // of all the options you can specify, read Gradle's reference documentation.
       all {
         // Sets JVM argument(s) for the test JVM(s).
         jvmArgs '-XX:MaxPermSize=256m'
@@ -867,13 +870,14 @@ android {
 ## Publish your app
 
 
-To learn more about publishing your app to Google Play, read [Publish Your App](https://developer.android.com/studio/publish).
+To learn more about publishing your app to Google Play, read [Publish Your App](https://developer.android.com/studio/publish.md.txt).
 
 ### Sign your app
 
 
 Although Android Studio provides a straighforward way to [configure signing for release
-builds](https://developer.android.com/studio/publish/app-signing#release-mode) from the UI, you can manually configure the `https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.SigningConfig.html` block in your module's `build.gradle`
+builds](https://developer.android.com/studio/publish/app-signing#release-mode) from the UI, you can manually configure the `
+signingConfigs` block in your module's `build.gradle`
 file:
 
 ### Groovy
@@ -1033,7 +1037,7 @@ files by proceeding as follows.
 4. Click **Sync Now** in the notification bar.
 
 
-To learn more about app signing, read [Sign Your App](https://developer.android.com/studio/publish/app-signing).
+To learn more about app signing, read [Sign Your App](https://developer.android.com/studio/publish/app-signing.md.txt).
 
 ## Simplify app development
 
@@ -1126,7 +1130,7 @@ Log.i(TAG, getString(R.string.build_time));
 
 In some cases, you may need to declare the same property in both your
 manifest and your code (for example, when declaring authorities for a
-`https://developer.android.com/reference/androidx/core/content/FileProvider`).
+`FileProvider`).
 Rather than updating the same property in multiple locations to reflect a
 change, define a single property in your module's `build.gradle`
 file to have it available to both the manifest and your code, as shown in the
@@ -1140,7 +1144,7 @@ android {
   // For settings specific to a product flavor, configure these properties
   // for each flavor in the productFlavors block.
   defaultConfig {
-    // Creates a property for the https://developer.android.com/reference/androidx/core/content/FileProvider authority.
+    // Creates a property for the FileProvider authority.
     def filesAuthorityValue = applicationId + ".files"
     // Creates a placeholder property to use in the manifest.
     manifestPlaceholders =
@@ -1162,7 +1166,7 @@ android {
   // For settings specific to a product flavor, configure these properties
   // for each flavor in the productFlavors block.
   defaultConfig {
-    // Creates a property for the https://developer.android.com/reference/androidx/core/content/FileProvider authority.
+    // Creates a property for the FileProvider authority.
     val filesAuthorityValue = applicationId + ".files"
     // Creates a placeholder property to use in the manifest.
     manifestPlaceholders["filesAuthority"] = filesAuthorityValue

@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/run/emulator-networking-address
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/run/llms.txt
+
 The emulator provides versatile networking capabilities that you can use to set
 up complex modeling and testing environments for your app. This page introduces
 the emulator network architecture and capabilities.
@@ -38,7 +40,7 @@ instances running concurrently on your machine, each will have its own router,
 and behind that, each will have an IP address of `10.0.2.15`. The instances are
 isolated by a router and can't detect each other on the same network. For
 information about how to let emulator instances communicate over TCP/UDP, see
-[Interconnect emulator instances](https://developer.android.com/studio/run/emulator-networking-interconnect-ethernet).
+[Interconnect emulator instances](https://developer.android.com/studio/run/emulator-networking-interconnect.md.txt).
 
 The address 127.0.0.1 on your development machine corresponds to the emulator's
 loopback interface. To access services running on your development machine

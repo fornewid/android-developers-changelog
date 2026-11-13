@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 To create Baseline Profiles for a library, use the
-[Baseline Profile Gradle plugin](https://developer.android.com/topic/performance/baselineprofiles/configure-baselineprofiles).
+[Baseline Profile Gradle plugin](https://developer.android.com/topic/performance/baselineprofiles/configure-baselineprofiles.md.txt).
 
 There are three modules involved in creating Baseline Profiles for a library:
 
@@ -42,7 +42,7 @@ dependencies {
 // Baseline Profile Gradle plugin configuration.
 baselineProfile {
 
-    // https://developer.android.com/topic/performance/baselineprofile/configure-baselineprofiles#filter-profile-rules the generated profile rules. 
+    // Filters the generated profile rules. 
     // This example keeps the classes in the `com.library` package all its subpackages.
     filter {
         include "com.mylibrary.**"
@@ -69,7 +69,7 @@ dependencies {
 // Baseline Profile Gradle plugin configuration.
 baselineProfile {
 
-    // https://developer.android.com/topic/performance/baselineprofile/configure-baselineprofiles#filter-profile-rules the generated profile rules. 
+    // Filters the generated profile rules. 
     // This example keeps the classes in the `com.library` package all its subpackages.
     filter {
         include 'com.mylibrary.**'

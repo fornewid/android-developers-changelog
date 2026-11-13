@@ -4,6 +4,8 @@ url: https://developer.android.com/training/data-storage
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/data-storage/llms.txt
+
 Android uses a file system that's similar to disk-based file systems on other
 platforms. The system provides several options for you to save your app data:
 
@@ -16,11 +18,11 @@ The characteristics of these options are summarized in the following table:
 
 |   | Type of content | Access method | Permissions needed | Can other apps access? | Files removed on app uninstall? |
 |---|---|---|---|---|---|
-| [App-specific files](https://developer.android.com/training/data-storage/app-specific) | Files meant for your app's use only | From internal storage, `getFilesDir()` or `getCacheDir()` From external storage, `getExternalFilesDir()` or `getExternalCacheDir()` | Never needed for internal storage Not needed for external storage when your app is used on devices that run Android 4.4 (API level 19) or higher | No | Yes |
-| [Media](https://developer.android.com/training/data-storage/shared/media) | Shareable media files (images, audio files, videos) | `MediaStore` API | `READ_EXTERNAL_STORAGE` when accessing other apps' files on Android 11 (API level 30) or higher `READ_EXTERNAL_STORAGE` or `WRITE_EXTERNAL_STORAGE` when accessing other apps' files on Android 10 (API level 29) Permissions are required for **all** files on Android 9 (API level 28) or lower | Yes, though the other app needs the `READ_EXTERNAL_STORAGE` permission | No |
-| [Documents and other files](https://developer.android.com/training/data-storage/shared/documents-files) | Other types of shareable content, including downloaded files | Storage Access Framework | None | Yes, through the system file picker | No |
-| [App preferences](https://developer.android.com/training/data-storage/shared-preferences) | Key-value pairs | [Jetpack Preferences](https://developer.android.com/guide/topics/ui/settings/use-saved-values) library | None | No | Yes |
-| Local Database | Structured relational data on-device | [Room](https://developer.android.com/training/data-storage/room) persistence library ^[1](https://developer.android.com/training/data-storage#cloud-storage-note)^ | None | No | Yes |
+| [App-specific files](https://developer.android.com/training/data-storage/app-specific.md.txt) | Files meant for your app's use only | From internal storage, `getFilesDir()` or `getCacheDir()` From external storage, `getExternalFilesDir()` or `getExternalCacheDir()` | Never needed for internal storage Not needed for external storage when your app is used on devices that run Android 4.4 (API level 19) or higher | No | Yes |
+| [Media](https://developer.android.com/training/data-storage/shared/media.md.txt) | Shareable media files (images, audio files, videos) | `MediaStore` API | `READ_EXTERNAL_STORAGE` when accessing other apps' files on Android 11 (API level 30) or higher `READ_EXTERNAL_STORAGE` or `WRITE_EXTERNAL_STORAGE` when accessing other apps' files on Android 10 (API level 29) Permissions are required for **all** files on Android 9 (API level 28) or lower | Yes, though the other app needs the `READ_EXTERNAL_STORAGE` permission | No |
+| [Documents and other files](https://developer.android.com/training/data-storage/shared/documents-files.md.txt) | Other types of shareable content, including downloaded files | Storage Access Framework | None | Yes, through the system file picker | No |
+| [App preferences](https://developer.android.com/training/data-storage/shared-preferences.md.txt) | Key-value pairs | [Jetpack Preferences](https://developer.android.com/guide/topics/ui/settings/use-saved-values) library | None | No | Yes |
+| Local Database | Structured relational data on-device | [Room](https://developer.android.com/training/data-storage/room.md.txt) persistence library ^[1](https://developer.android.com/training/data-storage.md.txt#cloud-storage-note)^ | None | No | Yes |
 | Cloud-hosted databases | Multidevice synced data, real-time collaboration | [Cloud Firestore](https://firebase.google.com/docs/firestore), [Firebase SQL Connect](https://firebase.google.com/docs/sql-connect) | `INTERNET` | Only using the cloud backend | SDK cache is deleted, but cloud data persists |
 | Cloud-hosted object storage | Unstructured data (such as media, large files, or backups) | [Cloud Storage for Firebase](https://firebase.google.com/docs/storage) | `INTERNET` | Only using the cloud backend | SDK cache is deleted, but cloud data persists |
 
@@ -83,10 +85,10 @@ file to install your app on external storage instead:
 ## Permissions and access to external storage
 
 Android defines the following storage-related permissions:
-[`READ_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE),
-[`WRITE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE),
+[`READ_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_EXTERNAL_STORAGE),
+[`WRITE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#WRITE_EXTERNAL_STORAGE),
 and
-[`MANAGE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#MANAGE_EXTERNAL_STORAGE).
+[`MANAGE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#MANAGE_EXTERNAL_STORAGE).
 
 On earlier versions of Android, apps needed to declare the
 `READ_EXTERNAL_STORAGE` permission to access any file outside the [app-specific
@@ -120,8 +122,8 @@ that the app has created.
 > **Note:** If your app requests a storage-related permission at runtime, the user-facing dialog indicates that your app is requesting broad access to external storage, even when scoped storage is enabled.
 
 Use scoped storage unless your app needs access to a file that's stored outside
-of an [app-specific directory](https://developer.android.com/training/data-storage/app-specific) and outside
-of a directory that the [`MediaStore`](https://developer.android.com/reference/android/provider/MediaStore)
+of an [app-specific directory](https://developer.android.com/training/data-storage/app-specific.md.txt) and outside
+of a directory that the [`MediaStore`](https://developer.android.com/reference/android/provider/MediaStore.md.txt)
 APIs can access. If you store app-specific files on external storage, you can
 make it easier to adopt scoped storage by placing these files in an
 [app-specific directory on external

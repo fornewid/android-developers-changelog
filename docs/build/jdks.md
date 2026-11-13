@@ -4,6 +4,8 @@ url: https://developer.android.com/build/jdks
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/llms.txt
+
 Whether your source code is written in Java, Kotlin, or both,
 there are several places you must choose a JDK or Java language
 version for your build.
@@ -56,7 +58,7 @@ variable.
 
 For the most consistent results, make sure you set your `JAVA_HOME`
 environment variable, and
-[Gradle JDK configuration in Android Studio](https://developer.android.com/build/jdks#jdk-config-in-studio) to that same
+[Gradle JDK configuration in Android Studio](https://developer.android.com/build/jdks.md.txt#jdk-config-in-studio) to that same
 JDK.
 
 > [!NOTE]
@@ -71,7 +73,7 @@ If you start builds with different JDKs or Gradle versions, additional
 daemons are created, consuming more CPU and memory.
 
 > [!TIP]
-> **Tip:** When working with multiple projects simultaneously, if possible, specify the same Gradle version in their [`gradle-wrapper.properties` file](https://developer.android.com/build#wrapper-file) to reduce the number of Gradle daemons created.
+> **Tip:** When working with multiple projects simultaneously, if possible, specify the same Gradle version in their [`gradle-wrapper.properties` file](https://developer.android.com/build.md.txt#wrapper-file) to reduce the number of Gradle daemons created.
 
 ### Gradle JDK configuration in Android Studio
 
@@ -85,7 +87,7 @@ Build, Execution, Deployment \> Build Tools \> Gradle** . The **Gradle JDK**
 drop-down contains the following options to select from:
 
 - Macros such as `JAVA_HOME` and `GRADLE_LOCAL_JAVA_HOME`
-- JDK table entries in `vendor-version` format like `jbr-17` which are stored in the [Android configuration files](https://developer.android.com/studio/intro/studio-config#file_location)
+- JDK table entries in `vendor-version` format like `jbr-17` which are stored in the [Android configuration files](https://developer.android.com/studio/intro/studio-config.md.txt#file_location)
 - Downloading a JDK
 - Adding a specific JDK
 - Locally detected JDKs from the operating system's default JDK installation directory
@@ -139,10 +141,12 @@ Android SDK version to use when compiling your Kotlin or Java source code.
 
 <br />
 
-    android {
-        ...
-        compileSdk = 36
-    }
+```kotlin
+android {
+    ...
+    compileSdk = 36
+}
+```
 
 <br />
 
@@ -150,22 +154,23 @@ Android SDK version to use when compiling your Kotlin or Java source code.
 
 <br />
 
-    android {
-        ...
-        compileSdk 36
-    }
+```groovy
+android {
+    ...
+    compileSdk 36
+}
+```
 
 <br />
 
 <br />
 
 Each version of Android supports a specific version of the JDK and a subset of
-its available Java APIs. If you use a Java API that's available in
-a `compileSdk` that's not available in the specified
-[`minSdk`](https://developer.android.com/studio/publish/versioning#minsdk), you might be able to use the API
-in the earlier version of Android through a process known as
-[desugaring](https://developer.android.com/studio/write/java8-support).
-See [Java 11+ APIs available through desugaring](https://developer.android.com/studio/write/java11-default-support-table) for supported
+its available Java APIs. If you use a Java API that's available in a
+`compileSdk` that's not available in the specified [`minSdk`](https://developer.android.com/studio/publish/versioning.md.txt#minsdk),
+you might be able to use the API in the earlier version of Android through a
+process known as [desugaring](https://developer.android.com/studio/write/java8-support.md.txt). See
+[Java 11+ APIs available through desugaring](https://developer.android.com/studio/write/java11-default-support-table.md.txt) for supported
 APIs.
 
 Use this table to determine which Java version is supported by
@@ -173,9 +178,9 @@ each Android API, and where to find details on which Java APIs are available.
 
 | Android | Java | API and language features supported |
 |---|---|---|
-| 14 (API 34) | 17 | [Core libraries](https://developer.android.com/about/versions/14/features#core-libraries) |
-| 13 (API 33) | 11 | [Core libraries](https://developer.android.com/about/versions/13/features#core-libraries) |
-| 12 (API 32) | 11 | [Java API](https://developer.android.com/about/versions/12/features#java-api) |
+| 14 (API 34) | 17 | [Core libraries](https://developer.android.com/about/versions/14/features.md.txt#core-libraries) |
+| 13 (API 33) | 11 | [Core libraries](https://developer.android.com/about/versions/13/features.md.txt#core-libraries) |
+| 12 (API 32) | 11 | [Java API](https://developer.android.com/about/versions/12/features.md.txt#java-api) |
 | 11 and lower |   | [Android versions](https://developer.android.com/about/versions) |
 
 ## Which JDK compiles my Java source code?
@@ -195,12 +200,11 @@ Java toolchain version. Specifying this:
   - If no compatible JDK exists (and a toolchain resolver is defined), downloads one.
 - Exposes the toolchain Java APIs for calls from source code.
 - Compiles Java source using its Java language version.
-- Supplies defaults for [`sourceCompatibility`](https://developer.android.com/build/jdks#source-compat) and [`targetCompatibility`](https://developer.android.com/build/jdks#target-compat).
+- Supplies defaults for [`sourceCompatibility`](https://developer.android.com/build/jdks.md.txt#source-compat) and [`targetCompatibility`](https://developer.android.com/build/jdks.md.txt#target-compat).
 
 We recommend that you always specify the Java toolchain, and either ensure that
 the specified JDK is installed, or add a
-[toolchain resolver](https://docs.gradle.org/current/userguide/toolchains.html#sec:provisioning)
-to your build.
+[toolchain resolver](https://docs.gradle.org/current/userguide/toolchains.html#sec:provisioning) to your build.
 
 You can specify the toolchain whether your source code is written in Java,
 Kotlin, or both. Specify the toolchain at the top level of your module's
@@ -214,11 +218,13 @@ Specify the Java toolchain version like this:
 
 <br />
 
-    java {
-        toolchain {
-            languageVersion = JavaLanguageVersion.of(17)
-        }
+```kotlin
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
     }
+}
+```
 
 <br />
 
@@ -226,11 +232,13 @@ Specify the Java toolchain version like this:
 
 <br />
 
-    java {
-        toolchain {
-            languageVersion = JavaLanguageVersion.of(17)
-        }
+```groovy
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
     }
+}
+```
 
 <br />
 
@@ -256,11 +264,13 @@ follows:
 
 <br />
 
-    android {
-        compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_17
-        }
+```kotlin
+android {
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
     }
+}
+```
 
 <br />
 
@@ -268,22 +278,24 @@ follows:
 
 <br />
 
-    android {
-        compileOptions {
-            sourceCompatibility JavaVersion.VERSION_17
-        }
+```groovy
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
     }
+}
+```
 
 <br />
 
 <br />
 
-If not specified, this property defaults to the [Java toolchain](https://developer.android.com/build/jdks#toolchain)
+If not specified, this property defaults to the [Java toolchain](https://developer.android.com/build/jdks.md.txt#toolchain)
 version. If you're not using a Java toolchain, then it defaults to a version
 chosen by the Android Gradle plugin (for example, Java 8 or higher).
 
 > [!NOTE]
-> **Note:** As of Android Studio Giraffe, when projects are imported, the `sourceCompatibility` option is also used as a default for IDE code assist and linting when writing Java source. Some Java language features require library support and are not available on Android. The [`compileSdk`](https://developer.android.com/build/jdks#compileSdk) option determines which libraries are available. Other features, such as switch expressions, only require the Java compiler and work on Android.
+> **Note:** As of Android Studio Giraffe, when projects are imported, the `sourceCompatibility` option is also used as a default for IDE code assist and linting when writing Java source. Some Java language features require library support and are not available on Android. The [`compileSdk`](https://developer.android.com/build/jdks.md.txt#compileSdk) option determines which libraries are available. Other features, such as switch expressions, only require the Java compiler and work on Android.
 
 ## Which Java binary features can be used when I compile my Kotlin or Java source?
 
@@ -297,16 +309,15 @@ features. Some of these features were later added to Java.
 With later `targetCompatibility` levels, the Kotlin compiler might directly use
 the Java feature, which might result in better performance.
 
-Different versions of Android support different versions of Java. You can
-take advantage of additional Java features by increasing
-`targetCompatibility`, but this might force you to also
-increase your
-[minimum Android SDK version](https://developer.android.com/studio/publish/versioning#minsdk) to ensure
-the feature is available.
+Different versions of Android support different versions of Java. You can take
+advantage of additional Java features by increasing `targetCompatibility`, but
+this might force you to also increase your
+[minimum Android SDK version](https://developer.android.com/studio/publish/versioning.md.txt#minsdk) to ensure the feature is available.
 
 Note that `targetCompatibility` must be greater than or equal to
-`sourceCompatibility`. In practice, `sourceCompatibility` and `targetCompatibility` should generally use the same value.
-You can set them as follows:
+`sourceCompatibility`. In practice, `sourceCompatibility` and
+`targetCompatibility` should generally use the same value. You can set them as
+follows:
 
 <br />
 
@@ -314,12 +325,14 @@ You can set them as follows:
 
 <br />
 
-    android {
-        compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_17
-            targetCompatibility = JavaVersion.VERSION_17
-        }
+```kotlin
+android {
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
+}
+```
 
 <br />
 
@@ -327,12 +340,14 @@ You can set them as follows:
 
 <br />
 
-    android {
-        compileOptions {
-            sourceCompatibility JavaVersion.VERSION_17
-            targetCompatibility JavaVersion.VERSION_17
-        }
+```groovy
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
+}
+```
 
 <br />
 
@@ -347,11 +362,13 @@ If you're using a version of Kotlin lower than 2.2, then you also need to set
 
 <br />
 
-    android {
-        kotlinOptions {
-            jvmTarget = "17"
-        }
+```kotlin
+android {
+    kotlinOptions {
+        jvmTarget = "17"
     }
+}
+```
 
 <br />
 
@@ -359,17 +376,19 @@ If you're using a version of Kotlin lower than 2.2, then you also need to set
 
 <br />
 
-    android {
-        kotlinOptions {
-            jvmTarget = "17"
-        }
+```groovy
+android {
+    kotlinOptions {
+        jvmTarget = "17"
     }
+}
+```
 
 <br />
 
 <br />
 
-If not specified, these properties default to the [Java toolchain](https://developer.android.com/build/jdks#toolchain)
+If not specified, these properties default to the [Java toolchain](https://developer.android.com/build/jdks.md.txt#toolchain)
 version. If you're not using a Java toolchain, then the default values might
 differ and cause build issues. Therefore, we recommend that you always
-explicitly specify these values or use a [Java toolchain](https://developer.android.com/build/jdks#toolchain).
+explicitly specify these values or use a [Java toolchain](https://developer.android.com/build/jdks.md.txt#toolchain).

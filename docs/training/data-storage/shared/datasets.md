@@ -4,6 +4,8 @@ url: https://developer.android.com/training/data-storage/shared/datasets
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/data-storage/shared/llms.txt
+
 Starting in Android 11 (API level 30), the system caches large datasets that
 multiple apps might access for use cases like machine learning and media
 playback. This functionality helps reduce data redundancy, both over the network
@@ -12,20 +14,20 @@ and on disk.
 When your app needs access to a shared large dataset, it can first look for
 these cached datasets, called *shared data blobs* , before determining whether to
 download a new copy. Apps can access these shared datasets functionality using
-the APIs in [`BlobStoreManager`](https://developer.android.com/reference/android/app/blob/BlobStoreManager).
+the APIs in [`BlobStoreManager`](https://developer.android.com/reference/android/app/blob/BlobStoreManager.md.txt).
 
 The system maintains the shared data blobs and controls which apps can access
 them. When your app contributes data blobs, you can indicate which other apps
 should have access by calling one of the following methods:
 
-- To grant access to a specific set of apps on a device, pass the package names of these apps into [`allowPackageAccess()`](https://developer.android.com/reference/android/app/blob/BlobStoreManager.Session#allowPackageAccess(java.lang.String,%20byte%5B%5D)).
-- To allow only apps whose certificates are signed using the same key as the one used for your app---such as an app suite that you manage---call [`allowSameSignatureAccess()`](https://developer.android.com/reference/android/app/blob/BlobStoreManager.Session#allowSameSignatureAccess()).
-- To grant access to all apps on a device, call [`allowPublicAccess()`](https://developer.android.com/reference/android/app/blob/BlobStoreManager.Session#allowPublicAccess()).
+- To grant access to a specific set of apps on a device, pass the package names of these apps into [`allowPackageAccess()`](https://developer.android.com/reference/android/app/blob/BlobStoreManager.Session.md.txt#allowPackageAccess(java.lang.String,%20byte%5B%5D)).
+- To allow only apps whose certificates are signed using the same key as the one used for your app---such as an app suite that you manage---call [`allowSameSignatureAccess()`](https://developer.android.com/reference/android/app/blob/BlobStoreManager.Session.md.txt#allowSameSignatureAccess()).
+- To grant access to all apps on a device, call [`allowPublicAccess()`](https://developer.android.com/reference/android/app/blob/BlobStoreManager.Session.md.txt#allowPublicAccess()).
 
 ## Access shared data blobs
 
 The system represents each shared data blob using a
-[`BlobHandle`](https://developer.android.com/reference/android/app/blob/BlobHandle) object. Each instance of `BlobHandle`
+[`BlobHandle`](https://developer.android.com/reference/android/app/blob/BlobHandle.md.txt) object. Each instance of `BlobHandle`
 contains a cryptographically-secure hash and some identifying details for the
 dataset.
 

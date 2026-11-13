@@ -4,6 +4,8 @@ url: https://developer.android.com/media/camera/camerax/mlkitanalyzer
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/camera/camerax/llms.txt
+
 Google's [ML Kit](https://developers.google.com/ml-kit/guides) provides on-device machine learning Vision APIs for detecting
 faces, scanning barcodes, labeling images, and more. ML Kit Analyzer makes it
 easier to integrate ML Kit with your CameraX app.
@@ -36,42 +38,27 @@ a new ML Kit Analyzer object with the following in its constructor:
 The following code implements ML Kit Analyzer using `CameraController` to set up
 a [`BarcodeScanner`](https://developers.google.com/android/reference/com/google/mlkit/vision/barcode/BarcodeScanner) to detect QR codes:
 
-### Kotlin
 
 ```kotlin
-// create BarcodeScanner object
+// create BarcodeScanner object.
 val options = BarcodeScannerOptions.Builder()
-  .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
-  .build()
+    .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
+    .build()
 val barcodeScanner = BarcodeScanning.getClient(options)
 
 cameraController.setImageAnalysisAnalyzer(
-            ContextCompat.getMainExecutor(this),
-            MlKitAnalyzer(
-                listOf(barcodeScanner),
-                COORDINATE_SYSTEM_VIEW_REFERENCED,
-                ContextCompat.getMainExecutor(this)
-            ) { result: MlKitAnalyzer.Result? ->
-    // The value of result.getResult(barcodeScanner) can be used directly for drawing UI overlay.
+    ContextCompat.getMainExecutor(this),
+    MlKitAnalyzer(
+        listOf(barcodeScanner),
+        COORDINATE_SYSTEM_VIEW_REFERENCED,
+        ContextCompat.getMainExecutor(this)
+    ) { result: MlKitAnalyzer.Result? ->
+        // The value of result.getResult(barcodeScanner) can be used directly for drawing UI overlay.
     }
 )
 ```
 
-### Java
-
-```java
-// create BarcodeScanner object
-BarcodeScannerOptions options = new BarcodeScannerOptions.Builder()
-   .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
-   .build();
-BarcodeScanner barcodeScanner = BarcodeScanning.getClient(options);
-
-cameraController.setImageAnalysisAnalyzer(executor,
-    new MlKitAnalyzer(List.of(barcodeScanner), COORDINATE_SYSTEM_VIEW_REFERENCED,
-    executor, result -> {
-   // The value of result.getResult(barcodeScanner) can be used directly for drawing UI overlay.
- });
-```
+<br />
 
 In the code sample above, ML Kit Analyzer passes the following to
 `BarcodeScanner`'s `Detector` class:
