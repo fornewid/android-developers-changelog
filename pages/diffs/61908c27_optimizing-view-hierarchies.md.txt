@@ -1,0 +1,145 @@
+diff --git a/docs/topic/performance/rendering/optimizing-view-hierarchies.md b/docs/topic/performance/rendering/optimizing-view-hierarchies.md
+index 76c9b8b9..f716ceb1 100644
+--- a/docs/topic/performance/rendering/optimizing-view-hierarchies.md
++++ b/docs/topic/performance/rendering/optimizing-view-hierarchies.md
+@@ -4,8 +4,10 @@ url: https://developer.android.com/topic/performance/rendering/optimizing-view-h
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/topic/performance/rendering/llms.txt
++
+ The way you manage the hierarchy of your
+-`https://developer.android.com/reference/android/view/View` objects can significantly impact
++`View` objects can significantly impact
+ your app's performance. This page describes how to assess whether your view hierarchy is slowing
+ your app down, and offers some strategies for addressing issues that might arise.
+ 
+@@ -23,10 +25,10 @@ determines where on the screen to position the `View` objects.
+ Both of these pipeline stages incur some small cost per view or layout that they process. Most of
+ the time, this cost is minimal and doesn't noticeably affect performance. However, it can be greater
+ when an app adds or removes `View` objects, such as when a
+-`https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView`
++`RecyclerView`
+ object recycles them or reuses them. The cost can also be higher if a `View` object needs
+ to consider resizing to meet its constraints. For example, if your app calls
+-`https://developer.android.com/reference/android/widget/TextView#setText(char[], int, int)`
++`SetText()`
+ on a `View` object that wraps text, the `View` might need to resize.
+ 
+ If cases like these take too long, they can prevent a frame from rendering within the allowed
+@@ -52,13 +54,13 @@ are nested within one another. Each nested layout object adds cost to the layout
+ your hierarchy, the less time it takes for the layout stage to complete.
+ 
+ We recommend using the
+-[Layout Editor](https://developer.android.com/studio/write/layout-editor#intro) to create a
+-[`ConstraintLayout`](https://developer.android.com/develop/ui/views/layout/constraint-layout), instead of
+-`https://developer.android.com/reference/android/widget/RelativeLayout` or
+-`https://developer.android.com/reference/android/widget/LinearLayout`, as it's
++[Layout Editor](https://developer.android.com/studio/views/layout-editor.md.txt#intro) to create a
++[`ConstraintLayout`](https://developer.android.com/develop/ui/views/layout/constraint-layout.md.txt), instead of
++`RelativeLayout` or
++`LinearLayout`, as it's
+ generally both more efficient and reduces the nesting of layouts. However, for simple layouts that
+ can be achieved using
+-`https://developer.android.com/reference/android/widget/FrameLayout`, we recommend
++`FrameLayout`, we recommend
+ using `FrameLayout`.
+ 
+ If you are using the `RelativeLayout` class, you might be able to achieve the same
+@@ -67,7 +69,7 @@ if you are using nested, weighted `LinearLayout` views, the layout cost is much
+ because it requires multiple layout passes, as explained in the next section.
+ 
+ We also recommend using `RecyclerView` instead of
+-`https://developer.android.com/reference/android/widget/ListView`, as it can recycle the
++`ListView`, as it can recycle the
+ layouts of individual list items, which is both more efficient and can improve scrolling
+ performance.
+ 
+@@ -97,8 +99,8 @@ cases removes the need to nest layouts.
+ Containers other than `RelativeLayout` might also increase double taxation. For
+ example:
+ 
+-- A `LinearLayout` view can result in a double layout-and-measure pass if you make it horizontal. A double layout-and-measure pass might also occur in a vertical orientation if you add `https://developer.android.com/reference/android/widget/LinearLayout#attr_android:measureWithLargestChild`, in which case the framework might need to do a second pass to resolve the proper sizes of objects.
+-- The `https://developer.android.com/reference/android/widget/GridLayout` also allows relative positioning, but it normally avoids double taxation by pre-processing the positional relationships among child views. However, if the layout uses weights or fill with the `https://developer.android.com/reference/android/view/Gravity` class, the benefit of preprocessing is lost, and the framework might have to perform multiple passes if the container is a `RelativeLayout`.
++- A `LinearLayout` view can result in a double layout-and-measure pass if you make it horizontal. A double layout-and-measure pass might also occur in a vertical orientation if you add `measureWithLargestChild`, in which case the framework might need to do a second pass to resolve the proper sizes of objects.
++- The `GridLayout` also allows relative positioning, but it normally avoids double taxation by pre-processing the positional relationships among child views. However, if the layout uses weights or fill with the `Gravity` class, the benefit of preprocessing is lost, and the framework might have to perform multiple passes if the container is a `RelativeLayout`.
+ 
+ Multiple layout-and-measure passes aren't necessarily a performance burden. However, they can
+ become a burden if they're in the wrong place. Be careful with situations where one of the following
+@@ -116,7 +118,7 @@ but can provide helpful hints.
+ 
+ ### Perfetto
+ 
+-[Perfetto](https://developer.android.com/topic/performance/tracing) is a tool that provides data about performance.
++[Perfetto](https://developer.android.com/topic/performance/tracing.md.txt) is a tool that provides data about performance.
+ You can open Android traces in the [Perfetto
+ UI](https://ui.perfetto.dev/#!/).
+ 
+@@ -135,7 +137,7 @@ blue to represent layout time. For more information about how to use this tool,
+ 
+ ### Lint
+ 
+-Android Studio's [Lint](https://developer.android.com/studio/write/lint) tool can help you gain a sense of
++Android Studio's [Lint](https://developer.android.com/studio/write/lint.md.txt) tool can help you gain a sense of
+ inefficiencies in the view hierarchy. To use this tool, select **Analyze \> Inspect Code**, as
+ shown in figure 1.
+ ![](https://developer.android.com/static/topic/performance/images/lint-inspect-code.png) **Figure 1.** Select **Inspect Code** in Android Studio.
+@@ -148,11 +150,11 @@ right side of the screen. Figure 2 shows an example of expanded information.
+ Clicking an item reveals problems associated with that item in the pane to the right.
+ 
+ To understand more about specific topics and issues in this area, see the
+-[Lint](https://developer.android.com/studio/write/lint) documentation.
++[Lint](https://developer.android.com/studio/write/lint.md.txt) documentation.
+ 
+ ### Layout Inspector
+ 
+-Android Studio's [Layout Inspector](https://developer.android.com/studio/debug/layout-inspector) tool provides
++Android Studio's [Layout Inspector](https://developer.android.com/studio/debug/layout-inspector.md.txt) tool provides
+ a visual representation of your app's view hierarchy. It's a good way to navigate the hierarchy of
+ your app, providing a clear visual representation of a particular view's parent chain, and lets you
+ inspect the layouts that your app constructs.
+@@ -174,7 +176,7 @@ for pursuing these goals.
+ 
+ ### Remove redundant nested layouts
+ 
+-`https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout`
++`ConstraintLayout`
+ is a Jetpack library with a large number of different mechanisms for positioning views within the
+ layout. This reduces the need to nest one `ConstaintLayout` and can help flatten the view
+ hierarchy. It is usually simpler to flatten hierarchies using `ConstraintLayout` compared
+@@ -183,12 +185,12 @@ to other layout types.
+ Developers often use more nested layouts than necessary. For example, a
+ `RelativeLayout` container might contain a single child that is also a
+ `RelativeLayout` container. This nesting is redundant and adds unnecessary cost to the
+-view hierarchy. [Lint](https://developer.android.com/topic/performance/rendering/optimizing-view-hierarchies#lint) can flag this problem for you, reducing debugging time.
++view hierarchy. [Lint](https://developer.android.com/topic/performance/rendering/optimizing-view-hierarchies.md.txt#lint) can flag this problem for you, reducing debugging time.
+ 
+ ### Adopt merge or include
+ 
+ A frequent cause of redundant nested layouts is the
+-`https://developer.android.com/develop/ui/views/layout/improving-layouts/reusing-layouts`
++`<include>`
+ tag. For example, you might define a reusable layout as follows:
+ 
+ ```xml
+@@ -223,7 +225,7 @@ container:
+ The preceding include unnecessarily nests the first layout within the second layout.
+ 
+ The
+-[`<merge>`](https://developer.android.com/develop/ui/views/layout/improving-layouts/reusing-layouts#Merge)
++[`<merge>`](https://developer.android.com/develop/ui/views/layout/improving-layouts/reusing-layouts.md.txt#Merge)
+ tag can help prevent this issue. For information about this tag, see
+ [Use the \<merge\>
+ tag](https://developer.android.com/develop/ui/views/layout/improving-layouts/reusing-layouts#Merge).
+@@ -235,8 +237,8 @@ layouts. In certain cases, the only solution might be to flatten your hierarchy
+ an entirely different layout type.
+ 
+ For example, you might find that
+-`https://developer.android.com/reference/android/widget/TableLayout` provides the same
++`TableLayout` provides the same
+ functionality as a more complex layout with many positional dependencies. The Jetpack library
+-[`ConstraintLayout`](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout)
++[`ConstraintLayout`](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout.md.txt)
+ provides similar functionality to `RelativeLayout`, plus more features to help create
+ flatter, more efficient layouts.
+\ No newline at end of file

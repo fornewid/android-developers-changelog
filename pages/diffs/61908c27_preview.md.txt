@@ -1,0 +1,172 @@
+diff --git a/docs/media/camera/camerax/preview.md b/docs/media/camera/camerax/preview.md
+index 49d5ea6f..9279992f 100644
+--- a/docs/media/camera/camerax/preview.md
++++ b/docs/media/camera/camerax/preview.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/media/camera/camerax/preview
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/media/camera/camerax/llms.txt
++
+ When adding a preview to your app, use
+ [`PreviewView`](https://developer.android.com/reference/kotlin/androidx/camera/view/PreviewView.md.txt), which is a
+ `View` that can be cropped, scaled, and rotated for proper display.
+@@ -48,63 +50,39 @@ The following sample shows a `PreviewView` in a layout:
+ 
+ The following code shows how to request a `CameraProvider`:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-import androidx.camera.lifecycle.ProcessCameraProvider
+-import com.google.common.util.concurrent.ListenableFuture
++// import androidx.camera.lifecycle.ProcessCameraProvider
++// import com.google.common.util.concurrent.ListenableFuture
+ 
+-class MainActivity : AppCompatActivity() {
+-    private lateinit var cameraProviderFuture : ListenableFuture<ProcessCameraProvider>
++class MainActivity : ComponentActivity() {
++    private lateinit var cameraProviderFuture: ListenableFuture<ProcessCameraProvider>
+     override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
+         cameraProviderFuture = ProcessCameraProvider.getInstance(this)
+     }
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-import androidx.camera.lifecycle.ProcessCameraProvider
+-import com.google.common.util.concurrent.ListenableFuture
+-
+-public class MainActivity extends AppCompatActivity {
+-    private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
+-
+-    @Override
+-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+-        cameraProviderFuture = ProcessCameraProvider.getInstance(this);
+-    }
+-}
+-```
++<br />
+ 
+ ### Check for CameraProvider availability
+ 
+ After requesting a `CameraProvider`, verify that its initialization succeeded
+ when the view is created. The following code shows how to do this:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-cameraProviderFuture.addListener(Runnable {
+-    val cameraProvider = cameraProviderFuture.get()
+-    bindPreview(cameraProvider)
+-}, ContextCompat.getMainExecutor(this))
++cameraProviderFuture.addListener(
++    Runnable {
++        val cameraProvider = cameraProviderFuture.get()
++        bindPreview(cameraProvider)
++    },
++    ContextCompat.getMainExecutor(this)
++)
+ ```
+ 
+-### Java
+-
+-```java
+-cameraProviderFuture.addListener(() -> {
+-    try {
+-        ProcessCameraProvider cameraProvider = cameraProviderFuture.get();
+-        bindPreview(cameraProvider);
+-    } catch (ExecutionException | InterruptedException e) {
+-        // No errors need to be handled for this Future.
+-        // This should never be reached.
+-    }
+-}, ContextCompat.getMainExecutor(this));
+-```
++<br />
+ 
+ For an example of the `bindPreview` function used in this sample, see the code
+ provided in the next section.
+@@ -120,16 +98,15 @@ Once you have created and confirmed the `CameraProvider`, do the following:
+ 
+ The following code shows an example:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-fun bindPreview(cameraProvider : ProcessCameraProvider) {
+-    var preview : Preview = Preview.Builder()
+-            .build()
++fun bindPreview(cameraProvider: ProcessCameraProvider) {
++    var preview: Preview = Preview.Builder()
++        .build()
+ 
+-    var cameraSelector : CameraSelector = CameraSelector.Builder()
+-          .requireLensFacing(CameraSelector.LENS_FACING_BACK)
+-          .build()
++    var cameraSelector: CameraSelector = CameraSelector.Builder()
++        .requireLensFacing(CameraSelector.LENS_FACING_BACK)
++        .build()
+ 
+     preview.setSurfaceProvider(previewView.getSurfaceProvider())
+ 
+@@ -137,22 +114,7 @@ fun bindPreview(cameraProvider : ProcessCameraProvider) {
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-void bindPreview(@NonNull ProcessCameraProvider cameraProvider) {
+-    Preview preview = new Preview.Builder()
+-            .build();
+-
+-    CameraSelector cameraSelector = new CameraSelector.Builder()
+-            .requireLensFacing(CameraSelector.LENS_FACING_BACK)
+-            .build();
+-
+-    preview.setSurfaceProvider(previewView.getSurfaceProvider());
+-
+-    Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, preview);
+-}
+-```
++<br />
+ 
+ Note that [`bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider.md.txt#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...)) returns a [`Camera`](https://developer.android.com/reference/androidx/camera/core/Camera.md.txt)
+ object. For more information about controlling camera output, such as zoom and
+@@ -196,13 +158,14 @@ to select the implementation mode suitable for your application. If the default
+ `PERFORMANCE` mode isn't suitable for your application, the following code
+ sample shows how to set `COMPATIBLE` mode:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-// viewFinder is a PreviewView instance
++// viewFinder is a PreviewView instance.
+ viewFinder.implementationMode = PreviewView.ImplementationMode.COMPATIBLE
+ ```
+ 
++<br />
++
+ ### Scale type
+ 
+ When the preview video resolution differs from the dimensions of your target
+@@ -230,13 +193,14 @@ The default scale type CameraX uses is `FILL_CENTER`. Use [`PreviewView.setScale
+ to set the scale type most appropriate for your application. The following code
+ sample sets the `FIT_CENTER` scale type:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-// viewFinder is a PreviewView instance
++// viewFinder is a PreviewView instance.
+ viewFinder.scaleType = PreviewView.ScaleType.FIT_CENTER
+ ```
+ 
++<br />
++
+ The process for displaying a video consists of the following steps:
+ 
+ 1. Scale the video:

@@ -1,0 +1,448 @@
+diff --git a/docs/media/camera/camera2/multiple-camera-streams-simultaneously.md b/docs/media/camera/camera2/multiple-camera-streams-simultaneously.md
+index 4e9e252d..794f01a9 100644
+--- a/docs/media/camera/camera2/multiple-camera-streams-simultaneously.md
++++ b/docs/media/camera/camera2/multiple-camera-streams-simultaneously.md
+@@ -30,46 +30,27 @@ Multiple camera streams can be combined into a single
+ illustrates how to set up a camera session with one stream for camera preview
+ and another stream for image processing:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ val session: CameraCaptureSession = ...  // from CameraCaptureSession.StateCallback
+ 
+ // You will use the preview capture template for the combined streams
+ // because it is optimized for low latency; for high-quality images, use
+-// TEMPLATE_STILL_CAPTURE, and for a steady frame rate use TEMPLATE_RECORD
++// TEMPLATE_STILL_CAPTURE, and for a steady frame rate use TEMPLATE_RECORD.
+ val requestTemplate = CameraDevice.TEMPLATE_PREVIEW
+ val combinedRequest = session.device.createCaptureRequest(requestTemplate)
+ 
+-// Link the Surface targets with the combined request
++// Link the Surface targets with the combined request.
+ combinedRequest.addTarget(previewSurface)
+ combinedRequest.addTarget(imReaderSurface)
+ 
+ // In this basic case, the SurfaceView gets updated automatically. ImageReader
+ // has its own callback that you have to listen to in order to retrieve the
+-// frames so there is no need to set up a callback for the capture request
++// frames so there is no need to set up a callback for the capture request.
+ session.setRepeatingRequest(combinedRequest.build(), null, null)
+ ```
+ 
+-### Java
+-
+-```java
+-CameraCaptureSession session = ...;  // from CameraCaptureSession.StateCallback
+-
+-// You will use the preview capture template for the combined streams
+-// because it is optimized for low latency; for high-quality images, use
+-// TEMPLATE_STILL_CAPTURE, and for a steady frame rate use TEMPLATE_RECORD
+-        CaptureRequest.Builder combinedRequest = session.getDevice().createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
+-
+-// Link the Surface targets with the combined request
+-        combinedRequest.addTarget(previewSurface);
+-        combinedRequest.addTarget(imReaderSurface);
+-
+-// In this basic case, the SurfaceView gets updated automatically. ImageReader
+-// has its own callback that you have to listen to in order to retrieve the
+-// frames so there is no need to set up a callback for the capture request
+-        session.setRepeatingRequest(combinedRequest.build(), null, null);
+-```
++<br />
+ 
+ If you configure the target surfaces correctly, this code will produce only
+ streams that meet the minimum FPS determined by
+@@ -103,21 +84,15 @@ specify an image format. For compatibility, it will count as
+ used internally. To query the formats supported by a device given its
+ [`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics.md.txt), use the following code:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ val characteristics: CameraCharacteristics = ...
+ val supportedFormats = characteristics.get(
+-    CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP).outputFormats
++    CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP
++)?.outputFormats
+ ```
+ 
+-### Java
+-
+-```java
+-CameraCharacteristics characteristics = ...;
+-        int[] supportedFormats = characteristics.get(
+-CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP).getOutputFormats();
+-```
++<br />
+ 
+ ## Output size
+ 
+@@ -132,87 +107,53 @@ The available output sizes depend on the choice of format. Given the
+ [`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics.md.txt) and a format, you can query
+ for the available output sizes like this:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ val characteristics: CameraCharacteristics = ...
+ val outputFormat: Int = ...  // such as ImageFormat.JPEG
+ val sizes = characteristics.get(
+-    CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
+-    .getOutputSizes(outputFormat)
++    CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP
++)?.getOutputSizes(outputFormat)
+ ```
+ 
+-### Java
+-
+-```java
+-CameraCharacteristics characteristics = ...;
+-        int outputFormat = ...;  // such as ImageFormat.JPEG
+-Size[] sizes = characteristics.get(
+-                CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
+-                .getOutputSizes(outputFormat);
+-```
++<br />
+ 
+ In the camera preview and recording use cases, use the target class to determine
+ supported sizes. The format will be handled by the camera framework itself:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ val characteristics: CameraCharacteristics = ...
+ val targetClass: Class<T> = ...  // such as SurfaceView::class.java
+ val sizes = characteristics.get(
+-    CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
+-    .getOutputSizes(targetClass)
++    CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP
++)?.getOutputSizes(targetClass)
+ ```
+ 
+-### Java
+-
+-```java
+-CameraCharacteristics characteristics = ...;
+-   int outputFormat = ...;  // such as ImageFormat.JPEG
+-   Size[] sizes = characteristics.get(
+-                CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
+-                .getOutputSizes(outputFormat);
+-```
++<br />
+ 
+ To get the `MAXIMUM` size, sort the output sizes by area and return the largest
+ one:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-fun<T> getMaximumOutputSize(
+-    characteristics: CameraCharacteristics, targetClass: Class<T>, format: Int? = null):
+-    Size {
+-  val config = characteristics.get(
+-      CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
+-
+-  // If image format is provided, use it to determine supported sizes; or else use target class
+-  val allSizes = if (format == null)
+-    config.getOutputSizes(targetClass) else config.getOutputSizes(format)
+-  return allSizes.maxBy { it.height * it.width }
++fun <T> getMaximumOutputSize(
++    characteristics: CameraCharacteristics,
++    targetClass: Class<T>,
++    format: Int? = null
++): Size {
++    val config = checkNotNull(
++        characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
++    )
++
++    // If image format is provided, use it to determine supported sizes; or else use target class.
++    val allSizes = if (format == null)
++        config.getOutputSizes(targetClass) else config.getOutputSizes(format)
++    return allSizes.maxBy { it.height * it.width }
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-@RequiresApi(api = Build.VERSION_CODES.N)
+-    <T> Size getMaximumOutputSize(CameraCharacteristics characteristics,
+-                                            Class<T> targetClass,
+-                                            Integer format) {
+-        StreamConfigurationMap config = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
+-
+-        // If image format is provided, use it to determine supported sizes; else use target class
+-        Size[] allSizes;
+-        if (format == null) {
+-            allSizes = config.getOutputSizes(targetClass);
+-        } else {
+-            allSizes = config.getOutputSizes(format);
+-        }
+-        return Arrays.stream(allSizes).max(Comparator.comparing(s -> s.getHeight() * s.getWidth())).get();
+-    }
+-```
++<br />
+ 
+ `PREVIEW` refers to the best size match to the device's screen resolution or to
+ 1080p (1920x1080), whichever is smaller. The aspect ratio might not match the
+@@ -224,8 +165,6 @@ taking into account that the display might be rotated.
+ The following code defines a helper class, `SmartSize`, that will make size
+ comparisons a little easier:
+ 
+-### Kotlin
+-
+ ```kotlin
+ /** Helper class used to pre-compute shortest and longest sides of a [Size] */
+ class SmartSize(width: Int, height: Int) {
+@@ -281,88 +220,6 @@ fun<T> getPreviewOutputSize(
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-/** Helper class used to pre-compute shortest and longest sides of a [Size] */
+-class SmartSize {
+-    Size size;
+-    double longSize;
+-    double shortSize;
+-
+-    public SmartSize(Integer width, Integer height) {
+-        size = new Size(width, height);
+-        longSize = max(size.getWidth(), size.getHeight());
+-        shortSize = min(size.getWidth(), size.getHeight());
+-    }
+-
+-    @Override
+-    public String toString() {
+-        return String.format("SmartSize(%sx%s)", longSize, shortSize);
+-    }
+-}
+-
+-/** Standard High Definition size for pictures and video */
+-SmartSize SIZE_1080P = new SmartSize(1920, 1080);
+-
+-/** Returns a [SmartSize] object for the given [Display] */
+-SmartSize getDisplaySmartSize(Display display) {
+-    Point outPoint = new Point();
+-    display.getRealSize(outPoint);
+-    return new SmartSize(outPoint.x, outPoint.y);
+-}
+-
+-/**
+- * Returns the largest available PREVIEW size. For more information, see:
+- * https://d.android.com/reference/android/hardware/camera2/CameraDevice
+- */
+-@RequiresApi(api = Build.VERSION_CODES.N)
+-<T> Size getPreviewOutputSize(
+-        Display display,
+-        CameraCharacteristics characteristics,
+-        Class<T> targetClass,
+-        Integer format
+-){
+-
+-    // Find which is smaller: screen or 1080p
+-    SmartSize screenSize = getDisplaySmartSize(display);
+-    boolean hdScreen = screenSize.longSize >= SIZE_1080P.longSize || screenSize.shortSize >= SIZE_1080P.shortSize;
+-    SmartSize maxSize;
+-    if (hdScreen) {
+-        maxSize = SIZE_1080P;
+-    } else {
+-        maxSize = screenSize;
+-    }
+-
+-    // If image format is provided, use it to determine supported sizes; else use target class
+-    StreamConfigurationMap config = characteristics.get(
+-            CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
+-    if (format == null)
+-        assert(StreamConfigurationMap.isOutputSupportedFor(targetClass));
+-    else
+-        assert(config.isOutputSupportedFor(format));
+-    Size[] allSizes;
+-    if (format == null) {
+-        allSizes = config.getOutputSizes(targetClass);
+-    } else {
+-        allSizes = config.getOutputSizes(format);
+-    }
+-
+-    // Get available sizes and sort them by area from largest to smallest
+-    List<Size> sortedSizes = Arrays.asList(allSizes);
+-    List<SmartSize> validSizes =
+-            sortedSizes.stream()
+-                    .sorted(Comparator.comparing(s -> s.getHeight() * s.getWidth()))
+-                    .map(s -> new SmartSize(s.getWidth(), s.getHeight()))
+-                    .sorted(Collections.reverseOrder()).collect(Collectors.toList());
+-
+-    // Then, get the largest output size that is smaller or equal than our max size
+-    return validSizes.stream()
+-            .filter(s -> s.longSize <= maxSize.longSize && s.shortSize <= maxSize.shortSize)
+-            .findFirst().get().size;
+-}
+-```
+-
+ ## Check the supported hardware level
+ 
+ To determine the available capabilities at runtime, check the supported
+@@ -372,7 +229,6 @@ hardware level using
+ With a [`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics.md.txt) object, you can
+ retrieve the hardware level with a single statement:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ val characteristics: CameraCharacteristics = ...
+@@ -384,23 +240,11 @@ val characteristics: CameraCharacteristics = ...
+ // - CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_FULL,
+ // - CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_3
+ val hardwareLevel = characteristics.get(
+-        CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL)
++    CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL
++)
+ ```
+ 
+-### Java
+-
+-```java
+-CameraCharacteristics characteristics = ...;
+-
+-// Hardware level will be one of:
+-// - CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY,
+-// - CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_EXTERNAL,
+-// - CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED,
+-// - CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_FULL,
+-// - CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_3
+-Integer hardwareLevel = characteristics.get(
+-                CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL);
+-```
++<br />
+ 
+ ## Putting all the pieces together
+ 
+@@ -433,59 +277,36 @@ surfaces, one using `ImageFormat.PRIVATE` and another using
+ `PREVIEW` size. Using the function defined earlier in this document, getting the
+ required preview sizes for a camera ID requires the following code:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ val characteristics: CameraCharacteristics = ...
+-val context = this as Context  // assuming you are inside of an activity
++val context = this as Context // assuming you are inside of an activity
+ 
+ val surfaceViewSize = getPreviewOutputSize(
+-    context, characteristics, SurfaceView::class.java)
++    context, characteristics, SurfaceView::class.java
++)
+ val imageReaderSize = getPreviewOutputSize(
+-    context, characteristics, ImageReader::class.java, format = ImageFormat.YUV_420_888)
++    context, characteristics, ImageReader::class.java, format = ImageFormat.YUV_420_888
++)
+ ```
+ 
+-### Java
+-
+-```java
+-CameraCharacteristics characteristics = ...;
+-        Context context = this; // assuming you are inside of an activity
+-
+-        Size surfaceViewSize = getPreviewOutputSize(
+-                context, characteristics, SurfaceView.class);
+-        Size imageReaderSize = getPreviewOutputSize(
+-                context, characteristics, ImageReader.class, format = ImageFormat.YUV_420_888);
+-```
++<br />
+ 
+ It requires waiting until `SurfaceView` is ready using the provided callbacks:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ val surfaceView = findViewById<SurfaceView>(...)
+ surfaceView.holder.addCallback(object : SurfaceHolder.Callback {
+-  override fun surfaceCreated(holder: SurfaceHolder) {
+-    // You do not need to specify image format, and it will be considered of type PRIV
+-    // Surface is now ready and you could use it as an output target for CameraSession
+-  }
+-  ...
++    override fun surfaceCreated(holder: SurfaceHolder) {
++        // You do not need to specify image format, and it will be considered of type PRIV.
++        // Surface is now ready and you could use it as an output target for CameraSession.
++    }
++    // ...
+ })
+ ```
+ 
+-### Java
+-
+-```java
+-SurfaceView surfaceView = findViewById<SurfaceView>(...);
+-
+-surfaceView.getHolder().addCallback(new SurfaceHolder.Callback() {
+-            @Override
+-            public void surfaceCreated(@NonNull SurfaceHolder surfaceHolder) {
+-                // You do not need to specify image format, and it will be considered of type PRIV
+-                // Surface is now ready and you could use it as an output target for CameraSession
+-            }
+-            ...
+-        });
+-```
++<br />
+ 
+ You can force the `SurfaceView` to match the camera output size by calling
+ [`SurfaceHolder.setFixedSize()`](https://developer.android.com/reference/android/view/SurfaceHolder.md.txt#setFixedSize%28int,%20int%29) or you can take an approach
+@@ -498,46 +319,30 @@ triggered.
+ Setting up the other surface from [`ImageReader`](https://developer.android.com/reference/android/media/ImageReader.md.txt) with the chosen
+ format is easier, since there are no callbacks to wait for:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-val frameBufferCount = 3  // just an example, depends on your usage of ImageReader
++val frameBufferCount = 3 // just an example, depends on your usage of ImageReader
+ val imageReader = ImageReader.newInstance(
+     imageReaderSize.width, imageReaderSize.height, ImageFormat.YUV_420_888,
+-    frameBufferCount)
++    frameBufferCount
++)
+ ```
+ 
+-### Java
+-
+-```java
+-int frameBufferCount = 3;  // just an example, depends on your usage of ImageReader
+-ImageReader imageReader = ImageReader.newInstance(
+-                imageReaderSize.width, imageReaderSize.height, ImageFormat.YUV_420_888,
+-                frameBufferCount);
+-```
++<br />
+ 
+ When using a blocking target buffer such as `ImageReader`, discard the frames
+ after using them:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ imageReader.setOnImageAvailableListener({
+-  val frame =  it.acquireNextImage()
+-  // Do something with "frame" here
+-  it.close()
++    val frame = it.acquireNextImage()
++    // Do something with "frame" here.
++    it.close()
+ }, null)
+ ```
+ 
+-### Java
+-
+-```java
+-imageReader.setOnImageAvailableListener(listener -> {
+-            Image frame = listener.acquireNextImage();
+-            // Do something with "frame" here
+-            listener.close();
+-        }, null);
+-```
++<br />
+ 
+ `LEGACY` hardware level targets the lowest common denominator  devices. You can
+ add conditional branching and use `RECORD` size for one of the output target

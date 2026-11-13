@@ -1,0 +1,77 @@
+diff --git a/docs/training/wearables/versions/6/setup.md b/docs/training/wearables/versions/6/setup.md
+index 0a355e2b..ad504038 100644
+--- a/docs/training/wearables/versions/6/setup.md
++++ b/docs/training/wearables/versions/6/setup.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/versions/6/setup
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/training/wearables/versions/6/llms.txt
++
+ This page explains how to set up the official emulator for testing, and how to
+ upgrade your app to target Wear OS 6.
+ 
+@@ -62,7 +64,7 @@ To set up a virtual device to run Wear OS 6, follow these steps.
+ 
+ ### Test your app on the emulator
+ 
+-After creating the virtual device, run and test your application on a
++After creating the virtual device, run and test your application on an
+ emulator that runs Wear OS 6:
+ 
+ 1. Go to the Android Studio toolbar and select the virtual device you just created.
+@@ -94,12 +96,12 @@ In addition, the following system apps are available in the emulator:
+ 
+ ## Update your app to target Wear OS 6
+ 
+-After you [update your app](https://developer.android.com/training/wearables/versions/6/changes) to prepare it for Wear OS 6, you can further
++After you [update your app](https://developer.android.com/training/wearables/versions/6/changes.md.txt) to prepare it for Wear OS 6, you can further
+ improve your app's compatibility with this version of Wear OS by targeting
+ Wear OS 6 (API level 36), which is based on Android 16, or higher.
+ 
+ If you update your target SDK version, handle the system behavior changes that
+-take effect for apps that [target Android 16 or higher](https://developer.android.com/about/versions/16/behavior-changes-16).
++take effect for apps that [target Android 16 or higher](https://developer.android.com/about/versions/16/behavior-changes-16.md.txt).
+ 
+ > [!NOTE]
+ > **Note:** If you publish your Wear OS app to Google Play, you must [target a
+@@ -113,20 +115,24 @@ To update your target SDK version, open your module-level `build.gradle` or
+ 
+ ### Groovy
+ 
+-    android {
+-        compileSdk 36
+-        ...
+-        defaultConfig {
+-            targetSdk 36
+-        }
++```groovy
++android {
++    compileSdk 36
++    ...
++    defaultConfig {
++        targetSdk 36
+     }
++}
++```
+ 
+ ### Kotlin
+ 
+-    android {
+-        compileSdk = 36
+-        ...
+-        defaultConfig {
+-            targetSdk = 36
+-        }
+-    }
+\ No newline at end of file
++```kotlin
++android {
++    compileSdk = 36
++    ...
++    defaultConfig {
++        targetSdk = 36
++    }
++}
++```
+\ No newline at end of file

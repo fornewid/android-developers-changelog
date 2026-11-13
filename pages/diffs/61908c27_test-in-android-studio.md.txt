@@ -1,0 +1,82 @@
+diff --git a/docs/studio/test/test-in-android-studio.md b/docs/studio/test/test-in-android-studio.md
+index c0c98da9..58f96dff 100644
+--- a/docs/studio/test/test-in-android-studio.md
++++ b/docs/studio/test/test-in-android-studio.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/test/test-in-android-studio
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/studio/test/llms.txt
++
+ Android Studio is designed to make testing simple. It contains many features to
+ simplify how you create, run, and analyze tests. You can set up tests that run
+ on your local machine or instrumented tests that run on a device. You can easily
+@@ -18,7 +20,7 @@ results overview.
+ <br />
+ 
+ This page is about how to manage tests in Android Studio. To learn how to write
+-automated Android tests, see [Test apps on Android](https://developer.android.com/training/testing).
++automated Android tests, see [Test apps on Android](https://developer.android.com/training/testing.md.txt).
+ 
+ ## Test types and locations
+ 
+@@ -32,7 +34,7 @@ run on your machine's local Java Virtual Machine (JVM). Use these tests to
+ minimize execution time when your tests have no Android framework dependencies
+ or when you can create test doubles for the Android framework dependencies.
+ For more information on how to write local unit tests, see
+-[Build local unit tests](https://developer.android.com/training/testing/local-tests).
++[Build local unit tests](https://developer.android.com/training/testing/local-tests.md.txt).
+ 
+ > [!NOTE]
+ > **Note:** When you run local unit tests, the Android Gradle plugin includes a library that contains all the APIs of the Android framework, which allows for the use of test doubles.
+@@ -40,26 +42,26 @@ For more information on how to write local unit tests, see
+ **Instrumented tests** are located at
+ `$module-name/src/androidTest/java/`.
+ These tests run on a hardware device or emulator. They have access to
+-[`Instrumentation`](https://developer.android.com/reference/android/app/Instrumentation) APIs that give you
+-access to information, such as the [`Context`](https://developer.android.com/reference/android/content/Context)
++[`Instrumentation`](https://developer.android.com/reference/android/app/Instrumentation.md.txt) APIs that give you
++access to information, such as the [`Context`](https://developer.android.com/reference/android/content/Context.md.txt)
+ class, on the app you are testing, and let you control the app under test from your
+ test code. Instrumented tests are built into a separate APK, so they have their own
+-[`AndroidManifest.xml`](https://developer.android.com/guide/topics/manifest/manifest-intro) file. This file
++[`AndroidManifest.xml`](https://developer.android.com/guide/topics/manifest/manifest-intro.md.txt) file. This file
+ is generated automatically, but you can create your own version at
+ `$module-name/src/androidTest/AndroidManifest.xml`,
+ which will be merged with the generated manifest. Use instrumented tests when
+ writing integration and functional UI tests to automate user interaction, or
+ when your tests have Android dependencies that you can't create test doubles for.
+ For more information on how to write instrumented tests, see
+-[Build instrumented tests](https://developer.android.com/training/testing/instrumented-tests)
+-and [Automate UI tests](https://developer.android.com/training/testing/instrumented-tests/ui-tests).
++[Build instrumented tests](https://developer.android.com/training/testing/instrumented-tests.md.txt)
++and [Automate UI tests](https://developer.android.com/training/testing/ui-tests.md.txt).
+ 
+ You can place your tests in build variant specific directories to test only
+ specific build variants. For example, you could place some local unit tests in
+ `$module-name/src/testMyFlavor/java/` so the tests
+ target your app built with this flavor's source code. For more information on
+ how to create these tailored tests, see
+-[Create an instrumented test for a build variant](https://developer.android.com/studio/test/advanced-test-setup#create-instrumented-test-for-build-variant).
++[Create an instrumented test for a build variant](https://developer.android.com/studio/test/advanced-test-setup.md.txt#create-instrumented-test-for-build-variant).
+ 
+ When you create a new project or add an app module, Android Studio creates the
+ test source sets listed earlier and includes an example test file in each. You can
+@@ -95,7 +97,7 @@ set as follows:
+ If your app doesn't compile after adding a test, make sure you have the right
+ test library dependencies set up. See [Build local
+ tests](https://developer.android.com/training/testing/local-tests#dependencies) and
+-[Build instrumented tests](https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests#setup)
++[Build instrumented tests](https://developer.android.com/training/testing/instrumented-tests.md.txt#set-testing)
+ for the correct dependencies.
+ 
+ ## Run tests
+@@ -262,7 +264,7 @@ coverage tool to determine whether you have adequately tested the elements,
+ classes, methods, and lines of code that make up your app.
+ 
+ To run tests with coverage, follow the same steps as described in
+-[Run tests](https://developer.android.com/studio/test/test-in-android-studio#run-tests), only instead of clicking **Run** ![](https://developer.android.com/static/studio/images/buttons/toolbar-run.png), click **Run
++[Run tests](https://developer.android.com/studio/test/test-in-android-studio.md.txt#run-tests), only instead of clicking **Run** ![](https://developer.android.com/static/studio/images/buttons/toolbar-run.png), click **Run
+ test-name with coverage** ![](https://developer.android.com/static/studio/images/buttons/run-test-with-
+ coverage-icon.png). In the **Project** window, this option
+ might be hidden behind **More Run/Debug** . You can also configure the coverage

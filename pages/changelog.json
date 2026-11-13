@@ -1,5 +1,425 @@
 [
   {
+    "date": "2026-11-13T15:11:13Z",
+    "commit_hash": "61908c27",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr3/download-ota\" target=\"_blank\">OTA images for Google Pixel</a>",
+        "path": "about/versions/17/qpr3/download-ota.md",
+        "summary": "Updated the Android 17 QPR3 OTA download documentation to feature the November 12, 2026 release (build DP11.261030.003, Google Play services 26.41.31) with corresponding device build files and checksums, replacing the previous October 29 release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_download-ota.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr3/download\" target=\"_blank\">Factory images for Google Pixel</a>",
+        "path": "about/versions/17/qpr3/download.md",
+        "summary": "Updated the Android 17 QPR3 download documentation to feature a new beta build release from November 12, 2026 (build DP11.261030.003). This update refreshes the device factory image links, SHA-256 checksums, and Google Play services version for all supported Pixel devices, and updates the Android Flash Tool target URL.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_download.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr3/gsi-release-notes\" target=\"_blank\">Android 17 QPR 3 GSI binaries and release notes</a>",
+        "path": "about/versions/17/qpr3/gsi-release-notes.md",
+        "summary": "Updated the Android 17 QPR3 Generic System Image (GSI) release notes to point to the new beta4 flash links, update download binaries to build DP11.261030.003, and update Google Play Services to version 26.41.31.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_gsi-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr3/release-notes\" target=\"_blank\">Release notes</a>",
+        "path": "about/versions/17/qpr3/release-notes.md",
+        "summary": "The release notes for Android 17 QPR3 Beta 4 have been added, detailing the November 2026 build info (DP11.261030.003) and the specific top issues fixed. Key fixes include resolutions for critical system_server memory leaks, Conscrypt TLS exception messaging, on-screen keyboard visual clipping, and excessive Bluetooth background power consumption.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/skill\" target=\"_blank\">Display Glasses with Jetpack Compose Glimmer</a>",
+        "path": "agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/skill.md",
+        "summary": "Updated the Jetpack Compose Glimmer skill documentation for Android XR display glasses, including revised SDK version requirements, explicit dependency declarations, refined Glimmer UI styling and typography guidelines, and new code snippets for focus management and depth effects.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/xr/projected-hardware/skill\" target=\"_blank\">Android XR projected hardware</a>",
+        "path": "agents/skills/xr/projected-hardware/skill.md",
+        "summary": "Updated documentation links to include '.md.txt' extensions and added a new section on Bluetooth HFP audio routing and host device context management using `ProjectedContext.createHostDeviceContext(activity)` for projected hardware.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/jdks\" target=\"_blank\">Java versions in Android builds</a>",
+        "path": "build/jdks.md",
+        "summary": "Updated documentation formatting by converting code snippets into explicit Markdown code blocks (Kotlin and Groovy) and updating internal links to point to `.md.txt` files for improved parser compatibility.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_jdks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/native-dependencies\" target=\"_blank\">Add these two lines.</a>",
+        "path": "build/native-dependencies.md",
+        "summary": "The changes in the 'native-dependencies.md' documentation are trivial formatting updates, including link adjustments, markdown blockquote additions for LLMs, and minor text wrapping and code block syntax fixes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_native-dependencies.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-4-0-0-release-notes\" target=\"_blank\">Android Gradle Plugin 4.0.0 (April 2020)</a>",
+        "path": "build/releases/agp-4-0-0-release-notes.md",
+        "summary": "The Android Gradle Plugin 4.0.0 release notes documentation was updated to improve clarity, fix terminology (changing \"native libraries\" to \"C/C++ libraries\"), and properly structure code blocks with explicit Groovy and Kotlin tabs instead of raw indentation. Additionally, various link targets were updated to reference corresponding markdown/text documentation files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_agp-4-0-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/tool-and-library-dependencies\" target=\"_blank\">Version catalog - gradle/libs.versions.toml</a>",
+        "path": "build/tool-and-library-dependencies.md",
+        "summary": "Updated internal documentation links to use absolute markdown file paths (adding `.md.txt` extensions), added an LLM documentation index link, and improved the markdown formatting for version catalog code blocks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_tool-and-library-dependencies.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/migrate/compare-metrics\" target=\"_blank\">Compare Compose and View metrics</a>",
+        "path": "develop/ui/compose/migrate/compare-metrics.md",
+        "summary": "The changes in this file are trivial, consisting solely of formatting updates that append '.md.txt' to internal documentation links and the addition of a documentation index reference link.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_compare-metrics.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance\" target=\"_blank\">Jetpack Compose Performance</a>",
+        "path": "develop/ui/compose/performance.md",
+        "summary": "The performance documentation was updated to include a link to the LLM documentation index and a new entry for Compose version 1.13 in the jank benchmark table, showing continued 0% excess jank on Pixel 6.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_performance.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/herobenchmark\" target=\"_blank\">Hero benchmarks</a>",
+        "path": "develop/ui/compose/performance/herobenchmark.md",
+        "summary": "Updated the hero benchmark documentation to include performance metrics for Compose 1.13 alongside updated figures for Compose 1.11 and 1.12. The updates provide granular milliseconds for Time to Initial Display (TTID) and Time to Full Display (TTFD) on a Pixel 6, showing that Compose 1.13 maintains performance parity with previous versions while operating 3.4% faster than Views for TTID, and added a reference to Compose 1.13 in the scroll jank benchmark data table.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_herobenchmark.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/events/dev-summit/llms.txt\" target=\"_blank\">Android Dev Summit 2026 \\> Android Dev Summit features technical sessions, speaker insights, and code walkthroughs designed for Android developers. Talk links ending in \\`.txt\\` serve the full Markdown session transcript, key takeaways, speaker details, resources, and timestamped code snippets. ## Tools \\& Performance - \\[Actionable strategies for reducing your app's Bitmap memory footprint\\](https://developer.android.com/events/dev-summit/talks/actionable-strategies-for-reducing-your-apps-bitmap-memory-footprint.txt): Managing Bitmap memory is critical for mitigating Out-Of-Memory (OOM) risks in visually rich Android apps. While developers know to reduce image sizes, achieving long-term app stability comes from mastering two other key pillars: Reuse and Recycle. This session delivers a practical playbook for optimizing memory performance using modern tools, open-source libraries like Glide and Coil, and system-level APIs. In this session, you will learn how to diagnose real-world memory regressions using Android Vitals, implement advanced caching (Reuse) patterns with Glide and Coil, and proactively release memory (Recycle) using the onTrimMemory callback. (Speakers: Fung Lam) - \\[Agentic coding: A roundtable with industry leaders\\](https://developer.android.com/events/dev-summit/talks/agentic-coding-a-roundtable-with-industry-leaders.txt): As AI tools rapidly reshape modern software engineering, this panel will explore how developers are leveraging AI-assisted coding, automated agents and specialized developer tooling in their daily workflows. We aim to highlight practical applications, discuss measurable productivity improvements and candidly address the challenges engineering teams face when integrating AI at scale. Moderated by Ben Trengrove, Google Developer Relations Engineer (Speakers: Luis Artola, Ty Smith, Vinay Gaba, Kaushik Gopal, Annyce Davis, Ben Trengrove) - \\[Agentic coding: A roundtable with industry leaders (London)\\](https://developer.android.com/events/dev-summit/talks/agentic-coding-a-roundtable-with-industry-leaders-london.txt): As new tools rapidly reshape modern software engineering, this panel will explore how companies and developers are leveraging agentic coding, automated agents, and specialized developer tooling in their daily workflows. We aim to highlight practical applications, discuss measurable productivity improvements, and candidly address the challenges engineering teams face when integrating these tools at scale. (Speakers: Arnaud Giuliani, Christos Gkekas, Iury Souza, Maia Grotepass, Slobodan Manojlović, Tristan Hamilton, Jose Alcérreca) - \\[Agentic engineering with Claude Code and Android CLI\\](https://developer.android.com/events/dev-summit/talks/agentic-engineering-with-claude-code-and-android-cli.txt): Stop copy-pasting into AI chat windows and start delegating to your agent. This practical, example-driven session shows you how to level up your agentic engineering using Claude Code and the Android CLI. We will walk through a complete workflow to automate complex development tasks and ship features faster. You will learn to: Optimize the token efficiency of your harness using Android CLI, Skills, Hooks and MCP; Offload and parallelize long-running tasks to subagents; Set up continuous verification loops that stop early termination and run until tests pass. (Speakers: Steven Jenkins, Ben Trengrove) - \\[Android developer verification: Paths for Play, third party app distributors, and hobbyists\\](https://developer.android.com/events/dev-summit/talks/android-developer-verification-paths-for-play-third-party-app-distributors-and-hobbyists.txt): Android Developer Verification is crucial for a safer ecosystem. This session breaks down the compliance pathways for all developers, from large studios to hobbyists. We will outline the key requirements for publishing on Google Play and third-party app stores. The talk will feature a live demo of the new Limited Distribution accounts, showing how students and hobbyists can easily and safely share apps. By the end of this session, you will be able to: Understand the 3 main developer verification paths. See the new Limited Distribution account flow live. Identify your specific next steps for compliance. (Speakers: Rob Clifford, Naheed Vora) - \\[App security in the agentic era\\](https://developer.android.com/events/dev-summit/talks/app-security-in-the-agentic-era.txt): This presentation explores the strategic shift from viewing AI as a generic coding assistant to leveraging it as a context-aware, automated security peer reviewer integrated directly into the Android development lifecycle. We discuss how specialized AI agents, connected to the Android toolchain via skills, can help improve app security. By bridging the gap between raw LLM capabilities and deep project context, this approach empowers development teams to maintain high-velocity feature delivery without compromising rigorous security and policy standards. (Speakers: Kristen O'Leary, Sabs) - \\[Declarative, agent-ready Android builds with Lightbuild\\](https://developer.android.com/events/dev-summit/talks/declarative-agent-ready-android-builds-with-lightbuild.txt): As Android apps grow and AI coding assistants become essential, using executable code to configure your build can create bottlenecks with slow sync times, fragile logic, and added complexity. Enter Lightbuild: Google's declarative, config-driven interface to the build engine, designed for modern Android development. In this session, we'll explore Lightbuild's new approach to managing builds and how to use it to build a demo app. Learn how decoupling build config from execution delivers faster project opens with lightning-fast sync in Android Studio, while offering a predictable schema for safer, more reliable AI editing. We'll also cover Lightbuild's agent-friendly CLI tools for creating reproducible builds across local machines, teams, and CI/CD pipelines (Speakers: Scott Myers, Juan Sebastian Oviedo) - \\[Decoding Play Policy AMA\\](https://developer.android.com/events/dev-summit/talks/decoding-play-policy-ama.txt): An open and honest panel about Play policies to keep your app compliant and quickly published. (Speakers: Paul Hua, Bohdan Kosenko, Jan Kleinert) - \\[Insights into agent code generation from Android Bench\\](https://developer.android.com/events/dev-summit/talks/insights-into-agent-code-generation-from-android-bench.txt): AI models can generate entire features in minutes, but is the code correct? We built Android Bench, our AI evaluation benchmark, to answer this question after analyzing thousands of generated code changes. This talk shares insights from our journey, including all the ways we saw models cheats, how prompt specificity leads to higher code quality and how different agents approach the same task. (Speakers: Tomáš Mlynarič) - \\[Memory troubleshooting with Firebase Crashlytics\\](https://developer.android.com/events/dev-summit/talks/memory-troubleshooting-with-firebase-crashlytics.txt): Keep your app's memory footprint lean-and-mean and non-segfaulty with Firebase Crashlytics. This session explores our comprehensive suite of memory troubleshooting tools available in the Firebase console and in Android Studio. We'll start by covering how to leverage ANR insights and GWP-ASan reports to diagnose elusive memory bugs and then dive into our latest tooling for Out-Of-Memory (OOM) and Memory Limiter Kill (MLK) events, designed specifically to help you navigate and adapt to the new memory limits introduced in Android 17. (Speakers: Polina Govorkova) - \\[Navigating multi-device quality \\& publishing beyond mobile on Google Play\\](https://developer.android.com/events/dev-summit/talks/navigating-multi-device-quality-publishing-beyond-mobile-on-google-play.txt): As the Android ecosystem expands across wrists, living rooms, vehicles, and XR, the opportunity to reach users on new screens is growing. However, distributing across Wear OS, Android TV, Android Auto, Android Automotive OS, or Android XR introduces distinct considerations for testing, store listings, and app reviews. This session explores how to effectively utilize Google Play Console for non-mobile form factors to help streamline a predictable multi-device launch. We will cover key distribution decisions, including how to structure track strategies and package names, configure targeted testing tracks, and tailor store listings. You'll get a practical walkthrough of form-factor App Quality guidelines to help avoid common review pitfalls and publish on Google Play with greater confidence. (Speakers: Jan Kleinert, Faustine Liao) - \\[Outperform yourself in Compose\\](https://developer.android.com/events/dev-summit/talks/outperform-yourself-in-compose.txt): Jetpack Compose makes it easy to design high-quality user interfaces, but it can be difficult to track down issues that affect UI performance. These kinds of issues can lead to problems that your users notice, like startup latency, and dropped frames that appear as scroll jank or choppy animations. In this talk, we'll introduce tools to uncover what's impacting your UI's performance, focusing on Perfetto and (re-)composition tracing. We'll then explore specific anti-patterns you may be using that are secretly costing you, how you can find them in your code, and what positive patterns you can replace them with. By the end of this talk, you'll understand how to think in Compose with a performance mindset, and how to profile, analyze, and verify performance optimizations in your app. (Speakers: Andrei Shikov, Andrew Bailey) - \\[Trace me if you can: Automated instrumentation and field profiling\\](https://developer.android.com/events/dev-summit/talks/trace-me-if-you-can-automated-instrumentation-and-field-profiling.txt): Optimizing Android apps requires deep visibility into concurrent workflows and coroutine suspensions. While local profiling offers a useful snapshot, scaling these insights to production without overhead remains a challenge. This session delivers an architectural blueprint for a continuous performance feedback loop. androidx.tracing 2.0: Swap backends dynamically and propagate coroutine contexts (Perfetto flows) across threads. Smart Instrumentation: Use local ART tracing to find hotspots, then automate the injection of low-overhead trace points. Macrobenchmarking: Track regressions and verify performance gains on physical devices in CI. Field Tracing: Go beyond local and CI tracing, with ProfilingManager. (Speakers: Rahul Ravikumar) - \\[Type safe keep rules and DEX optimization\\](https://developer.android.com/events/dev-summit/talks/type-safe-keep-rules-and-dex-optimization.txt): Android apps often ship under-optimized due to overly conservative keep rules often from third-party libraries, leading to bloated APKs, slower cold starts, and degraded runtime performance. With Google Play's new performance thresholds for DEX optimization, app visibility now directly depends on staying ahead of the optimization curve. This talk introduces a modern R8 workflow to tackle rule bloat. You will learn to: Use the R8 config analyzer and skill to identify legacy rule overhead; Transition from broad wildcard keep rules to precise, type-safe, generated annotations; Prevent optimization regressions with new Android CLI tools. (Speakers: Chris Craik, Breana Tate) - \\[What's new in Android dev tools\\](https://developer.android.com/events/dev-summit/talks/whats-new-in-android-dev-tools.txt): Discover what's next for Android development across Android Studio and the terminal with Android CLI. In this session, we unveil the latest in Android Studio Canary and Stable---from AI-assisted code migrations to Compose and Agent Client Protocol (ACP) support, to Lightbuild's declarative architecture. We'll also dive into the latest updates to the Android CLI toolchain. Learn how you can use it to automate your inner-loop workflows with improved access to devices, diagnostics tools for local and production issues, profiling workflows that let your agents test and validate optimizations and much more. (Speakers: Esteban de la Canal, Adarsh Fernando) ## Apps foundation - \\[Building reliable text editing experiences in Compose\\](https://developer.android.com/events/dev-summit/talks/building-reliable-text-editing-experiences-in-compose.txt): The journey to reliable text editing in Compose culminated in the complete rewrite of BasicTextField. This shift to a buffer-driven architecture eliminated IME race conditions once and for all. This session unpacks why legacy input syncing had to go and how TextFieldState keeps keyboard updates in sync. From there, take a deep dive into formatted editing to explore the mechanics of TrackedRange, the performance costs of edit blocks, and the real-world catches behind style boundaries, before taking an early peek at Markdown rendering. (Speakers: Anastasia Soboleva, Haoyu Zhang) - \\[Building type-safe deep links with Jetpack Navigation3\\](https://developer.android.com/events/dev-summit/talks/building-type-safe-deep-links-with-jetpack-navigation3.txt): Managing deep links across modular Android apps can easily lead to broken routes and runtime surprises.This session unpacks Jetpack Navigation3's new type-safe deep linking architecture for Compose to help you build a robust and scalable routing system. We'll explore how to implement out-of-the-box deep link matching APIs, write custom serializers for complex type-safe arguments, and construct dynamic hierarchical back stacks that keep user navigation predictable. (Speakers: Clara Fok, Ian Lake) - \\[Delivering seamless sign in and digital credentials on Android\\](https://developer.android.com/events/dev-summit/talks/delivering-seamless-sign-in-and-digital-credentials-on-android.txt): As the industry moves away from passwords and physical wallets, delivering a modern user journey demands both seamless authentication and trusted identity verification. While passkeys establish secure one tap logins, switching devices remains one of the largest drop off points in user engagement. Learn how to reduce migration friction using the Restore Credentials API to meet the new Google Play Zero Tap Sign In standard. This session explores how a single integration with Android Credential Manager unifies passkeys, silent device restoration, and Digital Credentials, allowing you to verify identity attributes directly from the device and build an effortless, secure onboarding flow. (Speakers: Chiping Yeh, Tom Colvin) - \\[Elevate your apps with the latest graphics features in Jetpack Compose and Android\\](https://developer.android.com/events/dev-summit/talks/elevate-your-apps-with-the-latest-graphics-features-in-jetpack-compose-and-android.txt): Ready to take your Android UI from \"it works\" to \"it's a work of art\"? Join us for a tour of the latest graphics capabilities in Jetpack Compose. We'll show you how to build new visual effects, from delightful mesh gradients to progressive blurs, and using the powerful new graphics features in Android. We will also show you how to improve the performance of your graphics features, without sacrificing battery life or frame rates. (Speakers: Rebecca Franks, Aayush Chaudhary, Rahul Ray) - \\[Elevating camera experiences across devices with CameraX and on-device intelligence\\](https://developer.android.com/events/dev-summit/talks/elevating-camera-experiences-across-devices-with-camerax-and-on-device-intelligence.txt): Users expect third-party apps to capture photos and videos with the same high fidelity as their device's native camera, regardless of lighting conditions or hardware tier. Delivering this consistency across the expanding Android ecosystem comes with key architectural considerations. This session demonstrates how to construct robust, professional capture pipelines that maximize device capabilities while remaining reliable across all form factors. We will explore the latest advancements in CameraX, showing you how to integrate cutting-edge capabilities like Motion Photos and on-device AI enhancements through Google Play services, alongside spatial experiences using the Jetpack XR SDK. We will also look at our CameraX skill, which allows the coding agent of your choice to automatically implement the concepts in this talk, and more! (Speakers: Aman Choudhary, Scott Nien) - \\[Enabling seamless cross-device interactions\\](https://developer.android.com/events/dev-summit/talks/enabling-seamless-cross-device-interactions.txt): As users move between phones, wearables, and audio peripherals, delivering fluid cross-device experiences has become essential for engagement. However, relying on standard networking approaches often leads to battery drain, latency spikes, and fragmented user sessions. This deep dive introduces specialized Android APIs built for multi-device communication, offering memory- and power-efficient patterns to keep transitions between devices instant, reliable, and intuitive. (Speakers: Yacine Rezgui, Hanrui Gao, Nataraj K R) - \\[Evolving Tiles to Wear Widgets using Jetpack Glance and Remote Compose\\](https://developer.android.com/events/dev-summit/talks/evolving-tiles-to-wear-widgets-using-jetpack-glance-and-remote-compose.txt): In this session, we will take a technical deep dive into the evolution from full-screen Tiles to dynamic, partial-height Wear Widgets. We will explore the technical benefits of the unified Jetpack Glance API and the new Remote Compose engine, detailing how they seamlessly align with Modern Android Development. Finally, we will share the latest UX guidance and walk through practical migration strategies to help you build the next generation of glanceable UI. (Speakers: François Deschênes, Yuri Schimke) - \\[Inside the first wave on Googlebook with Notability and Logitech\\](https://developer.android.com/events/dev-summit/talks/inside-the-first-wave-on-googlebook-with-notability-and-logitech.txt): The launch of Googlebook opens up a new frontier for high-fidelity, desktop-grade experiences. In this session, we go behind the scenes with two pioneering partners who built for this platform from the ground up. Notability will share their journey creating a desktop-class Android app using Jetpack Compose. Learn about their journey moving from other app platforms with desktop top-of-mind. Second, Logitech will dive into the hardware side, discussing how they are building and customizing peripherals to integrate seamlessly with Googlebook. Join the session to get practical, real-world insights on optimizing inputs, leveraging large-screen APIs, and delivering a premium, cohesive user experience across hardware and software. (Speakers: Emilie Roberts, Ryan Shea, Joe Yezhou Wang) - \\[Lessons from WhatsApp's Wear OS journey\\](https://developer.android.com/events/dev-summit/talks/lessons-from-whatsapps-wear-os-journey.txt): Hear directly from WhatsApp engineers on how they upgraded their Wear OS app at scale. This session covers the architectural and UX decisions behind integrating Material 3 and adopting Wear Widgets. Gain direct insight into the lessons, patterns and tools the team used to update their app and deliver a cohesive user experience. (Speakers: Martin Pelant, Subhag Bhatia) - \\[Migrating two decades of the Google Play app to Jetpack Compose\\](https://developer.android.com/events/dev-summit/talks/migrating-two-decades-of-the-google-play-app-to-jetpack-compose.txt): This year, Android officially became Compose-first for building all UI, placing legacy Views into maintenance mode. For Google Play, that journey began back in 2020. Across an engineering footprint spanning nearly two decades and billions of users, migrating to Jetpack Compose was achieved through proven best practices, close collaboration with the core Compose team and continuous tooling evolution. Discover how modernizing Google Play with Compose delivered measurable improvements in velocity and long-term stability. The session walks through connecting agentic Figma design workflows with Compose implementation, automating quality to prevent unnecessary recompositions and crafting expressive interfaces with dynamic color, rich typography and layered shapes. You will leave with tested strategies to triage bugs faster and scale your own Compose migration with confidence. (Speakers: Kirill Grouchnikov, Jon Boekenoogen) - \\[Optimize media playback and maximize reach with Jetpack Media3 APIs\\](https://developer.android.com/events/dev-summit/talks/optimize-media-playback-and-maximize-reach-with-jetpack-media3-apis.txt): Media consumption accounts for a large portion of user time spent on mobile devices, which requires the playback experience to be flawless, highly efficient and mindful of battery life. Furthermore, users expect these experiences to seamlessly transition across their devices, from phones to living room TVs and beyond. Explore how architectural updates in Media3 and ExoPlayer power seamless playback across form factors. The discussion centers on crafting responsive interfaces with the Media3 Compose UI toolkit, eliminating buffering in feeds using the new PreloadManager and extending your app to living room screens and Android XR with CastPlayer and spatial audio. (Speakers: Donovan McMurray, Toni Heidenreich, Kristina Simakova) - \\[Powering interactive surfaces with Remote Compose\\](https://developer.android.com/events/dev-summit/talks/powering-interactive-surfaces-with-remote-compose.txt): Remote Compose introduces a new way to project expressive and interactive UI onto remote surfaces like widgets. By serializing layouts into compact binary payloads, RemoteCompose decouples UI from host execution to deliver significant advantages. Key benefits include edge interactivity that enables high-performance rendering through local execution on the remote device, fluid scaling that allows UIs to reflow across diverse form factors via remote-side component evaluations, and a unified developer workflow that removes the need for platform-specific remote UI frameworks through familiar Jetpack Compose APIs. This session unpacks these benefits and provides live production examples, including modern Wear OS Widgets and the glanceable Wear Workout Tracker experience in Runkeeper. (Speakers: Nicolas Roard, John Hoford, John Zoeller) - \\[Scale your app for every screen with Compose\\](https://developer.android.com/events/dev-summit/talks/scale-your-app-for-every-screen-with-compose.txt): The Android ecosystem is vast, with users shifting seamlessly across phones, tablets, foldables, and desktop environments. Now that we are Compose First, this session explores how to architect your app for resizable windows and diverse aspect ratios---where traditional layout assumptions break down, leading to stretched UIs and lost state. Explore how the latest capabilities in Jetpack Compose, Navigation 3, and WindowManager can help you build dynamic layouts that naturally scale from compact screens to dual-pane displays. Walk away with strategies to accelerate your development workflow using Gemini and our skills, like the adaptive skill, to automatically refactor legacy codebases for larger screens. (Speakers: Francesco Romano) - \\[Scaling input interactions beyond the touchscreen with Jetpack Compose\\](https://developer.android.com/events/dev-summit/talks/scaling-input-interactions-beyond-the-touchscreen-with-jetpack-compose.txt): As new form factors move beyond the touchscreen, Compose's input system has evolved to meet the challenge. Its layered architecture provides the foundation for supporting everything from advanced trackpad gestures to novel hardware inputs seamlessly. Through clear architectural breakdowns and hands-on code examples, follow the lifecycle of an input event all the way from the OS platform layer up to Compose gesture detectors and UI components. You will discover how to trace events across the entire stack, apply key architectural patterns for emerging input types, and confidently debug complex gesture interactions in your own apps. (Speakers: Alex Vanyo, Jeremy Walker) - \\[Take Compose state beyond the UI with Jetpack AppState\\](https://developer.android.com/events/dev-summit/talks/take-compose-state-beyond-the-ui-with-jetpack-appstate.txt): Compose's snapshot runtime, automatic dependency tracking, and atomic updates don't have to stop at the UI layer. Jetpack AppState lets you move Compose state upstream---streamlining what reaches your screens by hoisting and deriving state with the snapshot system before it ever hits the UI. In this session, you'll learn about AppState's two foundational libraries. We'll dive into StateStore for hoisting state, and Transform for using composition to derive state with plain Kotlin control flow---eliminating complex Flow combine chains and keeping your UI effortlessly in sync. (Speakers: Ben Sagmoe, Elif Bilgin Morris) - \\[The car is your canvas: Unlocking Android development for the road\\](https://developer.android.com/events/dev-summit/talks/the-car-is-your-canvas-unlocking-android-development-for-the-road.txt): As in-car displays expand across Android Auto and Android Automotive OS vehicles, developers face a unique dual challenge: delivering rich, adaptive experiences while parked, and driver-safe, template-driven experiences while driving. In this comprehensive 30-minute technical session, we explore the end-to-end architecture and development approaches to adapting Android apps to cars. From the fundamentals of designing apps for use in cars, to the newest approaches for building media experiences that shift from audio to video as the car shifts from drive to park, you'll leave with everything you need to know to get your app on the road. (Speakers: Paul Lammertsma, Thomas Weathers) ## Intelligent Apps - \\[Agentic coding workflows with small models\\](https://developer.android.com/events/dev-summit/talks/agentic-coding-workflows-with-small-models.txt): While large frontier models dominate the headlines, small language models (SLMs) like Gemma 4 offer low-latency, cost-effective, and fully offline intelligence to augment daily developer workflows. This talk explores practical patterns for integrating small models into Android development, from smart task routing to cost optimization, using Gemma 4 as our primary hands-on case study to demonstrate real-world use cases and how to configure developer tools and agentic workflows. (Speakers: Ian Ballantyne, Jose Alcérreca, Zoe Lopez-Latorre) - \\[Build secure and cost-optimized Android Apps with Firebase AI Logic and Gemini Nano 4\\](https://developer.android.com/events/dev-summit/talks/build-secure-and-cost-optimized-android-apps-with-firebase-ai-logic-and-gemini-nano-4.txt): Building production-ready generative AI into Android apps requires more than connecting to an LLM---it demands enterprise-grade security and cost controls. In this session, discover how Firebase AI Logic empowers developers to deploy secure, budget-conscious AI experiences at scale. We will cover from security foundations and Firebase App Check, cost management, dynamic model routing to leveraging the multimodal capabilities. (Speakers: Ankita Saxena, Arthur Thompson) - \\[Building a Formula E co-driver on Android with ML Kit and Gemini Nano\\](https://developer.android.com/events/dev-summit/talks/building-a-formula-e-co-driver-on-android-with-ml-kit-and-gemini-nano.txt): A racing car is a demanding environment of high speed, heat, and telemetry constraints. How can an on-device agent help process real-time vehicle data for sports and engineering applications? This technical session explores an experimental hybrid architecture combining edge hardware and cloud agents. We'll walk through a research proof-of-concept using a Raspberry Pi to stream CAN bus telemetry, a Pixel phone running an on-device conversational agent powered by ML Kit and Gemini Nano, and an agent-to-agent (A2A) Cloud connection for post-race workflows. (Speakers: Alastair Breeze, Oli Thompson) - \\[Extend your app to Gemini and Search with the Connected Apps Platform\\](https://developer.android.com/events/dev-summit/talks/extend-your-app-to-gemini-and-search-with-the-connected-apps-platform.txt): The new Connected Apps Platform lets you integrate your app's services directly into Gemini, AI Mode in Search, and the Android intelligence system. This session provides a practical guide to getting started. Using code examples and learning from real-life case studies, we'll walk through the development lifecycle: building, testing, and publishing your first connected app to reach users within their AI-powered workflows. By the end of this session, you'll be able to: Integrate your service with the Connected Apps Platform; Test your integration across different AI surfaces; Publish your app's features into users' AI workflows. (Speakers: Kateryna Semenova, Mai Lowe) - \\[Inside Gemini Nano and Gemma 4 powering on-device intelligence\\](https://developer.android.com/events/dev-summit/talks/inside-gemini-nano-and-gemma-4-powering-on-device-intelligence.txt): Gemma 4 brings capable, multimodal AI directly to Android devices. In this session, we'll trace how Gemma evolved into a model family built for efficiency and explore what the edge-optimized E2B and E4B models can do on-device, from vision and audio understanding to agentic function calling. We'll cover the architecture behind that efficiency, including Per-Layer Embeddings (PLE), and show how Gemma and Gemini Nano work together through AICore. You'll learn how Quantization-Aware Training (QAT) preserves model capability within 1.1--3.5 GB RAM footprints, while Multi-Token Prediction (MTP) accelerates decoding speeds 1.5x--3x for responsive, real-time experiences. (Speakers: Sara Smoot) - \\[Integrate your app with the Android intelligence system\\](https://developer.android.com/events/dev-summit/talks/integrate-your-app-with-the-android-intelligence-system.txt): Android is evolving into an intelligence system where agents like Gemini orchestrate tasks across apps. To unlock new user experiences and participate in these agentic workflows, your app must expose its core capabilities. This session is a practical guide to integrating your app with Android's intelligence layer. We'll survey key integration paths - including on-device Android MCP, server-side MCP, and Task Automation - and provide a decision framework for choosing the right path for your use case. We'll also explore proactive experiences with Personal Context. You will learn how to: Select the optimal integration path for your app's needs; Implement both reactive and proactive intelligence features; Balance performance and security in agentic integrations. (Speakers: Sarah Shamsie, Dan Galpin) - \\[Let agents generate UI in your Android apps with A2UI\\](https://developer.android.com/events/dev-summit/talks/let-agents-generate-ui-in-your-android-apps-with-a2ui.txt): A2UI is transitioning from web-centric components to native Android. The new Jetpack Compose renderer for A2UI v0.9 enables developers to render dynamic, LLM-generated UI natively. Instead of webviews, it leverages a Coroutine-driven actor framework, sealed-class lifecycles, and native Material 3 integration. This session walks through the new architecture, explaining how server-driven component trees translate into reactive Compose nodes, and how built-in layout transitions handle structural updates smoothly without blocking the UI. (Speakers: Anton Beloglazov, Nick Butcher) - \\[Mastering on-device intelligence with ML Kit and LiteRT in Google Play services\\](https://developer.android.com/events/dev-summit/talks/mastering-on-device-intelligence-with-ml-kit-and-litert-in-google-play-services.txt): Stop choosing between plug-and-play AI convenience and custom model flexibility---you can deploy both in a single, ultra-lean app without adding megabytes of binary bloat. In this session, we'll demonstrate how to build this exact dual-stack architecture in a single Android app. You'll see how to leverage ML Kit for ready-to-use classical ML tasks (like doc scan) alongside LiteRT standalone in Play services for your custom computer vision or audio workloads. We'll dive deep into how both implementation paths unite under the hood to utilize the modern LiteRT runtime, giving your app seamless, hardware-accelerated performance on CPU and GPUs with a virtually zero-byte download footprint. Key takeaways for developers: -Uncompromised performance: Both turnkey and custom models are hardware-accelerated automatically using the unified CompiledModel API. -Micro-APKs: Dramatically reduce your app's download size by offloading both the ML Kit and LiteRT runtimes to Play services. -Hybrid integration: Master running multiple ML workflows side-by-side in production without resource conflicts. (Speakers: Chintan Parikh, Fergus Henderson) - \\[On-device intelligence: Optimized performance and quality using Android ML Kit APIs\\](https://developer.android.com/events/dev-summit/talks/on-device-intelligence-optimized-performance-and-quality-using-android-ml-kit-apis.txt): In this session, we'll explore different GenAI use cases using ML Kit APIs to understand when on-device GenAI is ideal for an app and also understand how to evaluate existing GenAI use cases to see if on-device models can satisfy their quality bar. (Speakers: David Chou) - \\[Unlock agentic capabilities in your app with ML Kit GenAI\\](https://developer.android.com/events/dev-summit/talks/unlock-agentic-capabilities-in-your-app-with-ml-kit-genai.txt): Take your Android AI features to the next level by building autonomous on-device agents. In this session, we dive into ML Kit's new agentic APIs, built directly on top of the direct model access APIs you already know. Using the open-source Jetpacker app, you'll learn how to chain multi-step actions across local data, manage stateful multi-turn sessions with isolated contexts, and wire up Android MCP to power both in-app assistants and Android system-level surfaces with a single codebase. (Speakers: Jolanda Verhoef, Victoria Lestari) ## Android XR - \\[Architecting Spatial Content on Android XR with Unity\\](https://developer.android.com/events/dev-summit/talks/architecting-spatial-content-on-android-xr-with-unity.txt): Discover how to anchor and persist 3D experiences in the real world using Unity and Android XR. This session covers the Spatial Entities framework, Cloud Anchors, and Geospatial APIs, demonstrating how to build context-aware apps that remember physical placements and sync multi-user spatial data across sessions. We will examine the architecture behind spatial entities, understand how to anchor digital assets to physical objects, surfaces, and geographic locations. You will walk away with practical Unity workflows for mapping spaces, persisting content across sessions, and creating shared, location-aware AR/XR experiences. (Speakers: Levana Chen, Jennifer Stanton) - \\[Balancing ultra-low latency and cloud economics in virtual voice agents\\](https://developer.android.com/events/dev-summit/talks/balancing-ultra-low-latency-and-cloud-economics-in-virtual-voice-agents.txt): Bringing conversational AI into immersive experiences opens up huge possibilities, yet there's a constant friction between low response latency and sustainable cloud costs. In this session, Devin Reimer (Founder \\& CEO of AstroBeam) breaks down how the team behind Stellar Cafe achieved industry-leading voice interaction response times (1.15s--1.4s) while keeping the business model commercially sustainable. Explore the hybrid architecture behind these low latency pipelines, focusing on intelligent orchestration between on-device models and optimized cloud inference to cut expensive API calls without degrading dialogue. You'll walk away with a practical blueprint covering Time-to-First-Token optimization across Speech-to-Text and streaming Text-to-Speech pipelines, parallel safety guardrails that bypass latency overhead, and unit economics per active user session. (Speakers: Devin Reimer) - \\[Build world anchored experiences for wired XR glasses\\](https://developer.android.com/events/dev-summit/talks/build-world-anchored-experiences-for-xreal-aura-wired-xr-glasses.txt): Go beyond screen-space and anchor your apps in the real world with Android XR. This session teaches you how to build geospatially aware Android XR experiences using Jetpack Compose Glimmer and ARCore's Geospatial API. We will start by covering how to get a device's geospatial pose with ARCore. Then, you'll see how Glimmer's minimal UI components can be anchored to real-world locations via the Visual Positioning System (VPS). We'll combine these to build a simple, location-aware spatial experience. (Speakers: Yasmine Quintana Evjen, Dereck Bridie, Paul Hoover) - \\[Building audio-first experiences for intelligent eyewear with Gemini Nano 4\\](https://developer.android.com/events/dev-summit/talks/building-audio-first-experiences-for-intelligent-eyewear-with-gemini-nano-4.txt): Discover how to build robust, hands-free audio experiences powered by on-device AI. We'll cover everything you need: setting up your glasses activity, capturing mic and camera feeds, and using voice along with other audio cues as your ultimate UI. Through an exciting real-world showcase of the open-source XR Language Teacher built in the Google AI Edge Gallery app, learn to orchestrate Gemini Nano 4 (built on Gemma 4 and optimized for Android devices), and ML Kit, and leverage the LiteRT runtime to build fast XR experiences that hear, see, and speak naturally. (Speakers: Amy Zeppenfeld, Alice Zheng) - \\[Elevate immersive experiences with 3D Engines in Jetpack Compose for XR\\](https://developer.android.com/events/dev-summit/talks/elevate-immersive-experiences-with-3d-engines-in-jetpack-compose-for-xr.txt): Learn how to integrate 3D game engines (Godot \\& Unity) with Jetpack Compose into a single codebase for mobile and Android XR. We'll explore embedding 3D scenes into spatial containers, setting up Kotlin-to-engine communication ---featuring an exclusive look into how the NBA built their live basketball experience on Android XR. (Speakers: Luke Hopkins, Joshua Lorett, Rodrigo Sanchez) - \\[Moving beyond 2D with custom 3D geometry in the Jetpack XR SDK\\](https://developer.android.com/events/dev-summit/talks/moving-beyond-2d-with-custom-3d-geometry-in-the-jetpack-xr-sdk.txt): Transitioning your Android applications from traditional 2D screens into spatial environments requires a new approach to constructing shapes. In this session, we will explore the Custom Mesh API in the Jetpack XR SDK, which allows you to programmatically generate procedural 3D geometry directly at runtime. We will walk through the core workflow, from defining vertex layouts to rendering dynamic objects seamlessly within the user's physical space. By the end of this talk, you will have the practical skills to build interactive, custom 3D geometry completely from code. (Speakers: Egor Yusov, Jay Abi-Saad) - \\[XR is for everyone: Designing accessible spatial experiences\\](https://developer.android.com/events/dev-summit/talks/xr-is-for-everyone-designing-accessible-spatial-experiences.txt): When we say XR is for everyone, that principle has to guide how we build from day one. In this introductory guide for developers new to XR, Jazmin Cano shares the foundational accessibility principles honed at Owlchemy Labs. Engine-agnostic and universally applicable to both games and apps, this session explores how early consideration of motor, visual, auditory, and cognitive needs leads to better experiences for all users. Discover how to build an inclusive development culture, conduct meaningful testing, and design spatial interactions that remove barriers without sacrificing quality. (Speakers: Jazmin Cano) ## Optional - \\[Sessions\\](https://developer.android.com/events/dev-summit): Browse the on-demand session catalog for Android Dev Summit. - \\[Speakers\\](https://developer.android.com/events/dev-summit/speakers.md.txt): Speaker directory with roles and profile links. - \\[Talks JSON Feed\\](https://developer.android.com/events/dev-summit/feed.json): Machine-readable JSON Feed 1.1 of all sessions, descriptions, tracks, and speakers.</a>",
+        "path": "events/dev-summit/llms.txt.md",
+        "summary": "Added a new documentation index file (`llms.txt.md`) for the Android Dev Summit, providing a structured overview of technical sessions, speaker details, and Markdown transcripts for AI tools and developers.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera2/camera-enumeration\" target=\"_blank\">Camera lenses and capabilities</a>",
+        "path": "media/camera/camera2/camera-enumeration.md",
+        "summary": "The camera-enumeration.md documentation was updated to remove all Java code examples, retaining only the Kotlin implementations. Additionally, minor accessibility improvements were made to image descriptions, and links to documentation indices were added.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_camera-enumeration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera2/camera-preview\" target=\"_blank\">Camera preview</a>",
+        "path": "media/camera/camera2/camera-preview.md",
+        "summary": "This update fixes figure numbering sequences across multiple camera preview diagrams, corrects broken link paths for connected displays and internal anchors, and adds explicit figure titles to image markup to improve documentation clarity and navigation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_camera-preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera2/extensions-api\" target=\"_blank\">Camera2 Extensions API</a>",
+        "path": "media/camera/camera2/extensions-api.md",
+        "summary": "Removed all Java code snippets from the Camera2 Extensions API documentation, leaving only the Kotlin implementations. This change standardizes the code examples on Kotlin and reduces maintenance overhead for multi-language samples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_extensions-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera2/multi-camera\" target=\"_blank\">Multi-camera API</a>",
+        "path": "media/camera/camera2/multi-camera.md",
+        "summary": "Removed all Java code snippets and examples from the multi-camera documentation, standardizing the guide to use Kotlin exclusively. This simplifies the codebase examples and aligns with modern Android development recommendations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_multi-camera.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera2/multiple-camera-streams-simultaneously\" target=\"_blank\">Use multiple camera streams simultaneously</a>",
+        "path": "media/camera/camera2/multiple-camera-streams-simultaneously.md",
+        "summary": "Removed all Java code snippets from the documentation, standardizing code examples to use Kotlin exclusively. This simplifies the guide and focuses the content entirely on Kotlin implementations for camera2 operations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_multiple-camera-streams-simultaneously.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera2/screen-flash-implementation-guidelines\" target=\"_blank\">Screen flash</a>",
+        "path": "media/camera/camera2/screen-flash-implementation-guidelines.md",
+        "summary": "This update removes all Java-based code snippets from the screen flash implementation guidelines, leaving only the Kotlin implementations. Additionally, reference links throughout the document were updated to point to `.md.txt` documentation paths, and minor formatting and code snippet adjustments were made.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_screen-flash-implementation-guidelines.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax/analyze\" target=\"_blank\">Image analysis</a>",
+        "path": "media/camera/camerax/analyze.md",
+        "summary": "Updated documentation links to point to local markdown reference files (ending in .md.txt) and corrected anchor tags across the CameraX image analysis guide. Additionally, removed the Java code example for binding the ImageAnalysis use case, leaving only the Kotlin implementation, and added a documentation index link at the top of the file.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_analyze.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax/architecture\" target=\"_blank\">CameraX architecture</a>",
+        "path": "media/camera/camerax/architecture.md",
+        "summary": "This update cleans up the CameraX architecture documentation by completely removing Java code snippets across all examples, leaving only Kotlin implementations. It also fixes several documentation links and adds a reference to the LLM-friendly documentation index.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_architecture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax/camera1-to-camerax\" target=\"_blank\">Migrate Camera1 to CameraX</a>",
+        "path": "media/camera/camerax/camera1-to-camerax.md",
+        "summary": "Updated the CameraX migration documentation with corrected Kotlin code snippets, improved syntax for use-case bindings, and better practices for handling touch gestures, zoom states, and image/video capture.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_camera1-to-camerax.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax/configuration\" target=\"_blank\">Configuration options</a>",
+        "path": "media/camera/camerax/configuration.md",
+        "summary": "Removed all Java code snippets from the CameraX configuration documentation, standardizing the code examples to Kotlin only. This streamlines the guide and focuses purely on Kotlin implementation for CameraX configurations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_configuration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax/mlkitanalyzer\" target=\"_blank\">ML Kit Analyzer</a>",
+        "path": "media/camera/camerax/mlkitanalyzer.md",
+        "summary": "The ML Kit Analyzer documentation was updated to remove the Java code tab for the barcode scanner implementation, leaving only the Kotlin example, and added a documentation index link at the top of the file.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_mlkitanalyzer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax/orientation-rotation\" target=\"_blank\">CameraX use case rotations</a>",
+        "path": "media/camera/camerax/orientation-rotation.md",
+        "summary": "Updated documentation links across the orientation-rotation guide to point to `.md.txt` extensions and added minor spacing formatting improvements. These changes are editorial adjustments to link targets and markdown formatting, and do not affect the technical content of the CameraX guidance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_orientation-rotation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax/preview\" target=\"_blank\">Implement a preview</a>",
+        "path": "media/camera/camerax/preview.md",
+        "summary": "Updated the CameraX preview documentation to remove Java code snippets, standardizing the implementation guides exclusively on Kotlin and updating activity inheritance to use ComponentActivity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/grow/good-better-best\" target=\"_blank\">Take your app from good to better to best</a>",
+        "path": "media/grow/good-better-best.md",
+        "summary": "Updated internal documentation links throughout the 'good-better-best.md' guide to point to local Markdown source files (appending '.md.txt') and added an LLMs documentation index reference at the top. This ensures proper resource resolution for automated tooling and text-based documentation processors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_good-better-best.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/implement/surfaces/android-tv\" target=\"_blank\">Extend your media app to Android TV</a>",
+        "path": "media/implement/surfaces/android-tv.md",
+        "summary": "The changes consist entirely of internal documentation link updates, appending '.md.txt' to various reference URLs and adding a documentation index pointer. These are trivial formatting and artifact adjustments for processing the documentation files and do not affect the technical content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_android-tv.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/implement/surfaces/large_screens\" target=\"_blank\">Design for large screens from the start</a>",
+        "path": "media/implement/surfaces/large_screens.md",
+        "summary": "The documentation updates include adding a documentation index reference link at the top and adjusting internal URLs throughout the file to append \".md.txt\" to target links, likely to support a specific static site generator or LLM-friendly documentation indexing format.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_large_screens.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/legacy/mediasession\" target=\"_blank\">Using a media session</a>",
+        "path": "media/legacy/mediasession.md",
+        "summary": "Updated links throughout the legacy media session documentation to reference local markdown documentation files instead of external URLs, ensuring proper relative linking.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_mediasession.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/legacy/video/mediasession\" target=\"_blank\">Media session callbacks</a>",
+        "path": "media/legacy/video/mediasession.md",
+        "summary": "The changes in this file are strictly formatting and structural updates, including re-wrapping text lines, fixing markdown table syntax, and converting a plain note into a standard blockquote note format. These trivial adjustments do not change the technical meaning or guidance of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_mediasession.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/flags\" target=\"_blank\">Feature flags and Canary mode</a>",
+        "path": "media/media3/exoplayer/flags.md",
+        "summary": "The Media3 ExoPlayer flags documentation was updated to include a link to the LLM documentation index (`llms.txt`), reference the `Media3FlagsRule` class with an API documentation link, and add a reference to the official playback testing guide for Robolectric and instrumentation tests. These additions improve developer navigation and provide clearer resources for testing feature flags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_flags.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/live-streaming\" target=\"_blank\">Live streaming</a>",
+        "path": "media/media3/exoplayer/live-streaming.md",
+        "summary": "The live streaming documentation has been updated to reflect modern Media3 UI components and introduce Jetpack Compose support. It updates references to the `media3-ui` library's View-based components and adds documentation for the new `media3-ui-compose-material3` and `media3-ui-compose` libraries, specifically highlighting `ProgressSlider`, `LiveButton`, and state management utilities that provide smooth live playback positioning instead of jumping backward.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_live-streaming.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/migration-guide\" target=\"_blank\">AndroidX Media3 migration guide</a>",
+        "path": "media/media3/exoplayer/migration-guide.md",
+        "summary": "Added a link to the llms.txt documentation index at the top of the ExoPlayer migration guide, helping developers easily find machine-readable documentation resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_migration-guide.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/network-stacks\" target=\"_blank\">Network stacks</a>",
+        "path": "media/media3/exoplayer/network-stacks.md",
+        "summary": "The network-stacks documentation was updated to include a link to the llms.txt index, as well as added reference links for the `DataSourceContractTest` class in `media3-test-utils` and the ExoPlayer testing guide. These additions provide developers with better resources for verifying custom `HttpDataSource` implementations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_network-stacks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/supported-devices\" target=\"_blank\">Supported devices</a>",
+        "path": "media/media3/exoplayer/supported-devices.md",
+        "summary": "The supported-devices.md documentation was updated to include a link to the LLM documentation index and a reference to the official ExoPlayer testing guide for automated local and device playback tests. These additions help developers find supplementary resources more easily.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_supported-devices.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/testing\" target=\"_blank\">Testing</a>",
+        "path": "media/media3/exoplayer/testing.md",
+        "summary": "This new documentation page provides guidelines and recommended practices for testing ExoPlayer and Media3 integrations, detailing the usage of dedicated test artifacts like `media3-test-utils` and `media3-test-utils-robolectric` in both local JVM and device instrumentation test environments.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/session/player\" target=\"_blank\">The Player Interface</a>",
+        "path": "media/media3/session/player.md",
+        "summary": "Updated multiple documentation links across the Media3 player guide to point to the new `.md.txt` file paths and added a tip recommending `FakePlayer` for testing UI and app components that accept a `Player`. This helps developers easily locate related documentation and improves guidance on writing tests using `media3-test-utils`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_player.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/optimize/sharing\" target=\"_blank\">Best practices for sharing video</a>",
+        "path": "media/optimize/sharing.md",
+        "summary": "The changes in the sharing documentation include adding a reference to the LLMs documentation index, updating internal reference links to point to .md.txt files, and formatting raw code snippets into proper Java code blocks. These improvements enhance documentation consistency and readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_sharing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "Updated the Android Studio nightly build documentation to reference the new 'Stingray 1' release (version 2026.3.1 Nightly 2026-11-13) along with its corresponding download links and file paths, replacing the previous 'Rabbit 3' build.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/archives\" target=\"_blank\">Older releases</a>",
+        "path": "studio/releases/archives.md",
+        "summary": "Updated internal links in the Android Studio archives release notes to point to .md.txt files for documentation references, added an LLMS documentation index link, and improved code block formatting for snippets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_archives.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-1-1-0-release-notes\" target=\"_blank\">Android Studio v1.1.0 (February 2015)</a>",
+        "path": "studio/releases/past-releases/as-1-1-0-release-notes.md",
+        "summary": "Updated documentation links for the Android Wear template and resource directories (mipmap/drawable) to point to current URLs. These changes ensure readers are directed to valid, updated reference materials.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_as-1-1-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-2-2-0-release-notes\" target=\"_blank\">New</a>",
+        "path": "studio/releases/past-releases/as-2-2-0-release-notes.md",
+        "summary": "Updated documentation links and bug tracker URLs across the Android Studio 2.2.0 release notes to point to the new Google Issue Tracker domains and current developer documentation paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_as-2-2-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-3-0-0-release-notes\" target=\"_blank\">Android Studio 3.0 (October 2017)</a>",
+        "path": "studio/releases/past-releases/as-3-0-0-release-notes.md",
+        "summary": "Updated documentation links across the Android Studio 3.0 release notes to point to their corresponding `.md.txt` source paths and reformatted code snippets into standard markdown code blocks. These changes ensure correct internal routing and improve documentation formatting without altering the underlying product features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_as-3-0-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-networking-address\" target=\"_blank\">Network address space</a>",
+        "path": "studio/run/emulator-networking-address.md",
+        "summary": "Updated documentation references by adding a link to the LLMs.txt documentation index at the top and correcting an internal link path for interconnecting emulator instances from an HTML URL to a local markdown file reference. These updates help improve navigation for both AI tools and developers accessing the source files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_emulator-networking-address.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/test/test-in-android-studio\" target=\"_blank\">Test in Android Studio</a>",
+        "path": "studio/test/test-in-android-studio.md",
+        "summary": "Updated internal documentation links throughout the Android Studio testing guide to reference local Markdown files (appending .md.txt to URLs) and added a reference to the documentation index for LLMs. These changes improve internal navigation and machine-readability of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_test-in-android-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/generic-system-image/releases\" target=\"_blank\">Generic System Image releases</a>",
+        "path": "topic/generic-system-image/releases.md",
+        "summary": "Updated the Generic System Image (GSI) documentation for Android 17 QPR3 (Beta) from beta3 to beta4, updating build identifiers, release dates, Google Play Services versions, download links, and SHA-256 checksums. Additionally, internal documentation links were updated to reference markdown text files (.md.txt).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_releases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/rendering/optimizing-view-hierarchies\" target=\"_blank\">Performance and view hierarchies</a>",
+        "path": "topic/performance/rendering/optimizing-view-hierarchies.md",
+        "summary": "Updated internal documentation links throughout the optimizing view hierarchies guide to use local Markdown filenames (adding .md.txt extensions) and simplified class names instead of full reference URLs. This improves link consistency and maintainability within the documentation source tree.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_optimizing-view-hierarchies.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose/migrate-to-material3\" target=\"_blank\">Migrate from Material 2.5 to Material 3 in Compose for Wear OS</a>",
+        "path": "training/wearables/compose/migrate-to-material3.md",
+        "summary": "Updated the Wear OS Compose Material 3 migration guide to fix broken API reference links for components like SwipeToRevealCard, SwipeToRevealChip, and SwipeToReveal, ensuring developers can access accurate documentation when migrating components.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_migrate-to-material3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose/one-handed-gestures\" target=\"_blank\">One-handed gestures with Compose</a>",
+        "path": "training/wearables/compose/one-handed-gestures.md",
+        "summary": "Updated the Wear OS one-handed gestures documentation to clarify that physical gesture mappings can vary across device manufacturers and form factors. Added a new ADB command (`get-supported-actions -readable`) to query the system for current action-to-gesture mappings before simulating events, ensuring developers test against the correct physical gestures for their target device or emulator.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_one-handed-gestures.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/versions/6/setup\" target=\"_blank\">Prepare for Wear OS 6</a>",
+        "path": "training/wearables/versions/6/setup.md",
+        "summary": "The setup documentation for Wear OS 6 was updated to include an LLM documentation index link, fix minor grammatical typos, update documentation internal links to reference .md.txt files, and properly format the Groovy and Kotlin code snippets using Markdown code blocks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/61908c27_setup.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-12T15:09:35Z",
     "commit_hash": "295caf73",
     "entries": [

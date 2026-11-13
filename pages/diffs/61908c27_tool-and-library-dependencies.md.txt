@@ -1,0 +1,110 @@
+diff --git a/docs/build/tool-and-library-dependencies.md b/docs/build/tool-and-library-dependencies.md
+index bfde50f2..b984a613 100644
+--- a/docs/build/tool-and-library-dependencies.md
++++ b/docs/build/tool-and-library-dependencies.md
+@@ -4,8 +4,10 @@ url: https://developer.android.com/build/tool-and-library-dependencies
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/build/llms.txt
++
+ Build dependencies are external components required to successfully build your
+-project. A build can depend on [libraries, plugins, subprojects](https://developer.android.com/build/gradle-build-overview#external-dependencies), the Android
++project. A build can depend on [libraries, plugins, subprojects](https://developer.android.com/build/gradle-build-overview.md.txt#external-dependencies), the Android
+ SDK, tooling such as [Kotlin](http://kotlinlang.org) and [Java](https://www.java.com/)
+ compilers, development environments like [Android Studio](https://developer.android.com/studio), and
+ [Gradle](https://gradle.org/) itself.
+@@ -53,26 +55,24 @@ and the Android SDK, and requires its corresponding Kotlin or Java compiler.
+ 
+ Some source code includes annotations that require additional processing. For
+ example, if you're writing [Jetpack Compose](https://developer.android.com/compose) code, you add annotations such
+-as [`@Composable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable) that need to be processed by the [Compose Kotlin compiler
++as [`@Composable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.md.txt) that need to be processed by the [Compose Kotlin compiler
+ plugin](https://developer.android.com/jetpack/androidx/releases/compose-compiler). Other annotations may be processed by a [Kotlin Symbol
+-Processor](https://developer.android.com/build/migrate-to-ksp) (KSP) or separate [annotation-processing tools](https://developer.android.com/build/annotation-processors).
++Processor](https://developer.android.com/build/migrate-to-ksp) (KSP) or separate [annotation-processing tools](https://developer.android.com/build/annotation-processors.md.txt).
+ 
+ ### Library dependencies
+ 
+ Libraries contain bytecode pulled in as part of your application. This could be
+-a Java JAR, [Android library](https://developer.android.com/studio/projects/android-library) (AAR), or a subproject in your build. Many
++a Java JAR, [Android library](https://developer.android.com/studio/projects/android-library.md.txt) (AAR), or a subproject in your build. Many
+ libraries follow [Semantic Versioning](https://semver.org/), which can help you
+ understand when they remain compatible (or not) when upgraded.
+ 
+-Libraries may depend on other libraries for reuse, called a [transitive
+-dependency](https://docs.gradle.org/current/userguide/dependency_constraints.html). This reduces the dependencies that you must
+-explicitly manage; you specify the dependencies that you directly use, and
+-Gradle pulls them in along with those transitive dependencies. Be aware that as
+-you upgrade your direct dependencies, they may upgrade those transitive
+-dependencies.
++Libraries often have [transitive dependencies](https://docs.gradle.org/current/userguide/dependency_constraints.html) on other
++libraries. This reduces what you must explicitly manage; you specify direct
++dependencies, and Gradle pulls them in along with transitive ones. Upgrading
++direct dependencies may also upgrade their transitive dependencies.
+ 
+ Sometimes a library may require minimum versions of the Android SDK at runtime
+-([`minSdk`](https://developer.android.com/build#android_sdk_settings)) or compile time ([`compileSdk`](https://developer.android.com/build#android_sdk_settings)). This is necessary when a
++([`minSdk`](https://developer.android.com/build.md.txt#android_sdk_settings)) or compile time ([`compileSdk`](https://developer.android.com/build.md.txt#android_sdk_settings)). This is necessary when a
+ library uses functions included in the Android SDK or its provided JDK APIs. The
+ effective `minSdk` of your application is the highest `minSdk` requested by your
+ application and all of its direct and transitive library dependencies.
+@@ -80,7 +80,7 @@ application and all of its direct and transitive library dependencies.
+ Using some libraries may require use of a specific Gradle plugin. These helper
+ plugins often install Kotlin Symbol Processors or other annotation processors
+ that generate code or modify compilation of your source to support your use of
+-library features. For example, [Jetpack Room](https://developer.android.com/jetpack/androidx/releases/room) includes annotations and a KSP
++library features. For example, [Jetpack Room](https://developer.android.com/jetpack/androidx/releases/room.md.txt) includes annotations and a KSP
+ that transforms them into generated code to retrieve and modify data in a
+ database. Jetpack Compose requires the Compose compiler plugin to modify
+ annotated functions to manage how and when that function is re-run.
+@@ -92,8 +92,8 @@ annotated functions to manage how and when that function is re-run.
+ | Gradle plugins | Gradle plugins extend Gradle by defining new tasks and configuration. Applying a plugin to your build enables specific build capabilities, configured as data in your build scripts. For Android builds, the most important Gradle plugin is the [Android Gradle Plugin](https://developer.android.com/build/releases/gradle-plugin) (AGP). |
+ | Compilers | The Kotlin or Java compiler transforms your source code into executable bytecode. The Kotlin compiler exposes a plugin API that enables external analysis and code generation to be run directly inside the compiler, accessing parsed code structure. |
+ | Compiler plugins | Compiler plugins perform analysis and code generation *inside* the Kotlin compiler while the Kotlin compiler is analyzing your code, and are installed when you apply their Gradle plugins to the build. |
+-| Android SDK | The Android SDK contains the Android Platform and Java APIs for a specific version of Android, and its corresponding tools. These tools help you manage the SDK, build your applications, and communicate with and emulate Android devices. Each version of the Android SDK provides specific Java APIs that your source code can access, and [desugaring](https://developer.android.com/studio/write/java8-support) support to use those APIs on earlier versions of Android. |
+-| JDK | The Java Development Kit, containing Java libraries and executables to compile Java source and run Java applications. There are several JDKs at play in an Android build. See [Java versions in Android builds](https://developer.android.com/build/jdks) for more details. |
++| Android SDK | The Android SDK contains the Android Platform and Java APIs for a specific version of Android, and its corresponding tools. These tools help you manage the SDK, build your applications, and communicate with and emulate Android devices. Each version of the Android SDK provides specific Java APIs that your source code can access, and [desugaring](https://developer.android.com/studio/write/java8-support.md.txt) support to use those APIs on earlier versions of Android. |
++| JDK | The Java Development Kit, containing Java libraries and executables to compile Java source and run Java applications. There are several JDKs at play in an Android build. See [Java versions in Android builds](https://developer.android.com/build/jdks.md.txt) for more details. |
+ 
+ ## Gradle scopes
+ 
+@@ -107,7 +107,7 @@ annotation processors to analyze your code.
+ 
+ For example, AGP defines `implementation` and `api` scopes, your way of
+ specifying whether a dependency should be exposed to users of your subproject.
+-See [Configure dependencies](https://developer.android.com/build/dependencies#dependency_configurations) for descriptions of these and other scopes used
++See [Configure dependencies](https://developer.android.com/build/dependencies.md.txt#dependency_configurations) for descriptions of these and other scopes used
+ in an Android build.
+ 
+ Add library dependencies in your build files' `dependencies` block, either as
+@@ -135,18 +135,20 @@ dependencies {
+ }
+ ```
+ 
+-or in a [Version Catalog](https://developer.android.com/build/migrate-to-catalogs):
++or in a [Version Catalog](https://developer.android.com/build/migrate-to-catalogs.md.txt):
+ 
+-    # Version catalog - gradle/libs.versions.toml
+-    [versions]
+-    exampleLib = "1.2.3"
+-    examplePlugin = "2.3.4"
++```toml
++# Version catalog - gradle/libs.versions.toml
++[versions]
++exampleLib = "1.2.3"
++examplePlugin = "2.3.4"
+ 
+-    [libraries]
+-    example-library = { group = "com.example", name = "library", version.ref = "exampleLib" }
++[libraries]
++example-library = { group = "com.example", name = "library", version.ref = "exampleLib" }
+ 
+-    [plugins]
+-    example-plugin = { id = "com.example.plugin", version.ref = "examplePlugin" }
++[plugins]
++example-plugin = { id = "com.example.plugin", version.ref = "examplePlugin" }
++```
+ 
+ and specify the generated variables in your build files:
+ 

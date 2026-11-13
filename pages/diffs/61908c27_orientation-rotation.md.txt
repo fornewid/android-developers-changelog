@@ -1,0 +1,137 @@
+diff --git a/docs/media/camera/camerax/orientation-rotation.md b/docs/media/camera/camerax/orientation-rotation.md
+index adff837c..2d382e81 100644
+--- a/docs/media/camera/camerax/orientation-rotation.md
++++ b/docs/media/camera/camerax/orientation-rotation.md
+@@ -23,7 +23,7 @@ Display orientation
+ 
+ Display rotation
+ :   This is the value returned by
+-    [`Display.getRotation()`](https://developer.android.com/reference/android/view/Display#getRotation()), and
++    [`Display.getRotation()`](https://developer.android.com/reference/android/view/Display.md.txt#getRotation()), and
+     represents the degrees by which the device is rotated counter-clockwise from
+     its natural orientation.
+ 
+@@ -91,10 +91,13 @@ display rotation.
+ `ImageProxy`s. Each image contains rotation information, which is accessible
+ via:
+ 
++
+ ```kotlin
+ val rotation = imageProxy.imageInfo.rotationDegrees
+ ```
+ 
++<br />
++
+ This value represents the degrees by which the image needs to be rotated
+ clockwise to match `ImageAnalysis`'s target rotation. In the context of an
+ Android app, `ImageAnalysis`'s target rotation would typically match the
+@@ -122,10 +125,13 @@ ways:
+ 
+ `ImageProxy`
+ 
++
+ ```kotlin
+ val rotation = imageProxy.imageInfo.rotationDegrees
+ ```
+ 
++<br />
++
+ `File`
+ 
+ ```kotlin
+@@ -197,14 +203,14 @@ don't rotate to reverse landscape.
+ 
+ | Scenario | Guidelines | Single-window mode | Multi-window split-screen mode |
+ |---|---|---|---|
+-| [Unlocked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation#unlocked) | Set up the [use cases](https://developer.android.com/media/camera/camerax/orientation-rotation#use-cases-setup) every time the `Activity` is created, such as in the `Activity`'s `onCreate()` callback. |   |   |
+-| [Unlocked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation#unlocked) | Use `OrientationEventListener`'s [`onOrientationChanged()`](https://developer.android.com/media/camera/camerax/orientation-rotation#orientation-event-listener-setup). Inside the callback, update the target rotation of the use cases. This handles cases where the system doesn't recreate the `Activity` even after an orientation change, such as when the device is rotated 180 degrees. | Also handles when the display is in a reverse portrait orientation and the device doesn't rotate to reverse portrait by default. | Also handles cases where the `Activity` isn't recreated when the device rotates (90 degrees, for example). This happens on small form factor devices when the app takes up half the screen, and on larger devices when the app takes up two thirds of the screen. |
+-| [Unlocked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation#unlocked) | Optional: Set the `Activity`'s `screenOrientation` property to `fullSensor` in the `AndroidManifest` file. | This allows for the UI to be upright when the device is in reverse portrait, and allows for the `Activity` to be recreated by the system whenever the device is rotated by 90 degrees. | Has no effect on devices that don't rotate to reverse portrait by default. Multi-window mode isn't supported while the display is in a reverse portrait orientation. |
+-| [Locked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation#locked-orientation) | Set up the use cases only once, when the `Activity` is first created, such as in the `Activity`'s `onCreate()` callback. |   |
+-| [Locked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation#locked-orientation) | Use `OrientationEventListener`'s [`onOrientationChanged()`](https://developer.android.com/media/camera/camerax/orientation-rotation#orientation-event-listener-setup). Inside the callback, update the target rotation of the use cases except Preview. |   | Also handles cases where the `Activity` isn't recreated when the device rotates (90 degrees, for example). This happens on small form factor devices when the app takes up half the screen, and on larger devices when the app takes up two thirds of the screen. |
+-| [Orientation configChanges overridden](https://developer.android.com/media/camera/camerax/orientation-rotation#config-overridden) | Set up the use cases only once, when the `Activity` is first created, such as in the `Activity`'s `onCreate()` callback. |   |   |
+-| [Orientation configChanges overridden](https://developer.android.com/media/camera/camerax/orientation-rotation#config-overridden) | Use `OrientationEventListener`'s [`onOrientationChanged()`](https://developer.android.com/media/camera/camerax/orientation-rotation#orientation-event-listener-setup). Inside the callback, update the target rotation of the use cases. |   | Also handles cases where the `Activity` isn't recreated when the device rotates (90 degrees, for example). This happens on small form factor devices when the app takes up half the screen, and on larger devices when the app takes up two thirds of the screen. |
+-| [Orientation configChanges overridden](https://developer.android.com/media/camera/camerax/orientation-rotation#config-overridden) | Optional: Set the Activity's screenOrientation property to fullSensor in the AndroidManifest file. | Allows for the UI to be upright when the device is in reverse portrait. | Has no effect on devices that don't rotate to reverse portrait by default. Multi-window mode isn't supported while the display is in a reverse portrait orientation. |
++| [Unlocked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#unlocked) | Set up the [use cases](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#use-cases-setup) every time the `Activity` is created, such as in the `Activity`'s `onCreate()` callback. |   |   |
++| [Unlocked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#unlocked) | Use `OrientationEventListener`'s [`onOrientationChanged()`](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#orientation-event-listener-setup). Inside the callback, update the target rotation of the use cases. This handles cases where the system doesn't recreate the `Activity` even after an orientation change, such as when the device is rotated 180 degrees. | Also handles when the display is in a reverse portrait orientation and the device doesn't rotate to reverse portrait by default. | Also handles cases where the `Activity` isn't recreated when the device rotates (90 degrees, for example). This happens on small form factor devices when the app takes up half the screen, and on larger devices when the app takes up two thirds of the screen. |
++| [Unlocked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#unlocked) | Optional: Set the `Activity`'s `screenOrientation` property to `fullSensor` in the `AndroidManifest` file. | This allows for the UI to be upright when the device is in reverse portrait, and allows for the `Activity` to be recreated by the system whenever the device is rotated by 90 degrees. | Has no effect on devices that don't rotate to reverse portrait by default. Multi-window mode isn't supported while the display is in a reverse portrait orientation. |
++| [Locked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#locked-orientation) | Set up the use cases only once, when the `Activity` is first created, such as in the `Activity`'s `onCreate()` callback. |   |
++| [Locked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#locked-orientation) | Use `OrientationEventListener`'s [`onOrientationChanged()`](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#orientation-event-listener-setup). Inside the callback, update the target rotation of the use cases except Preview. |   | Also handles cases where the `Activity` isn't recreated when the device rotates (90 degrees, for example). This happens on small form factor devices when the app takes up half the screen, and on larger devices when the app takes up two thirds of the screen. |
++| [Orientation configChanges overridden](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#config-overridden) | Set up the use cases only once, when the `Activity` is first created, such as in the `Activity`'s `onCreate()` callback. |   |   |
++| [Orientation configChanges overridden](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#config-overridden) | Use `OrientationEventListener`'s [`onOrientationChanged()`](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#orientation-event-listener-setup). Inside the callback, update the target rotation of the use cases. |   | Also handles cases where the `Activity` isn't recreated when the device rotates (90 degrees, for example). This happens on small form factor devices when the app takes up half the screen, and on larger devices when the app takes up two thirds of the screen. |
++| [Orientation configChanges overridden](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#config-overridden) | Optional: Set the Activity's screenOrientation property to fullSensor in the AndroidManifest file. | Allows for the UI to be upright when the device is in reverse portrait. | Has no effect on devices that don't rotate to reverse portrait by default. Multi-window mode isn't supported while the display is in a reverse portrait orientation. |
+ 
+ ### Support only device-supported orientations
+ 
+@@ -213,12 +219,12 @@ may not include reverse portrait/reverse landscape).
+ 
+ | Scenario | Guidelines | Multi-window split-screen mode |
+ |---|---|---|
+-| [Unlocked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation#unlocked) | Set up the [use cases](https://developer.android.com/media/camera/camerax/orientation-rotation#use-cases-setup) every time the `Activity` is created, such as in the `Activity`'s `onCreate()` callback. |   |
+-| [Unlocked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation#unlocked) | Use `DisplayListener`'s [`onDisplayChanged()`](https://developer.android.com/media/camera/camerax/orientation-rotation#displayListener). Inside the callback, update the target rotation of the use cases, such as when the device is rotated 180 degrees. | Also handles cases where the `Activity` isn't recreated when the device rotates (90 degrees, for example). This happens on small form factor devices when the app takes up half the screen, and on larger devices when the app takes up two thirds of the screen. |
+-| [Locked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation#locked-orientation) | Set up the use cases only once, when the `Activity` is first created, such as in the `Activity`'s `onCreate()` callback. |   |
+-| [Locked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation#locked-orientation) | Use `OrientationEventListener`'s [`onOrientationChanged()`](https://developer.android.com/media/camera/camerax/orientation-rotation#orientation-event-listener-setup). Inside the callback, update the target rotation of the use cases. | Also handles cases where the `Activity` isn't recreated when the device rotates (90 degrees, for example). This happens on small form factor devices when the app takes up half the screen, and on larger devices when the app takes up two thirds of the screen. |
+-| [Orientation configChanges overridden](https://developer.android.com/media/camera/camerax/orientation-rotation#config-overridden) | Set up the use cases only once, when the `Activity` is first created, such as in the `Activity`'s `onCreate()` callback. |   |
+-| [Orientation configChanges overridden](https://developer.android.com/media/camera/camerax/orientation-rotation#config-overridden) | Use `DisplayListener`'s [`onDisplayChanged()`](https://developer.android.com/media/camera/camerax/orientation-rotation#displayListener). Inside the callback, update the target rotation of the use cases, such as when the device is rotated 180 degrees. | Also handles cases where the `Activity` isn't recreated when the device rotates (90 degrees, for example). This happens on small form factor devices when the app takes up half the screen, and on larger devices when the app takes up two thirds of the screen. |
++| [Unlocked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#unlocked) | Set up the [use cases](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#use-cases-setup) every time the `Activity` is created, such as in the `Activity`'s `onCreate()` callback. |   |
++| [Unlocked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#unlocked) | Use `DisplayListener`'s [`onDisplayChanged()`](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#displayListener). Inside the callback, update the target rotation of the use cases, such as when the device is rotated 180 degrees. | Also handles cases where the `Activity` isn't recreated when the device rotates (90 degrees, for example). This happens on small form factor devices when the app takes up half the screen, and on larger devices when the app takes up two thirds of the screen. |
++| [Locked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#locked-orientation) | Set up the use cases only once, when the `Activity` is first created, such as in the `Activity`'s `onCreate()` callback. |   |
++| [Locked orientation](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#locked-orientation) | Use `OrientationEventListener`'s [`onOrientationChanged()`](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#orientation-event-listener-setup). Inside the callback, update the target rotation of the use cases. | Also handles cases where the `Activity` isn't recreated when the device rotates (90 degrees, for example). This happens on small form factor devices when the app takes up half the screen, and on larger devices when the app takes up two thirds of the screen. |
++| [Orientation configChanges overridden](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#config-overridden) | Set up the use cases only once, when the `Activity` is first created, such as in the `Activity`'s `onCreate()` callback. |   |
++| [Orientation configChanges overridden](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#config-overridden) | Use `DisplayListener`'s [`onDisplayChanged()`](https://developer.android.com/media/camera/camerax/orientation-rotation.md.txt#displayListener). Inside the callback, update the target rotation of the use cases, such as when the device is rotated 180 degrees. | Also handles cases where the `Activity` isn't recreated when the device rotates (90 degrees, for example). This happens on small form factor devices when the app takes up half the screen, and on larger devices when the app takes up two thirds of the screen. |
+ 
+ #### Unlocked orientation
+ 
+@@ -297,28 +303,35 @@ In the case of an `Activity` with a locked orientation or one that overrides
+ orientation configuration changes, this setup is done once, when the `Activity`
+ is first created.
+ 
++
+ ```kotlin
+-class CameraActivity : AppCompatActivity() {
+-   override fun onCreate(savedInstanceState: Bundle?) {
+-       super.onCreate(savedInstanceState)
+-
+-       val cameraProcessFuture = ProcessCameraProvider.getInstance(this)
+-       cameraProcessFuture.addListener(Runnable {
+-          val cameraProvider = cameraProcessFuture.get()
+-
+-          // By default, the use cases set their target rotation to match the
+-          // display's rotation.
+-          val preview = buildPreview()
+-          val imageAnalysis = buildImageAnalysis()
+-          val imageCapture = buildImageCapture()
+-
+-          cameraProvider.bindToLifecycle(
+-              this, cameraSelector, preview, imageAnalysis, imageCapture)
+-       }, mainExecutor)
+-   }
++class CameraActivity : ComponentActivity() {
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++
++        val cameraProcessFuture = ProcessCameraProvider.getInstance(this)
++        cameraProcessFuture.addListener(
++            Runnable {
++                val cameraProvider = cameraProcessFuture.get()
++
++                // By default, the use cases set their target rotation to match the
++                // display's rotation.
++                val preview = buildPreview()
++                val imageAnalysis = buildImageAnalysis()
++                val imageCapture = buildImageCapture()
++
++                cameraProvider.bindToLifecycle(
++                    this, cameraSelector, preview, imageAnalysis, imageCapture
++                )
++            },
++            mainExecutor
++        )
++    }
+ }
+ ```
+ 
++<br />
++
+ ### OrientationEventListener setup
+ 
+ Using an `OrientationEventListener` allows you to continuously update the target

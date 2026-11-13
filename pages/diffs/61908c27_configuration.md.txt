@@ -1,0 +1,387 @@
+diff --git a/docs/media/camera/camerax/configuration.md b/docs/media/camera/camerax/configuration.md
+index b877f5be..7d7eb005 100644
+--- a/docs/media/camera/camerax/configuration.md
++++ b/docs/media/camera/camerax/configuration.md
+@@ -10,8 +10,6 @@ case's operations.
+ For example, with the image capture use case, you can set a target aspect ratio
+ and a flash mode. The following code shows one example:
+ 
+-### Kotlin
+-
+ ```kotlin
+ val imageCapture = ImageCapture.Builder()
+     .setFlashMode(...)
+@@ -19,16 +17,6 @@ val imageCapture = ImageCapture.Builder()
+     .build()
+ ```
+ 
+-### Java
+-
+-```java
+-ImageCapture imageCapture =
+-    new ImageCapture.Builder()
+-        .setFlashMode(...)
+-        .setTargetAspectRatio(...)
+-        .build();
+-```
+-
+ In addition to configuration options, some use cases expose APIs to dynamically
+ alter settings after the use case has been created. For information about
+ configuration that is specific to the individual use cases, see [Implement a
+@@ -62,17 +50,18 @@ The following procedure describes how to use `CameraXConfig`:
+ For example, the following code sample restricts CameraX logging to error
+ messages only:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ class CameraApplication : Application(), CameraXConfig.Provider {
+-   override fun getCameraXConfig(): CameraXConfig {
+-       return CameraXConfig.Builder.fromConfig(Camera2Config.defaultConfig())
+-           .setMinimumLoggingLevel(Log.ERROR).build()
+-   }
++    override fun getCameraXConfig(): CameraXConfig {
++        return CameraXConfig.Builder.fromConfig(Camera2Config.defaultConfig())
++            .setMinimumLoggingLevel(Log.ERROR).build()
++    }
+ }
+ ```
+ 
++<br />
++
+ Keep a local copy of the `CameraXConfig` object if your application needs to
+ know the CameraX configuration after setting it.
+ 
+@@ -94,18 +83,19 @@ filters out a camera, CameraX behaves as if that camera doesn't exist. For
+ example, the following code limits the application to only use the device's
+ default back camera:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ class MainApplication : Application(), CameraXConfig.Provider {
+-   override fun getCameraXConfig(): CameraXConfig {
+-       return CameraXConfig.Builder.fromConfig(Camera2Config.defaultConfig())
+-              .setAvailableCamerasLimiter(CameraSelector.DEFAULT_BACK_CAMERA)
+-              .build()
+-   }
++    override fun getCameraXConfig(): CameraXConfig {
++        return CameraXConfig.Builder.fromConfig(Camera2Config.defaultConfig())
++            .setAvailableCamerasLimiter(CameraSelector.DEFAULT_BACK_CAMERA)
++            .build()
++    }
+ }
+ ```
+ 
++<br />
++
+ ### Threads
+ 
+ Many of the platform APIs on which CameraX is built require blocking
+@@ -205,16 +195,15 @@ the correct orientation after saving.
+ 
+ The following code sample shows how to set the rotation on an orientation event:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ override fun onCreate() {
+     val imageCapture = ImageCapture.Builder().build()
+ 
+     val orientationEventListener = object : OrientationEventListener(this as Context) {
+-        override fun onOrientationChanged(orientation : Int) {
+-            // Monitors orientation values to determine the target rotation value
+-            val rotation : Int = when (orientation) {
++        override fun onOrientationChanged(orientation: Int) {
++            // Monitors orientation values to determine the target rotation value.
++            val rotation: Int = when (orientation) {
+                 in 45..134 -> Surface.ROTATION_270
+                 in 135..224 -> Surface.ROTATION_180
+                 in 225..314 -> Surface.ROTATION_90
+@@ -228,36 +217,7 @@ override fun onCreate() {
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-@Override
+-public void onCreate() {
+-    ImageCapture imageCapture = new ImageCapture.Builder().build();
+-
+-    OrientationEventListener orientationEventListener = new OrientationEventListener((Context)this) {
+-       @Override
+-       public void onOrientationChanged(int orientation) {
+-           int rotation;
+-
+-           // Monitors orientation values to determine the target rotation value
+-           if (orientation >= 45 && orientation < 135) {
+-               rotation = Surface.ROTATION_270;
+-           } else if (orientation >= 135 && orientation < 225) {
+-               rotation = Surface.ROTATION_180;
+-           } else if (orientation >= 225 && orientation < 315) {
+-               rotation = Surface.ROTATION_90;
+-           } else {
+-               rotation = Surface.ROTATION_0;
+-           }
+-
+-           imageCapture.setTargetRotation(rotation);
+-       }
+-    };
+-
+-    orientationEventListener.enable();
+-}
+-```
++<br />
+ 
+ Based on the set rotation, each use case either rotates the image data
+ directly or provides rotation metadata to the consumers of the non-rotated image
+@@ -277,10 +237,9 @@ the use cases in the group point to the same area in the camera sensor.
+ 
+ The following code snippet shows how to use these two classes:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-val viewPort =  ViewPort.Builder(Rational(width, height), display.rotation).build()
++val viewPort = ViewPort.Builder(Rational(width, height), display.rotation).build()
+ val useCaseGroup = UseCaseGroup.Builder()
+     .addUseCase(preview)
+     .addUseCase(imageAnalysis)
+@@ -290,20 +249,7 @@ val useCaseGroup = UseCaseGroup.Builder()
+ cameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, useCaseGroup)
+ ```
+ 
+-### Java
+-
+-```java
+-ViewPort viewPort = new ViewPort.Builder(
+-         new Rational(width, height),
+-         getDisplay().getRotation()).build();
+-UseCaseGroup useCaseGroup = new UseCaseGroup.Builder()
+-    .addUseCase(preview)
+-    .addUseCase(imageAnalysis)
+-    .addUseCase(imageCapture)
+-    .setViewPort(viewPort)
+-    .build();
+-cameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, useCaseGroup);
+-```
++<br />
+ 
+ `ViewPort` defines the buffer rect visible to end users. Then CameraX calculates
+ the largest possible crop rect based on the properties of the viewport and the
+@@ -313,17 +259,12 @@ to use [`PreviewView`](https://developer.android.com/training/camerax/preview#im
+ 
+ The following code snippets shows how to get the `ViewPort` object:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ val viewport = findViewById<PreviewView>(R.id.preview_view).viewPort
+ ```
+ 
+-### Java
+-
+-```java
+-ViewPort viewPort = ((PreviewView)findViewById(R.id.preview_view)).getViewPort();
+-```
++<br />
+ 
+ In the preceding example, what the app gets from `ImageAnalysis` and
+ `ImageCapture` matches what the end user sees in `PreviewView`, assuming the
+@@ -351,38 +292,39 @@ selected for you, there are a few options:
+ The following code sample illustrates how to create a `CameraSelector` to
+ influence device selection:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-fun selectExternalOrBestCamera(provider: ProcessCameraProvider):CameraSelector? {
+-   val cam2Infos = provider.availableCameraInfos.map {
+-       Camera2CameraInfo.from(it)
+-   }.sortedByDescending {
+-       // HARDWARE_LEVEL is Int type, with the order of:
+-       // LEGACY < LIMITED < FULL < LEVEL_3 < EXTERNAL
+-       it.getCameraCharacteristic(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL)
+-   }
+-
+-   return when {
+-       cam2Infos.isNotEmpty() -> {
+-           CameraSelector.Builder()
+-               .addCameraFilter {
+-                   it.filter { camInfo ->
+-                       // cam2Infos[0] is either EXTERNAL or best built-in camera
+-                       val thisCamId = Camera2CameraInfo.from(camInfo).cameraId
+-                       thisCamId == cam2Infos[0].cameraId
+-                   }
+-               }.build()
+-       }
+-       else -> null
++fun selectExternalOrBestCamera(provider: ProcessCameraProvider): CameraSelector? {
++    val cam2Infos = provider.availableCameraInfos.map {
++        Camera2CameraInfo.from(it)
++    }.sortedByDescending {
++        // HARDWARE_LEVEL is Int type, with the order of:
++        // LEGACY < LIMITED < FULL < LEVEL_3 < EXTERNAL.
++        it.getCameraCharacteristic(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL)
++    }
++
++    return when {
++        cam2Infos.isNotEmpty() -> {
++            CameraSelector.Builder()
++                .addCameraFilter {
++                    it.filter { camInfo ->
++                        // cam2Infos[0] is either EXTERNAL or best built-in camera.
++                        val thisCamId = Camera2CameraInfo.from(camInfo).cameraId
++                        thisCamId == cam2Infos[0].cameraId
++                    }
++                }.build()
++        }
++        else -> null
+     }
+ }
+ 
+-// create a CameraSelector for the USB camera (or highest level internal camera)
+-val selector = selectExternalOrBestCamera(processCameraProvider)
++// create a CameraSelector for the USB camera (or highest level internal camera).
++val selector = selectExternalOrBestCamera(processCameraProvider) ?: return
+ processCameraProvider.bindToLifecycle(this, selector, preview, analysis)
+ ```
+ 
++<br />
++
+ ## Select multiple cameras concurrently
+ 
+ Starting with CameraX 1.3, you can also select multiple cameras concurrently.
+@@ -395,10 +337,9 @@ the same time. The following code block shows how to set two cameras when
+ calling `bindToLifecycle`, and how to get both Camera objects from the returned
+ `ConcurrentCamera` object.
+ 
+-### Kotlin
+ 
+ ```kotlin
+-// Build ConcurrentCameraConfig
++// Build ConcurrentCameraConfig.
+ val primary = ConcurrentCamera.SingleCameraConfig(
+     primaryCameraSelector,
+     useCaseGroup,
+@@ -419,28 +360,7 @@ val primaryCamera = concurrentCamera.cameras[0]
+ val secondaryCamera = concurrentCamera.cameras[1]
+ ```
+ 
+-### Java
+-
+-```java
+-// Build ConcurrentCameraConfig
+-SingleCameraConfig primary = new SingleCameraConfig(
+-    primaryCameraSelector,
+-    useCaseGroup,
+-    lifecycleOwner
+-);
+-
+-SingleCameraConfig secondary = new SingleCameraConfig(
+-    primaryCameraSelector,
+-    useCaseGroup,
+-    lifecycleOwner
+-);
+-
+-ConcurrentCamera concurrentCamera =  
+-    mCameraProvider.bindToLifecycle(Arrays.asList(primary, secondary));
+-
+-Camera primaryCamera = concurrentCamera.getCameras().get(0);
+-Camera secondaryCamera = concurrentCamera.getCameras().get(1);
+-```
++<br />
+ 
+ ## Camera resolution
+ 
+@@ -501,23 +421,12 @@ You can set specific resolutions when building use cases using the
+ `setTargetResolution(Size resolution)` method, as shown in the following code
+ sample:
+ 
+-### Kotlin
+-
+ ```kotlin
+ val imageAnalysis = ImageAnalysis.Builder()
+     .setTargetResolution(Size(1280, 720))
+     .build()
+ ```
+ 
+-### Java
+-
+-```java
+-ImageAnalysis imageAnalysis =
+-  new ImageAnalysis.Builder()
+-    .setTargetResolution(new Size(1280, 720))
+-    .build();
+-```
+-
+ You can't set both target aspect ratio and target resolution on the same use
+ case. Doing so throws an `IllegalArgumentException` when building the configuration
+ object.
+@@ -583,7 +492,6 @@ Retrieve instances of `CameraControl` and `CameraInfo` using the
+ [`ProcessCameraProvider.bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider.md.txt).
+ The following code shows an example:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ val camera = processCameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, preview)
+@@ -594,16 +502,7 @@ val cameraControl = camera.cameraControl
+ val cameraInfo = camera.cameraInfo
+ ```
+ 
+-### Java
+-
+-```java
+-Camera camera = processCameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, preview);
+-
+-// For performing operations that affect all outputs.
+-CameraControl cameraControl = camera.getCameraControl();
+-// For querying information and states.
+-CameraInfo cameraInfo = camera.getCameraInfo();
+-```
++<br />
+ 
+ For example, you can submit zoom and other `CameraControl` operations after
+ calling `bindToLifecycle()`. After you stop or destroy the activity used to bind
+@@ -734,11 +633,12 @@ which consists of one or more `MeteringPoint` objects with optional metering
+ mode combinations from [`FLAG_AF`](https://developer.android.com/reference/androidx/camera/core/FocusMeteringAction.md.txt#FLAG_AF()), [`FLAG_AE`](https://developer.android.com/reference/androidx/camera/core/FocusMeteringAction.md.txt#FLAG_AE()), and
+ [`FLAG_AWB`](https://developer.android.com/reference/androidx/camera/core/FocusMeteringAction.md.txt#FLAG_AWB()). The following code demonstrates this usage:
+ 
++
+ ```kotlin
+ // meteringPointFactory is any MeteringPointFactory from the previous example.
+ val meteringPoint1 = meteringPointFactory.createPoint(x1, y1)
+ val meteringPoint2 = meteringPointFactory.createPoint(x2, y2)
+-val action = FocusMeteringAction.Builder(meteringPoint1) // default AF|AE|AWB
++val action = FocusMeteringAction.Builder(meteringPoint1) // default AF|AE|AWB.
+     // Optionally add meteringPoint2 for AF/AE.
+     .addPoint(meteringPoint2, FLAG_AF or FLAG_AE)
+     // The action is canceled in 3 seconds (if not set, default is 5s).
+@@ -754,6 +654,8 @@ result.addListener({
+ }, ContextCompat.getMainExecutor(this))
+ ```
+ 
++<br />
++
+ As shown in the preceding code,
+ [`startFocusAndMetering()`](https://developer.android.com/reference/androidx/camera/core/CameraControl.md.txt#startFocusAndMetering(androidx.camera.core.FocusMeteringAction))
+ takes a `FocusMeteringAction` consisting of one `MeteringPoint` for AF/AE/AWB
+@@ -796,6 +698,7 @@ request, CameraX cancels the previous request.
+ The following snippet sets an exposure compensation index and registers a
+ callback for when the exposure change request has been executed:
+ 
++
+ ```kotlin
+ camera.cameraControl.setExposureCompensationIndex(exposureCompensationIndex)
+     .addListener({
+@@ -807,6 +710,8 @@ camera.cameraControl.setExposureCompensationIndex(exposureCompensationIndex)
+     }, mainExecutor)
+ ```
+ 
++<br />
++
+ - [`CameraInfo.getExposureState()`](https://developer.android.com/reference/androidx/camera/core/CameraInfo.md.txt#getExposureState())
+   retrieves the current
+   [`ExposureState`](https://developer.android.com/reference/androidx/camera/core/ExposureState.md.txt)

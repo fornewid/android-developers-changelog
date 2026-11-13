@@ -1,0 +1,21 @@
+diff --git a/docs/develop/ui/compose/performance.md b/docs/develop/ui/compose/performance.md
+index 50a8be27..623e08a0 100644
+--- a/docs/develop/ui/compose/performance.md
++++ b/docs/develop/ui/compose/performance.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/performance
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/develop/ui/compose/performance/llms.txt
++
+ Jetpack Compose delivers excellent performance out of the box. Configure your
+ app using best practices to avoid common pitfalls and optimize your Compose
+ application's performance.
+@@ -43,6 +45,7 @@ scrolling since Compose 1.9.0 (achieving 0% jank on Pixel 6).
+ | 1.10.0 | Pixel 3a | 0 |
+ | 1.11 | Pixel 6 | 0 |
+ | 1.12 | Pixel 6 | 0 |
++| 1.13 | Pixel 6 | 0 |
+ |---|---|---|
+ [Compose excess jank over Views in percentage points, by Compose version (lower is better)]
+ 

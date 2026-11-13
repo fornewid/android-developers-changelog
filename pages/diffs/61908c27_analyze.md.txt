@@ -1,0 +1,110 @@
+diff --git a/docs/media/camera/camerax/analyze.md b/docs/media/camera/camerax/analyze.md
+index 2dd84314..cee04b44 100644
+--- a/docs/media/camera/camerax/analyze.md
++++ b/docs/media/camera/camerax/analyze.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/media/camera/camerax/analyze
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/media/camera/camerax/llms.txt
++
+ The [image analysis](https://developer.android.com/reference/androidx/camera/core/ImageAnalysis.Analyzer.md.txt#analyze(androidx.camera.core.ImageProxy))
+ use case provides your app with a CPU-accessible image on which you can
+ perform image processing, computer vision, or machine learning inference. The
+@@ -12,7 +14,7 @@ application implements an
+ method that is run on each frame.
+ 
+ To learn how to integrate Google's ML Kit with your CameraX app,
+-see [ML Kit Analyzer](https://developer.android.com/training/camerax/mlkitanalyzer).
++see [ML Kit Analyzer](https://developer.android.com/media/camera/camerax/mlkitanalyzer.md.txt).
+ 
+ ## Operating Modes
+ 
+@@ -41,7 +43,7 @@ rate requirements, CameraX can be configured to drop frames in one of the follow
+   example, when both preview and image analysis are bound to a Camera device,
+   then preview would also be blocked while CameraX is processing the images.
+   You can enable blocking mode is enabled by passing
+-  [`STRATEGY_BLOCK_PRODUCER`](https://developer.android.com/reference/androidx/camera/core/ImageAnalysis.md.txt#strategy_block_producer)
++  [`STRATEGY_BLOCK_PRODUCER`](https://developer.android.com/reference/androidx/camera/core/ImageAnalysis.md.txt#STRATEGY_BLOCK_PRODUCER)
+   to
+   [`setBackpressureStrategy()`](https://developer.android.com/reference/androidx/camera/core/ImageAnalysis.Builder.md.txt#setBackpressureStrategy(int)).
+   You can also configure the image queue depth by using
+@@ -117,7 +119,7 @@ following sequence:
+ 
+ When performing complicated image analysis where the device can't keep
+ up with the frame rate, you can configure CameraX to drop frames with
+-the strategies described in [Operating Modes](https://developer.android.com/media/camera/camerax/analyze.md.txt#operating_modes) section of this topic.
++the strategies described in [Operating Modes](https://developer.android.com/media/camera/camerax/analyze.md.txt#operating-modes) section of this topic.
+ 
+ ### Create your analyzer
+ 
+@@ -136,12 +138,12 @@ provides with the `ImageAnalysis.Builder`:
+ - `ImageFormat.RGBA_8888` if the app requested `OUTPUT_IMAGE_FORMAT_RGBA_8888`.
+ - `ImageFormat.YUV_420_888` if the app requested `OUTPUT_IMAGE_FORMAT_YUV_420_888`.
+ 
+-See the [Build ImageAnalysis use case](https://developer.android.com/training/camerax/analyze#build_imageanalysis_use_case)
++See the [Build ImageAnalysis use case](https://developer.android.com/media/camera/camerax/analyze.md.txt#build-use-case)
+ for color space configurations and where the pixel bytes can be retrieved.
+ 
+ Inside an analyzer, the application should do the following:
+ 
+-1. Analyze a given frame as quickly as possible, preferably within the given frame rate time limit (for example, less than 32ms for 30 fps case). If the application can't analyze a frame quickly enough, consider one of the [supported frame dropping mechanisms](https://developer.android.com/training/camerax/analyze#operating_modes).
++1. Analyze a given frame as quickly as possible, preferably within the given frame rate time limit (for example, less than 32ms for 30 fps case). If the application can't analyze a frame quickly enough, consider one of the [supported frame dropping mechanisms](https://developer.android.com/media/camera/camerax/analyze.md.txt#operating-modes).
+ 2. Release the `ImageProxy` to CameraX by calling [`ImageProxy.close()`](https://developer.android.com/reference/androidx/camera/core/ImageProxy.md.txt#close()). Note that you shouldn't call the wrapped Media.Image's close function (`Media.Image.close()`).
+ 
+ Applications can use the wrapped `Media.Image` inside ImageProxy directly.
+@@ -166,20 +168,18 @@ the use case.
+ ### Bind the ImageAnalysis to a Lifecycle
+ 
+ > [!NOTE]
+-> **Note:** This step is common to all CameraX use cases. See the [CameraX API model](https://developer.android.com/training/camerax/architecture#api-model) for more information about binding and lifecycle customization.
++> **Note:** This step is common to all CameraX use cases. See the [CameraX API model](https://developer.android.com/media/camera/camerax/architecture.md.txt#api-model) for more information about binding and lifecycle customization.
+ 
+ It is highly recommended to bind the your `ImageAnalysis` to an existing
+ AndroidX lifecycle with the
+ [`ProcessCameraProvider.bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider.md.txt#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...))
+ function. Note that the `bindToLifecycle()` function returns the selected
+ [`Camera`](https://developer.android.com/reference/androidx/camera/core/Camera.md.txt) device, which can be used
+-to fine tune advanced settings such as exposure and others. See [this guide](https://developer.android.com/training/camerax/configuration#camera-output) for more information about controlling camera output.
++to fine tune advanced settings such as exposure and others. See [this guide](https://developer.android.com/media/camera/camerax/configuration.md.txt#camera-output) for more information about controlling camera output.
+ 
+ The following example combines everything from the previous steps, binding
+ CameraX `ImageAnalysis` and `Preview` use cases to a `lifeCycle` owner:
+ 
+-### Kotlin
+-
+ ```kotlin
+ val imageAnalysis = ImageAnalysis.Builder()
+     // enable the following line if RGBA output is needed.
+@@ -198,31 +198,6 @@ imageAnalysis.setAnalyzer(executor, ImageAnalysis.Analyzer { imageProxy ->
+ cameraProvider.bindToLifecycle(this as LifecycleOwner, cameraSelector, imageAnalysis, preview)
+ ```
+ 
+-### Java
+-
+-```java
+-ImageAnalysis imageAnalysis =
+-    new ImageAnalysis.Builder()
+-        // enable the following line if RGBA output is needed.
+-        //.setOutputImageFormat(ImageAnalysis.OUTPUT_IMAGE_FORMAT_RGBA_8888)
+-        .setTargetResolution(new Size(1280, 720))
+-        .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+-        .build();
+-
+-imageAnalysis.setAnalyzer(executor, new ImageAnalysis.Analyzer() {
+-    @Override
+-    public void analyze(@NonNull ImageProxy imageProxy) {
+-        int rotationDegrees = imageProxy.getImageInfo().getRotationDegrees();
+-            // insert your code here.
+-            ...
+-            // after done, release the ImageProxy object
+-            imageProxy.close();
+-        }
+-    });
+-
+-cameraProvider.bindToLifecycle((LifecycleOwner) this, cameraSelector, imageAnalysis, preview);
+-```
+-
+ ## Additional resources
+ 
+ To learn more about CameraX, see the following additional resources.

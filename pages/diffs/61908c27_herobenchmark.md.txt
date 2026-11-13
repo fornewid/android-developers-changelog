@@ -1,0 +1,111 @@
+diff --git a/docs/develop/ui/compose/performance/herobenchmark.md b/docs/develop/ui/compose/performance/herobenchmark.md
+index 5f2b5393..4a66f93b 100644
+--- a/docs/develop/ui/compose/performance/herobenchmark.md
++++ b/docs/develop/ui/compose/performance/herobenchmark.md
+@@ -4,19 +4,24 @@ url: https://developer.android.com/develop/ui/compose/performance/herobenchmark
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/develop/ui/compose/performance/llms.txt
++
+ Hero benchmarks are a set of benchmarks that cover high-level app user journeys,
+ such as app startup or scrolling in the open-source Pokedex app.
+ 
+-- **Startup hero benchmarks:** Tracking the time from opening the app to content being displayed.
+-- **Scroll hero benchmarks:** Measuring scrolling performance of a lazy grid with images.
++- **Startup hero benchmarks**: Tracking the time from opening the app to content being displayed.
++- **Scroll hero benchmarks**: Measuring scrolling performance of a lazy grid with images.
+ 
+ ## Test setup
+ 
+-- **App selection:** We conducted these tests using the open-source Pokedex app, comparing its [View-based](https://github.com/skydoves/Pokedex) and [Compose-based](https://github.com/skydoves/pokedex-compose) versions. The app was selected to represent real-world scenarios, and was not developed by the Compose team.
+-- **Hardware setup:** Benchmarks were run on a Pixel 6 running Android 17 (API 37) [with locked CPUs and GPUs](https://developer.android.com/topic/performance/benchmarking/microbenchmark-overview.md.txt#lock-clocks). Prior to Compose 1.12, benchmarks were conducted on a Pixel 3a. As of Compose 1.12, Pixel 6 is used as the standard performance baseline for hero benchmarks.
+-- **Build setup:** The benchmarks use the app built in release mode with [R8
++- **App selection** : We conducted these tests using the open-source Pokedex app, comparing its [View-based](https://github.com/skydoves/Pokedex) and [Compose-based](https://github.com/skydoves/pokedex-compose) versions. The app was selected to represent real-world scenarios, and was not developed by the Compose team.
++- **Hardware setup** : Benchmarks were run on a Pixel 6 running Android 17 (API level 37) [with locked CPUs and GPUs](https://developer.android.com/topic/performance/benchmarking/microbenchmark-overview.md.txt#lock-clocks). Prior to Compose 1.12, benchmarks were conducted on a Pixel 3a. As of Compose 1.12, Pixel 6 is used as the standard performance baseline for hero benchmarks, and Compose 1.11 was also measured on Pixel 6 for comparison.
++- **Build setup** : The benchmarks use the app built in release mode with [R8
+   enabled](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/integration-tests/hero/pokedex/pokedex-macrobenchmark-target/build.gradle). The app is fully pre-compiled to reduce instability from just-in-time (JIT) compilation.
+-- **Result selection**: To ensure worst-case analysis, extreme outliers and non-representative noise were excluded from the benchmark results. A baseline was then established by selecting the median values of the upper-bound performance data
++- **Result selection**: To ensure worst-case analysis, extreme outliers and non-representative noise were excluded from the benchmark results. A baseline was then established by selecting the median values of the upper-bound performance data.
++
++> [!NOTE]
++> **Note:** Since the Compose 1.12 release, incremental improvements in the Views benchmark have reduced Views time to full display from 193 ms to 180.32 ms.
+ 
+ ## Startup hero benchmarks
+ 
+@@ -40,16 +45,20 @@ Time to initial display (TTID) measures the time it takes for an app to produce
+ its first frame, including process initialization during a cold start, activity
+ creation during a cold or warm start, and displaying the first frame.
+ 
+-In the `PokedexStartupBenchmark`, Compose 1.12 is on par with Views for TTID
+-with a cold start.
++In the `PokedexStartupBenchmark`, Compose 1.13 reaches initial display in
++147.65 ms on a cold start. This result is within normal run-to-run noise of
++Compose 1.12.1 (145.51 ms) and Compose 1.11.4 (147.78 ms), and 3.4% faster than
++Views (152.87 ms).
+ 
+ | Version | Time to initial display (ms) |
+-| Compose 1.12 | 149 |
+-| Views | 151 |
++| Compose 1.11 | 147.78 |
++| Compose 1.12 | 145.51 |
++| Compose 1.13 | 147.65 |
++| Views | 152.87 |
+ |---|---|
+ [Time to initial display in milliseconds, tested on Pixel 6]
+ 
+-**Figure 1:**Compose 1.12 compared to Views for TTID.
++**Figure 1.** This chart compares TTID for Compose 1.11, 1.12, and 1.13 with Views.
+ 
+ ### Time to full display
+ 
+@@ -57,16 +66,20 @@ Time to full display (TTFD) measures the time until the app becomes interactive.
+ This means that all data has been loaded and has been drawn. For more
+ information about time to full display, see [App Startup Time](https://developer.android.com/topic/performance/issues/launch-time.md.txt#time-full).
+ 
+-In the `PokedexStartupBenchmark`, Compose 1.12 is approximately 2% slower than
+-Views for TTFD with a cold start.
++In the `PokedexStartupBenchmark`, Compose 1.13 reaches full display in
++202.79 ms on a cold start. This result is within normal run-to-run noise of
++Compose 1.12.1 (201.96 ms) and Compose 1.11.4 (203.33 ms). Views reaches full
++display in 180.32 ms, so Compose 1.13 is 12.5% slower than Views for TTFD.
+ 
+ | Version | Time to full display (ms) |
+-| Compose 1.12 | 202 |
+-| Views | 193 |
++| Compose 1.11 | 203.33 |
++| Compose 1.12 | 201.96 |
++| Compose 1.13 | 202.79 |
++| Views | 180.32 |
+ |---|---|
+ [Time to full display in milliseconds, tested on Pixel 6]
+ 
+-**Figure 2:**Compose 1.12 compared to Views for TTFD.
++**Figure 2.** This chart compares TTFD for Compose 1.11, 1.12, and 1.13 with Views.
+ 
+ > [!NOTE]
+ > **Note:** The Compose team is actively working to improve the startup latency. For more details about upcoming improvements in Compose performance, see the [Compose roadmap](https://developer.android.com/jetpack/androidx/compose-roadmap.md.txt).
+@@ -86,8 +99,8 @@ frame. If the app takes too long to do its work, this can cause a visible
+ stutter that we call jank.
+ 
+ In the `PokedexScrollBenchmark`, Compose matches Views performance with 0
+-percentage points of excess jank since Compose 1.9.0. On Pixel 6 (tested starting
+-with Compose 1.11), both Compose and Views achieve a 0% jank rate.
++percentage points of excess jank since Compose 1.9.0. On Pixel 6, Views and
++Compose both hold 0.00% jank across Compose 1.11.4, 1.12.1, and 1.13.
+ 
+ | Compose version | Device | Excess jank over Views (pp) |
+ | 1.3.3 | Pixel 3a | +0.35 |
+@@ -100,10 +113,11 @@ with Compose 1.11), both Compose and Views achieve a 0% jank rate.
+ | 1.10.0 | Pixel 3a | 0 |
+ | 1.11 | Pixel 6 | 0 |
+ | 1.12 | Pixel 6 | 0 |
++| 1.13 | Pixel 6 | 0 |
+ |---|---|---|
+ [Compose excess jank over Views in percentage points, by Compose version (lower is better)]
+ 
+-**Figure 3:**Since Compose 1.9.0, Compose matches Views scroll jank.
++**Figure 3.** Since Compose 1.9.0, Compose matches Views scroll jank.
+ 
+ ## Run hero benchmarks
+ 
