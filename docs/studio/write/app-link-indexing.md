@@ -4,8 +4,10 @@ url: https://developer.android.com/studio/write/app-link-indexing
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/write/llms.txt
+
 > [!NOTE]
-> **Note:** Apps Links Assistant Web Checks is only available in the latest stable channel version of Android Studio and major versions (including their patches) released in the previous 10 months. Currently, the oldest supported version is **Panda 2** . If you are using an older version of Android Studio, you will need to update to access Cloud services. For more information, see [Android Studio and Cloud services compatibility](https://developer.android.com/studio/releases#service-compat).
+> **Note:** Apps Links Assistant Web Checks is only available in the latest stable channel version of Android Studio and major versions (including their patches) released in the previous 10 months. Currently, the oldest supported version is **Panda 2** . If you are using an older version of Android Studio, you will need to update to access Cloud services. For more information, see [Android Studio and Cloud services compatibility](https://developer.android.com/studio/releases.md.txt#service-compat).
 
 Android App Links are HTTP URLs that bring users directly to specific
 content in your Android app. Android App Links can drive more traffic to
@@ -21,7 +23,7 @@ The App Links Assistant in Android Studio simplifies the process with a step-by-
 wizard, as described below.
 
 For more information about how app links work and the benefits they offer, read
-[Handling Android App Links](https://developer.android.com/training/app-links).
+[Handling Android App Links](https://developer.android.com/training/app-links.md.txt).
 [Video](https://www.youtube.com/watch?v=lpaByLW_ctw)
 
 ## Add intent filters
@@ -64,7 +66,7 @@ To add intent filters and URL handling, follow these steps:
    The main App Links Assistant tool window also displays all existing deep links in the
    `AndroidManifest.xml` file and lets you quickly fix any misconfigurations by clicking
    **Fix All Manifest Issues**.
-   ![The App Links Assistant lets you fix manifest misconfigurations.](https://developer.android.com/static/studio/images/app-links-assistant.png)
+   ![The App Links Assistant lets you fix manifest misconfigurations.](https://developer.android.com/static/studio/images/app-links-assistant.png) **Figure 2.** Fix manifest misconfigurations in the App Links Assistant.
 
    **Note:** To support future links without updating your app,
    define a URL mapping that supports URLs that you plan to add. Also, include
@@ -198,7 +200,7 @@ Digital Asset Links File Generator** from the App Links Assistant and follow the
 steps:
 ![The App Links Assistant walks you through basic URL mapping](https://developer.android.com/static/studio/images/write/app-links-assistant-dal-file-generator_2x.png)
 
-**Figure 2.** Enter details about your site and app to
+**Figure 3.** Enter details about your site and app to
 generate a Digital Asset Links file.
 
 1. Enter your **Site domain** and your [**Application
@@ -209,8 +211,8 @@ generate a Digital Asset Links file.
    Digital Asset Links file declaring that your app and website share sign-in credentials:
    `delegate_permission/common.get_login_creds`.
 
-3. Specify the [signing config](https://developer.android.com/studio/publish/app-signing#sign-auto) or
-   select a [keystore file](https://developer.android.com/studio/publish/app-signing#certificates-keystores).
+3. Specify the [signing config](https://developer.android.com/studio/publish/app-signing.md.txt#sign-auto) or
+   select a [keystore file](https://developer.android.com/studio/publish/app-signing.md.txt#certificates-keystores).
 
    Make sure you select the right release config or keystore file for the release build or the
    debug config or keystore file for the
@@ -220,7 +222,7 @@ generate a Digital Asset Links file.
 5. Once Android Studio generates the file, click **Save file** to download it.
 6. Upload the `assetlinks.json` file to your site, with read access for everyone, at `https://yoursite/.well-known/assetlinks.json`.
 
-   **Important:** The system verifies the Digital Asset Links file via the
+   **Important:** The system verifies the Digital Asset Links file using the
    encrypted HTTPS protocol. Make sure that the `assetlinks.json` file is accessible over
    an HTTPS connection, regardless of whether your app's intent filter includes
    `https`.
@@ -243,7 +245,7 @@ To verify that your links open the correct activity, follow these steps:
 2. Enter the URL that you want to test in the **URL** field; for example, *http://recipe-app.com/recipe/grilled-potato-salad*.
 ![](https://developer.android.com/static/studio/images/write/app-links-assistant-link-testing_2x.png)
 
-**Figure 3.** **Test App Links** dialog
+**Figure 4.** **Test App Links** dialog
 showing a URL being tested and a success message.
 3. Click **Run Test**.
 
@@ -251,12 +253,12 @@ If the URL mapping isn't set up properly or doesn't exist, an error message appe
 URL in the **Test App Links** dialog. Otherwise, Android Studio
 launches your app in the device or emulator at the specified activity without showing the
 disambiguation dialog ("app chooser") and shows a success message in the
-**App Link Testing** dialog, as shown in figure 3.
+**App Link Testing** dialog, as shown in figure 4.
 
 If Android Studio can't launch
 the app, an error message appears in Android Studio's **Run** window.
 
 To test Android App Links through the App Links Assistant, you must have a device connected or a
 virtual device available running Android 6.0 (API level 23) or higher. For more
-information, read about how to [connect a device](https://developer.android.com/studio/run/device)
-or [create an AVD](https://developer.android.com/studio/run/managing-avds#createavd).
+information, read about how to [connect a device](https://developer.android.com/studio/run/device.md.txt)
+or [create an AVD](https://developer.android.com/studio/run/managing-avds.md.txt#createavd).

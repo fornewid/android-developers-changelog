@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/playcore/install-prompt
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/playcore/install-prompt/llms.txt
+
 When users install your app on multiple devices they own, they can engage with
 it more often and in new contexts---on their watch while on the go, on their TV
 while relaxing at home, or on their tablet while commuting. This increased
@@ -35,8 +37,8 @@ The prompt won't show if any of these checks fail:
 
 ## Integrate in-app install prompts in your app
 
-Learn how to integrate in-app install prompts in your app, see
-[Integrate in-app install prompts](https://developer.android.com/guide/playcore/install-prompt/kotlin-java).
+To learn how to integrate in-app install prompts in your app, see
+[Integrate in-app install prompts](https://developer.android.com/guide/playcore/install-prompt/kotlin-java.md.txt).
 
 ### User privacy
 
@@ -49,6 +51,6 @@ eligibility checks.
 ## Terms of service and data safety
 
 By accessing or using the Play In-App Install Prompts Library, you agree to the
-[Play Core Software Development Kit Terms of Service](https://developer.android.com/guide/playcore#license) and the
+[Play Core Software Development Kit Terms of Service](https://developer.android.com/guide/playcore.md.txt#license) and the
 [Google Play Terms of Service](https://play.google.com/about/play-terms/index.html). Read and understand all applicable
 terms and policies before accessing the library

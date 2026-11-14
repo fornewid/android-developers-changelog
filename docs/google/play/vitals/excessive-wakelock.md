@@ -4,20 +4,22 @@ url: https://developer.android.com/google/play/vitals/excessive-wakelock
 source: md.txt
 ---
 
-Partial wake locks are a mechanism in the [`PowerManager`](https://developer.android.com/reference/android/os/PowerManager) API that lets
+> Documentation index: https://developer.android.com/google/play/vitals/llms.txt
+
+Partial wake locks are a mechanism in the [`PowerManager`](https://developer.android.com/reference/android/os/PowerManager.md.txt) API that lets
 developers keep the CPU running after a device's display turns off (whether due
 to system timeout or the user pressing the power button). Excessive use of
 partial wake locks drains the device's battery because it prevents the device
 from entering lower power states.
 
 > [!NOTE]
-> **Note:** For information on how to diagnose and resolve this issue, see [Excessive partial wake locks](https://developer.android.com/topic/performance/issues/excessive-wakelock).
+> **Note:** For information on how to diagnose and resolve this issue, see [Excessive partial wake locks](https://developer.android.com/topic/performance/issues/excessive-wakelock.md.txt).
 
 ## Detect the problem
 
 ### Android vitals
 
-Android vitals can help improve your app's performance by [alerting you via the
+Android vitals can help improve your app's performance by [alerting you in the
 Play Console](https://support.google.com/googleplay/android-developer/answer/9844486) when your app's use of partial wake locks is
 excessive.
 
@@ -25,8 +27,8 @@ Android vitals reports partial wake lock use as **excessive** when **all of the
 partial wake locks** , added together, run for 2 or more hours in a 24-hour
 period. Android vitals tracks wake lock duration only if the wake lock
 is held when the app is in the background or is running a foreground service.
-Currently, Android vitals exempts wake locks created by [audio](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls#audio),
-[location](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls#location), and [JobScheduler](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls#job) user-initiated APIs
+Currently, Android vitals exempts wake locks created by [audio](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls.md.txt#audio),
+[location](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls.md.txt#location), and [JobScheduler](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls.md.txt#job) user-initiated APIs
 from the wake lock calculation.
 
 The Android vitals excessive partial wake lock dashboard provides breakdowns of

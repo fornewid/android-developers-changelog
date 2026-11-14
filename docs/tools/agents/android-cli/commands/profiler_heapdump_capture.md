@@ -4,22 +4,28 @@ url: https://developer.android.com/tools/agents/android-cli/commands/profiler_he
 source: md.txt
 ---
 
-Capture a JVM heap snapshot (requires API 29+).
+> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
+
+Capture a JVM heap snapshot (requires API 31+ for --type=perfetto, or API 29+
+with --type=hprof).
 
 ## Usage
 
-    android profiler heapdump capture [-h] [--device=PARAM] [--gc] [--output=PARAM] [--pid=PARAM] [--process=PARAM] [--session=PARAM] [--timeout=PARAM]
+```bash
+android profiler heapdump capture [-h] [--device=PARAM] [--gc] [--output=PARAM] [--pid=PARAM] [--process=PARAM] [--session=PARAM] [--timeout=PARAM] [--type=PARAM]
+```
 
 ## Options
 
-- `--device=PARAM` - Device serial or AVD name (requires API 29+).
-- `--gc` - Trigger GC before dumping heap.
+- `--device=PARAM` - Device serial or AVD name (requires API 31+ for --type=perfetto, or API 29+ with --type=hprof).
+- `--gc` - Trigger GC before dumping heap (hprof only).
 - `-h,--help` - Shows the help message for the specified command.
-- `-o,--output=PARAM` - Directory or file path to save the .hprof heap dump.
+- `-o,--output=PARAM` - Directory or file path to save the heap dump.
 - `--pid=PARAM` - PID of the process to capture.
 - `--process=PARAM` - Name of the process to capture, e.g. com.example.app or com.example.app:service.
 - `--session=PARAM` - Name for this capture's session. The session ends when the capture finishes; use the name to check or cancel an in-progress capture from another terminal.
 - `--timeout=PARAM` - Maximum time in seconds to wait for the heap dump to be written on the device.
+- `--type=PARAM` - Kind of heap dump to record: hprof (default; may change in a future release) or perfetto.
 
 `android` options:
 
@@ -30,13 +36,12 @@ Capture a JVM heap snapshot (requires API 29+).
 ## Description
 
 `android profiler heapdump capture` captures a heap dump of a process running on
-a connected Android device or emulator, and saves it as an `.hprof` file. It
-blocks until the heap dump is saved, and requires a device running Android 10
-(API level 29) or higher. The app must be debuggable (for example, a debug
-build), unless the device runs a `userdebug` or `eng` build of Android.
+a connected Android device or emulator, and saves it as an `.hprof` file or a
+Perfetto trace (see `--type`). It blocks until the heap dump is saved.
 
 The heap dump is saved to the file or directory passed in `-o, --output`, or to
-the current directory if it's omitted.
+the current directory if it's omitted. If `--output` names a file without a
+matching extension, the default extension for `--type` is appended.
 
 ### Select the process (`--process` and `--pid`)
 
@@ -48,14 +53,23 @@ Pass exactly one of the following options:
 ### Run garbage collection (`--gc`)
 
 Pass `--gc` to run garbage collection before capturing the heap dump, which
-frees the objects that are no longer reachable.
+frees the objects that are no longer reachable. Only supported with
+`--type=hprof`.
+
+### Choose the kind of heap dump (`--type`)
+
+- `--type=hprof`, the default, records an `.hprof` file with the objects of the heap and the values of their fields, strings, and arrays. You can open it in the [Android Studio Memory Profiler](https://developer.android.com/studio/profile/capture-heap-dump.md.txt). It requires a device running Android 10 (API level 29) or higher, and a debuggable app (for example, a debug build), unless the device runs a `userdebug` or `eng` build of Android.
+- `--type=perfetto` records a Perfetto trace with the objects of the heap and the references between them, but not their values, so it's smaller. You can also open it in the [Android Studio Memory Profiler](https://developer.android.com/studio/profile/capture-heap-dump.md.txt). It requires a device running Android 12 (API level 31) or higher, and an app that is profileable from the shell (`<profileable android:shell="true"/>`) or debuggable, unless the device runs a `userdebug` or `eng` build of Android. The trace is saved with the `.perfetto-java-heap-dump` extension unless `--output` already has a Perfetto trace extension.
+
+A future release may change the default. To keep getting `.hprof` files, pass
+`--type=hprof`.
 
 ### Cancel a capture (`--session` and `--timeout`)
 
 Each capture runs in its own profiling session, which ends when the capture
 finishes. Pass `--session` to name the session, so you can check or cancel the
 capture from another terminal with the
-[`android profiler session`](https://developer.android.com/tools/agents/android-cli/commands/profiler_session) commands.
+[`android profiler session`](https://developer.android.com/tools/agents/android-cli/commands/profiler_session.md.txt) commands.
 
 If the heap dump isn't written on the device within the number of seconds passed
 in `--timeout`, the capture is cancelled. Increase it for apps with a large
@@ -65,17 +79,31 @@ heap.
 
 Capture a heap dump of the main process of an app:
 
-    android profiler heapdump capture --process=com.example.app --output=dump.hprof
+```bash
+android profiler heapdump capture --process=com.example.app --output=dump.hprof
+```
 
 Capture a heap dump of the process with ID `1234` on a specific emulator, after
 garbage collection:
 
-    android profiler heapdump capture --device=emulator-5554 --pid=1234 --gc --output=dump.hprof
+```bash
+android profiler heapdump capture --device=emulator-5554 --pid=1234 --gc --output=dump.hprof
+```
+
+Capture a heap dump of the main process of an app as a Perfetto trace:
+
+```bash
+android profiler heapdump capture --process=com.example.app --type=perfetto --output=dump.perfetto-java-heap-dump
+```
 
 Capture a heap dump in a session named `my-dump`:
 
-    android profiler heapdump capture --process=com.example.app --session=my-dump
+```bash
+android profiler heapdump capture --process=com.example.app --session=my-dump
+```
 
 While the capture is running, check its status from another terminal:
 
-    android profiler session status --session=my-dump
+```bash
+android profiler session status --session=my-dump
+```

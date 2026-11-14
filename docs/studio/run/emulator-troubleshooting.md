@@ -4,13 +4,15 @@ url: https://developer.android.com/studio/run/emulator-troubleshooting
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/run/llms.txt
+
 This page lists known issues, workarounds, and troubleshooting tips for the
 Android Emulator. If you encounter an issue not listed here or are unable to
 successfully use a workaround listed here,
-[report a bug](https://developer.android.com/studio/report-bugs#emulator-bugs).
+[report a bug](https://developer.android.com/studio/report-bugs.md.txt#emulator-bugs).
 
 > [!NOTE]
-> **Note:** If the emulator runs but performs poorly in general, you might need to [configure hardware acceleration](https://developer.android.com/studio/run/emulator-acceleration) for the emulator.
+> **Note:** If the emulator runs but performs poorly in general, you might need to [configure hardware acceleration](https://developer.android.com/studio/run/emulator-acceleration.md.txt) for the emulator.
 
 ## General issues
 
@@ -25,8 +27,8 @@ Google Accounts and experience crashes or authentication blocks when launching
 Google first-party apps or calling GMSCore APIs.
 
 **Workaround** : Update your system image to API 37 revision 5 or higher, or
-update to the latest Canary Preview system image, using the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager).
-![SDK Manager](https://developer.android.com/static/studio/images/sdk-manager-platforms.png) SDK Manager
+update to the latest Canary Preview system image, using the [SDK Manager](https://developer.android.com/studio/intro/update.md.txt#sdk-manager).
+![Android Studio SDK Manager Platforms tab.](https://developer.android.com/static/studio/images/sdk-manager-platforms.png) SDK Manager.
 
 ## Google maps not showing in Android Emulator extended controls
 
@@ -45,8 +47,8 @@ you have adequate free disk space.
 ## Antivirus software
 
 Because many security and antivirus software packages work by monitoring every
-read and write operation, use of such software can decrease the performance of tools
-like the Android Emulator.
+read and write operation, use of such software can decrease the performance of
+tools like the Android Emulator.
 
 Many antivirus packages provide the ability to add specific applications to a
 list of trusted applications, which enables the listed applications to operate
@@ -57,7 +59,7 @@ software.
 
 The performance impact differs between antivirus software packages. If
 you have additional antivirus software installed beyond what is included
-with your operating system, you can run simple tests to determine which
+with your operating system, you can run tests to determine which
 antivirus software has a greater performance effect on emulator load and save
 operations.
 
@@ -78,12 +80,9 @@ available physical RAM and pagefile. In this case, Windows can't guarantee that
 the worst-case working set fits in either physical RAM or pagefile, and the
 emulator fails to start.
 
-In typical cases, the amount of hard drive space allocated for the pagefile plus
-physical RAM is more than enough for most use cases of the emulator. However, if
-you experience failures to start the emulator because of exceeding the commit
-limit, we recommend examining the current commit charge, which can be seen in
-the **Performance** tab in the Windows Task Manager. To open the Task Manager,
-press Ctrl+Shift+Esc.
+Usually, the hard drive space for the pagefile plus physical RAM is enough. If
+the emulator fails due to exceeding the commit limit, check the commit charge in
+the **Performance** tab of Windows Task Manager (<kbd>Ctrl+Shift+Esc</kbd>).
 
 To lower the likelihood of exceeding the commit limit in various ways:
 
@@ -96,19 +95,19 @@ To lower the likelihood of exceeding the commit limit in various ways:
   For more information on commit charges and why a flexible setting works best,
   read [this Microsoft article](https://blogs.technet.microsoft.com/markrussinovich/2008/11/17/pushing-the-limits-of-windows-virtual-memory/).
 
-## Multi-touch does not work in tool window
+## Multi-touch doesn't work in tool window
 
 Multi-touch gestures, including two-finger panning, don't work when the emulator
 is running in a tool window. To enable multi-touch,
-[launch the emulator in a separate window](https://developer.android.com/studio/run/advanced-emulator-usage#standalone-window).
+[launch the emulator in a separate window](https://developer.android.com/studio/run/emulator-launch-separate-window.md.txt).
 
 ## Emulator degrades Bluetooth audio output
 
 If you are using a Bluetooth headset, you might notice that the Bluetooth
-headphone audio output degrades when the emulator runs ([issue
-183139207](https://issuetracker.google.com/issues/183139207)). This happens
-because when the emulator launches, it turns on the headset's microphone, which
-causes the headset to switch the duplex mode with reduced quality.
+headphone audio output degrades when the emulator runs
+([issue 183139207](https://issuetracker.google.com/issues/183139207)). This happens because when the emulator
+launches, it turns on the headset's microphone, which causes the headset to
+switch the duplex mode with reduced quality.
 
 To avoid this problem, disable the microphone in the emulator by adding
 `hw.audioInput=no` to the `config.ini` file of the Android Virtual Device (AVD).
@@ -135,7 +134,7 @@ On machines with lower resolution, such as 1024x768, it can be difficult to
 read the emulator screen when it runs in a tool window in Android Studio. To
 give the emulator more space, close the **Device Manager** tool window if it's
 open. You can also pull the emulator window out of Android Studio. To do so, in
-the emulator window, click on **Settings \> View Mode** and select **Window**
+the emulator window, click **Settings \> View Mode** and select **Window**
 instead of **Dock Pinned**.
 
 ## Graphics issues
@@ -150,11 +149,11 @@ following steps:
 
 - If you have an Intel GPU (and in particular, the Intel HD 4000), ensure you have downloaded and installed the latest Intel graphics driver.
 - If your machine has both an Intel GPU and a discrete GPU, disable the Intel GPU in Device Manager to ensure you are using the discrete GPU.
-- Run the emulator using the `-gpu swiftshader` mode. For more information about configuring graphics acceleration options on the command line, see [Configure hardware acceleration](https://developer.android.com/studio/run/emulator-acceleration#command-gpu).
+- Run the emulator using the `-gpu swiftshader` mode. For more information about configuring graphics acceleration options on the command line, see [Configure hardware acceleration](https://developer.android.com/studio/run/emulator-acceleration.md.txt#command-gpu).
 - Ensure that your router is not using IPv6 addresses if you don't have an IPv6 connection.
 
 If you are still experiencing problems with the Android Emulator running
-slowly, [report a bug](https://developer.android.com/studio/report-bugs#emulator-bugs) and include the
+slowly, [report a bug](https://developer.android.com/studio/report-bugs.md.txt#emulator-bugs) and include the
 necessary Android Emulator details so we can investigate.
 
 ## Error: vulkan-1.dll cannot be found
@@ -165,29 +164,27 @@ Studio, go to **Tools \> SDK Manager** and install the latest stable version of
 Android platform.
 
 Alternatively, if you don't need any apps that use the
-[Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started) graphics library, turn
-off Vulkan by
-[launching the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline)
-with the flag `-feature -Vulkan`.
+[Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started.md.txt) graphics library, turn off Vulkan by
+[launching the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline.md.txt) with the
+flag `-feature -Vulkan`.
 
 ## Unable to create a snapshot
 
-Creating a [snapshot](https://developer.android.com/studio/run/advanced-emulator-usage#snapshots) of the
-emulator that includes the [Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started)
-graphics library is not supported. To run the emulator without Vulkan,
-[launch the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline)
-with the flag `-feature -Vulkan`. Alternatively, you can uninstall and avoid
-using apps with Vulkan, such as Chrome on API 30 or higher, if you want to use
-snapshots as part of your development workflow.
+Creating a [snapshot](https://developer.android.com/studio/run/emulator-snapshots.md.txt) of the emulator that includes the
+[Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started.md.txt) graphics library isn't supported. To run the
+emulator without Vulkan,
+[launch the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline.md.txt) with the flag
+`-feature -Vulkan`. Alternatively, you can uninstall and avoid using apps with
+Vulkan, such as Chrome on API 30 or higher, if you want to use snapshots as part
+of your development workflow.
 
-## Cannot open webpage correctly
+## Can't open webpage correctly
 
-Starting with API level 30, Chrome uses the
-[Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started) graphics library as
-its rendering backend, and it could have compatibility issues on certain
-machines. If Chrome does not render correctly for you, try to
-[launch the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline)
-with the flag `-feature -Vulkan`.
+Starting with API level 30, Chrome uses the [Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started.md.txt)
+graphics library as its rendering backend, and it might have compatibility
+issues on certain machines. If Chrome doesn't render correctly for you, try to
+[launch the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline.md.txt) with the flag
+`-feature -Vulkan`.
 
 ## GPU Driver Warning - Falling Back To Software
 
@@ -212,7 +209,8 @@ See [bug](https://issuetracker.google.com/issues/229642759) for more details.
 ## Emulator does not boot on Windows Chrome Remote Desktop
 
 If Emulator does not boot while using Chrome Remote Desktop on Windows, the
-current recommended workaround is to use-gpu flag like -gpu host or -gpu swiftshader.
+current recommended workaround is to use-gpu flag like -gpu host or -gpu
+swiftshader.
 
 ## Emulator terminated with exit code -1073741511 (Windows 8.1 or Windows 10 N)
 
@@ -251,15 +249,15 @@ We apologize for any inconvenience this may cause.
 ## Emulator behaves incorrectly on macOS in hardware rendering mode
 
 On Mac devices with Apple Silicon, the emulator uses the
-[MoltenVK](https://github.com/KhronosGroup/MoltenVK) library for Vulkan API when
-hardware rendering mode is selected. While MoltenVK generally provides much better
-performance, the library doesn't support all Vulkan features. In case of
-compatibility issues, like shader compilation failures, graphical glitches or
-crashes in your apps, change the rendering mode to software
-through the AVD settings, or use the `-gpu swiftshader` command line argument.
+[MoltenVK](https://github.com/KhronosGroup/MoltenVK) library for Vulkan API when hardware rendering mode
+is selected. While MoltenVK generally provides much better performance, the
+library doesn't support all Vulkan features. In case of compatibility issues,
+like shader compilation failures, graphical glitches or crashes in your apps,
+change the rendering mode to software through the AVD settings, or use the
+`-gpu swiftshader` command line argument.
 
-Alternatively, you can disable Vulkan support with the`-feature -Vulkan` argument
-to keep using hardware acceleration on GLES apps.
+Alternatively, you can disable Vulkan support with the `-feature -Vulkan`
+argument to keep using hardware acceleration on GLES apps.
 
 ## Network issues
 
@@ -268,8 +266,8 @@ to keep using hardware acceleration on GLES apps.
 ## No internet: server DNS address cannot be found
 
 If the emulator cannot connect to the internet, try
-[launching the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline)
-using the option
+[launching the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline.md.txt) using the
+option
 `-dns-server "2001:4860:4860::8844,2001:4860:4860::8888,8.8.8.8,8.8.4.4"`. This
 command supplies a comma-separated list of Google Public DNS IP addresses. For
 more information about Google Public DNS, see
@@ -277,11 +275,11 @@ more information about Google Public DNS, see
 
 ## No internet: DNS resolution issues
 
-Sometimes DNS addresses in the `/etc/resolv.conf` file don't work properly.
-You can work around this issue by
-[launching the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline)
-using the option `-dns-server 8.8.8.8` or `-dns.server 2001:4860:4860::8888` to
-connect over an IPv6-only network.
+Sometimes DNS addresses in the `/etc/resolv.conf` file don't work properly. You
+can work around this issue by
+[launching the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline.md.txt) using the
+option `-dns-server 8.8.8.8` or `-dns.server 2001:4860:4860::8888` to connect
+over an IPv6-only network.
 
 ## No internet: MAC address conflict issues
 
@@ -294,11 +292,11 @@ create a new AVD.
 
 ## Command line network configuration (`-netsim-args`) limitations
 
-You can only apply [command line network settings specified with `-netsim-args`](https://developer.android.com/studio/run/emulator-commandline#netsim-args)
-when you launch the *first* emulator instance. The emulator applies these
-settings to any subsequently launched emulators. You cannot configure different
-network settings using command line arguments for multiple emulators running
-concurrently.
+You can only apply [command line network settings specified with
+`-netsim-args`](https://developer.android.com/studio/run/emulator-commandline#netsim-args) when you launch the *first* emulator
+instance. The emulator applies these settings to any subsequently launched
+emulators. You can't configure different network settings using command line
+arguments for multiple emulators running concurrently.
 
 ## Old issues (on deprecated emulators or old systems)
 
@@ -307,18 +305,17 @@ concurrently.
 ## Unable to launch AVD
 
 An AVD might not launch if a crash report for a newer emulator exists
-([issue #281725854](https://issuetracker.google.com/281725854)). This
-issue occurs only for users who update from canary version 33.x to 32.1.13,
-had a crash the last time they ran the 33.x version, and haven't rebooted
-their AVD since, so the `%TEMP%` or `/tmp` directory is still on. If you're
-experiencing this issue, try clearing the `%TEMP%` directory (`/tmp` on
-Linux or macOS).
+([issue #281725854](https://issuetracker.google.com/281725854)). This issue occurs only for users who
+update from canary version 33.x to 32.1.13, had a crash the last time they ran
+the 33.x version, and haven't rebooted their AVD afterward, so the `%TEMP%` or
+`/tmp` directory is still on. If you're experiencing this issue, try clearing
+the `%TEMP%` directory (`/tmp` on Linux or macOS).
 
 ## Windows: Emulator fails to launch if there is Unicode in the AVD name
 
 On Windows, when the Device Manager creates an Android Virtual Device (AVD), it
 by default creates the AVD at `C:\Users\<name>\.android\avd`. However, if the
-AVD name (`<name>`) has Unicode, the emulator cannot launch the AVD properly
+AVD name (`<name>`) has Unicode, the emulator can't launch the AVD properly
 using this default location.
 
 This issue is fixed in Emulator 31.3.6 and higher.
@@ -328,11 +325,11 @@ Manager**.
 Alternatively, to work around this issue, set the environment variable
 `ANDROID_SDK_HOME` to a custom directory before creating an AVD. For example,
 create the directory `C:\Android\home`, and then set `ANDROID_SDK_HOME` to this
-newly created directory. To learn more, see [Environment
-variables](https://developer.android.com/studio/command-line/variables).
+newly created directory. To learn more, see
+[Environment variables](https://developer.android.com/tools/variables.md.txt).
 
-## Hypervisors cannot emulate certain CPU features required by x86 Android systems
+## Hypervisors can't emulate certain CPU features required by x86 Android systems
 
-Hypervisors generally cannot emulate certain CPU features, such as
+Hypervisors generally can't emulate certain CPU features, such as
 [Streaming SIMD Extensions (SSE)](https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions),
 required by x86 Android systems.

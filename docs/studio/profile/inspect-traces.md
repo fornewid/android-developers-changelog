@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/profile/inspect-traces
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/profile/llms.txt
+
 The trace view in the CPU Profiler provides several ways to view information
 from recorded traces.
 
@@ -15,8 +17,8 @@ was invoked. For system traces, you can view the **Trace Events** directly in
 the **Threads** timeline, and the **Flame Chart** , **Top Down** , **Bottom Up** ,
 and **Events** tabs from the **Analysis** pane.
 
-[Mouse and keyboard shortcuts](https://developer.android.com/studio/profile/record-traces#ui-shortcuts) are
-available for easier navigation of **Call Charts** or **Trace Events**.
+[Mouse and keyboard shortcuts](https://developer.android.com/studio/profile/record-traces#ui-shortcuts) are available for easier navigation of **Call
+Charts** or **Trace Events**.
 
 ## Inspect traces using the Call Chart
 
@@ -27,20 +29,12 @@ system APIs are shown in orange, calls to your app's own methods are shown in
 green, and calls to third-party APIs (including Java language APIs) are shown in
 blue. Figure 4 shows an example call chart and illustrates the concept of
 self time, children time, and total time for a given method or function. You can
-learn more about these concepts in the section on how to
-[inspect traces using Top Down and Bottom Up](https://developer.android.com/studio/profile/inspect-traces#top_down_bottom_up).
+learn more about these concepts in the section on how to [inspect traces using
+Top Down and Bottom Up](https://developer.android.com/studio/profile/inspect-traces#top_down_bottom_up).
+![Example call chart illustrating self time, children time, and total time for method D](https://developer.android.com/static/studio/images/profile/call_chart_1-2X.png) **Figure 1.** An example call chart that illustrates self, children, and total time for method D.
 
-![](https://developer.android.com/static/studio/images/profile/call_chart_1-2X.png)
-
-**Figure 1.** An example call chart that illustrates
-self, children, and total time for method D.
-
-<br />
-
-
-**Tip:** To jump the source code of a method or function, right-click it
-and select **Jump to Source**. This works from any of the Analysis pane
-tabs.
+> [!NOTE]
+> **Note:** To jump to the source code of a method or function, right-click it and select **Jump to Source**. This works from any of the Analysis pane tabs.
 
 ## Inspect traces using the Flame Chart tab
 
@@ -57,37 +51,19 @@ To help illustrate this concept, consider the call chart in Figure 2. Note
 that method D makes multiple calls to B (B~1~, B~2~, and
 B~3~), and some of those calls to B make a call to C (C~1~ and
 C~3~).
-
-![](https://developer.android.com/static/studio/images/profile/call_chart_2-2X.png)
-
-**Figure 2.** A call chart with multiple method calls
-that share a common sequence of callers.
-
-<br />
+![Call chart showing multiple method calls that share a common sequence of callers](https://developer.android.com/static/studio/images/profile/call_chart_2-2X.png) **Figure 2.** A call chart with multiple method calls that share a common sequence of callers.
 
 Because B~1~, B~2~, and B~3~ share the same sequence
 of callers (A → D → B) they are aggregated, as shown in Figure 3. Similarly,
 C~1~ and C~3~ are aggregated because they share the same
 sequence of callers (A → D → B → C); note that C~2~ is not included
 because it has a different sequence of callers (A → D → C).
-
-![](https://developer.android.com/static/studio/images/profile/flame_chart_aggregation-2X.png)
-
-**Figure 3.** Aggregating identical methods that share
-the same call stack.
-
-<br />
+![Aggregation of identical methods that share the same call stack](https://developer.android.com/static/studio/images/profile/flame_chart_aggregation-2X.png) **Figure 3.** Aggregating identical methods that share the same call stack.
 
 The aggregated calls are used to create the flame chart, as shown in Figure 4.
 Note that, for any given call in a flame chart, the callees that consume the
 most CPU time appear first.
-
-![](https://developer.android.com/static/studio/images/profile/flame_chart-2X.png)
-
-**Figure 4.** A flame chart representation of the call
-chart shown in figure 5.
-
-<br />
+![Flame chart representation of the aggregated call chart](https://developer.android.com/static/studio/images/profile/flame_chart-2X.png) **Figure 4.** A flame chart representation of the call chart shown in figure 5.
 
 ## Inspect traces using Top Down and Bottom Up
 
@@ -97,9 +73,9 @@ chart in Figure 1. Each arrow in the graph points from a caller to a callee.
 
 As shown in Figure 5, expanding the node for method A in the **Top Down** tab
 displays its callees, methods B and D. After that, expanding the node for method
-D exposes its callees, methods B and C, and so on. Similar to the **Flame chart**
-tab, the top down tree aggregates trace information for identical methods that
-share the same call stack. That is, the **Flame chart** tab provides a graphical
+D exposes its callees, methods B and C. Similar to the **Flame chart** tab, the
+top down tree aggregates trace information for identical methods that share the
+same call stack. That is, the **Flame chart** tab provides a graphical
 representation of the **Top down** tab.
 
 The **Top Down** tab provides the following information to help describe CPU
@@ -145,58 +121,45 @@ information for the top node and its callers (sub-nodes).
 | Callers (sub-nodes) | Represents the total self time of the callee when being called by the caller. Using the bottom up tree in Figure 6 as an example, the self time for method B would equal the sum of the self times for each execution of method C when called by B. | Represents the total children time of the callee when being invoked by the caller. Using the bottom up tree in Figure 6 as an example, the children time for method B would equal the sum of the children times for each execution of method C when called by B. | The sum of the self time and children time. |
 |---|---|---|---|
 
-
-**Note:** For a given recording, Android Studio stops collecting new data
-when the profiler reaches the file size limit (however, this does not stop the
-recording). This typically happens much more quickly when performing
-instrumented traces because this type of tracing collects more data in a shorter
-time, compared to a sampled trace. If you extend the inspection time into a
-period of the recording that occurred after reaching the limit, timing data in
-the trace pane does not change (because no new data is available). Additionally,
-the trace pane displays **NaN** for timing information when you select only
-the portion of a recording that has no data available.
+> [!NOTE]
+> **Note:** For a given recording, Android Studio stops collecting new data when the profiler reaches the file size limit (however, this does not stop the recording). This typically happens much more quickly when performing instrumented traces because this type of tracing collects more data in a shorter time, compared to a sampled trace. If you extend the inspection time into a period of the recording that occurred after reaching the limit, timing data in the trace pane does not change (because no new data is available). Additionally, the trace pane displays **NaN** for timing information when you select only the portion of a recording that has no data available.
 
 ## Inspect traces using the Events table
 
 The Events table lists all calls in the currently selected thread. You can
 sort them by clicking on the column headers. By selecting a row in the table,
 you can navigate the timeline to the start and end time of the selected call.
-This allows you to accurately locate events on the timeline.
-
-![](https://developer.android.com/static/studio/images/profile/system-trace-events-table.png)
-
-**Figure 7.** Viewing the Events tab in the Analysis pane.
+This lets you accurately locate events on the timeline.
+![Events tab in the Analysis pane showing a list of calls in the selected thread](https://developer.android.com/static/studio/images/profile/system-trace-events-table.png) **Figure 7.** Viewing the Events tab in the Analysis pane.
 
 ## Inspect callstack frames
 
 Callstacks are useful to understand which part of the code has been executed,
 and why it was invoked. If a **Callstack Sample Recording** is collected for a
-Java/Kotlin program, the callstack usually includes not only Java/Kotlin code,
-but also frames from the JNI native code, Java virtual machine (e.g.,
+Java or Kotlin program, the callstack usually includes not only Java or Kotlin
+code, but also frames from the JNI native code, Java virtual machine (e.g.,
 `android::AndroidRuntime::start`), and the system kernel
-(`[kernel.kallsyms]+offset`). This is because a Java/Kotlin program typically
+(`[kernel.kallsyms]+offset`). This is because a Java or Kotlin program typically
 executes through a Java virtual machine. Native code is required to run the
-program itself and for the program to talk with the system and hardware. The
-profiler presents these frames for precision; however, depending on your
+program itself and for the program to talk with the system and hardware.
+
+The profiler presents these frames for precision; however, depending on your
 investigation, you may or may not find these extra call frames useful. The
 profiler provides a way to collapse frames that you are not interested in so
 that you can hide information that is irrelevant for your investigation.
 
 In the example below, the trace below has many frames labeled
 `[kernel.kallsyms]+offset`, which are not currently useful for development.
-
-![Example call trace](https://developer.android.com/static/studio/images/profile/simpleperf-example-trace.png)
+![Example call trace showing uncollapsed kernel frames](https://developer.android.com/static/studio/images/profile/simpleperf-example-trace.png) Example call trace showing uncollapsed kernel frames.
 
 To collapse these frames into one, you would select the **Collapse frames**
 button from the toolbar, choose the paths to collapse, and select the **Apply**
 button to apply your changes. In this example, the path is `[kernel.kallsyms]`.
-
-![Example of simpleperf menu](https://developer.android.com/static/studio/images/profile/simpleperf_menu_dark.png)
+![Example of simpleperf collapse frames menu](https://developer.android.com/static/studio/images/profile/simpleperf_menu_dark.png) Example of the simpleperf collapse frames menu.
 
 Doing so collapses the frames corresponding to the selected path on both the
 left and right panels, as shown below.
-
-![Example of simpleperf collapsed frames](https://developer.android.com/static/studio/images/profile/simpleperf_collapsed_dark.png)
+![Example of simpleperf collapsed frames](https://developer.android.com/static/studio/images/profile/simpleperf_collapsed_dark.png) Example of simpleperf collapsed frames.
 
 ## Inspect system traces
 
@@ -210,37 +173,31 @@ time spent in each state. Click an event to see more information in the
 
 In addition to CPU scheduling data, system traces also include CPU frequency
 by core. This shows the amount of activity on each core and may give you an
-idea of which ones are the ["big" or "little" cores](https://en.wikipedia.org/wiki/ARM_big.LITTLE)
-in modern mobile processors.
-
-![](https://developer.android.com/static/studio/images/profile/system-trace-cpu-cores.png)
-
-**Figure 8.** Viewing CPU activity and trace events for the render thread.
+idea of which ones are the ["big" or "little" cores](https://en.wikipedia.org/wiki/ARM_big.LITTLE) in modern
+mobile processors.
+![CPU Cores pane showing CPU activity and trace events for the render thread](https://developer.android.com/static/studio/images/profile/system-trace-cpu-cores.png) **Figure 8.** Viewing CPU activity and trace events for the render thread.
 
 The **CPU Cores** pane (as shown in Figure 8) shows thread activity scheduled
 on every core. Hover your mouse pointer over a thread activity to see which
 thread this core is running on at that particular time.
 
 For additional information on inspecting system trace information, see the
-[Investigate UI performance problems](https://developer.android.com/topic/performance/tracing/navigate-report#analysis)
-section of the `systrace` documentation.
+[Investigate UI performance problems](https://developer.android.com/topic/performance/tracing/navigate-report.md.txt#analysis) section of the `systrace`
+documentation.
 
 ## Inspect system traces: Frame rendering timeline
 
 You can inspect how long it takes your app to render each frame on the main
 thread and `RenderThread` to investigate bottlenecks that cause UI jank and low
 framerates. To learn about how to use system traces to investigate and help
-reduce UI jank, see [UI jank detection](https://developer.android.com/studio/profile/jank-detection).
+reduce UI jank, see [UI jank detection](https://developer.android.com/studio/profile/jank-detection.md.txt).
 
 ## Inspect system traces: Process Memory (RSS)
 
 For apps deployed to devices running Android 9 or higher, the
 **Process Memory (RSS)** section shows the amount of physical memory
 currently in use by the app.
-
-![](https://developer.android.com/static/studio/images/profile/system-trace-process-memory.png)
-
-**Figure 9.** Viewing physical memory in the profiler.
+![Process Memory (RSS) section showing physical memory usage in the profiler](https://developer.android.com/static/studio/images/profile/system-trace-process-memory.png) **Figure 9.** Viewing physical memory in the profiler.
 
 **Total**
 

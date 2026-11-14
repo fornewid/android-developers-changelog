@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/vitals/excessive-battery-usage
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/vitals/llms.txt
+
 > [!NOTE]
 > **Note:** Excessive battery usage is only available for watch face apps with sufficient usage data.
 
@@ -17,7 +19,7 @@ single charge. This harms users and the Wear OS ecosystem.
 To maximize battery life, aim for battery usage under 3.2% per hour.
 
 > [!NOTE]
-> **Note:** For information on how to diagnose and resolve this issue, see [Excessive battery usage](https://developer.android.com/topic/performance/issues/excessive-battery-usage).
+> **Note:** For information on how to diagnose and resolve this issue, see [Excessive battery usage](https://developer.android.com/topic/performance/issues/excessive-battery-usage.md.txt).
 
 ## Efficiency requirements
 
@@ -27,9 +29,9 @@ An efficient watch face app should have:
 - \< 3.2% battery usage per hour for 80% of sessions
 
 > [!WARNING]
-> **Warning:** If excessive battery usage exceeds 1%, Play may reduce your app's visibility. See [core vitals FAQ](https://developer.android.com/google/play/vitals#core-vitals-faqs) for more details.
+> **Warning:** If excessive battery usage exceeds 1%, Play may reduce your app's visibility. See [core vitals FAQ](https://developer.android.com/google/play/vitals.md.txt#core-vitals-faqs) for more details.
 
-[Vitals](https://developer.android.com/google/play/vitals) provides the following data:
+[Vitals](https://developer.android.com/google/play/vitals.md.txt) provides the following data:
 
 - Excessive battery usage over time
 - Battery usage per hour histogram
@@ -43,7 +45,7 @@ These are key factors affecting your app's battery usage:
 - **Excessive CPU usage:** The portion of watch face sessions that use the CPU for 90 seconds or more per hour.
 - **Excessive partial wakelocks:** The portion of watch face sessions use wakelocks for 18.5 seconds or more per hour.
 
-Use [breakdowns](https://developer.android.com/google/play/vitals/excessive-battery-usage#breakdowns) and [Battery Historian](https://developer.android.com/topic/performance/power/battery-historian) to investigate further.
+Use [breakdowns](https://developer.android.com/google/play/vitals/excessive-battery-usage.md.txt#breakdowns) and [Battery Historian](https://developer.android.com/topic/performance/power/battery-historian.md.txt) to investigate further.
 
 ## Breakdowns
 

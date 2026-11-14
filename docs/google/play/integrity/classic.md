@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/integrity/classic
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/integrity/llms.txt
+
 If you're only planning to make [standard API
 requests](https://developer.android.com/google/play/integrity/standard), which are suitable for the majority
 of developers, you can skip ahead to [integrity
@@ -39,7 +41,7 @@ requests:
 | Timeouts | Most warm ups are under 10s but they involve a server call, so a long timeout is recommended (e.g. 1 minute). Verdict requests happen client-side | Most requests are under 10s but they involve a server call, so a long timeout is recommended (e.g. 1 minute) |
 | Contains device, app, and account details | ✔️ | ✔️ |
 | Token caching | Protected on-device caching by Google Play | Not recommended |
-| Decrypt and verify token via Google Play server | ✔️ | ✔️ |
+| Decrypt and verify token using a Google Play server | ✔️ | ✔️ |
 | Typical decryption server-to-server request latency | 10s of milliseconds with three-nines availability | 10s of milliseconds with three-nines availability |
 | Decrypt and verify token locally in a secure server environment | ❌ | ✔️ |
 | Decrypt and verify token client-side | ❌ | ❌ |
@@ -49,9 +51,9 @@ requests:
 | Mitigate against tampering and similar attacks | Use `requestHash` field | Use `nonce` field with content binding based on request data |
 | Mitigate against replay and similar attacks | Automatic mitigation by Google Play | Use `nonce` field with server side logic |
 
-***\*** For the Play Integrity API library [v1.4.0](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/release-notes#1-4-0) and later, the minimum
+***\*** For the Play Integrity API library [v1.4.0](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/release-notes.md.txt#1-4-0) and later, the minimum
 supported Android SDK is the same for both request types and is determined by
-the library's `minSdkVersion`. For [v1.3.0](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/release-notes#1-3-0) and earlier releases, the minimum
+the library's `minSdkVersion`. For [v1.3.0](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/release-notes.md.txt#1-3-0) and earlier releases, the minimum
 Android SDK required is Android 5.0 (API level 21) for Standard API requests and
 Android 4.4 (API level 19) for Classic API requests.*
 
@@ -88,7 +90,7 @@ the signed integrity response. Carefully follow the guidance on [how to generate
 nonces](https://developer.android.com/google/play/integrity/classic#nonce) to protect your app from attacks.
 
 > [!CAUTION]
-> **Caution:** The value passed as the `nonce` is visible in cleartext to your app, and to Google. You should encrypt or hash the data you wish to set in this field before passing it to the Play Integrity API.
+> **Caution:** The value passed as the `nonce` is visible in cleartext to your app, and to Google. You should encrypt or hash the data you want to set in this field before passing it to the Play Integrity API.
 
 ### Retry classic requests with exponential backoff
 
@@ -147,7 +149,7 @@ When you receive an integrity verdict:
 
 1. Decode and verify the integrity token, and obtain the digest from the `nonce` field.
 2. Compute a digest of the request in the same manner as in the app (e.g. SHA256 of a stable request serialization).
-3. Compare the app-side and server-side digests. If they do not match, the request is not trustworthy.
+3. Compare the app-side and server-side digests. If they don't match, the request is not trustworthy.
 
 > [!NOTE]
 > **Note:** You should also verify both the device and app integrity signals to ensure that the results of the high-value action were created by your untampered app on an untampered device.
@@ -191,7 +193,7 @@ When you receive an integrity verdict:
 
 1. Obtain the unique value from the request
 2. Decode and verify the integrity token, and obtain the digest from the `nonce` field.
-3. As described in the [Include a request hash to protect against tampering](https://developer.android.com/google/play/integrity/classic#include-request) section, recompute the digest on the server side, and check that it matches the digest obtained from the integrity token.
+3. As described in the [Include a request hash to protect against tampering](https://developer.android.com/google/play/integrity/classic.md.txt#include-request) section, recompute the digest on the server side, and check that it matches the digest obtained from the integrity token.
 4. As described in the [Include unique values to protect against replay
    attacks](https://developer.android.com/google/play/integrity/classic#include-unique) section, check the validity of the unique value.
 
@@ -205,12 +207,8 @@ After generating a `nonce`, you can request an integrity verdict from Google
 Play. To do so, complete the following steps:
 
 1. Create an `IntegrityManager`, as shown in the following examples.
-2. Construct an `IntegrityTokenRequest`, supplying the `nonce` through the `setNonce()` method in the associated builder. Apps exclusively distributed outside of Google Play and SDKs also have to specify their Google Cloud project number through the `setCloudProjectNumber()` method. Apps on Google Play are linked to a Cloud project in the Play Console and do not need to set the Cloud project number in the request.
-3. Use the manager to call `requestIntegrityToken()`, supplying the
-   `IntegrityTokenRequest`.
-
-   > [!CAUTION]
-   > **Caution:** `nonce` values are passed as-is to Google's systems, so you shouldn't include personally identifiable information or other sensitive data directly or indirectly in the `nonce`.
+2. Construct an `IntegrityTokenRequest`, supplying the `nonce` through the `setNonce()` method in the associated builder. Apps exclusively distributed outside of Google Play and SDKs also have to specify their Google Cloud project number through the `setCloudProjectNumber()` method. Apps on Google Play are linked to a Cloud project in the Play Console and don't need to set the Cloud project number in the request.
+3. Use the manager to call `requestIntegrityToken()`, supplying the `IntegrityTokenRequest`. Caution: `nonce` values are passed as-is to Google's systems, so you shouldn't include personally identifiable information or other sensitive data directly or indirectly in the `nonce`.
 
 ### Kotlin
 
@@ -251,36 +249,39 @@ Task<IntegrityTokenResponse> integrityTokenResponse =
 
 ### Unity
 
+
 ```c#
 IEnumerator RequestIntegrityTokenCoroutine() {
-    // Receive the nonce from the secure server.
-    var nonce = ...
+  // Receive the nonce from the secure server.
+  var nonce = ...
 
-    // Initialize the V2 manager. Requires Play Integrity Unity Plugin v2.0.0
-    // or higher.
-    var integrityManager = new IntegrityManagerV2();
+// Initialize the V2 manager. Requires Play Integrity Unity Plugin v2.0.0
+  // or higher.
+  var integrityManager = new IntegrityManagerV2();
 
-    // Request the integrity token by providing a nonce.
-    var tokenRequest = new IntegrityTokenRequest(nonce);
-    var requestIntegrityTokenOperation =
-        integrityManager.RequestIntegrityToken(tokenRequest);
+// Request the integrity token by providing a nonce.
+  var tokenRequest = new IntegrityTokenRequest(nonce);
+  var requestIntegrityTokenOperation =
+      integrityManager.RequestIntegrityToken(tokenRequest);
 
-    // Wait for PlayAsyncOperation to complete.
-    yield return requestIntegrityTokenOperation;
+// Wait for PlayAsyncOperation to complete.
+  yield return requestIntegrityTokenOperation;
 
-    // Check the resulting https://developer.android.com/google/play/integrity/error-codes.
-    if (requestIntegrityTokenOperation.Error != null &&
-        requestIntegrityTokenOperation.Error.ErrorCode != IntegrityErrorCode.NoError)
-    {
-        AppendStatusLog("IntegrityAsyncOperation failed with error: " +
-                requestIntegrityTokenOperation.Error.ErrorCode);
-        yield break;
-    }
+// Check the resulting error code.
+  if (requestIntegrityTokenOperation.Error != null &&
+      requestIntegrityTokenOperation.Error.ErrorCode != IntegrityErrorCode.NoError)
+  {
+      AppendStatusLog("IntegrityAsyncOperation failed with error: " +
+              requestIntegrityTokenOperation.Error.ErrorCode);
+      yield break;
+  }
 
-    // Get the response.
-    var tokenResponse = requestIntegrityTokenOperation.GetResult();
+// Get the response.
+  var tokenResponse = requestIntegrityTokenOperation.GetResult();
 }
 ```
+
+<br />
 
 ### Unreal Engine
 
@@ -322,6 +323,7 @@ void MyClass::RequestIntegrityToken()
 
 ### Native
 
+
 ```c++
 /// Create an IntegrityTokenRequest opaque object.
 const char* nonce = RequestNonceFromServer();
@@ -333,14 +335,14 @@ IntegrityTokenRequest_setNonce(request, nonce);
 /// IntegerityManager_requestIntegrityToken().
 IntegrityTokenResponse* response;
 IntegrityErrorCode error_code =
-        IntegrityManager_requestIntegrityToken(request, &response);
+      IntegrityManager_requestIntegrityToken(request, &response);
 
 /// ...
 /// Proceed to polling iff error_code == INTEGRITY_NO_ERROR
 if (error_code != INTEGRITY_NO_ERROR)
 {
-    /// Remember to call the *_destroy() functions.
-    return;
+  /// Remember to call the *_destroy() functions.
+  return;
 }
 /// ...
 /// Use polling to wait for the async operation to complete.
@@ -349,14 +351,14 @@ if (error_code != INTEGRITY_NO_ERROR)
 
 IntegrityResponseStatus response_status;
 
-/// Check for https://developer.android.com/google/play/integrity/error-codes.
+/// Check for error codes.
 IntegrityErrorCode error_code =
-        IntegrityTokenResponse_getStatus(response, &response_status);
+      IntegrityTokenResponse_getStatus(response, &response_status);
 if (error_code == INTEGRITY_NO_ERROR
-    && response_status == INTEGRITY_RESPONSE_COMPLETED)
+  && response_status == INTEGRITY_RESPONSE_COMPLETED)
 {
-    const char* integrity_token = IntegrityTokenResponse_getToken(response);
-    SendTokenToServer(integrity_token);
+  const char* integrity_token = IntegrityTokenResponse_getToken(response);
+  SendTokenToServer(integrity_token);
 }
 /// ...
 /// Remember to free up resources.
@@ -364,6 +366,8 @@ IntegrityTokenRequest_destroy(request);
 IntegrityTokenResponse_destroy(response);
 IntegrityManager_destroy();
 ```
+
+<br />
 
 ## Decrypt and verify the integrity verdict
 
@@ -389,7 +393,7 @@ implementations:
 
 ### Decrypt and verify on Google's servers (recommended)
 
-The Play Integrity API allows you to decrypt and verify the integrity verdict on
+The Play Integrity API lets you decrypt and verify the integrity verdict on
 Google's servers, which enhances your app's security. To do so, complete these
 steps:
 
@@ -516,7 +520,8 @@ verdicts](https://developer.android.com/google/play/integrity/verdicts).
 
 ## Remediate verdict issues with a Google Play prompt (optional)
 
-After your server receives an integrity verdict, the server can determine how to proceed.
+After your server receives an integrity verdict, the server can determine how to
+proceed.
 If the verdict indicates there's an issue---such as the app being unlicensed,
 tampered with, or the device being compromised---you can give users a chance
 to fix the issue themselves.
@@ -526,7 +531,7 @@ prompts the user to take action, for example, to get the official version of
 your app from Google Play.
 
 To learn how to trigger these dialogs from your app based on the server's
-response, see [Remediation dialogs](https://developer.android.com/google/play/integrity/remediation).
+response, see [Remediation dialogs](https://developer.android.com/google/play/integrity/remediation.md.txt).
 
 > [!TIP]
 > **Tip:** At any time, users can [check their device's Play Protect certification

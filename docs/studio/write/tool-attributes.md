@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/write/tool-attributes
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/write/llms.txt
+
 While Jetpack Compose handles UI design-time tooling directly in Kotlin, the
 `tools:` namespace is still essential for project-level configurations. Standard
 Android XML files, like `AndroidManifest.xml` and `res/raw/keep.xml`, use
@@ -21,7 +23,7 @@ XML file where you'd like to use them, as shown here:
 ```
 
 > [!NOTE]
-> **Note:** To learn how to render UIs, inject sample data, and test configurations, see [Preview your UI with composable previews](https://developer.android.com/develop/ui/compose/tooling/previews).
+> **Note:** To learn how to render UIs, inject sample data, and test configurations, see [Preview your UI with composable previews](https://developer.android.com/develop/ui/compose/tooling/previews.md.txt).
 
 ## Error-handling attributes
 
@@ -31,14 +33,16 @@ The following attributes help suppress lint warning messages:
 
 **Intended for:** Any element
 
-**Used by:** [Lint](https://developer.android.com/studio/write/lint#configuring-lint-checking-in-xml)
+**Used by:** [Lint](https://developer.android.com/studio/write/lint.md.txt#configuring-lint-checking-in-xml)
 
 This attribute accepts a comma-separated list of lint issue IDs that you'd like
 the tools to ignore on this element or any of its descendants.
 
 For example, you can tell the tools to ignore the `MissingTranslation` error:
 
-    <string name="show_all_apps" tools:ignore="MissingTranslation">All</string>
+```xml
+<string name="show_all_apps" tools:ignore="MissingTranslation">All</string>
+```
 
 ### `tools:targetApi`
 
@@ -46,7 +50,7 @@ For example, you can tell the tools to ignore the `MissingTranslation` error:
 
 **Used by**: Lint
 
-This attribute works the same as the [`@TargetApi`](https://developer.android.com/reference/android/annotation/TargetApi) annotation in Java code
+This attribute works the same as the [`@TargetApi`](https://developer.android.com/reference/android/annotation/TargetApi.md.txt) annotation in Java code
 or the `@RequiresApi` annotation in Kotlin code. It lets you specify the API
 level (either as an integer or as a code name) that supports this element.
 
@@ -60,11 +64,13 @@ For example, you might use this attribute because you are declaring a
 only available on API level 34 and higher, but your project's `minSdkVersion`
 is lower:
 
-    <service
-        android:name=".playback.MediaPlaybackService"
-        android:foregroundServiceType="mediaPlayback"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:targetApi="34" />
+```xml
+<service
+    android:name=".playback.MediaPlaybackService"
+    android:foregroundServiceType="mediaPlayback"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="34" />
+```
 
 ### `tools:locale`
 
@@ -83,8 +89,10 @@ For example, you can add this to your default `values/strings.xml` file to
 indicate that the language used for the default strings is
 Spanish rather than English:
 
-    <resources xmlns:tools="http://schemas.android.com/tools"
-        tools:locale="es">
+```xml
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:locale="es">
+```
 
 ## Resource shrinking attributes
 
@@ -140,19 +148,21 @@ android {
 This attribute lets you specify whether the build tools should use the
 following:
 
-- **Safe mode:** Keep all resources that are explicitly cited and that *might* be referenced dynamically with a call to [`Resources.getIdentifier()`](https://developer.android.com/reference/android/content/res/Resources#getIdentifier(java.lang.String,%20java.lang.String,%20java.lang.String)).
-- **Strict mode:** Keep only the resources that are explicitly cited in code or in other resources.
+- **Safe mode** : Keep all resources that are explicitly cited and that *might* be referenced dynamically with a call to [`Resources.getIdentifier`](https://developer.android.com/reference/android/content/res/Resources.md.txt#getIdentifier(java.lang.String,%20java.lang.String,%20java.lang.String)).
+- **Strict mode**: Keep only the resources that are explicitly cited in code or in other resources.
 
 The default is to use safe mode (`shrinkMode="safe"`). To instead use
 strict mode, add `shrinkMode="strict"` to the `<resources>` tag as shown here:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <resources xmlns:tools="http://schemas.android.com/tools"
-        tools:shrinkMode="strict" />
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:shrinkMode="strict" />
+```
 
-When you enable strict mode, you might need to use [`tools:keep`](https://developer.android.com/studio/write/tool-attributes#toolskeep)
+When you enable strict mode, you might need to use [`tools:keep`](https://developer.android.com/studio/write/tool-attributes.md.txt#toolskeep)
 to keep resources that were removed but that you actually want, and use
-[`tools:discard`](https://developer.android.com/studio/write/tool-attributes#toolsdiscard) to explicitly remove even more resources.
+[`tools:discard`](https://developer.android.com/studio/write/tool-attributes.md.txt#toolsdiscard) to explicitly remove even more resources.
 
 For more information, see
 [Shrink your resources](https://developer.android.com/studio/build/shrink-code#shrink-resources).
@@ -167,7 +177,7 @@ When using resource shrinking to remove unused resources, this
 attribute lets you specify resources to keep, typically because they are
 referenced in an indirect way at runtime, such as by passing a dynamically
 generated resource name to
-[`Resources.getIdentifier()`](https://developer.android.com/reference/android/content/res/Resources#getIdentifier(java.lang.String,%20java.lang.String,%20java.lang.String)).
+[`Resources.getIdentifier`](https://developer.android.com/reference/android/content/res/Resources.md.txt#getIdentifier(java.lang.String,%20java.lang.String,%20java.lang.String)).
 
 To use, create an XML file in your resources directory (for example,
 `res/raw/keep.xml`) with a `<resources>` tag
@@ -176,9 +186,11 @@ comma-separated list. You can use the asterisk character as a wildcard.
 
 For example:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <resources xmlns:tools="http://schemas.android.com/tools"
-        tools:keep="@layout/used_1,@layout/used_2,@layout/*_3" />
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@layout/used_1,@layout/used_2,@layout/*_3" />
+```
 
 For more information, see [Shrink your resources](https://developer.android.com/studio/build/shrink-code#shrink-resources).
 
@@ -201,9 +213,11 @@ comma-separated list. You can use the asterisk character as a wildcard.
 
 For example:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <resources xmlns:tools="http://schemas.android.com/tools"
-        tools:discard="@layout/unused_1" />
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:discard="@layout/unused_1" />
+```
 
 For more information, see
 [Shrink your resources](https://developer.android.com/studio/build/shrink-code#shrink-resources).
@@ -212,4 +226,4 @@ For more information, see
 
 ### Views content
 
-- [Tools attributes reference (Views)](https://developer.android.com/studio/views/tool-attributes-views)
+- [Tools attributes reference (Views)](https://developer.android.com/studio/views/tool-attributes-views.md.txt)

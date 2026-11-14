@@ -4,7 +4,7 @@ url: https://developer.android.com/topic/performance/sqlite-performance-best-pra
 source: md.txt
 ---
 
-Android offers [built-in support for SQLite](https://developer.android.com/training/data-storage/sqlite), an
+Android offers [built-in support for SQLite](https://developer.android.com/training/data-storage/sqlite.md.txt), an
 efficient SQL database. Follow these best practices to optimize your app's
 performance, ensuring it remains fast and predictably fast as your data grows.
 By using these best practices, you also reduce the possibility of
@@ -29,7 +29,7 @@ Additionally, you can use the available troubleshooting tools to measure the
 performance of your SQLite database to help identify areas that require
 optimization.
 
-We recommend using the [Jetpack Room library](https://developer.android.com/training/data-storage/room).
+We recommend using the [Jetpack Room library](https://developer.android.com/training/data-storage/room.md.txt).
 
 ## Configure the database for performance
 
@@ -41,16 +41,16 @@ performance in SQLite.
 SQLite implements mutations by appending them to a log, which it occasionally
 compacts into the database. This is called [Write-Ahead Logging (WAL)](https://www.sqlite.org/wal.html).
 
-[Enable WAL](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#enableWriteAheadLogging())
+[Enable WAL](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.md.txt#enableWriteAheadLogging())
 unless you are using [`ATTACH DATABASE`](https://www.sqlite.org/lang_attach.html).
 
 Enable WAL through the framework instead of running `PRAGMA journal_mode=WAL`
 yourself. Room enables WAL by default on devices that aren't low-RAM devices.
 Without Room, use one of the following:
 
-- The [`enableWriteAheadLogging`](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#enableWriteAheadLogging()) method
-- The [`ENABLE_WRITE_AHEAD_LOGGING`](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#ENABLE_WRITE_AHEAD_LOGGING) open flag
-- The [`setWriteAheadLoggingEnabled`](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#setWriteAheadLoggingEnabled(boolean)) method of `SQLiteOpenHelper`
+- The [`enableWriteAheadLogging`](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.md.txt#enableWriteAheadLogging()) method
+- The [`ENABLE_WRITE_AHEAD_LOGGING`](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.md.txt#ENABLE_WRITE_AHEAD_LOGGING) open flag
+- The [`setWriteAheadLoggingEnabled`](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.md.txt#setWriteAheadLoggingEnabled(boolean)) method of `SQLiteOpenHelper`
 
 When the framework knows that the database uses WAL, it opens a pool of
 connections so that reads can run concurrently with a write, and it applies the
@@ -73,17 +73,19 @@ Device manufacturers can change this default, and databases that don't use WAL
 default to `FULL`. To make sure that your database uses `NORMAL`, set it when
 you open the database:
 
-    // When opening the database
-    val params = SQLiteDatabase.OpenParams.Builder()
-        .addOpenFlags(SQLiteDatabase.ENABLE_WRITE_AHEAD_LOGGING)
-        // SYNC_MODE_NORMAL is available in API level 33 and higher.
-        // On API levels 28 to 32, pass "NORMAL" instead.
-        .setSynchronousMode(SQLiteDatabase.SYNC_MODE_NORMAL)
-        .build()
-    // With SQLiteOpenHelper, call setOpenParams(params) in your constructor.
+```kotlin
+// When opening the database
+val params = SQLiteDatabase.OpenParams.Builder()
+    .addOpenFlags(SQLiteDatabase.ENABLE_WRITE_AHEAD_LOGGING)
+    // SYNC_MODE_NORMAL is available in API level 33 and higher.
+    // On API levels 28 to 32, pass "NORMAL" instead.
+    .setSynchronousMode(SQLiteDatabase.SYNC_MODE_NORMAL)
+    .build()
+// With SQLiteOpenHelper, call setOpenParams(params) in your constructor.
 
-    // Or: after having opened the database
-    db.execSQL("PRAGMA synchronous = NORMAL")
+// Or: after having opened the database
+db.execSQL("PRAGMA synchronous = NORMAL")
+```
 
 In this setting, a commit can return before the data is stored in a disk. If a
 device shutdown occurs, such as on loss of power or a kernel panic, the
@@ -112,15 +114,15 @@ that open the same file can't share them. In one benchmark, consolidating two
 helpers that opened the same file into one cut SQLite page cache memory by
 almost half and cut p95 query latency by more than half.
 
-To find duplicate instances, check [`dumpsys dbinfo`](https://developer.android.com/topic/performance/sqlite-performance-best-practices#dumpsys-dbinfo) for the
+To find duplicate instances, check [`dumpsys dbinfo`](https://developer.android.com/topic/performance/sqlite-performance-best-practices.md.txt#dumpsys-dbinfo) for the
 same database path under more than one `Connection pool for` heading.
 
 ### Keep schema changes out of the open callback
 
-The [`onOpen`](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#onOpen(android.database.sqlite.SQLiteDatabase)) callback of `SQLiteOpenHelper` runs every time the database
-opens, and so does the [`onOpen`](https://developer.android.com/reference/androidx/room/RoomDatabase.Callback#onOpen(androidx.sqlite.db.SupportSQLiteDatabase)) callback of `RoomDatabase.Callback`. Put
+The [`onOpen`](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.md.txt#onOpen(android.database.sqlite.SQLiteDatabase)) callback of `SQLiteOpenHelper` runs every time the database
+opens, and so does the [`onOpen`](https://developer.android.com/reference/androidx/room/RoomDatabase.Callback.md.txt#onOpen(androidx.sqlite.db.SupportSQLiteDatabase)) callback of `RoomDatabase.Callback`. Put
 statements such as `CREATE TABLE IF NOT EXISTS` and `CREATE INDEX IF NOT EXISTS`
-in [`onCreate`](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#onCreate(android.database.sqlite.SQLiteDatabase)) and [`onUpgrade`](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#onUpgrade(android.database.sqlite.SQLiteDatabase,%20int,%20int)), or in Room migrations. Don't call
+in [`onCreate`](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.md.txt#onCreate(android.database.sqlite.SQLiteDatabase)) and [`onUpgrade`](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.md.txt#onUpgrade(android.database.sqlite.SQLiteDatabase,%20int,%20int)), or in Room migrations. Don't call
 `setVersion` in `onOpen`, because `SQLiteOpenHelper` already sets the version
 after `onCreate` and `onUpgrade`. Even when the schema already exists, these
 statements still run on every open, and `setVersion` writes to the database
@@ -130,14 +132,14 @@ file.
 
 Android caches compiled statements for each connection. The cache holds 25
 statements by default, and you can raise it up to
-[`MAX_SQL_CACHE_SIZE`](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#MAX_SQL_CACHE_SIZE) (100) with [`setMaxSqlCacheSize`](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#setMaxSqlCacheSize(int)). If a database
+[`MAX_SQL_CACHE_SIZE`](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.md.txt#MAX_SQL_CACHE_SIZE) (100) with [`setMaxSqlCacheSize`](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.md.txt#setMaxSqlCacheSize(int)). If a database
 runs more than 25 distinct statements in its hot paths, the cache thrashes and
 SQLite compiles the same statements over and over.
 
-First, [parameterize your queries](https://developer.android.com/topic/performance/sqlite-performance-best-practices#parameterize-queries). No cache size can
+First, [parameterize your queries](https://developer.android.com/topic/performance/sqlite-performance-best-practices.md.txt#parameterize-queries). No cache size can
 help SQL that's built with string concatenation, because every string is a new
 statement. Then check the statement cache hits and misses under `POOL STATS` in
-[`dumpsys meminfo`](https://developer.android.com/topic/performance/sqlite-performance-best-practices#dumpsys-meminfo). For example, the `phenotype.db` database
+[`dumpsys meminfo`](https://developer.android.com/topic/performance/sqlite-performance-best-practices.md.txt#dumpsys-meminfo). For example, the `phenotype.db` database
 in that section's sample output has 147,921 hits and 89,616 misses, which is a
 38% miss rate. Raising the cache size on a database like this one can remove
 almost all of the misses. Each cached statement uses a few kilobytes of memory.
@@ -145,11 +147,13 @@ almost all of the misses. Each cached statement uses a few kilobytes of memory.
 To raise the cache size, override `onConfigure` in your `SQLiteOpenHelper`
 subclass:
 
-    override fun onConfigure(db: SQLiteDatabase) {
-        db.setMaxSqlCacheSize(SQLiteDatabase.MAX_SQL_CACHE_SIZE)
-    }
+```kotlin
+override fun onConfigure(db: SQLiteDatabase) {
+    db.setMaxSqlCacheSize(SQLiteDatabase.MAX_SQL_CACHE_SIZE)
+}
+```
 
-If you use Room, call the same method on [`SupportSQLiteDatabase`](https://developer.android.com/reference/androidx/sqlite/db/SupportSQLiteDatabase#setMaxSqlCacheSize(kotlin.Int)) in the
+If you use Room, call the same method on [`SupportSQLiteDatabase`](https://developer.android.com/reference/androidx/sqlite/db/SupportSQLiteDatabase.md.txt#setMaxSqlCacheSize(kotlin.Int)) in the
 `onOpen` callback of `RoomDatabase.Callback`.
 
 ### Close idle databases, but keep busy ones open
@@ -162,7 +166,7 @@ when you're done.
 
 To close idle databases safely, follow these guidelines:
 
-- Room can close an idle database for you with [`setAutoCloseTimeout`](https://developer.android.com/reference/androidx/room/RoomDatabase.Builder#setAutoCloseTimeout(kotlin.Long,java.util.concurrent.TimeUnit)), which is an experimental API. Room reopens the database on the next access and runs your `onOpen` callback again, so put any connection configuration there.
+- Room can close an idle database for you with [`setAutoCloseTimeout`](https://developer.android.com/reference/androidx/room/RoomDatabase.Builder.md.txt#setAutoCloseTimeout(kotlin.Long,java.util.concurrent.TimeUnit)), which is an experimental API. Room reopens the database on the next access and runs your `onOpen` callback again, so put any connection configuration there.
 - Avoid the `setIdleConnectionTimeout` methods of `SQLiteOpenHelper` and `SQLiteDatabase.OpenParams.Builder`. They're deprecated in API level 29 because they close connections without restoring settings that you applied with `PRAGMA` statements.
 - Don't close a database that you query every few seconds. A timeout that's shorter than the gap between your queries makes the database close and reopen repeatedly, which discards its page cache and statement cache every time and makes the next query slower.
 
@@ -189,14 +193,16 @@ schemas.
 
 For this example, define and populate a table as follows:
 
-    CREATE TABLE Customers(
-      id INTEGER,
-      name TEXT,
-      city TEXT
-    );
-    INSERT INTO Customers Values(456, 'John Lennon', 'Liverpool, England');
-    INSERT INTO Customers Values(123, 'Michael Jackson', 'Gary, IN');
-    INSERT INTO Customers Values(789, 'Dolly Parton', 'Sevier County, TN');
+```sql
+CREATE TABLE Customers(
+  id INTEGER,
+  name TEXT,
+  city TEXT
+);
+INSERT INTO Customers Values(456, 'John Lennon', 'Liverpool, England');
+INSERT INTO Customers Values(123, 'Michael Jackson', 'Gary, IN');
+INSERT INTO Customers Values(789, 'Dolly Parton', 'Sevier County, TN');
+```
 
 The table output is as follows:
 
@@ -215,11 +221,13 @@ If you plan on doing lookups by `id`, you can avoid storing the
 `rowid` column for less data in storage and an overall
 faster database:
 
-    CREATE TABLE Customers(
-      id INTEGER PRIMARY KEY,
-      name TEXT,
-      city TEXT
-    );
+```sql
+CREATE TABLE Customers(
+  id INTEGER PRIMARY KEY,
+  name TEXT,
+  city TEXT
+);
+```
 
 Your table now looks as follows:
 
@@ -242,13 +250,17 @@ query is accelerated.
 
 In the previous example, filtering by `city` requires scanning the entire table:
 
-    SELECT id, name
-    WHERE city = 'London, England';
+```sql
+SELECT id, name
+WHERE city = 'London, England';
+```
 
 For an app with a lot of city queries, you can accelerate those queries with an
 index:
 
-    CREATE INDEX city_index ON Customers(city);
+```sql
+CREATE INDEX city_index ON Customers(city);
+```
 
 An index is implemented as an additional table, sorted by the index column and
 mapped to `rowid`:
@@ -274,14 +286,18 @@ and let the inside search be done as a linear scan.
 
 For example, given the following query:
 
-    SELECT id, name
-    WHERE city = 'London, England'
-    ORDER BY city, name
+```sql
+SELECT id, name
+WHERE city = 'London, England'
+ORDER BY city, name
+```
 
 You can accelerate the query with a multi-column index in the same order as
 specified in the query:
 
-    CREATE INDEX city_name_index ON Customers(city, name);
+```sql
+CREATE INDEX city_name_index ON Customers(city, name);
+```
 
 However, if you only have an index on `city`, the outside ordering is still
 accelerated, while the inside ordering requires a linear scan.
@@ -331,17 +347,19 @@ Filters let you narrow down your results by specifying certain criteria,
 such as date range, location, or name. Limits let you control the number
 of results you see:
 
-    db.rawQuery("""
-        SELECT name
-        FROM Customers
-        LIMIT 10;
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        while (cursor.moveToNext()) {
-            // Process cursor data
-        }
+```kotlin
+db.rawQuery("""
+    SELECT name
+    FROM Customers
+    LIMIT 10;
+    """.trimIndent(),
+    null
+).use { cursor ->
+    while (cursor.moveToNext()) {
+        // Process cursor data
     }
+}
+```
 
 ### Read only the columns you need
 
@@ -351,52 +369,58 @@ that are used.
 
 In the following example, you select `id`, `name`, and `phone`:
 
-    // This is not the most efficient way of doing this.
-    // See the following example for a better approach.
+```kotlin
+// This is not the most efficient way of doing this.
+// See the following example for a better approach.
 
-    db.rawQuery(
-        """
-        SELECT id, name, phone
-        FROM customers;
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        while (cursor.moveToNext()) {
-            val name = cursor.getString(1)
-            // Further processing
-        }
+db.rawQuery(
+    """
+    SELECT id, name, phone
+    FROM customers;
+    """.trimIndent(),
+    null
+).use { cursor ->
+    while (cursor.moveToNext()) {
+        val name = cursor.getString(1)
+        // Further processing
     }
+}
+```
 
 However, you only need the `name` column:
 
-    db.rawQuery("""
-        SELECT name
-        FROM Customers;
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        while (cursor.moveToNext()) {
-            val name = cursor.getString(0)
-            // Further processing
-        }
+```kotlin
+db.rawQuery("""
+    SELECT name
+    FROM Customers;
+    """.trimIndent(),
+    null
+).use { cursor ->
+    while (cursor.moveToNext()) {
+        val name = cursor.getString(0)
+        // Further processing
     }
+}
+```
 
 ### Parameterize queries
 
 Your query string might include a parameter that is only known at runtime, such
 as the following:
 
-    fun getNameById(id: Long): String?
-        db.rawQuery(
-            "SELECT name FROM customers WHERE id=$id", null
-        ).use { cursor ->
-            return if (cursor.moveToFirst()) {
-                cursor.getString(0)
-            } else {
-                null
-            }
+```kotlin
+fun getNameById(id: Long): String?
+    db.rawQuery(
+        "SELECT name FROM customers WHERE id=$id", null
+    ).use { cursor ->
+        return if (cursor.moveToFirst()) {
+            cursor.getString(0)
+        } else {
+            null
         }
     }
+}
+```
 
 In the preceding code, every query constructs a different string, and thus
 doesn't benefit from the statement cache. Each call requires SQLite to compile
@@ -404,21 +428,23 @@ it before it can execute. Instead, you can replace the `id` argument with a
 [parameter](https://www.sqlite.org/lang_expr.html#varparam) and
 bind the value with `selectionArgs`:
 
-    fun getNameById(id: Long): String? {
-        db.rawQuery(
-            """
-              SELECT name
-              FROM customers
-              WHERE id=?
-            """.trimIndent(), arrayOf(id.toString())
-        ).use { cursor ->
-            return if (cursor.moveToFirst()) {
-                cursor.getString(0)
-            } else {
-                null
-            }
+```kotlin
+fun getNameById(id: Long): String? {
+    db.rawQuery(
+        """
+          SELECT name
+          FROM customers
+          WHERE id=?
+        """.trimIndent(), arrayOf(id.toString())
+    ).use { cursor ->
+        return if (cursor.moveToFirst()) {
+            cursor.getString(0)
+        } else {
+            null
         }
     }
+}
+```
 
 Now the query can be compiled once and cached. The compiled query is reused
 between different invocations of `getNameById(long)`.
@@ -438,61 +464,67 @@ Using the `DISTINCT` keyword can improve the performance of your queries by
 reducing the amount of data that needs to be processed. For example, if you want
 to return only the unique values from a column, use `DISTINCT`:
 
-    db.rawQuery("""
-        SELECT DISTINCT name
-        FROM Customers;
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        while (cursor.moveToNext()) {
-            // Only iterate over distinct names in Kotlin
-            // Process distinct name
-        }
+```kotlin
+db.rawQuery("""
+    SELECT DISTINCT name
+    FROM Customers;
+    """.trimIndent(),
+    null
+).use { cursor ->
+    while (cursor.moveToNext()) {
+        // Only iterate over distinct names in Kotlin
+        // Process distinct name
     }
+}
+```
 
 ### Use aggregate functions whenever possible
 
 Use aggregate functions for aggregate results without row data. For example, the
 following code checks whether there is at least one matching row:
 
-    // This is not the most efficient way of doing this.
-    // See the following example for a better approach.
+```kotlin
+// This is not the most efficient way of doing this.
+// See the following example for a better approach.
 
-    db.rawQuery("""
-        SELECT id, name
-        FROM Customers
-        WHERE city = 'Paris';
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        if (cursor.moveToFirst()) {
-            // At least one customer from Paris
-            // Handle found
-        } else {
-            // No customers from Paris
-            // Handle not found
-    }
+db.rawQuery("""
+    SELECT id, name
+    FROM Customers
+    WHERE city = 'Paris';
+    """.trimIndent(),
+    null
+).use { cursor ->
+    if (cursor.moveToFirst()) {
+        // At least one customer from Paris
+        // Handle found
+    } else {
+        // No customers from Paris
+        // Handle not found
+}
+```
 
 To only fetch the first row, you can use `EXISTS()` to return `0` if a matching
 row does not exist and `1` if one or more rows match:
 
-    db.rawQuery("""
-        SELECT EXISTS (
-            SELECT null
-            FROM Customers
-            WHERE city = 'Paris';
-        );
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        if (cursor.moveToFirst() && cursor.getInt(0) == 1) {
-            // At least one customer from Paris
-            // Handle found
-        } else {
-            // No customers from Paris
-            // Handle not found
-        }
+```kotlin
+db.rawQuery("""
+    SELECT EXISTS (
+        SELECT null
+        FROM Customers
+        WHERE city = 'Paris';
+    );
+    """.trimIndent(),
+    null
+).use { cursor ->
+    if (cursor.moveToFirst() && cursor.getInt(0) == 1) {
+        // At least one customer from Paris
+        // Handle found
+    } else {
+        // No customers from Paris
+        // Handle not found
     }
+}
+```
 
 Use [SQLite aggregate functions](https://www.sqlite.org/lang_aggfunc.html) in your app
 code:
@@ -507,35 +539,39 @@ code:
 
 In the
 following example, the
-[`Cursor.getCount()`](https://developer.android.com/reference/android/database/Cursor#getCount()) function
+[`Cursor.getCount()`](https://developer.android.com/reference/android/database/Cursor.md.txt#getCount()) function
 reads all the rows from the database and returns all the row values:
 
-    // This is not the most efficient way of doing this.
-    // See the following example for a better approach.
+```kotlin
+// This is not the most efficient way of doing this.
+// See the following example for a better approach.
 
-    db.rawQuery("""
-        SELECT id
-        FROM Customers;
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        val count = cursor.getCount()
-        // Use count
-    }
+db.rawQuery("""
+    SELECT id
+    FROM Customers;
+    """.trimIndent(),
+    null
+).use { cursor ->
+    val count = cursor.getCount()
+    // Use count
+}
+```
 
 However, by using `COUNT()`, the database returns only the
 count:
 
-    db.rawQuery("""
-        SELECT COUNT(*)
-        FROM Customers;
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        cursor.moveToFirst()
-        val count = cursor.getInt(0)
-        // Use count
-    }
+```kotlin
+db.rawQuery("""
+    SELECT COUNT(*)
+    FROM Customers;
+    """.trimIndent(),
+    null
+).use { cursor ->
+    cursor.moveToFirst()
+    val count = cursor.getInt(0)
+    // Use count
+}
+```
 
 ### Nest queries instead of code
 
@@ -548,53 +584,57 @@ In the following example, you can run a query to find which city has the most
 customers, then use the result in another query to find all the customers from
 that city:
 
-    // This is not the most efficient way of doing this.
-    // See the following example for a better approach.
+```kotlin
+// This is not the most efficient way of doing this.
+// See the following example for a better approach.
 
-    db.rawQuery("""
-        SELECT city
-        FROM Customers
-        GROUP BY city
-        ORDER BY COUNT(*) DESC
-        LIMIT 1;
+db.rawQuery("""
+    SELECT city
+    FROM Customers
+    GROUP BY city
+    ORDER BY COUNT(*) DESC
+    LIMIT 1;
+    """.trimIndent(),
+    null
+).use { cursor ->
+    if (cursor.moveToFirst()) {
+        val topCity = cursor.getString(0)
+        db.rawQuery("""
+            SELECT name, city
+            FROM Customers
+            WHERE city = ?;
         """.trimIndent(),
-        null
-    ).use { cursor ->
-        if (cursor.moveToFirst()) {
-            val topCity = cursor.getString(0)
-            db.rawQuery("""
-                SELECT name, city
-                FROM Customers
-                WHERE city = ?;
-            """.trimIndent(),
-            arrayOf(topCity)).use { innerCursor ->
-                while (innerCursor.moveToNext()) {
-                    // Process inner cursor data
-                }
+        arrayOf(topCity)).use { innerCursor ->
+            while (innerCursor.moveToNext()) {
+                // Process inner cursor data
             }
         }
     }
+}
+```
 
 To get the result in half the time of the previous example, use a single SQL
 query with nested statements:
 
-    db.rawQuery("""
-        SELECT name, city
+```kotlin
+db.rawQuery("""
+    SELECT name, city
+    FROM Customers
+    WHERE city IN (
+        SELECT city
         FROM Customers
-        WHERE city IN (
-            SELECT city
-            FROM Customers
-            GROUP BY city
-            ORDER BY COUNT (*) DESC
-            LIMIT 1;
-        );
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        if (cursor.moveToNext()) {
-            // Process cursor data
-        }
+        GROUP BY city
+        ORDER BY COUNT (*) DESC
+        LIMIT 1;
+    );
+    """.trimIndent(),
+    null
+).use { cursor ->
+    if (cursor.moveToNext()) {
+        // Process cursor data
     }
+}
+```
 
 ### Check uniqueness in SQL
 
@@ -605,67 +645,77 @@ constraint.
 In the following example, one query is run to validate the row to be
 inserted and another to actually insert:
 
-    // This is not the most efficient way of doing this.
-    // See the following example for a better approach.
+```kotlin
+// This is not the most efficient way of doing this.
+// See the following example for a better approach.
 
-    db.rawQuery(
-        """
-        SELECT EXISTS (
-            SELECT null
-            FROM customers
-            WHERE username = ?
-        );
-        """.trimIndent(),
-        arrayOf(customer.username)
-    ).use { cursor ->
-        if (cursor.moveToFirst() && cursor.getInt(0) == 1) {
-            throw AddCustomerException(customer)
-        }
+db.rawQuery(
+    """
+    SELECT EXISTS (
+        SELECT null
+        FROM customers
+        WHERE username = ?
+    );
+    """.trimIndent(),
+    arrayOf(customer.username)
+).use { cursor ->
+    if (cursor.moveToFirst() && cursor.getInt(0) == 1) {
+        throw AddCustomerException(customer)
     }
-    db.execSQL(
-        "INSERT INTO customers VALUES (?, ?, ?)",
-        arrayOf(
-            customer.id.toString(),
-            customer.name,
-            customer.username
-        )
+}
+db.execSQL(
+    "INSERT INTO customers VALUES (?, ?, ?)",
+    arrayOf(
+        customer.id.toString(),
+        customer.name,
+        customer.username
     )
+)
+```
 
 Instead of checking the unique constraint in Kotlin, you can check it in
 SQL when you define the table:
 
-    CREATE TABLE Customers(
-      id INTEGER PRIMARY KEY,
-      name TEXT,
-      username TEXT UNIQUE
-    );
+```sql
+CREATE TABLE Customers(
+  id INTEGER PRIMARY KEY,
+  name TEXT,
+  username TEXT UNIQUE
+);
+```
 
 SQLite does the same as the following:
 
-    CREATE TABLE Customers(...);
-    CREATE UNIQUE INDEX CustomersUsername ON Customers(username);
+```sql
+CREATE TABLE Customers(...);
+CREATE UNIQUE INDEX CustomersUsername ON Customers(username);
+```
 
 > [!NOTE]
-> **Note:** An index table is created for `username`, which uses extra storage. For more information about querying an index table, see [Accelerate queries with indexes](https://developer.android.com/topic/performance/sqlite-performance-best-practices#accelerate-queries).
+> **Note:** An index table is created for `username`, which uses extra storage. For more information about querying an index table, see [Accelerate queries with indexes](https://developer.android.com/topic/performance/sqlite-performance-best-practices.md.txt#accelerate-queries).
 
 Now you can insert a row and let SQLite check the constraint:
 
-    try {
-        db.execSQL(
-            "INSERT INTO Customers VALUES (?, ?, ?)",
-            arrayOf(customer.id.toString(), customer.name, customer.username)
-        )
-    } catch(e: SQLiteConstraintException) {
-        throw AddCustomerException(customer, e)
-    }
+```kotlin
+try {
+    db.execSQL(
+        "INSERT INTO Customers VALUES (?, ?, ?)",
+        arrayOf(customer.id.toString(), customer.name, customer.username)
+    )
+} catch(e: SQLiteConstraintException) {
+    throw AddCustomerException(customer, e)
+}
+```
 
 > [!NOTE]
-> **Note:** If you define [`INTEGER PRIMARY KEY`](https://developer.android.com/topic/performance/sqlite-performance-best-practices#consider-integer), then a unique constraint applies to that column and doesn't use an extra index table.
+> **Note:** If you define [`INTEGER PRIMARY KEY`](https://developer.android.com/topic/performance/sqlite-performance-best-practices.md.txt#consider-integer), then a unique constraint applies to that column and doesn't use an extra index table.
 
 SQLite supports unique indexes with multiple columns:
 
-    CREATE TABLE table(...);
-    CREATE UNIQUE INDEX unique_table ON table(column1, column2, ...);
+```sql
+CREATE TABLE table(...);
+CREATE UNIQUE INDEX unique_table ON table(column1, column2, ...);
+```
 
 SQLite validates constraints faster and with less overhead than Kotlin
 code. It is a best practice to use SQLite rather than app code.
@@ -676,23 +726,49 @@ A transaction commits multiple operations, which improves not
 only efficiency but also correctness. To improve data consistency and
 accelerate performance, you can batch insertions:
 
-    db.beginTransaction()
-    try {
-        customers.forEach { customer ->
-            db.execSQL(
-                "INSERT INTO Customers VALUES (?, ?, ?)",
-                arrayOf(customer.id.toString(), customer.name, "customerValue")
-            )
-        }
-        db.setTransactionSuccessful()
-    } finally {
-        db.endTransaction()
+```kotlin
+db.beginTransaction()
+try {
+    customers.forEach { customer ->
+        db.execSQL(
+            "INSERT INTO Customers VALUES (?, ?, ?)",
+            arrayOf(customer.id.toString(), customer.name, "customerValue")
+        )
     }
+    db.setTransactionSuccessful()
+} finally {
+    db.endTransaction()
+}
+```
 
 Outside of an explicit transaction, each write runs in its own implicit
 transaction and pays the full cost of a commit, including an `fsync` in `FULL`
 synchronous mode. Batching pays that cost once, which can make a batch of
 writes an order of magnitude or more faster.
+
+Keep non-database work out of the transaction. Don't hold an open write
+transaction across blocking file I/O such as `File.delete`, network requests,
+interprocess communication such as `ContentResolver` calls or broadcasts, or
+lock acquisitions:
+
+- Concurrent database writes block until the transaction ends, and without WAL, reads block too.
+- Acquiring an app lock between [`beginTransaction`](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.md.txt#beginTransaction()) and [`endTransaction`](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.md.txt#endTransaction()) risks a deadlock if another thread holds that lock while waiting for a database connection.
+- Rolling back a failed transaction doesn't undo external side effects such as deleted files, and broadcasts sent before `endTransaction` commits wake receivers before your changes are visible.
+
+Prepare external inputs before calling `beginTransaction`, run only SQLite
+operations between `beginTransaction` and `endTransaction`, and record any file
+paths or payloads in memory to run cleanup or send broadcasts after
+`endTransaction` commits.
+
+If the database references immutable files, store them in one parent directory
+and create, write, and sync each file under a unique name before starting the
+transaction. Because file names are unique and the database is the source of
+truth for active files, skip the atomic rename step. To clean up files left
+behind by rolled-back transactions or replaced rows, schedule a periodic
+[`WorkManager`](https://developer.android.com/reference/androidx/work/WorkManager.md.txt) job on the same sequential write executor (or under the same
+explicit lock) that serializes database writes and file creation, so the cleanup
+pass queries active rows and deletes unreferenced files without racing an
+in-flight writer.
 
 > [!NOTE]
 > **Note:** Only one write transaction can occur at a time. Use `MoreExecutors.newSequentialExecutor(Executor)` to serialize writes.
@@ -719,25 +795,29 @@ You can ask SQLite to time queries:
 You can ask SQLite to explain how it intends to answer a query by using
 [`EXPLAIN QUERY PLAN`](https://www.sqlite.org/eqp.html):
 
-    sqlite> EXPLAIN QUERY PLAN
-    SELECT id, name
-    FROM Customers
-    WHERE city = 'Paris';
-    QUERY PLAN
-    `--SCAN Customers
+```sql
+sqlite> EXPLAIN QUERY PLAN
+SELECT id, name
+FROM Customers
+WHERE city = 'Paris';
+QUERY PLAN
+`--SCAN Customers
+```
 
 The previous example requires a full table scan without an index to find all
 customers from Paris. This is called *linear complexity*. SQLite needs to read
 all the rows and only keep the rows that match customers from Paris. To fix
 this, you can add an index:
 
-    sqlite> CREATE INDEX Idx1 ON Customers(city);
-    sqlite> EXPLAIN QUERY PLAN
-    SELECT id, name
-    FROM Customers
-    WHERE city = 'Paris';
-    QUERY PLAN
-    `--SEARCH test USING INDEX Idx1 (city=?
+```sql
+sqlite> CREATE INDEX Idx1 ON Customers(city);
+sqlite> EXPLAIN QUERY PLAN
+SELECT id, name
+FROM Customers
+WHERE city = 'Paris';
+QUERY PLAN
+`--SEARCH test USING INDEX Idx1 (city=?
+```
 
 If you're using the interactive shell, you can ask SQLite to always explain
 query plans:
@@ -788,17 +868,19 @@ When [configuring Perfetto](https://perfetto.dev/docs/concepts/config), add the 
 SQLite operations in the trace. To see what each thread is doing while it runs
 SQL, also add the scheduler events:
 
-    data_sources {
-      config {
-        name: "linux.ftrace"
-        ftrace_config {
-          ftrace_events: "sched/sched_switch"
-          ftrace_events: "sched/sched_waking"
-          ftrace_events: "sched/sched_blocked_reason"
-          atrace_categories: "database"
-        }
-      }
+```protobuf
+data_sources {
+  config {
+    name: "linux.ftrace"
+    ftrace_config {
+      ftrace_events: "sched/sched_switch"
+      ftrace_events: "sched/sched_waking"
+      ftrace_events: "sched/sched_blocked_reason"
+      atrace_categories: "database"
     }
+  }
+}
+```
 
 Android traces each database operation as a slice named after the operation
 and its SQL, for example
@@ -828,38 +910,42 @@ You can analyze these slices with [PerfettoSQL](https://perfetto.dev/docs/analys
 `trace_processor`. The following query finds the most frequent SQLite
 operations in each process. This query works on all Android versions:
 
-    INCLUDE PERFETTO MODULE slices.with_context;
+```sql
+INCLUDE PERFETTO MODULE slices.with_context;
 
-    SELECT process_name, name AS operation, COUNT(*) AS count
-    FROM process_slice
-    WHERE name GLOB 'open *' OR name GLOB 'close *'
-      OR name GLOB 'prepare *' OR name GLOB 'execute*'
-      OR name GLOB 'TRANSACTION-*'
-    GROUP BY process_name, name
-    ORDER BY count DESC
-    LIMIT 10;
+SELECT process_name, name AS operation, COUNT(*) AS count
+FROM process_slice
+WHERE name GLOB 'open *' OR name GLOB 'close *'
+  OR name GLOB 'prepare *' OR name GLOB 'execute*'
+  OR name GLOB 'TRANSACTION-*'
+GROUP BY process_name, name
+ORDER BY count DESC
+LIMIT 10;
+```
 
 The following query lists SQLite operations that took longer than 1 ms on a
 main thread in Android 17 and higher:
 
-    INCLUDE PERFETTO MODULE slices.with_context;
+```sql
+INCLUDE PERFETTO MODULE slices.with_context;
 
-    WITH marks AS (
-      SELECT process_name, utid, is_main_thread, ts, name,
-        LEAD(ts) OVER (PARTITION BY utid ORDER BY ts) AS end_ts,
-        LEAD(name) OVER (PARTITION BY utid ORDER BY ts) AS end_name
-      FROM thread_slice
-      WHERE name GLOB 'START-*' OR name GLOB 'END-*'
-    )
-    SELECT process_name, ts, ROUND((end_ts - ts) / 1e6, 1) AS dur_ms,
-      substr(name, 7) AS operation
-    FROM marks
-    WHERE name GLOB 'START-*'
-      AND end_name = 'END-' || substr(name, 7)
-      AND is_main_thread
-      AND end_ts - ts > 1e6
-    ORDER BY dur_ms DESC
-    LIMIT 10;
+WITH marks AS (
+  SELECT process_name, utid, is_main_thread, ts, name,
+    LEAD(ts) OVER (PARTITION BY utid ORDER BY ts) AS end_ts,
+    LEAD(name) OVER (PARTITION BY utid ORDER BY ts) AS end_name
+  FROM thread_slice
+  WHERE name GLOB 'START-*' OR name GLOB 'END-*'
+)
+SELECT process_name, ts, ROUND((end_ts - ts) / 1e6, 1) AS dur_ms,
+  substr(name, 7) AS operation
+FROM marks
+WHERE name GLOB 'START-*'
+  AND end_name = 'END-' || substr(name, 7)
+  AND is_main_thread
+  AND end_ts - ts > 1e6
+ORDER BY dur_ms DESC
+LIMIT 10;
+```
 
 ![A Perfetto query result that lists SQLite operations longer than 1
 millisecond on the main thread of a test
@@ -870,24 +956,26 @@ app](https://developer.android.com/static/topic/performance/images/sqlite-perfet
 The following query finds threads that write outside an explicit transaction,
 where every write pays for its own commit, in Android 17 and higher:
 
-    INCLUDE PERFETTO MODULE slices.with_context;
+```sql
+INCLUDE PERFETTO MODULE slices.with_context;
 
-    WITH ops AS (
-      SELECT process_name, thread_name, utid, name,
-        upper(ltrim(substr(name, instr(name, ' ') + 1))) AS sql
-      FROM thread_slice
-      WHERE name GLOB 'START-*'
-    )
-    SELECT process_name, thread_name,
-      SUM(name GLOB 'START-TRANSACTION-*') AS transactions,
-      SUM(name GLOB 'START-execute*' AND (sql GLOB 'INSERT *'
-        OR sql GLOB 'UPDATE *' OR sql GLOB 'DELETE *' OR sql GLOB 'REPLACE *'))
-        AS autocommit_writes
-    FROM ops
-    GROUP BY utid
-    HAVING autocommit_writes > 0
-    ORDER BY autocommit_writes DESC
-    LIMIT 10;
+WITH ops AS (
+  SELECT process_name, thread_name, utid, name,
+    upper(ltrim(substr(name, instr(name, ' ') + 1))) AS sql
+  FROM thread_slice
+  WHERE name GLOB 'START-*'
+)
+SELECT process_name, thread_name,
+  SUM(name GLOB 'START-TRANSACTION-*') AS transactions,
+  SUM(name GLOB 'START-execute*' AND (sql GLOB 'INSERT *'
+    OR sql GLOB 'UPDATE *' OR sql GLOB 'DELETE *' OR sql GLOB 'REPLACE *'))
+    AS autocommit_writes
+FROM ops
+GROUP BY utid
+HAVING autocommit_writes > 0
+ORDER BY autocommit_writes DESC
+LIMIT 10;
+```
 
 ### `dumpsys meminfo`
 
@@ -958,9 +1046,9 @@ connection pool:
 
 Use these stats to decide what to fix:
 
-- A high miss rate means that SQLite compiles the same statements repeatedly. First, look for SQL that's built with string concatenation and [parameterize it](https://developer.android.com/topic/performance/sqlite-performance-best-practices#parameterize-queries). If your queries are already parameterized and the per-connection `cache size` is at the limit of 25, [raise the cache size](https://developer.android.com/topic/performance/sqlite-performance-best-practices#statement-cache).
-- A database path that appears more than once without a `(1)`-style suffix means that your app opened the same file twice. [Open each database once](https://developer.android.com/topic/performance/sqlite-performance-best-practices#open-once).
-- A database that your app rarely uses still holds memory while it's open. [Close it when you're done](https://developer.android.com/topic/performance/sqlite-performance-best-practices#close-idle).
+- A high miss rate means that SQLite compiles the same statements repeatedly. First, look for SQL that's built with string concatenation and [parameterize it](https://developer.android.com/topic/performance/sqlite-performance-best-practices.md.txt#parameterize-queries). If your queries are already parameterized and the per-connection `cache size` is at the limit of 25, [raise the cache size](https://developer.android.com/topic/performance/sqlite-performance-best-practices.md.txt#statement-cache).
+- A database path that appears more than once without a `(1)`-style suffix means that your app opened the same file twice. [Open each database once](https://developer.android.com/topic/performance/sqlite-performance-best-practices.md.txt#open-once).
+- A database that your app rarely uses still holds memory while it's open. [Close it when you're done](https://developer.android.com/topic/performance/sqlite-performance-best-practices.md.txt#close-idle).
 
 ### `dumpsys dbinfo`
 
@@ -1021,11 +1109,11 @@ Look for the following:
 
 ### Views content
 
-- [Best practices for SQLite performance (Views)](https://developer.android.com/topic/performance/views/sqlite-performance-best-practices-views)
+- [Best practices for SQLite performance (Views)](https://developer.android.com/topic/performance/views/sqlite-performance-best-practices-views.md.txt)
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Run benchmarks in Continuous Integration](https://developer.android.com/topic/performance/benchmarking/benchmarking-in-ci)
-- [Frozen frames](https://developer.android.com/topic/performance/issues/render#frozen-frames)
-- [Create and measure Baseline Profiles without Macrobenchmark](https://developer.android.com/topic/performance/baselineprofiles/manually-create-measure)
+- [Run benchmarks in Continuous Integration](https://developer.android.com/topic/performance/benchmarking/benchmarking-in-ci.md.txt)
+- [Frozen frames](https://developer.android.com/topic/performance/issues/render.md.txt#frozen-frames)
+- [Create and measure Baseline Profiles without Macrobenchmark](https://developer.android.com/topic/performance/baselineprofiles/manually-create-measure.md.txt)

@@ -4,13 +4,13 @@ url: https://developer.android.com/guide/playcore/asset-delivery/texture-compres
 source: md.txt
 ---
 
-# Target texture compression formats in Android App Bundles
+> Documentation index: https://developer.android.com/guide/playcore/asset-delivery/llms.txt
 
 *Textures* are images that can be applied to the surface of a 3D model. Textures
 are also used by 2D renderers to draw elements such as sprites or backgrounds.
 This page describes popular texture compression formats used in games and how to
 target them in Android App Bundles. Read
-[About Android App Bundles](https://developer.android.com/guide/app-bundle) and
+[About Android App Bundles](https://developer.android.com/guide/app-bundle.md.txt) and
 [Play Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery) before starting this
 guide.
 
@@ -32,9 +32,9 @@ These formats are supported by the following approximate percentages of Android
 devices:
 
 | Texture compression format | Percentage of Google Play devices with support |
-|----------------------------|------------------------------------------------|
-| ASTC                       | \>80%                                          |
-| ETC2                       | \>95%                                          |
+|---|---|
+| ASTC | \>80% |
+| ETC2 | \>95% |
 
 Desktop computer GPUs running Google Play Games for PC also support this format:
 
@@ -58,10 +58,12 @@ format for each asset pack. If a device does not support the other specified
 formats, assets using this default format are installed.
 
 Unless you are targeting very old device hardware, ETC2 is a good choice
-for a default format. You should use the ETC2 formats that are guaranteed to be
+for a default format. Use the ETC2 formats
 [supported in OpenGL ES 3.0](https://en.wikipedia.org/wiki/Ericsson_Texture_Compression).
 These formats are also available in the Vulkan graphics API.
-| **Note:** Some game engines transcode the textures in memory if the format is not supported on the device. For example, consider a game bundled with ETC2 as the default format and no ETC1 support. Devices that support only ETC1 are still be able to run the game, but with slower loading times and performance. Refer to your game engine's documentation to verify if this transcoding is done and if it is acceptable for your use case. As an example, Unity decompresses the texture at runtime to a fallback format for older devices that don't support it. For more information, see the [Unity documentation](https://docs.unity3d.com/2020.2/Documentation/Manual/class-TextureImporterOverride.html#notes-on-android).
+
+> [!NOTE]
+> **Note:** Some game engines transcode the textures in memory if the format is not supported on the device. For example, consider a game bundled with ETC2 as the default format and no ETC1 support. Devices that support only ETC1 are still be able to run the game, but with slower loading times and performance. Refer to your game engine's documentation to verify if this transcoding is done and if it is acceptable for your use case. As an example, Unity decompresses the texture at runtime to a fallback format for older devices that don't support it. For more information, see the [Unity documentation](https://docs.unity3d.com/2020.2/Documentation/Manual/class-TextureImporterOverride.html#notes-on-android).
 
 ### Recommended formats
 
@@ -81,13 +83,13 @@ each user's device configuration, so users download only the code and resources
 they need to run your game. These optimized APKs include a single set of texture
 assets, formatted with the optimal compression format for the device.
 
-If your game is not in Unity, [use Gradle](https://developer.android.com/guide/playcore/asset-delivery/texture-compression#use-gradle) to build an app bundle.
-Advanced users may want to [use `bundletool`](https://developer.android.com/guide/playcore/asset-delivery/texture-compression#use-bundletool).
+If your game is not in Unity, [use Gradle](https://developer.android.com/guide/playcore/asset-delivery/texture-compression.md.txt#use-gradle) to build an app bundle.
+Advanced users may want to [use `bundletool`](https://developer.android.com/guide/playcore/asset-delivery/texture-compression.md.txt#use-bundletool).
 
 If your game is in Unity, support for app bundles with Play Asset Delivery
 is available in Unity 2021.3 and higher. For more information, see the
 [Unity documentation](https://docs.unity3d.com/2022.3/Documentation/Manual/play-asset-delivery.html).
-You can [use a Unity plugin](https://developer.android.com/guide/playcore/asset-delivery/texture-compression#unity-plugin) to build an app bundle with lower
+You can [use a Unity plugin](https://developer.android.com/guide/playcore/asset-delivery/texture-compression.md.txt#unity-plugin) to build an app bundle with lower
 versions of Unity.
 
 ### Use Gradle
@@ -98,7 +100,7 @@ versions of Unity.
 
 2. Determine the set of device types that you want to target for your game and
    the texture compression formats they support (for more information on
-   formats, see [Background](https://developer.android.com/guide/playcore/asset-delivery/texture-compression#background)).
+   formats, see [Background](https://developer.android.com/guide/playcore/asset-delivery/texture-compression.md.txt#background)).
 
 3. Build versions of your assets for each texture compression format from the
    previous step. This could involve generating sprite sheets using software
@@ -109,14 +111,16 @@ versions of Unity.
    [astc-encoder](https://github.com/ARM-software/astc-encoder)).
 
 4. Create [asset packs](https://developer.android.com/guide/playcore/asset-delivery) (see
-   [Build for C++ or Java](https://developer.android.com/guide/playcore/asset-delivery/integrate-java)),
+   [Build for C++ or Java](https://developer.android.com/guide/playcore/asset-delivery/integrate-java.md.txt)),
    which contain your game assets and are used by Play Asset Delivery. For
    example, you can create one asset pack per level or asset packs for
    different parts of your game.
 
-   | **Note:** You don't need to use Play Asset Delivery APIs inside your game if you select the `install-time` delivery type for your asset packs. These asset packs are installed at the same time as the main application APK.
+   > [!NOTE]
+   > **Note:** You don't need to use Play Asset Delivery APIs inside your game if you select the `install-time` delivery type for your asset packs. These asset packs are installed at the same time as the main application APK.
+
 5. Inside your asset packs, add directories for each texture compression format
-   that you want to support. Add [supported suffixes](https://developer.android.com/guide/playcore/asset-delivery/texture-compression#supported-suffixes) to
+   that you want to support. Add [supported suffixes](https://developer.android.com/guide/playcore/asset-delivery/texture-compression.md.txt#supported-suffixes) to
    the texture directory names that correspond to the texture compression
    format used for the contained files.
 
@@ -126,10 +130,12 @@ versions of Unity.
    most devices (for example, ETC1 or ETC2). If a device does not support the
    other specified formats (for example, PVRTC and ASTC in the table below),
    the Google Play Store installs this directory instead.
-   | **Note:** You decide what content goes into this directory. In most cases, the files in this directory should be the same as in the other directories, differing only by the texture format. However, some formats may require additional support files. For example, textures in the ETC1 format may have an extra file to support alpha channel. Verify how your game or game engine loads textures to determine the optimal file organization.
 
-   |                                 Directory before                                  |                                                                               Directory after                                                                                |
-   |-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   > [!NOTE]
+   > **Note:** You decide what content goes into this directory. In most cases, the files in this directory should be the same as in the other directories, differing only by the texture format. However, some formats may require additional support files. For example, textures in the ETC1 format may have an extra file to support alpha channel. Verify how your game or game engine loads textures to determine the optimal file organization.
+
+   | Directory before | Directory after |
+   |---|---|
    | `common` **asset pack** : common/build.gradle common/src/main/assets/textures/... | `common` **asset pack** : common/build.gradle common/src/main/assets/textures/... common/src/main/assets/textures#tcf_astc/... common/src/main/assets/textures#tcf_pvrtc/... |
    | `level1` **asset pack** : level1/build.gradle level1/src/main/assets/textures/... | `level1` **asset pack** : level1/build.gradle level1/src/main/assets/textures/... level1/src/main/assets/textures#tcf_astc/... level1/src/main/assets/textures#tcf_pvrtc/... |
    | `level2` **asset pack** : level2/build.gradle level2/src/main/assets/textures/... | `level2` **asset pack** : level2/build.gradle level2/src/main/assets/textures/... level2/src/main/assets/textures#tcf_astc/... level2/src/main/assets/textures#tcf_pvrtc/... |
@@ -150,14 +156,15 @@ versions of Unity.
    ```
 7. In Android Studio, select **Build \> Generate Signed Bundle / APK** , or
    launch the
-   [Gradle task from the command line](https://developer.android.com/studio/build/building-cmdline) to
+   [Gradle task from the command line](https://developer.android.com/build/building-cmdline.md.txt) to
    generate your bundle.
 
-   | **Note:** When APKs (to be installed on a device) are generated from the app bundle, the suffixes (for example, `#tcf_xxx`) are removed from the directory names. Your game only has to read files from a well-known directory name (for example, `level1/assets/textures`). Some game engines can detect the format of a file, so your game can be indifferent about which format of game assets are installed.
+   > [!NOTE]
+   > **Note:** When APKs (to be installed on a device) are generated from the app bundle, the suffixes (for example, `#tcf_xxx`) are removed from the directory names. Your game only has to read files from a well-known directory name (for example, `level1/assets/textures`). Some game engines can detect the format of a file, so your game can be indifferent about which format of game assets are installed.
 
 ### Use the Google Play Unity plugin
 
-[Get the Unity plugin (or package) for Play Asset Delivery](https://developer.android.com/guide/playcore#unity)
+[Get the Unity plugin (or package) for Play Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery/integrate-unity.md.txt#prerequisites)
 to create an app bundle with texture-targeted asset packs.
 
 #### Prepare the assets
@@ -167,60 +174,63 @@ To prepare your texture assets for building an app bundle, do the following:
 1. Package your scene and assets into multiple Unity
    [AssetBundles](https://docs.unity3d.com/Manual/AssetBundlesIntro.html).
 
-   | **Note:** While the AssetBundle Manager is deprecated for Unity versions 2018.2 and higher, AssetBundles are still supported.
+   > [!NOTE]
+   > **Note:** While the AssetBundle Manager is deprecated for Unity versions 2018.2 and higher, AssetBundles are still supported.
+
 2. Determine the set of device types that you want to target for your game and
    the texture compression formats they support (for more information on
-   formats, see [Background](https://developer.android.com/guide/playcore/asset-delivery/texture-compression#background)).
+   formats, see [Background](https://developer.android.com/guide/playcore/asset-delivery/texture-compression.md.txt#background)).
 
 3. Modify your game's build script to generate the AssetBundles multiple
    times, once for each texture format that you want to support. See the
    following example script:
 
-       using Google.Android.AppBundle.Editor;
-       using UnityEditor;
+   ```c#
+   using Google.Android.AppBundle.Editor;
+   using UnityEditor;
 
-       public class MyBundleBuilder
-       {
-          [MenuItem("Assets/Build AssetBundles TCF variants")]
-          public static void BuildAssetBundles()
+   public class MyBundleBuilder
+   {
+      [MenuItem("Assets/Build AssetBundles TCF variants")]
+      public static void BuildAssetBundles()
+      {
+          // Describe the AssetBundles to be built:
+          var assetBundlesToBuild = new []
           {
-              // Describe the AssetBundles to be built:
-              var assetBundlesToBuild = new []
+              new AssetBundleBuild
               {
-                  new AssetBundleBuild
-                  {
-                      assetBundleName = "level1-textures",
-                      assetNames = new[] {"level1/character-textures", "level1/background-textures"}
-                  },
-                  new AssetBundleBuild
-                  {
-                      assetBundleName = "level2-textures",
-                      assetNames = new[] {"level2/character-textures", "level2/background-textures"}
-                  }
-              };
+                  assetBundleName = "level1-textures",
+                  assetNames = new[] {"level1/character-textures", "level1/background-textures"}
+              },
+              new AssetBundleBuild
+              {
+                  assetBundleName = "level2-textures",
+                  assetNames = new[] {"level2/character-textures", "level2/background-textures"}
+              }
+          };
 
-              // Describe where to output the asset bundles and in which formats:
-              var outputPath = "Assets/AssetBundles";
-              var defaultTextureFormat = MobileTextureSubtarget.ETC2;
-              var additionalTextureFormats = new[] { MobileTextureSubtarget.ASTC, MobileTextureSubtarget.PVRTC }
-              var allowClearDirectory = true;
+          // Describe where to output the asset bundles and in which formats:
+          var outputPath = "Assets/AssetBundles";
+          var defaultTextureFormat = MobileTextureSubtarget.ETC2;
+          var additionalTextureFormats = new[] { MobileTextureSubtarget.ASTC, MobileTextureSubtarget.PVRTC }
+          var allowClearDirectory = true;
 
-              // Generate asset bundles:
-              AssetBundleBuilder.BuildAssetBundles(
-                  outputPath,
-                  assetBundlesToBuild,
-                  BuildAssetBundleOptions.UncompressedAssetBundle,
-                  defaultTextureFormat,
-                  additionalTextureFormats,
-                  allowClearDirectory);
+          // Generate asset bundles:
+          AssetBundleBuilder.BuildAssetBundles(
+              outputPath,
+              assetBundlesToBuild,
+              BuildAssetBundleOptions.UncompressedAssetBundle,
+              defaultTextureFormat,
+              additionalTextureFormats,
+              allowClearDirectory);
 
-              // While in this example we're using the UI to configure the
-              // AssetBundles, you can use the value returned by BuildAssetBundles
-              // to configure the asset packs, if you want to build the bundle
-              // entirely using the scripting API.
-          }
-       }
-
+          // While in this example we're using the UI to configure the
+          // AssetBundles, you can use the value returned by BuildAssetBundles
+          // to configure the asset packs, if you want to build the bundle
+          // entirely using the scripting API.
+      }
+   }
+   ```
 4. Verify that each texture asset is output in a directory with the correct
    suffix in its name (for example, `#tcf_astc`).
 
@@ -229,7 +239,7 @@ To prepare your texture assets for building an app bundle, do the following:
    texture assets. This default format should be supported by most devices (for
    example, ETC2). If a device does not support the other specified formats
    (for example, ASTC in the code from the previous step), then the Google Play
-   Store installs this directory instead.  
+   Store installs this directory instead.
 
        Assets/AssetBundles.meta
        Assets/AssetBundles/AssetBundles
@@ -283,7 +293,7 @@ AssetBundle name is converted to a single asset pack.
 ### (Advanced) Use bundletool
 
 For more information on `bundletool`, see
-[Build an app bundle using bundletool](https://developer.android.com/studio/build/building-cmdline#bundletool-build).
+[Build an app bundle using bundletool](https://developer.android.com/build/building-cmdline.md.txt#bundletool-build).
 
 To create the app bundle, do the following:
 
@@ -292,7 +302,7 @@ To create the app bundle, do the following:
 
 2. Determine the set of device types that you want to target for your game and
    the texture compression formats they support (for more information on
-   formats, see [Background](https://developer.android.com/guide/playcore/asset-delivery/texture-compression#background)).
+   formats, see [Background](https://developer.android.com/guide/playcore/asset-delivery/texture-compression.md.txt#background)).
 
 3. Build versions of your assets for each texture compression format from the
    previous step. This could involve generating sprite sheets using software
@@ -303,13 +313,15 @@ To create the app bundle, do the following:
    [astc-encoder](https://github.com/ARM-software/astc-encoder)).
 
 4. Create [asset packs](https://developer.android.com/guide/playcore/asset-delivery) (see
-   [Build for C++ or Java](https://developer.android.com/guide/playcore/asset-delivery/integrate-java)),
+   [Build for C++ or Java](https://developer.android.com/guide/playcore/asset-delivery/integrate-java.md.txt)),
    which contain your game assets and are used by Play Asset Delivery. For
    example, you can create one asset pack per level or asset packs for
    different parts of your game.
 
-   | **Note:** You don't need to use Play Asset Delivery APIs inside your game if you select the `install-time` delivery type for your asset packs. These asset packs are installed at the same time as the main application APK.
-5. In your different asset packs, add [supported suffixes](https://developer.android.com/guide/playcore/asset-delivery/texture-compression#supported-suffixes)
+   > [!NOTE]
+   > **Note:** You don't need to use Play Asset Delivery APIs inside your game if you select the `install-time` delivery type for your asset packs. These asset packs are installed at the same time as the main application APK.
+
+5. In your different asset packs, add [supported suffixes](https://developer.android.com/guide/playcore/asset-delivery/texture-compression.md.txt#supported-suffixes)
    to the texture directory names that correspond to the texture compression
    format used for the contained files.
 
@@ -319,16 +331,18 @@ To create the app bundle, do the following:
    most devices (for example, ETC1 or ETC2). If a device does not support the
    other specified formats (for example, PVRTC and ASTC in the table below),
    the Google Play Store installs this directory instead.
-   | **Note:** You decide what content goes into this directory. In most cases, the files in this directory should be the same as in the other directories, differing only by the texture format. However, some formats may require additional support files. For example, textures in the ETC1 format may have an extra file to support alpha channel. Verify how your game or game engine loads textures to determine the optimal file organization.
 
-   |                                 Directory before                                  |                                                                               Directory after                                                                                |
-   |-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   > [!NOTE]
+   > **Note:** You decide what content goes into this directory. In most cases, the files in this directory should be the same as in the other directories, differing only by the texture format. However, some formats may require additional support files. For example, textures in the ETC1 format may have an extra file to support alpha channel. Verify how your game or game engine loads textures to determine the optimal file organization.
+
+   | Directory before | Directory after |
+   |---|---|
    | `common` **asset pack** : common/build.gradle common/src/main/assets/textures/... | `common` **asset pack** : common/build.gradle common/src/main/assets/textures/... common/src/main/assets/textures#tcf_astc/... common/src/main/assets/textures#tcf_pvrtc/... |
    | `level1` **asset pack** : level1/build.gradle level1/src/main/assets/textures/... | `level1` **asset pack** : level1/build.gradle level1/src/main/assets/textures/... level1/src/main/assets/textures#tcf_astc/... level1/src/main/assets/textures#tcf_pvrtc/... |
    | `level2` **asset pack** : level2/build.gradle level2/src/main/assets/textures/... | `level2` **asset pack** : level2/build.gradle level2/src/main/assets/textures/... level2/src/main/assets/textures#tcf_astc/... level2/src/main/assets/textures#tcf_pvrtc/... |
 
 6. Add the TCF dimension to the
-   [app bundle metadata file](https://developer.android.com/studio/build/building-cmdline#bundleconfig)
+   [app bundle metadata file](https://developer.android.com/build/building-cmdline.md.txt#bundleconfig)
    (`BundleConfig.json`). Use `TEXTURE_COMPRESSION_FORMAT` for the `value`
    field:
 
@@ -356,8 +370,8 @@ To create the app bundle, do the following:
    `#tcf_astc`) from the directory names when generating the asset packs. This
    enables your game to read files from a well-known directory name (such as
    `level1/assets/textures`). Some game engines can detect the format of a
-   file, so your game can be indifferent about the format of texture assets that
-   it was installed with.
+   file, so your game can be indifferent about the format of texture assets
+   that it was installed with.
 
    `suffixStripping.defaultSuffix` specifies the default directory suffix when
    `bundletool` generates a standalone APK for devices running Android 5.0 (API
@@ -366,8 +380,8 @@ To create the app bundle, do the following:
    behavior in most cases.
 7. Build the app bundle:
 
-       bundletool build-bundle --config=<var translate="no">BUILD_CONFIG</var>.json \
-         --modules=<var translate="no">level1</var>.zip,<var translate="no">level2</var>.zip,<var translate="no">common</var>.zip,<var translate="no">base</var>.zip --output=<var translate="no">MY_BUNDLE</var>.aab
+       bundletool build-bundle --config=BUILD_CONFIG.json \
+         --modules=level1.zip,level2.zip,common.zip,base.zip --output=MY_BUNDLE.aab
 
 ## Verify the contents of the app bundle
 
@@ -376,12 +390,12 @@ If you haven't already,
 from the GitHub repository.
 
 Verify the contents of the output app bundle by building APKs from it and
-inspecting them:  
+inspecting them:
 
-    bundletool build-apks --output=<var translate="no">APKS</var>.apks --bundle=<var translate="no">MY_BUNDLE</var>.aab
-    zipinfo <var translate="no">APKS</var>.apks
+    bundletool build-apks --output=APKS.apks --bundle=MY_BUNDLE.aab
+    zipinfo APKS.apks
 
-The output should be similar to the following:  
+The output should be similar to the following:
 
     toc.pb
     splits/base-master.apk
@@ -397,9 +411,9 @@ can verify that *only one* directory named `textures` is present.
 
 ## Test the app bundle
 
-Connect a device and install the applicable asset packs:  
+Connect a device and install the applicable asset packs:
 
-    bundletool install-apks --apks=<var translate="no">APKS</var>.apks
+    bundletool install-apks --apks=APKS.apks
 
 This command installs only the asset packs that meet the device's specification.
 These specifications include ABI, screen density, language, and the most
@@ -413,16 +427,16 @@ To verify that the correct asset packs were installed, do any of the following:
 
   1. Extract the specification of your device:
 
-         bundletool get-device-spec --output=<var translate="no">MY_DEVICE_SPEC</var>.json
+         bundletool get-device-spec --output=MY_DEVICE_SPEC.json
 
   2. Run `bundletool extract-apks` with this device specification:
 
-         bundletool extract-apks --apks=<var translate="no">APKS</var>.apks --device-spec=<var translate="no">MY_DEVICE_SPEC</var>.json \
+         bundletool extract-apks --apks=APKS.apks --device-spec=MY_DEVICE_SPEC.json \
              --output-dir out
 
-  3. List the files in the `out` directory and verify that the proper asset packs
-     are installed. Asset pack names are suffixed by the texture format name (for
-     example, `level1-astc.apk`).
+  3. List the files in the `out` directory and verify that the proper asset
+     packs are installed. Asset pack names are suffixed by the texture format
+     name (for example, `level1-astc.apk`).
 
 - Add log statements in your game that output the texture format when loading
   a texture.
@@ -432,7 +446,7 @@ To verify that the correct asset packs were installed, do any of the following:
   present.
 
 If your app contains `on-demand` or `fast-follow` asset packs, use the
-[local testing solution for asset delivery](https://developer.android.com/guide/playcore/asset-delivery/test).
+[local testing solution for asset delivery](https://developer.android.com/guide/playcore/asset-delivery/test.md.txt).
 
 ## Supported suffixes for texture directory names
 
@@ -463,21 +477,21 @@ If none of the texture formats in the App Bundle are supported by the device,
 Google Play delivers the texture formats packaged in the **default format** .
 (Unless you are targeting specific device hardware, ETC1 or ETC2 are good
 choices for a default format.) For information on how to package assets in the
-default format, see [Use bundletool](https://developer.android.com/guide/playcore/asset-delivery/texture-compression#use-bundletool) or
-[Use the Google Play Unity plugin](https://developer.android.com/guide/playcore/asset-delivery/texture-compression#unity-plugin).
+default format, see [Use bundletool](https://developer.android.com/guide/playcore/asset-delivery/texture-compression.md.txt#use-bundletool) or
+[Use the Google Play Unity plugin](https://developer.android.com/guide/playcore/asset-delivery/texture-compression.md.txt#unity-plugin).
 
 If assets have not been packaged in a default format, Google Play marks the app
 as not available for the device. In this case, users cannot download the app.
 
-| Format (designated in `tcf_xxxx`) |            Supported on devices with OpenGL extension string            |
-|-----------------------------------|-------------------------------------------------------------------------|
-| astc                              | `GL_KHR_texture_compression_astc_ldr`                                   |
-| pvrtc                             | `GL_IMG_texture_compression_pvrtc`                                      |
-| s3tc                              | `GL_EXT_texture_compression_s3tc`                                       |
-| dxt1                              | `GL_EXT_texture_compression_dxt1`                                       |
-| latc                              | `GL_EXT_texture_compression_latc`                                       |
-| atc                               | `GL_AMD_compressed_ATC_texture`                                         |
-| 3dc                               | `GL_AMD_compressed_3DC_texture`                                         |
-| etc2                              | Not applicable. The device must support OpenGL ES version 3.0 or later. |
-| etc1                              | `GL_OES_compressed_ETC1_RGB8_texture`                                   |
-| paletted                          | `GL_OES_compressed_paletted_texture`                                    |
+| Format (designated in `tcf_xxxx`) | Supported on devices with OpenGL extension string |
+|---|---|
+| astc | `GL_KHR_texture_compression_astc_ldr` |
+| pvrtc | `GL_IMG_texture_compression_pvrtc` |
+| s3tc | `GL_EXT_texture_compression_s3tc` |
+| dxt1 | `GL_EXT_texture_compression_dxt1` |
+| latc | `GL_EXT_texture_compression_latc` |
+| atc | `GL_AMD_compressed_ATC_texture` |
+| 3dc | `GL_AMD_compressed_3DC_texture` |
+| etc2 | Not applicable. The device must support OpenGL ES version 3.0 or later. |
+| etc1 | `GL_OES_compressed_ETC1_RGB8_texture` |
+| paletted | `GL_OES_compressed_paletted_texture` |

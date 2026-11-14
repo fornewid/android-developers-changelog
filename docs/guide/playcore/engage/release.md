@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/playcore/engage/release
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/playcore/engage/llms.txt
+
 This document contains release notes for the Engage SDK.
 
 ## Release Summary
@@ -184,7 +186,7 @@ This version contains the following changes.
 
 ### Summary of changes
 
-- Updated the metadata for the [listen vertical](https://developer.android.com/guide/playcore/engage/listen)
+- Updated the metadata for the [listen vertical](https://developer.android.com/guide/playcore/engage/listen.md.txt)
 
 ## Engage SDK 1.2.1 Release (2023-08-30)
 
@@ -192,7 +194,7 @@ This version contains the following changes.
 
 ### Summary of changes
 
-- Updated the metadata for the [Sign In Card](https://developer.android.com/guide/playcore/engage/publish#user-management-cluster-signin)
+- Updated the metadata for the [Sign In Card](https://developer.android.com/guide/playcore/engage/publish.md.txt#user-management-cluster-signin)
 
 ## Engage SDK 1.2.0 Release (2023-07-19)
 
@@ -200,7 +202,7 @@ This version contains the following changes.
 
 ### Summary of changes
 
-- Adds support for social vertical. Refer to the [social integration guide](https://developer.android.com/guide/playcore/engage/social) for more details
+- Adds support for social vertical. Refer to the [social integration guide](https://developer.android.com/guide/playcore/engage/social.md.txt) for more details
 
 ## Engage SDK 1.1.0 Release (2023-06-29)
 

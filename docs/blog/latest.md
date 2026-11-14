@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/latest
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/latest/llms.txt
+
 # The Latest
 
 Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
@@ -129,6 +131,13 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   [arrow_forward](https://developer.android.com/blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions.md.txt) On Google Play, we are continuously expanding our subscription platform to help you drive growth, adapt to new business models, and meet your users exactly where they are.
   [Sheenam Mittal](https://developer.android.com/blog/authors/sheenam-mittal.md.txt) • 4 min read
   - [#Google Play subscriptions](https://developer.android.com/blog/topics/google-play-subscriptions.md.txt)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+
+  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
+  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
 - [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) 24 Sep 2026 24 Sep 2026 ![](https://developer.android.com/static/blog/assets/BYOA_Backup_Strapi_1_5c3f94f766_Z1WI1Mt.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
   ## [Build your way: Use any AI agent of your choice in Android Studio](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio.md.txt)
@@ -145,16 +154,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   - [#Googlebook](https://developer.android.com/blog/topics/googlebook.md.txt)
   - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
   - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
-  - +1 ↩
-- [![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)](https://developer.android.com/blog/authors/jan-kleinert.md.txt) 21 Sep 2026 21 Sep 2026 ![](https://developer.android.com/static/blog/assets/Games_for_car_Strapi_1_c55588726e_Z2cIhWx.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
-
-  ## [Bring your Android game to the car screen today](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today.md.txt)
-
-  [arrow_forward](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today.md.txt) Today, the games category for Android Auto and cars powered by Android Automotive OS with Google built-in is officially graduating from beta to general availability.
-  [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert.md.txt) • 3 min read
-  - [#Android Automotive OS](https://developer.android.com/blog/topics/android-automotive-os.md.txt)
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
-  - [#Android Auto](https://developer.android.com/blog/topics/android-auto.md.txt)
   - +1 ↩
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
@@ -242,6 +241,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
 - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
 - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
+- [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
 - [#authentication](https://developer.android.com/blog/topics/authentication)
 - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
 - [#Large Screens](https://developer.android.com/blog/topics/large-screens)

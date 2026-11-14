@@ -67,17 +67,12 @@ The following sections provide guidance on how to configure each use case.
 
 Use the
 [`ACTION_CREATE_DOCUMENT`](https://developer.android.com/reference/android/content/Intent.md.txt#ACTION_CREATE_DOCUMENT)
-intent action to load the system file picker and allow the user to choose a
+intent action to load the system file picker and let the user choose a
 location where to write the contents of a file. This process is similar to the
 one used in the "save as" dialogs that other operating systems use.
-**Note:** `ACTION_CREATE_DOCUMENT` cannot overwrite an
-existing file. If your app tries to save a file with the same name, the system
-appends a number in parentheses at the end of the file name.
 
-For example, if your app tries to save a file called
-`confirmation.pdf` in a directory that already has a file with that
-name, the system saves the new file with the name
-`confirmation(1).pdf`.
+> [!NOTE]
+> **Note:** `ACTION_CREATE_DOCUMENT` can't overwrite an existing file. If your app tries to save a file with the same name, the system appends a number in parentheses at the end of the filename. For example, if your app tries to save a file called `confirmation.pdf` in a directory that already has a file with that name, the system saves the new file with the name `confirmation(1).pdf`.
 
 When configuring the intent, specify the file's name and MIME type, and
 optionally specify the URI of the file or directory that the file picker should
@@ -232,7 +227,7 @@ fun openDirectory(pickerInitialUri: Uri) {
         putExtra(DocumentsContract.EXTRA_INITIAL_URI, pickerInitialUri)
     }
 
-    startActivityForResult(intent, your-request-code)
+    startActivityForResult(intent, YOUR_REQUEST_CODE)
 }
 ```
 
@@ -247,7 +242,7 @@ public void openDirectory(Uri uriToLoad) {
     // the system file picker when it loads.
     intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, uriToLoad);
 
-    startActivityForResult(intent, your-request-code);
+    startActivityForResult(intent, YOUR_REQUEST_CODE);
 }
 ```
 
@@ -282,7 +277,7 @@ you can retrieve the selected item's URI using the following code in
 ```kotlin
 override fun onActivityResult(
         requestCode: Int, resultCode: Int, resultData: Intent?) {
-    if (requestCode == your-request-code
+    if (requestCode == YOUR_REQUEST_CODE
             && resultCode == Activity.RESULT_OK) {
         // The result data contains a URI for the document or directory that
         // the user selected.
@@ -299,7 +294,7 @@ override fun onActivityResult(
 @Override
 public void onActivityResult(int requestCode, int resultCode,
         Intent resultData) {
-    if (requestCode == your-request-code
+    if (requestCode == YOUR_REQUEST_CODE
             && resultCode == Activity.RESULT_OK) {
         // The result data contains a URI for the document or directory that
         // the user selected.
@@ -388,7 +383,7 @@ fun dumpImageMetaData(uri: Uri) {
         if (it.moveToFirst()) {
 
             // Note it's called "Display Name". This is
-            // provider-specific, and might not necessarily be the file name.
+            // provider-specific, and might not necessarily be the filename.
             val displayName: String =
                     it.getString(it.getColumnIndex(OpenableColumns.DISPLAY_NAME))
             Log.i(TAG, "Display Name: $displayName")
@@ -430,7 +425,7 @@ public void dumpImageMetaData(Uri uri) {
         if (cursor != null && cursor.moveToFirst()) {
 
             // Note it's called "Display Name". This is
-            // provider-specific, and might not necessarily be the file name.
+            // provider-specific, and might not necessarily be the filename.
             String displayName = cursor.getString(
                     cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
             Log.i(TAG, "Display Name: " + displayName);
@@ -629,7 +624,7 @@ The
 [`getMediaUri()`](https://developer.android.com/reference/android/provider/MediaStore.md.txt#getMediaUri(android.content.Context,%20android.net.Uri))
 method provides a media store URI that is equivalent to the given documents
 provider URI. The 2 URIs refer to the same underlying item. Using the media
-store URI, you can more easily [access media files from shared
+store URI, you can [access media files from shared
 storage](https://developer.android.com/training/data-storage/shared/media).
 
 > [!NOTE]
@@ -760,11 +755,6 @@ private InputStream getInputStreamForVirtualFile(Uri uri, String mimeTypeFilter)
 
 For more information about how to store and access documents and other files,
 consult the following resources.
-
-### Samples
-
-- [ActionOpenDocument](https://github.com/android/storage-samples/tree/main/ActionOpenDocument), available on GitHub.
-- [ActionOpenDocumentTree](https://github.com/android/storage-samples/tree/main/ActionOpenDocumentTree), available on GitHub.
 
 ### Videos
 

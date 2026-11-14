@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/battery-technical-quality-enforcem
 source: md.txt
 ---
 
-[How-tos](https://developer.android.com/blog/categories/how-tos)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
 # Battery Technical Quality Enforcement is Here: How to Optimize Common Wake Lock Use Cases
 
-8 min read ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_1XPiXj.webp) 04 Mar 2026 [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan) [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) Developer Relations Engineer, Android In recognition that excessive battery drain is top of mind for Android users, Google has been taking significant steps to help developers build more power-efficient apps. On **March 1st, 2026** , Google Play Store began rolling out the [wake lock technical quality treatments](https://android-developers.googleblog.com/2025/11/raising-bar-on-battery-performance.html) to improve battery drain. This treatment will roll out gradually to impacted apps over the following weeks. Apps that consistently exceed the "Excessive Partial Wake Lock" threshold in Android vitals may see tangible impacts on their store presence, including **warnings on their store listing** and exclusion from discovery surfaces such as recommendations.
+8 min read ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_1XPiXj.webp) 04 Mar 2026 [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan.md.txt) [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt) Developer Relations Engineer, Android In recognition that excessive battery drain is top of mind for Android users, Google has been taking significant steps to help developers build more power-efficient apps. On **March 1st, 2026** , Google Play Store began rolling out the [wake lock technical quality treatments](https://android-developers.googleblog.com/2025/11/raising-bar-on-battery-performance.html) to improve battery drain. This treatment will roll out gradually to impacted apps over the following weeks. Apps that consistently exceed the "Excessive Partial Wake Lock" threshold in Android vitals may see tangible impacts on their store presence, including **warnings on their store listing** and exclusion from discovery surfaces such as recommendations.
 ![appDetails.png](https://developer.android.com/static/blog/assets/app_Details_281748ed83_2vYf7g.webp)
 
 *Users may see a warning on your store listing if your app exceeds the bad behavior threshold. *
@@ -25,13 +27,13 @@ A foreground service is a lifecycle API that signals to the system that an app i
 
 While a foreground service is often necessary to continue a user action, a manual acquisition of a partial wake lock is only necessary in conjunction with a foreground service for the duration of the CPU activity. In addition, you don't need to use a wake lock if you're already utilizing an API that keeps the device awake.
 
-Refer to the flow chart in [*Choose the right API to keep the device awake*](https://developer.android.com/develop/background-work/background-tasks/awake) to ensure you have a strong understanding of what tool to use to avoid acquiring a wake lock in scenarios where it's not necessary.
+Refer to the flow chart in [*Choose the right API to keep the device awake*](https://developer.android.com/develop/background-work/background-tasks/awake.md.txt) to ensure you have a strong understanding of what tool to use to avoid acquiring a wake lock in scenarios where it's not necessary.
 
 ## **Third party libraries acquiring wake locks**
 
 It is common for an app to discover that it is flagged for excessive wake locks held by a third-party SDK or system API acting on its behalf. To identify and resolve these wake locks, we recommend the following steps:
 
-- **Check Android vitals:** Find the exact name of the offending wake lock in the [excessive partial wake locks dashboard](https://play.google.com/console/developers/app/vitals/metrics/details?metric=EXCESSIVE_BACKGROUND_WAKELOCKS&days=28). Cross-reference this name with the [*Identify wake locks created by other APIs*](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls) guidance to see if it was created by a known system API or Jetpack library. If it is, you may need to optimize your usage of the API and can refer to the recommended guidance.
+- **Check Android vitals:** Find the exact name of the offending wake lock in the [excessive partial wake locks dashboard](https://play.google.com/console/developers/app/vitals/metrics/details?metric=EXCESSIVE_BACKGROUND_WAKELOCKS&days=28). Cross-reference this name with the [*Identify wake locks created by other APIs*](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls.md.txt) guidance to see if it was created by a known system API or Jetpack library. If it is, you may need to optimize your usage of the API and can refer to the recommended guidance.
 - **Capture a System Trace:** If the wake lock cannot be easily identified, reproduce the wake lock issue locally using a system trace and inspect it with the Perfetto UI. You can learn more about how to do this in the [*Debugging other types of excessive wake locks*section of this blog post](https://android-developers.googleblog.com/2025/09/guide-to-excessive-wake-lock-usage.html).
 - **Evaluate Alternatives:** If an inefficient third-party library is responsible and cannot be configured to respect battery life, consider communicating the issue with the SDK's owners, finding an alternative SDK or building the functionality in-house.
 
@@ -48,7 +50,7 @@ Below is a breakdown of some of the specific use cases we have reviewed, along w
 
 **How to reduce wake locks:**
 
-- Do not acquire a manual wake lock. Instead, use the [User-Initiated Data Transfer (UIDT) API](https://developer.android.com/develop/background-work/background-tasks/uidt). This is the designated path for long running data transfer tasks initiated by the user, and it is exempted from excessive wake lock calculations.
+- Do not acquire a manual wake lock. Instead, use the [User-Initiated Data Transfer (UIDT) API](https://developer.android.com/develop/background-work/background-tasks/uidt.md.txt). This is the designated path for long running data transfer tasks initiated by the user, and it is exempted from excessive wake lock calculations.
 
 ### **One-Time or Periodic Background Syncs**
 
@@ -59,8 +61,8 @@ Below is a breakdown of some of the specific use cases we have reviewed, along w
 
 **How to reduce wake locks:**
 
-- Do not acquire a manual wake lock. Use [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent) configured for one-time or periodic work. `WorkManager` respects system health by batching tasks and has a minimum periodic interval (15 minutes), which is generally sufficient for background updates.
-- If you identify wake locks created by `WorkManager` or JobScheduler with high wake lock usage, it may be because you've misconfigured your worker to not complete in certain scenarios. Consider [analyzing the worker stop reasons](https://developer.android.com/develop/background-work/background-tasks/persistent/how-to/observe#stop-reason), particularly if you're seeing high occurrences of [STOP_REASON_TIMEOUT](https://developer.android.com/reference/androidx/work/WorkInfo#STOP_REASON_TIMEOUT()).
+- Do not acquire a manual wake lock. Use [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent.md.txt) configured for one-time or periodic work. `WorkManager` respects system health by batching tasks and has a minimum periodic interval (15 minutes), which is generally sufficient for background updates.
+- If you identify wake locks created by `WorkManager` or JobScheduler with high wake lock usage, it may be because you've misconfigured your worker to not complete in certain scenarios. Consider [analyzing the worker stop reasons](https://developer.android.com/develop/background-work/background-tasks/persistent/how-to/observe.md.txt#stop-reason), particularly if you're seeing high occurrences of [STOP_REASON_TIMEOUT](https://developer.android.com/reference/androidx/work/WorkInfo.md.txt#STOP_REASON_TIMEOUT()).
 
 ```
 workManager.getWorkInfoByIdFlow(syncWorker.id)
@@ -72,7 +74,7 @@ workManager.getWorkInfoByIdFlow(syncWorker.id)
   }
 ```
 
-- In addition to logging worker stop reasons, refer to our documentation on [debugging your workers](https://developer.android.com/develop/background-work/background-tasks/testing/persistent/debug). Also, consider collecting and analyzing [system traces](https://developer.android.com/topic/performance/tracing/on-device)to understand when wake locks are acquired and released.
+- In addition to logging worker stop reasons, refer to our documentation on [debugging your workers](https://developer.android.com/develop/background-work/background-tasks/testing/persistent/debug.md.txt). Also, consider collecting and analyzing [system traces](https://developer.android.com/topic/performance/tracing/on-device.md.txt)to understand when wake locks are acquired and released.
 - Finally, check out our [case study with WHOOP](https://android-developers.googleblog.com/2026/03/how-whoop-decreased-excessive-partial.html), where they were able to discover an issue with configuration of their workers and reduce their wake lock impact significantly.
 
 ### Bluetooth Communication
@@ -86,8 +88,8 @@ workManager.getWorkInfoByIdFlow(syncWorker.id)
 
 **How to reduce wake locks:**
 
-- Use [companion device pairing](https://developer.android.com/develop/connectivity/bluetooth/companion-device-pairing) to pair Bluetooth devices to avoid acquiring a manual wake lock during Bluetooth pairing.
-- Consult the* *[*Communicate in the background*](https://developer.android.com/develop/connectivity/bluetooth/ble/background) guidance to understand how to do background Bluetooth communication.
+- Use [companion device pairing](https://developer.android.com/develop/connectivity/bluetooth/companion-device-pairing.md.txt) to pair Bluetooth devices to avoid acquiring a manual wake lock during Bluetooth pairing.
+- Consult the* *[*Communicate in the background*](https://developer.android.com/develop/connectivity/bluetooth/ble/background.md.txt) guidance to understand how to do background Bluetooth communication.
 - Using `WorkManager` is often sufficient if there is no user impact to a delayed communication. If a manual wake lock is deemed necessary, only hold the wake lock for the duration of Bluetooth activity or processing of the activity data.
 
 ### Location Tracking
@@ -99,9 +101,9 @@ workManager.getWorkInfoByIdFlow(syncWorker.id)
 
 **How to reduce wake locks:**
 
-- Consult our guidance to [*Optimize location usage*](https://developer.android.com/develop/sensors-and-location/location/battery/optimize). Consider implementing timeouts, leveraging location request batching, or utilizing passive location updates to ensure battery efficiency.
-- When [requesting location updates](https://developer.android.com/develop/sensors-and-location/location/request-updates) using the FusedLocationProvider or LocationManager APIs, the system automatically triggers a device wake-up during the location event callback. This brief, system-managed wake lock is exempted from excessive partial wake lock calculations.
-- Avoid acquiring a separate, continuous wake lock for caching location data, as this is redundant. Instead, persist location events in memory or local storage and leverage [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent) to process them at periodic intervals.
+- Consult our guidance to [*Optimize location usage*](https://developer.android.com/develop/sensors-and-location/location/battery/optimize.md.txt). Consider implementing timeouts, leveraging location request batching, or utilizing passive location updates to ensure battery efficiency.
+- When [requesting location updates](https://developer.android.com/develop/sensors-and-location/location/request-updates.md.txt) using the FusedLocationProvider or LocationManager APIs, the system automatically triggers a device wake-up during the location event callback. This brief, system-managed wake lock is exempted from excessive partial wake lock calculations.
+- Avoid acquiring a separate, continuous wake lock for caching location data, as this is redundant. Instead, persist location events in memory or local storage and leverage [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent.md.txt) to process them at periodic intervals.
 
 ```
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -126,9 +128,9 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 **How to reduce wake locks:**
 
-- If using [SensorManager](https://developer.android.com/reference/android/hardware/SensorManager), reduce usage to periodic intervals and only when the user has explicitly granted access through a UI interaction. High frequency sensor monitoring can drain the battery heavily due to the number of CPU wake-ups and processing that occurs.
-- If you're tracking step counts or distance traveled, rather than using SensorManager, leverage [Recording API](https://developer.android.com/health-and-fitness/guides/recording-api) or consider utilizing [Health Connect](https://developer.android.com/health-and-fitness/health-connect/features/steps) to access historical and aggregated device step counts to capture data in a battery-efficient manner.
-- If you're registering a sensor with [SensorManager](https://developer.android.com/reference/android/hardware/SensorManager), specify a [maxReportLatencyUs](https://developer.android.com/reference/android/hardware/SensorManager#registerListener(android.hardware.SensorEventListener,%20android.hardware.Sensor,%20int)) of 30 seconds or more to leverage **sensor batching** to minimize the frequency of CPU interrupts. When the device is subsequently woken by another trigger such as a user interaction, location retrieval, or a scheduled job, the system will immediately dispatch the cached sensor data.
+- If using [SensorManager](https://developer.android.com/reference/android/hardware/SensorManager.md.txt), reduce usage to periodic intervals and only when the user has explicitly granted access through a UI interaction. High frequency sensor monitoring can drain the battery heavily due to the number of CPU wake-ups and processing that occurs.
+- If you're tracking step counts or distance traveled, rather than using SensorManager, leverage [Recording API](https://developer.android.com/health-and-fitness/guides/recording-api) or consider utilizing [Health Connect](https://developer.android.com/health-and-fitness/health-connect/features/steps.md.txt) to access historical and aggregated device step counts to capture data in a battery-efficient manner.
+- If you're registering a sensor with [SensorManager](https://developer.android.com/reference/android/hardware/SensorManager.md.txt), specify a [maxReportLatencyUs](https://developer.android.com/reference/android/hardware/SensorManager.md.txt#registerListener(android.hardware.SensorEventListener,%20android.hardware.Sensor,%20int)) of 30 seconds or more to leverage **sensor batching** to minimize the frequency of CPU interrupts. When the device is subsequently woken by another trigger such as a user interaction, location retrieval, or a scheduled job, the system will immediately dispatch the cached sensor data.
 
 ```
 val accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
@@ -151,7 +153,7 @@ sensorManager.registerListener(this,
 
 **How to reduce wake locks:**
 
-- If the network events can be processed on the server side, use [FCM](https://firebase.google.com/docs/cloud-messaging/android/receive-messages) to receive information on the client. You may choose to schedule an [expedited worker](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work#expedited) if additional processing of FCM data is required.
+- If the network events can be processed on the server side, use [FCM](https://firebase.google.com/docs/cloud-messaging/android/receive-messages) to receive information on the client. You may choose to schedule an [expedited worker](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work.md.txt#expedited) if additional processing of FCM data is required.
 - If events must be processed on the client side via a socket connection, a wake lock is not needed to listen for event interrupts. When data packets arrive at the Wi-Fi or Cellular radio, the radio hardware triggers a hardware interrupt in the form of a kernel wake lock. You may then choose to schedule a worker or acquire a wake lock to process the data.
 - For example, if you're using [ktor-network](https://ktor.io/docs/server-sockets.html) to listen for data packets on a network socket, you should only acquire a wake lock when packets have been delivered to the client and need to be processed.
 
@@ -172,44 +174,41 @@ while (!readChannel.isClosedForRead) {
 
 ## Summary
 
-By adopting these recommended solutions for common use cases like background syncs, location tracking, sensor monitoring and network communication, developers can work towards reducing unnecessary wake lock usage. To continue learning, read our other technical blog post or [watch our technical video](https://youtu.be/-6mEvkLOlno) on how to discover and debug wake locks: [Optimize your app battery using Android vitals wake lock metric](https://android-developers.googleblog.com/2025/09/guide-to-excessive-wake-lock-usage.html). Also, consult our [updated wakelock documentation](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock). To help us continue improving our technical resources, please share any additional feedback on our guidance in our [documentation feedback survey](https://forms.gle/8ejo49EUfee7jDMD9).
+By adopting these recommended solutions for common use cases like background syncs, location tracking, sensor monitoring and network communication, developers can work towards reducing unnecessary wake lock usage. To continue learning, read our other technical blog post or [watch our technical video](https://youtu.be/-6mEvkLOlno) on how to discover and debug wake locks: [Optimize your app battery using Android vitals wake lock metric](https://android-developers.googleblog.com/2025/09/guide-to-excessive-wake-lock-usage.html). Also, consult our [updated wakelock documentation](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock.md.txt). To help us continue improving our technical resources, please share any additional feedback on our guidance in our [documentation feedback survey](https://forms.gle/8ejo49EUfee7jDMD9).
 Written by:
 
 -
 
-  ## [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan)
+  ## [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)
 Continue reading
-- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z1unXc4.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z1unXc4.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
+  ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) • 10 min read
-  - [#Memory](https://developer.android.com/blog/topics/memory)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Performance](https://developer.android.com/blog/topics/performance)
+  [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17.md.txt) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Fung Lam](https://developer.android.com/blog/authors/fung-lam.md.txt) • 10 min read
+  - [#Memory](https://developer.android.com/blog/topics/memory.md.txt)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
   - +1 ↩
-- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan) 20 Nov 2025 20 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week8_4d6efcacbe_NpRXg.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan.md.txt) 20 Nov 2025 20 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week8_4d6efcacbe_NpRXg.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Leveling Guide for your Performance Journey](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey)
+  ## [Leveling Guide for your Performance Journey](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey) The performance leveling guide features 5 levels. We'll start with level 1, which introduces minimal adoption effort performance tooling, and we'll go up to level 5, ideal for apps that have the resourcing to maintain a bespoke performance framework.
-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 8 min read
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [arrow_forward](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey.md.txt) The performance leveling guide features 5 levels. We'll start with level 1, which introduces minimal adoption effort performance tooling, and we'll go up to level 5, ideal for apps that have the resourcing to maintain a bespoke performance framework.
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt) • 8 min read
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
-  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
-  - [#Media3](https://developer.android.com/blog/topics/media3)
-  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
-  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
-  - +1 ↩
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
+  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
 Stay in the loop
 
 

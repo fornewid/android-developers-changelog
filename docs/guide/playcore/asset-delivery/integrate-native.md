@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/playcore/asset-delivery/integrate-nativ
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/playcore/asset-delivery/llms.txt
+
 Use the steps in this guide to access your app's asset packs from your C and C++
 code.
 
@@ -73,7 +75,7 @@ App Bundle. You don't need to use Android Studio to perform these steps.
    - `app/`
    - `asset-pack-name/build.gradle`
    - `asset-pack-name/src/main/assets/your-asset-directories`
-8. [Build the Android App Bundle with Gradle](https://developer.android.com/studio/build/building-cmdline#build_bundle).
+8. [Build the Android App Bundle with Gradle](https://developer.android.com/build/building-cmdline.md.txt#build_bundle).
    In the generated app bundle, the root-level directory now includes the
    following:
 
@@ -87,21 +89,15 @@ App Bundle. You don't need to use Android Studio to perform these steps.
 
 ## Integrate with Play Asset Delivery Library
 
-You implement this API according to the delivery type of
-the asset pack you wish to access. These steps are shown in the following
-flowchart.
+You implement this API according to the delivery type of the asset pack you
+want to access. These steps are shown in the following flowchart.
 
 > [!NOTE]
 > **Note:** You use a different API to access `install-time` asset packs than `fast-follow` and `on-demand` asset packs.
 
-![Asset pack flow diagram for native code](https://developer.android.com/static/images/app-bundle/asset-pack-flow-native.png)
+![Asset pack flow diagram for native code](https://developer.android.com/static/images/app-bundle/asset-pack-flow-native.png) **Figure 1.** Flow diagram for accessing asset packs.
 
-
-**Figure 1.** Flow diagram for accessing asset packs
-
-<br />
-
-The [Play Core Native SDK](https://developer.android.com/reference/native/play/core) provides the C header
+The [Play Core Native SDK](https://developer.android.com/reference/native/play/core.md.txt) provides the C header
 file `play/asset_pack.h` for requesting asset packs, managing downloads, and
 accessing the assets.
 
@@ -130,10 +126,10 @@ I have read and agree with the above terms and conditions <button class="button 
    - Install [Android Studio](https://developer.android.com/studio) version 4.0 or higher. Use the SDK Manager UI to install Android SDK Platform version 10.0 (API level 29).
    - Install the [Android SDK command-line tools](https://developer.android.com/studio#command-tools) and use [`sdkmanager`](https://developer.android.com/studio/command-line/sdkmanager) to install Android SDK Platform version 10.0 (API level 29).
 2. Prepare Android Studio for native development by using the
-   [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) to install the latest
+   [SDK Manager](https://developer.android.com/studio/intro/update.md.txt#sdk-manager) to install the latest
    CMake and Android Native Development Kit (NDK). For more information on
    creating or importing native projects, see
-   [Getting Started with the NDK](https://developer.android.com/ndk/guides).
+   [Getting Started with the NDK](https://developer.android.com/ndk/guides.md.txt).
 
 3. Download the zip file and extract it alongside your project.
 
@@ -299,7 +295,7 @@ improve the product, including:
 - App's package version
 - Play Core Native SDK's version
 
-This data will be collected when you upload [your app package](https://developer.android.com/studio/publish/upload-bundle)
+This data will be collected when you upload [your app package](https://developer.android.com/studio/publish/upload-bundle.md.txt)
 to the Play Console. To opt-out of this data collection process, remove the
 `$playcoreDir/playcore-native-metadata.jar` import in the build.gradle file.
 
@@ -311,7 +307,7 @@ package to the Play Console.
 ## Install-time delivery
 
 Asset packs configured as `install-time` are immediately available at app
-launch. Use the [NDK AAssetManager API](https://developer.android.com/ndk/reference/group/asset#aassetmanager) to access
+launch. Use the [NDK AAssetManager API](https://developer.android.com/ndk/reference/group/asset.md.txt#aassetmanager) to access
 assets served in this mode:
 
 ```c
@@ -334,10 +330,10 @@ download, and how to access the downloaded packs. These sections apply to
 
 ### App launch
 
-Always call [`AssetPackManager_init()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackmanager_init)
+Always call [`AssetPackManager_init()`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpackmanager_init)
 to initialize the asset pack API before calling any other
 function. Check for any
-[asset pack error codes](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackerrorcode).
+[asset pack error codes](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpackerrorcode).
 
 ```c
 #include "play/asset_pack.h"
@@ -347,20 +343,20 @@ AssetPackErrorCode AssetPackManager_init(JavaVM* jvm, jobject android_context);
 
 Also be sure to call the following functions in the `onPause()` and `onResume()`
 of
-[`ANativeActivityCallbacks`](https://developer.android.com/ndk/reference/struct/a-native-activity-callbacks):
+[`ANativeActivityCallbacks`](https://developer.android.com/ndk/reference/struct/a-native-activity-callbacks.md.txt):
 
-- [`AssetPackErrorCode AssetPackManager_onPause()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackmanager_onpause)
-- [`AssetPackErrorCode AssetPackManager_onResume()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackmanager_onresume)
+- [`AssetPackErrorCode AssetPackManager_onPause()`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpackmanager_onpause)
+- [`AssetPackErrorCode AssetPackManager_onResume()`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpackmanager_onresume)
 
 ### Get download information about asset packs
 
 Apps are required to disclose the size of the download before fetching the asset
-pack. Use the [`AssetPackManager_requestInfo()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackmanager_requestinfo) function to start an
+pack. Use the [`AssetPackManager_requestInfo()`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpackmanager_requestinfo) function to start an
 asynchronous request for the size of the download and
 whether the pack is already downloading. Then use
-[`AssetPackManager_getDownloadState()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackmanager_getdownloadstate) to poll for the download state
+[`AssetPackManager_getDownloadState()`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpackmanager_getdownloadstate) to poll for the download state
 (for example, call this function once per frame in your game loop). If a request
-fails, check the [asset pack error codes](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackerrorcode).
+fails, check the [asset pack error codes](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpackerrorcode).
 
 ```c
 AssetPackErrorCode AssetPackManager_requestInfo();      // Call once
@@ -368,7 +364,7 @@ AssetPackErrorCode AssetPackManager_getDownloadState(); // Call once per frame i
 ```
 
 The `AssetPackManager_getDownloadState()` function returns the opaque type
-[`AssetPackDownloadState`](https://developer.android.com/reference/native/play/core/group/assetpack#group__assetpack_1gaa635665bad061c34cbee483ada331afc)
+[`AssetPackDownloadState`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#group__assetpack_1gaa635665bad061c34cbee483ada331afc)
 as an output pointer. Use this pointer to call the following functions:
 
 ```c
@@ -383,7 +379,7 @@ AssetPackDownloadState_destroy(state);
 ### Install
 
 Use
-[`AssetPackManager_requestDownload()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackmanager_requestdownload)
+[`AssetPackManager_requestDownload()`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpackmanager_requestdownload)
 to start downloading an asset pack for the first time or to request for an asset
 pack update to complete:
 
@@ -393,9 +389,9 @@ AssetPackErrorCode AssetPackManager_getDownloadState(); // Call once per frame i
 ```
 
 The `AssetPackManager_getDownloadState()` function returns the opaque type
-[`AssetPackDownloadState`](https://developer.android.com/reference/native/play/core/group/assetpack#group__assetpack_1gaa635665bad061c34cbee483ada331afc).
+[`AssetPackDownloadState`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#group__assetpack_1gaa635665bad061c34cbee483ada331afc).
 For information on how to use this type, see
-[Get download information](https://developer.android.com/guide/playcore/asset-delivery/integrate-native#get-download-information).
+[Get download information](https://developer.android.com/guide/playcore/asset-delivery/integrate-native.md.txt#get-download-information).
 
 > [!NOTE]
 > **Note:** The Android system notification bar shows download progress for `fast-follow` and `on-demand` asset packs. The user can cancel the download from this bar at any time.
@@ -410,8 +406,8 @@ proceed using a mobile data connection. A paused pack has state
 `WAITING_FOR_WIFI`. To trigger the UI flow to prompt the user for consent, use
 the following:
 
-- [`AssetPackManager_showConfirmationDialog()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackmanager_showconfirmationdialog)
-- [`AssetPackManager_getShowConfirmationDialogStatus()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackmanager_getshowconfirmationdialogstatus)
+- [`AssetPackManager_showConfirmationDialog()`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpackmanager_showconfirmationdialog)
+- [`AssetPackManager_getShowConfirmationDialogStatus()`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpackmanager_getshowconfirmationdialogstatus)
 
 #### Required user confirmation
 
@@ -427,15 +423,15 @@ updated. After the update, request the assets again.
 You can access an asset pack using file system calls after the download request
 reaches the `COMPLETED` state. Each asset pack is stored in a separate directory
 in the app's internal storage. Use
-[`AssetPackManager_getAssetPackLocation()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackmanager_getassetpacklocation)
+[`AssetPackManager_getAssetPackLocation()`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpackmanager_getassetpacklocation)
 to get an
-[`AssetPackLocation`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpacklocation)
+[`AssetPackLocation`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpacklocation)
 for the specified asset pack. Use
-[`AssetPackLocation_getStorageMethod()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpacklocation_getstoragemethod)
+[`AssetPackLocation_getStorageMethod()`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpacklocation_getstoragemethod)
 on that location to determine the storage method:
 
-- `ASSET_PACK_STORAGE_APK`: The asset pack is installed as an APK. See [Install-time delivery](https://developer.android.com/guide/playcore/asset-delivery/integrate-native#install-time-delivery) to access these assets.
-- `ASSET_PACK_STORAGE_FILES`: Use [`AssetPackLocation_getAssetsPath()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpacklocation_getassetspath) to get a file path to the directory containing the assets, or null if the assets have not been downloaded. Do not modify downloaded files in this file path.
+- `ASSET_PACK_STORAGE_APK`: The asset pack is installed as an APK. See [Install-time delivery](https://developer.android.com/guide/playcore/asset-delivery/integrate-native.md.txt#install-time-delivery) to access these assets.
+- `ASSET_PACK_STORAGE_FILES`: Use [`AssetPackLocation_getAssetsPath()`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpacklocation_getassetspath) to get a path to the directory containing the assets, or null if the assets have not been downloaded. Don't modify downloaded files in this path.
 
 ```c
 AssetPackLocation* location;
@@ -453,7 +449,7 @@ Once you locate the assets, use functions like `fopen` or `ifstream` to access
 the files.
 
 > [!NOTE]
-> **Note:** Do not rely on cached asset pack locations between app launches. The app should check for the existence of asset packs at every launch. Asset packs may become invalid due to app updates or if the user clears the app data.
+> **Note:** Don't rely on cached asset pack locations between app launches. The app should check for the existence of asset packs at every launch. Asset packs may become invalid due to app updates or if the user clears the app data.
 
 ## Other Play Core API methods
 
@@ -462,17 +458,17 @@ The following are some additional API methods you may want to use in your app.
 ### Cancel request
 
 Use
-[`AssetPackManager_cancelDownload()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackmanager_canceldownload)
+[`AssetPackManager_cancelDownload()`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpackmanager_canceldownload)
 to cancel an active asset pack request. Note that this request is a best-effort
 operation.
 
 ### Request removal
 
 Use
-[`AssetPackManager_requestRemoval()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackmanager_requestremoval)
+[`AssetPackManager_requestRemoval()`](https://developer.android.com/reference/native/play/core/group/assetpack.md.txt#assetpackmanager_requestremoval)
 to schedule the removal of an asset pack.
 
 ## Next steps
 
-[Test Play Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery/test) locally and from
+[Test Play Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery/test.md.txt) locally and from
 Google Play.

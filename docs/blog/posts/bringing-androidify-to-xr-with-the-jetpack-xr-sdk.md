@@ -4,15 +4,17 @@ url: https://developer.android.com/blog/posts/bringing-androidify-to-xr-with-the
 source: md.txt
 ---
 
-[How-tos](https://developer.android.com/blog/categories/how-tos)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
 # Bringing Androidify to XR with the Jetpack XR SDK
 
-9 min read ![](https://developer.android.com/static/blog/assets/xr_Week6_1e2e4ab4ae_ZeyaAC.webp) 22 Oct 2025 [![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_ZmA5Q1.webp)](https://developer.android.com/blog/authors/dereck-bridie) [Dereck Bridie](https://developer.android.com/blog/authors/dereck-bridie) Developer Relations Engineer [*Samsung Galaxy XR is here*](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html)*, powered by Android XR! This blog post is part of our *[*Android XR Spotlight Week*](https://android-developers.googleblog.com/2025/10/welcome-to-android-xr-spotlight-week.html)*, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR.*
+9 min read ![](https://developer.android.com/static/blog/assets/xr_Week6_1e2e4ab4ae_ZeyaAC.webp) 22 Oct 2025 [![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_ZmA5Q1.webp)](https://developer.android.com/blog/authors/dereck-bridie.md.txt) [Dereck Bridie](https://developer.android.com/blog/authors/dereck-bridie.md.txt) Developer Relations Engineer [*Samsung Galaxy XR is here*](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html)*, powered by Android XR! This blog post is part of our *[*Android XR Spotlight Week*](https://android-developers.googleblog.com/2025/10/welcome-to-android-xr-spotlight-week.html)*, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR.*
 
 With the [launch of Samsung Galaxy XR](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html) , the first device powered by Android XR is officially here. People can now enjoy many of their favorite apps from the Play Store in a whole new dimension: the third dimension!
 
-The third dimension is a spacious one, with plenty of room for your apps too. Get started today using [whichever tools work for your app](https://developer.android.com/develop/xr/get-started#select-development). For example, you can use the [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk) to build immersive XR experiences using modern Android development tools such as Kotlin and Compose.
+The third dimension is a spacious one, with plenty of room for your apps too. Get started today using [whichever tools work for your app](https://developer.android.com/develop/xr/get-started.md.txt#select-development). For example, you can use the [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk.md.txt) to build immersive XR experiences using modern Android development tools such as Kotlin and Compose.
 
 In this blog post, we'll tell you about our own journey as we brought the whimsy of our beloved [Androidify app](https://android-developers.googleblog.com/2025/05/androidify-building-ai-driven-experiences-jetpack-compose-gemini-camerax.html) to XR, and we'll cover the basics of what it takes to bring your apps to XR too.
 
@@ -51,16 +53,16 @@ Designing for XR required a unique approach, but actually still had a lot in com
 
 Luckily, Android XR lets you start with your app as it is today for Home Space, so we could transition to the expanded XR designs by just adding a window toolbar and Full Space transition button.
 
-We also considered possible hardware features and how the user would interact with them. The mobile layouts for Androidify adapt across various postures, class sizes, and the number of cameras to give more photo options. Following this model, we had to adapt the camera layout for headset devices as well. We also needed to make [adjustments for text to work](https://developer.android.com/design/ui/xr/guides/visual-design#xr-typography) to account for the proximity of the UI to the user.
+We also considered possible hardware features and how the user would interact with them. The mobile layouts for Androidify adapt across various postures, class sizes, and the number of cameras to give more photo options. Following this model, we had to adapt the camera layout for headset devices as well. We also needed to make [adjustments for text to work](https://developer.android.com/design/ui/xr/guides/visual-design.md.txt#xr-typography) to account for the proximity of the UI to the user.
 
 **Designing for the bigger shift to Full Space**
 
-[Full Space](https://developer.android.com/design/ui/xr/guides/foundations#full-space) was the biggest shift, but gave us the most creative room to adapt our design.
+[Full Space](https://developer.android.com/design/ui/xr/guides/foundations.md.txt#full-space) was the biggest shift, but gave us the most creative room to adapt our design.
 ![tablet_to_xr.webp](https://developer.android.com/static/blog/assets/tablet_to_xr_2c9197db81_24Eekg.webp) From tablet to XR
 
-Androidify uses visual containment, or panes, to group features with a background and outline, like the "Take or choose a photo" pane. We also used components like the [top app bar](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design#top-app-bars) to create natural containment by framing the other panes. Finally, intrinsic containment is suggested by the proximity of certain elements to others, such as the "Start transformation" bottom button, which is near the "Choose my bot color" pane.
+Androidify uses visual containment, or panes, to group features with a background and outline, like the "Take or choose a photo" pane. We also used components like the [top app bar](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design.md.txt#top-app-bars) to create natural containment by framing the other panes. Finally, intrinsic containment is suggested by the proximity of certain elements to others, such as the "Start transformation" bottom button, which is near the "Choose my bot color" pane.
 
-[Spatial panels](https://developer.android.com/design/ui/xr/guides/spatial-ui#spatial-panels) made for easy separation. To decide how to adapt your mobile designs for spatial panels, try removing surfaces starting with the surface that is the furthest back and then moving forward. See how many backgrounds you can remove and what remains. After we did this exercise for Androidify, the large green Android squiggle was what remained. The squiggle not only acted as a branding moment and background, but an anchor for the content in 3D space.
+[Spatial panels](https://developer.android.com/design/ui/xr/guides/spatial-ui.md.txt#spatial-panels) made for easy separation. To decide how to adapt your mobile designs for spatial panels, try removing surfaces starting with the surface that is the furthest back and then moving forward. See how many backgrounds you can remove and what remains. After we did this exercise for Androidify, the large green Android squiggle was what remained. The squiggle not only acted as a branding moment and background, but an anchor for the content in 3D space.
 
 Establishing this anchor both made it easier to imagine how elements could move around it, and how we could use proximity to break out and translate the rest of the user experience.
 
@@ -75,12 +77,12 @@ For more about XR UI design patterns, check out [Design for Android XR on Androi
 
 **Spatial UI basics**
 
-Now that we've covered Ivy's experience adapting her mindset while designing Androidify for XR, let's talk about developing spatial UI. Developing a spatial UI with the [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk) should seem familiar if you're used to working with modern Android tools and libraries. You'll find concepts you're already familiar with, like creating layouts with Compose. In fact, spatial layouts are really similar to 2D layouts using rows, columns, and spacers:
+Now that we've covered Ivy's experience adapting her mindset while designing Androidify for XR, let's talk about developing spatial UI. Developing a spatial UI with the [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk.md.txt) should seem familiar if you're used to working with modern Android tools and libraries. You'll find concepts you're already familiar with, like creating layouts with Compose. In fact, spatial layouts are really similar to 2D layouts using rows, columns, and spacers:
 ![spatialrows.png](https://developer.android.com/static/blog/assets/spatialrows_e2bbf24319_Z1Xvels.webp)
 
 *These elements are arranged in *`*SpatialRows*`* and *`*SpatialColumns*`
 
-The spatial elements shown here are [SpatialPanel](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,kotlin.Function0)) composables, which let you display 2D content like text, buttons, and videos.
+The spatial elements shown here are [SpatialPanel](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary.md.txt#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,kotlin.Function0)) composables, which let you display 2D content like text, buttons, and videos.
 
 ```
 Subspace {
@@ -271,43 +273,43 @@ Androidify is a great example of how to spatialize an existing 2D Jetpack Compos
 We hope that this blog post helped you understand how you can bring your own apps to Android XR! Here's a few more links that can help you on your way:
 
 - Check out the [source code for Androidify](https://github.com/android/androidify), and make your own bot using [Androidify on Google Play](https://play.google.com/store/apps/details?id=com.android.developers.androidify).
-- [Get started with our developer documentation](https://developer.android.com/develop/xr/get-started) and learn more about [Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/develop-ui).
+- [Get started with our developer documentation](https://developer.android.com/develop/xr/get-started.md.txt) and learn more about [Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/develop-ui).
 - [Download the Android XR emulator](https://developer.android.com/develop/xr/jetpack-xr-sdk/studio-tools) and try your own app out!
 Written by:
 
 -
 
-  ## [Dereck Bridie](https://developer.android.com/blog/authors/dereck-bridie)
+  ## [Dereck Bridie](https://developer.android.com/blog/authors/dereck-bridie.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/dereck-bridie) ![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_ZmA5Q1.webp) ![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_ZmA5Q1.webp)
 Continue reading
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
-  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
-  - [#Media3](https://developer.android.com/blog/topics/media3)
-  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
-  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
+  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich.md.txt) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+
+  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new.md.txt) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
+  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich.md.txt) • 3 min read
+  - [#Media3](https://developer.android.com/blog/topics/media3.md.txt)
+  - [#Jetpack](https://developer.android.com/blog/topics/jetpack.md.txt)
+  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player.md.txt)
   - +1 ↩
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang.md.txt) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
+  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
-
-  ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
-  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
+  [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt) • 6 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
 Stay in the loop
 
 

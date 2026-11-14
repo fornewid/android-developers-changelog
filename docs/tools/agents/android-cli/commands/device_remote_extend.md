@@ -4,11 +4,15 @@ url: https://developer.android.com/tools/agents/android-cli/commands/device_remo
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
+
 Extends a remote device reservation.
 
 ## Usage
 
-    android device remote extend [-h] [--duration=PARAM] <reservation-id>
+```bash
+android device remote extend [-h] --duration=PARAM <reservation-id>
+```
 
 ## Options
 
@@ -42,4 +46,6 @@ prints its new end time.
 
 Extend reservation `abc123` by 30 minutes:
 
-    android device remote extend abc123 --duration=30 --project=my-project
+```bash
+android device remote extend abc123 --duration=30 --project=my-project
+```

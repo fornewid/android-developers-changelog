@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/playcore/engage/tv/continue-watching/re
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/playcore/engage/tv/continue-watching/llms.txt
+
 Engage SDK offers a REST API to provide a consistent continue watching
 experience across non-Android platforms such as iOS and Roku TV. The API allows
 developers to update the "Continue-Watching" status for opted-in users from
@@ -12,9 +14,9 @@ non-Android platforms.
 ## Prerequisites
 
 > [!IMPORTANT]
-> **Important:** [Express interest in developing with Engage](http://g.co/tv/vda).
+> **Important:** [Express interest in developing with Engage](http://g.co/tv/engage).
 
-- You must first finish the [on-device Engage SDK-based](https://developer.android.com/guide/playcore/engage/tv/continue-watching-client) integration. This critical step establishes the necessary association between Google's user ID and your app's `AccountProfile`.
+- You must first finish the [on-device Engage SDK-based](https://developer.android.com/guide/playcore/engage/tv/continue-watching/client.md.txt) integration. This critical step establishes the necessary association between Google's user ID and your app's `AccountProfile`.
 - API Access and Authentication: To view and enable the API in your Google Cloud Project, you must go through an allowlist process. All API requests require authentication.
 
 ## Gain Access
@@ -71,165 +73,167 @@ Field `entities` contains individual `movieEntity`, `tvEpisodeEntity`,
 | videoClipEntity | VideoClipEntity | An object representing a video clip within the ContinuationCluster. |
 
 Each object in the entities array must be one of the available
-MediaEntity types namely [`MovieEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/MovieEntity),
-[`TvEpisodeEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/TvEpisodeEntity),
-[`LiveStreamingVideoEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/LiveStreamingVideoEntity), or
-[`VideoClipEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/VideoClipEntity),
+MediaEntity types namely [`MovieEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/MovieEntity.md.txt),
+[`TvEpisodeEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/TvEpisodeEntity.md.txt),
+[`LiveStreamingVideoEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/LiveStreamingVideoEntity.md.txt), or
+[`VideoClipEntity`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/VideoClipEntity.md.txt),
 along with common and type-specific fields.
 
 The following code snippet showcases the request body payload for the
 `publishContinuationCluster` API.
 
+```json
+{
+  "entities": [
     {
-      "entities": [
+      "movieEntity": {
+        "watch_next_type": "WATCH_NEXT_TYPE_CONTINUE",
+        "name": "Movie1",
+        "platform_specific_playback_uris": [
         {
-          "movieEntity": {
-            "watch_next_type": "WATCH_NEXT_TYPE_CONTINUE",
-            "name": "Movie1",
-            "platform_specific_playback_uris": [
-            {
-              "uri": "https://www.example.com/movie_entity_uri_for_android",
-              "platforms": [
-                "PLATFORM_ANDROID_TV",
-                "PLATFORM_ANDROID"
-              ]
-            },
-            {
-              "uri": "https://www.example.com/movie_entity_uri_for_iOS",
-              "platforms": [
-                "PLATFORM_IOS"
-              ]
-            }
-            ],
-            "poster_images": [
-              {
-                "url": "http://www.example.com/movie1_img1.png",
-                "width": 1920,
-                "height": 1080,
-                "accessibility_text": "Movie 1 HD poster"
-              },
-              {
-                "url": "http://www.example.com/movie1_imag2.png",
-                "width": 640,
-                "height": 360,
-                "accessibility_text": "Movie 1 SD poster"
-              }
-            ],
-            "last_engagement_time_millis": 864600000,
-            "duration_millis": 5400000,
-            "last_play_back_position_time_millis": 3241111
-          }
+          "uri": "https://www.example.com/movie_entity_uri_for_android",
+          "platforms": [
+            "PLATFORM_ANDROID_TV",
+            "PLATFORM_ANDROID"
+          ]
         },
         {
-          "tvEpisodeEntity": {
-            "watch_next_type": "WATCH_NEXT_TYPE_CONTINUE",
-            "name": "TV SERIES EPISODE 1",
-            "platform_specific_playback_uris": [
-            {
-              "uri": "https://www.example.com/episode_entity_uri_for_android_mobile",
-              "platforms": [
-                "PLATFORM_ANDROID"
-              ]
-            },
-            {
-              "uri": "https://www.example.com/episode_entity_uri_for_android_tv",
-              "platforms": [
-                "PLATFORM_ANDROID_TV"
-              ]
-            },
-            {
-              "uri": "https://www.example.com/episode_entity_uri_for_iOS",
-              "platforms": [
-                "PLATFORM_IOS"
-              ]
-            }
-            ],
-            "poster_images": [
-              {
-                "url": "http://www.example.com/episode1_img1.png",
-                "width": 1920,
-                "height": 1080,
-                "accessibility_text": "Episode 1 HD poster"
-              },
-              {
-                "url": "http://www.example.com/episode1_imag2.png",
-                "width": 640,
-                "height": 360,
-                "accessibility_text": "Episode 1 SD poster"
-              }
-            ],
-            "last_engagement_time_millis": 864600000,
-            "duration_millis": 1800000,
-            "last_play_back_position_time_millis": 2141231,
-            "episode_display_number": "1",
-            "season_number": "1",
-            "show_title": "title"
-          }
-        },
-        {
-          "liveStreamingVideoEntity": {
-            "name": "Live Sports Championship",
-            "watch_next_type": "WATCH_NEXT_TYPE_CONTINUE",
-            "last_engagement_time_millis": 1780978284000,
-            "last_play_back_position_time_millis": 1800000,
-            "duration_millis": 7200000,
-            "platform_specific_playback_uris": [
-              {
-                "uri": "https://www.example.com/live_streaming_entity_uri_for_android_tv",
-                "platforms": ["PLATFORM_ANDROID_TV"]
-              }
-            ],
-            "poster_images": [
-              {
-                "url": "http://www.example.com/live_stream_image1.png",
-                "width": 1920,
-                "height": 1080,
-                "accessibility_text": "Live Sports Championship Cover Image"
-              }
-            ],
-            "start_time_epoch_millis": 1780976484000,
-            "broadcaster": "Global Sports Network",
-            "broadcaster_icon": {
-              "url": "https://www.example.com/gsports.jpg",
-              "width": 512,
-              "height": 512,
-              "accessibility_text": "Global Sports Network Logo"
-            }
-          }
-        },
-        {
-          "videoClipEntity": {
-            "name": "How to Brew the Perfect Espresso",
-            "watch_next_type": "WATCH_NEXT_TYPE_CONTINUE",
-            "last_engagement_time_millis": 1780978284000,
-            "last_play_back_position_time_millis": 120000,
-            "duration_millis": 600000,
-            "platform_specific_playback_uris": [
-              {
-                "uri": "https://www.example.com/video_clip_entity_uri_for_android_tv",
-                "platforms": ["PLATFORM_ANDROID_TV"]
-              }
-            ],
-            "poster_images": [
-              {
-                "url": "http://www.example.com/video_clip_image1.png",
-                "width": 1920,
-                "height": 1080,
-                "accessibility_text": "Espresso Tutorial Cover Image"
-              }
-            ],
-            "created_time_epoch_millis": 1780900000000,
-            "creator": "Coffee Enthusiast John",
-            "creator_image": {
-              "url": "https://www.example.com/image/thumb/creators/john_avatar.jpg",
-              "width": 256,
-              "height": 256,
-              "accessibility_text": "John's Avatar"
-            }
-          }
+          "uri": "https://www.example.com/movie_entity_uri_for_iOS",
+          "platforms": [
+            "PLATFORM_IOS"
+          ]
         }
-      ]
+        ],
+        "poster_images": [
+          {
+            "url": "http://www.example.com/movie1_img1.png",
+            "width": 1920,
+            "height": 1080,
+            "accessibility_text": "Movie 1 HD poster"
+          },
+          {
+            "url": "http://www.example.com/movie1_imag2.png",
+            "width": 640,
+            "height": 360,
+            "accessibility_text": "Movie 1 SD poster"
+          }
+        ],
+        "last_engagement_time_millis": 864600000,
+        "duration_millis": 5400000,
+        "last_play_back_position_time_millis": 3241111
+      }
+    },
+    {
+      "tvEpisodeEntity": {
+        "watch_next_type": "WATCH_NEXT_TYPE_CONTINUE",
+        "name": "TV SERIES EPISODE 1",
+        "platform_specific_playback_uris": [
+        {
+          "uri": "https://www.example.com/episode_entity_uri_for_android_mobile",
+          "platforms": [
+            "PLATFORM_ANDROID"
+          ]
+        },
+        {
+          "uri": "https://www.example.com/episode_entity_uri_for_android_tv",
+          "platforms": [
+            "PLATFORM_ANDROID_TV"
+          ]
+        },
+        {
+          "uri": "https://www.example.com/episode_entity_uri_for_iOS",
+          "platforms": [
+            "PLATFORM_IOS"
+          ]
+        }
+        ],
+        "poster_images": [
+          {
+            "url": "http://www.example.com/episode1_img1.png",
+            "width": 1920,
+            "height": 1080,
+            "accessibility_text": "Episode 1 HD poster"
+          },
+          {
+            "url": "http://www.example.com/episode1_imag2.png",
+            "width": 640,
+            "height": 360,
+            "accessibility_text": "Episode 1 SD poster"
+          }
+        ],
+        "last_engagement_time_millis": 864600000,
+        "duration_millis": 1800000,
+        "last_play_back_position_time_millis": 2141231,
+        "episode_display_number": "1",
+        "season_number": "1",
+        "show_title": "title"
+      }
+    },
+    {
+      "liveStreamingVideoEntity": {
+        "name": "Live Sports Championship",
+        "watch_next_type": "WATCH_NEXT_TYPE_CONTINUE",
+        "last_engagement_time_millis": 1780978284000,
+        "last_play_back_position_time_millis": 1800000,
+        "duration_millis": 7200000,
+        "platform_specific_playback_uris": [
+          {
+            "uri": "https://www.example.com/live_streaming_entity_uri_for_android_tv",
+            "platforms": ["PLATFORM_ANDROID_TV"]
+          }
+        ],
+        "poster_images": [
+          {
+            "url": "http://www.example.com/live_stream_image1.png",
+            "width": 1920,
+            "height": 1080,
+            "accessibility_text": "Live Sports Championship Cover Image"
+          }
+        ],
+        "start_time_epoch_millis": 1780976484000,
+        "broadcaster": "Global Sports Network",
+        "broadcaster_icon": {
+          "url": "https://www.example.com/gsports.jpg",
+          "width": 512,
+          "height": 512,
+          "accessibility_text": "Global Sports Network Logo"
+        }
+      }
+    },
+    {
+      "videoClipEntity": {
+        "name": "How to Brew the Perfect Espresso",
+        "watch_next_type": "WATCH_NEXT_TYPE_CONTINUE",
+        "last_engagement_time_millis": 1780978284000,
+        "last_play_back_position_time_millis": 120000,
+        "duration_millis": 600000,
+        "platform_specific_playback_uris": [
+          {
+            "uri": "https://www.example.com/video_clip_entity_uri_for_android_tv",
+            "platforms": ["PLATFORM_ANDROID_TV"]
+          }
+        ],
+        "poster_images": [
+          {
+            "url": "http://www.example.com/video_clip_image1.png",
+            "width": 1920,
+            "height": 1080,
+            "accessibility_text": "Espresso Tutorial Cover Image"
+          }
+        ],
+        "created_time_epoch_millis": 1780900000000,
+        "creator": "Coffee Enthusiast John",
+        "creator_image": {
+          "url": "https://www.example.com/image/thumb/creators/john_avatar.jpg",
+          "width": 256,
+          "height": 256,
+          "accessibility_text": "John's Avatar"
+        }
+      }
     }
+  ]
+}
+```
 
 ## Delete the Engage data
 
@@ -251,12 +255,14 @@ The URL for the account without profile is:
     https://tvvideodiscovery.googleapis.com/v1/packages/{package_name}/accounts/{account_id}/clearCluster
 
 The payload for the `clearCluster` API contains only one field, `reason`, which
-contains a [`DeleteReason`](https://developer.android.com/reference/com/google/android/engage/service/DeleteReason) that specifies the reason for
+contains a [`DeleteReason`](https://developer.android.com/reference/com/google/android/engage/service/DeleteReason.md.txt) that specifies the reason for
 removing data.
 
-    {
-      "reason": "DELETE_REASON_LOSS_OF_CONSENT"
-    }
+```json
+{
+  "reason": "DELETE_REASON_LOSS_OF_CONSENT"
+}
+```
 
 ## Testing
 
@@ -266,5 +272,5 @@ such as Google TV and the Android and iOS Google TV mobile apps.
 
 In testing, allow a reasonable propagation delay of a few minutes and adhere to
 the watch requirements, such as watching part of a movie or finishing an
-episode. Consult the [Watch Next guidelines for app developers](https://developer.android.com/training/tv/discovery/guidelines-app-developers#unfinished-movies) for
+episode. Consult the [Watch Next guidelines for app developers](https://developer.android.com/training/tv/discovery/guidelines-app-developers.md.txt#unfinished-movies) for
 details.

@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/billing/integrate
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/billing/llms.txt
+
 > [!NOTE]
 > **Note:** Before reading this document, make sure you've read through the [Play
 > Console Help Center documentation](https://support.google.com/googleplay/android-developer/topic/3450769), which describes critical purchase-related concepts, as well as how to create and configure your products for sale. In addition, be sure you've set up your Google Play configuration beforehand by following the steps in [Getting ready](https://developer.android.com/google/play/billing/getting-ready.md.txt).
@@ -548,7 +550,7 @@ void onPurchasesUpdated(BillingResult billingResult, List<Purchase> purchases) {
 
 A successful purchase generates a Google Play purchase success screen similar to
 figure 2.
-![google play's purchase success screen](https://developer.android.com/static/images/google/play/billing/purchase-success.png) **Figure 2.** Google Play's purchase success screen.
+![Google Play purchase confirmation display.](https://developer.android.com/static/images/google/play/billing/purchase-success.png) **Figure 2.** Google Play's purchase success screen.
 
 A successful purchase also generates a purchase token, which is a unique
 identifier that represents the user and the product ID for the one-time product
@@ -847,7 +849,7 @@ Instead, immediately revoke and refund rejected purchases from your backend
 using the Google Play Developer API:
 
 - **Subscriptions** : Call [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) with `"fullRefund": {}` in [`revocationContext`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke#revocationcontext). This immediately terminates the subscription, revokes access, and initiates a full refund.
-- **One-time products** : Call [`orders.refund`](https://developers.google.com/android-publisher/api-ref/rest/v3/orders/refund) with the `revoke` parameter set to `true` to immediately refund an order and revoke its entitlement. When calling this method, you must pass the purchase's order ID, which can be retrieved via [`Purchase.getOrderId()`](https://developer.android.com/reference/com/android/billingclient/api/Purchase.md.txt#getorderid) or [`purchases.productsv2.getproductpurchasev2`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.productsv2/getproductpurchasev2). Never call [`consumeAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#consumeasync), [`acknowledgePurchase()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#acknowledgepurchase), [`Purchases.products:consume`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/consume), or [`Purchases.products:acknowledge`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/acknowledge) on rejected purchases.
+- **One-time products** : Call [`orders.refund`](https://developers.google.com/android-publisher/api-ref/rest/v3/orders/refund) with the `revoke` parameter set to `true` to immediately refund an order and revoke its entitlement. When calling this method, you must pass the purchase's order ID, which you can retrieve using [`Purchase.getOrderId()`](https://developer.android.com/reference/com/android/billingclient/api/Purchase.md.txt#getorderid) or [`purchases.productsv2.getproductpurchasev2`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.productsv2/getproductpurchasev2). Never call [`consumeAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#consumeasync), [`acknowledgePurchase()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#acknowledgepurchase), [`Purchases.products:consume`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/consume), or [`Purchases.products:acknowledge`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/acknowledge) on rejected purchases.
 - **RTDN and Voided Purchases behavior** : Developer-initiated revocations and refunds (`purchases.subscriptionsv2.revoke` and `orders.refund` with `revoke` set to `true`) trigger Real-time developer notifications and are recorded in the [Voided Purchases API](https://developers.google.com/android-publisher/voided-purchases) (`purchases.voidedpurchases.list` with the `voidedSource` response field set to `1` for developer):
   - **Subscriptions** : Sends both a `SUBSCRIPTION_REVOKED` notification and a `VoidedPurchaseNotification`.
   - **One-time products** : Sends a `VoidedPurchaseNotification` (and a `ONE_TIME_PRODUCT_CANCELED` notification if your app is configured in Play Console to receive all one-time product notifications).

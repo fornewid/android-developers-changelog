@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/layouts/constraints-modifi
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/layouts/llms.txt
+
 [Video](https://www.youtube.com/watch?v=OeC5jMV342A)
 
 In Compose, you can chain multiple modifiers together to change the look and
@@ -149,8 +151,12 @@ Use the [`requiredSize`](https://developer.android.com/reference/kotlin/androidx
 node to override the incoming constraints. The `requiredSize` modifier replaces
 the incoming constraints and passes the size you specify as exact bounds.
 
-When the size is passed back up the tree, the child node will be centered in the
-available space:
+If the size you pass is outside the incoming constraints, the node reports a
+size that fits them when the size is passed back up the tree, and its content is
+centered in that space on each axis where the two sizes differ. Content larger
+than the constraints extends past them. In Figure 11, `requiredSize(50)` is
+smaller than the `100dp` that `size` passes in, so the `50dp` content is
+centered in a `100dp` space:
 ![The size and requiredSize modifier chained in a UI tree, and the corresponding
 representation in a container. The requiredSize modifier constraints override the size modifier
 constraints.](https://developer.android.com/static/develop/ui/compose/images/layouts/constraints-modifiers/requiredsize-modifier.png) **Figure 11.** The `requiredSize` modifier overriding incoming constraints from the `size` modifier.
@@ -164,13 +170,27 @@ width undecided:
 ![Two UI trees, one with the width modifier and its container representation and the other
 with the height modifier and its representation.](https://developer.android.com/static/develop/ui/compose/images/layouts/constraints-modifiers/width-height-modifier.png) **Figure 12.** The `width` modifier and `height` modifier setting a fixed width and height, respectively.
 
+To set a width or height that overrides the incoming constraints, use
+[`requiredWidth`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/requiredWidth.modifier#(androidx.compose.ui.Modifier).requiredWidth(androidx.compose.ui.unit.Dp)) or [`requiredHeight`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/requiredHeight.modifier.md.txt#(androidx.compose.ui.Modifier).requiredHeight(androidx.compose.ui.unit.Dp)). Like `requiredSize`, each one
+replaces the incoming constraints, but only on its own axis: `requiredWidth`
+keeps the incoming height constraints, and `requiredHeight` keeps the incoming
+width constraints.
+
 ### The `sizeIn` modifier
 
-The `sizeIn` modifier lets you set exact minimum and maximum constraints
-for width and height. Use the `sizeIn` modifier if you need fine-grained control
-over the constraints.
+The `sizeIn` modifier lets you set minimum and maximum constraints for width and
+height, within the incoming constraints: where the incoming constraints are
+tighter, they win. Use the `sizeIn` modifier if you need fine-grained control
+over the constraints. The [`widthIn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/widthIn.modifier#(androidx.compose.ui.Modifier).widthIn(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) and [`heightIn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/heightIn.modifier#(androidx.compose.ui.Modifier).heightIn(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) modifiers do the
+same on one axis and leave the constraints of the other axis unchanged. Each one
+takes a minimum, a maximum, or both.
 ![A UI tree with the sizeIn modifier with minimum and maximum widths and heights set,
 and its representation within a container.](https://developer.android.com/static/develop/ui/compose/images/layouts/constraints-modifiers/sizein-modifier.png) **Figure 13.** The `sizeIn` modifier with `minWidth`, `maxWidth`, `minHeight`, and `maxHeight` set.
+
+To set a range that overrides the incoming constraints, use
+[`requiredSizeIn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/requiredSizeIn.modifier.md.txt#(androidx.compose.ui.Modifier).requiredSizeIn(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)), or [`requiredWidthIn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/requiredWidthIn.modifier#(androidx.compose.ui.Modifier).requiredWidthIn(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) and [`requiredHeightIn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/requiredHeightIn.modifier.md.txt#(androidx.compose.ui.Modifier).requiredHeightIn(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp))
+for one axis. They relate to `sizeIn`, `widthIn`, and `heightIn` the way
+`requiredSize` relates to `size`.
 
 ## Examples
 
@@ -250,3 +270,70 @@ modifier order.](https://developer.android.com/static/develop/ui/compose/images/
 - Now, in the drawing phase, the `clip` modifier acts on a canvas of `120dp` by `120dp`. It creates a circle mask of that size.
 - The `padding` modifier then insets its content by `10dp` on all sides, which lowers the canvas size for the `Image` to `100dp` by `100dp`.
 - The `Image` is drawn in that smaller canvas. The image is clipped based on the original circle of `120dp`, so the output is a non-round result.
+
+The next three snippets put a `Box` with a background color in the same `300dp`
+by `200dp` container.
+
+
+```kotlin
+Box(
+    modifier = Modifier
+        .requiredWidth(400.dp)
+        .height(100.dp)
+        .background(Color(0xFF3DDC84))
+)
+```
+
+<br />
+
+This snippet produces the following output:
+![A wide green rectangle centered in a light-blue container, extending
+horizontally past both sides of the container.](https://developer.android.com/static/develop/ui/compose/images/layouts/constraints-modifiers/example-required-width.png) **Figure 17.** With `requiredWidth(400.dp)`, the `Box` extends `50dp` past each side of the `300dp` container.
+
+- The `requiredWidth` modifier replaces the incoming width constraints with exact bounds of `400dp`. It keeps the incoming height constraints, `0` to `200dp`.
+- The `height` modifier sets the height to `100dp`, which fits the height constraints.
+- The `Box` measures `400dp` by `100dp`. That width is larger than the `300dp` that the container allows, so `requiredWidth` reports a width of `300dp` to its parent and centers its content in that space: the `Box` extends `50dp` past each side of the container.
+
+
+```kotlin
+Box(
+    modifier = Modifier
+        .widthIn(min = 100.dp, max = 400.dp)
+        .heightIn(max = 100.dp)
+        .fillMaxSize()
+        .background(Color(0xFF3DDC84))
+)
+```
+
+<br />
+
+This snippet produces the following output:
+![A green rectangle centered vertically inside a light-blue container,
+matching the container's full width without extending past its sides.](https://developer.android.com/static/develop/ui/compose/images/layouts/constraints-modifiers/example-width-in.png) **Figure 18.** With `widthIn`, the `Box` measures `300dp` by `100dp` and stays inside the container.
+
+- The `widthIn` modifier asks for a width between `100dp` and `400dp`. The incoming maximum width is `300dp`, so the width constraints become `100dp` to `300dp`.
+- The `heightIn` modifier sets a maximum height of `100dp`, so the height constraints become `0` to `100dp`.
+- The `fillMaxSize` modifier sets the minimum width and height to those maximums, so the `Box` is `300dp` by `100dp` and stays inside the container.
+
+
+```kotlin
+Box(
+    modifier = Modifier
+        .requiredSizeIn(minWidth = 100.dp, maxWidth = 400.dp, maxHeight = 100.dp)
+        .fillMaxSize()
+        .background(Color(0xFF3DDC84))
+)
+```
+
+<br />
+
+This snippet produces the following output:
+![A wide green rectangle centered in a light-blue container, extending
+horizontally past both sides of the container.](https://developer.android.com/static/develop/ui/compose/images/layouts/constraints-modifiers/example-required-size-in.png) **Figure 19.** With `requiredSizeIn`, the `Box` measures `400dp` by `100dp` and extends `50dp` past each side of the container, the same result as Figure 17.
+
+- The `requiredSizeIn` modifier replaces the incoming constraints with a width of `100dp` to `400dp` and a height of `0` to `100dp`. The minimum height isn't set, so it keeps the incoming minimum height of `0`.
+- The `fillMaxSize` modifier sets the minimum width and height to those maximums, so the `Box` measures `400dp` by `100dp`.
+- As in the `requiredWidth` example, the width is larger than the container allows, so the `Box` is centered and extends `50dp` past each side.
+
+With the same range, `widthIn` and `heightIn` keep the `Box` inside the
+container, and `requiredSizeIn` doesn't.

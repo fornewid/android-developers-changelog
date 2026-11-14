@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/integrity/setup
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/integrity/llms.txt
+
 This page explains how to set up your app, game or SDK to use the Play
 Integrity API. To integrate the API, you must have a Google Cloud
 project, which is necessary to begin making requests. You
@@ -87,7 +89,7 @@ API usage in your Google Cloud Console and setting [quota alerts](https://cloud.
 avoid interruptions to your service.
 
 Even with higher quota, continue to limit
-[classic requests](https://developer.android.com/google/play/integrity/classic) to infrequent, high-value actions to preserve
+[classic requests](https://developer.android.com/google/play/integrity/classic.md.txt) to infrequent, high-value actions to preserve
 user battery and data usage.
 
 > [!CAUTION]
@@ -155,7 +157,9 @@ installation methods, and environment setup.
 If you have the [OpenUPM CLI](https://github.com/openupm/openupm-cli#installation)
 installed you can install the OpenUPM registry with the following command:
 
-    openupm add com.google.play.integrity
+```bash
+openupm add com.google.play.integrity
+```
 
 ### OpenUPM
 
@@ -189,7 +193,7 @@ installed you can install the OpenUPM registry with the following command:
    **Assets \> Import package \> Custom Package** and importing all items.
 
 > [!NOTE]
-> **Note:** By downloading and using Google Play Unity Plugins, you agree to the [Play Core Software Development Kit Terms of Service](https://developer.android.com/guide/playcore#license).
+> **Note:** By downloading and using Google Play Unity Plugins, you agree to the [Play Core Software Development Kit Terms of Service](https://developer.android.com/guide/playcore.md.txt#license).
 
 ### Unreal Engine
 
@@ -220,24 +224,26 @@ The plugin supports **Unreal Engine 5.0** and all subsequent versions.
 6. Open your project's `Build.cs` file and add the `PlayIntegrity` module
    to `PublicDependencyModuleNames`:
 
-       using UnrealBuildTool;
+   ```c#
+   using UnrealBuildTool;
 
-       public class MyGame : ModuleRules
-       {
-         public MyGame(ReadOnlyTargetRules Target) : base(Target)
-         {
-           // ...
+   public class MyGame : ModuleRules
+   {
+     public MyGame(ReadOnlyTargetRules Target) : base(Target)
+     {
+       // ...
 
-           PublicDependencyModuleNames.Add("PlayIntegrity");
+       PublicDependencyModuleNames.Add("PlayIntegrity");
 
-           // ...
-         }
-       }
+       // ...
+     }
+   }
+   ```
 
 ### Native
 
-Follow the [native setup guide](https://developer.android.com/google/play/integrity/native-setup). For more details, see Play Integrity's
-[native API reference documentation](https://developer.android.com/reference/native/play/core/group/integrity).
+Follow the [native setup guide](https://developer.android.com/google/play/integrity/native-setup.md.txt). For more details, see Play Integrity's
+[native API reference documentation](https://developer.android.com/reference/native/play/core/group/integrity.md.txt).
 
 ## Configure API responses (optional)
 
@@ -258,7 +264,7 @@ by default:
 | Application integrity | `PLAY_RECOGNIZED` | The app and certificate match the versions distributed by Google Play. |
 |   | `UNRECOGNIZED_VERSION` | The certificate or package name does not match Google Play records. |
 |   | `UNEVALUATED` | Application integrity was not evaluated. A necessary requirement was missed, such as the device not being trustworthy enough. |
-| Device integrity | `MEETS_DEVICE_INTEGRITY` | The app is running on a genuine and certified Android device. On Android 13 and higher, there is hardware-backed proof that the device bootloader is locked and the loaded Android OS is a certified device manufacturer image. |
+| Device integrity | `MEETS_DEVICE_INTEGRITY` | The app is running on a genuine and certified Android-powered device. On Android 13 and higher, there is hardware-backed proof that the device bootloader is locked and the loaded Android OS is a certified device manufacturer image. |
 |   | Empty (a blank value) | The app is running on a device that has signs of attack (such as API hooking) or system compromise (such as being rooted), or the app is not running on a physical device (such as an emulator that does not pass Google Play integrity checks). |
 
 ### Google Play Games for PC
@@ -276,7 +282,8 @@ If you have linked your Cloud project in the Play Console or
 Play SDK Console, you can opt in to receive additional information.
 
 To make changes, visit the Play Console and navigate to
-**Protected with Play** . Next to **Play Integrity API** , click **[Manage](https://play.google.com/console/developers/app/app-integrity/integrity-api-settings)** . Click **Change responses**, edit and save your changes.
+**Protected with Play** . Next to **Play Integrity API** , click
+**[Manage](https://play.google.com/console/developers/app/app-integrity/integrity-api-settings)** . Click **Change responses**, edit and save your changes.
 
 > [!CAUTION]
 > **Caution:** Changes to integrity responses take effect immediately, including for apps and SDKs in production. Make sure your server is prepared to accept new responses before saving changes.
@@ -306,16 +313,16 @@ devices that you can reliably retrieve when your app is installed again later
 on the same device.
 
 > [!NOTE]
-> **Note:** [Device recall](https://developer.android.com/google/play/integrity/device-recall) is available in beta to apps and subject to change. Pricing for high-scale usage may apply after general release. SDKs cannot use device recall.
+> **Note:** [Device recall](https://developer.android.com/google/play/integrity/device-recall.md.txt) is available in beta to apps and subject to change. Pricing for high-scale usage may apply after general release. SDKs cannot use device recall.
 
 After you opt in to optional information, your API response will include new
 fields and responses in the verdict:
 
 | Response field | Label | Description |   |
 |---|---|---|---|
-| Device integrity | `MEETS_BASIC_INTEGRITY` | The app is running on a device that passes basic system integrity checks. The device bootloader can be locked or unlocked, and the boot state can be verified or unverified. The device may not be certified, in which case Google cannot provide any security, privacy, or app compatibility assurances. On Android 13 and higher, the `MEETS_BASIC_INTEGRITY` verdict requires that the attestation [root of trust](https://developer.android.com/privacy-and-security/security-key-attestation#root_certificate) is provided by Google. ||
-|   | `MEETS_STRONG_INTEGRITY` | The app is running on a genuine and certified Android device with a recent security update. - On Android 13 and higher, the `MEETS_STRONG_INTEGRITY` verdict requires `MEETS_DEVICE_INTEGRITY` and security updates in the last year for all partitions of the device, including an Android OS partition patch and a vendor partition patch. - On Android 12 and lower, the `MEETS_STRONG_INTEGRITY` verdict only requires hardware-backed proof of boot integrity and **does not** require the device to have a recent security update. Therefore, when using the `MEETS_STRONG_INTEGRITY`, it is recommended to also take into account the Android SDK version in the `deviceAttributes` field. ||
-| Device attributes | `sdkVersion: 19, 20, ..., 37` | The SDK version of the Android OS running on the device. The number returned maps to [`Build.VERSION_CODES`](https://developer.android.com/reference/android/os/Build.VERSION_CODES). ||
+| Device integrity | `MEETS_BASIC_INTEGRITY` | The app is running on a device that passes basic system integrity checks. The device bootloader can be locked or unlocked, and the boot state can be verified or unverified. The device may not be certified, in which case Google cannot provide any security, privacy, or app compatibility assurances. On Android 13 and higher, the `MEETS_BASIC_INTEGRITY` verdict requires that the attestation [root of trust](https://developer.android.com/privacy-and-security/security-key-attestation.md.txt#root_certificate) is provided by Google. ||
+|   | `MEETS_STRONG_INTEGRITY` | The app is running on a genuine and certified Android-powered device with a recent security update. - On Android 13 and higher, the `MEETS_STRONG_INTEGRITY` verdict requires `MEETS_DEVICE_INTEGRITY` and security updates in the last year for all partitions of the device, including an Android OS partition patch and a vendor partition patch. - On Android 12 and lower, the `MEETS_STRONG_INTEGRITY` verdict only requires hardware-backed proof of boot integrity and **does not** require the device to have a recent security update. Therefore, when using the `MEETS_STRONG_INTEGRITY`, it is recommended to also take into account the Android SDK version in the `deviceAttributes` field. ||
+| Device attributes | `sdkVersion: 19, 20, ..., 37` | The SDK version of the Android OS running on the device. The number returned maps to [`Build.VERSION_CODES`](https://developer.android.com/reference/android/os/Build.VERSION_CODES.md.txt). ||
 |   | Empty (a blank value) | The SDK version is not evaluated because a necessary requirement was missed. In this case, the `sdkVersion` field is unset; thus, the `deviceAttributes` field is empty. This could happen because: - The device is not trustworthy enough. - There were technical issues on the device. ||
 |   |   | **Standard API integrity token requests on this device in the last hour per app** | **Classic API integrity token requests on this device in the last hour per app** |
 | Recent device activity | `LEVEL_1` (lowest) | 10 or fewer | 5 or fewer |
@@ -358,11 +365,11 @@ fields and responses in the verdict:
 |   | `UNEVALUATED` | The Play Protect verdict was not evaluated. A necessary requirement was missed, such as the device not being trustworthy enough. |
 
 > [!NOTE]
-> **Note:** The app access risk verdict automatically exempts verified accessibility services known to Google Play. These services will not trigger a capturing, controlling, or overlay response, meaning legitimate accessibility tools are not flagged as risks.
+> **Note:** The app access risk verdict automatically exempts verified accessibility services known to Google Play. These services won't trigger a capturing, controlling, or overlay response, meaning legitimate accessibility tools are not flagged as risks.
 
 ## Configure classic request settings (optional)
 
-Skip this section if you only plan to make [standard API requests](https://developer.android.com/google/play/integrity/standard).
+Skip this section if you only plan to make [standard API requests](https://developer.android.com/google/play/integrity/standard.md.txt).
 
 By default, Google Play manages response encryption, meaning your backend calls
 Google's server to decrypt verdicts. Alternatively, you can manage keys yourself

@@ -4,6 +4,8 @@ url: https://developer.android.com/topic/libraries/view-binding
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/libraries/view-binding/llms.txt
+
 # View binding
 Part of [Android Jetpack](https://developer.android.com/jetpack).
 
@@ -47,11 +49,13 @@ If you want a layout file to be ignored while generating binding classes, add
 the `tools:viewBindingIgnore="true"` attribute to the root view of that layout
 file:
 
-    <LinearLayout
-            ...
-            tools:viewBindingIgnore="true" >
+```xml
+<LinearLayout
         ...
-    </LinearLayout>
+        tools:viewBindingIgnore="true" >
+    ...
+</LinearLayout>
+```
 
 ## Usage
 
@@ -64,12 +68,14 @@ word "Binding" to the end.
 For example, consider a layout file called `result_profile.xml` that contains
 the following:
 
-    <LinearLayout ... >
-        <TextView android:id="@+id/name" />
-        <ImageView android:cropToPadding="true" />
-        <Button android:id="@+id/button"
-            android:background="@drawable/rounded_button" />
-    </LinearLayout>
+```xml
+<LinearLayout ... >
+    <TextView android:id="@+id/name" />
+    <ImageView android:cropToPadding="true" />
+    <Button android:id="@+id/button"
+        android:background="@drawable/rounded_button" />
+</LinearLayout>
+```
 
 The generated binding class is called `ResultProfileBinding`. This class has two
 fields: a `TextView` called `name` and a `Button` called `button`. The
@@ -87,13 +93,11 @@ activities and fragments.
 ### Use view binding in activities
 
 To set up an instance of the binding class for use with an activity, perform the
-following steps in the activity's
-[`onCreate()`](https://developer.android.com/reference/kotlin/android/app/Activity#oncreate) method:
+following steps in the activity's [`onCreate()`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#oncreate) method:
 
 1. Call the static `inflate()` method included in the generated binding class. This creates an instance of the binding class for the activity to use.
-2. Get a reference to the root view by either calling the `getRoot()` method or using [Kotlin property
-   syntax](https://kotlinlang.org/docs/reference/properties.html#declaring-properties).
-3. Pass the root view to [`setContentView()`](https://developer.android.com/reference/kotlin/android/app/Activity#setcontentview_1) to make it the active view on the screen.
+2. Get a reference to the root view by either calling the `getRoot()` method or using [Kotlin property syntax](https://kotlinlang.org/docs/reference/properties.html#declaring-properties).
+3. Pass the root view to [`setContentView()`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#setcontentview_1) to make it the active view on the screen.
 
 These steps are shown in the following example:
 
@@ -145,13 +149,10 @@ binding.button.setOnClickListener(new View.OnClickListener() {
 ### Use view binding in fragments
 
 To set up an instance of the binding class for use with a fragment, perform the
-following steps in the fragment's
-[`onCreateView()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment#oncreateview)
-method:
+following steps in the fragment's [`onCreateView()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.md.txt#oncreateview) method:
 
 1. Call the static `inflate()` method included in the generated binding class. This creates an instance of the binding class for the fragment to use.
-2. Get a reference to the root view by either calling the `getRoot()` method or using [Kotlin property
-   syntax](https://kotlinlang.org/docs/reference/properties.html#declaring-properties).
+2. Get a reference to the root view by either calling the `getRoot()` method or using [Kotlin property syntax](https://kotlinlang.org/docs/reference/properties.html#declaring-properties).
 3. Return the root view from the `onCreateView()` method to make it the active view on the screen.
 
 > [!NOTE]
@@ -221,7 +222,7 @@ binding.button.setOnClickListener(new View.OnClickListener() {
 ```
 
 > [!NOTE]
-> **Note:** Fragments outlive their views. Make sure you clean up any references to the binding class instance in the fragment's [`onDestroyView()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment#ondestroyview) method.
+> **Note:** Fragments outlive their views. Make sure you clean up any references to the binding class instance in the fragment's [`onDestroyView()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.md.txt#ondestroyview) method.
 
 ### Provide hints for different configurations
 
@@ -229,13 +230,15 @@ When you declare views across multiple configurations, it occasionally makes
 sense to use a different view type depending on the particular layout.
 The following code snippet shows an example of this:
 
-    # in res/layout/example.xml
+```xml
+# in res/layout/example.xml
 
-    <TextView android:id="@+id/user_bio" />
+<TextView android:id="@+id/user_bio" />
 
-    # in res/layout-land/example.xml
+# in res/layout-land/example.xml
 
-    <EditText android:id="@+id/user_bio" />
+<EditText android:id="@+id/user_bio" />
+```
 
 In this case, you might expect the generated class to expose a field `userBio`
 of type `TextView`, because `TextView` is the common base class. Due to
@@ -248,13 +251,15 @@ attribute, letting you tell the compiler what type to use in the generated code.
 In the previous example, you can use this attribute to make the compiler
 generate the field as a `TextView`:
 
-    # in res/layout/example.xml (unchanged)
+```xml
+# in res/layout/example.xml (unchanged)
 
-    <TextView android:id="@+id/user_bio" />
+<TextView android:id="@+id/user_bio" />
 
-    # in res/layout-land/example.xml
+# in res/layout-land/example.xml
 
-    <EditText android:id="@+id/user_bio" tools:viewBindingType="TextView" />
+<EditText android:id="@+id/user_bio" tools:viewBindingType="TextView" />
+```
 
 In another example, suppose you have two layouts, one that contains a
 `BottomNavigationView` and another that contains a `NavigationRailView`. Both
@@ -263,13 +268,15 @@ details. If your code doesn't need to know exactly which subclass is present in
 the current layout, you can use `tools:viewBindingType` to set the generated
 type to `NavigationBarView` in both layouts:
 
-    # in res/layout/navigation_example.xml
+```xml
+# in res/layout/navigation_example.xml
 
-    <BottomNavigationView android:id="@+id/navigation" tools:viewBindingType="NavigationBarView" />
+<BottomNavigationView android:id="@+id/navigation" tools:viewBindingType="NavigationBarView" />
 
-    # in res/layout-w720/navigation_example.xml
+# in res/layout-w720/navigation_example.xml
 
-    <NavigationRailView android:id="@+id/navigation" tools:viewBindingType="NavigationBarView" />
+<NavigationRailView android:id="@+id/navigation" tools:viewBindingType="NavigationBarView" />
+```
 
 View binding can't validate the value of this attribute when generating code. To
 avoid compile-time and runtime errors, the value must meet the following
@@ -279,9 +286,10 @@ conditions:
 - The value must be a superclass of the tag it is placed on. For example, the
   following values don't work:
 
-        <TextView tools:viewBindingType="ImageView" /> <!-- ImageView is not related to TextView. -->
-        <TextView tools:viewBindingType="Button" /> <!-- Button is not a superclass of TextView. -->
-
+  ```xml
+    <TextView tools:viewBindingType="ImageView" /> <!-- ImageView is not related to TextView. -->
+    <TextView tools:viewBindingType="Button" /> <!-- Button is not a superclass of TextView. -->
+  ```
 - The final type must resolve consistently across all configurations.
 
 ## Differences from findViewById
@@ -296,10 +304,9 @@ result in your build failing at compile time rather than at runtime.
 
 ## Comparison with data binding
 
-View binding and [data binding](https://developer.android.com/topic/libraries/data-binding) both generate
-binding classes that you can use to reference views directly. However, view
-binding is intended to handle simpler use cases and provides the following
-benefits over data binding:
+View binding and [data binding](https://developer.android.com/topic/libraries/data-binding.md.txt) both generate binding classes that you can
+use to reference views directly. However, view binding is intended to handle
+simpler use cases and provides the following benefits over data binding:
 
 - **Faster compilation:** view binding requires no annotation processing, so compile times are faster.
 - **Ease of use:** view binding doesn't require specially tagged XML layout files, so it's faster to adopt in your apps. Once you enable view binding in a module, it applies to all of that module's layouts automatically.
@@ -307,10 +314,8 @@ benefits over data binding:
 On the other hand, view binding has the following limitations compared to data
 binding:
 
-- View binding doesn't support [layout variables or layout
-  expressions](https://developer.android.com/topic/libraries/data-binding/expressions), so it can't be used to declare dynamic UI content straight from XML layout files.
-- View binding doesn't support [two-way data
-  binding](https://developer.android.com/topic/libraries/data-binding/two-way).
+- View binding doesn't support [layout variables or layout expressions](https://developer.android.com/topic/libraries/data-binding/expressions.md.txt), so it can't be used to declare dynamic UI content straight from XML layout files.
+- View binding doesn't support [two-way data binding](https://developer.android.com/topic/libraries/data-binding/two-way.md.txt).
 
 Because of these considerations, in some cases it's best to use both view
 binding and data binding in a project. You can use data binding in layouts that
@@ -331,6 +336,6 @@ To learn more about view binding, see the following additional resources:
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Migrate from Kotlin synthetics to Jetpack view binding](https://developer.android.com/topic/libraries/view-binding/migration)
-- [Layouts and binding expressions](https://developer.android.com/topic/libraries/data-binding/expressions)
-- [App Architecture: UI Layer - Get Started - Android Developers](https://developer.android.com/topic/libraries/data-binding/start)
+- [Migrate from Kotlin synthetics to Jetpack view binding](https://developer.android.com/topic/libraries/view-binding/migration.md.txt)
+- [Layouts and binding expressions](https://developer.android.com/topic/libraries/data-binding/expressions.md.txt)
+- [App Architecture: UI Layer - Get Started - Android Developers](https://developer.android.com/topic/libraries/data-binding/start.md.txt)

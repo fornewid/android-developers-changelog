@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/publish/preparing
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/publish/llms.txt
+
 > [!NOTE]
 > Android developer verification is a new requirement designed to link individuals and organizations to their Android apps. Starting in 2026, Android will require all apps to be registered by verified developers in order to be installed by users on certified Android devices. To learn what you need to do, see [Android
 > developer verification](https://developer.android.com/developer-verification/guides).
@@ -16,11 +18,11 @@ Android SDK tools.
 
 ## Android skills
 
-[View on GitHub](https://github.com/android/skills/blob/main/play/play-policy-insights)
+[View on GitHub](https://github.com/android/skills/tree/main/play/play-policy-insights)
 
 ### Check Google Play Policy
 
-Use the `play-policy-insights` [Android skill](https://developer.android.com/tools/agents/android-skills) to audit your app for Google Play Policy compliance. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the `play-policy-insights` [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to audit your app for Google Play Policy compliance. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add play-policy-insights
 
@@ -211,23 +213,23 @@ size.
 ### Turn off logging
 
 Deactivate logging before you build your app for release. You can deactivate
-logging by removing calls to `https://developer.android.com/reference/android/util/Log` methods in your source
+logging by removing calls to `Log` methods in your source
 files. Also, remove any log files or static test files that were created in
 your project.
 
-Also, remove all `https://developer.android.com/reference/android/os/Debug`
+Also, remove all `Debug`
 tracing calls that you added to your code, such as
-[`startMethodTracing()`](https://developer.android.com/reference/android/os/Debug#startMethodTracing())
+[`startMethodTracing()`](https://developer.android.com/reference/android/os/Debug.md.txt#startMethodTracing())
 and
-[`stopMethodTracing()`](https://developer.android.com/reference/android/os/Debug#stopMethodTracing())
+[`stopMethodTracing()`](https://developer.android.com/reference/android/os/Debug.md.txt#stopMethodTracing())
 method calls.
 
 **Important:** Ensure that you disable
-debugging for your app if using [`WebView`](https://developer.android.com/reference/android/webkit/WebView) to display
+debugging for your app if using [`WebView`](https://developer.android.com/reference/android/webkit/WebView.md.txt) to display
 paid content or if using JavaScript interfaces, because debugging lets users
 inject scripts and extract content using Chrome DevTools. To disable
 debugging, use the
-[`WebView.setWebContentsDebuggingEnabled()`](https://developer.android.com/reference/android/webkit/WebView#setWebContentsDebuggingEnabled(boolean))
+[`WebView.setWebContentsDebuggingEnabled()`](https://developer.android.com/reference/android/webkit/WebView.md.txt#setWebContentsDebuggingEnabled(boolean))
 method.
 
 ### Clean up your project directories
@@ -248,14 +250,14 @@ following cleanup tasks:
 Verify that the following manifest and build files items are set
 correctly:
 
-- `https://developer.android.com/guide/topics/manifest/uses-permission-element` element
+- `<uses-permission>` element
 
   Specify only those permissions that are relevant and required for your
   app.
 - `android:icon` and `android:label` attributes
 
   You must specify values for these attributes, which are located in the
-  `https://developer.android.com/guide/topics/manifest/application-element` element.
+  `<application>` element.
 - `versionCode` and `versionName` properties
 
   We recommend that you specify values for these properties, which are
@@ -266,7 +268,7 @@ There are several additional build file elements that you can set if you
 are releasing your app on Google Play. For example, the `minSdk` and
 `targetSdk` attributes, which are located in the app module-level
 `build.gradle` or `build.gradle.kts` file. For more
-information about these and other Google Play settings, see [Filters on Google Play](https://developer.android.com/google/play/filters).
+information about these and other Google Play settings, see [Filters on Google Play](https://developer.android.com/google/play/filters.md.txt).
 
 ### Address compatibility issues
 
@@ -276,7 +278,7 @@ of users, consider doing the following:
 
 Add support for multiple screen configurations.
 :   Make sure you meet the best practices for
-    [supporting multiple screens](https://developer.android.com/guide/practices/screens_support#screen-independence). By supporting multiple screen configurations,
+    [supporting multiple screens](https://developer.android.com/guide/practices/screens_support.md.txt#screen-independence). By supporting multiple screen configurations,
     you can create an app that functions properly and looks good on any of the screen sizes
     supported by Android.
 
@@ -337,7 +339,7 @@ about the signing process, see [Sign your app](https://developer.android.com/too
 
 If your app relies on a remote server, make sure the server is secure and that
 it is configured for production use. This is particularly important if you are
-implementing [in-app billing](https://developer.android.com/google/play/billing) in
+implementing [in-app billing](https://developer.android.com/google/play/billing.md.txt) in
 your app and you are performing the signature verification step on a remote
 server.
 

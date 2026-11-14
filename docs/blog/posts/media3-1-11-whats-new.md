@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/media3-1-11-whats-new
 source: md.txt
 ---
 
-[How-tos](https://developer.android.com/blog/categories/how-tos)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
 # Media3 1.11 - What's new?
 
-3 min read ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) 11 Aug 2026 [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) Software Engineer, Android Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components. We're expanding our Jetpack Compose UI modules with customizable `Player` slots and easy to use defaults, interactive gestures, state observers, and short-form video preloading using `PlayerPool`. We also modernized the Media3 Cast integration with SystemUI Output Switcher support, introduced a new Ktor HTTP client network extension, and added new muxing utilities for Ogg and WAV files.
+3 min read ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) 11 Aug 2026 [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich.md.txt) [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich.md.txt) Software Engineer, Android Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components. We're expanding our Jetpack Compose UI modules with customizable `Player` slots and easy to use defaults, interactive gestures, state observers, and short-form video preloading using `PlayerPool`. We also modernized the Media3 Cast integration with SystemUI Output Switcher support, introduced a new Ktor HTTP client network extension, and added new muxing utilities for Ogg and WAV files.
 
 Read on for key highlights, and check out the full [release notes](https://github.com/androidx/media/releases/tag/1.11.0) for a comprehensive list of changes.
 
@@ -95,7 +97,7 @@ fun TopAppBarWithCast() {
 
 ### Eclipsa Video - HAGC dynamic HDR metadata (API 37+)
 
-[Eclipsa Video](https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen) promises a more consistent HDR experience across devices, with a consistent baseline HDR white, adaptive headroom depending on the screen and the surroundings, ensuring the creative intent is preserved on all devices.
+[Eclipsa Video](https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen.md.txt) promises a more consistent HDR experience across devices, with a consistent baseline HDR white, adaptive headroom depending on the screen and the surroundings, ensuring the creative intent is preserved on all devices.
 
 ExoPlayer now supports playback of the necessary HAGC (ST 2094-50) timed metadata for progressive media (MP4, Matroska). The player automatically merges HAGC metadata tracks with the associated video track and delivers the metadata out-of-band to the decoder on API 37+ devices. On older devices, ExoPlayer seamlessly falls back to providing a standard HDR playback experience without the adjustments.
 ![eclipsa.png](https://developer.android.com/static/blog/assets/eclipsa_90a4444436_Z12VbAb.webp) Illustration to show benefits of Eclipsa Video HDR, like more consistent color contract
@@ -133,41 +135,41 @@ We've added two new dedicated muxers: `OggMuxer` for muxing `OPUS` and `VORBIS` 
 - **Chapter Extraction:** QuickTime and Nero chapter from MP4 files (`.m4a`, `.m4b`), and Matroska chapters, are now extracted as `Chapter` metadata entries for audiobook and podcast navigation.
 
 Please use the [issue tracker](https://github.com/androidx/media/issues) to report any bugs, or if you have questions or feature requests. We look forward to hearing from you!
-- [#Media3](https://developer.android.com/blog/topics/media3)
-- [#Jetpack](https://developer.android.com/blog/topics/jetpack)
-- [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+- [#Media3](https://developer.android.com/blog/topics/media3.md.txt)
+- [#Jetpack](https://developer.android.com/blog/topics/jetpack.md.txt)
+- [#ExoPlayer](https://developer.android.com/blog/topics/exo-player.md.txt)
 Written by:
 
 -
 
-  ## [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich)
+  ## [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich.md.txt)
 
   ###### Software Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/toni-heidenreich) ![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp) ![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)
 Continue reading
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
+  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
+  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
+- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang.md.txt) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
+  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
-  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZRbYap.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
+  [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt) • 6 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions)
+  ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post, we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
-  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 6 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker.md.txt) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 4 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
 Stay in the loop
 
 

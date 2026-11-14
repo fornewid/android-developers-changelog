@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/billing/promo
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/billing/llms.txt
+
 Promotions, or *promo codes*, enable you to give one-time products or trials
 to subscriptions free-of-charge to a limited number of users. The user enters
 a promo code, either in your app or in the Google Play Store app, and receives
@@ -24,7 +26,7 @@ including the following:
 For subscriptions, note the following:
 
 - Promo codes offer free trials to subscriptions and not free subscriptions.
-- Promotions do not extend other free trials. If a subscription begins with a free trial without requiring a promo code, a promotion would override the original free trial length.
+- Promotions don't extend other free trials. If a subscription begins with a free trial without requiring a promo code, a promotion would override the original free trial length.
 - Users who would otherwise not be eligible for free trials---for example, users who had purchased a subscription in the past but are no longer subscribed---are still eligible for a free trial through a promotion.
 - You can create only one promo code per subscription product. That is, you can create a promo code only for a single base plan or offer.
 
@@ -48,8 +50,7 @@ Before implementing a promotion, be sure to consider the following:
 
 ## Creating and managing promotions
 
-To learn how to set up and manage promotions, see
-[Create Promotions](https://support.google.com/googleplay/android-developer/answer/6321495).
+To learn how to set up and manage promotions, see [Create Promotions](https://support.google.com/googleplay/android-developer/answer/6321495).
 
 ## User redemption flow
 
@@ -57,30 +58,28 @@ Once a user has a promo code, they can redeem it in one of the following ways:
 
 - **In your app:** The user can initiate the purchase by clicking the down arrow next to the form of payment in the Google Play purchase screen and then clicking the **Redeem** link to type in the code.
 - **In the Play store:** The user can manually enter the code in the Google Play Store by clicking the Play Store left navigation menu and tapping **Redeem Code** .
-  - The user can also skip manual code entry by instead following a [deep link](https://developer.android.com/google/play/billing/promo#deep-link) to the Google Play Store.
+  - The user can also skip manual code entry by instead following a [deep link](https://developer.android.com/google/play/billing/promo.md.txt#deep-link) to the Google Play Store.
 
 As an example, figure 1 shows a purchase screen for a subscription. To enter
 a promo code, tap the arrow next to the current payment method to show the
 **Payment methods** screen, as shown in figure 2. Next, tap **Redeem code**
 to go to the **Redeem a gift card or promo code** screen, as shown in figure 3.
 You can then enter your promo code on this screen and tap *Redeem* to finish.
-![a subscription purchase dialog](https://developer.android.com/static/images/google/play/billing/promo-purchase-screen.png) **Figure 1.** A subscription purchase dialog. ![screen that lists payment methods for an in-app purchase](https://developer.android.com/static/images/google/play/billing/promo-payment-methods.png) **Figure 2.** Screen that lists payment methods for an in-app purchase. ![promo code screen](https://developer.android.com/static/images/google/play/billing/promo-redeem.png) **Figure 3.** Promo code screen.
+![a subscription purchase dialog](https://developer.android.com/static/images/google/play/billing/promo-purchase-screen.png) **Figure 1.** A subscription purchase dialog. ![screen that lists payment methods for an in-app purchase](https://developer.android.com/static/images/google/play/billing/promo-payment-methods.png) **Figure 2.** Screen that lists payment methods for an in-app purchase. ![Promo code redemption screen in the Play Store.](https://developer.android.com/static/images/google/play/billing/promo-redeem.png) **Figure 3.** Promo code screen.
 
 For subscription promo codes, note the following:
 
 - Custom codes can be redeemed only from within your app, while one-time codes can be redeemed through both your app and the Play store.
 - After the user redeems the code, they still need to purchase the subscription with the code applied. A valid form of payment is required for the subscription, and the subscription will auto-renew at the end of the promo code free trial period.
-- If using Billing Library version 2.0 or higher, a user who redeems a one-time code from the Play store is immediately asked to purchase the subscription through the Play store. This is an out-of-app purchase, so be sure that your app can [handle these purchases gracefully](https://developer.android.com/google/play/billing/integrate#ooap).
-  - If your app does not yet support Billing Library 2.0, the user must download your app, navigate to the correct subscription, and then purchase the subscription from within your app to use the promotion code.
+- If using Billing Library version 2.0 or higher, a user who redeems a one-time code from the Play store is immediately asked to purchase the subscription through the Play store. This is an out-of-app purchase, so be sure that your app can [handle these purchases gracefully](https://developer.android.com/google/play/billing/integrate.md.txt#process).
+  - If your app doesn't support Billing Library 2.0, the user must download your app, navigate to the correct subscription, and then purchase the subscription from within your app to use the promotion code.
 
 ## Implementing promo codes
 
 To ensure your app is ready to handle promo codes, your app needs to
-properly handle redemptions that occur outside of your app. To learn more,
-see [Processing purchases](https://developer.android.com/google/play/billing/integrate#process),
-[Fetching purchases](https://developer.android.com/google/play/billing/integrate#fetch), and
-[Handling purchases made outside of your app](https://developer.android.com/google/play/billing/integrate#ooap)
-in [Integrate the Google Play Billing Library into your app](https://developer.android.com/google/play/billing/integrate).
+handle redemptions that occur outside of your app. To learn more,
+see [Detect and process purchases](https://developer.android.com/google/play/billing/integrate.md.txt#process) in
+[Integrate the Google Play Billing Library into your app](https://developer.android.com/google/play/billing/integrate.md.txt).
 
 ## Deep link
 
@@ -91,7 +90,7 @@ following format for a promo code URL:
     https://play.google.com/redeem?code=promo_code
 
 Figure 4 shows the Google Play app's **Redeem Code** dialog:
-![google play app's redeem code dialog](https://developer.android.com/static/images/google/play/billing/redeem-code-dialog.png) **Figure 4.** Google Play app's **Redeem Code** dialog.
+![The Google Play app Redeem Code prompt.](https://developer.android.com/static/images/google/play/billing/redeem-code-dialog.png) **Figure 4.** Google Play app's **Redeem Code** dialog.
 
 After the user presses **Redeem**, if the latest version of your app is
 installed, the Google Play Store prompts the user to open the app. Otherwise,
@@ -99,5 +98,4 @@ the Google Play Store prompts the user to update or download your app.
 
 ## Testing promo codes
 
-To test your promo code implementation, see
-[Test promo codes](https://developer.android.com/google/play/billing/test#promo).
+To test your promo code implementation, see [Test promo codes](https://developer.android.com/google/play/billing/test.md.txt#promo).

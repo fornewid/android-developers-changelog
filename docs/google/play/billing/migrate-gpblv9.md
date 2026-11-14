@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/billing/migrate-gpblv9
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/billing/llms.txt
+
 This document describes how to migrate from Google Play Billing Library (PBL) 7
 or 8 to PBL 9 and how to integrate with the new features.
 
@@ -30,7 +32,8 @@ To activate the skill, try the following prompt:
 ## Overview
 
 PBL 9 contains improvements to existing APIs along with the removal of
-previously deprecated APIs. This version of the library also introduces richer error context through new sub-response codes.
+previously deprecated APIs. This version of the library also introduces richer
+error context through new sub-response codes.
 
 ## Backward-compatibility for PBL upgrade
 
@@ -52,11 +55,11 @@ To upgrade from PBL 7 or 8 to PBL 9, do the following steps:
    }
    ```
 
-   If you're using Kotlin, the Google Play Billing Library KTX module contains
-   Kotlin extensions and coroutines support that enable you to write idiomatic
-   Kotlin when using the Google Play Billing Library. To include these
-   extensions in your project, add the following dependency to your app's
-   `build.gradle` file as shown:
+   If you're using Kotlin, the Google Play Billing Library KTX module
+   contains Kotlin extensions and coroutines support that let you write
+   idiomatic Kotlin when using the Google Play Billing Library. To include
+   these extensions in your project, add the following dependency to your
+   app's `build.gradle` file:
 
    ```kotlin
    dependencies {
@@ -135,8 +138,10 @@ To upgrade from PBL 7 or 8 to PBL 9, do the following steps:
    - `USER_INELIGIBLE` - Returned when the user doesn't meet the configured eligibility requirements for a subscription offer.
    - `NO_APPLICABLE_SUB_RESPONSE_CODE` - The default value, returned when no other sub-response code is applicable.
 
-   **Migration step** : Update your `PurchasesUpdatedListener` or equivalent result handling to recognize and respond to these specific sub-response
-   codes to provide a better user experience. For example, prompting to fix payment methods or showing a specific error message.
+   **Migration step** : Update your `PurchasesUpdatedListener` or equivalent
+   result handling to recognize and respond to these specific sub-response
+   codes to provide a better user experience. For example, prompt the user to
+   fix payment methods or show a specific error message.
 6. Error-code reclassification awareness.
 
    For instances where the Play Store app is blocked by the system

@@ -4,17 +4,19 @@ url: https://developer.android.com/blog/posts/deeper-performance-considerations
 source: md.txt
 ---
 
-[How-tos](https://developer.android.com/blog/categories/how-tos)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
 # Deeper Performance Considerations
 
-8 min read ![](https://developer.android.com/static/blog/assets/performance_Week11_efe6dd10be_1ULXct.webp) 19 Nov 2025 3 Authors [Ben Weiss,](https://developer.android.com/blog/authors/ben-weiss) [Breana Tate,](https://developer.android.com/blog/authors/breana-tate) [Jossi Wolf](https://developer.android.com/blog/authors/jossi-wolf) Compose yourselves and let us guide you through more background on performance.
+8 min read ![](https://developer.android.com/static/blog/assets/performance_Week11_efe6dd10be_1ULXct.webp) 19 Nov 2025 3 Authors [Ben Weiss,](https://developer.android.com/blog/authors/ben-weiss.md.txt) [Breana Tate,](https://developer.android.com/blog/authors/breana-tate.md.txt) [Jossi Wolf](https://developer.android.com/blog/authors/jossi-wolf.md.txt) Compose yourselves and let us guide you through more background on performance.
 
 Welcome to day 3 of Performance Spotlight Week. Today we're continuing to share details and guidance on important areas of app performance. We're covering Profile Guided Optimization, Jetpack Compose performance improvements and considerations on working behind the scenes. Let's dive right in.
 
 ## **Profile Guided Optimization**
 
-[Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview) and [Startup Profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations) are foundational to improve an Android app's startup and runtime performance. They are part of a group of performance optimizations called Profile Guided Optimization.
+[Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt) and [Startup Profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations) are foundational to improve an Android app's startup and runtime performance. They are part of a group of performance optimizations called Profile Guided Optimization.
 
 When an app is packaged, the d8 dexer takes classes and methods and populates your app's `classes.dex` files. When a user opens the app, these dex files are loaded, one after the other until the app can start. By providing a **Startup Profile** you let d8 know which classes and methods to pack in the first `classes.dex` files. This structure allows the app to load fewer files, which in turn improves startup speed.
 
@@ -38,7 +40,7 @@ Across Meta's apps the teams have seen various critical metrics improve by up to
 
 ## **Get started with Baseline Profiles**
 
-To generate either a Baseline or Startup Profile, you write a [macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview) test that exercises the app. During the test profile data is collected which will be used during app compilation. The tests are written using the new [UiAutomator API](https://developer.android.com/training/testing/other-components/ui-automator), which we'll cover tomorrow.
+To generate either a Baseline or Startup Profile, you write a [macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview.md.txt) test that exercises the app. During the test profile data is collected which will be used during app compilation. The tests are written using the new [UiAutomator API](https://developer.android.com/training/testing/other-components/ui-automator.md.txt), which we'll cover tomorrow.
 
 Writing a benchmark like this is straightforward and you can see the full sample on [GitHub](https://github.com/android/performance-samples/tree/main/MacrobenchmarkSample).
 
@@ -83,7 +85,7 @@ To learn how Baseline Profiles work under the hood, watch this video from the An
 And check out the Android Build Time episode on Profile Guided Optimization for another in-depth look:
 [Video](https://www.youtube.com/watch?v=8zgNN0Z44TE)
 
-We also have extensive guidance on [Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview) and [Startup Profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations) available for further reading.
+We also have extensive guidance on [Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt) and [Startup Profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations) available for further reading.
 
 ## **Jetpack Compose performance improvements**
 
@@ -164,11 +166,11 @@ Reference the [Background Work landing page](https://developer.android.com/devel
 
 To debug Background Work and understand why a task may have been delayed or failed, you need visibility into how the system has scheduled your tasks.
 
-To help with this, WorkManager has several related[tools to help you debug locally](https://developer.android.com/develop/background-work/background-tasks/testing/persistent/debug) and optimize performance (some of these work for JobScheduler as well)! Here are some common scenarios you might encounter when using WorkManager, and an explanation of tools you can use to debug them.
+To help with this, WorkManager has several related[tools to help you debug locally](https://developer.android.com/develop/background-work/background-tasks/testing/persistent/debug.md.txt) and optimize performance (some of these work for JobScheduler as well)! Here are some common scenarios you might encounter when using WorkManager, and an explanation of tools you can use to debug them.
 
 ## Debugging why scheduled work is not executing
 
-Scheduled work being delayed or not executing at all can be due to a number of factors, including specified constraints not being met or constraints having been [imposed by the system](https://developer.android.com/topic/performance/power/power-details).
+Scheduled work being delayed or not executing at all can be due to a number of factors, including specified constraints not being met or constraints having been [imposed by the system](https://developer.android.com/topic/performance/power/power-details.md.txt).
 
 The first step in investigating why scheduled work is not running is to **confirm the work was successfully scheduled**. After confirming the scheduling status, determine whether there are any unmet constraints or preconditions preventing the work from executing.
 
@@ -190,7 +192,7 @@ To debug why scheduled work is not executing with the Background Task Inspector,
 
 ### **adb shell dumpsys jobscheduler**
 
-This [command](https://developer.android.com/develop/background-work/background-tasks/testing/persistent/debug#use-alb-shell0dumpsys-jobscheduler) returns a list of all active JobScheduler jobs (which includes WorkManager Workers) along with specified constraints, and system-imposed constraints. It also returns job history.
+This [command](https://developer.android.com/develop/background-work/background-tasks/testing/persistent/debug.md.txt#use-alb-shell0dumpsys-jobscheduler) returns a list of all active JobScheduler jobs (which includes WorkManager Workers) along with specified constraints, and system-imposed constraints. It also returns job history.
 
 Use this if you want a different way to view your scheduled work and associated constraints. For WorkManager versions earlier than WorkManager 2.10.0, `adb shell dumpsys jobscheduler` will return a list of Workers with this name:
 
@@ -204,17 +206,17 @@ If your app has multiple workers, updating to WorkManager 2.10.0 will allow you 
 #WorkerName#@[package name]/androidx.work.impl.background.systemjob.SystemJobService
 ```
 
-**Benefits:** This command is useful for understanding if there were any *system-imposed constraints, *which you cannot determine with the Background Task Inspector. For example, this will return your [app's standby bucket](https://developer.android.com/topic/performance/power/power-details#app-stdby-bucket), which can affect the window in which scheduled work completes.
+**Benefits:** This command is useful for understanding if there were any *system-imposed constraints, *which you cannot determine with the Background Task Inspector. For example, this will return your [app's standby bucket](https://developer.android.com/topic/performance/power/power-details.md.txt#app-stdby-bucket), which can affect the window in which scheduled work completes.
 
 ### **Enable Debug logging**
 
-You can enable [custom logging](https://developer.android.com/develop/background-work/background-tasks/testing/persistent/debug#enable-logging) to see verbose WorkManager logs, which will have `WM---` attached.
+You can enable [custom logging](https://developer.android.com/develop/background-work/background-tasks/testing/persistent/debug.md.txt#enable-logging) to see verbose WorkManager logs, which will have `WM---` attached.
 
 **Benefits:** This allows you to gain visibility into when work is scheduled, constraints are fulfilled, and lifecycle events, and you can consult these logs while developing your app.
 
 ### **WorkInfo.StopReason**
 
-If you notice unpredictable performance with a specific worker, you can programmatically observe the reason your worker was stopped on the previous run attempt with [`WorkInfo.getStopReason`](https://developer.android.com/reference/androidx/work/WorkInfo).
+If you notice unpredictable performance with a specific worker, you can programmatically observe the reason your worker was stopped on the previous run attempt with [`WorkInfo.getStopReason`](https://developer.android.com/reference/androidx/work/WorkInfo.md.txt).
 
 It's a good practice to configure your app to observe WorkInfo using getWorkInfoByIdFlow to identify if your work is being affected by background restrictions, constraints, frequent timeouts, or even stopped by the user.
 
@@ -222,11 +224,11 @@ It's a good practice to configure your app to observe WorkInfo using getWorkInfo
 
 ## Debugging WorkManager-attributed high wake lock duration flagged by Android vitals
 
-Android vitals features an excessive partial wake locks metric, which highlights wake locks contributing to battery drain. You may be surprised to know that [WorkManager acquires wake locks to execute tasks](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls#workmanager), and if the wake locks exceed the threshold set by Google Play, can have impacts to your app's visibility. How can you debug why there is so much wake lock duration attributed to your work? You can use the following tools.
+Android vitals features an excessive partial wake locks metric, which highlights wake locks contributing to battery drain. You may be surprised to know that [WorkManager acquires wake locks to execute tasks](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls.md.txt#workmanager), and if the wake locks exceed the threshold set by Google Play, can have impacts to your app's visibility. How can you debug why there is so much wake lock duration attributed to your work? You can use the following tools.
 
 ### **Android vitals dashboard**
 
-First confirm in the [Android vitals excessive wake lock dashboard](https://play.google.com/console/developers/app/vitals/metrics/details?metric=EXCESSIVE_BACKGROUND_WAKELOCKS&days=28) that the high wake lock duration *is* from WorkManager and not an alarm or other wake lock. You can use the [Identify wake locks created by other APIs](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls) documentation to understand which wake locks are held due to WorkManager.
+First confirm in the [Android vitals excessive wake lock dashboard](https://play.google.com/console/developers/app/vitals/metrics/details?metric=EXCESSIVE_BACKGROUND_WAKELOCKS&days=28) that the high wake lock duration *is* from WorkManager and not an alarm or other wake lock. You can use the [Identify wake locks created by other APIs](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls.md.txt) documentation to understand which wake locks are held due to WorkManager.
 
 ### **Perfetto**
 
@@ -239,7 +241,7 @@ Under "Device State: Jobs" track, you can see any workers that have been execute
 
 ### **Resources**
 
-Consult the [Debug WorkManager page](https://developer.android.com/develop/background-work/background-tasks/testing/persistent/debug) for an overview of the available debugging methods for other scenarios you might encounter.
+Consult the [Debug WorkManager page](https://developer.android.com/develop/background-work/background-tasks/testing/persistent/debug.md.txt) for an overview of the available debugging methods for other scenarios you might encounter.
 
 And to try some of these methods hands on and learn more about debugging WorkManager, check out the[Advanced WorkManager and Testing](https://developer.android.com/codelabs/basic-android-kotlin-compose-verify-background-work#0) codelab.
 
@@ -271,7 +273,7 @@ Written by:
 
 -
 
-  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss)
+  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -279,7 +281,7 @@ Written by:
   View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)
 -
 
-  ## [Breana Tate](https://developer.android.com/blog/authors/breana-tate)
+  ## [Breana Tate](https://developer.android.com/blog/authors/breana-tate.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -287,38 +289,35 @@ Written by:
   View profile](https://developer.android.com/blog/authors/breana-tate) ![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_1PpSPG.webp) ![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_1PpSPG.webp)
 -
 
-  ## [Jossi Wolf](https://developer.android.com/blog/authors/jossi-wolf)
+  ## [Jossi Wolf](https://developer.android.com/blog/authors/jossi-wolf.md.txt)
 
   ###### Software Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/jossi-wolf) ![View Jossi Wolf's profile](https://developer.android.com/static/blog/assets/Jossi_Wolf_d703979815_M1Gw1.webp) ![View Jossi Wolf's profile](https://developer.android.com/static/blog/assets/Jossi_Wolf_d703979815_M1Gw1.webp)
 Continue reading
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZRbYap.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss.md.txt) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZRbYap.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions)
+  ## [Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post, we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
-  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 6 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_1VESew.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post, we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
+  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt) • 6 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss.md.txt) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_1VESew.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Get your app on the fast track with Android Performance Spotlight Week!](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week)
+  ## [Get your app on the fast track with Android Performance Spotlight Week!](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week) When working on new features, app performance often takes a back seat. However, while it's not always top of mind for developers, users can see exactly where your app's performance lags behind.
-  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 3 min read
-  - [#Performance](https://developer.android.com/blog/topics/performance)
-  - [#R8](https://developer.android.com/blog/topics/r8)
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [arrow_forward](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week.md.txt) When working on new features, app performance often takes a back seat. However, while it's not always top of mind for developers, users can see exactly where your app's performance lags behind.
+  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt) • 3 min read
+  - [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
+  - [#R8](https://developer.android.com/blog/topics/r8.md.txt)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
-  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
-  - [#Media3](https://developer.android.com/blog/topics/media3)
-  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
-  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
-  - +1 ↩
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
+  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
 Stay in the loop
 
 

@@ -4,9 +4,9 @@ url: https://developer.android.com/topic/performance/views/sqlite-performance-be
 source: md.txt
 ---
 
-[Concepts and Jetpack Compose implementation](https://developer.android.com/topic/performance/sqlite-performance-best-practices)
+[Concepts and Jetpack Compose implementation](https://developer.android.com/topic/performance/sqlite-performance-best-practices.md.txt)
 
-Android offers [built-in support for SQLite](https://developer.android.com/training/data-storage/sqlite), an
+Android offers [built-in support for SQLite](https://developer.android.com/training/data-storage/sqlite.md.txt), an
 efficient SQL database. Follow these best practices to optimize your app's
 performance, ensuring it remains fast and predictably fast as your data grows.
 By using these best practices, you also reduce the possibility of
@@ -31,7 +31,7 @@ Additionally, you can use the available troubleshooting tools to measure the
 performance of your SQLite database to help identify areas that require
 optimization.
 
-We recommend using the [Jetpack Room library](https://developer.android.com/training/data-storage/room).
+We recommend using the [Jetpack Room library](https://developer.android.com/training/data-storage/room.md.txt).
 
 ## Configure the database for performance
 
@@ -54,31 +54,35 @@ you open the database:
 
 ### Kotlin
 
-    // When opening the database
-    val params = SQLiteDatabase.OpenParams.Builder()
-        .addOpenFlags(SQLiteDatabase.ENABLE_WRITE_AHEAD_LOGGING)
-        // SYNC_MODE_NORMAL is available in API level 33 and higher.
-        // On API levels 28 to 32, pass "NORMAL" instead.
-        .setSynchronousMode(SQLiteDatabase.SYNC_MODE_NORMAL)
-        .build()
-    // With SQLiteOpenHelper, call setOpenParams(params) in your constructor.
+```kotlin
+// When opening the database
+val params = SQLiteDatabase.OpenParams.Builder()
+    .addOpenFlags(SQLiteDatabase.ENABLE_WRITE_AHEAD_LOGGING)
+    // SYNC_MODE_NORMAL is available in API level 33 and higher.
+    // On API levels 28 to 32, pass "NORMAL" instead.
+    .setSynchronousMode(SQLiteDatabase.SYNC_MODE_NORMAL)
+    .build()
+// With SQLiteOpenHelper, call setOpenParams(params) in your constructor.
 
-    // Or: after having opened the database
-    db.execSQL("PRAGMA synchronous = NORMAL")
+// Or: after having opened the database
+db.execSQL("PRAGMA synchronous = NORMAL")
+```
 
 ### Java
 
-    // When opening the database
-    SQLiteDatabase.OpenParams params = new SQLiteDatabase.OpenParams.Builder()
-        .addOpenFlags(SQLiteDatabase.ENABLE_WRITE_AHEAD_LOGGING)
-        // SYNC_MODE_NORMAL is available in API level 33 and higher.
-        // On API levels 28 to 32, pass "NORMAL" instead.
-        .setSynchronousMode(SQLiteDatabase.SYNC_MODE_NORMAL)
-        .build();
-    // With SQLiteOpenHelper, call setOpenParams(params) in your constructor.
+```java
+// When opening the database
+SQLiteDatabase.OpenParams params = new SQLiteDatabase.OpenParams.Builder()
+    .addOpenFlags(SQLiteDatabase.ENABLE_WRITE_AHEAD_LOGGING)
+    // SYNC_MODE_NORMAL is available in API level 33 and higher.
+    // On API levels 28 to 32, pass "NORMAL" instead.
+    .setSynchronousMode(SQLiteDatabase.SYNC_MODE_NORMAL)
+    .build();
+// With SQLiteOpenHelper, call setOpenParams(params) in your constructor.
 
-    // Or: after having opened the database
-    db.execSQL("PRAGMA synchronous = NORMAL");
+// Or: after having opened the database
+db.execSQL("PRAGMA synchronous = NORMAL");
+```
 
 In this setting, a commit can return before the data is stored in a disk. If a
 device shutdown occurs, such as on loss of power or a kernel panic, the
@@ -107,29 +111,33 @@ of results you see:
 
 ### Kotlin
 
-    db.rawQuery("""
-        SELECT name
-        FROM Customers
-        LIMIT 10;
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        while (cursor.moveToNext()) {
-            // Process cursor data
-        }
+```kotlin
+db.rawQuery("""
+    SELECT name
+    FROM Customers
+    LIMIT 10;
+    """.trimIndent(),
+    null
+).use { cursor ->
+    while (cursor.moveToNext()) {
+        // Process cursor data
     }
+}
+```
 
 ### Java
 
-    try (Cursor cursor = db.rawQuery("""
-        SELECT name
-        FROM Customers
-        LIMIT 10;
-        """, null)) {
-      while (cursor.moveToNext()) {
-        // Process cursor data
-      }
-    }
+```java
+try (Cursor cursor = db.rawQuery("""
+    SELECT name
+    FROM Customers
+    LIMIT 10;
+    """, null)) {
+  while (cursor.moveToNext()) {
+    // Process cursor data
+  }
+}
+```
 
 ### Read only the columns you need
 
@@ -141,64 +149,72 @@ In the following example, you select `id`, `name`, and `phone`:
 
 ### Kotlin
 
-    // This is not the most efficient way of doing this.
-    // See the following example for a better approach.
+```kotlin
+// This is not the most efficient way of doing this.
+// See the following example for a better approach.
 
-    db.rawQuery(
-        """
-        SELECT id, name, phone
-        FROM customers;
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        while (cursor.moveToNext()) {
-            val name = cursor.getString(1)
-            // Further processing
-        }
+db.rawQuery(
+    """
+    SELECT id, name, phone
+    FROM customers;
+    """.trimIndent(),
+    null
+).use { cursor ->
+    while (cursor.moveToNext()) {
+        val name = cursor.getString(1)
+        // Further processing
     }
+}
+```
 
 ### Java
 
-    // This is not the most efficient way of doing this.
-    // See the following example for a better approach.
+```java
+// This is not the most efficient way of doing this.
+// See the following example for a better approach.
 
-    try (Cursor cursor = db.rawQuery("""
-        SELECT id, name, phone
-        FROM customers;
-        """, null)) {
-      while (cursor.moveToNext()) {
-        String name = cursor.getString(1);
-        // Further processing
-      }
-    }
+try (Cursor cursor = db.rawQuery("""
+    SELECT id, name, phone
+    FROM customers;
+    """, null)) {
+  while (cursor.moveToNext()) {
+    String name = cursor.getString(1);
+    // Further processing
+  }
+}
+```
 
 However, you only need the `name` column:
 
 ### Kotlin
 
-    db.rawQuery("""
-        SELECT name
-        FROM Customers;
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        while (cursor.moveToNext()) {
-            val name = cursor.getString(0)
-            // Further processing
-        }
+```kotlin
+db.rawQuery("""
+    SELECT name
+    FROM Customers;
+    """.trimIndent(),
+    null
+).use { cursor ->
+    while (cursor.moveToNext()) {
+        val name = cursor.getString(0)
+        // Further processing
     }
+}
+```
 
 ### Java
 
-    try (Cursor cursor = db.rawQuery("""
-        SELECT name
-        FROM Customers;
-        """, null)) {
-      while (cursor.moveToNext()) {
-        String name = cursor.getString(0);
-        // Further processing
-      }
-    }
+```java
+try (Cursor cursor = db.rawQuery("""
+    SELECT name
+    FROM Customers;
+    """, null)) {
+  while (cursor.moveToNext()) {
+    String name = cursor.getString(0);
+    // Further processing
+  }
+}
+```
 
 ### Parameterize queries
 
@@ -207,31 +223,35 @@ as the following:
 
 ### Kotlin
 
-    fun getNameById(id: Long): String? {
-        db.rawQuery(
-            "SELECT name FROM customers WHERE id=$id", null
-        ).use { cursor ->
-            return if (cursor.moveToFirst()) {
-                cursor.getString(0)
-            } else {
-                null
-            }
+```kotlin
+fun getNameById(id: Long): String? {
+    db.rawQuery(
+        "SELECT name FROM customers WHERE id=$id", null
+    ).use { cursor ->
+        return if (cursor.moveToFirst()) {
+            cursor.getString(0)
+        } else {
+            null
         }
     }
+}
+```
 
 ### Java
 
-    @Nullable
-    public String getNameById(long id) {
-      try (Cursor cursor = db.rawQuery(
-          "SELECT name FROM customers WHERE id=" + id, null)) {
-        if (cursor.moveToFirst()) {
-          return cursor.getString(0);
-        } else {
-          return null;
-        }
-      }
+```java
+@Nullable
+public String getNameById(long id) {
+  try (Cursor cursor = db.rawQuery(
+      "SELECT name FROM customers WHERE id=" + id, null)) {
+    if (cursor.moveToFirst()) {
+      return cursor.getString(0);
+    } else {
+      return null;
     }
+  }
+}
+```
 
 In the preceding code, every query constructs a different string, and thus
 doesn't benefit from the statement cache. Each call requires SQLite to compile
@@ -241,38 +261,42 @@ bind the value with `selectionArgs`:
 
 ### Kotlin
 
-    fun getNameById(id: Long): String? {
-        db.rawQuery(
-            """
-              SELECT name
-              FROM customers
-              WHERE id=?
-            """.trimIndent(), arrayOf(id.toString())
-        ).use { cursor ->
-            return if (cursor.moveToFirst()) {
-                cursor.getString(0)
-            } else {
-                null
-            }
+```kotlin
+fun getNameById(id: Long): String? {
+    db.rawQuery(
+        """
+          SELECT name
+          FROM customers
+          WHERE id=?
+        """.trimIndent(), arrayOf(id.toString())
+    ).use { cursor ->
+        return if (cursor.moveToFirst()) {
+            cursor.getString(0)
+        } else {
+            null
         }
     }
+}
+```
 
 ### Java
 
-    @Nullable
-    public String getNameById(long id) {
-      try (Cursor cursor = db.rawQuery("""
-              SELECT name
-              FROM customers
-              WHERE id=?
-          """, new String[] {String.valueOf(id)})) {
-        if (cursor.moveToFirst()) {
-          return cursor.getString(0);
-        } else {
-          return null;
-        }
-      }
+```java
+@Nullable
+public String getNameById(long id) {
+  try (Cursor cursor = db.rawQuery("""
+          SELECT name
+          FROM customers
+          WHERE id=?
+      """, new String[] {String.valueOf(id)})) {
+    if (cursor.moveToFirst()) {
+      return cursor.getString(0);
+    } else {
+      return null;
     }
+  }
+}
+```
 
 Now the query can be compiled once and cached. The compiled query is reused
 between different invocations of `getNameById(long)`.
@@ -288,29 +312,33 @@ to return only the unique values from a column, use `DISTINCT`:
 
 ### Kotlin
 
-    db.rawQuery("""
-        SELECT DISTINCT name
-        FROM Customers;
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        while (cursor.moveToNext()) {
-            // Only iterate over distinct names in Kotlin
-            // Process distinct name
-        }
+```kotlin
+db.rawQuery("""
+    SELECT DISTINCT name
+    FROM Customers;
+    """.trimIndent(),
+    null
+).use { cursor ->
+    while (cursor.moveToNext()) {
+        // Only iterate over distinct names in Kotlin
+        // Process distinct name
     }
+}
+```
 
 ### Java
 
-    try (Cursor cursor = db.rawQuery("""
-        SELECT DISTINCT name
-        FROM Customers;
-        """, null)) {
-      while (cursor.moveToNext()) {
-        // Only iterate over distinct names in Java
-        // Process distinct name
-      }
-    }
+```java
+try (Cursor cursor = db.rawQuery("""
+    SELECT DISTINCT name
+    FROM Customers;
+    """, null)) {
+  while (cursor.moveToNext()) {
+    // Only iterate over distinct names in Java
+    // Process distinct name
+  }
+}
+```
 
 ### Use aggregate functions whenever possible
 
@@ -319,83 +347,91 @@ following code checks whether there is at least one matching row:
 
 ### Kotlin
 
-    // This is not the most efficient way of doing this.
-    // See the following example for a better approach.
+```kotlin
+// This is not the most efficient way of doing this.
+// See the following example for a better approach.
 
-    db.rawQuery("""
-        SELECT id, name
-        FROM Customers
-        WHERE city = 'Paris';
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        if (cursor.moveToFirst()) {
-            // At least one customer from Paris
-            // Handle found
-        } else {
-            // No customers from Paris
-            // Handle not found
-    }
+db.rawQuery("""
+    SELECT id, name
+    FROM Customers
+    WHERE city = 'Paris';
+    """.trimIndent(),
+    null
+).use { cursor ->
+    if (cursor.moveToFirst()) {
+        // At least one customer from Paris
+        // Handle found
+    } else {
+        // No customers from Paris
+        // Handle not found
+}
+```
 
 ### Java
 
-    // This is not the most efficient way of doing this.
-    // See the following example for a better approach.
+```java
+// This is not the most efficient way of doing this.
+// See the following example for a better approach.
 
-    try (Cursor cursor = db.rawQuery("""
-        SELECT id, name
-        FROM Customers
-        WHERE city = 'Paris';
-        """, null)) {
-      if (cursor.moveToFirst()) {
-        // At least one customer from Paris
-        // Handle found
-      } else {
-        // No customers from Paris
-        // Handle not found
-      }
-    }
+try (Cursor cursor = db.rawQuery("""
+    SELECT id, name
+    FROM Customers
+    WHERE city = 'Paris';
+    """, null)) {
+  if (cursor.moveToFirst()) {
+    // At least one customer from Paris
+    // Handle found
+  } else {
+    // No customers from Paris
+    // Handle not found
+  }
+}
+```
 
 To only fetch the first row, you can use `EXISTS()` to return `0` if a matching
 row does not exist and `1` if one or more rows match:
 
 ### Kotlin
 
-    db.rawQuery("""
-        SELECT EXISTS (
-            SELECT null
-            FROM Customers
-            WHERE city = 'Paris';
-        );
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        if (cursor.moveToFirst() && cursor.getInt(0) == 1) {
-            // At least one customer from Paris
-            // Handle found
-        } else {
-            // No customers from Paris
-            // Handle not found
-        }
+```kotlin
+db.rawQuery("""
+    SELECT EXISTS (
+        SELECT null
+        FROM Customers
+        WHERE city = 'Paris';
+    );
+    """.trimIndent(),
+    null
+).use { cursor ->
+    if (cursor.moveToFirst() && cursor.getInt(0) == 1) {
+        // At least one customer from Paris
+        // Handle found
+    } else {
+        // No customers from Paris
+        // Handle not found
     }
+}
+```
 
 ### Java
 
-    try (Cursor cursor = db.rawQuery("""
-        SELECT EXISTS (
-          SELECT null
-          FROM Customers
-          WHERE city = 'Paris'
-        );
-        """, null)) {
-      if (cursor.moveToFirst() && cursor.getInt(0) == 1) {
-        // At least one customer from Paris
-        // Handle found
-      } else {
-        // No customers from Paris
-        // Handle not found
-      }
-    }
+```java
+try (Cursor cursor = db.rawQuery("""
+    SELECT EXISTS (
+      SELECT null
+      FROM Customers
+      WHERE city = 'Paris'
+    );
+    """, null)) {
+  if (cursor.moveToFirst() && cursor.getInt(0) == 1) {
+    // At least one customer from Paris
+    // Handle found
+  } else {
+    // No customers from Paris
+    // Handle not found
+  }
+}
+```
 
 Use [SQLite aggregate functions](https://www.sqlite.org/lang_aggfunc.html) in your app
 code:
@@ -410,63 +446,71 @@ code:
 
 In the
 following example, the
-[`Cursor.getCount()`](https://developer.android.com/reference/android/database/Cursor#getCount()) function
+[`Cursor.getCount()`](https://developer.android.com/reference/android/database/Cursor.md.txt#getCount()) function
 reads all the rows from the database and returns all the row values:
 
 ### Kotlin
 
-    // This is not the most efficient way of doing this.
-    // See the following example for a better approach.
+```kotlin
+// This is not the most efficient way of doing this.
+// See the following example for a better approach.
 
-    db.rawQuery("""
-        SELECT id
-        FROM Customers;
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        val count = cursor.getCount()
-        // Use count
-    }
+db.rawQuery("""
+    SELECT id
+    FROM Customers;
+    """.trimIndent(),
+    null
+).use { cursor ->
+    val count = cursor.getCount()
+    // Use count
+}
+```
 
 ### Java
 
-    // This is not the most efficient way of doing this.
-    // See the following example for a better approach.
+```java
+// This is not the most efficient way of doing this.
+// See the following example for a better approach.
 
-    try (Cursor cursor = db.rawQuery("""
-        SELECT id
-        FROM Customers;
-        """, null)) {
-      int count = cursor.getCount();
-      // Use count
-    }
+try (Cursor cursor = db.rawQuery("""
+    SELECT id
+    FROM Customers;
+    """, null)) {
+  int count = cursor.getCount();
+  // Use count
+}
+```
 
 However, by using `COUNT()`, the database returns only the
 count:
 
 ### Kotlin
 
-    db.rawQuery("""
-        SELECT COUNT(*)
-        FROM Customers;
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        cursor.moveToFirst()
-        val count = cursor.getInt(0)
-        // Use count
-    }
+```kotlin
+db.rawQuery("""
+    SELECT COUNT(*)
+    FROM Customers;
+    """.trimIndent(),
+    null
+).use { cursor ->
+    cursor.moveToFirst()
+    val count = cursor.getInt(0)
+    // Use count
+}
+```
 
 ### Java
 
-    try (Cursor cursor = db.rawQuery("""
-        SELECT COUNT(*)
-        FROM Customers;
-        """, null)) {
-      cursor.moveToFirst();
-      int count = cursor.getInt(0);
-      // Use count
-    }
+```java
+try (Cursor cursor = db.rawQuery("""
+    SELECT COUNT(*)
+    FROM Customers;
+    """, null)) {
+  cursor.moveToFirst();
+  int count = cursor.getInt(0);
+  // Use count
+}
+```
 
 ### Nest queries instead of code
 
@@ -481,99 +525,107 @@ that city:
 
 ### Kotlin
 
-    // This is not the most efficient way of doing this.
-    // See the following example for a better approach.
+```kotlin
+// This is not the most efficient way of doing this.
+// See the following example for a better approach.
 
-    db.rawQuery("""
-        SELECT city
-        FROM Customers
-        GROUP BY city
-        ORDER BY COUNT(*) DESC
-        LIMIT 1;
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        if (cursor.moveToFirst()) {
-            val topCity = cursor.getString(0)
-            db.rawQuery("""
-                SELECT name, city
-                FROM Customers
-                WHERE city = ?;
-            """.trimIndent(),
-            arrayOf(topCity)).use { innerCursor ->
-                while (innerCursor.moveToNext()) {
-                    // Process inner cursor data
-                }
-            }
-        }
-    }
-
-### Java
-
-    // This is not the most efficient way of doing this.
-    // See the following example for a better approach.
-
-    try (Cursor cursor = db.rawQuery("""
-        SELECT city
-        FROM Customers
-        GROUP BY city
-        ORDER BY COUNT(*) DESC
-        LIMIT 1;
-        """, null)) {
-      if (cursor.moveToFirst()) {
-        String topCity = cursor.getString(0);
-        try (Cursor innerCursor = db.rawQuery("""
+db.rawQuery("""
+    SELECT city
+    FROM Customers
+    GROUP BY city
+    ORDER BY COUNT(*) DESC
+    LIMIT 1;
+    """.trimIndent(),
+    null
+).use { cursor ->
+    if (cursor.moveToFirst()) {
+        val topCity = cursor.getString(0)
+        db.rawQuery("""
             SELECT name, city
             FROM Customers
             WHERE city = ?;
-            """, new String[] {topCity})) {
+        """.trimIndent(),
+        arrayOf(topCity)).use { innerCursor ->
             while (innerCursor.moveToNext()) {
-              // Process inner cursor data
+                // Process inner cursor data
             }
         }
-      }
     }
+}
+```
+
+### Java
+
+```java
+// This is not the most efficient way of doing this.
+// See the following example for a better approach.
+
+try (Cursor cursor = db.rawQuery("""
+    SELECT city
+    FROM Customers
+    GROUP BY city
+    ORDER BY COUNT(*) DESC
+    LIMIT 1;
+    """, null)) {
+  if (cursor.moveToFirst()) {
+    String topCity = cursor.getString(0);
+    try (Cursor innerCursor = db.rawQuery("""
+        SELECT name, city
+        FROM Customers
+        WHERE city = ?;
+        """, new String[] {topCity})) {
+        while (innerCursor.moveToNext()) {
+          // Process inner cursor data
+        }
+    }
+  }
+}
+```
 
 To get the result in half the time of the previous example, use a single SQL
 query with nested statements:
 
 ### Kotlin
 
-    db.rawQuery("""
-        SELECT name, city
+```kotlin
+db.rawQuery("""
+    SELECT name, city
+    FROM Customers
+    WHERE city IN (
+        SELECT city
         FROM Customers
-        WHERE city IN (
-            SELECT city
-            FROM Customers
-            GROUP BY city
-            ORDER BY COUNT (*) DESC
-            LIMIT 1;
-        );
-        """.trimIndent(),
-        null
-    ).use { cursor ->
-        if (cursor.moveToNext()) {
-            // Process cursor data
-        }
+        GROUP BY city
+        ORDER BY COUNT (*) DESC
+        LIMIT 1;
+    );
+    """.trimIndent(),
+    null
+).use { cursor ->
+    if (cursor.moveToNext()) {
+        // Process cursor data
     }
+}
+```
 
 ### Java
 
-    try (Cursor cursor = db.rawQuery("""
-        SELECT name, city
-        FROM Customers
-        WHERE city IN (
-          SELECT city
-          FROM Customers
-          GROUP BY city
-          ORDER BY COUNT(*) DESC
-          LIMIT 1
-        );
-        """, null)) {
-      while(cursor.moveToNext()) {
-        // Process cursor data
-      }
-    }
+```java
+try (Cursor cursor = db.rawQuery("""
+    SELECT name, city
+    FROM Customers
+    WHERE city IN (
+      SELECT city
+      FROM Customers
+      GROUP BY city
+      ORDER BY COUNT(*) DESC
+      LIMIT 1
+    );
+    """, null)) {
+  while(cursor.moveToNext()) {
+    // Process cursor data
+  }
+}
+```
 
 ### Check uniqueness in SQL
 
@@ -586,107 +638,121 @@ inserted and another to actually insert:
 
 ### Kotlin
 
-    // This is not the most efficient way of doing this.
-    // See the following example for a better approach.
+```kotlin
+// This is not the most efficient way of doing this.
+// See the following example for a better approach.
 
-    db.rawQuery(
-        """
-        SELECT EXISTS (
-            SELECT null
-            FROM customers
-            WHERE username = ?
-        );
-        """.trimIndent(),
-        arrayOf(customer.username)
-    ).use { cursor ->
-        if (cursor.moveToFirst() && cursor.getInt(0) == 1) {
-            throw AddCustomerException(customer)
-        }
+db.rawQuery(
+    """
+    SELECT EXISTS (
+        SELECT null
+        FROM customers
+        WHERE username = ?
+    );
+    """.trimIndent(),
+    arrayOf(customer.username)
+).use { cursor ->
+    if (cursor.moveToFirst() && cursor.getInt(0) == 1) {
+        throw AddCustomerException(customer)
     }
-    db.execSQL(
-        "INSERT INTO customers VALUES (?, ?, ?)",
-        arrayOf(
-            customer.id.toString(),
-            customer.name,
-            customer.username
-        )
+}
+db.execSQL(
+    "INSERT INTO customers VALUES (?, ?, ?)",
+    arrayOf(
+        customer.id.toString(),
+        customer.name,
+        customer.username
     )
+)
+```
 
 ### Java
 
-    // This is not the most efficient way of doing this.
-    // See the following example for a better approach.
+```java
+// This is not the most efficient way of doing this.
+// See the following example for a better approach.
 
-    try (Cursor cursor = db.rawQuery("""
-        SELECT EXISTS (
-          SELECT null
-          FROM customers
-          WHERE username = ?
-        );
-        """, new String[] { customer.username })) {
-      if (cursor.moveToFirst() && cursor.getInt(0) == 1) {
-        throw new AddCustomerException(customer);
-      }
-    }
-    db.execSQL(
-        "INSERT INTO customers VALUES (?, ?, ?)",
-        new String[] {
-          String.valueOf(customer.id),
-          customer.name,
-          customer.username,
-        });
+try (Cursor cursor = db.rawQuery("""
+    SELECT EXISTS (
+      SELECT null
+      FROM customers
+      WHERE username = ?
+    );
+    """, new String[] { customer.username })) {
+  if (cursor.moveToFirst() && cursor.getInt(0) == 1) {
+    throw new AddCustomerException(customer);
+  }
+}
+db.execSQL(
+    "INSERT INTO customers VALUES (?, ?, ?)",
+    new String[] {
+      String.valueOf(customer.id),
+      customer.name,
+      customer.username,
+    });
+```
 
 Instead of checking the unique constraint in Kotlin or Java, you can check it in
 SQL when you define the table:
 
-    CREATE TABLE Customers(
-      id INTEGER PRIMARY KEY,
-      name TEXT,
-      username TEXT UNIQUE
-    );
+```sql
+CREATE TABLE Customers(
+  id INTEGER PRIMARY KEY,
+  name TEXT,
+  username TEXT UNIQUE
+);
+```
 
 SQLite does the same as the following:
 
-    CREATE TABLE Customers(...);
-    CREATE UNIQUE INDEX CustomersUsername ON Customers(username);
+```sql
+CREATE TABLE Customers(...);
+CREATE UNIQUE INDEX CustomersUsername ON Customers(username);
+```
 
 > [!NOTE]
-> **Note:** An index table is created for `username`, which uses extra storage. For more information about querying an index table, see [Accelerate queries with indexes](https://developer.android.com/topic/performance/sqlite-performance-best-practices#accelerate-queries).
+> **Note:** An index table is created for `username`, which uses extra storage. For more information about querying an index table, see [Accelerate queries with indexes](https://developer.android.com/topic/performance/sqlite-performance-best-practices.md.txt#accelerate-queries).
 
 Now you can insert a row and let SQLite check the constraint:
 
 ### Kotlin
 
-    try {
-        db.execSQL(
-            "INSERT INTO Customers VALUES (?, ?, ?)",
-            arrayOf(customer.id.toString(), customer.name, customer.username)
-        )
-    } catch(e: SQLiteConstraintException) {
-        throw AddCustomerException(customer, e)
-    }
+```kotlin
+try {
+    db.execSQL(
+        "INSERT INTO Customers VALUES (?, ?, ?)",
+        arrayOf(customer.id.toString(), customer.name, customer.username)
+    )
+} catch(e: SQLiteConstraintException) {
+    throw AddCustomerException(customer, e)
+}
+```
 
 ### Java
 
-    try {
-      db.execSQL(
-          "INSERT INTO Customers VALUES (?, ?, ?)",
-          new String[] {
-            String.valueOf(customer.id),
-            customer.name,
-            customer.username,
-          });
-    } catch (SQLiteConstraintException e) {
-      throw new AddCustomerException(customer, e);
-    }
+```java
+try {
+  db.execSQL(
+      "INSERT INTO Customers VALUES (?, ?, ?)",
+      new String[] {
+        String.valueOf(customer.id),
+        customer.name,
+        customer.username,
+      });
+} catch (SQLiteConstraintException e) {
+  throw new AddCustomerException(customer, e);
+}
+```
 
 > [!NOTE]
-> **Note:** If you define [`INTEGER PRIMARY KEY`](https://developer.android.com/topic/performance/sqlite-performance-best-practices#consider-integer), then a unique constraint applies to that column and doesn't use an extra index table.
+> **Note:** If you define [`INTEGER PRIMARY KEY`](https://developer.android.com/topic/performance/sqlite-performance-best-practices.md.txt#consider-integer), then a unique constraint applies to that column and doesn't use an extra index table.
 
 SQLite supports unique indexes with multiple columns:
 
-    CREATE TABLE table(...);
-    CREATE UNIQUE INDEX unique_table ON table(column1, column2, ...);
+```sql
+CREATE TABLE table(...);
+CREATE UNIQUE INDEX unique_table ON table(column1, column2, ...);
+```
 
 SQLite validates constraints faster and with less overhead than Kotlin or Java
 code. It is a best practice to use SQLite rather than app code.
@@ -699,36 +765,64 @@ accelerate performance, you can batch insertions:
 
 ### Kotlin
 
-    db.beginTransaction()
-    try {
-        customers.forEach { customer ->
-            db.execSQL(
-                "INSERT INTO Customers VALUES (?, ?, ?)",
-                arrayOf(customer.id.toString(), customer.name, "customerValue")
-            )
-        }
-        db.setTransactionSuccessful()
-    } finally {
-        db.endTransaction()
+```kotlin
+db.beginTransaction()
+try {
+    customers.forEach { customer ->
+        db.execSQL(
+            "INSERT INTO Customers VALUES (?, ?, ?)",
+            arrayOf(customer.id.toString(), customer.name, "customerValue")
+        )
     }
+    db.setTransactionSuccessful()
+} finally {
+    db.endTransaction()
+}
+```
 
 ### Java
 
-    db.beginTransaction();
-    try {
-      for (Customer customer : customers) {
-        db.execSQL(
-            "INSERT INTO Customers VALUES (?, ?, ?)",
-            new String[] {
-              String.valueOf(customer.id),
-              customer.name,
-              "customerValue"
-            });
-      }
-      db.setTransactionSuccessful();
-    } finally {
-      db.endTransaction();
-    }
+```java
+db.beginTransaction();
+try {
+  for (Customer customer : customers) {
+    db.execSQL(
+        "INSERT INTO Customers VALUES (?, ?, ?)",
+        new String[] {
+          String.valueOf(customer.id),
+          customer.name,
+          "customerValue"
+        });
+  }
+  db.setTransactionSuccessful();
+} finally {
+  db.endTransaction();
+}
+```
+
+Keep non-database work out of the transaction. Don't hold an open write
+transaction across blocking file I/O such as `File.delete`, network requests,
+interprocess communication such as `ContentResolver` calls or broadcasts, or
+lock acquisitions:
+
+- Concurrent database writes block until the transaction ends, and without WAL, reads block too.
+- Acquiring an app lock between [`beginTransaction`](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.md.txt#beginTransaction()) and [`endTransaction`](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.md.txt#endTransaction()) risks a deadlock if another thread holds that lock while waiting for a database connection.
+- Rolling back a failed transaction doesn't undo external side effects such as deleted files, and broadcasts sent before `endTransaction` commits wake receivers before your changes are visible.
+
+Prepare external inputs before calling `beginTransaction`, run only SQLite
+operations between `beginTransaction` and `endTransaction`, and record any file
+paths or payloads in memory to run cleanup or send broadcasts after
+`endTransaction` commits.
+
+If the database references immutable files, store them in one parent directory
+and create, write, and sync each file under a unique name before starting the
+transaction. Because file names are unique and the database is the source of
+truth for active files, skip the atomic rename step. To clean up files left
+behind by rolled-back transactions or replaced rows, schedule a periodic
+[`WorkManager`](https://developer.android.com/reference/androidx/work/WorkManager.md.txt) job on the same sequential write executor (or under the same
+explicit lock) that serializes database writes and file creation, so the cleanup
+pass queries active rows and deletes unreferenced files without racing an
+in-flight writer.
 
 > [!NOTE]
 > **Note:** Only one write transaction can occur at a time. Use `MoreExecutors.newSequentialExecutor(Executor)` to serialize writes.
@@ -736,6 +830,6 @@ accelerate performance, you can batch insertions:
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Run benchmarks in Continuous Integration](https://developer.android.com/topic/performance/benchmarking/benchmarking-in-ci)
-- [Frozen frames](https://developer.android.com/topic/performance/issues/render#frozen-frames)
-- [Create and measure Baseline Profiles without Macrobenchmark](https://developer.android.com/topic/performance/baselineprofiles/manually-create-measure)
+- [Run benchmarks in Continuous Integration](https://developer.android.com/topic/performance/benchmarking/benchmarking-in-ci.md.txt)
+- [Frozen frames](https://developer.android.com/topic/performance/issues/render.md.txt#frozen-frames)
+- [Create and measure Baseline Profiles without Macrobenchmark](https://developer.android.com/topic/performance/baselineprofiles/manually-create-measure.md.txt)

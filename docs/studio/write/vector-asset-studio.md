@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/write/vector-asset-studio
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/write/llms.txt
+
 Android Studio includes a tool called Vector Asset Studio that helps you add
 Material icons and import Scalable Vector Graphic (SVG) and Adobe Photoshop
 Document (PSD) files into your project as vector drawable resources. Using
@@ -24,21 +26,10 @@ To use vector drawables with Jetpack Compose, you must set the minimum API level
 to Android 5.0 (API level 21) and higher.
 
 Android 4.4 (API level 20) and lower doesn't support vector drawables. If your
-minimum API level is set at one of these API levels, you have two options when
-using Vector Asset Studio: generate Portable Network Graphic (PNG) files (the
-default) or use the backward compatibility technique in AndroidX.
+minimum API level is in that range, Vector Asset Studio offers two options:
 
-For backward compatibility, Vector Asset Studio generates raster images of the
-vector drawable. The vector and raster drawables are packaged together in the
-APK. You can refer to vector drawables as [`Drawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/Drawable) in Kotlin code or
-`@drawable` in XML code; when your app runs, the corresponding vector
-or raster image displays automatically depending on the API level.
-
-If you want to use vector drawables only, you can use AndroidX 1.0.0 or
-higher. This technique requires a change to your `build.gradle` file
-before you run Vector Asset Studio, as described in [AndroidX](https://developer.android.com/studio/write/vector-asset-studio#androidx-backward-compatibility). The
-[`VectorDrawableCompat`](https://developer.android.com/reference/kotlin/androidx/vectordrawable/graphics/drawable/VectorDrawableCompat) class in AndroidX lets you support
-`VectorDrawable` in Android 2.1 (API level 7) and higher.
+- **Generate PNG files (default):** Vector Asset Studio generates raster images of the vector drawable and packages both the vector and raster drawables in the APK. You can refer to vector drawables as [`Drawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/Drawable.md.txt) in Kotlin code or `@drawable` in XML code; when your app runs, the corresponding vector or raster image displays automatically depending on the API level.
+- **Use AndroidX 1.0.0 or higher:** To use vector drawables only, change your `build.gradle` file before you run Vector Asset Studio, as described in [AndroidX](https://developer.android.com/studio/write/vector-asset-studio.md.txt#androidx-backward-compatibility). The [`VectorDrawableCompat`](https://developer.android.com/reference/kotlin/androidx/vectordrawable/graphics/drawable/VectorDrawableCompat.md.txt) class in AndroidX lets you support `VectorDrawable` in Android 2.1 (API level 7) and higher.
 
 ### Supported vector graphic types
 
@@ -54,23 +45,22 @@ format supports Adobe Photoshop features. Vector Asset Studio supports the
 essential standards, but not all SVG and PSD features. When you specify an SVG
 or PSD file, Vector Asset Studio gives immediate feedback about whether the
 graphics code is supported or not. It converts the file into an XML file
-containing [`VectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable) code. If you receive errors, you should
+containing [`VectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable.md.txt) code. If you receive errors, you should
 verify that your vector drawable appears as intended. For more information
-about allowed PSD features, see [Support and restrictions for PSD files](https://developer.android.com/studio/write/vector-asset-studio#PSD).
+about allowed PSD features, see [Support and restrictions for PSD files](https://developer.android.com/studio/write/vector-asset-studio.md.txt#PSD).
 
 For Android 5.0 (API level 21) and higher, you can use the
-[`AnimatedVectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/AnimatedVectorDrawable) class to animate the properties of the
-[`VectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable) class. With AndroidX, you can use the
-[`AnimatedVectorDrawableCompat`](https://developer.android.com/reference/kotlin/androidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat) class to animate the `VectorDrawable` class
+[`AnimatedVectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/AnimatedVectorDrawable.md.txt) class to animate the properties of the
+[`VectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable.md.txt) class. With AndroidX, you can use the
+[`AnimatedVectorDrawableCompat`](https://developer.android.com/reference/kotlin/androidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat.md.txt) class to animate the `VectorDrawable` class
 for Android 3.0 (API level 11) and higher. For more information, see
-[Animated vector images in Compose](https://developer.android.com/develop/ui/compose/animation/vectors).
+[Animated vector images in Compose](https://developer.android.com/develop/ui/compose/animation/vectors.md.txt).
 
 ### Considerations for SVG and PSD files
 
-A vector drawable is appropriate for simple icons. The
-[Material icons](https://m3.material.io/styles/icons/overview) provide good examples of the types
-of images that work well as vector drawables in an app. In contrast, many app
-launch icons do have many details, so they work better as raster images.
+Vector drawables work best for basic icons, such as
+[Material icons](https://m3.material.io/styles/icons/overview). App launch icons often have many details, so
+they work better as raster images.
 
 The initial loading of a vector drawable can cost more CPU cycles than the
 corresponding raster image. Afterward, memory use and performance are similar
@@ -79,7 +69,7 @@ between the two. We recommend that you limit a vector image to a maximum of
 
 Although vector drawables do support one or more colors, in many cases it makes
 sense to color icons black (`android:fillColor="#FF000000"`). Using this
-approach, you can add a [tint](https://developer.android.com/develop/ui/compose/graphics/images/customize#tint-image) to the vector drawable that you placed in
+approach, you can add a [tint](https://developer.android.com/develop/ui/compose/graphics/images/customize.md.txt#tint-image) to the vector drawable that you placed in
 a layout, and the icon color changes to the tint color. If the icon color
 isn't black, the icon color might instead blend with the tint color.
 
@@ -90,7 +80,7 @@ backward compatibility:
 
 | Technique | Drawables in APK | VectorDrawable XML elements | Version | Build flags | App code |
 |---|---|---|---|---|---|
-| **PNG generation** | Vector and raster | [Subset supported](https://developer.android.com/studio/write/vector-asset-studio#apilevel) | SVG: [Android plugin for Gradle](https://developer.android.com/studio/releases/gradle-plugin) 1.5.0 or higher PSD: Android Studio 2.2 or higher | Default | Variety of coding techniques supported |
+| **PNG generation** | Vector and raster | [Subset supported](https://developer.android.com/studio/write/vector-asset-studio.md.txt#apilevel) | SVG: [Android plugin for Gradle](https://developer.android.com/studio/releases/gradle-plugin) 1.5.0 or higher PSD: Android Studio 2.2 or higher | Default | Variety of coding techniques supported |
 | **AndroidX 1.0 or higher** | Vector | Full support | Android plugin for Gradle 3.2 or higher | Support Library statements required | [Subset of coding techniques supported](https://android-developers.blogspot.com/2016/02/android-support-library-232.html) |
 
 Using vector drawables can produce a smaller APK, but the initial loading of
@@ -106,7 +96,7 @@ the Domain Specific Language (DSL) [generatedDensities](https://google.github.io
 in a `build.gradle` file.
 
 For Android 5.0 (API level 21) and higher, Vector Asset Studio supports all of
-the [`VectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable) elements. For backward compatibility with Android
+the [`VectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable.md.txt) elements. For backward compatibility with Android
 4.4 (API level 20) and lower, Vector Asset Studio supports the following
 XML elements:
 `<vector>`
@@ -149,7 +139,7 @@ you need to make sure that they're supported based on your minimum API level.
 #### AndroidX
 
 This technique requires AndroidX 1.0 or higher and Android Plugin for Gradle
-3.2 or higher, and uses vector drawables only. The [`VectorDrawableCompat`](https://developer.android.com/reference/kotlin/androidx/vectordrawable/graphics/drawable/VectorDrawableCompat)
+3.2 or higher, and uses vector drawables only. The [`VectorDrawableCompat`](https://developer.android.com/reference/kotlin/androidx/vectordrawable/graphics/drawable/VectorDrawableCompat.md.txt)
 class in AndroidX lets you support `VectorDrawable` in
 Android 2.1 (API level 7) and higher.
 
@@ -190,20 +180,14 @@ To start Vector Asset Studio:
 
 1. In Android Studio, open an Android app project.
 
-2. In the *Project* window, select the [Android view](https://developer.android.com/studio/projects#ProjectFiles).
+2. In the *Project* window, select the [Android view](https://developer.android.com/studio/projects.md.txt#ProjectFiles).
 
 3. Right-click the **res** folder and select **New** \> **Vector Asset**.
 
    Some other project views and folders have this menu item as well.
 
    Vector Asset Studio appears.
-
-   ![](https://developer.android.com/static/studio/images/write/vector-asset-studio-material-icon.png)
-
-   **Figure 1**. Vector Asset Studio.
-
-   <br />
-
+   ![Vector Asset Studio displaying Material icon selection.](https://developer.android.com/static/studio/images/write/vector-asset-studio-material-icon.png) **Figure 1.** Vector Asset Studio.
 4. If a *Need Newer Android Plugin for Gradle* dialog appears instead, correct
    your Gradle version as follows:
 
@@ -215,24 +199,24 @@ To start Vector Asset Studio:
       Gradle version to **1.5.0** or higher, and click **OK**.
 
       Gradle syncs the project.
-   4. In the [Android view](https://developer.android.com/studio/projects#ProjectFiles)
+   4. In the [Android view](https://developer.android.com/studio/projects.md.txt#ProjectFiles)
       of the *Project* window, right-click the **res** folder and select
       **New** \> **Vector Asset**.
 
       Vector Asset Studio appears.
-5. Continue with [Importing a Vector Graphic](https://developer.android.com/studio/write/vector-asset-studio#importing).
+5. Continue with [Importing a Vector Graphic](https://developer.android.com/studio/write/vector-asset-studio.md.txt#importing).
 
 ## Importing a vector graphic
 
 Vector Asset Studio helps you to import a vector graphics file into your app
 project. Follow one of the following procedures:
 
-- [Adding a Material icon](https://developer.android.com/studio/write/vector-asset-studio#materialicon)
-- [Importing an SVG or PSD file](https://developer.android.com/studio/write/vector-asset-studio#svg)
+- [Adding a Material icon](https://developer.android.com/studio/write/vector-asset-studio.md.txt#materialicon)
+- [Importing an SVG or PSD file](https://developer.android.com/studio/write/vector-asset-studio.md.txt#svg)
 
 ### Adding a Material icon
 
-After you [open Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio#running), you can add a Material icon as
+After you [open Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio.md.txt#running), you can add a Material icon as
 follows:
 
 1. In Vector Asset Studio, select **Clip art**.
@@ -243,11 +227,7 @@ follows:
    by selecting an icon category from the menu or typing in the
    search field as shown in figure 2.
 
-   ![](https://developer.android.com/static/studio/images/write/vector-asset-studio-filtering.png)
-
-   **Figure 2**. Filtering Material icons in the Vector Asset Studio.
-
-   <br />
+   ![Filtering Material icons in Vector Asset Studio.](https://developer.android.com/static/studio/images/write/vector-asset-studio-filtering.png) **Figure 2.** Filtering Material icons in the Vector Asset Studio.
 
    Select a Material icon and click **OK** . The icon appears in the
    **Vector Drawable Preview**.
@@ -291,13 +271,13 @@ follows:
 
    Vector Asset Studio adds an XML file defining the vector drawable to the
    project in the `app/src/main/res/drawable/` folder. From the
-   [Android view](https://developer.android.com/studio/projects#ProjectFiles) of the *Project* window, you can view the generated
+   [Android view](https://developer.android.com/studio/projects.md.txt#ProjectFiles) of the *Project* window, you can view the generated
    vector XML file in the **drawable** folder.
 8. Build the project.
 
    If the minimum API level is Android 4.4 (API level 20) and lower, and you
    haven't enabled the AndroidX technique, Vector Asset Studio generates
-   PNG files. From the [Project Files view](https://developer.android.com/studio/projects#ProjectFiles)
+   PNG files. From the [Project Files view](https://developer.android.com/studio/projects.md.txt#ProjectFiles)
    of the *Project* window, you can view the generated PNG and XML files in the
    `app/build/generated/res/pngs/debug/` folder.
 
@@ -307,7 +287,7 @@ follows:
 
 ### Importing an SVG or PSD file
 
-After you [open Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio#running), you can import an SVG or PSD file as
+After you [open Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio.md.txt#running), you can import an SVG or PSD file as
 follows:
 
 1. In Vector Asset Studio, select **Local file**.
@@ -320,19 +300,14 @@ follows:
 
    If the SVG or PSD file contains unsupported features, an error appears at
    the bottom of Vector Asset Studio, as shown in figure 3.
-
-   ![](https://developer.android.com/static/studio/images/write/vector-asset-studio-error.png)
-
-   **Figure 3**. Vector Asset Studio displaying some errors.
-
-   <br />
+   ![Vector Asset Studio displaying SVG import errors.](https://developer.android.com/static/studio/images/write/vector-asset-studio-error.png) **Figure 3.** Vector Asset Studio displaying some errors.
 
    If you see errors, you need to make sure that the imported vector drawable
    renders properly. Scroll through the list to view the errors.
 
    For a list of supported elements, see
-   [Vector Drawable Backward-Compatibility Solutions](https://developer.android.com/studio/write/vector-asset-studio#apilevel). For more information
-   about allowed PSD files, see [Support and Restrictions for PSD Files](https://developer.android.com/studio/write/vector-asset-studio#PSD).
+   [Vector Drawable Backward-Compatibility Solutions](https://developer.android.com/studio/write/vector-asset-studio.md.txt#apilevel). For more information
+   about allowed PSD files, see [Support and Restrictions for PSD Files](https://developer.android.com/studio/write/vector-asset-studio.md.txt#PSD).
 3. Optionally change the resource name, size, opacity, and Right-To-Left (RTL)
    mirroring setting:
 
@@ -372,13 +347,13 @@ follows:
 
    Vector Asset Studio adds an XML file defining the vector drawable to the
    project in the `app/src/main/res/drawable/` folder. From the
-   [Android view](https://developer.android.com/studio/projects#ProjectFiles) of the *Project* window, you can view the generated
+   [Android view](https://developer.android.com/studio/projects.md.txt#ProjectFiles) of the *Project* window, you can view the generated
    vector XML file in the **drawable** folder.
 7. Build the project.
 
    If the minimum API level is Android 4.4 (API level 20) and lower, and you
    haven't enabled the AndroidX technique, Vector Asset Studio generates
-   PNG files. From the [Project Files view](https://developer.android.com/studio/projects#ProjectFiles)
+   PNG files. From the [Project Files view](https://developer.android.com/studio/projects.md.txt#ProjectFiles)
    of the *Project* window, you can view the generated PNG and XML files in the
    `app/build/generated/res/pngs/debug/` folder.
 
@@ -419,8 +394,8 @@ Image(
 ```
 
 For other complex scenarios, such as customizing an image or optimizing
-performance, see [Working with images](https://developer.android.com/develop/ui/compose/graphics/images).
-For animating vectors, see [Animated vector images in Compose](https://developer.android.com/develop/ui/compose/animation/vectors).
+performance, see [Working with images](https://developer.android.com/develop/ui/compose/graphics/images.md.txt).
+For animating vectors, see [Animated vector images in Compose](https://developer.android.com/develop/ui/compose/animation/vectors.md.txt).
 
 ## Modifying XML code generated by Vector Asset Studio
 
@@ -429,7 +404,7 @@ XML code generated at build time. However, we don't recommend it.
 
 When using the PNG generation technique, Vector Asset Studio makes sure that
 the vector drawable and the PNGs match, and that the manifest contains the
-proper code. If you add code that's [not supported](https://developer.android.com/studio/write/vector-asset-studio#apilevel) on Android 4.4
+proper code. If you add code that's [not supported](https://developer.android.com/studio/write/vector-asset-studio.md.txt#apilevel) on Android 4.4
 (API level 20) and lower, your vector and PNG images might differ. You also
 need to make sure that the manifest contains the code to support your changes.
 
@@ -440,23 +415,17 @@ technique:
    **drawable** folder.
 
    The XML file appears in the editor and *Preview* windows.
-
-   ![](https://developer.android.com/static/studio/images/write/vector-asset-studio-drawable-preview.png)
-
-   **Figure 4**. A vector XML file displayed in the Code Editor and the Preview window.
-
-   <br />
-
+   ![A vector XML file displayed in the Code Editor and Preview window.](https://developer.android.com/static/studio/images/write/vector-asset-studio-drawable-preview.png) **Figure 4.** A vector XML file displayed in the Code Editor and the Preview window.
 2. Edit the XML code based on what's supported by the minimum API level:
 
    - Android 5.0 (API level 21) and higher - Vector Asset Studio supports all
-     of the [`Drawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/Drawable) and [`VectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable) elements. You can add XML
+     of the [`Drawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/Drawable.md.txt) and [`VectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable.md.txt) elements. You can add XML
      elements and change values. For Jetpack Compose, you can load the vector
-     drawable into [`ImageVector`](https://developer.android.com/develop/ui/compose/graphics/images/compare#image-vector) for further customization.
+     drawable into [`ImageVector`](https://developer.android.com/develop/ui/compose/graphics/images/compare.md.txt#image-vector) for further customization.
 
    - Android 4.4 (API level 20) and lower - Vector Asset Studio supports all of
-     the [`Drawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/Drawable) elements and a subset of the [`VectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable)
-     elements. See [Vector Drawable Backward-Compatibility Solutions](https://developer.android.com/studio/write/vector-asset-studio#apilevel) for
+     the [`Drawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/Drawable.md.txt) elements and a subset of the [`VectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable.md.txt)
+     elements. See [Vector Drawable Backward-Compatibility Solutions](https://developer.android.com/studio/write/vector-asset-studio.md.txt#apilevel) for
      a list. You can change values in the generated code and add XML elements
      that are supported.
 
@@ -470,15 +439,10 @@ technique:
    4.4 (API level 20) and lower don't appear in the generated PNG files. As a
    result, when you add code, you should always check that the generated PNGs
    match the vector drawable. To do so, you could double-click the PNG in the
-   [Project Files view](https://developer.android.com/studio/projects#ProjectFiles) of the *Project*
+   [Project Files view](https://developer.android.com/studio/projects.md.txt#ProjectFiles) of the *Project*
    window; the left margin of the Code Editor also displays the PNG image when
    your code refers to the drawable, as shown in figure 5.
-
-   ![](https://developer.android.com/static/studio/images/write/vector-asset-studio-code-editor-drawable-preview.png)
-
-   **Figure 5**. A PNG image displayed in the left margin of the Code Editor.
-
-   <br />
+   ![A PNG image displayed in the left margin of the Code Editor.](https://developer.android.com/static/studio/images/write/vector-asset-studio-code-editor-drawable-preview.png) **Figure 5.** A PNG image displayed in the left margin of the Code Editor.
 
 ## Deleting a vector drawable from a project
 
@@ -512,7 +476,7 @@ and you have corresponding vector drawables and raster images in your project,
 you have two options for delivering your APK files:
 
 - Create one APK that includes both the vector drawables and the corresponding raster representations. This solution is the simplest to implement.
-- Create separate APKs for different API levels. When you don't include the corresponding raster images in the APK for Android 5.0 (API level 21) and higher, the APK can be much smaller in size. For more information, see [Multiple APK Support](https://developer.android.com/google/play/publishing/multiple-apks).
+- Create separate APKs for different API levels. When you don't include the corresponding raster images in the APK for Android 5.0 (API level 21) and higher, the APK can be much smaller in size. For more information, see [Multiple APK Support](https://developer.android.com/google/play/publishing/multiple-apks.md.txt).
 
 ## Support and restrictions for PSD files
 
@@ -615,7 +579,7 @@ Not supported:
 
 Vector Asset Studio doesn't support all SVG file features. The following section
 summarizes supported and unsupported features when the tool converts an SVG file
-to a [`VectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable),
+to a [`VectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable.md.txt),
 along with additional conversion details.
 
 ### Supported features
@@ -632,7 +596,7 @@ as circles, squares, and polygons to paths.
 
 #### Transformations
 
-The tool supports transformation matrices and applies them directly to child
+The tool supports transformation matrixes and applies them directly to child
 paths.
 
 #### Groups
@@ -654,7 +618,7 @@ The tool supports one clipping mask per group.
 
 ### Features not supported by the SVG importer
 
-Any feature not listed in the earlier [Supported features](https://developer.android.com/studio/write/vector-asset-studio#svg-supported) section is
+Any feature not listed in the earlier [Supported features](https://developer.android.com/studio/write/vector-asset-studio.md.txt#svg-supported) section is
 unsupported. Notable unsupported features include the following:
 
 - Filter effects: effects such as drop shadows, blurs, and color matrix are not supported.
@@ -668,9 +632,9 @@ resources:
 
 ### Documentation
 
-- [Animated vector images in Compose](https://developer.android.com/develop/ui/compose/animation/vectors)
-- [Working with images](https://developer.android.com/develop/ui/compose/graphics/images)
+- [Animated vector images in Compose](https://developer.android.com/develop/ui/compose/animation/vectors.md.txt)
+- [Working with images](https://developer.android.com/develop/ui/compose/graphics/images.md.txt)
 
 ### Views content
 
-- [Add multi-density vector graphics (Views)](https://developer.android.com/studio/views/vector-asset-studio-views)
+- [Add multi-density vector graphics (Views)](https://developer.android.com/studio/views/vector-asset-studio-views.md.txt)

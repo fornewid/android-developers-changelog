@@ -4,7 +4,10 @@ url: https://developer.android.com/guide/playcore/feature-delivery/additional-re
 source: md.txt
 ---
 
-To learn more about customizable feature delivery, consult the following resources.
+> Documentation index: https://developer.android.com/guide/playcore/feature-delivery/llms.txt
+
+To learn more about customizable feature delivery, consult the following
+resources.
 
 ## Samples
 

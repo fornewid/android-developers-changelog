@@ -4,23 +4,21 @@ url: https://developer.android.com/google/play/billing/price-changes
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/billing/llms.txt
+
 You can change the prices of your subscription base plans and offers. For
 example, you might have digital products that need annual price adjustments, or
 you might change the set of benefits for a product and want to reflect these
 changes in the price.
 
 For more information about changing subscription prices using the Play Console,
-see the documentation in the [Play Console Help
-Center](https://support.google.com/googleplay/android-developer/answer/140504).
+see the documentation in the [Play Console Help Center](https://support.google.com/googleplay/android-developer/answer/140504).
 
 To programmatically change the subscription base plan price, use the
-[`monetization.subscriptions.patch`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions/patch)
-method. This method receives a
-[`Subscription`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions#resource:-subscription)
-object with the subscription product configuration that is being changed. Set
-the new price in the
-[`RegionalBasePlanConfig`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions#regionalbaseplanconfig)
-object under the correct base plan in the subscription's `basePlans` collection.
+[`monetization.subscriptions.patch`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions/patch) method. This method receives a
+[`Subscription`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions#resource:-subscription) object with the subscription product configuration that is
+being changed. Set the new price in the [`RegionalBasePlanConfig`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions#regionalbaseplanconfig) object
+under the correct base plan in the subscription's `basePlans` collection.
 This can be very useful if you have a sizable catalog and you need to make
 updates to all of your products in a short period of time, or if you have a
 product catalog management system that automatically makes changes to your
@@ -30,12 +28,10 @@ Google Play subscription products when changes occur.
 > **Note:** Some regions are considered child territories of a parent region for billing purposes. While purchase-status APIs may return the specific `regionCode` of a child territory (e.g., **PR** for Puerto Rico), you must use the **parent region's code** (e.g., **US** for United States) when programmatically updating prices using the Google Play Developer API. Using a child territory code directly will result in an error indicating the region is not billable.
 
 > [!WARNING]
-> **Warning:** You should not change the price of a [Subscribe with
-> Google](https://developers.google.com/news/subscribe) subscription.
+> **Warning:** You shouldn't change the price of a [Subscribe with Google](https://developers.google.com/news/subscribe) subscription.
 
-It could be useful to visit your Play Console [change
-log](https://support.google.com/googleplay/android-developer/answer/6053184) to
-look up info about any price changes you have made in the past. The information
+You can visit your Play Console [change log](https://support.google.com/googleplay/android-developer/answer/6053184) to look up information
+about any price changes you have made in the past. The information
 you can find there includes when the prices were updated, who initiated the
 change, the regions that were updated, and more. This might assist you in cases
 where you need to review past price changes or review an accidental price change
@@ -53,10 +49,10 @@ When you change subscription prices, existing subscribers are unaffected by
 default; they are placed into a legacy price cohort where they continue to pay
 their original base plan price when they renew.
 
-If desired, you can move existing subscribers to the current base plan price.
-This is action is called [ending a legacy price cohort](https://developer.android.com/google/play/billing/price-changes#end-legacy). Changes to
-an offer's pricing phases cannot be applied to existing subscribers. For
-installment subscriptions, price changes for a legacy cohort happen at the
+If you choose to, you can move existing subscribers to the current base plan
+price. This action is called [ending a legacy price cohort](https://developer.android.com/google/play/billing/price-changes.md.txt#end-legacy).
+Changes to an offer's pricing phases cannot be applied to existing subscribers.
+For installment subscriptions, price changes for a legacy cohort happen at the
 end of the active commitment period. You cannot change the price currently
 being paid for a user who is in the middle of paying their installments.
 
@@ -64,23 +60,21 @@ being paid for a user who is in the middle of paying their installments.
 
 You can choose to end a legacy price cohort at any time. This can be done
 independently for each region. To end a legacy price through the Play Console,
-refer to the [Play Console Help
-Center](https://support.google.com/googleplay/android-developer/answer/140504).
+refer to the [Play Console Help Center](https://support.google.com/googleplay/android-developer/answer/140504).
 
 ### End a legacy price cohort with the Google Play Developer API
 
 To programmaticaly end a legacy price cohort, use the
-[`monetization.subscriptions.basePlans.migratePrices`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions.basePlans/migratePrices)
-method. This method migrates subscribers who are receiving a historical
-subscription price to the current base plan price for the specified regions. The
-method also triggers price change notifications to be sent to users who are
-currently receiving a historical price older than the supplied timestamp. When
-you send this request, you include a list of
-[`RegionalPriceMigrationConfig`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions.basePlans/migratePrices#regionalpricemigrationconfig)
-objects in the request body to configure the price cohort migration.
+[`monetization.subscriptions.basePlans.migratePrices`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions.basePlans/migratePrices) method. This method
+migrates subscribers who are receiving a historical subscription price to the
+current base plan price for the specified regions. The method also triggers
+price change notifications to be sent to users who are currently receiving a
+historical price older than the supplied timestamp. When you send this request,
+you include a list of [`RegionalPriceMigrationConfig`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions.basePlans/migratePrices#regionalpricemigrationconfig) objects in the
+request body to configure the price cohort migration.
 
-For more information on using legacy price cohorts, see the [Play Console Help
-Center](https://support.google.com/googleplay/android-developer/answer/140504).
+For more information on using legacy price cohorts, see the
+[Play Console Help Center](https://support.google.com/googleplay/android-developer/answer/140504).
 
 ## Price decreases
 
@@ -96,8 +90,7 @@ period. Users who have already been authorized at the higher price won't be
 immediately charged the lower price; they will renew at the lower price on their
 subsequent renewal.
 
-[License testers](https://developer.android.com/google/play/billing/test) also receive email notifications
-for price decreases.
+[License testers](https://developer.android.com/google/play/billing/test.md.txt) also receive email notifications for price decreases.
 
 ## Price increases
 
@@ -158,9 +151,8 @@ the need to accept the price increase. When you initiate an opt-in price
 increase, you have seven days to notify your existing subscribers before Google
 Play begins to notify them directly. We recommend that you notify affected users
 in your app and provide a deep link to the Play Store subscription screen to
-help them easily review the new price. When users review an opt-in price
-increase on the Play Store subscription screen, a dialog similar to figure 2 is
-shown.
+help them review the new price. When users review an opt-in price increase on
+the Play Store subscription screen, a dialog similar to figure 2 is shown.
 ![Generic dialog notifying the user of a subscription price change](https://developer.android.com/static/images/google/play/billing/price-change-1.png) **Figure 2.** Example dialog notifying the user of a subscription price change.
 
 ## Handle user response to an opt-in price change
@@ -168,12 +160,11 @@ shown.
 After you have notified existing subscribers of a price change and it's an
 opt-in increase, they may take action before the new price applies to accept or
 not accept the price increase. If they do, you will receive an RTDN informing
-you of the outcome. See the [purchase lifecycle
-guidance](https://developer.android.com/google/play/billing/lifecycle/subscriptions#price-changes) to learn
-how to handle these notifications.
+you of the outcome. See the [purchase lifecycle guidance](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#price-changes) to learn how to
+handle these notifications.
 
 To notify users of an upcoming opt-in price increase, you can use the
-[in-app messaging](https://developer.android.com/google/play/billing/subscriptions#in-app-messaging) feature. This lets users to confirm the price
+[in-app messaging](https://developer.android.com/google/play/billing/subscriptions.md.txt#in-app-messaging) feature. This lets users to confirm the price
 increase without leaving the app. The message for an outstanding opt-in
 price increase is shown starting on the first day the user can accept the
 price increase, and the message is shown a maximum of once every 7 days.
@@ -277,8 +268,7 @@ testing purposes.
 You can use the [Play Billing Lab app](https://play.google.com/store/apps/details?id=com.google.android.apps.play.billingtestcompanion) and license testers to test subscription
 price changes without affecting other active subscribers.
 
-See the [testing guide](https://developer.android.com/google/play/billing/test#price-changes) to learn more
-about testing price changes.
+See the [testing guide](https://developer.android.com/google/play/billing/test.md.txt#price-changes) to learn more about testing price changes.
 
 ## Examples
 
@@ -403,7 +393,7 @@ starts paying the new price ($1.30) on February 14.
 
 ### Price step-up consent examples
 
-The [price step-up consent](https://developer.android.com/google/play/billing/lifecycle/subscriptions#price-stepup-consent)
+The [price step-up consent](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#price-stepup-consent)
 examples in this section are applicable only to the South Korea (KR) region.
 
 #### Example 1: User consents to the price step-up during signup

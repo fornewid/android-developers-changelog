@@ -255,63 +255,47 @@ the following steps:
    - `--rerun-tasks`: Forces Gradle to rerun all tasks and ignore any task
      optimizations.
 
-4. After the build completes, use the **Project** window navigate to the
+4. After the build completes, use the **Project** window to navigate to the
    `project-root/build/reports/profile/` directory (as
    shown in figure 1).
 
-   ![](https://developer.android.com/static/studio/images/build/build-report_2X.png)
-
-   **Figure 1.** Project view indicating the location of profile reports.
+   ![Android Studio Project view showing generated HTML profile reports
+   under build/reports/profile.](https://developer.android.com/static/studio/images/build/build-report_2X.png) **Figure 1.** The Project view indicates the location of profile reports.
 5. Right-click the `profile-timestamp.html` file and
    select **Open in Browser \> Default** . The report should look similar to the
    one shown in figure 2. You can inspect each tab in the report to learn about
    your build, such as the **Task Execution** tab which shows how long Gradle
    took to execute each build task.
 
-   ![](https://developer.android.com/static/studio/images/build/build-report-before_2X.png)
-
-
-   **Figure 2.** Viewing a report in a browser.
-
-   <br />
-
-6. **Optional:** Before making any changes to your project or build
+   ![Build profile report in a browser showing a 46.567s baseline build
+   time.](https://developer.android.com/static/studio/images/build/build-report-before_2X.png) **Figure 2.** A build profile report opens in a browser.
+6. **Optional** : Before making any changes to your project or build
    configuration, repeat the command in step 3, but omit the `--rerun-tasks`
    flag. Because Gradle attempts to save time by not re-executing tasks whose
-   inputs haven't changed (these are indicated as `UP-TO-DATE` in the **Task
-   Execution** tab of the report, as shown in figure 3), you can identify which
-   tasks are performing work when they shouldn't be. For example, if the
-   `:app:processDevUniversalDebugManifest` is not marked as `UP-TO-DATE`, it
-   may suggest that your build configuration is dynamically updating the
-   manifest with every build. However, some tasks need to run during each
-   build, such as `:app:checkDevDebugManifest`.
+   inputs haven't changed, the **Task Execution** tab of the report marks
+   unchanged tasks as `UP-TO-DATE`, as shown in figure 3. This helps you
+   identify which tasks are performing work when they shouldn't be. For
+   example, if the `:app:processDevUniversalDebugManifest` task isn't marked
+   as `UP-TO-DATE`, it might suggest that your build configuration is
+   dynamically updating the manifest with every build. However, some tasks need
+   to run during each build, such as `:app:checkDevDebugManifest`.
 
-   ![](https://developer.android.com/static/studio/images/build/build-report-tasks_2X.png)
-
-
-   **Figure 3.** Viewing task execution results.
-
-   <br />
+   ![Task Execution tab in the build profile report showing app tasks
+   marked up-to-date with a 0.280s total build time.](https://developer.android.com/static/studio/images/build/build-report-tasks_2X.png) **Figure 3.** The Task Execution tab shows task execution results.
 
 Now that you have a build profile report, you can begin looking for optimization
 opportunities by inspecting the information in each tab of the report. Some
-build settings require experimentation because the benefits may differ between
-projects and workstations. For example, projects with a large codebase may
-benefit from [code shrinking](https://developer.android.com/studio/build/shrink-code) to remove unused code and shrink the app size.
-However, smaller projects may benefit more from disabling code shrinking
+build settings require experimentation because the benefits might differ
+between projects and workstations. For example, projects with a large codebase
+might benefit from [code shrinking](https://developer.android.com/studio/build/shrink-code) to remove unused code and shrink the app
+size. However, smaller projects might benefit more from disabling code shrinking
 altogether. Additionally, increasing the Gradle heap size (using
-[`org.gradle.jvmargs`](https://docs.gradle.org/current/userguide/build_environment)) might negatively impact performance on
+[`org.gradle.jvmargs`](https://docs.gradle.org/current/userguide/build_environment)) might negatively affect performance on
 low-memory machines.
 
 After making a change to your build configuration, observe the results of your
-changes by repeating the previous steps and generating a new build profile. For
+changes by repeating the preceding steps and generating a new build profile. For
 example, figure 4 shows a report for the same sample app after applying some of
-the basic optimizations described in this page.
-
-![](https://developer.android.com/static/studio/images/build/build-report-after_2X.png)
-
-
-**Figure 4.** Viewing a new report after optimizing the build
-speed.
-
-<br />
+the basic optimizations described in this document.
+![Build profile report showing a 29.668s post-optimization build time,
+down from 46.567s in figure 2.](https://developer.android.com/static/studio/images/build/build-report-after_2X.png) **Figure 4.** A build profile report shows faster build times after optimizing build speed.

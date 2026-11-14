@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/playcore/engage/publish
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/playcore/engage/llms.txt
+
 This guide includes a set of guidelines for cluster publishing that developers
 can use when integrating with Engage SDK.
 
@@ -50,7 +52,7 @@ visit the developer app from the Google surface.
 
 | Recommendation type | Content freshness strategy | Content freshness guideline |
 |---|---|---|
-| Personalized recommendations | **Lenient** We recommend updating the recommendations once per day so users can see new recommendations daily. | Because users do not have an exact expectation of what the recommendation content will be, the content freshness strategy can be lenient. |
+| Personalized recommendations | **Lenient** We recommend updating the recommendations once per day so users can see new recommendations daily. | Because users don't have an exact expectation of what the recommendation content will be, the content freshness strategy can be lenient. |
 | User-generated content libraries | **Strict** We recommend updating the content library as users exit the developer app. | It's important for this content to be in sync with the data displayed on Google surfaces. This is because unlike personalized recommendations, the user expects an exact set of content. Any significant delay in publishing will confuse users. Therefore, the content freshness strategy must be strict. |
 
 ### When user is not signed in
@@ -65,12 +67,12 @@ surface.
     - Newly released movies.
     - Trending podcasts.
 - Publish a sign-in card.
-  - In order to encourage users to sign in to the developer app, developers may choose to publish a sign-in card along with the non-personalized recommendation cluster. Check out the section below for more details on how to publish a [Sign In Card](https://developer.android.com/guide/playcore/engage/publish#user-management-cluster-signin).
+  - In order to encourage users to sign in to the developer app, developers may choose to publish a sign-in card along with the non-personalized recommendation cluster. Check out the section below for more details on how to publish a [Sign In Card](https://developer.android.com/guide/playcore/engage/publish.md.txt#user-management-cluster-signin).
 
 | Recommendation type | Content freshness strategy | Content freshness guideline |
 |---|---|---|
-| Non-personalized recommendations | **Lenient** We recommend updating the recommendations once per day. | Because users do not have an exact expectation of what the recommendation content will be, the content freshness strategy can be lenient. |
-| Sign-in card in recommendations | **Strict** We recommend updating the sign-in card state as users exit the developer app. After users have signed in, developers must delete the card by calling `deleteUserManagementCluster()` API. | It's important for the sign-in state to be in sync with the Google surface. It's confusing for a user to see a sign-in card on Google's surface when they're already signed in. Therefore, the content freshness strategy must be strict. |
+| Non-personalized recommendations | **Lenient** We recommend updating the recommendations once per day. | Because users don't have an exact expectation of what the recommendation content will be, the content freshness strategy can be lenient. |
+| Sign-in card in recommendations | **Strict** We recommend updating the sign-in card state as users exit the developer app. After users have signed in, developers must delete the card by calling the `deleteUserManagementCluster()` API. | It's important for the sign-in state to be in sync with the Google surface. It's confusing for a user to see a sign-in card on Google's surface when they're already signed in. Therefore, the content freshness strategy must be strict. |
 
 ## Continuation clusters
 
@@ -154,7 +156,7 @@ appEngagePublishClient.publishUserAccountManagementRequest(
 ```
 
 After users have signed in, developers must delete the card by calling
-`deleteUserManagementCluster()` API.
+the `deleteUserManagementCluster()` API.
 
 ## Update Publish Status
 
@@ -165,7 +167,7 @@ This is important because :
 
 - Providing the status in all scenarios, even when the content is published (STATUS == PUBLISHED), is critical to populate dashboards that use this explicit status to convey the health and other metrics of your integration.
 - If no content is published but the integration status isn't broken (STATUS == NOT_PUBLISHED), Google can avoid triggering alerts in the app health dashboards. It confirms that content is not published due to an **expected** situation from the provider's standpoint.
-- It helps developers provide insights into when the data is published vs not.
+- It helps developers provide insights into when the data is published versus not.
 - Google may use the status codes to nudge the user to do certain actions in the app so they can see the app content or overcome it.
 
 The list of eligible publish status codes are :
@@ -227,9 +229,9 @@ client.updatePublishStatus(
 
 ## WorkManager for cluster publishing
 
-We recommend using [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager) to
+We recommend using [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent.md.txt) to
 publish clusters, because it is the recommended solution for background work
-where the execution must be both opportunistic and guaranteed.
+where the execution must be both opportunistic and reliable.
 
 - WorkManager performs your background work as soon as it can.
 - WorkManager handles the logic to start your work under a variety of conditions, even if a user navigates away from your app.
@@ -237,65 +239,68 @@ where the execution must be both opportunistic and guaranteed.
 When the user navigates away from the app, we recommend starting a background
 job that publishes continuation clusters along with recommendation clusters. A
 good place to handle this logic is
-[`Activity.onStop()`](https://developer.android.com/reference/android/app/Activity#onStop()), which is called
+[`Activity.onStop()`](https://developer.android.com/reference/android/app/Activity.md.txt#onStop()), which is called
 when the user navigates away from the app.
 
 We suggest using
-[`PeriodicWorkRequest`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest)
+[`PeriodicWorkRequest`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest.md.txt)
 to schedule a recurring job that publishes clusters every 24 hours. By using a
-[`CANCEL_AND_REENQUEUE`](https://developer.android.com/reference/androidx/work/ExistingPeriodicWorkPolicy#CANCEL_AND_REENQUEUE)
+[`CANCEL_AND_REENQUEUE`](https://developer.android.com/reference/androidx/work/ExistingPeriodicWorkPolicy.md.txt#CANCEL_AND_REENQUEUE)
 policy for triggering the work, developers can ensure that WorkManager sends the
 updated data every time a user navigates away from the app. This helps prevent
 users from seeing stale data.
 
 The following example demonstrates this:
 
-    // Define the PublishClusters Worker requiring input
-    public class PublishClusters extends Worker {
+```java
+// Define the PublishClusters Worker requiring input
+public class PublishClusters extends Worker {
 
-       public PublishClusters(Context appContext, WorkerParameters workerParams) {
-           super(appContext, workerParams);
-       }
+   public PublishClusters(Context appContext, WorkerParameters workerParams) {
+       super(appContext, workerParams);
+   }
 
-       @NonNull
-       @Override
-       public Result doWork() {
-           // publish clusters
-       }
-       ...
-    }
+   @NonNull
+   @Override
+   public Result doWork() {
+       // publish clusters
+   }
+   ...
+}
 
-    public static void schedulePublishClusters(Context appContext) {
-    // Create a PeriodicWorkRequest to schedule a recurring job to update
-    // clusters at a regular interval
-    PeriodicWorkRequest publishClustersEntertainmentSpace =
-    // Define the time for the periodic job
-           new PeriodicWorkRequest.Builder(PublishClusters.class, 24, TimeUnit.HOURS)
-    // Set up a tag for the worker.
-    // Tags are Unique identifier, which can be used to identify that work
-    // later in order to cancel the work or observe its progress.
-              .addTag("Publish Clusters to Entertainment Space")
-              .build();
+public static void schedulePublishClusters(Context appContext) {
+// Create a PeriodicWorkRequest to schedule a recurring job to update
+// clusters at a regular interval
+PeriodicWorkRequest publishClustersEntertainmentSpace =
+// Define the time for the periodic job
+       new PeriodicWorkRequest.Builder(PublishClusters.class, 24, TimeUnit.HOURS)
+// Set up a tag for the worker.
+// Tags are Unique identifier, which can be used to identify that work
+// later in order to cancel the work or observe its progress.
+          .addTag("Publish Clusters to Entertainment Space")
+          .build();
 
-    // Trigger Periodic Job, this will ensure that the periodic job is triggered
-    // only once since we have defined a uniqueWorkName
-    WorkManager.getInstance(appContext).enqueueUniquePeriodicWork(
-    // uniqueWorkName
-         "publishClustersEntertainmentSpace",
-    // If a work with the uniqueWorkName is already running, it will cancel the
-    // existing running jobs and replace it with the new instance.
-    // ExistingPeriodicWorkPolicy#CANCEL_AND_REENQUEUE
-         ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE,
-    // Recurring Work Request
-    publishClustersEntertainmentSpace);
+// Trigger Periodic Job, this will ensure that the periodic job is triggered
+// only once since we have defined a uniqueWorkName
+WorkManager.getInstance(appContext).enqueueUniquePeriodicWork(
+// uniqueWorkName
+     "publishClustersEntertainmentSpace",
+// If a work with the uniqueWorkName is already running, it will cancel the
+// existing running jobs and replace it with the new instance.
+// ExistingPeriodicWorkPolicy#CANCEL_AND_REENQUEUE
+     ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE,
+// Recurring Work Request
+publishClustersEntertainmentSpace);
 
-    }
+}
+
+```
 
 ## Handle broadcast intents
 
 In addition to making publish content API calls through a job, it is also
 required to set up a
-[`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) to receive
+[`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver.md.txt) to receive
 the request for a content publish.
 
 However, **developers must be careful not to rely solely on broadcasts** ,

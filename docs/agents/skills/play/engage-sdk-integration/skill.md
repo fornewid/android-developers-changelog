@@ -14,18 +14,18 @@ Follow these steps to assist the developer:
 
 1. **Identify vertical and cluster:**
 
-   - Ask the developer which vertical their app belongs to based on **[references/schemas/](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas)**.
-   - Check if the integration is for TV or mobile. If the integration is for TV, read the TV-specific sections in [patterns.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/patterns) as well.
-   - Use `{VERTICAL}.md` in the **[references/schemas/](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas)** directory to identify the corresponding Engage entities and the `client` class name. The `client` field in the JSON provides the full class name. For example, `com.google.android.engage.food.service.AppEngageFoodClient`.
+   - Ask the developer which vertical their app belongs to based on **`references/schemas/`**.
+   - Check if the integration is for TV or mobile. If the integration is for TV, read the TV-specific sections in [patterns.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/patterns.md.txt) as well.
+   - Use `{VERTICAL}.md` in the **`references/schemas/`** directory to identify the corresponding Engage entities and the `client` class name. The `client` field in the JSON provides the full class name. For example, `com.google.android.engage.food.service.AppEngageFoodClient`.
    - **Note:** Initializing the client class requires a `Context` parameter. For example, `AppEngageFoodClient(context)`.
-   - Always refer to [common.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/common) for common entities.
+   - Always refer to [common.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/common.md.txt) for common entities.
    - Ask which cluster type they want to publish from the supported cluster types for that vertical.
-   - Find the method to call from `{VERTICAL}.md` in the **[references/schemas/](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas)** directory for the specified cluster. Each method will specify the request it expects.
-   - Get the request structure from [requests.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/requests) and clusters from [clusters.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/clusters). Then suggest and use sources to fill the fields in the request structure correctly, along with the required entities and clusters.
+   - Find the method to call from `{VERTICAL}.md` in the **`references/schemas/`** directory for the specified cluster. Each method will specify the request it expects.
+   - Get the request structure from [requests.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/requests.md.txt) and clusters from [clusters.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/clusters.md.txt). Then suggest and use sources to fill the fields in the request structure correctly, along with the required entities and clusters.
 2. **Generate structured boilerplate code:**
 
    - Create a new directory for all Engage-related code. Name the directory to match the naming convention of the existing codebase.
-   - Generate the following classes using templates in [patterns.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/patterns):
+   - Generate the following classes using templates in [patterns.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/patterns.md.txt):
      - `Constants`: holds constant values such as attempt counts and publish types.
      - `ItemToEntityConverter`: converts the app's local models to Engage's Entity models.
      - `ClusterRequestFactory`: constructs the publish requests.
@@ -35,9 +35,9 @@ Follow these steps to assist the developer:
 3. **Suggest entity mapping:**
 
    - Ask the developer to provide their local model schema (for example, a data class or a JSON snippet).
-   - If they haven't provided one, share entities from `{VERTICAL}.md` in the **[references/schemas/](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas)** directory as a guide.
+   - If they haven't provided one, share entities from `{VERTICAL}.md` in the **`references/schemas/`** directory as a guide.
    - Once the local model is identified, suggest a mapping to the corresponding Engage entity.
-   - Generate the conversion logic using the `ItemToEntityConverter` pattern in [patterns.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/patterns) and add it to the generated `{ENGAGE_CODE_DIR}/ItemToEntityConverter`.
+   - Generate the conversion logic using the `ItemToEntityConverter` pattern in [patterns.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/patterns.md.txt) and add it to the generated `{ENGAGE_CODE_DIR}/ItemToEntityConverter`.
 4. **Suggest data source:**
 
    - Ask the developer to provide the source of actual data you'll publish.
@@ -45,13 +45,13 @@ Follow these steps to assist the developer:
    - Use `{ENGAGE_CODE_DIR}/ItemToEntityConverter` to convert this data to an Engage entity.
    - Use obtained Engage entity model data with `{ENGAGE_CODE_DIR}/
      ClusterRequestFactory` to get cluster requests.
-   - Call corresponding cluster publishing method obtained from `{VERTICAL}.md` in the **[references/schemas/](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas)** directory with the obtained request in previous step in `{ENGAGE_CODE_DIR}/EngageWorker`.
+   - Call corresponding cluster publishing method obtained from `{VERTICAL}.md` in the **`references/schemas/`** directory with the obtained request in previous step in `{ENGAGE_CODE_DIR}/EngageWorker`.
 5. **Gradle and manifest updates:**
 
    - Suggest updates to `build.gradle` and `AndroidManifest.xml`.
-   - For mobile apps, use [patterns.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/patterns).
-   - For TV apps, use the TV-specific sections in [patterns.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/patterns).
-   - Provide the necessary `implementation` dependencies for `build.gradle` or `build.gradle.kts` from [patterns.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/patterns).
+   - For mobile apps, use [patterns.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/patterns.md.txt).
+   - For TV apps, use the TV-specific sections in [patterns.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/patterns.md.txt).
+   - Provide the necessary `implementation` dependencies for `build.gradle` or `build.gradle.kts` from [patterns.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/patterns.md.txt).
    - Provide the `<receiver>` and `<service>` declarations for `AndroidManifest.xml`.
    - Note: Except for TV, there aren't any vertical-specific imports. For all other verticals, `com.google.android.engage:engage-core:1.6.0` is sufficient.
 6. **Debugging and verification**:
@@ -62,8 +62,8 @@ Follow these steps to assist the developer:
      - \[ \] Implemented the `register` method in `EngageBroadcastReceiver`'s `companion object` to handle dynamic registration.
      - \[ \] Handled empty data lists in `EngageWorker` (for example, by deleting the cluster instead of publishing empty data).
    - Perform a Gradle sync.
-   - If errors occur (such as import failures, namespace conflicts, or compile errors), read **[references/troubleshooting.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/troubleshooting)** to resolve them.
-   - Execute a Gradle compilation (`./gradlew compileDebugUnitTestSources` or `./gradlew assembleDebug`). See **[references/troubleshooting.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/troubleshooting)** for compile rules and warnings about fast-compilation shortcuts. Repeat this step until compilation is successful.
+   - If errors occur (such as import failures, namespace conflicts, or compile errors), read **[references/troubleshooting.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/troubleshooting.md.txt)** to resolve them.
+   - Execute a Gradle compilation (`./gradlew compileDebugUnitTestSources` or `./gradlew assembleDebug`). See **[references/troubleshooting.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/troubleshooting.md.txt)** for compile rules and warnings about fast-compilation shortcuts. Repeat this step until compilation is successful.
 7. **User checklist:** At the end of code generation, notify the user to go
    through this checklist to verify that the integration is complete and as
    intended:
@@ -84,32 +84,32 @@ Follow these steps to assist the developer:
 
 ## Reference materials
 
-- **FAQ:** [Engage FAQ](https://developer.android.com/guide/playcore/engage/faq) - Refer to this document for answers to frequently
+- **FAQ:** [Engage FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt) - Refer to this document for answers to frequently
   asked questions from developers.
 
 - **Vertical-specific guides:**
 
-  - [Food Vertical](https://developer.android.com/guide/playcore/engage/food)
-  - [Watch Vertical](https://developer.android.com/guide/playcore/engage/watch)
-  - [Listen Vertical](https://developer.android.com/guide/playcore/engage/listen)
-  - [Read Vertical](https://developer.android.com/guide/playcore/engage/read)
-  - [Shopping Vertical](https://developer.android.com/guide/playcore/engage/shopping)
-  - [Social Vertical](https://developer.android.com/guide/playcore/engage/social)
-  - [Travel Vertical](https://developer.android.com/guide/playcore/engage/travel)
-  - [Health and Fitness Vertical](https://developer.android.com/guide/playcore/engage/healthandfitness)
-  - [Other Verticals](https://developer.android.com/guide/playcore/engage/otherverticals)
-  - [TV Getting Started](https://developer.android.com/guide/playcore/engage/tv/getting-started)
-  - [TV Recommendations](https://developer.android.com/guide/playcore/engage/tv/recommendations)
-  - [TV Continue Watching](https://developer.android.com/guide/playcore/engage/tv/continue-watching)
-  - [TV Entitlements](https://developer.android.com/guide/playcore/engage/tv/entitlements)
+  - [Food Vertical](https://developer.android.com/guide/playcore/engage/food.md.txt)
+  - [Watch Vertical](https://developer.android.com/guide/playcore/engage/watch.md.txt)
+  - [Listen Vertical](https://developer.android.com/guide/playcore/engage/listen.md.txt)
+  - [Read Vertical](https://developer.android.com/guide/playcore/engage/read.md.txt)
+  - [Shopping Vertical](https://developer.android.com/guide/playcore/engage/shopping.md.txt)
+  - [Social Vertical](https://developer.android.com/guide/playcore/engage/social.md.txt)
+  - [Travel Vertical](https://developer.android.com/guide/playcore/engage/travel.md.txt)
+  - [Health and Fitness Vertical](https://developer.android.com/guide/playcore/engage/healthandfitness.md.txt)
+  - [Other Verticals](https://developer.android.com/guide/playcore/engage/otherverticals.md.txt)
+  - [TV Getting Started](https://developer.android.com/guide/playcore/engage/tv/getting-started.md.txt)
+  - [TV Recommendations](https://developer.android.com/guide/playcore/engage/tv/recommendations.md.txt)
+  - [TV Continue Watching](https://developer.android.com/guide/playcore/engage/tv/continue-watching.md.txt)
+  - [TV Entitlements](https://developer.android.com/guide/playcore/engage/tv/entitlements.md.txt)
 - **Vertical-specific schemas:**
 
-  - [Food Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/food)
-  - [Watch Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/watch)
-  - [Listen Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/listen)
-  - [Read Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/read)
-  - [Shopping Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/shopping)
-  - [Social Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/social)
-  - [Travel Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/travel)
-  - [TV Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/tv)
-  - [Other Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/other)
+  - [Food Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/food.md.txt)
+  - [Watch Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/watch.md.txt)
+  - [Listen Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/listen.md.txt)
+  - [Read Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/read.md.txt)
+  - [Shopping Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/shopping.md.txt)
+  - [Social Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/social.md.txt)
+  - [Travel Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/travel.md.txt)
+  - [TV Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/tv.md.txt)
+  - [Other Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/other.md.txt)

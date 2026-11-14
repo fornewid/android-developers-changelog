@@ -4,11 +4,12 @@ url: https://developer.android.com/develop/connectivity/cronet/start
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/connectivity/cronet/llms.txt
+
 Learn how to use the Cronet Library to perform network operations in your
 Android app. Cronet is the Chromium network stack made available as a library
 for you to use in your apps. For more information about the library features,
-see [Perform network operations using
-Cronet](https://developer.android.com/develop/connectivity/cronet).
+see [Perform network operations using Cronet](https://developer.android.com/develop/connectivity/cronet.md.txt).
 
 ## Set up the library in your project
 
@@ -41,7 +42,7 @@ Follow these steps to add a dependency to the Cronet Library in your project:
       }
    }
    ```
-2. Include a reference to the Google Play Services Client Library for Cronet
+2. Include a reference to the Google Play services Client Library for Cronet
    in the `dependencies` section of your app module's `build.gradle` file, as
    shown in the following example:
 
@@ -61,12 +62,12 @@ Follow these steps to add a dependency to the Cronet Library in your project:
    }
    ```
 
-[`CronetEngine`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/CronetEngine) objects created once this
-dependency is added will use Cronet loaded from Google Play services. Call
-[`CronetProviderInstaller.installProvider(Context)`](https://developers.google.com/android/reference/com/google/android/gms/net/CronetProviderInstaller)
-before creating `CronetEngine` objects to prevent unexpected exceptions
-from being thrown during `CronetEngine` creation due to errors like devices
-requiring an updated version of Google Play services.
+[`CronetEngine`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/CronetEngine.md.txt) objects created after you add this dependency use Cronet
+loaded from Google Play services. To prevent unexpected exceptions during
+`CronetEngine` creation (such as on devices requiring an updated version of
+Google Play services), call
+[`CronetProviderInstaller.installProvider(Context)`](https://developers.google.com/android/reference/com/google/android/gms/net/CronetProviderInstaller) before creating
+`CronetEngine` objects.
 
 In cases where Cronet cannot be loaded from Google Play services, there is
 a less performant implementation of Cronet's API that can be used. To use
@@ -76,16 +77,14 @@ and call [`new JavaCronetProvider(context).createBuilder()`](https://cs.chromium
 ## Create a network request
 
 This section shows how to create and send a network request using the Cronet
-Library. After sending the network request, your app should [process the network
+Library. After sending the network request, your app must [process the network
 response](https://developer.android.com/develop/connectivity/cronet/start#response).
 
 ### Create and configure an instance of CronetEngine
 
-The library provides a
-[`CronetEngine.Builder`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/CronetEngine.Builder) class
-that you can use to create an instance of
-[`CronetEngine`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/CronetEngine). The following example
-shows how to create a `CronetEngine` object:
+The library provides a [`CronetEngine.Builder`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/CronetEngine.Builder.md.txt) class that you can use to
+create an instance of [`CronetEngine`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/CronetEngine.md.txt). The following example shows how to
+create a `CronetEngine` object:
 
 ### Kotlin
 
@@ -102,18 +101,17 @@ CronetEngine cronetEngine = myBuilder.build();
 ```
 
 > [!NOTE]
-> **Note:** It's recommended to create only one instance of `CronetEngine`. A single instance can send multiple asynchronous requests. Additionally, a storage directory doesn't support concurrent access by multiple `CronetEngine` instances. For more information, see [`setStoragePath()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/CronetEngine.Builder#setStoragePath(java.lang.String)).
+> **Note:** Create only one instance of `CronetEngine`. A single instance can send multiple asynchronous requests. Additionally, a storage directory doesn't support concurrent access by multiple `CronetEngine` instances. For more information, see [`setStoragePath()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/CronetEngine.Builder.md.txt#setStoragePath(java.lang.String)).
 
-You can use the `Builder` class to configure a
-[`CronetEngine`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/CronetEngine) object, for example you can
-provide options like caching and data compression. For more information, see
-[`CronetEngine.Builder`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/CronetEngine.Builder).
+You can use the `Builder` class to configure a `CronetEngine` object. For
+example, you can provide options like caching and data compression. For more
+information, see `CronetEngine.Builder`.
 
 ### Provide an implementation of the request callback
 
 To provide an implementation of the callback, create a subclass of
-[`UrlRequest.Callback`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback) and
-implement the required abstract methods, as shown in the following example:
+[`UrlRequest.Callback`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback.md.txt) and implement the required abstract methods, as shown
+in the following example:
 
 ### Kotlin
 
@@ -140,7 +138,7 @@ class MyUrlRequestCallback : UrlRequest.Callback() {
     override fun onReadCompleted(request: UrlRequest?, info: UrlResponseInfo?, byteBuffer: ByteBuffer?) {
         Log.i(TAG, "onReadCompleted method called.")
         // You should keep reading the request until there's no more data.
-        byteBuffer.clear()
+        byteBuffer?.clear()
         request?.read(byteBuffer)
     }
 
@@ -190,17 +188,15 @@ class MyUrlRequestCallback extends UrlRequest.Callback {
 ```
 
 > [!NOTE]
-> **Note:** For simplicity, the previous code example creates an implementation of [`UrlRequest.Callback`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback) that writes a message to the log when a network event happens. To learn more details about how to implement the callback, see [Process the network response](https://developer.android.com/develop/connectivity/cronet/start#response).
+> **Note:** For simplicity, the previous code example creates an implementation of `UrlRequest.Callback` that writes a message to the log when a network event happens. For more details about how to implement the callback, see [Process the network response](https://developer.android.com/develop/connectivity/cronet/start.md.txt#response).
 
 ### Create an Executor object to manage network tasks
 
-You can use the `https://developer.android.com/reference/java/util/concurrent/Executor` class to execute network
-tasks.
-To get an instance of `https://developer.android.com/reference/java/util/concurrent/Executor`, use one of the
-static methods of the `https://developer.android.com/reference/java/util/concurrent/Executors` class that return
-an `Executor` object. The following example shows how to create an `Executor`
-object using the `https://developer.android.com/reference/java/util/concurrent/Executors#newSingleThreadExecutor()`
-method:
+You can use the [`Executor`](https://developer.android.com/reference/java/util/concurrent/Executor.md.txt) class to run network tasks. To get an
+instance of `Executor`, use one of the static methods of the
+[`Executors`](https://developer.android.com/reference/java/util/concurrent/Executors.md.txt) class that return an `Executor` object. The following example
+shows how to create an `Executor` object using the
+[`newSingleThreadExecutor()`](https://developer.android.com/reference/java/util/concurrent/Executors.md.txt#newSingleThreadExecutor()) method:
 
 ### Kotlin
 
@@ -216,14 +212,11 @@ Executor executor = Executors.newSingleThreadExecutor();
 
 ### Create and configure a UrlRequest object
 
-To create the network request, call the
-[`newUrlRequestBuilder()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/CronetEngine#newUrlRequestBuilder(java.lang.String,%20org.chromium.net.UrlRequest.Callback,%20java.util.concurrent.Executor))
-method of the [`CronetEngine`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/CronetEngine) passing the
-destination URL, an instance of your callback class, and the executor object.
-The `newUrlRequestBuilder()` method returns a
-[`UrlRequest.Builder`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Builder) object that
-you can use to create the [`UrlRequest`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest)
-object, as shown in the following example:
+To create the network request, call the [`newUrlRequestBuilder()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/CronetEngine.md.txt#newUrlRequestBuilder(java.lang.String,%20org.chromium.net.UrlRequest.Callback,%20java.util.concurrent.Executor)) method of
+the [`CronetEngine`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/CronetEngine.md.txt) passing the destination URL, an instance of your
+callback class, and the executor object. The `newUrlRequestBuilder()` method
+returns a [`UrlRequest.Builder`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Builder.md.txt) object that you can use to create the
+[`UrlRequest`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.md.txt) object, as shown in the following example:
 
 ### Kotlin
 
@@ -246,13 +239,11 @@ UrlRequest.Builder requestBuilder = cronetEngine.newUrlRequestBuilder(
 UrlRequest request = requestBuilder.build();
 ```
 
-You can use the [`Builder`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Builder) class to
-configure the instance of [`UrlRequest`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest). For
+You can use the `Builder` class to configure the instance of `UrlRequest`. For
 example, you can specify a priority or the HTTP verb. For more information, see
-[`UrlRequest.Builder`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Builder).
+`UrlRequest.Builder`.
 
-To start the network task, call the
-[`start()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest#start()) method of the request:
+To start the network task, call the [`start()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.md.txt#start()) method of the request:
 
 ### Kotlin
 
@@ -268,30 +259,26 @@ request.start();
 
 By following the instructions in this section, you can create and send a network
 request using Cronet. However, for the sake of simplicity, the example
-implementation of
-[`UrlRequest.Callback`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback) only prints
-a message to the log. The following section shows how to provide a callback
-implementation that supports more useful scenarios, such as extracting data from
-the response and detecting a failure in the request.
+implementation of `UrlRequest.Callback` only prints a message to the log.
+The following section shows how to provide a callback implementation that
+supports more useful scenarios, such as extracting data from the response and
+detecting a failure in the request.
 
 ## Process the network response
 
-Once you call the [`start()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest#start())
-method, the Cronet request lifecycle is initiated. Your app should manage the
-request during the lifecycle by specifying a callback. To learn more about the
-lifecycle, see [Cronet request
-lifecycle](https://developer.android.com/develop/connectivity/cronet/lifecycle). You can specify a
-callback by creating a subclass of
-[`UrlRequest.Callback`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback) and
+After you call the [`start()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.md.txt#start()) method, Cronet starts the request lifecycle.
+Manage the request during the lifecycle by specifying a callback. For more
+information about the lifecycle, see [Cronet request lifecycle](https://developer.android.com/develop/connectivity/cronet/lifecycle.md.txt). You can
+specify a callback by creating a subclass of [`UrlRequest.Callback`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback.md.txt) and
 implementing the following methods:
 
-[`onRedirectReceived()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback#onRedirectReceived(org.chromium.net.UrlRequest,%20org.chromium.net.UrlResponseInfo,%20java.lang.String))
+[`onRedirectReceived()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback.md.txt#onRedirectReceived(org.chromium.net.UrlRequest,%20org.chromium.net.UrlResponseInfo,%20java.lang.String))
 
-:   Invoked when the server issues an HTTP redirect code in response to the
-    original request. To follow the redirect to the new destination, use the
-    [`followRedirect()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest#followRedirect())
-    method. Otherwise use the [`cancel()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest#cancel())
-    method. The following example shows how to implement the method:
+:   Cronet invokes this method when the server issues an HTTP redirect code in
+    response to the original request. To follow the redirect to the new
+    destination, use the [`followRedirect()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.md.txt#followRedirect()) method. Otherwise use the
+    [`cancel()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.md.txt#cancel()) method. The following example shows how to implement the
+    method:
 
     ### Kotlin
 
@@ -324,11 +311,11 @@ implementing the following methods:
     }
     ```
 
-[`onResponseStarted()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback#onResponseStarted(org.chromium.net.UrlRequest,%20org.chromium.net.UrlResponseInfo))
+[`onResponseStarted()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback.md.txt#onResponseStarted(org.chromium.net.UrlRequest,%20org.chromium.net.UrlResponseInfo))
 
-:   Invoked when the final set of headers is received. The `onResponseStarted()`
-    method is only invoked after all redirects are followed. The following code
-    shows an example implementation of the method:
+:   Cronet invokes this method when the final set of headers is received. Cronet
+    only invokes `onResponseStarted()` after all redirects are followed. The
+    following code shows an example implementation of the method:
 
     ### Kotlin
 
@@ -366,12 +353,13 @@ implementing the following methods:
     ```
 
     > [!NOTE]
-    > **Note:** Status codes `4xx` and `5xx` aren't considered errors from Cronet's perspective. You should still try to read the response using the [`read()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest#read(java.nio.ByteBuffer)) method because the it could contain some data. You can also cancel the request using the [`cancel()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest#cancel()) method. These actions ensure that the request is taken to a final state.
+    > **Note:** Status codes `4xx` and `5xx` aren't considered errors from Cronet's perspective. Still try to read the response using the [`read()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.md.txt#read(java.nio.ByteBuffer)) method because it might contain some data. You can also cancel the request using the [`cancel()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.md.txt#cancel()) method. These actions ensure that the request reaches a final state.
 
-[`onReadCompleted()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback#onReadCompleted(org.chromium.net.UrlRequest,%20org.chromium.net.UrlResponseInfo,%20java.nio.ByteBuffer))
+[`onReadCompleted()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback.md.txt#onReadCompleted(org.chromium.net.UrlRequest,%20org.chromium.net.UrlResponseInfo,%20java.nio.ByteBuffer))
 
-:   Invoked whenever part of the response body has been read. The following code
-    example shows how to implement the method and extract the response body:
+:   Cronet invokes this method whenever part of the response body has been read.
+    The following code example shows how to implement the method and extract the
+    response body:
 
     ### Kotlin
 
@@ -402,10 +390,10 @@ implementing the following methods:
     }
     ```
 
-[`onSucceeded()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback#onSucceeded(org.chromium.net.UrlRequest,%20org.chromium.net.UrlResponseInfo))
+[`onSucceeded()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback.md.txt#onSucceeded(org.chromium.net.UrlRequest,%20org.chromium.net.UrlResponseInfo))
 
-:   Invoked when the network request is completed successfully. The following
-    example shows how to implement the method:
+:   Cronet invokes this method when the network request completes successfully.
+    The following example shows how to implement the method:
 
     ### Kotlin
 
@@ -424,12 +412,11 @@ implementing the following methods:
     }
     ```
 
-[`onFailed()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback#onFailed(org.chromium.net.UrlRequest,%20org.chromium.net.UrlResponseInfo,%20org.chromium.net.CronetException))
+[`onFailed()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback.md.txt#onFailed(org.chromium.net.UrlRequest,%20org.chromium.net.UrlResponseInfo,%20org.chromium.net.CronetException))
 
-:   Invoked if the request failed for any reason after the
-    [`start()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest#start()) method was called. The
-    following example shows how to implement the method and get information about
-    the error:
+:   Cronet invokes this method if the request fails for any reason after your app
+    calls the [`start()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.md.txt#start()) method. The following example shows how to implement
+    the method and get information about the error:
 
     ### Kotlin
 
@@ -450,14 +437,13 @@ implementing the following methods:
     }
     ```
 
-[`onCanceled()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback#onCanceled(org.chromium.net.UrlRequest,%20org.chromium.net.UrlResponseInfo))
+[`onCanceled()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback.md.txt#onCanceled(org.chromium.net.UrlRequest,%20org.chromium.net.UrlResponseInfo))
 
-:   Invoked if the request was canceled using the
-    [`cancel()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest#cancel()) method. Once invoked, no
-    other methods of the
-    [`UrlRequest.Callback`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback) class are
-    invoked. You can use this method to free resources allocated to process a
-    request. The following example shows how to implement the method:
+:   Cronet invokes this method if the request was canceled using the
+    [`cancel()`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.md.txt#cancel()) method. After Cronet invokes `onCanceled()`, it doesn't
+    invoke any other methods of the [`UrlRequest.Callback`](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/UrlRequest.Callback.md.txt) class. You can use
+    this method to free resources allocated to process a request. The following
+    example shows how to implement the method:
 
     ### Kotlin
 

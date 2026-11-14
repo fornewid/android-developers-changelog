@@ -110,8 +110,8 @@ class MyArgsProvider(
     // Annotates each directory as either an input or output for the
     // annotation processor.
     @get:InputFiles
-    // Using this annotation helps Gradle determine which part of the file path
-    // should be considered during up-to-date checks.
+    // Using this annotation helps Gradle determine which part of the path
+    // to consider during up-to-date checks.
     @get:PathSensitive(PathSensitivity.RELATIVE)
     val inputDir: FileCollection,
 
@@ -140,8 +140,8 @@ class MyArgsProvider implements CommandLineArgumentProvider {
     // Annotates each directory as either an input or output for the
     // annotation processor.
     @InputFiles
-    // Using this annotation helps Gradle determine which part of the file path
-    // should be considered during up-to-date checks.
+    // Using this annotation helps Gradle determine which part of the path
+    // to consider during up-to-date checks.
     @PathSensitive(PathSensitivity.RELATIVE)
     FileCollection inputDir
 

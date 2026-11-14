@@ -4,6 +4,8 @@ url: https://developer.android.com/build/build-variants
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/build/llms.txt
+
 This page shows you how you can configure build variants to
 create different versions of your app from a single project and how
 to properly manage your dependencies and signing configurations.
@@ -43,7 +45,7 @@ configures app signing with a generic debug keystore.
 
 
 You can add the debug build type to your configuration if you want to add
-or change certain settings. The following sample specifies an [`applicationIdSuffix`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/ApplicationVariantDimension#applicationIdSuffix()) for the debug build type and configures
+or change certain settings. The following sample specifies an [`applicationIdSuffix`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/ApplicationVariantDimension.md.txt#applicationIdSuffix()) for the debug build type and configures
 a "staging" build type that is initialized using settings from the debug build type:
 
 ### Kotlin
@@ -68,7 +70,7 @@ android {
         /**
          * The `initWith` property lets you copy configurations from other build types,
          * then configure only the settings you want to change. This one copies the debug build
-         * type, and then changes the https://developer.android.com/build/studio/build/manage-manifests#inject_build_variables_into_the_manifest and https://developer.android.com/studio/build/configure-app-module#set_the_application_id.
+         * type, and then changes the manifest placeholder and application ID.
          */
         create("staging") {
             initWith(getByName("debug"))
@@ -101,7 +103,7 @@ android {
         /**
          * The `initWith` property lets you copy configurations from other build types,
          * then configure only the settings you want to change. This one copies the debug build
-         * type, and then changes the https://developer.android.com/build/studio/build/manage-manifests#inject_build_variables_into_the_manifest and https://developer.android.com/studio/build/configure-app-module#set_the_application_id.
+         * type, and then changes the manifest placeholder and application ID.
          */
         staging {
             initWith debug
@@ -137,11 +139,11 @@ actually belongs to the
 configuration for all flavors in the `defaultConfig` block, and
 each flavor can change any of these default values, such as the `applicationId`. To
 learn more about the application ID, read
-[Set the application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id).
+[Set the application ID](https://developer.android.com/build/configure-app-module.md.txt#set-application-id).
 
 
 **Note:** You still need to specify a package name using the
-[`package`](https://developer.android.com/guide/topics/manifest/manifest-element#package)
+[`package`](https://developer.android.com/guide/topics/manifest/manifest-element.md.txt#package)
 attribute in the `main/` manifest file. You must also use that
 package name in your source code to refer to the `R` class or to resolve any
 relative activity or service registration. This lets you use
@@ -164,12 +166,12 @@ assigns all of the module's flavors to that dimension.
 
 > [!NOTE]
 > **Tip:** The plugin tries to match variants of your app with those of local library dependencies. Because [variant-aware dependency
-> matching](https://developer.android.com/studio/build/build-variants#variant_aware) relies on how you name a flavor dimension, name your flavor dimensions carefully. Doing so gives you more control over which code and resources from your local dependencies are matched with each version of the app.
+> matching](https://developer.android.com/build/build-variants#variant_aware) relies on how you name a flavor dimension, name your flavor dimensions carefully. Doing so gives you more control over which code and resources from your local dependencies are matched with each version of the app.
 
 
 The following code sample creates a flavor dimension named "version" and adds
 "demo" and "full" product flavors. These flavors provide their own
-[`applicationIdSuffix`](https://developer.android.com/studio/build/build-variants#change-app-id) and
+[`applicationIdSuffix`](https://developer.android.com/build/build-variants.md.txt#change-app-id) and
 `versionNameSuffix`:
 
 ### Kotlin
@@ -239,7 +241,7 @@ android {
 August 2021) that you distribute using APKs on Google Play, to distribute your app using [multiple APK
 support](https://developer.android.com/google/play/publishing/multiple-apks) in Google Play, assign the same `applicationId` value
 to all variants and give each variant a different
-[`versionCode`](https://developer.android.com/studio/publish/versioning#appversioning). To distribute
+[`versionCode`](https://developer.android.com/studio/publish/versioning.md.txt#appversioning). To distribute
 different variants of your app as separate apps in Google Play, you need to assign a
 different `applicationId` to each variant.
 
@@ -272,11 +274,11 @@ application ID defined in the `defaultConfig` block from the `build.gradle.kts`
 file, as shown in the following example. However, if you want to create different versions of your
 app to appear as separate listings on Google Play Store, such as a "free" and "pro"
 version, you need to create separate
-[build variants](https://developer.android.com/studio/build/build-variants) that each have a different
+[build variants](https://developer.android.com/build/build-variants.md.txt) that each have a different
 application ID.
 
 In this case, define each build variant as a separate
-[product flavor](https://developer.android.com/studio/build/build-variants#product-flavors). For each flavor
+[product flavor](https://developer.android.com/build/build-variants.md.txt#product-flavors). For each flavor
 inside the `productFlavors` block, you can redefine the `applicationId`
 property, or you can instead append a segment to the default application ID
 using `applicationIdSuffix`, as shown here:
@@ -321,7 +323,7 @@ This way, the application ID for the "free" product flavor is
 "com.example.myapp.free".
 
 You can also use `applicationIdSuffix` to append a segment based on
-your [build type](https://developer.android.com/studio/build/build-variants#build-types), as shown here:
+your [build type](https://developer.android.com/build/build-variants.md.txt#build-types), as shown here:
 
 ### Kotlin
 
@@ -361,7 +363,7 @@ distribute multiple APKs that
 each target a different device configuration, such as the API level,
 then you must use the same application ID for each build variant but give each
 APK a different `versionCode`. For more information, read about
-[Multiple APK support](https://developer.android.com/google/play/publishing/multiple-apks). Publishing
+[Multiple APK support](https://developer.android.com/google/play/publishing/multiple-apks.md.txt). Publishing
 using AABs is unaffected, as it uses a single artifact that uses a single
 version code and application ID by default.
 
@@ -369,7 +371,7 @@ version code and application ID by default.
 manifest file, you can use the `${applicationId}` placeholder in any
 manifest attribute. During a build, Gradle replaces this tag with the actual
 application ID. For more information, see [Inject build
-variables into the manifest](https://developer.android.com/studio/build/manage-manifests#inject_build_variables_into_the_manifest).
+variables into the manifest](https://developer.android.com/build/manage-manifests#inject_build_variables_into_the_manifest).
 
 ### Combine multiple product flavors with flavor dimensions
 
@@ -635,7 +637,7 @@ the tool window bar.
 
 
 By default, Android Studio creates the `main/`
-[source set](https://developer.android.com/studio/build#sourcesets) and directories for
+[source set](https://developer.android.com/build.md.txt#sourcesets) and directories for
 everything you want to share between all your build variants. However, you
 can create new source sets to control exactly which files Gradle compiles and
 packages for specific build types, product flavors, combinations of
@@ -702,7 +704,7 @@ To view this output, proceed as follows:
 **Note:** The task output also shows you how to organize source sets
 for files you want to use to run tests for your app, such as the
 `test/` and `androidTest/`
-[testing source sets](https://developer.android.com/studio/test/advanced-test-setup#create-instrumented-test-for-build-variant).
+[testing source sets](https://developer.android.com/studio/test/advanced-test-setup.md.txt#create-instrumented-test-for-build-variant).
 
 
 When you create a new build variant, Android Studio doesn't create the source
@@ -751,14 +753,14 @@ product flavors, such as `src/demo/`, and build variants, such as
 `src/demoDebug/`. Additionally, you can create testing source sets
 that target specific build variants, such as
 `src/androidTestDemoDebug/`. To learn more, read about
-[testing source sets](https://developer.android.com/studio/test/advanced-test-setup#create-instrumented-test-for-build-variant).
+[testing source sets](https://developer.android.com/studio/test/advanced-test-setup.md.txt#create-instrumented-test-for-build-variant).
 
 ### Change default source set configurations
 
 
 If you have sources that are not organized into the default source set file
 structure that Gradle expects, as described in the previous section about
-[creating source sets](https://developer.android.com/build/build-variants#sourcesets), you can use the
+[creating source sets](https://developer.android.com/build/build-variants.md.txt#sourcesets), you can use the
 [`sourceSets`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/AndroidSourceSet) block to change where Gradle looks to gather
 files for each component of a source set.
 
@@ -768,7 +770,7 @@ source files; you only need to provide Gradle with the path(s), relative to the
 module-level `build.gradle.kts` file, where Gradle can
 find files for each source set component. To learn which components you can
 configure and whether you can map them to multiple files or directories,
-see the [Android Gradle plugin API reference](https://developer.android.com/reference/tools/gradle-api).
+see the [Android Gradle plugin API reference](https://developer.android.com/reference/tools/gradle-api.md.txt).
 
 
 The following code sample maps sources from the `app/other/` directory
@@ -925,7 +927,7 @@ Gradle considers this priority order when applying the following build rules:
   error. If you want different versions of `Utility.kt` for
   different build types, each build type must define its own version of
   the file and not include it in the `main/` source set.
-- Manifests are merged together into a single manifest. Priority is given in the same order as the list in the previous example. For example, manifest settings for a build type override the manifest settings for a product flavor. To learn more, read about [manifest merging](https://developer.android.com/studio/build/manage-manifests#merge-manifests).
+- Manifests are merged together into a single manifest. Priority is given in the same order as the list in the previous example. For example, manifest settings for a build type override the manifest settings for a product flavor. To learn more, read about [manifest merging](https://developer.android.com/build/manage-manifests.md.txt#merge-manifests).
 - Files in the `values/` directories are merged together. If two files have the same name, such as two `strings.xml` files, priority is given in the same order as the list in the previous example. For example, values defined in a file in the build type source set override the values defined in the same file in a product flavor.
 - Resources in the `res/` and `asset/` directories are packaged together. If there are resources with the same name defined in two or more source sets, priority is given in the same order as the list in the previous example.
 - Gradle gives resources and manifests included with library module dependencies the lowest priority when building the app.
@@ -933,7 +935,7 @@ Gradle considers this priority order when applying the following build rules:
 ## Declare dependencies
 
 To configure a dependency for a specific build variant or
-[testing source set](https://developer.android.com/studio/test/advanced-test-setup#create-instrumented-test-for-build-variant),
+[testing source set](https://developer.android.com/studio/test/advanced-test-setup.md.txt#create-instrumented-test-for-build-variant),
 prefix the name of the build variant or testing source set before the
 `Implementation` keyword, as shown in the following example:
 
@@ -968,7 +970,7 @@ dependencies {
 ```
 
 For more information about configuring dependencies,
-see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
+see [Add build dependencies](https://developer.android.com/build/dependencies.md.txt).
 
 ## Use variant-aware dependency management
 
@@ -981,7 +983,7 @@ variant.
 
 
 For the plugin to accurately match variants, you need to
-[provide matching fallbacks](https://developer.android.com/build/build-variants#resolve_matching_errors) as described in
+[provide matching fallbacks](https://developer.android.com/build/build-variants.md.txt#resolve_matching_errors) as described in
 the following section, for instances where a direct match is not possible.
 
 For example, suppose your app configures a build type called "staging", but one of
@@ -1219,8 +1221,8 @@ to solve them using DSL properties:
   ```
 
 
-For more information, see [`matchingFallbacks`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/dsl/ProductFlavor#matchingfallbacks)
-and [`missingDimensionStrategy`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/dsl/BaseFlavor#missingdimensionstrategy_1)
+For more information, see [`matchingFallbacks`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/ProductFlavor#matchingFallbacks())
+and [`missingDimensionStrategy`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/BaseFlavor#missingDimensionStrategy(kotlin.String,%20kotlin.String))
 in the Android Gradle plugin DSL reference.
 
 ## Configure signing settings
@@ -1228,7 +1230,7 @@ in the Android Gradle plugin DSL reference.
 
 Gradle doesn't sign your release build's APK or AAB unless you explicitly define a
 signing configuration for this build. If you don't have a signing key yet,
-[generate an upload key and keystore](https://developer.android.com/studio/publish/app-signing#generate-key)
+[generate an upload key and keystore](https://developer.android.com/studio/publish/app-signing.md.txt#generate-key)
 using Android Studio.
 
 
@@ -1316,7 +1318,7 @@ keyPassword System.getenv("KEYPWD")
 
 Alternatively, you can load the keystore from a local properties file. For security reasons, don't
 add this file to source control. Instead, set it up locally for each
-developer. To learn more, read [Remove signing information from your build files](https://developer.android.com/studio/publish/app-signing#secure-shared-keystore).
+developer. To learn more, read [Remove signing information from your build files](https://developer.android.com/studio/publish/app-signing.md.txt#secure-shared-keystore).
 
 
 After you complete this process, you can distribute your app and publish it
@@ -1337,4 +1339,4 @@ must always sign all versions of your app with the same key.
 
 When publishing Wear OS apps, both the watch APK and optional phone APK must be signed with the
 same key. For more information on packaging and signing Wear OS apps, see
-[Package and distribute Wear apps](https://developer.android.com/training/wearables/packaging).
+[Package and distribute Wear apps](https://developer.android.com/training/wearables/packaging.md.txt).

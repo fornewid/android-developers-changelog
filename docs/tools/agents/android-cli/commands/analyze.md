@@ -4,12 +4,16 @@ url: https://developer.android.com/tools/agents/android-cli/commands/analyze
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
+
 Analyzes the file(s) (AAB, APK, JAR, AAR) at the given location(s) and reports
 back all available details.
 
 ## Usage
 
-    android analyze [-h] [--analysis=PARAM] [--format=PARAM] <path>
+```bash
+android analyze [-h] [--analysis=PARAM] [--format=PARAM] <path>
+```
 
 ## Options
 
@@ -66,123 +70,137 @@ By default, all available analysis categories are performed. Use
 
 Analyze an APK with all default categories:
 
-    android analyze app-release.apk
+```bash
+android analyze app-release.apk
+```
 
 Analyze multiple artifacts together:
 
-    android analyze app-release.apk library.aar
+```bash
+android analyze app-release.apk library.aar
+```
 
 Analyze an AAB and output the results as JSON:
 
-    android analyze --format=json app-release.aab
+```bash
+android analyze --format=json app-release.aab
+```
 
 Sample JSON output:
 
+```json
+{
+  "results": [
     {
-      "results": [
-        {
-          "optimization": {
-            "bundleAnalysisResult": {
-              "agpVersion": "9.3.2",
-              "r8Json": {
-                "version": "9.3.16",
-                "options": {
-                  "isRepackageClassesEnabled": true,
-                  "isProguardCompatibilityModeEnabled": false
-                },
-                "stats": {
-                  "shrinkingRatio": 0.9606,
-                  "optimizationRatio": 0.9551,
-                  "obfuscationRatio": 0.9622
-                },
-                "resourceOptimizationStatus": "R8_RESOURCE_OPTIMIZATION_STATUS_DISABLED",
-                "r8DexChecksumStatus": "EXACT_MATCH"
-              },
-              "r8DexMarkerMetadata": {
-                "r8Enabled": true,
-                "d8Enabled": false,
-                "fullModeEnabled": true
-              },
-              "mappingObfuscationRatio": 0.97108626,
-              "dexHeuristicObfuscationRatio": 0.97108626,
-              "uncompressedDexSizeBytes": "6198152"
-            }
+      "optimization": {
+        "bundleAnalysisResult": {
+          "agpVersion": "9.3.2",
+          "r8Json": {
+            "version": "9.3.16",
+            "options": {
+              "isRepackageClassesEnabled": true,
+              "isProguardCompatibilityModeEnabled": false
+            },
+            "stats": {
+              "shrinkingRatio": 0.9606,
+              "optimizationRatio": 0.9551,
+              "obfuscationRatio": 0.9622
+            },
+            "resourceOptimizationStatus": "R8_RESOURCE_OPTIMIZATION_STATUS_DISABLED",
+            "r8DexChecksumStatus": "EXACT_MATCH"
           },
-          "artifactPath": "app-release.aab",
-          "basic": {
-            "appInfo": {
-              "packageName": "com.google.samples.apps.nowinandroid",
-              "versionName": "1.0",
-              "versionCode": "1"
-            }
-          }
+          "r8DexMarkerMetadata": {
+            "r8Enabled": true,
+            "d8Enabled": false,
+            "fullModeEnabled": true
+          },
+          "mappingObfuscationRatio": 0.97108626,
+          "dexHeuristicObfuscationRatio": 0.97108626,
+          "uncompressedDexSizeBytes": "6198152"
         }
-      ]
+      },
+      "artifactPath": "app-release.aab",
+      "basic": {
+        "appInfo": {
+          "packageName": "com.google.samples.apps.nowinandroid",
+          "versionName": "1.0",
+          "versionCode": "1"
+        }
+      }
     }
+  ]
+}
+```
 
 Analyze a Java Archive (JAR) library with all default categories:
 
-    android analyze library.jar
+```bash
+android analyze library.jar
+```
 
 Analyze an Android Archive (AAR) library filtering for the `optimization`
 category and outputting as JSON:
 
-    android analyze --analysis=optimization -f json library.aar
+```bash
+android analyze --analysis=optimization -f json library.aar
+```
 
 Sample JSON output:
 
+```json
+{
+  "results": [
     {
-      "results": [
-        {
-          "optimization": {
-            "libraryAnalysisResult": {
-              "dex": {
-                "d8CompileResult": {
-                  "dexSizeBytes": 2117400
-                },
-                "r8CompileResult": {
-                  "dexSizeBytes": 1100,
-                  "configuration": {
-                    "keepRules": [
-                      {
-                        "source": "-keep class com.example.ExampleClass_* {\n  static *** builder();\n}",
-                        "keptItemCount": 2
-                      },
-                      {
-                        "source": "-keep class com.example.SomeClass {\n  public static *** SDK_ROOT_CLASS_NAME;\n}",
-                        "keptItemCount": 2
-                      }
-                    ]
+      "optimization": {
+        "libraryAnalysisResult": {
+          "dex": {
+            "d8CompileResult": {
+              "dexSizeBytes": "2117400"
+            },
+            "r8CompileResult": {
+              "dexSizeBytes": "1100",
+              "configuration": {
+                "keepRules": [
+                  {
+                    "source": "-keep class com.example.ExampleClass_* {\n  static *** builder();\n}",
+                    "keptItemCount": 2
                   },
-                  "classes": {
-                    "itemCount": 3437,
-                    "keptItemCount": 2,
-                    "noObfuscationCount": 2,
-                    "noOptimizationCount": 2,
-                    "noShrinkingCount": 2
-                  },
-                  "fields": {
-                    "itemCount": 9835,
-                    "keptItemCount": 1,
-                    "noObfuscationCount": 1,
-                    "noOptimizationCount": 1,
-                    "noShrinkingCount": 1
-                  },
-                  "methods": {
-                    "itemCount": 16333,
-                    "keptItemCount": 1,
-                    "noObfuscationCount": 1,
-                    "noOptimizationCount": 1,
-                    "noShrinkingCount": 1
+                  {
+                    "source": "-keep class com.example.SomeClass {\n  public static *** SDK_ROOT_CLASS_NAME;\n}",
+                    "keptItemCount": 2
                   }
-                },
-                "validateConsumerKeepRulesResult": {}
+                ]
               },
-              "r8Version": "9.5.17-dev",
-              "version": "kg=1_r8=9.5.17-dev"
-            }
+              "classes": {
+                "itemCount": 3437,
+                "keptItemCount": 2,
+                "noObfuscationCount": 2,
+                "noOptimizationCount": 2,
+                "noShrinkingCount": 2
+              },
+              "fields": {
+                "itemCount": 9835,
+                "keptItemCount": 1,
+                "noObfuscationCount": 1,
+                "noOptimizationCount": 1,
+                "noShrinkingCount": 1
+              },
+              "methods": {
+                "itemCount": 16333,
+                "keptItemCount": 1,
+                "noObfuscationCount": 1,
+                "noOptimizationCount": 1,
+                "noShrinkingCount": 1
+              }
+            },
+            "validateConsumerKeepRulesResult": {}
           },
-          "artifactPath": "library.aar"
+          "r8Version": "9.5.17-dev",
+          "version": "kg=1_r8=9.5.17-dev"
         }
-      ]
+      },
+      "artifactPath": "library.aar"
     }
+  ]
+}
+```

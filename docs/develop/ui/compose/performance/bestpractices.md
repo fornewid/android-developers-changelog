@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/performance/bestpractices
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/performance/llms.txt
+
 You might encounter common Compose pitfalls. These mistakes might give you code
 that seems to run well enough, but can hurt your UI performance. Follow best
 practices to optimize your app on Compose. For empirical benchmark data showing
@@ -171,6 +173,7 @@ the following guidelines in mind:
 - **Use `itemsIndexed` instead of `indexOf`** : Avoid calling `list.indexOf(item)` inside an `items` block, which turns layout into an `O(N²)` scan; use `itemsIndexed` instead.
 - **Hoist shared state and `CompositionLocal` reads** : Collect shared `Flow` instances and read `CompositionLocal` values (such as `LocalContext.current` or `LocalDensity.current`) once in the parent composable above the lazy layout and pass the resolved values down to item composables.
 - **Use `Row` or `Column` for small, bounded lists** : For small static or bounded collections (such as 1 to 10 items), a standard `Row` or `Column` with `forEach` avoids lazy virtualization and prefetching overhead.
+- **Tune `cacheWindow` for heterogeneously sized items** : Default prefetching clamps the ahead window between 10% and 50% of the viewport. For layouts containing items larger than 50% of the viewport (such as full-bleed cards or media posts), configure a larger `aheadFraction` on the lazy layout to prevent late composition during scrolling. For small items, the default window automatically prefetches multiple items. For more information, see [Improve scroll performance with `LazyLayoutCacheWindow`](https://developer.android.com/develop/ui/compose/lists.md.txt#cache-window).
 
 ## Use `computedStateOf` or `derivedStateOf` to limit recompositions
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/adaptive-apps/guides/support-desktop-
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/llms.txt
+
 Desktop windowing enables users to run multiple apps simultaneously in resizable
 app windows for a versatile, desktop-like experience.
 
@@ -42,7 +44,7 @@ Designing for a desktop experience can differ significantly from mobile design
 because of the increased screen space, the precision of mouse and keyboard
 input, and the expectation of high productivity.
 
-[Jetpack WindowManager](https://developer.android.com/jetpack/androidx/releases/window) provides an opinionated API to help developers decide
+[Jetpack WindowManager](https://developer.android.com/jetpack/androidx/releases/window.md.txt) provides an opinionated API to help developers decide
 when to show a desktop UI, which typically has higher information density,
 different navigation patterns, and optimized mouse interactions.
 
@@ -69,11 +71,11 @@ To learn more, see [Design for desktop](https://developer.android.com/design/ui/
 ## Resizability and compatibility mode
 
 In desktop windowing, apps with locked orientation are freely resizable. That
-means even if an activity is [locked to portrait orientation](https://developer.android.com/guide/topics/manifest/activity-element#screen), users can still
+means even if an activity is [locked to portrait orientation](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#screen), users can still
 resize the app to a landscape orientation window.
 Your browser doesn't support the video tag. **Figure 3.** Resizing the window of a portrait-restricted app to landscape.
 
-Apps declared as nonresizable (that is, [`resizeableActivity = false`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity)) have
+Apps declared as nonresizable (that is, [`resizeableActivity = false`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#resizeableActivity)) have
 their UI scaled while keeping the same aspect ratio.
 Your browser doesn't support the video tag. **Figure 4.** The UI of a nonresizable app scales as the window resizes.
 
@@ -103,8 +105,8 @@ obscured and to draw custom UI elements directly into the header space.
 
 To draw custom content in the header bar, the first step is to make the header
 bar background transparent. You can achieve this by using the
-[`APPEARANCE_TRANSPARENT_CAPTION_BAR_BACKGROUND`](https://developer.android.com/reference/kotlin/android/view/WindowInsetsController#appearance_transparent_caption_bar_background) flag with the
-[`WindowInsetsController`](https://developer.android.com/reference/kotlin/android/view/WindowInsetsController).
+[`APPEARANCE_TRANSPARENT_CAPTION_BAR_BACKGROUND`](https://developer.android.com/reference/kotlin/android/view/WindowInsetsController.md.txt#appearance_transparent_caption_bar_background) flag with the
+[`WindowInsetsController`](https://developer.android.com/reference/kotlin/android/view/WindowInsetsController.md.txt).
 
 
 ```kotlin
@@ -117,7 +119,7 @@ window.insetsController?.setSystemBarsAppearance(
 <br />
 
 Once the header bar is transparent, you can style the header area to match your
-app's design. Use [`WindowInsets.isCaptionBarVisible`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/WindowInsets.Companion#(androidx.compose.foundation.layout.WindowInsets.Companion).isCaptionBarVisible()) to detect if the bar is
+app's design. Use [`WindowInsets.isCaptionBarVisible`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/WindowInsets.Companion.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).isCaptionBarVisible()) to detect if the bar is
 present and apply the appropriate height or padding to your layout.
 
 
@@ -146,20 +148,20 @@ fun CaptionBar() {
 
 <br />
 
-- [`setSystemBarsAppearance(appearance,mask)`](https://developer.android.com/reference/android/view/WindowInsetsController#setSystemBarsAppearance(int,%20int)): Configures the visual style
+- [`setSystemBarsAppearance(appearance,mask)`](https://developer.android.com/reference/android/view/WindowInsetsController.md.txt#setSystemBarsAppearance(int,%20int)): Configures the visual style
   of system bars. The first parameter defines the target appearance flags,
   while the second acts as a mask to control which specific flags are
   modified.
 
-- [`windowInsetsTopHeight()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.ui.Modifier).windowInsetsTopHeight(androidx.compose.foundation.layout.WindowInsets)): Automatically sets the height of your
+- [`windowInsetsTopHeight()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.ui.Modifier).windowInsetsTopHeight(androidx.compose.foundation.layout.WindowInsets)): Automatically sets the height of your
   Composable to match the system's header bar, helping your custom background
   fill the caption area without hardcoding pixel values.
 
-- [`WindowInsets.captionBar`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).captionBar()): Provides the dimensions for the desktop
+- [`WindowInsets.captionBar`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).captionBar()): Provides the dimensions for the desktop
   windowing controls (**Close** , **Maximize**, etc.), allowing your UI to
   scale or hide automatically when entering or leaving desktop windowing.
 
-For more information, see [About window insets](https://developer.android.com/develop/ui/compose/system/insets). In addition to a
+For more information, see [About window insets](https://developer.android.com/develop/ui/compose/system/insets.md.txt). In addition to a
 title, you can display other UI elements in the caption bar, such as tabs---like
 in Google Chrome---search bars, or profile avatars.
 
@@ -169,18 +171,18 @@ in Google Chrome---search bars, or profile avatars.
 ### User interface
 
 To avoid overlapping your UI with system buttons, Android 15 provides the
-[`WindowInsets#getBoundingRects()`](https://developer.android.com/reference/android/view/WindowInsets#getBoundingRects(int)) method. The method returns a list of
-[`Rect`](https://developer.android.com/reference/kotlin/android/graphics/Rect) objects representing areas occupied by system elements. Any remaining
+[`WindowInsets#getBoundingRects()`](https://developer.android.com/reference/android/view/WindowInsets.md.txt#getBoundingRects(int)) method. The method returns a list of
+[`Rect`](https://developer.android.com/reference/kotlin/android/graphics/Rect.md.txt) objects representing areas occupied by system elements. Any remaining
 space in the caption bar is a *safe zone* where you can safely place custom
 content.
 
 > [!NOTE]
-> **Note:** By default, the system handles gestures in the caption region to facilitate window dragging. But if you want to place interactive UI (like tabs or search bars) in this area with your own custom handling, you must request priority input handling using the [`setSystemGestureExclusionRects()`](https://developer.android.com/reference/kotlin/android/view/View#setsystemgestureexclusionrects) API.
+> **Note:** By default, the system handles gestures in the caption region to facilitate window dragging. But if you want to place interactive UI (like tabs or search bars) in this area with your own custom handling, you must request priority input handling using the [`setSystemGestureExclusionRects()`](https://developer.android.com/reference/kotlin/android/view/View.md.txt#setsystemgestureexclusionrects) API.
 
 Toggle the appearance of system caption elements for light and dark themes using
-[`APPEARANCE_LIGHT_CAPTION_BARS`](https://developer.android.com/reference/kotlin/android/view/WindowInsetsController#appearance_light_caption_bars). Access insets using
-[`WindowInsets.Companion.captionBar()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).captionBar()) in Compose, or
-[`WindowInsets.Type.captionBar()`](https://developer.android.com/reference/android/view/WindowInsets.Type#captionBar()) in Views.
+[`APPEARANCE_LIGHT_CAPTION_BARS`](https://developer.android.com/reference/kotlin/android/view/WindowInsetsController.md.txt#appearance_light_caption_bars). Access insets using
+[`WindowInsets.Companion.captionBar()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary.md.txt#(androidx.compose.foundation.layout.WindowInsets.Companion).captionBar()) in Compose, or
+[`WindowInsets.Type.captionBar()`](https://developer.android.com/reference/android/view/WindowInsets.Type.md.txt#captionBar()) in Views.
 
 For more information, see [About window insets](https://developer.android.com/develop/ui/compose/layouts/insets).
 
@@ -190,16 +192,17 @@ Multitasking is at the core of desktop windowing, and allowing multiple
 instances of your app can highly increase users' productivity.
 
 Starting from Android 15, you can use
-[`PROPERTY_SUPPORTS_MULTI_INSTANCE_SYSTEM_UI`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_SUPPORTS_MULTI_INSTANCE_SYSTEM_UI). By setting this property in your
+[`PROPERTY_SUPPORTS_MULTI_INSTANCE_SYSTEM_UI`](https://developer.android.com/reference/android/view/WindowManager.md.txt#PROPERTY_SUPPORTS_MULTI_INSTANCE_SYSTEM_UI). By setting this property in your
 `AndroidManifest.xml`, you specify that the system UI should provide options
 (like a "New Window" button) for the app to be launched in multiple instances.
 
-    <application>
-        <property
-            android:name="android.window.PROPERTY_SUPPORTS_MULTI_INSTANCE_SYSTEM_UI"
-            android:value="true" />
-    </application>
-
+```xml
+<application>
+    <property
+        android:name="android.window.PROPERTY_SUPPORTS_MULTI_INSTANCE_SYSTEM_UI"
+        android:value="true" />
+</application>
+```
 > **Note:** In desktop windowing and other multi-window environments, new tasks
 > open in a new window, so double-check the user journey any time your app
 > starts multiple tasks.
@@ -216,14 +219,14 @@ Your browser doesn't support the video tag. **Figure 7.** Start a new instance o
 To configure a composable as a drag source for multi-instance drag-and-drop
 allowing users to drag content to another instance of your app, or create a
 *new* instance by dropping content onto an empty area of the screen---use the
-[`dragAndDropSource`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/package-summary#(androidx.compose.ui.Modifier).dragAndDropSource(kotlin.Function1)) modifier. In its lambda, return
-[`DragAndDropTransferData`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draganddrop/DragAndDropTransferData), passing the [`ClipData`](https://developer.android.com/reference/android/content/ClipData) that contains the data to
+[`dragAndDropSource`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/package-summary.md.txt#(androidx.compose.ui.Modifier).dragAndDropSource(kotlin.Function1)) modifier. In its lambda, return
+[`DragAndDropTransferData`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draganddrop/DragAndDropTransferData.md.txt), passing the [`ClipData`](https://developer.android.com/reference/android/content/ClipData.md.txt) that contains the data to
 transfer, and flags to configure multi-instance behavior.
 
 *Android 15 introduces two key flags for desktop-style windowing and
 multi-instance interactions:*
 
-- **[`DRAG_FLAG_GLOBAL_SAME_APPLICATION`](https://developer.android.com/reference/kotlin/android/view/View#drag_flag_global_same_application)** : Indicates that a drag operation can cross window boundaries (for multiple instances of the same application). When [`startDragAndDrop()`](https://developer.android.com/reference/android/view/View#startDragAndDrop(android.content.ClipData,%20android.view.View.DragShadowBuilder,%20java.lang.Object,%20int)) is called with this flag set, only visible windows belonging to the same application are able to participate in the drag operation and receive the dragged content.
+- **[`DRAG_FLAG_GLOBAL_SAME_APPLICATION`](https://developer.android.com/reference/kotlin/android/view/View.md.txt#drag_flag_global_same_application)** : Indicates that a drag operation can cross window boundaries (for multiple instances of the same application). When [`startDragAndDrop()`](https://developer.android.com/reference/android/view/View.md.txt#startDragAndDrop(android.content.ClipData,%20android.view.View.DragShadowBuilder,%20java.lang.Object,%20int)) is called with this flag set, only visible windows belonging to the same application are able to participate in the drag operation and receive the dragged content.
 
 
 ```kotlin
@@ -237,8 +240,8 @@ Modifier.dragAndDropSource { _ ->
 
 <br />
 
-- **[`DRAG_FLAG_START_INTENT_SENDER_ON_UNHANDLED_DRAG`](https://developer.android.com/reference/kotlin/android/view/View#drag_flag_start_intent_sender_on_unhandled_drag)** : Allows users to start a new instance of your app by dropping the dragged content onto an empty area of the screen, if no other window handles the drop.
-  - When using this flag, you must provide an [`IntentSender`](https://developer.android.com/reference/kotlin/android/content/IntentSender) using [`ClipData.Item.Builder#setIntentSender()`](https://developer.android.com/reference/android/content/ClipData.Item.Builder#setIntentSender(android.content.IntentSender)), which the system uses to launch the new activity if an unhandled drop occurs.
+- **[`DRAG_FLAG_START_INTENT_SENDER_ON_UNHANDLED_DRAG`](https://developer.android.com/reference/kotlin/android/view/View.md.txt#drag_flag_start_intent_sender_on_unhandled_drag)** : Allows users to start a new instance of your app by dropping the dragged content onto an empty area of the screen, if no other window handles the drop.
+  - When using this flag, you must provide an [`IntentSender`](https://developer.android.com/reference/kotlin/android/content/IntentSender.md.txt) using [`ClipData.Item.Builder#setIntentSender()`](https://developer.android.com/reference/android/content/ClipData.Item.Builder.md.txt#setIntentSender(android.content.IntentSender)), which the system uses to launch the new activity if an unhandled drop occurs.
 
 
 ```kotlin
@@ -271,11 +274,11 @@ Modifier.dragAndDropSource { _ ->
 <br />
 
 > [!NOTE]
-> **Note:** To make sure drag operations are recognized by external system processes and other instances of your app, use [`DRAG_FLAG_GLOBAL_SAME_APPLICATION`](https://developer.android.com/reference/kotlin/android/view/View#drag_flag_global_same_application) and [`DRAG_FLAG_START_INTENT_SENDER_ON_UNHANDLED_DRAG`](https://developer.android.com/reference/kotlin/android/view/View#drag_flag_start_intent_sender_on_unhandled_drag) within your [`dragAndDropSource`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/package-summary#(androidx.compose.ui.Modifier).dragAndDropSource(kotlin.Function1)). Because this configuration utilizes a [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent) to resolve the action, you don't need to implement manual data retrieval logic; the system automatically triggers the intent when the drop occurs outside of an active window.
+> **Note:** To make sure drag operations are recognized by external system processes and other instances of your app, use [`DRAG_FLAG_GLOBAL_SAME_APPLICATION`](https://developer.android.com/reference/kotlin/android/view/View.md.txt#drag_flag_global_same_application) and [`DRAG_FLAG_START_INTENT_SENDER_ON_UNHANDLED_DRAG`](https://developer.android.com/reference/kotlin/android/view/View.md.txt#drag_flag_start_intent_sender_on_unhandled_drag) within your [`dragAndDropSource`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/package-summary.md.txt#(androidx.compose.ui.Modifier).dragAndDropSource(kotlin.Function1)). Because this configuration utilizes a [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent.md.txt) to resolve the action, you don't need to implement manual data retrieval logic; the system automatically triggers the intent when the drop occurs outside of an active window.
 
 #### Receive transferred data
 
-To accept data from another instance, use the [`dragAndDropTarget`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/package-summary#(androidx.compose.ui.Modifier).dragAndDropTarget(kotlin.Function1,androidx.compose.ui.draganddrop.DragAndDropTarget)) modifier.
+To accept data from another instance, use the [`dragAndDropTarget`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/package-summary.md.txt#(androidx.compose.ui.Modifier).dragAndDropTarget(kotlin.Function1,androidx.compose.ui.draganddrop.DragAndDropTarget)) modifier.
 You must explicitly request permissions if the data is coming from a different
 instance or app.
 
@@ -304,8 +307,8 @@ Modifier.dragAndDropTarget(
 **Key steps:**
 
 - Filter: Use `shouldStartDragAndDrop` to check if the incoming data (MIME type) is supported.
-- Permissions: Call [`requestDragAndDropPermissions(event)`](https://developer.android.com/reference/android/app/Activity#requestDragAndDropPermissions(android.view.DragEvent)) to access the data.
-- Handle: Extract the data in the [`onDrop`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draganddrop/DragAndDropTarget#onDrop(androidx.compose.ui.draganddrop.DragAndDropEvent)) callback.
+- Permissions: Call [`requestDragAndDropPermissions(event)`](https://developer.android.com/reference/android/app/Activity.md.txt#requestDragAndDropPermissions(android.view.DragEvent)) to access the data.
+- Handle: Extract the data in the [`onDrop`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draganddrop/DragAndDropTarget.md.txt#onDrop(androidx.compose.ui.draganddrop.DragAndDropEvent)) callback.
 
 ## Additional optimizations
 
@@ -315,10 +318,10 @@ screen.
 ### Specify default size and position
 
 Not all apps, even if resizable, need a large window to offer user value. You
-can use the [`ActivityOptions#setLaunchBounds()`](https://developer.android.com/reference/kotlin/android/app/ActivityOptions#setlaunchbounds) method to specify a default
+can use the [`ActivityOptions#setLaunchBounds()`](https://developer.android.com/reference/kotlin/android/app/ActivityOptions.md.txt#setlaunchbounds) method to specify a default
 size and position when an activity is launched.
 
 ### Enter full-screen from the desktop space
 
-Apps can go full-screen by calling [`Activity#requestFullScreenMode()`](https://developer.android.com/reference/kotlin/android/app/Activity#requestfullscreenmode). The
+Apps can go full-screen by calling [`Activity#requestFullScreenMode()`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#requestfullscreenmode). The
 method displays the app full screen directly from desktop windowing.

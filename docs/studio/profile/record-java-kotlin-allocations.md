@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/profile/record-java-kotlin-allocations
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/profile/llms.txt
+
 Recording Java/Kotlin allocations helps you identify undesirable memory patterns
 that might be causing performance problems. The profiler can show you the
 following about object allocations:
@@ -14,19 +16,16 @@ following about object allocations:
 
 You should record memory allocations during normal and extreme user interaction
 to identify exactly where your code is either allocating too many objects in a
-short time or allocating objects that become leaked.
-[Learn more about why you should profile your app memory](https://developer.android.com/studio/profile/capture-heap-dump#why-profile-memory).
+short time or allocating objects that become leaked. [Learn more about why you
+should profile your app memory](https://developer.android.com/studio/profile/capture-heap-dump#why-profile-memory).
 
 ## How to record Java/Kotlin allocations
 
-To record Java/Kotlin allocations,
-[select the **Track Memory Consumption (Java/Kotlin Allocations)** task](https://developer.android.com/studio/profile#start-profiling)
-from the profiler **Home** tab. Note that you need a
-[debuggable app](https://developer.android.com/studio/profile#profileable-v-debuggable)
-(use **Profiler: run 'app' as debuggable (complete data)**) to record
-Java/Kotlin allocations.
-
-![](https://developer.android.com/static/studio/images/profiler-java-kotlin-allocations-recording.png)
+To record Java/Kotlin allocations, [select the **Track Memory Consumption
+(Java/Kotlin Allocations)** task](https://developer.android.com/studio/profile#start-profiling) from the profiler **Home** tab. Note that
+you need a [debuggable app](https://developer.android.com/studio/profile.md.txt#profileable-v-debuggable) (use **Profiler: run 'app' as debuggable
+(complete data)**) to record Java/Kotlin allocations.
+![Allocation tracking recording controls in Android Studio Profiler](https://developer.android.com/static/studio/images/profiler-java-kotlin-allocations-recording.png) Allocation tracking recording controls in Android Studio Profiler.
 
 Android Studio captures all object allocations in memory by default. If you have
 an app that allocates a lot of objects, you might observe visible slowdowns with
@@ -44,32 +43,30 @@ To force a garbage collection event while recording, click the garbage icon
 ## Java/Kotlin allocations overview
 
 After you stop the recording, you see the following:
-
-![](https://developer.android.com/static/studio/images/profiler-java-kotlin-allocations-parsed.png)
+![Parsed Java and Kotlin allocation recording overview](https://developer.android.com/static/studio/images/profiler-java-kotlin-allocations-parsed.png) Parsed Java and Kotlin allocation recording overview.
 
 - The event timeline shows activity states, user input events, and screen rotation events.
 - The memory use timeline shows the following info. Select a portion of the timeline to filter to a certain time range.
-  - A stacked graph of how much memory is being used by each memory category, as indicated by the y-axis on the left and the [color key](https://developer.android.com/studio/profile/record-java-kotlin-allocations#how-memory-is-counted) at the top.
+  - A stacked graph of how much memory is being used by each memory category, as indicated by the y-axis on the left and the [color key](https://developer.android.com/studio/profile/record-java-kotlin-allocations.md.txt#how-memory-is-counted) at the top.
   - A dashed line indicates the number of allocated objects, as indicated by the y-axis on the right.
   - An icon for each garbage collection event.
 - The **Table** tab shows a list of classes. The **Total Count** is the number of allocations at the end of the selected time range (**Allocations** minus **Deallocations** ), so it might make sense to debug classes that have the highest **Total Count** values first. If you're more interested in troubleshooting classes based on peak allocations during the time range selected, prioritize by **Allocations** . Similarly the **Remaining Size** is the **Allocations Size** minus the **Deallocations Size** in bytes.
-- When you click a class in the **Table** list, the **Instance** pane opens with a list of associated objects, including when they were allocated, when they were deallocated, and their [shallow size](https://developer.android.com/studio/profile/capture-heap-dump#heap-dump-overview).
+- When you click a class in the **Table** list, the **Instance** pane opens with a list of associated objects, including when they were allocated, when they were deallocated, and their [shallow size](https://developer.android.com/studio/profile/capture-heap-dump.md.txt#heap-dump-overview).
 - The **Visualization** tab shows an aggregated view of all the objects in the
   call stack during the time range selected. It essentially shows you how much
   total memory the callstack with the instances shown takes. The first row
   shows the thread name. By default, the objects are stacked left to right
   based on allocation size; use the drop-down to change the ordering.
 
-  ![](https://developer.android.com/static/studio/images/profiler-jk-allocations-visualization.png)
-- Use the heap drop-down to filter to certain heaps. In addition to the
-  [filters available when you capture a heap dump](https://developer.android.com/studio/profile/capture-heap-dump#heap-dump-overview),
-  you can filter to classes in the JNI heap, the heap that shows where Java
-  Native Interface (JNI) references are allocated and released.
+  ![Visualization tab showing aggregated allocation call stack](https://developer.android.com/static/studio/images/profiler-jk-allocations-visualization.png)
+- Use the heap drop-down to filter to certain heaps. In addition to the [filters
+  available when you capture a heap dump](https://developer.android.com/studio/profile/capture-heap-dump#heap-dump-overview), you can filter to classes in the
+  JNI heap, the heap that shows where Java Native Interface (JNI) references are
+  allocated and released.
 
 - Use the arrangement drop-down to choose how to arrange the allocations. In
-  addition to the
-  [arrangements available when you capture a heap dump](https://developer.android.com/studio/profile/capture-heap-dump#heap-dump-overview),
-  you can arrange by callstack.
+  addition to the [arrangements available when you capture a heap dump](https://developer.android.com/studio/profile/capture-heap-dump.md.txt#heap-dump-overview), you
+  can arrange by callstack.
 
 ## How memory is counted
 
@@ -77,8 +74,7 @@ The numbers you see at the top of are based on all the private memory pages that
 your app has committed, according to the Android system. This count doesn't
 include pages shared with the system or other apps.
 The categories in the memory count are as follows:
-
-![](https://developer.android.com/static/studio/images/profiler-jk-allocations-legend.png)
+![Color key legend for memory allocation categories](https://developer.android.com/static/studio/images/profiler-jk-allocations-legend.png) Color key legend for memory allocation categories.
 
 - **Java**: Memory from objects allocated from Java or Kotlin code.
 - **Native**: Memory from objects allocated from C or C++ code.
@@ -116,7 +112,7 @@ To inspect the allocation record, follow these steps:
 1. Browse the class list in the **Table** tab to find objects that have unusually large **Allocations** or **Total Count** values (depending on what you're optimizing for) and that might be leaked.
 2. In the **Instance View** pane, click an instance. Depending on what's applicable to that instance, the **Fields** or **Allocation Call Stack** tab opens. Use the information in the **Fields** or **Allocation Call Stack** tabs to determine if instances are truly needed or unnecessary duplications.
 
-![](https://developer.android.com/static/studio/images/profiler-jk-allocations-instance-details.png)
+![Instance details pane showing Fields and Allocation Call Stack tabs](https://developer.android.com/static/studio/images/profiler-jk-allocations-instance-details.png) Instance details pane showing Fields and Allocation Call Stack tabs.
 
 Right-click any list entry to jump to the relevant source code.
 
@@ -134,12 +130,10 @@ To troubleshoot such issues, select **View JNI heap** in the profiler to browse
 all global JNI references and filter them by Java types and native call stacks.
 Right-click on an instance field in the **Fields** tab and select **Go to
 instance** to see the relevant allocation call stack.
-
-![](https://developer.android.com/static/studio/images/profiler-jk-allocations-jni-instances.png)
+![JNI heap view showing global JNI references](https://developer.android.com/static/studio/images/profiler-jk-allocations-jni-instances.png) JNI heap view showing global JNI references.
 
 The **Allocation Call Stack** tab shows you where the JNI references are
 allocated and released in your code.
-
-![](https://developer.android.com/static/studio/images/profiler-jk-allocations-jni-instance-details.png)
+![Allocation Call Stack tab showing where JNI references are allocated and released](https://developer.android.com/static/studio/images/profiler-jk-allocations-jni-instance-details.png) Allocation Call Stack tab showing where JNI references are allocated and released.
 
 For more information on JNI, see [JNI tips](https://developer.android.com/training/articles/perf-jni).

@@ -32,7 +32,7 @@ to designate the state of its APIs:
 AGP is evolving with the deprecation of old APIs and their
 replacement with new, stable APIs and a new Domain Specific Language (DSL).
 This evolution will span multiple AGP releases, and you can learn more about it
-at the [AGP API/DSL migration timeline](https://developer.android.com/studio/releases/gradle-plugin-roadmap).
+at the [AGP API/DSL migration timeline](https://developer.android.com/build/releases/gradle-plugin-roadmap.md.txt).
 
 When AGP APIs are deprecated, for this migration or otherwise, they will
 continue to be available in the current major release but will generate
@@ -154,7 +154,7 @@ links out to the main Gradle documentation for further reading.
 We do assume basic knowledge about how Gradle works, including how to configure
 projects, edit build files, apply plugins, and run tasks. To learn about the
 basics of Gradle with respect to AGP, we recommend reading [Configure your
-build](https://developer.android.com/studio/build). To learn about the general framework for
+build](https://developer.android.com/build). To learn about the general framework for
 customizing Gradle plugins, see [Developing Custom Gradle
 Plugins](https://docs.gradle.org/current/userguide/custom_plugins.html).
 
@@ -327,7 +327,7 @@ execution phase instead.
 3. **Variant creation**: The list of components and artifacts that will be
    created is now finalized and can't be changed.
 
-   - [`onVariants()`](https://developer.android.com/reference/tools/gradle-api/4.2/com/android/build/api/extension/AndroidComponentsExtension.md.txt#onvariants): In this callback, you get access to the created `Variant` objects and you can set values or providers for the `Property` values they contain, to be computed lazily.
+   - [`onVariants()`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/extension/AndroidComponentsExtension.md.txt#onVariants(com.android.build.api.extension.VariantSelector,%20kotlin.Function1)): In this callback, you get access to the created `Variant` objects and you can set values or providers for the `Property` values they contain, to be computed lazily.
 4. **Variant locking**: Variant objects are now locked and changes are no longer
    possible.
 
@@ -474,7 +474,7 @@ onVariants(selector().withBuildType("release")) { variant ->
 Your plugin can contribute a few types of generated sources, such as:
 
 - Application code in the `java` directory
-- [Android resources](https://developer.android.com/guide/topics/resources/available-resources) in the `res` directory
+- [Android resources](https://developer.android.com/guide/topics/resources/providing-resources.md.txt) in the `res` directory
 - [Java resources](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_project_layout) in the `resources` directory
 - [Android assets](https://developer.android.com/reference/android/content/res/AssetManager.md.txt) in the `assets` directory
 
@@ -570,7 +570,7 @@ which operations it supports:
 - [`Replaceable`](https://developer.android.com/reference/tools/gradle-api/4.1/com/android/build/api/artifact/Artifact.Replaceable.md.txt): Applies only to artifacts that are subclasses of `Artifact.Single`. A replaceable `Artifact` can be replaced by an entirely new instance, produced as an output of a `Task`.
 
 In addition to the three artifact-modifying operations, every artifact supports
-a [`get()`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/artifact/Artifacts.md.txt#get) (or [`getAll()`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/artifact/Artifacts.md.txt#getall)) operation, which
+a [`get()`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/artifact/Artifacts.md.txt#get(com.android.build.api.artifact.SingleArtifact)) (or [`getAll()`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/artifact/Artifacts.md.txt#getAll(com.android.build.api.artifact.MultipleArtifact))) operation, which
 returns a `Provider` with the final version of the artifact (after all
 operations on it are finished).
 

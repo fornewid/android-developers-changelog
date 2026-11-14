@@ -18,9 +18,9 @@ situations.
 For example, an anti-virus app's primary use case might require regular scanning
 of many files across different directories. If this scanning requires repeated
 user interactions to select directories using the system file picker, it
-provides a poor user experience. Other use cases---such as file manager apps,
-backup and restore apps, and document management apps---require similar
-considerations.
+provides a poor user experience. Other use cases---such as file manager
+apps, backup and restore apps, and document management apps---require
+similar considerations.
 
 ## Request all-files access
 
@@ -108,12 +108,11 @@ When your app targets Android 11 or higher and it declares the
 `MANAGE_EXTERNAL_STORAGE` permission, Android Studio shows the lint warning that
 appears in figure 1. This warning reminds you that the Google Play store has a
 policy that limits usage of the permission.
-![](https://developer.android.com/static/images/training/data-storage/manage-external-storage-lint-warning.svg) **Figure 1.** Lint warning in Android Studio that reminds developers about the Google Play policy regarding the `MANAGE_EXTERNAL_STORAGE` permission.
+![](https://developer.android.com/static/images/training/data-storage/manage-external-storage-lint-warning.svg) **Figure 1.** Lint warning in Android Studio that reminds you about the Google Play policy regarding the `MANAGE_EXTERNAL_STORAGE` permission.
 
-Request the `MANAGE_EXTERNAL_STORAGE` permission only when your app
-can't effectively make use of the more privacy-friendly APIs, such as the [Storage
-Access Framework](https://developer.android.com/training/data-storage/shared/documents-files) or the [Media
-Store API](https://developer.android.com/training/data-storage/shared/media). Your app's usage
+Request the `MANAGE_EXTERNAL_STORAGE` permission only when your app can't
+effectively make use of the more privacy-friendly APIs, such as the
+[Storage Access Framework](https://developer.android.com/training/data-storage/shared/documents-files.md.txt) or the [Media Store API](https://developer.android.com/training/data-storage/shared/media.md.txt). Your app's usage
 of the permission must fall within permitted uses and must be directly tied to
 the core functionality of the app. If your app includes a use case
 similar to any of the following, it's likely that it can request the

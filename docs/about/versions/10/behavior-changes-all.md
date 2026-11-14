@@ -4,6 +4,8 @@ url: https://developer.android.com/about/versions/10/behavior-changes-all
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/about/versions/10/llms.txt
+
 Android 10 includes behavior changes that may affect your app.
 The changes listed on this page apply to your app when running
 on Android 10, regardless of the app's `targetSdkVersion`. You should test
@@ -12,9 +14,12 @@ your app and modify it as needed to support these changes properly.
 If your app's targetSdkVersion is `29` or higher, you'll also need to
 support additional changes. Make sure to read [behavior changes for apps
 targeting 29](https://developer.android.com/about/versions/10/behavior-changes-10) for details.
-**Note:**In addition to the changes listed on this page, Android 10
-introduces a large number of privacy-based changes and restrictions, including
-the following:
+
+## Privacy changes
+
+In addition to the other changes listed in this document, Android 10 introduces
+a large number of privacy-based changes and restrictions, including the
+following:
 
 - Background access to device location
 - Background activity starts
@@ -23,14 +28,14 @@ the following:
 - Camera metadata
 - Permissions model
 
-These changes affect all apps and enhance user privacy. To learn more about
-how to support these changes, see the
-[Privacy changes](https://developer.android.com/about/versions/10/privacy/changes) page.
+These changes affect all apps and enhance user privacy. For more information
+about how to support these changes, see
+[Privacy changes](https://developer.android.com/about/versions/10/privacy/changes.md.txt).
 
 ## Non-SDK interface restrictions
 
 To help ensure app stability and compatibility, the platform started restricting
-which [non-SDK interfaces](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces)
+which [non-SDK interfaces](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces.md.txt)
 your app can use in Android 9 (API level 28). Android 10 includes updated lists
 of restricted non-SDK interfaces based on collaboration with Android developers
 and the latest internal testing. Our goal is to make sure that public
@@ -38,20 +43,20 @@ alternatives are available before we restrict non-SDK interfaces.
 
 If you will not be targeting Android 10 (API level 29), some of these changes
 might not immediately affect you. However, while you can currently use some
-non-SDK interfaces ([depending on your app's target API level](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names)),
+non-SDK interfaces ([depending on your app's target API level](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces.md.txt#list-names)),
 using any non-SDK method or field always carries a high risk of breaking your
 app.
 
 If you are unsure if your app uses non-SDK interfaces, you can
-[test your app](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-for-non-sdk) to
+[test your app](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces.md.txt#test-for-non-sdk) to
 find out. If your app relies on non-SDK interfaces, you should begin planning a
 migration to SDK alternatives. Nevertheless, we understand that some apps have
 valid use cases for using non-SDK interfaces. If you cannot find an alternative
 to using a non-SDK interface for a feature in your app, you should
-[request a new public API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request).
+[request a new public API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces.md.txt#feature-request).
 
-To learn more, see [Updates to non-SDK interface restrictions in Android 10](https://developer.android.com/about/versions/10/non-sdk-q)
-and see [Restrictions on non-SDK interfaces](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces).
+To learn more, see [Updates to non-SDK interface restrictions in Android 10](https://developer.android.com/about/versions/10/non-sdk-q.md.txt)
+and see [Restrictions on non-SDK interfaces](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces.md.txt).
 
 ## Gesture Navigation
 
@@ -95,16 +100,15 @@ might break:
 These changes apply to the 64-bit variants of the file as well, with
 `lib/` replaced with `lib64/`.
 
-For compatibility, the symlinks are provided at the old paths. For example,
+For compatibility, the system provides symlinks at the old paths. For example,
 `/system/lib/libc.so` is a symlink to
-`/apex/com.android.runtime/lib/bionic/libc.so`. So
-`dlopen("/system/lib/libc.so")` continues to work, but apps will find
-the difference when they actually try to examine the loaded libraries by reading
-`/proc/self/maps` or similar, which is not usual but we've found that
-some apps do that as part of their anti-hacking process. If so, the
-`/apex/...` paths should be added as valid paths for the Bionic files.
+`/apex/com.android.runtime/lib/bionic/libc.so`. As a result,
+`dlopen("/system/lib/libc.so")` continues to work. However, apps notice the
+difference if they examine the loaded libraries by reading `/proc/self/maps` or
+similar files, such as for anti-tampering checks. In that case, add the
+`/apex/` paths as valid paths for the Bionic files.
 
-## System binaries/libraries mapped to execute-only memory
+## System binaries and libraries mapped to execute-only memory
 
 Starting in Android 10, executable segments of system binaries
 and libraries are mapped into memory execute-only (non-readable) as a hardening
@@ -139,15 +143,15 @@ In Android 10 and higher, TLS 1.3 is enabled by default for all
 TLS connections. Here are a few important details about our TLS 1.3
 implementation:
 
-- The TLS 1.3 cipher suites cannot be customized. The supported TLS 1.3 cipher suites are always enabled when TLS 1.3 is enabled. Any attempt to disable them by calling [`setEnabledCipherSuites()`](https://developer.android.com/reference/javax/net/ssl/SSLSocket#setEnabledCipherSuites(java.lang.String%5B%5D)) is ignored.
-- When TLS 1.3 is negotiated, [`HandshakeCompletedListener`](https://developer.android.com/reference/javax/net/ssl/HandshakeCompletedListener) objects are called *before* sessions are added to the session cache. (In TLS 1.2 and other previous versions, these objects are called *after* sessions are added to the session cache.)
-- In some situations where `SSLEngine` instances throw an [`SSLHandshakeException`](https://developer.android.com/reference/javax/net/ssl/SSLHandshakeException) on previous versions of Android, these instances throw an [`SSLProtocolException`](https://developer.android.com/reference/javax/net/ssl/SSLProtocolException) instead on Android 10 and higher.
+- The TLS 1.3 cipher suites cannot be customized. The supported TLS 1.3 cipher suites are always enabled when TLS 1.3 is enabled. Any attempt to disable them by calling [`setEnabledCipherSuites()`](https://developer.android.com/reference/javax/net/ssl/SSLSocket.md.txt#setEnabledCipherSuites(java.lang.String%5B%5D)) is ignored.
+- When TLS 1.3 is negotiated, [`HandshakeCompletedListener`](https://developer.android.com/reference/javax/net/ssl/HandshakeCompletedListener.md.txt) objects are called *before* sessions are added to the session cache. (In TLS 1.2 and other previous versions, these objects are called *after* sessions are added to the session cache.)
+- In some situations where `SSLEngine` instances throw an [`SSLHandshakeException`](https://developer.android.com/reference/javax/net/ssl/SSLHandshakeException.md.txt) on previous versions of Android, these instances throw an [`SSLProtocolException`](https://developer.android.com/reference/javax/net/ssl/SSLProtocolException.md.txt) instead on Android 10 and higher.
 - 0-RTT mode isn't supported.
 
 If desired, you can obtain an `SSLContext` that has TLS 1.3 disabled by calling
-[`SSLContext.getInstance("TLSv1.2")`](https://developer.android.com/reference/javax/net/ssl/SSLContext#getInstance(java.lang.String)).
+[`SSLContext.getInstance("TLSv1.2")`](https://developer.android.com/reference/javax/net/ssl/SSLContext.md.txt#getInstance(java.lang.String)).
 You can also enable or disable protocol versions on a per-connection basis by
-calling [`setEnabledProtocols()`](https://developer.android.com/reference/javax/net/ssl/SSLSocket#setEnabledProtocols(java.lang.String%5B%5D))
+calling [`setEnabledProtocols()`](https://developer.android.com/reference/javax/net/ssl/SSLSocket.md.txt#setEnabledProtocols(java.lang.String%5B%5D))
 on an appropriate object.
 
 ### Certificates signed with SHA-1 aren't trusted in TLS
@@ -164,7 +168,7 @@ certificate using SHA-1.
 Some browsers, such as Google Chrome, allow users to choose a certificate when a
 TLS server sends a certificate request message as part of a TLS handshake. As of
 Android 10,
-[`KeyChain`](https://developer.android.com/reference/android/security/KeyChain) objects honor the issuers and
+[`KeyChain`](https://developer.android.com/reference/android/security/KeyChain.md.txt) objects honor the issuers and
 key specification parameters when calling `KeyChain.choosePrivateKeyAlias()` to
 show users a certificate selection prompt. In particular, this prompt doesn't
 contain choices that don't adhere to server specifications.
@@ -193,8 +197,8 @@ take effect on Android 10:
 On Android 10, the following broadcasts related to [Wi-Fi
 Direct](https://developer.android.com/training/connect-devices-wirelessly/wifi-direct) aren't sticky:
 
-- [`WIFI_P2P_CONNECTION_CHANGED_ACTION`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_CONNECTION_CHANGED_ACTION)
-- [`WIFI_P2P_THIS_DEVICE_CHANGED_ACTION`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_THIS_DEVICE_CHANGED_ACTION)
+- [`WIFI_P2P_CONNECTION_CHANGED_ACTION`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.md.txt#WIFI_P2P_CONNECTION_CHANGED_ACTION)
+- [`WIFI_P2P_THIS_DEVICE_CHANGED_ACTION`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.md.txt#WIFI_P2P_THIS_DEVICE_CHANGED_ACTION)
 
 If your app has relied on receiving these broadcasts at registration because
 they had been sticky, use the appropriate `get()` method at initialization to
@@ -317,7 +321,7 @@ connMgr.requestNetwork(networkRequest, callback);
 ## SYSTEM_ALERT_WINDOW on Go devices
 
 Apps running on Android 10 (Go edition) devices cannot receive the
-[`SYSTEM_ALERT_WINDOW`](https://developer.android.com/reference/android/Manifest.permission#SYSTEM_ALERT_WINDOW)
+[`SYSTEM_ALERT_WINDOW`](https://developer.android.com/reference/android/Manifest.permission.md.txt#SYSTEM_ALERT_WINDOW)
 permission. This is because drawing overlay windows uses excessive memory,
 which is particularly harmful to the performance of low-memory Android
 devices.
@@ -328,11 +332,11 @@ device is upgraded to Android 10. However, apps which do not already have that
 permission cannot be granted it after the device is upgraded.
 
 If an app on a Go device sends an intent with the action
-[`ACTION_MANAGE_OVERLAY_PERMISSION`](https://developer.android.com/reference/android/provider/Settings#ACTION_MANAGE_OVERLAY_PERMISSION),
+[`ACTION_MANAGE_OVERLAY_PERMISSION`](https://developer.android.com/reference/android/provider/Settings.md.txt#ACTION_MANAGE_OVERLAY_PERMISSION),
 the system automatically denies the request, and takes the user to a
 **Settings** screen which says that the permission isn't allowed because it
 slows the device. If an app on a Go device calls
-[`Settings.canDrawOverlays()`](https://developer.android.com/reference/android/provider/Settings#canDrawOverlays(android.content.Context)),
+[`Settings.canDrawOverlays()`](https://developer.android.com/reference/android/provider/Settings.md.txt#canDrawOverlays(android.content.Context)),
 the method always returns false. Again, these restrictions do not apply to apps
 which received the `SYSTEM_ALERT_WINDOW` permission before the device was
 upgraded to Android 10.
@@ -369,41 +373,23 @@ and most servers either support both the GCM and CBC variants of these cipher
 suites or support neither of them.
 
 > [!NOTE]
-> **Note:** Apps and libraries should intersect their desired set of cipher suites with the return value from [`getSupportedCipherSuites()`](https://developer.android.com/reference/javax/net/ssl/SSLSocket#getSupportedCipherSuites()) to future-proof cipher suite selection against future removals.
+> **Note:** Apps and libraries should intersect their desired set of cipher suites with the return value from [`getSupportedCipherSuites()`](https://developer.android.com/reference/javax/net/ssl/SSLSocket.md.txt#getSupportedCipherSuites()) to future-proof cipher suite selection against future removals.
 
 ## App usage
 
-Android 10 introduces the following behavior changes related to app usage:
+Android 10 introduces the following behavior changes related to app
+usage:
 
-- **UsageStats app usage improvements** -
-
-
-  Android 10 accurately tracks app usage with
-  [UsageStats](https://developer.android.com/reference/android/app/usage/UsageStats) when apps are
-  used in split-screen or picture-in-picture mode. Additionally,
-  Android 10 correctly tracks instant app usage.
-
-- **Per-app grayscale** -
-
-
-  Android 10 can set a grayscale display mode on a per-app basis.
-
-- **Per-app distraction state** -
-
-
-  Android 10 can selectively set apps to a "distraction state" where
-  their notifications are suppressed and they do not appear as suggested apps.
-
-- **Suspension and playback** -
-
-
-  In Android 10, suspended apps are not able to play audio.
+- **`UsageStats` app usage improvements** : Android 10 accurately tracks app usage with [`UsageStats`](https://developer.android.com/reference/android/app/usage/UsageStats.md.txt) when apps are used in split-screen or picture-in-picture mode. Additionally, Android 10 correctly tracks instant app usage.
+- **Per-app grayscale**: Android 10 can set a grayscale display mode on a per-app basis.
+- **Per-app distraction state**: Android 10 can selectively set apps to a "distraction state" where their notifications are suppressed and they don't appear as suggested apps.
+- **Suspension and playback**: In Android 10, suspended apps can't play audio.
 
 ## HTTPS connection changes
 
 If an app running Android 10 passes `null` into
-[`setSSLSocketFactory()`](https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection#setSSLSocketFactory(javax.net.ssl.SSLSocketFactory)),
-an [`IllegalArgumentException`](https://developer.android.com/reference/java/lang/IllegalArgumentException)
+[`setSSLSocketFactory()`](https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection.md.txt#setSSLSocketFactory(javax.net.ssl.SSLSocketFactory)),
+an [`IllegalArgumentException`](https://developer.android.com/reference/java/lang/IllegalArgumentException.md.txt)
 occurs. In previous versions, passing `null` into `setSSLSocketFactory()`
 had the same effect as passing in the current [default
 factory](https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection#getDefaultSSLSocketFactory()).
@@ -416,7 +402,7 @@ Jetpack](https://developer.android.com/jetpack). For additional resources to aid
 development, check out the updated [Settings
 Guide](https://developer.android.com/guide/topics/ui/settings) along with our [public sample
 app](https://github.com/android/user-interface-samples/tree/main/Preferences)
-and [reference documentation](https://developer.android.com/reference/androidx/preference/package-summary).
+and [reference documentation](https://developer.android.com/reference/androidx/preference/package-summary.md.txt).
 
 ## ZIP file utility library changes
 
@@ -427,25 +413,25 @@ consistent between Android and other platforms that use `java.util.zip`.
 ### Inflater
 
 In previous versions, some methods in the `Inflater` class threw an
-[`IllegalStateException`](https://developer.android.com/reference/java/lang/IllegalStateException) if they
-were invoked after a call to [`end()`](https://developer.android.com/reference/java/util/zip/Inflater#end()).
+[`IllegalStateException`](https://developer.android.com/reference/java/lang/IllegalStateException.md.txt) if they
+were invoked after a call to [`end()`](https://developer.android.com/reference/java/util/zip/Inflater.md.txt#end()).
 In Android 10, these methods throw a
-[`NullPointerException`](https://developer.android.com/reference/java/lang/NullPointerException) instead.
+[`NullPointerException`](https://developer.android.com/reference/java/lang/NullPointerException.md.txt) instead.
 
 ### ZipFile
 
 In Android 10 and higher, the [constructor for
 `ZipFile`](https://developer.android.com/reference/java/util/zip/ZipFile#ZipFile(java.io.File,%20int,%20java.nio.charset.Charset))
 that takes arguments of type `File`, `int`, and `Charset` doesn't throw a
-[`ZipException`](https://developer.android.com/reference/java/util/zip/ZipException) if the supplied ZIP file
+[`ZipException`](https://developer.android.com/reference/java/util/zip/ZipException.md.txt) if the supplied ZIP file
 doesn't contain any files.
 
 ### ZipOutputStream
 
 In Android 10 and higher, the
-[`finish()`](https://developer.android.com/reference/java/util/zip/ZipOutputStream#finish()) method in
+[`finish()`](https://developer.android.com/reference/java/util/zip/ZipOutputStream.md.txt#finish()) method in
 `ZipOutputStream` doesn't throw a
-[`ZipException`](https://developer.android.com/reference/java/util/zip/ZipException) if it tries to write an
+[`ZipException`](https://developer.android.com/reference/java/util/zip/ZipException.md.txt) if it tries to write an
 output stream for a ZIP file that doesn't contain any files.
 
 ## Camera changes
@@ -464,7 +450,7 @@ multi-window operation.
 ## Battery usage tracking
 
 Beginning with Android 10,
-[`SystemHealthManager`](https://developer.android.com/reference/android/os/health/SystemHealthManager) resets
+[`SystemHealthManager`](https://developer.android.com/reference/android/os/health/SystemHealthManager.md.txt) resets
 its battery usage statistics whenever the device is unplugged after a *major
 charging event*. Broadly speaking, a major charging event is either: The device
 has been fully charged, or the device has gone from mostly depleted to mostly
@@ -506,12 +492,12 @@ Exception behavior for invalid arguments has also been improved:
 ## Default angle for GradientDrawable is now TOP_BOTTOM
 
 In Android 10, if you define a
-[`GradientDrawable`](https://developer.android.com/reference/android/graphics/drawable/GradientDrawable)
+[`GradientDrawable`](https://developer.android.com/reference/android/graphics/drawable/GradientDrawable.md.txt)
 in XML and do not provide an angle measurement, the gradient orientation
 defaults to
-[`TOP_BOTTOM`](https://developer.android.com/reference/android/graphics/drawable/GradientDrawable.Orientation#TOP_BOTTOM).
+[`TOP_BOTTOM`](https://developer.android.com/reference/android/graphics/drawable/GradientDrawable.Orientation.md.txt#TOP_BOTTOM).
 This is a change from previous versions of Android, where the default was
-[`LEFT_RIGHT`](https://developer.android.com/reference/android/graphics/drawable/GradientDrawable.Orientation#LEFT_RIGHT).
+[`LEFT_RIGHT`](https://developer.android.com/reference/android/graphics/drawable/GradientDrawable.Orientation.md.txt#LEFT_RIGHT).
 
 As a workaround, if you update to the most recent version of [AAPT2](https://developer.android.com/studio/command-line/aapt2),
 the tool sets an angle measurement of 0 for legacy apps if no angle

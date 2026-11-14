@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/getting-started-with-unity-and-and
 source: md.txt
 ---
 
-[How-tos](https://developer.android.com/blog/categories/how-tos)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
 # Getting started with Unity and Android XR
 
-6 min read ![](https://developer.android.com/static/blog/assets/xr_Week3_984ec91c60_Z6imGe.webp) 23 Oct 2025 [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_1yXUBh.webp)](https://developer.android.com/blog/authors/luke-hopkins) [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins) Developer Relations Engineer, Android [*Samsung Galaxy XR is here*](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html)*, powered by Android XR! This blog post is part of our *[*Android XR Spotlight Week*](https://android-developers.googleblog.com/2025/10/welcome-to-android-xr-spotlight-week.html)*, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR. *
+6 min read ![](https://developer.android.com/static/blog/assets/xr_Week3_984ec91c60_Z6imGe.webp) 23 Oct 2025 [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_1yXUBh.webp)](https://developer.android.com/blog/authors/luke-hopkins.md.txt) [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins.md.txt) Developer Relations Engineer, Android [*Samsung Galaxy XR is here*](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html)*, powered by Android XR! This blog post is part of our *[*Android XR Spotlight Week*](https://android-developers.googleblog.com/2025/10/welcome-to-android-xr-spotlight-week.html)*, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR. *
 
 There's never been a better time to get into XR development. Last December, we announced [Android XR](https://blog.google/products/android/android-xr/), Google's new Android platform built on open standards such as OpenXR and Vulkan, which makes XR development more accessible than it's ever been.
 
@@ -45,7 +47,7 @@ Here are some sample projects to get an idea of what can be done:
 
 ### Unity 6 requirements and installation
 
-You'll need Unity 6 to create your app, as earlier versions don't support Android XR. Install Unity Hub first, then Unity 6 with the Android Build Support module, following [these steps](https://developer.android.com/develop/xr/unity/setup).
+You'll need Unity 6 to create your app, as earlier versions don't support Android XR. Install Unity Hub first, then Unity 6 with the Android Build Support module, following [these steps](https://developer.android.com/develop/xr/unity/setup.md.txt).
 ![unity6.png](https://developer.android.com/static/blog/assets/unity6_a0ea079402_21jh3y.webp)
 
 ### Android XR build profiles: simplifying configuration
@@ -130,13 +132,13 @@ I recommend using this Prefab over the 'XR Origin' option in your game objects a
 
 ## Privacy and permissions: building user trust
 
-Whatever you build, you'll need to capture [runtime permissions](https://developer.android.com/guide/topics/permissions/overview) from the users. That's because scene understanding, eye tracking, face tracking and hand tracking provide access to data that may be more sensitive to the user.
+Whatever you build, you'll need to capture [runtime permissions](https://developer.android.com/guide/topics/permissions/overview.md.txt) from the users. That's because scene understanding, eye tracking, face tracking and hand tracking provide access to data that may be more sensitive to the user.
 
 These capabilities provide deeper personal information than traditional desktop or mobile apps, so the runtime permissions ensure your users have full control over what data they choose to share. So, to keep with Android's security and privacy policies, Android XR has permissions for each of these features.  
 
 For example, if you use the XR Hands package for custom hand gestures, you will need to request the [hand tracking permission](https://docs.unity3d.com/Packages/com.unity.xr.androidxr-openxr@0.4/manual/features/hand-tracking.html#permissions) (see below) as this package needs to track a lot of information about the user's hands. This includes things like tracking hand joint poses and angular and linear velocities;
 
-**Note: For a full list of extensions that require permissions, check out information on the** [**XR developer website**](https://developer.android.com/develop/xr/get-started#understand-permissions)**.**
+**Note: For a full list of extensions that require permissions, check out information on the** [**XR developer website**](https://developer.android.com/develop/xr/get-started.md.txt#understand-permissions)**.**
 
 ```
 const string k_Permission = "android.permission.HAND_TRACKING";
@@ -203,37 +205,37 @@ Written by:
 
 -
 
-  ## [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins)
+  ## [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/luke-hopkins) ![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_1yXUBh.webp) ![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_1yXUBh.webp)
 Continue reading
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
-  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
-  - [#Media3](https://developer.android.com/blog/topics/media3)
-  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
-  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
+  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich.md.txt) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+
+  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new.md.txt) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
+  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich.md.txt) • 3 min read
+  - [#Media3](https://developer.android.com/blog/topics/media3.md.txt)
+  - [#Jetpack](https://developer.android.com/blog/topics/jetpack.md.txt)
+  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player.md.txt)
   - +1 ↩
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang.md.txt) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
+  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
-
-  ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
-  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
+  [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt) • 6 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
 Stay in the loop
 
 

@@ -4,13 +4,15 @@ url: https://developer.android.com/blog/posts/leveling-guide-for-your-performanc
 source: md.txt
 ---
 
-[How-tos](https://developer.android.com/blog/categories/how-tos)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
 # Leveling Guide for your Performance Journey
 
-8 min read ![](https://developer.android.com/static/blog/assets/performance_Week8_4d6efcacbe_NpRXg.webp) 20 Nov 2025 [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan) [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) Developer Relations Engineer, Android **Leveling Guide for your Performance Journey**
+8 min read ![](https://developer.android.com/static/blog/assets/performance_Week8_4d6efcacbe_NpRXg.webp) 20 Nov 2025 [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan.md.txt) [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt) Developer Relations Engineer, Android **Leveling Guide for your Performance Journey**
 
-Welcome to day 4 of Performance Spotlight Week. Now that you've learned about some of the awesome tools and best practices we've introduced recently such as the [R8 Optimizer](http://d.android.com/r8), and Profile Guided Optimization with [Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview) and [Startup Profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations), you might be wondering where to start your performance improvement journey.
+Welcome to day 4 of Performance Spotlight Week. Now that you've learned about some of the awesome tools and best practices we've introduced recently such as the [R8 Optimizer](http://d.android.com/r8), and Profile Guided Optimization with [Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt) and [Startup Profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations), you might be wondering where to start your performance improvement journey.
 
 We've come up with a step-by-step performance leveling guide to meet your mobile development team where you are---whether you're an app with a single developer looking to get started with performance, or you have an entire team dedicated to improving Android performance.
 
@@ -59,11 +61,11 @@ Also, check out our [ANR guidance](http://goo.gle/fix-anr) to help you diagnose 
 
 Use the [Android vitals crash dashboard](https://play.google.com/console/developers/app/vitals/metrics/details?metric=USER_PERCEIVED_CRASHES&days=28) to further debug crashes and view a sample of stack traces that occur within your app.
 
-Our documentation also has guidance around troubleshooting specific crashes. For example, the [Troubleshoot foreground services guide](https://developer.android.com/develop/background-work/services/fgs/troubleshooting) discusses ways to identify and fix common scenarios where crashes occur.
+Our documentation also has guidance around troubleshooting specific crashes. For example, the [Troubleshoot foreground services guide](https://developer.android.com/develop/background-work/services/fgs/troubleshooting.md.txt) discusses ways to identify and fix common scenarios where crashes occur.
 
 ## Excessive Battery Usage
 
-To decrease watch face sessions with excessive battery usage on Wear OS, check out the [Wear guide on how to improve and conserve battery](https://developer.android.com/training/wearables/apps/power).
+To decrease watch face sessions with excessive battery usage on Wear OS, check out the [Wear guide on how to improve and conserve battery](https://developer.android.com/training/wearables/apps/power.md.txt).
 
 ## \[new\] Excessive Partial Wake Locks
 
@@ -79,7 +81,7 @@ Consult our [Android vitals documentation](https://developer.android.com/topic/p
 
 ## **Level 2: Follow the App Performance Score action items**
 
-Next, move onto using the [App Performance Score](https://developer.android.com/topic/performance/app-score) to find the high leverage action items to uplevel your app performance.
+Next, move onto using the [App Performance Score](https://developer.android.com/topic/performance/app-score.md.txt) to find the high leverage action items to uplevel your app performance.
 
 The Android App Performance Score is a standardized framework to measure your app's technical performance. It gives you a score between 0 and 100, where a lower number indicates more room for improvement.
 
@@ -89,11 +91,11 @@ To get easy wins, you should first start with the **Static Performance Score** f
 
 The static assessment evaluates your project's configuration and tooling adoption. These are often the quickest ways to improve performance.
 
-Navigate to the [Static Score section](https://developer.android.com/topic/performance/app-score#static-score) of the scoreboard page and do the following:
+Navigate to the [Static Score section](https://developer.android.com/topic/performance/app-score.md.txt#static-score) of the scoreboard page and do the following:
 
 1. Assess Android Gradle Plugin (AGP) Version.
-2. Adopt R8 Minification [incrementally](https://developer.android.com/topic/performance/app-optimization/adopt-optimizations-incrementally) or ideally, use [R8 in full mode](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization?_gl=1*wgy2ut*_up*MQ..*_ga*ODc2OTYyOTY0LjE3NjI4OTk2NjI.*_ga_6HH9YJMN9M*czE3NjI4OTk2NjIkbzEkZzAkdDE3NjI4OTk2NjIkajYwJGwwJGgxNTU3NzkxNDUz#r8-optimization-settings) to minify and optimize the app code.
-3. Adopt [Baseline](https://developer.android.com/topic/performance/baselineprofiles/overview) Profiles which improves code execution speed from the first launch providing performance enhancements for every new app install and every app update.
+2. Adopt R8 Minification [incrementally](https://developer.android.com/topic/performance/app-optimization/adopt-optimizations-incrementally.md.txt) or ideally, use [R8 in full mode](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt?_gl=1*wgy2ut*_up*MQ..*_ga*ODc2OTYyOTY0LjE3NjI4OTk2NjI.*_ga_6HH9YJMN9M*czE3NjI4OTk2NjIkbzEkZzAkdDE3NjI4OTk2NjIkajYwJGwwJGgxNTU3NzkxNDUz#r8-optimization-settings) to minify and optimize the app code.
+3. Adopt [Baseline](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt) Profiles which improves code execution speed from the first launch providing performance enhancements for every new app install and every app update.
 4. Adopt [Startup Profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations) to improve Dex Layout. Startup Profiles are used by the build system to further optimize the classes and methods they contain by improving the layout of code in your APK's DEX files.
 5. Upgrade to the newest version of Jetpack Compose
 
@@ -171,7 +173,7 @@ frameOverrunMs          P50 -3.2,  P90  6.2, P95  10.4, P99  11
 
 Macrobenchmark provides several core metrics out of the box. `StartupTimingMetric` allows you to accurately measure app startup. The `FrameTimingMetric` enables you to understand an app's rendering performance during the test.
 
-We have a detailed and complete guide to using [Macrobenchmarks](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview) and [UiAutomator](https://developer.android.com/training/testing/other-components/ui-automator) alongside [code samples](https://developer.android.com/training/testing/other-components/ui-automator) available for you to continue learning.
+We have a detailed and complete guide to using [Macrobenchmarks](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview.md.txt) and [UiAutomator](https://developer.android.com/training/testing/other-components/ui-automator.md.txt) alongside [code samples](https://developer.android.com/training/testing/other-components/ui-automator.md.txt) available for you to continue learning.
 
 ## **Level 4: Use trace analysis tools like Perfetto**
 
@@ -187,8 +189,8 @@ The general workflow for debugging performance using trace analysis tools is to 
 
 You can record a system trace using several methods:
 
-- Recording a trace manually on the device [directly from the developer options](https://developer.android.com/topic/performance/tracing/on-device).
-- Using the [Android Studio CPU Profiler](https://developer.android.com/studio/profile)
+- Recording a trace manually on the device [directly from the developer options](https://developer.android.com/topic/performance/tracing/on-device.md.txt).
+- Using the [Android Studio CPU Profiler](https://developer.android.com/studio/profile.md.txt)
 - Using the [Perfetto UI](https://perfetto.dev/docs/getting-started/system-tracing)
 
 ### **Step 2: Load the trace**
@@ -241,7 +243,7 @@ By using `ApplicationStartInfo`, `ProfilingManager`, and `ApplicationExitInfo`, 
 
 ## ApplicationStartInfo: Tracking how the app started
 
-Available from Android 15 (API 35), [ApplicationStartInfo](https://developer.android.com/reference/android/app/ApplicationStartInfo) provides detailed metrics about app startup in the field. The data includes whether it was a cold, warm, or hot start, and the duration of different startup phases.
+Available from Android 15 (API 35), [ApplicationStartInfo](https://developer.android.com/reference/android/app/ApplicationStartInfo.md.txt) provides detailed metrics about app startup in the field. The data includes whether it was a cold, warm, or hot start, and the duration of different startup phases.
 
 This helps you develop a baseline startup metric using production data to further optimize that might be hard to reproduce locally. You can use these metrics to run A/B tests optimizing the startup flow.
 
@@ -251,17 +253,17 @@ You can query this data lazily some time after application launch.
 
 ## ProfilingManager: Capturing why it was slow
 
-[ProfilingManager](https://developer.android.com/reference/android/os/ProfilingManager) (API 35) allows your app to programmatically trigger system traces on user devices. This is powerful for catching transient performance issues in the wild that you can't reproduce locally.
+[ProfilingManager](https://developer.android.com/reference/android/os/ProfilingManager.md.txt) (API 35) allows your app to programmatically trigger system traces on user devices. This is powerful for catching transient performance issues in the wild that you can't reproduce locally.
 
 The goal is to automatically record a trace when a specific highly critical user journey is detected as running slowly or experiencing performance issues.
 
 You can register a listener that triggers when specific conditions are met or trigger it manually when you detect a performance issue such as jank, excessive memory, or battery drain.
 
-Check our documentation on [how to capture a profile](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture), [retrieve and analyze profiling data](https://developer.android.com/topic/performance/tracing/profiling-manager/retrieve-and-analyze) and use [debug commands.](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode)
+Check our documentation on [how to capture a profile](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture.md.txt), [retrieve and analyze profiling data](https://developer.android.com/topic/performance/tracing/profiling-manager/retrieve-and-analyze.md.txt) and use [debug commands.](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode.md.txt)
 
 ## ApplicationExitInfo: Tracking why the app died
 
-[ApplicationExitInfo](https://developer.android.com/reference/android/app/ApplicationExitInfo) (API 30) tells you why your previous process died. This is crucial for finding native crashes, ANRs, or system kills due to excessive memory usage (OOM). You'll also be able to get a detailed tombstone trace by using the API [getTraceInputStream](https://developer.android.com/reference/android/app/ApplicationExitInfo#getTraceInputStream()).
+[ApplicationExitInfo](https://developer.android.com/reference/android/app/ApplicationExitInfo.md.txt) (API 30) tells you why your previous process died. This is crucial for finding native crashes, ANRs, or system kills due to excessive memory usage (OOM). You'll also be able to get a detailed tombstone trace by using the API [getTraceInputStream](https://developer.android.com/reference/android/app/ApplicationExitInfo.md.txt#getTraceInputStream()).
 
 The goal of the API is to understand stability issues that don't trigger standard Java crash reporters (like Low Memory Kills).
 
@@ -280,39 +282,36 @@ Written by:
 
 -
 
-  ## [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan)
+  ## [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)
 Continue reading
-- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z1unXc4.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z1unXc4.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
+  ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) • 10 min read
-  - [#Memory](https://developer.android.com/blog/topics/memory)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Performance](https://developer.android.com/blog/topics/performance)
+  [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17.md.txt) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Fung Lam](https://developer.android.com/blog/authors/fung-lam.md.txt) • 10 min read
+  - [#Memory](https://developer.android.com/blog/topics/memory.md.txt)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
   - +1 ↩
-- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_1XPiXj.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan.md.txt) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_1XPiXj.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Battery Technical Quality Enforcement is Here: How to Optimize Common Wake Lock Use Cases](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases)
+  ## [Battery Technical Quality Enforcement is Here: How to Optimize Common Wake Lock Use Cases](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases) In recognition that excessive battery drain is top of mind for Android users, Google has been taking significant steps to help developers build more power-efficient apps.
-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 8 min read
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [arrow_forward](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases.md.txt) In recognition that excessive battery drain is top of mind for Android users, Google has been taking significant steps to help developers build more power-efficient apps.
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt) • 8 min read
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
-  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
-  - [#Media3](https://developer.android.com/blog/topics/media3)
-  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
-  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
-  - +1 ↩
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
+  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
 Stay in the loop
 
 

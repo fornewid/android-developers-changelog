@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/billing/play-developer-apis-depre
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/billing/llms.txt
+
 This document lists the Google Play Developer APIs and the related
 features which are in a deprecation period.
 
@@ -48,7 +50,7 @@ This section lists the API deprecations.
 | [subscriptions.revoke](https://developers.google.com/android-publisher/deprecated-apis/purchases.subscriptions/revoke) | [subscriptionsv2.revoke](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) |
 | [SubscriptionPurchaseV2. latestOrderId](https://developers.google.com/android-publisher/deprecated-apis/latestOrderId.subscription.purchasev2) | [SubscriptionPurchaseLineItem. latest_successful_order_id](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2#subscriptionpurchaselineitem) |
 | [RealTimeDeveloperNotification. SubscriptionNotification.subscriptionId]() | No replacement |
-| [RealTimeDeveloperNotification. SubscriptionNotification. notificationType SUBSCRIPTION_PRICE_CHANGE_CONFIRMED](https://developer.android.com/google/play/billing/rtdn-reference#sub) | SUBSCRIPTION_PRICE _CHANGE_UPDATED |
+| [RealTimeDeveloperNotification. SubscriptionNotification. notificationType SUBSCRIPTION_PRICE_CHANGE_CONFIRMED](https://developer.android.com/google/play/billing/rtdn-reference.md.txt#sub) | SUBSCRIPTION_PRICE _CHANGE_UPDATED |
 
 ### SubscriptionPurchaseV2 fields for recurring subscriptions
 

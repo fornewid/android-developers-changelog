@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/animation/quick-guide
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/llms.txt
+
 [Video](https://www.youtube.com/watch?v=HNSKJIQtb4c)
 
 Compose has many built-in animation mechanisms and it can be overwhelming to
@@ -20,12 +22,9 @@ properties of a composable.
 
 ### Animate appearing / disappearing
 
-![Green composable showing and hiding itself](https://developer.android.com/static/develop/ui/compose/images/animations/animated_visibility_column.gif) **Figure 1.** Animating the appearance and disappearance of an item in a Column
-
 Use [`AnimatedVisibility`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt#animatedvisibility) to hide or show a Composable. Children inside
 `AnimatedVisibility` can use `Modifier.animateEnterExit()` for their own enter
 or exit transition.
-
 
 ```kotlin
 var visible by remember {
@@ -37,8 +36,7 @@ AnimatedVisibility(visible) {
     // ...
 }
 ```
-
-<br />
+![Green composable showing and hiding itself](https://developer.android.com/static/develop/ui/compose/images/animations/previews/android_compose_animation_cookbook_visibility.png) **Figure 1.** Animating the appearance and disappearance of an item in a Column
 
 The enter and exit parameters of `AnimatedVisibility` allow you to configure how
 a composable behaves when it appears and disappears. Read the [full
@@ -46,7 +44,6 @@ documentation](https://developer.android.com/develop/ui/compose/animation/compos
 
 Another option for animating the visibility of a composable is to animate the
 alpha over time using [`animateFloatAsState`](https://developer.android.com/develop/ui/compose/animation/value-based.md.txt#animate-as-state):
-
 
 ```kotlin
 var visible by remember {
@@ -68,15 +65,13 @@ Box(
 ) {
 }
 ```
-
-<br />
+![Animating the alpha of a composable](https://developer.android.com/static/develop/ui/compose/images/animations/previews/android_compose_animation_cookbook_visibility_alpha.png) **Figure 2.** Animating the alpha of a composable
 
 However, changing the alpha comes with the caveat that the composable **remains
 in the composition** and continues to occupy the space it's laid out in. This
 could cause screen readers and other accessibility mechanisms to still consider
 the item on screen. On the other hand, `AnimatedVisibility` eventually removes
 the item from the composition.
-![Animating the alpha of a composable](https://developer.android.com/static/develop/ui/compose/images/animations/animated_visibility_alpha.gif) **Figure 2.** Animating the alpha of a composable
 
 ### Animate background color
 
@@ -109,15 +104,12 @@ section](https://developer.android.com/develop/ui/compose/animation/quick-guide#
 
 ### Animate the size of a composable
 
-![Green composable animating its size change smoothly.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_content_size.gif) **Figure 4.** Composable smoothly animating between a small and a larger size
-
 Compose lets you animate the size of composables in a few different ways. Use
 [`animateContentSize()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/animateContentSize.modifier#(androidx.compose.ui.Modifier).animateContentSize(androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Function2)) for animations between composable size changes.
 
 For example, if you have a box that contains text which can expand from one to
 multiple lines you can use `Modifier.animateContentSize()` to achieve a smoother
 transition:
-
 
 ```kotlin
 var expanded by remember { mutableStateOf(false) }
@@ -137,8 +129,7 @@ Box(
 ) {
 }
 ```
-
-<br />
+![Green composable animating its size change smoothly.](https://developer.android.com/static/develop/ui/compose/images/animations/previews/android_compose_animation_size_change.png) **Figure 4.** Composable smoothly animating between a small and a larger size
 
 > [!NOTE]
 > **Note:** [Ordering of the modifiers](https://developer.android.com/develop/ui/compose/modifiers.md.txt#order-modifier-matters) matters here. Make sure to place it **before** any size modifiers.
@@ -148,11 +139,8 @@ how size changes should take place.
 
 ### Animate position of composable
 
-![Green composable smoothly animating down and to the right](https://developer.android.com/static/develop/ui/compose/images/animations/animated_offset.gif) **Figure 5.** Composable moving by an offset
-
 To animate the position of a composable, use `Modifier.offset{ }` combined with
 `animateIntOffsetAsState()`.
-
 
 ```kotlin
 var moved by remember { mutableStateOf(false) }
@@ -183,8 +171,7 @@ Box(
         }
 )
 ```
-
-<br />
+![Green composable smoothly animating down and to the right](https://developer.android.com/static/develop/ui/compose/images/animations/previews/android_compose_animation_offset_change.png) **Figure 5.** Composable moving by an offset
 
 > [!CAUTION]
 > **Caution:** This does not change where the parent perceives the composable to be placed, and therefore does not affect where siblings are placed. This may result in siblings drawing over or under one another. The offset only influences the position of child layouts of the `Modifier.offset{}`.
@@ -197,7 +184,6 @@ other children.
 For example, if you are moving a `Box` within a `Column` and the other children
 need to move when the `Box` moves, include the offset information with
 `Modifier.layout{ }` as follows:
-
 
 ```kotlin
 var toggled by remember {
@@ -246,18 +232,12 @@ Column(
     )
 }
 ```
-
-<br />
-
-![2 boxes with the 2nd box animating its X,Y position, the third box responding by moving itself by Y amount too.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_layout_modifier.gif) **Figure 6.** Animating with `Modifier.layout{ }`
+![2 boxes with the 2nd box animating its X,Y position, the third box responding by moving itself by Y amount too.](https://developer.android.com/static/develop/ui/compose/images/animations/previews/android_compose_animation_layout_offset.png) **Figure 6.** Animating with `Modifier.layout{ }`
 
 ### Animate padding of a composable
 
-![Green composable getting smaller and bigger on click, with padding being animated](https://developer.android.com/static/develop/ui/compose/images/animations/animated_padding.gif) **Figure 7.** Composable with its padding animating
-
 To animate the padding of a composable, use `animateDpAsState` combined with
 `Modifier.padding()`:
-
 
 ```kotlin
 var toggled by remember {
@@ -285,18 +265,14 @@ Box(
         }
 )
 ```
-
-<br />
+![Green composable getting smaller and bigger on click, with padding being animated](https://developer.android.com/static/develop/ui/compose/images/animations/previews/android_compose_animation_padding.png) **Figure 7.** Composable with its padding animating
 
 ### Animate elevation of a composable
-
-**Figure 8.** Composable's elevation animating on click
 
 To animate the elevation of a composable, use `animateDpAsState` combined with
 `Modifier.graphicsLayer{ }`. For once-off elevation changes, use
 `Modifier.shadow()`. If you are animating the shadow, using the
 `Modifier.graphicsLayer{ }` modifier is the more performant option.
-
 
 ```kotlin
 val mutableInteractionSource = remember {
@@ -324,21 +300,17 @@ Box(
 ) {
 }
 ```
-
-<br />
+![Green composable with the shadow underneath animating in its radius as the composable elevates higher and lower.](https://developer.android.com/static/develop/ui/compose/images/animations/previews/android_compose_animation_cookbook_elevation.png) **Figure 8.** Composable's elevation animating on click
 
 Alternatively, use the [`Card`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable.md.txt#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable, and set the elevation property to
 different values per state.
 
 ### Animate text scale, translation or rotation
 
-![Text composable saying Hello animating between a small and larger size.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_text.gif) **Figure 9.** Text animating smoothly between two sizes
-
 When animating scale, translation, or rotation of text, set the `textMotion`
 parameter on `TextStyle` to [`TextMotion.Animated`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/TextMotion.md.txt). This ensures smoother
 transitions between text animations. Use [`Modifier.graphicsLayer{ }`](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers.md.txt#graphicsLayer) to
 translate, rotate or scale the text.
-
 
 ```kotlin
 val infiniteTransition = rememberInfiniteTransition(label = "infinite transition")
@@ -364,15 +336,11 @@ Box(modifier = Modifier.fillMaxSize()) {
     )
 }
 ```
-
-<br />
+![Text composable saying Hello animating between a small and larger size.](https://developer.android.com/static/develop/ui/compose/images/animations/previews/android_compose_animation_cookbook_text.png) **Figure 9.** Text animating smoothly between two sizes
 
 ### Animate text color
 
-![The words Hello Compose animating its color between green and blue](https://developer.android.com/static/develop/ui/compose/images/animations/animated_text_color.gif) **Figure 10.** Example showing animating text color
-
 To animate text color, use the `color` lambda on the `BasicText` composable:
-
 
 ```kotlin
 val infiniteTransition = rememberInfiniteTransition(label = "infinite transition")
@@ -391,16 +359,12 @@ BasicText(
     // ...
 )
 ```
-
-<br />
+![The words Hello Compose animating its color between green and blue](https://developer.android.com/static/develop/ui/compose/images/animations/previews/android_compose_animation_cookbook_text_color.png) **Figure 10.** Example showing animating text color
 
 ## Switch between different types of content
 
-![Green screen saying Loading, blue screen saying Loaded and white screen saying Error, the different composables are being iterated between, with a simple animation.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_content_slower.gif) **Figure 11.** Using AnimatedContent to animate changes between different composables (slowed down)
-
 Use [`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContent.composable.md.txt) to animate between different composables, if you
 just want a standard fade between composables, use `Crossfade`.
-
 
 ```kotlin
 var state by remember {
@@ -438,8 +402,7 @@ AnimatedContent(
     }
 }
 ```
-
-<br />
+![Green screen saying Loading, blue screen saying Loaded and white screen saying Error, the different composables are being iterated between, with a simple animation.](https://developer.android.com/static/develop/ui/compose/images/animations/previews/android_compose_animation_cookbook_animated_content.png) **Figure 11.** Using AnimatedContent to animate changes between different composables (slowed down)
 
 `AnimatedContent` can be customized to show many different kinds of enter and
 exit transitions. For more information, read the documentation on
@@ -448,54 +411,80 @@ exit transitions. For more information, read the documentation on
 
 ## Animate while navigating to different destinations
 
-![Two composables, one green saying Landing and one blue saying Detail, animating by sliding the detail composable over the landing composable.](https://developer.android.com/static/develop/ui/compose/images/animations/navigation_compose_animation.gif) **Figure 12.** Animating between composables using navigation-compose
+![Two composables, one green saying Landing and one blue saying Detail, animating by sliding the detail composable over the landing composable.](https://developer.android.com/static/develop/ui/compose/images/animations/navigation_compose_animation.gif) **Figure 12.** Animating between destinations
 
-To animate transitions between composables when using the
-[navigation-compose](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt) artifact, specify the `enterTransition` and
-`exitTransition` on a composable. You can also set the default animation to be
-used for all destinations at the top level `NavHost`:
+To animate transitions between destinations when using [Navigation 3](https://developer.android.com/guide/navigation/navigation-3.md.txt), set
+the default animations for all destinations with the `transitionSpec`,
+`popTransitionSpec`, and `predictivePopTransitionSpec` parameters of
+`NavDisplay`. To override them for a single destination, add
+`NavDisplay.TransitionKey`, `NavDisplay.PopTransitionKey`, and
+`NavDisplay.PredictivePopTransitionKey` metadata to its entry:
 
 
 ```kotlin
-val navController = rememberNavController()
-NavHost(
-    navController = navController, startDestination = "landing",
-    enterTransition = { EnterTransition.None },
-    exitTransition = { ExitTransition.None }
-) {
-    composable("landing") {
-        ScreenLanding(
-            // ...
-        )
-    }
-    composable(
-        "detail/{photoUrl}",
-        arguments = listOf(navArgument("photoUrl") { type = NavType.StringType }),
-        enterTransition = {
-            fadeIn(
-                animationSpec = tween(
-                    300, easing = LinearEasing
+data object Landing
+
+data class Detail(val photoIndex: Int)
+
+@Preview
+@Composable
+fun AnimateBetweenComposableDestinations() {
+    // To keep the back stack across configuration changes, use rememberNavBackStack instead.
+    val backStack = remember { mutableStateListOf<Any>(Landing) }
+    NavDisplay(
+        backStack = backStack,
+        onBack = { backStack.removeLastOrNull() },
+        // Default transitions for every destination: no animation.
+        transitionSpec = { EnterTransition.None togetherWith ExitTransition.None },
+        popTransitionSpec = { EnterTransition.None togetherWith ExitTransition.None },
+        predictivePopTransitionSpec = { EnterTransition.None togetherWith ExitTransition.None },
+        entryProvider = entryProvider {
+            entry<Landing> {
+                ScreenLanding(
+                    // ...
                 )
-            ) + slideIntoContainer(
-                animationSpec = tween(300, easing = EaseIn),
-                towards = AnimatedContentTransitionScope.SlideDirection.Start
-            )
-        },
-        exitTransition = {
-            fadeOut(
-                animationSpec = tween(
-                    300, easing = LinearEasing
+            }
+            entry<Detail>(
+                // Override the transitions for this destination.
+                metadata = metadata {
+                    put(NavDisplay.TransitionKey) {
+                        fadeIn(
+                            animationSpec = tween(
+                                300, easing = LinearEasing
+                            )
+                        ) + slideIntoContainer(
+                            animationSpec = tween(300, easing = EaseIn),
+                            towards = AnimatedContentTransitionScope.SlideDirection.Start
+                        ) togetherWith ExitTransition.KeepUntilTransitionsFinished
+                    }
+                    put(NavDisplay.PopTransitionKey) {
+                        EnterTransition.None togetherWith fadeOut(
+                            animationSpec = tween(
+                                300, easing = LinearEasing
+                            )
+                        ) + slideOutOfContainer(
+                            animationSpec = tween(300, easing = EaseOut),
+                            towards = AnimatedContentTransitionScope.SlideDirection.End
+                        )
+                    }
+                    put(NavDisplay.PredictivePopTransitionKey) {
+                        EnterTransition.None togetherWith fadeOut(
+                            animationSpec = tween(
+                                300, easing = LinearEasing
+                            )
+                        ) + slideOutOfContainer(
+                            animationSpec = tween(300, easing = EaseOut),
+                            towards = AnimatedContentTransitionScope.SlideDirection.End
+                        )
+                    }
+                }
+            ) { detail ->
+                ScreenDetails(
+                    // ...
                 )
-            ) + slideOutOfContainer(
-                animationSpec = tween(300, easing = EaseOut),
-                towards = AnimatedContentTransitionScope.SlideDirection.End
-            )
+            }
         }
-    ) { backStackEntry ->
-        ScreenDetails(
-            // ...
-        )
-    }
+    )
 }
 ```
 
@@ -503,7 +492,8 @@ NavHost(
 
 There are many different kinds of enter and exit transitions that apply
 different effects to the incoming and outgoing content, see the
-[documentation](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt#enter-exit-transition) for more.
+[documentation](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt#enter-exit-transition) for more. For more about animating destinations, including
+predictive back, see [Animate between destinations](https://developer.android.com/guide/navigation/navigation-3/animate-destinations.md.txt).
 
 ## Repeat an animation
 

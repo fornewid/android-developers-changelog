@@ -4,14 +4,16 @@ url: https://developer.android.com/docs/quality-guidelines/adaptive-app-quality
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/llms.txt
+
 Google Play Large Screen Badge
 
 Get your app noticed on Google Play by users looking for premium app experiences on tablets,
 foldables, Googlebooks, and other large screen devices.
 
 
-Complete [Tier 2](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-2) of the Adaptive app quality guidelines to
-optimize your app for all screen sizes; [Tier 1](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-1) to create
+Complete [Tier 2](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-2.md.txt) of the Adaptive app quality guidelines to
+optimize your app for all screen sizes; [Tier 1](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-1.md.txt) to create
 a differentiated experience made for large screens. Then, get your Google
 Play badge!
 [Get your badge](https://docs.google.com/forms/d/e/1FAIpQLScwcqug_NeZZyGce7keKO9yKcHw7I_gHqwNUfLQDoy0F-7lYg/viewform?usp=header)
@@ -27,8 +29,8 @@ postures, such as tabletop posture or book posture.
 
 To ensure your app provides a great user experience regardless of device form
 factor, screen size, display mode, or posture, follow the adaptive app
-compatibility [checklists](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#adaptive_app_compatibility_checklists) and complete
-the compatibility [tests](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#adaptive_app_compatibility_tests).
+compatibility [checklists](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality.md.txt#adaptive_app_compatibility_checklists) and complete
+the compatibility [tests](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality.md.txt#adaptive_app_compatibility_tests).
 
 The checklists and tests define a comprehensive set of quality requirements for
 most types of Android apps. Your app probably doesn't need to meet all of the
@@ -36,7 +38,7 @@ requirements. Implement the ones that make sense for your app's use cases.
 
 The adaptive app quality guidelines replace and extend the guidance formerly
 provided in the
-[large screen app quality guidelines](https://developer.android.com/docs/quality-guidelines/archive/adaptive/large-screen-app-quality).
+[large screen app quality guidelines](https://developer.android.com/docs/quality-guidelines/archive/adaptive/large-screen-app-quality.md.txt).
 
 As you enhance your app with adaptive capabilities, help users better understand
 your app's multi-form-factor experience by updating your app listing on Google
@@ -56,7 +58,7 @@ Levels of support include the following:
 
 ![Icon for Tier 3 Adaptive Ready](https://developer.android.com/static/images/docs/quality-guidelines/tier-3/tier_3_icon.svg)
 
-### [TIER 3 (basic) --- Adaptive ready](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-3)
+### [TIER 3 (basic) --- Adaptive ready](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-3.md.txt)
 
 Your app runs full screen (or full window in multi-window mode) on all devices,
 but app layout might not be ideal. The app is not letterboxed; it does not run
@@ -66,14 +68,14 @@ devices, including keyboard, mouse, trackpad, and stylus.
 
 ![Icon for Tier 2 Adaptive Optimized](https://developer.android.com/static/images/docs/quality-guidelines/tier-2/tier_2_icon.svg)
 
-### [TIER 2 (better) --- Adaptive optimized](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-2)
+### [TIER 2 (better) --- Adaptive optimized](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-2.md.txt)
 
 Your app implements layout optimizations for all screen sizes and device
 configurations along with enhanced support for external input devices.
 
 ![Icon for Tier 1 Adaptive Differentiated](https://developer.android.com/static/images/docs/quality-guidelines/tier-1/tier_1_icon.svg)
 
-### [TIER 1 (best) --- Adaptive differentiated](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-1)
+### [TIER 1 (best) --- Adaptive differentiated](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-1.md.txt)
 
 Your app provides a user experience designed for the device or display the app
 is running on. Where applicable, the app supports multitasking, foldable
@@ -104,9 +106,9 @@ Use the following Android emulators to test adaptive device compatibility:
 
   > [!NOTE]
   > **Note:** To use the Desktop (Preview) emulator, download the [Android Studio
-  > Canary build](https://developer.android.com/studio/preview). See also [Install a preview version of Android Studio](https://developer.android.com/studio/preview/install-preview).
+  > Canary build](https://developer.android.com/studio/preview). See also [Install a preview version of Android Studio](https://developer.android.com/studio/preview/install-preview.md.txt).
 
-Use the Android [resizable emulator](https://developer.android.com/about/versions/12/12L/get#resizable-emulator) to test a variety of device
+Use the Android [resizable emulator](https://developer.android.com/about/versions/12/12L/get.md.txt#resizable-emulator) to test a variety of device
 configurations.
 
 ## Get started
@@ -125,8 +127,8 @@ Select a quality tier and get started making your app adaptive today!
 
 Previous versions of the adaptive app quality guidelines:
 
-- [2026-04-07 --- Tier 2](https://developer.android.com/docs/quality-guidelines/archive/adaptive/tier-2-2026-04-07)
+- [2026-04-07 --- Tier 2](https://developer.android.com/docs/quality-guidelines/archive/adaptive/tier-2-2026-04-07.md.txt)
 
-- [2026-01-21 --- Large screen app quality guidelines](https://developer.android.com/docs/quality-guidelines/archive/adaptive/large-screen-app-quality)
+- [2026-01-21 --- Large screen app quality guidelines](https://developer.android.com/docs/quality-guidelines/archive/adaptive/large-screen-app-quality.md.txt)
 
-  - [ID map](https://developer.android.com/docs/quality-guidelines/archive/adaptive/id-map-ls-adaptive) --- Large screen app quality guidelines to adaptive app quality guidelines
+  - [ID map](https://developer.android.com/docs/quality-guidelines/archive/adaptive/id-map-ls-adaptive.md.txt) --- Large screen app quality guidelines to adaptive app quality guidelines

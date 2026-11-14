@@ -4,6 +4,8 @@ url: https://developer.android.com/about/versions/nougat/android-7.0-changes
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/about/versions/nougat/llms.txt
+
 Along with new features and capabilities, Android 7.0
 includes a variety of system and API behavior changes. This document
 highlights some of the key changes that you should understand and account for
@@ -18,7 +20,7 @@ might be affected by these changes in the platform.
 
 Android 7.0 includes system behavior changes aimed at improving the battery life
 of devices and reducing RAM usage. These changes can affect your app's access to
-system resources, along with the way your app interacts with other apps via
+system resources, along with the way your app interacts with other apps using
 certain implicit intents.
 
 ### Doze
@@ -42,8 +44,8 @@ When a device is on battery power, and the screen has been off for a certain
 time, the device enters Doze and applies the first subset of restrictions: It
 shuts off app network access, and defers jobs and syncs. If the device is
 stationary for a certain time after entering Doze, the system applies the
-rest of the Doze restrictions to `https://developer.android.com/reference/android/os/PowerManager.WakeLock`,
-`https://developer.android.com/reference/android/app/AlarmManager` alarms, GPS, and Wi-Fi scans. Regardless of
+rest of the Doze restrictions to `PowerManager.WakeLock`,
+`AlarmManager` alarms, GPS, and Wi-Fi scans. Regardless of
 whether some or all Doze restrictions are being applied, the system wakes the
 device for brief maintenance windows, during which applications are allowed
 network access and can execute any deferred jobs/syncs.
@@ -59,7 +61,7 @@ Note that activating the screen on or plugging in the device exits Doze and
 removes these processing restrictions. The additional behavior does not
 affect recommendations and best practices in adapting your app to the prior
 version of Doze introduced in Android 6.0 (API level 23), as discussed in
-[Optimizing for Doze and App Standby](https://developer.android.com/training/monitoring-device-state/doze-standby). You should still
+[Optimizing for Doze and App Standby](https://developer.android.com/training/monitoring-device-state/doze-standby.md.txt). You should still
 follow those recommendations, such as using Firebase Cloud Messaging (FCM) to
 send and receive messages, and start planning updates to accommodate the
 additional Doze behavior.
@@ -76,13 +78,13 @@ performance and user experience.
 
 Mobile devices experience frequent connectivity changes, such as when moving
 between Wi-Fi and mobile data. Currently, apps can monitor for changes in
-connectivity by registering a receiver for the implicit `https://developer.android.com/reference/android/net/ConnectivityManager#CONNECTIVITY_ACTION` broadcast in their
+connectivity by registering a receiver for the implicit `CONNECTIVITY_ACTION` broadcast in their
 manifest. Since many apps register to receive this broadcast, a single
 network switch can cause them all to wake up and process the broadcast at
 once.
 
 
-Similarly, in previous versions of Android, apps could register to receive implicit `https://developer.android.com/reference/android/hardware/Camera#ACTION_NEW_PICTURE` and `https://developer.android.com/reference/android/hardware/Camera#ACTION_NEW_VIDEO` broadcasts from other apps, such as
+Similarly, in previous versions of Android, apps could register to receive implicit `ACTION_NEW_PICTURE` and `ACTION_NEW_VIDEO` broadcasts from other apps, such as
 Camera. When a user takes a picture with the Camera app, these apps wake up
 to process the broadcast.
 
@@ -90,15 +92,15 @@ to process the broadcast.
 To alleviate these issues, Android 7.0 applies the following
 optimizations:
 
-- Apps targeting Android 7.0 (API level 24) and higher do not receive `https://developer.android.com/reference/android/net/ConnectivityManager#CONNECTIVITY_ACTION` broadcasts if they declare their broadcast receiver in the manifest. Apps will still receive `https://developer.android.com/reference/android/net/ConnectivityManager#CONNECTIVITY_ACTION` broadcasts if they register their `https://developer.android.com/reference/android/content/BroadcastReceiver` with `https://developer.android.com/reference/android/content/Context#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter)` and that context is still valid.
-- The system no longer sends `https://developer.android.com/reference/android/hardware/Camera#ACTION_NEW_PICTURE` or `https://developer.android.com/reference/android/hardware/Camera#ACTION_NEW_VIDEO` broadcasts. This optimization affects all apps, not only those targeting Android 7.0.
+- Apps targeting Android 7.0 (API level 24) and higher don't receive `CONNECTIVITY_ACTION` broadcasts if they declare their broadcast receiver in the manifest. Apps will still receive `CONNECTIVITY_ACTION` broadcasts if they register their `BroadcastReceiver` with `Context.registerReceiver()` and that context is still valid.
+- The system no longer sends `ACTION_NEW_PICTURE` or `ACTION_NEW_VIDEO` broadcasts. This optimization affects all apps, not only those targeting Android 7.0.
 
 If your app uses any of these intents, you should remove dependencies
 on them as soon as possible so that you can target Android 7.0 devices properly.
 The Android framework provides several solutions to mitigate the need for
-these implicit broadcasts. For example, the `https://developer.android.com/reference/android/app/job/JobScheduler` API provides a robust mechanism to schedule
+these implicit broadcasts. For example, the `JobScheduler` API provides a robust mechanism to schedule
 network operations when specified conditions, such as connection to an
-unmetered network, are met. You can even use `https://developer.android.com/reference/android/app/job/JobScheduler` to react to changes to content providers.
+unmetered network, are met. You can even use `JobScheduler` to react to changes to content providers.
 
 
 For more information about background optimizations in Android 7.0 (API level
@@ -118,30 +120,30 @@ apps targeting Android 7.0 or higher has restricted access (`0700`).
 This setting prevents leakage of metadata of private files, such as their size
 or existence. This permission change has multiple side effects:
 
-- Private files' file permissions should no longer be relaxed by the owner, and an attempt to do so using `https://developer.android.com/reference/android/content/Context#MODE_WORLD_READABLE` and/or `https://developer.android.com/reference/android/content/Context#MODE_WORLD_WRITEABLE`, will trigger a `https://developer.android.com/reference/java/lang/SecurityException`.
+- Private files' file permissions should no longer be relaxed by the owner, and an attempt to do so using `MODE_WORLD_READABLE` and/or `MODE_WORLD_WRITEABLE`, will trigger a `SecurityException`.
 
 
   **Note:** As of yet, this restriction is not fully enforced.
   Apps may still modify permissions to their private directory using
-  native APIs or the `https://developer.android.com/reference/java/io/File` API. However, we strongly
+  native APIs or the `File` API. However, we strongly
   discourage relaxing the permissions to the private directory.
-- Passing `file://` URIs outside the package domain may leave the receiver with an unaccessible path. Therefore, attempts to pass a `file://` URI trigger a `FileUriExposedException`. The recommended way to share the content of a private file is using the `https://developer.android.com/reference/android/support/v4/content/FileProvider`.
-- The `https://developer.android.com/reference/android/app/DownloadManager` can no longer share privately stored files by filename. Legacy applications may end up with an unaccessible path when accessing `https://developer.android.com/reference/android/app/DownloadManager#COLUMN_LOCAL_FILENAME`. Apps targeting Android 7.0 or higher trigger a `https://developer.android.com/reference/java/lang/SecurityException` when attempting to access `https://developer.android.com/reference/android/app/DownloadManager#COLUMN_LOCAL_FILENAME`. Legacy applications that set the download location to a public location by using `https://developer.android.com/reference/android/app/DownloadManager.Request#setDestinationInExternalFilesDir(android.content.Context, java.lang.String, java.lang.String)` or `https://developer.android.com/reference/android/app/DownloadManager.Request#setDestinationInExternalPublicDir(java.lang.String, java.lang.String)` can still access the path in `https://developer.android.com/reference/android/app/DownloadManager#COLUMN_LOCAL_FILENAME`, however, this method is strongly discouraged. The preferred way of accessing a file exposed by the `https://developer.android.com/reference/android/app/DownloadManager` is using `https://developer.android.com/reference/android/content/ContentResolver#openFileDescriptor(android.net.Uri, java.lang.String)`.
+- Passing `file://` URIs outside the package domain may leave the receiver with an unaccessible path. Therefore, attempts to pass a `file://` URI trigger a `FileUriExposedException`. The recommended way to share the content of a private file is using the `FileProvider`.
+- The `DownloadManager` can no longer share privately stored files by filename. Legacy applications may end up with an unaccessible path when accessing `COLUMN_LOCAL_FILENAME`. Apps targeting Android 7.0 or higher trigger a `SecurityException` when attempting to access `COLUMN_LOCAL_FILENAME`. Legacy applications that set the download location to a public location by using `DownloadManager.Request.setDestinationInExternalFilesDir()` or `DownloadManager.Request.setDestinationInExternalPublicDir()` can still access the path in `COLUMN_LOCAL_FILENAME`, however, this method is strongly discouraged. The preferred way of accessing a file exposed by the `DownloadManager` is using `ContentResolver.openFileDescriptor()`.
 
 ## Sharing Files Between Apps
 
 
 For apps targeting Android 7.0, the Android framework enforces
-the `https://developer.android.com/reference/android/os/StrictMode` API policy that prohibits exposing `file://` URIs
+the `StrictMode` API policy that prohibits exposing `file://` URIs
 outside your app. If an intent containing a file URI leaves your app, the app fails
 with a `FileUriExposedException` exception.
 
 
 To share files between applications, you should send a `content://` URI
 and grant a temporary access permission on the URI. The easiest way to grant this permission is by
-using the `https://developer.android.com/reference/android/support/v4/content/FileProvider` class. For more information
+using the `FileProvider` class. For more information
 on permissions and sharing files,
-see [Sharing Files](https://developer.android.com/training/secure-file-sharing).
+see [Sharing Files](https://developer.android.com/training/secure-file-sharing.md.txt).
 
 ## Accessibility Improvements
 
@@ -158,7 +160,7 @@ experience.
 Android 7.0 enables users to set **Display size** which magnifies
 or shrinks all elements on the screen, thereby improving device accessibility
 for users with low vision. Users cannot zoom the screen past a minimum screen
-width of [sw320dp](https://developer.android.com/guide/topics/resources/providing-resources.html), which is the width of a Nexus 4, a common medium-sized phone.
+width of [sw320dp](https://developer.android.com/guide/topics/resources/providing-resources.md.txt), which is the width of a Nexus 4, a common medium-sized phone.
 ![Screen showing unzoomed display size of device running an Android 7.0 system image](https://developer.android.com/static/images/android-7.0/screen-zoom-1.png) ![Screen showing the effect of increasing display size of a device running an Android 7.0 system image](https://developer.android.com/static/images/android-7.0/screen-zoom-2.png)
 
 
@@ -175,18 +177,18 @@ following ways:
   Runtime Changes](https://developer.android.com/guide/topics/resources/runtime-changes).
 
 
-Most apps do not need to make any changes to support this feature, provided
+Most apps don't need to make any changes to support this feature, provided
 the apps follow Android best practices. Specific things to check for:
 
-- Test your app on a device with screen width `https://developer.android.com/guide/topics/resources/providing-resources` and be sure it performs adequately.
+- Test your app on a device with screen width `sw320dp` and be sure it performs adequately.
 - When the device configuration changes, update any density-dependent cached information, such as cached bitmaps or resources loaded from the network. Check for configuration changes when the app resumes from the paused state.
   **Note:** If you cache configuration-dependent data, it's a
   good idea to include relevant metadata such as the appropriate screen
-  size or pixel density for that data. Saving this metadata allows you to
+  size or pixel density for that data. Saving this metadata lets you
   decide whether you need to refresh the cached data after a configuration
   change.
 
-- Avoid specifying dimensions with px units, since they do not scale with screen density. Instead, specify dimensions with [density-independent
+- Avoid specifying dimensions with px units, since they don't scale with screen density. Instead, specify dimensions with [density-independent
   pixel](https://developer.android.com/guide/practices/screens_support) (`dp`) units.
 
 ### Vision Settings in Setup Wizard
@@ -210,19 +212,19 @@ behavior aims to create a consistent app experience across platform updates
 and different devices. Even though your code might not be linking against
 private libraries, it's possible that a third-party static library in your
 app could be doing so. Therefore, all developers should check to make sure
-that their apps do not crash on devices running Android 7.0. If your app uses
-native code, you should only be using [public NDK APIs](https://developer.android.com/ndk/guides/stable_apis).
+that their apps don't crash on devices running Android 7.0. If your app uses
+native code, you should only be using [public NDK APIs](https://developer.android.com/ndk/guides/stable_apis.md.txt).
 
 
 There are three ways your app might be trying to access private platform
 APIs:
 
-- Your app directly accesses private platform libraries. You should update your app to include its own copy of those libraries or use the [public NDK APIs](https://developer.android.com/ndk/guides/stable_apis).
+- Your app directly accesses private platform libraries. You should update your app to include its own copy of those libraries or use the [public NDK APIs](https://developer.android.com/ndk/guides/stable_apis.md.txt).
 - Your app uses a third-party library that accesses private platform libraries. Even if you are certain your app doesn't access private libraries directly, you should still test your app for this scenario.
-- Your app references a library that is not included in its APK. For example, this could happen if you tried to use your own copy of OpenSSL but forgot to bundle it with your app's APK. The app may run normally on versions of Android platform that includes `libcrypto.so`. However, the app could crash on later versions of Android that do not include this library (such as, Android 6.0 and later). To fix this, ensure that you bundle all your non-NDK libraries with your APK.
+- Your app references a library that is not included in its APK. For example, this could happen if you tried to use your own copy of OpenSSL but forgot to bundle it with your app's APK. The app may run normally on versions of Android platform that includes `libcrypto.so`. However, the app could crash on later versions of Android that don't include this library (such as, Android 6.0 and later). To fix this, ensure that you bundle all your non-NDK libraries with your APK.
 
 
-Apps should not use native libraries that are not included in the NDK because
+Apps shouldn't use native libraries that are not included in the NDK because
 they may change or be removed between different versions of Android. The
 switch from OpenSSL to BoringSSL is an example of such a change. Also,
 because there are no compatibility requirements for platform libraries not
@@ -249,14 +251,14 @@ public nor temporarily accessible. The result is that
 `NULL`, and may cause your app to crash. You should review your
 app code to remove use of private platform APIs and thoroughly test your apps
 using a device or emulator running Android 7.0 (API level 24). If you are
-unsure whether your app uses private libraries, you can [check logcat](https://developer.android.com/about/versions/nougat/android-7.0-changes#ndk-errors) to identify the runtime error.
+unsure whether your app uses private libraries, you can [check logcat](https://developer.android.com/about/versions/nougat/android-7.0-changes.md.txt#ndk-errors) to identify the runtime error.
 
 
 The following table describes the behavior you should expect to see from an
 app depending on its use of private native libraries and its target API
 level (`android:targetSdkVersion`).
 
-| Libraries | Target API level | Runtime access via dynamic linker | Android 7.0 (API level 24) behavior | Future Android platform behavior |
+| Libraries | Target API level | Runtime access using dynamic linker | Android 7.0 (API level 24) behavior | Future Android platform behavior |
 |---|---|---|---|---|
 | NDK Public | Any | Accessible | Works as expected | Works as expected |
 | Private (temporarily accessible private libraries) | 23 or lower | Temporarily accessible | Works as expected, but you receive a logcat warning. | Runtime error |
@@ -281,7 +283,7 @@ as a workaround for http://b/26394120
 
 
 These logcat warnings tell you which which library is trying to access a
-private platform API, but will not cause your app to crash. If the app
+private platform API, but won't cause your app to crash. If the app
 targets API level 24 or higher, however, logcat generates the following
 runtime error and your app may crash:
 
@@ -297,7 +299,7 @@ java.lang.UnsatisfiedLinkError: dlopen failed: library "libcutils.so"
 
 You may also see these logcat outputs if your app uses third-party libraries
 that dynamically link to private platform APIs. The readelf tool in the
-Android 7.0DK allows you to generate a list of all dynamically linked shared
+Android 7.0 NDK lets you generate a list of all dynamically linked shared
 libraries of a given `.so` file by running the following command:
 
 ```
@@ -310,7 +312,7 @@ aarch64-linux-android-readelf -dW libMyLibrary.so
 Here are some steps you can take to fix these types of errors and make
 sure your app doesn't crash on future platform updates:
 
-- If your app uses private platform libraries, you should update it to include its own copy of those libraries or use the [public NDK APIs](https://developer.android.com/ndk/guides/stable_apis).
+- If your app uses private platform libraries, you should update it to include its own copy of those libraries or use the [public NDK APIs](https://developer.android.com/ndk/guides/stable_apis.md.txt).
 - If your app uses a third-party library that accesses private symbols, contact the library author to update the library.
 - Make sure you package all your non-NDK libraries with your APK.
 - Use standard JNI functions instead of `getJavaVM` and `getJNIEnv` from `libandroid_runtime.so`:
@@ -322,7 +324,7 @@ sure your app doesn't crash on future platform updates:
   ```
 - Use `__system_property_get` instead of the private `property_get` symbol from `libcutils.so`. To do this, use `__system_property_get` with the following include:
 
-  ```scdoc
+  ```
   #include <sys/system_properties.h>
   ```
 
@@ -344,27 +346,28 @@ your app accordingly.
 - You must install a delegated certificate installer before the DPC can set it. For both profile and device-owner apps targeting Android 7.0 (API level 24), you should install the delegated certificate installer before the device policy controller (DPC) calls `DevicePolicyManager.setCertInstallerPackage()`. If the installer is not already installed, the system throws an `IllegalArgumentException`.
 - Reset password restrictions for device admins now apply to profile owners. Device admins can no longer use `DevicePolicyManager.resetPassword()` to clear passwords or change ones that are already set. Device admins can still set a password, but only when the device has no password, PIN, or pattern.
 - Device and profile owners can manage accounts even if restrictions are set. Device owners and profile owners can call the Account Management APIs even if `DISALLOW_MODIFY_ACCOUNTS` user restrictions are in place.
-- Device owners can manage secondary users more easily. When a device is running in device owner mode, the `DISALLOW_ADD_USER` restriction is automatically set. This prevents users from creating unmanaged secondary users. In addition, the `CreateUser()` and `createAndInitializeUser()` methods are deprecated; the new `DevicePolicyManager.createAndManageUser()` method replaces them.
+- Device owners can manage secondary users. When a device is running in device owner mode, the `DISALLOW_ADD_USER` restriction is automatically set. This prevents users from creating unmanaged secondary users. In addition, the `CreateUser()` and `createAndInitializeUser()` methods are deprecated; the new `DevicePolicyManager.createAndManageUser()` method replaces them.
 - Device owners can access device identifiers. A Device owner can access the Wi-Fi MAC address of a device, using `DevicePolicyManager.getWifiMacAddress()`. If Wi-Fi has never been enabled on the device, this method returns a value of `null`.
 - The Work Mode setting controls access to work apps. When work mode is off the system launcher indicates work apps are unavailable by greying them out. Enabling work mode again restores normal behavior.
-- When installing a PKCS #12 file containing a client certificate chain and the corresponding private key from Settings UI, the CA certificate in the chain is no longer installed to the trusted credentials storage. This does not affect the result of `https://developer.android.com/reference/android/security/KeyChain#getCertificateChain(android.content.Context, java.lang.String)` when apps attempt to retrieve the client certificate chain later. If required, the CA certificate should be installed to the trusted credentials storage via Settings UI separately, with a DER-encoded format under a .crt or .cer file extension.
+- When installing a PKCS #12 file containing a client certificate chain and the corresponding private key from Settings UI, the CA certificate in the chain is no longer installed to the trusted credentials storage. This does not affect the result of `KeyChain.getCertificateChain()` when apps attempt to retrieve the client certificate chain later. If required, the CA certificate should be installed to the trusted credentials storage using Settings UI separately, with a DER-encoded format under a .crt or .cer file extension.
 - Starting in Android 7.0, fingerprint enrollment and storage are managed per user. If a profile owner's Device Policy Client (DPC) targets API level 23 (or lower) on a device running Android 7.0 (API level 24), the user is still able to set fingerprint on the device, but work applications cannot access device fingerprint. When the DPC targets API level 24 and above, the user can set fingerprint specifically for work profile by going to **Settings \>
   Security \> Work profile security**.
 - A new encryption status `ENCRYPTION_STATUS_ACTIVE_PER_USER` is returned by `DevicePolicyManager.getStorageEncryptionStatus()`, to indicate that encryption is active and the encryption key is tied to the user. The new status is only returned if DPC targets API Level 24 and above. For apps targeting earlier API levels, `ENCRYPTION_STATUS_ACTIVE` is returned, even if the encryption key is specific to the user or profile.
-- In Android 7.0, several methods that would ordinarily affect the entire device behave differently if the device has a work profile installed with a separate work challenge. Rather than affecting the entire device, these methods apply only to the work profile. (The complete list of such methods is in the `https://developer.android.com/reference/android/app/admin/DevicePolicyManager#getParentProfileInstance(android.content.ComponentName)` documentation.) For example, `https://developer.android.com/reference/android/app/admin/DevicePolicyManager#lockNow()` locks just the work profile, instead of locking the entire device. For each of these methods, you can get the old behavior by calling the method on the parent instance of the `https://developer.android.com/reference/android/app/admin/DevicePolicyManager`; you can get this parent by calling `https://developer.android.com/reference/android/app/admin/DevicePolicyManager#getParentProfileInstance(android.content.ComponentName)`. So for example, if you call the parent instance's `https://developer.android.com/reference/android/app/admin/DevicePolicyManager#lockNow()` method, the entire device is locked.
+- In Android 7.0, several methods that would ordinarily affect the entire device behave differently if the device has a work profile installed with a separate work challenge. Rather than affecting the entire device, these methods apply only to the work profile. (The complete list of such methods is in the `DevicePolicyManager.getParentProfileInstance()` documentation.) For example, `DevicePolicyManager.lockNow()` locks just the work profile, instead of locking the entire device. For each of these methods, you can get the old behavior by calling the method on the parent instance of the `DevicePolicyManager`; you can get this parent by calling `DevicePolicyManager.getParentProfileInstance()`. So for example, if you call the parent instance's `lockNow()` method, the entire device is locked.
 
 ## Annotations Retention
 
 
 Android 7.0 fixes a bug where the visibility of annotations was being ignored.
-This issue enabled the runtime to access annotations that it should not have been
+This issue enabled the runtime to access annotations that it shouldn't have been
 able to. These annotations included:
 
 - `VISIBILITY_BUILD`: Intended to be visible only at build time.
 - `VISIBILITY_SYSTEM`: Intended to be visible at runtime, but only to the underlying system.
 
 
-If your app has relied on this behavior, please add a retention policy to annotations that must
+If your app has relied on this behavior, add a retention policy to annotations
+that must
 be available at runtime. You do so by using `@Retention(RetentionPolicy.RUNTIME)`.
 
 ## TLS/SSL Default Configuration Changes
@@ -385,12 +388,12 @@ should be enabled, and Forward Secrecy cipher suites (ECDHE) should
 be enabled and preferred.
 
 
-An alternative is to modify the app to use a custom `https://developer.android.com/reference/javax/net/ssl/SSLSocketFactory` to communicate with the server. The
-factory should be designed to create `https://developer.android.com/reference/javax/net/ssl/SSLSocket`
+An alternative is to modify the app to use a custom `SSLSocketFactory` to communicate with the server. The
+factory should be designed to create `SSLSocket`
 instances that have some of the cipher suites required by the server
 enabled in addition to default cipher suites.
 
-**Note:** These changes do not pertain to `https://developer.android.com/reference/android/webkit/WebView`.
+**Note:** These changes don't pertain to `WebView`.
 
 ## Apps targeting Android 7.0
 
@@ -407,8 +410,8 @@ Android 7.0 (API level 24) fixed a bug in the calculation of the default
 serialVersionUID where it did not match the specification.
 
 
-Classes that implement `https://developer.android.com/reference/java/io/Serializable`
-and do not specify an explicit `serialVersionUID` field could
+Classes that implement `Serializable`
+and don't specify an explicit `serialVersionUID` field could
 see a change in their default serialVersionUID which would cause an exception
 to be thrown when attempting to deserialize instances of the class that were
 serialized on an earlier version or serialized by an app targeting an earlier
@@ -444,19 +447,19 @@ that have a static initializer method.
   You should test your app to ensure
   that this behavior does not occur.
   You can do so by causing an identical crash
-  when killing the app manually via DDMS.
+  when killing the app manually using DDMS.
 
 
   Apps targeting Android 7.0 (API level 24) and above are not automatically
   killed on density changes; however, they may still respond poorly to
   configuration changes.
-- Apps on Android 7.0 should be able to gracefully handle configuration changes, and should not crash on subsequent starts. You can verify app behavior by changing font size (**Setting** \> **Display** \> **Font size**), and then restoring the app from Recents.
+- Apps on Android 7.0 should be able to gracefully handle configuration changes, and shouldn't crash on subsequent starts. You can verify app behavior by changing font size (**Setting** \> **Display** \> **Font size**), and then restoring the app from Recents.
 - Due to a bug in previous versions of Android, the system did not flag writing to a TCP socket on the main thread as a strict-mode violation. Android 7.0 fixes this bug. Apps that exhibit this behavior now throw an `android.os.NetworkOnMainThreadException`. Generally, performing network operations on the main thread is a bad idea because these operations usually have a high latency that causes ANRs and jank.
 - The `Debug.startMethodTracing()` family of methods now defaults to storing output in your package-specific directory on shared storage, instead of at the top level of the SD card. This means apps no longer need to request the `WRITE_EXTERNAL_STORAGE` permission to use these APIs.
-- Many platform APIs have now started checking for large payloads being sent across `https://developer.android.com/reference/android/os/Binder` transactions, and the system now rethrows `TransactionTooLargeExceptions` as `RuntimeExceptions`, instead of silently logging or suppressing them. One common example is storing too much data in `https://developer.android.com/reference/android/app/Activity#onSaveInstanceState(android.os.Bundle)`, which causes `ActivityThread.StopInfo` to throw a `RuntimeException` when your app targets Android 7.0.
-- If an app posts `https://developer.android.com/reference/java/lang/Runnable` tasks to a `https://developer.android.com/reference/android/view/View`, and the `https://developer.android.com/reference/android/view/View` is not attached to a window, the system queues the `https://developer.android.com/reference/java/lang/Runnable` task with the `https://developer.android.com/reference/android/view/View`; the `https://developer.android.com/reference/java/lang/Runnable` task does not execute until the `https://developer.android.com/reference/android/view/View` is attached to a window. This behavior fixes the following bugs:
-  - If an app posted to a `https://developer.android.com/reference/android/view/View` from a thread other than the intended window's UI thread, the `https://developer.android.com/reference/java/lang/Runnable` may run on the wrong thread as a result.
-  - If the `https://developer.android.com/reference/java/lang/Runnable` task was posted from a thread other than a looper thread, the app could expose the `https://developer.android.com/reference/java/lang/Runnable` task.
-- If an app on Android 7.0 with `https://developer.android.com/reference/android/Manifest.permission#DELETE_PACKAGES` permission tries to delete a package, but a different app had installed that package, the system requires user confirmation. In this scenario, apps should expect `https://developer.android.com/reference/android/content/pm/PackageInstaller#STATUS_PENDING_USER_ACTION` as the return status when they invoke `https://developer.android.com/reference/android/content/pm/PackageInstaller#uninstall(android.content.pm.VersionedPackage, android.content.IntentSender)`.
+- Many platform APIs have now started checking for large payloads being sent across `Binder` transactions, and the system now rethrows `TransactionTooLargeExceptions` as `RuntimeExceptions`, instead of silently logging or suppressing them. One common example is storing too much data in `Activity.onSaveInstanceState()`, which causes `ActivityThread.StopInfo` to throw a `RuntimeException` when your app targets Android 7.0.
+- If an app posts `Runnable` tasks to a `View`, and the `View` is not attached to a window, the system queues the `Runnable` task with the `View`; the `Runnable` task does not execute until the `View` is attached to a window. This behavior fixes the following bugs:
+  - If an app posted to a `View` from a thread other than the intended window's UI thread, the `Runnable` may run on the wrong thread as a result.
+  - If the `Runnable` task was posted from a thread other than a looper thread, the app could expose the `Runnable` task.
+- If an app on Android 7.0 with `DELETE_PACKAGES` permission tries to delete a package, but a different app had installed that package, the system requires user confirmation. In this scenario, apps should expect `STATUS_PENDING_USER_ACTION` as the return status when they invoke `PackageInstaller.uninstall()`.
 - The JCA provider called *Crypto* is deprecated, because its only algorithm, SHA1PRNG, is cryptographically weak. Apps can no longer use SHA1PRNG to (insecurely) derive keys, because this provider is no longer available. For more information, see the blog post [Security "Crypto" provider deprecated in Android
   N](http://android-developers.blogspot.com/2016/06/security-crypto-provider-deprecated-in.html).

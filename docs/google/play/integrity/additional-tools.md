@@ -4,15 +4,17 @@ url: https://developer.android.com/google/play/integrity/additional-tools
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/integrity/llms.txt
+
 The following tools and resources will help you make the most of the Play
 Integrity API as part of your anti-abuse strategy.
 
 ## Monitor Play Integrity API status
 
 The [Play status dashboard](https://status.play.google.com) shows
-status information for the Play Integrity API. Information will be posted about
-service status including any disruptions and outages. If you're experiencing an
-issue not listed on the page, please contact [Google Play developer
+status information for the Play Integrity API. The dashboard posts service
+status information, including any disruptions and outages. If you're experiencing an
+issue not listed on the page, contact [Google Play developer
 support](https://support.google.com/googleplay/android-developer/contact/piaqr).
 
 ## Test different Play Integrity API responses within your app
@@ -29,7 +31,7 @@ instructions, see the [Play Console help
 center](https://support.google.com/googleplay/android-developer/answer/11395166).
 
 Note that for test responses an additional `testingDetails` field appears in the
-[returned payload](https://developer.android.com/google/play/integrity/verdicts#returned-verdict-format).
+[returned payload](https://developer.android.com/google/play/integrity/verdicts.md.txt#returned-verdict-format).
 
 ```json
 "testingDetails": {
@@ -69,13 +71,14 @@ First, enable the Play Store's developer options on the device. Tap your profile
 icon and then tap **Settings** . Open the **About** menu and tap the row labeled
 **Play Store version** seven times to unlock developer mode.
 
-Then, to generate a verdict from an Android device, open the Play Store app. Tap
+Then, to generate a verdict from an Android-powered device, open the Play Store
+app. Tap
 your profile icon and then tap **Settings** . Open the **General** menu and then
 tap **Developer options** . In **Play Integrity** settings, tap **Check
 integrity** to generate a verdict.
 
 > [!TIP]
-> **Tip:** The verdict generated when you tap **Check integrity** on a device contains all default and optional verdicts. Your app will only receive the optional verdicts when it calls Play Integrity API if you [have
+> **Tip:** The verdict generated when you tap **Check integrity** on a device contains all default and optional verdicts. Your app only receives the optional verdicts when it calls the Play Integrity API if you [have
 > configured](https://developer.android.com/google/play/integrity/setup#configure-api) them in the Play Console.
 
 ### Check integrity on a remote device
@@ -128,7 +131,7 @@ apps where Play Integrity API is not available.
 
 ## Get support
 
-To report an unexpected Play Integrity API verdict, please [submit an
+To report an unexpected Play Integrity API verdict, [submit an
 issue](https://issuetracker.google.com/issues/new?component=1152695) with all of
 the information requested.
 
@@ -136,8 +139,7 @@ To ask questions or to provide feedback about the Play Integrity API, you can
 either:
 
 - Contact Google Play developer support directly from your Play Console.
-- Complete [this
-  form](https://support.google.com/googleplay/android-developer/contact/piaqr) in the Play Console Help Center.
+- Complete the [Play Integrity API support form](https://support.google.com/googleplay/android-developer/contact/piaqr) in the Play Console Help Center.
 
 If you're requesting to increase the number of daily requests your app makes, it
 can take up to a week. We strongly recommend monitoring your Play Integrity API

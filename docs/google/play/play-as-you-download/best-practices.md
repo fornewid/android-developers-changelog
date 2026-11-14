@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/play-as-you-download/best-practic
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/play-as-you-download/llms.txt
+
 These best practices can improve install latency when Play as you Download
 is enabled for your app.
 
@@ -28,12 +30,12 @@ patterns of install-time asset packs. This helps the game launch much faster
 while only downloading data that users need during the initial game launch.
 
 The following table shows what code and resources are optimized by Play as you
-download when games use an
-[Android App Bundle with Play Assets Delivery](https://developer.android.com/guide/app-bundle/app-bundle-format).
+Download when games use an
+[Android App Bundle with Play Asset Delivery](https://developer.android.com/guide/app-bundle/app-bundle-format.md.txt).
 
 | Resource format | Optimized by Play as you Download | Not optimized by Play as you Download |
 |---|---|---|
-| Android App Bundle files | Base Module and install-time dynamic features (except 'res/' and 'values/' directories) | \`res/\` and \`values/\` directories of base module and install-time dynamic features |
+| Android App Bundle files | Base module and install-time dynamic features (except `res/` and `values/` directories) | `res/` and `values/` directories of base module and install-time dynamic features |
 | Android App Bundle files |   | On-demand dynamic features |
 | Play Asset Delivery files | Install-time asset packs | Fast-follow asset packs |
 | Play Asset Delivery files |   | On-demand asset packs |
@@ -53,15 +55,14 @@ Here are some additional recommendations for Unity games:
   asset data at once.
 
 - Use an asset loading profiler (such as the
-  [Asset Loading Profiler module in
-  Unity](https://docs.unity3d.com/2022.2/Documentation/Manual/profiler-asset-loading-module.html))
+  [Asset Loading Profiler module in Unity](https://docs.unity3d.com/2022.2/Documentation/Manual/profiler-asset-loading-module.html))
   to identify asset loading optimizations for your game.
 
 ## Fix ANRs
 
-By fixing [ANRs](https://developer.android.com/topic/performance/issues/anr)
+By fixing [ANRs](https://developer.android.com/topic/performance/issues/anr.md.txt)
 (Application Not Responding errors) in your app, you can also improve the Play
 as you Download experience of the app. For example, by removing
-[IO operations from the main thread](https://developer.android.com/topic/performance/issues/anr#io_on_the_main_thread),
+[I/O operations from the main thread](https://developer.android.com/topic/performance/issues/anr.md.txt#io-on-main),
 you can minimize ANRs from occurring while Play is downloading app assets in
 background.

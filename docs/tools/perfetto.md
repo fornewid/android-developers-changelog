@@ -4,6 +4,8 @@ url: https://developer.android.com/tools/perfetto
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/tools/llms.txt
+
 `perfetto` is a tool that lets you collect performance information from
 Android devices via the
 [Android Debug Bridge (ADB)](https://developer.android.com/studio/command-line/adb). Invoke the
@@ -22,13 +24,13 @@ desired output. For further information, refer to the
 
 ## Android skills
 
-[View on GitHub](https://github.com/android/skills/tree/main/profilers/android-profiler/analysis/workflows)
+[View on GitHub](https://github.com/android/skills/tree/main/profilers/android-profiler)
 
-### Perfetto trace analysis
+### Android profiler
 
-Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to diagnose Android performance issues with the `perfetto` tool. To install the relevant skills from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use an [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to record and analyze Android performance data so that you can diagnose bottlenecks, jank, and memory leaks, and convert natural language into executable trace queries, such as PerfettoSQL queries. To install this skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
-    android skills add [perfetto-trace-analyzer|perfetto-sql]
+    android skills add android-profiler
 
 <br />
 
@@ -42,7 +44,7 @@ and generate a trace.
 `perfetto` includes the following two modes that determine the data sources
 it uses to record your trace:
 
-- **light mode** : can select only a subset of data sources, specifically `atrace` and `ftrace`. However, this mode offers an interface similar to [`systrace`](https://developer.android.com/topic/performance/tracing/command-line).
+- **light mode** : can select only a subset of data sources, specifically `atrace` and `ftrace`. However, this mode offers an interface similar to [`systrace`](https://developer.android.com/topic/performance/tracing/command-line.md.txt).
 - **normal mode** : gets its configuration in a protocol buffer and lets you leverage more of `perfetto`'s functionality by using data sources different from `atrace` and `ftrace`.
 
 ### General options

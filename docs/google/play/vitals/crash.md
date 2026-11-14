@@ -4,14 +4,16 @@ url: https://developer.android.com/google/play/vitals/crash
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/vitals/llms.txt
+
 An Android app crashes whenever there's an unexpected exit caused by an
 unhandled exception or signal. An app that is written using Java or Kotlin
 crashes if it throws an unhandled exception, represented by the
-[`Throwable`](https://developer.android.com/reference/java/lang/Throwable) class. An app that is written using machine code or C++ crashes
+[`Throwable`](https://developer.android.com/reference/java/lang/Throwable.md.txt) class. An app that is written using machine code or C++ crashes
 if there's an unhandled signal, such as `SIGSEGV`, during its execution.
 
 > [!NOTE]
-> **Note:** For information on how to diagnose and resolve this issue, see [Crashes](https://developer.android.com/topic/performance/issues/crash).
+> **Note:** For information on how to diagnose and resolve this issue, see [Crashes](https://developer.android.com/topic/performance/issues/crash.md.txt).
 
 ## Android vitals metrics and thresholds
 
@@ -22,7 +24,7 @@ Android vitals measures several crash rates:
 - **User-perceived crash rate:** The percentage of your daily active users
   who experienced at least one crash while they were actively using your app
   (a user-perceived crash). An app is considered to be in active use
-  if it is displaying any activity or executing any [foreground service](https://developer.android.com/develop/background-work/services/fgs).
+  if it is displaying any activity or executing any [foreground service](https://developer.android.com/develop/background-work/services/fgs.md.txt).
 
   > [!NOTE]
   > **Note:** For Wear OS apps, user-perceived crash rates include both foreground and background crashes. Wear OS devices always have watch faces running in the background, and users frequently move Wear OS apps to the background, even during active usage, because of the small screen size.

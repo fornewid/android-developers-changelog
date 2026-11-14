@@ -4,12 +4,12 @@ url: https://developer.android.com/develop/connectivity/bluetooth/ble/connect-ga
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/connectivity/bluetooth/llms.txt
+
 The first step in interacting with a BLE device is connecting to it. More
 specifically, connecting to the GATT server on the device. To connect to a GATT
-server on a BLE device, use the
-[`connectGatt()`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt#connectGatt(android.content.Context,%20boolean,%20android.bluetooth.BluetoothGattCallback))
-method. This method takes three parameters: a
-[`Context`](https://developer.android.com/reference/android/content/Context.md.txt) object, `autoConnect` (a boolean
+server on a BLE device, use the [`connectGatt()`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt#connectGatt(android.content.Context,%20boolean,%20android.bluetooth.BluetoothGattCallback)) method. This method
+takes three parameters: a [`Context`](https://developer.android.com/reference/android/content/Context.md.txt) object, `autoConnect` (a boolean
 indicating whether to automatically connect to the BLE device as soon as it
 becomes available), and a reference to a
 [`BluetoothGattCallback`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback.md.txt):
@@ -24,9 +24,8 @@ bluetoothGatt = device.connectGatt(this, false, bluetoothGattCallback)
 <br />
 
 This connects to the GATT server hosted by the BLE device, and returns a
-[`BluetoothGatt`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt.md.txt) instance, which
-you can then use to conduct GATT client operations. The caller (the Android app)
-is the GATT client. The
+[`BluetoothGatt`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt.md.txt) instance, which you can then use to conduct
+GATT client operations. The caller (the Android app) is the GATT client. The
 `BluetoothGattCallback` is used to deliver results to the client, such as
 connection status, as well as any further GATT client operations.
 
@@ -35,14 +34,12 @@ connection status, as well as any further GATT client operations.
 In the following example, the BLE app provides an activity
 (`DeviceControlActivity`) to connect to Bluetooth devices, display device data,
 and display the GATT services and characteristics supported by the device. Based
-on user input, this activity communicates with a
-[`Service`](https://developer.android.com/reference/android/app/Service.md.txt) called `BluetoothLeService`, which
-interacts with the BLE device via the BLE API. The communication is
-performed using a [bound service](https://developer.android.com/guide/components/bound-services) which allows
-the activity to connect to the `BluetoothLeService` and call functions to
-connect to the devices. The `BluetoothLeService` needs a
-[`Binder`](https://developer.android.com/reference/android/os/Binder.md.txt) implementation that provides access to
-the service for the activity.
+on user input, this activity communicates with a [`Service`](https://developer.android.com/reference/android/app/Service.md.txt) called
+`BluetoothLeService`, which interacts with the BLE device using the BLE API. A
+[bound service](https://developer.android.com/develop/background-work/services/bound-services.md.txt), which lets the activity connect to the
+`BluetoothLeService` and call functions to connect to the devices, handles this
+communication. The `BluetoothLeService` needs a [`Binder`](https://developer.android.com/reference/android/os/Binder.md.txt)
+implementation that provides access to the service for the activity.
 
 
 ```kotlin
@@ -64,12 +61,11 @@ class BluetoothLeService : Service() {
 
 <br />
 
-The activity can start the service using
-[`bindService()`](https://developer.android.com/reference/android/content/Context.md.txt#bindService(android.content.Intent,%20android.content.ServiceConnection,%20int)),
-passing in an [`Intent`](https://developer.android.com/reference/android/content/Intent.md.txt) to start the
-service, a [`ServiceConnection`](https://developer.android.com/reference/android/content/ServiceConnection.md.txt)
-implementation to listen for the connection and disconnection events, and a flag
-to specify additional connection options.
+The activity can start the service using [`bindService()`](https://developer.android.com/reference/android/content/Context.md.txt#bindService(android.content.Intent,%20android.content.ServiceConnection,%20int)), passing in an
+[`Intent`](https://developer.android.com/reference/android/content/Intent.md.txt) to start the service, a
+[`ServiceConnection`](https://developer.android.com/reference/android/content/ServiceConnection.md.txt) implementation to listen for the
+connection and disconnection events, and a flag to specify additional connection
+options.
 
 
 ```kotlin
@@ -107,12 +103,12 @@ class DeviceControlActivity : AppCompatActivity() {
 
 ## Set up the BluetoothAdapter
 
-Once the service is bound to, it needs to access the
-[`BluetoothAdapter`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt). It should
-check that the adapter is available on the device. Read [Set up
-Bluetooth](https://developer.android.com/develop/connectivity/bluetooth/setup) for more information on
-the `BluetoothAdapter`. The following example wraps this setup code in an
-`initialize()` function that returns a `Boolean` value indicating success.
+After the activity binds to the service, the service needs to access the
+[`BluetoothAdapter`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt). It should check that the adapter is
+available on the device. For more information about the `BluetoothAdapter`, see
+[Set up Bluetooth](https://developer.android.com/develop/connectivity/bluetooth/setup.md.txt). The following example wraps this setup
+code in an `initialize()` function that returns a `Boolean` value indicating
+success.
 
 
 ```kotlin
@@ -141,9 +137,8 @@ The activity calls this function within its `ServiceConnection` implementation.
 Handling a false return value from the `initialize()` function depends on your
 application. You could show an error message to the user indicating that the
 current device does not support the Bluetooth operation or disable any features
-that require Bluetooth to work. In the following example,
-[`finish()`](https://developer.android.com/reference/android/app/Activity.md.txt#finish()) is called on the activity
-to send the user back to the previous screen.
+that require Bluetooth to work. In the following example, the activity calls
+[`finish()`](https://developer.android.com/reference/android/app/Activity.md.txt#finish()) to send the user back to the previous screen.
 
 
 ```kotlin
@@ -178,13 +173,12 @@ class DeviceControlActivity : AppCompatActivity() {
 
 ## Connect to a device
 
-Once the `BluetoothLeService` instance is initialized, it can connect to the BLE
-device. The activity needs to send the device address to the service so it can
-initiate the connection. The service will first call
-[`getRemoteDevice()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt#getRemoteDevice(java.lang.String))
-on the `BluetoothAdapter` to access the device. If the adapter is unable to find
-a device with that address, `getRemoteDevice()` throws an
-[`IllegalArgumentException`](https://developer.android.com/reference/java/lang/IllegalArgumentException.md.txt).
+After the `BluetoothLeService` instance is initialized, it can connect to the
+BLE device. The activity needs to send the device address to the service so it
+can initiate the connection. The service first calls
+[`getRemoteDevice()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt#getRemoteDevice(java.lang.String)) on the `BluetoothAdapter` to access the device. If
+the adapter is unable to find a device with that address, `getRemoteDevice()`
+throws an [`IllegalArgumentException`](https://developer.android.com/reference/java/lang/IllegalArgumentException.md.txt).
 
 
 ```kotlin
@@ -207,7 +201,7 @@ fun connect(address: String): Boolean {
 
 <br />
 
-The `DeviceControlActivity` calls this `connect()` function once the service is
+The `DeviceControlActivity` calls this `connect()` function after the service is
 initialized. The activity needs to pass in the address of the BLE device. In
 the following example, the device address is passed to the activity as an intent
 extra.
@@ -241,24 +235,20 @@ private val serviceConnection: ServiceConnection = object : ServiceConnection {
 
 ## Declare GATT callback
 
-Once the activity tells the service which device to connect to and the service
+After the activity tells the service which device to connect to and the service
 connects to the device, the service needs to connect to the GATT server on the
 BLE device. This connection requires a `BluetoothGattCallback` to receive
 notifications about the connection state, service discovery, characteristic
 reads, and characteristic notifications.
 
-This topic focuses on the connection state notifications. See [Transfer BLE
-data](https://developer.android.com/develop/connectivity/bluetooth/ble/transfer-ble-data) for how to perform
-service discovery, characteristic reads, and request characteristic
-notifications.
+This document focuses on the connection state notifications. To learn how to
+discover services, read characteristics, and request characteristic
+notifications, see [Transfer BLE data](https://developer.android.com/develop/connectivity/bluetooth/ble/transfer-ble-data.md.txt).
 
-The
-[`onConnectionStateChange()`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback.md.txt#onConnectionStateChange(android.bluetooth.BluetoothGatt,%20int,%20int))
-function is triggered when the connection to the device's GATT server changes.
-In the following example, the callback is defined in the `Service` class so it
-can be used with the
-[`BluetoothDevice`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt) once the
-service connects to it.
+The [`onConnectionStateChange()`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback.md.txt#onConnectionStateChange(android.bluetooth.BluetoothGatt,%20int,%20int)) function is triggered when the
+connection to the device's GATT server changes. In the following example, the
+callback is defined in the `Service` class so it can be used with the
+[`BluetoothDevice`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt) after the service connects to it.
 
 
 ```kotlin
@@ -277,19 +267,17 @@ private val bluetoothGattCallback = object : BluetoothGattCallback() {
 
 ## Connect to GATT service
 
-Once the `BluetoothGattCallback` is declared, the service can use the
+After the `BluetoothGattCallback` is declared, the service can use the
 `BluetoothDevice` object from the `connect()` function to connect to the GATT
 service on the device.
 
-The
-[`connectGatt()`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt#connectGatt(android.content.Context,%20boolean,%20android.bluetooth.BluetoothGattCallback))
-function is used. This requires a `Context` object, an `autoConnect` boolean
-flag, and the `BluetoothGattCallback`. In this example, the app is directly
-connecting to the BLE device, so `false` is passed for `autoConnect`.
+The service calls the [`connectGatt()`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt#connectGatt(android.content.Context,%20boolean,%20android.bluetooth.BluetoothGattCallback)) function. This requires a
+`Context` object, an `autoConnect` boolean flag, and the
+`BluetoothGattCallback`. In this example, the app is directly connecting to the
+BLE device, so `false` is passed for `autoConnect`.
 
-A `BluetoothGatt` property is also added. This allows the service to [close the
-connection](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#close()) when it is no
-longer needed.
+The service also adds a `BluetoothGatt` property so it can
+[close the connection](https://developer.android.com/reference/android/bluetooth/BluetoothGatt.md.txt#close()) when it is no longer needed.
 
 
 ```kotlin
@@ -322,10 +310,10 @@ class BluetoothLeService : Service() {
 
 ## Broadcast updates
 
-When the server connects or disconnects from the GATT server, it needs to notify
-the activity of the new state. There are several ways to accomplish this. The
-following example uses [broadcasts](https://developer.android.com/guide/components/broadcasts) to send the
-information from the service to activity.
+When the service connects to or disconnects from the GATT server, it needs to
+notify the activity of the new state. There are several ways to accomplish this.
+The following example uses [broadcasts](https://developer.android.com/develop/background-work/background-tasks/broadcasts.md.txt) to send the information from
+the service to the activity.
 
 The service declares a function to broadcast the new state. This function takes
 in an action string which is passed to an `Intent` object before being broadcast
@@ -341,10 +329,10 @@ private fun broadcastUpdate(action: String) {
 
 <br />
 
-Once the broadcast function is in place, it is used within the
+After the broadcast function is in place, the service uses it within the
 `BluetoothGattCallback` to send information about the connection state with the
-GATT server. Constants and the service's current connection state are declared
-in the service representing the `Intent` actions.
+GATT server. The service declares constants representing the `Intent` actions
+and the service's current connection state.
 
 
 ```kotlin
@@ -383,12 +371,12 @@ class BluetoothLeService : Service() {
 
 ## Listen for updates in activity
 
-Once the service broadcasts the connection updates, the activity needs to
-implement a [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver.md.txt).
-Register this receiver when setting up the activity, and unregister it when the
-activity is leaving the screen. By listening for the events from the service,
-the activity is able to update the user interface based on the current
-connection state with the BLE device.
+After the service broadcasts the connection updates, the activity needs to
+implement a [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver.md.txt). Register this receiver
+when setting up the activity, and unregister it when the activity is leaving the
+screen. By listening for the events from the service, the activity is able to
+update the user interface based on the current connection state with the BLE
+device.
 
 
 ```kotlin
@@ -436,9 +424,9 @@ class DeviceControlActivity : AppCompatActivity() {
 
 <br />
 
-In [Transfer BLE data](https://developer.android.com/develop/connectivity/bluetooth/ble/transfer-ble-data.md.txt),
-the `BroadcastReceiver` is also used to communicate the service discovery as
-well as the characteristic data from the device.
+In [Transfer BLE data](https://developer.android.com/develop/connectivity/bluetooth/ble/transfer-ble-data.md.txt), the `BroadcastReceiver` is also used
+to communicate the service discovery as well as the characteristic data from the
+device.
 
 ## Close GATT connection
 

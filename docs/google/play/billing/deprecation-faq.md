@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/billing/deprecation-faq
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/billing/llms.txt
+
 All versions of the Google Play Billing Library have a two-year deprecation
 cycle. Google announced this deprecation cycle at Google I/O 2019 and in the
 [Meet Google Play Billing Library Version 3](https://android-developers.googleblog.com/2020/06/meet-google-play-billing-library.html "Play Billing Library Version 3 Blog") blog post.
@@ -18,7 +20,7 @@ Billing Library version deprecation and migrating to higher versions.
 
 ### Upgrade Play Billing Library
 
-Use the Play Billing Library [Android skill](https://developer.android.com/tools/agents/android-skills) to automate your upgrade to the latest version. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the Play Billing Library [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to automate your upgrade to the latest version. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add play-billing-library-version-upgrade
 
@@ -60,9 +62,9 @@ Google Play Billing Library version.
 
 :   Update the dependency in your release to use a supported version from
     the table. To learn what changed between releases, see the
-    [release notes](https://developer.android.com/google/play/billing/release-notes).
+    [release notes](https://developer.android.com/google/play/billing/release-notes.md.txt).
 
-    To migrate, see the [migration guide for version 9](https://developer.android.com/google/play/billing/migrate-gpblv9).
+    To migrate, see the [migration guide for version 9](https://developer.android.com/google/play/billing/migrate-gpblv9.md.txt).
 
 **Where do you find the extension form to continue distributing to users until the extension deadline?**
 

@@ -4,13 +4,15 @@ url: https://developer.android.com/google/play/vitals/launch-time
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/vitals/llms.txt
+
 Users expect apps to load fast and be responsive. An app with a slow start time
 doesn't meet this expectation and can disappoint users. This sort of poor
 experience can cause a user to rate your app poorly on the Play store or even
 abandon your app altogether.
 
 > [!NOTE]
-> **Note:** For information on how to diagnose and resolve this issue, see [App startup time](https://developer.android.com/topic/performance/issues/launch-time).
+> **Note:** For information on how to diagnose and resolve this issue, see [App startup time](https://developer.android.com/topic/performance/issues/launch-time.md.txt).
 
 ## Android vitals
 
@@ -19,11 +21,11 @@ Android vitals can help improve your app's performance by alerting you on the
 
 Android vitals considers the following startup times for your app excessive:
 
-- [Cold](https://developer.android.com/topic/performance/issues/launch-time#cold) startup takes 5 seconds or longer.
-- [Warm](https://developer.android.com/topic/performance/issues/launch-time#warm) startup takes 2 seconds or longer.
-- [Hot](https://developer.android.com/topic/performance/issues/launch-time#hot) startup takes 1.5 seconds or longer.
+- [Cold](https://developer.android.com/topic/performance/issues/launch-time.md.txt#cold) startup takes 5 seconds or longer.
+- [Warm](https://developer.android.com/topic/performance/issues/launch-time.md.txt#warm) startup takes 2 seconds or longer.
+- [Hot](https://developer.android.com/topic/performance/issues/launch-time.md.txt#hot) startup takes 1.5 seconds or longer.
 
-Android vitals uses the [time to initial display (TTID)](https://developer.android.com/topic/performance/issues/launch-time#time-initial) metric. TTID is the
+Android vitals uses the [time to initial display (TTID)](https://developer.android.com/topic/performance/issues/launch-time.md.txt#time-initial) metric. TTID is the
 time it takes to display the first frame of the app's UI, including process
 initialization during a cold start, activity creation during a cold or warm
 start, and displaying the first frame.

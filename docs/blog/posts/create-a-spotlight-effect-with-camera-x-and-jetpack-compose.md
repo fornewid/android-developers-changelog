@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/create-a-spotlight-effect-with-cam
 source: md.txt
 ---
 
-[How-tos](https://developer.android.com/blog/categories/how-tos)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
 # Create a spotlight effect with CameraX and Jetpack Compose
 
-8 min read ![](https://developer.android.com/static/blog/assets/camera_X_Jetpack_09bc5a0414_1xSUVV.webp) 23 Jan 2025 [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) Developer Relations Engineer Hey there! Welcome back to our series on CameraX and Jetpack Compose. In the previous posts, we've covered the fundamentals of setting up a camera preview and added tap-to-focus functionality.
+8 min read ![](https://developer.android.com/static/blog/assets/camera_X_Jetpack_09bc5a0414_1xSUVV.webp) 23 Jan 2025 [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) Developer Relations Engineer Hey there! Welcome back to our series on CameraX and Jetpack Compose. In the previous posts, we've covered the fundamentals of setting up a camera preview and added tap-to-focus functionality.
 
 **🧱** [**Part 1**](https://medium.com/androiddevelopers/getting-started-with-camerax-in-jetpack-compose-781c722ca0c4)**:** Building a basic camera preview using the new camera-compose artifact. We covered permission handling and basic integration.
 
@@ -23,11 +25,11 @@ In this post, we'll dive into something a bit more visually engaging --- impleme
 
 ## **Enable face detection**
 
-First, let's modify the CameraPreviewViewModel to enable face detection. We'll use the [`Camera2Interop`](https://developer.android.com/reference/androidx/camera/camera2/interop/Camera2Interop) API, which allows us to interact with the underlying Camera2 API from CameraX. This gives us the opportunity to use camera features that are not exposed by CameraX directly. We need to make the following changes:
+First, let's modify the CameraPreviewViewModel to enable face detection. We'll use the [`Camera2Interop`](https://developer.android.com/reference/androidx/camera/camera2/interop/Camera2Interop.md.txt) API, which allows us to interact with the underlying Camera2 API from CameraX. This gives us the opportunity to use camera features that are not exposed by CameraX directly. We need to make the following changes:
 
-- Create a StateFlow that contains the face bounds as a list of [`Rect`](https://developer.android.com/reference/kotlin/androidx/compose/ui/geometry/Rect)s.
-- Set the [`STATISTICS_FACE_DETECT_MODE`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#STATISTICS_FACE_DETECT_MODE) capture request option to FULL, which enables face detection.
-- Set a [`CaptureCallback`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession.CaptureCallback) to get the face information from the capture result.
+- Create a StateFlow that contains the face bounds as a list of [`Rect`](https://developer.android.com/reference/kotlin/androidx/compose/ui/geometry/Rect.md.txt)s.
+- Set the [`STATISTICS_FACE_DETECT_MODE`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.md.txt#STATISTICS_FACE_DETECT_MODE) capture request option to FULL, which enables face detection.
+- Set a [`CaptureCallback`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession.CaptureCallback.md.txt) to get the face information from the capture result.
 
 ```kotlin
 class CameraPreviewViewModel : ViewModel() {
@@ -61,7 +63,7 @@ class CameraPreviewViewModel : ViewModel() {
 }
 ```
 
-With these changes in place, our view model now emits a list of [`Rect`](https://developer.android.com/reference/kotlin/androidx/compose/ui/geometry/Rect) objects representing the bounding boxes of detected faces in sensor coordinates.
+With these changes in place, our view model now emits a list of [`Rect`](https://developer.android.com/reference/kotlin/androidx/compose/ui/geometry/Rect.md.txt) objects representing the bounding boxes of detected faces in sensor coordinates.
 
 ## **Translate sensor coordinates to UI coordinates**
 
@@ -72,8 +74,8 @@ The bounding boxes of detected faces that we stored in the last section use coor
 
 These transformations are done using transformation matrices. Each of the transformations has its own matrix:
 
-- Our `SurfaceRequest` holds on to a [`TransformationInfo`](https://developer.android.com/reference/androidx/camera/core/SurfaceRequest.TransformationInfo) instance, which contains a [`sensorToBufferTranform`](https://developer.android.com/reference/androidx/camera/core/SurfaceRequest.TransformationInfo#getSensorToBufferTransform()) matrix.
-- Our [`CameraXViewfinder`](https://developer.android.com/reference/kotlin/androidx/camera/compose/package-summary#CameraXViewfinder(androidx.camera.core.SurfaceRequest,androidx.compose.ui.Modifier,androidx.camera.viewfinder.core.ImplementationMode,androidx.camera.viewfinder.compose.MutableCoordinateTransformer)) has an associated [`CoordinateTransformer`](https://developer.android.com/reference/kotlin/androidx/camera/viewfinder/compose/CoordinateTransformer). You might remember that we already used this transformer in the previous blog post to transform tap-to-focus coordinates.
+- Our `SurfaceRequest` holds on to a [`TransformationInfo`](https://developer.android.com/reference/androidx/camera/core/SurfaceRequest.TransformationInfo.md.txt) instance, which contains a [`sensorToBufferTranform`](https://developer.android.com/reference/androidx/camera/core/SurfaceRequest.TransformationInfo.md.txt#getSensorToBufferTransform()) matrix.
+- Our [`CameraXViewfinder`](https://developer.android.com/reference/kotlin/androidx/camera/compose/package-summary.md.txt#CameraXViewfinder(androidx.camera.core.SurfaceRequest,androidx.compose.ui.Modifier,androidx.camera.viewfinder.core.ImplementationMode,androidx.camera.viewfinder.compose.MutableCoordinateTransformer)) has an associated [`CoordinateTransformer`](https://developer.android.com/reference/kotlin/androidx/camera/viewfinder/compose/CoordinateTransformer.md.txt). You might remember that we already used this transformer in the previous blog post to transform tap-to-focus coordinates.
 
 We can create a helper method that can do the transformation for us:
 
@@ -106,7 +108,7 @@ private fun List<Rect>.transformToUiCoords(
 
 ## **Implement the spotlight effect**
 
-Now, let's update the `CameraPreviewContent` composable to draw the spotlight effect. We'll use a [`Canvas`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/package-summary#Canvas(android.graphics.Canvas)) composable to draw a gradient mask over the preview, making the detected faces visible:
+Now, let's update the `CameraPreviewContent` composable to draw the spotlight effect. We'll use a [`Canvas`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/package-summary.md.txt#Canvas(android.graphics.Canvas)) composable to draw a gradient mask over the preview, making the detected faces visible:
 
 ```kotlin
 @Composable
@@ -197,44 +199,44 @@ The code snippets in this blog have the following license:
 
 Many thanks to [Nick Butcher](https://medium.com/u/22c02a30ae04?source=post_page---user_mention--8a7fa5b76641---), [Alex Vanyo](https://medium.com/u/e4ae3ec302ba?source=post_page---user_mention--8a7fa5b76641---), [Trevor McGuire](https://medium.com/u/6d8983119154?source=post_page---user_mention--8a7fa5b76641---), [Don Turner](https://medium.com/u/7f5a2cb6598e?source=post_page---user_mention--8a7fa5b76641---) and Lauren Ward for reviewing and providing feedback. Made possible by the hard work of [Yasith Vidanaarachch](https://medium.com/u/dadfb5fc55f9?source=post_page---user_mention--8a7fa5b76641---).
 
-- [#Android](https://developer.android.com/blog/topics/android)
-- [#Compose](https://developer.android.com/blog/topics/compose)
-- [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+- [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
+- [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development.md.txt)
 Written by:
 
 -
 
-  ## [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef)
+  ## [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/jolanda-verhoef) ![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp) ![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)
 Continue reading
-- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)](https://developer.android.com/blog/authors/jose-alcerreca) 22 Apr 2022 22 Apr 2022 ![](https://developer.android.com/static/blog/assets/alternativesto_Idiling_13a59b7d0b_1mUyls.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)](https://developer.android.com/blog/authors/jose-alcerreca.md.txt) 22 Apr 2022 22 Apr 2022 ![](https://developer.android.com/static/blog/assets/alternativesto_Idiling_13a59b7d0b_1mUyls.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Alternatives to Idling Resources in Compose tests: the waitUntil APIs (updated)](https://developer.android.com/blog/posts/alternatives-to-idling-resources-in-compose-tests-the-wait-until-ap-is-updated)
+  ## [Alternatives to Idling Resources in Compose tests: the waitUntil APIs (updated)](https://developer.android.com/blog/posts/alternatives-to-idling-resources-in-compose-tests-the-wait-until-ap-is-updated.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/alternatives-to-idling-resources-in-compose-tests-the-wait-until-ap-is-updated) In this article you'll learn how to use the waitUntil test API in Compose to wait for certain conditions to be met.
-  [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca) • 3 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Compose](https://developer.android.com/blog/topics/compose)
-  - [#Idling Resources](https://developer.android.com/blog/topics/idling-resources)
+  [arrow_forward](https://developer.android.com/blog/posts/alternatives-to-idling-resources-in-compose-tests-the-wait-until-ap-is-updated.md.txt) In this article you'll learn how to use the waitUntil test API in Compose to wait for certain conditions to be met.
+  [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca.md.txt) • 3 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
+  - [#Idling Resources](https://developer.android.com/blog/topics/idling-resources.md.txt)
   - +1 ↩
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
+  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
-  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- 3 Authors 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_28oUwB.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
+  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Build intelligent Android apps: Cloud and hybrid inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference)
+  ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 8 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker.md.txt) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 4 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
 Stay in the loop
 
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/about/versions/12/features
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/about/versions/12/features/llms.txt
+
 Android 12 introduces great new features and APIs for developers.
 The sections below help you learn about features for your apps and get started
 with the related APIs.
@@ -35,7 +37,7 @@ experience in the platform and launchers. We've created a guide to help you
 ensure your widget is compatible with Android 12 and to refresh it with new
 features.
 
-See [Android 12 widgets improvements](https://developer.android.com/about/versions/12/features/widgets) for
+See [Android 12 widgets improvements](https://developer.android.com/about/versions/12/features/widgets.md.txt) for
 more information.
 
 ### Rich content insertion
@@ -56,7 +58,7 @@ guide](https://developer.android.com/guide/topics/ui/splash-screen) for more det
 
 ### Rounded corner APIs
 
-Android 12 introduces [`RoundedCorner`](https://developer.android.com/reference/android/view/RoundedCorner)
+Android 12 introduces [`RoundedCorner`](https://developer.android.com/reference/android/view/RoundedCorner.md.txt)
 and [`WindowInsets.getRoundedCorner(int
 position)`](https://developer.android.com/reference/android/view/WindowInsets#getRoundedCorner(int)),
 which provide the radius and center point for rounded corners.
@@ -78,10 +80,10 @@ developers can now access [multiple, different
 actuators](https://developer.android.com/reference/android/os/VibratorManager) independently in game
 controllers to deliver the same effect synchronously or different haptic effects
 on multiple actuators. For developers, we recommend using the
-[constants](https://developer.android.com/reference/android/view/HapticFeedbackConstants) and
-[primitives](https://developer.android.com/reference/android/os/VibrationEffect.Composition#summary) as
+[constants](https://developer.android.com/reference/android/view/HapticFeedbackConstants.md.txt) and
+[primitives](https://developer.android.com/reference/android/os/VibrationEffect.Composition.md.txt#summary) as
 building blocks for rich haptic effects - constants to enhance UI events and
-[haptic composer](https://developer.android.com/reference/android/os/VibrationEffect.Composition) to sequence
+[haptic composer](https://developer.android.com/reference/android/os/VibrationEffect.Composition.md.txt) to sequence
 primitives for more complex effects. These APIs are available to try on Pixel 4
 devices, and we're continuing to work with our device-maker partners to bring
 the latest in haptics support to users across the ecosystem.
@@ -93,7 +95,7 @@ the phone's vibrator. This provides an opportunity for more immersive game and
 audio experiences. For example, haptic-enhanced ringtones can help identify
 callers, or a driving game could simulate the feeling of rough terrain.
 
-See the [`HapticGenerator`](https://developer.android.com/reference/android/media/audiofx/HapticGenerator)
+See the [`HapticGenerator`](https://developer.android.com/reference/android/media/audiofx/HapticGenerator.md.txt)
 reference documentation for more information.
 
 ### AppSearch
@@ -116,18 +118,19 @@ to search over that data as well.
 
 Learn more about AppSearch in the
 [developer guide](https://developer.android.com/guide/topics/search/appsearch), and begin using it with
-the [AppSearch Jetpack library](https://developer.android.com/jetpack/androidx/releases/appsearch), which
+the [AppSearch Jetpack library](https://developer.android.com/jetpack/androidx/releases/appsearch.md.txt), which
 provides a developer-friendly API surface as well as annotation processor
 support.
 
 ### Game Mode
 
 The [Game Mode API](https://developer.android.com/games/gamemode/gamemode-api) and [Game Mode
-interventions](https://developer.android.com/games/gamemode/gamemode-interventions) allow you to optimize
-gameplay by prioritizing characteristics, such as performance or battery life
-based on users settings or game specific configurations.
+interventions](https://developer.android.com/games/optimize/adpf/gamemode/gamemode-interventions) allow you
+to optimize gameplay by prioritizing characteristics, such as performance or
+battery life based on users settings or game specific configurations.
 
-For more information, see [Game Mode](https://developer.android.com/games/gamemode).
+For more information, see [Game
+Mode](https://developer.android.com/games/optimize/adpf/gamemode/about-API-and-interventions).
 
 ### Picture-in-picture (PiP) recommendations and improvements
 
@@ -147,7 +150,7 @@ window:
 
 #### Recommended new features that support a polished PiP transition experience
 
-Android 12 added [significant cosmetic improvements](https://developer.android.com/develop/ui/views/picture-in-picture#smoother-transition)
+Android 12 added [significant cosmetic improvements](https://developer.android.com/develop/ui/views/picture-in-picture.md.txt#smoother-transition)
 to the animated
 transitions between fullscreen and PiP windows. We strongly recommend
 implementing all applicable changes; once you've done so, these changes
@@ -156,20 +159,20 @@ any further required work.
 
 These features are the following:
 
-- [A new API flag for smoother transition to PiP mode with gesture navigation](https://developer.android.com/develop/ui/views/picture-in-picture#setautoenterenabled)
+- [A new API flag for smoother transition to PiP mode with gesture navigation](https://developer.android.com/develop/ui/views/picture-in-picture.md.txt#setautoenterenabled)
 
-  Use the [`setAutoEnterEnabled`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setAutoEnterEnabled(boolean))
+  Use the [`setAutoEnterEnabled`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder.md.txt#setAutoEnterEnabled(boolean))
   flag to provide smoother transitions to PiP mode when swiping up to home in
   gesture navigation mode. Previously, Android waited for the swipe-up-to-home
   animation to finish before fading in the PiP window.
-- [Smoother animations when entering and exiting out of PiP mode](https://developer.android.com/develop/ui/views/picture-in-picture#set-sourcerecthint)
+- [Smoother animations when entering and exiting out of PiP mode](https://developer.android.com/develop/ui/views/picture-in-picture.md.txt#set-sourcerecthint)
 
-  The [`SourceRectHint`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setSourceRectHint(android.graphics.Rect))
+  The [`SourceRectHint`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder.md.txt#setSourceRectHint(android.graphics.Rect))
   flag is now reused to implement smoother animation when entering and exiting
   PiP mode.
-- [A new API flag to disable seamless resizing for non-video content](https://developer.android.com/develop/ui/views/picture-in-picture#seamless-resizing)
+- [A new API flag to disable seamless resizing for non-video content](https://developer.android.com/develop/ui/views/picture-in-picture.md.txt#seamless-resizing)
 
-  The [`SeamlessResizeEnabled`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setSeamlessResizeEnabled(boolean))
+  The [`SeamlessResizeEnabled`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder.md.txt#setSeamlessResizeEnabled(boolean))
   flag provides a much smoother cross-fading animation when resizing non-video
   content in the PiP window. Previously, resizing non-video content in a PiP
   window could create jarring visual artifacts.
@@ -177,7 +180,7 @@ These features are the following:
 ### New phone call notifications allowing for ranking importance of incoming calls
 
 Android 12 adds the new notification style
-[`Notification.CallStyle`](https://developer.android.com/reference/android/app/Notification.CallStyle)
+[`Notification.CallStyle`](https://developer.android.com/reference/android/app/Notification.CallStyle.md.txt)
 for phone calls. Using this template lets your app indicate the importance of
 active calls by displaying a prominent chip that shows the time of the call in
 the status bar; the user can tap this chip to return to their call.
@@ -208,7 +211,7 @@ Person incoming_caller = new Person.Builder()
     .build();
 ```
 
-Use [`forIncomingCall()`](https://developer.android.com/reference/android/app/Notification.CallStyle#forIncomingCall(android.app.Person,%20android.app.PendingIntent,%20android.app.PendingIntent))
+Use [`forIncomingCall()`](https://developer.android.com/reference/android/app/Notification.CallStyle.md.txt#forIncomingCall(android.app.Person,%20android.app.PendingIntent,%20android.app.PendingIntent))
 to create a call style notification for an incoming call.
 
 ### Kotlin
@@ -235,7 +238,7 @@ Notification.Builder builder = Notification.Builder(context, CHANNEL_ID)
     .addPerson(incoming_caller);
 ```
 
-Use [`forOngoingCall()`](https://developer.android.com/reference/android/app/Notification.CallStyle#forOngoingCall(android.app.Person,%20android.app.PendingIntent))
+Use [`forOngoingCall()`](https://developer.android.com/reference/android/app/Notification.CallStyle.md.txt#forOngoingCall(android.app.Person,%20android.app.PendingIntent))
 to create a call style notification for an ongoing call.
 
 ### Kotlin
@@ -262,7 +265,7 @@ Notification.Builder builder = Notification.Builder(context, CHANNEL_ID)
     .addPerson(second_caller);
 ```
 
-Use [`forScreeningCall()`](https://developer.android.com/reference/android/app/Notification.CallStyle#forScreeningCall(android.app.Person,%20android.app.PendingIntent,%20android.app.PendingIntent))
+Use [`forScreeningCall()`](https://developer.android.com/reference/android/app/Notification.CallStyle.md.txt#forScreeningCall(android.app.Person,%20android.app.PendingIntent,%20android.app.PendingIntent))
 to create a call style notification for screening a call.
 
 ### Kotlin
@@ -291,8 +294,8 @@ Notification.Builder builder = Notification.Builder(context, CHANNEL_ID)
 ### Enriched image support for notifications
 
 In Android 12, you can now enrich your app's notification experience by
-providing animated images in [`MessagingStyle()`](https://developer.android.com/reference/android/app/Notification.MessagingStyle#MessagingStyle(android.app.Person))
-and [`BigPictureStyle()`](https://developer.android.com/reference/android/app/Notification.BigPictureStyle#BigPictureStyle())
+providing animated images in [`MessagingStyle()`](https://developer.android.com/reference/android/app/Notification.MessagingStyle.md.txt#MessagingStyle(android.app.Person))
+and [`BigPictureStyle()`](https://developer.android.com/reference/android/app/Notification.BigPictureStyle.md.txt#BigPictureStyle())
 notifications. Also, your app can now enable users to send image messages when
 they reply to messages from the notification shade.
 
@@ -338,10 +341,10 @@ app's permissions screen, or both.
 ### Bluetooth permissions
 
 Android 12 introduces the
-[`BLUETOOTH_SCAN`](https://developer.android.com/reference/android/Manifest.permission#BLUETOOTH_SCAN),
-[`BLUETOOTH_ADVERTISE`](https://developer.android.com/reference/android/Manifest.permission#BLUETOOTH_ADVERTISE),
+[`BLUETOOTH_SCAN`](https://developer.android.com/reference/android/Manifest.permission.md.txt#BLUETOOTH_SCAN),
+[`BLUETOOTH_ADVERTISE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#BLUETOOTH_ADVERTISE),
 and
-[`BLUETOOTH_CONNECT`](https://developer.android.com/reference/android/Manifest.permission#BLUETOOTH_CONNECT)
+[`BLUETOOTH_CONNECT`](https://developer.android.com/reference/android/Manifest.permission.md.txt#BLUETOOTH_CONNECT)
 permissions. These permissions make it easier for apps that target
 Android 12 to [interact with Bluetooth
 devices](https://developer.android.com/guide/topics/connectivity/bluetooth), especially for apps that don't
@@ -362,29 +365,29 @@ permissions](https://developer.android.com/guide/topics/connectivity/bluetooth/p
 ### Permission group lookup
 
 On Android 12 or higher, you can query how the system organizes
-platform-provided [permissions](https://developer.android.com/guide/topics/permissions/overview) into
+platform-provided [permissions](https://developer.android.com/guide/topics/permissions/overview.md.txt) into
 permission groups:
 
-- To determine the permission group into which the system has placed a platform-defined permission, call [`getGroupOfPlatformPermission()`](https://developer.android.com/reference/android/content/pm/PackageManager#getGroupOfPlatformPermission(java.lang.String,%20java.util.concurrent.Executor,%20java.util.function.Consumer%3Cjava.lang.String%3E)).
-- To determine the platform-defined permissions that the system has placed into a particular permission group, call [`getPlatformPermissionsForGroup()`](https://developer.android.com/reference/android/content/pm/PackageManager#getPlatformPermissionsForGroup(java.lang.String,%20java.util.concurrent.Executor,%20java.util.function.Consumer%3Cjava.util.List%3Cjava.lang.String%3E%3E)).
+- To determine the permission group into which the system has placed a platform-defined permission, call [`getGroupOfPlatformPermission()`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#getGroupOfPlatformPermission(java.lang.String,%20java.util.concurrent.Executor,%20java.util.function.Consumer%3Cjava.lang.String%3E)).
+- To determine the platform-defined permissions that the system has placed into a particular permission group, call [`getPlatformPermissionsForGroup()`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#getPlatformPermissionsForGroup(java.lang.String,%20java.util.concurrent.Executor,%20java.util.function.Consumer%3Cjava.util.List%3Cjava.lang.String%3E%3E)).
 
 > [!NOTE]
-> **Note:** One of the [basic principles](https://developer.android.com/training/permissions/requesting#principles) of using Android permissions is to not assume system behavior. Don't assume that a particular permission is in a particular group. Instead, use the APIs described in this section.
+> **Note:** One of the [basic principles](https://developer.android.com/training/permissions/requesting.md.txt#principles) of using Android permissions is to not assume system behavior. Don't assume that a particular permission is in a particular group. Instead, use the APIs described in this section.
 
 ### Hide application overlay windows
 
 To give developers more control over what users see when they interact with the
 developer's app, Android 12 introduces the ability to hide
 overlay windows that are drawn by apps that have the
-[`SYSTEM_ALERT_WINDOW`](https://developer.android.com/reference/android/Manifest.permission#SYSTEM_ALERT_WINDOW)
+[`SYSTEM_ALERT_WINDOW`](https://developer.android.com/reference/android/Manifest.permission.md.txt#SYSTEM_ALERT_WINDOW)
 permission.
 
 After declaring the
-[`HIDE_OVERLAY_WINDOWS`](https://developer.android.com/reference/android/Manifest.permission#HIDE_OVERLAY_WINDOWS)
+[`HIDE_OVERLAY_WINDOWS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#HIDE_OVERLAY_WINDOWS)
 permission, an app can call
-[`setHideOverlayWindows()`](https://developer.android.com/reference/android/view/Window#setHideOverlayWindows(boolean))
+[`setHideOverlayWindows()`](https://developer.android.com/reference/android/view/Window.md.txt#setHideOverlayWindows(boolean))
 to indicate that all windows of type
-[`TYPE_APPLICATION_OVERLAY`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#TYPE_APPLICATION_OVERLAY)
+[`TYPE_APPLICATION_OVERLAY`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.md.txt#TYPE_APPLICATION_OVERLAY)
 should be hidden when the app's own window is visible. Apps might choose to do
 this when displaying sensitive screens, such as transaction confirmation flows.
 
@@ -396,8 +399,8 @@ alternatives that may be more appropriate for their use case, such as
 ### Known signers permission protection flag
 
 Starting in Android 12, the
-[`knownCerts`](https://developer.android.com/reference/android/R.attr#knownCerts) attribute for
-[signature-level permissions](https://developer.android.com/guide/topics/permissions/overview#signature)
+[`knownCerts`](https://developer.android.com/reference/android/R.attr.md.txt#knownCerts) attribute for
+[signature-level permissions](https://developer.android.com/guide/topics/permissions/overview.md.txt#signature)
 allows you to refer to the digests of known [signing
 certificates](https://developer.android.com/studio/publish/app-signing#certificates-keystores) at declaration
 time.
@@ -420,11 +423,11 @@ owners (DPOs)](https://developer.android.com/work/device-admin) that use
 verify the device properties in these attestation certificates. Starting in
 Android 12, any app that targets Android 12 (API level 31) or higher can perform
 this verification using the
-[`setDevicePropertiesAttestationIncluded()`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder#setDevicePropertiesAttestationIncluded(boolean))
+[`setDevicePropertiesAttestationIncluded()`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder.md.txt#setDevicePropertiesAttestationIncluded(boolean))
 method.
 
 The generated device properties include the following
-[`Build`](https://developer.android.com/reference/android/os/Build) fields:
+[`Build`](https://developer.android.com/reference/android/os/Build.md.txt) fields:
 
 - `BRAND`
 - `DEVICE`
@@ -436,7 +439,7 @@ The generated device properties include the following
 
 Starting in Android 12, the `Notification.Action.Builder` class
 supports the
-[`setAuthenticationRequired()`](https://developer.android.com/reference/android/app/Notification.Action.Builder#setAuthenticationRequired(boolean))
+[`setAuthenticationRequired()`](https://developer.android.com/reference/android/app/Notification.Action.Builder.md.txt#setAuthenticationRequired(boolean))
 method, which allows your app to [require that a device is
 unlocked](https://developer.android.com/guide/topics/ui/notifiers/notifications#ActionsRequireUnlockedDevice)
 before your app invokes a given notification action. This method helps add an
@@ -445,10 +448,10 @@ extra layer of security to notifications on locked devices.
 ### Localizable strings for BiometricPrompt
 
 Android 12 introduces new APIs to help you improve your app's biometric
-authentication user experience. The new [`BiometricManager.Strings`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Strings)
-nested class includes the [`getButtonLabel()`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Strings#getButtonLabel()),
-[`getPromptMessage()`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Strings#getPromptMessage()),
-and [`getSettingName()`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Strings#getSettingName())
+authentication user experience. The new [`BiometricManager.Strings`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Strings.md.txt)
+nested class includes the [`getButtonLabel()`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Strings.md.txt#getButtonLabel()),
+[`getPromptMessage()`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Strings.md.txt#getPromptMessage()),
+and [`getSettingName()`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Strings.md.txt#getSettingName())
 methods, which let your app retrieve a user-readable and localized button label,
 prompt message, or app setting name. Use these labels to create more precise
 user-facing instructions that are specific to the biometric authentication
@@ -476,7 +479,7 @@ supports. Developers can check the device's performance class at runtime and
 provide upgraded experiences that take full advantage of the device's
 capabilities.
 
-See [Performance class](https://developer.android.com/topic/performance/performance-class)
+See [Performance class](https://developer.android.com/topic/performance/performance-class.md.txt)
 for more details.
 
 ### Video encoding improvements
@@ -486,9 +489,9 @@ quantization parameter (QP) value for video encoding, allowing developers to
 avoid vendor-specific code.
 
 The new keys are available in the
-[`MediaFormat`](https://developer.android.com/reference/android/media/MediaFormat#KEY_VIDEO_QP_B_MAX) API
+[`MediaFormat`](https://developer.android.com/reference/android/media/MediaFormat.md.txt#KEY_VIDEO_QP_B_MAX) API
 and also in the
-[NDK Media library](https://developer.android.com/ndk/reference/group/media).
+[NDK Media library](https://developer.android.com/ndk/reference/group/media.md.txt).
 
 Starting with Android 12 video encoders enforce a minimum quality
 threshold. This guarantees that users don't experience extremely low quality
@@ -499,7 +502,7 @@ when encoding videos with high scene complexity.
 Starting with Android 12 (API level 31), when an app requests audio focus while
 another app has the focus and is playing, the system fades out the playing app.
 
-See [Audio focus in Android 12 and higher](https://developer.android.com/media/optimize/audio-focus#audio-focus-12)
+See [Audio focus in Android 12 and higher](https://developer.android.com/media/optimize/audio-focus.md.txt#audio-focus-12)
 for more details.
 
 ### MediaDrm updates
@@ -528,7 +531,7 @@ these custom vendor extensions. In Android 12, these
 vendor extensions are now exposed directly in the platform.
 
 This addition helps apps that have complex
-[`Camera2`](https://developer.android.com/reference/android/hardware/camera2/package-summary)
+[`Camera2`](https://developer.android.com/reference/android/hardware/camera2/package-summary.md.txt)
 implementations take advantage of vendor extensions without having to make
 significant changes to legacy code. The Camera2 Extension APIs expose exactly
 the [same set of
@@ -538,7 +541,7 @@ devices](https://developer.android.com/training/camerax/devices), so you can use
 additional configuration.
 
 For more information, see
-[`CameraExtensionCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraExtensionCharacteristics).
+[`CameraExtensionCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraExtensionCharacteristics.md.txt).
 
 ### Quad bayer camera sensor support
 
@@ -546,7 +549,7 @@ Many Android devices today ship with ultra high-resolution camera sensors,
 typically with Quad or Nona Bayer patterns, and these offer great flexibility in
 terms of image quality and low-light performance. Android 12 introduces new
 platform APIs that let third-party apps take full advantage of these versatile
-sensors. The [new APIs](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#REQUEST_AVAILABLE_CAPABILITIES_ULTRA_HIGH_RESOLUTION_SENSOR)
+sensors. The [new APIs](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata.md.txt#REQUEST_AVAILABLE_CAPABILITIES_ULTRA_HIGH_RESOLUTION_SENSOR)
 support the unique behavior of these sensors and take into account that they
 might support different stream configurations and combinations when operating in
 full resolution or 'maximum resolution' mode vs 'default' mode.
@@ -557,12 +560,12 @@ full resolution or 'maximum resolution' mode vs 'default' mode.
 
 Starting in Android 12, you can access your app's native crash tombstone as a
 [protocol buffer](https://developers.google.com/protocol-buffers/) through the
-[`ApplicationExitInfo.getTraceInputStream()`](https://developer.android.com/reference/android/app/ApplicationExitInfo#getTraceInputStream())
+[`ApplicationExitInfo.getTraceInputStream()`](https://developer.android.com/reference/android/app/ApplicationExitInfo.md.txt#getTraceInputStream())
 method. The protocol buffer is serialized using [this schema](https://android.googlesource.com/platform/system/core/+/refs/heads/master/debuggerd/proto/tombstone.proto).
 Previously, the only way to get access to this information was through the
 [Android Debug Bridge](https://developer.android.com/studio/command-line/adb) (adb).
 
-For more information, see [Provide apps direct access to tombstone traces](https://developer.android.com/ndk/guides/debug#tombstone-traces)
+For more information, see [Provide apps direct access to tombstone traces](https://developer.android.com/ndk/guides/debug.md.txt#tombstone-traces)
 
 ### AVIF image support
 
@@ -576,15 +579,15 @@ post](https://jakearchibald.com/2020/avif-has-landed/).
 
 ### Easier blurs, color filters, and other effects
 
-Android 12 adds the new [`RenderEffect`](https://developer.android.com/reference/android/graphics/RenderEffect)
+Android 12 adds the new [`RenderEffect`](https://developer.android.com/reference/android/graphics/RenderEffect.md.txt)
 that applies common graphics effects such as blurs, color filters, Android shader
-effects, and more to [`View`](https://developer.android.com/reference/android/view/View)s
+effects, and more to [`View`](https://developer.android.com/reference/android/view/View.md.txt)s
 and rendering hierarchies. Effects can be combined as either chain effects
 (which compose an inner and outer effect) or blended effects. Different Android
 devices may or may not support the feature due to limited processing power.
 
-Effects can also be applied to the underlying [`RenderNode`](https://developer.android.com/reference/android/graphics/RenderNode)
-for `View`s by calling [`View.setRenderEffect(RenderEffect)`](https://developer.android.com/reference/android/view/View#setRenderEffect(android.graphics.RenderEffect)).
+Effects can also be applied to the underlying [`RenderNode`](https://developer.android.com/reference/android/graphics/RenderNode.md.txt)
+for `View`s by calling [`View.setRenderEffect(RenderEffect)`](https://developer.android.com/reference/android/view/View.md.txt#setRenderEffect(android.graphics.RenderEffect)).
 
 To implement a `RenderEffect`:
 
@@ -593,7 +596,7 @@ To implement a `RenderEffect`:
 ### Native animated image decoding
 
 In Android 12, the NDK
-[`ImageDecoder`](https://developer.android.com/ndk/reference/group/image-decoder) API has been expanded
+[`ImageDecoder`](https://developer.android.com/ndk/reference/group/image-decoder.md.txt) API has been expanded
 to decode all frames and timing data from images
 that use the animated [GIF](https://en.wikipedia.org/wiki/GIF) and
 animated [WebP](https://developers.google.com/speed/webp) file formats. When it
@@ -604,7 +607,7 @@ Use `ImageDecoder` instead of third-party libraries to further [decrease APK
 size](https://developer.android.com/topic/performance/reduce-apk-size#minimize)
 and benefit from future updates related to security and performance.
 
-For more details on the API, refer to the [API reference](https://developer.android.com/ndk/reference/group/image-decoder) and the [sample on GitHub](https://github.com/android/ndk-samples/tree/develop/webp/image-decoder).
+For more details on the API, refer to the [API reference](https://developer.android.com/ndk/reference/group/image-decoder.md.txt) and the [sample on GitHub](https://github.com/android/ndk-samples/tree/develop/webp/image-decoder).
 
 ## Connectivity
 
@@ -619,9 +622,9 @@ Android 12 introduces APIs that do the following:
 To use the APIs, your devices must be connected using [Companion Device
 Manager](https://developer.android.com/reference/android/companion/CompanionDeviceManager). For more
 information, see
-[`CompanionDeviceManager.startObservingDevicePresence()`](https://developer.android.com/reference/android/companion/CompanionDeviceManager#startObservingDevicePresence(java.lang.String))
+[`CompanionDeviceManager.startObservingDevicePresence()`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.md.txt#startObservingDevicePresence(java.lang.String))
 and
-[`CompanionDeviceService.onDeviceAppeared()`](https://developer.android.com/reference/android/companion/CompanionDeviceService#onDeviceAppeared(java.lang.String)).
+[`CompanionDeviceService.onDeviceAppeared()`](https://developer.android.com/reference/android/companion/CompanionDeviceService.md.txt#onDeviceAppeared(java.lang.String)).
 
 ### Companion Device Manager profiles
 
@@ -637,15 +640,15 @@ connects, and last only while the device is associated. Deleting the app or
 removing the association removes the permissions.
 
 For more information, see
-[`AssociationRequest.Builder.setDeviceProfile()`](https://developer.android.com/reference/android/companion/AssociationRequest.Builder#setDeviceProfile(java.lang.String)).
+[`AssociationRequest.Builder.setDeviceProfile()`](https://developer.android.com/reference/android/companion/AssociationRequest.Builder.md.txt#setDeviceProfile(java.lang.String)).
 
 
 ### Bandwidth estimation improvements
 
 In Android 12, the bandwidth estimation capabilities provided by
-[`getLinkDownstreamBandwidthKbps()`](https://developer.android.com/reference/android/net/NetworkCapabilities#getLinkDownstreamBandwidthKbps())
+[`getLinkDownstreamBandwidthKbps()`](https://developer.android.com/reference/android/net/NetworkCapabilities.md.txt#getLinkDownstreamBandwidthKbps())
 and
-[`getLinkUpstreamBandwidthKbps()`](https://developer.android.com/reference/android/net/NetworkCapabilities#getLinkUpstreamBandwidthKbps())
+[`getLinkUpstreamBandwidthKbps()`](https://developer.android.com/reference/android/net/NetworkCapabilities.md.txt#getLinkUpstreamBandwidthKbps())
 are improved for both Wi-Fi and cellular connectivity. The values returned now
 represent the user's all-time weighted average throughput per carrier or WiFi
 SSID, network type, and signal level, across all applications on the device.
@@ -657,9 +660,9 @@ when compared to using other throughput estimation methods.
 
 Android 12 adds some enhancements to Wi-Fi Aware:
 
-- On devices running Android 12 (API level 31) and higher, you can use the [`onServiceLost()`](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onServiceLost(android.net.wifi.aware.PeerHandle,%20int)) callback to be alerted when your app has lost a discovered service due to the service stopping or moving out of range.
+- On devices running Android 12 (API level 31) and higher, you can use the [`onServiceLost()`](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback.md.txt#onServiceLost(android.net.wifi.aware.PeerHandle,%20int)) callback to be alerted when your app has lost a discovered service due to the service stopping or moving out of range.
 - The way that multiple data-paths (NAN Data Paths) are set up is changing to be more efficient. Earlier versions used L2 messaging to exchange peer information of the initiators, which introduced latency. On devices running Android 12 and higher, the responder (server) can be configured to accept any peer---that is, it doesn't need to know the initiator information upfront. This speeds up datapath bringup and enables multiple point-to-point links with only one network request.
-- To prevent the framework from rejecting discovery or connection requests due to running out of resources, on devices running Android 12 and higher, you can call [`WifiAwareManager.getAvailableAwareResources()`](https://developer.android.com/reference/android/net/wifi/aware/WifiAwareManager#getAvailableAwareResources()). This method's return value lets you get the number of available data paths, the number of available publish sessions, and the number of available subscribe sessions.
+- To prevent the framework from rejecting discovery or connection requests due to running out of resources, on devices running Android 12 and higher, you can call [`WifiAwareManager.getAvailableAwareResources()`](https://developer.android.com/reference/android/net/wifi/aware/WifiAwareManager.md.txt#getAvailableAwareResources()). This method's return value lets you get the number of available data paths, the number of available publish sessions, and the number of available subscribe sessions.
 
 ### Concurrent Peer-to-Peer + Internet Connection
 
@@ -668,13 +671,13 @@ hardware support, using [Peer-to-peer
 connections](https://developer.android.com/guide/topics/connectivity/wifi-bootstrap) will not disconnect your
 existing Wi-Fi connection when creating the connection to the peer device. To
 check for support for this feature, use
-[`WifiManager.isMultiStaConcurrencySupported()`](https://developer.android.com/reference/android/net/wifi/WifiManager#isMultiStaConcurrencySupported()).
+[`WifiManager.isMultiStaConcurrencySupported()`](https://developer.android.com/reference/android/net/wifi/WifiManager.md.txt#isMultiStaConcurrencySupported()).
 
 ### Enable screen off for NFC payments
 
 In apps that target Android 12 and higher, you can enable NFC
 payments without the device's screen on by setting
-[`requireDeviceScreenOn`](https://developer.android.com/reference/android/R.attr#requireDeviceScreenOn) to
+[`requireDeviceScreenOn`](https://developer.android.com/reference/android/R.attr.md.txt#requireDeviceScreenOn) to
 `false`. For more information about NFC payments with screen off or locked, see
 [Screen off and lock-screen
 behavior](https://developer.android.com/guide/topics/connectivity/nfc/hce#screen-off-12-higher).
@@ -689,9 +692,9 @@ capabilities:
   URI](https://developer.android.com/training/data-storage/shared/documents-files#retrieve-equivalent-media-uri).
 - A directory for [voice
   recordings](https://developer.android.com/training/data-storage/shared/media#well-defined-collections).
-- The [`MANAGE_MEDIA`](https://developer.android.com/reference/android/Manifest.permission#MANAGE_MEDIA) permission, which allows an app to [perform media management
+- The [`MANAGE_MEDIA`](https://developer.android.com/reference/android/Manifest.permission.md.txt#MANAGE_MEDIA) permission, which allows an app to [perform media management
   operations](https://developer.android.com/training/data-storage/shared/media#management-permission) without showing a confirmation dialog to the user for each operation.
-- Apps that have both the [`MANAGE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#MANAGE_EXTERNAL_STORAGE) permission and the [`QUERY_ALL_PACKAGES`](https://developer.android.com/reference/android/Manifest.permission#QUERY_ALL_PACKAGES) permission---such as file management apps---can [invoke a custom
+- Apps that have both the [`MANAGE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#MANAGE_EXTERNAL_STORAGE) permission and the [`QUERY_ALL_PACKAGES`](https://developer.android.com/reference/android/Manifest.permission.md.txt#QUERY_ALL_PACKAGES) permission---such as file management apps---can [invoke a custom
   activity](https://developer.android.com/training/data-storage/manage-all-files#invoke-storage-management-activity) for managing another app's storage space, provided that the other app [creates
   the custom activity](https://developer.android.com/training/data-storage/app-specific#create-storage-management-activity).
 
@@ -700,9 +703,9 @@ capabilities:
 ### Automatic app updates
 
 Android 12 introduces the
-[`setRequireUserAction()`](https://developer.android.com/reference/android/content/pm/PackageInstaller.SessionParams#setRequireUserAction(int))
+[`setRequireUserAction()`](https://developer.android.com/reference/android/content/pm/PackageInstaller.SessionParams.md.txt#setRequireUserAction(int))
 method for apps that use the
-[`PackageInstaller`](https://developer.android.com/reference/android/content/pm/PackageInstaller) API.
+[`PackageInstaller`](https://developer.android.com/reference/android/content/pm/PackageInstaller.md.txt) API.
 This method allows installer apps to perform app updates without requiring the
 user to confirm the action.
 
@@ -720,13 +723,13 @@ core libraries in Android 12:
 
 | **Class** | **APIs** |
 |---|---|
-| `java.lang.Deprecated` | - [`forRemoval()`](https://developer.android.com/reference/java/lang/Deprecated#forRemoval()) - [`since()`](https://developer.android.com/reference/java/lang/Deprecated#since()) |
-| `java.lang.Byte` | - [Constructors deprecated](https://developer.android.com/reference/java/lang/Byte#public-constructors_1) - [`compareUnsigned()`](https://developer.android.com/reference/java/lang/Byte#compareUnsigned(byte,%20byte)) |
-| `java.lang.Short` | - [Constructors deprecated](https://developer.android.com/reference/java/lang/Short#public-constructors_1) - [`compareUnsigned()`](https://developer.android.com/reference/java/lang/Short#compareUnsigned(short,%20short)) |
-| `java.lang.Math` | - [`floorDiv()`](https://developer.android.com/reference/java/lang/Math#floorDiv(long,%20int)) - [`floorMod()`](https://developer.android.com/reference/java/lang/Math#floorMod(long,%20int)) - [`multiplyExact()`](https://developer.android.com/reference/java/lang/Math#multiplyExact(long,%20int)) - [`multiplyFull()`](https://developer.android.com/reference/java/lang/Math#multiplyFull(int,%20int)) - [`multiplyHigh()`](https://developer.android.com/reference/java/lang/Math#multiplyHigh(long,%20long)) |
-| `java.lang.StrictMath` | - [`floorDiv()`](https://developer.android.com/reference/java/lang/StrictMath#floorDiv(long,%20int)) - [`floorMod()`](https://developer.android.com/reference/java/lang/StrictMath#floorMod(long,%20int)) - [`multiplyExact()`](https://developer.android.com/reference/java/lang/StrictMath#multiplyExact(long,%20int)) - [`multiplyFull()`](https://developer.android.com/reference/java/lang/StrictMath#multiplyFull(int,%20int)) - [`multiplyHigh()`](https://developer.android.com/reference/java/lang/StrictMath#multiplyHigh(long,%20long)) |
-| `java.util.Set` | [`copyOf()`](https://developer.android.com/reference/java/util/Set#copyOf(java.util.Collection%3C?%20extends%20E%3E)) |
-| `java.util.Map` | [`copyOf()`](https://developer.android.com/reference/java/util/Map#copyOf(java.util.Map%3C?%20extends%20K,%20?%20extends%20V%3E)) |
-| `java.util.List` | [`copyOf()`](https://developer.android.com/reference/java/util/List#copyOf(java.util.Collection%3C?%20extends%20E%3E)) |
-| `java.time.Duration` | - [`dividedBy()`](https://developer.android.com/reference/java/time/Duration#dividedBy(java.time.Duration)) - [`toDaysPart()`](https://developer.android.com/reference/java/time/Duration#toDaysPart()) - [`toHoursPart()`](https://developer.android.com/reference/java/time/Duration#toHoursPart()) - [`toMillisPart()`](https://developer.android.com/reference/java/time/Duration#toMillisPart()) - [`toMinutesPart()`](https://developer.android.com/reference/java/time/Duration#toMinutesPart()) - [`toNanosPart()`](https://developer.android.com/reference/java/time/Duration#toNanosPart()) - [`toSecondsPart()`](https://developer.android.com/reference/java/time/Duration#toSecondsPart()) - [`truncatedTo()`](https://developer.android.com/reference/java/time/Duration#truncatedTo(java.time.temporal.TemporalUnit)) |
-| `java.time.LocalTime` | - [`ofInstant()`](https://developer.android.com/reference/java/time/LocalTime#ofInstant(java.time.Instant,%20java.time.ZoneId)) - [`toEpochSecond()`](https://developer.android.com/reference/java/time/LocalTime#toEpochSecond(java.time.LocalDate,%20java.time.ZoneOffset)) |
+| `java.lang.Deprecated` | - [`forRemoval()`](https://developer.android.com/reference/java/lang/Deprecated.md.txt#forRemoval()) - [`since()`](https://developer.android.com/reference/java/lang/Deprecated.md.txt#since()) |
+| `java.lang.Byte` | - [Constructors deprecated](https://developer.android.com/reference/java/lang/Byte.md.txt#public-constructors_1) - [`compareUnsigned()`](https://developer.android.com/reference/java/lang/Byte.md.txt#compareUnsigned(byte,%20byte)) |
+| `java.lang.Short` | - [Constructors deprecated](https://developer.android.com/reference/java/lang/Short.md.txt#public-constructors_1) - [`compareUnsigned()`](https://developer.android.com/reference/java/lang/Short.md.txt#compareUnsigned(short,%20short)) |
+| `java.lang.Math` | - [`floorDiv()`](https://developer.android.com/reference/java/lang/Math.md.txt#floorDiv(long,%20int)) - [`floorMod()`](https://developer.android.com/reference/java/lang/Math.md.txt#floorMod(long,%20int)) - [`multiplyExact()`](https://developer.android.com/reference/java/lang/Math.md.txt#multiplyExact(long,%20int)) - [`multiplyFull()`](https://developer.android.com/reference/java/lang/Math.md.txt#multiplyFull(int,%20int)) - [`multiplyHigh()`](https://developer.android.com/reference/java/lang/Math.md.txt#multiplyHigh(long,%20long)) |
+| `java.lang.StrictMath` | - [`floorDiv()`](https://developer.android.com/reference/java/lang/StrictMath.md.txt#floorDiv(long,%20int)) - [`floorMod()`](https://developer.android.com/reference/java/lang/StrictMath.md.txt#floorMod(long,%20int)) - [`multiplyExact()`](https://developer.android.com/reference/java/lang/StrictMath.md.txt#multiplyExact(long,%20int)) - [`multiplyFull()`](https://developer.android.com/reference/java/lang/StrictMath.md.txt#multiplyFull(int,%20int)) - [`multiplyHigh()`](https://developer.android.com/reference/java/lang/StrictMath.md.txt#multiplyHigh(long,%20long)) |
+| `java.util.Set` | [`copyOf()`](https://developer.android.com/reference/java/util/Set.md.txt#copyOf(java.util.Collection%3C?%20extends%20E%3E)) |
+| `java.util.Map` | [`copyOf()`](https://developer.android.com/reference/java/util/Map.md.txt#copyOf(java.util.Map%3C?%20extends%20K,%20?%20extends%20V%3E)) |
+| `java.util.List` | [`copyOf()`](https://developer.android.com/reference/java/util/List.md.txt#copyOf(java.util.Collection%3C?%20extends%20E%3E)) |
+| `java.time.Duration` | - [`dividedBy()`](https://developer.android.com/reference/java/time/Duration.md.txt#dividedBy(java.time.Duration)) - [`toDaysPart()`](https://developer.android.com/reference/java/time/Duration.md.txt#toDaysPart()) - [`toHoursPart()`](https://developer.android.com/reference/java/time/Duration.md.txt#toHoursPart()) - [`toMillisPart()`](https://developer.android.com/reference/java/time/Duration.md.txt#toMillisPart()) - [`toMinutesPart()`](https://developer.android.com/reference/java/time/Duration.md.txt#toMinutesPart()) - [`toNanosPart()`](https://developer.android.com/reference/java/time/Duration.md.txt#toNanosPart()) - [`toSecondsPart()`](https://developer.android.com/reference/java/time/Duration.md.txt#toSecondsPart()) - [`truncatedTo()`](https://developer.android.com/reference/java/time/Duration.md.txt#truncatedTo(java.time.temporal.TemporalUnit)) |
+| `java.time.LocalTime` | - [`ofInstant()`](https://developer.android.com/reference/java/time/LocalTime.md.txt#ofInstant(java.time.Instant,%20java.time.ZoneId)) - [`toEpochSecond()`](https://developer.android.com/reference/java/time/LocalTime.md.txt#toEpochSecond(java.time.LocalDate,%20java.time.ZoneOffset)) |

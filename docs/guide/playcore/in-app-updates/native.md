@@ -4,10 +4,12 @@ url: https://developer.android.com/guide/playcore/in-app-updates/native
 source: md.txt
 ---
 
-This guide describes how to support [in-app updates](https://developer.android.com/guide/playcore/in-app-updates) in your app using native
+> Documentation index: https://developer.android.com/guide/playcore/in-app-updates/llms.txt
+
+This guide describes how to support [in-app updates](https://developer.android.com/guide/playcore/in-app-updates.md.txt) in your app using native
 code (C or C++). There are separate guides for cases where your implementation
-uses [the Kotlin programming language or the Java programming language](https://developer.android.com/guide/playcore/in-app-updates/kotlin-java), and
-cases where your implementation uses [Unity](https://developer.android.com/guide/playcore/in-app-updates/unity) or [Unreal Engine](https://developer.android.com/guide/playcore/in-app-updates/unreal-engine).
+uses [the Kotlin programming language or the Java programming language](https://developer.android.com/guide/playcore/in-app-updates/kotlin-java.md.txt), and
+cases where your implementation uses [Unity](https://developer.android.com/guide/playcore/in-app-updates/unity.md.txt) or [Unreal Engine](https://developer.android.com/guide/playcore/in-app-updates/unreal-engine.md.txt).
 
 > [!NOTE]
 > **Note:** The Native API for in-app updates requires your app to [use Play Core
@@ -15,8 +17,8 @@ cases where your implementation uses [Unity](https://developer.android.com/guide
 
 ## Native SDK overview
 
-The Play Core Native SDK is part of the [Play Core SDK](https://developer.android.com/reference/com/google/android/play/core/release-notes) family. The Native
-SDK includes a C header file, `app_update.h`, that wraps [`AppUpdateManager`](https://developer.android.com/reference/com/google/android/play/core/appupdate/AppUpdateManager)
+The Play Core Native SDK is part of the [Play Core SDK](https://developer.android.com/reference/com/google/android/play/core/release-notes.md.txt) family. The Native
+SDK includes a C header file, `app_update.h`, that wraps [`AppUpdateManager`](https://developer.android.com/reference/com/google/android/play/core/appupdate/AppUpdateManager.md.txt)
 from the Java Play In-App Update Library. This header file allows your app to
 call the API for in-app updates directly from your native code.
 
@@ -45,10 +47,10 @@ I have read and agree with the above terms and conditions <button class="button 
    - Install [Android Studio](https://developer.android.com/studio) version 4.0 or higher. Use the SDK Manager UI to install Android SDK Platform version 10.0 (API level 29).
    - Install the [Android SDK command-line tools](https://developer.android.com/studio#command-tools) and use [`sdkmanager`](https://developer.android.com/studio/command-line/sdkmanager) to install Android SDK Platform version 10.0 (API level 29).
 2. Prepare Android Studio for native development by using the
-   [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) to install the latest
+   [SDK Manager](https://developer.android.com/studio/intro/update.md.txt#sdk-manager) to install the latest
    CMake and Android Native Development Kit (NDK). For more information on
    creating or importing native projects, see
-   [Getting Started with the NDK](https://developer.android.com/ndk/guides).
+   [Getting Started with the NDK](https://developer.android.com/ndk/guides.md.txt).
 
 3. Download the zip file and extract it alongside your project.
 
@@ -214,7 +216,7 @@ improve the product, including:
 - App's package version
 - Play Core Native SDK's version
 
-This data will be collected when you upload [your app package](https://developer.android.com/studio/publish/upload-bundle)
+This data will be collected when you upload [your app package](https://developer.android.com/studio/publish/upload-bundle.md.txt)
 to the Play Console. To opt-out of this data collection process, remove the
 `$playcoreDir/playcore-native-metadata.jar` import in the build.gradle file.
 
@@ -226,55 +228,63 @@ package to the Play Console.
 After you integrate the Play Core Native SDK into your project, include the
 following line in files that contain API calls:
 
-    #include "play/app_update.h"
+```c
+#include "play/app_update.h"
+```
 
 ## Initialize the in-app update API
 
 Whenever you use the in-app update API, initialize it first by calling the
-[`AppUpdateManager_init()`](https://developer.android.com/reference/native/play/core/group/appupdate#appupdatemanager_init) function, as shown in the following example built
-with [`android_native_app_glue.h`](https://developer.android.com/ndk/guides/concepts#naa):
+[`AppUpdateManager_init()`](https://developer.android.com/reference/native/play/core/group/appupdate.md.txt#appupdatemanager_init) function, as shown in the following example built
+with [`android_native_app_glue.h`](https://developer.android.com/ndk/guides/concepts.md.txt#naa):
 
-    void android_main(android_app* app) {
-      app->onInputEvent = HandleInputEvent;
+```c
+void android_main(android_app* app) {
+  app->onInputEvent = HandleInputEvent;
 
-      AppUpdateErrorCode error_code =
-        AppUpdateManager_init(app->activity->vm, app->activity->clazz);
-      if (error_code == APP_UPDATE_NO_ERROR) {
-        // You can use the API.
-      }
-    }
+  AppUpdateErrorCode error_code =
+    AppUpdateManager_init(app->activity->vm, app->activity->clazz);
+  if (error_code == APP_UPDATE_NO_ERROR) {
+    // You can use the API.
+  }
+}
+```
 
 ## Check for update availability
 
 Before you request an update, check if there is an update available for your
-app. [`AppUpdateManager_requestInfo()`](https://developer.android.com/reference/native/play/core/group/appupdate#appupdatemanager_requestinfo) starts an asynchronous request that
+app. [`AppUpdateManager_requestInfo()`](https://developer.android.com/reference/native/play/core/group/appupdate.md.txt#appupdatemanager_requestinfo) starts an asynchronous request that
 gathers the required information to launch the in-app update flow later. The
 function returns `APP_UPDATE_NO_ERROR` if the request starts successfully.
 
-    AppUpdateErrorCode error_code = AppUpdateManager_requestInfo()
+```c
+AppUpdateErrorCode error_code = AppUpdateManager_requestInfo()
 
-    if (error_code == APP_UPDATE_NO_ERROR) {
-        // The request has successfully started, check the result using
-        // AppUpdateManager_getInfo.
-    }
+if (error_code == APP_UPDATE_NO_ERROR) {
+    // The request has successfully started, check the result using
+    // AppUpdateManager_getInfo.
+}
+```
 
 You can track the ongoing process and result of the request using
-[`AppUpdateManager_getInfo()`](https://developer.android.com/reference/native/play/core/group/appupdate#appupdatemanager_getinfo). In addition to the error code, this function
-returns an [`AppUpdateInfo`](https://developer.android.com/reference/native/play/core/group/appupdate#appupdateinfo) opaque struct, which you can use to retrieve
+[`AppUpdateManager_getInfo()`](https://developer.android.com/reference/native/play/core/group/appupdate.md.txt#appupdatemanager_getinfo). In addition to the error code, this function
+returns an [`AppUpdateInfo`](https://developer.android.com/reference/native/play/core/group/appupdate.md.txt#appupdateinfo) opaque struct, which you can use to retrieve
 information about the update request. For example, you might want to call this
 function in every game loop until it returns a non-null result for `info`:
 
-    AppUpdateInfo* info;
-    GameUpdate() {
+```c
+AppUpdateInfo* info;
+GameUpdate() {
 
-       // Keep calling this in every game loop until info != nullptr
-       AppUpdateErrorCode error_code = AppUpdateManager_getInfo(&info);
+   // Keep calling this in every game loop until info != nullptr
+   AppUpdateErrorCode error_code = AppUpdateManager_getInfo(&info);
 
-       if (error_code == APP_UPDATE_NO_ERROR && info != nullptr) {
-           // Successfully started, check the result in the following functions
-       }
-    ...
-    }
+   if (error_code == APP_UPDATE_NO_ERROR && info != nullptr) {
+       // Successfully started, check the result in the following functions
+   }
+...
+}
+```
 
 ### Check update staleness
 
@@ -285,10 +295,12 @@ flexible update or an immediate update. For example, you might wait a few days
 before notifying the user with a flexible update, and a few days after that
 before requiring an immediate update.
 
-Use [`AppUpdateInfo_getClientVersionStalenessDays()`](https://developer.android.com/reference/native/play/core/group/appupdate#appupdateinfo_getclientversionstalenessdays) to check the number of
+Use [`AppUpdateInfo_getClientVersionStalenessDays()`](https://developer.android.com/reference/native/play/core/group/appupdate.md.txt#appupdateinfo_getclientversionstalenessdays) to check the number of
 days since the update became available through the Play Store:
 
-    int32_t staleness_days = AppUpdateInfo_getClientVersionStalenessDays(info);
+```c
+int32_t staleness_days = AppUpdateInfo_getClientVersionStalenessDays(info);
+```
 
 ### Check update priority
 
@@ -324,15 +336,17 @@ The following example demonstrates releasing an app with version code 88 and
 ```
 
 In your app's code, you can check the priority level for a given update using
-[`AppUpdateInfo_getPriority()`](https://developer.android.com/reference/native/play/core/group/appupdate#appupdateinfo_getpriority):
+[`AppUpdateInfo_getPriority()`](https://developer.android.com/reference/native/play/core/group/appupdate.md.txt#appupdateinfo_getpriority):
 
-    int32_t priority = AppUpdateInfo_getPriority(info);
+```c
+int32_t priority = AppUpdateInfo_getPriority(info);
+```
 
 ## Start an update
 
 After you confirm that an update is available, you can request an update using
-[`AppUpdateManager_requestStartUpdate()`](https://developer.android.com/reference/native/play/core/group/appupdate#appupdatemanager_requeststartupdate). Before you request an update, get
-an up-to-date `AppUpdateInfo` object and create an [`AppUpdateOptions`](https://developer.android.com/reference/native/play/core/group/appupdate#appupdateoptions)
+[`AppUpdateManager_requestStartUpdate()`](https://developer.android.com/reference/native/play/core/group/appupdate.md.txt#appupdatemanager_requeststartupdate). Before you request an update, get
+an up-to-date `AppUpdateInfo` object and create an [`AppUpdateOptions`](https://developer.android.com/reference/native/play/core/group/appupdate.md.txt#appupdateoptions)
 object to configure the update flow. An `AppUpdateOptions` object defines
 options for an in-app update flow, including whether the update should be
 flexible or immediate.
@@ -340,25 +354,31 @@ flexible or immediate.
 The following example creates an `AppUpdateOptions` object for a flexible update
 flow:
 
-    // Creates an AppUpdateOptions configuring a flexible in-app update flow.
-    AppUpdateOptions* options;
-    AppUpdateErrorCode error_code = AppUpdateOptions_createOptions(APP_UPDATE_TYPE_FLEXIBLE, &options);
+```c
+// Creates an AppUpdateOptions configuring a flexible in-app update flow.
+AppUpdateOptions* options;
+AppUpdateErrorCode error_code = AppUpdateOptions_createOptions(APP_UPDATE_TYPE_FLEXIBLE, &options);
+```
 
 The following example creates an `AppUpdateOptions` object for an immediate
 update flow:
 
-    // Creates an AppUpdateOptions configuring an immediate in-app update flow.
-    AppUpdateOptions* options;
-    AppUpdateErrorCode error_code = AppUpdateOptions_createOptions(APP_UPDATE_TYPE_IMMEDIATE, &options);
+```c
+// Creates an AppUpdateOptions configuring an immediate in-app update flow.
+AppUpdateOptions* options;
+AppUpdateErrorCode error_code = AppUpdateOptions_createOptions(APP_UPDATE_TYPE_IMMEDIATE, &options);
+```
 
 The `AppUpdateOptions` object also contains an `AllowAssetPackDeletion` field
 that defines whether the update is allowed to clear [asset packs](https://developer.android.com/guide/app-bundle/asset-delivery) in case of
 limited device storage. This field is set to `false` by default, but you can use
-the [`AppUpdateOptions_setAssetPackDeletionAllowed()`](https://developer.android.com/reference/native/play/core/group/appupdate#appupdateoptions_setassetpackdeletionallowed) method to set it to
+the [`AppUpdateOptions_setAssetPackDeletionAllowed()`](https://developer.android.com/reference/native/play/core/group/appupdate.md.txt#appupdateoptions_setassetpackdeletionallowed) method to set it to
 `true` instead:
 
-    bool allow = true;
-    AppUpdateErrorCode error_code = AppUpdateOptions_setAssetPackDeletionAllowed(options, allow);
+```c
+bool allow = true;
+AppUpdateErrorCode error_code = AppUpdateOptions_setAssetPackDeletionAllowed(options, allow);
+```
 
 > [!CAUTION]
 > **Caution:** Use the `AllowAssetPackDeletion` API option with care to avoid accidentally deleting assets. Before setting this option to `true`, you should check whether the update is allowed with this option set to `false`.
@@ -368,16 +388,20 @@ After you have an up-to-date `AppUpdateInfo` object and a properly-configured
 asynchronously request an update flow, passing in an Android Activity `jobject`
 for the final parameter.
 
-    AppUpdateErrorCode request_error_code =
-    AppUpdateManager_requestStartUpdate(info, options, app->activity->clazz);
+```c
+AppUpdateErrorCode request_error_code =
+AppUpdateManager_requestStartUpdate(info, options, app->activity->clazz);
+```
 
 To free up resources, release instances of `AppUpdateInfo` and
 `AppUpdateOptions` that you no longer need by calling
-[`AppUpdateInfo_destroy()`](https://developer.android.com/reference/native/play/core/group/appupdate#appupdateinfo_destroy) and [`AppUpdateOptions_destroy()`](https://developer.android.com/reference/native/play/core/group/appupdate#appupdateoptions_destroy),
+[`AppUpdateInfo_destroy()`](https://developer.android.com/reference/native/play/core/group/appupdate.md.txt#appupdateinfo_destroy) and [`AppUpdateOptions_destroy()`](https://developer.android.com/reference/native/play/core/group/appupdate.md.txt#appupdateoptions_destroy),
 respectively.
 
-    AppUpdateInfo_destroy(info);
-    AppUpdateOptions_destroy(options);
+```c
+AppUpdateInfo_destroy(info);
+AppUpdateOptions_destroy(options);
+```
 
 For an immediate update flow, Google Play displays a user confirmation page.
 When the user accepts the request, Google Play automatically downloads and
@@ -388,32 +412,34 @@ For a flexible update flow, you can keep requesting up-to-date `AppUpdateInfo`
 objects to keep track of the current update status while the user continues to
 interact with the app. After the download finishes successfully, you must
 trigger the completion of the update by calling
-[`AppUpdateManager_requestCompleteUpdate()`](https://developer.android.com/reference/native/play/core/group/appupdate#appupdatemanager_requestcompleteupdate), as shown in the following
+[`AppUpdateManager_requestCompleteUpdate()`](https://developer.android.com/reference/native/play/core/group/appupdate.md.txt#appupdatemanager_requestcompleteupdate), as shown in the following
 example:
 
-    AppUpdateStatus status = AppUpdateInfo_getStatus(info);
-    if (status == APP_UPDATE_DOWNLOADED) {
-        AppUpdateErrorCode error_code = AppUpdateManager_requestCompleteUpdate();
-        if (error_code != APP_UPDATE_NO_ERROR)
-        {
-          // There was an error while completing the update flow.
-        }
+```c
+AppUpdateStatus status = AppUpdateInfo_getStatus(info);
+if (status == APP_UPDATE_DOWNLOADED) {
+    AppUpdateErrorCode error_code = AppUpdateManager_requestCompleteUpdate();
+    if (error_code != APP_UPDATE_NO_ERROR)
+    {
+      // There was an error while completing the update flow.
     }
+}
+```
 
-Free up resources by calling the [`AppUpdateManager_destroy()`](https://developer.android.com/reference/native/play/core/group/appupdate#appupdatemanager_destroy) function
+Free up resources by calling the [`AppUpdateManager_destroy()`](https://developer.android.com/reference/native/play/core/group/appupdate.md.txt#appupdatemanager_destroy) function
 after your app has finished using the API.
 
 ## Error handling
 
 This section describes solutions for common errors indicated by specific
-[`AppUpdateErrorCode`](https://developer.android.com/reference/native/play/core/group/appupdate#appupdateerrorcode) values:
+[`AppUpdateErrorCode`](https://developer.android.com/reference/native/play/core/group/appupdate.md.txt#appupdateerrorcode) values:
 
 - An error code of `-110, APP_UPDATE_INITIALIZATION_NEEDED` indicates that the API has not been initialized successfully. Call `AppUpdateManager_init()` to initialize the API.
 - An error code of `-4, APP_UPDATE_INVALID_REQUEST` indicates that some parameters of the update flow request are malformed. Check to make sure that the `AppUpdateInfo` and `AppUpdateOptions` objects are not null and are correctly formatted.
-- An error code of `-5, APP_UPDATE_UNAVAILABLE` indicates that there is no applicable update available. Make sure that the target version has the same [package name](https://developer.android.com/studio/build/configure-app-module#change_the_package_name), [application ID](https://developer.android.com/studio/build/configure-app-module#set_the_application_id), and [signing key](https://developer.android.com/studio/publish/app-signing). If there is an update available, clear the app's cache and call `AppUpdateManager_requestAppUpdateInfo()` again to refresh `AppUpdateInfo`.
+- An error code of `-5, APP_UPDATE_UNAVAILABLE` indicates that there is no applicable update available. Make sure that the target version has the same [package name](https://developer.android.com/studio/build/configure-app-module#change_the_package_name), [application ID](https://developer.android.com/studio/build/configure-app-module#set_the_application_id), and [signing key](https://developer.android.com/studio/publish/app-signing.md.txt). If there is an update available, clear the app's cache and call `AppUpdateManager_requestAppUpdateInfo()` again to refresh `AppUpdateInfo`.
 - An error code of `-6, APP_UPDATE_NOT_ALLOWED` indicates that the update type indicated by the `AppUpdateOption` object is not allowed. Check whether the `AppUpdateInfo` object indicates that the update type is allowed before starting the update flow.
 
 ## Next steps
 
-[Test your app's in-app updates](https://developer.android.com/guide/playcore/in-app-updates/test) to verify that your integration is working
+[Test your app's in-app updates](https://developer.android.com/guide/playcore/in-app-updates/test.md.txt) to verify that your integration is working
 correctly.

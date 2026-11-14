@@ -7,7 +7,7 @@ source: md.txt
 This page answers common questions about the Registered App Stores program,
 including eligibility, geographic availability, and technical specifications.
 
-This resource will be updated to align the evolutions of the program.
+This resource will be updated to align with the evolution of the program.
 
 ## Program requirements
 
@@ -17,18 +17,17 @@ App Stores program.
 ### Are individual developer accounts eligible to register an app store?
 
 No, individual developer accounts are not eligible, per
-[program requirements](https://developer.android.com/registered-app-stores/requirements). For organizational accountability, Registered App
+[program requirements](https://developer.android.com/registered-app-stores/requirements.md.txt). For organizational accountability, Registered App
 Store registration is strictly restricted to verified Organization (Full
 Distribution) accounts in Android Developer Console.
 
 ### What if my app store package name is already registered in my Play Console account?
 
-If your app store package name is currently managed in a Play Console account,
-you will need to create an [Android Developer Console](https://developer.android.com/developer-verification/guides/android-developer-console) organization account
+If your app store package name is currently managed in a Play Console account, create an [Android Developer Console](https://developer.android.com/developer-verification/guides/android-developer-console.md.txt) organization account
 and transfer that package name to your Android Developer Console account before
 proceeding. A package name transfer requires both the source and target accounts
-to be fully verified Organization accounts in good standing. Contact
-[support](https://support.google.com/android-developer-console/contact/registered_app_store_enrollment_inquiries) to request the package name transfer.
+to be fully verified Organization accounts in good standing.
+[Contact support](https://support.google.com/android-developer-console/contact/registered_app_store_enrollment_inquiries) to request the package name transfer.
 
 ### How does the Registered App Store program differ from the Third-Party App Store on Play program?
 
@@ -37,6 +36,11 @@ as one-tap installs, for verified stores operating on Android devices. In
 contrast, Third-Party App Store on Play is a distinct Google Play program that
 governs third-party stores distributed specifically within the Play Store
 ecosystem, available in the US only.
+
+### Can stores publish apps prior to security review from Google?
+
+Yes. As long as the apps have been made available to Google at the time of
+publication, stores may publish whenever they choose.
 
 ## Geographic availability
 

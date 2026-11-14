@@ -4,12 +4,16 @@ url: https://developer.android.com/tools/agents/android-cli/commands/signals_cra
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
+
 Lists individual sample crash events with timestamps, devices, and API levels
 for an issue cluster.
 
 ## Usage
 
-    android signals crashes samples [-h] [--api-level=PARAM] [--app-version=PARAM] [--device=PARAM] [--format=PARAM] [--limit=PARAM] [--timeframe=PARAM] <issue-id>
+```bash
+android signals crashes samples [-h] --firebase-app=PARAM [--api-level=PARAM] [--app-version=PARAM] [--device=PARAM] [--format=PARAM] [--limit=PARAM] [--timeframe=PARAM] <issue-id>
+```
 
 ## Options
 
@@ -43,12 +47,12 @@ happened on, and its API level. By default, it lists up to 100 events from the
 last seven days.
 
 Get the `<issue-id>` from the output of
-[`android signals crashes list`](https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_list). The issue ID must be
+[`android signals crashes list`](https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_list.md.txt). The issue ID must be
 prefixed with `firebase/`. The corresponding app option (`--firebase-app`) must
 be provided or configured in `~/.androidrc`.
 
 Run
-[`android signals crashes describe <issue-id> --sample-id=<sample-id>`](https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_describe)
+[`android signals crashes describe <issue-id> --sample-id=<sample-id>`](https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_describe.md.txt)
 with the `Sample ID` of an event to print the stack trace and the metadata of
 that specific event, for example the oldest one or one that happened on a given
 device.
@@ -57,13 +61,19 @@ device.
 
 List the events of an issue:
 
-    android signals crashes samples firebase/<issue-id> --firebase-app=1:123456789012:android:0123456789abcdef
+```bash
+android signals crashes samples firebase/<issue-id> --firebase-app=1:123456789012:android:0123456789abcdef
+```
 
 List the events of an issue that happened on Samsung devices in the last 24
 hours:
 
-    android signals crashes samples firebase/<issue-id> --firebase-app=1:123456789012:android:0123456789abcdef --device=Samsung --timeframe=24h
+```bash
+android signals crashes samples firebase/<issue-id> --firebase-app=1:123456789012:android:0123456789abcdef --device=Samsung --timeframe=24h
+```
 
 List the events of an issue as JSON:
 
-    android signals crashes samples firebase/<issue-id> --firebase-app=1:123456789012:android:0123456789abcdef --format=json
+```bash
+android signals crashes samples firebase/<issue-id> --firebase-app=1:123456789012:android:0123456789abcdef --format=json
+```

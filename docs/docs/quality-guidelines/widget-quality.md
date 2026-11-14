@@ -53,7 +53,7 @@ quality:
 |---|---|---|
 | Layout | WL-1 | When a user places the widget on the host surface, the widget does not fill the bounds of the host grid. |
 | Layout | WL-1.1 | Widget doesn't touch at least 2 opposing edges of the grid. In other words, widgets don't need to all be rectangular, they can have custom shapes, so long as the edges of the shape touch at least 2 edges of the grid. |
-| Color | WC-3 | Widget text and icon buttons have insufficient color contrast ratios to meet [accessibility requirements](https://developer.android.com/design/ui/mobile/guides/widgets/style#color). |
+| Color | WC-3 | Widget text and icon buttons have insufficient color contrast ratios to meet [accessibility requirements](https://developer.android.com/design/ui/mobile/guides/widgets/style.md.txt#color). |
 | Discovery | WD-4.2 | Widget name isn't included in the widget design. |
 | Discovery | WD-4.3 | Widget has no preview image. |
 | Content | WT-3 | Widget content is consistently stale or untimely. |
@@ -124,7 +124,7 @@ content criteria.
 | Discovery | WD-4.4 | Widget has a description that helps users understand the value of the widget. |
 | Discovery | WD-4.5 | Widget name is descriptive and unique from the app's other widgets. |
 | System Coherence | WS-2 | Rectangular widgets must use the corner radius provided by system (OEM specific). |
-| System Coherence | WS-3 | The widget uses the loading state specification and [shows errors directly on the widget UI](https://developer.android.com/develop/ui/compose/glance/error-handling). |
+| System Coherence | WS-3 | The widget uses the loading state specification and [shows errors directly on the widget UI](https://developer.android.com/develop/ui/compose/glance/error-handling.md.txt). |
 | System Coherence | WS-4 | Widget uses system configuration instead of a custom widget settings entry point. |
 | System Coherence | WS-5 | Widget uses system launch transition when entering/exiting app from widget. |
 

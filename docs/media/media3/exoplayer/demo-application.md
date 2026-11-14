@@ -4,6 +4,8 @@ url: https://developer.android.com/media/media3/exoplayer/demo-application
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/media3/exoplayer/llms.txt
+
 ExoPlayer's main demo app serves two primary purposes:
 
 1. To provide a fully-featured example of ExoPlayer usage. The demo app can be used as a convenient starting point from which to develop your own app.
@@ -74,80 +76,88 @@ The samples listed in the demo app are loaded from `assets/media.exolist.json`.
 By editing this JSON file, it's possible to add and remove samples from the demo
 app. The schema is as follows, where \[O\] indicates an optional attribute.
 
-    [
+```json
+[
+  {
+    "name": "Name of heading",
+    "samples": [
       {
-        "name": "Name of heading",
-        "samples": [
+        "name": "Name of sample",
+        "uri": "The URI of the sample",
+        "extension": "[O] Sample type hint. Cannot be combined with mime_type. Values: mpd, ism, m3u8",
+        "clip_start_position_ms": "[O] A start point to which the sample should be clipped, in milliseconds",
+        "clip_end_position_ms": "[O] An end point from which the sample should be clipped, in milliseconds",
+        "drm_scheme": "[O] Drm scheme if protected. Values: widevine, playready, clearkey",
+        "drm_license_uri": "[O] URI of the license server if protected",
+        "drm_force_default_license_uri": "[O] Whether to force use of "drm_license_uri" for key requests that include their own license URI",
+        "drm_key_request_properties": "[O] Key request headers if protected",
+        "drm_session_for_clear_content": "[O] Whether to attach a DRM session to clear video and audio tracks",
+        "drm_multi_session": "[O] Enables key rotation if protected",
+        "drm_force_software_crypto": "[O] Whether to force DRM to use the software crypto library regardless of the device's hardware crypto capability if supported by the DRM scheme",
+        "mime_type": "[O] The MIME type of the sample. Cannot be combined with extension.",
+        "subtitle_uri": "[O] The URI of a subtitle sidecar file",
+        "subtitle_mime_type": "[O] The MIME type of subtitle_uri (required if subtitle_uri is set)",
+        "subtitle_language": "[O] The BCP47 language code of the subtitle file (ignored if subtitle_uri is not set)",
+        "ad_tag_uri": "[O] The URI of an ad tag to load via the IMA extension"
+      },
+      ...etc
+    ]
+  },
+  ...etc
+]
+```
+
+Playlists of samples can be specified using the schema:
+
+```json
+[
+  {
+    "name": "Name of heading",
+    "samples": [
+      {
+        "name": "Name of playlist sample",
+        "playlist": [
           {
-            "name": "Name of sample",
-            "uri": "The URI of the sample",
+            "uri": "The URI of the first sample in the playlist",
             "extension": "[O] Sample type hint. Cannot be combined with mime_type. Values: mpd, ism, m3u8",
-            "clip_start_position_ms": "[O] A start point to which the sample should be clipped, in milliseconds"
-            "clip_end_position_ms": "[O] An end point from which the sample should be clipped, in milliseconds"
+            "clip_start_position_ms": "[O] A start point to which the sample should be clipped, in milliseconds",
+            "clip_end_position_ms": "[O] An end point from which the sample should be clipped, in milliseconds",
             "drm_scheme": "[O] Drm scheme if protected. Values: widevine, playready, clearkey",
             "drm_license_uri": "[O] URI of the license server if protected",
             "drm_force_default_license_uri": "[O] Whether to force use of "drm_license_uri" for key requests that include their own license URI",
             "drm_key_request_properties": "[O] Key request headers if protected",
-            "drm_session_for_clear_content": "[O] Whether to attach a DRM session to clear video and audio tracks"
+            "drm_session_for_clear_content": "[O] Whether to attach a DRM session to clear video and audio tracks",
             "drm_multi_session": "[O] Enables key rotation if protected",
+            "drm_force_software_crypto": "[O] Whether to force DRM to use the software crypto library regardless of the device's hardware crypto capability if supported by the DRM scheme",
             "mime_type": "[O] The MIME type of the sample. Cannot be combined with extension.",
             "subtitle_uri": "[O] The URI of a subtitle sidecar file",
             "subtitle_mime_type": "[O] The MIME type of subtitle_uri (required if subtitle_uri is set)",
-            "subtitle_language": "[O] The BCP47 language code of the subtitle file (ignored if subtitle_uri is not set)",
-            "ad_tag_uri": "[O] The URI of an ad tag to load via the IMA extension"
+            "subtitle_language": "[O] The BCP47 language code of the subtitle file (ignored if subtitle_uri is not set)"
           },
-          ...etc
-        ]
-      },
-      ...etc
-    ]
-
-Playlists of samples can be specified using the schema:
-
-    [
-      {
-        "name": "Name of heading",
-        "samples": [
           {
-            "name": "Name of playlist sample",
-            "playlist": [
-              {
-                "uri": "The URI of the first sample in the playlist",
-                "extension": "[O] Sample type hint. Cannot be combined with mime_type. Values: mpd, ism, m3u8"
-                "clip_start_position_ms": "[O] A start point to which the sample should be clipped, in milliseconds"
-                "clip_end_position_ms": "[O] An end point from which the sample should be clipped, in milliseconds"
-                "drm_scheme": "[O] Drm scheme if protected. Values: widevine, playready, clearkey",
-                "drm_license_uri": "[O] URI of the license server if protected",
-                "drm_force_default_license_uri": "[O] Whether to force use of "drm_license_uri" for key requests that include their own license URI",
-                "drm_key_request_properties": "[O] Key request headers if protected",
-                "drm_session_for_clear_content": "[O] Whether to attach a DRM session to clear video and audio tracks",
-                "drm_multi_session": "[O] Enables key rotation if protected",
-                "mime_type": "[O] The MIME type of the sample. Cannot be combined with extension.",
-                "subtitle_uri": "[O] The URI of a subtitle sidecar file",
-                "subtitle_mime_type": "[O] The MIME type of subtitle_uri (required if subtitle_uri is set)",
-                "subtitle_language": "[O] The BCP47 language code of the subtitle file (ignored if subtitle_uri is not set)"
-              },
-              {
-                "uri": "The URI of the second sample in the playlist",
-                ...etc
-              },
-              ...etc
-            ]
+            "uri": "The URI of the second sample in the playlist",
+            ...etc
           },
           ...etc
         ]
       },
       ...etc
     ]
+  },
+  ...etc
+]
+```
 
 If required, key request headers are specified as an object containing a string
 attribute for each header:
 
-    "drm_key_request_properties": {
-      "name1": "value1",
-      "name2": "value2",
-      ...etc
-    }
+```json
+"drm_key_request_properties": {
+  "name1": "value1",
+  "name2": "value2",
+  ...etc
+}
+```
 
 In the sample chooser activity, the overflow menu contains options for
 specifying whether to prefer extension decoders.
@@ -205,6 +215,7 @@ Supported optional extras for a single sample intent are:
   - `drm_key_request_properties` \[String array\] Key request headers packed as name1, value1, name2, value2 etc. if protected.
   - `drm_session_for_clear_content` \[Boolean\] Whether to attach a DRM session to clear video and audio tracks.
   - `drm_multi_session` \[Boolean\] Enables key rotation if protected.
+  - `drm_force_software_crypto` \[Boolean\] Whether to force DRM to use the software crypto library regardless of the device's hardware crypto capability if supported by the DRM scheme.
   - `subtitle_uri` \[String\] The URI of a subtitle sidecar file.
   - `subtitle_mime_type` \[String\] The MIME type of subtitle_uri (required if subtitle_uri is set).
   - `subtitle_language` \[String\] The BCP47 language code of the subtitle file (ignored if subtitle_uri is not set).

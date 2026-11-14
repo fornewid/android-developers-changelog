@@ -4,12 +4,16 @@ url: https://developer.android.com/tools/agents/android-cli/commands/signals_hea
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
+
 Lists heap dumps with their collection time, app version, device, API level, and
 size.
 
 ## Usage
 
-    android signals heaps list [-h] [--api-level=PARAM] [--app-version=PARAM] [--device=PARAM] [--format=PARAM] [--kind=PARAM] [--limit=PARAM] [--sort-by=PARAM] [--timeframe=PARAM]
+```bash
+android signals heaps list [-h] --firebase-app=PARAM [--api-level=PARAM] [--app-version=PARAM] [--device=PARAM] [--format=PARAM] [--kind=PARAM] [--limit=PARAM] [--sort-by=PARAM] [--timeframe=PARAM]
+```
 
 ## Options
 
@@ -41,9 +45,9 @@ device, API level, and file size. By default, it lists up to 100 heap dumps from
 the last seven days.
 
 Pass the `Heap ID` (for example, `firebase/<session-id>`) of a row to
-[`android signals heaps describe`](https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_describe) to inspect the
+[`android signals heaps describe`](https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_describe.md.txt) to inspect the
 associated crash event, or to
-[`android signals heaps download`](https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_download) to download the
+[`android signals heaps download`](https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_download.md.txt) to download the
 Perfetto trace.
 
 Pass `--firebase-app` or configure it in `~/.androidrc` to specify the app to
@@ -62,12 +66,18 @@ query.
 
 List the heap dumps of the last seven days:
 
-    android signals heaps list --firebase-app=1:123456789012:android:0123456789abcdef
+```bash
+android signals heaps list --firebase-app=1:123456789012:android:0123456789abcdef
+```
 
 List out-of-memory heap dumps from the last 24 hours:
 
-    android signals heaps list --firebase-app=1:123456789012:android:0123456789abcdef --kind=oom --timeframe=24h
+```bash
+android signals heaps list --firebase-app=1:123456789012:android:0123456789abcdef --kind=oom --timeframe=24h
+```
 
 List the 10 largest heap dumps:
 
-    android signals heaps list --firebase-app=1:123456789012:android:0123456789abcdef --sort-by=size --limit=10
+```bash
+android signals heaps list --firebase-app=1:123456789012:android:0123456789abcdef --sort-by=size --limit=10
+```

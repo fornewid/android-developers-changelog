@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/billing/manage-purchases
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/billing/llms.txt
+
 You may need to take management actions on subscriptions or one-time purchases
 as part of day-to-day business. For example, your customer service may need to
 issue total or partial refunds for users, or you might need to revoke
@@ -77,9 +79,11 @@ HTTP POST request:
 
 Request body:
 
-    {
-      "cancellationType": "USER_REQUESTED_STOP_RENEWALS"
-    }
+```json
+{
+  "cancellationType": "USER_REQUESTED_STOP_RENEWALS"
+}
+```
 
 #### Enable users to resubscribe expired subscriptions
 
@@ -98,7 +102,7 @@ sign up again for the subscription through your app if required.
 
 Taking this action triggers a `SUBSCRIPTION_CANCELED` Real-time developer
 notification. Handle these cancellations as described in
-[Cancellations](https://developer.android.com/google/play/billing/lifecycle/subscriptions#cancel).
+[Cancellations](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#cancel).
 
 > [!NOTE]
 > **Note:** If you cancel an installment subscription with the [`purchases.subscriptions.cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/cancel) API, setting the `cancellationType` parameter to `USER_REQUESTED_STOP_RENEWALS`, cancels only the next renewal of their installment, while the user still needs to finish the commitment. However, setting the parameter value to `DEVELOPER_REQUESTED_STOP_PAYMENTS`, stops the next payment.
@@ -123,7 +127,7 @@ To defer the end of the entitlement even further, call the API again
 before the new expiration date arrives.
 
 Taking this action triggers a `SUBSCRIPTION_DEFERRED` Real-time developer
-notification. See [Defer billing for a subscriber](https://developer.android.com/google/play/billing/subscriptions#defer) in [About subscriptions](https://developer.android.com/google/play/billing/subscriptions) to learn how to handle these events.
+notification. See [Defer billing for a subscriber](https://developer.android.com/google/play/billing/subscriptions.md.txt#defer) in [About subscriptions](https://developer.android.com/google/play/billing/subscriptions.md.txt) to learn how to handle these events.
 
 Example:
 
@@ -155,7 +159,7 @@ If you issue a revocation with the refund call for a subscription purchase, the
 subscription is immediately terminated and it triggers both a
 `SUBSCRIPTION_REVOKED` Real Time Developer Notification and a
 `VoidedPurchaseNotification` (recorded in the [Voided Purchases API](https://developers.google.com/android-publisher/voided-purchases)). Read
-the subscription lifecycle management guide [Revocations section](https://developer.android.com/google/play/billing/lifecycle/subscriptions#revoke) to learn
+the subscription lifecycle management guide [Revocations section](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#revoke) to learn
 how to handle these events.
 
 Example:
@@ -182,7 +186,7 @@ to determine how the refund is calculated.
 Taking this action triggers both a `SUBSCRIPTION_REVOKED` Real Time Developer
 Notification and a `VoidedPurchaseNotification`, and is recorded in the [Voided
 Purchases API](https://developers.google.com/android-publisher/voided-purchases). Your app should handle these cancellations as described in
-[Revocations](https://developer.android.com/google/play/billing/lifecycle/subscriptions#revoke).
+[Revocations](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#revoke).
 
 Example:
 
@@ -196,11 +200,13 @@ HTTP POST request:
 
 Request body:
 
-    {
-      "revocationContext": {
-        "proratedRefund": {}
-      }
-    }
+```json
+{
+  "revocationContext": {
+    "proratedRefund": {}
+  }
+}
+```
 
 #### Full refunds
 

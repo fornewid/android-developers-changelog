@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/installreferrer/library
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/installreferrer/llms.txt
+
 You can use the Google Play Store's Install Referrer API to securely retrieve
 referral content from Google Play. The Play Install Referrer API Client Library
 is written in the Java programming language and is a wrapper for the Android
@@ -47,33 +49,11 @@ Before you can use the Play Install Referrer API Library, you must
 establish a connection to the Play Store app using the following
 steps:
 
-1. Call the [`newBuilder()`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient#newBuilder(android.content.Context)) method to create an instance of [`InstallReferrerClient`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient) class.
-2. Call the
-   [`startConnection()`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient#startConnection(com.android.installreferrer.api.InstallReferrerStateListener))
-   to establish a connection to Google Play.
-
-3. The [`startConnection()`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient#startConnection(com.android.installreferrer.api.InstallReferrerStateListener))
-   method is asynchronous, so you must override
-   [`InstallReferrerStateListener`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerStateListener)
-   to receive a callback after
-   [`startConnection()`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient#startConnection(com.android.installreferrer.api.InstallReferrerStateListener))
-   completes.
-
-4. Override the [`onInstallReferrerSetupFinished()`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerStateListener#onInstallReferrerSetupFinished(int))
-   method to be notified when the callback completes. This method is called
-   with a response code that you must use to handle the different states.
-   [`OK`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient.InstallReferrerResponse#OK)
-   indicates that the connection was successful. Each of the other
-   [`InstallReferrerResponse`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient.InstallReferrerResponse)
-   constants are for different types of errors.
-
-5. Override the [`onInstallReferrerServiceDisconnected()`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerStateListener#oninstallreferrerservicedisconnected)
-   method to handle lost connections to Google Play. For
-   example, the Play Install Referrer Library client may lose the connection if the
-   Play Store service is updating in the background. The library client must call
-   the
-   [`startConnection()`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient#startConnection(com.android.installreferrer.api.InstallReferrerStateListener))
-   method to restart the connection before making further requests.
+1. Call the [`newBuilder()`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient.md.txt#newBuilder(android.content.Context)) method to create an instance of the [`InstallReferrerClient`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient.md.txt) class.
+2. Call the [`startConnection()`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient.md.txt#startConnection(com.android.installreferrer.api.InstallReferrerStateListener)) method to establish a connection to Google Play.
+3. Because `startConnection()` is asynchronous, implement [`InstallReferrerStateListener`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerStateListener.md.txt) to receive a callback after `startConnection()` completes.
+4. Override the [`onInstallReferrerSetupFinished()`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerStateListener.md.txt#onInstallReferrerSetupFinished(int)) method to receive a notification when the callback completes. This method passes a response code that you must use to handle different states. [`OK`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient.InstallReferrerResponse.md.txt#OK) indicates that the connection succeeded. The other [`InstallReferrerResponse`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient.InstallReferrerResponse.md.txt) constants indicate different types of errors.
+5. Override the [`onInstallReferrerServiceDisconnected()`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerStateListener.md.txt#oninstallreferrerservicedisconnected) method to handle lost connections to Google Play. For example, the Play Install Referrer Library client might lose the connection if the Play Store service is updating in the background. The library client must call the `startConnection()` method to restart the connection before making further requests.
 
 The following code demonstrates how to start and test a connection to the
 Play Store app:
@@ -142,14 +122,8 @@ referrerClient.startConnection(new InstallReferrerStateListener() {
 After you have established a connection to the Play Store app, get the details
 from the install referrer by completing the following steps:
 
-1. Use the synchronized
-   [`getInstallReferrer()`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient#getInstallReferrer())
-   method to return an instance of
-   [`ReferrerDetails`](https://developer.android.com/reference/com/android/installreferrer/api/ReferrerDetails).
-
-2. Use the methods that the
-   [`ReferrerDetails`](https://developer.android.com/reference/com/android/installreferrer/api/ReferrerDetails)
-   class provides to get details about the install referrer.
+1. Use the synchronized [`getInstallReferrer()`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient.md.txt#getInstallReferrer()) method to return an instance of [`ReferrerDetails`](https://developer.android.com/reference/com/android/installreferrer/api/ReferrerDetails.md.txt).
+2. Use the methods that the `ReferrerDetails` class provides to get details about the install referrer.
 
 The following code demonstrates how you can access the install referrer
 information:
@@ -174,19 +148,15 @@ long appInstallTime = response.getInstallBeginTimestampSeconds();
 boolean instantExperienceLaunched = response.getGooglePlayInstantParam();
 ```
 
-**Caution:** The install referrer information will be
-available for 90 days and **won't change** unless the application is
-reinstalled. To avoid unnecessary API calls in your app, you should invoke the
-API **only once** during the first execution after install.
+> [!CAUTION]
+> **Caution:** The install referrer information is available for 90 days and **doesn't
+> change** unless the app is reinstalled. To avoid unnecessary API calls in your app, invoke the API **only once** the first time your app runs after install.
 
 ## Closing service connection
 
-After getting referrer information, call the
-[`endConnection()`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient#endConnection())
-method on your
-[`InstallReferrerClient`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient)
-instance to close the connection. Closing the connection will help you avoid
-leaks and performance problems.
+After getting referrer information, call the [`endConnection()`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient.md.txt#endConnection()) method on
+your [`InstallReferrerClient`](https://developer.android.com/reference/com/android/installreferrer/api/InstallReferrerClient.md.txt) instance to close the connection. Closing the
+connection helps you avoid leaks and performance problems.
 
 For further information, refer to the [Play Install Referrer Library
 Reference](https://developer.android.com/reference/com/android/installreferrer/packages).

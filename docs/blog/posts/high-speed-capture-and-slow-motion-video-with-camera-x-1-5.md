@@ -4,13 +4,15 @@ url: https://developer.android.com/blog/posts/high-speed-capture-and-slow-motion
 source: md.txt
 ---
 
-[How-tos](https://developer.android.com/blog/categories/how-tos)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
 # High-Speed Capture and Slow-Motion Video with CameraX 1.5
 
-6 min read ![](https://developer.android.com/static/blog/assets/25_Android_Camera_X_High_speed_Slomo_Blog_1_fc4509cdb7_1QABPN.webp) 28 Oct 2025 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/leo-huang) [Leo Huang](https://developer.android.com/blog/authors/leo-huang) Software Engineer Capturing fast-moving action with clarity is a key feature for modern camera apps. This is achieved through **high-speed capture** ---the process of acquiring frames at rates like 120 or 240 fps. This high-fidelity capture can be used for two distinct purposes: creating a **high-frame-rate video** for detailed, frame-by-frame analysis, or generating a **slow-motion video** where action unfolds dramatically on screen.
+6 min read ![](https://developer.android.com/static/blog/assets/25_Android_Camera_X_High_speed_Slomo_Blog_1_fc4509cdb7_1QABPN.webp) 28 Oct 2025 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/leo-huang.md.txt) [Leo Huang](https://developer.android.com/blog/authors/leo-huang.md.txt) Software Engineer Capturing fast-moving action with clarity is a key feature for modern camera apps. This is achieved through **high-speed capture** ---the process of acquiring frames at rates like 120 or 240 fps. This high-fidelity capture can be used for two distinct purposes: creating a **high-frame-rate video** for detailed, frame-by-frame analysis, or generating a **slow-motion video** where action unfolds dramatically on screen.
 
-Previously, implementing these features with the Camera2 API was a more hands-on process. Now, with the new [**high-speed API**](https://developer.android.com/reference/androidx/camera/video/HighSpeedVideoSessionConfig) in CameraX 1.5, the entire process is simplified, giving you the flexibility to create either true high-frame-rate videos or ready-to-play slow-motion clips. This post will show you how to master both. For those new to CameraX, you can get up to speed with the [**CameraX Overview**](https://developer.android.com/media/camera/camerax).
+Previously, implementing these features with the Camera2 API was a more hands-on process. Now, with the new [**high-speed API**](https://developer.android.com/reference/androidx/camera/video/HighSpeedVideoSessionConfig.md.txt) in CameraX 1.5, the entire process is simplified, giving you the flexibility to create either true high-frame-rate videos or ready-to-play slow-motion clips. This post will show you how to master both. For those new to CameraX, you can get up to speed with the [**CameraX Overview**](https://developer.android.com/media/camera/camerax.md.txt).
 
 *** ** * ** ***
 
@@ -33,8 +35,8 @@ The CameraX API simplifies this by giving you a unified way to choose which appr
 
 The new CameraX solution is built on two main components:
 
-- [`Recorder#getHighSpeedVideoCapabilities(CameraInfo)`](https://developer.android.com/reference/kotlin/androidx/camera/video/Recorder#getHighSpeedVideoCapabilities(androidx.camera.core.CameraInfo)): This method lets you check if the camera can record in high-speed and, if so, which resolutions (`Quality` objects) are supported.
-- [`HighSpeedVideoSessionConfig`](https://developer.android.com/reference/androidx/camera/video/HighSpeedVideoSessionConfig): This is a special configuration object that groups your `VideoCapture` and `Preview` use cases, telling CameraX to create a unified high-speed camera session. Note that while the VideoCapture stream will operate at the configured high frame rate, the Preview stream will typically be limited to a standard rate of at least 30 FPS by the camera system to ensure a smooth display on the screen.
+- [`Recorder#getHighSpeedVideoCapabilities(CameraInfo)`](https://developer.android.com/reference/kotlin/androidx/camera/video/Recorder.md.txt#getHighSpeedVideoCapabilities(androidx.camera.core.CameraInfo)): This method lets you check if the camera can record in high-speed and, if so, which resolutions (`Quality` objects) are supported.
+- [`HighSpeedVideoSessionConfig`](https://developer.android.com/reference/androidx/camera/video/HighSpeedVideoSessionConfig.md.txt): This is a special configuration object that groups your `VideoCapture` and `Preview` use cases, telling CameraX to create a unified high-speed camera session. Note that while the VideoCapture stream will operate at the configured high frame rate, the Preview stream will typically be limited to a standard rate of at least 30 FPS by the camera system to ensure a smooth display on the screen.
 
 ### Getting Started
 
@@ -77,7 +79,7 @@ The implementation for both outcomes starts with the same setup steps. The choic
 
 ### 1. Set up High-Speed Capture
 
-First, regardless of your goal, you need to get the [`ProcessCameraProvider`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider), check for device capabilities, and create your use cases.
+First, regardless of your goal, you need to get the [`ProcessCameraProvider`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider.md.txt), check for device capabilities, and create your use cases.
 
 The following code block shows the complete setup flow within a suspend function. You can call this function from a coroutine scope, like `lifecycleScope.launch`.
 
@@ -222,7 +224,7 @@ For example:
 
 Once you have configured your `HighSpeedVideoSessionConfig` and bound it to the lifecycle, the final step is to start the recording. The process of preparing output options, starting the recording, and handling video events is the same as it is for a standard video capture.
 
-This post focuses on high-speed configuration, so we won't cover the recording process in detail. For a comprehensive guide on everything from preparing a `FileOutputOptions` or `MediaStoreOutputOptions` object to handling the `VideoRecordEvent` callbacks, please refer to the [VideoCapture documentation](https://developer.android.com/media/camera/camerax/video-capture#videocapture-api-overview).
+This post focuses on high-speed configuration, so we won't cover the recording process in detail. For a comprehensive guide on everything from preparing a `FileOutputOptions` or `MediaStoreOutputOptions` object to handling the `VideoRecordEvent` callbacks, please refer to the [VideoCapture documentation](https://developer.android.com/media/camera/camerax/video-capture.md.txt#videocapture-api-overview).
 
 ```
 // Bind the session config to the lifecycle
@@ -274,7 +276,7 @@ When you enable `setSlowMotionEnabled(true)` in CameraX, the resulting video fil
 
 ### A Note on Device Support
 
-CameraX's high-speed API relies on the underlying Android [CamcorderProfile](https://developer.android.com/reference/android/media/CamcorderProfile) system to determine which high-speed resolutions and frame rates a device supports. CamcorderProfiles are validated by the [Android Compatibility Test Suite (CTS)](https://source.android.com/docs/compatibility/cts), which means you can be confident in the device's reported video recording capabilities.
+CameraX's high-speed API relies on the underlying Android [CamcorderProfile](https://developer.android.com/reference/android/media/CamcorderProfile.md.txt) system to determine which high-speed resolutions and frame rates a device supports. CamcorderProfiles are validated by the [Android Compatibility Test Suite (CTS)](https://source.android.com/docs/compatibility/cts), which means you can be confident in the device's reported video recording capabilities.
 
 This means that a device's ability to record slow-motion video with its built-in camera app does not guarantee that the CameraX high-speed API will function. This discrepancy occurs because device manufacturers are responsible for populating the `CamcorderProfile` entries in their device's firmware, and sometimes necessary high-speed profiles like `CamcorderProfile.QUALITY_HIGH_SPEED_1080P` and `CamcorderProfile.QUALITY_HIGH_SPEED_720P` are not included. When these profiles are missing, `Recorder.getHighSpeedVideoCapabilities()` will return `null`.
 
@@ -289,37 +291,37 @@ Written by:
 
 -
 
-  ## [Leo Huang](https://developer.android.com/blog/authors/leo-huang)
+  ## [Leo Huang](https://developer.android.com/blog/authors/leo-huang.md.txt)
 
   ###### Software Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/leo-huang) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 Continue reading
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
-  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
-  - [#Media3](https://developer.android.com/blog/topics/media3)
-  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
-  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
+  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich.md.txt) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+
+  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new.md.txt) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
+  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich.md.txt) • 3 min read
+  - [#Media3](https://developer.android.com/blog/topics/media3.md.txt)
+  - [#Jetpack](https://developer.android.com/blog/topics/jetpack.md.txt)
+  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player.md.txt)
   - +1 ↩
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang.md.txt) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
+  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
-
-  ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
-  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
+  [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt) • 6 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
 Stay in the loop
 
 

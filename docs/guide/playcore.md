@@ -4,26 +4,28 @@ url: https://developer.android.com/guide/playcore
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/playcore/llms.txt
+
 This page describes the Google Play Core libraries and how to add them to your
 project.
 
 > [!IMPORTANT]
-> **Important:** The Google Play Core Java and Kotlin library have been split into multiple separate libraries, one for each feature. Update to the new libraries to benefit from new product additions. For more information, see the [migration guide](https://developer.android.com/guide/playcore#playcore-migration).
+> **Important:** The Google Play Core Java and Kotlin library has been split into multiple separate libraries, one for each feature. Update to the new libraries to benefit from new product additions. For more information, see the [migration guide](https://developer.android.com/guide/playcore.md.txt#playcore-migration).
 
-The Google Play Core libraries are your app's runtime interface with the Google Play
-Store. Some of the things you can do include the following:
+The Google Play Core libraries are your app's runtime interface with the Google
+Play Store. Some of the things you can do include the following:
 
-- [Download additional language resources](https://developer.android.com/guide/playcore/feature-delivery/on-demand#lang_resources)
-- [Manage delivery of feature modules](https://developer.android.com/guide/playcore/feature-delivery)
+- [Download additional language resources](https://developer.android.com/guide/playcore/feature-delivery/on-demand.md.txt#lang_resources)
+- [Manage delivery of feature modules](https://developer.android.com/guide/playcore/feature-delivery.md.txt)
 - [Manage delivery of asset packs](https://developer.android.com/guide/playcore/asset-delivery)
-- [Trigger in-app updates](https://developer.android.com/guide/playcore/in-app-updates)
-- [Request in-app reviews](https://developer.android.com/guide/playcore/in-app-review)
+- [Trigger in-app updates](https://developer.android.com/guide/playcore/in-app-updates.md.txt)
+- [Request in-app reviews](https://developer.android.com/guide/playcore/in-app-review.md.txt)
 
 The Play Core libraries are available in
-[Java](https://developer.android.com/reference/com/google/android/play/core/packages),
-[native](https://developer.android.com/reference/native/play/core), and [Unity](https://developer.android.com/reference/unity). For more
+[Java](https://developer.android.com/reference/com/google/android/play/core/packages.md.txt),
+[native](https://developer.android.com/reference/native/play/core.md.txt), and [Unity](https://developer.android.com/reference/unity.md.txt). For more
 information about the latest releases, see the
-[Release notes](https://developer.android.com/reference/com/google/android/play/core/release-notes).
+[Release notes](https://developer.android.com/reference/com/google/android/play/core/release-notes.md.txt).
 
 ## Migration from the Play Core Java and Kotlin Library
 
@@ -31,11 +33,12 @@ The Play Core Java and Kotlin Library has been partitioned into multiple
 per-feature Android libraries. This reduces the size Play Core libraries add to
 your app and allows for faster release cycles of the individual features.
 
-The behavior of each feature has stayed consistent in this migration, the only
-notable change is that the new versions have adopted [Google Play Services' Task API](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task).
+The behavior of each feature has stayed consistent in this migration. The only
+notable change is that the new versions have adopted the
+[Google Play services Task API](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task).
 
 Use the list below to migrate to the new libraries and benefit from new features
-and bug fixes. If you use multiple Play features, you can simply import multiple
+and bug fixes. If you use multiple Play features, you can import multiple
 libraries in your `build.gradle` file at once.
 
 ### Common migration steps
@@ -51,7 +54,7 @@ libraries in your `build.gradle` file at once.
 // In your app's build.gradle file:
 ...
 dependencies {
-    // This dependency is downloaded from the https://developer.android.com/studio/build/dependencies#google-maven.
+    // This dependency is downloaded from the Google's Maven repository.
     // So, make sure you also include that repository in your project's build.gradle file.
     implementation 'com.google.android.play:asset-delivery:2.3.0'
 
@@ -67,7 +70,7 @@ dependencies {
 // In your app's build.gradle.kts file:
 ...
 dependencies {
-    // This dependency is downloaded from the https://developer.android.com/studio/build/dependencies#google-maven.
+    // This dependency is downloaded from the Google's Maven repository.
     // So, make sure you also include that repository in your project's build.gradle file.
     implementation("com.google.android.play:asset-delivery:2.3.0")
 
@@ -85,7 +88,7 @@ dependencies {
 // In your app's build.gradle file:
 ...
 dependencies {
-    // This dependency is downloaded from the https://developer.android.com/studio/build/dependencies#google-maven.
+    // This dependency is downloaded from the Google's Maven repository.
     // So, make sure you also include that repository in your project's build.gradle file.
     implementation 'com.google.android.play:feature-delivery:2.1.0'
 
@@ -101,7 +104,7 @@ dependencies {
 // In your app's build.gradle.kts file:
 ...
 dependencies {
-    // This dependency is downloaded from the https://developer.android.com/studio/build/dependencies#google-maven.
+    // This dependency is downloaded from the Google's Maven repository.
     // Make sure you also include that repository in your project's build.gradle file.
     implementation("com.google.android.play:feature-delivery:2.1.0")
 
@@ -119,7 +122,7 @@ dependencies {
 // In your app's build.gradle file:
 ...
 dependencies {
-    // This dependency is downloaded from the https://developer.android.com/studio/build/dependencies#google-maven.
+    // This dependency is downloaded from the Google's Maven repository.
     // Make sure you also include that repository in your project's build.gradle file.
     implementation 'com.google.android.play:review:2.0.2'
 
@@ -135,7 +138,7 @@ dependencies {
 // In your app's build.gradle.kts file:
 ...
 dependencies {
-    // This dependency is downloaded from the https://developer.android.com/studio/build/dependencies#google-maven.
+    // This dependency is downloaded from the Google's Maven repository.
     // Make sure you also include that repository in your project's build.gradle file.
     implementation("com.google.android.play:review:2.0.2")
 
@@ -153,7 +156,7 @@ dependencies {
 // In your app's build.gradle file:
 ...
 dependencies {
-    // This dependency is downloaded from the https://developer.android.com/studio/build/dependencies#google-maven.
+    // This dependency is downloaded from the Google's Maven repository.
     // Make sure you also include that repository in your project's build.gradle file.
     implementation 'com.google.android.play:app-update:2.1.0'
 
@@ -169,7 +172,7 @@ dependencies {
 // In your app's build.gradle.kts file:
 ...
 dependencies {
-    // This dependency is downloaded from the https://developer.android.com/studio/build/dependencies#google-maven.
+    // This dependency is downloaded from the Google's Maven repository.
     // Make sure you also include that repository in your project's build.gradle file.
     implementation("com.google.android.play:app-update:2.1.0")
 

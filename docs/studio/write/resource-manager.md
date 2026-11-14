@@ -4,19 +4,18 @@ url: https://developer.android.com/studio/write/resource-manager
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/write/llms.txt
+
 Resource Manager is a tool window for importing, creating, managing, and
 using resources in your app. To open the tool window, select
 **View \> Tool Windows \> Resource Manager** from the menu or select
 **Resource Manager** in the left side bar.
+![The Resource Manager tool window in Android Studio.](https://developer.android.com/static/images/studio/write/resource-manager-2x.png) **Figure 1.** The Resource Manager tool window.
 
-![](https://developer.android.com/static/images/studio/write/resource-manager-2x.png)
-
-**Figure 1.** The Resource Manager tool window.
-
-1. Click **Add** ![](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png) to add a new resource to your project. You can add image assets, vector assets, fonts, or resource files and values, or you can [import drawables](https://developer.android.com/studio/write/resource-manager#import) into your project.
+1. Click **Add** ![](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png) to add a new resource to your project. You can add image assets, vector assets, fonts, or resource files and values, or you can [import drawables](https://developer.android.com/studio/write/resource-manager.md.txt#import) into your project.
 2. Select a module to view resources specific to that module.
 3. Search for a resource across all modules in your project using the search bar.
-4. Display your resources according to [type](https://developer.android.com/guide/topics/resources/available-resources) in the Resource Manager. Use these tabs to switch between resource types. Click the overflow icon ![overflow icon](https://developer.android.com/static/images/studio/write/overflow-icon-2x.png) to show additional resource types.
+4. Display your resources according to [type](https://developer.android.com/guide/topics/resources/available-resources) in the Resource Manager. Use these tabs to switch between resource types. Click the overflow icon ![More options menu button](https://developer.android.com/static/images/studio/write/overflow-icon-2x.png) to show additional resource types.
 5. Filter the displayed resources from local dependent modules, external libraries, and the Android framework using the filter button. You can also use the filter to show theme attributes.
 6. Preview your resources in the main content area. Right-click a resource to see a context menu where you can rename the resource and search your app for where the resource is used.
 7. Click these buttons to view your resources as either tiles or lists.
@@ -28,7 +27,7 @@ way to bulk-import drawables into your project. To bulk-import, you can either:
 - Drag your image files---including SVG files---directly onto the Resource Manager.
 - Use the **Import Drawables** wizard.
 
-For more information, see the [Import drawables into your project](https://developer.android.com/studio/write/resource-manager#import)
+For more information, see the [Import drawables into your project](https://developer.android.com/studio/write/resource-manager.md.txt#import)
 section.
 
 To see more detailed information, double-click a resource in Resource
@@ -36,14 +35,10 @@ Manager. If you have multiple versions of a resource, this detailed view
 displays each version along with any associated qualifiers, as shown in
 figure 2. From here, you can double-click a specific version to open it
 in an editor window.
-
-![](https://developer.android.com/static/images/studio/write/resource-manager-flowers-2x.png)
-
-**Figure 2.** The Resource Manager showing versions of an image resource for
-different screen densities.
+![The Resource Manager showing versions of a drawable resource for different screen densities.](https://developer.android.com/static/images/studio/write/resource-manager-flowers-2x.png) **Figure 2.** The Resource Manager showing versions of an image resource for different screen densities.
 
 > [!NOTE]
-> **Note:** For better performance and scalability across different screen densities, prioritize vector graphics over raster formats. Use [Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio) to efficiently create, import, and manage your vector drawables.
+> **Note:** For better performance and scalability across different screen densities, prioritize vector graphics over raster formats. Use [Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio.md.txt) to efficiently create, import, and manage your vector drawables.
 
 ## Import drawables into your project
 
@@ -60,9 +55,7 @@ To import image resources into your project, do the following:
      2. Choose **Import Drawables**, as shown in figure 3.
      3. Select the files and folders that you want to import.
 
-   ![](https://developer.android.com/static/images/studio/write/import-drawables-menu-2x.png)
-
-   **Figure 3.** Select **Import Drawables** from the menu.
+   ![Select Import Drawables from the Resource Manager add menu.](https://developer.android.com/static/images/studio/write/import-drawables-menu-2x.png) **Figure 3.** Select **Import Drawables** from the menu.
 2. The **Import drawables** dialog appears, as shown in figure 4. This dialog
    displays a list of the resources you're importing. You can rename resources
    by clicking the box above a resource's preview.
@@ -78,10 +71,7 @@ To import image resources into your project, do the following:
 
    For more information on resource qualifiers, see [Provide alternative
    resources](https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources).
-
-   ![](https://developer.android.com/static/images/studio/write/import-drawables-add-qualifiers-2x.png)
-
-   **Figure 4.** The **Import drawables** dialog.
+   ![The Import drawables dialog showing resource names and qualifiers.](https://developer.android.com/static/images/studio/write/import-drawables-add-qualifiers-2x.png) **Figure 4.** The **Import drawables** dialog.
 
    Once you've named your resources and added any necessary qualifiers, click
    **Next**.
@@ -90,10 +80,7 @@ To import image resources into your project, do the following:
 
 In the **Resource Manager** window, your resources are now ready for you to use
 in your project, as shown in figure 5.
-
-![](https://developer.android.com/static/images/studio/write/resource-manager-after-import-2x.png)
-
-**Figure 5.** The Resource Manager now shows your imported images.
+![The Resource Manager displaying newly imported image resources.](https://developer.android.com/static/images/studio/write/resource-manager-after-import-2x.png) **Figure 5.** The Resource Manager now shows your imported images.
 
 ### Automatically parse drawable densities
 
@@ -138,7 +125,7 @@ iOS scaling factor: @2x
     **Resource path:** *\<projectFolder\>*/*\<moduleFolder\> */src/main/res/***drawable-xhdpi***/icon_alternate.png
 
 For more information on supporting devices with different pixel densities, see
-[Support different pixel densities](https://developer.android.com/training/multiscreen/screendensities).
+[Support different pixel densities](https://developer.android.com/training/multiscreen/screendensities.md.txt).
 
 ## Using resources in Jetpack Compose
 
@@ -155,10 +142,10 @@ seamlessly reference your assets from your Compose UI hierarchy.
 
 For information about advanced resource handling---including dynamic font loading,
 configuration-specific resources, and Compose-specific resource libraries---see
-the documentation on [Resources in Compose](https://developer.android.com/develop/ui/compose/resources).
+the documentation on [Resources in Compose](https://developer.android.com/develop/ui/compose/resources.md.txt).
 
 ## Additional resources
 
 ### Views content
 
-- [Manage your app's UI resources with Resource Manager (Views)](https://developer.android.com/studio/views/resource-manager-views)
+- [Manage your app's UI resources with Resource Manager (Views)](https://developer.android.com/studio/views/resource-manager-views.md.txt)

@@ -4,6 +4,8 @@ url: https://developer.android.com/topic/libraries/architecture/paging
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/libraries/architecture/paging/llms.txt
+
 # Paging 2 library overview
 Part of [Android Jetpack](https://developer.android.com/jetpack).
 
@@ -13,8 +15,8 @@ resources.
 
 This guide provides several conceptual examples of the library, along with an
 overview of how it works. To view complete examples of how this library
-functions, try out the codelab and samples from the [additional
-resources](https://developer.android.com/topic/libraries/architecture/paging#additional-resources) section.
+functions, try out the codelab and samples from the [additional resources](https://developer.android.com/topic/libraries/architecture/paging.md.txt#additional-resources)
+section.
 
 > [!CAUTION]
 > **Caution:** This guide covers an older, deprecated version of the Paging library. For more information about the latest stable version of Paging, see the [Paging
@@ -63,15 +65,13 @@ This section describes and shows the main components of the paging library.
 
 ### PagedList
 
-The Paging Library's key component is the
-[`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList) class, which loads
-chunks of your app's data, or *pages* . As more data is needed, it's
-paged into the existing `PagedList` object. If any loaded data changes, a new
-instance of `PagedList` is emitted to the observable data holder from a
-[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) or RxJava2-based object. As
-[`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList) objects are generated,
-your app's UI presents their contents, all while respecting your UI controllers'
-[lifecycles](https://developer.android.com/topic/libraries/architecture/lifecycle).
+The Paging Library's key component is the [`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList.md.txt) class, which loads
+chunks of your app's data, or *pages* . As more data is needed, it's paged into
+the existing `PagedList` object. If any loaded data changes, a new instance of
+`PagedList` is emitted to the observable data holder from a [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt) or
+RxJava2-based object. As [`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList.md.txt) objects are generated, your app's UI
+presents their contents, all while respecting your UI controllers'
+[lifecycles](https://developer.android.com/topic/libraries/architecture/lifecycle.md.txt).
 
 The following code snippet shows how you can configure your app's view model to
 load and present data using a `LiveData` holder of `PagedList` objects:
@@ -103,22 +103,20 @@ public class ConcertViewModel extends ViewModel {
 
 ### Data
 
-Each instance of [`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList) loads
-an up-to-date snapshot of your app's data from its corresponding
-[`DataSource`](https://developer.android.com/reference/androidx/paging/DataSource) object. Data flows
-from your app's backend or database into the `PagedList` object.
+Each instance of [`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList.md.txt) loads an up-to-date snapshot of your app's
+data from its corresponding [`DataSource`](https://developer.android.com/reference/androidx/paging/DataSource.md.txt) object. Data flows from your app's
+backend or database into the `PagedList` object.
 
-The following example uses the [Room persistence
-library](https://developer.android.com/training/data-storage/room) to organize your app's data, but if you
-want to store your data using another means, you can also [provide your own data
-source factory](https://developer.android.com/topic/libraries/architecture/paging/data#custom-data-source).
+The following example uses the [Room persistence library](https://developer.android.com/training/data-storage/room.md.txt) to organize your
+app's data, but if you want to store your data using another means, you can also
+[provide your own data source factory](https://developer.android.com/topic/libraries/architecture/paging/data.md.txt#custom-data-source).
 
 ### Kotlin
 
 ```kotlin
 @Dao
 interface ConcertDao {
-    // The Int type parameter tells Room to use a https://developer.android.com/reference/androidx/paging/PositionalDataSource object.
+    // The Int type parameter tells Room to use a PositionalDataSource object.
     @Query("SELECT * FROM concerts ORDER BY date DESC")
     fun concertsByDate(): DataSource.Factory<Int, Concert>
 }
@@ -130,25 +128,22 @@ interface ConcertDao {
 @Dao
 public interface ConcertDao {
     // The Integer type parameter tells Room to use a
-    // https://developer.android.com/reference/androidx/paging/PositionalDataSource object.
+    // PositionalDataSource object.
     @Query("SELECT * FROM concerts ORDER BY date DESC")
     DataSource.Factory<Integer, Concert> concertsByDate();
 }
 ```
 
 To learn more about how you can load data into `PagedList` objects, see the
-guide on how to [Load paged data](https://developer.android.com/topic/libraries/architecture/paging/data).
+guide on how to [Load paged data](https://developer.android.com/topic/libraries/architecture/paging/data.md.txt).
 
 ### UI
 
-The [`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList) class works with a
-`PagedListAdapter` to load items into a
-[`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView). These
-classes work together to fetch and display content as it's loaded, prefetching
-out-of-view content and animating content changes.
+The [`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList.md.txt) class works with a `PagedListAdapter` to load items into a
+[`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.md.txt). These classes work together to fetch and display content
+as it's loaded, prefetching out-of-view content and animating content changes.
 
-To learn more, see the guide on how to [Display paged
-lists](https://developer.android.com/topic/libraries/architecture/paging/ui).
+To learn more, see the guide on how to [Display paged lists](https://developer.android.com/topic/libraries/architecture/paging/ui.md.txt).
 
 ## Support different data architectures
 
@@ -166,7 +161,7 @@ Every once in a while, the endpoint of each data flow runs out of data to load,
 at which point it requests more data from the component that provided the data.
 For example, when an on-device database runs out of data, it requests more data
 from the server.
-![Diagrams of data flows](https://developer.android.com/static/topic/libraries/architecture/images/paging-library-data-flow.png) **Figure 1.** How data flows through each of the architectures that the Paging Library supports
+![Data flow across supported Paging Library architectures](https://developer.android.com/static/topic/libraries/architecture/images/paging-library-data-flow.png) **Figure 1.** How data flows through each of the architectures that the Paging Library supports.
 
 The remainder of this section provides recommendations for configuring each
 data flow use case.
@@ -174,29 +169,25 @@ data flow use case.
 ### Network only
 
 To display data from a backend server, use the synchronous version of the
-[Retrofit API](http://square.github.io/retrofit/) to load
-information into [your own custom `DataSource`
-object](https://developer.android.com/topic/libraries/architecture/paging/data#custom-data-source).
+[Retrofit API](https://square.github.io/retrofit/) to load information into [your own custom
+`DataSource` object](https://developer.android.com/topic/libraries/architecture/paging/data#custom-data-source).
 
 > [!NOTE]
-> **Note:** The Paging Library's [`DataSource`](https://developer.android.com/reference/androidx/paging/DataSource) objects don't provide any error handling because different apps handle and present error UIs in different ways. If an error occurs, defer to your result callback, and retry the request later. See the [PagingWithNetwork
-> sample](https://github.com/android/architecture-components-samples/tree/main/PagingWithNetworkSample) for an example of this behavior.
+> **Note:** The Paging Library's [`DataSource`](https://developer.android.com/reference/androidx/paging/DataSource.md.txt) objects don't provide any error handling because different apps handle and present error UIs in different ways. If an error occurs, defer to your result callback, and retry the request later. See the [PagingWithNetwork sample](https://github.com/android/architecture-components-samples/tree/main/PagingWithNetworkSample) for an example of this behavior.
 
 ### Database only
 
-Set up your [`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView)
-to observe local storage, preferably using the [Room persistence
-library](https://developer.android.com/topic/libraries/architecture/room). That way, whenever data is
-inserted or modified in your app's database, these changes are automatically
-reflected in the `RecyclerView` that's displaying this data.
+Set up your [`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.md.txt) to observe local storage, preferably using the
+[Room persistence library](https://developer.android.com/training/data-storage/room.md.txt). That way, whenever data is inserted or modified
+in your app's database, these changes are automatically reflected in the
+`RecyclerView` that's displaying this data.
 
 ### Network and database
 
 After you've started observing the database, you can listen for when the
-database is out of data by using
-[`PagedList.BoundaryCallback`](https://developer.android.com/reference/androidx/paging/PagedList.BoundaryCallback).
-You can then fetch more items from your network and insert them into the
-database. If your UI is observing the database, that's all you need to do.
+database is out of data by using [`PagedList.BoundaryCallback`](https://developer.android.com/reference/androidx/paging/PagedList.BoundaryCallback.md.txt). You can
+then fetch more items from your network and insert them into the database. If
+your UI is observing the database, that's all you need to do.
 
 ## Handle network errors
 
@@ -223,59 +214,48 @@ This section shows how to upgrade an app that has a common existing design.
 ### Custom paging solutions
 
 If you use custom functionality to load small subsets of data from your app's
-data source, you can replace this logic with that from the
-[`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList) class. Instances of
-`PagedList` offer built-in connections to common data sources. These instances
-also provide adapters for
-[`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView) objects that
-you might include in your app's UI.
+data source, you can replace this logic with that from the [`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList.md.txt)
+class. Instances of `PagedList` offer built-in connections to common data
+sources. These instances also provide adapters for [`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.md.txt) objects
+that you might include in your app's UI.
 
 ### Data loaded using lists instead of pages
 
 If you use an in-memory list as the backing data structure for your UI's
-adapter, consider observing data updates using a
-[`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList) class if the number
-of items in the list can become large. Instances of `PagedList` can use either
-[`LiveData<PagedList>`](https://developer.android.com/reference/androidx/lifecycle/LiveData) or
-`Observable<List>` to pass data updates to your app's UI, minimizing load times
-and memory usage. Better still, replacing a [`List`](https://developer.android.com/reference/java/util/List)
-object with a `PagedList` object in your app doesn't require any changes to your
-app's UI structure or data updating logic.
+adapter, consider observing data updates using a [`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList.md.txt) class if the
+number of items in the list can become large. Instances of `PagedList` can use
+either [`LiveData<PagedList>`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt) or `Observable<List>` to pass data updates to
+your app's UI, minimizing load times and memory usage. Better still, replacing a
+[`List`](https://developer.android.com/reference/java/util/List.md.txt) object with a `PagedList` object in your app doesn't require any
+changes to your app's UI structure or data updating logic.
 
 ### Associate a data cursor with a list view using CursorAdapter
 
-Your app might use a [`CursorAdapter`](https://developer.android.com/reference/android/widget/CursorAdapter)
-to associate data from a [`Cursor`](https://developer.android.com/reference/android/database/Cursor) with a
-[`ListView`](https://developer.android.com/reference/android/widget/ListView). In that case, you usually need
-to migrate from a `ListView` to a
-[`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView) as your
-app's list UI container, then replace the `Cursor`
-component with either [Room](https://developer.android.com/topic/libraries/architecture/room) or
+Your app might use a [`CursorAdapter`](https://developer.android.com/reference/android/widget/CursorAdapter.md.txt) to associate data from a
+[`Cursor`](https://developer.android.com/reference/android/database/Cursor.md.txt) with a [`ListView`](https://developer.android.com/reference/android/widget/ListView.md.txt). In that case, you usually need to
+migrate from a `ListView` to a [`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.md.txt) as your app's list UI
+container, and then replace the `Cursor` component with either [Room](https://developer.android.com/training/data-storage/room.md.txt) or
 `PositionalDataSource`, depending on whether instances of `Cursor` access a
 SQLite database.
 
-In some situations, such as when working with instances of
-[`Spinner`](https://developer.android.com/reference/android/widget/Spinner), you provide only the adapter
-itself. A library then takes the data that's loaded into that adapter and
-displays the data for you. In these situations, change the type of your
-adapter's data to
-[`LiveData<PagedList>`](https://developer.android.com/reference/androidx/lifecycle/LiveData), then wrap
-this list in an [`ArrayAdapter`](https://developer.android.com/reference/android/widget/ArrayAdapter) object
-before attempting to have a library class inflate these items in a UI.
+In some situations, such as when working with instances of [`Spinner`](https://developer.android.com/reference/android/widget/Spinner.md.txt), you
+provide only the adapter itself. A library then takes the data that's loaded
+into that adapter and displays the data for you. In these situations, change the
+type of your adapter's data to [`LiveData<PagedList>`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt), and then wrap this
+list in an [`ArrayAdapter`](https://developer.android.com/reference/android/widget/ArrayAdapter.md.txt) object before attempting to have a library class
+inflate these items in a UI.
 
 ### Load content asynchronously using AsyncListUtil
 
-If you're using
-[`AsyncListUtil`](https://developer.android.com/reference/androidx/recyclerview/widget/AsyncListUtil) objects to
-load and display groups of information asynchronously, the Paging Library lets
-you load data more easily:
+If you're using [`AsyncListUtil`](https://developer.android.com/reference/androidx/recyclerview/widget/AsyncListUtil.md.txt) objects to load and display groups of
+information asynchronously, the Paging Library simplifies loading data:
 
 - **Your data doesn't need to be positional.** The Paging Library lets you load data directly from your backend using keys that the network provides.
 - **Your data can be uncountably large.** Using the Paging Library, you can load data into pages until there isn't any data remaining.
 - **You can observe your data more easily.** The Paging library can present your data that your app's ViewModel holds in an observable data structure.
 
 > [!NOTE]
-> **Note:** If your existing app accesses a SQLite database, see the section on [using the Room persistence library](https://developer.android.com/topic/libraries/architecture/room).
+> **Note:** If your existing app accesses a SQLite database, see the section on [using the Room persistence library](https://developer.android.com/training/data-storage/room.md.txt).
 
 ## Database examples
 
@@ -286,8 +266,7 @@ work together.
 
 The following code snippet shows all the pieces working together. As concert
 events are added, removed, or changed in the database, the content in the
-[`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView) is
-automatically and efficiently updated:
+[`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.md.txt) is automatically and efficiently updated:
 
 ### Kotlin
 
@@ -417,10 +396,8 @@ public class ConcertAdapter
 
 ### Observing paged data using RxJava2
 
-If you prefer using
-[RxJava2](https://github.com/ReactiveX/RxJava) instead of
-[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData), you can instead
-create an `Observable` or `Flowable` object:
+If you prefer using [RxJava2](https://github.com/ReactiveX/RxJava) instead of [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt), you
+can instead create an `Observable` or `Flowable` object:
 
 ### Kotlin
 
@@ -517,9 +494,8 @@ public class ConcertActivity extends AppCompatActivity {
 ```
 
 The code for the `ConcertDao` and `ConcertAdapter` are the same for an
-[RxJava2](https://github.com/ReactiveX/RxJava)-based
-solution as they are for a
-[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData)-based solution.
+[RxJava2](https://github.com/ReactiveX/RxJava)-based solution as they are for a
+[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt)-based solution.
 
 ## Provide feedback
 
@@ -530,13 +506,11 @@ Share your feedback and ideas with us through these resources:
 
 ## Additional resources
 
-To learn more about the Paging Library, consult the
-following resources.
+To learn more about the Paging Library, consult the following resources.
 
 ### Samples
 
-- [Android Architecture Components Paging
-  sample](https://github.com/android/architecture-components-samples/tree/paging2/PagingSample)
+- [Android Architecture Components Paging sample](https://github.com/android/architecture-components-samples/tree/paging2/PagingSample)
 - [Paging With Network Sample](https://github.com/android/architecture-components-samples/tree/paging2/PagingWithNetworkSample)
 
 ### Codelabs
@@ -545,13 +519,13 @@ following resources.
 
 ### Videos
 
-- [Android Jetpack: manage infinite lists with RecyclerView and Paging
-  (Google I/O '18)](https://www.youtube.com/watch?v=BE5bsyGGLf4)
+- [Android Jetpack: manage infinite lists with RecyclerView and Paging (Google
+  I/O '18)](https://www.youtube.com/watch?v=BE5bsyGGLf4)
 - [Android Jetpack: Paging](https://www.youtube.com/watch?v=QVMqCRs0BNA)
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Migrate to Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-migration)
-- [Display paged lists](https://developer.android.com/topic/libraries/architecture/paging/ui)
-- [Gather paged data](https://developer.android.com/topic/libraries/architecture/paging/data)
+- [Migrate to Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-migration.md.txt)
+- [Display paged lists](https://developer.android.com/topic/libraries/architecture/paging/ui.md.txt)
+- [Gather paged data](https://developer.android.com/topic/libraries/architecture/paging/data.md.txt)

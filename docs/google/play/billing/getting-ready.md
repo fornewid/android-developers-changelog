@@ -4,30 +4,32 @@ url: https://developer.android.com/google/play/billing/getting-ready
 source: md.txt
 ---
 
-> [!NOTE]
-> **Note:** Before reading this topic, make sure you've read through the [Play Console Help Center documentation](https://support.google.com/googleplay/android-developer/topic/3450769), which describes critical purchase-related concepts, as well as how to create and configure your products for sale.
+> Documentation index: https://developer.android.com/google/play/billing/llms.txt
 
-This topic lists and describes the setup steps you need to take before you can
-sell products in your app. At a high level, this setup includes creating a
+> [!NOTE]
+> **Note:** Before reading this document, make sure you've read through the [Play Console Help Center documentation](https://support.google.com/googleplay/android-developer/topic/3450769), which describes critical purchase-related concepts, as well as how to create and configure your products for sale.
+
+This document lists and describes the setup steps you need to take before you
+can sell products in your app. At a high level, this setup includes creating a
 developer account, creating and configuring the products you want to sell,
 and enabling and configuring the APIs that you use to sell and manage your
-products. This topic also describes how to configure Real-time developer
+products. This document also describes how to configure Real-time developer
 notifications to be notified whenever the status of a product changes.
 
 ## Set up a Google Play developer account
 
 To publish your apps and games on Google Play, use the
-[Google Play Console](https://developer.android.com/distribute/console). You also use the Google Play
-Console to manage your billing-related products and settings.
+[Google Play Console](https://developer.android.com/distribute/console). You also use the Google Play Console to
+manage your billing-related products and settings.
 
 To access the Google Play Console, you need to
 [set up a Google Play Developer Account](https://support.google.com/googleplay/android-developer/answer/6112435).
 
 To sell paid apps and in-app purchases on Google Play, you must also set
-up a profile in the [Google Payments Center](https://pay.google.com) and
-then link that profile to your Google Play developer account. To learn how
-to link your profile to your account, or to learn how to check if you already
-have a linked account and profile, see
+up a profile in the [Google Payments Center](https://pay.google.com) and then link that profile to
+your Google Play developer account. To learn how to link your profile to your
+account, or to learn how to check if you already have a linked account and
+profile, see
 [Link a Google Play developer account to your payments profile](https://support.google.com/googleplay/android-developer/answer/3092739).
 
 ## Enable billing-related features in the Google Play Console
@@ -45,8 +47,9 @@ Android APIs that connect you to Google Play. From there,
 you can access purchase information, query for updates about purchases,
 prompt a user to make new purchases, and more.
 
-The Google Play Billing Library is available from [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven). Add the dependency to your app's
-`build.gradle` file as shown:
+The Google Play Billing Library is available from
+[Google's Maven repository](https://developer.android.com/build/remote-repositories.md.txt#google-maven). Add the dependency to your app's `build.gradle`
+file as shown:
 
 ### Groovy
 
@@ -100,13 +103,11 @@ possible.
 ### Upload your app
 
 Once you've added the library to your app, build and publish your
-app. For this step,
-[create your app](https://support.google.com/googleplay/android-developer/answer/113469)
-and then publish to any track, including the
-[internal test track](https://support.google.com/googleplay/android-developer/answer/3131213).
+app. For this step, [create your app](https://support.google.com/googleplay/android-developer/answer/113469) and then publish to any track,
+including the [internal test track](https://support.google.com/googleplay/android-developer/answer/3131213).
 
 > [!NOTE]
-> **Note:** Purchases made in apps published to the internal test track or in the draft stage are subject to [spend limits](https://developer.android.com/google/play/billing/test#spend-limits).
+> **Note:** Purchases made in apps published to the internal test track or in the draft stage are subject to [spend limits](https://developer.android.com/google/play/billing/test.md.txt#spend-limits).
 
 ## Create and configure your products
 
@@ -122,18 +123,16 @@ renewal type for the base plan.
 The Google Play Console provides a web interface that you can use to
 manage your products.
 
-- To create and configure one-time products, see
-  [Create a managed product](https://support.google.com/googleplay/android-developer/answer/1153481).
+- To create and configure one-time products, see [Create a managed product](https://support.google.com/googleplay/android-developer/answer/1153481).
   Note that the Google Play Console refers to one-time products as
   *managed products*.
 
-- To create and configure subscriptions, see
-  [Create a subscription](https://support.google.com/googleplay/android-developer/answer/140504).
+- To create and configure subscriptions, see [Create a subscription](https://support.google.com/googleplay/android-developer/answer/140504).
 
-As an alternative to the web interface, you can also manage your products by using the
-[`inappproducts`](https://developers.google.com/android-publisher/api-ref/rest/v3/inappproducts)
-REST resource for in-app products and the [`monetization.subscriptions`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions) REST resource for subscription products
-in the Google Play Developer API.
+As an alternative to the web interface, you can also manage your products by
+using the [`inappproducts`](https://developers.google.com/android-publisher/api-ref/rest/v3/inappproducts) REST resource for in-app products and the
+[`monetization.subscriptions`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions) REST resource for subscription products in
+the Google Play Developer API.
 
 ## Configure the Google Play Developer API
 
@@ -147,8 +146,8 @@ configure access to the Google Play Developer API through the Google Play
 Console. For instructions, see
 [Getting Started with Google Play Developer API](https://developers.google.com/android-publisher/getting_started).
 
-Once you've configured access to the Google Play Developer API, be sure that
-you've granted the **View financial data** permission, which is needed to
+Once you've configured access to the Google Play Developer API, be sure
+that you've granted the **View financial data** permission, which is needed to
 access billing-related functionality. For information on best practices,
 along with more information on configuring permissions, see
 [Add developer account users and manage permissions](https://support.google.com/googleplay/android-developer/answer/2528691).
@@ -157,38 +156,31 @@ along with more information on configuring permissions, see
 
 Real-time developer notifications (RTDN) is a mechanism to receive
 notifications from Google whenever there is a change in a user's entitlement
-within your app. RTDN leverages the use of
-[Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/overview), which
-allows you to receive data that is either pushed to a URL that you set or is
-polled using a
-[client library](https://cloud.google.com/pubsub/docs/reference/libraries).
-These notifications allow you to react immediately to subscription state
-changes, avoiding the need to poll the Google Play Developer API.
-Note that inefficient use of the Google Play Developer API can lead to API
-quota restrictions.
+within your app. RTDN uses [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/overview), which
+lets you receive data that is either pushed to a URL that you set or is polled
+using a [client library](https://cloud.google.com/pubsub/docs/reference/libraries). These notifications let you react immediately
+to subscription state changes, avoiding the need to poll the
+Google Play Developer API. Note that inefficient use of the
+Google Play Developer API can lead to API quota restrictions.
 
 > [!NOTE]
 > **Note:** You must call the [Google Play Developer API](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) after receiving Real-time developer notifications to get the complete status and update your own backend state. These notifications tell you only that the purchase state changed. They do not give you complete information about the purchase.
 
-[Cloud Pub/Sub](https://cloud.google.com/pubsub/) is a fully-managed
-real-time messaging service that you can use to send and receive messages
-between independent applications. Google Play uses Cloud Pub/Sub
-to publish push notifications on topics to which you subscribe.
+[Cloud Pub/Sub](https://cloud.google.com/pubsub/) is a fully-managed real-time messaging service that you can
+use to send and receive messages between independent applications. Google Play
+uses Cloud Pub/Sub to publish push notifications on topics to which you
+subscribe.
 
 To receive notifications, you need to create a backend server to
 consume the messages sent to your topic. Your server can then consume
 these messages by responding to HTTPS requests to a registered endpoint
-or by using the
-[Cloud Pub/Sub Client Libraries](https://cloud.google.com/pubsub/docs/reference/libraries).
-These libraries are available in a variety of languages. More information can
-also be found in the
-[Create a Pub/Sub subscription](https://developer.android.com/google/play/billing/getting-ready#create-sub) section in this topic.
+or by using the [Cloud Pub/Sub Client Libraries](https://cloud.google.com/pubsub/docs/reference/libraries). These libraries are
+available in a variety of languages. More information can also be found in the
+[Create a Pub/Sub subscription](https://developer.android.com/google/play/billing/getting-ready.md.txt#create-sub) section in this document.
 
 ### Determine pricing and quotas
 
-For details on pricing and quotas, refer to
-[pricing](https://cloud.google.com/pubsub/pricing) and
-[quotas](https://cloud.google.com/pubsub/quotas).
+For details on pricing and quotas, refer to [pricing](https://cloud.google.com/pubsub/pricing) and [quotas](https://cloud.google.com/pubsub/quotas).
 
 #### Estimate data usage
 
@@ -202,29 +194,21 @@ each user during a billing cycle.
 ### Setup Cloud Pub/Sub
 
 To enable Real-time developer notifications, you must first set up
-Cloud Pub/Sub using your own Google Cloud Platform (GCP) project and then
-enable the notifications for your app.
+Cloud Pub/Sub using your own Google Cloud project and then enable the
+notifications for your app.
 
-To use Cloud Pub/Sub, you must have a GCP project with the Cloud
-Pub/Sub API enabled. If you are not familiar with GCP and Cloud Pub/Sub, see
-the [Quickstart guide](https://cloud.google.com/pubsub/docs/quickstart-console).
+To use Cloud Pub/Sub, you must have a Google Cloud project with the Cloud
+Pub/Sub API enabled. If you are not familiar with Google Cloud and Cloud
+Pub/Sub, see the [Quickstart guide](https://cloud.google.com/pubsub/docs/quickstart-console).
 
 > [!NOTE]
-> **Note:** You must configure Real-time developer notifications for
-> *each* Android app separately. This means that you can choose to use the
-> same GCP project as the one used to access the Play Developer API, or you
-> can create a new GCP project for each app. If you have multiple apps, you
-> must use the same Google Cloud Console project for the Google Play Developer
-> API, but you can use different Google Cloud Console projects for each
-> individual app.
+> **Note:** You must configure Real-time developer notifications for *each* Android app separately. This means that you can choose to use the same Google Cloud project as the one used to access the Play Developer API, or you can create a new Google Cloud project for each app. If you have multiple apps, you must use the same Google Cloud Console project for the Google Play Developer API, but you can use different Google Cloud Console projects for each individual app.
 
 ### Create a topic
 
-To start receiving notifications, you must create a
-[topic](https://cloud.google.com/pubsub/architecture#the_basics_of_a_publishsubscribe_service)
-to which Google Play should publish the notifications. To create a
-topic, follow the instructions in
-[Create the topic](https://cloud.google.com/pubsub/docs/quickstart-console#create_a_topic).
+To start receiving notifications, you must create a [topic](https://cloud.google.com/pubsub/architecture#the_basics_of_a_publishsubscribe_service) to which Google
+Play should publish the notifications. To create a topic, follow the
+instructions in [Create the topic](https://cloud.google.com/pubsub/docs/quickstart-console#create_a_topic).
 
 ### Create a Pub/Sub subscription
 
@@ -232,8 +216,8 @@ To receive messages published to a topic, you must create a Pub/Sub
 subscription to that topic. To create a Pub/Sub subscription, do the
 following:
 
-1. Read the [Cloud Pub/Sub Subscriber Guide](https://cloud.google.com/pubsub/subscriber) to determine whether to configure the subscription as either a *push
-   subscription* or a *pull subscription* .
+1. Read the [Cloud Pub/Sub Subscriber Guide](https://cloud.google.com/pubsub/subscriber) to determine whether to configure the subscription as either a *push subscription* or a *pull
+   subscription* .
    - A push subscription allows Cloud Pub/Sub to send notifications to your secure backend by issuing HTTPS requests.
    - A pull subscription requires your secure backend server to initiate requests to the Cloud Pub/Sub server to retrieve messages.
 2. Follow the instructions in [Add a subscription](https://cloud.google.com/pubsub/docs/quickstart-console#add_a_subscription) to create a subscription.
@@ -243,8 +227,8 @@ following:
 
 ### Grant publish rights on your topic
 
-[Cloud Pub/Sub](https://cloud.google.com/pubsub/) requires that you grant
-Google Play privileges to publish notifications to your topic.
+[Cloud Pub/Sub](https://cloud.google.com/pubsub/) requires that you grant Google Play privileges to publish
+notifications to your topic.
 
 1. Open the [Google Cloud Console](https://console.cloud.google.com/).
 2. Select your project, and then click **Pub/Sub** in the left-hand navigation.
@@ -258,7 +242,7 @@ Google Play privileges to publish notifications to your topic.
    ![adding google play service account as pub/sub publisher](https://developer.android.com/static/images/google/play/billing/add-service-account.png) **Figure 2.** Adding Google Play service account as Pub/Sub publisher.
 5. Click **Save** to complete the topic set up.
 
-   ![a configured topic](https://developer.android.com/static/images/google/play/billing/configured-topic.png) **Figure 3.** A configured topic.
+   ![A configured Cloud Pub/Sub topic in Google Cloud Console.](https://developer.android.com/static/images/google/play/billing/configured-topic.png) **Figure 3.** A configured topic.
 
 > [!NOTE]
 > **Note:** If your organization's [domain restricted sharing](https://cloud.google.com/resource-manager/docs/organization-policy/domain-restricted-sharing#how-drs-works) configuration prevents you from granting publish permissions, you must [add an exception](https://cloud.google.com/resource-manager/docs/organization-policy/restricting-domains#configure-exceptions) for the Google Play service account.
@@ -270,11 +254,11 @@ To enable Real-time developer notifications for your app, do the following:
 1. Open the [Google Play Console](https://play.google.com/console/).
 2. Select your app.
 3. Go to **Monetize \> Monetization setup**.
-4. Scroll to the **Real-time developer notifications** section at the top
-   of the page.
+4. Go to the **Real-time developer notifications** section at the top of
+   the page.
 
-   ![Real-time developer notifications section](https://developer.android.com/static/images/google/play/billing/rtdn-section.png) **Figure 4.** Real-time developer notifications section.
-5. Check **Enable real-time notifications**.
+   ![Real-time developer notifications section in Play Console.](https://developer.android.com/static/images/google/play/billing/rtdn-section.png) **Figure 4.** Real-time developer notifications section.
+5. Select **Enable real-time notifications**.
 
 6. In the **Topic name** field, enter the full Cloud Pub/Sub topic name that
    you configured earlier. The topic name should be in the format of
@@ -285,15 +269,17 @@ To enable Real-time developer notifications for your app, do the following:
 7. Click **Send Test Message** to send a test message. Performing a test
    publish helps to ensure that everything is set up and configured properly.
    If the test publish succeeds, a message is displayed stating that the test
+
    publish was successful. If you have attached a subscription for this topic,
+
    you should receive the test message.
 
    For a pull subscription, go to the subscription in Cloud Console, click
    **View Messages** , and proceed to pull messages. You should acknowledge any
    message you have pulled to avoid repeated delivery by Cloud Pub/Sub. For a
-   [push subscription](https://cloud.google.com/pubsub/docs/push), check if
-   the test message is delivered to your push endpoint. A successful response
-   code will serve as a message acknowledgement.
+   [push subscription](https://cloud.google.com/pubsub/docs/push), check if the test message is delivered to your
+   push endpoint. A successful response code will serve as a message
+   acknowledgement.
 
    If the publish fails, an error is shown. Ensure that the topic name is
    correct and that the
@@ -302,7 +288,7 @@ To enable Real-time developer notifications for your app, do the following:
 8. Choose which notification types you'd like to receive.
 
    - **Get notifications for subscriptions and all voided purchases** - receive real-time developer notifications related to subscriptions and voided purchases. You won't receive notifications for one-time product purchases.
-   - **Get all notifications for subscriptions and one-time products** - receive notifications for all subscription and voided purchase events. You'll also receive one-time product purchase events, such as `ONE_TIME_PRODUCT_PURCHASED` and `ONE_TIME_PRODUCT_CANCELED`. See [One-time purchase lifecycle](https://developer.android.com/google/play/billing/lifecycle/one-time) to learn more about these purchase events.
+   - **Get all notifications for subscriptions and one-time products** - receive notifications for all subscription and voided purchase events. You'll also receive one-time product purchase events, such as `ONE_TIME_PRODUCT_PURCHASED` and `ONE_TIME_PRODUCT_CANCELED`. See [One-time purchase lifecycle](https://developer.android.com/google/play/billing/lifecycle/one-time.md.txt) to learn more about these purchase events.
 9. Click **Save changes**.
 
 ### Verifying your configuration
@@ -319,4 +305,4 @@ processing messages using `gcloud`, see
 
 ## Next steps
 
-- [Integrate the library into your app](https://developer.android.com/google/play/billing/integrate)
+- [Integrate the library into your app](https://developer.android.com/google/play/billing/integrate.md.txt)

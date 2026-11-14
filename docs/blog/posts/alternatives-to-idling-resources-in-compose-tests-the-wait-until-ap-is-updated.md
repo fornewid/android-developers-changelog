@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/alternatives-to-idling-resources-i
 source: md.txt
 ---
 
-[How-tos](https://developer.android.com/blog/categories/how-tos)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
 # Alternatives to Idling Resources in Compose tests: the waitUntil APIs (updated)
 
-3 min read ![](https://developer.android.com/static/blog/assets/alternativesto_Idiling_13a59b7d0b_1mUyls.webp) 22 Apr 2022 [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)](https://developer.android.com/blog/authors/jose-alcerreca) [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca) Developer Relations Engineer In this article you'll learn how to use the `waitUntil` test API in Compose to wait for certain conditions to be met. This is a good alternative to using Idling Resources in some situations.
+3 min read ![](https://developer.android.com/static/blog/assets/alternativesto_Idiling_13a59b7d0b_1mUyls.webp) 22 Apr 2022 [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)](https://developer.android.com/blog/authors/jose-alcerreca.md.txt) [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca.md.txt) Developer Relations Engineer In this article you'll learn how to use the `waitUntil` test API in Compose to wait for certain conditions to be met. This is a good alternative to using Idling Resources in some situations.
 
 \[2023 update\] Tldr: use the [new waitUntil APIs](https://gist.github.com/JoseAlcerreca/c5b94db07f04b15255b1637ded3a3bbd) to synchronize in Compose tests (v1.4.0+).
 
@@ -16,7 +18,7 @@ source: md.txt
 
 ## **What is synchronization?**
 
-One way to categorize tests is by their scope. Small tests, or unit tests, focus on small pieces of your app while big tests, or end-to-end, cover a large portion of your app. You can read about this and other types of tests in the newly updated [testing documentation](https://developer.android.com/training/testing/fundamentals).
+One way to categorize tests is by their scope. Small tests, or unit tests, focus on small pieces of your app while big tests, or end-to-end, cover a large portion of your app. You can read about this and other types of tests in the newly updated [testing documentation](https://developer.android.com/training/testing/fundamentals.md.txt).
 
 Press enter or click to view image in full size
 ![large_0_9n_Nqkt_HHUTOQ_In_AI_b113b43bcf.png](https://developer.android.com/static/blog/assets/large_0_9n_Nqkt_HHUTOQ_In_AI_b113b43bcf_b38a7b69b9_ZRL8qX.webp) Different test scopes in an app
@@ -28,7 +30,7 @@ Press enter or click to view image in full size
 
 `androidx.test` and, by extension, [Compose Test](https://developer.android.com/jetpack/compose/testing), use some tricks under the hood so that you don't have to worry too much about this. For example, if the main thread is busy, the test pauses until it can execute the next line.
 
-However, they can't know everything. For example, if you load data in a background thread, the test framework might execute the next operation too soon, making your test fail. The worst situation is when this happens only a small percentage of the time, making the test [flaky](https://developer.android.com/training/testing/fundamentals#flaky).
+However, they can't know everything. For example, if you load data in a background thread, the test framework might execute the next operation too soon, making your test fail. The worst situation is when this happens only a small percentage of the time, making the test [flaky](https://developer.android.com/training/testing/fundamentals.md.txt#flaky).
 
 ## **Option 1: Idling Resources**
 
@@ -41,7 +43,7 @@ A good example of this is [RxIdler](https://github.com/square/RxIdler), which wr
 
 **2. Modifying your code under test to explicitly expose information about whether your app is busy or not.**
 
-For example, you could modify your repository (or a [test double](https://developer.android.com/training/testing/fundamentals/test-doubles)) to indicate that is busy while loading data from a data source:
+For example, you could modify your repository (or a [test double](https://developer.android.com/training/testing/fundamentals/test-doubles.md.txt)) to indicate that is busy while loading data from a data source:
 <iframe src="https://android.devsite.google/frame/blog/posts/alternatives-to-idling-resources-in-compose-tests-the-wait-until-ap-is-updated/index_bbed89de23a03697da61c2cc641fc9c8f411c43574e0d16391a2b9851b40c08b.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 This is not ideal because you're polluting your production code, or creating complicated test doubles, and there are some situations when they're hard to install. For example, how would you use Idling Resources in a Kotlin Flow? Which update is the *final* one?
@@ -63,7 +65,7 @@ Also, sometimes emulators or devices misbehave and jank, making that operation t
 If you don't want to modify your code under test to expose when it's busy, another option is to wait until a certain condition is met, instead of waiting for an arbitrary amount of time.
 ![1_jIYFxE4qlHXMi2SwW6JemA.png](https://developer.android.com/static/blog/assets/1_j_IY_Fx_E4ql_HX_Mi2_Sw_W6_Jem_A_63f8b87010_21D66u.webp)
 
-In Compose, you can leverage the [waitUntil](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule#waitUntil(kotlin.Long,kotlin.Function0)) function, which takes another function that produces a boolean.
+In Compose, you can leverage the [waitUntil](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule.md.txt#waitUntil(kotlin.Long,kotlin.Function0)) function, which takes another function that produces a boolean.
 <iframe src="https://android.devsite.google/frame/blog/posts/alternatives-to-idling-resources-in-compose-tests-the-wait-until-ap-is-updated/index_222b0225e82515be85f29ddf15b41c1651a1addb2c1a415f5c37e2c79ee861b0.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 2023/03/22 update: from Compose 1.4.0, we added a new set of waitUntil APIs:
@@ -102,50 +104,47 @@ Happy... wait for it... testing!
 Copyright 2022 Google LLC.
 SPDX-License-Identifier: Apache-2.0
 ```
-- [#Android](https://developer.android.com/blog/topics/android)
-- [#Compose](https://developer.android.com/blog/topics/compose)
-- [#Idling Resources](https://developer.android.com/blog/topics/idling-resources)
+- [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
+- [#Idling Resources](https://developer.android.com/blog/topics/idling-resources.md.txt)
 Written by:
 
 -
 
-  ## [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca)
+  ## [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/jose-alcerreca) ![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp) ![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)
 Continue reading
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 23 Jan 2025 23 Jan 2025 ![](https://developer.android.com/static/blog/assets/camera_X_Jetpack_09bc5a0414_1xSUVV.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 23 Jan 2025 23 Jan 2025 ![](https://developer.android.com/static/blog/assets/camera_X_Jetpack_09bc5a0414_1xSUVV.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Create a spotlight effect with CameraX and Jetpack Compose](https://developer.android.com/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose)
+  ## [Create a spotlight effect with CameraX and Jetpack Compose](https://developer.android.com/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose) In this post, we'll dive into something a bit more visually engaging --- implementing a spotlight effect on top of our camera preview, using face detection as the basis for the effect.
-  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 8 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Compose](https://developer.android.com/blog/topics/compose)
-  - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+  [arrow_forward](https://developer.android.com/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose.md.txt) In this post, we'll dive into something a bit more visually engaging --- implementing a spotlight effect on top of our camera preview, using face detection as the basis for the effect.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 8 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
+  - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development.md.txt)
   - +1 ↩
-- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z1unXc4.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z1unXc4.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
+  ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) • 10 min read
-  - [#Memory](https://developer.android.com/blog/topics/memory)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Performance](https://developer.android.com/blog/topics/performance)
+  [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17.md.txt) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Fung Lam](https://developer.android.com/blog/authors/fung-lam.md.txt) • 10 min read
+  - [#Memory](https://developer.android.com/blog/topics/memory.md.txt)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
   - +1 ↩
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
-  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
-  - [#Media3](https://developer.android.com/blog/topics/media3)
-  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
-  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
-  - +1 ↩
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
+  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
 Stay in the loop
 
 

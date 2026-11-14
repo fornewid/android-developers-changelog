@@ -4,24 +4,26 @@ url: https://developer.android.com/studio/run/device
 source: md.txt
 ---
 
-Always test your Android app on
-a real device before releasing it to users. This page describes how to set up
-your development environment and Android device for testing and debugging over
-an Android Debug Bridge (ADB) connection.
+> Documentation index: https://developer.android.com/studio/run/llms.txt
+
+Always test your Android app on a real device before releasing it to users. This
+page describes how to set up your development environment and Android-powered
+device for testing and debugging over an Android Debug Bridge (ADB) connection.
 
 > [!NOTE]
-> **Note:** Use the [Android Emulator](https://developer.android.com/studio/run/emulator) to test your app on different versions of the Android platform and different screen sizes. Consider using [Firebase Test Lab](https://firebase.google.com/docs/test-lab/) to run your app on a wide variety of real devices hosted in a cloud-based infrastructure.
+> **Note:** Use the [Android Emulator](https://developer.android.com/studio/run/emulator.md.txt) to test your app on different versions of the Android platform and different screen sizes. Consider using [Firebase Test
+> Lab](https://firebase.google.com/docs/test-lab/) to run your app on a wide variety of real devices hosted in a cloud-based infrastructure.
 
 ## Set up a device for development
 
-Before you can start debugging on your device, decide whether you want to connect
-to the device using a USB cable or Wi-Fi. Then do the following:
+Before you can start debugging on your device, decide whether you want to
+connect to the device using a USB cable or Wi-Fi. Then do the following:
 
 1. On the device, open the **Settings** app, select **Developer options** , and
    then enable **USB debugging** (if applicable).
 
    > [!NOTE]
-   > **Note:** If you don't see **Developer options** , follow the instructions to [enable developer options](https://developer.android.com/studio/debug/dev-options).
+   > **Note:** If you don't see **Developer options** , follow the instructions to [enable developer options](https://developer.android.com/studio/debug/dev-options.md.txt).
 
 2. Set up your system to detect your device.
 
@@ -46,11 +48,9 @@ to the device using a USB cable or Wi-Fi. Then do the following:
 
 When you're set up and plugged in over USB, click **Run**
 ![](https://developer.android.com/static/studio/images/buttons/toolbar-run.png)
-in Android Studio to
-[build and run your app](https://developer.android.com/studio/run) on the device.
+in Android Studio to [build and run your app](https://developer.android.com/studio/run.md.txt) on the device.
 
-You can also use [`adb`](https://developer.android.com/studio/command-line/adb) to issue commands,
-as follows:
+You can also use [`adb`](https://developer.android.com/studio/command-line/adb) to issue commands, as follows:
 
 - Verify that your device is connected by running the `adb devices` command from your `android_sdk/platform-tools/` directory. If connected, you'll see the device listed.
 - Issue any [`adb` command](https://developer.android.com/studio/command-line/adb#issuingcommands) with the `-d` flag to target your device.
@@ -58,31 +58,31 @@ as follows:
 ## Connect to your device using Wi-Fi
 
 Android 11 and higher supports deploying and debugging your app wirelessly
-from your workstation via Android Debug Bridge (ADB). For example, you can
+from your workstation using Android Debug Bridge (ADB). For example, you can
 deploy your debuggable app to multiple remote devices without physically
-connecting your device via USB and contending with common USB connection issues,
-such as driver installation.
+connecting your device using USB and contending with common USB connection
+issues, such as driver installation.
 
-Android 17, alongside [adb 37.0.0](https://developer.android.com/tools/releases/platform-tools) introduces
-adb Wi-Fi 2.0 which solves many of the usability issues with the previous
-version. Notably, the device will automatically connect to the workstation when
-the device connects to a wireless debugging trusted network.
+Android 17, alongside [adb 37.0.0](https://developer.android.com/tools/releases/platform-tools.md.txt), introduces adb Wi-Fi 2.0 which solves
+many of the usability issues with the previous version. Notably, the device will
+automatically connect to the workstation when the device connects to a wireless
+debugging trusted network.
 
 To use wireless debugging, you need to pair your device to your workstation
 using a pairing code. To begin, complete the following steps:
 
 1. Ensure that your workstation and device are connected to the same wireless network.
-2. Ensure that your device is running Android 11 or higher. For more information, see [Check \& update your Android
-   version](https://support.google.com/android/answer/7680439).
+2. Ensure that your device is running Android 11 or higher. For more information, see [Check \& update your Android version](https://support.google.com/android/answer/7680439).
 3. Ensure that you have the latest version of Android Studio installed. [Download it here](https://developer.android.com/studio).
-4. On your workstation, update to the latest version of the [SDK Platform Tools](https://developer.android.com/tools/releases/platform-tools).
+4. On your workstation, update to the latest version of the [SDK Platform
+   Tools](https://developer.android.com/tools/releases/platform-tools).
 
 To pair to your device, follow these steps:
 
 > [!NOTE]
 > **Note:** You only need to pair your device to your workstation once. The device will remain paired with your workstation until you explicitly forget it or revoke adb debugging authorizations on your device. The device and the workstation will automatically connect when they are on the same network.
 
-1. Enable [developer options](https://developer.android.com/studio/debug/dev-options) on your device.
+1. Enable [developer options](https://developer.android.com/studio/debug/dev-options.md.txt) on your device.
 2. On your device, tap Wireless Debugging.
 
    ![pixel phone showing the Wireless debugging prompt.](https://developer.android.com/static/studio/images/run/adb_wifi-wireless_debugging_prompt.png) **Figure 1.** The **Wireless debugging** prompt on a Google Pixel phone.
@@ -148,7 +148,7 @@ mirroring is activated in its settings
 > [!NOTE]
 > **Note:** If you're using certain devices, for example the Xiaomi Redmi K40, Poco F3, or Mi 11X, with Android 12, you must enable both the **USB debugging** and **USB debugging (Security settings)** settings and then restart the device to enable device mirroring.
 
-![Running Devices UI](https://developer.android.com/static/studio/images/device-mirroring.png)
+![Device mirroring in the Running Devices window in Android Studio](https://developer.android.com/static/studio/images/device-mirroring.png) **Figure 8.** Running Devices UI.
 
 ### Redirect audio
 
@@ -217,44 +217,46 @@ the following troubleshooting steps to resolve the issue:
 
 #### Check that Android Studio connects to the Android Emulator
 
-To check whether the issue is being caused by a connection problem between Android
-Studio and the Android Emulator, follow these steps:
+To check whether the issue is being caused by a connection problem between
+Android Studio and the Android Emulator, follow these steps:
 
-1. Open the [Device Manager](https://developer.android.com/studio/run/managing-avds#viewing).
-2. [Create a new AVD](https://developer.android.com/studio/run/managing-avds#createavd) if you don't already have one.
-3. [Run the emulator](https://developer.android.com/studio/run/managing-avds#emulator) using your AVD.
+1. Open the [Device Manager](https://developer.android.com/studio/run/managing-avds.md.txt#viewing).
+2. [Create a new AVD](https://developer.android.com/studio/run/managing-avds.md.txt#createavd) if you don't already have one.
+3. [Run the emulator](https://developer.android.com/studio/run/managing-avds.md.txt#emulator) using your AVD.
 4. Do one of the following:
-   - If Android Studio can't connect to the emulator, download the latest [SDK Platform Tools](https://developer.android.com/studio/releases/platform-tools) and then try again.
+   - If Android Studio can't connect to the emulator, download the latest [SDK
+     Platform Tools](https://developer.android.com/tools/releases/platform-tools) and then try again.
    - If the emulator starts successfully, check the USB cable as described in the following section.
 
 #### Check the USB cable
 
-To check whether the issue is being caused by a faulty USB cable, follow the steps in
-this section.
+To check whether the issue is being caused by a faulty USB cable, follow the
+steps in this section.
 
 If you have another USB cable:
 
 1. Connect the device using the secondary cable.
 2. Check whether the Connection Assistant can now detect the device.
 3. If the device is not detected, try the primary cable again.
-4. If the device still isn't detected, assume that the problem is with the device, and [check whether the device is set up for development](https://developer.android.com/studio/run/device#check-device-setup) as described in the following section.
+4. If the device still isn't detected, assume that the problem is with the device, and [check whether the device is set up for development](https://developer.android.com/studio/run/device.md.txt#check-device-setup) as described in the following section.
 
-If you don't have another USB cable but you do have another Android device:
+If you don't have another USB cable but you do have another Android-powered
+device:
 
 1. Connect the secondary device to your computer.
 2. If the Connection Assistant can detect the secondary device, assume that the
-   problem is with the primary device, and
-   [check whether the device is set up for development](https://developer.android.com/studio/run/device#check-device-setup).
+   problem is with the primary device, and [check whether the device is set up
+   for development](https://developer.android.com/studio/run/device#check-device-setup).
 
    If the secondary device is not detected, the problem might be with the USB
    cable.
 
 #### Check whether the device is set up for development
 
-To check whether the issue is being caused by settings on the device, follow these
-steps:
+To check whether the issue is being caused by settings on the device, follow
+these steps:
 
-1. Follow the steps in the [Set up a device for development](https://developer.android.com/studio/run/device#setting-up) section.
+1. Follow the steps in the [Set up a device for development](https://developer.android.com/studio/run/device.md.txt#setting-up) section.
 2. If this doesn't resolve the problem, contact the device OEM's customer support for help. Tell the customer support representative that the device doesn't connect to Android Studio using ADB.
 
 ### Resolve wireless connection issues
@@ -264,13 +266,11 @@ troubleshooting steps to resolve the issue:
 
 #### Check whether your workstation and device meet the prerequisites
 
-Check that the workstation and device meet the
-[prerequisites](https://developer.android.com/studio/run/device#wireless).
+Check that the workstation and device meet the [prerequisites](https://developer.android.com/studio/run/device.md.txt#wireless).
 
 #### Check adb troubleshooting guide
 
-Follow the adb troubleshooting
-[guide](https://developer.android.com/tools/adb#wireless-android11-troubleshoot).
+Follow the adb troubleshooting [guide](https://developer.android.com/tools/adb.md.txt#wireless-android11-troubleshoot).
 
 ## RSA security key
 

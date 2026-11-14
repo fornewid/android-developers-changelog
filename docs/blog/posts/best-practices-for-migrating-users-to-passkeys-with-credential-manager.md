@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/best-practices-for-migrating-users
 source: md.txt
 ---
 
-[How-tos](https://developer.android.com/blog/categories/how-tos)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
 # Best practices for migrating users to passkeys with Credential Manager
 
-6 min read ![](https://developer.android.com/static/blog/assets/passkeys_Credential_27ba66338c_Z1W7Rjo.webp) 04 Sep 2025 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_ZMd6UB.webp)](https://developer.android.com/blog/authors/vinisha-athwani) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora) \& [Vinisha Athwani](https://developer.android.com/blog/authors/vinisha-athwani) In a world where digital security is becoming increasingly critical, passwords have become a notorious weak link -- they're cumbersome, often insecure, and a source of frustration for users and developers. But there's good news: [passkeys](https://fidoalliance.org/passkeys/) are gaining popularity as the most user-friendly, phishing-resistant, and secure authentication mechanism available. For Android developers, the [Credential Manager API](https://developer.android.com/identity/sign-in/credential-manager) helps you guide your users towards using passkeys while ensuring continued support for traditional sign-in mechanisms, such as passwords.
+6 min read ![](https://developer.android.com/static/blog/assets/passkeys_Credential_27ba66338c_Z1W7Rjo.webp) 04 Sep 2025 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora.md.txt)[![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_ZMd6UB.webp)](https://developer.android.com/blog/authors/vinisha-athwani.md.txt) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt) \& [Vinisha Athwani](https://developer.android.com/blog/authors/vinisha-athwani.md.txt) In a world where digital security is becoming increasingly critical, passwords have become a notorious weak link -- they're cumbersome, often insecure, and a source of frustration for users and developers. But there's good news: [passkeys](https://fidoalliance.org/passkeys/) are gaining popularity as the most user-friendly, phishing-resistant, and secure authentication mechanism available. For Android developers, the [Credential Manager API](https://developer.android.com/identity/sign-in/credential-manager) helps you guide your users towards using passkeys while ensuring continued support for traditional sign-in mechanisms, such as passwords.
 
 In this blog, we discuss some of the best practices you should follow while encouraging users to transition to passkeys.
 
@@ -84,8 +86,8 @@ Encouraging users to transition from passwords to passkeys requires a clear stra
 *Passkey prompt with clear value proposition*
 
 - **Provide a seamless user experience:**
-  - Use the [unified UI](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys#unified_sign-in) provided by Credential Manager to show all available [sign-in options](https://developer.android.com/identity/sign-in/credential-manager#sign-in), allowing the user to choose their preferred method without having to remember which one they used last.
-  - Use the official [passkey icon](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys) to build user familiarity and create a consistent experience.
+  - Use the [unified UI](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys.md.txt#unified_sign-in) provided by Credential Manager to show all available [sign-in options](https://developer.android.com/identity/sign-in/credential-manager#sign-in), allowing the user to choose their preferred method without having to remember which one they used last.
+  - Use the official [passkey icon](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys.md.txt) to build user familiarity and create a consistent experience.
   - Make sure that users can fall back to their traditional sign-in methods or a recovery method, such as a username and password, if a passkey is not available or if they are using a different device.
 - **Provide users with clarity about credentials within your app's Settings UI:** Make sure your users understand their authentications options by displaying helpful information about each passkey within your app's settings. To learn more about adding credentials metadata, see the [Credential Manager documentation](https://developer.android.com/identity/sign-in/credential-manager#show-info).
 
@@ -145,11 +147,11 @@ To accelerate passkeys adoption, [Uber](https://play.google.com/store/apps/detai
 
 Integrating passkeys with Android's Credential Manager isn't just about adopting new technology; it's about building a fundamentally more secure, convenient, and delightful experience for your users. By focusing on intelligent passkey introduction, you're not just securing accounts--you're building trust and future-proofing your application's authentication strategy.
 
-To provide your users the best, optimized and seamless experience, follow the [UX guidelines](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys) while implementing passkeys authentication with [Credential Manager](https://developer.android.com/identity/sign-in/credential-manager). Check out the docs today!
+To provide your users the best, optimized and seamless experience, follow the [UX guidelines](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys.md.txt) while implementing passkeys authentication with [Credential Manager](https://developer.android.com/identity/sign-in/credential-manager). Check out the docs today!
 
 - [Sample with UX best practices](https://github.com/android/identity-samples)
 - [Sign in your user with Credential Manager](https://developer.android.com/identity/sign-in/credential-manager%20)
-- [API Reference -- androidx.credentials](https://developer.android.com/jetpack/androidx/releases/credentials)
+- [API Reference -- androidx.credentials](https://developer.android.com/jetpack/androidx/releases/credentials.md.txt)
 - [User authentication with passkeys](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys%20)
 - [Google Safety Center - Passkey](https://safety.google/authentication/passkey/%20)
 - [Google Security Blog: Security of Passkeys in the Google Password Manager](https://security.googleblog.com/2022/10/SecurityofPasskeysintheGooglePasswordManager.html)
@@ -157,7 +159,7 @@ Written by:
 
 -
 
-  ## [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora)
+  ## [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -165,36 +167,36 @@ Written by:
   View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)
 -
 
-  ## [Vinisha Athwani](https://developer.android.com/blog/authors/vinisha-athwani)
+  ## [Vinisha Athwani](https://developer.android.com/blog/authors/vinisha-athwani.md.txt)
 
   ###### Technical Writer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/vinisha-athwani) ![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_ZMd6UB.webp) ![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_ZMd6UB.webp)
 Continue reading
-- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2iNrsg.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_Z2uVN2E.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora.md.txt)[![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2iNrsg.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle.md.txt) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_Z2uVN2E.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Streamline User Journeys with Verified Email via Credential Manager](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager)
+  ## [Streamline User Journeys with Verified Email via Credential Manager](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager) Today, we're excited to announce a new verified email credential issued by Google, which developers can now retrieve directly from Android's Credential Manager Digital Credential API.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) • 3 min read
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [arrow_forward](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager.md.txt) Today, we're excited to announce a new verified email credential issued by Google, which developers can now retrieve directly from Android's Credential Manager Digital Credential API.
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle.md.txt) • 3 min read
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
-  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
-  - [#Media3](https://developer.android.com/blog/topics/media3)
-  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
-  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
+  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich.md.txt) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+
+  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new.md.txt) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
+  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich.md.txt) • 3 min read
+  - [#Media3](https://developer.android.com/blog/topics/media3.md.txt)
+  - [#Jetpack](https://developer.android.com/blog/topics/jetpack.md.txt)
+  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player.md.txt)
   - +1 ↩
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
-
-  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
 Stay in the loop
 
 

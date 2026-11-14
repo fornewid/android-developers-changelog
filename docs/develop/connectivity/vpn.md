@@ -4,13 +4,15 @@ url: https://developer.android.com/develop/connectivity/vpn
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/connectivity/llms.txt
+
 Android provides APIs for developers to create virtual private network (VPN)
-solutions. After reading this guide, you'll know how to develop and test your
-own VPN client for Android-powered devices.
+solutions. This document explains how to develop and test your own VPN client
+for Android-powered devices.
 
 ## Overview
 
-VPNs allow devices that aren't physically on a network to securely access the
+VPNs let devices that aren't physically on a network to securely access the
 network.
 
 Android includes a built-in (PPTP and L2TP/IPSec) VPN client, which is sometimes
@@ -22,7 +24,7 @@ app for one of the following reasons:
 - To offer VPN protocols that the built-in client doesn't support.
 - To help people connect to a VPN service without complex configuration.
 
-The rest of this guide explains how to develop VPN apps (including
+The rest of this document explains how to develop VPN apps (including
 [always-on](https://developer.android.com/develop/connectivity/vpn.md.txt#always-on) and [per-app](https://developer.android.com/develop/connectivity/vpn.md.txt#per-app) VPN) and doesn't cover the
 built-in VPN client.
 
@@ -40,9 +42,10 @@ VPN connections:
 
 Your app also needs to provide a UI so that the person using the device can
 configure your service's options. For example, your solution might need to
-capture the account authentication settings. Apps should show the following UI:
+capture the account authentication settings. Include the following UI elements
+in your app:
 
-- Controls to manually start and stop a connection. [Always-on VPN](https://developer.android.com/develop/connectivity/vpn.md.txt#always-on) can connect when needed, but allow people to configure the connection the first time they use your VPN.
+- Controls to manually start and stop a connection. [Always-on VPN](https://developer.android.com/develop/connectivity/vpn.md.txt#always-on) can connect when needed, but let people configure the connection the first time they use your VPN.
 - A non-dismissible notification when the service is active. The notification can show the connection status or provide more information---such as network stats. Tapping the notification brings your app to the foreground. Remove the notification after the service becomes inactive.
 
 ## VPN service
@@ -67,8 +70,8 @@ Your app transfers the following data to connect the device to the VPN gateway:
 > [!WARNING]
 > **Warning:** Your app must use strong encryption when transferring data to and from the VPN gateway.
 
-There's only one active service per user or profile. Starting a new service,
-automatically stops an existing service.
+There's only one active service per user or profile. Starting a new service
+automatically stops an active service.
 
 ### Add a service
 
@@ -77,7 +80,7 @@ To add a VPN service to your app, create an Android service inheriting from
 manifest file with the following additions:
 
 - Protect the service with the [`BIND_VPN_SERVICE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#BIND_VPN_SERVICE) permission so that only the system can bind to your service.
-- Advertise the service with the `"android.net.VpnService"` intent filter so that the system can find your service.
+- Advertise the service with the `android.net.VpnService` intent filter so that the system can find your service.
 
 This example shows how you can declare the service in your app manifest file:
 
@@ -142,9 +145,9 @@ val localTunnel = builder
 
 <br />
 
-The example in the [Per-app VPN](https://developer.android.com/develop/connectivity/vpn.md.txt#per-app) section shows an IPv6 config including
-more options. You need to add the following [`VpnService.Builder`](https://developer.android.com/reference/android/net/VpnService.Builder.md.txt) values
-before you can establish a new interface:
+The example in the [Per-app VPN](https://developer.android.com/develop/connectivity/vpn.md.txt#per-app) section shows an IPv6 configuration
+including more options. You need to add the following
+[`VpnService.Builder`](https://developer.android.com/reference/android/net/VpnService.Builder.md.txt) values before you can establish a new interface:
 
 [`addAddress()`](https://developer.android.com/reference/android/net/VpnService.Builder.md.txt#addAddress(java.net.InetAddress,%20int))
 :   Add at least one IPv4 or IPv6 address along with a subnet mask that the system
@@ -153,8 +156,8 @@ before you can establish a new interface:
 
 [`addRoute()`](https://developer.android.com/reference/android/net/VpnService.Builder.md.txt#addRoute(java.net.InetAddress,%20int))
 :   Add at least one route if you want the system to send traffic through the VPN
-    interface. Routes filter by destination addresses. To accept all traffic, set an
-    open route such as `0.0.0.0/0` or `::/0`.
+    interface. Routes filter by destination addresses. To accept all traffic, set
+    an open route such as `0.0.0.0/0` or `::/0`.
 
 The [`establish()`](https://developer.android.com/reference/android/net/VpnService.Builder.md.txt#establish()) method returns a
 [`ParcelFileDescriptor`](https://developer.android.com/reference/android/os/ParcelFileDescriptor.md.txt) instance that your app uses to read and write
@@ -165,8 +168,8 @@ permission.
 ### Service lifecycle
 
 Your app should track the status of the system's selected VPN and any active
-connections. Update your app's user interface (UI) to keep the person using the
-device aware of any changes.
+connections. Update your app's UI to keep the person using the device aware of
+any changes.
 
 #### Starting a service
 
@@ -176,28 +179,28 @@ Your VPN service can be started in the following ways:
 - The system starts the service because [always-on VPN](https://developer.android.com/develop/connectivity/vpn.md.txt#always-on) is on.
 
 Your app starts the VPN service by passing an intent to
-[`startService()`](https://developer.android.com/reference/android/content/Context.md.txt#startService(android.content.Intent)). To learn more, read [Starting a
-service](https://developer.android.com/guide/components/services#StartingAService).
+[`startService()`](https://developer.android.com/reference/android/content/Context.md.txt#startService(android.content.Intent)). For more information, see [Starting a
+service](https://developer.android.com/develop/background-work/services).
 
 The system starts your service in the background by calling
 [`onStartCommand()`](https://developer.android.com/reference/android/app/Service.md.txt#onStartCommand(android.content.Intent,%20int,%20int)). However, Android places restrictions on
-background apps in version 8.0 (API Level 26) or higher. If you support these
-API Levels, you need to transition your service to the foreground by calling
-[`Service.startForeground()`](https://developer.android.com/reference/android/app/Service.md.txt#startForeground(int,%20android.app.Notification)). To learn more, read [Running a
-service in the foreground](https://developer.android.com/guide/components/services#Foreground).
+background apps in version 8.0 (API level 26) or higher. If you support these
+API levels, you need to transition your service to the foreground by calling
+[`Service.startForeground()`](https://developer.android.com/reference/android/app/Service.md.txt#startForeground(int,%20android.app.Notification)). For more information, see
+[Running a service in the foreground](https://developer.android.com/develop/background-work/services/fgs.md.txt).
 
 #### Stopping a service
 
 A person using the device can stop your service by using your app's UI. Stop the
-service instead of just closing the connection. The system also stops an active
+service instead of only closing the connection. The system also stops an active
 connection when the person using the device does the following in the VPN screen
 of the Settings app:
 
 - disconnects or forgets the VPN app
 - switches off always-on VPN for an active connection
 
-The system calls your service's [`onRevoke()`](https://developer.android.com/reference/android/net/VpnService.md.txt#onRevoke()) method but this call
-might not happen on the main thread. When the system calls this method, an
+The system calls your service's [`onRevoke()`](https://developer.android.com/reference/android/net/VpnService.md.txt#onRevoke()) method, but this
+call might not happen on the main thread. When the system calls this method, an
 alternative network interface is already routing traffic. You can safely dispose
 of the following resources:
 
@@ -224,7 +227,7 @@ Because the system (and not a person) starts and stops an always-on connection,
 you need to adapt your app's behavior and user interface:
 
 1. Disable any UI that disconnects the connection because the system and Settings app control the connection.
-2. Save any config between each app start and configure a connection with the latest settings. Because the system starts your app on demand, the person using the device might not always want to configure a connection.
+2. Save any configuration between each app start and configure a connection with the latest settings. Because the system starts your app on demand, the person using the device might not always want to configure a connection.
 
 You can also use [managed configurations](https://developer.android.com/work/managed-configurations.md.txt) to configure a
 connection. Managed configurations help an IT admin configure your VPN remotely.
@@ -232,7 +235,7 @@ connection. Managed configurations help an IT admin configure your VPN remotely.
 ### Detect always-on
 
 Android doesn't include APIs to confirm whether the system started your VPN
-service. But, when your app flags any service instances it starts, you can assume
+service. But when your app flags any service instances it starts, you can assume
 that the system started unflagged services for always-on VPN. Here's an example:
 
 1. Create an [`Intent`](https://developer.android.com/reference/android/content/Intent.md.txt) instance to start the VPN service.
@@ -248,12 +251,12 @@ panel in Settings.
 
 > [!CAUTION]
 > **Caution:** When non-VPN traffic is blocked, apps that aren't in an [allowed
-> list](https://developer.android.com/develop/connectivity/vpn#allowed-apps) or in a [disallowed list](https://developer.android.com/develop/connectivity/vpn.md.txt#disallowed-apps) lose their network connection. Consider warning people when making allowed or disallowed lists. To learn more, see the following [Per-app VPN](https://developer.android.com/develop/connectivity/vpn.md.txt#per-app) section.
+> list](https://developer.android.com/develop/connectivity/vpn#allowed-apps) or in a [disallowed list](https://developer.android.com/develop/connectivity/vpn.md.txt#disallowed-apps) lose their network connection. Consider warning people when making allowed or disallowed lists. For more information, see the following [Per-app VPN](https://developer.android.com/develop/connectivity/vpn.md.txt#per-app) section.
 
 ### Opt out of always-on
 
-If your app can't currently support always-on VPN, you can opt out (in Android
-8.1 or higher) by setting the
+If your app can't support always-on VPN, you can opt out (in Android 8.1 (API
+level 27) or higher) by setting the
 [`SERVICE_META_DATA_SUPPORTS_ALWAYS_ON`](https://developer.android.com/reference/android/net/VpnService.md.txt#SERVICE_META_DATA_SUPPORTS_ALWAYS_ON)
 service metadata to `false`. The following app manifest example shows how to add
 the metadata element:
@@ -275,9 +278,9 @@ controls in Settings.
 ## Per-app VPN
 
 VPN apps can filter which installed apps are allowed to send traffic through the
-VPN connection. You can create either an allowed list, or, a disallowed list,
-but not both. If you don't create allowed or disallowed lists, the system sends
-all network traffic through the VPN.
+VPN connection. You can create either an allowed list or a disallowed list, but
+not both. If you don't create allowed or disallowed lists, the system sends all
+network traffic through the VPN.
 
 Your VPN app must set the lists before the connection is established. If you
 need to change the lists, establish a new VPN connection. An app must be
@@ -318,15 +321,15 @@ val localTunnel = builder
 To add an app to the allowed list, call
 [`VpnService.Builder.addAllowedApplication()`](https://developer.android.com/reference/android/net/VpnService.Builder.md.txt#addAllowedApplication(java.lang.String)). If
 the list includes one or more apps, then only the apps in the list use the VPN.
-All other apps (that aren't in the list) use the system networks as if the VPN
+All other apps that aren't in the list use the system networks as if the VPN
 isn't running. When the allowed list is empty, all apps use the VPN.
 
 ### Disallowed apps
 
 To add an app to the disallowed list, call
 [`VpnService.Builder.addDisallowedApplication()`](https://developer.android.com/reference/android/net/VpnService.Builder.md.txt#addDisallowedApplication(java.lang.String)).
-Disallowed apps use system networking as if the VPN wasn't running---all other
-apps use the VPN.
+Disallowed apps use system networking as if the VPN isn't running---all other apps
+use the VPN.
 
 ## Bypass VPN
 
@@ -337,12 +340,13 @@ VPN service. If an app doesn't bind their process or a socket to a specific
 network, the app's network traffic continues through the VPN.
 
 Apps that bind to a specific network don't have a connection when somebody
-blocks traffic that doesn't go through the VPN. To send traffic through a specific
-network, apps call methods, such as
+blocks traffic that doesn't go through the VPN. To send traffic through a
+specific network, apps call methods such as
 [`ConnectivityManager.bindProcessToNetwork()`](https://developer.android.com/reference/android/net/ConnectivityManager.md.txt#bindProcessToNetwork(android.net.Network)) or
 [`Network.bindSocket()`](https://developer.android.com/reference/android/net/Network.md.txt#bindSocket(java.net.Socket)) before connecting the socket.
 
 ## Sample code
 
-The Android Open Source Project includes a sample app called [ToyVPN](https://android.googlesource.com/platform/development/+/master/samples/ToyVpn).
-This app shows how to set up and connect a VPN service.
+The Android Open Source Project includes a sample app called
+[ToyVPN](https://android.googlesource.com/platform/development/+/master/samples/ToyVpn). This app shows how to set up and connect a VPN
+service.

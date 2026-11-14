@@ -15,7 +15,7 @@ Your current device is not supported.
 <br />
 
 
-[See all download options](https://developer.android.com/tools/agents/android-cli/download)
+[See all download options](https://developer.android.com/tools/agents/android-cli/download.md.txt)
 
 ## See Android CLI in action
 
@@ -58,7 +58,7 @@ Continue to Android Studio for specialized IDE workflows
 
 ## Essential commands in a single interface
 
-[Download Android CLI](https://developer.android.com/tools/agents/android-cli/download) ![](http://developer.android.com/static/images/picto-icons/frame.svg)
+[Download Android CLI](https://developer.android.com/tools/agents/android-cli/download.md.txt) ![](http://developer.android.com/static/images/picto-icons/frame.svg)
 
 ### Capture what's on screen
 
@@ -78,19 +78,19 @@ Create, manage, and run Android Virtual Devices or connect via Android Device St
 
 ## Integrates into your workflow
 
-[![](http://developer.android.com/static/images/cluster-illustrations/tools.svg)](http://developer.android.com/tools/agents/android-skills)
+[![](http://developer.android.com/static/images/cluster-illustrations/tools.svg)](http://developer.android.com/tools/agents/android-skills.md.txt)
 
-### [Android skills](http://developer.android.com/tools/agents/android-skills)
+### [Android skills](http://developer.android.com/tools/agents/android-skills.md.txt)
 
-Give coding agents expert Android guidance and best practices, helping them work from current platform knowledge rather than relying only on model training data. [Explore Android skills](http://developer.android.com/tools/agents/android-skills) [![](http://developer.android.com/static/images/picto-icons/pathway-2.svg)](http://developer.android.com/tools/agents/android-cli/journeys)
+Give coding agents expert Android guidance and best practices, helping them work from current platform knowledge rather than relying only on model training data. [Explore Android skills](http://developer.android.com/tools/agents/android-skills.md.txt) [![](http://developer.android.com/static/images/picto-icons/pathway-2.svg)](http://developer.android.com/tools/agents/android-cli/journeys.md.txt)
 
-### [Terminal \& automation workflows](http://developer.android.com/tools/agents/android-cli/journeys)
+### [Terminal \& automation workflows](http://developer.android.com/tools/agents/android-cli/journeys.md.txt)
 
-Bring Android CLI into scripts, CI, maintenance tasks, and supported automated validation workflows. [Run Journeys](http://developer.android.com/tools/agents/android-cli/journeys) [![](http://developer.android.com/static/images/picto-icons/puzzle.svg)](http://developer.android.com/tools/agents/android-cli/agent-plugins)
+Bring Android CLI into scripts, CI, maintenance tasks, and supported automated validation workflows. [Run Journeys](http://developer.android.com/tools/agents/android-cli/journeys.md.txt) [![](http://developer.android.com/static/images/picto-icons/puzzle.svg)](http://developer.android.com/tools/agents/android-cli/agent-plugins.md.txt)
 
-### [Agent plugins](http://developer.android.com/tools/agents/android-cli/agent-plugins)
+### [Agent plugins](http://developer.android.com/tools/agents/android-cli/agent-plugins.md.txt)
 
-Now available for Antigravity, Claude Code, and Codex. Add the official Android CLI plugin to give your agent Android tools, devices, and platform knowledge. [Get the plugin](http://developer.android.com/tools/agents/android-cli/agent-plugins)
+Now available for Antigravity, Claude Code, and Codex. Add the official Android CLI plugin to give your agent Android tools, devices, and platform knowledge. [Get the plugin](http://developer.android.com/tools/agents/android-cli/agent-plugins.md.txt)
 
 ## Ready to start building?
 
@@ -105,4 +105,4 @@ Your current device is not supported.
 <br />
 
 
-[See all download options](https://developer.android.com/tools/agents/android-cli/download)
+[See all download options](https://developer.android.com/tools/agents/android-cli/download.md.txt)

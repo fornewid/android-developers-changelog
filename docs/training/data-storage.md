@@ -66,10 +66,7 @@ external storage. Android represents these devices using a path, such as
 `/sdcard`.
 
 > [!CAUTION]
-> **Caution:**
->
-> - The exact location of where your files can be saved might vary across devices. For this reason, don't use hard-coded file paths.
-> - To avoid accidental disclosure of information, don't use predictable patterns to filenames in ways that could reveal the kinds of information found within a file.
+> **Caution:** The exact location where your files can be saved might vary across devices, so don't use hardcoded paths. Also, to avoid accidental disclosure of information, don't use predictable patterns in filenames in ways that could reveal the kinds of information found within a file.
 
 Apps themselves are stored within internal storage by default. If your APK size
 is very large, however, you can indicate a preference within your app's manifest

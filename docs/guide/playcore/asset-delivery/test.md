@@ -4,20 +4,21 @@ url: https://developer.android.com/guide/playcore/asset-delivery/test
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/playcore/asset-delivery/llms.txt
+
 Use the steps in this guide to test how your app integrates Play Asset Delivery
 to retrieve asset packs.
 
 ## Local testing
 
 Play Asset Delivery supports local testing by installing a new version of the
-game using [`bundletool`](https://developer.android.com/studio/command-line/bundletool). Use local testing
-for quick, iterative cycles as it avoids the need to upload the game to Google
-Play servers. The steps you need to take depend on whether you're
-developing in Java, native, or Unity.
+game using [`bundletool`](https://developer.android.com/tools/bundletool.md.txt). Use local testing for iterative cycles because
+it avoids the need to upload the game to Google Play servers. The steps you need
+to take depend on whether you're developing in Java, native, or Unity.
 
-- [Java](https://developer.android.com/guide/playcore/asset-delivery/test#steps-native-java)
-- [Native](https://developer.android.com/guide/playcore/asset-delivery/test#steps-native-java)
-- [Unity](https://developer.android.com/guide/playcore/asset-delivery/test#steps-unity)
+- [Java](https://developer.android.com/guide/playcore/asset-delivery/test.md.txt#steps-native-java)
+- [Native](https://developer.android.com/guide/playcore/asset-delivery/test.md.txt#steps-native-java)
+- [Unity](https://developer.android.com/guide/playcore/asset-delivery/test.md.txt#steps-unity)
 
 ### Java or native
 
@@ -60,13 +61,12 @@ The following are limitations of local testing:
 
 ## Testing with internal app sharing
 
-As you get closer to having a release candidate, test
-your game using as realistic a configuration as possible to make sure that your game will perform
+As you get closer to having a release candidate, test your game using as
+realistic a configuration as possible to make sure that your game will perform
 well for your users in production. To validate this, you can use
-[internal app sharing](https://support.google.com/googleplay/android-developer/answer/9303479)
-to get a sharable link that you can use to download the game from Play while
-getting the exact same behaviour as your users will once the game is
-published to the Play Store.
+[internal app sharing](https://support.google.com/googleplay/android-developer/answer/9303479) to get a sharable link that you can use to download
+the game from Play while getting the exact same behavior as your users will
+after the game is published to the Play Store.
 
 To test Asset Delivery using internal app sharing, do the following:
 

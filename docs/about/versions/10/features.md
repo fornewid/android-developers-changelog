@@ -4,17 +4,19 @@ url: https://developer.android.com/about/versions/10/features
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/about/versions/10/llms.txt
+
 Android 10 introduces great features and capabilities for users and
 developers. This document highlights what's available for developers.
 
 To learn about the APIs, read the
 [API diff report](https://developer.android.com/sdk/api_diff/29/changes) or visit the
-[Android API reference](https://developer.android.com/reference) --- look for APIs that were "added in
+[Android API reference](https://developer.android.com/reference.md.txt) --- look for APIs that were "added in
 API level 29". Also be sure to check out Android 10 behavior
-changes (for [apps targeting API level 29](https://developer.android.com/about/versions/10/behavior-changes-10) and for
-[all apps](https://developer.android.com/about/versions/10/behavior-changes-all)), as well as [privacy
-changes](https://developer.android.com/about/versions/10/privacy), to learn about areas where platform changes may
-affect your apps.
+changes for [apps targeting API level 29](https://developer.android.com/about/versions/10/behavior-changes-10.md.txt) and for
+[all apps](https://developer.android.com/about/versions/10/behavior-changes-all.md.txt), as well as
+[privacy changes](https://developer.android.com/about/versions/10/privacy), to learn about areas where
+platform changes might affect your apps.
 
 ## Security enhancements
 
@@ -58,12 +60,12 @@ As of Android 10, the Conscrypt security provider includes a
 public API for TLS functionality.
 
 The collection of classes under
-[`android.net.ssl`](https://developer.android.com/reference/android/net/ssl/package-summary) contain static
+[`android.net.ssl`](https://developer.android.com/reference/android/net/ssl/package-summary.md.txt) contain static
 methods to access functionality that isn't available from the generic
 `javax.net.ssl` APIs. The names for these classes can be inferred as the plural
 of the corresponding `javax.net.ssl` class. For example, code that operates on
 instances of `javax.net.ssl.SSLSocket` can instead use methods from
-[`SSLSockets`](https://developer.android.com/reference/android/net/ssl/SSLSockets).
+[`SSLSockets`](https://developer.android.com/reference/android/net/ssl/SSLSockets.md.txt).
 
 > [!CAUTION]
 > **Caution:** If you're still accessing TLS functionality using reflection, change to using the public API. This is because of planned further [restrictions on
@@ -72,14 +74,15 @@ instances of `javax.net.ssl.SSLSocket` can instead use methods from
 
 ## Connectivity features
 
-Android 10 includes several improvements related to networking and connectivity.
+Android 10 includes several improvements related to networking and
+connectivity.
 
 ### Wi-Fi network connection API
 
 Android 10 adds support for peer-to-peer connections. This
 feature enables your app to prompt the user to change the access point that the
 device is connected to by using
-[`WifiNetworkSpecifier`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier)
+[`WifiNetworkSpecifier`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.md.txt)
 to describe properties of a requested network. The peer-to-peer connection is
 used for non-network-providing purposes, such as bootstrapping configuration for
 secondary devices like Chromecast and Google Home hardware.
@@ -95,7 +98,7 @@ to. The platform will ultimately choose which access point to accept based on
 the input from your and other apps.
 
 For more information about this feature, see
-[Wi-Fi suggest](https://developer.android.com/guide/topics/connectivity/wifi-suggest).
+[Wi-Fi suggestion API for internet connectivity](https://developer.android.com/develop/connectivity/wifi/wifi-suggest.md.txt).
 
 ### Improvements to Wi-Fi high-performance and low-latency modes
 
@@ -117,12 +120,12 @@ Android 10 adds native support for specialized DNS lookups using
 both cleartext lookups and DNS-over-TLS mode. Previously, the platform DNS
 resolver supported only A and AAAA records, which allow looking up only the IP
 addresses associated with a name, but did not support any other record types.
-The [`DnsResolver`](https://developer.android.com/reference/android/net/DnsResolver) API provides generic,
+The [`DnsResolver`](https://developer.android.com/reference/android/net/DnsResolver.md.txt) API provides generic,
 asynchronous resolution, enabling you to look up `SRV`, `NAPTR`, and other
 record types. Note that parsing the response is left to the app to perform.
 
 For NDK-based apps, see
-[`android_res_nsend`](https://developer.android.com/ndk/reference/group/networking#android_res_nsend).
+[`android_res_nsend`](https://developer.android.com/ndk/reference/group/networking.md.txt#android_res_nsend).
 
 ### Wi-Fi Easy Connect
 
@@ -130,7 +133,7 @@ Android 10 enables you to use Easy Connect to provision Wi-Fi
 credentials to a peer device, as a replacement of WPS which has been deprecated.
 Apps can integrate Easy Connect into their setup and provisioning flow by using
 the
-[`ACTION_PROCESS_WIFI_EASY_CONNECT_URI`](https://developer.android.com/reference/android/provider/Settings#ACTION_PROCESS_WIFI_EASY_CONNECT_URI)
+[`ACTION_PROCESS_WIFI_EASY_CONNECT_URI`](https://developer.android.com/reference/android/provider/Settings.md.txt#ACTION_PROCESS_WIFI_EASY_CONNECT_URI)
 intent.
 
 For more information on this feature, see
@@ -246,7 +249,8 @@ storage:
 
 ## Media and graphics
 
-Android 10 introduces the following new media and graphics features and APIs:
+Android 10 introduces the following new media and graphics features
+and APIs:
 
 ### Sharing audio input
 
@@ -262,7 +266,7 @@ For full information, see [Playback capture](https://developer.android.com/guide
 
 Starting with Android 10, `MediaStyle` notifications display a seekbar. The seekbar shows
 the playback progress from
-[`PlaybackState.getPosition()`](https://developer.android.com/reference/android/media/session/PlaybackState#getPosition()),
+[`PlaybackState.getPosition()`](https://developer.android.com/reference/android/media/session/PlaybackState.md.txt#getPosition()),
 and in some cases the seekbar can be used to seek to a location in the playing
 program. The seekbar appearance and behavior is controlled by these rules:
 
@@ -275,45 +279,46 @@ The Android Native MIDI API *(AMidi)* gives application developers the ability
 to send and receive MIDI data with C/C++code, integrating more closely with
 their C/C++ audio/control logic and minimizing the need for JNI.
 
-For more information, see [Android Native MIDI API](https://developer.android.com/ndk/guides/audio/midi).
+For more information, see [Android Native MIDI API](https://developer.android.com/ndk/guides/audio/midi.md.txt).
 
 ### MediaCodecInfo improvements
 
 Android 10 adds methods to
-[`MediaCodecInfo`](https://developer.android.com/reference/android/media/MediaCodecInfo) that reveal more
+[`MediaCodecInfo`](https://developer.android.com/reference/android/media/MediaCodecInfo.md.txt) that reveal more
 information about a codec.
 
 For more information, see [Media codecs](https://developer.android.com/guide/topics/media/media-codecs).
 
 ## Thermal API
 
-When devices get too warm, they may throttle the CPU and/or GPU, and this can
-affect apps and games in unexpected ways. Apps using complex graphics, heavy
-computation, or sustained network activity are more likely to hit issues, and
-those can vary across devices based on chipset and core frequencies, levels of
-integration, and also device packaging and form factor.
+When devices get too warm, they might throttle the CPU, GPU, or both, and this
+throttling can affect apps and games in unexpected ways. Apps using complex
+graphics, heavy computation, or sustained network activity are more likely to
+hit issues, and those can vary across devices based on chipset and core
+frequencies, levels of integration, and also device packaging and form factor.
 
-In Android 10, apps and games can use a thermal API to monitor changes on
-the device and take action to maintain lower power usage to restore normal
-temperature. Apps [register a listener](https://developer.android.com/reference/android/os/PowerManager#addThermalStatusListener(android.os.PowerManager.OnThermalStatusChangedListener))
-in [PowerManager](https://developer.android.com/reference/android/os/PowerManager), through which the system
+In Android 10, apps and games can use a thermal API to monitor
+changes on the device and take action to maintain lower power usage to restore
+normal temperature. Apps register a listener using
+[`addThermalStatusListener()`](https://developer.android.com/reference/android/os/PowerManager.md.txt#addThermalStatusListener(android.os.PowerManager.OnThermalStatusChangedListener)) in
+[`PowerManager`](https://developer.android.com/reference/android/os/PowerManager.md.txt), through which the system
 reports ongoing thermal status ranging from light and moderate to severe,
 critical, emergency, and shutdown.
 
 When the device reports thermal stress, apps and games can help by backing off
-ongoing activities to reduce power usage on various ways. For example,
-streaming apps could reduce resolution/bit rate or network traffic, a camera
-app could disable flash or intensive image enhancement, a game could reduce
-frame rate or polygon tesselation, a media app could reduce speaker volume,
-and a maps app could turn off GPS.
+ongoing activities to reduce power usage in various ways. For example,
+streaming apps can reduce resolution, bit rate, or network traffic, a camera app
+can disable flash or intensive image enhancement, a game can reduce frame rate
+or polygon tessellation, a media app can reduce speaker volume, and a maps app
+can turn off GPS.
 
-The thermal API requires a new device HAL layer---it's currently supported
-on Pixel devices running Android 10 and we're working with our device-maker
-partners to bring broad support to the ecosystem as quickly as possible.
+The thermal API requires a device hardware abstraction layer (HAL)
+implementation from the device manufacturer.
 
 ## Camera and images
 
-Android 10 introduces the following new camera- and image-related features:
+Android 10 introduces the following new camera- and image-related
+features:
 
 ### Monochrome camera support
 
@@ -346,19 +351,19 @@ that introduces higher-quality encoding and smaller file size when compared to
 other file formats.
 
 For more information about the file format, see
-[HEIC](https://developer.android.com/reference/android/graphics/ImageFormat#HEIC).
+[HEIC](https://developer.android.com/reference/android/graphics/ImageFormat.md.txt#HEIC).
 
 ### Improvements in multi-camera
 
 Android 10 improves the fusing of multiple cameras into a single logical camera,
 a feature introduced in Android 9 (API level 28). The following were added to
 the
-[Camera2 API](https://developer.android.com/reference/android/hardware/camera2/package-summary):
+[Camera2 API](https://developer.android.com/reference/android/hardware/camera2/package-summary.md.txt):
 
-- [`isSessionConfigurationSupported(SessionConfiguration sessionConfig)`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice#isSessionConfigurationSupported(android.hardware.camera2.params.SessionConfiguration))---enables you to query whether or not the passed session
+- [`isSessionConfigurationSupported(SessionConfiguration sessionConfig)`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice.md.txt#isSessionConfigurationSupported(android.hardware.camera2.params.SessionConfiguration))---enables you to query whether or not the passed session
   configuration can be used to create a camera capture session.
 
-- [`LOGICAL_MULTI_CAMERA_ACTIVE_PHYSICAL_ID`](https://developer.android.com/reference/android/hardware/camera2/CaptureResult#LOGICAL_MULTI_CAMERA_ACTIVE_PHYSICAL_ID)---enables
+- [`LOGICAL_MULTI_CAMERA_ACTIVE_PHYSICAL_ID`](https://developer.android.com/reference/android/hardware/camera2/CaptureResult.md.txt#LOGICAL_MULTI_CAMERA_ACTIVE_PHYSICAL_ID)---enables
   you to determine the ID of the active physical camera backing a logical
   camera device. You can use the IDs returned to request logical streams and
   physical subcamera streams to achieve better power efficiency.
@@ -371,7 +376,7 @@ features and APIs:
 ### AccessibilityNodeInfo entry key flag
 
 As of Android 10, you can call
-[`isTextEntryKey()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#isTextEntryKey())
+[`isTextEntryKey()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo.md.txt#isTextEntryKey())
 to determine whether a given `AccessibilityNodeInfo` represents a text entry key
 that's part of a keyboard or keypad.
 
@@ -406,7 +411,7 @@ Users can override this behavior.
 ### User-defined accessibility timeouts
 
 Android 10 introduces the
-[`getRecommendedTimeoutMillis()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager#getRecommendedTimeoutMillis(int,%20int))
+[`getRecommendedTimeoutMillis()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager.md.txt#getRecommendedTimeoutMillis(int,%20int))
 API. This method provides support for user-defined timeouts for interactive and
 non-interactive UI elements. The return value is influenced by both user
 preferences and accessibility service APIs.
@@ -418,7 +423,7 @@ Android 10 contains the following improvements to the autofill service.
 ### Compatibility-related autofill requests
 
 You can use the
-[`FillRequest.FLAG_COMPATIBILITY_MODE_REQUEST`](https://developer.android.com/reference/android/service/autofill/FillRequest#FLAG_COMPATIBILITY_MODE_REQUEST)
+[`FillRequest.FLAG_COMPATIBILITY_MODE_REQUEST`](https://developer.android.com/reference/android/service/autofill/FillRequest.md.txt#FLAG_COMPATIBILITY_MODE_REQUEST)
 flag to determine whether an autofill request was generated via compatibility
 mode.
 
@@ -426,7 +431,7 @@ mode.
 
 You can support cases where an application uses multiple activities to
 display username, password, and other fields by using the
-[`SaveInfo.FLAG_DELAY_SAVE`](https://developer.android.com/reference/android/service/autofill/SaveInfo#FLAG_DELAY_SAVE)
+[`SaveInfo.FLAG_DELAY_SAVE`](https://developer.android.com/reference/android/service/autofill/SaveInfo.md.txt#FLAG_DELAY_SAVE)
 flag.
 
 ### User interaction with the Save UI
@@ -448,13 +453,13 @@ Android 10 contains the following improvements to the Field Classification API.
 #### UserData.Builder constructor
 
 The
-[`UserData.Builder`](https://developer.android.com/reference/android/service/autofill/UserData.Builder)
+[`UserData.Builder`](https://developer.android.com/reference/android/service/autofill/UserData.Builder.md.txt)
 constructor has changed to better align to the `Builder` pattern.
 
 #### Allow a Value to be mapped to multiple types of Category IDs
 
 When using
-[`UserData.Builder`](https://developer.android.com/reference/android/service/autofill/UserData.Builder) in
+[`UserData.Builder`](https://developer.android.com/reference/android/service/autofill/UserData.Builder.md.txt) in
 Android 10, you can now map a value to multiple types of category IDs. In
 previous releases, an exception was thrown if a value was added more than once.
 
@@ -466,7 +471,7 @@ of a credit card number.
 #### Support for app-specific field classification
 
 Android 10 adds
-[`FillResponse.setUserData()`](https://developer.android.com/reference/android/service/autofill/FillResponse#setUserData(android.service.autofill.UserData)),
+[`FillResponse.setUserData()`](https://developer.android.com/reference/android/service/autofill/FillResponse.md.txt#setUserData(android.service.autofill.UserData)),
 which allows you to set app-specific user data for the duration of the session.
 This helps the autofill service detect types for fields with app-specific
 content.
@@ -487,7 +492,7 @@ Oracle's [Pop Frame reference page](https://docs.oracle.com/javase/7/docs/platfo
 ### Surface control API
 
 Android 10 provides a
-[`SurfaceControl`](https://developer.android.com/reference/android/view/SurfaceControl) API
+[`SurfaceControl`](https://developer.android.com/reference/android/view/SurfaceControl.md.txt) API
 for low-level access to the system-compositor
 ([`SurfaceFlinger`](https://source.android.com/devices/graphics/arch-sf-hwc)). For
 most users, SurfaceView is the correct way to leverage the compositor. The
@@ -498,21 +503,21 @@ most users, SurfaceView is the correct way to leverage the compositor. The
 - Lower-level lifetime management
 
 The `SurfaceControl` API is available in both
-[SDK](https://developer.android.com/reference/android/view/SurfaceControl) and NDK bindings.
+[SDK](https://developer.android.com/reference/android/view/SurfaceControl.md.txt) and NDK bindings.
 The NDK implementation includes an API for manual exchange of buffers with the
 compositor. This provides an alternative for users who have run up against the
 limitations of
 [`BufferQueue`](https://source.android.com/devices/graphics/arch-bq-gralloc).
 
-### WebView hung renderer detection
+### WebView unresponsive renderer detection
 
 Android 10 introduces the
-[`WebViewRenderProcessClient`](https://developer.android.com/reference/android/webkit/WebViewRenderProcessClient)
+[`WebViewRenderProcessClient`](https://developer.android.com/reference/android/webkit/WebViewRenderProcessClient.md.txt)
 abstract class, which apps can use to detect if a
-[`WebView`](https://developer.android.com/reference/android/webkit/WebView) has become unresponsive. To
+[`WebView`](https://developer.android.com/reference/android/webkit/WebView.md.txt) has become unresponsive. To
 use this class:
 
-1. Define your own subclass and implement its [`onRenderProcessResponsive()`](https://developer.android.com/reference/android/webkit/WebViewRenderProcessClient#onRenderProcessResponsive(android.webkit.WebView,%20android.webkit.WebViewRenderProcess)) and [`onRenderProcessUnresponsive()`](https://developer.android.com/reference/android/webkit/WebViewRenderProcessClient#onRenderProcessUnresponsive(android.webkit.WebView,%20android.webkit.WebViewRenderProcess)) methods.
+1. Define your own subclass and implement its [`onRenderProcessResponsive()`](https://developer.android.com/reference/android/webkit/WebViewRenderProcessClient.md.txt#onRenderProcessResponsive(android.webkit.WebView,%20android.webkit.WebViewRenderProcess)) and [`onRenderProcessUnresponsive()`](https://developer.android.com/reference/android/webkit/WebViewRenderProcessClient.md.txt#onRenderProcessUnresponsive(android.webkit.WebView,%20android.webkit.WebViewRenderProcess)) methods.
 2. Attach an instance of your `WebViewRenderProcessClient` to one or more `WebView` objects.
 3. If the `WebView` becomes unresponsive, the system calls the client's `onRenderProcessUnresponsive()` method, passing the `WebView` and `WebViewRenderProcess`. (If the `WebView` is single-process, the `WebViewRenderProcess` parameter is null.) Your app can take appropriate action, such as showing a dialog box to the user asking if they want to halt the rendering process.
 
@@ -533,8 +538,6 @@ order to use the app.
 
 <br />
 
-<br />
-
 ![](https://developer.android.com/static/images/about/versions/10/settings-wifi-part2.png) **Figure 2.** The user can turn on Wi-Fi and select a network without leaving the Chrome app.
 
 For example, suppose a user opens a web browser while their device is in
@@ -545,7 +548,7 @@ such as airplane mode, Wi-Fi (including nearby networks), and mobile data. With
 this panel, users can restore connectivity without leaving the app.
 
 To display a settings panel, fire an intent with the one of the following
-[`Settings.Panel`](https://developer.android.com/reference/android/provider/Settings.Panel) actions:
+[`Settings.Panel`](https://developer.android.com/reference/android/provider/Settings.Panel.md.txt) actions:
 
 ### Kotlin
 
@@ -563,19 +566,19 @@ startActivityForResult(panelIntent);
 
 <var translate="no">`settings_panel_type`</var> can be one of:
 
-[`ACTION_INTERNET_CONNECTIVITY`](https://developer.android.com/reference/android/provider/Settings.Panel#ACTION_INTERNET_CONNECTIVITY)
+[`ACTION_INTERNET_CONNECTIVITY`](https://developer.android.com/reference/android/provider/Settings.Panel.md.txt#ACTION_INTERNET_CONNECTIVITY)
 :   Shows settings related to internet connectivity, such as Airplane mode, Wi-Fi,
     and Mobile Data.
 
-[`ACTION_WIFI`](https://developer.android.com/reference/android/provider/Settings.Panel#ACTION_WIFI)
+[`ACTION_WIFI`](https://developer.android.com/reference/android/provider/Settings.Panel.md.txt#ACTION_WIFI)
 :   Shows Wi-Fi settings, but *not* the other connectivity settings. This is
     useful for apps that need a Wi-Fi connection to perform large uploads or
     downloads.
 
-[`ACTION_NFC`](https://developer.android.com/reference/android/provider/Settings.Panel#ACTION_NFC)
+[`ACTION_NFC`](https://developer.android.com/reference/android/provider/Settings.Panel.md.txt#ACTION_NFC)
 :   Shows all settings related to near-field communication *(NFC).*
 
-[`ACTION_VOLUME`](https://developer.android.com/reference/android/provider/Settings.Panel#ACTION_VOLUME)
+[`ACTION_VOLUME`](https://developer.android.com/reference/android/provider/Settings.Panel.md.txt#ACTION_VOLUME)
 :   Shows volume settings for all audio streams.
 
 ### Sharing improvements
@@ -600,7 +603,7 @@ until the same app updates them or the app is uninstalled.
 The older Direct Share mechanism still works, but apps that use it have a lower
 priority than apps using the Sharing Shortcuts API.
 
-[`ShortcutInfo.Builder`](https://developer.android.com/reference/android/content/pm/ShortcutInfo.Builder)
+[`ShortcutInfo.Builder`](https://developer.android.com/reference/android/content/pm/ShortcutInfo.Builder.md.txt)
 adds and enhances methods to provide additional info about the share target.
 
 #### Direct share targets
@@ -608,7 +611,7 @@ adds and enhances methods to provide additional info about the share target.
 You can publish a dynamic shortcut as a Direct Share Target.
 See [Publish direct share targets](https://developer.android.com/training/sharing/receive#publish-direct-share-targets).
 
-[`ShortcutManagerCompat`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat)
+[`ShortcutManagerCompat`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat.md.txt)
 is a new AndroidX API that provides backwards compatibility with the old DirectShare API. This
 is the preferred way to publish share targets.
 
@@ -634,7 +637,7 @@ see [Dark theme](https://developer.android.com/guide/topics/ui/look-and-feel/dar
 ## Foreground service types
 
 Android 10 introduces the
-[`foregroundServiceType`](https://developer.android.com/reference/android/R.attr#foregroundServiceType)
+[`foregroundServiceType`](https://developer.android.com/reference/android/R.attr.md.txt#foregroundServiceType)
 XML manifest attribute, which you include in the definition of several specific
 services. It's possible, though rarely appropriate, to assign multiple
 foreground service types to a particular service.
@@ -729,13 +732,14 @@ garbage collection frequency as a result. Other apps might see a small decrease.
 
 ## Testing and debugging
 
-Android 10 includes the following improvements for testing and debugging.
+Android 10 includes the following improvements for testing and
+debugging.
 
 ### Improvements for on-device system tracing
 
 As of Android 10, you can specify limits for the size and
 duration of a trace when you perform an
-[on-device system trace](https://developer.android.com/topic/performance/tracing/on-device). When you specify
+[on-device system trace](https://developer.android.com/topic/performance/tracing/on-device.md.txt). When you specify
 either value, the system performs a long trace, periodically copying the trace
 buffer to the destination file while the trace is recorded. The trace completes
 when the size or duration limits that you specified are reached.
@@ -755,19 +759,20 @@ format](https://docs.perfetto.dev/#/traceconv.md).
 
 ## TextClassifier improvements
 
-Android 10 provides additional text classification functionality in the
-[`TextClassifier`](https://developer.android.com/reference/android/view/textclassifier/TextClassifier)
+Android 10 provides additional text classification functionality
+in the
+[`TextClassifier`](https://developer.android.com/reference/android/view/textclassifier/TextClassifier.md.txt)
 interface.
 
 ### Language detection
 
 The
-[`detectLanguage()`](https://developer.android.com/reference/android/view/textclassifier/TextClassifier#detectLanguage(android.view.textclassifier.TextLanguage.Request))
+[`detectLanguage()`](https://developer.android.com/reference/android/view/textclassifier/TextClassifier.md.txt#detectLanguage(android.view.textclassifier.TextLanguage.Request))
 method works similarly to previously-existing classification methods. It
 receives a
-[`TextLanguage.Request`](https://developer.android.com/reference/android/view/textclassifier/TextLanguage.Request)
+[`TextLanguage.Request`](https://developer.android.com/reference/android/view/textclassifier/TextLanguage.Request.md.txt)
 object and returns a
-[`TextLanguage`](https://developer.android.com/reference/android/view/textclassifier/TextLanguage)
+[`TextLanguage`](https://developer.android.com/reference/android/view/textclassifier/TextLanguage.md.txt)
 object.
 
 `TextLanguage` objects consist of a list of ordered pairs. Each pair
@@ -776,35 +781,35 @@ contains a locale and a corresponding confidence score for the classification.
 ### Suggested conversation actions
 
 The
-[`suggestConversationActions()`](https://developer.android.com/reference/android/view/textclassifier/TextClassifier#suggestConversationActions(android.view.textclassifier.ConversationActions.Request))
+[`suggestConversationActions()`](https://developer.android.com/reference/android/view/textclassifier/TextClassifier.md.txt#suggestConversationActions(android.view.textclassifier.ConversationActions.Request))
 method works similarly to existing classification methods. It receives a
-[`ConversationActions.Request`](https://developer.android.com/reference/android/view/textclassifier/ConversationActions.Request)
+[`ConversationActions.Request`](https://developer.android.com/reference/android/view/textclassifier/ConversationActions.Request.md.txt)
 object and returns a
-[`ConversationActions`](https://developer.android.com/reference/android/view/textclassifier/ConversationActions)
+[`ConversationActions`](https://developer.android.com/reference/android/view/textclassifier/ConversationActions.md.txt)
 object.
 
-[`ConversationActions`](https://developer.android.com/reference/android/view/textclassifier/ConversationActions)
+[`ConversationActions`](https://developer.android.com/reference/android/view/textclassifier/ConversationActions.md.txt)
 objects consist of a list of
-[`ConversationAction`](https://developer.android.com/reference/android/view/textclassifier/ConversationAction)
+[`ConversationAction`](https://developer.android.com/reference/android/view/textclassifier/ConversationAction.md.txt)
 objects. Each `ConversationAction` object includes a potential
 suggested action and its confidence score.
 
-## Smart replies/actions in notifications
+## Smart replies and actions in notifications
 
 Android 9 introduced the ability to display suggested replies within a notification. Android 10 expands on this with the ability to include suggested intent-based actions. Furthermore, the platform is able to generate these suggestions automatically. Apps can still provide their own suggestions, or opt out of system-generated suggestions.
 
 <br />
 
 The API used to generate these replies is part of
-[`TextClassifier`](https://developer.android.com/reference/android/view/textclassifier/TextClassifier),
+[`TextClassifier`](https://developer.android.com/reference/android/view/textclassifier/TextClassifier.md.txt),
 and has also been directly exposed to developers in Android 10.
-Please read [the section on TextClassifier improvements](https://developer.android.com/about/versions/10/features#textclass)
+Please read [the section on TextClassifier improvements](https://developer.android.com/about/versions/10/features.md.txt#textclass)
 for more information.
 
 If your app provides its own suggestions, the platform doesn't generate any
 automatic suggestions. If you don't want your app's notifications to display
 any suggested replies or actions, you can opt out of system-generated replies
 and actions by using
-[`setAllowGeneratedReplies()`](https://developer.android.com/reference/android/app/Notification.Action.Builder#setAllowGeneratedReplies(boolean))
+[`setAllowGeneratedReplies()`](https://developer.android.com/reference/android/app/Notification.Action.Builder.md.txt#setAllowGeneratedReplies(boolean))
 and
-[`setAllowSystemGeneratedContextualActions()`](https://developer.android.com/reference/android/app/Notification.Builder#setAllowSystemGeneratedContextualActions(boolean)).
+[`setAllowSystemGeneratedContextualActions()`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setAllowSystemGeneratedContextualActions(boolean)).

@@ -4,9 +4,11 @@ url: https://developer.android.com/guide/playcore/in-app-review/unreal-engine
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/playcore/in-app-review/llms.txt
+
 This guide describes how to integrate in-app reviews in your app using Unreal
 Engine. There are separate integration guides for if you are using [Kotlin or
-Java](https://developer.android.com/guide/playcore/in-app-review/kotlin-java), [native code](https://developer.android.com/guide/playcore/in-app-review/native) or [Unity](https://developer.android.com/guide/playcore/in-app-review/unity).
+Java](https://developer.android.com/guide/playcore/in-app-review/kotlin-java), [native code](https://developer.android.com/guide/playcore/in-app-review/native.md.txt) or [Unity](https://developer.android.com/guide/playcore/in-app-review/unity.md.txt).
 
 ## Unreal Engine SDK overview
 
@@ -40,23 +42,25 @@ The plugin supports **Unreal Engine 5.0** and all subsequent versions.
 6. Open your project's `Build.cs` file and add the `PlayInAppReviews` module
    to `PublicDependencyModuleNames`:
 
-       using UnrealBuildTool;
+   ```c#
+   using UnrealBuildTool;
 
-       public class MyGame : ModuleRules
-       {
-         public MyGame(ReadOnlyTargetRules Target) : base(Target)
-         {
-           // ...
+   public class MyGame : ModuleRules
+   {
+     public MyGame(ReadOnlyTargetRules Target) : base(Target)
+     {
+       // ...
 
-           PublicDependencyModuleNames.Add("PlayInAppReviews");
+       PublicDependencyModuleNames.Add("PlayInAppReviews");
 
-           // ...
-         }
-       }
+       // ...
+     }
+   }
+   ```
 
 ## Request the in-app review flow
 
-Follow the guidance about [when to request in-app reviews](https://developer.android.com/guide/playcore/in-app-review#when-to-request) to determine good
+Follow the guidance about [when to request in-app reviews](https://developer.android.com/guide/playcore/in-app-review.md.txt#when-to-request) to determine good
 points in your app's user flow to prompt the user for a review (for example,
 after a user dismisses the summary screen at the end of a level in a game). When
 your app gets close one of these points, use the `UInAppReviewsManager` create
@@ -64,26 +68,30 @@ an operation, as shown in the following example:
 
 MyClass.h
 
-    void MyClass::OnReviewOperationCompleted(EInAppReviewErrorCode ErrorCode)
-    {
-      // ...
-    }
+```c
+void MyClass::OnReviewOperationCompleted(EInAppReviewErrorCode ErrorCode)
+{
+  // ...
+}
+```
 
 MyClass.cpp
 
-    void MyClass::RequestReviewFlow()
-    {
-      // Create a delegate to bind the callback function.
-      FReviewOperationCompletedDelegate Delegate;
+```c
+void MyClass::RequestReviewFlow()
+{
+  // Create a delegate to bind the callback function.
+  FReviewOperationCompletedDelegate Delegate;
 
-      // Bind the completion handler (OnReviewOperationCompleted) to the delegate.
-      Delegate.BindDynamic(this, &MyClass::OnReviewOperationCompleted);
+  // Bind the completion handler (OnReviewOperationCompleted) to the delegate.
+  Delegate.BindDynamic(this, &MyClass::OnReviewOperationCompleted);
 
-      // Initiate the review flow, passing the delegate to handle the result.
-      GetGameInstance()
-        ->GetSubsystem<UInAppReviewsManager>()
-        ->RequestReviewFlow(Delegate);
-    }
+  // Initiate the review flow, passing the delegate to handle the result.
+  GetGameInstance()
+    ->GetSubsystem<UInAppReviewsManager>()
+    ->RequestReviewFlow(Delegate);
+}
+```
 
 1. The method creates a `FRreviewOperationCompletedDelegate` to handle the
    completion of the review operation.
@@ -112,28 +120,32 @@ request.
 
 MyClass.h
 
-    void MyClass::OnReviewOperationCompleted(EInAppReviewErrorCode ErrorCode)
-    {
-      // ...
-    }
+```c
+void MyClass::OnReviewOperationCompleted(EInAppReviewErrorCode ErrorCode)
+{
+  // ...
+}
+```
 
 MyClass.cpp
 
-    void MyClass::LaunchReviewFlow()
-    {
-      // Create a delegate to bind the callback function.
-      FReviewOperationCompletedDelegate Delegate;
+```c
+void MyClass::LaunchReviewFlow()
+{
+  // Create a delegate to bind the callback function.
+  FReviewOperationCompletedDelegate Delegate;
 
-      // Bind the completion handler (OnReviewOperationCompleted) to the delegate.
-      Delegate.BindDynamic(this, &MyClass::OnReviewOperationCompleted);
+  // Bind the completion handler (OnReviewOperationCompleted) to the delegate.
+  Delegate.BindDynamic(this, &MyClass::OnReviewOperationCompleted);
 
-      // Launch the review flow, passing the delegate to handle the result.
-      GetGameInstance()
-        ->GetSubsystem<UInAppReviewsManager>()
-        ->LaunchReviewFlow(Delegate);
-    }
+  // Launch the review flow, passing the delegate to handle the result.
+  GetGameInstance()
+    ->GetSubsystem<UInAppReviewsManager>()
+    ->LaunchReviewFlow(Delegate);
+}
+```
 
 ## Next steps
 
-[Test your app's in-app review flow](https://developer.android.com/guide/playcore/in-app-review/test) to verify that your integration is
+[Test your app's in-app review flow](https://developer.android.com/guide/playcore/in-app-review/test.md.txt) to verify that your integration is
 working correctly.

@@ -4,10 +4,11 @@ url: https://developer.android.com/studio/run/emulator-acceleration
 source: md.txt
 ---
 
-The emulator runs best if it can use your machine's hardware, such as
-the CPU, GPU, and modem, rather than running as pure software. The ability to use
-your machine's hardware to improve performance is called *hardware
-acceleration*.
+> Documentation index: https://developer.android.com/studio/run/llms.txt
+
+The emulator runs best if it can use your machine's hardware, such as the CPU,
+GPU, and modem, rather than running as pure software. The ability to use your
+machine's hardware to improve performance is called *hardware acceleration*.
 
 The emulator can use hardware acceleration to improve your
 experience in two main ways:
@@ -33,15 +34,15 @@ specify whether the emulator uses hardware or software rendering.
 In the automatic mode, the emulator decides whether to use
 hardware or software graphics acceleration based on your computer.
 You can also override the setting if you start the emulator from the
-[command line](https://developer.android.com/studio/run/emulator-commandline#starting).
+[command line](https://developer.android.com/studio/run/emulator-commandline.md.txt#starting).
 
 ### Configure graphics acceleration in the AVD Manager
 
 To configure graphics acceleration for an AVD, follow these steps:
 
-1. Open the [Device Manager](https://developer.android.com/studio/run/managing-avds#viewing).
-2. [Create a new AVD](https://developer.android.com/studio/run/managing-avds#createavd) or [edit an existing AVD](https://developer.android.com/studio/run/managing-avds#workingavd).
-3. In the [**Configuration**](https://developer.android.com/studio/run/managing-avds#verifyconfigpage) window, find the **Emulated Performance** section under the **Additional Settings** tab.
+1. Open the [Device Manager](https://developer.android.com/studio/run/managing-avds.md.txt).
+2. [Create a new AVD](https://developer.android.com/studio/run/managing-avds.md.txt#createavd) or [edit an existing AVD](https://developer.android.com/studio/run/managing-avds.md.txt#workingavd).
+3. In the [**Configuration**](https://developer.android.com/studio/run/managing-avds.md.txt#verifyconfigpage) window, find the **Emulated Performance** section under the **Additional Settings** tab.
 4. Select a value for the **Graphics acceleration** option.
 5. Click **Finish**.
 
@@ -95,8 +96,8 @@ requirements that are specific to your operating system.
 To use VM acceleration, your development environment must meet the
 following requirements:
 
-- [SDK Tools](https://developer.android.com/studio/releases/cmdline-tools): Minimum version 17; recommended version 26.1.1 or later
-- [AVD](https://developer.android.com/studio/run/managing-avds#about):
+- [SDK Tools](https://developer.android.com/tools/releases/cmdline-tools.md.txt): Minimum version 17; recommended version 26.1.1 or later
+- [AVD](https://developer.android.com/studio/run/managing-avds.md.txt#about):
   Required Android version is described in the table that follows.
 
   | CPU Architecture | System Image Requirement |
@@ -153,9 +154,9 @@ The hypervisor that works best for you depends on your computer's operating
 system and configuration. For more information, see one of the following
 sections:
 
-- [Configure VM acceleration on Windows](https://developer.android.com/studio/run/emulator-acceleration#vm-windows)
-- [Configure VM acceleration on macOS](https://developer.android.com/studio/run/emulator-acceleration#vm-mac)
-- [Configure VM acceleration on Linux](https://developer.android.com/studio/run/emulator-acceleration#vm-linux)
+- [Configure VM acceleration on Windows](https://developer.android.com/studio/run/emulator-acceleration.md.txt#vm-windows)
+- [Configure VM acceleration on macOS](https://developer.android.com/studio/run/emulator-acceleration.md.txt#vm-mac)
+- [Configure VM acceleration on Linux](https://developer.android.com/studio/run/emulator-acceleration.md.txt#vm-linux)
 
 ### Check whether a hypervisor is installed
 
@@ -204,10 +205,9 @@ KVM (version 12) is installed and usable.
 ### Configure VM acceleration on Windows
 
 On Windows, we recommend using the Microsoft-supplied [Windows Hypervisor
-Platform (WHPX)](https://learn.microsoft.com/en-us/virtualization/api/hypervisor-platform/hypervisor-platform),
-which requires Windows 10 version 1803 or higher. However, Android Studio may
-require higher version for the Windows. In such cases, follow the Android Studio
-system requirements.
+Platform (WHPX)](https://learn.microsoft.com/en-us/virtualization/api/hypervisor-platform/hypervisor-platform), which requires Windows 10 version 1803 or higher.
+However, Android Studio might require a higher version of Windows. In such
+cases, follow the Android Studio system requirements.
 
 Windows Hypervisor Platform might not be turned on by default. In such cases,
 follow [Configure VM acceleration using Windows Hypervisor
@@ -215,7 +215,9 @@ Platform](https://developer.android.com/studio/run/emulator-acceleration#vm-wind
 enabling it.
 
 > [!NOTE]
-> **Note:** The Android Emulator supports another hypervisor: [Android Emulator hypervisor driver](https://github.com/google/android-emulator-hypervisor-driver). However, the Android Emulator hypervisor driver will be sunset on December 31, 2026. Android Emulator users on Windows will have until the end of 2026 to transition by enabling Windows Hypervisor Platform. Before that, you can still use the Android Emulator hypervisor driver. [Configure VM acceleration using Android Emulator hypervisor driver](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-aehd) is still included in this document but will be removed after December 31, 2026.
+> **Note:** The Android Emulator supports another hypervisor: [Android Emulator
+> hypervisor driver](https://github.com/google/android-emulator-hypervisor-driver). However, the Android Emulator hypervisor driver will be sunset on December 31, 2026. Android Emulator users on Windows will have until the end of 2026 to transition by enabling Windows Hypervisor Platform. Before that, you can still use the Android Emulator hypervisor driver. [Configure VM acceleration using Android Emulator hypervisor
+> driver](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-aehd) is still included in this document but will be removed after December 31, 2026.
 
 #### Configure VM acceleration using Windows Hypervisor Platform
 
@@ -224,7 +226,7 @@ Before you can enable WHPX, your computer must meet the following requirements:
 - Intel processors: Support for Virtualization Technology (VT-x), Extended Page Tables (EPT), and Unrestricted Guest (UG) features. VT-x must be enabled in your computer's BIOS settings.
 - AMD processors: AMD Ryzen processor recommended. Virtualization or SVM must be enabled in your computer's BIOS settings.
 - [Android Studio 3.2 Beta 1 or higher](https://developer.android.com/studio/preview)
-- [Android Emulator version 27.3.8 or higher](https://developer.android.com/studio/intro/update#sdk-manager)
+- [Android Emulator version 27.3.8 or higher](https://developer.android.com/studio/intro/update.md.txt#sdk-manager)
 - Windows 10 or higher
 
 To install WHPX on Windows, follow these steps:
@@ -232,15 +234,15 @@ To install WHPX on Windows, follow these steps:
 1. From the Windows desktop, click the Windows icon to open the Start Menu.
 2. Using the search bar, type in **Turn Windows features on or off**.
 
-   The **Turn Windows features on or off** control panel should appear, and
-   be selected.
-   ![](https://developer.android.com/static/studio/images/run/windows-features-on-off-windows11.png)
+   The **Turn Windows features on or off** control panel should appear and be
+   selected:
+   ![Windows Start menu showing Turn Windows features on or off.](https://developer.android.com/static/studio/images/run/windows-features-on-off-windows11.png) Turn Windows features on or off control panel.
 3. Press the Enter key, or click **Turns Windows Features on or off**, to launch
    the control panel.
 
-4. Check the box next to **Windows Hypervisor Platform**.
+4. Check the box next to **Windows Hypervisor Platform**:
 
-   ![](https://developer.android.com/static/studio/images/run/whpx_windows10_1803.png)
+   ![Windows Features dialog with Windows Hypervisor Platform selected.](https://developer.android.com/static/studio/images/run/whpx_windows10_1803.png) Windows Hypervisor Platform option in Windows Features.
 5. Click **OK**.
 
 6. Once the installation has finished, restart your computer.
@@ -267,15 +269,13 @@ computer must meet the following requirements:
   Windows Features Dialog. These include security features such as **Hyper-V** ,
   **Core Isolation** , and others. (Note that the **Hyper-V** feature is NOT the
   same as the Hyper-V Hypervisor.) If you need these features, use
-  [WHPX](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-whpx) instead.
+  [WHPX](https://developer.android.com/studio/run/emulator-acceleration.md.txt#vm-windows-whpx) instead.
 
-On AMD Processors, the Android Emulator hypervisor driver can be installed via
-the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) in Android Studio 4.0 Canary
-5 or later.
+On AMD processors, the Android Emulator hypervisor driver can be installed using
+the [SDK Manager](https://developer.android.com/studio/intro/update.md.txt#sdk-manager) in Android Studio 4.0 Canary 5 or higher.
 
-On Intel Processors, the Android Emulator hypervisor driver can be installed via
-the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) in Android Studio Flamingo
-or later.
+On Intel processors, the Android Emulator hypervisor driver can be installed
+using the [SDK Manager](https://developer.android.com/studio/intro/update.md.txt#sdk-manager) in Android Studio Flamingo or higher.
 
 To install from the SDK Manager,
 follow these steps:
@@ -328,12 +328,11 @@ follow these steps:
               ...
 
 The Android Emulator hypervisor driver can also be downloaded and installed from
-[GitHub](https://github.com/google/android-emulator-hypervisor-driver/releases).
-After unpacking the driver package, run `silent_install.bat` at a command line
-with administrator privileges.
+[GitHub](https://github.com/google/android-emulator-hypervisor-driver/releases). After unpacking the driver package, run
+`silent_install.bat` at a command line with admin privileges.
 
 Uninstall Android Emulator hypervisor driver using the following commands at a
-command line with administrator privileges:
+command line with admin privileges:
 
 **AEHD 2.1 and higher**
 
@@ -351,21 +350,19 @@ command line with administrator privileges:
 ### Configure VM acceleration on macOS
 
 On macOS, the Android Emulator uses the built-in
-[Hypervisor.Framework](https://developer.apple.com/documentation/hypervisor),
-which requires the macOS v10.10 (Yosemite) and higher. However, Android Studio
-may require higher version for the macOS. In such cases, follow the Android
-Studio system requirements.
+[Hypervisor.Framework](https://developer.apple.com/documentation/hypervisor), which requires macOS
+10.10 (Yosemite) or higher. However, Android Studio might require a higher
+version of macOS. In such cases, follow the Android Studio system requirements.
 
 > [!NOTE]
 > **Note:** The Android Emulator had supported Intel HAXM on macOS in the past, but this option is not available anymore since macOS v11.
 
 ### Configure VM acceleration on Linux
 
-Linux-based systems support VM acceleration through the [KVM software
-package](https://www.linux-kvm.org/page/Main_Page).
-Follow the instructions for installing KVM on your Linux system, and then verify
-that KVM is enabled. For Ubuntu systems, see
-[Ubuntu KVM Installation](https://help.ubuntu.com/community/KVM/Installation).
+Linux-based systems support VM acceleration through the
+[KVM software package](https://www.linux-kvm.org/page/Main_Page). Follow the instructions for
+installing KVM on your Linux system, and then verify that KVM is enabled. For
+Ubuntu systems, see [Ubuntu KVM Installation](https://help.ubuntu.com/community/KVM/Installation).
 
 #### Requirements
 
@@ -380,7 +377,7 @@ requirements:
 
 #### Check whether KVM is installed on Linux
 
-You can use the emulator [`-accel-check`](https://developer.android.com/studio/run/emulator-acceleration#accel-check)
+You can use the emulator [`-accel-check`](https://developer.android.com/studio/run/emulator-acceleration.md.txt#accel-check)
 command-line option to check whether you have KVM installed. Alternatively,
 you can install the `cpu-checker` package containing the `kvm-ok` command.
 
@@ -442,17 +439,17 @@ sudo aptitude install kvm libvirt-bin ubuntu-vm-builder bridge-utils
 
 ### Guide for Intel HAXM Uninstallation
 
-HAXM is deprecated for quite some time (01/2023) as [Intel discontinues
-development of HAXM](https://github.com/intel/haxm).
+HAXM is deprecated for quite some time (01/2023) as
+[Intel discontinues development of HAXM](https://github.com/intel/haxm).
 
-Starting from emulator 36.2.x.x, the Android Emulator won't use HAXM
-anymore, and in case you were using it before, we will need to install a new
-hypervisor driver. We would recommend using the Windows Hypervisor Platform
-([WHPX](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-whpx)) from Microsoft.
+Starting from emulator 36.2.x.x, the Android Emulator won't use HAXM anymore,
+and in case you were using it before, you need to install a new hypervisor
+driver. We recommend using the Windows Hypervisor Platform
+([WHPX](https://developer.android.com/studio/run/emulator-acceleration.md.txt#vm-windows-whpx)) from Microsoft.
 
-It is recommended to remove Intel HAXM completely from your Windows system,
-unless you have other software installed that depends on HAXM and you choose
-to keep Intel HAXM and manage it on your own.
+We recommend removing Intel HAXM completely from your Windows system, unless
+you have other software installed that depends on HAXM and you choose to keep
+Intel HAXM and manage it on your own.
 
 To uninstall Intel HAXM, follow these steps:
 
@@ -467,19 +464,19 @@ Windows command console and run the following command:
        sc query intelhaxm
 
 If Intel HAXM is installed and running, you should see the following message
-in the command output.
-![](https://developer.android.com/static/studio/images/run/HAXM/HAXM_check_installed.png)
+in the command output:
+![Command console output showing intelhaxm STATE: 4 RUNNING.](https://developer.android.com/static/studio/images/run/HAXM/HAXM_check_installed.png) Command output when Intel HAXM is installed and running.
 
 If Intel HAXM is installed but disabled, you should see the following message
-in the command output.
-![](https://developer.android.com/static/studio/images/run/HAXM/HAXM_check_disabled.png)
+in the command output:
+![Command console output showing intelhaxm STATE: 1 STOPPED.](https://developer.android.com/static/studio/images/run/HAXM/HAXM_check_disabled.png) Command output when Intel HAXM is installed and disabled.
 
 In both cases, regardless whether Intel HAXM is running or disabled, it is
 installed. You need to go to the **next step** to continue to uninstall Intel
 HAXM.
 
-If Intel HAXM is not installed, you should see the following message.
-![](https://developer.android.com/static/studio/images/run/HAXM/HAXM_check_not_installed.png)
+If Intel HAXM isn't installed, you should see the following message:
+![Command console output showing intelhaxm service does not exist.](https://developer.android.com/static/studio/images/run/HAXM/HAXM_check_not_installed.png) Command output when Intel HAXM is not installed.
 
 #### Uninstall Intel HAXM using SDK manager from the Android Studio
 
@@ -487,18 +484,18 @@ If you had installed in the past HAXM with the SDK Manager, you should still see
 the module listed in the "SDK Tools" tab.
 Open the SDK manager from the Android Studio, get to the "SDK Tools" tab, then
 navigate to the "Intel x86 Emulator Accelerator (HAXM installer) - Deprecated"
-line. It should look like the following screenshot.
-![](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_1.png)
+line. It should look like the following screenshot:
+![SDK Tools tab with HAXM installer selected.](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_1.png) Intel x86 Emulator Accelerator (HAXM installer) in SDK Manager.
 
-Clear the checkbox as shown in the following screenshot.
-![](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_2.png)
+Clear the checkbox as shown in the following screenshot:
+![SDK Tools tab with HAXM installer checkbox cleared.](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_2.png) Cleared HAXM installer checkbox in SDK Manager.
 
-Click "Apply" button and the following dialog should pop up.
-![](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_3.png)
+Click "Apply" button and the following dialog should pop up:
+![Confirm Change dialog to uninstall HAXM.](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_3.png) SDK Manager confirmation dialog for uninstalling HAXM.
 
 When Intel HAXM is successfully uninstalled, you should see the following.
-Uninstallation is done and you can **stop here** .
-![](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_4.png)
+Uninstallation is done and you can **stop here**:
+![SDK Component Installer dialog showing Done.](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_4.png) SDK Manager completion dialog after uninstalling HAXM.
 
 In case of any errors, continue to the **next step**.
 
@@ -507,8 +504,8 @@ In case of any errors, continue to the **next step**.
 Open Windows "settings" and navigate to "Apps \> Installed apps".
 
 Locate the "Intel Hardware Accelerated Execution Manager" entry and click
-"Uninstall", as shown in the following screenshot.
-![](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_from_Windows_Settings.png)
+"Uninstall", as shown in the following screenshot:
+![Windows Installed apps list showing Intel HAXM entry.](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_from_Windows_Settings.png) Intel Hardware Accelerated Execution Manager in Windows Settings.
 
 The Intel HAXM uninstaller should run and report the result. If the
 uninstallation is successful, go to **Delete Intel HAXM installer package** .
@@ -517,19 +514,19 @@ Otherwise, continue to the **next step**.
 #### Uninstall using command line
 
 > [!NOTE]
-> **Note:** This is a manual process by running the commands requiring the admin privilege. Open a Windows command console as admin and run the following commands.
+> **Note:** This manual process requires admin privileges. Open a Windows command console as admin and run the following commands:
 
-1. Stop Intel HAXM service by running 'sc stop intelhaxm'. You should see the
-   following output.
-   ![](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_Manually_1.png)
+1. Stop Intel HAXM service by running `sc stop intelhaxm`. You should see the
+   following output:
 
-2. Delete Intel HAXM service by running 'sc delete intelhaxm'. You should see
-   the following output.
-   ![](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_Manually_2.png)
+   ![Command console output showing sc stop intelhaxm STOP_PENDING.](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_Manually_1.png) Command output after stopping the Intel HAXM service.
+2. Delete Intel HAXM service by running `sc delete intelhaxm`. You should see
+   the following output:
 
+   ![Command console output showing DeleteService SUCCESS.](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_Manually_2.png) Command output after deleting the Intel HAXM service.
 3. Go to **Delete Intel HAXM installer package**.
 
-#### Delete Intel HAXM installer package.
+#### Delete Intel HAXM installer package
 
 This step is only required when uninstalling Intel HAXM using Windows "settings"
 or command line. Without this step, the SDK manager of the Android Studio may
@@ -537,5 +534,5 @@ continue listing Intel HAXM as "Installed".
 
 The installer package is located at\<Your Android SDK folder\>\\extras\\intel.
 By default, Android SDK will be installed at "C:\\Users\\\<Your Windows User ID
-\>\\AppData\\Local\\Android\\Sdk". See example in the following screenshot.
-![](https://developer.android.com/static/studio/images/run/HAXM/Delete_HAXM_package.png)
+\>\\AppData\\Local\\Android\\Sdk". See example in the following screenshot:
+![File Explorer showing extras\intel\Hardware_Accelerated_Execution_Manager.](https://developer.android.com/static/studio/images/run/HAXM/Delete_HAXM_package.png) Intel HAXM installer package location in the Android SDK directory.

@@ -4,12 +4,14 @@ url: https://developer.android.com/studio/preview/compose-screenshot-testing-wit
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/preview/llms.txt
+
 > [!WARNING]
 > **Experimental:** Compose Preview Screenshot Testing with AGP test suites is in active development. APIs and DSL syntax are subject to change. Report feedback and issues through the [issue tracker](https://issuetracker.google.com/issues/new?component=192708&template=840533).
 
 Starting with Android Gradle Plugin (AGP) 9.5.0-alpha03 and Compose Preview
 Screenshot Testing engine `0.0.1-alpha16`, screenshot testing is integrated with
-AGP's native [test suites](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/AgpTestSuite) framework.
+AGP's native [test suites](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/AgpTestSuite.md.txt) framework.
 
 This approach replaces the standalone screenshot plugin
 (`com.android.compose.screenshot`). We recommend adopting AGP test suites for
@@ -22,11 +24,11 @@ the following reasons:
 
 ## Android skills
 
-[View on GitHub](https://github.com/android/skills/blob/main/testing/testing-setup)
+[View on GitHub](https://github.com/android/skills/tree/main/testing/testing-setup)
 
 ### Create screenshot tests
 
-Use the `testing-setup` [Android skill](https://developer.android.com/tools/agents/android-skills) to develop a testing strategy and create screenshot tests. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the `testing-setup` [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to develop a testing strategy and create screenshot tests. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add testing-setup
 
@@ -53,27 +55,31 @@ following steps:
 In your project's root `gradle.properties` file, enable screenshot testing and
 test suite support:
 
-    android.experimental.enableScreenshotTest=true
-    android.experimental.testSuiteSupport=true
+```properties
+android.experimental.enableScreenshotTest=true
+android.experimental.testSuiteSupport=true
+```
 
 ### 2. Configure the test suite in the `build.gradle.kts` file
 
 In your module's `build.gradle.kts` file, define a screenshot test suite within
 the `testOptions` block:
 
-    android {
-        testOptions {
-            screenshotTests.create("screenshotTest") { // suiteName can be customized (for example, "uiTests")
-                engineVersion = "0.0.1-alpha16"
-                targetVariants.add("demoDebug") // Add specific variants to test
+```kotlin
+android {
+    testOptions {
+        screenshotTests.create("screenshotTest") { // suiteName can be customized (for example, "uiTests")
+            engineVersion = "0.0.1-alpha16"
+            targetVariants.add("demoDebug") // Add specific variants to test
 
-                dependencies {
-                    implementation(libs.androidx.compose.ui.tooling)
-                    implementation("com.android.tools.screenshot:screenshot-validation-api:0.0.1-alpha16")
-                }
+            dependencies {
+                implementation(libs.androidx.compose.ui.tooling)
+                implementation("com.android.tools.screenshot:screenshot-validation-api:0.0.1-alpha16")
             }
         }
     }
+}
+```
 
 ### 3. Create the test source set
 
@@ -90,21 +96,23 @@ For example, for a suite named `screenshotTest`:
 Annotate composables with `@PreviewTest` and standard `@Preview` or
 multi-preview annotations:
 
-    package com.example.app
+```kotlin
+package com.example.app
 
-    import androidx.compose.runtime.Composable
-    import androidx.compose.ui.tooling.preview.Preview
-    import com.android.tools.screenshot.PreviewTest
-    import com.example.app.ui.theme.AppTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+import com.android.tools.screenshot.PreviewTest
+import com.example.app.ui.theme.AppTheme
 
-    @PreviewTest
-    @Preview(showBackground = true)
-    @Composable
-    fun ForYouScreenPreview() {
-        AppTheme {
-            ForYouScreen(isSyncing = false)
-        }
+@PreviewTest
+@Preview(showBackground = true)
+@Composable
+fun ForYouScreenPreview() {
+    AppTheme {
+        ForYouScreen(isSyncing = false)
     }
+}
+```
 
 ## Run screenshot tests
 
@@ -150,32 +158,36 @@ update your Gradle configuration and task commands.
 
 #### Legacy standalone plugin (deprecated)
 
-    // In build.gradle.kts
-    plugins {
-        alias(libs.plugins.screenshot)
-    }
+```kotlin
+// In build.gradle.kts
+plugins {
+    alias(libs.plugins.screenshot)
+}
 
-    dependencies {
-        screenshotTestImplementation(libs.androidx.compose.ui.tooling)
-        screenshotTestImplementation("com.android.tools.screenshot:screenshot-validation-api:0.0.1-alpha16")
-    }
+dependencies {
+    screenshotTestImplementation(libs.androidx.compose.ui.tooling)
+    screenshotTestImplementation("com.android.tools.screenshot:screenshot-validation-api:0.0.1-alpha16")
+}
+```
 
 #### AGP test suites (recommended)
 
-    // In build.gradle.kts
-    android {
-        testOptions {
-            screenshotTests.create("screenshotTest") {
-                engineVersion = "0.0.1-alpha16"
-                targetVariants.add("demoDebug")
+```kotlin
+// In build.gradle.kts
+android {
+    testOptions {
+        screenshotTests.create("screenshotTest") {
+            engineVersion = "0.0.1-alpha16"
+            targetVariants.add("demoDebug")
 
-                dependencies {
-                    implementation(libs.androidx.compose.ui.tooling)
-                    implementation("com.android.tools.screenshot:screenshot-validation-api:0.0.1-alpha16")
-                }
+            dependencies {
+                implementation(libs.androidx.compose.ui.tooling)
+                implementation("com.android.tools.screenshot:screenshot-validation-api:0.0.1-alpha16")
             }
         }
     }
+}
+```
 
 ### Tasks and paths mapping
 

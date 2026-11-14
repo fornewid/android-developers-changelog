@@ -297,7 +297,7 @@ storage. The files stored in these directories are removed when your app is
 uninstalled.
 
 > [!CAUTION]
-> **Caution:** The files in these directories aren't guaranteed to be accessible, such as when a removable SD card is taken out of the device. If your app's functionality depends on these files, you should instead store the files within [internal storage](https://developer.android.com/training/data-storage/app-specific.md.txt#internal).
+> **Caution:** The files in these directories aren't always accessible, such as when a removable SD card is removed from the device. If your app's functionality depends on these files, store the files within [internal storage](https://developer.android.com/training/data-storage/app-specific.md.txt#internal).
 
 On devices that run Android 9 (API level 28) or lower, your app can access the
 app-specific files that belong to other apps, provided that your app has the
@@ -587,9 +587,9 @@ even when your app doesn't export the activity; that is, when your activity sets
 To request that the user choose files on the device to remove, invoke an intent
 that includes the
 [`ACTION_MANAGE_STORAGE`](https://developer.android.com/reference/android/os/storage/StorageManager.md.txt#ACTION_MANAGE_STORAGE)
-action. This intent displays a prompt to the user. If desired, this prompt can
-show the amount of free space available on the device. To show this
-user-friendly information, use the result of the following calculation:
+action. This intent displays a prompt to the user. This prompt can also show
+the amount of free space available on the device. To show this user-friendly
+information, use the result of the following calculation:
 
 ```
 StorageStatsManager.getFreeBytes() / StorageStatsManager.getTotalBytes()

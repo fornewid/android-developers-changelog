@@ -4,11 +4,15 @@ url: https://developer.android.com/tools/agents/android-cli/commands/profiler
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
+
 Profiles Android apps, games, and devices.
 
 ## Usage
 
-    android profiler [-h]
+```bash
+android profiler [-h]
+```
 
 ## Options
 
@@ -22,6 +26,6 @@ Profiles Android apps, games, and devices.
 
 ## Subcommands
 
-- **[`heapdump`](https://developer.android.com/tools/agents/android-cli/commands/profiler_heapdump)** - Capture Android JVM heap dump snapshots (requires API 29+).
-- **[`session`](https://developer.android.com/tools/agents/android-cli/commands/profiler_session)** - Manage profiling sessions of any type: list them, query their status, or terminate them.
-- **[`systemtrace`](https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace)** - System tracing tools. Captures CPU scheduling, thread slices, frame lifecycle, GPU counters, and Vulkan timing into a Perfetto trace file.
+- **[`heapdump`](https://developer.android.com/tools/agents/android-cli/commands/profiler_heapdump.md.txt)** - Capture Android JVM heap dump snapshots (requires API 31+ for --type=perfetto, or API 29+ with --type=hprof).
+- **[`session`](https://developer.android.com/tools/agents/android-cli/commands/profiler_session.md.txt)** - Manage profiling sessions of any type: list them, query their status, or terminate them.
+- **[`systemtrace`](https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace.md.txt)** - System tracing tools. Captures CPU scheduling, thread slices, frame lifecycle, GPU counters, Vulkan timing, and Jetpack Compose composition into a Perfetto trace file.
