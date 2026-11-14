@@ -1,0 +1,43 @@
+diff --git a/docs/blog/latest/9.md b/docs/blog/latest/9.md
+index 648aaca1..302176f0 100644
+--- a/docs/blog/latest/9.md
++++ b/docs/blog/latest/9.md
+@@ -4,9 +4,17 @@ url: https://developer.android.com/blog/latest/9
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/blog/latest/llms.txt
++
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss.md.txt) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/REDDIT_casestudy01_1_f3fc4706f3_1O096s.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
++
++  ## [How Reddit used the R8 optimizer for high impact performance improvements](https://developer.android.com/blog/posts/how-reddit-used-the-r8-optimizer-for-high-impact-performance-improvements.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/how-reddit-used-the-r8-optimizer-for-high-impact-performance-improvements.md.txt) During their work with the Android Developer Relations team, the engineering team at Reddit used the App Performance Score to evaluate their app.
++  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt) • 4 min read
+ - [![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_ZaWsTm.webp)](https://developer.android.com/blog/authors/scott-nien.md.txt) 13 Nov 2025 13 Nov 2025 ![](https://developer.android.com/static/blog/assets/camera_X1_5_9f8216fa59_Z1up4QS.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+   ## [Introducing CameraX 1.5: Powerful Video Recording and Pro-level Image Capture](https://developer.android.com/blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture.md.txt)
+@@ -122,12 +130,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/optimizing-performance-for-android-xr-with-unity.md.txt) Samsung Galaxy XR is here, powered by Android XR! This blog post is part of our Android XR Spotlight Week, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR.
+   [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins.md.txt) • 6 min read
+-- [![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_ZmA5Q1.webp)](https://developer.android.com/blog/authors/dereck-bridie.md.txt) 22 Oct 2025 22 Oct 2025 ![](https://developer.android.com/static/blog/assets/xr_Week6_1e2e4ab4ae_ZeyaAC.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+-
+-  ## [Bringing Androidify to XR with the Jetpack XR SDK](https://developer.android.com/blog/posts/bringing-androidify-to-xr-with-the-jetpack-xr-sdk.md.txt)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/bringing-androidify-to-xr-with-the-jetpack-xr-sdk.md.txt) Samsung Galaxy XR is here, powered by Android XR! This blog post is part of our Android XR Spotlight Week, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR.
+-  [Dereck Bridie](https://developer.android.com/blog/authors/dereck-bridie.md.txt) • 9 min read
+ [arrow_back](https://developer.android.com/blog/latest/8.md.txt)
+ 
+ #### Page 9
+@@ -214,6 +216,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+ - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
+ - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
++- [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Large Screens](https://developer.android.com/blog/topics/large-screens)

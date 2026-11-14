@@ -1,0 +1,97 @@
+diff --git a/docs/studio/run/android-device-streaming.md b/docs/studio/run/android-device-streaming.md
+index e18d74f9..d5e0671e 100644
+--- a/docs/studio/run/android-device-streaming.md
++++ b/docs/studio/run/android-device-streaming.md
+@@ -4,21 +4,23 @@ url: https://developer.android.com/studio/run/android-device-streaming
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/studio/run/llms.txt
++
+ > [!NOTE]
+-> **Note:** Android Device Streaming is only available in the latest stable channel version of Android Studio and major versions (including their patches) released in the previous 10 months. Currently, the oldest supported version is **Panda 2** . If you are using an older version of Android Studio, you will need to update to access Cloud services. For more information, see [Android Studio and Cloud services compatibility](https://developer.android.com/studio/releases#service-compat).
++> **Note:** Android Device Streaming is only available in the latest stable channel version of Android Studio and major versions (including their patches) released in the previous 10 months. Currently, the oldest supported version is **Panda 2** . If you are using an older version of Android Studio, you will need to update to access Cloud services. For more information, see [Android Studio and Cloud services compatibility](https://developer.android.com/studio/releases.md.txt#service-compat).
+ 
+ Android Device Streaming, powered by Firebase, lets you securely connect to
+ remote physical Android devices hosted in Google's secure data centers and
+ Android Partner Device Labs. It's the fastest and easiest way to test your app
+-against physical units of some of the latest Android devices, including the Google
+-Pixel 9, 9a 9 Pro, Pixel Fold, and a diverse set of models from Samsung, OPPO,
+-OnePlus, Xiaomi, vivo, and Transsion.
+-![Animation of using Device Streaming in Android Studio.](https://developer.android.com/static/studio/releases/assistant/2023.3.1/device-streaming.gif)
++against physical units of some of the latest Android devices, including the
++Google Pixel 9, 9a 9 Pro, Pixel Fold, and a diverse set of models from Samsung,
++OPPO, OnePlus, Xiaomi, vivo, and Transsion.
++![Animation of using Device Streaming in Android Studio.](https://developer.android.com/static/studio/releases/assistant/2023.3.1/device-streaming.gif) **Figure 1.** Android Device Streaming in Android Studio.
+ 
+-Currently, **device streaming is available to you to try at no cost** with Firebase
+-projects on a Spark plan. Usage beyond the monthly no cost
+-minutes may incur billing. See [Pricing for Android Device Streaming](https://firebase.google.com/docs/test-lab/usage-quotas-pricing#device-streaming) for
+-more information.
++Currently, **device streaming is available to you to try at no cost** with
++Firebase projects on a Spark plan. Usage beyond the monthly no cost minutes may
++incur billing. See [Pricing for Android Device Streaming](https://firebase.google.com/docs/test-lab/usage-quotas-pricing#device-streaming) for more
++information.
+ 
+ After connecting to a device, you can deploy your app, view the display,
+ interact with the device (including rotating or unfolding the device), and
+@@ -27,15 +29,16 @@ connection---all without leaving Android Studio. When you're done using the
+ device, Google wipes all your data and factory resets the device before making
+ it available to another developer.
+ 
+-> [!NOTE]
+-> **Now available:** The following devices are now available from Android Device Streaming:
+->
+-> - Google Pixel 9a
+-> - Google Pixel 9
+-> - Google Pixel 9 Pro
+-> - Google Pixel 9 Pro XL
+-> - Google Pixel 9 Pro Fold
+-> - Select devices from Samsung, Xiaomi, OPPO, OnePlus, vivo, and Transsion Android Partner Device Labs
++## Available devices
++
++The following devices are now available from Android Device Streaming:
++
++- Google Pixel 9a
++- Google Pixel 9
++- Google Pixel 9 Pro
++- Google Pixel 9 Pro XL
++- Google Pixel 9 Pro Fold
++- Select devices from Samsung, Xiaomi, OPPO, OnePlus, vivo, and Transsion Android Partner Device Labs
+ 
+ > [!NOTE]
+ > **Note:** Android Device Streaming is only available in the current stable channel version of Android Studio, the three most recent previous major versions, and patches associated with those versions. If you are using an older version of Android Studio, you will need to update to use Android Device Streaming. [More
+@@ -130,12 +133,7 @@ To get started, do the following:
+ If the required partner lab is not enabled for your selected Firebase project
+ Android Studio will notify you, and you can follow the prompts to enable the
+ selected partner labs.
+-
+-
+-<br />
+-
+-
+-![](https://developer.android.com/static/studio/images/pdl-enable.png)
++![Prompt to enable a Partner Device Lab in Android Studio.](https://developer.android.com/static/studio/images/pdl-enable.png) **Figure 2.** Prompt to enable a Partner Device Lab in Android Studio.
+ 
+ An Editor or Owner of the project is required to enable
+ each partner lab on the [Partner Device Labs](https://console.cloud.google.com/omnilab/partner-lab) page in Google Cloud Console.
+@@ -154,7 +152,7 @@ Here's how to enable a partner lab:
+ 
+ Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
+ 
+-For example, use the [`android device remote`](https://developer.android.com/tools/agents/android-cli/commands/device_remote) command when you need to reserve and connect to remote physical devices.
++For example, use the [`android device remote`](https://developer.android.com/tools/agents/android-cli/commands/device_remote.md.txt) command when you need to reserve and connect to remote physical devices.
+ 
+     android device remote
+ 
+@@ -198,6 +196,6 @@ and request a device, the direct ADB over SSL connection lets you use any tools
+ or IDEs that use ADB to communicate with test devices after you reserve and
+ connect to a device.
+ 
+-## Permissions
++## Service permissions
+ 
+-See [service permissions](https://developer.android.com/studio/services#service-permissions).
+\ No newline at end of file
++See [service permissions](https://developer.android.com/studio/services.md.txt#service-permissions).
+\ No newline at end of file

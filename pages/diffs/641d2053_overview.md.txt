@@ -1,0 +1,148 @@
+diff --git a/docs/google/play/integrity/overview.md b/docs/google/play/integrity/overview.md
+index b4b9055f..d50bc4b8 100644
+--- a/docs/google/play/integrity/overview.md
++++ b/docs/google/play/integrity/overview.md
+@@ -4,9 +4,11 @@ url: https://developer.android.com/google/play/integrity/overview
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/google/play/integrity/llms.txt
++
+ The Play Integrity API helps you check that user actions and server requests are
+ coming from your genuine app, installed by Google Play, running on a
+-genuine and certified Android device. By detecting risky
++genuine and certified Android-powered device. By detecting risky
+ interactions --- like those from tampered app versions, untrustworthy devices, or
+ emulated environments --- your backend server can respond with appropriate actions
+ to prevent abuse and unauthorized access, fight fraud, combat cheating, and
+@@ -19,10 +21,10 @@ The API returns verdicts that help you detect potential threats, including:
+ 
+ - **Unauthorized access** : The `accountDetails` verdict helps you determine whether the user installed or paid for your app or game on Google Play.
+ - **Code tampering** : The `appIntegrity` verdict helps you determine whether you're interacting with your unmodified binary that Google Play recognizes.
+-- **Risky devices and emulated environments** : The `deviceIntegrity` verdict helps you determine whether your app is running on a genuine certified Android device or a genuine instance of Google Play Games for PC.
++- **Risky devices and emulated environments** : The `deviceIntegrity` verdict helps you determine whether your app is running on a genuine certified Android-powered device or a genuine instance of Google Play Games for PC.
+ 
+ > [!IMPORTANT]
+-> **Key Point:** When the Play Integrity API assesses an environment, it uses [hardware-backed security signals](https://developer.android.com/privacy-and-security/security-key-attestation) that are highly resilient to attacks and circumvention. Play Integrity API simplifies developer integration work and ongoing management by abstracting away signal complexity and issue mitigation across Android SDK versions, device manufacturer provisioned keys, and device models.
++> **Key Point:** When the Play Integrity API assesses an environment, it uses [hardware-backed security signals](https://developer.android.com/privacy-and-security/security-key-attestation.md.txt) that are highly resilient to attacks and circumvention. Play Integrity API simplifies developer integration work and ongoing management by abstracting away signal complexity and issue mitigation across Android SDK versions, device manufacturer provisioned keys, and device models.
+ 
+ Google Play developers can also opt-in to receive additional verdicts to detect
+ a broader range of potential threats, including:
+@@ -47,14 +49,15 @@ recommended practices:
+ The Play Integrity API works best when used alongside other signals as part of
+ your overall anti-abuse strategy and not as your sole anti-abuse mechanism. Use
+ this API in conjunction with other appropriate [security best
+-practices](https://developer.android.com/topic/security/best-practices) for your app. By default, your app
++practices](https://developer.android.com/privacy-and-security/security-tips) for your app. By default, your app
+ can make up to 10,000 total requests per day across all installs. You can
+ request to [increase your daily
+ maximum](https://developer.android.com/google/play/integrity/setup#increase-daily).
+ 
+ ### Gather telemetry and understand your audience before taking action
+ 
+-Before you change how your app behaves based on Play Integrity API verdicts, you can
++Before you change how your app behaves based on Play Integrity API verdicts,
++you can
+ understand the current situation with your existing audience by implementing the
+ API without enforcement. Once you know what verdicts your current install base
+ is returning, you can estimate the impact of any enforcement you're planning and
+@@ -95,13 +98,14 @@ requests:
+ | Potential request frequency | Frequent (on-demand check for any action or request) | Infrequent (one-off check for highest value actions or most sensitive requests) |
+ | Mitigate against replay and similar attacks | Automatic mitigation by Google Play | Use `nonce` field with server side logic |
+ 
+-***\*** For the Play Integrity API library [v1.4.0](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/release-notes#1-4-0) and later, the minimum
++***\*** For the Play Integrity API library [v1.4.0](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/release-notes.md.txt#1-4-0) and later, the minimum
+ supported Android SDK is the same for both request types and is determined by
+-the library's `minSdkVersion`. For [v1.3.0](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/release-notes#1-3-0) and earlier releases, the minimum
+-Android SDK required is Android 5.0 (API level 21) for Standard API requests and
+-Android 4.4 (API level 19) for Classic API requests.*
++the library's `minSdkVersion`. For [v1.3.0](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/release-notes.md.txt#1-3-0) and earlier releases, the minimum
++Android SDK required is Android 5.0 (API level 21) for Standard API requests
++and Android 4.4 (API level 19) for Classic API requests.*
+ 
+-You can see a table with more differences in the [classic request considerations](https://developer.android.com/google/play/integrity/classic#compare-standard).
++You can see a table with more differences in the [classic request
++considerations](https://developer.android.com/google/play/integrity/classic#compare-standard).
+ 
+ ### Request an integrity verdict at an appropriate moment
+ 
+@@ -115,7 +119,7 @@ app.
+ Standard API requests have a field called `requestHash` that is used to protect
+ against tampering and similar attacks. In this field, you should include a
+ digest of all relevant values from your app's request. Follow the guidance on
+-[how to use content binding](https://developer.android.com/google/play/integrity/standard#protect-requests)
++[how to use content binding](https://developer.android.com/google/play/integrity/standard.md.txt#protect-requests)
+ to protect your app's standard requests.
+ 
+ Classic API requests have a field called `nonce` (short for number once), that
+@@ -149,20 +153,20 @@ core signals in the API response:
+ - **Account details:** Check that `appLicensingVerdict` is `LICENSED`, confirming that the user installed or updated the app from Google Play.
+ 
+ Your app should be able to handle when these baseline checks fail, for example,
+-using the [in-app Play remediation dialog](https://developer.android.com/google/play/integrity/remediation). Additionally, your app
+-should also be able to [handle error codes](https://developer.android.com/google/play/integrity/error-codes) that may arise during
++using the [in-app Play remediation dialog](https://developer.android.com/google/play/integrity/remediation.md.txt). Additionally, your app
++should also be able to [handle error codes](https://developer.android.com/google/play/integrity/error-codes.md.txt) that may arise during
+ the request.
+ 
+ Once the baseline checks pass, it's possible to tier your enforcement strategy
+ based on device trustworthiness by
+-[opting in to receive additional device labels](https://developer.android.com/google/play/integrity/setup#configure-api) in your API response
++[opting in to receive additional device labels](https://developer.android.com/google/play/integrity/setup.md.txt#configure-api) in your API response
+ from the Play Console. Each device will return all the labels whose
+ criteria it satisfies. To obtain the Android SDK version, you should
+ use the `deviceAttributes` field included in the API response.
+ The breadth of device trust tiers ranges from more trusted to
+ less trusted devices:
+ 
+-- `MEETS_STRONG_INTEGRITY` (Android 13+): The highest device trust tier, requiring [hardware-backed security signals](https://developer.android.com/privacy-and-security/security-key-attestation) and a recent security patch.
++- `MEETS_STRONG_INTEGRITY` (Android 13+): The highest device trust tier, requiring [hardware-backed security signals](https://developer.android.com/privacy-and-security/security-key-attestation.md.txt) and a recent security patch.
+ - `MEETS_DEVICE_INTEGRITY` (Android 13+) and `MEETS_STRONG_INTEGRITY` (pre-Android 13): The next trust tier. Both rely on hardware-backed security signals.
+ - `MEETS_DEVICE_INTEGRITY` (pre-Android 13): The next tier, using hardware-backed attestation when available and software-backed attestation as a fallback.
+ - `MEETS_BASIC_INTEGRITY`: The weakest trust tier, just before receiving no device labels at all.
+@@ -182,14 +186,15 @@ such as treating devices as less trusted that return higher levels in
+ 
+ ### Send a range of responses from your server to your app
+ 
+-Having a range of decision outcomes is harder to replicate than sending a binary
+-Allow/Deny response from the server back to the app for each response. For
++Having a range of decision outcomes is harder to replicate than sending a
++binary "allow" or "deny" response from the server back to the app for each
++response. For
+ example, you could use a series of related responses such as Allow, Allow with
+ limits, Allow with limits after CAPTCHA completion, and Deny.
+ 
+ ### Detect repeat abuse using device recall, while preserving user privacy
+ 
+-[Device recall](https://developer.android.com/google/play/integrity/device-recall) gives apps the ability to
++[Device recall](https://developer.android.com/google/play/integrity/device-recall.md.txt) gives apps the ability to
+ store and recall some custom data associated with a specific device in a way
+ that preserves user privacy. The data is stored on Google's servers, allowing
+ your app to reliably recall per-device data even after your app is reinstalled
+@@ -207,7 +212,7 @@ when working with device recall data.
+ 
+ ### Detect large-scale abuse using recent device activity
+ 
+-Use the [recent device activity](https://developer.android.com/google/play/integrity/setup#optional_device_information) feature in the Play Integrity API to find
++Use the [recent device activity](https://developer.android.com/google/play/integrity/setup.md.txt#optional_device_information) feature in the Play Integrity API to find
+ devices requesting large numbers of integrity tokens. High-volume-activity
+ abusers commonly generate valid attestation results from real devices and
+ provide them to bots to automate attacks on rooted devices and emulators.
+@@ -228,7 +233,7 @@ information about any disruptions and outages. You should plan in advance how
+ you want your backend server to function in the unlikely event of a large-scale
+ Play Integrity API outage. Note that your backend server should also be ready
+ to function in the case when Android Platform Key Attestation keys specific for
+-devices are [revoked](https://developer.android.com/privacy-and-security/security-key-attestation#certificate_status).
++devices are [revoked](https://developer.android.com/privacy-and-security/security-key-attestation.md.txt#certificate_status).
+ 
+ ### Consider end to end enterprise fraud solutions
+ 
+@@ -255,7 +260,7 @@ before allowing them to proceed to functionality that you want to protect.
+ ## Terms of service and data safety
+ 
+ By accessing or using the Play Integrity API, you agree to the [Play Integrity
+-API Terms of Service](https://developer.android.com/google/play/integrity/terms). Please read and understand
++API Terms of Service](https://developer.android.com/google/play/integrity/terms). Read and understand
+ all applicable terms and policies before accessing the API.
+ 
+ Google Play has a data safety section for developers to disclose their apps'

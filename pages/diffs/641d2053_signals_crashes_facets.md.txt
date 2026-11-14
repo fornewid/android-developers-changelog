@@ -1,0 +1,55 @@
+diff --git a/docs/tools/agents/android-cli/commands/signals_crashes_facets.md b/docs/tools/agents/android-cli/commands/signals_crashes_facets.md
+index a7dc01dd..cda9af97 100644
+--- a/docs/tools/agents/android-cli/commands/signals_crashes_facets.md
++++ b/docs/tools/agents/android-cli/commands/signals_crashes_facets.md
+@@ -4,12 +4,16 @@ url: https://developer.android.com/tools/agents/android-cli/commands/signals_cra
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
++
+ Breaks down crash event counts across one or more dimensions ('app-version',
+ 'api-level', 'device') and lists valid filter values.
+ 
+ ## Usage
+ 
+-    android signals crashes facets [-h] [--api-level=PARAM] [--app-version=PARAM] [--device=PARAM] [--format=PARAM] [--limit=PARAM] [--timeframe=PARAM] [--type=PARAM] <dimension...>
++```bash
++android signals crashes facets [-h] --firebase-app=PARAM [--api-level=PARAM] [--app-version=PARAM] [--device=PARAM] [--format=PARAM] [--limit=PARAM] [--timeframe=PARAM] [--type=PARAM] <dimension...>
++```
+ 
+ ## Options
+ 
+@@ -50,7 +54,7 @@ events for each app version.
+ 
+ The values that the tree prints are valid filter values. Pass them back to
+ `--app-version`, `--api-level`, and `--device` to narrow down
+-[`android signals crashes list`](https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_list) and the other
++[`android signals crashes list`](https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_list.md.txt) and the other
+ `android signals crashes` commands to the events of that app version, API level,
+ or device.
+ 
+@@ -61,12 +65,18 @@ query.
+ 
+ Break down the crash events of the last seven days by app version:
+ 
+-    android signals crashes facets app-version --firebase-app=1:123456789012:android:0123456789abcdef
++```bash
++android signals crashes facets app-version --firebase-app=1:123456789012:android:0123456789abcdef
++```
+ 
+ Break down the ANRs of the last 24 hours by API level, then by device:
+ 
+-    android signals crashes facets api-level device --firebase-app=1:123456789012:android:0123456789abcdef --type=anr --timeframe=24h
++```bash
++android signals crashes facets api-level device --firebase-app=1:123456789012:android:0123456789abcdef --type=anr --timeframe=24h
++```
+ 
+ Break down the crash events of version `1.2.3` by device:
+ 
+-    android signals crashes facets device --firebase-app=1:123456789012:android:0123456789abcdef --app-version=1.2.3
+\ No newline at end of file
++```bash
++android signals crashes facets device --firebase-app=1:123456789012:android:0123456789abcdef --app-version=1.2.3
++```
+\ No newline at end of file

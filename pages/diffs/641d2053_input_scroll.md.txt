@@ -1,0 +1,26 @@
+diff --git a/docs/tools/agents/android-cli/commands/input_scroll.md b/docs/tools/agents/android-cli/commands/input_scroll.md
+index a521c583..dabd8927 100644
+--- a/docs/tools/agents/android-cli/commands/input_scroll.md
++++ b/docs/tools/agents/android-cli/commands/input_scroll.md
+@@ -4,15 +4,19 @@ url: https://developer.android.com/tools/agents/android-cli/commands/input_scrol
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
++
+ Scroll a container element, optionally until a target element appears.
+ 
+ ## Usage
+ 
+-    android input scroll [-h] [--amount=PARAM] [--dir=PARAM] [--match=PARAM] [--speed=PARAM] [--until=PARAM] [--wait=PARAM] <target>
++```bash
++android input scroll [-h] [--amount=PARAM] [--dir=PARAM] [--match=PARAM] [--speed=PARAM] [--until=PARAM] [--wait=PARAM] <target>
++```
+ 
+ ## Options
+ 
+-- `--amount=PARAM` - Scroll distance as fraction of container size (0.0 to 1.0).
++- `--amount=PARAM` - Scroll distance as fraction of container size (greater than 0.0, at most 1.0).
+ - `--dir=PARAM` - Direction to scroll (up, down, left, right).
+ - `-h,--help` - Shows the help message for the specified command.
+ - `--match=PARAM` - Behavior when multiple elements match: 'single' (error on multiple matches) or 'first'.

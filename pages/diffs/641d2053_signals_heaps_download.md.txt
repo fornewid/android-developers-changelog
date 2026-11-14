@@ -1,0 +1,54 @@
+diff --git a/docs/tools/agents/android-cli/commands/signals_heaps_download.md b/docs/tools/agents/android-cli/commands/signals_heaps_download.md
+index d9b56ba4..45d3417c 100644
+--- a/docs/tools/agents/android-cli/commands/signals_heaps_download.md
++++ b/docs/tools/agents/android-cli/commands/signals_heaps_download.md
+@@ -4,11 +4,15 @@ url: https://developer.android.com/tools/agents/android-cli/commands/signals_hea
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
++
+ Downloads heap dumps as Perfetto traces into a local directory.
+ 
+ ## Usage
+ 
+-    android signals heaps download [-h] [--force] [--format=PARAM] [--output=PARAM] <heap-id...>
++```bash
++android signals heaps download [-h] --firebase-app=PARAM [--force] [--format=PARAM] --output=PARAM <heap-id...>
++```
+ 
+ ## Options
+ 
+@@ -37,7 +41,7 @@ Downloads heap dumps as Perfetto traces into a local directory.
+ from Cloud Storage into a local directory as Perfetto traces.
+ 
+ Pass one or more heap dump IDs (as printed by
+-[`android signals heaps list`](https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_list), for example
++[`android signals heaps list`](https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_list.md.txt), for example
+ `firebase/<session-id>`) to download.
+ 
+ Pass `--output` to specify the local directory to store the downloaded traces.
+@@ -49,12 +53,18 @@ Pass `--force` to re-download heap dumps that have already been saved locally.
+ 
+ Download a single heap dump:
+ 
+-    android signals heaps download firebase/<heap-id> --output=./heaps --firebase-app=1:123456789012:android:0123456789abcdef
++```bash
++android signals heaps download firebase/<heap-id> --output=./heaps --firebase-app=1:123456789012:android:0123456789abcdef
++```
+ 
+ Download multiple heap dumps, overwriting existing files:
+ 
+-    android signals heaps download firebase/<id-1> firebase/<id-2> --output=./heaps --force --firebase-app=1:123456789012:android:0123456789abcdef
++```bash
++android signals heaps download firebase/<id-1> firebase/<id-2> --output=./heaps --force --firebase-app=1:123456789012:android:0123456789abcdef
++```
+ 
+ Download a heap dump as JSON output:
+ 
+-    android signals heaps download firebase/<heap-id> --output=./heaps --firebase-app=1:123456789012:android:0123456789abcdef --format=json
+\ No newline at end of file
++```bash
++android signals heaps download firebase/<heap-id> --output=./heaps --firebase-app=1:123456789012:android:0123456789abcdef --format=json
++```
+\ No newline at end of file

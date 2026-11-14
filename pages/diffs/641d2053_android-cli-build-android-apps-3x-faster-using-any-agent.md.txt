@@ -1,0 +1,86 @@
+diff --git a/docs/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent.md b/docs/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent.md
+index 4078a676..3b89e44c 100644
+--- a/docs/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent.md
++++ b/docs/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent.md
+@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/android-cli-build-android-apps-3x-
+ source: md.txt
+ ---
+ 
+-[How-tos](https://developer.android.com/blog/categories/how-tos)
++> Documentation index: https://developer.android.com/blog/llms.txt
++
++[How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+ 
+ # Android CLI and skills: Build Android apps 3x faster using any agent
+ 
+-4 min read ![](https://developer.android.com/static/blog/assets/hours_CLI_Dark_Strapi_2x_427f20cc78_2j204D.webp) 16 Apr 2026 [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando)[![View Esteban de la Canal's profile](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_QwHh2.webp)](https://developer.android.com/blog/authors/esteban-de-la-canal) [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando) \& [Esteban de la Canal](https://developer.android.com/blog/authors/esteban-de-la-canal) As Android developers, you have many choices when it comes to the agents, tools, and LLMs you use for app development. Whether you are using Gemini in Android Studio, Gemini CLI, Antigravity, or third-party agents like Claude Code or Codex, our mission is to ensure that high-quality Android development is possible everywhere.
++4 min read ![](https://developer.android.com/static/blog/assets/hours_CLI_Dark_Strapi_2x_427f20cc78_2j204D.webp) 16 Apr 2026 [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando.md.txt)[![View Esteban de la Canal's profile](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_QwHh2.webp)](https://developer.android.com/blog/authors/esteban-de-la-canal.md.txt) [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando.md.txt) \& [Esteban de la Canal](https://developer.android.com/blog/authors/esteban-de-la-canal.md.txt) As Android developers, you have many choices when it comes to the agents, tools, and LLMs you use for app development. Whether you are using Gemini in Android Studio, Gemini CLI, Antigravity, or third-party agents like Claude Code or Codex, our mission is to ensure that high-quality Android development is possible everywhere.
+ [Video](https://www.youtube.com/watch?v=AhrXPjk22OE)
+ 
+ Today, we are introducing a new suite of [**Android tools and resources for agentic workflows**](http://d.android.com/tools/agents) --- Android CLI with Android skills and the Android Knowledge Base. This collection of tools is designed to eliminate the guesswork of core Android development workflows when you direct an agent's work outside of Android Studio, making your agents more efficient, effective, and capable of following the latest recommended patterns and best practices.
+@@ -76,7 +78,7 @@ Written by:
+ 
+ -
+ 
+-  ## [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando)
++  ## [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando.md.txt)
+ 
+   ###### Group Product Manager
+ 
+@@ -84,37 +86,37 @@ Written by:
+   View profile](https://developer.android.com/blog/authors/adarsh-fernando) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)
+ -
+ 
+-  ## [Esteban de la Canal](https://developer.android.com/blog/authors/esteban-de-la-canal)
++  ## [Esteban de la Canal](https://developer.android.com/blog/authors/esteban-de-la-canal.md.txt)
+ 
+   ###### Senior Staff Software Engineer
+ 
+   [read_more
+   View profile](https://developer.android.com/blog/authors/esteban-de-la-canal) ![View Esteban de la Canal's profile](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_QwHh2.webp) ![View Esteban de la Canal's profile](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_QwHh2.webp)
+ Continue reading
+-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
++- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+ 
+-  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
++  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
+-  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
+-  - [#Media3](https://developer.android.com/blog/topics/media3)
+-  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+-  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+-  - +1 ↩
+-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
++  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
++  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
++  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
++- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich.md.txt) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+ 
+-  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
++  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new.md.txt)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
+-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
+-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
++  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new.md.txt) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
++  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich.md.txt) • 3 min read
++  - [#Media3](https://developer.android.com/blog/topics/media3.md.txt)
++  - [#Jetpack](https://developer.android.com/blog/topics/jetpack.md.txt)
++  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player.md.txt)
++  - +1 ↩
++- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang.md.txt) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+ 
+-  ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
++  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference.md.txt)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
+-  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
+-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
++  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
++  [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt) • 6 min read
++  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
+ Stay in the loop
+ 
+ 

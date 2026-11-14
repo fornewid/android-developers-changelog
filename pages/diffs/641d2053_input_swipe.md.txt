@@ -1,0 +1,27 @@
+diff --git a/docs/tools/agents/android-cli/commands/input_swipe.md b/docs/tools/agents/android-cli/commands/input_swipe.md
+index 14d03804..3e4c50a1 100644
+--- a/docs/tools/agents/android-cli/commands/input_swipe.md
++++ b/docs/tools/agents/android-cli/commands/input_swipe.md
+@@ -4,16 +4,20 @@ url: https://developer.android.com/tools/agents/android-cli/commands/input_swipe
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
++
+ Swipe from a UI element matching a selector in a given direction.
+ 
+ ## Usage
+ 
+-    android input swipe [-h] [--dir=PARAM] [--distance=PARAM] [--match=PARAM] [--speed=PARAM] [--wait=PARAM] <target>
++```bash
++android input swipe [-h] [--dir=PARAM] [--distance=PARAM] [--match=PARAM] [--speed=PARAM] [--wait=PARAM] <target>
++```
+ 
+ ## Options
+ 
+ - `--dir=PARAM` - Direction to swipe: up, down, left, right.
+-- `--distance=PARAM` - Swipe distance as fraction of screen size (0.0 to 1.0).
++- `--distance=PARAM` - Swipe distance as fraction of screen size (greater than 0.0, at most 1.0).
+ - `-h,--help` - Shows the help message for the specified command.
+ - `--match=PARAM` - Behavior when multiple elements match: 'single' (error on multiple matches) or 'first'.
+ - `--speed=PARAM` - Speed of swipe in pixels per second.

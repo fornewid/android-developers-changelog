@@ -1,0 +1,489 @@
+diff --git a/docs/studio/run/emulator-console.md b/docs/studio/run/emulator-console.md
+index 5c360376..9c4d20c0 100644
+--- a/docs/studio/run/emulator-console.md
++++ b/docs/studio/run/emulator-console.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/run/emulator-console
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/studio/run/llms.txt
++
+ Each running virtual device provides a console that lets you query and control
+ the emulated device environment. For example, you can use the console to manage
+ port redirection, network characteristics, and telephony events while your app
+@@ -11,7 +13,7 @@ runs on the emulator.
+ 
+ The following commands require that you already have an emulator running. For
+ more information about running an emulator, see [Run apps on the Android
+-Emulator](https://developer.android.com/studio/run/emulator) and [Start the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline).
++Emulator](https://developer.android.com/studio/run/emulator) and [Start the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline.md.txt).
+ 
+ ## Start and stop a console session
+ 
+@@ -31,13 +33,13 @@ To connect to the console of a running virtual device:
+    window title for an emulator using console port 5554 could be
+    Pixel8_API_34:5554. Also, the `adb devices` command prints a list of running
+    virtual devices and their console port numbers. For more information, see
+-   [Query for devices](https://developer.android.com/studio/command-line/adb#devicestatus).
++   [Query for devices](https://developer.android.com/tools/adb.md.txt#devicestatus).
+ 
+    **Note:** The emulator listens for connections on ports 5554 to 5585 and
+    accepts connections from localhost only.
+ 2. After the console displays **OK** , enter the `auth auth_token` command.
+ 
+-   Before you can enter [console commands](https://developer.android.com/studio/run/emulator-console#querycontrol), the emulator
++   Before you can enter [console commands](https://developer.android.com/studio/run/emulator-console.md.txt#querycontrol), the emulator
+    console requires authentication. `auth_token` must match the contents of the
+    `.emulator_console_auth_token` file in your home directory.
+ 
+@@ -47,7 +49,7 @@ To connect to the console of a running virtual device:
+    `.emulator_console_auth_token` file or create an empty file if it doesn't
+    exist.
+ 3. After you're connected to the console, enter
+-   [console commands](https://developer.android.com/studio/run/emulator-console#querycontrol).
++   [console commands](https://developer.android.com/studio/run/emulator-console.md.txt#querycontrol).
+ 
+    Enter `help`, `help command`, or `help-verbose` to see a list of console
+    commands and learn about specific commands.
+@@ -205,13 +207,13 @@ the location to the LocationManager. Any app can query the location manager to
+ obtain the current GPS fix for the emulated device by calling
+ `LocationManager.getLastKnownLocation("gps")`.
+ 
+-- **geo fix longitude latitude \[altitude\] \[satellites\] \[velocity\]**: Sends a
+-  simple GPS fix to the emulator. Specify longitude and latitude in decimal
++- **`geo fix longitude latitude [altitude] [satellites] [velocity]`**: Sends a
++  GPS fix to the emulator. Specify longitude and latitude in decimal
+   degrees. Use a number from 1 to 12 to specify the number of satellites to use
+   to determine the position, and specify altitude in meters and velocity in
+   knots.
+ 
+-- **geo nmea sentence**: Sends an NMEA 0183 sentence to the emulated device as
++- **`geo nmea sentence`**: Sends an NMEA 0183 sentence to the emulated device as
+   if it were sent from an emulated GPS modem. Start sentence with '$GP'. Only
+   '$GPGGA' and '$GPRCM' sentences are currently supported. The following example
+   is a GPGGA (Global Positioning System Fix Data) sentence that gets the time,
+@@ -225,7 +227,7 @@ The emulator console's hardware event subsystem lets you simulate virtually any
+ physical interaction with the device. This includes physical buttons, screen
+ touch/gestures, rotary dials, joystick inputs, and hardware switches.
+ 
+-- **event types**: Lists all fake event types. For events that have codes, the
++- **`event types`**: Lists all fake event types. For events that have codes, the
+   number of codes is listed in parentheses on the right. Example output:
+ 
+       event types
+@@ -245,11 +247,11 @@ touch/gestures, rotary dials, joystick inputs, and hardware switches.
+           EV_MAX
+       OK
+ 
+-- **event send types \[types ...\]**: Sends one or more fake event types.
++- **`event send types [types ...]`**: Sends one or more fake event types.
+ 
+-- **event codes type**: Lists the event codes for the specified fake event type.
++- **`event codes type`**: Lists the event codes for the specified fake event type.
+ 
+-- **event send type\[:code\]:\[value\] \[...\]**: Sends one or more fake events with
++- **`event send type[:code]:[value] [...]`**: Sends one or more fake events with
+   optional codes and code values.
+ 
+ #### EV_KEY --- Key Code References
+@@ -433,7 +435,7 @@ repeat.
+ | `BTN_TOOL_BRUSH` | Painter brush tool identifier |
+ | `BTN_TOOL_PENCIL` | Drafting pencil tool identifier |
+ | `BTN_TOOL_AIRBRUSH` | Airbrush paint tool identifier |
+-| `BTN_TOOL_FINGER` | Touch screen finger contact |
++| `BTN_TOOL_FINGER` | Touchscreen finger contact |
+ | `BTN_TOOL_MOUSE` | External mouse tool identifier |
+ | `BTN_TOOL_LENS` | Optical magnifier lens tool |
+ | `BTN_TOOL_DOUBLETAP` | Gesture double-tap speed flag |
+@@ -612,146 +614,156 @@ To perform a clean screen tap at a target coordinate, assign a tracking ID,
+ specify the X and Y coordinates on the screen, simulate the contact touch,
+ synchronize, and then release.
+ 
+-    # Press down at coordinate (400, 800) and sync
+-    event send EV_ABS:ABS_MT_TRACKING_ID:1
+-    OK
+-    event send EV_ABS:ABS_MT_POSITION_X:400
+-    OK
+-    event send EV_ABS:ABS_MT_POSITION_Y:800
+-    OK
+-    event send EV_KEY:BTN_TOUCH:1
+-    OK
+-    event send EV_SYN:0:0
+-    OK
+-    # Lift finger up and sync
+-    event send EV_ABS:ABS_MT_TRACKING_ID:-1
+-    OK
+-    event send EV_KEY:BTN_TOUCH:0
+-    OK
+-    event send EV_SYN:0:0
+-    OK
++```bash
++# Press down at coordinate (400, 800) and sync
++event send EV_ABS:ABS_MT_TRACKING_ID:1
++OK
++event send EV_ABS:ABS_MT_POSITION_X:400
++OK
++event send EV_ABS:ABS_MT_POSITION_Y:800
++OK
++event send EV_KEY:BTN_TOUCH:1
++OK
++event send EV_SYN:0:0
++OK
++# Lift finger up and sync
++event send EV_ABS:ABS_MT_TRACKING_ID:-1
++OK
++event send EV_KEY:BTN_TOUCH:0
++OK
++event send EV_SYN:0:0
++OK
++```
+ 
+ ##### Simulating a Vertical Scroll (Swipe)
+ 
+ To execute a scroll swipe gesture, hold down contact at the starting coordinate,
+ send intermediate movement coordinate frames, and release at the end.
+ 
+-    # Finger touch down at start coordinate (500, 1600)
+-    event send EV_ABS:ABS_MT_TRACKING_ID:2
+-    OK
+-    event send EV_ABS:ABS_MT_POSITION_X:500
+-    OK
+-    event send EV_ABS:ABS_MT_POSITION_Y:1600
+-    OK
+-    event send EV_KEY:BTN_TOUCH:1
+-    OK
+-    event send EV_SYN:0:0
+-    OK
+-    # Move coordinates upward dynamically
+-    event send EV_ABS:ABS_MT_POSITION_Y:1200
+-    OK
+-    event send EV_SYN:0:0
+-    OK
+-    event send EV_ABS:ABS_MT_POSITION_Y:800
+-    OK
+-    event send EV_SYN:0:0
+-    OK
+-    event send EV_ABS:ABS_MT_POSITION_Y:400
+-    OK
+-    event send EV_SYN:0:0
+-    OK
+-    # Finger release at coordinate (500, 400)
+-    event send EV_ABS:ABS_MT_TRACKING_ID:-1
+-    OK
+-    event send EV_KEY:BTN_TOUCH:0
+-    OK
+-    event send EV_SYN:0:0
+-    OK
++```bash
++# Finger touch down at start coordinate (500, 1600)
++event send EV_ABS:ABS_MT_TRACKING_ID:2
++OK
++event send EV_ABS:ABS_MT_POSITION_X:500
++OK
++event send EV_ABS:ABS_MT_POSITION_Y:1600
++OK
++event send EV_KEY:BTN_TOUCH:1
++OK
++event send EV_SYN:0:0
++OK
++# Move coordinates upward dynamically
++event send EV_ABS:ABS_MT_POSITION_Y:1200
++OK
++event send EV_SYN:0:0
++OK
++event send EV_ABS:ABS_MT_POSITION_Y:800
++OK
++event send EV_SYN:0:0
++OK
++event send EV_ABS:ABS_MT_POSITION_Y:400
++OK
++event send EV_SYN:0:0
++OK
++# Finger release at coordinate (500, 400)
++event send EV_ABS:ABS_MT_TRACKING_ID:-1
++OK
++event send EV_KEY:BTN_TOUCH:0
++OK
++event send EV_SYN:0:0
++OK
++```
+ 
+ ##### Simulating a Pinch-to-Zoom Gesture
+ 
+ To trigger a two-finger zoom, use active MT slots (0 and 1) to track and
+ coordinate two concurrent touch coordinates moving away from each other.
+ 
+-    # Finger 1 down at (500, 1000) using slot 0
+-    event send EV_ABS:ABS_MT_SLOT:0
+-    OK
+-    event send EV_ABS:ABS_MT_TRACKING_ID:10
+-    OK
+-    event send EV_ABS:ABS_MT_POSITION_X:500
+-    OK
+-    event send EV_ABS:ABS_MT_POSITION_Y:1000
+-    OK
+-    event send EV_KEY:BTN_TOUCH:1
+-    OK
+-    event send EV_SYN:0:0
+-    OK
+-    # Finger 2 down at (600, 1000) using slot 1
+-    event send EV_ABS:ABS_MT_SLOT:1
+-    OK
+-    event send EV_ABS:ABS_MT_TRACKING_ID:11
+-    OK
+-    event send EV_ABS:ABS_MT_POSITION_X:600
+-    OK
+-    event send EV_ABS:ABS_MT_POSITION_Y:1000
+-    OK
+-    event send EV_SYN:0:0
+-    OK
+-    # Fingers slide apart from each other
+-    event send EV_ABS:ABS_MT_SLOT:0
+-    OK
+-    event send EV_ABS:ABS_MT_POSITION_X:300
+-    OK
+-    event send EV_SYN:0:0
+-    OK
+-    event send EV_ABS:ABS_MT_SLOT:1
+-    OK
+-    event send EV_ABS:ABS_MT_POSITION_X:800
+-    OK
+-    event send EV_SYN:0:0
+-    OK
+-    # Lift Finger 1 using slot 0
+-    event send EV_ABS:ABS_MT_SLOT:0
+-    OK
+-    event send EV_ABS:ABS_MT_TRACKING_ID:-1
+-    OK
+-    event send EV_SYN:0:0
+-    OK
+-    # Lift Finger 2 using slot 1
+-    event send EV_ABS:ABS_MT_SLOT:1
+-    OK
+-    event send EV_ABS:ABS_MT_TRACKING_ID:-1
+-    OK
+-    event send EV_KEY:BTN_TOUCH:0
+-    OK
+-    event send EV_SYN:0:0
+-    OK
++```bash
++# Finger 1 down at (500, 1000) using slot 0
++event send EV_ABS:ABS_MT_SLOT:0
++OK
++event send EV_ABS:ABS_MT_TRACKING_ID:10
++OK
++event send EV_ABS:ABS_MT_POSITION_X:500
++OK
++event send EV_ABS:ABS_MT_POSITION_Y:1000
++OK
++event send EV_KEY:BTN_TOUCH:1
++OK
++event send EV_SYN:0:0
++OK
++# Finger 2 down at (600, 1000) using slot 1
++event send EV_ABS:ABS_MT_SLOT:1
++OK
++event send EV_ABS:ABS_MT_TRACKING_ID:11
++OK
++event send EV_ABS:ABS_MT_POSITION_X:600
++OK
++event send EV_ABS:ABS_MT_POSITION_Y:1000
++OK
++event send EV_SYN:0:0
++OK
++# Fingers slide apart from each other
++event send EV_ABS:ABS_MT_SLOT:0
++OK
++event send EV_ABS:ABS_MT_POSITION_X:300
++OK
++event send EV_SYN:0:0
++OK
++event send EV_ABS:ABS_MT_SLOT:1
++OK
++event send EV_ABS:ABS_MT_POSITION_X:800
++OK
++event send EV_SYN:0:0
++OK
++# Lift Finger 1 using slot 0
++event send EV_ABS:ABS_MT_SLOT:0
++OK
++event send EV_ABS:ABS_MT_TRACKING_ID:-1
++OK
++event send EV_SYN:0:0
++OK
++# Lift Finger 2 using slot 1
++event send EV_ABS:ABS_MT_SLOT:1
++OK
++event send EV_ABS:ABS_MT_TRACKING_ID:-1
++OK
++event send EV_KEY:BTN_TOUCH:0
++OK
++event send EV_SYN:0:0
++OK
++```
+ 
+ ##### Simulating a Headphone Connection Switch
+ 
+ Simulate headphone jack insertions or removals to test audio routing switches. A
+ value of `1` represents jack insertion, and `0` is headphone removal.
+ 
+-    # Simulate headphones plugged in
+-    event send EV_SW:SW_HEADPHONE_INSERT:1 EV_SYN:0:0
+-    OK
+-    # Simulate headphones unplugged
+-    event send EV_SW:SW_HEADPHONE_INSERT:0 EV_SYN:0:0
+-    OK
++```bash
++# Simulate headphones plugged in
++event send EV_SW:SW_HEADPHONE_INSERT:1 EV_SYN:0:0
++OK
++# Simulate headphones unplugged
++event send EV_SW:SW_HEADPHONE_INSERT:0 EV_SYN:0:0
++OK
++```
+ 
+ ##### Discovering Console Event Codes from a Real Device
+ 
+ To discover the exact event syntax sequence for any custom action or button
+-gesture, connect via adb shell and run the `getevent` diagnostic utility. As you
+-interact with the emulator GUI, the console prints the exact event codes, types,
+-and positions.
+-
+-    # Run getevent to monitor input events dynamically
+-    adb shell getevent -lt
+-    /dev/input/event12: EV_KEY       KEY_POWER            DOWN
+-    /dev/input/event12: EV_SYN       SYN_REPORT           00000000
+-    /dev/input/event12: EV_KEY       KEY_POWER            UP
+-    /dev/input/event12: EV_SYN       SYN_REPORT           00000000
++gesture, connect using `adb shell` and run the `getevent` diagnostic utility.
++As you interact with the emulator GUI, the console prints the exact event
++codes, types, and positions.
++
++```bash
++# Run getevent to monitor input events dynamically
++adb shell getevent -lt
++/dev/input/event12: EV_KEY       KEY_POWER            DOWN
++/dev/input/event12: EV_SYN       SYN_REPORT           00000000
++/dev/input/event12: EV_KEY       KEY_POWER            UP
++/dev/input/event12: EV_SYN       SYN_REPORT           00000000
++```
+ 
+ - **event text message**: Sends a string of characters that simulate keypresses. The message must be a UTF-8 string. Unicode posts are reverse-mapped according to the current device keyboard, and unsupported characters are discarded silently.
+ 
+@@ -820,7 +832,7 @@ and positions.
+   change the rate while the app is running in the emulator.
+ 
+   The format of network speed is one of the following (numbers are
+-  kilobits/sec):
++  kilobits per second):
+ 
+   **Network speed format:**
+ - **gsm**: GSM/CSD, which uses a speed of 14.4 up and 14.4 down.
+@@ -842,9 +854,10 @@ and positions.
+ - **full**: Unlimited speed, but depends on the connection speed of your
+   computer.
+ 
+-- **num**: Sets an exact rate in kilobits/sec used for both upload and download.
++- **num**: Sets an exact rate in kilobits per second used for both upload and
++  download.
+ 
+-- **up:down**: Sets exact rates in kilobits/sec for upload and download
++- **up:down**: Sets exact rates in kilobits per second for upload and download
+   separately.
+ 
+   To set the network speed at emulator startup, use the `-netspeed` emulator
+@@ -866,7 +879,7 @@ and positions.
+   traffic is handled by netsim by default. The network capture console command
+   only captures legacy cellular/WAN traffic routed through the QEMU slirp stack.
+   To capture Wi-Fi, Bluetooth, or advanced network packets in modern emulator
+-  versions, see [Capture network traffic](https://developer.android.com/studio/run/emulator-networking-advanced#capture-network) in the Advanced
++  versions, see [Capture network traffic](https://developer.android.com/studio/run/emulator-networking-advanced.md.txt#capture-network) in the Advanced
+   Emulator Networking guide.
+ - **start file** : Starts capturing network packets. For security, file must be a
+   bare filename (no path separators like `/`, and no `..`). The packet capture
+@@ -908,7 +921,7 @@ emulator doesn't support call audio.
+ 
+ - **gsm list**: Lists all inbound and outbound calls and their states.
+ 
+-- **gsm status**: Reports the current GSM voice/data state. Values are those
++- **gsm status**: Reports the current GSM voice and data state. Values are those
+   described for the voice and data commands.
+ 
+ - **`gsm signal {rssi| ber}`**
+@@ -946,7 +959,7 @@ Virtual sensors screen in the Accelerometer and Additional sensors tabs.
+       sensor get acceleration
+       acceleration = 2.23517e-07:9.77631:0.812348
+ 
+-  The acceleration values separated by colons(:) refer to the x, y, and z
++  The acceleration values separated by colons (`:`) refer to the x, y, and z
+   coordinates for the virtual sensors.
+ - **sensor set sensor-name value-x:value-y:value-z**: Sets the values for
+   sensor-name. The following example sets the acceleration sensor to the x, y,
+@@ -980,7 +993,7 @@ strings display the way you sent them.
+ - **finger remove**: Simulates finger removal.
+ 
+ For instructions about how to use these commands, see the following section
+-about [fingerprint simulation and validation](https://developer.android.com/studio/run/emulator-console#finger-print).
++about [fingerprint simulation and validation](https://developer.android.com/studio/run/emulator-console.md.txt#finger-print).
+ 
+ ### Screen Record
+ 
+@@ -1062,7 +1075,7 @@ configurations, rendering overrides, and hypervisor direct debugging.
+ 
+ Modern emulator versions support a powerful gRPC programmatic interface
+ alongside the legacy Telnet console. While the Telnet console is great for
+-quick interactive sessions or simple scripting, the gRPC interface is designed
++quick interactive sessions or basic scripting, the gRPC interface is designed
+ for high-performance, secure, and robust automated control in continuous
+ integration (CI) and headless environments. By offering direct service
+ endpoints, gRPC eliminates the need to parse text streams, manage terminal
+@@ -1086,25 +1099,29 @@ security, and feature capabilities:
+ To use the gRPC endpoints, launch the Android Emulator from the command line and
+ include the `-grpc` flag, specifying the target loopback port.
+ 
+-    # Start the emulator with the gRPC service enabled on port 8556
+-    emulator -grpc localhost:8556 @Pixel_Fold
++```bash
++# Start the emulator with the gRPC service enabled on port 8556
++emulator -grpc localhost:8556 @Pixel_Fold
++```
+ 
+ Once the emulator is running with the gRPC service enabled, you can make
+ programmatic RPC calls. For command-line testing, use the `grpcurl` utility to
+ communicate with the emulator's services. All requests are formatted in JSON and
+ dispatched over plaintext.
+ 
+-    # Query the status of the virtual device using grpcurl
+-    grpcurl -plaintext -d '{}' localhost:8556 \
+-      android.emulation.control.EmulatorController/getStatus
++```bash
++# Query the status of the virtual device using grpcurl
++grpcurl -plaintext -d '{}' localhost:8556 \
++  android.emulation.control.EmulatorController/getStatus
+ 
+-    # Simulate an incoming phone call
+-    grpcurl -plaintext -d '{"operation": "InitCall", "number": "1234567890"}' localhost:8556 \
+-      android.emulation.control.EmulatorController/sendPhone
++# Simulate an incoming phone call
++grpcurl -plaintext -d '{"operation": "InitCall", "number": "1234567890"}' localhost:8556 \
++  android.emulation.control.EmulatorController/sendPhone
+ 
+-    # Simulate typing text into the guest OS
+-    grpcurl -plaintext -d '{"text": "Hello"}' localhost:8556 \
+-      android.emulation.control.EmulatorController/sendKey
++# Simulate typing text into the guest OS
++grpcurl -plaintext -d '{"text": "Hello"}' localhost:8556 \
++  android.emulation.control.EmulatorController/sendKey
++```
+ 
+ ### Telnet console to gRPC service mapping
+ 
+@@ -1165,7 +1182,7 @@ To simulate and validate fingerprint authentication, follow these steps:
+    emulator by selecting **Settings** \> **Security** \> **Fingerprint** and
+    following the enrollment instructions.
+ 
+-2. Set up your app to accept [fingerprint authentication](https://developer.android.com/about/versions/marshmallow/android-6.0#fingerprint-authentication).
++2. Set up your app to accept [fingerprint authentication](https://developer.android.com/about/versions/marshmallow/android-6.0.md.txt#fingerprint-authentication).
+    After you perform this setup, your device displays the fingerprint
+    authentication screen.
+ 

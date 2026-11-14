@@ -1,0 +1,45 @@
+diff --git a/docs/tools/agents/android-cli/release-notes.md b/docs/tools/agents/android-cli/release-notes.md
+index 98ec79bc..58c14585 100644
+--- a/docs/tools/agents/android-cli/release-notes.md
++++ b/docs/tools/agents/android-cli/release-notes.md
+@@ -4,13 +4,24 @@ url: https://developer.android.com/tools/agents/android-cli/release-notes
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/tools/agents/android-cli/llms.txt
++
+ Android CLI is the primary interface for Android development from the terminal,
+ built to empower your development workflows using the agent and tools of your
+ choice.
+ 
+ This page lists the new features in every Android CLI release. To download
+ Android CLI, go to the [download page](https://developer.android.com/tools/agents). To learn more,
+-see the [Android CLI overview](https://developer.android.com/tools/agents/android-cli).
++see the [Android CLI overview](https://developer.android.com/tools/agents/android-cli.md.txt).
++
++## Version 1.1.16919734 (November 2026)
++
++- **Delta installs reuse repositioned files** : `android install` and `android run` no longer resend unchanged files whose position in the APK changed. To disable, pass `--use-delta-install-instructions=COPY,DATA`.
++- **Compose tracing** : `android profiler systemtrace` can record what Jetpack Compose does in an app. Pass `--enable=compose.composition` to record a slice for each composable function that runs, or `--enable=compose.recomposition` to also record the state reads and writes that cause recompositions. The app needs `androidx.compose.runtime:runtime-tracing` 1.13 or newer. The trace is saved as a ZIP archive that you open in the Android Studio profiler.
++- **Perfetto heap dumps** : Pass `--type=perfetto` to `android profiler heapdump capture` to record the heap dump as a Perfetto trace. It has the objects and the references between them, but not their values, so it's smaller than an `.hprof` file. It requires Android 12 (API level 31) or higher, and an app that is profileable or debuggable.
++- **Library DEX size format in analyze JSON** : In `android analyze --format=json` output for library artifacts (AARs and JARs), the `dexSizeBytes` fields in `d8CompileResult` and `r8CompileResult` are now 64-bit integers serialized as strings instead of numbers.
++- **Input results as JSON** : `android input` subcommands print their result as a JSON object with a `results` list on standard output, in the same format for every subcommand. Failures such as no matching elements or multiple matches are reported in each result's `status` field instead of as text on standard error.
++- **Emulator exit codes** : `android emulator create`, `start`, `stop`, and `remove` now exit with a non-zero code on failure and print errors to standard error.
+ 
+ ## Version 1.1.16717390 (October 2026)
+ 
+@@ -87,11 +98,11 @@ see the [Android CLI overview](https://developer.android.com/tools/agents/androi
+ ## Version 1.0.15433482 (May 2026)
+ 
+ - **Antigravity integration** : Android CLI and skills are now officially integrated into [Google Antigravity 2.0](https://antigravity.google/docs/build-with-google) as an optional bundle of resources to streamline your agentic development.
+-- **Android Studio commands** : Use the new [`android studio`](https://developer.android.com/tools/agents/android-cli/commands/studio_check) command to enable your agents to leverage the deep, contextual capabilities of Android Studio, including code analysis, semantic lookups, and Compose rendering.
+-- **Support for Journeys** : Validate critical user experiences using [Journeys](https://developer.android.com/tools/agents/android-cli/journeys), which are natural language descriptions of user flows that your agents can run from the terminal or in CI/CD.
++- **Android Studio commands** : Use the new [`android studio`](https://developer.android.com/tools/agents/android-cli/commands/studio_check.md.txt) command to enable your agents to leverage the deep, contextual capabilities of Android Studio, including code analysis, semantic lookups, and Compose rendering.
++- **Support for Journeys** : Validate critical user experiences using [Journeys](https://developer.android.com/tools/agents/android-cli/journeys.md.txt), which are natural language descriptions of user flows that your agents can run from the terminal or in CI/CD.
+ - **New Android skills** : Access new [Android skills
+   library](https://developer.android.com/tools/agents/android-skills/browse), including skills for CameraX migration, adaptive UI, AppFunctions, and Compose Styles.
+-- **More installation options** : Install and update Android CLI using popular package managers, including `apt-get`, `winget`, and `homebrew`. For details, see the [download options](https://developer.android.com/tools/agents/android-cli/download).
++- **More installation options** : Install and update Android CLI using popular package managers, including `apt-get`, `winget`, and `homebrew`. For details, see the [download options](https://developer.android.com/tools/agents/android-cli/download.md.txt).
+ 
+ ## Version 0.7 (April 2026)
+ 

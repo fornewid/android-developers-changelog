@@ -1,0 +1,43 @@
+diff --git a/docs/blog/latest/7.md b/docs/blog/latest/7.md
+index 2070f7b9..c2af66a1 100644
+--- a/docs/blog/latest/7.md
++++ b/docs/blog/latest/7.md
+@@ -4,9 +4,17 @@ url: https://developer.android.com/blog/latest/7
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/blog/latest/llms.txt
++
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/charles-munger.md.txt)[![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_2aBzdV.webp)](https://developer.android.com/blog/authors/shai-barack.md.txt) 17 Feb 2026 17 Feb 2026 ![](https://developer.android.com/static/blog/assets/Android_17_s_Lock_Free_Message_Queue_Blog_2169eab465_1v3Azi.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
++
++  ## [Under the hood: Android 17's lock-free MessageQueue](https://developer.android.com/blog/posts/under-the-hood-android-17-lock-free-message-queue.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/under-the-hood-android-17-lock-free-message-queue.md.txt) In Android 17, apps targeting SDK 37 or higher will receive a new implementation of MessageQueue where the implementation is lock-free.
++  [Charles Munger](https://developer.android.com/blog/authors/charles-munger.md.txt), [Shai Barack](https://developer.android.com/blog/authors/shai-barack.md.txt) • 16 min read
+ - [![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)](https://developer.android.com/blog/authors/miguel-montemayor.md.txt) 13 Feb 2026 13 Feb 2026 ![](https://developer.android.com/static/blog/assets/a17beta_bfff40b895_Zm1nii.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+   ## [Prepare your app for the resizability and orientation changes in Android 17](https://developer.android.com/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17.md.txt)
+@@ -126,12 +134,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate.md.txt) In our latest #WeArePlay film, we meet Adriano, Wagner and Grazyelle. The trio are behind Matraquinha, an app helping thousands of non-verbal children in more than 80 countries communicate.
+   [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan.md.txt) • 2 min read
+-- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt)[![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_ZRiq2s.webp)](https://developer.android.com/blog/authors/ron-aquino.md.txt) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/251210_Header_v01_de706a19ce_11Dc1K.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+-
+-  ## [Building a safer Android and Google Play, together](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together.md.txt)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together.md.txt) Earlier this year, we reiterated our commitment to keeping Android and Google Play safe for everyone and maintaining a thriving environment where users can trust the apps they download and your business can flourish.
+-  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt), [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino.md.txt) • 3 min read
+ [arrow_back](https://developer.android.com/blog/latest/6.md.txt)
+ 
+ #### Page 7
+@@ -218,6 +220,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+ - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
+ - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
++- [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Large Screens](https://developer.android.com/blog/topics/large-screens)

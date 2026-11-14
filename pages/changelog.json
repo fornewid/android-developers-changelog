@@ -1,5 +1,673 @@
 [
   {
+    "date": "2026-11-14T15:08:53Z",
+    "commit_hash": "641d2053",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/10/highlights\" target=\"_blank\">Android 10 for Developers</a>",
+        "path": "about/versions/10/highlights.md",
+        "summary": "Updated documentation links across the Android 10 highlights guide to point to standardized Markdown files (`.md.txt`) and modern developer guide paths, ensuring accurate resource references for features like foldables, 5G, dark themes, and privacy settings.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_highlights.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/devtools/android-cli/skill\" target=\"_blank\">Journey: <Name of the journey></a>",
+        "path": "agents/skills/devtools/android-cli/skill.md",
+        "summary": "Updated the Android CLI documentation skill by improving code block formatting for JSON and Markdown examples, and cleaning up the command usage help outputs by removing repetitive global options (such as --help, --sdk, --verbose, and --version) from individual subcommand references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/media/media3-cast-integration/skill\" target=\"_blank\">Google Cast integration using Jetpack Media3</a>",
+        "path": "agents/skills/media/media3-cast-integration/skill.md",
+        "summary": "Updated the Jetpack Media3 Cast integration documentation to include the new `media3-ui-compose-material3` dependency, fixed markdown link formats, and improved code snippet formatting for better readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/analysis-and-project-audit\" target=\"_blank\">Migration Brief: [App Name]</a>",
+        "path": "agents/skills/migration/ios-to-android/references/analysis-and-project-audit.md",
+        "summary": "Added a new reference guide detailing the automated audit, heuristic matrix, and project structure mapping required when migrating an iOS codebase to Android.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/architecture-and-viewmodels\" target=\"_blank\">iOS to Android: Deep Architecture</a>",
+        "path": "agents/skills/migration/ios-to-android/references/architecture-and-viewmodels.md",
+        "summary": "This new documentation page provides a comprehensive guide for migrating iOS architectural patterns and lifecycle management concepts to their modern Android equivalents using Jetpack libraries, Compose, and Kotlin.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/background-tasks-workmanager\" target=\"_blank\">iOS to Android: Background Tasks</a>",
+        "path": "agents/skills/migration/ios-to-android/references/background-tasks-workmanager.md",
+        "summary": "Added a new reference guide detailing how to migrate iOS background tasks (BGTaskScheduler) to Android's Jetpack WorkManager. It provides complete setup instructions, production patterns, code examples, and decision matrices for background execution.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/bluetooth-ble\" target=\"_blank\">iOS to Android: Comprehensive Bluetooth LE</a>",
+        "path": "agents/skills/migration/ios-to-android/references/bluetooth-ble.md",
+        "summary": "Added a new reference document detailing the migration of Bluetooth Low Energy (BLE) functionality from iOS CoreBluetooth to Android, providing cross-platform concepts, permission handling guidelines, and modern Kotlin coroutine architectures.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/camera-camerax\" target=\"_blank\">iOS to Android: Camera Services</a>",
+        "path": "agents/skills/migration/ios-to-android/references/camera-camerax.md",
+        "summary": "Added a comprehensive documentation guide mapping iOS AVFoundation camera concepts and workflows to their Android equivalents using the CameraX library.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/database-coredata-to-room\" target=\"_blank\">iOS to Android Database Migration Skill</a>",
+        "path": "agents/skills/migration/ios-to-android/references/database-coredata-to-room.md",
+        "summary": "Added a new reference guide for migrating pre-populated iOS Core Data/SwiftData SQLite assets to Android Room databases, detailing seeding strategies, schema verification tests, entity mapping rules for Core Data idiosyncrasies, and repository mapping patterns.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/dependencies-and-concurrency\" target=\"_blank\">iOS to Android: Libraries</a>",
+        "path": "agents/skills/migration/ios-to-android/references/dependencies-and-concurrency.md",
+        "summary": "This new documentation page provides a comprehensive mapping guide for migrating iOS third-party libraries and framework extensions to their standard Android equivalents, covering dependency translation, async structures, data persistence, and testing patterns.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/dependency-injection-hilt\" target=\"_blank\">Note: These are example versions. Verify against project needs or use latest stable.</a>",
+        "path": "agents/skills/migration/ios-to-android/references/dependency-injection-hilt.md",
+        "summary": "Added a new reference guide detailing how to set up and configure Dagger-Hilt for dependency injection using Gradle Kotlin DSL, Version Catalogs, and KSP. This provides iOS developers migrating to Android with a standardized setup procedure and modern best practices.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/health-connect\" target=\"_blank\">iOS to Android: Health Data and Wellness</a>",
+        "path": "agents/skills/migration/ios-to-android/references/health-connect.md",
+        "summary": "Added a comprehensive documentation file outlining how to map iOS HealthKit constructs and workflows to Android equivalents using the Health Connect library.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/in-app-billing\" target=\"_blank\">iOS to Android: In-App Purchases</a>",
+        "path": "agents/skills/migration/ios-to-android/references/in-app-billing.md",
+        "summary": "Added a new reference guide for migrating iOS StoreKit implementations to Android using the Google Play Billing Library 8, complete with concepts mapping, code snippets, and connection lifecycle management.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/location-fusedprovider\" target=\"_blank\">iOS to Android: Location Services Migration</a>",
+        "path": "agents/skills/migration/ios-to-android/references/location-fusedprovider.md",
+        "summary": "Added a new migration reference guide detailing how to transition iOS CoreLocation implementations to Android's FusedLocationProviderClient while adhering to runtime permissions and the principle of least privilege.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/navigation-compose\" target=\"_blank\">SwiftUI to Compose: Navigation</a>",
+        "path": "agents/skills/migration/ios-to-android/references/navigation-compose.md",
+        "summary": "Added a comprehensive reference guide mapping iOS SwiftUI navigation constructs to Jetpack Compose Navigation, focusing on type-safe routing with Kotlin Serialization.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/permissions-runtime\" target=\"_blank\">Runtime Permissions: iOS Info.plist → Android 14+</a>",
+        "path": "agents/skills/migration/ios-to-android/references/permissions-runtime.md",
+        "summary": "This reference document provides guidelines and code patterns for migrating iOS runtime permission handling to Android, detailing permission mapping, Jetpack Compose integration, and special cases like Health Connect and background location.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/preferences-datastore\" target=\"_blank\">iOS to Android: Preferences</a>",
+        "path": "agents/skills/migration/ios-to-android/references/preferences-datastore.md",
+        "summary": "This reference guide provides comprehensive instructions for migrating local key-value storage from iOS (UserDefaults and @AppStorage) to Android (Preferences DataStore and SharedPreferences).",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/project-setup-and-gradle\" target=\"_blank\">iOS to Android: Project Setup</a>",
+        "path": "agents/skills/migration/ios-to-android/references/project-setup-and-gradle.md",
+        "summary": "Added a comprehensive reference guide for iOS-to-Android project setup, providing direct mappings for Gradle build configurations, dependency version catalogs, Info.plist entries, and asset catalogs.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/push-notifications-fcm\" target=\"_blank\">iOS to Android: Notifications</a>",
+        "path": "agents/skills/migration/ios-to-android/references/push-notifications-fcm.md",
+        "summary": "Added a comprehensive migration guide detailing how to transition push notifications, local alerts, and background tasks from iOS frameworks to Android's NotificationManager and Firebase Cloud Messaging.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/resources-and-assets\" target=\"_blank\">Discover all iOS asset catalogs, strings, fonts, and property lists</a>",
+        "path": "agents/skills/migration/ios-to-android/references/resources-and-assets.md",
+        "summary": "Added a new migration reference guide detailing how to transition static assets, images, vectors, localizations, and fonts from iOS Xcode projects to Android Gradle structures and Jetpack Compose.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/screenshots-screengrab\" target=\"_blank\">fastlane/Screengrabfile</a>",
+        "path": "agents/skills/migration/ios-to-android/references/screenshots-screengrab.md",
+        "summary": "This new documentation page provides guidelines and patterns for migrating automated screenshot functionality from iOS Fastlane Snapshot to Android Fastlane Screengrab. It covers setup requirements, concept mapping, UI test concurrency, security configurations, and best practices for Android-native testing.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/state-and-reactive-flows\" target=\"_blank\">SwiftUI to Compose: Comprehensive State</a>",
+        "path": "agents/skills/migration/ios-to-android/references/state-and-reactive-flows.md",
+        "summary": "Added a migration guide detailing how to map iOS SwiftUI state wrappers and Combine publishers to Jetpack Compose reactive primitives and Kotlin Flows.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/testing-unit-and-compose\" target=\"_blank\">Migration Walkthrough: [App Name]</a>",
+        "path": "agents/skills/migration/ios-to-android/references/testing-unit-and-compose.md",
+        "summary": "This new documentation page provides guidelines for mapping iOS XCUITests to Jetpack Compose UI tests and outlines the testing and build verification command matrix during iOS-to-Android migrations.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/ui-animations\" target=\"_blank\">iOS to Android: UI Animations</a>",
+        "path": "agents/skills/migration/ios-to-android/references/ui-animations.md",
+        "summary": "This new documentation page provides a comprehensive reference guide mapping iOS SwiftUI animation constructs and workflows to their Jetpack Compose equivalents in Android.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/references/ui-layout-swiftui-to-compose\" target=\"_blank\">iOS to Android: Declarative UI Layouts (SwiftUI to Jetpack Compose)</a>",
+        "path": "agents/skills/migration/ios-to-android/references/ui-layout-swiftui-to-compose.md",
+        "summary": "This new documentation page provides a production-grade mapping reference guide for migrating declarative SwiftUI layouts and view hierarchies to Jetpack Compose Material 3.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/migration/ios-to-android/skill\" target=\"_blank\">iOS to Android Migration</a>",
+        "path": "agents/skills/migration/ios-to-android/skill.md",
+        "summary": "Establishes a comprehensive, 10-step migration methodology and modular routing guide for systematically converting an iOS codebase into a modern, idiomatic Android application.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/jolanda-verhoef\" target=\"_blank\">Jolanda Verhoef</a>",
+        "path": "blog/authors/jolanda-verhoef.md",
+        "summary": "Added a new blog post titled 'Build intelligent Android apps: In-app agentic workflows' to Jolanda Verhoef's author page and updated existing post links with text-based markdown references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_jolanda-verhoef.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest.md",
+        "summary": "The Android developer blog index was updated to include a new post on building intelligent Android apps with in-app agentic workflows by Jolanda Verhoef, added a documentation index reference link, incorporated the new 'Android intelligence' topic tag, and removed an older post regarding Android games for car screens.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_latest.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/10\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/10.md",
+        "summary": "The latest Android blog updates page has been updated to include a new post about 'Bringing Androidify to XR with the Jetpack XR SDK' as part of the Android XR Spotlight Week, removed an older post regarding Android XR SDK Developer Preview 2, added a reference link to the documentation index, and introduced the '#Android intelligence' topic tag.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/11\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/11.md",
+        "summary": "The Android developer blog index has been updated to include a new post regarding the release of the Android XR SDK Developer Preview 2, along with a new 'Android intelligence' topic tag and a reference link to the llms.txt documentation index. This matters as it keeps developers informed on the latest XR tools and AI-driven capabilities for Android applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/2\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/2.md",
+        "summary": "The latest Android blog documentation index was updated to include a new product announcement regarding Android games graduating to general availability for cars (Android Auto and Android Automotive OS), removed an older post about R8 and Kotlin Coroutines, and added the \"Android intelligence\" topic tag to the metadata list.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/3\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/3.md",
+        "summary": "The Android blog documentation index was updated to include a new case study on how R8 makes Kotlin Coroutines twice as fast, removed an older post regarding Google I/O '26 AI updates, and added a new topic tag for 'Android intelligence'.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/4\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/4.md",
+        "summary": "Added the Google I/O '26 announcement regarding top AI updates on Android for building intelligent experiences, included a link to the documentation index, introduced the new Android intelligence topic tag, and removed an older case study post to keep the latest blog feed up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/5\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/5.md",
+        "summary": "The latest Android blog updates include a new case study on how Karrot utilized Gemini and Firebase AI Logic to implement an in-app translation feature, alongside the addition of a documentation index link and a new 'Android intelligence' topic tag.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/6\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/6.md",
+        "summary": "The Android latest blog documentation page was updated to include an announcement for the third beta of Android 17, which highlights platform stability and API surface locking. It also added the Android intelligence topic tag, while removing an older post entry regarding Android 17's lock-free MessageQueue.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/7\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/7.md",
+        "summary": "Added a new blog post entry about Android 17's lock-free MessageQueue for apps targeting SDK 37 or higher, removed an older post regarding safety in Android and Google Play, and introduced the \"Android intelligence\" topic tag to the documentation index.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/8\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/8.md",
+        "summary": "The latest Android blog documentation index has been updated to include a new product news post regarding platform safety ('Building a safer Android and Google Play, together'), remove an older entry, add a documentation index link, and introduce the '#Android intelligence' topic tag.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/9\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/9.md",
+        "summary": "The Android blog documentation index was updated to include a new case study on how Reddit used the R8 optimizer for performance improvements, added a link to the documentation index llms.txt, introduced the \"Android intelligence\" topic tag, and removed an older post about bringing Androidify to XR.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent\" target=\"_blank\">Android CLI and skills: Build Android apps 3x faster using any agent</a>",
+        "path": "blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent.md",
+        "summary": "Updated links throughout the document to point directly to markdown text (.md.txt) equivalents, including author profiles, categories, related blog posts, and documentation indexes. These formatting adjustments improve machine-readability and integration with LLM-focused documentation endpoints.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_android-cli-build-android-apps-3x-faster-using-any-agent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows\" target=\"_blank\">Build intelligent Android apps: In-app agentic workflows</a>",
+        "path": "blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md",
+        "summary": "This document introduces in-app agentic workflows for Android using cloud-backed multi-agent systems, the Agent Development Kit (ADK), AG-UI protocol, and A2UI with Jetpack Compose. It explains how to build resilient, long-running background tasks and dynamically render UI components without updating the native client app.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/android-intelligence\" target=\"_blank\">#Android intelligence</a>",
+        "path": "blog/topics/android-intelligence.md",
+        "summary": "This new documentation page introduces resources for Android intelligence, highlighting how to build intelligent, agentic workflows and in-app experiences.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/wear/guides/m2-5/components/swipe-to-reveal\" target=\"_blank\">Swipe to reveal</a>",
+        "path": "design/ui/wear/guides/m2-5/components/swipe-to-reveal.md",
+        "summary": "The changes primarily include adding a documentation index link (`llms.txt`) at the top of the file and updating reference links for `SwipeToRevealCard` and `SwipeToRevealChip` to point to their respective `.composable.md.txt` definition paths. Other modifications are strictly line-wrapping and formatting fixes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_swipe-to-reveal.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/bluetooth/ble/background\" target=\"_blank\">Communicate in the background</a>",
+        "path": "develop/connectivity/bluetooth/ble/background.md",
+        "summary": "Updated internal documentation links to use markdown source files (.md.txt), improved flowchart alt-text and accessibility captions, and refined Android API version references for background Bluetooth connectivity guidelines.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_background.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/wifi/wifi-scan\" target=\"_blank\">Wi-Fi scanning overview</a>",
+        "path": "develop/connectivity/wifi/wifi-scan.md",
+        "summary": "Updated documentation links to point to local markdown file references (appending .md.txt) and clarified API level annotations across various Android versions for Wi-Fi scanning permissions and behavior.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_wifi-scan.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/layouts/constraints-modifiers\" target=\"_blank\">Constraints and modifier order</a>",
+        "path": "develop/ui/compose/layouts/constraints-modifiers.md",
+        "summary": "The Compose layout constraints and modifiers documentation has been updated to include detailed explanations and examples for single-axis constraint modifiers (`requiredWidth`, `requiredHeight`, `widthIn`, `heightIn`) as well as range-based overrides (`requiredSizeIn`, `requiredWidthIn`, `requiredHeightIn`). These additions clarify how incoming constraints interact with precise bounds and what happens when components exceed parent container limits.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_constraints-modifiers.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/lists\" target=\"_blank\">Lazy lists and lazy grids</a>",
+        "path": "develop/ui/compose/lists.md",
+        "summary": "Added comprehensive documentation for the `LazyLayoutCacheWindow` API in Jetpack Compose, which improves scroll performance by prefetching and caching items in lists and grids. The update details how to configure cache windows using fractions or DP units, implement custom cache window interfaces, and migrate from deprecated state-based `cacheWindow` and prefetch strategy APIs introduced in Compose 1.13.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_lists.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/bestpractices\" target=\"_blank\">Follow best practices</a>",
+        "path": "develop/ui/compose/performance/bestpractices.md",
+        "summary": "Added a new Jetpack Compose performance best practice advising developers to tune the `cacheWindow` (via `aheadFraction`) for lazy layouts containing heterogeneously sized items larger than 50% of the viewport. This prevents late composition during fast scrolling. Additionally, a documentation index link was added at the top of the file.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_bestpractices.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/develop/multiplatform/letterboxing\" target=\"_blank\">Design for large screens</a>",
+        "path": "games/develop/multiplatform/letterboxing.md",
+        "summary": "This new guide explains how to disable system letterboxing and implement custom in-engine letterboxing for Android games, ensuring a premium experience across diverse screen sizes and form factors.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/deprecation-faq\" target=\"_blank\">Google Play Billing Library version deprecation</a>",
+        "path": "google/play/billing/deprecation-faq.md",
+        "summary": "The Google Play Billing Library deprecation FAQ documentation was updated to include a reference to the documentation index (llms.txt) and to append the `.md.txt` extension to various internal links, ensuring correct routing for LLM-friendly documentation sources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_deprecation-faq.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/developer-payload\" target=\"_blank\">Developer payload</a>",
+        "path": "google/play/billing/developer-payload.md",
+        "summary": "The changes in the documentation primarily involve updating internal reference links to point to local markdown text files (`.md.txt`) instead of web URLs, alongside minor formatting adjustments and minor phrasing refinements. These documentation updates do not alter API functionality or developer guidance regarding Google Play Billing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_developer-payload.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/play-developer-apis-deprecations\" target=\"_blank\">Deprecations</a>",
+        "path": "google/play/billing/play-developer-apis-deprecations.md",
+        "summary": "The Google Play Developer APIs deprecations documentation was updated to include a link to the documentation index for LLMs and to fix a broken link reference for the real-time developer notification subscription price change notification type.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_play-developer-apis-deprecations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/integrity/overview\" target=\"_blank\">Overview of the Play Integrity API</a>",
+        "path": "google/play/integrity/overview.md",
+        "summary": "Updated internal links across the Play Integrity documentation to use `.md.txt` extensions, ensuring proper resolution within the local documentation environment. Minor phrasing refinements and formatting updates were also applied.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/integrity/setup\" target=\"_blank\">Setup</a>",
+        "path": "google/play/integrity/setup.md",
+        "summary": "Updated documentation links to include '.md.txt' extensions for internal references, adjusted minor wording regarding certified Android-powered devices, and added a documentation index reference at the top of the file.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/asset-delivery/integrate-unity\" target=\"_blank\">Integrate asset delivery (Unity)</a>",
+        "path": "guide/playcore/asset-delivery/integrate-unity.md",
+        "summary": "This update modifies the Unity integration guide for Play Asset Delivery by appending `.md.txt` to various reference documentation links, adding a documentation index pointer, formatting code snippets with bash blocks, adding descriptions to images, and removing a large section detailing runtime retrieval, install-time delivery, and asynchronous request handling.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_integrate-unity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/publish\" target=\"_blank\">Engage SDK Cluster publishing guidelines</a>",
+        "path": "guide/playcore/engage/publish.md",
+        "summary": "Updated documentation links and formatting, including code block styling and minor copyedits to the Engage SDK publishing guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_publish.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/tv/continue-watching/rest\" target=\"_blank\">Integrate continue watching using REST API</a>",
+        "path": "guide/playcore/engage/tv/continue-watching/rest.md",
+        "summary": "Updated documentation links, added documentation index metadata, and reformatted code snippets with proper JSON blocks to improve readability and accuracy for the Engage SDK REST API guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_rest.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/in-app-updates/unity\" target=\"_blank\">Support in-app updates (Unity)</a>",
+        "path": "guide/playcore/in-app-updates/unity.md",
+        "summary": "Updated the Unity in-app updates guide to format all code snippets using explicit markdown code blocks (C# and Bash) and updated internal documentation links to include the `.md.txt` extension. These changes improve code readability and ensure correct routing for documentation index generation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_unity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/demo-application\" target=\"_blank\">ExoPlayer demo application</a>",
+        "path": "media/media3/exoplayer/demo-application.md",
+        "summary": "Updated the ExoPlayer demo application documentation to include the new `drm_force_software_crypto` configuration option in the JSON sample schemas and intent extras, allowing developers to force software crypto libraries for DRM-protected content. Additionally, fixed JSON syntax errors in the documentation examples and added Markdown code block formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_demo-application.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/registered-app-stores/enroll\" target=\"_blank\">Enroll as a Registered App Store</a>",
+        "path": "registered-app-stores/enroll.md",
+        "summary": "Updated the Registered App Store documentation to clarify Android developer verification requirements for package names and signing keys, refine the store declaration requirements (including new policies for deceptive practices and updated parental control policies), and detail the rollout mechanism and annual renewal process for registered store capabilities.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_enroll.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/registered-app-stores/requirements\" target=\"_blank\">Requirements</a>",
+        "path": "registered-app-stores/requirements.md",
+        "summary": "Updated the Registered App Store requirements documentation to clarify store capabilities, developer policies, and user interface guidelines. Key changes include explicitly permitting app store catalog curation, allowing additional social and utility features, updating internal documentation links (such as app archiving and metadata bundles), and refining wording regarding developer eligibility, user controls, and security scanning integrations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_requirements.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/profile/traceview\" target=\"_blank\">Inspect trace logs with Traceview</a>",
+        "path": "studio/profile/traceview.md",
+        "summary": "Updated internal links to use `.md.txt` extensions, added alert callout styling (`[!WARNING]`, `[!NOTE]`) for warnings and tips, and improved the alt-text descriptions for traceview pane images.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_traceview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/android-device-streaming\" target=\"_blank\">Android Device Streaming, powered by Firebase</a>",
+        "path": "studio/run/android-device-streaming.md",
+        "summary": "The Android Device Streaming documentation was updated to promote the available devices list from a callout note into its own dedicated section, add descriptive figure captions to images, include a documentation index link, and update internal links to use correct markdown file extensions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_android-device-streaming.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-console\" target=\"_blank\">Press down at coordinate (400, 800) and sync</a>",
+        "path": "studio/run/emulator-console.md",
+        "summary": "Updated documentation formatting by converting raw code blocks into properly fenced markdown code blocks for bash snippets, adding documentation index links, fixing internal markdown reference links, and applying minor copyedits for clarity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_emulator-console.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-troubleshooting\" target=\"_blank\">Troubleshoot known issues with Android Emulator</a>",
+        "path": "studio/run/emulator-troubleshooting.md",
+        "summary": "Updated internal documentation links throughout the emulator troubleshooting guide to point to localized markdown files (*.md.txt) and fixed minor formatting or phrasing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_emulator-troubleshooting.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/write/translations-editor\" target=\"_blank\">Localize the UI with Translations Editor</a>",
+        "path": "studio/write/translations-editor.md",
+        "summary": "Updated documentation for the Translations Editor in Android Studio to improve link targets (appending .md.txt extensions), format code snippets properly using markdown blocks, and reorganize image references and note callouts for better readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_translations-editor.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/device_hub\" target=\"_blank\">android device hub</a>",
+        "path": "tools/agents/android-cli/commands/device_hub.md",
+        "summary": "Updated the `android device hub` documentation to include support for passing an Android Virtual Device (AVD) ID via the `--device` flag. If the specified AVD is not running, the command now automatically starts it in headless mode. Additionally, documentation links were updated with correct file extensions, and code blocks were properly formatted using Markdown code fences.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_device_hub.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/input_scroll\" target=\"_blank\">android input scroll</a>",
+        "path": "tools/agents/android-cli/commands/input_scroll.md",
+        "summary": "Updated the `input_scroll.md` documentation by adding a reference link to the documentation index, formatting the command usage block as a bash code snippet, and clarifying the valid range constraint for the `--amount=PARAM` option (specifying it must be greater than 0.0 and at most 1.0).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_input_scroll.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/input_swipe\" target=\"_blank\">android input swipe</a>",
+        "path": "tools/agents/android-cli/commands/input_swipe.md",
+        "summary": "Updated the `input_swipe.md` documentation by adding a reference to the documentation index, formatting the command usage block as a code snippet, and clarifying the valid range for the `--distance` parameter (now specified as greater than 0.0 and at most 1.0). These changes improve readability and provide more precise parameter constraints for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_input_swipe.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler\" target=\"_blank\">android profiler</a>",
+        "path": "tools/agents/android-cli/commands/profiler.md",
+        "summary": "Updated the `android profiler` command documentation to include a documentation index link, format code blocks properly, and refine subcommand descriptions. Notably, the `heapdump` command now specifies API requirements for different dump types (API 31+ for Perfetto, API 29+ for HPROF), and the `systemtrace` subcommand now includes Jetpack Compose composition tracking in its Perfetto trace capabilities, ensuring developers have accurate API and feature constraints.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_profiler.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler_heapdump\" target=\"_blank\">android profiler heapdump</a>",
+        "path": "tools/agents/android-cli/commands/profiler_heapdump.md",
+        "summary": "Updated the `android profiler heapdump` documentation to include support for Perfetto-based Java heap dumps (`--type=perfetto`), which require API level 31+ compared to API level 29+ for standard `.hprof` files. Added new examples, corrected subcommand links, and improved formatting for code blocks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_profiler_heapdump.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler_heapdump_capture\" target=\"_blank\">android profiler heapdump capture</a>",
+        "path": "tools/agents/android-cli/commands/profiler_heapdump_capture.md",
+        "summary": "Added support for the new `--type=perfetto` option in the `android profiler heapdump capture` command, allowing developers to record Perfetto traces (requiring API 31+ and a profileable or debuggable app) alongside the existing `.hprof` format. Updated usage documentation, constraints, output extensions, and examples to reflect this new capability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_profiler_heapdump_capture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace\" target=\"_blank\">Launch the app and navigate to the target screen.</a>",
+        "path": "tools/agents/android-cli/commands/profiler_systemtrace.md",
+        "summary": "Updated the documentation for the `android profiler systemtrace` command to include Jetpack Compose composition tracing capabilities, added a documentation index link, improved markdown formatting for code blocks, and updated subcommand and link paths to include `.md.txt` extensions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_profiler_systemtrace.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace_prepare\" target=\"_blank\">android profiler systemtrace prepare</a>",
+        "path": "tools/agents/android-cli/commands/profiler_systemtrace_prepare.md",
+        "summary": "Updated the `profiler systemtrace prepare` command documentation to include new Jetpack Compose trace options (`compose` group, `compose.composition`, and `compose.recomposition`) for both `--enable` and `--disable` parameters. This allows developers to fine-tune system trace recordings for Compose UI performance. Additionally, minor formatting improvements were made, including proper code block syntax for command-line examples and updated relative links for related documentation files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_profiler_systemtrace_prepare.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace_start\" target=\"_blank\">android profiler systemtrace start</a>",
+        "path": "tools/agents/android-cli/commands/profiler_systemtrace_start.md",
+        "summary": "Added support for Jetpack Compose tracing options (`compose.composition` and `compose.recomposition`) to the `android profiler systemtrace start` command. This update includes documentation on prerequisites like dependency requirements, usage details for debugging UI recompositions, and code examples for capturing Compose tracing data.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_profiler_systemtrace_start.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/screen_resolve\" target=\"_blank\">android screen resolve</a>",
+        "path": "tools/agents/android-cli/commands/screen_resolve.md",
+        "summary": "Updated the documentation for the `android screen resolve` command to improve formatting, fix documentation index links, update command usage options to mark parameters as required, and correct internal markdown links. This helps developers and AI agents better understand how to use visual coordinate translation in CLI automation scripts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_screen_resolve.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_crashes\" target=\"_blank\">android signals crashes</a>",
+        "path": "tools/agents/android-cli/commands/signals_crashes.md",
+        "summary": "Updated the `signals_crashes.md` documentation by marking the `--firebase-app` parameter as required in the usage syntax, adding a documentation index reference link, updating internal subcommand and related command links to include `.md.txt` extensions, and formatting command snippets into proper code blocks. These updates improve the accuracy of CLI usage instructions and ensure correct navigation for LLM-focused documentation assets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_signals_crashes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_describe\" target=\"_blank\">android signals crashes describe</a>",
+        "path": "tools/agents/android-cli/commands/signals_crashes_describe.md",
+        "summary": "Updated the `android signals crashes describe` command documentation to include the mandatory `--firebase-app` parameter in the usage syntax and examples. It also clarifies the behavior of the `--timeframe` option regarding OS and device distributions, updates internal documentation links, and formats command snippets into proper markdown code blocks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_signals_crashes_describe.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_facets\" target=\"_blank\">android signals crashes facets</a>",
+        "path": "tools/agents/android-cli/commands/signals_crashes_facets.md",
+        "summary": "Updated the `android signals crashes facets` command documentation to include the required `--firebase-app` parameter in the usage signature and code examples, ensuring users properly scope crash facet queries to specific Firebase apps. Additionally, minor documentation index links and code block formatting were improved.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_signals_crashes_facets.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_list\" target=\"_blank\">android signals crashes list</a>",
+        "path": "tools/agents/android-cli/commands/signals_crashes_list.md",
+        "summary": "Updated the `android signals crashes list` command documentation to include the required `--firebase-app` parameter in the usage signature, added a link to the documentation index, improved code block formatting for command examples, and updated internal documentation links to point to `.md.txt` files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_signals_crashes_list.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_samples\" target=\"_blank\">android signals crashes samples</a>",
+        "path": "tools/agents/android-cli/commands/signals_crashes_samples.md",
+        "summary": "The `signals_crashes_samples.md` documentation has been updated to mark the `--firebase-app` parameter as a required option in the command usage and examples. Additionally, internal cross-links were updated with `.md.txt` extensions, and code snippets were reformatted into proper Markdown code blocks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_signals_crashes_samples.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_describe\" target=\"_blank\">android signals heaps describe</a>",
+        "path": "tools/agents/android-cli/commands/signals_heaps_describe.md",
+        "summary": "Updated the documentation for the `android signals heaps describe` command to include the mandatory `--firebase-app` parameter in the usage syntax and examples, added a documentation index reference, and fixed internal command links to point to `.md.txt` files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_signals_heaps_describe.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_download\" target=\"_blank\">android signals heaps download</a>",
+        "path": "tools/agents/android-cli/commands/signals_heaps_download.md",
+        "summary": "The `android signals heaps download` command documentation was updated to include the required `--firebase-app` parameter in its usage syntax and examples. This is important because omitting this mandatory parameter will now cause command execution failures.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_signals_heaps_download.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_list\" target=\"_blank\">android signals heaps list</a>",
+        "path": "tools/agents/android-cli/commands/signals_heaps_list.md",
+        "summary": "Updated the `android signals heaps list` command documentation to include the required `--firebase-app` parameter in the usage signature and code examples. This change matters because specifying the Firebase application identifier is mandatory for querying heap dumps, and keeping the documentation accurate ensures developers construct valid CLI commands.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_signals_heaps_list.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/release-notes\" target=\"_blank\">Release notes for Android CLI</a>",
+        "path": "tools/agents/android-cli/release-notes.md",
+        "summary": "Added release notes for Android CLI Version 1.1.16919734 (November 2026), introducing delta install optimizations, Jetpack Compose tracing for system traces, Perfetto-based heap dumps, 64-bit string-serialized DEX size fields in analyze JSON outputs, standardized JSON output for input commands, and improved emulator exit codes. Additionally, minor link adjustments were made to reference `.md.txt` extensions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/perfetto\" target=\"_blank\">perfetto</a>",
+        "path": "tools/perfetto.md",
+        "summary": "Updated the Perfetto documentation to reference the consolidated `android-profiler` Android skill instead of the previous individual trace analyzer skills. This matters because it simplifies the installation command for developers setting up performance diagnostic tooling via the Android CLI and updates related documentation links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_perfetto.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/data-storage/use-cases\" target=\"_blank\">Android storage use cases and best practices</a>",
+        "path": "training/data-storage/use-cases.md",
+        "summary": "Updated the data storage use cases documentation with minor text refinements, improved code comment clarity for MIME types, and corrected references regarding secondary storage volume handling for Android 10 and lower.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/641d2053_use-cases.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-13T15:11:13Z",
     "commit_hash": "61908c27",
     "entries": [

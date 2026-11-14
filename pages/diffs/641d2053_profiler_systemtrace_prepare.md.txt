@@ -1,0 +1,65 @@
+diff --git a/docs/tools/agents/android-cli/commands/profiler_systemtrace_prepare.md b/docs/tools/agents/android-cli/commands/profiler_systemtrace_prepare.md
+index 0ebf1bce..42fe0041 100644
+--- a/docs/tools/agents/android-cli/commands/profiler_systemtrace_prepare.md
++++ b/docs/tools/agents/android-cli/commands/profiler_systemtrace_prepare.md
+@@ -4,20 +4,24 @@ url: https://developer.android.com/tools/agents/android-cli/commands/profiler_sy
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
++
+ Put the device and app into profiling state without starting a recording. Use
+ --launch to launch the package/activity now; alternatively, launch the app
+ yourself, or pass --launch to 'start' instead.
+ 
+ ## Usage
+ 
+-    android profiler systemtrace prepare [-h] [--activity=PARAM] [--device=PARAM] [--disable=PARAM] [--enable=PARAM] [--launch] [--package=PARAM] [--preset=PARAM] [--session=PARAM]
++```bash
++android profiler systemtrace prepare [-h] [--activity=PARAM] [--device=PARAM] [--disable=PARAM] [--enable=PARAM] [--launch] [--package=PARAM] [--preset=PARAM] [--session=PARAM]
++```
+ 
+ ## Options
+ 
+ - `--activity=PARAM` - Activity name to launch; if omitted, launches default activity.
+ - `--device=PARAM` - Device serial or AVD name.
+-- `--disable=PARAM` - Trace options not to record: a group (cpu, gpu, vulkan) or an individual option (cpu.freq, cpu.sched, cpu.syscalls, cpu.slices, gpu.freq, gpu.memory, gpu.work-period, gpu.frame-lifecycle, gpu.counters, vulkan.cpu-timing, vulkan.debug-names, vulkan.screenshots); repeatable or comma-separated. Individual options take precedence over groups, e.g. --enable cpu --disable cpu.syscalls.
+-- `--enable=PARAM` - Trace options to record on top of the preset: a group (cpu, gpu, vulkan) or an individual option (cpu.freq, cpu.sched, cpu.syscalls, cpu.slices, gpu.freq, gpu.memory, gpu.work-period, gpu.frame-lifecycle, gpu.counters, vulkan.cpu-timing, vulkan.debug-names, vulkan.screenshots); repeatable or comma-separated. Individual options take precedence over groups, e.g. --enable cpu --disable cpu.syscalls.
++- `--disable=PARAM` - Trace options not to record: a group (cpu, gpu, vulkan, compose) or an individual option (cpu.freq, cpu.sched, cpu.syscalls, cpu.slices, gpu.freq, gpu.memory, gpu.work-period, gpu.frame-lifecycle, gpu.counters, vulkan.cpu-timing, vulkan.debug-names, vulkan.screenshots, compose.composition, compose.recomposition); repeatable or comma-separated. Individual options take precedence over groups, e.g. --enable cpu --disable cpu.syscalls.
++- `--enable=PARAM` - Trace options to record on top of the preset: a group (cpu, gpu, vulkan, compose) or an individual option (cpu.freq, cpu.sched, cpu.syscalls, cpu.slices, gpu.freq, gpu.memory, gpu.work-period, gpu.frame-lifecycle, gpu.counters, vulkan.cpu-timing, vulkan.debug-names, vulkan.screenshots, compose.composition, compose.recomposition); repeatable or comma-separated. Individual options take precedence over groups, e.g. --enable cpu --disable cpu.syscalls.
+ - `-h,--help` - Shows the help message for the specified command.
+ - `--launch` - Launch target application upfront after device preparation.
+ - `--package=PARAM` - Package name of the app to profile.
+@@ -36,12 +40,12 @@ yourself, or pass --launch to 'start' instead.
+ device and the app into a profiling state, without starting a recording. Use it
+ when you want to launch the app or navigate to a specific screen before you
+ record. When the session is ready, run
+-[`android profiler systemtrace start`](https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace_start) to start recording.
++[`android profiler systemtrace start`](https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace_start.md.txt) to start recording.
+ 
+ Pass `--package` to choose the app to profile, and `--preset`, `--enable`, and
+ `--disable` to choose what to record. These options set up the session, so you
+ can't pass them to `start` after `prepare`. See
+-[`android profiler systemtrace start`](https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace_start) for a description of
++[`android profiler systemtrace start`](https://developer.android.com/tools/agents/android-cli/commands/profiler_systemtrace_start.md.txt) for a description of
+ the trace options.
+ 
+ ### Launch the app (`--launch` and `--activity`)
+@@ -55,9 +59,13 @@ different one. Alternatively, launch the app yourself, or pass `--launch` to
+ 
+ Prepare a session for an app, then launch the app yourself:
+ 
+-    android profiler systemtrace prepare --package=com.example.app
++```bash
++android profiler systemtrace prepare --package=com.example.app
++```
+ 
+ Prepare a session to record the `graphics` preset for an app, and launch the
+ app:
+ 
+-    android profiler systemtrace prepare --package=com.example.app --preset=graphics --launch
+\ No newline at end of file
++```bash
++android profiler systemtrace prepare --package=com.example.app --preset=graphics --launch
++```
+\ No newline at end of file

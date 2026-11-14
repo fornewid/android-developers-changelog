@@ -1,0 +1,219 @@
+diff --git a/docs/develop/ui/compose/lists.md b/docs/develop/ui/compose/lists.md
+index bdde32b1..b5373dd5 100644
+--- a/docs/develop/ui/compose/lists.md
++++ b/docs/develop/ui/compose/lists.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/lists
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/develop/ui/llms.txt
++
+ [Video](https://www.youtube.com/watch?v=1ANt65eoNhQ)
+ 
+ Many apps need to display collections of items. This document explains how you
+@@ -275,6 +277,205 @@ LazyVerticalStaggeredGrid(
+ 
+ <br />
+ 
++## Improve scroll performance with `LazyLayoutCacheWindow`
++
++[`LazyLayoutCacheWindow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/layout/LazyLayoutCacheWindow.md.txt) is an API designed to help improve
++scroll performance in lists, grids, and staggered grids. In `CacheWindow`, you
++can define a virtual space where items can be prefetched (ahead window) or kept
++alive (behind window) during scroll events. This means that item composition
++and measurement prime an internal cache --- when these items are actually needed
++(when they become visible), displaying them takes significantly less time than
++if they were built from scratch.
++
++All lazy collections use `CacheWindow` as the default prefetch strategy. The
++default window clamps the ahead prefetch distance between 10% and 50% of the
++viewport. It sets the behind window to 0 pixels and disables non-scroll
++caching.
++
++> [!NOTE]
++> **Note:** The cache window APIs changed in Compose 1.13. If you configured the cache window or a prefetch strategy in an earlier version, see the [migration guide](https://developer.android.com/develop/ui/compose/lists.md.txt#cache-window-migration).
++
++### Window configuration
++
++You can configure a cache window using viewport fractions or fixed distances in
++`Dp`:
++
++
++```kotlin
++// Fraction-based cache window: prefetch 50% of viewport ahead, keep 20% behind
++LazyColumn(
++    cacheWindow = LazyLayoutCacheWindow(aheadFraction = 0.5f, behindFraction = 0.2f)
++) {
++    items(itemsList) { item -> Text("Item $item") }
++}
++
++// Dp-based cache window: prefetch 150.dp ahead, keep 50.dp behind
++LazyVerticalGrid(
++    columns = GridCells.Fixed(3),
++    cacheWindow = LazyLayoutCacheWindow(
++        ahead = 150.dp,
++        behind = 50.dp,
++        isNonScrollCachingEnabled = true
++    )
++) {
++    items(itemsList) { item -> Text("Item $item") }
++}
++```
++
++<br />
++
++The cache window manages two distinct regions relative to scroll direction:
++
++- **Ahead window** : The framework precomposes and premeasures upcoming items before they enter the visible viewport. This defaults to `0dp` or `0f`.
++- **Behind window** : The framework retains recently scrolled-off items without disposing of them. When users reverse scroll direction, retained items display immediately without recomposition or remeasurement. This defaults to `0dp` or `0f`.
++
++In addition, when you set `isNonScrollCachingEnabled = true` (the default
++value), the layout populates the ahead window during idle periods outside of
++active user scrolls. These triggers include initial layout pass, dataset
++updates, and item reordering. When set to `false`, caching occurs only during
++scroll events.
++
++### Custom `CacheWindow`
++
++When fixed distances or viewport fractions don't match your layout patterns,
++you can implement the `LazyLayoutCacheWindow` interface directly:
++
++
++```kotlin
++interface LazyLayoutCacheWindow {
++    fun Density.calculateAheadWindow(viewport: Int): Int = 0
++    fun Density.calculateBehindWindow(viewport: Int): Int = 0
++    val isNonScrollCachingEnabled: Boolean get() = false
++}
++```
++
++<br />
++
++Implement the calculation methods to return the preferred window size in pixels
++for a given viewport size:
++
++
++```kotlin
++class ScaledCacheWindow(
++    val someLayoutState: LayoutState
++) : LazyLayoutCacheWindow {
++    override fun Density.calculateAheadWindow(viewport: Int): Int {
++        return someLayoutState.specialDynamicCalculation().coerceAtMost(viewport * 5)
++    }
++
++    override fun equals(other: Any?): Boolean {
++        if (this === other) return true
++        if (other !is ScaledCacheWindow) return false
++        return someLayoutState == other.someLayoutState
++    }
++
++    override fun hashCode(): Int {
++        return someLayoutState.hashCode()
++    }
++}
++
++@Composable
++fun ScaledCacheWindowSample() {
++    val state = rememberLazyListState()
++    val newCacheWindow = remember { ScaledCacheWindow(state) }
++    LazyColumn(
++        state = state,
++        cacheWindow = newCacheWindow,
++    ) {
++        items(100) { index ->
++            Text(
++                text = "Item #$index",
++                modifier = Modifier
++                    .fillMaxWidth()
++                    .padding(16.dp),
++            )
++        }
++    }
++}
++```
++
++<br />
++
++### Migration guide
++
++The initial prefetching configuration APIs (`PrefetchStrategy`) and first
++version of `LazyLayoutCacheWindow` allowed the configuration to happen in the
++states, but this functionality is now deprecated. This section describes how
++to migrate from the following deprecated APIs and parameters:
++
++- The state-based `cacheWindow` parameters in `rememberLazyListState` and `rememberLazyGridState`.
++- The `LazyListPrefetchStrategy` and `LazyGridPrefetchStrategy` with `LazyLayoutCacheWindow`.
++
++#### Option 1: Move `cacheWindow` arguments
++
++To migrate to the recommended APIs, move `cacheWindow` arguments from
++`rememberLazyListState` and `rememberLazyGridState` to use the `cacheWindow`
++argument on `LazyColumn`, `LazyRow`, `LazyVerticalGrid`, and
++`LazyHorizontalGrid`. `LazyVerticalStaggeredGrid` and
++`LazyHorizontalStaggeredGrid` already implement the new paradigm in the layout
++composable.
++
++
++```kotlin
++// Before (Experimental in Compose 1.9 to 1.12, now Deprecated)
++val state = rememberLazyListState(
++    cacheWindow = LazyLayoutCacheWindow(aheadFraction = 0.5f, behindFraction = 0.2f)
++)
++LazyColumn(state = state) {
++    items(itemsList) { item -> Text("Item $item") }
++}
++```
++
++<br />
++
++
++```kotlin
++// Now in Compose 1.13 (Stable)
++val state = rememberLazyListState()
++LazyColumn(
++    state = state,
++    cacheWindow = LazyLayoutCacheWindow(aheadFraction = 0.5f, behindFraction = 0.2f)
++) {
++    items(itemsList) { item -> Text("Item $item") }
++}
++```
++
++<br />
++
++#### Option 2: Replace `LazyListPrefetchStrategy` and `LazyGridPrefetchStrategy`
++
++Replace usages of the deprecated `LazyListPrefetchStrategy` and
++`LazyGridPrefetchStrategy` APIs with `LazyLayoutCacheWindow`. Internally, all
++prefetching behavior now relies on `cacheWindow`. This change alters
++prefetching behavior in the following scenarios:
++
++- **Small items**: When items take up less than 10% of the viewport, Compose prefetches multiple items ahead. This reduces scroll jank during rapid flings.
++- **Large items**: When individual items take up more than 50% of the viewport, the clamped window cannot cover an entire upcoming item. If you have tall items, such as media feeds or messaging threads, you might observe late prefetch triggers and should tune the ahead window.
++- If your custom strategy relied on item-by-item scheduling, port the logic to `LazyLayoutCacheWindow.calculateAheadWindow`. To replicate a similar prefetch behavior of composing and measuring one item ahead in the scroll direction, implement a custom window based on visible item metrics. Note that, while this is not exactly the same behavior, it's the closest you can get when using window-based prefetching:
++
++
++```kotlin
++val state = rememberLazyListState()
++val legacyCacheWindow = remember(state) {
++    object : LazyLayoutCacheWindow {
++        override fun Density.calculateAheadWindow(viewport: Int): Int {
++            val visibleItems = state.layoutInfo.visibleItemsInfo
++            if (visibleItems.isEmpty()) return 0
++            val averageItemHeight = visibleItems.sumOf { it.size } / visibleItems.size
++            return averageItemHeight
++        }
++    }
++}
++LazyColumn(
++    state = state,
++    cacheWindow = legacyCacheWindow
++) {
++    items(itemsList) { item -> Text("Item $item") }
++}
++```
++
++<br />
++
+ ## Content padding
+ 
+ Sometimes you'll need to add padding around the edges of the content. The lazy

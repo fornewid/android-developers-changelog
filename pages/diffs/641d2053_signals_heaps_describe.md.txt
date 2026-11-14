@@ -1,0 +1,66 @@
+diff --git a/docs/tools/agents/android-cli/commands/signals_heaps_describe.md b/docs/tools/agents/android-cli/commands/signals_heaps_describe.md
+index 0730ff34..cf7ec366 100644
+--- a/docs/tools/agents/android-cli/commands/signals_heaps_describe.md
++++ b/docs/tools/agents/android-cli/commands/signals_heaps_describe.md
+@@ -4,12 +4,16 @@ url: https://developer.android.com/tools/agents/android-cli/commands/signals_hea
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
++
+ Describes a heap dump with the issue, metadata, custom keys, and logs of its
+ Crashlytics event, without the stack trace.
+ 
+ ## Usage
+ 
+-    android signals heaps describe [-h] [--format=PARAM] [--include=PARAM] <heap-id>
++```bash
++android signals heaps describe [-h] --firebase-app=PARAM [--format=PARAM] [--include=PARAM] <heap-id>
++```
+ 
+ ## Options
+ 
+@@ -38,16 +42,16 @@ dump: its collection time, kind, size, app version, device, and API level,
+ alongside the issue, event metadata, custom keys, and logs of its crash session.
+ 
+ Get the `<heap-id>` from the output of
+-[`android signals heaps list`](https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_list). Pass `--firebase-app` or
++[`android signals heaps list`](https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_list.md.txt). Pass `--firebase-app` or
+ configure it in `~/.androidrc`.
+ 
+ The stack trace and issue distributions are omitted because they are not
+ specific to the individual heap dump. To view the stack trace, run
+-[`android signals crashes describe`](https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_describe) with
++[`android signals crashes describe`](https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_describe.md.txt) with
+ `--sample-id` set to the event ID of the session.
+ 
+ To download the heap dump file, run
+-[`android signals heaps download`](https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_download).
++[`android signals heaps download`](https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_download.md.txt).
+ 
+ ### Select the sections to include (`--include`)
+ 
+@@ -58,12 +62,18 @@ Pass `--include` with a comma-separated list of sections to print: `keys`,
+ 
+ Describe a heap dump:
+ 
+-    android signals heaps describe firebase/<heap-id> --firebase-app=1:123456789012:android:0123456789abcdef
++```bash
++android signals heaps describe firebase/<heap-id> --firebase-app=1:123456789012:android:0123456789abcdef
++```
+ 
+ Describe a heap dump including only custom keys:
+ 
+-    android signals heaps describe firebase/<heap-id> --firebase-app=1:123456789012:android:0123456789abcdef --include=keys
++```bash
++android signals heaps describe firebase/<heap-id> --firebase-app=1:123456789012:android:0123456789abcdef --include=keys
++```
+ 
+ Describe a heap dump as JSON:
+ 
+-    android signals heaps describe firebase/<heap-id> --firebase-app=1:123456789012:android:0123456789abcdef --format=json
+\ No newline at end of file
++```bash
++android signals heaps describe firebase/<heap-id> --firebase-app=1:123456789012:android:0123456789abcdef --format=json
++```
+\ No newline at end of file

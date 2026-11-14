@@ -1,0 +1,325 @@
+diff --git a/docs/guide/playcore/in-app-updates/unity.md b/docs/guide/playcore/in-app-updates/unity.md
+index 37fce46c..5afaba9b 100644
+--- a/docs/guide/playcore/in-app-updates/unity.md
++++ b/docs/guide/playcore/in-app-updates/unity.md
+@@ -4,19 +4,23 @@ url: https://developer.android.com/guide/playcore/in-app-updates/unity
+ source: md.txt
+ ---
+ 
+-This guide describes how to support [in-app updates](https://developer.android.com/guide/playcore/in-app-updates) in your app using Unity.
++> Documentation index: https://developer.android.com/guide/playcore/in-app-updates/llms.txt
++
++This guide describes how to support [in-app updates](https://developer.android.com/guide/playcore/in-app-updates.md.txt) in your app using Unity.
+ There are separate guides for cases where your implementation uses [the Kotlin
+ programming language or the Java programming language](https://developer.android.com/guide/playcore/in-app-updates/kotlin-java), and cases where your
+-implementation uses [native code (C/C++)](https://developer.android.com/guide/playcore/in-app-updates/native).
++implementation uses [native code (C/C++)](https://developer.android.com/guide/playcore/in-app-updates/native.md.txt).
+ 
+ ## Unity SDK overview
+ 
+-The Play in-app update API is part of the [Play Core SDK](https://developer.android.com/reference/com/google/android/play/core/release-notes) family. The Unity
+-Plugin offers an [`AppUpdateManager`](https://developer.android.com/reference/unity/class/Google/Play/AppUpdate/AppUpdateManager) class to handle communication between
++The Play in-app update API is part of the [Play Core SDK](https://developer.android.com/reference/com/google/android/play/core/release-notes.md.txt) family. The Unity
++Plugin offers an [`AppUpdateManager`](https://developer.android.com/reference/unity/class/Google/Play/AppUpdate/AppUpdateManager.md.txt) class to handle communication between
+ your app and the Google Play API. You must instantiate this class before you can
+ use it to manage in-app updates:
+ 
+-    AppUpdateManager appUpdateManager = new AppUpdateManager();
++```c#
++AppUpdateManager appUpdateManager = new AppUpdateManager();
++```
+ 
+ ## Set up your development environment
+ 
+@@ -25,7 +29,9 @@ use it to manage in-app updates:
+ If you have the [OpenUPM CLI](https://github.com/openupm/openupm-cli#installation)
+ installed you can install the OpenUPM registry with the following command:
+ 
+-    openupm add com.google.play.appupdate
++```bash
++openupm add com.google.play.appupdate
++```
+ 
+ ### OpenUPM
+ 
+@@ -59,7 +65,7 @@ installed you can install the OpenUPM registry with the following command:
+    **Assets \> Import package \> Custom Package** and importing all items.
+ 
+ > [!NOTE]
+-> **Note:** By downloading and using Google Play Unity Plugins, you agree to the [Play Core Software Development Kit Terms of Service](https://developer.android.com/guide/playcore#license).
++> **Note:** By downloading and using Google Play Unity Plugins, you agree to the [Play Core Software Development Kit Terms of Service](https://developer.android.com/guide/playcore.md.txt#license).
+ 
+ ## Check for update availability
+ 
+@@ -67,28 +73,30 @@ Before you request an update, check if there is an update available for your
+ app. Use `AppUpdateManager` to check for an update in a
+ [coroutine](https://docs.unity3d.com/Manual/Coroutines):
+ 
+-    IEnumerator CheckForUpdate()
+-    {
+-      PlayAsyncOperation<AppUpdateInfo, AppUpdateErrorCode> appUpdateInfoOperation =
+-        appUpdateManager.GetAppUpdateInfo();
+-
+-      // Wait until the asynchronous operation completes.
+-      yield return appUpdateInfoOperation;
+-
+-      if (appUpdateInfoOperation.IsSuccessful)
+-      {
+-        var appUpdateInfoResult = appUpdateInfoOperation.GetResult();
+-        // Check AppUpdateInfo's UpdateAvailability, UpdatePriority,
+-        // IsUpdateTypeAllowed(), ... and decide whether to ask the user
+-        // to start an in-app update.
+-      }
+-      else
+-      {
+-        // Log appUpdateInfoOperation.Error.
+-      }
+-    }
+-
+-The returned [`AppUpdateInfo`](https://developer.android.com/reference/unity/class/Google/Play/AppUpdate/AppUpdateInfo) instance contains the update availability
++```c#
++IEnumerator CheckForUpdate()
++{
++  PlayAsyncOperation<AppUpdateInfo, AppUpdateErrorCode> appUpdateInfoOperation =
++    appUpdateManager.GetAppUpdateInfo();
++
++  // Wait until the asynchronous operation completes.
++  yield return appUpdateInfoOperation;
++
++  if (appUpdateInfoOperation.IsSuccessful)
++  {
++    var appUpdateInfoResult = appUpdateInfoOperation.GetResult();
++    // Check AppUpdateInfo's UpdateAvailability, UpdatePriority,
++    // IsUpdateTypeAllowed(), ... and decide whether to ask the user
++    // to start an in-app update.
++  }
++  else
++  {
++    // Log appUpdateInfoOperation.Error.
++  }
++}
++```
++
++The returned [`AppUpdateInfo`](https://developer.android.com/reference/unity/class/Google/Play/AppUpdate/AppUpdateInfo.md.txt) instance contains the update availability
+ status. If an in-app update is already in progress, the instance also reports
+ the status of the in-progress update.
+ 
+@@ -101,10 +109,12 @@ flexible update or an immediate update. For example, you might wait a few days
+ before notifying the user with a flexible update, and a few days after that
+ before requiring an immediate update.
+ 
+-Use [`ClientVersionStalenessDays`](https://developer.android.com/reference/unity/class/Google/Play/AppUpdate/AppUpdateInfo#clientversionstalenessdays) to check the number of days since the
++Use [`ClientVersionStalenessDays`](https://developer.android.com/reference/unity/class/Google/Play/AppUpdate/AppUpdateInfo.md.txt#clientversionstalenessdays) to check the number of days since the
+ update became available through the Play Store:
+ 
+-    var stalenessDays = appUpdateInfoOperation.ClientVersionStalenessDays;
++```c#
++var stalenessDays = appUpdateInfoOperation.ClientVersionStalenessDays;
++```
+ 
+ ### Check update priority
+ 
+@@ -140,30 +150,36 @@ and `inAppUpdatePriority` 5:
+ ```
+ 
+ In your app's code, you can check the priority level for a given update using
+-[`UpdatePriority`](https://developer.android.com/reference/unity/class/Google/Play/AppUpdate/AppUpdateInfo#updatepriority):
++[`UpdatePriority`](https://developer.android.com/reference/unity/class/Google/Play/AppUpdate/AppUpdateInfo.md.txt#updatepriority):
+ 
+-    var priority = appUpdateInfoOperation.UpdatePriority;
++```c#
++var priority = appUpdateInfoOperation.UpdatePriority;
++```
+ 
+ ## Start an update
+ 
+ After ensuring that an update is available, you can request an update using
+-[`AppUpdateManager.StartUpdate()`](https://developer.android.com/reference/unity/class/Google/Play/AppUpdate/AppUpdateManager#startupdate). Before you request an update, make sure
++[`AppUpdateManager.StartUpdate()`](https://developer.android.com/reference/unity/class/Google/Play/AppUpdate/AppUpdateManager.md.txt#startupdate). Before you request an update, make sure
+ that you have an up-to-date `AppUpdateInfo` object. You must also create an
+-[`AppUpdateOptions`](https://developer.android.com/reference/unity/class/Google/Play/AppUpdate/AppUpdateOptions) object to configure the update flow.
++[`AppUpdateOptions`](https://developer.android.com/reference/unity/class/Google/Play/AppUpdate/AppUpdateOptions.md.txt) object to configure the update flow.
+ 
+ The following example creates an `AppUpdateOptions` object for an immediate
+ update flow:
+ 
+-    // Creates an AppUpdateOptions defining an immediate in-app
+-    // update flow and its parameters.
+-    var appUpdateOptions = AppUpdateOptions.ImmediateAppUpdateOptions();
++```c#
++// Creates an AppUpdateOptions defining an immediate in-app
++// update flow and its parameters.
++var appUpdateOptions = AppUpdateOptions.ImmediateAppUpdateOptions();
++```
+ 
+ The following example creates an `AppUpdateOptions` object for a flexible update
+ flow:
+ 
+-    // Creates an AppUpdateOptions defining a flexible in-app
+-    // update flow and its parameters.
+-    var appUpdateOptions = AppUpdateOptions.FlexibleAppUpdateOptions();
++```c#
++// Creates an AppUpdateOptions defining a flexible in-app
++// update flow and its parameters.
++var appUpdateOptions = AppUpdateOptions.FlexibleAppUpdateOptions();
++```
+ 
+ The `AppUpdateOptions` object also contains an `AllowAssetPackDeletion` field
+ that defines whether the update is allowed to clear [asset packs](https://developer.android.com/guide/app-bundle/asset-delivery) in case of
+@@ -172,21 +188,23 @@ pass the `allowAssetPackDeletion` optional argument to
+ `ImmediateAppUpdateOptions()` or `FlexibleAppUpdateOptions()` to set it to
+ `true` instead:
+ 
+-    // Creates an AppUpdateOptions for an immediate flow that allows
+-    // asset pack deletion.
+-    var appUpdateOptions =
+-      AppUpdateOptions.ImmediateAppUpdateOptions(allowAssetPackDeletion: true);
++```c#
++// Creates an AppUpdateOptions for an immediate flow that allows
++// asset pack deletion.
++var appUpdateOptions =
++  AppUpdateOptions.ImmediateAppUpdateOptions(allowAssetPackDeletion: true);
+ 
+-    // Creates an AppUpdateOptions for a flexible flow that allows asset
+-    // pack deletion.
+-    var appUpdateOptions =
+-      AppUpdateOptions.FlexibleAppUpdateOptions(allowAssetPackDeletion: true);
++// Creates an AppUpdateOptions for a flexible flow that allows asset
++// pack deletion.
++var appUpdateOptions =
++  AppUpdateOptions.FlexibleAppUpdateOptions(allowAssetPackDeletion: true);
++```
+ 
+ > [!NOTE]
+ > **Note:** Use the `AllowAssetPackDeletion` API option with care to avoid accidentally deleting assets. Before setting this option to `true`, you should check `AppUpdateManager.IsUpdateTypeAllowed()` with the `AllowAssetPackDeletion` option set to `false`.
+ 
+-The next steps depend on whether you are requesting a [flexible update](https://developer.android.com/guide/playcore/in-app-updates/unity#flexible) or
+-an [immediate update](https://developer.android.com/guide/playcore/in-app-updates/unity#immediate).
++The next steps depend on whether you are requesting a [flexible update](https://developer.android.com/guide/playcore/in-app-updates/unity.md.txt#flexible) or
++an [immediate update](https://developer.android.com/guide/playcore/in-app-updates/unity.md.txt#immediate).
+ 
+ ## Handle a flexible update
+ 
+@@ -194,40 +212,44 @@ After you have an up-to-date `AppUpdateInfo` object and a properly-configured
+ `AppUpdateOptions` object, you can call `AppUpdateManager.StartUpdate()` to
+ asynchronously request an update flow.
+ 
+-    IEnumerator StartFlexibleUpdate()
+-    {
+-      // Creates an AppUpdateRequest that can be used to monitor the
+-      // requested in-app update flow.
+-      var startUpdateRequest = appUpdateManager.StartUpdate(
+-        // The result returned by PlayAsyncOperation.GetResult().
+-        appUpdateInfoResult,
+-        // The AppUpdateOptions created defining the requested in-app update
+-        // and its parameters.
+-        appUpdateOptions);
+-
+-      while (!startUpdateRequest.IsDone)
+-      {
+-      // For flexible flow,the user can continue to use the app while
+-      // the update downloads in the background. You can implement a
+-      // progress bar showing the download status during this time.
+-      yield return null;
+-      }
+-
+-    }
++```c#
++IEnumerator StartFlexibleUpdate()
++{
++  // Creates an AppUpdateRequest that can be used to monitor the
++  // requested in-app update flow.
++  var startUpdateRequest = appUpdateManager.StartUpdate(
++    // The result returned by PlayAsyncOperation.GetResult().
++    appUpdateInfoResult,
++    // The AppUpdateOptions created defining the requested in-app update
++    // and its parameters.
++    appUpdateOptions);
++
++  while (!startUpdateRequest.IsDone)
++  {
++  // For flexible flow,the user can continue to use the app while
++  // the update downloads in the background. You can implement a
++  // progress bar showing the download status during this time.
++  yield return null;
++  }
++
++}
++```
+ 
+ For a flexible update flow, you must trigger the installation of the app update
+ after the download finishes successfully. To do this, call
+-[`AppUpdateManager.CompleteUpdate()`](https://developer.android.com/reference/unity/class/Google/Play/AppUpdate/AppUpdateManager#completeupdate), as shown in the following example:
++[`AppUpdateManager.CompleteUpdate()`](https://developer.android.com/reference/unity/class/Google/Play/AppUpdate/AppUpdateManager.md.txt#completeupdate), as shown in the following example:
+ 
+-    IEnumerator CompleteFlexibleUpdate()
+-    {
+-      var result = appUpdateManager.CompleteUpdate();
+-      yield return result;
++```c#
++IEnumerator CompleteFlexibleUpdate()
++{
++  var result = appUpdateManager.CompleteUpdate();
++  yield return result;
+ 
+-      // If the update completes successfully, then the app restarts and this line
+-      // is never reached. If this line is reached, then handle the failure (e.g. by
+-      // logging result.Error or by displaying a message to the user).
+-    }
++  // If the update completes successfully, then the app restarts and this line
++  // is never reached. If this line is reached, then handle the failure (e.g. by
++  // logging result.Error or by displaying a message to the user).
++}
++```
+ 
+ ## Handle an immediate update
+ 
+@@ -235,22 +257,24 @@ After you have an up-to-date `AppUpdateInfo` object and a properly-configured
+ `AppUpdateOptions` object, you can call `AppUpdateManager.StartUpdate()` to
+ asynchronously request an update flow.
+ 
+-    IEnumerator StartImmediateUpdate()
+-    {
+-      // Creates an AppUpdateRequest that can be used to monitor the
+-      // requested in-app update flow.
+-      var startUpdateRequest = appUpdateManager.StartUpdate(
+-        // The result returned by PlayAsyncOperation.GetResult().
+-        appUpdateInfoResult,
+-        // The AppUpdateOptions created defining the requested in-app update
+-        // and its parameters.
+-        appUpdateOptions);
+-      yield return startUpdateRequest;
+-
+-      // If the update completes successfully, then the app restarts and this line
+-      // is never reached. If this line is reached, then handle the failure (for
+-      // example, by logging result.Error or by displaying a message to the user).
+-    }
++```c#
++IEnumerator StartImmediateUpdate()
++{
++  // Creates an AppUpdateRequest that can be used to monitor the
++  // requested in-app update flow.
++  var startUpdateRequest = appUpdateManager.StartUpdate(
++    // The result returned by PlayAsyncOperation.GetResult().
++    appUpdateInfoResult,
++    // The AppUpdateOptions created defining the requested in-app update
++    // and its parameters.
++    appUpdateOptions);
++  yield return startUpdateRequest;
++
++  // If the update completes successfully, then the app restarts and this line
++  // is never reached. If this line is reached, then handle the failure (for
++  // example, by logging result.Error or by displaying a message to the user).
++}
++```
+ 
+ For an immediate update flow, Google Play displays a user confirmation dialog.
+ When the user accepts the request, Google Play automatically downloads and
+@@ -267,5 +291,5 @@ This section describes solutions for common errors.
+ 
+ ## Next steps
+ 
+-[Test your app's in-app updates](https://developer.android.com/guide/playcore/in-app-updates/test) to verify that your integration is working
++[Test your app's in-app updates](https://developer.android.com/guide/playcore/in-app-updates/test.md.txt) to verify that your integration is working
+ correctly.
+\ No newline at end of file

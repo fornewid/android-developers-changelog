@@ -1,0 +1,85 @@
+diff --git a/docs/tools/agents/android-cli/commands/device_hub.md b/docs/tools/agents/android-cli/commands/device_hub.md
+index 9a3bf5df..b5e87f59 100644
+--- a/docs/tools/agents/android-cli/commands/device_hub.md
++++ b/docs/tools/agents/android-cli/commands/device_hub.md
+@@ -4,17 +4,21 @@ url: https://developer.android.com/tools/agents/android-cli/commands/device_hub
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
++
+ Launches a desktop window for real-time screen mirroring and interactive control
+ of a connected Android device or emulator.
+ 
+ ## Usage
+ 
+-    android device hub [-h] [--codec=PARAM] [--device=PARAM]
++```bash
++android device hub [-h] [--codec=PARAM] [--device=PARAM]
++```
+ 
+ ## Options
+ 
+ - `--codec=PARAM` - Video streaming codec to request from physical devices ('avc' or 'h264', 'hevc', 'vp8', 'vp9', 'av01'; default: 'avc').
+-- `--device=PARAM` - Target Android device or emulator serial number (such as 'emulator-5554', 'localhost:44767', or an adb serial). If omitted, selects an online device or emulator automatically.
++- `--device=PARAM` - Target Android device or emulator serial number (such as 'emulator-5554', 'localhost:44767', or an ADB serial), or AVD ID (as listed by 'android emulator list'). If omitted, selects an online device or emulator automatically.
+ - `-h,--help` - Shows the help message for the specified command.
+ 
+ `android` options:
+@@ -28,9 +32,9 @@ of a connected Android device or emulator.
+ `android device hub` launches Android Device Hub in the background, opening a
+ desktop window that mirrors and controls connected physical Android devices
+ (including remote devices connected with
+-[`android device remote connect`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_connect)) and Android emulators
++[`android device remote connect`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_connect.md.txt)) and Android emulators
+ (including headless virtual devices started with
+-[`android emulator start`](https://developer.android.com/tools/agents/android-cli/commands/emulator_start)).
++[`android emulator start`](https://developer.android.com/tools/agents/android-cli/commands/emulator_start.md.txt)).
+ 
+ It streams live displays and audio, forwards touch and mouse gestures,
+ orientation rotation, and hardware keyboard input, and provides device controls
+@@ -50,17 +54,39 @@ devices and running emulators and selects an online target automatically. Pass
+ (`emulator-5554`), a USB `adb` serial, or a `localhost:<port>` remote
+ reservation endpoint.
+ 
++You can also pass the ID of an Android Virtual Device (AVD), as listed by
++[`android emulator list`](https://developer.android.com/tools/agents/android-cli/commands/emulator_list.md.txt). If the AVD isn't running, Android CLI
++starts it headless first, so that it appears only in the Android Device Hub
++window. Closing the window doesn't stop the emulator; run
++[`android emulator stop`](https://developer.android.com/tools/agents/android-cli/commands/emulator_stop.md.txt) when you're done.
++
++If `--device` doesn't match an Android device connected to ADB or an existing
++AVD, the command fails without launching Android Device Hub.
++
+ ### Examples
+ 
+ Open Android Device Hub and connect to an online device or emulator
+ automatically:
+ 
+-    android device hub
++```bash
++android device hub
++```
+ 
+ Open Android Device Hub connected to a running emulator:
+ 
+-    android device hub --device=emulator-5554
++```bash
++android device hub --device=emulator-5554
++```
++
++Open Android Device Hub connected to the `medium_phone` virtual device, starting
++it headless if it isn't running:
++
++```bash
++android device hub --device=medium_phone
++```
+ 
+ Mirror a specific physical device using the `vp9` video codec:
+ 
+-    android device hub --device=localhost:44767 --codec=vp9
+\ No newline at end of file
++```bash
++android device hub --device=localhost:44767 --codec=vp9
++```
+\ No newline at end of file

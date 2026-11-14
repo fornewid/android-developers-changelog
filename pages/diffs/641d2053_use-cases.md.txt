@@ -1,0 +1,156 @@
+diff --git a/docs/training/data-storage/use-cases.md b/docs/training/data-storage/use-cases.md
+index b77576fd..319bb8ef 100644
+--- a/docs/training/data-storage/use-cases.md
++++ b/docs/training/data-storage/use-cases.md
+@@ -11,9 +11,8 @@ Android 10 introduced a new storage paradigm for apps called
+ [scoped storage](https://developer.android.com/training/data-storage.md.txt#scoped-storage). Scoped storage changes
+ the way apps store and access files on a device's external storage. To help you
+ migrate your app to support scoped storage, follow the best practices for common
+-storage use cases that are outlined in this guide. The use cases are organized
+-into two categories: [handling media files](https://developer.android.com/training/data-storage/use-cases.md.txt#handle-media-files) and [handling
+-non-media files](https://developer.android.com/training/data-storage/use-cases#handle-non-media-files).
++storage use cases in this document. The use cases are organized into two
++categories: [handling media files](https://developer.android.com/training/data-storage/use-cases.md.txt#handle-media-files) and [handling non-media files](https://developer.android.com/training/data-storage/use-cases.md.txt#handle-non-media-files).
+ 
+ In many cases, your app creates files that other apps don't need to access, or
+ shouldn't access. The system provides
+@@ -56,17 +55,10 @@ API. To filter or sort the media files, adjust the `projection`, `selection`,
+ Use this approach:
+ 
+ 1. Following the best practices outlined in [Request App Permissions](https://developer.android.com/training/permissions/requesting.md.txt), request the [`READ_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_EXTERNAL_STORAGE) permission.
+-2. Retrieve media files based on the value of [`MediaColumns.DATA`](https://developer.android.com/reference/kotlin/android/provider/MediaStore.MediaColumns.md.txt#data), which contains the absolute filesystem path to the media item on disk.
++2. Retrieve media files based on the value of [`MediaColumns.DATA`](https://developer.android.com/reference/kotlin/android/provider/MediaStore.MediaColumns.md.txt#data), which contains the absolute file system path to the media item on disk.
+ 
+-**Note:** When you access an existing media file, you can use the value
+-of the [`DATA`](https://developer.android.com/reference/android/provider/MediaStore.MediaColumns.md.txt#DATA)
+-column in your logic. That's because this value has a valid file path.
+-However, don't assume that the file is always available. Be prepared to handle
+-any file-based I/O errors that could occur.
+-
+-To create or update a media file, on the other hand, don't use the
+-`DATA` column. Instead, use the `DISPLAY_NAME` and
+-`RELATIVE_PATH` columns.
++> [!NOTE]
++> **Note:** When you access an existing media file, you can use the value of the [`DATA`](https://developer.android.com/reference/android/provider/MediaStore.MediaColumns.md.txt#DATA) column in your logic. That's because this value has a valid path. However, don't assume that the file is always available. Be prepared to handle any file-based I/O errors that could occur. To create or update a media file, on the other hand, don't use the `DATA` column. Instead, use the `DISPLAY_NAME` and `RELATIVE_PATH` columns.
+ 
+ ### Access location information from photos
+ 
+@@ -90,19 +82,19 @@ collections](https://developer.android.com/training/data-storage/shared/media#we
+ > **Note:** Files stored in an [app-specific directory on external storage](https://developer.android.com/training/data-storage/app-specific.md.txt#external) aren't accessible to other apps on Android 11 or higher, regardless of target SDK level.
+ 
+ On Android 11 and higher, the files inside of your external app-specific
+-directory aren't accessible to other apps, even if you use [`DownloadManager`](https://developer.android.com/reference/android/app/DownloadManager.md.txt) to
+-fetch these files.
++directory aren't accessible to other apps, even if you use
++[`DownloadManager`](https://developer.android.com/reference/android/app/DownloadManager.md.txt) to fetch these files.
+ 
+ ### Export user media files to a device
+ 
+ Define a proper default location to store user media
+ files:
+ 
+-- Allow users to choose whether to make their media files readable by other apps or not, using [app-specific-storage](https://developer.android.com/training/data-storage/app-specific.md.txt) or [shared storage](https://developer.android.com/training/data-storage/shared/media.md.txt).
+-- Allow users to export files from [app-specific directories](https://developer.android.com/reference/android/content/Context.md.txt#getExternalFilesDirs(java.lang.String)) to a more generally accessible location. Use [MediaStore's images, video, and audio collections](https://developer.android.com/training/data-storage/shared/media.md.txt#well-defined-collections) to export media files to the device's gallery.
++- Let users choose whether to make their media files readable by other apps, using [app-specific storage](https://developer.android.com/training/data-storage/app-specific.md.txt) or [shared storage](https://developer.android.com/training/data-storage/shared/media.md.txt).
++- Let users export files from [app-specific directories](https://developer.android.com/reference/android/content/Context.md.txt#getExternalFilesDirs(java.lang.String)) to a more generally accessible location. Use [MediaStore's images, video, and audio collections](https://developer.android.com/training/data-storage/shared/media.md.txt#well-defined-collections) to export media files to the device's gallery.
+ 
+ > [!NOTE]
+-> **Note:** To avoid cluttering, use generally accessible locations like [`externalStoragePublicDirectory()`](https://developer.android.com/reference/android/os/Environment.md.txt#getExternalStoragePublicDirectory(java.lang.String)) or [`externalMediaDirs()`](https://developer.android.com/reference/android/content/Context.md.txt#getExternalMediaDirs()).
++> **Note:** To avoid cluttering, use generally accessible locations like [`getExternalStoragePublicDirectory()`](https://developer.android.com/reference/android/os/Environment.md.txt#getExternalStoragePublicDirectory(java.lang.String)) or [`externalMediaDirs()`](https://developer.android.com/reference/android/content/Context.md.txt#getExternalMediaDirs()).
+ 
+ ### Modify or delete multiple media files in a single operation
+ 
+@@ -218,7 +210,7 @@ contain further details.
+ | Use case | Summary |
+ |---|---|
+ | [Open a document file](https://developer.android.com/training/data-storage/use-cases.md.txt#open-document) | Use the same approach for all versions of Android. |
+-| [Write to files on secondary storage volumes](https://developer.android.com/training/data-storage/use-cases.md.txt#write-files-secondary-storage-volumes) | Use one approach for Android 11. Use a different approach for earlier versions of Android. |
++| [Write to files on secondary storage volumes](https://developer.android.com/training/data-storage/use-cases.md.txt#write-files-secondary-storage-volumes) | Use one approach for Android 11. Use a different approach for Android 10 or lower. |
+ | [Migrate existing files from a legacy storage location](https://developer.android.com/training/data-storage/use-cases.md.txt#migrate-legacy-storage) | Migrate your files to scoped storage when possible. Opt out of scoped storage for Android 10 when necessary. |
+ | [Share content with other apps](https://developer.android.com/training/data-storage/use-cases.md.txt#sharing-non-media-files) | Use the same approach for all versions of Android. |
+ | [Cache non-media files](https://developer.android.com/training/data-storage/use-cases.md.txt#cache-non-media) | Use the same approach for all versions of Android. |
+@@ -244,27 +236,27 @@ startActivityForResult(
+             addCategory(Intent.CATEGORY_OPENABLE)
+             type = "*/*"
+             putExtra(Intent.EXTRA_MIME_TYPES, arrayOf(
+-                    "application/pdf", // .pdf
+-                    "application/vnd.oasis.opendocument.text", // .odt
+-                    "text/plain" // .txt
++                    "application/pdf", // PDF files
++                    "application/vnd.oasis.opendocument.text", // ODT files
++                    "text/plain" // TXT files
+             ))
+         },
+         REQUEST_CODE
+-      )
++)
+ ```
+ 
+ ### Java
+ 
+ ```java
+ Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+-        intent.addCategory(Intent.CATEGORY_OPENABLE);
+-        intent.setType("*/*");
+-        intent.putExtra(Intent.EXTRA_MIME_TYPES, new String[] {
+-                "application/pdf", // .pdf
+-                "application/vnd.oasis.opendocument.text", // .odt
+-                "text/plain" // .txt
+-        });
+-        startActivityForResult(intent, REQUEST_CODE);
++intent.addCategory(Intent.CATEGORY_OPENABLE);
++intent.setType("*/*");
++intent.putExtra(Intent.EXTRA_MIME_TYPES, new String[] {
++        "application/pdf", // PDF files
++        "application/vnd.oasis.opendocument.text", // ODT files
++        "text/plain" // TXT files
++});
++startActivityForResult(intent, REQUEST_CODE);
+ ```
+ 
+ ### Write to files on secondary storage volumes
+@@ -287,9 +279,9 @@ Use this approach:
+ 3. Declare the [`WRITE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#WRITE_EXTERNAL_STORAGE) permission.
+ 4. Perform one of the following types of access:
+    - File access using the `MediaStore` API.
+-   - Direct file path access using APIs such as [`File`](https://developer.android.com/reference/java/io/File.md.txt) or `fopen()`.
++   - Direct path access using APIs such as [`File`](https://developer.android.com/reference/java/io/File.md.txt) or `fopen()`.
+ 
+-#### Running on older versions
++#### Running on Android 10 or lower
+ 
+ Use the [Storage Access
+ Framework](https://developer.android.com/training/data-storage/shared/documents-files), which allows users to
+@@ -337,12 +329,12 @@ When your app is ready to migrate, use the following approach:
+ 
+ 1. Target Android 10 or lower.
+ 2. [Opt out of scoped storage](https://developer.android.com/training/data-storage/use-cases.md.txt#opt-out-scoped-storage) so that your app has access to the files that you need to migrate.
+-3. Deploy code that uses the `File` API to move files from their
+-   current location under `/sdcard/` to a location that's accessible
+-   with scoped storage:
++3. Deploy code that uses the `File` API to move files from their current
++   location under `/sdcard/` to a location that's accessible with scoped
++   storage:
+ 
+-   1. Move any private app files to the directory that is returned by the [`getExternalFilesDir()`](https://developer.android.com/reference/android/content/Context.md.txt#getExternalFilesDir(java.lang.String)) method.
+-   2. Move any shared non-media files to an app-dedicated subdirectory of the `Downloads/` directory.
++   - Move any private app files to the directory that [`getExternalFilesDir()`](https://developer.android.com/reference/android/content/Context.md.txt#getExternalFilesDir(java.lang.String)) returns.
++   - Move any shared non-media files to an app-dedicated subdirectory of the `Downloads/` directory.
+ 4. Remove your app's legacy storage directories from the `/sdcard/` directory.
+ 
+ After users install the new version of your app, they complete the data
+@@ -373,11 +365,11 @@ to cache.
+ Define a proper default location to store non-media
+ files. Allow users to export files from
+ [app-specific directories](https://developer.android.com/reference/android/content/Context.md.txt#getExternalFilesDirs(java.lang.String)) to a more generally accessible location.
+-Use [MediaStore's downloads or document collections](https://developer.android.com/training/data-storage/shared/documents-files.md.txt) to export non-media files to
+-the device.
++Use [MediaStore's downloads or document collections](https://developer.android.com/training/data-storage/shared/documents-files.md.txt) to export non-media
++files to the device.
+ 
+ > [!NOTE]
+-> **Note:** To avoid cluttering, use generally accessible locations like [`externalStoragePublicDirectory()`](https://developer.android.com/reference/android/os/Environment.md.txt#getExternalStoragePublicDirectory(java.lang.String)) or [`externalMediaDirs()`](https://developer.android.com/reference/android/content/Context.md.txt#getExternalMediaDirs()).
++> **Note:** To avoid cluttering, use generally accessible locations like [`getExternalStoragePublicDirectory()`](https://developer.android.com/reference/android/os/Environment.md.txt#getExternalStoragePublicDirectory(java.lang.String)) or [`externalMediaDirs()`](https://developer.android.com/reference/android/content/Context.md.txt#getExternalMediaDirs()).
+ 
+ ## Handle App-specific Files
+ 

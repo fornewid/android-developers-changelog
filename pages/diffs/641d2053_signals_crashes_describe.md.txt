@@ -1,0 +1,80 @@
+diff --git a/docs/tools/agents/android-cli/commands/signals_crashes_describe.md b/docs/tools/agents/android-cli/commands/signals_crashes_describe.md
+index ea6609d6..183c8cf1 100644
+--- a/docs/tools/agents/android-cli/commands/signals_crashes_describe.md
++++ b/docs/tools/agents/android-cli/commands/signals_crashes_describe.md
+@@ -4,12 +4,16 @@ url: https://developer.android.com/tools/agents/android-cli/commands/signals_cra
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
++
+ Displays detailed metadata, OS and device distributions, stack traces, custom
+ keys, and logs for an issue cluster.
+ 
+ ## Usage
+ 
+-    android signals crashes describe [-h] [--format=PARAM] [--include=PARAM] [--sample-id=PARAM] [--timeframe=PARAM] <issue-id>
++```bash
++android signals crashes describe [-h] --firebase-app=PARAM [--format=PARAM] [--include=PARAM] [--sample-id=PARAM] [--timeframe=PARAM] <issue-id>
++```
+ 
+ ## Options
+ 
+@@ -17,7 +21,7 @@ keys, and logs for an issue cluster.
+ - `-h,--help` - Shows the help message for the specified command.
+ - `--include=PARAM` - Comma-separated sections to include ('all', 'stack', 'distributions', 'metadata', 'logs', 'keys'; default: 'all').
+ - `--sample-id=PARAM` - Selects a specific sample crash event ID to inspect (as returned by 'crashes samples'; default: a sample event of the issue).
+-- `--timeframe=PARAM` - Time window to query ('24h', '7d', '30d', '60d', '90d'; default: '7d').
++- `--timeframe=PARAM` - Time window for the OS and device distributions ('24h', '7d', '30d', '60d', '90d'; default: '7d').
+ 
+ `crashes` options:
+ 
+@@ -41,17 +45,19 @@ its events across API levels and devices, and the metadata of a sample event, as
+ well as the custom keys and logs recorded with the sample event.
+ 
+ Get the `<issue-id>` from the output of
+-[`android signals crashes list`](https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_list). The issue ID must be
++[`android signals crashes list`](https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_list.md.txt). The issue ID must be
+ prefixed with `firebase/`. The `--firebase-app` option must be provided or
+ configured in `~/.androidrc`.
+ 
+-By default, the stack trace and the metadata come from a sample event of the
+-issue. Pass `--sample-id` with a `Sample ID` printed by
+-[`android signals crashes samples`](https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_samples) to inspect a
++By default, the API level and device distributions cover the last seven days
++(`--timeframe=7d`), and the stack trace and the metadata come from a sample
++event of the issue. Pass `--timeframe` to change the time window for the
++distributions, or pass `--sample-id` with a `Sample ID` printed by
++[`android signals crashes samples`](https://developer.android.com/tools/agents/android-cli/commands/signals_crashes_samples.md.txt) to inspect a
+ specific event instead.
+ 
+ For memory issues (tagged `[OOM]` or `[MLK]`), the output points to
+-[`android signals heaps list`](https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_list) to inspect the associated
++[`android signals heaps list`](https://developer.android.com/tools/agents/android-cli/commands/signals_heaps_list.md.txt) to inspect the associated
+ heap dumps.
+ 
+ ### Select the sections to print (`--include`)
+@@ -64,12 +70,18 @@ them: `stack`, `distributions`, `metadata`, `logs`, and `keys`. The default,
+ 
+ Describe an issue:
+ 
+-    android signals crashes describe firebase/<issue-id> --firebase-app=1:123456789012:android:0123456789abcdef
++```bash
++android signals crashes describe firebase/<issue-id> --firebase-app=1:123456789012:android:0123456789abcdef
++```
+ 
+ Print only the stack trace of an issue:
+ 
+-    android signals crashes describe firebase/<issue-id> --firebase-app=1:123456789012:android:0123456789abcdef --include=stack
++```bash
++android signals crashes describe firebase/<issue-id> --firebase-app=1:123456789012:android:0123456789abcdef --include=stack
++```
+ 
+ Describe a specific event of an issue, with its logs and custom keys:
+ 
+-    android signals crashes describe firebase/<issue-id> --firebase-app=1:123456789012:android:0123456789abcdef --sample-id=<sample-id> --include=stack,logs,keys
+\ No newline at end of file
++```bash
++android signals crashes describe firebase/<issue-id> --firebase-app=1:123456789012:android:0123456789abcdef --sample-id=<sample-id> --include=stack,logs,keys
++```
+\ No newline at end of file
