@@ -4,13 +4,31 @@ url: https://developer.android.com/topic/performance/memory/app-memory-budgets
 source: md.txt
 ---
 
-App memory budgets let apps declare a memory budget for themselves, which tells
-the system to trim their memory use when the app uses more than its set
-budget. This is especially useful for system and bundled apps or for apps
-targeting memory-constrained devices, where the developer knows their expected
-memory working set (the memory the app actively needs for what the user is
-currently doing) and wants to ensure their app doesn't use too much of the
-system's shared RAM resources.
+> Documentation index: https://developer.android.com/topic/performance/memory/llms.txt
+
+App memory budgets let your app set a soft limit on how much memory it keeps
+resident. When your app goes over its budget, the system doesn't terminate it.
+Instead, it reclaims memory that your app hasn't used recently, so your app
+keeps its working set (the memory it actively needs for what the user is doing)
+and returns the rest to the device.
+
+Budgets are most useful when you know your app's working set and want to keep
+its footprint in check, such as for system and bundled apps or for apps that
+target memory-constrained devices.
+
+> [!NOTE]
+> **Note:** App memory budgets are supported starting in **Android 17 QPR2 (minor SDK
+> release, API level 37.2)** . Test them using the [Android 17 QPR2
+> Beta](https://developer.android.com/about/versions/17/qpr2) system images or the Android Emulator in Android Studio.
+
+This page covers the following topics:
+
+- [How memory budgets work](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#over-budget-behavior): learn what happens when your app goes over its budget.
+- [Declare budgets in the Android manifest](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#declare-budgets-manifest): set steady-state budgets for each process state. This is the recommended approach.
+- [Runtime APIs](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#runtime-apis): query usage, tighten budgets at run time, and listen for memory pressure from Kotlin or Java.
+- [Calibrate, test, and release budgets](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#calibrate-test-release): find the right budget for your app, test it, and release it in stages.
+
+## How memory budgets work
 
 The budget is kept balanced by using [memory eviction and swap](https://developer.android.com/topic/performance/memory/guide/reclaim.md.txt) to
 remove memory pages that weren't recently used, focusing the app's memory
@@ -21,24 +39,8 @@ the operating system targets reclaim specifically at that app:
 2. **Dirty file-backed pages** are written back to storage and evicted.
 3. **Anonymous memory pages** (such as heap allocations) are compressed and swapped to zRAM.
 
-As long as the working set doesn't exceed the budget, the app will work well
-while using no more memory than is in its set budget. The operating system
-evicts unused memory and compresses inactive heap pages to swap so that memory
-allocations remain bounded without terminating the process.
-
-> [!NOTE]
-> **Note:** App memory budgets and `<memory-budget>` declarations are supported starting in **Android 17 QPR2 (minor SDK release, API level 37.2)** . You'll want to test this feature using the [Android 17 QPR2 Beta](https://developer.android.com/about/versions/17/qpr2) system images or the Android Emulator in Android Studio.
-
-> [!NOTE]
-> **Note:** Apply `<memory-budget>` declarations only to release (optimized) builds. Unoptimized debug builds carry additional code instrumentation, logging, and debugger allocations that use significantly more memory, which can lead to frequent swap churn and test failures.
-
-## What happens when an app exceeds its budget
-
-Exceeding a memory budget doesn't cause the system to terminate or crash your
-app. Instead, when an app uses more memory than its budget allows, the OS finds
-memory that the app hasn't used in some time and safely puts it away until it's
-needed again. This makes way for new app memory allocations and keeps the
-overall app's memory use within budget.
+Reclaim makes room for new allocations and keeps your app's memory use within
+its budget.
 
 As long as there is headroom between what the app needs at any given time (its
 working set) and the set budget, the app continues to run normally. If an app
@@ -64,14 +66,17 @@ which are the baseline budgets at which your app operates during normal use.
 Manifest declarations require no runtime code, take effect upon process
 startup, and switch budgets across `foreground`, `perceptible`, and
 `background` states. [`PackageManager.getMemoryBudgets`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#getMemoryBudgets(android.content.pm.ApplicationInfo)) exposes
-static `<application>` budget declarations. To validate candidate budgets in
-production with remote rollback before committing them to your manifest, see
-[Deploy budgets in stages with remote configuration](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#staged-rollout).
+static `<application>` budget declarations. To test budgets and release them
+with remote rollback before committing them to your manifest, see
+[Calibrate, test, and release budgets](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#calibrate-test-release).
 
 `<memory-budget>` declarations take effect on devices running Android 17 QPR2
 (API level 37.2) and higher. On lower Android versions, the platform manifest
 parser ignores unrecognized XML elements, so you can adopt `<memory-budget>`
 without affecting backward compatibility.
+
+> [!NOTE]
+> **Note:** Apply `<memory-budget>` declarations only to release (optimized) builds. Unoptimized debug builds carry additional code instrumentation, logging, and debugger allocations that use significantly more memory, which can lead to frequent swap churn and test failures.
 
 ### Configure your build
 
@@ -183,8 +188,7 @@ rather than the peak resident memory (RSS high-water mark):
   UI](https://developer.android.com/topic/performance/memory/guide/service-bindings#colocated-service-ui) and [Release memory in response to
   events](https://developer.android.com/topic/performance/memory/manage-app-memory#release)) or one-time file reads during background indexing and syncs. Because headless background work has no frame deadlines, evicting one-time file cache pages and swapping inactive heap pages to zRAM when a background sync briefly allocates beyond its budget causes no user-visible jank while preventing background spikes from evicting the user's foreground app.
 
-For a step-by-step workflow, see [Measure your working set and calibrate
-budgets](https://developer.android.com/topic/performance/memory/app-memory-budgets#calibrate-budgets).
+For a step-by-step workflow, see [Calibrate your budgets](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#calibrate-budgets).
 
 #### How budget states map to process states
 
@@ -410,229 +414,16 @@ memory from the Zygote).
 | `android:additionalBytesPerDisplayPixel` | Integer (≥ 0) | `0` | Additional bytes allocated per window pixel (`WindowMetrics.getBounds` width × height), useful for surface buffers and bitmaps. |
 | `android:feature` | String | Any | Restricts the clause to devices declaring specific hardware features: `watch`, `automotive`, or `leanback`. |
 
-## Measure your working set and calibrate budgets
-
-A good budget sits just above your app's working set for a given state, not at
-its unconstrained peak. To find that point, run a realistic user flow, lower
-the budget step by step, and watch for the moment your app starts paying for
-it.
-
-> [!NOTE]
-> **Note:** If you're a device manufacturer or platform engineer calibrating preinstalled apps, see [Calibrate app memory budgets automatically](https://source.android.com/docs/core/perf/app-memory-budgets) to automate working-set sweeps and size `<memory-budget>` declarations across process states and display sizes.
-
-### Understand working set versus resident memory
-
-Without a budget, your app's resident footprint (`memory.current`) holds two
-kinds of memory:
-
-- **The working set**: the Java, Kotlin, and native heap and the hot file-backed pages (DEX code, native libraries, and assets) that the current user flow touches over and over
-- **Cold slack**: bitmap caches from earlier screens, one-time startup buffers, heap slack left over after an allocation burst, and file pages that were read once and never touched again
-
-A budget at your unconstrained peak never reclaims the cold slack. A budget
-below your working set makes the kernel swap out heap pages and evict code
-pages that your app immediately faults back in. These *working-set refaults*
-cost CPU time and battery, and once they land on the UI thread, they cost
-frames too.
-
-What you're looking for is the *knee*: the lowest budget where reclaim removes
-only cold slack, so refaults, CPU time, and frame times stay where they were
-without a budget.
-
-### Prepare your test environment
-
-Set up a repeatable test that behaves like production:
-
-- Calibrate the same R8-optimized, non-debuggable release build that you ship. Debug builds use more memory, so a budget tuned on a debug build is too high for release.
-- Test on a device or emulator running Android 17 QPR2 (API level 37.2) or higher. A `userdebug` build or an emulator image without Google Play is convenient when sampling cgroup files from `adb shell`, because reading an app's cgroup directory from the shell can require `adb root`. An app can read its own process cgroup usage in-process through `MemoryBudgetManager` even on production builds.
-- Script a 30 to 60 second user flow with [Jetpack
-  Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview), UI Automator, or `adb shell input`, once for each state that you plan to budget. An idle app tells you nothing about its working set.
-  - **`foreground`**: scroll dense lists and media grids, move between your main destinations, open menus and dialogs, and run animations
-  - **`perceptible`**: leave the visible window while perceptible work continues (for example, audio playback or a download), let it run for 10 to 15 seconds, and then return to the app
-  - **`background`** : trigger a sync, a `WorkManager` job (for example, with `adb shell cmd jobscheduler run -f <package-name> <job-id>`), a started service, or a broadcast receiver while the app has no visible UI
-
-Measure a `background` budget while the background work is actively running,
-rather than while the process is idle in a cached state (`IMPORTANCE_CACHED`).
-Even though the `background` budget remains in effect while cached, an idle
-cached process isn't executing background work and doesn't reflect the working
-set of your background jobs or receivers.
-
-### Measure your baseline
-
-Start with runs that have no budget at all, so you know what normal looks like.
-Use a build without `<memory-budget>` declarations, and start each run from a
-fresh process (`adb shell am force-stop <package-name>`).
-
-Each app process has its own cgroup v2 memory controller. Look up its path from
-the `0::` line of `/proc/<PID>/cgroup` instead of hardcoding the path. Pass each
-device command to `adb shell` as a single quoted string so that the device
-shell sees the quotes:
-
-```bash
-PID=$(adb shell pidof -s <package-name>)
-CG=/sys/fs/cgroup$(adb shell "sed -n 's/^0:://p' /proc/$PID/cgroup")
-adb shell "cat $CG/memory.current $CG/memory.swap.current"
-adb shell "grep -E '^(anon|file|workingset_refault_.*) ' $CG/memory.stat"
-```
-
-Reading these files is cheap and doesn't disturb your app, so you can sample
-them every second during a run:
-
-- **`memory.current`** : resident memory charged to the process, in bytes. This is the number that `<memory-budget>` limits.
-- **`memory.swap.current`**: memory compressed into zRAM swap, in bytes
-- **`anon` and `file` in `memory.stat`**: resident anonymous and file-backed memory, in bytes
-- **`workingset_refault_anon` and `workingset_refault_file` in
-  `memory.stat`**: running counts of swapped-out or evicted pages that your app needed again. These counters are your main sign that a budget is too tight.
-
-If you get a permission error when reading an app's cgroup files from `adb
-shell`, run `adb root` on a `userdebug` build or an emulator image without
-Google Play, and then try again. On production `user` builds where `adb root`
-isn't available, query `MemoryBudgetManager.processCurrentUsageBytes` from
-inside your app, or use `adb shell dumpsys meminfo <package-name>` for a
-coarser view.
-In `App Summary`, `Java Heap`, `Native Heap`, and `Stack` are mostly anonymous
-memory, and `Code` is file-backed. Software bitmaps count toward `Native Heap`
-and your budget, while [hardware bitmaps](https://developer.android.com/topic/performance/memory/guide/bitmaps.md.txt#hardware-bitmaps) and `Graphics`
-don't. Don't run `dumpsys meminfo` in a loop while you measure frame timing. It
-forces a garbage collection in your app and walks all of its memory mappings,
-which changes what you're trying to measure.
-
-### Sweep candidate budgets
-
-You can try candidate budgets without rebuilding your app. Use
-[`am memory-limiter manual`](https://source.android.com/docs/core/perf/memory-limiter#manual) to set a budget for a
-running process, and `none` to remove it:
-
-```bash
-adb shell am memory-limiter manual <PID> 120MB
-adb shell am memory-limiter manual <PID> none
-```
-
-A manual override lasts for the lifetime of that process instance, across
-process state changes, so clear it or restart the process before you move on.
-It also sets the process's hard limit (`memory.max`) to the same value, so a
-candidate budget below your app's working set can get the process killed
-instead of just slowing it down. Treat that as a failed budget.
-
-You can also sweep from a benchmark build by reading a candidate value from an
-instrumentation argument and setting
-[`MemoryBudgetManager.processBudgetBytes`](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#set-clear-budget). A runtime budget
-can only tighten a manifest budget, so sweep on a build without
-`<memory-budget>` declarations. It also stays in force across process state
-changes until you call `clearProcessBudget`.
-
-Start at the highest `memory.current` from your baseline and step down 10 to
-15 MB at a time. For each candidate budget:
-
-1. Start a fresh process, drive it into the target state, and apply the budget.
-2. Run the user flow once as a warm-up. Applying a budget evicts cold startup pages once, and you want to measure steady state rather than that transition.
-3. Reset frame stats, and record the starting refault counters and the
-   process CPU time (`utime` and `stime`, in clock ticks):
-
-   ```bash
-   adb shell dumpsys gfxinfo <package-name> reset
-   adb shell "grep -E '^workingset_refault_(anon|file) ' $CG/memory.stat"
-   adb shell "cut -d ' ' -f 14,15 /proc/$PID/stat"
-   ```
-4. Run the measured pass of your user flow.
-
-5. Record `memory.current`, `anon`, `file`, the refault counters, and CPU time
-   again, and collect frame stats. `dumpsys gfxinfo` can print the same stats
-   more than once, so take the first match, which covers the whole app:
-
-   ```bash
-   adb shell "dumpsys gfxinfo <package-name>" | grep -m 1 'Janky frames:'
-   adb shell "dumpsys gfxinfo <package-name>" | grep -m 1 '95th percentile'
-   ```
-
-Repeat each candidate at least three times, and interleave candidates rather
-than running all repetitions of one candidate back to back. Compare each
-result with the spread of your baseline runs, not with a single run.
-
-### Read the results
-
-As the budget drops, your app goes through three regimes:
-
-- **Above the knee** : `memory.current` follows the budget down by shedding cold `file` pages and idle heap. `anon` stays flat, refaults stay near baseline, and CPU time and frame times don't move. This is where you want to be.
-- **Below the knee**: The cold pages are gone, so the kernel starts swapping out heap pages that your app still uses. Refaults jump by hundreds or thousands of pages per run and CPU time goes up. Frame times might barely move on an otherwise idle test device, but your app now spends CPU time and battery compressing and decompressing its own working set.
-- **Well below the knee** : Reclaim and swap-in faults land on the UI thread and `RenderThread`, and jank, frame times, and warm resume times all go up.
-
-Compared with your unconstrained baseline, a candidate budget passes if it
-meets all of the following, which are a reasonable starting point:
-
-- The process survives the run
-- Refault deltas stay close to baseline
-- Process CPU time rises by no more than 5%
-- Janky frames rise by no more than 1 percentage point
-- P95 frame time rises by no more than 3 ms
-- Warm resume time (`TotalTime` from `adb shell am start -W`) rises by no more than 15%, for `perceptible` and `background` budgets
-
-The knee is the lowest candidate budget that passes. For example, here's a
-foreground sweep for a hypothetical app with a 138 MB unconstrained peak:
-
-| Candidate budget | `memory.current` | `anon` | `file` | Refaults (pages) | P95 frame time | Regime |
-|---|---|---|---|---|---|---|
-| None | 138 MB | 75 MB | 63 MB | 0 | 10.5 ms | Baseline |
-| 125 MB | 121 MB | 74 MB | 47 MB | 10 | 10.5 ms | Above the knee |
-| 110 MB | 110 MB | 75 MB | 35 MB | 15 | 10.8 ms | Knee |
-| 95 MB | 95 MB | 74 MB | 21 MB | 176 | 11.2 ms | Below the knee |
-| 85 MB | 85 MB | 68 MB | 17 MB | 2,050 | 12.8 ms | Below the knee |
-| 70 MB | 70 MB | 54 MB | 16 MB | 8,771 | 16.5 ms | Well below the knee |
-
-### Pick your budget
-
-Set `android:maxMb` 10% to 20% above the knee, so that differences in user
-data, locales, and allocation bursts don't push your app below it. In the
-preceding example, the knee is at 110 MB, so 125 MB is a good choice.
-
-Then install a release build with the new `<memory-budget>` declarations, run
-your user flow again, and check that the pass criteria still hold. To confirm
-the active budget at run time, query `MemoryBudgetManager.processBudgetBytes` or
-`MemoryBudgetManager.packageBudgetBytes`.
-
-#### Validate non-foreground budgets with a warm return
-
-A tight `perceptible` or `background` budget can look fine while your app is in
-that state and then cost you when the user comes back. Test the return trip
-too:
-
-1. Run the foreground flow, move the app into the target state, and apply the candidate budget with `am memory-limiter manual`.
-2. Let the perceptible or background work run for 10 to 15 seconds.
-3. Clear the override (`adb shell am memory-limiter manual <PID> none`), then immediately bring the app back with `adb shell am start -W` and record `TotalTime`. If you set the candidate through `MemoryBudgetManager` instead, call `clearProcessBudget` before the app returns.
-4. Run a short foreground interaction and check refaults and frame stats against the pass criteria.
-
-Pick the lowest budget that passes both while the app is in that state and on
-the warm return, and add the same 10% to 20% headroom.
-
-#### Calibrate display scaling
-
-If you use `android:additionalBytesPerDisplayPixel`, find the foreground knee on
-two displays with different resolutions, such as 1080 × 2400
-(≈ 2.59M pixels) and 1440 × 3120 (≈ 4.49M pixels).
-Divide the difference between the two knees, in bytes, by the difference in
-pixel count to get `android:additionalBytesPerDisplayPixel`. Subtract that
-per-pixel amount for the smaller display from its knee to get the
-resolution-independent base, and add headroom to get `android:maxMb`.
-
 ## Runtime APIs
 
 Alongside declarative `<memory-budget>` manifest clauses, Android provides a
 runtime SDK API for the following tasks:
 
-- Deploy and validate candidate budgets in stages behind remote configuration before committing them to `AndroidManifest.xml`.
+- Validate candidate budgets behind remote configuration before committing them to `AndroidManifest.xml`, as described in [Release budgets in
+  stages](https://developer.android.com/topic/performance/memory/app-memory-budgets#staged-rollout).
 - Query live cgroup memory usage and effective budgets in-process.
 - Tighten a process or package budget dynamically during lightweight tasks.
 - Listen for over-budget events to trim caches when the operating system reclaims memory.
-
-### Deploy budgets in stages with remote configuration
-
-Because a runtime budget set through `MemoryBudgetManager` can only tighten
-limits within declared `<memory-budget>` manifest ceilings (and can't raise a
-tight manifest budget upward at run time), don't ship aggressive experimental
-`<memory-budget>` values in `AndroidManifest.xml` expecting to relax them from a
-server flag. Instead, deploy new budgets in two phases:
-
-1. **Validate with `MemoryBudgetManager` and remote configuration** : Ship your APK either without `<memory-budget>` in `AndroidManifest.xml` or with a single generous safety ceiling (without tighter `perceptible` or `background` manifest clauses). Gate candidate budgets behind your server-side experiment or remote configuration flag, apply the target state's budget across lifecycle transitions (such as through [`ProcessLifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/ProcessLifecycleOwner.md.txt)) while catching `IllegalArgumentException` across devices with lower system or window-scaled limits, and call `clearProcessBudget` or `clearPackageBudget` when the flag is turned off so you can roll back without an APK update.
-2. **Graduate proven budgets to `AndroidManifest.xml`** : After field telemetry confirms stability across device tiers, move your steady-state `foreground`, `perceptible`, and `background` budgets into `<memory-budget>` clauses in `AndroidManifest.xml`. Manifest clauses enforce limits from process startup, switch budgets across process states without app code, and stay inspectable through [`PackageManager.getMemoryBudgets`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#getMemoryBudgets(android.content.pm.ApplicationInfo)) (which reads only static `<application>` manifest declarations, not `<processes>` entries or dynamic `MemoryBudgetManager` calls).
 
 ### Android SDK API (`MemoryBudgetManager`)
 
@@ -687,7 +478,7 @@ budgetManager.clearProcessBudget()
 ```
 
 > [!NOTE]
-> **Note:** Declaring a budget in the manifest isn't required to use runtime budgets. However, if `<memory-budget>` clauses are declared in `AndroidManifest.xml`, a runtime budget can only tighten limits within the declared manifest ceilings, and in all cases a runtime budget can't exceed system memory limits. Passing zero, a negative value, or a budget that exceeds an applicable manifest or system limit throws an `IllegalArgumentException`.
+> **Note:** You can set runtime budgets without declaring a manifest budget, but declaring your app's steady-state budgets in the manifest is the recommended approach, as described in [Release budgets in stages](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#staged-rollout). If `<memory-budget>` clauses are declared in `AndroidManifest.xml`, a runtime budget can only tighten limits within the declared manifest ceilings, and in all cases a runtime budget can't exceed system memory limits. Passing zero, a negative value, or a budget that exceeds an applicable manifest or system limit throws an `IllegalArgumentException`.
 
 Unlike `<memory-budget>` manifest clauses, which specify separate limits for
 `foreground`, `perceptible`, and `background` states, a dynamic budget set
@@ -742,12 +533,12 @@ budgetManager.unregisterProcessOverBudgetListener(listener)
 - **Avoid allocations**: Don't allocate new objects or start new threads inside the callback, as doing so can trigger immediate operating system direct reclaim.
 - **Focus on high-yield targets**: Evicting large Bitmaps, render buffers, or closing memory-mapped files is much more effective than releasing many small objects.
 
-## Runtime API example
+### Runtime API example
 
 The following example demonstrates how to implement the runtime API using the
 Android SDK API in Kotlin:
 
-### Android SDK example: Adaptive image editor
+#### Android SDK example: Adaptive image editor
 
 This example shows an image editing app (`com.example.imageeditor`) whose
 manifest declares a 256MB ceiling to accommodate its multi-layer canvas:
@@ -855,3 +646,253 @@ class ImageEditorActivity : Activity() {
     }
 }
 ```
+
+## Calibrate, test, and release budgets
+
+Correctly implementing a memory budget takes three steps:
+
+1. [Calibrate the budget](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#calibrate-budgets) for each process state.
+2. [Test it thoroughly](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#test-budgets) before you release it.
+3. [Release it in stages](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#staged-rollout): validate it behind remote configuration, graduate it to your manifest, and keep measuring.
+
+### Calibrate your budgets
+
+A good budget sits just above your app's working set for a given state, not at
+its unconstrained peak. To find that point, run a realistic user flow, lower
+the budget step by step, and watch for the moment your app starts paying for
+it.
+
+> [!NOTE]
+> **Note:** If you're a device manufacturer or platform engineer calibrating preinstalled apps, see [Calibrate app memory budgets automatically](https://source.android.com/docs/core/perf/app-memory-budgets) to automate working-set sweeps and size `<memory-budget>` declarations across process states and display sizes.
+
+#### Understand working set versus resident memory
+
+Without a budget, your app's resident footprint (`memory.current`) holds two
+kinds of memory:
+
+- **The working set**: the Java, Kotlin, and native heap and the hot file-backed pages (DEX code, native libraries, and assets) that the current user flow touches over and over
+- **Cold slack**: bitmap caches from earlier screens, one-time startup buffers, heap slack left over after an allocation burst, and file pages that were read once and never touched again
+
+A budget at your unconstrained peak never reclaims the cold slack. A budget
+below your working set makes the kernel swap out heap pages and evict code
+pages that your app immediately faults back in. These *working-set refaults*
+cost CPU time and battery, and once they land on the UI thread, they cost
+frames too.
+
+What you're looking for is the *knee*: the lowest budget where reclaim removes
+only cold slack, so refaults, CPU time, and frame times stay where they were
+without a budget.
+
+#### Prepare your test environment
+
+Set up a repeatable test that behaves like production:
+
+- Calibrate the same R8-optimized, non-debuggable release build that you ship. Debug builds use more memory, so a budget tuned on a debug build is too high for release.
+- Test on a device or emulator running Android 17 QPR2 (API level 37.2) or higher. A `userdebug` build or an emulator image without Google Play is convenient when sampling cgroup files from `adb shell`, because reading an app's cgroup directory from the shell can require `adb root`. An app can read its own process cgroup usage in-process through `MemoryBudgetManager` even on production builds.
+- Script a 30 to 60 second user flow with [Jetpack
+  Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview), UI Automator, or `adb shell input`, once for each state that you plan to budget. An idle app tells you nothing about its working set.
+  - **`foreground`**: scroll dense lists and media grids, move between your main destinations, open menus and dialogs, and run animations
+  - **`perceptible`**: leave the visible window while perceptible work continues (for example, audio playback or a download), let it run for 10 to 15 seconds, and then return to the app
+  - **`background`** : trigger a sync, a `WorkManager` job (for example, with `adb shell cmd jobscheduler run -f <package-name> <job-id>`), a started service, or a broadcast receiver while the app has no visible UI
+
+Measure a `background` budget while the background work is actively running,
+rather than while the process is idle in a cached state (`IMPORTANCE_CACHED`).
+Even though the `background` budget remains in effect while cached, an idle
+cached process isn't executing background work and doesn't reflect the working
+set of your background jobs or receivers.
+
+#### Measure your baseline
+
+Start with runs that have no budget at all, so you know what normal looks like.
+Use a build without `<memory-budget>` declarations, and start each run from a
+fresh process (`adb shell am force-stop <package-name>`).
+
+Each app process has its own cgroup v2 memory controller. Look up its path from
+the `0::` line of `/proc/<PID>/cgroup` instead of hardcoding the path. Pass each
+device command to `adb shell` as a single quoted string so that the device
+shell sees the quotes:
+
+```bash
+PID=$(adb shell pidof -s <package-name>)
+CG=/sys/fs/cgroup$(adb shell "sed -n 's/^0:://p' /proc/$PID/cgroup")
+adb shell "cat $CG/memory.current $CG/memory.swap.current"
+adb shell "grep -E '^(anon|file|workingset_refault_.*) ' $CG/memory.stat"
+```
+
+Reading these files is cheap and doesn't disturb your app, so you can sample
+them every second during a run:
+
+- **`memory.current`** : resident memory charged to the process, in bytes. This is the number that `<memory-budget>` limits.
+- **`memory.swap.current`**: memory compressed into zRAM swap, in bytes
+- **`anon` and `file` in `memory.stat`**: resident anonymous and file-backed memory, in bytes
+- **`workingset_refault_anon` and `workingset_refault_file` in
+  `memory.stat`**: running counts of swapped-out or evicted pages that your app needed again. These counters are your main sign that a budget is too tight.
+
+If you get a permission error when reading an app's cgroup files from `adb
+shell`, run `adb root` on a `userdebug` build or an emulator image without
+Google Play, and then try again. On production `user` builds where `adb root`
+isn't available, query `MemoryBudgetManager.processCurrentUsageBytes` from
+inside your app, or use `adb shell dumpsys meminfo <package-name>` for a
+coarser view.
+In `App Summary`, `Java Heap`, `Native Heap`, and `Stack` are mostly anonymous
+memory, and `Code` is file-backed. Software bitmaps count toward `Native Heap`
+and your budget, while [hardware bitmaps](https://developer.android.com/topic/performance/memory/guide/bitmaps.md.txt#hardware-bitmaps) and `Graphics`
+don't. Don't run `dumpsys meminfo` in a loop while you measure frame timing. It
+forces a garbage collection in your app and walks all of its memory mappings,
+which changes what you're trying to measure.
+
+#### Sweep candidate budgets
+
+You can try candidate budgets without rebuilding your app. Use
+[`am memory-limiter manual`](https://source.android.com/docs/core/perf/memory-limiter#manual) to set a budget for a
+running process, and `none` to remove it:
+
+```bash
+adb shell am memory-limiter manual <PID> 120MB
+adb shell am memory-limiter manual <PID> none
+```
+
+A manual override lasts for the lifetime of that process instance, across
+process state changes, so clear it or restart the process before you move on.
+It also sets the process's hard limit (`memory.max`) to the same value, so a
+candidate budget below your app's working set can get the process killed
+instead of just slowing it down. Treat that as a failed budget.
+
+You can also sweep from a benchmark build by reading a candidate value from an
+instrumentation argument and setting
+[`MemoryBudgetManager.processBudgetBytes`](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#set-clear-budget). A runtime budget
+can only tighten a manifest budget, so sweep on a build without
+`<memory-budget>` declarations. It also stays in force across process state
+changes until you call `clearProcessBudget`.
+
+Start at the highest `memory.current` from your baseline and step down 10 to
+15 MB at a time. For each candidate budget:
+
+1. Start a fresh process, drive it into the target state, and apply the budget.
+2. Run the user flow once as a warm-up. Applying a budget evicts cold startup pages once, and you want to measure steady state rather than that transition.
+3. Reset frame stats, and record the starting refault counters and the
+   process CPU time (`utime` and `stime`, in clock ticks):
+
+   ```bash
+   adb shell dumpsys gfxinfo <package-name> reset
+   adb shell "grep -E '^workingset_refault_(anon|file) ' $CG/memory.stat"
+   adb shell "cut -d ' ' -f 14,15 /proc/$PID/stat"
+   ```
+4. Run the measured pass of your user flow.
+
+5. Record `memory.current`, `anon`, `file`, the refault counters, and CPU time
+   again, and collect frame stats. `dumpsys gfxinfo` can print the same stats
+   more than once, so take the first match, which covers the whole app:
+
+   ```bash
+   adb shell "dumpsys gfxinfo <package-name>" | grep -m 1 'Janky frames:'
+   adb shell "dumpsys gfxinfo <package-name>" | grep -m 1 '95th percentile'
+   ```
+
+Repeat each candidate at least three times, and interleave candidates rather
+than running all repetitions of one candidate back to back. Compare each
+result with the spread of your baseline runs, not with a single run.
+
+#### Read the results
+
+As the budget drops, your app goes through three regimes:
+
+- **Above the knee** : `memory.current` follows the budget down by shedding cold `file` pages and idle heap. `anon` stays flat, refaults stay near baseline, and CPU time and frame times don't move. This is where you want to be.
+- **Below the knee**: The cold pages are gone, so the kernel starts swapping out heap pages that your app still uses. Refaults jump by hundreds or thousands of pages per run and CPU time goes up. Frame times might barely move on an otherwise idle test device, but your app now spends CPU time and battery compressing and decompressing its own working set.
+- **Well below the knee** : Reclaim and swap-in faults land on the UI thread and `RenderThread`, and jank, frame times, and warm resume times all go up.
+
+Compared with your unconstrained baseline, a candidate budget passes if it
+meets all of the following, which are a reasonable starting point:
+
+- The process survives the run
+- Refault deltas stay close to baseline
+- Process CPU time rises by no more than 5%
+- Janky frames rise by no more than 1 percentage point
+- P95 frame time rises by no more than 3 ms
+- Warm resume time (`TotalTime` from `adb shell am start -W`) rises by no more than 15%, for `perceptible` and `background` budgets
+
+The knee is the lowest candidate budget that passes. For example, here's a
+foreground sweep for a hypothetical app with a 138 MB unconstrained peak:
+
+| Candidate budget | `memory.current` | `anon` | `file` | Refaults (pages) | P95 frame time | Regime |
+|---|---|---|---|---|---|---|
+| None | 138 MB | 75 MB | 63 MB | 0 | 10.5 ms | Baseline |
+| 125 MB | 121 MB | 74 MB | 47 MB | 10 | 10.5 ms | Above the knee |
+| 110 MB | 110 MB | 75 MB | 35 MB | 15 | 10.8 ms | Knee |
+| 95 MB | 95 MB | 74 MB | 21 MB | 176 | 11.2 ms | Below the knee |
+| 85 MB | 85 MB | 68 MB | 17 MB | 2,050 | 12.8 ms | Below the knee |
+| 70 MB | 70 MB | 54 MB | 16 MB | 8,771 | 16.5 ms | Well below the knee |
+
+#### Pick your budget
+
+Set `android:maxMb` 10% to 20% above the knee, so that differences in user
+data, locales, and allocation bursts don't push your app below it. In the
+preceding example, the knee is at 110 MB, so 125 MB is a good choice.
+
+Then install a release build with the new `<memory-budget>` declarations, run
+your user flow again, and check that the pass criteria still hold. To confirm
+the active budget at run time, query `MemoryBudgetManager.processBudgetBytes` or
+`MemoryBudgetManager.packageBudgetBytes`.
+
+#### Validate non-foreground budgets with a warm return
+
+A tight `perceptible` or `background` budget can look fine while your app is in
+that state and then cost you when the user comes back. Test the return trip
+too:
+
+1. Run the foreground flow, move the app into the target state, and apply the candidate budget with `am memory-limiter manual`.
+2. Let the perceptible or background work run for 10 to 15 seconds.
+3. Clear the override (`adb shell am memory-limiter manual <PID> none`), then immediately bring the app back with `adb shell am start -W` and record `TotalTime`. If you set the candidate through `MemoryBudgetManager` instead, call `clearProcessBudget` before the app returns.
+4. Run a short foreground interaction and check refaults and frame stats against the pass criteria.
+
+Pick the lowest budget that passes both while the app is in that state and on
+the warm return, and add the same 10% to 20% headroom.
+
+#### Calibrate display scaling
+
+If you use `android:additionalBytesPerDisplayPixel`, find the foreground knee on
+two displays with different resolutions, such as 1080 × 2400
+(≈ 2.59M pixels) and 1440 × 3120 (≈ 4.49M pixels).
+Divide the difference between the two knees, in bytes, by the difference in
+pixel count to get `android:additionalBytesPerDisplayPixel`. Subtract that
+per-pixel amount for the smaller display from its knee to get the
+resolution-independent base, and add headroom to get `android:maxMb`.
+
+### Test your budgets
+
+Before you release a new or tighter budget, check the following:
+
+- **Release builds** : Test the build you ship, as described in [Prepare your test environment](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#prepare-calibration).
+- **Every budgeted state** : Run your foreground, perceptible, and background flows, and [validate the warm return](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#validate-warm-return) for each non-foreground budget.
+- **Low-RAM devices**: Include at least one device from your lowest supported RAM tier.
+- **Window sizes** : If you use `android:additionalBytesPerDisplayPixel`, test split-screen and resizable windows as well as full screen, because the scaled budget is computed from the app's window size.
+- **Realistic data**: Test with large accounts, long lists, and many media items, and with the locales you ship in, because working sets grow with additional data.
+- **Multi-process apps** : Exercise each process that has its own `<memory-budget>` clause.
+- **Regression gates** : Run your existing [Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview.md.txt) startup and jank tests with and without the budget, and fail the test if the budgeted run regresses beyond the [pass criteria](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#three-regimes).
+
+### Release budgets in stages
+
+A runtime budget set through `MemoryBudgetManager` can only tighten limits
+within your declared `<memory-budget>` manifest ceilings. It can't raise a
+manifest budget at run time. Don't ship aggressive `<memory-budget>` values in
+`AndroidManifest.xml` and plan to relax them from a server flag. Instead,
+release new budgets in two phases:
+
+1. **Validate behind remote configuration** : Ship your APK with a single generous `<memory-budget>` safety ceiling and no `perceptible` or `background` clauses (recommended), or without `<memory-budget>`. Gate candidate budgets behind your server-side experiment or remote configuration flag, and apply the target state's budget across lifecycle transitions, such as through [`ProcessLifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/ProcessLifecycleOwner.md.txt). Catch `IllegalArgumentException`, which is thrown when an experiment's runtime budget exceeds a static or window-scaled manifest ceiling or the system memory limit on a low-RAM device. In the `catch` block, call `clearProcessBudget` or `clearPackageBudget` so a tighter runtime budget from a previous state doesn't stay active. Compare experiment arms by device RAM tier on the metrics that budgets can move: frame timing, startup and warm resume time, CPU time, and battery.
+2. **Graduate proven budgets to the manifest** : After field data shows that the candidate budgets meet your pass criteria across device RAM tiers, move your steady-state `foreground`, `perceptible`, and `background` budgets into `<memory-budget>` clauses. Release that version in stages and watch the same metrics.
+
+During runtime validation, your remote configuration flag is your kill switch.
+When you turn the flag off, newly started processes skip setting runtime
+budgets, and calling `clearProcessBudget` or `clearPackageBudget` clears any
+active runtime budget in a running process. Your app returns to its manifest
+safety ceiling, or to no app budget if you declared none, with no app update.
+Keep this flag in your own app and server configuration rather than relying on
+the device or OS to turn budgets off.
+
+Treat budgets set only at run time as a temporary rollout step. Manifest
+budgets ship inside your signed APK and apply from process startup without app
+code. You can also inspect them without running your app by calling
+[`PackageManager.getMemoryBudgets`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#getMemoryBudgets(android.content.pm.ApplicationInfo)), which reads only static
+`<application>` declarations. Loosening a manifest budget later requires an app
+update, but you can still run experiments that tighten budgets at run time
+below the manifest ceiling.

@@ -4,7 +4,9 @@ url: https://developer.android.com/identity/credential-manager/signal-api-rp
 source: md.txt
 ---
 
-When a user creates a passkey, the [relying party server](https://developer.android.com/identity/credential-manager#authentication-terminology) saves certain
+> Documentation index: https://developer.android.com/identity/credential-manager/llms.txt
+
+When a user creates a passkey, the [relying party server](https://developer.android.com/identity/credential-manager.md.txt#authentication-terminology) saves certain
 details, while the credential provider, such as Google Password Manager, saves
 others. Specifically:
 
@@ -36,7 +38,7 @@ different scenarios:
 ## Version compatibility
 
 The Signal API is available on devices that run Android 15 or higher, and is
-available starting from version `1.6.0-beta03` of the [androidx.credentials](https://developer.android.com/jetpack/androidx/releases/credentials)
+available starting from version `1.6.0-beta03` of the [androidx.credentials](https://developer.android.com/jetpack/androidx/releases/credentials.md.txt)
 library.
 
 ## Implementation
@@ -46,7 +48,7 @@ To use the Signal API, follow these steps:
 1. Add the Credential Manager dependency to your project.
 
    > [!NOTE]
-   > **Note:** The Signal API is available starting with `credentials` 1.6.0-beta03, however when possible, use the [latest version](https://developer.android.com/jetpack/androidx/releases/credentials) of the library.
+   > **Note:** The Signal API is available starting with `credentials` 1.6.0-beta03, however when possible, use the [latest version](https://developer.android.com/jetpack/androidx/releases/credentials.md.txt) of the library.
 
 
    ### Kotlin
@@ -74,29 +76,33 @@ To use the Signal API, follow these steps:
    in the following examples:
    - **Unknown credential** (`SignalUnknownCredentialRequest`)
 
-     Use [`SignalUnknownCredentialRequest`](https://developer.android.com/reference/androidx/credentials/SignalUnknownCredentialRequest) to signal that a credential is
-     rejected and considered unknown. When the credential provider receives
-     this signal, it hides or deletes the credential.
+     Use [`SignalUnknownCredentialRequest`](https://developer.android.com/reference/androidx/credentials/SignalUnknownCredentialRequest.md.txt) to signal that the relying
+     party doesn't recognize a credential ID. When the credential provider
+     receives this signal, it hides or deletes the credential.
 
      **Usage**
 
-     Use this signal when the relying party fails to verify a passkey
-     assertion. This implies that the passkey is invalid and must be
-     hidden from or removed by the credential provider.
+     Send this signal only after determining that the relying party doesn't
+     recognize the credential ID, such as when the credential was deleted
+     from the server. Other passkey assertion verification failures, such as
+     an expired challenge or a signature error, don't by themselves justify
+     sending this signal. Sending this signal for a recognized credential ID
+     can cause the credential provider to hide or remove a valid credential.
 
      The required JSON parameters for this request are `rpId` and
      `credentialId`. For more information about the JSON structure, see
      [signalUnknownCredential options](https://w3c.github.io/webauthn/#dom-publickeycredential-signalunknowncredential).
 
-         credentialManager.signalCredentialState(
-             SignalUnknownCredentialRequest(
-                 requestJson = JSONObject().apply {
-                     put("rpId", rpId /* [String] RP ID of the relying party */)
-                     put("credentialId", credentialId /* [String] Credential ID of the credential to be hidden or deleted */)
-                 }.toString()
-             )
+     ```kotlin
+     credentialManager.signalCredentialState(
+         SignalUnknownCredentialRequest(
+             requestJson = JSONObject().apply {
+                 put("rpId", rpId /* [String] RP ID of the relying party */)
+                 put("credentialId", credentialId /* [String] Credential ID of the credential to be hidden or deleted */)
+             }.toString()
          )
-
+     )
+     ```
    - **All accepted credentials** (`SignalAllAcceptedCredentialIdsRequest`)
 
      Use `SignalAllAcceptedCredentialIdsRequest` to notify credential
@@ -120,19 +126,20 @@ To use the Signal API, follow these steps:
      `allAcceptedCredentialIds`. For more information about the JSON
      structure, see [signalAllAcceptedCredential options](https://w3c.github.io/webauthn/#dom-publickeycredential-signalallacceptedcredentials).
 
-         credentialManager.signalCredentialState(
-             SignalAllAcceptedCredentialIdsRequest(
-                 requestJson = JSONObject().apply {
-                     put("rpId", rpId /* [String] RP ID of the relying party */)
-                     put("userId", userId /* [String] User ID of the current user */)
-                     put(
-                         "allAcceptedCredentialIds",
-                         JSONArray(credentialIdsList /* [List<String>] List of accepted Credential IDs */)
-                     )
-                 }.toString()
-             )
+     ```kotlin
+     credentialManager.signalCredentialState(
+         SignalAllAcceptedCredentialIdsRequest(
+             requestJson = JSONObject().apply {
+                 put("rpId", rpId /* [String] RP ID of the relying party */)
+                 put("userId", userId /* [String] User ID of the current user */)
+                 put(
+                     "allAcceptedCredentialIds",
+                     JSONArray(credentialIdsList /* [List<String>] List of accepted Credential IDs */)
+                 )
+             }.toString()
          )
-
+     )
+     ```
    - **Current user details** (`SignalCurrentUserDetailsRequest`)
 
      Use `SignalCurrentUserDetailsRequest` to notify credential providers
@@ -148,16 +155,18 @@ To use the Signal API, follow these steps:
      `name`, and `displayName`. For more information about the JSON
      structure, see [signalCurrentUserDetails options](https://w3c.github.io/webauthn/#dom-publickeycredential-signalcurrentuserdetails).
 
-         credentialManager.signalCredentialState(
-             SignalCurrentUserDetailsRequest(
-                 requestJson = JSONObject().apply {
-                     put("rpId", rpId /* [String] RP ID of the relying party */)
-                     put("userId", userId /* [String] User ID of the current user */)
-                     put("name", name /* [String] New Name to be updated for the current user */)
-                     put("displayName", displayName /* [String] New display name to be updated for the current user */)
-                 }.toString()
-             )
+     ```kotlin
+     credentialManager.signalCredentialState(
+         SignalCurrentUserDetailsRequest(
+             requestJson = JSONObject().apply {
+                 put("rpId", rpId /* [String] RP ID of the relying party */)
+                 put("userId", userId /* [String] User ID of the current user */)
+                 put("name", name /* [String] New Name to be updated for the current user */)
+                 put("displayName", displayName /* [String] New display name to be updated for the current user */)
+             }.toString()
          )
+     )
+     ```
 
    > [!NOTE]
    > **Note:** The Credential Manager Signal API supports background execution, though relying parties must limit call frequency to a maximum of 10 calls within any time window of 120 seconds to remain within established rate-limit thresholds. Excessive signaling may result in service throttling or request rejection.

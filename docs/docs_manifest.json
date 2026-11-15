@@ -4226,8 +4226,8 @@
     },
     "work/dpc/logging.md": {
       "original_url": "https://developer.android.com/work/dpc/logging",
-      "hash": "d8f335583c79fce2caec8f7604f739f22289cbb73590e2968499d47fb6218409",
-      "last_updated": "2026-07-10T15:49:06.233456",
+      "hash": "c6271741bf20218beb2ccd61cf9ef941c5a3d03b8f4fa560042eb4f6be22ba2f",
+      "last_updated": "2026-11-15T15:02:50.895385",
       "fetch_method": "md.txt"
     },
     "privacy-and-security/risks/file-providers.md": {
@@ -11012,8 +11012,8 @@
     },
     "training/wearables/tiles/get_started.md": {
       "original_url": "https://developer.android.com/training/wearables/tiles/get_started",
-      "hash": "971f98556cf0bbcff964fc43340730a022bd7add3d647f9830eb351bd809912e",
-      "last_updated": "2026-11-11T15:09:02.598732",
+      "hash": "f7301c35d29f5b6d6cc21936b5d2e455febd798cc8d64328e3908547f317be8c",
+      "last_updated": "2026-11-15T15:07:03.310894",
       "fetch_method": "md.txt"
     },
     "google/play/billing/externalcontentlinks.md": {
@@ -13094,8 +13094,8 @@
     },
     "work/dpc/security.md": {
       "original_url": "https://developer.android.com/work/dpc/security",
-      "hash": "3eafc8f694ffb3a41512b75e24df9e6a9cae5213402fd470b50183e92d94b7e2",
-      "last_updated": "2026-06-03T16:34:22.108724",
+      "hash": "ceb9fe4465beefc3104c6cac3a9fd8ae4c95c638a2e7b03a38379ba3214694fd",
+      "last_updated": "2026-11-15T15:04:57.429489",
       "fetch_method": "md.txt"
     },
     "games/services/unity/v2/api/struct/google-play-games/basic-api/nearby/connection-response.md": {
@@ -15464,8 +15464,8 @@
     },
     "training/wearables/tiles/dynamic.md": {
       "original_url": "https://developer.android.com/training/wearables/tiles/dynamic",
-      "hash": "017b4aebee879355b094e369a30684a1f8e01f46a2e4a838fd515492d63319dc",
-      "last_updated": "2026-11-11T15:08:00.204134",
+      "hash": "3b58924820c083c217055947374e677be54c12524079daaaf79165f460a3d09e",
+      "last_updated": "2026-11-15T15:06:25.446230",
       "fetch_method": "md.txt"
     },
     "about/versions/14/migration.md": {
@@ -25184,8 +25184,8 @@
     },
     "identity/credential-manager/signal-api-rp.md": {
       "original_url": "https://developer.android.com/identity/credential-manager/signal-api-rp",
-      "hash": "29978b51618bfe12091a77cde5e9808eea312cbff050d2dc040aa9cf5d9d44b2",
-      "last_updated": "2026-08-14T15:17:53.425975",
+      "hash": "eaf36dcc24082de05e9439a9778447684e844065fc791f9022e7a6eeed64db70",
+      "last_updated": "2026-11-15T15:06:27.088377",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/designsystems/migrate-xml-theme-to-compose.md": {
@@ -33278,8 +33278,8 @@
     },
     "topic/performance/memory/app-memory-budgets.md": {
       "original_url": "https://developer.android.com/topic/performance/memory/app-memory-budgets",
-      "hash": "944c1ea7c8bba3df6701096169199e8aaed870b90b2bb3b242a8573293a07d50",
-      "last_updated": "2026-11-12T15:02:55.908058",
+      "hash": "785d46bd416d1baec781dd878396158ae71e43615e4fb4678b7af981ddc2e06f",
+      "last_updated": "2026-11-15T15:02:24.359885",
       "fetch_method": "md.txt"
     },
     "blog/authors/simon-cooke.md": {
@@ -37171,5 +37171,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-11-14T15:08:52.396422"
+  "last_updated": "2026-11-15T15:08:47.111100"
 }

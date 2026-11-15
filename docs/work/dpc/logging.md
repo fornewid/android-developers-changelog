@@ -4,6 +4,8 @@ url: https://developer.android.com/work/dpc/logging
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/work/llms.txt
+
 This document explains how a device policy controller (DPC) logs network
 activity. Continue reading to learn how to add network logging to your DPC.
 
@@ -26,15 +28,19 @@ admins about suspicious behavior.
 Network logging is supported in Android 8 and higher for a device owner. If
 enabled, it collects data on network activity of the device. It is also
 supported in Android 12 and higher for a profile owner of a managed profile and
-a delegated app with [DELEGATION_NETWORK_LOGGING](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#DELEGATION_NETWORK_LOGGING).
+a delegated app with [`DELEGATION_NETWORK_LOGGING`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager.md.txt#DELEGATION_NETWORK_LOGGING).
 When network logging is enabled by the profile owner, the network logs only
 includes work profile network activity and does not collect data from the
 personal profile.
 
 > [!CAUTION]
-> **Caution:** Your DPC can't retrieve network logs if the device has any unaffiliated secondary users or work profiles. While waiting for new users to become affiliated, the system discards logs once the internal buffer is full. We recommend that you affiliate new profiles as soon as your DPC or the device user creates them. Listen for broadcasts or callbacks, such as [`onUserAdded()`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#onUserAdded(android.content.Context,%20android.content.Intent,%20android.os.UserHandle)), and affiliate the user or work profile.
+> **Caution:** When any unaffiliated secondary user or profile exists, the system pauses device-wide network logging (by a device owner or its [`DELEGATION_NETWORK_LOGGING`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager.md.txt#DELEGATION_NETWORK_LOGGING) delegate), and [`retrieveNetworkLogs()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager.md.txt#retrieveNetworkLogs(android.content.ComponentName,%20long)) throws a [`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException.md.txt) until all users and profiles are affiliated through [`setAffiliationIds()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager.md.txt#setAffiliationIds(android.content.ComponentName,%20java.util.Set%3Cjava.lang.String%3E)). Only secondary users or managed profiles with a profile owner can call `setAffiliationIds()`; unmanaged users or profiles without one (guest users, clone profiles, or private space profiles) cannot be affiliated and pause logging while present. Fully managed devices block managed, clone, and private space profiles by default, and admins can block guest or secondary users with [`DISALLOW_ADD_USER`](https://developer.android.com/reference/android/os/UserManager.md.txt#DISALLOW_ADD_USER) (or [`DISALLOW_ADD_PRIVATE_PROFILE`](https://developer.android.com/reference/android/os/UserManager.md.txt#DISALLOW_ADD_PRIVATE_PROFILE) on organization-owned work profile devices). Full buffers discard logs while paused, and removing an unaffiliated user or profile clears buffered logs before logging resumes.
 
-To learn more, read [Affiliated users](https://developer.android.com/work/dpc/work-profile-on-managed-device#affiliated-users).
+We recommend that you affiliate new users as soon as your DPC or the device user
+creates them. A device owner can listen for broadcasts or callbacks, such as
+[`onUserAdded()`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver.md.txt#onUserAdded(android.content.Context,%20android.content.Intent,%20android.os.UserHandle)) (which is delivered to the device owner rather
+than to a delegated logging app), so that the new user's profile owner can
+affiliate the user. To learn more, read [Affiliated users](https://developer.android.com/work/dpc/work-profile-on-managed-device#affiliated-users).
 
 ## Event logs
 
@@ -52,7 +58,7 @@ address. Other supporting DNS queries, such as name server discovery, aren't
 recorded.
 
 Network activity logging APIs present each DNS lookup as a
-[`DnsEvent`](https://developer.android.com/reference/android/app/admin/DnsEvent) instance. Table 1 describes the fields and typical
+[`DnsEvent`](https://developer.android.com/reference/android/app/admin/DnsEvent.md.txt) instance. Table 1 describes the fields and typical
 values recorded into a `DnsEvent`.
 
 **Table 1.** DNS event fields
@@ -67,7 +73,7 @@ values recorded into a `DnsEvent`.
 | ID | *25* | A monotonically increasing numeric ID. Available in Android 9.0 (API level 28) or higher. |
 
 While DNS lookups can help IT admins
-track [network connections](https://developer.android.com/work/dpc/logging#connections), network logging isn't a
+track [network connections](https://developer.android.com/work/dpc/logging.md.txt#connections), network logging isn't a
 general-purpose DNS recording solution. Here are some DNS tasks an app might do
 that aren't logged:
 
@@ -82,7 +88,7 @@ system network request. The logs capture successful and failed TCP
 connections---UDP transfers aren't recorded.
 
 Network activity logging APIs present each connection as a
-[`ConnectEvent`](https://developer.android.com/reference/android/app/admin/ConnectEvent) instance. Table 2 describes the fields
+[`ConnectEvent`](https://developer.android.com/reference/android/app/admin/ConnectEvent.md.txt) instance. Table 2 describes the fields
 and typical values recorded into a `ConnectEvent`.
 
 **Table 2.** Connect event fields
@@ -130,9 +136,9 @@ on the personal profile if it's enabled by the profile owner.
 ### Enable network logging
 
 To start logging network activity, call the `DevicePolicyManager`
-method [`setNetworkLoggingEnabled()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setNetworkLoggingEnabled(android.content.ComponentName,%20boolean)) and pass `true`
+method [`setNetworkLoggingEnabled()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager.md.txt#setNetworkLoggingEnabled(android.content.ComponentName,%20boolean)) and pass `true`
 as the `enabled` argument. Your DPC can call
-[`isNetworkLoggingEnabled()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#isNetworkLoggingEnabled(android.content.ComponentName)) to check if network
+[`isNetworkLoggingEnabled()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager.md.txt#isNetworkLoggingEnabled(android.content.ComponentName)) to check if network
 activity is logged.
 
 After your DPC enables network logging, it might be some time before it the
@@ -147,10 +153,10 @@ collected and unreported logs.
 
 Your DPC can retrieve logs in batches---the network logging APIs don't provide
 random access to past individual entries. When a new batch of logs is available,
-your DPC's [`DeviceAdminReceiver`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver) subclass receives the
-[`onNetworkLogsAvailable()`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#onNetworkLogsAvailable(android.content.Context,%20android.content.Intent,%20long,%20int)) callback. The callback
+your DPC's [`DeviceAdminReceiver`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver.md.txt) subclass receives the
+[`onNetworkLogsAvailable()`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver.md.txt#onNetworkLogsAvailable(android.content.Context,%20android.content.Intent,%20long,%20int)) callback. The callback
 includes a batch token your DPC can use to retrieve the logs. Your DPC calls the
-`DevicePolicyManager` method [`retrieveNetworkLogs()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#retrieveNetworkLogs(android.content.ComponentName,%20long)) to
+`DevicePolicyManager` method [`retrieveNetworkLogs()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager.md.txt#retrieveNetworkLogs(android.content.ComponentName,%20long)) to
 get a list of network events.
 
 The following example shows you could retrieve the logs in your
@@ -202,9 +208,9 @@ logs until you're sure your DPC has processed them all without problems.
 
 ### Process any logs
 
-A batch of logs typically contain a mix of [`DnsEvent`](https://developer.android.com/reference/android/app/admin/DnsEvent) and
-[`ConnectEvent`](https://developer.android.com/reference/android/app/admin/ConnectEvent) instances. To learn more about the data fields of
-DNS lookups and network connections, see [Event logs](https://developer.android.com/work/dpc/logging#log-fields). Events
+A batch of logs typically contain a mix of [`DnsEvent`](https://developer.android.com/reference/android/app/admin/DnsEvent.md.txt) and
+[`ConnectEvent`](https://developer.android.com/reference/android/app/admin/ConnectEvent.md.txt) instances. To learn more about the data fields of
+DNS lookups and network connections, see [Event logs](https://developer.android.com/work/dpc/logging.md.txt#log-fields). Events
 are in chronological order and each batch contains no more than 1200 events.
 
 After your call to retrieve the logs, check the return value isn't `null`. The
@@ -258,13 +264,13 @@ their logs. The system resets the ID whenever a DPC enables logging or when the
 device restarts.
 
 Your DPC can send the entire collection to a server or you might decide to
-filter the events on the device. For example, you might offer allowlisted
-reporting for IT admins.
+filter the events on the device. For example, you might report only events
+added to an allowlist for IT admins.
 
 ### Development and testing
 
 While you're developing and testing, you might want to receive
-[`onNetworkLogsAvailable()`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#onNetworkLogsAvailable(android.content.Context,%20android.content.Intent,%20long,%20int)) callbacks without having to
+[`onNetworkLogsAvailable()`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver.md.txt#onNetworkLogsAvailable(android.content.Context,%20android.content.Intent,%20long,%20int)) callbacks without having to
 browse hundreds of web pages. In Android 9.0 (API level 28) or higher, you can
 make a few sample network requests and force the system to send a logs-available
 callback. Run the following [Android Debug Bridge](https://developer.android.com/studio/command-line/adb) (adb) command in your
