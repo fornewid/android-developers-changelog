@@ -1,5 +1,59 @@
 [
   {
+    "date": "2026-11-15T15:08:47Z",
+    "commit_hash": "684cbf02",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/identity/credential-manager/signal-api-rp\" target=\"_blank\">Keep your credentials consistent with credential providers</a>",
+        "path": "identity/credential-manager/signal-api-rp.md",
+        "summary": "Updated the documentation for the Credential Manager Signal API to clarify the usage of `SignalUnknownCredentialRequest`, specifying that it should only be sent when the relying party definitively does not recognize a credential ID (such as after deletion), rather than for other verification failures like expired challenges. Additionally, markdown code block formatting was added to all Kotlin code snippets for improved readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/684cbf02_signal-api-rp.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/app-memory-budgets\" target=\"_blank\">Set app memory budgets</a>",
+        "path": "topic/performance/memory/app-memory-budgets.md",
+        "summary": "This update reorganizes the memory budgets documentation by removing the detailed \"Measure your working set and calibrate budgets\" section and streamlining references to external calibration and testing guides. It also clarifies soft limit behaviors, updates index links, and relocates version and release notes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/684cbf02_app-memory-budgets.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/tiles/dynamic\" target=\"_blank\">Show dynamic updates in tiles</a>",
+        "path": "training/wearables/tiles/dynamic.md",
+        "summary": "Updated documentation for Wearable Tiles dynamic expressions to reference the new ProtoLayout package paths for dimension property classes (DpProp and DegreesProp) instead of legacy Wear Tiles packages, ensuring developers use the correct API references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/684cbf02_dynamic.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/tiles/get_started\" target=\"_blank\">Get started with tiles</a>",
+        "path": "training/wearables/tiles/get_started.md",
+        "summary": "Updated Wear OS tile documentation to include guidance on using the `materialScopeWithResources()` function alongside `ImageResource` APIs such as `backgroundImage()`. Additionally, corrected various API reference links for layout columns and image background methods.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/684cbf02_get_started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/work/dpc/logging\" target=\"_blank\">Network activity logging</a>",
+        "path": "work/dpc/logging.md",
+        "summary": "Updated the network logging documentation to clarify behavior regarding unaffiliated users and profiles. The updates explain that the presence of any unmanaged or unaffiliated user/profile pauses device-wide network logging and causes retrieveNetworkLogs() to throw a SecurityException until properly handled, detailing which profiles block affiliation and how admins can manage restrictions using UserManager constants.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/684cbf02_logging.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/work/dpc/security\" target=\"_blank\">Security</a>",
+        "path": "work/dpc/security.md",
+        "summary": "The security documentation was updated to reflect documentation file reference changes (appending .md.txt to links). It also added a new caution note regarding security logging behavior, explaining that the presence of any unaffiliated secondary user, guest, clone, or private space profile pauses device-wide security logging and causes log retrieval methods to throw a SecurityException until resolved.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/684cbf02_security.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-14T15:08:53Z",
     "commit_hash": "641d2053",
     "entries": [

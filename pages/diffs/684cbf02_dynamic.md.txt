@@ -1,0 +1,24 @@
+diff --git a/docs/training/wearables/tiles/dynamic.md b/docs/training/wearables/tiles/dynamic.md
+index b59ef482..ef23f9e0 100644
+--- a/docs/training/wearables/tiles/dynamic.md
++++ b/docs/training/wearables/tiles/dynamic.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/tiles/dynamic
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/training/wearables/tiles/llms.txt
++
+ Starting in Tiles 1.2, you can stream platform data updates using [dynamic
+ expressions](https://developer.android.com/training/wearables/data/dynamic). You can then associate these updates with animations in your
+ tiles. Your app gets updates to this value every second.
+@@ -29,8 +31,8 @@ method.
+ 
+ Tiles support these dynamic property types:
+ 
+-- For linear dimensions, measured in display-independent pixels, use [`DimensionBuilders.DpProp`](https://developer.android.com/reference/androidx/wear/tiles/DimensionBuilders.DpProp.md.txt).
+-- For angular dimensions, measured in degrees, use [`DimensionBuilders.DegreesProp`](https://developer.android.com/reference/androidx/wear/tiles/DimensionBuilders.DegreesProp.md.txt).
++- For linear dimensions, measured in display-independent pixels, use [`DimensionBuilders.DpProp`](https://developer.android.com/reference/androidx/wear/protolayout/DimensionBuilders.DpProp.md.txt).
++- For angular dimensions, measured in degrees, use [`DimensionBuilders.DegreesProp`](https://developer.android.com/reference/androidx/wear/protolayout/DimensionBuilders.DegreesProp.md.txt).
+ - For string values, use [`TypeBuilders.StringProp`](https://developer.android.com/reference/androidx/wear/protolayout/TypeBuilders.StringProp.md.txt).
+ - For color values, use [`ColorBuilders.ColorProp`](https://developer.android.com/reference/androidx/wear/protolayout/ColorBuilders.ColorProp.md.txt).
+ - For floating-point values, use [`TypeBuilders.FloatProp`](https://developer.android.com/reference/androidx/wear/protolayout/TypeBuilders.FloatProp.md.txt).
